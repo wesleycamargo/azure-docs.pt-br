@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais" 
-	description="Este artigo fornece diretrizes sobre como começar a usar o Armazenamento Premium do Azure com o SQL Server em execução nas máquinas virtuais do Azure. Isso inclui exemplos de novas implantações e migrações de implantações existentes do SQL Server no IaaS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais"
+	description="Este artigo fornece diretrizes sobre como começar a usar o Armazenamento Premium do Azure com o SQL Server em execução nas máquinas virtuais do Azure. Isso inclui exemplos de novas implantações e migrações de implantações existentes do SQL Server no IaaS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,11 +12,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # Usar o Armazenamento Premium do Azure com o SQL Server em máquinas virtuais
+
 
 ## Visão geral
 
@@ -32,7 +33,7 @@ O [Armazenamento Premium do Azure](../storage-premium-storage-preview-portal.md)
 
 Para obter informações gerais sobre o SQL Server em máquinas virtuais do Azure, confira [SQL Server em máquinas virtuais do Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-**Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
+**Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## Pré-requisitos para o Armazenamento Premium
 
@@ -664,7 +665,7 @@ Observe que, quanto menor for 'HostRecordTTL', ocorrerá uma maior quantidade de
 
 Se o seu aplicativo cliente do SQL oferecer suporte ao .Net 4.5 SQLClient, você poderá usar a palavra-chave ‘MULTISUBNETFAILOVER=TRUE’. A aplicação dessa opção é recomendável, pois ela permite a conexão mais rápida com o grupo de disponibilidade AlwaysOn do SQL durante o failover. Isso enumera todos os endereços IP associados ao ouvinte AlwaysOn em paralelo e executa uma velocidade de repetição de conexão TCP mais agressiva durante um failover.
 
-Para saber mais sobre as configurações acima, confira [Palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte do SqlClient para alta disponibilidade, recuperação de desastres](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
+Para saber mais sobre as configurações acima, confira [Palavra-chave MultiSubnetFailover e recursos associados](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte também [Suporte ao SqlClient para recuperação de desastre de alta disponibilidade](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
 #### Etapa 5: configurações de quorum do cluster
 
@@ -1140,5 +1141,6 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

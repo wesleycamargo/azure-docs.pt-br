@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Adicione o Application Insights SDK ao seu projeto Web" 
+	pageTitle="Adicionar SDK do Application Insights para monitorar seu aplicativo ASP.NET" 
 	description="Analise o uso, disponibilidade e desempenho de seu local ou um aplicativo Web do Microsoft Azure com o Application Insights." 
 	services="application-insights" 
+    documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,109 +12,188 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="05/21/2015" 
 	ms.author="awills"/>
 
-# Application Insights - Iniciar o monitoramento de integridade e uso do seu aplicativo
 
-*O Application Insights está em visualizar.*
+# Adicionar SDK do Application Insights para monitorar seu aplicativo ASP.NET
 
-O Application Insights permite que você monitore seu aplicativo ao vivo para:
+*O Application Insights está em modo de visualização.*
 
-* **Disponibilidade** - Testaremos suas URLs a cada poucos minutos em todo o mundo.
-* **Desempenho**   - detecte e diagnostique problemas de desempenho e exceções.
-* **Uso** - Descubra o que os usuários estão fazendo com o seu aplicativo, para que você possa torná-lo melhor para eles.
-
-Para modos alternativos de fazê-lo, leia [Introdução ao Application Insights][start].
-
-## <a name="add"></a>Adicionar o Application Insights ao seu projeto
-
-Você precisará do [Visual Studio 2013 Atualização 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (ou posterior) e uma conta no [Microsoft Azure](http://azure.com).
-
-### Se é um novo projeto...
-
-Quando criar um novo projeto no Visual Studio 2013, certifique-se de que o Application Insights está selecionado. 
+[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-![Create an ASP.NET project](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
+O Application Insights do Visual Studio monitora seus aplicativos em tempo real para ajudá-lo a [detectar e diagnosticar problemas de desempenho e exceções][detect], e [descobrir como seu aplicativo é usado][knowUsers]. Ele pode ser usado com uma ampla variedade de tipos de aplicativos. Ele funciona para aplicativos hospedados em seus próprios servidores IIS locais ou em máquinas virtuais do Azure, bem como aplicativos Web do Azure. ([Aplicativos de dispositivos e servidores Java também são abordados][start].)
 
-Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. (ela é separada de sua conta do Visual Studio Online)
+![Gráficos de exemplo de monitoramento de desempenho](./media/app-insights-start-monitoring-app-health-usage/10-perf.png)
 
-Use **Configurar definições** se você quer que o recurso do Azure tenha um nome diferente que o do seu projeto, ou se você quer que o recurso apareça no mesmo grupo como um projeto diferente. 
+Para muitos tipos de aplicativo, o [Visual Studio pode adicionar o Application Insights ao seu aplicativo](#ide) praticamente sem que você perceba. Mas como você está lendo este artigo para obter uma compreensão melhor do que está acontecendo, guiaremos você pelas etapas manualmente.
 
-*Sem opção de Application Insights? Verifique se você está usando o Visual Studio 2013 Atualização 3, se as Ferramentas do Application Insights estão habilitadas nas Extensões e Atualizações e se você está criando um projeto da web, Windows Store ou Windows Phone.*
+#### Antes de começar
 
-### ...ou então, se é um projeto existente
+Você precisa de:
 
-Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e selecione Adicionar Application Insights.
+* Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
+* Visual Studio 2013 ou posterior.
 
-![Choose Add Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
+## <a name="add"></a> 1. Criar um recurso do Application Insights
 
-*Há mais uma etapa, se quiser configurar a análise de uso da web, mas vamos ver alguns dados primeiro...*
+Entre no [Portal do Azure][portal] e crie um novo recurso do Application Insights. Escolha ASP.NET como o tipo de aplicativo.
+
+![Clique em Novo, Application Insights](./media/app-insights-start-monitoring-app-health-usage/01-new-asp.png)
+
+Um [recurso][roles] no Azure é uma instância de um serviço. Este recurso é o local no qual a telemetria enviada do seu aplicativo será analisada e apresentada a você.
+
+A escolha do tipo de aplicativo define o conteúdo de padrão de folhas de recursos e as propriedades visíveis no [Metrics Explorer][metrics].
+
+####  Faça uma cópia da chave de instrumentação.
+
+A chave identifica o recurso, e você a instalará em breve no SDK para direcionar os dados ao recurso.
+
+![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
 
 
-### <a name="run"></a>2. Execute seu projeto
 
-Execute seu aplicativo com F5 e experimente - abra páginas diferentes.
+## <a name="sdk"></a> 2. Instale o SDK em seu aplicativo
 
-No Visual Studio, você verá uma contagem de eventos que foram recebidas.
+
+1. No Visual Studio, edite os pacotes do NuGet do seu projeto de aplicativo de área de trabalho.
+
+    ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
+
+2. Instale o SDK do Application Insights para aplicativos Web.
+
+    ![Pesquise “Application Insights”](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
+
+
+3. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
+
+    `<InstrumentationKey>` *a chave de instrumentação que você copiou* `</InstrumentationKey>`
+
+    (Você pode, alternativamente, [definir a chave escrevendo um código][apikey] em seu aplicativo.)
+
+#### Como atualizar para versões futuras do SDK
+
+Para atualizar para uma [nova versão do SDK](app-insights-release-notes-dotnet.md), abra o Gerenciador de pacotes do NuGet e filtre os pacotes instalados. Selecione Microsoft.ApplicationInsights.Web e escolha Atualizar.
+
+Se você fez todas as personalizações no ApplicationInsights.config, salve uma cópia dele antes de atualizar e, depois, mescle suas alterações para a nova versão.
+
+
+## <a name="run"></a> 3. Execute seu projeto
+
+Execute seu aplicativo com F5 e experimente: abra páginas diferentes para gerar alguma telemetria.
+
+No Visual Studio, você verá uma contagem dos eventos que foram recebidos.
 
 ![](./media/app-insights-start-monitoring-app-health-usage/appinsights-09eventcount.png)
 
-### <a name="monitor"></a>3. Veja os dados de monitoramento
+## <a name="monitor"></a> 4. Exibir sua telemetria
 
-Abra o Application Insights de seu projeto.
-
-![Right-click your project and open the Azure portal](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
+Volte para o [Portal do Azure][portal] e navegue até o seu recurso do Application Insights.
 
 
-Procure pelos dados nos blocos de **Integridade do aplicativo**. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
+Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
-![Click through to more data](./media/app-insights-start-monitoring-app-health-usage/appinsights-41firstHealth.png)
+![Clique por mais dados](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
-Clique em qualquer bloco para ver mais detalhes. Você pode alterar o que vê nos relatórios. [Saiba mais sobre configuração de relatórios de Integridade do Aplicativo.][perf]
+Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
-
-### <a name="deploy"></a>4. Implante seu aplicativo
-
-Implante seu aplicativo e assista a acumulação de dados.
+Agora implante seu aplicativo e assista a acumulação dos dados.
 
 
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
-Uma vez que você tem um aplicativo ao vivo, [configure os testes na Web][availability] para certificar-se de que ele continuará ao vivo. 
+#### Não há dados?
 
-![Example application monitor in Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-00-appblade.png)
+* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
+* Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
+* Aguarde alguns segundos e clique em Atualizar.
+* Consulte [Solucionar problemas][qna].
 
-### Deseja alterar o nome do seu aplicativo no portal?
+#### Problemas no servidor de compilação?
 
-Você pode alterar o recurso para o qual o seu projeto envia telemetria. 
+Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-(O "recurso" é a folha de Ideias de Aplicativo nomeado, onde seus resultados aparecem. Você pode colocar mais do que um recurso em um grupo - por exemplo, se você tem vários projetos que formam parte de um aplicativo de negócio). 
 
-No Gerenciador de Soluções, clique com o botão direito do mouse em ApplicationInsights.config e escolha **Atualizar Application Insights**. Isso abre um assistente onde você pode escolher um recurso existente diferente, ou criar um novo.
+## Conclua a instalação.
 
-Em seguida, volte para o portal e exclua o recurso antigo.
+Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas coisas a fazer:
+
+
+* [Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como usuário, contagens de exibição de página e sessão, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.
+* Adicione o acompanhamento de dependência para diagnosticar problemas causados por bancos de dados ou outros componentes usados por seu aplicativo:
+ * [em seu aplicativo Web ou VM do Azure][azure]
+ * [em seu servidor IIS local][redfield]
+* [Capturar rastreamentos de log][netlogs] da sua estrutura de registros favorita
+* [Acompanhe métricas e eventos personalizados][api] no cliente, no servidor ou em ambos, para saber mais sobre como seu aplicativo é usado.
+* [Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
+
+## <a name="ide"></a> A maneira automatizada
+
+Se você preferir usar o Visual Studio para realizar as configurações, é muito simples.
+
+Você precisará do [Visual Studio 2013 Atualização 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) ou posterior e de uma conta no [Microsoft Azure](http://azure.com).
+
+#### Se é um novo projeto...
+
+Quando criar um novo projeto no Visual Studio, certifique-se de que o Application Insights está selecionado.
+
+
+![Criar um projeto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
+
+O Visual Studio cria um recurso no Application Insights, adiciona o SDK ao seu projeto e coloca a chave no arquivo `.config`.
+
+Se o projeto tem páginas da Web, ele também adiciona o [SDK do JavaScript][client] à página da Web principal.
+
+#### ...ou então, se é um projeto existente
+
+Clique com o botão direito do mouse no projeto no Gerenciador de Soluções, e selecione Adicionar Application Insights.
+
+![Escolher Adicionar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
+
+O Visual Studio cria um recurso no Application Insights, adiciona o SDK ao seu projeto e coloca a chave no arquivo `.config`.
+
+Nesse caso, ele não adiciona o [SDK do JavaScript][client] a suas páginas da Web - recomendamos fazer isso na próxima etapa.
+
+#### Opções de configuração
+
+Se esta é sua primeira vez, você será solicitado a fazer logon ou se inscrever na visualização do Microsoft Azure. (ela é separada de sua conta do Visual Studio Online.)
+
+Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **Definir configurações** e colocá-lo no mesmo grupo de recursos que os outros componentes.
+
+*Sem opção de Application Insights? Verifique se você está usando o Visual Studio 2013 Atualização 3 ou posterior, se as Ferramentas do Application Insights estão habilitadas nas Extensões e Atualizações e se você está criando um projeto Web.*
+
+#### Abrir Application Insights do seu projeto.
+
+![Clique com o botão direito do mouse no seu projeto e abra o portal do Azure.](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
+
+
+
 
 ## <a name="video"></a>Vídeo
 
 > [AZURE.VIDEO getting-started-with-application-insights]
 
-## <a name="next"></a>Próximas etapas
 
-[Acompanhar uso do seu aplicativo web][usage]
+<!--Link references-->
 
-[Monitore o desempenho dos aplicativos web][perf]
+[api]: app-insights-api-custom-events-metrics.md
+[apikey]: app-insights-api-custom-events-metrics.md#ikey
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: ../insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[perf]: app-insights-web-monitor-performance.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-resources-roles-access-control.md
+[start]: app-insights-get-started.md
 
-[Capturar e pesquisar por logs de diagnóstico][diagnostic]
-
-[Solucionar problemas][qna]
-
-
-
-
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
-
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=58_postMigration-->

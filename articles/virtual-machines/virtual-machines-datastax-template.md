@@ -480,5 +480,6 @@ Essencialmente, essa abordagem sugere o seguinte:
 -	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
 
 Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

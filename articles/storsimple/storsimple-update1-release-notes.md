@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Notas de versão da Atualização 1.0 do StorSimple série 8000"
+    pageTitle="Notas de versão da Atualização 1 do StorSimple série 8000"
     description="Descreve os novos recursos, problemas e soluções alternativas da Atualização 1 do StorSimple série 8000."
     services="storsimple"
     documentationCenter="NA"
-    authors="alkohli"
+    authors="SharS"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
-    ms.author="alkohli" />
+    ms.date="06/05/2015"
+    ms.author="v-sharos" />
 
-# Notas de versão da Atualização 1.0 do StorSimple série 8000  
+# Notas de versão da Atualização 1 do StorSimple série 8000  
 
 ## Visão geral
 
-As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 1.0 do StorSimple série 8000. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a primeira versão principal depois que a versão de lançamento do StorSimple série 8000 foi disponibilizada em julho de 2014.
+As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 1 do StorSimple série 8000. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a primeira versão principal depois que a versão de lançamento do StorSimple série 8000 foi disponibilizada em julho de 2014.
 
 Essa atualização altera o software do dispositivo para a Atualização 1 do StorSimple série 8000. Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple. Para saber mais, veja como [instalar a Atualização 1 no seu dispositivo StorSimple](storsimple-install-update-1.md).
 
@@ -27,9 +27,10 @@ Examine as informações contidas nas notas de versão antes de implantar as atu
 
 >[AZURE.IMPORTANT]
 > 
-- Use o serviço StorSimple Manager e não o Windows PowerShell para StorSimple para instalar a Atualização 1.0.
+- Use o serviço StorSimple Manager, e não o Windows PowerShell para StorSimple, para instalar a Atualização 1.
 - Esta versão também contém as atualizações de firmware de disco que só podem ser aplicadas quando o dispositivo está no modo de Manutenção. Essas são as atualizações com interrupção que podem resultar em tempo de inatividade para seu dispositivo. Você pode aplicar essas atualizações durante a manutenção planejada.
 - São necessárias cerca de 5 a 10 horas para instalar essa atualização (incluindo as atualizações do Windows). 
+- Para novas versões, talvez você não veja atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Procure atualizações em poucos dias novamente, uma vez que elas serão disponibilizadas em breve.
 
 ## Novidades na Atualização 1
 
@@ -46,11 +47,11 @@ Esta atualização contém os seguintes recursos e aprimoramentos novos:
 
 - **Suporte para outros provedores de serviços de nuvem** – Os outros provedores de serviços de nuvem com suporte são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 
-- **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple série 8000 que executam GA estão usando versões das APIs de serviço de armazenamento do Azure anteriores a 12 de fevereiro de 2012. Como mencionado no [anúncio sobre remoção de versões de serviço de armazenamento](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), até 10 de dezembro de 2015, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1.0 do StorSimple série 8000 antes de 9 de dezembro de 2015. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
+- **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple série 8000 que executam GA estão usando versões das APIs de serviço de armazenamento do Azure anteriores a 12 de fevereiro de 2012. Como mencionado no [anúncio sobre remoção de versões de serviço de armazenamento](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), até 10 de dezembro de 2015, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1 do StorSimple série 8000 antes de 9 de dezembro de 2015. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
 
 - **Suporte para ZRS (armazenamento com redundância de zona)** – com a atualização para a versão mais recente das APIs de armazenamento, o StorSimple série 8000 oferecerá suporte para ZRS (armazenamento com redundância de zona), além de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica). Consulte o [artigo sobre opções de redundância de armazenamento do Azure](../storage/storage-redundancy.md) para obter detalhes do ZRS.
 
-- **Experiência de implantação inicial e atualização aprimorada** – nesta versão, os processos de instalação e atualização foram aprimorados. A instalação por meio do assistente de instalação foi aprimorada para informar ao usuário se a configuração de rede e as configurações do firewall estão incorretas. Cmdlets de diagnóstico adicionais foram fornecidos para ajudar a solucionar problemas de rede do dispositivo. Consulte o [artigo sobre solução de problemas de implantação](storsimple-troubleshoot-deployment/#cmdlets-available-for-troubleshooting.md) para saber mais sobre os novos cmdlets de diagnóstico usados para solucionar problemas.
+- **Experiência de implantação inicial e atualização aprimorada** – nesta versão, os processos de instalação e atualização foram aprimorados. A instalação por meio do assistente de instalação foi aprimorada para informar ao usuário se a configuração de rede e as configurações do firewall estão incorretas. Cmdlets de diagnóstico adicionais foram fornecidos para ajudar a solucionar problemas de rede do dispositivo. Consulte o [artigo sobre solução de problemas de implantação](storsimple-troubleshoot-deployment.md) para saber mais sobre os novos cmdlets de diagnóstico usados para solucionar problemas.
 
 ## Problemas corrigidos na Atualização 1
 
@@ -62,7 +63,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nesta atu
 | 1 | Windows PowerShell para StorSimple | Quando um usuário acessava remotamente o dispositivo StorSimple por meio do Windows PowerShell para StorSimple e depois iniciava o assistente de instalação, uma falha ocorria assim que o IP 0 de Dados era inserido. Agora, esse bug foi corrigido na Atualização 1. | Sim | Sim |
 | 2 | Redefinição de fábrica | Em alguns casos, quando você executava uma redefinição de fábrica, o dispositivo StorSimple travava e exibia esta mensagem: **a redefinição de fábrica está em andamento (fase 8)**. Isso acontecia se você pressionasse CTRL+C enquanto o cmdlet estava em andamento. Agora esse bug foi corrigido.| Sim | Não |
 | 3 | Redefinição de fábrica | Depois de uma redefinição de fábrica de controlador duplo com falha, você podia continuar com o registro do dispositivo. Isso resultava em uma configuração de sistema sem suporte. Na Atualização 1, uma mensagem de erro é mostrada e o registro é bloqueado em um dispositivo que tenha uma redefinição de fábrica com falha. | Sim | Não |
-| 4 | Redefinição de fábrica | Em alguns casos, foram gerados alertas de incompatibilidade falso positivos. Os alertas de incompatibilidade incorretos não serão mais gerados em dispositivos com a  Atualização 1 em execução. | Sim | Não |
+| 4 | Redefinição de fábrica | Em alguns casos, foram gerados alertas de incompatibilidade falso positivos. Os alertas de incompatibilidade incorretos não serão mais gerados em dispositivos com a Atualização 1 em execução. | Sim | Não |
 | 5 | Redefinição de fábrica | Se uma redefinição de fábrica fosse interrompida antes da conclusão, o dispositivo entrava no modo de recuperação e não permitia que você acessasse o Windows PowerShell para StorSimple. Agora esse bug foi corrigido. | Sim | Não |
 | 6 | Recuperação de desastre | Um bug de recuperação de desastre foi corrigido no qual a DR falhava durante a descoberta de backups no dispositivo de destino. | Sim | Sim |
 | 7 | LEDs de monitoramento | Em determinadas circunstâncias, os LEDs de monitoramento na parte posterior do dispositivo não indicavam o status correto. O LED azul ficava apagado. Os LEDs de DADOS 0 e 1 ficavam piscando mesmo quando essas interfaces não estavam configuradas. O problema foi corrigido e os LEDs de monitoramento agora indicam o status correto. | Sim | Não |
@@ -82,7 +83,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 6 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sim | Não |
 | 7 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
 | 8 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
-| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Sim | Sim |
+| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Sim | Sim |
 | 10| Migração | Quando contêineres de vários volumes forem passados para a migração, o ETA do backup mais recente será preciso apenas para o contêiner do primeiro volume. Além disso, a migração paralela será iniciada depois que os primeiros 4 backups no primeiro contêiner de volume forem migrados. | É recomendável que você migre um contêiner de volume por vez. | Sim | Não |
 | 11| Migração | Após a restauração, os volumes não são adicionados à política de backup ou ao grupo de discos virtuais. | Você terá que adicionar esses volumes a uma política de backup para criar backups. | Sim | Sim |
 | 12| Migração | Depois que a migração for concluída, o dispositivo série 5000/7000 não deverá acessar os contêineres de dados migrados. | É recomendável que você exclua os contêineres de dados migrados quando a migração estiver concluída e confirmada. | Sim | Não |
@@ -97,11 +98,11 @@ Quando essas atualizações são aplicadas a um dispositivo físico, a versão d
 
 Esta versão atualiza o driver e o firmware no controlador SAS de seu dispositivo físico. Ela também atualiza o firmware de disco no seu dispositivo.
  
-- Para saber mais sobre a atualização do controlador SAS, confira [Atualização 1 para controladores SAS LSI no dispositivo do Microsoft Azure StorSimple](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=732454&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F005). 
+- Para saber mais sobre a atualização do controlador SAS, confira [Atualização 1 para controladores SAS LSI no dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3043005). 
 
-- Para saber mais sobre a atualização de firmware, confira [Atualização 1 de firmware para o dispositivo do Microsoft Azure StorSimple](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767385&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F414).
+- Para saber mais sobre a atualização de firmware, confira [Atualização 1 de firmware para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063414).
 
-- Para saber mais sobre a atualização de firmware de disco, confira [Atualização 1 de firmware de disco para o dispositivo do Microsoft Azure StorSimple](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767387&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F416).
+- Para saber mais sobre a atualização de firmware de disco, confira [Atualização 1 de firmware de disco para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/pt-br/kb/3063416).
  
 ## Atualizações de dispositivo virtual na Atualização 1
 
@@ -110,5 +111,6 @@ Esta versão não contém nenhuma atualização para o dispositivo virtual. Apli
 ## Próximas etapas
 
 - [Instalar a Atualização 1 no dispositivo](storsimple-install-update-1.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

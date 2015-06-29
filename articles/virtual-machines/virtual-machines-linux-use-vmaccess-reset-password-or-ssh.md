@@ -148,7 +148,7 @@ Para exibir o status da extensão VMAccess, execute este comando.
 
 ## Usar PowerShell do Azure
 
-Você usará o cmdlet  **Set-AzureVMExtension** para fazer as alterações que o VMAccess permite que você faça. Em todos os casos, comece usando o nome do serviço de nuvem e o nome de máquina virtual para obter o objeto de máquina virtual e armazená-lo em uma variável.
+Você usará o cmdlet **Set-AzureVMExtension** para fazer as alterações que o VMAccess permite que você faça. Em todos os casos, comece usando o nome do serviço de nuvem e o nome de máquina virtual para obter o objeto de máquina virtual e armazená-lo em uma variável.
 
 Preencha os nomes do serviço de nuvem e da máquina virtual e execute os seguintes comandos em um prompt de comando com nível de administrador do PowerShell do Azure. Substitua tudo entre aspas, incluindo os caracteres < and >.
 
@@ -261,5 +261,6 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Como instalar e configurar o PowerShell do Azure]: ../install-configure-powershell.md
 [Recursos e extensões de VM do Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

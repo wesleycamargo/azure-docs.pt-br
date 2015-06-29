@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Operações comuns na API de recomendações de aprendizado de máquina | Azure" 
+	pageTitle="Operações comuns na API de recomendações de Aprendizado de Máquina | Microsoft Azure" 
 	description="Aplicativo de exemplo de recomendação do Azure ML" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,85 +13,80 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
-	ms.author="jaymathe"/> 
+	ms.date="04/15/2015" 
+	ms.author="luiscabrer"/>
 
 
 # Operações comuns na API de recomendações de aprendizado de máquina
 
 ##Finalidade
 
-Este documento mostra o uso de algumas das APIs de recomendação de AM do Azure por meio de um aplicativo de exemplo.
+Este documento mostra o uso da API de Recomendações do Aprendizado de Máquina do Azure por meio de um [aplicativo de exemplo](http://1drv.ms/1xeO2F3).
 
-Este aplicativo não deve incluir a funcionalidade completa ou usar todas as APIs, mas apenas demonstrar algumas das operações comuns a executar quando você quiser experimentar inicialmente as possibilidades do serviço de recomendação de AM do Azure. 
+Esse aplicativo não deve incluir a funcionalidade completa nem usa todas as APIs. Ele demonstra algumas operações comuns para executar quando você quiser experimentar o serviço de recomendação do Aprendizado de Máquina pela primeira vez.
 
-##Introdução à Recomendação
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Recomendação por meio do serviço de recomendação de AM do Azure é habilitada quando você compila um modelo de recomendação com base nos seguintes dados:
+##Introdução ao serviço de recomendação do Aprendizado de Máquina
 
-* Um repositório do item que você deseja recomendar, também conhecido como um catálogo
-* Dados que representam o uso de itens por usuário/sessão (eles podem ser adquiridos ao longo do tempo por meio da aquisição de dados, não fazem parte do aplicativo de amostra)
+As recomendações por meio do serviço de recomendação do Aprendizado de Máquina são habilitadas quando você compila um modelo de recomendação com base nos seguintes dados:
 
-Depois que um modelo de recomendação for compilado, é possível usá-lo para prever itens para um usuário de acordo com um conjunto de itens (pode ser um único) que ele selecionar.
+* Um repositório dos itens que você deseja recomendar, também conhecido como um catálogo
+* Dados que representam o uso de itens por usuário ou sessão (eles podem ser adquiridos ao longo do tempo por meio da aquisição de dados, não como parte do aplicativo de exemplo)
 
-Para possibilitar o cenário acima, realize a seguinte operação no serviço de recomendação de AM do Azure:
+Depois que um modelo de recomendação é compilado, você pode usá-lo para prever itens que um usuário pode achar interessante, de acordo com um conjunto de itens (ou um único item) que o usuário seleciona.
 
-* Criar um modelo - é um contêiner lógico que conterá os dados (catálogo e uso) e os modelos de previsão. Cada contêiner de modelo é identificado por um id exclusivo alocado no momento da compilação. Esse id, chamado de id do modelo, é usado pela maioria das APIs 
-* Catálogo de carregamento - depois de compilar um contêiner do modelo, é possível associar um catálogo a ele
+Para habilitar o cenário anterior, faça o seguinte no serviço de recomendação do Aprendizado de Máquina:
 
-Observação: As etapas acima ('Compilar modelo' e 'Carregar catálogo') normalmente são executadas uma vez durante o ciclo de vida do modelo.
+* Crie um modelo: esse é um contêiner lógico que mantém os dados (catálogo e uso) e o(s) modelo(s) de previsão. Cada contêiner do modelo é identificado por uma ID exclusiva, que é alocada quando ele é criado. Essa ID é chamada de ID de modelo e é usada pela maioria das APIs. 
+* Carregue no catálogo: quando um contêiner de modelo é criado, você pode associar um catálogo a ele.
 
-* Carregar uso - para adicionar dados de uso ao contêiner do modelo.
-* Compilar modelo de recomendação - depois de ter dados suficientes, você disparará a compilação do modelo de recomendação. Essa operação usará os melhores algoritmos de aprendizado de máquina para compilar um modelo de recomendação. Cada compilação está associada um id único, e você precisará manter esse id, já que ele é necessário para a funcionalidade de algumas APIs.
-* Processo de compilação de monitor - uma criação de modelo de recomendação é uma operação assíncrona e pode levar de alguns minutos a várias horas, dependendo da quantidade de dados (catálogo e uso) e dos parâmetros de compilação. Portanto, você precisará monitorar a compilação. Um modelo de recomendação é compilado apenas se a criação associada terminar com sucesso.
-* (Opcional) Escolher uma compilação de modelo de recomendação ativa. Essa etapa é necessária apenas se você tiver mais de um modelo de recomendação integrado ao seu contêiner do modelo. Qualquer solicitação para obter a recomendação sem indicar a criação ativa (modelo de recomendação ativo) será redirecionada automaticamente pelo sistema para a compilação ativa padrão. 
+**Observação**: as etapas para criar um modelo e carregar no catálogo geralmente são executadas uma vez para o ciclo de vida do modelo.
 
-Observação: Uma compilação ativa (modelo de recomendação) está pronta para produção e é criada para a carga de trabalho de produção em oposição a um modelo de recomendação não ativo, que permanece em um ambiente semelhante ao de teste (às vezes chamado de preparo)
+* Carregar uso: isso adiciona dados de uso ao contêiner do modelo.
+* Compile um modelo de recomendação: depois que tiver dados suficientes, você poderá criar o modelo de recomendação. Essa operação usará os principais algoritmos do Aprendizado de Máquina para criar um modelo de recomendação. Cada compilação está associada a uma ID exclusiva. Você precisa manter um registro dessa ID porque ela é necessária para a funcionalidade de algumas APIs.
+* Monitore o processo de compilação: uma compilação de modelo de recomendação é uma operação assíncrona e pode levar de alguns minutos a várias horas, dependendo da quantidade de dados (catálogo e uso) e dos parâmetros de compilação. Portanto, você precisará monitorar a compilação. Um modelo de recomendação será criado apenas se sua compilação associada for concluída com êxito.
+* (Opcional) Escolha uma compilação de modelo de recomendação ativa. Essa etapa será necessária apenas se você tiver mais de um modelo de recomendação integrado a seu contêiner do modelo. Qualquer solicitação para obter recomendações sem indicar o modelo de recomendação ativo será redirecionada automaticamente pelo sistema para a compilação ativa padrão. 
 
-* Obter a recomendação - quando você tiver um modelo de recomendação, é possível disparar a recomendação para um único item ou uma lista de itens escolhidos. 
+**Observação**: um modelo de recomendação ativo está pronto para produção e foi projetado para cargas de trabalho de produção. Isso difere de um modelo de recomendação inativo, que permanece em um ambiente de teste (às vezes chamado de preparo).
 
-Você normalmente invocará Obter Recomendação por um determinado período de tempo, enquanto isso, pode redirecionar dados de uso para o sistema de recomendação de AM do Azure, que adicionará esse uso ao contêiner do modelo especificado. Depois de ter dados de uso suficientes, é possível disparar uma nova compilação de modelo de recomendação para usar os dados mais reais. 
+* Obtenha recomendações: depois que tiver um modelo de recomendação, você poderá disparar recomendações para um único item ou uma lista de itens selecionados. 
+
+Você normalmente invocará Obter Recomendação por determinado período de tempo. Durante esse período de tempo, você pode redirecionar dados de uso para o sistema de recomendação do Aprendizado de Máquina, que adiciona esses dados ao contêiner do modelo especificado. Quando tiver dados de uso suficientes, você poderá criar um novo modelo de recomendação que incorpora os dados de uso adicionais.
 
 ##Pré-requisitos
 
 * Visual Studio 2013
 * Acesso à Internet 
 
-##Solução de aplicativo de exemplo de AM do Azure
+##Solução de aplicativo de exemplo do Aprendizado de Máquina do Azure
 
-A solução contém o código-fonte, arquivo de catálogo e de uso de exemplo e diretivas para baixar os pacotes nuget necessários para compilação.
+Essa solução contém o código-fonte, um exemplo de uso, o arquivo de catálogo e diretivas para baixar os pacotes que são necessários para a compilação.
 
-##A API usada
+##As APIs usadas
 
-O aplicativo usa apenas um pequeno subconjunto da funcionalidade de recomendação de AM do Azure por meio de um subconjunto da API disponível. As seguintes APIs são demonstradas no aplicativo:
+O aplicativo usa a funcionalidade de recomendação do Aprendizado de Máquina por meio de um subconjunto de APIs disponíveis. As seguintes APIs são demonstradas no aplicativo:
 
-* Compilar modelo - crie o contêiner lógico para conter dados e modelos de recomendação. Um modelo é identificado por um nome, um usuário não pode criar um modelo de duas vezes com o mesmo nome.
-* Carregar arquivo de catálogo - para carregar dados do catálogo
-* Carregar arquivo de uso - para carregar dados de uso
-* Disparar compilação - para criar um modelo de recomendação
-* Monitorar a execução de compilação - para monitorar o status de uma compilação de modelo de recomendação
-* Escolher um modelo criado para a recomendação - para indicar qual modelo de recomendação usar por padrão para um determinado contêiner do modelo. Essa etapa é necessária apenas se você tiver mais de um modelo de recomendação e desejar uma compilação inativa como compilação ativa.
-* Obter recomendação - para recuperar o item recomendado de acordo com um determinado item único ou um conjunto de itens. 
+* Criar o modelo: crie um contêiner lógico para armazenar dados e modelos de recomendação. Um modelo é identificado por um nome, e você não pode criar mais de um modelo com o mesmo nome.
+* Carregar o arquivo de catálogo: use para carregar dados de catálogo.
+* Carregar arquivo de uso: use para carregar dados de uso.
+* Disparar compilação: use para criar um modelo de recomendação.
+* Monitorar a execução de compilação: use para monitorar o status de uma compilação de modelo de recomendação.
+* Escolher um modelo criado para a recomendação: use para indicar qual modelo de recomendação usar por padrão para determinado contêiner do modelo. Essa etapa será necessária apenas se você tiver mais de um modelo de recomendação e desejar ativar uma compilação não ativa como o modelo de recomendação ativo.
+* Obter recomendação: use para recuperar o item recomendado de acordo com determinado item único ou um conjunto de itens. 
 
-Para uma descrição completa da API, consulte a documentação do Microsoft Azure Marketplace. 
+Para obter uma descrição completa das APIs, consulte a documentação do Microsoft Azure Marketplace.
 
-Observação: Um modelo pode ter várias compilações ao longo do tempo (não simultaneamente), sendo que cada compilação é criada com o mesmo catálogo ou o catálogo atualizado e dados de uso adicionais.
+**Observação**: um modelo pode ter várias compilações ao longo do tempo (não simultaneamente). Cada compilação é criada com o mesmo catálogo ou um catálogo atualizado e dados de uso adicionais.
 
 ## Armadilhas comuns
 
-* Você precisa fornecer seu nome de usuário e sua chave de conta principal do Microsoft Azure Marketplace como uma linha de comando para executar a amostra
-* Executar o aplicativo de amostra consecutivamente falhará - o identificador de fluxo do aplicativo processa a criação, o carregamento e a compilação de monitorar e obter recomendação de um modelo de nome predefinido, portanto, falhará em execução consecutiva se você não alterar o nome do modelo entre as chamadas
-* Recomendação pode retornar sem dados - o aplicativo de amostra usa um arquivo de uso e catálogo muito pequeno, portanto, o modelo de recomendação criado não é significativo e, como resultado, algum item do catálogo não terá itens recomendados.
+* Você precisa fornecer seu nome de usuário e sua chave de conta principal do Microsoft Azure Marketplace para executar o aplicativo de exemplo.
+* A execução consecutiva do aplicativo de exemplo falhará. O fluxo de aplicativo inclui criar, carregar, compilar o monitor e obter recomendações de um modelo predefinido. Portanto, haverá falha na execução consecutiva se você não alterar o nome do modelo entre invocações.
+* Recomendações podem ser retornadas sem dados. O aplicativo de exemplo usa um arquivo de catálogo e uso muito pequeno. Portanto, alguns itens do catálogo não terão itens recomendados.
 
 ## Isenção de responsabilidade
-O aplicativo de amostra não se destina a ser executado para produção, os dados fornecidos no catálogo e uso são muito pequenos e não fornecem um modelo de recomendação significativo, sendo fornecidos apenas para demonstração. 
-
-## Legal
-Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. 
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. 
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. 
-(c) 2014 Microsoft. Todos os direitos reservados. 
-
-
-<!--HONumber=46--> 
+O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração.
  
+
+<!---HONumber=58_postMigration-->

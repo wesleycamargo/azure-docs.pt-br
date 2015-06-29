@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guia de Solução de Problemas: Criando e conectando-se a um espaço de trabalho de Aprendizado de Máquina do Microsoft Azure | Azure" 
+	pageTitle="Solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina | Microsoft Azure" 
 	description="Soluções para problemas comuns na criação e conexão a um espaço de trabalho de aprendizado de máquina do Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,59 +13,68 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2014" 
+	ms.date="04/07/2015" 
 	ms.author="garye"/>
 
-#Guia de Solução de Problemas: Criando e se conectando a um espaço de trabalho de aprendizado de máquina do Azure
 
-Este guia oferece soluções para alguns desafios encontrados frequentemente ao configurar espaços de trabalho de ML do Azure.
+#Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina
+
+Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura espaços de trabalho do Aprendizado de Máquina do Azure.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##Proprietário do espaço de trabalho
 
-Quando você cria um novo espaço de trabalho do Azure ML, o ID que você digitar no campo proprietário do espaço de trabalho deve ser de uma conta válida da Microsoft (anteriormente, Windows Live ID), como john-contoso@live.com ou john-contoso@hotmail.com. Não pode ser uma conta que não seja da Microsoft, como sua conta de email corporativo. Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com). 
+Quando você cria um novo espaço de trabalho do Aprendizado de Máquina, a ID que você insere no campo PROPRIETÁRIO DO ESPAÇO DE TRABALHO deve ser uma conta da Microsoft válida (anteriormente conhecida como Windows Live ID), por exemplo, john-contoso@live.com ou john-contoso@hotmail.com. Não pode ser uma conta que não seja da Microsoft, como seu e-mail corporativo. Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com).
+
+Observe que a conta usada para entrar no portal do Azure para criar o espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho, a menos que você especifique essa conta como proprietária. Para abrir um espaço de trabalho no Estúdio de Aprendizado de Máquina, você deve estar conectado à Conta da Microsoft que foi definida como proprietária do espaço de trabalho ou precisa receber um convite do proprietário para ingressar no espaço de trabalho. No entanto, no portal do Azure, você pode *gerenciar* o espaço de trabalho, o que inclui a capacidade de alterar o proprietário e configurar o acesso.
+
+Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure].
+
+[Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]: machine-learning-manage-workspace.md
 
 ##Regiões permitidas
 
-Atualmente, o AM do Azure está disponível para visualização pública na região centro-sul dos EUA. Caso sua assinatura não inclua a região centro-sul dos EUA, o erro "Você não tem assinaturas nas regiões permitidas. Regiões permitidas: Centro-sul dos EUA." 
+O Aprendizado de Máquina está disponível na região Centro-Sul dos EUA. Se sua assinatura não incluir o Centro-Sul dos EUA, você poderá ver a mensagem de erro "você não tem assinaturas nas regiões permitidas. Regiões permitidas: Centro-Sul dos EUA."
 
-Para solucionar o problema, selecione "Contatar Suporte da Microsoft" (abaixo) no Portal do Azure e selecione **Faturamento** como o **TIPO DE SUPORTE** para solicitar que essa região seja adicionada à sua assinatura. O AM da Azure acrescentará diversas regiões no decorrer do tempo.
+Para resolver isso, conforme mostrado na captura de tela a seguir, selecione **Contatar Suporte da Microsoft** no portal de gerenciamento do Azure e escolha **Cobrança** como o **TIPO DE SUPORTE** para solicitar que essa região seja adicionada à sua assinatura.
 
-![Contact Microsoft support][screen1]
+![Contatar Suporte da Microsoft][screen1]
 
 ##Conta de armazenamento
  
-O serviço de ML do Azure precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente no Centro-Sul dos Estados Unidos ou criar uma nova conta de armazenamento quando criar o novo espaço de trabalho do ML (se tiver uma cota para criar uma nova conta de armazenamento). Para ver se você pode criar uma nova conta de armazenamento, no Portal do Azure, acesse **Configurações** e depois **Uso**.
+O serviço de Aprendizado de Máquina precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente da região Centro-Sul dos EUA ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho do Aprendizado de Máquina (se você tiver cota para criar uma nova conta de armazenamento). Para ver se você pode criar uma nova conta de armazenamento, no portal de gerenciamento, vá para **Configurações** e, em seguida, clique em **Uso**.
 
-![Create workspace][screen2]
+![Criar espaço de trabalho][screen2]
 
-Após o novo espaço de trabalho do ML ter sido criado, você pode entrar no Estúdio AM usando a conta da Microsoft especificada como conta do proprietário do espaço de trabalho. Caso ocorra o erro "Espaço de trabalho não encontrado", semelhante à captura de tela abaixo, siga os passos a seguir para solucionar o problema.
+Depois que o novo espaço de trabalho do Aprendizado de Máquina for criado, você poderá entrar no Estúdio de Aprendizado de Máquina usando a conta da Microsoft especificada como proprietária do espaço de trabalho. Se você encontrar a mensagem de erro "Espaço de Trabalho Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
 
-![Workspace not found][screen3]
+![Espaço de trabalho não encontrado][screen3]
 
-1. Liberar os cookies do navegador.
+**Para excluir cookies do navegador**
 
-	Se você usa o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **Opções da Internet**.  
+	If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
 
 	![Internet options][screen4]
 
-	Na guia **Geral**, clique em **Excluir...**
+	Under the **General** tab, click **Delete…**
 
 	![General tab][screen5]
 
-	Na caixa de diálogo **Excluir histórico de navegação**, certifique-se de que **Cookies and website data** esteja selecionado e clique em **Excluir**.
+	In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
 
 	![Delete cookies][screen6]
 
-2. Após os cookies terem sido liberados, reinicie o navegador e acesse [https://studio.azureml.net](https://studio.azureml.net). Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft que você especificou como conta do proprietário do espaço de trabalho.
+Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net). Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft que você especificou como conta do proprietário do espaço de trabalho.
 
-Nosso objetivo é fazer com que a experiência com o ML do Azure seja a mais simples e tranquila possível. Publique quaisquer comentários ou problemas abaixo ou no [Fórum do AM do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor. 
+Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simples possível. Poste comentários e problemas no [Fórum do Aprendizado de Máquina do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.
 
-[screen1]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
-[screen2]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
-[screen3]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen3.png
-[screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
-[screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
-[screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
-
-<!--HONumber=46--> 
+[screen1]: media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
+[screen2]: media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
+[screen3]: media/machine-learning-troubleshooting-creating-ml-workspace/screen3.png
+[screen4]: media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
+[screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
+[screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
+
+<!---HONumber=58_postMigration-->

@@ -20,8 +20,6 @@
 
 Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de Máquinas Virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos](virtual-machines-app-frameworks.md).
 
-Tarefas comuns:
-
 - [Criar rapidamente uma máquina virtual no Azure](#quick-create-a-vm-in-azure)
 - [Implantar uma máquina virtual no Azure com base em um modelo](#deploy-a-vm-in-azure-from-a-template)
 - [Criar uma máquina virtual com base em uma imagem personalizada](#create-a-custom-vm-image) 
@@ -33,8 +31,6 @@ Tarefas comuns:
 - [Parar uma máquina virtual](#stop-a-virtual-machine)
 - [Iniciar uma máquina virtual](#start-a-virtual-machine)
 - [Anexar um disco de dados](#attach-a-data-disk)
-
-
 
 ## Preparando-se
 
@@ -101,9 +97,9 @@ Em seguida, você pode gerenciar o ciclo de vida geral dos recursos do grupo usa
 - Auditar operações. 
 - Marcar recursos com metadados adicionais para obter melhor acompanhamento. 
 
-[Aqui](../resource-groups-overview.md) você pode saber muito mais sobre grupos de recursos do Azure e o que eles podem fazer para você. Se estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+[Aqui](../resource-group-overview.md) você pode saber muito mais sobre grupos de recursos do Azure e o que eles podem fazer para você. Se estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-## Criação rápida de uma VM no Azure
+## <a id="quick-create-a-vm-in-azure"></a>TAREFA: Criação rápida de uma VM no Azure
 
 Às vezes, você sabe de qual imagem precisa, precisa de uma VM dessa imagem agora e não se importa muito com a infraestrutura. Talvez você tenha que testar algo em uma VM limpa. É quando convém usar comando o `azure vm quick-create` e passar os argumentos necessários para criar uma VM e sua infraestrutura.
 
@@ -232,7 +228,7 @@ Basta criar sua VM inserindo o `azure vm quick-create command` e se preparando-s
     
 E, assim, você obtém sua nova VM.
 
-## Implantar uma VM no Azure por meio de um modelo
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>TAREFA: Implantar uma VM no Azure por meio de um modelo
 
 Use as instruções nestas seções para implantar uma nova VM do Azure usando um modelo com a CLI do Azure. O modelo cria uma única máquina virtual em uma nova rede virtual com uma única sub-rede e, diferentemente de `azure vm quick-create`, permite descrever o que você deseja com precisão e repeti-lo sem erros. Aqui está o que o modelo cria:
 
@@ -501,7 +497,7 @@ Você receberá o seguinte tipo de informações:
     
 
 
-## Criar uma imagem de VM personalizada
+## <a id="create-a-custom-vm-image"></a>TAREFA: Criar uma imagem de VM personalizada
 
 Você já viu o uso básico dos modelos acima. Portanto, agora podemos usar instruções semelhantes para criar uma VM personalizada por meio de um arquivo .vhd específico no Azure com um modelo usando a CLI do Azure. A diferença aqui é que esse modelo cria uma única máquina virtual de um VHD (disco rígido virtual) especificado.
 
@@ -766,7 +762,7 @@ A saída será semelhante a:
     info:    group deployment create command OK
     
 
-## Implantar um aplicativo com várias VMs que usa uma rede virtual e um balanceador externo
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>TAREFA: Implantar um aplicativo com várias VMs que use uma rede virtual e um balanceador externo de carga
 
 Esse modelo permite que você crie duas Máquinas Virtuais sob um Balanceador de Carga e configure uma regra de balanceamento de carga na porta 80. Esse modelo também implanta uma Conta de Armazenamento, Rede Virtual, Endereço IP Público, Conjunto de Disponibilidade e Interfaces de Rede.
 
@@ -1178,7 +1174,7 @@ Agora, use o comando `azure group deployment create` e a opção `--template-uri
     
 Observe que esse modelo implanta uma imagem do Windows Server. No entanto, ela também poderia ser facilmente substituída por qualquer imagem do Linux. Deseja criar um Cluster de Docker em várias regiões? [Você consegue](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/).
 
-## Remover um grupo de recursos
+## <a id="remove-a-resource-group"></a>TAREFA: Remover um grupo de recursos
 
 Lembre-se de que você pode reimplantar em um grupo de recursos, mas, se terminar de usá-lo, exclua-o usando `azure group delete <group name>`.
 
@@ -1188,7 +1184,7 @@ Lembre-se de que você pode reimplantar em um grupo de recursos, mas, se termina
     + Deleting resource group myResourceGroup                                               
     info:    group delete command OK
     
-## Mostrar o log para uma implantação de grupo de recursos
+## <a id="show-the-log-for-a-resource-group-deployment"></a>TAREFA: Mostrar o log para uma implantação de grupo de recursos
 
 Essa é uma tarefa bastante comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe muitas informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, consulte [Solução de problemas de implantações de grupos de recursos no Azure](resource-group-deploy-debug.md).)
 
@@ -1204,7 +1200,7 @@ Você pode descobrir rapidamente qual foi o problema, corrigi-lo e tentar novame
     }
     
 
-## Exibir informações sobre uma máquina virtual
+## <a id="display-information-about-a-virtual-machine"></a>TAREFA: Exibir informações sobre uma máquina virtual
 
 Você pode ver informações sobre VMs específicas em seu grupo de recursos usando o `azure vm show <groupname> <vmname> command`. Talvez você precise listar primeiro as VMs em um grupo, se tiver mais de um, usando `azure vm list <groupname>`.
 
@@ -1271,11 +1267,11 @@ e, em seguida, procurando myVM1:
 
 > [AZURE.NOTE]Se você quiser armazenar e manipular a saída dos seus comandos de console de forma programática, convém usar uma ferramenta de análise JSON, como **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou bibliotecas de idiomas adequadas à tarefa.
 
-## Fazer logon uma máquina virtual baseada em Linux
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>TAREFA: Fazer logon uma máquina virtual baseada em Linux
 
 Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, consulte [Como usar SSH com o Linux no Azure](virtual-machines-linux-use-ssh-key.md).
 
-## Parar uma VM
+## <a id="stop-a-virtual-machine"></a>TAREFA: Parar uma VM
 
 Execute este comando:
 
@@ -1283,11 +1279,11 @@ Execute este comando:
 
 >[AZURE.IMPORTANT]Use esse parâmetro para manter o VIP (IP virtual) do serviço de nuvem, caso essa seja a última VM no serviço de nuvem. <br><br> Se usar o parâmetro StayProvisioned, você ainda será cobrado pela VM.
 
-## Iniciar uma VM
+## <a id="start-a-virtual-machine"></a>TAREFA: Iniciar uma VM
 
 Execute este comando: Azure Resource Manager Overview azure vm start <group name> <virtual machine name>
 
-## Anexar um Disco de Dados
+## <a id="attach-a-data-disk"></a>TAREFA: Anexar um disco de dados
 
 Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e anexa-o no mesmo comando.
 
@@ -1308,4 +1304,13 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, consulte [Us
 
 Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos](virtual-machines-app-frameworks.md).
 
-<!---HONumber=58--> 
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

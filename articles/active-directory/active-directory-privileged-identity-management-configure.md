@@ -18,7 +18,7 @@
 
 # Gerenciamento de identidades com privilégios do AD do Azure
 
-O gerenciamento de identidades com privilégios do AD do Azure permite gerenciar, controlar e monitorar suas identidades com privilégios e o acesso destas a recursos no AD do Azure e em outros serviços online da Microsoft, como Office 365 ou Intune.
+O Azure AD Privileged Identity Management permite gerenciar, controlar e monitorar suas identidades com privilégios e o acesso destas a recursos no Azure AD e em outros serviços online da Microsoft, como Office 365 ou o Microsoft Intune.
 
 Para habilitar os usuários a executarem operações privilegiadas, as organizações geralmente precisam oferecer a muitos de seus usuários acesso privilegiado permanente ao AD do Azure, ou então a recursos do Azure ou Office 365 ou outros aplicativos SaaS. Para muitos clientes, isso é um risco de segurança cada vez maior para seus recursos hospedados em nuvem porque eles não podem monitorar suficientemente o que os usuários estão fazendo com seus privilégios de administrador. Além disso, uma conta de usuário comprometida que tem acesso privilegiado poderá afetar sua segurança de nuvem como um todo. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
 
@@ -105,4 +105,6 @@ Usando o Gerenciamento de identidades com privilégios do AD do Azure, também �
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -95,4 +95,4 @@ O Farmo do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -96,6 +96,8 @@ O limite de armazenamento do pool é determinado pela quantidade de DTUs do pool
 
 *as unidades na API estão em MB, não em GB
 
+Se for excedido o limite de um pool de armazenamento, todos os bancos de dados no pool se tornam somente leitura. Se isso ocorrer, tente aumentar o DTUs ou o armazenamento do pool em si ou ainda mover um ou mais bancos de dados fora do pool. Para identificar e evitar exceder o limite de armazenamento do pool, você pode criar um alerta no Portal para disparar quando a utilização de armazenamento do pool exceder um valor predefinido.
+
 ## Limites de sessão e de trabalho
 
 O número máximo de trabalhados simultâneos e sessões simultâneas permitido para todos os bancos de dados em um pool elástico depende da configuração de DTUs do pool:
@@ -191,4 +193,8 @@ O preço unitário por DTU de um pool elástico é maior que o preço unitário 
 | 40891 | EX_USER | O mínimo de DTUs por banco de dados (%d) não pode ser superior ao máximo de DTUs por banco de dados (%d). | Mínimo de DTUs por banco de dados; máximo de DTUs por banco de dados. | Tentando definir o mínimo de DTUs por banco de dados acima do máximo de DTUs por banco de dados. | Certifique-se de que o mínimo de DTUs por bancos de dados não seja superior ao máximo de DTUs por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!---HONumber=58--> 
+
+
+ 
+
+<!---HONumber=58_postMigration-->

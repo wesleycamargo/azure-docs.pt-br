@@ -31,9 +31,11 @@ Dúvidas ou problemas com o [Visual Studio Application Insights no Windows][wind
 * Há um firewall entre o dispositivo emulador ou de teste e o portal do Application Insights? Talvez você tenha que abrir as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
 * No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
 
+
 #### Eu costumava ver os dados, mas eles foram interrompidos
 
-* Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/)
+* Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
+* Você atingiu sua cota mensal de pontos de dados? Abra Configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou, então, pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Como adicionar o Application Insights a um Aplicativo Universal?
@@ -116,4 +118,6 @@ Consulte [Privacidade e retenção de dados][data].
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

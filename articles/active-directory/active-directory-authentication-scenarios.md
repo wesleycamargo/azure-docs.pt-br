@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Cenários de autenticação do AD do Azure
@@ -23,9 +23,7 @@ O Azure Active Directory (Azure AD) simplifica a autenticação para os desenvol
 
 - [Noções básicas de autenticação no Azure AD](#basics-of-authentication-in-azure-ad).
 
-
 - [Declarações em tokens de segurança do Azure AD](#claims-in-azure-ad-security-tokens)
-
 
 - [Noções básicas de registrar um aplicativo no Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
@@ -47,7 +45,9 @@ O Azure Active Directory (Azure AD) simplifica a autenticação para os desenvol
 
 Se você não estiver familiarizado com os conceitos básicos de autenticação no Azure AD, leia esta seção. Caso contrário, convém pular para [Cenários e tipos de aplicativos](#application-types-and-scenarios).
 
-Vamos considerar o cenário mais básico, em que a identidade é necessária: um usuário em um navegador da Web precisa autenticar um aplicativo Web. Esse cenário é descrito mais detalhadamente na seção [Navegador da Web para o aplicativo Web](#web-browser-to-web-application), no entanto, é útil, como um ponto de partida, ilustrar os recursos do Azure AD e conceitualizar como o cenário funciona. Considere o seguinte diagrama para este cenário: Visão geral de logon no aplicativo Web
+Vamos considerar o cenário mais básico, em que a identidade é necessária: um usuário em um navegador da Web precisa autenticar um aplicativo Web. Esse cenário é descrito mais detalhadamente na seção [Navegador da Web para o aplicativo Web](#web-browser-to-web-application), no entanto, é útil, como um ponto de partida, ilustrar os recursos do Azure AD e conceitualizar como o cenário funciona. Considere o diagrama a seguir para esse cenário:
+
+![Visão geral de logon no aplicativo Web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Com o diagrama acima em mente, aqui está o que você precisa saber sobre seus vários componentes:
 
@@ -60,7 +60,7 @@ Com o diagrama acima em mente, aqui está o que você precisa saber sobre seus v
 - Os desenvolvedores podem usar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação, manipulando os detalhes de protocolo por você. Consulte [Bibliotecas de autenticação do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx) para obter mais informações.
 
 
-• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, consulte a documentação [Manipulador de tokens JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Depois que um usuário foi autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem-sucedida para as partes planejadas. Os desenvolvedores podem usar as bibliotecas de autenticação fornecidas para manipular a validação de qualquer token do Azure AD, incluindo o JSON Web Tokens (JWT) ou SAML 2.0. Se você quiser executar a validação manualmente, consulte a documentação [Manipulador de token JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
 
 
 > [AZURE.IMPORTANT]O Azure AD usa criptografia de chave pública para assinar tokens e verificar se eles são válidos. Consulte [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obter mais informações sobre a lógica necessária que você deve ter em seu aplicativo para garantir que ele esteja sempre atualizado com as últimas chaves.
@@ -130,7 +130,7 @@ O provisionamento fica mais claro quando você entende que há duas categorias d
 
 - Aplicativos multilocatários: um aplicativo multilocatário é destinado para uso em muitas organizações, não apenas em uma organização. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à Graph API ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, é apresentada uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então dar consentimento para o aplicativo, que fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [Visão geral da estrutura de consentimento](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent).
 
-Surgem algumas considerações adicionais ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo a usuários em vários diretórios, você precisa de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar em seu próprio diretório por um usuário, enquanto que um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD. Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é https://login.windows.net/common para todos os diretórios no Azure AD, enquanto que um ponto de extremidade específico de locatário pode ser https://login.windows.net/contoso.onmicrosoft.com. O ponto de extremidade comum deve ser considerado com especial importância ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante o login, logout e validação de token.
+Surgem algumas considerações adicionais ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo a usuários em vários diretórios, você precisa de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar em seu próprio diretório por um usuário, enquanto que um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD. Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, enquanto que um ponto de extremidade específico de locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum deve ser considerado com especial importância ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante o login, logout e validação de token.
 
 Se você está desenvolvendo atualmente um aplicativo de locatário único, mas deseja disponibilizá-lo para muitas organizações, você pode facilmente fazer alterações no aplicativo e em sua configuração no Azure AD para habilitá-lo a multilocatários. Além disso, o Azure AD usa a mesma chave de assinatura para todos os tokens em todos os diretórios, independentemente de você estar fornecendo autenticação em um aplicativo de locatário único ou multilocatário.
 
@@ -459,12 +459,11 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 ## Consulte também
 
-
-### Conceitos
 [Exemplos de código do Azure Active Directory](active-directory-code-samples.md)
 
 [Informações importantes sobre a substituição da chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

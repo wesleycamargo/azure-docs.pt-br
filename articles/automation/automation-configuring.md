@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configurando a Automação do Azure"
    description="Descreve as etapas que você deve executar para configurar a Automação do Azure para uso inicial."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@ Este artigo descreve as ações que você deve executar para começar a usar a A
 Ao iniciar a Automação do Azure pela primeira vez, você deve criar pelo menos uma conta de Automação. As contas de Automação permitem isolar seus recursos de Automação (runbooks, ativos) dos recursos de Automação contidos em outras contas de Automação. Você pode usar contas de Automação para separar os recursos de Automação em ambientes lógicos separados. Por exemplo, você pode usar uma conta para desenvolvimento e outra para produção.
 
 Os recursos de Automação para cada conta de Automação estão associados a uma única região do Azure, mas as contas de Automação podem gerenciar os serviços do Azure em qualquer região. O principal motivo para criar contas de Automação em regiões diferentes seria se você tiver políticas que exijam que dados e recursos sejam isolados em uma região específica.
+
+>[AZURE.NOTE]As contas de automação e os recursos que eles contêm, que são criados com o Portal de Visualização do Azure, não podem ser acessados no Portal do Azure. Se quiser gerenciar essas contas ou os recursos com o Windows PowerShell, você deve usar os módulos do Gerenciador de Recursos do Azure.
+>
+>As contas de automação criadas com o Portal do Azure podem ser gerenciadas pelo portal e pelo conjunto de cmdlets. Depois que a conta é criada, não faz diferença como você cria e gerencia recursos dentro da conta. Se planeja continuar a usar o portal do Azure, você deve usá-lo em vez do Portal de Visualização do Azure para criar qualquer conta de automação.
+
 
 Uma conta de Automação poderá ser suspensa se houver um problema com sua conta do Azure, como um pagamento vencido. Nesse caso, você não poderá acessar a conta, todos os trabalhos em execução serão suspensos e todas as agendas serão desabilitadas. Você poderá exibir a conta, mas não poderá ver recursos contidos nela. Depois que corrigir o problema e a conta de Automação for habilitada, você terá que habilitar suas agendas e reiniciar os runbooks que foram suspensos.
 
@@ -58,7 +63,8 @@ Você pode recuperar a credencial em um runbook usando a atividade [Get-Automati
 
 Repita essas linhas após qualquer [ponto de verificação](automation-runbook-execution/#checkpoints) em seu runbook. Se o runbook for suspenso e reiniciado em outro trabalho, será necessário executar novamente a autenticação.
 
-# Artigos relacionados
-- [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) 
+## Artigos relacionados
+- [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

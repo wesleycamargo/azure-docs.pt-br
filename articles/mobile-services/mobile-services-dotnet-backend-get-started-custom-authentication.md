@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Introdução à autenticação personalizada
@@ -52,9 +52,7 @@ Como você está usando autenticação personalizada e não conta com outro prov
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]Os trechos de código neste tutorial usam `todoContext` como nome de contexto. Você deve atualizar os trechos de código para o contexto do seu projeto.
-
-	Em seguida, você configurará as funções de segurança para trabalhar com esses dados.
+	>[AZURE.NOTE]Os trechos de código neste tutorial usam `todoContext` como nome de contexto. Você deve atualizar os trechos de código para o contexto do projeto. &nbsp; Em seguida, você configurará as funções de segurança para trabalhar com esses dados.
  
 5. Crie uma classe chamada `CustomLoginProviderUtils` e adicione a seguinte instrução `using`:
 
@@ -162,7 +160,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]Este ponto de extremidade de registro pode ser acessado por qualquer cliente através de HTTP. Antes de publicar isto
+>[AZURE.IMPORTANT]Este ponto de extremidade de registro pode ser acessado por qualquer cliente através de HTTP. Antes de publicar este serviço em um ambiente de produção, você deverá implementar algum tipo de esquema para validar registros, como um SMS ou a verificação baseada em email. Isso pode ajudar a impedir que um usuário mal-intencionado crie registros fraudulentos.
 
 ## Criar o LoginProvider
 
@@ -217,9 +215,16 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
             return;
         }
 
-	Esse método é um no-op aqui, já que **CustomLoginProvider** não está se integrando com o pipeline de autenticação.
+	Este método não é implementado, pois **CustomLoginProvider** não é a integração com o pipeline de autenticação.
 
-4. Adicione a seguinte implementação do método abstrato `ParseCredentials` a **CustomLoginProvider**. public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. Adicione a seguinte implementação do método abstrato `ParseCredentials` a **CustomLoginProvider**.
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }
@@ -245,6 +250,12 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
         }
 
 	Este método converte um [ClaimsIdentity] em um objeto [ProviderCredentials] que é usado na fase de emissão do token de autenticação. Novamente, você pode desejar capturar declarações adicionais neste método.
+	
+6. Abra o arquivo de projeto WebApiConfig.cs na pasta App_Start e a seguinte linha de código após a **ConfigOptions** é criada:
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Criar o ponto de extremidade de entrada
 
@@ -377,7 +388,7 @@ Esta seção descreve as etapas necessárias para acessar os pontos de extremida
 
 2. Use método **invokeApi** apropriado no **MobileServiceClient** na biblioteca de cliente para chamar o ponto de extremidade **CustomRegistration**, passando o nome de usuário fornecido pelo tempo de execução e a senha no corpo da mensagem.
 
-	Só é necessário chamar o ponto de extremidade  **CustomRegistration** uma vez para criar uma conta para um determinado usuário, desde que você mantenha as informações de logon do usuário na tabela Contas. Para obter exemplos de como chamar uma API personalizada em várias plataformas de cliente com suporte, consulte o artigo [API Personalizada nos Serviços Móveis do Azure – SDKs cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+	Só é necessário chamar o ponto de extremidade **CustomRegistration** uma vez para criar uma conta para um determinado usuário, desde que você mantenha as informações de logon do usuário na tabela Contas. Para obter exemplos de como chamar uma API personalizada em várias plataformas de cliente com suporte, consulte o artigo [API Personalizada nos Serviços Móveis do Azure – SDKs cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
 	> [AZURE.IMPORTANT]Como esta etapa de provisionamento de usuário ocorre apenas uma vez, você deve considerar criar a conta de usuário usando um método diferente. Em um ponto de extremidade de registro público, você também deve considerar implementar um processo de verificação baseado em email ou SMS ou alguma outra proteção para evitar a geração de contas fraudulentas. Você pode usar o Twilio para enviar mensagens SMS a partir dos Serviços Móveis. Para saber mais, consulte [Como enviar uma mensagem SMS](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). Você também pode usar o SendGrid para enviar emails a partir do Mobile Services. Para saber mais, consulte [Enviar email a partir dos Serviços Móveis com o SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 	
@@ -407,4 +418,6 @@ Assim, concluímos este tutorial.
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

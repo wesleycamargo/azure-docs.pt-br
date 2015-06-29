@@ -3,7 +3,7 @@
    description="Etapas e práticas recomendadas para implantar o dispositivo e serviço StorSimple Atualização 1."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
 
@@ -39,7 +39,7 @@ A lista de verificação de pré-instalação a seguir descreve as informações
 
 | | Requisitos | Detalhes | Valores |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | Configurações de rede <ol><li>Endereço IP do dispositivo</li><li>Interfaces de rede, 4 x 1 GbE, 2 x 10 GbE</li><li>Controlador IP fixo</li><li>Máscaras de sub-rede</li><li>Gateway</li></ol> | Total de IPs necessários: 8 <ol><li>Um por dispositivo</li><li>Um por interface de rede habilitada, total 6</li><li>Um por controlador, total 2, exigido para conexão com a Internet para atualizações de serviço</li><li>Um para cada endereço IP</li><li>Um por dispositivo</li></ol> | |
+| 1 | Configurações de rede <ol><li>Interfaces de rede, 4 x 1 GbE, 2 x 10 GbE</li><li>Controlador IP fixo</li><li>Máscaras de sub-rede</li><li>Gateway</li></ol> | Total de IPs necessários: 8 <ol><li>Um por interface de rede habilitada, total 6</li><li>Um por controlador, total 2, exigido para conexão com a Internet para atualizações de serviço</li><li>Um para cada endereço IP</li><li>Um por dispositivo</li></ol> | |
 | 2 | Acesso serial | Configuração inicial do dispositivo | Sim/Não |
 | 3 | Endereços IP do servidor DNS | Necessário para conectar-se ao Microsoft Azure: total de 2 necessários para alta disponibilidade | |
 | 4 | Endereços IP do servidor NTP | Necessário para sincronizar a hora com o Azure: 1 obrigatório, 1 opcional | |
@@ -211,5 +211,6 @@ Para obter instruções de instalação de MPIO, vá para [Configurar MPIO para 
 Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

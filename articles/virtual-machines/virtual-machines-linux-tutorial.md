@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/22/2015"
 	ms.author="rasquill"/>
 
@@ -288,12 +288,13 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
 
-- [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux](../virtual-machines-command-line-tools.md)
+- [Como usar as ferramentas da interface de linha de comando do Azure](../virtual-machines-command-line-tools.md)
 
 - [Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux](virtual-machines-linux-script-lamp.md)
 
 - [Sobre as definições de configuração da VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

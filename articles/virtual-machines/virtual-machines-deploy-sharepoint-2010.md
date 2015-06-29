@@ -82,7 +82,7 @@ Você pode implantar o SharePoint 2010 no Azure seguindo estas etapas:
 	- Em **Confirmar**, digite a senha novamente e clique na seta para a direita.
 5. A segunda caixa de diálogo **Configuração de máquina virtual** é exibida. Forneça as seguintes informações:
 	- Em **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**. Nesse caso, você também deve fornecer um nome DNS do serviço de nuvem ou selecionar um serviço de nuvem existente.
-	- Em caixa  **Região/Grupo de Afinidade/Rede Virtual**, selecione a região onde a imagem virtual será hospedada.
+	- Em caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione a região onde a imagem virtual será hospedada.
 	- Em **Conta de armazenamento**, escolha **Usar uma conta de armazenamento gerada automaticamente** ou selecione um nome de conta de armazenamento existente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras VMs criadas com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento. Para obter mais informações, consulte [Criar uma conta de armazenamento no Azure](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure) (a página pode estar em inglês).
 	- Em **Conjunto de Disponibilidade**, selecione **(nenhum)** e clique na seta para a direita.
 6. Na terceira caixa de diálogo **Configuração de máquina virtual**, clique na marca de seleção para criar a máquina virtual.
@@ -266,7 +266,7 @@ As etapas a seguir mostram como criar um ambiente de farm do SharePoint personal
 	- Use o agente do Operations Manager e o novo Pacote de Integração do Azure para conectar o seu System Center local às Máquinas Virtuais do Azure.
 	- Use o App Controller e o Orchestrator local para funções de gerenciamento.
 
-## Conclusão
+## Resumo
 
 As Máquinas Virtuais do Azure fornecem uma série completa de implantações para o SharePoint. Elas foram testadas e são totalmente compatíveis com outros produtos Microsoft para oferecer a melhor experiência possível. Dessa forma, as empresas podem facilmente configurar e implantar o SharePoint Server no Azure, seja para provisionar a infraestrutura de uma nova implantação do SharePoint ou para expandir a atual. À medida que as cargas de trabalho aumentam, as organizações podem expandir suas infraestruturas do SharePoint rapidamente. Da mesma forma, se houver necessidade de reduzir a carga de trabalho, as organizações podem contratar recursos sob demanda, pagando apenas pelo que usarem. As Máquinas Virtuais do Azure fornecem uma infraestrutura excepcional para uma grande variedade de requisitos de negócios, conforme mostrado nos cenários do SharePoint discutidos neste artigo.
 
@@ -278,8 +278,10 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[PowerShell do Azure](http://msdn.microsoft.com/library/jj156055)
+[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint da Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Cmdlets de gerenciamento do Azure](http://msdn.microsoft.com/library/jj152841)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

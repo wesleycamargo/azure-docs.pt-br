@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/28/2015" 
+	ms.date="06/16/2015" 
 	ms.author="jeffstok" />
 
 
@@ -26,11 +26,11 @@ O Azure Stream Analytics é um serviço completamente gerenciado que oferece bai
 Com o Stream Analytics, você pode:
 
 - Executar o processamento de eventos complexos em fluxos de dados de alta velocidade e grande volume.   
-- Coletar dados de eventos de ativos distribuídos globalmente ou equipamento como carros conectados ou grades de utilitário 
-- Processar dados de telemetria para monitoramento e diagnóstico quase em tempo real 
+- Coletar dados de eventos de ativos distribuídos globalmente ou equipamento como carros conectados ou linhas de transmissão. 
+- Processe dados de telemetria para monitoramento e diagnóstico quase em tempo real. 
 - Capturar e arquivar eventos em tempo real para processamento futuro
 
-Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream.analytics.introduction).
+Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md).
 
 Um trabalho do Stream Analytics inclui o seguinte: * uma ou mais fontes de entrada * Uma consulta sobre um fluxo de dados de entrada * Um destino de saída.
 
@@ -39,10 +39,10 @@ Um trabalho do Stream Analytics inclui o seguinte: * uma ou mais fontes de entra
 
 ### Fluxo de dados
 
-Cada definição de trabalho de Análise de fluxo deve conter fonte entrada pelo menos um fluxo de dados para ser consumida e transformados pelo trabalho. O [Armazenamento de Blob do Azure](azure.blob.storage) e os [Hubs de Evento do Azure](azure.event.hubs) têm suporte como fontes de entrada de fluxo de dados. As fontes de entrada de Hubs de eventos são usadas para coletar fluxos de eventos de vários dispositivos diferentes e serviços, enquanto o armazenamento de Blob pode ser usado em uma fonte de entrada para a ingestão de grandes quantidades de dados. Como os blobs não transmitem dados, os trabalhos de Análise de fluxo nos blobs não serão temporais por natureza, a menos que os registros no blob contenham os carimbos de data/hora.
+Cada definição de trabalho de Análise de fluxo deve conter fonte entrada pelo menos um fluxo de dados para ser consumida e transformados pelo trabalho. O [Armazenamento de Blob do Azure](http://azure.microsoft.com/documentation/services/storage/) e os [Hubs de Evento do Azure](http://azure.microsoft.com/services/event-hubs/) têm suporte como fontes de entrada de fluxo de dados. As fontes de entrada de Hubs de eventos são usadas para coletar fluxos de eventos de vários dispositivos diferentes e serviços, enquanto o armazenamento de Blob pode ser usado em uma fonte de entrada para a ingestão de grandes quantidades de dados. Como os blobs não transmitem dados, os trabalhos de Análise de fluxo nos blobs não serão temporais por natureza, a menos que os registros no blob contenham os carimbos de data/hora.
 
 ### Dados de referência
-A Stream Analytics também dá suporte a um segundo tipo de fonte de entrada: dados de referência. Isso é usado para executar a correlação e pesquisas de dados auxiliares e os dados aqui são geralmente estáticos ou raramente alterados. [Armazenamento de blob do Azure](azure.blob.storage) é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 50MB de tamanho.
+A Stream Analytics também dá suporte a um segundo tipo de fonte de entrada: dados de referência. Isso é usado para executar a correlação e pesquisas de dados auxiliares e os dados aqui são geralmente estáticos ou raramente alterados. [Armazenamento de blob do Azure](http://azure.microsoft.com/documentation/services/storage/) é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 50MB de tamanho.
 
 Para habilitar o suporte para a atualização de dados de referência, o usuário precisa especificar uma lista de blobs na configuração de entrada usando os tokens {data} e {hora} dentro do padrão de caminho. O trabalho carregará o blob correspondente com base na data e na hora codificadas nos nomes de blob usando o fuso horário UTC.
 
@@ -96,18 +96,18 @@ Dependendo do tipo de entrada usado no trabalho, alguns campos adicionais com me
 ###Partições com pouca ou nenhuma entrada de dados
 Ao ler por meio de fontes de entrada que têm várias partições e uma ou mais partições se atrasar ou não tiver dados, o trabalho de streaming precisará decidir como lidar com essa situação para manter os eventos que fluem através do sistema. A configuração de entrada 'Máximo permitido de atraso de chegada' controla esse comportamento e é definida por padrão para aguardar indefinidamente pelos dados, o que significa que os carimbos de data/hora dos eventos não serão alterados, mas também aqueles eventos fluirão com base na partição de entrada mais lenta e pararão de fluir se uma ou mais partições de entrada não tiverem dados de entrada. Isso é útil se os dados forem distribuídos uniformemente entre as partições de entrada e a consistência de tempo entre os eventos for crítica.
 
-Você também pode optar por esperar apenas por um período limitado: o 'Máximo permitido de atraso de chegada' determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de 'Ação para eventos tardios’, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
+Você também pode optar por esperar apenas por um período limitado: o “Atraso de chegada máximo permitido” determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de “Ação para eventos tardios”, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
 
 ###Partições com eventos fora de ordem
 Quando a consulta de trabalho de streaming usa a palavra-chave TIMESTAMP BY, não há nenhuma garantia sobre a ordem na qual os eventos chegam para a entrada, alguns eventos na mesma partição de entrada podem estar atrasando, o parâmetro 'Máximo permitido de desordem dentro de uma entrada' faz com que o trabalho de streaming atue em eventos que estão fora da tolerância de ordem, de acordo com a configuração de 'Ação para eventos tardios', soltando seus eventos ou ajustando os carimbos de data/hora de seus eventos.
 
 ### Recursos adicionais
-Para obter detalhes sobre como criar fontes de entrada, consulte o [Guia do desenvolvedor de Hubs de eventos do Azure](azure.event.hubs.developer.guide) e [Usar o armazenamento de Blob do Azure](azure.blob.storage.use).
+Para obter detalhes sobre como criar fontes de entrada, consulte o [Guia do desenvolvedor de Hubs de eventos do Azure](http://msdn.microsoft.com/library/azure/dn789972.aspx) e [Usar o armazenamento de Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md).
 
 
 
 ## Consultar
-A lógica para filtrar, manipular e processar dados de entrada é definida nos trabalhos de consulta do Stream Analytics. As consultas são escritas usando a linguagem de consulta de Stream Analytics, uma linguagem semelhante ao SQL que é basicamente um subconjunto da sintaxe do Transact-SQL padrão com algumas extensões específicas para consultas Temporais.
+A lógica para filtrar, manipular e processar dados de entrada é definida na consulta de trabalhos do Stream Analytics. As consultas são escritas usando a linguagem de consulta de Stream Analytics, uma linguagem semelhante ao SQL que é basicamente um subconjunto da sintaxe do Transact-SQL padrão com algumas extensões específicas para consultas Temporais.
 
 ### Windowing
 Extensões de windowing permitem que agregações e cálculos sejam executados em subconjuntos de eventos que se enquadram em determinado período de tempo. As funções em janela são invocadas usando a instrução **GROUP BY**. Por exemplo, a consulta a seguir considera os eventos recebidos por segundo:
@@ -129,22 +129,22 @@ Para consultas mais complexas, a cláusula SQL padrão **WITH** pode ser usada p
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-Para saber mais sobre a linguagem de consulta, consulte [Referência de linguagem de consulta da Análise de fluxo do Azure](stream.analytics.query.language.reference).
+Para saber mais sobre a linguagem de consulta, consulte [Referência de linguagem de consulta da Análise de fluxo do Azure](http://go.microsoft.com/fwlink/?LinkID=513299).
 
 ## Saída
 O destino de saída é onde os resultados do trabalho de Stream Analytics serão gravados. Os resultados são gravados continuamente para o destino de saída enquanto o trabalho processa os eventos de entrada. Há suporte para os destinos de saída a seguir:
 
 - Hubs de eventos do Azure - Escolha os Hubs de eventos como um destino de saída para vários cenários de pipelines de streaming que precisam ser compostos juntos, como emitir comandos para dispositivos.
 - Armazenamento de Blob do Azure - Use o armazenamento de Blob para arquivamento de longo prazo de saída ou para armazenar dados para processamento posterior.
-- Armazenamento de tabela do Azure - o armazenamento de tabela do Azure é um repositório de dados estruturado com menos restrições no esquema. Entidades com esquemas diferentes e diferentes tipos podem ser armazenadas na mesma tabela do Azure. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente. Para obter mais informações, consulte [Introdução ao Armazenamento do Azure](../storage.introduction.md) e [Criando uma estratégia de particionamento escalonável para o Armazenamento de tabela do Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Armazenamento de tabela do Azure - o armazenamento de tabela do Azure é um repositório de dados estruturado com menos restrições no esquema. Entidades com esquemas diferentes e diferentes tipos podem ser armazenadas na mesma tabela do Azure. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente. Para obter mais informações, consulte [Introdução ao Armazenamento do Azure](../storage/storage-introduction.md) e [Criando uma estratégia de particionamento escalonável para o Armazenamento de tabela do Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Banco de dados SQL do Azure - Esse destino de saída é apropriado para dados relacionais por natureza ou para aplicativos que dependem do conteúdo que está sendo hospedado em um banco de dados.
 
 
 ## Trabalhos de escala
 
-Um trabalho do Stream Analytics pode ser dimensionado na configuração de unidades de streaming, que define a quantidade de potência de processamento de dados que recebe um trabalho. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência. Cada assinatura tem uma cota de 12 unidades de streaming por região a ser alocada em trabalhos nessa região.
+Um trabalho do Stream Analytics pode ser dimensionado na configuração de unidades de streaming, que definem a quantidade de poder de processamento de dados recebida por um trabalho. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência. Cada assinatura tem uma cota de 12 unidades de streaming por região a ser alocada em trabalhos nessa região.
 
-Para obter detalhes, consulte [Trabalhos de Análise de fluxo de escala do Azure](stream.analytics.scale.jobs).
+Para obter detalhes, consulte [Trabalhos de Análise de fluxo de escala do Azure](stream-analytics-scale-jobs.md).
 
 
 ## Monitorar e solucionar problemas de trabalhos
@@ -176,16 +176,15 @@ Ao iniciar um trabalho, você será solicitado a especificar um valor **Iniciar 
 Você pode ajustar as seguintes configurações de nível superior para um trabalho de Análise de fluxo:
 
 - **Iniciar saída** - Use essa configuração para especificar quando esta tarefa começará a produzir saída resultante. Se a consulta associada inclui uma janela, o trabalho começará a pegar a entrada por meio de fontes de entrada no início da duração da janela necessárias para produzir o primeiro evento de saída na hora especificada. Há duas opções, **Hora de início do trabalho** e **Personalizado**. A configuração padrão é a **Hora de início do trabalho**. Para a opção **Personalizada**, você deve especificar data e hora. Essa configuração é útil para especificar quantos dados históricos nas fontes de entrada para consumir ou para pegar a inclusão de dados de uma hora específica, como quando um trabalho foi passado interrompido. 
-- **Política de fora de ordem** - As configurações para manipular eventos que não chegam ao trabalho de Stream Analytics em sequência. Você pode designar um limite de tempo para reordenar eventos, especificando uma janela de tolerância a falhas e também determinando uma ação em eventos fora essa janela: **Remover** ou **Ajustar**. **Remover** removerá todos os eventos recebidos fora de ordem, e **Ajustar** alterará o sistema. O carimbo de data/hora de eventos fora de ordem para o carimbo de data/hora do evento ordenado recebido mais recentemente. 
+- **Política de fora de ordem** - As configurações para manipular eventos que não chegam ao trabalho de Stream Analytics em sequência. Você pode designar um limite de tempo para reordenar eventos, especificando uma janela de tolerância a falhas e também determinando uma ação em eventos fora essa janela: **Remover** ou **Ajustar**. **Remover** removerá todos os eventos recebidos fora de ordem e **Ajustar** alterará o Sistema. O carimbo de data/hora de eventos fora de ordem para o carimbo de data/hora do evento ordenado recebido mais recentemente. 
 - **Política de entrada tardia** - Ao ler por meio de fontes de entrada que têm várias partições e uma ou mais partições se atrasar ou não tiver dados, o trabalho de streaming precisará decidir como lidar com essa situação para manter os eventos que fluem através do sistema. A configuração de entrada 'Máximo permitido de atraso de chegada' controla esse comportamento e é definida por padrão para aguardar indefinidamente pelos dados, o que significa que os carimbos de data/hora dos eventos não serão alterados, mas também aqueles eventos fluirão com base na partição de entrada mais lenta e pararão de fluir se uma ou mais partições de entrada não tiverem dados de entrada. Isso é útil se os dados forem distribuídos uniformemente entre as partições de entrada e a consistência de tempo entre os eventos for crítica. O usuário também pode optar por apenas esperar por um período limitado, o 'Máximo permitido de atraso de chegada' determina o intervalo após o qual o trabalho decidirá avançar, deixando as partições de intervalo de entrada para trás e atuando em eventos de acordo com a configuração de 'Ação para eventos tardios’, descartando seus eventos ou ajustando os carimbos de data/hora de seus eventos se os dados chegarem mais tarde. Isso será útil se a latência for crítica e a mudança de carimbo de data/hora for tolerada, mas a entrada não puder ser distribuída uniformemente.
 - **Localidade** - Use essa configuração para especificar a preferência de internacionalização para o trabalho de Stream Analytics. Enquanto carimbos de dados de localidade neutra, configurações que afetam como o trabalho será analisado, comparar e classificar dados. Para a versão de visualização, há suporte apenas para **en-US**.
 
 ### Status
 
-O status dos trabalhos de Stream Analytics pode ser inspecionado no portal do Azure. Os trabalhos em execução podem estar em um dos três estados: **Ocioso**, **Em processamento** ou **Degradado**. A definição de cada um desses estados está ilustrada abaixo:
+O status dos trabalhos de Stream Analytics pode ser inspecionado no portal do Azure. Trabalhos em execução podem estar em um dos dois estados: **Em execução** ou **Degradado**. A definição de cada um desses estados está ilustrada abaixo:
 
-- **Ocioso** - Nenhum byte de entrada foi detectado desde que o trabalho foi criado ou nos últimos 2 minutos. Se um trabalho está no estado **Ocioso** por um longo período de tempo, é provável que a entrada exista, mas não haja nenhum byte bruto para processar.
-- **Em processamento** - Um valor diferente de zero de eventos de entrada filtrados foi consumido pelo trabalho de Stream Analytics com êxito. Se um trabalho estiver preso no estado **Em processamento** sem produzir saída, é provável que a janela de tempo de processamento de dados seja grande ou que a lógica de consulta seja complicada.
+- **Em execução** - O trabalho foi alocado, está processando dados ou aguardando para processar. Se um mostrar o estado Em execução sem produzir saída, é provável que a janela de tempo de processamento de dados seja grande ou que a lógica de consulta seja complicada. Outro motivo pode ser que atualmente não há qualquer dado sendo enviados para o trabalho.
 - **Degradado** - Este estado indica que um trabalho de Stream Analytics está encontrando um dos seguintes erros: erros de comunicação de entrada/saída, erros de consulta ou erros de tempo de execução capaz de novas tentativas. Para distinguir qual tipo de erro você está encontrando no trabalho, exiba os logs de operação.
 
 
@@ -202,27 +201,6 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-
-
-
-
-<!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
-
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

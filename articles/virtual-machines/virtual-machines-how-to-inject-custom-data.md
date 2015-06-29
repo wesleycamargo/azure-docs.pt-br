@@ -27,7 +27,7 @@ Injetar um script ou de outros dados em uma Máquina Virtual do Azure quando pro
 
 - Usar ferramentas especiais em alguns sistemas para detectar e identificar dados personalizados automaticamente.
 
-> [AZURE.NOTE]Este tópico estende-se  [nesta publicação do blog Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) sobre este recurso e será mantido atualizado conforme apareçam mais funcionalidades.
+> [AZURE.NOTE]Este tópico estende-se [nesta publicação do blog Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) sobre este recurso e será mantido atualizado conforme apareçam mais funcionalidades.
 
 ## Injetando os dados personalizados na Máquina Virtual do Azure
 
@@ -77,5 +77,6 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 [Referência da API REST de gerenciamento para adicionar serviço de função](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

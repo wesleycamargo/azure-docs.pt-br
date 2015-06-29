@@ -176,7 +176,7 @@ Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posiç
 
 O tópico a seguir discute entidades de serviços de mídia relacionadas a filtros. O tópico também mostra como criar filtros por meio de programa.
 
-[Criar filtros com APIs REST](media-services-rest-create-filters).
+[Criar filtros com APIs REST](media-services-rest-dynamic-manifest.md).
 
 ##Conheça os problemas e limitações
 
@@ -186,6 +186,9 @@ O tópico a seguir discute entidades de serviços de mídia relacionadas a filtr
 
 
 ##Consulte também
+
+
+
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
 
@@ -204,5 +207,6 @@ O tópico a seguir discute entidades de serviços de mídia relacionadas a filtr
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

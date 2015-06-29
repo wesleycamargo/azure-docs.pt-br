@@ -3,18 +3,18 @@
 	description="Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança." 
 	services="" 
 	documentationCenter="" 
-	authors="cabailey" 
-	manager="mbaldwin" 
+	authors="vikdesai" 
+	manager="msmbaldwin" 
 	editor=""/>
 
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
-	ms.author="cabailey"/>
+	ms.date="06/01/2015" 
+	ms.author="vikdesai"/>
 
 # Configurar alertas de cobrança de suas assinaturas do Microsoft Azure
 
@@ -26,15 +26,15 @@ Este é um serviço de visualização, portanto, a primeira coisa que você prec
 
 Depois de receber o email de confirmação de que o serviço de cobrança foi ativado para a sua assinatura, visite <a href="https://account.windowsazure.com/Subscriptions">a página Assinaturas</a> no portal da conta. Clique na assinatura que você deseja monitorar e, em seguida, clique em **Alertas**.
 
-![][Imagem 1]
+![][Image1]
 
 Em seguida, clique em **Adicionar Alerta** para criar seu primeiro alerta - você pode configurar até cinco alertas de cobrança por assinatura, com um limite diferente e até dois destinatários de email para cada alerta.
 
-![][Imagem 2]
+![][Image2]
 
-Quando você adiciona um alerta, você informa um nome exclusivo, escolhe um limite de gastos e escolhe os endereços de email para onde os alertas serão enviados. Ao configurar o limite, você pode escolher um **Total de cobrança** ou um **Crédito Monetário** da lista de **Alerta para**. Para total de cobrança, um alerta é enviado quando o gasto com a assinatura excede o limite. Para crédito monetário, um alerta é enviado quando os créditos monetários reduzem abaixo do limite. Créditos monetários geralmente se aplicam a avaliações gratuitas e assinaturas associadas às contas do MSDN.
+Quando você adiciona um alerta, você informa um nome exclusivo, escolhe um limite de gastos e escolhe os endereços de email para onde os alertas serão enviados. Ao configurar o limite, você pode escolher um **Total de cobrança** ou um **Crédito Monetário** na lista **Alerta para**. Para total de cobrança, um alerta é enviado quando o gasto com a assinatura excede o limite. Para crédito monetário, um alerta é enviado quando os créditos monetários reduzem abaixo do limite. Créditos monetários geralmente se aplicam a avaliações gratuitas e assinaturas associadas às contas do MSDN.
 
-![][Imagem 3]
+![][Image3]
 
 O Azure é compatível com qualquer endereço de email, mas não verifica o funcionamento do endereço de email, por isso, verifique atentamente se digitou corretamente.
 
@@ -42,8 +42,8 @@ O Azure é compatível com qualquer endereço de email, mas não verifica o func
 
 Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo, ou clique na lixeira para excluí-lo.
 
-[Imagem 1]: ./media/azure-billing-set-up-alerts/billingalert1.png
-[Imagem 2]: ./media/azure-billing-set-up-alerts/billingalert2.png
-[Imagem 3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
+[Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
+[Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
+[Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!--HONumber=47-->
+<!---HONumber=58_postMigration-->

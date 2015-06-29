@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article" 
  ms.tgt_pltfrm="vm-multiple" 
  ms.workload="infrastructure-services"
- ms.date="05/26/2015" 
+ ms.date="05/28/2015" 
  ms.author="kathydav"/>
 
 # Tamanhos das máquinas virtuais
@@ -21,7 +21,7 @@ ms.service="virtual-machines"
 
 Este artigo descreve os tamanhos e as opções disponíveis para os recursos de computação baseados em máquina virtual que você pode usar para executar seus aplicativos e cargas de trabalho. Ele também fornece considerações de implantação a serem consideradas ao planejar o uso desses recursos.
 
-As máquinas virtuais e os serviços de nuvem do Azure são dois dos vários tipos de recursos de computação oferecidos pelo Azure. Para obter explicações, confira [Computar opções de hospedagem fornecidas pelo Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926)
+As Máquinas Virtuais e os Serviços de Nuvem do Azure são dois dos vários tipos de recursos de computação oferecidos pelo Azure. Para obter explicações, confira [Computar opções de hospedagem fornecidas pelo Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926)
 
 >[AZURE.NOTE]Para ver os limites relacionados do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
@@ -76,10 +76,10 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 |A5(idem)|2|14 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4X500|
 |A6(idem)|4|28 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
 |A7(idem)|8|56 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
-|A8(idem)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>[AZURE.NOTE]Para saber mais e ver considerações sobre o uso deste tamanho, confira <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
-|A9(idem)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>[AZURE.NOTE]Para saber mais e ver considerações sobre o uso deste tamanho, confira <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
-|A10(idem)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>[AZURE.NOTE]Para saber mais e ver considerações sobre o uso deste tamanho, confira <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
-|A11(idem)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>[AZURE.NOTE]Para saber mais e ver considerações sobre o uso deste tamanho, confira <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
+|A8(idem)|8|56 GB|<p><p>OS = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para saber mais e para considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
+|A9(idem)|16|112 GB|<p><p>OS = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para saber mais e para considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
+|A10(idem)|8|56 GB|<p><p>OS = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para saber mais e para considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
+|A11(idem)|16|112 GB|<p><p>OS = 1023 GB</p><p>Temporário = 382 GB</p><blockquote><p>Observação: para saber mais e para considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação</a>.</p></blockquote>|16|16 x 500|
 |Standard_D1(idem)|1|3,5 GB|<p></p>SO = 1023 GB<p>Temporário (SSD) = 50 GB</p>|2|2x500|
 |Standard_D2(idem)|2|7 GB|<p>SO = 1023 GB</p><p>Temporário (SSD) = 100 GB</p>|4|4x500|
 |Standard_D3(idem)|4|14 GB|<p>SO = 1023 GB</p><p>Temporário (SSD) = 200 GB</p>|8|8 x 500|
@@ -117,18 +117,9 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 
 ### Consulte também
 
-#### Conceitos
-
-[Configurar um serviço de nuvem do Azure](https://msdn.microsoft.com/library/hh124108)
-
- [Configurar os tamanhos dos serviços de nuvem](https://msdn.microsoft.com/library/ee814754)
-
-#### Outros recursos
-
 [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
  
- [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](http://go.microsoft.com/fwlink/p/?linkid=328042)
+[Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](http://go.microsoft.com/fwlink/p/?linkid=328042)
+ 
 
-[Tamanhos dos serviços de nuvem](../cloud-services-sizes-specs.md)
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

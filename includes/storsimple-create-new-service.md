@@ -16,9 +16,9 @@
    ms.author="v-sharos" />
 
 
-### Para criar um novo serviço
+#### Para criar um novo serviço
 
-1. Use as suas credenciais da conta da Microsoft para fazer logon no Portal de Gerenciamento do Azure da Microsoft aqui: [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
+1. Usando suas credenciais de conta da Microsoft, faça logon no Portal de Gerenciamento na seguinte URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. No Portal de Gerenciamento, clique em **Novo** > **Serviços de Dados** > **StorSimple Manager** > **Criação Rápida**.
 
@@ -35,4 +35,4 @@
  
        ![criação de serviço](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

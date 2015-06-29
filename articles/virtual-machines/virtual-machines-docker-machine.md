@@ -18,7 +18,7 @@
 
 # Como usar a máquina de suporte com o Azure
 
-Este tópico descreve como usar o [Docker](https://www.docker.com/) com [máquina](https://github.com/docker/machine) e a [CLI do Azure](https://github.com/Azure/azure-xplat-cli) para criar uma Máquina Virtual do Azure para gerenciar rápida e facilmente contêineres Linux de um computador executando o Ubuntu. Para demonstrar, o tutorial mostra como implantar a  [imagem de Hub Docker busybox](https://registry.hub.docker.com/_/busybox/) e também a [imagem de Hub do Docker nginx](https://registry.hub.docker.com/_/nginx/) e configurar o contêiner para rotear solicitações da Web para o contêiner nginx. (A documentação da **máquina** docker descreve como modificar essas instruções para outras plataformas.)
+Este tópico descreve como usar o [Docker](https://www.docker.com/) com [máquina](https://github.com/docker/machine) e a [CLI do Azure](https://github.com/Azure/azure-xplat-cli) para criar uma Máquina Virtual do Azure para gerenciar rápida e facilmente contêineres Linux de um computador executando o Ubuntu. Para demonstrar, o tutorial mostra como implantar a [imagem de Hub Docker busybox](https://registry.hub.docker.com/_/busybox/) e também a [imagem de Hub do Docker nginx](https://registry.hub.docker.com/_/nginx/) e configurar o contêiner para rotear solicitações da Web para o contêiner nginx. (A documentação da **máquina** docker descreve como modificar essas instruções para outras plataformas.)
 
 Há alguns pré-requisitos para concluir este tutorial. Você precisará instalar o seguinte:
 
@@ -208,5 +208,6 @@ Vá para o [guia do usuário Docker](https://docs.docker.com/userguide/) e crie 
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -13,33 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Como garantir serviços de back-end usando autenticação de certificado mútuo no Gerenciamento de API do Azure
 
-O Gerenciamento de API fornece a capacidade para garantir acesso ao serviço back-end de uma API usando certificados mútuos. Este guia mostra como gerenciar certificados no console de Gerenciamento de API e como configurar uma API para usar um certificado para acessar seu serviço back-end.
+O Gerenciamento de API fornece a capacidade para garantir acesso ao serviço back-end de uma API usando certificados mútuos. Este guia mostra como gerenciar certificados no Portal do editor de API e como configurar uma API para usar um certificado para acessar seu serviço back-end.
 
-> Para obter mais informações sobre gerenciamento de certificados usando API REST de Gerenciamento de API, consulte [entidade de Certificado da API REST de Gerenciamento de API do Azure][entidade de Certificado da API REST de Gerenciamento de API do Azure].
-
-## Neste tópico
-
--   [Pré-requisitos][Pré-requisitos]
--   [Carregar um certificado do cliente][Carregar um certificado do cliente]
--   [Excluir um certificado do cliente][Excluir um certificado do cliente]
--   [Configurar uma API para usar um certificado mútuo para autenticação de proxy][Configurar uma API para usar um certificado mútuo para autenticação de proxy]
+Para obter mais informações sobre gerenciamento de certificados usando a API REST de gerenciamento de API, consulte [Entidade de certificado da API REST de Gerenciamento de API do Azure][].
 
 ## <a name="prerequisites"> </a>Pré-requisitos
 
-Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autenticação de certificado mútuo para acessar o serviço back-end para uma API. Antes de seguir as etapas neste tópico, você deve ter seu serviço back-end configurado para autenticação de certificado mútuo e ter acesso ao certificado e a senha para o certificado para carregamento no console de Gerenciamento de API.
+Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autenticação de certificado mútuo para acessar o serviço back-end para uma API. Antes de seguir as etapas neste tópico, você deve ter seu serviço back-end configurado para autenticação de certificado mútuo e ter acesso ao certificado e a senha para o certificado para carregamento no Portal do editor de Gerenciamento de API.
 
 ## <a name="step1"> </a>Carregar um certificado do cliente
 
-Para começar, clique em **Console de gerenciamento** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal administrativo do Gerenciamento de API.
+Para começar, clique em **Gerenciar** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
-![Console de Gerenciamento de API][api-management-management-console]
+![Portal do editor de API][api-management-management-console]
 
-> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+>Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
 
 Clique em **Segurança** no menu **Gerenciamento de API** à esquerda e clique em **Certificados do cliente**.
 
@@ -51,17 +44,17 @@ Para carregar um novo certificado, clique em **Carregar um certificado**.
 
 Navegue para o seu certificado e digite a senha para o certificado.
 
-> O certificado deve estar no formato **.pfx**. Os certificados autoassinados são permitidos.
+>O certificado deve estar no formato **.pfx**. Os certificados autoassinados são permitidos.
 
 ![Carregar um certificado][api-management-upload-certificate-form]
 
 Clique em **Carregar** para carregar o certificado.
 
-> A senha do certificado é validada neste momento. Se ela estiver incorreta, é exibida uma mensagem de erro.
+>A senha do certificado é validada neste momento. Se ela estiver incorreta, é exibida uma mensagem de erro.
 
 ![Certificado carregado][api-management-certificate-uploaded]
 
-Uma vez que o certificado é carregado, ele aparece na guia **Certificados do cliente**. Se você tiver certificados múltiplos, tome nota do assunto, ou dos últimos quatro caracteres da impressão digital, que são usados para selecionar o certificado ao configurar uma API para usar certificados, conforme cobertos na seguinte seção [Configurar uma API para usar um certificado mútuo para autenticação de proxy][Configurar uma API para usar um certificado mútuo para autenticação de proxy].
+Uma vez que o certificado é carregado, ele aparece na guia **Certificados do cliente**. Se você tiver certificados múltiplos, tome nota do assunto, ou dos últimos quatro caracteres da impressão digital, que são usados para selecionar o certificado ao configurar uma API para usar certificados, conforme cobertos na seguinte seção [Configurar uma API para usar um certificado mútuo para autenticação de proxy][].
 
 ## <a name="step1a"> </a>Excluir um certificado do cliente
 
@@ -93,34 +86,59 @@ Selecione o certificado desejado da lista suspensa **Certificado do cliente**. S
 
 Clique em **Salvar** para salvar as alterações de configuração para a API.
 
-> Essa alteração tem efeito imediato e chama para operações desta API, que usará o certificado para autenticar no servidor back-end.
+>Essa alteração tem efeito imediato e chama para operações desta API, que usará o certificado para autenticar no servidor back-end.
 
 ![Salvar alterações da API][api-management-save-api]
 
-> Quando um certificado é especificado na autenticação de proxy para o serviço back-end de uma API, se torna parte da política para essa API e pode ser exibido no editor de política.
+>Quando um certificado é especificado na autenticação de proxy para o serviço back-end de uma API, se torna parte da política para essa API e pode ser exibido no editor de política.
 
 ![Política do certificado][api-management-certificate-policy]
 
-  [entidade de Certificado da API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
-  [Pré-requisitos]: #prerequisites
-  [Carregar um certificado do cliente]: #step1
-  [Excluir um certificado do cliente]: #step1a
-  [Configurar uma API para usar um certificado mútuo para autenticação de proxy]: #step2
-  [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
-  [Criar uma instância de serviço de Gerenciamento de API]: ../api-management-get-started/#create-service-instance
-  [Introdução ao Gerenciamento de API do Azure]: ../api-management-get-started
-  [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
-  [api-management-upload-certificate]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png
-  [api-management-upload-certificate-form]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate-form.png
-  [api-management-certificate-uploaded]: ./media/api-management-howto-mutual-certificates/api-management-certificate-uploaded.png
-  [api-management-certificate-delete]: ./media/api-management-howto-mutual-certificates/api-management-certificate-delete.png
-  [api-management-confirm-delete]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png
-  [api-management-confirm-delete-policy]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png
-  [api-management-api-security]: ./media/api-management-howto-mutual-certificates/api-management-api-security.png
-  [api-management-mutual-certificates]: ./media/api-management-howto-mutual-certificates/api-management-mutual-certificates.png
-  [api-management-select-certificate]: ./media/api-management-howto-mutual-certificates/api-management-select-certificate.png
-  [api-management-save-api]: ./media/api-management-howto-mutual-certificates/api-management-save-api.png
-  [api-management-certificate-policy]: ./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png
+## Próximas etapas
 
-<!--HONumber=46--> 
+Para obter mais informações, consulte o vídeo a seguir.
+
+> [AZURE.VIDEO last-mile-security]
+
+[api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
+[api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
+[api-management-upload-certificate]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png
+[api-management-upload-certificate-form]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate-form.png
+[api-management-certificate-uploaded]: ./media/api-management-howto-mutual-certificates/api-management-certificate-uploaded.png
+[api-management-api-security]: ./media/api-management-howto-mutual-certificates/api-management-api-security.png
+[api-management-mutual-certificates]: ./media/api-management-howto-mutual-certificates/api-management-mutual-certificates.png
+[api-management-select-certificate]: ./media/api-management-howto-mutual-certificates/api-management-select-certificate.png
+[api-management-save-api]: ./media/api-management-howto-mutual-certificates/api-management-save-api.png
+[api-management-certificate-policy]: ./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png
+[api-management-certificate-delete]: ./media/api-management-howto-mutual-certificates/api-management-certificate-delete.png
+[api-management-confirm-delete]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png
+[api-management-confirm-delete-policy]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png
+
+
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+
+[Entidade de certificado da API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+
+[Prerequisites]: #prerequisites
+[Upload a client certificate]: #step1
+[Delete a client certificate]: #step1a
+[Configurar uma API para usar um certificado mútuo para autenticação de proxy]: #step2
+[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Next steps]: #next-steps
+
+
+
  
+
+<!---HONumber=58_postMigration-->

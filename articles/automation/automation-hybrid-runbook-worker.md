@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Runbook Workers Híbridos da Automação do Azure"
    description="Este artigo fornece informações sobre como instalar e usar Runbook Worker Híbrido, que é um recurso da Automação do Azure que permite que você execute runbooks em máquinas no seu data center local."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/11/2015"
@@ -59,7 +59,7 @@ Quando você adiciona um computador ao Operational Insights, a Solução de auto
 
 Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir para importar o módulo.
 
-	Import-Module HybridRegistration 
+	Import-Module HybridRegistration
 
 Se você receber uma mensagem de erro informando que o arquivo do módulo não foi encontrado, talvez seja necessário usar o comando a seguir que usa o caminho completo para o arquivo do módulo.
 
@@ -75,7 +75,7 @@ Em seguida, execute o cmdlet **Add-HybridRunbookWorker** usando a seguinte sinta
 - **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**. Você pode abrir a folha Gerenciar Chaves clicando no ícone de chave no Painel de elementos da conta de automação.<br><br>![Visão geral do Runbook Worker Híbrido](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. Instalar módulos do PowerShell 
+#### 3. Instalar módulos do PowerShell
 Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure. No entanto, esses módulos não são implantados automaticamente em máquinas locais; portanto, você deve instalá-los manualmente. A exceção é o módulo do Azure que é instalado por padrão, fornecendo acesso a cmdlets a todos os serviços e atividades do Azure da Automação do Azure.
 
 Como a principal finalidade do recurso Runbook Worker Híbrido é gerenciar recursos locais, você provavelmente precisará instalar os módulos que dão suporte a esses recursos. Veja [Instalar Módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.
@@ -123,16 +123,17 @@ Se você for um usuário existente do SMA, pode mover seus runbooks para a Autom
 
 Você pode usar os critérios a seguir para determinar se a Automação do Azure com Runbook Worker Híbrido ou o Service Management Automation é mais adequado às suas necessidades.
 
-- O SMA requer uma instalação local do Microsoft Azure Pack, que tem mais recursos locais e custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos runbook workers locais. Os agentes são gerenciados pelo Operational Insights, o que diminui os custos de manutenção. 
+- O SMA requer uma instalação local do Microsoft Azure Pack, que tem mais recursos locais e custos mais altos de manutenção do que a Automação do Azure, que só precisa de um agente instalado nos runbook workers locais. Os agentes são gerenciados pelo Operational Insights, o que diminui os custos de manutenção.
 - A Automação do Azure armazena seus runbooks na nuvem e os entrega a Runbooks Workers Híbridos locais. Se a sua política de segurança não permite esse comportamento, você deve usar o SMA.
 - O Microsoft Azure Pack é um download gratuito, enquanto a Automação do Azure pode incorrer em encargos de assinatura. Azure. Deve manter vários bancos de dados para o SMA.
 - A Automação do Azure com o Runbook Worker Híbrido permite que você gerencie runbooks para recursos em nuvem e locais em um único local, em vez de gerenciar separadamente tanto a Automação do Azure quando o SMA.
-- A Automação do Azure tem recursos avançados que incluem a criação gráfica e não estão disponíveis no SMA. 
+- A Automação do Azure tem recursos avançados que incluem a criação gráfica e não estão disponíveis no SMA.
 
 
 ## Artigos relacionados
 
 - [Como iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook)
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

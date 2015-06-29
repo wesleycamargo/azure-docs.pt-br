@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Como criar e implantar um serviço de nuvem - Azure" 
-	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+<properties
+	pageTitle="Como criar e implantar um serviço de nuvem - Azure"
+	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
+
 
 
 
@@ -24,7 +25,7 @@ O Portal de Gerenciamento do Azure oferece duas maneiras de criar e implantar um
 
 Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao você usar esse método, o Portal de Gerenciamento do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
 
-> [AZURE.NOTE]Se você planeja publicar o serviço de nuvem do Team Foundation Services (TFS) do Windows, use a criação rápida e configure a publicação do TFS em **Inicialização Rápida** ou no painel. Para obter mais informações, consulte [Fornecimento contínuo para o Azure usando a visualização do Visua Studio Online][TFSTutorialForCloudService], ou consulte a ajuda para a página **Início Rápido**.
+> [AZURE.NOTE]Se você planeja publicar o serviço de nuvem do VSO (Visual Studio Online), use a criação rápida e configure a publicação do VSO em **Inicialização Rápida** ou no painel. Para obter mais informações, consulte [Fornecimento contínuo para o Azure usando a visualização do Visua Studio Online][TFSTutorialForCloudService], ou consulte a ajuda para a página **Início Rápido**.
 
 ## Conceitos
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
@@ -33,12 +34,10 @@ Três componentes são necessários para implantar um aplicativo como um serviç
 
 - **Configuração de serviço**<br/> O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 
-- **Pacote de serviço**<br/> O pacote de serviço (arquivo .cspkg) contém o código do aplicativo e o arquivo de definição de serviço.
+- **Pacote de serviço**<br/> O pacote de serviço (arquivo .cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
 
 ## Preparação do aplicativo
-Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). Cada pacote do serviço de nuvem contém arquivos de aplicativo e configurações. O arquivo de configuração do serviço fornece as configurações.
-
-O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
+Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
 
 Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
@@ -107,7 +106,7 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 	O painel é aberto no ambiente de Produção. Nesse momento, você pode selecionar Preparar para implantar seu aplicativo no ambiente de preparo. Para obter mais informações, consulte [Gerenciar implantações no Azure](http://msdn.microsoft.com/library/gg433027.aspx).
 
-	 
+
 2. Clique em **Carregar uma nova implantação de produção** ou em **Carregar**.
 
 3. Em **Rótulo de implantação**, insira um nome para a nova implantação como, por exemplo, MyCloudServicev4.
@@ -123,7 +122,6 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 6. Clique em **OK** (marca de seleção) para iniciar a implantação do serviço de nuvem.
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
- 
 
 	Você pode monitorar o status da implantação na área de mensagem. Clique em OK para ocultar a mensagem.
 
@@ -140,6 +138,6 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

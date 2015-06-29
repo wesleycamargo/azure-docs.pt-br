@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,14 +14,28 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="06/12/2015" 
 	ms.author="kathydav"/>
 
 
-#Como fazer logon em uma máquina virtual executando o Windows Server#
+# Como fazer logon em uma máquina virtual executando o Windows Server#
 
-Para fazer logon em uma máquina virtual executando o Windows Server, use o botão conectar no Portal de Gerenciamento para iniciar uma conexão de área de trabalho remota. (Para VMs do Linux, confira [Como fazer Logon em uma Máquina Virtual executando Linux](virtual-machines-linux-how-to-log-on.md).)
+Você usará o botão **Conectar** no Portal do Azure para iniciar uma sessão de área de trabalho remota. (Para VMs do Linux, confira [Como fazer Logon em uma Máquina Virtual executando Linux](virtual-machines-linux-how-to-log-on.md).)
+
+## Como fazer logon
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-<!---HONumber=58--> 
+## Dicas de solução de problemas
+
+Aqui estão algumas opções a tentar rapidamente:
+
+Se houver problemas com a conexão de área de trabalho remota, tente redefinir a configuração do portal. Usando o painel da máquina virtual, em **Visão Rápida**, clique em **Redefinir a configuração remota**.
+
+Se houver problemas com sua senha, tente redefini-la no portal. No painel da máquina virtual, em **Visão Rápida**, clique em **Redefinir senha**.
+
+Se isso não funcionar, você precisará fazer uma solução de problemas mais ampla. Para obter instruções, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
+ 
+ 
+
+<!---HONumber=58_postMigration-->

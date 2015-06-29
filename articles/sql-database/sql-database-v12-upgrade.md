@@ -32,8 +32,8 @@
 | 2. Clique em **PROCURAR**. | ![Procurar Serviços][2] |
 | 3. Clique em **Servidores SQL**. Uma lista de nomes do SQL Server é exibida. | ![Selecionar serviço do SQL Server][3] |
 | 4. Selecione o servidor que você deseja copiar para um novo servidor com a atualização do banco de dados SQL habilitada. | ![Mostra uma lista de servidores SQL][4] |
-| 5. Clique em **Atualização Mais Recente do Banco de Dados SQL V12**. | ![Recurso de visualização mais recente][5] |
-| 6. Clique em **ATUALIZAR ESTE SERVIDOR**. | ![Atualiza o SQL Server para a visualização][6] |
+| 5. Clique em **Configurações** ou **Versão do servidor** para atualizar o seu servidor para V12. | ![Recurso de visualização mais recente][5] |
+| 6. Clique em **UPGRADE THIS SERVER**. | ![Atualiza o SQL Server para a visualização][6] |
 
 
 > [AZURE.NOTE]Quando você seleciona a opção de atualização, seu servidor e os bancos de dados nesse servidor serão habilitados com recursos do Banco de Dados SQL V12, e isso não poderá ser revertido. Para atualizar servidores para o Banco de Dados SQL V12, você precisa de uma camada de serviço Basic, Standard ou Premium. Para saber mais sobre as camadas de serviço, confira [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
@@ -77,18 +77,19 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 
 ## Links relacionados
 
--  [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+-  [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md) 
 - [Planejar e se preparar para atualizar para o Banco de Dados SQL V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
 [1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/browse.png
-[3]: ./media/sql-database-v12-upgrade/sqlserver.png
+[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
+[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [5]: ./media/sql-database-v12-upgrade/latestprview.png
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -189,4 +189,7 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

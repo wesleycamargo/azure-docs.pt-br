@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Tipos de declaração e token com suporte
@@ -409,8 +409,8 @@ Este é um exemplo de um típico JWT (JSON Web token) usado em um fluxo de Web d
     }.
 
 ##Consulte também
-### Conceitos
 
-[Protocolos de autenticação do Active Directory do Azure](active-directory-authentication-protocols.md)
+[Protocolos de autenticação do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL (visualização)" 
-	description="Criar um pool de recursos único para compartilhar em um grupo de Bancos de Dados SQL do Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL (visualização)"
+	description="Criar um pool de recursos único para compartilhar em um grupo de Bancos de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015" 
-	ms.author="sstein" 
+	ms.date="04/29/2015"
+	ms.author="sstein"
 	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -26,11 +26,11 @@
 Este artigo mostra como criar um pool elástico com o [Portal do Azure](https://portal.azure.com).
 
 Os pools elásticos simplificam o processo de criação, manutenção e gerenciamento do desempenho e do custo de uma grande quantidade de bancos de dados.
- 
+
 
 > [AZURE.NOTE]No momento, os pools elásticos estão em versão de visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL.
 
- 
+
 
 
 ## Pré-requisitos
@@ -73,14 +73,14 @@ A camada de preços de um pool elástico é um pouco parecida com a camada de se
 
 ### Adicionar bancos de dados
 
-Você pode selecionar, a qualquer momento, os bancos de dados específicos para inclusão no pool. Quando você cria um novo pool, o Azure recomenda os bancos de dados que se beneficiarão por estarem em um pool e os marca para inclusão. Você pode adicionar todos os bancos de dados disponíveis no servidor, ou marcar ou desmarcar os bancos de dados na lista inicial como desejado.
+Você pode selecionar, a qualquer momento, os bancos de dados específicos para inclusão no pool. Quando você cria um novo pool, o Azure recomenda os bancos de dados que se beneficiarão por estarem em um pool e os marca para inclusão. O Azure avalia o histórico de utilização de bancos de dados e recomenda um pool elástico quando ele é mais econômico do que o uso de níveis de desempenho para bancos de dados únicos. Se um pool elástico for recomendado, o Azure fornece a quantidade recomendada de DTUs de pool, as configurações mín./máx. de DTU para cada banco de dados no pool e uma lista de bancos de dados recomendados. Para que o banco de dados a ser considerado como um candidato ao pool elástico, ele deve existir há pelo menos de 14 dias e não deve estar na faixa de preços de Premium (a visualização pública está limitada somente a Standard, portanto, os bancos de dados Premium não são considerados viáveis). Você pode adicionar todos os bancos de dados disponíveis no servidor, ou marcar ou desmarcar os bancos de dados na lista inicial como desejado.
 
    ![Adicionar bancos de dados][5]
 
 Ao selecionar um banco de dados para adição a um pool, as condições a seguir devem ser atendidas:
 
 - O pool deve ter espaço para o banco de dados (não pode conter o número máximo de bancos de dados). Mais especificamente, o pool deve ter DTUs suficientes disponíveis para cobrir a garantia de DTUs por banco de dados (por exemplo, se a garantia de DTUs para o grupo for de 400, e a garantia de DTUs para cada banco de dados for de 10, o número máximo de bancos de dados permitidos no pool será de 40 (400 DTUs/10 DTUs garantidos por banco de dados = Máx. de 40 bancos de dados).
-- Os recursos atuais usados pelo banco de dados devem estar disponíveis no pool. 
+- Os recursos atuais usados pelo banco de dados devem estar disponíveis no pool.
 
 
 ### Configurar o desempenho
@@ -161,5 +161,6 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

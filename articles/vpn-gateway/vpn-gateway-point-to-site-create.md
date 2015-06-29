@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -118,7 +118,7 @@ Para se conectar à rede virtual, também será necessário configurar o cliente
 
 ### Instalar o pacote de configuração de VPN no cliente e iniciar a conexão
 
-1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. Observe que o pacote de configuração não está assinado pela Microsoft. Talvez você queira assinar o pacote usando o serviço de assinatura da sua organização ou assiná-lo você mesmo usando a ferramenta [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote. 
+1. Copie o arquivo de configuração localmente no computador que você deseja conectar à sua rede virtual e clique duas vezes no arquivo .exe. Depois que o pacote tiver sido instalado, você pode iniciar a conexão VPN. Observe que o pacote de configuração não está assinado pela Microsoft. Talvez você queira assinar o pacote usando o serviço de assinatura da sua organização ou assiná-lo você mesmo usando a ferramenta [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Não há problemas em usar o pacote sem assinatura. No entanto, se o pacote não estiver assinado, será exibido um aviso quando você instalar o pacote.
 2. No computador cliente, navegue até Conexões VPN e localize a conexão VPN que você acabou de criar. Ele será nomeado com o mesmo nome da sua rede virtual. Clique em **Conectar**.
 3. Será exibida uma mensagem pop-up, que é usada para criar um certificado autoassinado para o ponto de extremidade do Gateway. Clique em **Continuar** para usar privilégios elevados.
 4. Na página de status da **Conexão**, clique em **Conectar** para iniciar a conexão.
@@ -142,7 +142,7 @@ Exemplo:
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
@@ -157,5 +157,6 @@ Se você quiser configurar uma conexão VPN site a site, confira [Configurar uma
 Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
 
 Para configurar uma conexão VNet usando o RRAS, confira [Configurar uma VPN site a site usando o Serviço de Roteamento e Acesso Remoto (RRAS) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

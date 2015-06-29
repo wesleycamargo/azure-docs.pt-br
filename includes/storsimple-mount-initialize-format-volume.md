@@ -1,21 +1,6 @@
-<properties 
-   pageTitle="Montar, inicializar e formatar um volume"
-   description="Explica como configurar um volume em um dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
-   ms.se**rvice="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<properties pageTitle="Montar, inicializar e formatar um volume" description="Explica como configurar um volume em um dispositivo StorSimple." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="29/04/2015" ms.author="v-sharos" />
 
-### Para montar, inicializar e formatar um volume
+#### Para montar, inicializar e formatar um volume
 
 1. Inicie o iniciador iSCSI da Microsoft.
 
@@ -40,10 +25,10 @@
 10. Para formatar um volume simples, realize as seguintes etapas:
   1. Selecione o volume, clique com o botão direito no mesmo (clique na área do lado direito) e clique em **Novo Volume Simples**.
   2. No assistente para Novo Volume Simples, especifique o tamanho do volume e a letra do drive e configure o volume como um sistema de arquivos NTFS.
-  3. Especifique um tamanho de unidade de alocação com 64 KB. Esse tamanho de unidade de alocação funciona bem com os algoritmos de eliminação de duplicação usados na solução StorSimple. 
+  3. Especifique um tamanho de unidade de alocação com 64 KB. Esse tamanho de unidade de alocação funciona bem com os algoritmos de eliminação de duplicação usados na solução StorSimple.
   4. Realize uma formatação rápida.
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

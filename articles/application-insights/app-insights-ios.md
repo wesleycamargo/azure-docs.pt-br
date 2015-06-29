@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Application Insights para aplicativos de área de trabalho do Windows" 
-    description="Analise utilização e desempenho de seu aplicativo do Windows com o Application Insights." 
+    pageTitle="Application Insights para aplicativos do iOS" 
+    description="Analise o uso e o desempenho de seu aplicativo iOS com o Application Insights." 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 
@@ -107,13 +107,13 @@ Você pode incluir eventos adicionais da seguinte maneira:
 
 ## Exibir seus dados no Application Insights
 
-Retorne ao http://portal.azure.com e navegue até o recurso Application Insights.
+Retorne ao http://portal.azure.com e navegue até o recurso do Application Insights.
 
 Clique em Pesquisar para abrir a [Pesquisa de Diagnóstico][diagnostic], que é onde os primeiros eventos serão exibidos. Se você não vir nada, espere um ou dois minutos e clique em Atualizar.
 
 ![Clique em Pesquisa de Diagnóstico](./media/app-insights-ios/21-search.png)
 
-À medida que seu aplicativo for usado, os dados aparecerão na folha de visão geral.
+Na medida em que seu aplicativo for usado, os dados aparecerão na folha de visão geral.
 
 ![Folha de visão geral](./media/app-insights-ios/22-oview.png)
 
@@ -139,4 +139,6 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -3,7 +3,7 @@
 	description="Como começar a usar o armazenamento de blobs do Azure em um projeto ASP.NET 5 no Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Introdução ao Armazenamento do Azure (Projetos ASP.NET 5)
 
@@ -149,5 +149,6 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 	await blockBlob.DeleteAsync();
 
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/) Confira também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

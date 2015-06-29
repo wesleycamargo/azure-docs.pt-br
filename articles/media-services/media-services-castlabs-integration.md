@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ O diagrama a seguir demonstra uma arquitetura de integração de alto nível dos
 - O conteúdo de mídia é armazenado em AMS.
 - As IDs de chave de chaves de conteúdo são armazenados em castLabs e AMS.
 - O castLabs e o AMS têm autenticação de token interna. As seções a seguir discutem os tokens de autenticação. 
-- Quando um cliente solicita o fluxo em vídeo, o conteúdo é criptografado dinamicamente com **Criptografia comum** (CENC) e empacotado dinamicamente pelo AMS para alguns (ou todos) os protocolos especificados: Smooth streaming, HLS ou DASH. 
+- Quando um cliente solicita o fluxo do vídeo, o conteúdo é criptografado dinamicamente com **Criptografia comum** (CENC) e dinamicamente fornecido pelo AMS para DASH e Smooth Streaming. Também fornecemos criptografia de fluxo elementar PlayReady M2TS para protocolo de streaming do HLS.
 - A licença do PlayReady é recuperada do servidor de licença do AMS e a licença Widevine é recuperada do servidor de licenças castLabs. 
 - O Media Player decide automaticamente quais licenças buscar com base na capacidade de plataforma do cliente. 
 
@@ -95,7 +95,7 @@ Para usar o aplicativo Web (STS):
 
 ##Reproduzir um vídeo
 
-Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e Widevine), é possível usar o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
+Para reproduzir um vídeo criptografado com criptografia comum (PlayReady), é possível usar o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
 
 1.	Abra uma nova guia e inicie seu STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Vá para [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -106,10 +106,12 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e Wide
 7.	Atualize o player.
 8.	O vídeo deve estar em reprodução.
 
-Para reproduzir o vídeo protegido em HTML5 com o Chrome com o player castLabs, entre em contato com o castLabs para obter acesso ao player. Quando você tem acesso, há duas coisas para as quais deve estar atento:
+Para reproduzir o vídeo protegido em HTML5 com o Chrome com o player castLabs, entre em contato com o yanmf@microsoft.com para obter acesso ao player. Quando você tem acesso, há duas coisas para as quais deve estar atento:
 
 1.	O player do castLabs precisa ter acesso ao arquivo de manifesto MPEG-DASH, de forma a ser acrescentado (formato = mpd-tempo-csf) ao seu arquivo de manifesto para obter o arquivo de manifesto de MPEG-DASH, em vez do padrão Smooth Streaming.
 
 2.	O servidor de licença do castLab não precisa do prefixo "Portador =" na frente do token. Nesse caso, remova-o antes de enviar o token.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

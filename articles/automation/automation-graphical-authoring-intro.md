@@ -113,11 +113,16 @@ Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados p
 
 | Fonte de dados | Descrição |
 |:---|:---|
-|Saída de Atividade|Saída de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas serão listadas. Selecione apenas a atividade para usar sua saída para o valor do parâmetro. Se a atividade produzir um objeto com várias propriedades, você poderá digitar o nome da propriedade depois de selecioná-la.|
 |Valor Constante|Digite um valor válido para o parâmetro. Só está disponível para os seguintes tipos de dados: Int32,Int64,String,Boolean,DateTime,Switch. |
+|Saída de Atividade|Saída de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas serão listadas. Selecione apenas a atividade para usar sua saída para o valor do parâmetro. Se a atividade produzir um objeto com várias propriedades, você poderá digitar o nome da propriedade depois de selecioná-la.|
+|Parâmetro de Entrada de Runbook<br>*(Em breve) *|Selecione um parâmetro de entrada de runbook como entrada para o parâmetro de atividade.|  
+|Ativo de Variável de Automação<br>*(Em breve) *|Selecione uma Variável de Automação como entrada.|  
+|Ativo de Credencial de Automação<br>*(Em breve) *|Selecione uma Credencial de Automação como entrada.|  
+|Ativo de Certificado de Automação<br>*(Em breve) *|Selecione um Certificado de Automação como entrada.|  
+|Ativo de Conexão de Automação<br>*(Em breve) *|Selecione uma Conexão de Automação como entrada.| 
+|Expressão do PowerShell|Especifique a expressão simples do PowerShell. A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
 |Cadeia de Caracteres Vazia|Um valor de cadeia de caracteres vazia.|
 |Nulo|Um valor Nulo.|
-|Expressão do PowerShell|Especifique a expressão simples do PowerShell. A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
 |Cancelar Seleção|Limpa qualquer valor que foi configurado anteriormente.|
 
 
@@ -180,7 +185,7 @@ Para um link de sequência, a condição é avaliada apenas uma vez, pois é ret
 
 Quando você usa um link condicional, os dados disponíveis da atividade de origem para outras atividades nessa ramificação são filtradas pela condição. Se uma atividade for a origem para vários links, os dados disponíveis para atividades em cada ramificação dependerão da condição no link que se conecta a essa ramificação.
 
-Por exemplo, a atividade de origem no runbook abaixo obtém todas as máquinas virtuais. Ela tem dois links condicionais e um link sem uma condição. O primeiro link condicional usa a expressão *$ActivityOutput['Get-AzureVM']. PowerState -eq 'Started'* para filtrar somente as máquinas virtuais que estão sendo executadas no momento. O segundo usa a expressão *$ActivityOutput['Get-AzureVM']. PowerState -eq 'Stopped'* para filtrar somente as máquinas virtuais que estão interrompidas no momento.
+Por exemplo, a atividade de origem no runbook abaixo obtém todas as máquinas virtuais. Ela tem dois links condicionais e um link sem uma condição. O primeiro link condicional usa a expressão *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* para filtrar somente as máquinas virtuais que estão sendo executadas no momento. O segundo usa a expressão *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* para filtrar somente as máquinas virtuais que estão interrompidas no momento.
 
 ![Exemplo de link condicional](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -273,5 +278,6 @@ Os dados criados por qualquer atividade que não tenha um link de saída serão 
 
 - [Conceitos de runbook da Automação do Azure](automation-runbook-concepts.md)
 - [Ativos de automação](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,23 +1,22 @@
 1. Entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](http://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
 
+
 2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
+
 
 3. Em **Computação**, clique em **Máquina Virtual** e em **Da Galeria**.
 
 	![Navegar até Da Galeria na barra de comandos](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. A primeira tela permite **Escolher uma Imagem** para a máquina virtual em uma das listas na Galeria de Imagens. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando). Clique na seta para continuar.
 
-	![Escolher uma imagem](./media/virtual-machines-create-WindowsVM/chooseimage.png)
+4. A primeira tela depois dessa permite que você **Escolha uma Imagem** para sua máquina virtual na lista de imagens disponíveis. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando).
 
-5. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Se você quiser apenas testar as Máquinas Virtuais do Azure, preencha os campos conforme mostrado na imagem abaixo. Do contrário, escolha a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão alguns detalhes para ajudar você a preenchê-los:
+
+5. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Use a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão mais alguns detalhes para ajudá-lo a preenchê-los:
 
 	- **Novo Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha exclusiva para essa conta e não se esqueça dela. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 
 	- O tamanho de uma máquina virtual afeta o custo de usá-la, bem como as opções de configuração, como o número de discos de dados que é possível anexar. Para obter detalhes, consulte [Tamanhos de máquinas virtuais e serviço de nuvem do Azure](http://go.microsoft.com/fwlink/p/?LinkId=466520).
-
-	![Configurar as propriedades da máquina virtual](./media/virtual-machines-create-WindowsVM/vmconfiguration.png)
-
 
 
 6. A terceira tela permite configurar recursos para rede, armazenamento e disponibilidade. Aqui estão alguns detalhes para ajudar você a preenchê-los:
@@ -29,14 +28,11 @@
 
 	>[AZURE.NOTE]Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-	- Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines-set-up-endpoints-classic-portal.md).
-
-	![Configurar os recursos conectados da máquina virtual](./media/virtual-machines-create-WindowsVM/resourceconfiguration.png)
-
-7. A quarta tela de configuração permite configurar o Agente de VM e algumas das extensões disponíveis. Clique na marca de seleção para criar a máquina virtual.
+	- Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
 
 
-	![Configurar Agente de VM e extensões da máquina virtual](./media/virtual-machines-create-WindowsVM/agent-and-extensions.png)
+7. A quarta tela de configuração permite instalar o Agente de VM e configurar algumas das extensões disponíveis.
+
 
 	>[AZURE.NOTE]O agente de VM fornece o ambiente para instalar extensões que podem ajudar a interagir com ou gerenciar a máquina virtual. Para obter detalhes, consulte [Usando extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -44,4 +40,4 @@
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

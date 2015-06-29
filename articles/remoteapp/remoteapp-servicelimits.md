@@ -25,7 +25,7 @@ Este tópico descreve os limites do serviço RemoteApp do Azure.
 Todas as coleções:
 
 - Coleções por usuário: 1
-- Aplicativos publicados por coleção: 5.000 
+- Aplicativos publicados por coleção: 100 
 
 Coleções de avaliação:
 
@@ -76,4 +76,6 @@ Para abrir um tíquete de suporte, faça o seguinte:
 8.	Siga as instruções na próxima página e insira os detalhes sobre o aumento do limite necessário. Por exemplo, se desejar estender o período de avaliação, “Por favor, estenda meu período de avaliação por X dias”. 
 9.	Clique em **Enviar** para abrir o tíquete.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

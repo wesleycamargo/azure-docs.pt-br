@@ -22,14 +22,14 @@ Este tutorial mostra como usar alguns dos clientes disponíveis nas bibliotecas 
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Para concluir este tutorial, você também precisará do seguinte:
+Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
 - [PowerShell do Azure](../install-configure-powershell.md)
 
-Ele leva cerca de 30 minutos para realizar estas etapas.
+São necessários cerca de 30 minutos para a conclusão destas etapas.
 
 ## Etapa 1: adicionar um aplicativo ao AD do Azure e definir permissões
 
@@ -381,10 +381,10 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 2.	Pressione **Enter** após cada código de status ser retornado para criar cada recurso. Depois que a máquina virtual for criada, execute a próxima etapa antes de pressionar Enter para excluir todos os recursos.
 
-	Devem ser necessários cerca de 5 minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal de visualização do Azure antes de excluí-los.
+	Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal de visualização do Azure antes de excluí-los.
 
 3. Procure os logs de auditoria no portal de visualização do Azure para ver o status dos recursos:
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/08/2015"
+   ms.date="06/10/2015"
    ms.author="mbaldwin"/>
 
 
@@ -23,7 +23,7 @@
 Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Azure Active Directory fornece aos desenvolvedores uma maneira eficiente de integrar o gerenciamento de identidades em seus aplicativos. Os artigos a seguir fornecem visões gerais sobre a implementação e os principais recursos do Azure Active Directory. Sugerimos que você os leia na ordem ou pule para a [Introdução](#getting-started) se estiver pronto para se aprofundar.
 
 
-1. **[Como para integrar-se ao Azure AD](active-directory-how-to-integrate.md)**: descubra por que a integração com o Azure Active Directory oferece a melhor solução para login seguro e autorização.
+1. **[Os benefícios da integração do Azure AD](active-directory-how-to-integrate.md)**: descubra por que a integração com o Active Directory do Azure oferece a melhor solução para entrada segura e autorização.
 
 1. **[Usando o Azure AD para logon](active-directory-authentication-scenarios.md)**: aproveite a autenticação simplificada do Azure Active Directory para logon em seu aplicativo.
 
@@ -33,12 +33,8 @@ Como uma plataforma IDMaaS (Gerenciamento de Identidade como um Serviço), o Azu
 
 1. **[Bibliotecas](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: autentique facilmente os usuários para obter tokens de acesso com as bibliotecas de autenticação do Azure.
 
-#### Vídeos
-Se você prefere aprender com vídeos, consulte estas apresentações de visão geral sobre como desenvolver aplicativos com o Azure Active Directory. Normalmente, eles apresentam alto-falantes que funcionam diretamente na equipe de engenharia e tópicos fundamentais de instrução, incluindo IDMaaS, autenticação, federação de identidade e logon único.
+Para exibir as visões gerais do AAD apresentadas na conferência Build 2015, consulte a seção [vídeos](#videos) abaixo.
 
-- **[Azure Active Directory: Gerenciamento de identidade como um serviço para aplicativos modernos](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[Desenvolva aplicativos Web modernos com o Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[Desenvolva aplicativos nativos modernos com o Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 ## Introdução
 
@@ -70,30 +66,31 @@ Esses artigos descrevem como executar tarefas específicas usando o Azure Active
 - [Como obter um locatário do Azure AD](active-directory-howto-tenant.md)
 - [Como listar seu aplicativo na galeria de aplicativos do Azure Active Directory](active-directory-app-gallery-listing.md)
 - [Introdução às APIs do Office 365 em aplicativos](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Como enviar aplicativos Web para o Office 365 para o Painel do Vendedor](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 
 
 ## Referência
 
 Esses artigos fornecem referências básicas para APIs REST e de biblioteca de autenticação, protocolos, erros, exemplos de código e pontos de extremidade.
 
-####  Suporte
+###  Suporte
 - **[Onde obter suporte](http://stackoverflow.com/questions/tagged/azure-active-directory)**: localize soluções do Azure AD no estouro de pilha procurando pelas guias [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) e [adal](http://stackoverflow.com/questions/tagged/adal).
 
-#### Código
+### Código
 
 - **[Bibliotecas de código livre do Azure AD](http://github.com/AzureAD)**: a maneira mais fácil de localizar o código-fonte de uma biblioteca é usando nossa [lista de bibliotecas](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 - **[Exemplos do Azure AD](http://github.com/AzureADSamples)**: A maneira mais fácil para navegar pela lista de exemplos é usando o [índice de exemplos de código](active-directory-code-samples.md).
 
 
-#### API gráfica
+### API gráfica
 
 - **[Referência de Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: referência REST para a Graph API do Azure Active Directory. [Exiba a nova experiência de referência de Graph API interativa](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - **[Escopos de permissão de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**: os escopos de permissão do OAuth 2.0 que são usados para controlar o acesso que um aplicativo tem aos dados de diretório em um locatário.
 
 
-#### Protocolos de autenticação
+### Protocolos de autenticação
 
 - **[Referência de protocolo do SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx)**: o protocolo do SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único para seus usuários.
 
@@ -108,8 +105,17 @@ Esses artigos fornecem referências básicas para APIs REST e de biblioteca de a
 
 - **[Declarações e tokens de segurança suportados](active-directory-token-and-claims.md)**: um guia para compreender e avaliar as declarações nos tokens SAML 2.0 e JSON Web Tokens (JWT).
 
-#### Vídeos
+## Vídeos
 
+### Build 2015
+
+Essas apresentações de visão geral sobre aplicativos de desenvolvimento com o Active Directory do Azure apresentam palestrantes que trabalham diretamente com a equipe de engenharia e tópicos fundamentais de instrução, incluindo IDMaaS, autenticação, federação de identidade e logon único.
+
+- **[Azure Active Directory: Gerenciamento de identidade como um serviço para aplicativos modernos](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Desenvolva aplicativos Web modernos com o Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Desenvolva aplicativos nativos modernos com o Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+
+### Azure Friday
 [Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios recorrente dedicada a oferece a você entrevistas curtas de 10 a 15 minutos com especialistas em uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
 
 - **[Identidade do Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
@@ -126,4 +132,4 @@ Esses artigos fornecem referências básicas para APIs REST e de biblioteca de a
 
 - **[Azure AD no Twitter](https://twitter.com/azuread)**: anúncios do Azure AD em 140 caracteres ou menos.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

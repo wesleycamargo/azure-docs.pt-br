@@ -315,4 +315,6 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
  - [Wiki do Ubuntu: configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
  - [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-how-to-inject-custom-data.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

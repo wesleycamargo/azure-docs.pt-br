@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # Quais são as próximas etapas que podem ser tomadas usando o AD do Azure?
 
 
-[O que é o AD do Azure?](active-directory-whatis.md)<br> [Como ele funciona?](active-directory-works.md)<br> [Introdução](active-directory-get-started.md)<br> [Saiba mais](active-directory-learn-map.md)
+###Outros artigos sobre este tópico
+[O que é o AD do Azure?](active-directory-whatis.md)<br> [Como ele funciona?](active-directory-works.md)<br> [Introdução](active-directory-get-started.md)<br> [Próximas etapas](active-directory-next-steps.md)<br> [Saiba mais](active-directory-learn-map.md)
 
 ## Gerenciar usuários no AD do Azure
 Gerenciar contas de usuário é mais do que apenas criar ou excluir usuários e atribuir permissões. Você pode gerar relatórios sobre acesso e uso, definir políticas de senha, habilitar redefinição de senha por autoatendimento, configurar a autenticação multifator e muito mais. [Saiba mais sobre como gerenciar usuários](active-directory-create-users.md).
 
 ## Sincronizar e gerenciar senhas
-Sincronizar senhas de usuário para que os usuários possam entrar em serviços de nuvem da Microsoft (como o Office 365, Dynamics CRM e o Windows InTune) usando a mesma senha que eles usam para entrar em sua rede local. [Saiba mais sobre como gerenciar senhas](active-directory-manage-passwords.md).
+Sincronize senhas de usuário para que os usuários possam entrar em serviços em nuvem da Microsoft (como o Office 365, Dynamics CRM e o Microsoft InTune) usando a mesma senha que eles usam para entrar em sua rede local. [Saiba mais sobre como gerenciar senhas](active-directory-manage-passwords.md).
 
 ## Gerenciar grupos no AD do Azure
 Use grupos para atribuir um conjunto comum de permissões e direitos a várias contas ao mesmo tempo, em vez de fazê-lo individualmente para cada conta. Você também pode sincronizar grupos no seu Windows Server Active Directory local. Saiba mais sobre como gerenciar grupos no Active Directory do Azure. [Saiba mais sobre como gerenciar grupos](active-directory-manage-groups.md).
@@ -38,5 +39,6 @@ O registro de dispositivos do AD do Azure provisiona dispositivos com uma identi
 
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

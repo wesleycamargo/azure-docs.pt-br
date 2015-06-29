@@ -39,7 +39,7 @@ Se você estiver sincronizando mais de 50K objetos, terá a opção de executar 
 
 Baixe o Azure AD Connect e copie para o servidor DirSync existente.
 
-1. Navegue até AzureADConnect.msi e clique duas vezes 
+1. Navegue até AzureADConnect.msi e clique duas vezes
 2. Comece a percorrer o assistente
 
 Para a atualização in-loco ocorrem as seguintes etapas de alto nível:
@@ -143,8 +143,8 @@ Consulte as opções na seguinte interface do usuário:
 ![Insira suas credenciais de AD do Azure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. Clique em Avançar. 
-8. Na página "Pronto para configurar", desmarque "Iniciar o processo de sincronização assim que a configuração for concluída"
-8. Clique em "Instalar".
+8. Na página “Pronto para configurar”, deixe “Iniciar o processo de sincronização assim que a configuração for concluída” marcado.[AZURE.NOTE]Começará a sincronização entre o Windows Server Active Directory e o Active Directory do Azure, mas nenhuma alteração será exportada para o AD do Azure. Apenas uma ferramenta de sincronização pode exportar ativamente alterações de cada vez.
+9. Clique em "Instalar".
 
 [AZURE.NOTE]Desmarque a caixa de seleção de sincronização inicial para garantir que o DirSync, que ainda está instalado e em execução, e o Azure AD Connect não tentem gravar no AAD ao mesmo tempo.
 
@@ -188,9 +188,9 @@ Parabéns! Você migrou com êxito para o Azure AD Connect usando implantação 
 A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD Connect irá instalar no servidor em que você instalou o Azure AD Connect. Esta lista é para uma instalação básica do Express. Se você optar por usar um SQL Server diferente na página de serviços de sincronização de instalação, os componentes do SQL Server 2012 listados abaixo não serão instalados.
 
 - Forefront Identity Manager Azure Active Directory Connector
-- Utilitários de Linha de Comando 2012 da Microsoft para SQL Server
+- Utilitários de linha de comando do Microsoft SQL Server 2012
 - Microsoft SQL Server 2012 Native Client
-- Microsoft SQL Server 2012 Express LocalDB
+- LocalDB do Microsoft SQL Server 2012 Express
 - Módulo do Active Directory do Azure para Windows PowerShell
 - Assistente de Conexão do Microsoft Online Services para profissionais de TI
 - Pacote de redistribuição de Microsoft Visual C++ 2013
@@ -203,5 +203,6 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 * [O que vem a seguir com o Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Saiba mais](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

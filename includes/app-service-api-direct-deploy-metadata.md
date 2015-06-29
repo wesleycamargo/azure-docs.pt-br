@@ -20,7 +20,7 @@ Defina a propriedade `namespace` para o domínio do seu locatário do Active Dir
 
 ### Definição de API Swagger dinâmica
 
-Para fornecer um ponto de extremidade de URL para uma definição de API [Swagger](http://swagger.io/) dinâmica, armazene na propriedade `endpoints.apiDefinition` a URL relativa de uma API exposta pelo aplicativo de API, que retorna uma definição de API Swagger 2.0 em uma solicitação GET. Por exemplo:
+Se o aplicativo de API puder retornar uma definição de API [Swagger](http://swagger.io/) dinâmica, armazene a URL relativa para uma solicitação GET que retorna a definição de API JSON na propriedade `endpoints.apiDefinition`. Por exemplo:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@ Para fornecer um arquivo de definição de API [Swagger](http://swagger.io/) 2.0
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 Deixe `endpoints.apiDefinition` fora do arquivo *apiapp.json* ou definir seu valor como nulo. Se você incluir uma URL `endpoints.apiDefinition` e um arquivo *apiDefinition.swagger.json*, a URL terá precedência e o arquivo será ignorado.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

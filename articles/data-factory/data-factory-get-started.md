@@ -22,59 +22,59 @@
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-O tutorial neste artigo o ajudará a iniciar rapidamente com o uso do serviço de fábrica de dados do Azure. Neste tutorial, você irá criar uma fábrica de dados do Azure e criar um pipeline na fábrica dados para copiar dados de um armazenamento de BLOBs do Azure para um banco de dados do SQL Azure.
+O tutorial neste artigo o ajudará a começar rapidamente a usar o serviço Azure Data Factory. Neste tutorial, você criará uma Azure Data Factory e como criar um pipeline na fábrica de dados para copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure.
 
-> [AZURE.NOTE]Para obter uma visão geral detalhada do service Factory de dados, consulte o [Introdução ao Azure dados Factory][data-factory-introduction] artigo.
+> [AZURE.NOTE]Para obter uma visão geral detalhada do serviço Data Factory, consulte o artigo [Introdução à Azure Data Factory][data-factory-introduction].
 
 ##Pré-requisitos para o tutorial
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Assinatura do Azure**. Se você não tiver uma assinatura, você pode criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o [avaliação gratuita][azure-free-trial] para obter detalhes.
-- **Conta de armazenamento do azure**. Você usará o armazenamento de blob como um **fonte** armazenam dados neste tutorial se você não tiver uma conta de armazenamento do Azure, consulte o [criar uma conta de armazenamento][data-factory-create-storage] artigo para conhecer as etapas criar um.
-- **Banco de dados SQL do Azure**. Você usará um banco de dados do SQL Azure como um **destino** armazenam dados neste tutorial. Se você não tiver um banco de dados do SQL Azure que você pode usar o tutorial, consulte [como criar e configurar um banco de dados do SQL Azure][data-factory-create-sql-database] para criar um.
+- **Assinatura do Azure**. Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita][azure-free-trial] para obter detalhes.
+- **Conta de Armazenamento do Azure**. Você usará o armazenamento de blob como um armazenamento de dados de **origem** dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento][data-factory-create-storage] para conhecer as etapas para criar um.
+- **Banco de dados SQL do Azure**. Você usará um banco de dados SQL do Azure como um armazenamento de dados de **destino** neste tutorial. Se você não tiver um banco de dados do SQL Azure que você possa usar no tutorial, consulte [Como criar e configurar um banco de dados SQL do Azure][data-factory-create-sql-database] para criar um.
 - **SQL Server 2012/2014 ou Visual Studio 2013**. Você usará SQL Server Management Studio ou Visual Studio para criar um banco de dados de exemplo e exibir os dados de resultado no banco de dados.  
 
-### Coletar o nome da conta e chave de conta para sua conta de armazenamento do Azure
-Você precisará do nome da conta e chave de conta da sua conta de armazenamento do Azure para fazer este tutorial. Anote o **nome da conta** e **chave de conta** para sua conta de armazenamento do Azure, seguindo as instruções abaixo:
+### Colete o nome da conta e chave de conta da sua Conta de Armazenamento do Azure
+Você precisará do nome da conta e chave de conta da sua conta de armazenamento do Azure para concluir este tutorial. Anote o **nome da conta** e **chave de conta** para sua conta de armazenamento do Azure, seguindo as instruções abaixo:
 
-1. Faça logon para o [Portal de visualização do Azure][azure-preview-portal].
-2. Clique em **Procurar** hub à esquerda e selecione **contas de armazenamento**.
-3. No **contas de armazenamento** lâmina, selecione o **conta de armazenamento do Azure** que você deseja usar neste tutorial.
-4. No **armazenamento** lâmina, clique em **chaves** lado a lado.
-5. No **Gerenciar chaves** lâmina, clique em **cópia** botão (imagem) ao lado **nome da conta de armazenamento** texto Salvar/colá-lo em algum lugar e caixa (por exemplo: em um arquivo de texto).  
-6. Repita a etapa anterior para copiar ou anote o **chave de acesso primária**.
-7. Feche todos os blades clicando **X**.
+1. Faça logon no [Portal de Visualização do Azure][azure-preview-portal].
+2. Clique no hub **PROCURAR** à esquerda e selecione **Contas de armazenamento**.
+3. Na folha **Contas de armazenamento**, selecione a **Conta de armazenamento do Azure** que você deseja usar neste tutorial.
+4. Na folha **ARMAZENAMENTO**, clique no bloco **CHAVES**.
+5. Na folha **Gerenciar chaves**, clique no botão **cópia** (imagem) ao lado da caixa de texto **NOME DA CONTA DE ARMAZENAMENTO** e salve-o/cole-o em algum lugar (por exemplo, em um arquivo de texto).  
+6. Repita a etapa anterior para copiar ou anote a **CHAVE DE ACESSO PRIMÁRIA**.
+7. Feche todas as folhas, clicando em **X**.
 
-### Coletar o nome do servidor, nome do banco de dados e conta de usuário para seu banco de dados do SQL Azure
-Você precisará os nomes do servidor SQL Azure, banco de dados e o usuário fazer este tutorial. Anote os nomes dos **server**, **banco de dados**, e **usuário** para seu banco de dados do SQL Azure, seguindo as instruções abaixo:
+### Colete o nome do servidor, nome do banco de dados e conta de usuário para seu banco de dados SQL do Azure
+Você precisará dos nomes do servidor, banco de dados e usuário SQL do Azure para concluir este tutorial. Anote os nomes do **servidor**, **banco de dados** e **usuário** para seu banco de dados SQL do Azure, seguindo as instruções abaixo:
 
-1. No **Azure Preview Portal**, clique em **Procurar** à esquerda e selecione **bancos de dados SQL**.
-2. No **lâmina de bancos de dados SQL**, selecione o **banco de dados** que você deseja usar neste tutorial. Anote o **nome do banco de dados**.  
-3. No **banco de dados SQL** lâmina, clique em **propriedades** lado a lado.
-4. Anote os valores para **nome do servidor** e **logon de administração de servidor**.
-5. Feche todos os blades clicando **X**.
+1. No **Portal de Visualização do Azure**, clique em **Procurar** à esquerda e selecione **Bancos de dados SQL**.
+2. Na **folha Bancos de dados SQL**, clique no **banco de dados** que você deseja utilizar neste tutorial. Anote o **nome do banco de dados**.  
+3. Em seguida, na folha do **BANCO DE DADOS SQL**, clique no bloco **PROPRIEDADES**.
+4. Anote os valores para **NOME DO SERVIDOR** e **LOGON DE ADMIN DO SERVIDOR**.
+5. Feche todas as folhas, clicando em **X**.
 
-### Permitir que os serviços do Azure acessar o servidor do SQL Azure
-Certifique-se de que **Permitir acesso aos serviços do Azure** definindo folheada **ON** para o servidor do SQL Azure para que o serviço de dados fábrica possa acessar seu servidor do SQL Azure. Para verificar e ativar essa configuração, faça o seguinte:
+### Permitir que os serviços do Azure acessem o SQL Server do Azure
+Certifique-se de a configuração **Permitir acesso aos serviços do Azure** esteja definida como **ATIVADA** para o servidor do SQL Azure para que o serviço Data Factory possa acessar seu SQL Server do Azure. Para verificar e ativar essa configuração, faça o seguinte:
 
-1. Clique em **Procurar** hub à esquerda e clique em **servidores SQL**.
-2. Selecione **seu servidor**, e clique em **configurações** sobre o **SQL SERVER** blade.
-3. No **configurações** lâmina, clique em **Firewall**.
-4. No **as configurações de Firewall** lâmina, clique em **ON** para **Permitir acesso aos serviços do Azure**.
-5. Feche todos os blades clicando **X**.
+1. Clique no hub **PROCURAR** à esquerda e clique em **SQL Servers**.
+2. Selecione **seu servidor**, e clique em **CONFIGURAÇÕES** sobre a folha **SQL SERVER**.
+3. Na folha **CONFIGURAÇÕES**, clique em **Firewall**.
+4. Na folha **Configurações de Firewall**, clique em **ATIVADO** para **Permitir acesso aos serviços do Azure**.
+5. Feche todas as folhas, clicando em **X**.
 
 ### Preparar o armazenamento de blobs do Azure e o banco de dados SQL do Azure para o tutorial
-Agora, prepare seu armazenamento de BLOBs do Azure e o banco de dados do SQL Azure para o tutorial, executando as seguintes etapas:
+Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azure para o tutorial, executando as seguintes etapas:
 
-1. Inicie o bloco de notas, cole o seguinte texto e salve-o como **emp.txt** para **C:\ADFGetStarted** pasta no disco rígido.
+1. Inicie o bloco de notas, cole o texto a seguir e salve-o como **emp.txt** na pasta **C:\ADFGetStarted** no disco rígido.
 
         John, Doe
 		Jane, Doe
 
-2. Use ferramentas como [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) para criar o **adftutorial** contêiner e carregar o **emp.txt** arquivo ao contêiner.
+2. Use ferramentas como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) para criar o contêiner **adftutorial** e carregar o arquivo **emp.txt** no contêiner.
 
     ![Gerenciador de Armazenamento do Azure][image-data-factory-get-started-storage-explorer]
-3. Use o seguinte script SQL para criar a **emp** tabela em seu banco de dados do SQL Azure.  
+3. Utilize o script SQL a seguir para criar a tabela **emp** no seu Banco de Dados SQL do Azure.  
 
 
         CREATE TABLE dbo.emp
@@ -87,15 +87,15 @@ Agora, prepare seu armazenamento de BLOBs do Azure e o banco de dados do SQL Azu
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se você tiver instalado no computador do SQL Server 2012/2014:** siga as instruções do [etapa 2: conectar-se ao banco de dados SQL do gerenciamento do Azure SQL banco de dados usando o SQL Server Management Studio][sql-management-studio] artigo para se conectar ao seu servidor do SQL Azure e execute o script SQL. Observe que este artigo usa o portal de gerenciamento de versão (http://manage.windowsazure.com), não o portal de visualização (http://portal.azure.com), para configurar o firewall para um servidor do SQL Azure.
+	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Observe que este artigo usa o portal de gerenciamento de versão (http://manage.windowsazure.com), não o portal de visualização (http://portal.azure.com), para configurar o firewall para um servidor SQL do Azure.
 
-	**Se você tiver o Visual Studio 2013 instalado no computador:** no [Azure Preview Portal](http://portal.azure.com), clique em **Procurar** hub à esquerda, clique **servidores SQL**, selecione o banco de dados e clique em **aberto no Visual Studio** botão na barra de ferramentas para conectar-se ao seu servidor do SQL Azure e execute o script. Se o cliente não tem permissão para acessar o servidor do SQL Azure, você precisará configurar o firewall para o servidor do SQL Azure permitir o acesso do computador (endereço IP). Consulte o artigo acima para obter as etapas configurar o firewall para o servidor do SQL Azure.
+	**Se você tiver o Visual Studio 2013 instalado no computador:** no [Azure Preview Portal](http://portal.azure.com), clique em **Procurar** hub à esquerda, clique **servidores SQL**, selecione o banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para conectar-se ao seu SQL Server do Azure e executar o script. Se o cliente não tem permissão para acessar o SQL Server do Azure, você precisará configurar o firewall para o SQL Server do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para obter as etapas para configurar o firewall para o SQL Server do Azure.
 
 
 Faça o seguinte:
 
-- Clique em [usando o Editor de fábrica dados](data-factory-get-started-using-editor.md) link na parte superior para executar o tutorial usando o Editor de fábrica de dados, que faz parte do Portal do Azure.
-- Clique em [usando o PowerShell](data-factory-monitor-manage-using-powershell.md) link na parte superior para executar o tutorial usando o PowerShell do Azure.
+- Clique no link [Usando o Editor Data Factory](data-factory-get-started-using-editor.md) na parte superior para executar o tutorial usando o Editor Data Factory, que faz parte do Portal do Azure.
+- Clique no link [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
 
 
 <!--Link references-->
@@ -216,5 +216,6 @@ Faça o seguinte:
 [image-data-factory-sql-management-console-2]: ./media/data-factory-get-started/getstarted-azure-sql-management-console-2.png
 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

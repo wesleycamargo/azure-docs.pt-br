@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="06/10/2015"
 	ms.author="josephd"/>
 
 # Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows
@@ -27,7 +27,11 @@ Estas etapas mostram como personalizar um conjunto de comandos do PowerShell do 
 
 Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
-Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Linux, confira [Usar o PowerShell do Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux](virtual-machines-ps-create-preconfigure-linux-vms.md).
+Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Linux, confira [Usar o PowerShell do Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+
+- [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## Etapa 1: instalar o PowerShell do Azure
 
@@ -42,7 +46,7 @@ Defina a assinatura e a conta de armazenamento do Azure executando estes comando
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome de assinatura correto na propriedade SubscriptionName na saída do comando **Get-AzureSubscription**. Você pode obter o nome de conta de armazenamento correto na propriedade Label na saída do comando **Get-AzureStorageAccount**, após emitir o comando **Select-AzureSubscription**. Você também pode armazenar esses comandos em um arquivo de texto para uso futuro.
+Você pode obter o nome de assinatura correto na propriedade SubscriptionName na saída do comando **Get-AzureSubscription**. Você pode obter o nome de conta de armazenamento correto na propriedade Label na saída do comando **Get-AzureStorageAccount**, após emitir o comando **Select-AzureSubscription**.
 
 ## Etapa 3: determinar a ImageFamily
 
@@ -61,7 +65,7 @@ Aqui estão alguns exemplos de valores de ImageFamily para computadores baseados
 - Visualização técnica do Windows Server
 - SQL Server 2012 SP1 Enterprise em Windows Server 2012
 
-Se você encontrar a imagem que está procurando, abra uma nova instância do editor de texto de sua escolha (ou uma instância do Ambiente de Script Integrado do Windows PowerShell [ISE]) e copie o seguinte para o novo arquivo de texto, substituindo o valor de ImageFamily.
+Se você encontrar a imagem que você está procurando, abra uma nova instância do editor de texto de sua preferência ou o ISE (ambiente de script integrado) do PowerShell. Copie o seguinte para o novo arquivo de texto ou o ISE do PowerShell, substituindo o valor de ImageFamily.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -70,14 +74,14 @@ Em alguns casos, o nome da imagem está na propriedade Label, e não no valor de
 
 	Get-AzureVMImage | select Label -Unique
 
-Se você encontrar a imagem certa com este comando, abra uma nova instância do editor de texto de sua escolha (ou uma instância do PowerShell ISE) e copie o seguinte para o novo arquivo de texto, substituindo o valor de Label.
+Se você encontrar a imagem correta com esse comando, abra uma nova instância do editor de texto de sua preferência ou o ISE do PowerShell. Copie o seguinte para o novo arquivo de texto ou o ISE do PowerShell, substituindo o valor de Rótulo.
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Etapa 4: criar o conjunto de comandos
 
-Crie o restante do seu conjunto de comandos, copiando o conjunto apropriado de blocos abaixo para o novo arquivo de texto e, em seguida, preencha os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
+Crie o restante do seu conjunto de comandos, copiando o conjunto apropriado de blocos abaixo para o novo arquivo de texto ou o ISE e, em seguida, preenchendo os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
 
 Comece seu conjunto de comandos escolhendo um destes dois blocos de comandos (obrigatório).
 
@@ -163,13 +167,13 @@ Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtua
 
 ## Etapa 5: executar o conjunto de comandos
 
-Revise o conjunto de comandos do PowerShell do Azure criado em seu editor de texto, que consiste em vários blocos de comandos da etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
+Examine o conjunto de comandos do PowerShell do Azure criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
 
-Copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure.
+Se você estiver usando um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o comando definido com o ISE do PowerShell.
 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
-- Salvar este conjunto de comandos como um arquivo de texto ou como um arquivo de script do PowerShell (*. ps1)
+- Salve esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1)
 - Salvar este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do Portal de Gerenciamento do Azure
 
 ## <a id="examples"></a>Exemplos
@@ -263,4 +267,7 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-<!---HONumber=58--> 
+[Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+ 
+
+<!---HONumber=58_postMigration-->

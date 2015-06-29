@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -133,6 +133,10 @@ Há um limite de cerca de 1 k para o tamanho da cadeia de caracteres. (Se você 
 
 Os valores das métricas devem ser >= 0 para serem exibidos corretamente.
 
+
+Há alguns [limites no número de propriedades, valores de propriedade e métricas](#limits) que você pode usar.
+
+
 *JavaScript*
 
     appInsights.trackEvent // or trackPageView, trackMetric, ...
@@ -209,7 +213,7 @@ Use o campo Pesquisa para ver as ocorrências de eventos com um valor da proprie
 
 ![Digite um termo em Pesquisar](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
 
-[Saiba mais sobre cadeias de caracteres de pesquisa][diagnostic]
+[Saiba mais sobre expressões de pesquisa][diagnostic]
 
 #### Maneira alternativa de definir propriedades e métricas
 
@@ -227,23 +231,10 @@ Se for mais conveniente, você poderá coletar os parâmetros de um evento em um
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> Eventos temporizados
+#### <a name="timed"></a> Eventos de tempo
 
-Às vezes, você deseja registrar quanto tempo leva para realizar alguma ação. Por exemplo, talvez você queira saber quanto tempo os usuários levam para considerar as opções de um jogo.
+Às vezes, você deseja registrar quanto tempo leva para realizar alguma ação. Por exemplo, talvez você queira saber quanto tempo os usuários levam para considerar as opções de um jogo. Este é um exemplo útil de usos do parâmetro de medição.
 
-Você pode anexar dados de tempo a eventos. No cliente Web, em vez de chamar trackEvent, use estas chamadas:
-
-*JavaScript no cliente Web*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-Use a mesma cadeia de caracteres como o primeiro parâmetro nas chamadas de início e parada.
-
-Esse recurso não é interno para os outros SDKs. Porém, você pode escrever seu próprio código, como este exemplo:
 
 *C#*
 
@@ -307,6 +298,7 @@ Para ver os resultados, abra o Metrics Explorer e adicione um novo gráfico. Def
 
 ![Adicione um novo gráfico ou selecione um gráfico e, em Personalizar, selecione sua métrica](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
 
+Há alguns [limites no número de métricas](#limits) você pode usar.
 
 ## Visualizações de página
 
@@ -388,8 +380,7 @@ Envie exceções ao Application Insights: para [contá-las][metrics], como uma i
        telemetry.TrackException(ex);
     }
 
-Em aplicativos móveis do Windows, o SDK captura exceções sem tratamento para que você não precise registrá-las.
-
+Em aplicativos móveis do Windows, o SDK captura exceções sem tratamento para que você não precise registrá-las. No ASP.NET, você pode [escrever código para capturar exceções automaticamente][exceptions].
 
 
 ## Acompanhar rastreamento 
@@ -408,11 +399,11 @@ Use-o para ajudar a diagnosticar problemas enviando uma 'trilha de navegação e
 O limite de tamanho para `message` é muito maior do que o limite para propriedades. Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
 
 
-## Definir propriedades padrão para toda a telemetria
+## <a name="default-properties"></a>Definir propriedades padrão para toda a telemetria
 
-Você pode configurar um inicializador universal para que todos os novos clientes de telemetria usem automaticamente seu contexto.
+Você pode configurar um inicializador universal para que todos os novos clientes de telemetria usem automaticamente seu contexto. Isso inclui a telemetria padrão enviada pelos módulos de telemetria específicos de plataforma, como rastreamento de solicitações de servidor Web.
 
-Isso inclui a telemetria padrão enviada pelos módulos de telemetria específicos de plataforma, como rastreamento de solicitações de servidor Web.
+Um uso típico é para identificar a telemetria provenientes de diferentes versões ou componentes de seu aplicativo. No portal, você pode filtrar ou agrupar resultados por essa propriedade.
 
 *C#*
 
@@ -450,12 +441,13 @@ Isso inclui a telemetria padrão enviada pelos módulos de telemetria específic
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+No cliente Web JavaScript, não existe atualmente um modo para definir as propriedades padrão.
 
-## Definir a chave de instrumentação no código para toda a telemetria
+## <a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
 
-Em vez de obter a chave de instrumentação do arquivo de configuração, você pode defini-la em seu código. Convém fazer isso, por exemplo, para enviar telemetria de instalações de teste a um recurso diferente do Application Insights em vez de telemetria do aplicativo ativo.
+Para evitar a mistura de telemetria dos ambientes de desenvolvimento, teste e produção, você pode [criar recursos separados do Application Insights][create] e alterar suas chaves dependendo do ambiente.
 
-Defina a chave em um método de inicialização como global.aspx.cs em um serviço ASP.NET:
+Em vez de obter a chave de instrumentação do arquivo de configuração, você pode defini-la em seu código. Defina a chave em um método de inicialização como global.aspx.cs em um serviço ASP.NET:
 
 *C#*
 
@@ -533,6 +525,17 @@ Chamadas de telemetria individuais podem substituir os valores padrão em seus d
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+## Liberando dados
+
+Normalmente o SDK envia dados em momentos escolhidos para minimizar o impacto sobre o usuário. No entanto, em alguns casos você talvez queira liberar o buffer - por exemplo, se você estiver usando o SDK em um aplicativo que é desligado.
+
+*C#*
+
+    telemetry.Flush();
+
+Observe que a função é síncrona.
+
+
 
 ## Desabilitar a telemetria padrão
 
@@ -554,12 +557,48 @@ Durante a depuração, é útil ter sua telemetria emitida pelo pipeline para qu
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient tem uma propriedade de Contexto, que contém um número de valores que serão enviadas junto com todos os dados de telemetria. Normalmente, eles são definidos pelos módulos padrão de telemetria, mas você pode também defini-las por conta própria.
+
+Se você definir qualquer um desses valores por conta própria, considere remover a linha relevante de [Applicationinsights.config][config], de modo que os valores e os valores padrão não fiquem confusos.
+
+* **Componente** identifica o aplicativo e sua versão
+* Dados do **Dispositivo** sobre o dispositivo no qual o aplicativo está em execução (em aplicativos da web, este é o dispositivo de cliente ou servidor do qual a telemetria é enviada)
+* **InstrumentationKey** identifica o recurso Application Insights no Azure onde a telemetria aparecerá. Geralmente retirados do Applicationinsights.config
+* **Local** identifica a localização geográfica do dispositivo.
+* **Operação** em aplicativos da web, a solicitação HTTP atual. Em outros tipos de aplicativos, você pode definir isso para agrupar eventos juntos.
+ * **ID**: um valor gerado que correlaciona eventos diferentes, para que quando você inspecionar qualquer evento no diagnóstico de pesquisa, você pode localizar "itens relacionados"
+ * **Nome**: a URL da solicitação HTTP
+ * **SyntheticSource**: se não for nula ou vazia, essa cadeia de caracteres indica que a origem da solicitação foi identificada como um teste de robô ou web. Por padrão, elas são excluídas de cálculos no Metrics Explorer.
+* As **Propriedades** que são enviadas com todos os dados de telemetria. Pode ser substituído nas chamadas individuais de Track*.
+* **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
+* **Usuário** permite que os usuários sejam contados. Em um aplicativo da web, se houver um cookie, a ID de usuário será removido dele. Se não houver, será gerado um novo. Se os usuários tiverem que fazer logon em seu aplicativo, você pode definir a ID de sua identificação autenticada, para fornecer uma contagem mais confiável e correta, mesmo que o usuário faça logon em uma máquina diferente. 
+
+## Limites
+
+Há alguns limites no número de métricas você pode usar.
+
+1. Até 500 pontos de dados de telemetria por segundo por chave de instrumentação (ou seja, por aplicativo). Isso inclui a telemetria padrão enviada pelas métricas dos módulos e eventos personalizados, SDK e outra telemetria enviada pelo seu código.
+1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados como eventos. Os nomes de propriedades e métricas são globais por chave de instrumentação, não no escopo do tipo de dados.
+2.	As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
+3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
+
+* *P: Por quanto tempo são mantidos os dados?*
+
+    Consulte [Privacidade e retenção de dados][data].
 
 ## Documentos de Referência
 
 * [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Referência do Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+
+## Perguntas
+
+* *Que exceções podem acionar chamadas Track *?*
+    
+    Nenhum. Você não precisa encapsulá-los em cláusulas catch.
+
 
 
 * *P: Existe uma API REST?*
@@ -578,7 +617,10 @@ Durante a depuração, é útil ter sua telemetria emitida pelo pipeline para qu
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
@@ -586,4 +628,6 @@ Durante a depuração, é útil ter sua telemetria emitida pelo pipeline para qu
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

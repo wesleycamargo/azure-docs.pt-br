@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guia para a Linguagem de Especificação de Redes Neurais Net# para AM do Azure" 
+	pageTitle="Guia para a linguagem de especificação de redes neurais Net# | Microsoft Azure" 
 	description="Sintaxe para a linguagem de especificação de redes neurais Net #, junto com exemplos de como criar um modelo de rede neural personalizado no Microsoft Azure ML usando Net#" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Guia de linguagem de especificação de rede neural Net#
+# Guia de linguagem de especificação de rede neural Net# para Aprendizado de Máquina do Azure
 
 ##Visão geral
 Net# é uma linguagem desenvolvida pela Microsoft que é utilizada para definir arquiteturas de rede neural para módulos de rede neural em Aprendizado de Máquina do Microsoft Azure. Neste artigo, você aprenderá:
@@ -28,7 +28,7 @@ Net# é uma linguagem desenvolvida pela Microsoft que é utilizada para definir 
 -	A sintaxe e palavras-chave da linguagem de especificação Net#
 -	Exemplos de redes neurais personalizadas criadas pelo uso do Net# 
 	
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##Conceitos básicos de rede neural
 Uma estrutura de rede neural consiste em ***nós*** que são organizados em ***camadas*** e ***conexões*** ponderadas (ou ***bordas***) entre os nós. As conexões são direcionais e cada conexão tem um nó de ***origem*** e um nó de ***destino***.
@@ -150,8 +150,8 @@ Uma especificação grupo de conexões filtrado inclui um predicado, expresso si
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	No predicado para ByRow, **s** é um parâmetro representando um índice na matriz retangular de nós da camada de entrada Pixels e **d** é um parâmetro representando um índice na matriz de nós da camada oculta ByRow. O tipo de ambos **s** e **d** é uma tupla de dois números inteiros. Conceitualmente, **s** abrange todos os pares de números inteiros com 0 <= s[0] < 10 e 0 <= s[1] < 20, e **d** abrange todos os pares de números inteiros com 0 <= d[0] < 10 and 0 <= d[1] < 12. 
--	No lado direito da expressão predicada, há uma condição. Neste exemplo, para cada valor de **s** e **d** de modo que a condição seja Verdadeira, há um limite por meio do nó da camada de origem para o nó da camada de destino. Assim, essa expressão de filtragem indica que o grupo inclui uma conexão por meio do nó definido por **s**, para o nó definido por **d**, em todos os casos em que s[0] é igual a d[0].  
+-	No predicado para ByRow, **s** é um parâmetro representando um índice na matriz retangular de nós da camada de entrada Pixels e **d** é um parâmetro representando um índice na matriz de nós da camada oculta ByRow. O tipo de ambos **s** e **d** é uma tupla de dois números inteiros. Conceitualmente, **s** abrange todos os pares de números inteiros com 0 <= s[0] < 10 e 0 <= s[1] < 20, e **d** abrange todos os pares de números inteiros com 0 <= d[0] < 10 e 0 <= d[1] < 12. 
+-	No lado direito da expressão predicada, há uma condição. Neste exemplo, para cada valor de **s** e **d** de modo que a condição seja Verdadeira, há um limite por meio do nó da camada de origem para o nó da camada de destino. Assim, essa expressão de filtragem indica que o grupo inclui uma conexão por meio do nó definido por **s** para o nó definido por **d**, em todos os casos em que s[0] for igual a d[0].  
 
 Opcionalmente, você pode especificar um conjunto de pesos para um grupo filtrado. O valor para o atributo **Weights** deve ser uma tupla de valores de pontos flutuantes com um comprimento correspondente ao número de conexões definidas pelo pacote. Por padrão, os pesos são gerados de modo aleatório.
 
@@ -172,8 +172,8 @@ Para definir a forma e os locais dos kernels, use os atributos **KernelShape**, 
 -	**Stride**: (opcional) Define o tamanho de etapas deslizantes de convolução (um tamanho de etapa para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma tupla de inteiros positivos com um comprimento igual à aridade do grupo. Cada componente dessa tupla não pode ser maior que o componente correspondente de **KernelShape**. O valor padrão é uma tupla com todos os componentes iguais a um. 
 -	**Padding**: (opcional) Determina se a entrada deve ser preenchida usando um esquema de preenchimento padrão. O valor pode ser um único valor booliano ou uma tupla de valores booleanos com um comprimento igual à aridade do pacote. Um único valor Booliano é estendido para ser uma tupla do tamanho correto, com todos os componentes iguais ao valor especificado. Se o valor para uma dimensão é Verdadeiro, a origem é preenchida logicamente naquela dimensão com células de valor zero, para dar suporte aplicativos de kernel adicionais de modo que os nós centrais do primeiro e último kernels naquela dimensão sejam o primeiro e último nós naquela dimensão, na camada de origem. Assim, o número de nós "falsos" em cada dimensão é determinado automaticamente, de modo a colocar exatamente (InputShape[d] - 1) / Stride[d] + 1 kernels na camada preenchida de origem. Se o valor para uma dimensão é falso, os kernels são definidos de modo que o número de nós deixados de fora em cada lado é o mesmo (podendo chegar até uma diferença de 1). O valor padrão desse atributo é uma tupla com todos os componentes iguais a Falso.
 -	**UpperPad** e **LowerPad**: (opcional) Fornecem controle sobre a quantidade de preenchimento a utilizar. Esses atributos podem ser definidos se e somente se **Padding** ***não estiver*** definido. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente. Para assegurar que os kernels correspondam somente a nós "reais" e não a nós "falsos", as condições a seguir precisam ser satisfeitas:
-	-	Cada componente de **LowerPad** deve ser estritamente menor que KernelShape[d]/2. 
-	-	Cada componente de **UpperPad** não deve superior a KernelShape[d]/2. 
+	-	Cada componente de **LowerPad** precisa ser estritamente menor que KernelShape[d]/2. 
+	-	Cada componente de **UpperPad** não pode ser maior que KernelShape[d]/2. 
 	-	O valor padrão desses atributos é uma tupla com todos os componentes iguais a 0. 
 -	**Sharing**: (opcional) Define o compartilhamento de peso para cada dimensão da convolução. O valor pode ser um único valor booliano ou uma tupla de valores booleanos com um comprimento igual à aridade do pacote. Um único valor Booliano é estendido para ser uma tupla do tamanho correto, com todos os componentes iguais ao valor especificado. O valor padrão é uma tupla composta por todos os valores Verdadeiros. 
 -	**MapCount**: (opcional) Define o número de mapas de recurso para o grupo convolucional. O valor pode ser um único inteiro positivo ou uma tupla de inteiros positivos com um comprimento igual à aridade do pacote. Um único número inteiro positivo é estendido para ser uma tupla do tamanho correto, com os primeiros componentes iguais ao valor especificado e todos os componentes restantes iguais a um. O valor padrão é um. O número total de mapas de recurso é o produto dos componentes da tupla. O cálculo da alíquota desse número total pelos componentes determina como os valores do mapa de recursos são agrupados nos nós de destino. 
@@ -188,7 +188,7 @@ Para mais informações sobre redes convolucionais e seus aplicativos, consulte 
 ##Grupos de pooling
 Um **grupo de pooling** aplica geometria similar à da conectividade convolucional, mas usa funções predefinidas para gerar valores de nó de origem a fim de derivar o valor do nó de destino. Assim, os grupos de pooling não têm estado treinável (pesos ou vieses). Grupos de pooling dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
 
-Tipicamente, os kernels resumidos pelas unidades de pooling adjacentes não se sobrepõem. Se Stride[d] for igual a KernelShape[d] em cada dimensão, a camada obtida é a tradicional camada de pooling local, que é utilizada frequentemente em redes neurais convolucionais. Cada nó de destino computa o valor máximo ou então a média das atividades de seu kernel na camada de origem.
+Tipicamente, os kernels resumidos pelas unidades de pooling adjacentes não se sobrepõem. Se Stride[d] é igual a KernelShape[d] em cada dimensão, a camada obtida é a tradicional camada de pooling local, utilizada frequentemente em redes neurais convolucionais. Cada nó de destino computa o valor máximo ou então a média das atividades de seu kernel na camada de origem.
 
 O exemplo a seguir ilustra um grupo de pooling:
 
@@ -222,7 +222,7 @@ Os grupos de normalização de resposta dão suporte a todos os atributos convol
 
 Já que os grupos de normalização de resposta aplicam uma função predefinida aos valores de nó de origem para determinar o valor do nó de destino, eles não têm estado treinável (pesos ou vieses).
 
-**Alerta**: os nós na camada de destino correspondem a neurônios que são os nós centrais dos kernels. Por exemplo, se KernelShape[d] for ímpar, então KernelShape[d]/2 corresponde ao nó do kernel central. Se KernelShape[d] for par, o nó central está em KernelShape[d]/2 - 1. Portanto, se **Padding**[d] for Falso, o primeiro e o último nós KernelShape[d]/2 não têm nós correspondentes na camada de destino. Para evitar essa situação, defina **Padding** como [true, true, …, true].
+**Alerta**: os nós na camada de destino correspondem a neurônios que são os nós centrais dos kernels. Por exemplo, se KernelShape[d] é ímpar, então KernelShape[d]/2 corresponde ao nó central do kernel. Se KernelShape[d] for par, o nó central é em KernelShape[d]/2-1. Portanto, se **Padding**[d] for Falso, o primeiro e o último nós KernelShape[d]/2 não têm nós correspondentes na camada de destino. Para evitar essa situação, defina **Padding** como [true, true, …, true].
 
 Além dos quatro atributos descritos anteriormente, grupos de normalização de resposta também dão suporte aos seguintes atributos:
 
@@ -390,9 +390,10 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**\1 = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5] conforme descrito a seguir: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
--	Já que **Sharing**[d] é falso somente para d == 0, o número de kernels é **MapCount** * **NodeCount**\0 = 10 * 5 = 50. 
+-	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
+-	Como **Sharing**[d] é Falso somente para d == 0, o número de kernels é **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -72,7 +72,7 @@ Se você planeja usar o logon único com o serviço de nuvem, é recomendável q
 
 ### Editar os registros DNS para os serviços de nuvem
 
-> [AZURE.NOTE]Usando o Microsoft Intune? Você não precisa editar registros DNS para o serviço de nuvem do Windows Intune.
+> [AZURE.NOTE]Usando o Microsoft Intune? Você não precisa editar registros DNS para o serviço de nuvem Microsoft Intune.
 
 Depois de adicionar e verificar seu nome de domínio personalizado, a próxima etapa é editar os registros DNS no seu registrador de domínio ou provedor de hospedagem de DNS que aponta o tráfego para seu serviço de nuvem. O AD do Azure fornece as informações de DNS que você precisa.
 
@@ -209,6 +209,6 @@ Se você adicionar seu nome de domínio personalizado ao serviço de nuvem depoi
 - [Fórum do AD do Azure](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-- [Gerenciar domínios no AD do Azure](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+- [Gerenciar domínios no AD do Azure](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

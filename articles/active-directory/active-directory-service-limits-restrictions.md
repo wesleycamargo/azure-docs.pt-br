@@ -31,7 +31,7 @@ Um único usuário só pode ser associado a um máximo de 20 diretórios do Acti
 
 ## Objetos
 
-- Não há nenhum limite para assinantes das edições Azure Active Directory Premium ou do Azure Active Directory Basic, do Enterprise Mobility Suite, Office 365, Windows Intune ou qualquer outro serviço online da Microsoft que dependa do Active Directory do Azure para serviços de diretório.
+- Não há nenhum limite para assinantes Azure Active Directory Premium ou Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune ou qualquer outro serviço online da Microsoft que dependa do Active Directory do Azure para serviços de diretório.
 - Um máximo de 500.000 objetos pode ser usado em um único diretório com a edição do Active Directory do Azure Gratuito.
 - Um usuário não administrador pode criar até 250 objetos.
 
@@ -72,4 +72,7 @@ Um máximo de 1.000 linhas podem ser exibidas ou baixadas em qualquer relatório
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologia do AD do Azure](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Certificados"
+   pageTitle="Ativos de certificado na Automação do Azure"
    description="Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados por runbooks para autenticação em relação a recursos do Azure e de terceiros. Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
    services="automation"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
-# Certificados
+# Ativos de certificado na Automação do Azure
 
 Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados por meio de runbooks usando a atividade **Get-AutomationCertificate**. Isso permite criar runbooks que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros que seu runbook possa estar criando ou configurando.
 
@@ -59,7 +59,7 @@ Ao criar um novo certificado, você carrega um arquivo cer ou pfx na Automação
 
 ### Para criar um novo certificado com o portal de visualização do Azure
 
-1. Em sua conta de automação, clique na parte  **Ativos** para abrir a folha **Ativos**.
+1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
 1. Clique na parte **Certificados** para abrir a folha **Certificados**.
 1. Clique em **Adicionar um certificado** na parte superior da folha.
 2. Digite um nome para o certificado na caixa **Nome**.
@@ -105,6 +105,6 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 ## Consulte também
 
-- [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

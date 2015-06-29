@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Protocolos de autenticação do Azure Active Directory
 
 O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações suportados, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
 
-Essa seção inclui os seguintes tópicos:
+## Artigos e referência dos protocolos de autenticação 
 
 - [Informações importantes sobre substituição de chave de assinatura no Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
 
@@ -49,8 +49,11 @@ Essa seção inclui os seguintes tópicos:
 
 ## Consulte também 
 
+[Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-### Conceitos
-[Usando o Azure AD para autenticação](https://msdn.microsoft.com/library/azure/dn385718.aspx) [Exemplos de código do Active Directory](active-directory-code-samples.md)
+[Usando o Azure AD para autenticação](https://msdn.microsoft.com/library/azure/dn385718.aspx)
 
-<!---HONumber=58--> 
+[Exemplos de código do Active Directory](active-directory-code-samples.md)
+ 
+
+<!---HONumber=58_postMigration-->

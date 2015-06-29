@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um espaço de trabalho de Aprendizado de Máquina | Azure" 
+	pageTitle="Criar um espaço de trabalho de Aprendizado de Máquina | Microsoft Azure" 
 	description="Como criar um espaço de trabalho para o Estúdio de Aprendizado de Máquina do Microsoft Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,37 +13,54 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
+	ms.date="04/07/2015" 
 	ms.author="garye"/>
 
 
 # Criar um espaço de trabalho de Aprendizado de Máquina do Azure 
-Um espaço de trabalho de Aprendizado de Máquina (Espaço de Trabalho AM) do Azure contém as ferramentas necessárias para gerenciar e publicar experimentos.  Para obter mais informações sobre espaços de trabalho de Aprendizado de Máquina, consulte o link.
-## Para criar um espaço de trabalho ##
+
+Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um espaço de trabalho de do Aprendizado de Máquina. Esse espaço de trabalho contém as ferramentas necessárias para criar, gerenciar e publicar testes.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## Para criar um espaço de trabalho
+
 1. Entre na sua conta do Microsoft Azure.
 2. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
 
-![][1]
- 
+    ![Serviço de Aprendizado de Máquina][1]
 
-1. Clique em **CRIAR UM ESPAÇO DE TRABALHO DE AM**.
-2. Na página**CRIAÇÃO RÁPIDA**:
-	1. Insira suas informações de espaço de trabalho.    
-	> [AZURE.NOTE] O **PROPRIETÁRIO DO ESPAÇO DE TRABALHO** é o nome da conta da Microsoft (nome@outlook.com) ou da conta da sua empresa.
-	2. Clique em **CRIAR UM ESPAÇO DE TRABALHO DE AM**.
-3. Depois que seu espaço de trabalho de Aprendizado de Máquina for criado, você o verá listado na página **Aprendizado de Máquina**.
+3. Clique em **+NOVO** na parte inferior da janela.
+4. Clique em **SERVIÇOS DE DADOS**, depois em **APRENDIZADO DE MÁQUINA** e, em seguida, **CRIAÇÃO RÁPIDA**.
+
+	![Criação Rápida do novo espaço de trabalho][3]
+
+5. Insira um **NOME DO ESPAÇO DE TRABALHO** para seu espaço de trabalho e especifique o **PROPRIETÁRIO DO ESPAÇO DE TRABALHO**. O proprietário do espaço de trabalho deve ser uma conta da Microsoft válida (por exemplo, name@outlook.com).
+
+    > [AZURE.NOTE]Mais tarde, você pode compartilhar os testes em que está trabalhando convidando outras pessoas para seu espaço de trabalho. Pode fazer isso no Estúdio de Aprendizado de Máquina na página **CONFIGURAÇÕES**. Basta ter a conta da Microsoft ou a conta da empresa de cada usuário.
+
+6. Especificar o **LOCAL** do Azure, depois insira uma **CONTA DE ARMAZENAMENTO** do Azure existente ou selecione **Criar uma nova conta de armazenamento** para criar uma nova.
+7. Clique em **CRIAR UM ESPAÇO DE TRABALHO AM**.
+
+Após seu espaço de trabalho do Aprendizado de Máquina ser criado, você o verá listado na página de **aprendizado de máquina**.
+
+Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]. Se você encontrar um problema ao criar seu espaço de trabalho, consulte [Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina].
+
+[Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]: machine-learning-manage-workspace.md
+[Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina]: machine-learning-troubleshooting-creating-ml-workspace.md
  
-![][2]
+<!-- ![List of Machine Learning workspaces][2] -->
 
 <!--Anchors-->
-[Para criar um espaço de trabalho]: #createworkspace
+[To create a workspace]: #createworkspace
 
 <!--Image references-->
-[1]: ./media/machine-learning-create-workspace/cw1.png
-[2]: ./media/machine-learning-create-workspace/cw2.png
+[1]: media/machine-learning-create-workspace/cw1.png
+[2]: media/machine-learning-create-workspace/cw2.png
+[3]: media/machine-learning-create-workspace/cw3.png
 
 
 
 <!--Link references-->
 
-<!--HONumber=49--> 
+<!---HONumber=58_postMigration-->

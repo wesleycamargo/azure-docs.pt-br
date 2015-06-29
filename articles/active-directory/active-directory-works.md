@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # Como o Active Directory do Azure funciona?
 
 
-[O que é o AD do Azure?](active-directory-whatis.md)<br> [Introdução](active-directory-get-started.md)<br> [Próximas etapas](active-directory-next-steps.md)<br> [Saiba mais](active-directory-learn-map.md)
+###Outros artigos sobre este tópico
+[O que é o AD do Azure?](active-directory-whatis.md)<br> [Como ele funciona?](active-directory-works.md)<br> [Introdução](active-directory-get-started.md)<br> [Próximas etapas](active-directory-next-steps.md)<br> [Saiba mais](active-directory-learn-map.md)
 
 
 O AD do Azure cria um cenário de identidade que é seu na nuvem. Ele pode ser conectado ao seu sistema de identidades local ou usado de modo independente.
@@ -47,5 +48,6 @@ Quer saber mais sobre como gerenciar o AD do Azure? Como obter um diretório? Co
 
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

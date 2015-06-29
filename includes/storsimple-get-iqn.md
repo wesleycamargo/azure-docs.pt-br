@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Para obter o IQN do host do Windows
+#### Para obter o IQN do host do Windows
 
 1. Inicie o iniciador Microsoft iSCSI no host do Windows.
 
@@ -25,4 +25,4 @@
 
 3. Salve esta cadeia de caracteres.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

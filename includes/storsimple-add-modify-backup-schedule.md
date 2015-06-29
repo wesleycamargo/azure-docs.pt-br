@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add or modify a StorSimple backup schedule"
-   description="Explains how you can use the StorSimple Manager service to create and edit backup schedules."
+   pageTitle="Adicionar ou modificar uma agenda de backup do StorSimple"
+   description="Explica como você pode usar o serviço StorSimple Manager para criar e editar agendas de backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,32 +15,33 @@
    ms.date="05/13/2015"
    ms.author="v-sharos" />
 
-#### To add or modify a StorSimple backup schedule
+#### Para adicionar ou modificar uma agenda de backup do StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Na página **Início Rápido** do dispositivo, clique na guia **Políticas de Backup**. Isso o levará para a página **Políticas de Backup**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
+2. Na listagem tabular das políticas, selecione e clique na política que você deseja editar.
 
-3. Under **general**, you can modify the backup policy name.
+3. Em **Geral**, você pode modificar o nome da política de backup.
 
-4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
+4. Em **Agendas**, clique em **gerenciar agendas** para adicionar ou remover agendas. Na caixa de diálogo **Gerenciar Agenda**, faça o seguinte:
 
-    1. Choose an existing schedule or create a new schedule.
+    1. Escolha uma agenda existente ou crie uma nova agenda.
 
-    2. Select the type of backup as local or cloud snapshot.
+    2. Selecione o tipo de backup como local ou instantâneo na nuvem.
 
-    3. Specify the backup frequency, retention, and starting time of the schedule.
+    3. Especifique a frequência de backup, a retenção e a hora de início da agenda.
 
-    4. Enable or disable the schedule.
+    4. Habilite ou desabilite a agenda.
 
-    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
+    5. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) para salvar as alterações na agenda.
 
-5. In the **Volumes** section, add or remove the volumes to this policy.
+5. Na seção **Volumes**, adicione ou remova os volumes para essa política.
 
-6. Save the changes to this policy.
+6. Salve as alterações feitas na política.
 
-7. You will prompted for confirmation. Click **OK** to save the policy.
+7. Você será solicitado a fornecer sua confirmação. Clique em **OK** para salvar a política.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+A página **Políticas de Backup** será atualizada para salvar as alterações na política.
  
 
+<!---HONumber=58_postMigration-->

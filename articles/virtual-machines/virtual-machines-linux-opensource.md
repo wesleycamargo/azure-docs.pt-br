@@ -63,6 +63,7 @@ O Ubuntu é uma distribuição Linux muito popular e endossada pelo Azure, basea
 9. [Imagens: Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [Imagens: Mono como um serviço](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 O Debian é uma distribuição importante para o Linux e o mundo do software livre e se baseia no gerenciamento de pacotes dpgk e apt-get. O Repositório de VM MSOpenTech tem várias imagens que podem ser usadas.
@@ -72,26 +73,26 @@ O Debian é uma distribuição importante para o Linux e o mundo do software liv
 A distribuição CentOS Linux é uma plataforma estável, previsível, gerenciável e reprodutível derivada das fontes do Red Hat Enterprise Linux (RHEL).
 
 1. [VM Depot do MSOpenTech](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Galeria de Imagens](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [Galeria de Imagens](http://azure.microsoft.com/pt-br/marketplace/partners/OpenLogic/)
 3. [Como preparar uma VM personalizada baseada em CentOS para o Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Blog: Como implantar uma imagem de VM CentOS da OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [Como instalar o Apache Qpid Proton-C para AMQP e barramento de serviço](http://msdn.microsoft.com/library/azure/dn235560.aspx)
 7. [Imagens: Apache 2.2.15 no OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Imagens: Drupal 7.2, LAMP Server em OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux e OpenSUSE
+### SUSE Linux Enterprise Server e openSUSE
 
 9. [VM Depot do MSOpenTech](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [Como instalar e executar o MySQL](virtual-machines-linux-mysql-use-opensuse.md)
 12. [Como preparar uma VM SLES ou openSUSE personalizada](virtual-machines-linux-create-upload-vhd-suse.md)  
-13. [[Fórum SUSE] Como mover para um novo servidor Patch](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
+13. [[Fórum SUSE] Como mover para um novo servidor de patch](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Imagens: SUSE Linux Enterprise Server para SAP Cloud Appliance Library](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
 ### CoreOS
 
 CoreOS é uma distribuição pequena e otimizada para escala de computação pura com um alto grau de controle de personalização.
 
-10. [Galeria de Imagens](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [Galeria de Imagens](http://azure.microsoft.com/pt-br/marketplace/partners/coreos/)  
 11. [Como usar o CoreOS no Azure](virtual-machines-linux-coreos-how-to.md)
 12. [Como começar com a Frota e o Docker em CoreOS no Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Blog: TechEd Europe – Windows Docker Client e contêineres do Linux](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -167,7 +168,6 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 5. [SDK de Gerenciamento de Serviços do Azure: Ir](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [SDK de Gerenciamento de Serviços do Azure: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [Como instalar o Ruby on Rails](virtual-machines-ruby-rails-web-app-linux.md)
-    - [Como instalar o Ruby on Rails com Capistrano, Nginx, Unicorn e PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 6. [SDK de Gerenciamento de Serviços do Azure: Python](https://github.com/Azure/azure-sdk-for-python)
     - [Como usar o aplicativo Web Django Hello World (Mac-Linux)](virtual-machines-python-django-web-app-linux.md)
 7. [SDK de Gerenciamento de serviços do Azure: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
@@ -228,8 +228,6 @@ Esta seção contém informações sobre várias abordagens e tecnologias de arm
     - [Arquitetura de alta disponibilidade do MySQL no Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [Como criar um cluster multimestre de MariaDbs](virtual-machines-mariadb-cluster.md)
-7. PostgreSQL
-    - [Como instalar o Ruby on Rails com Capistrano, Nginx, Unicorn e PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 8. [Instalando o Postgres com corosync, pg_bouncer usando ILB](https://github.com/chgeuer/postgres-azure)
 
 
@@ -296,5 +294,6 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

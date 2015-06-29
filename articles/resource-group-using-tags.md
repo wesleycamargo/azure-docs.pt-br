@@ -56,7 +56,7 @@ Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluin
 
 ![Obtendo marcas com Set-AzureResourceGroup no PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Lembre-se de que as marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará salvar/usar uma matriz com todas as marcas que você deseja manter. Para remover uma marca, simplesmente salve a matriz sem aquela que deseja remover.
+Lembre-se de que as marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará usar uma matriz com todas as marcas que você deseja manter. Para remover uma marca, simplesmente salve a matriz sem aquela que deseja remover.
 
 O processo é o mesmo para os recursos, exceto pelo fato de que você usará os cmdlets `Get-AzureResource` e `Set-AzureResource`. Para obter recursos ou grupos de recursos com uma marca específica, use o cmdlet `Get-AzureResource` ou `Get-AzureResourceGroup` com o parâmetro `-Tag`.
 
@@ -112,4 +112,4 @@ Gerenciar e auditar o acesso
 - [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

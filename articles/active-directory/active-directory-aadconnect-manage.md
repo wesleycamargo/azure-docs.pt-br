@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Gerenciando o Azure AD Connect" 
-	description="Aprenda a estender a configuração padrão e as tarefas operacionais para o Azure AD Connect." 
+	description="Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -32,14 +32,14 @@ Se você estiver atualizando ou movendo do Azure AD Sync ou DirSync, esteja aten
 
 - Depois de atualizar o Azure AD Sync para uma versão mais recente, a maioria das configurações será redefinida de volta ao padrão.
 - Alterações nas regras de sincronização integradas são perdidas após uma atualização.
-- Regras de sincronização integradas excluídas são recriadas durante uma atualização para uma versão mais recente.
+- Regras de sincronização integrada excluídas são recriadas durante uma atualização para uma versão mais recente.
 - Regras de sincronização personalizadas criadas por você permanecem inalteradas quando uma atualização para uma versão mais recente é aplicada.
 
 Quando você precisar alterar a configuração padrão, faça o seguinte:
 
 - Quando você precisa modificar um fluxo de atributos de uma regra de sincronização integrada, não altere. Em vez disso, crie uma nova regra de sincronização com uma precedência mais alta (valor numérico menor) que contém o fluxo de atributo necessário.
 - Exporte suas regras de sincronização personalizadas usando o Editor de regras de sincronização. Isso fornece um script do PowerShell que você pode usar para recriá-las facilmente no caso de um cenário de recuperação de desastres.
-- Se você precisar alterar o escopo ou a configuração de ingresso em uma regra de sincronização integrada, documente isso e reaplique a alteração após atualizar para uma versão mais recente do Azure AD Connect.
+- Se você precisar alterar o escopo ou a configuração de junção em uma regra de sincronização integrada, documente isso e reaplique a alteração após atualizar para uma versão mais recente do Azure AD Connect.
 
 
 
@@ -54,16 +54,16 @@ No Azure AD Connect, você pode configurar e ajustar o fluxo de atributos e obje
 
 Na captura de tela abaixo, você verá todas as regras de sincronização criadas para sua configuração, quando instala o Azure AD Connect usando a instalação do Express. Cada linha na tabela é uma regra de sincronização. À esquerda, em Tipos de Regra, são listados os dois tipos diferentes: entrada e saída. Entrada e saída é da exibição do metaverso. Ou seja, trazemos informações de nossos diretórios para o metaverso. Saída refere-se às regras em que podemos enviar informações e atributos para nossos diretórios, como nosso Active Directory local ou AD do Azure.
 
-<center>![Editor de regras de sincronização](./media/active-directory-aadconnect-manage/Synch_Rule.png) </center>
+<center>![Editor de regras de sincronização](./media/active-directory-aadconnect-whats-next/Synch_Rule.png) </center>
 
 Para criar uma nova regra, selecione Adicionar nova regra e, em seguida, configure a regra. Por exemplo, vamos supor que desejamos criar uma regra de junção em que qualquer usuário no diretório local se unirá ao objeto metaverso que tem o mesmo número de telefone. Para fazer isso, crie a nova regra e especifique o sistema conectado, no nosso caso contoso.com, o tipo de objeto de sistema conectado, usuário, o tipo de objeto metaverso, pessoa e o tipo de link da junção.
 
-<center>![Criar regra de sincronização](./media/active-directory-aadconnect-manage/synch2.png) </center>
+<center>![Criar regra de sincronização](./media/active-directory-aadconnect-whats-next/synch2.png) </center>
 
 
 Na tela de regras de junção, especifique telephoneNumber no atributo de origem e telephoneNumber no atributo de destino. E isso é tudo. Você agora criou com êxito uma regra de junção.
 
-<center>![Regra de junção](./media/active-directory-aadconnect-manage/synch3.png) </center>
+<center>![Regra de junção](./media/active-directory-aadconnect-whats-next/synch3.png) </center>
 
 Você pode usar o Editor de regras de sincronização para aplicar uma lógica de negócios adicional fora da configuração padrão e ajustá-la às necessidades da organização. Para obter informações adicionais sobre o Editor de regras de sincronização, consulte [Noções básicas sobre a configuração padrão](https://msdn.microsoft.com/library/azure/dn800963.aspx).
 
@@ -85,5 +85,6 @@ Algumas das documentações criadas para o Azure AD Sync ainda são relevantes e
 * [Introdução ao Azure AD Connect](../active-directory-aadconnect-getstarted.md)
 * [Gerenciar o Azure AD Connect](active-directory-aadconnect-manage.md)
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Criar um backup manual"
-   description="Explica como iniciar um manual, trabalho de backup sob demanda."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
+< propriedades pageTitle = "Criar um backup manual" description = "Explica como iniciar um manual, trabalho de backup sob demanda." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" / > <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,7 +7,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Para criar um backup manual
+#### Para criar um backup manual
 
 1. Na página **Dispositivos**, vá na guia **Políticas de Backup**. Essa guia lista todas as políticas de backup em um formato tabular, incluindo a política para o volume que você deseja fazer backup.
 
@@ -37,4 +29,4 @@
 
   O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

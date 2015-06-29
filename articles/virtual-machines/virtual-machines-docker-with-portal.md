@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Usando a extensão de máquina virtual Docker para Linux no Azure"
-	description="Descreve as extensões de máquinas virtuais Docker e Azure Virtual, além de mostrar como criar máquinas virtuais que sejam hosts do Docker programaticamente no Azure, por meio da linha de comando, usando a interface de comandos azure-cli."
+	description="Descreve as extensões de máquinas virtuais Docker e Azure Virtual, além de mostrar como criar máquinas virtuais que sejam hosts do Docker programaticamente no Azure, por meio da linha de comando, usando a CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -34,7 +34,7 @@ A primeira etapa requer uma máquina virtual do Azure obtida por meio de uma ima
 
 Depois de criar a máquina virtual, verifique se o Docker está instalado no computador cliente. Para obter detalhes, confira [Instruções de instalação do Docker](https://docs.docker.com/installation/#installation).
 
-Crie os arquivos de certificado e de chave para comunicação do Docker de acordo com as instruções em [Executando Docker com https] e coloque-os no diretório  **`~/.docker`** do computador cliente.
+Crie os arquivos de certificado e de chave para comunicação do Docker de acordo com as instruções em [Executando Docker com https] e coloque-os no diretório **`~/.docker`** do computador cliente.
 
 > [AZURE.NOTE]A extensão de VM Docker no portal atualmente requer credenciais que são codificadas na base 64.
 
@@ -143,5 +143,6 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 
 [Executando Docker com https]: http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

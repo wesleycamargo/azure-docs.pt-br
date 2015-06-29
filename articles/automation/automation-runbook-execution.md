@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Execução de runbook na Automação do Azure"
    description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -43,5 +43,6 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook)
 - [Exibindo o status de um trabalho de runbook na Automação do Azure](automation-viewing-the-status-of-a-runbook-job)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

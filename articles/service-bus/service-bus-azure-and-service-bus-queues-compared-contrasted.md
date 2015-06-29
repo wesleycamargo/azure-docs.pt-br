@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Filas do Azure e filas do Barramento de Serviço — comparações e contrastes"
-   description="analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure"
+   description="Analisa diferenças e semelhanças entre dois tipos de fila oferecidos pelo Azure."
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -316,5 +316,6 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Arquitetura do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Usando o serviço de enfileiramento do Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

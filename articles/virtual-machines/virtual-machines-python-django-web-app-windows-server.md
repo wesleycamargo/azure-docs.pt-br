@@ -198,4 +198,6 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

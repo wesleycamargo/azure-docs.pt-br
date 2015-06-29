@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # Visão geral de IP público em nível de instância
@@ -24,8 +24,10 @@ Um IP público em nível de instância (ILPIP) é um endereço IP que você pode
 
 Conforme mostrado na Figura 1, o serviço de nuvem é acessado por meio de um VIP, enquanto as VMs individuais são normalmente acessadas usando VIP:& lt;número da porta&gt;. Ao atribuir um ILPIP a uma VM específica, essa VM pode ser acessada diretamente por meio desse endereço IP.
 
-Quando você cria um serviço de nuvem no Azure, registros de DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um nome de domínio totalmente qualificado (FQDN) em vez de usar o VIP real. O mesmo processo ocorre para ILPIP, permitindo o acesso à VM ou instância de função pelo FQDN em vez de pelo ILPIP.
+Quando você cria um serviço de nuvem no Azure, registros de DNS A correspondentes são criados automaticamente para permitir o acesso ao serviço por meio de um nome de domínio totalmente qualificado (FQDN) em vez de usar o VIP real. O mesmo processo ocorre para ILPIP, permitindo o acesso à VM ou instância de função pelo FQDN em vez de pelo ILPIP. Por exemplo, se você criar um serviço de nuvem chamado *contosoadservice*, e configurar uma função web chamada *contosoweb* com duas instâncias, o Azure registrará os seguintes registros para as instâncias:
 
+- contosoweb_IN_0.contosoadservice.cloudapp.net
+- contosoweb_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]Você pode atribuir apenas um ILPIP para cada VM ou instância de função. Você pode usar até 5 ILPIPs por assinatura. Neste momento, não há suporte de ILPIP para VMs de várias NICs.
 
@@ -116,14 +118,11 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## Consulte também
+## Próximas etapas
 
-[IP privado reservado (DIP)](../virtual-networks-reserved-private-ip)
+[IP Reservado](../virtual-networks-reserved-public-ip)
 
-[IP público reservado](../virtual-networks-reserved-public-ip)
+[APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-[Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
-
-[APIs REST com IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

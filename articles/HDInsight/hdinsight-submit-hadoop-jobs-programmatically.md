@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enviar trabalhos Hadoop no HDInsight | Azure" 
+	pageTitle="Enviar trabalhos do Hadoop no HDInsight | Microsoft Azure" 
 	description="Saiba como enviar trabalhos Hadoop para o Hadoop no Azure HDInsight." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,25 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/15/2015" 
 	ms.author="jgao"/>
 
 # Enviar trabalhos Hadoop no HDInsight
 
 Aprenda a usar o PowerShell do Azure para enviar trabalhos do MapReduce e do Hive e a usar o SDK de .NET do HDInsight para enviar trabalhos do MapReduce, do Hive e streaming do Hadoop.
 
+> [AZURE.NOTE]As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com MapReduce, Hive ou Pig no HDInsight, consulte os seguintes artigos e selecione os links **SSH** ou **Curl** dentro de cada uma:
+>
+> - [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
+> - [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
+> - [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
+
 ##Pré-requisitos
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-* Um cluster Azure HDInsight. Para obter instruções, consulte [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision].
-* Microsoft Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+* **Um cluster Azure HDInsight**. Para obter instruções, consulte [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 
 ##Enviar trabalhos do MapReduce usando o PowerShell do Azure
 O PowerShell do Azure é um ambiente de script poderoso que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como usar o PowerShell com o HDInsight, confira [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell].
 
-O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que processam grandes quantidades de dados. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\\example\\jars\\hadoop-examples.jar*), que contém vários exemplos de MapReduce.
+O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que processam grandes quantidades de dados. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\example\jars\hadoop-examples.jar*), que contém vários exemplos de MapReduce.
 
 Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá a usar o PowerShell do Azure de uma estação de trabalho para executar um exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos do MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
 
@@ -104,7 +111,7 @@ Um dos exemplos é para a contagem de frequências de palavras em arquivos de or
 
 	A pasta *example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho de MapReduce. *part-r-00000* é o nome de arquivo padrão para a saída do trabalho de MapReduce. O arquivo será baixado na mesma estrutura de pasta na pasta local. Por exemplo, na captura de tela a seguir, a pasta atual é a pasta raiz C:. O arquivo será baixado para:
 
-*C:\\example\\data\\WordCountOutput*.
+*C:\example\data\WordCountOutput*.
 
 5. Execute o comando a seguir para imprimir a saída do trabalho de MapReduce:
 
@@ -293,7 +300,7 @@ Confira [Introdução às Ferramentas do Hadoop do HDInsight para Visual Studio]
 Consulte [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop].
 
 ##Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\\example\\jars\\hadoop-examples.jar*), que contém vários exemplos de MapReduce. Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá como criar um aplicativo .NET para executar o exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
+O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\example\jars\hadoop-examples.jar*), que contém vários exemplos de MapReduce. Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá como criar um aplicativo .NET para executar o exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
 
 
 Os seguintes procedimentos são necessários para provisionar um cluster HDInsight usando o SDK:
@@ -311,7 +318,7 @@ Os seguintes procedimentos são necessários para provisionar um cluster HDInsig
 
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 
-3. No **Novo Projeto**, digite ou selecione os seguintes valores:
+3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -565,7 +572,7 @@ Os seguintes procedimentos são necessários para provisionar um cluster HDInsig
 
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 
-3. No **Novo Projeto**, digite ou selecione os seguintes valores:
+3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -712,13 +719,14 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

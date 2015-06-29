@@ -20,8 +20,8 @@ Por padrão, todas as solicitações de recursos dos serviços móveis são rest
 
 4. (Opcional) No arquivo web.config do projeto, defina um valor em cadeia de caracteres para a configuração `MS_ApplicationKey` do aplicativo. Esta é a senha que você usa (sem nenhum nome de usuário) para testar as páginas de ajuda de API, quando executar o serviço localmente.
 
-	[AZURE.NOTE]Esse valor de cadeia de caracteres não é usado pelo site ao vivo no Azure, e não precisa usar a chave de aplicativo real. Qualquer valor de cadeia de caracteres válida funcionará.
+	>[AZURE.NOTE]Esse valor de cadeia de caracteres não é usado pelo site ao vivo no Azure, e não precisa usar a chave de aplicativo real. Qualquer valor de cadeia de caracteres válida funcionará.
  
 4. Republique seu projeto.
 
-<!--HONumber=54-->
+<!---HONumber=58_postMigration-->

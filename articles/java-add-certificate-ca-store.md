@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Adicionar um certificado ao repositório Java CA - Azure" 
 	description="Saiba como adicionar um certificado de autoridade de certificação (AC) para o armazenamento de certificado CA (cacerts) do Java para serviço Twilio ou barramento de serviço do Azure." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Adicionar um certificado ao repositório de certificados Java CA
-As etapas a seguir mostram como adicionar um certificado de AC (autoridade de certificação) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado de autoridade de certificação para o Barramento de Serviço do Azure. 
+As etapas a seguir mostram como adicionar um certificado de autoridade de certificado (CA) para o armazenamento de certificados (cacerts) da autoridade de certificação de Java. O exemplo usado é para o certificado de autoridade de certificação exigido pelo serviço Twilio. Informações fornecidas posteriormente no tópico descrevem como instalar o certificado da CA para o Service Bus do Azure.
 
 Você pode usar o keytool para adicionar o certificado de autoridade de certificação antes de compactar seu JDK e adicionar a sua pasta **approot** do projeto do Azure ou executar uma tarefa de inicialização do Azure que usa keytool para adicionar o certificado. Este exemplo assume que você irá adicionar um certificado de autoridade de certificação antes do JDK ser compactado. Além disso, um certificado de autoridade de certificação específico será usado no exemplo, mas as etapas para obter um certificado de autoridade de certificação diferente e importar no repositório cacerts seriam semelhantes.
 
@@ -42,15 +42,14 @@ Você pode usar o keytool para adicionar o certificado de autoridade de certific
 
 Para obter mais informações sobre o keytool, consulte <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
-# Certificados de Raiz do Azure
+## Certificados de Raiz do Azure
 
-Os aplicativos que usam os serviços do Azure (por exemplo, o Barramento de Serviço do Azure) precisam confiar no certificado de Baltimore CyberTrust Root. (A partir de 15 de abril de 2013, o Azure começou migrando do GTE CyberTrust Global Root para o Baltimore CyberTrust Root. Essa migração levou vários meses para ser concluída.)
+Os aplicativos que usam os serviços do Azure (por exemplo, o Service Bus do Azure) precisam confiar no certificado de Baltimore CyberTrust Root. (A partir de 15 de abril de 2013, o Azure começou migrando do GTE CyberTrust Global Root para o Baltimore CyberTrust Root. Essa migração levou vários meses para ser concluída.)
 
-O certificado Baltimore já pode estar instalado no seu repositório cacerts, portanto, lembre-se de executar o comando **keytool -list** primeiro para ver se ele já existe.
+O certificado Baltimore já pode estar instalado no seu repositório cacerts, portanto, lembre-se de executar o comando **keytool-list** primeiro para ver se ele já existe.
 
-Se você precisar adicionar o Baltimore CyberTrust Root, ele tem o número de série 02:00:00:b9 e SHA1 fingerprint d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Pode ser baixado de <https://cacert.omniroot.com/bc2025.crt>, salvo em um arquivo local com a extensão **.cer** e então importado usando **keytool** como mostrado acima.
+Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de série 02:00:00:b9 e impressão digital SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Ele pode ser baixado de <https://cacert.omniroot.com/bc2025.crt>, salvo em um arquivo local com extensão **.cer** e importado usando o **keytool** como mostrado acima.
 
-Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de certificados de raiz do Microsoft Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
+Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de Certificados raiz do Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-
-<!--HONumber=46--> 
+<!---HONumber=58_postMigration-->

@@ -1,27 +1,27 @@
-<properties 
-    pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure" 
-    description="Saiba como usar a interface de linha de comando entre plataformas do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure." 
-    services="storage" 
-    documentationCenter="na" 
-    authors="tamram" 
+<properties
+    pageTitle="Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Azure"
+    description="Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
     manager="jdial"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="article" 
-    ms.date="05/27/2015" 
+    ms.date="05/27/2015"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
-# Usando a CLI do Azure com o Armazenamento do Azure 
+# Usando a CLI do Azure com o Armazenamento do Azure
 
 ## Visão geral
 
 A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no Portal de Gerenciamento do Azure, bem como funcionalidades avançadas de acesso a dados.
 
-Neste guia, exploraremos como usar a [Interface de Linha de Comando entre Plataformas do Azure (CLI do Azure)](../xplat-cli.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
+Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CLI do Azure)](../xplat-cli.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
@@ -55,33 +55,33 @@ Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msd
 		export blob_name=<blob_name>
 		export image_to_upload=<image_to_upload>
 		export destination_folder=<destination_folder>
-			   
-		echo "Creating the container..."       
+
+		echo "Creating the container..."
 		azure storage container create $container_name
 
-		echo "Uploading the image..."       
+		echo "Uploading the image..."
 		azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Listing the blobs..."       
+		echo "Listing the blobs..."
 		azure storage blob list $container_name
 
-		echo "Downloading the image..."       
+		echo "Downloading the image..."
 		azure storage blob download $container_name $blob_name $destination_folder
 
 		echo "Done"
-     
+
 5. No computador local, abra o editor de texto de sua preferência (vim, por exemplo). Digite o script acima no editor de texto.
 
 6. Agora, você precisa atualizar as variáveis de script com base nas suas configurações.
-    
+
     - **<storage_account_name>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
 
     - **<storage_account_key>** A chave de acesso da conta de armazenamento.
-      
+
     - **<container_name>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
-    
+
     - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "~/images/HelloWorld.png".
-    
+
     - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “~/downloadImages”.
 
 7. Depois de atualizar as variáveis necessárias no vim, pressione as combinações de teclas “Esc, : , wq!” para salvar o script.
@@ -104,7 +104,7 @@ Você precisa de uma conta de armazenamento para usar o Armazenamento do Azure. 
 
 O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
 
-### Definir uma conta de armazenamento padrão do Azure nas variáveis de ambiente 
+### Definir uma conta de armazenamento padrão do Azure nas variáveis de ambiente
 
 Você pode ter várias contas de armazenamento na sua assinatura. É possível escolher uma delas e defini-la nas variáveis de ambiente para todos os comandos de armazenamento na mesma sessão. Isso permite executar os comandos de armazenamento da CLI do Azure sem especificar explicitamente a chave e a conta de armazenamento.
 
@@ -112,7 +112,7 @@ Você pode ter várias contas de armazenamento na sua assinatura. É possível e
         export AZURE_STORAGE_ACCESS_KEY=<key>
 
 Outra forma de definir uma conta de armazenamento padrão é usar a cadeia de conexão. Em primeiro lugar, obtenha a cadeia de conexão pelo comando:
-        
+
         azure storage account connectionstring show <account_name>
 
 Em seguida, copie a cadeia de conexão de saída e a defina como variável de ambiente:
@@ -142,7 +142,7 @@ Para carregar blobs em um contêiner, você poderá usar `azure storage blob upl
 ### Baixar blobs de um contêiner
 
 O exemplo a seguir demonstra como baixar blobs de um contêiner.
-    
+
         azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
 ### Copiar blobs
@@ -152,9 +152,9 @@ O exemplo a seguir demonstra como baixar blobs de um contêiner.
 O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra. Neste exemplo, podemos criar um contêiner onde os blobs podem ser acessados pública e anonimamente.
 
     azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
-    
+
     azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
-    
+
     azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 Neste exemplo, é executada uma cópia assíncrona. Você pode monitorar o status de cada operação de cópia, executando a operação `azure storage blob copy show`.
@@ -178,7 +178,7 @@ O armazenamento de arquivos do Azure oferece armazenamento compartilhado para ap
 Um compartilhamento de arquivos do Azure é um compartilhamento de arquivos SMB 2.1 no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.
 
         azure storage share create myshare
-        
+
 ### Criar um diretório
 
 Um diretório fornece uma estrutura hierárquica opcional para um compartilhamento de arquivos do Azure. O exemplo a seguir cria um diretório denominado **myDir** no compartilhamento de arquivos.
@@ -186,7 +186,7 @@ Um diretório fornece uma estrutura hierárquica opcional para um compartilhamen
         azure storage directory create myshare myDir
 
 Observe que esse caminho de diretório pode incluir vários níveis, *por exemplo*: **a/b**. No entanto, você deve garantir a existência de todos os diretórios pai. Por exemplo, para o caminho **a/b**, você deve criar o diretório **a** primeiro e, em seguida, o diretório **b**.
-        
+
 ### Carregar um arquivo local no diretório
 
 O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
@@ -202,7 +202,7 @@ Observe que um arquivo no compartilhamento pode ter até 1 TB.
         azure storage file list myshare myDir
 
 Observe que o nome do diretório é opcional para a operação de listagem. Se omitido, o comando listará o conteúdo do diretório raiz do compartilhamento.
-        
+
 ## Próximas etapas
 
 Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Armazenamento do Azure.
@@ -212,5 +212,6 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

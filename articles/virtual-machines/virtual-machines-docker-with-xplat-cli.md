@@ -137,5 +137,6 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Como usar a extensão de máquina virtual Docker com o Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

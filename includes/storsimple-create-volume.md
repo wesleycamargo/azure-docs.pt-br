@@ -15,7 +15,7 @@
    ms.date="04/28/15"
    ms.author="v-sharos" />
 
-### Para criar um volume
+#### Para criar um volume
 
 1. No página **Início Rápido** do dispositivo clique em **Adicionar um volume**. Isso inicia o assistente Adicionar um volume.
 
@@ -38,7 +38,4 @@
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

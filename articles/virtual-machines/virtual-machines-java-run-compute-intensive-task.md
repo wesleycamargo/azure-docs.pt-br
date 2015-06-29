@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
@@ -101,7 +101,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
-1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://www.windowsazure.com/develop/java/).
+1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://azure.microsoft.com/develop/java/).
 2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your_service_bus_namespace**, **your_service_bus_owner** e **your_service_bus_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
@@ -265,7 +265,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("C:\TSP\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 ### Como executar o aplicativo que exige muita computação
 
 1. Faça logon na máquina virtual.
-2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPSolver.jar** em **c:\TSP**,
-4. Crie um arquivo chamado **c:\TSP\cities.txt** com o seguinte conteúdo:
+2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **C:\TSP**.
+3. Copie **TSPSolver.jar** em **C:\TSP**,
+4. Crie um arquivo chamado **C:\TSP\cities.txt** com o seguinte conteúdo:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
+5. Em um prompt de comando, altere os diretórios para C:\TSP.
 6. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
 7. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço:
 
@@ -484,10 +484,10 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
  
 ### Como executar o aplicativo cliente de monitoramento
 1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
-2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.jar** em **c:\TSP**,
+2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **C:\TSP**.
+3. Copie **TSPClient.jar** em **C:\TSP**,
 4. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
+5. Em um prompt de comando, altere os diretórios para C:\TSP.
 6. Execute o comando a seguir:
 
         java -jar TSPClient.jar
@@ -516,4 +516,7 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

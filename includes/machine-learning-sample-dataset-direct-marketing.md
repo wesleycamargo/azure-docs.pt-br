@@ -1,4 +1,3 @@
-﻿O conjunto de dados contém os dados do cliente e indicações sobre sua resposta a uma campanha de mala direta. Cada linha representa um cliente. O conjunto de dados contém 9 recursos sobre dados demográficos do usuário e comportamento passado e 3 colunas de rótulo (visita, conversão e gasto).  Visita é uma coluna binária que indica que um cliente visitou após a campanha de marketing, conversão indica que um cliente comprou algo e gasto é a quantidade que foi gasta.  O conjunto de dados foi disponibilizado por Kevin Hillstrom para análises de email MineThatData e desafio de Data Mining.
+O conjunto de dados contém os dados do cliente e indicações sobre sua resposta a uma campanha de mala direta. Cada linha representa um cliente. O conjunto de dados contém 9 recursos sobre dados demográficos do usuário e comportamento passado e 3 colunas de rótulo (visita, conversão e gasto). Visita é uma coluna binária que indica que um cliente visitou após a campanha de marketing, conversão indica que um cliente comprou algo e gasto é a quantidade que foi gasta. O conjunto de dados foi disponibilizado por Kevin Hillstrom para análises de email MineThatData e desafio de Data Mining.
 
-
-<!--HONumber=42-->
+<!---HONumber=58_postMigration-->

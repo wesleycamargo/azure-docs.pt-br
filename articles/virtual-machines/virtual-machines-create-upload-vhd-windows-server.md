@@ -209,5 +209,6 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Etapa 2: criar uma conta de armazenamento no Azure]: #createstorage
 [Etapa 3: preparar a conexão com o Azure]: #prepAzure
 [Etapa 4: carregar o arquivo .vhd]: #upload
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

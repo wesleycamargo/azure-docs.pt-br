@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Fazer logon na interface de linha de comando do Azure (CLI do Azure)"
+	pageTitle="Faça logon na interface de linha de comando do Azure (CLI do Azure) | Microsoft Azure"
 	description="Conectar-se à assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)
 
-A CLI do Azure é um conjunto de comandos entre plataformas, de software livre, para trabalhar com a plataforma Azure. Este documento descreve como conectar-se à sua assinatura do Azure na xplat-cli. Para obter instruções de instalação, confira [Instalar a CLI do Azure](xplat-cli-install.md).
+A CLI do Azure é um conjunto de comandos entre plataformas, de software livre, para trabalhar com a plataforma Azure. Este documento descreve como conectar-se à sua assinatura do Azure na CLI do Azure. Para obter instruções de instalação, confira [Instalar a CLI do Azure](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## Como se conectar à assinatura do Azure
@@ -91,7 +91,7 @@ Em seguida, importe o arquivo `.publishsettings` executando o seguinte comando:
 
 	azure account import <path to your .publishsettings file>
 
-Depois de importar as configurações de publicação, você deverá excluir o arquivo `.publishsettings`, uma vez que ele não é mais exigido pelas Ferramentas de linha de comando e oferece um risco à segurança, pois pode ser usado para obter acesso à sua assinatura.
+Depois de importar as configurações de publicação, você deverá excluir o arquivo `.publishsettings`, uma vez que ele não é mais exigido pelas CLI do Azure e impõe um risco à segurança, pois pode ser usado para obter acesso à sua assinatura.
 
 > [AZURE.NOTE]Quer você faça logon com uma conta corporativa ou de estudante ou importe as configurações de publicação, as informações para acessar sua assinatura do Azure são armazenadas em um diretório `.azure` localizado em seu diretório `user`. O diretório `user` é protegido pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar seu diretório `user`. Você pode fazer isso das seguintes maneiras:
 >
@@ -101,7 +101,7 @@ Depois de importar as configurações de publicação, você deverá excluir o a
 
 ### Várias assinaturas
 
-Se você tiver várias assinaturas do Azure, a conexão ao Azure dará acesso a todas as assinaturas associadas às suas credenciais. Uma assinatura será selecionada como padrão e será usada pela xplat-cli durante a realização das operações. Você pode visualizar as assinaturas, bem como qual delas é a padrão, usando o comando `azure account list`. Esse comando retornará informações semelhantes às seguintes:
+Se você tiver várias assinaturas do Azure, a conexão ao Azure dará acesso a todas as assinaturas associadas às suas credenciais. Uma assinatura será selecionada como padrão e será usada pela CLI do Azure durante a realização das operações. Você pode visualizar as assinaturas, bem como qual delas é a padrão, usando o comando `azure account list`. Esse comando retornará informações semelhantes às seguintes:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 <a id="additional-resources"></a>
 ## Recursos adicionais
 
-* [Usando a CLI do Azure com os comandos de Gerenciamento de Serviços (ou modo ASM)][xplatasm]
+* [Usando a CLI do Azure com os comandos de Gerenciamento de Serviços (ou modo ASM)][cliasm]
 
-* [Usando a CLI do Azure com os comandos de Gerenciamento de Recursos (ou modo ARM)][xplatarm]
+* [Usando a CLI do Azure com os comandos de Gerenciamento de Recursos (ou modo ARM)][cliarm]
 
 * Para saber mais sobre a CLI do Azure, baixar o código fonte, relatar problemas ou contribuir com o projeto, visite o [Repositório GitHub da CLI do Azure](https://github.com/azure/azure-xplat-cli).
 
@@ -142,7 +142,7 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

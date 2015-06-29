@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando bibliotecas .NET e um modelo
@@ -27,7 +27,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
-- [PowerShell do Azure](../install-configure-powershell.md)
+- [PowerShell do Azure](../powershell-install-configure.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
 
@@ -53,7 +53,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 	>[AZURE.NOTE]Você também pode encontrar o identificador do aplicativo no campo de id de cliente do aplicativo no Portal de Gerenciamento.
 
-5. Substitua {application-id} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
+5. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
         New-AzureADServicePrincipal -ApplicationId {application-id} 
 
@@ -354,7 +354,7 @@ Agora que o aplicativo Active Directory do Azure foi criado e a biblioteca de au
           return token;
         }
 
-	Substitua {application-id} pelo identificador do aplicativo que você registrou anteriormente, {password} pela senha que você escolheu para o aplicativo AD e {tenant-id} pelo identificador do locatário para sua assinatura. Você pode encontrar a id do locatário executando Get-AzureSubscription.
+	Substitua {id-aplicativo} pelo identificador do aplicativo que você registrou anteriormente, {senha} pela senha que você escolheu para o aplicativo AD e {id-locatário} pelo identificador do locatário para sua assinatura. Você pode encontrar a id do locatário executando Get-AzureSubscription.
 
 3.	Adicione o seguinte código ao método Main no arquivo Program.cs para criar as credenciais:
 
@@ -450,4 +450,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

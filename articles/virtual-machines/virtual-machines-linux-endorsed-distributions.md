@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ A tabela a seguir lista as distribuições e versões do Linux com suporte no Az
 
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são módulos de kernel que a Microsoft contribui diretamente para o kernel upstream do Linux. Os drivers LIS também são internos ao kernel da distribuição por padrão ou, para distribuições com base em RHEL/CentOS mais antigas estão disponíveis como um download separado [aqui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Confira [este artigo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements) para saber mais sobre os drivers LIS.
 
-O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Linux e normalmente está disponível no repositório de pacotes de distribuição. O código-fonte pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
+O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e normalmente está disponível no repositório de pacotes de distribuição. O código-fonte pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Linux e
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 14.04 e 14.10 </td>
+		<td> Ubuntu 12.04, 14.04, 14.10 e 15.04 </td>
 		<td>No kernel</td>
 		<td>Pacote: no repositório em "walinuxagent" <br />
 			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS by OpenLogic </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS 6.3+, 7.0+</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">download do LIS</a><br/>
 	        CentOS 6.4+: no Kernel</td>
 		<td>Pacote: no repositório do <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic</a> em "WALinuxAgent"<br />
@@ -63,7 +63,7 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Linux e
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4+, 7.0+ </td>
         <td>No kernel</td>
 		<td>Pacote: no repositório em "WALinuxAgent"<br />
 			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Linux e
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES 11 SP3+, SLES 12+ e <br /> SLES para SAP 11.3+ </td>
         <td>No kernel</td>
-		<td>Pacote: no repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> em "WALinuxAgent"<br />
+		<td>Pacote: no repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> em "WALinuxAgent"<br />
 			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ A estratégia da Oracle consiste em oferecer um amplo portfólio de soluções p
 
 O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece confiabilidade e segurança superiores para a computação em nuvem. A plataforma Linux versátil do SUSE se integra perfeitamente aos serviços de nuvem do Azure para oferecer um ambiente de nuvem facilmente gerenciável. E, com mais de 9.200 aplicativos certificados de mais de 1.800 fornecedores de software independentes para SUSE Linux Enterprise Server, o SUSE garante que as cargas de trabalho em execução compatíveis no datacenter podem ser implantadas com segurança no Azure.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

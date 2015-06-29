@@ -1,4 +1,4 @@
-﻿
+
 1. Para escalonar privilégios, execute:
 
 		sudo -s
@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão.  É recomendável executar **mysql_secure_installation**, um script que ajuda a proteger o MySQL. Ao executar **mysql_secure_installation**, você será solicitado a alterar a senha raiz MySQL, remover as contas de usuário anônimo, desabilitar logons de raiz remotos, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
+5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql_secure_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql_secure_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
 
 		$ mysql_secure_installation
 
@@ -41,12 +41,12 @@
 
 	Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
 
-8. Para criar um banco de dados e conceder as permissões de usuário `mysqluser` a ele, emita os seguintes comandos:
+8. Para criar um banco de dados e conceder as `mysqluser` permissões de usuário a ele, emita os seguintes comandos:
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
-	Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados.  Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
+	Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados. Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
 
 9. Para fazer logon em outro computador, execute o seguinte:
 
@@ -62,11 +62,9 @@
 
 	![Endpoints][Image7]
 
-12. Clique em **Adicionar** na parte inferior da página.
-	![Endpoints][Image8]
+12. Clique em **Adicionar** na parte inferior da página. ![Endpoints][Image8]
 
-13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e as portas**Pública** e **Privada** configuradas para "3306". Isso permite o acesso remoto a MySQL.
-	![Endpoints][Image9]
+13. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e portas **Pública** e **Privada** configuradas como "3306". Isso permite o acesso remoto ao MySQL. ![Pontos de extremidade][Image9]
 
 14. Para se conectar remotamente ao MySQL em execução na máquina virtual OpenSUSE no Azure, execute o seguinte comando no computador local:
 
@@ -76,11 +74,11 @@
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário.  Para obter mais informações sobre o MySQL, consulte a [Documentação do MySQL][MySQLDocs].	
+15. Você configurou com êxito o MySQL, criou um banco de dados e um novo usuário. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!--HONumber=45--> 
+<!---HONumber=58_postMigration-->

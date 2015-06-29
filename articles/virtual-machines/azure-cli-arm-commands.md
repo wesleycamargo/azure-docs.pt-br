@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure"
-	description="Saiba como usar as ferramentas de linha de comando para Mac, Linux e Windows para gerenciar os recursos do Azure usando o modo arm da CLI do Azure."
+	pageTitle="Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure | Microsoft Azure"
+	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando o modo arm da CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure
 
@@ -26,7 +26,7 @@ O gerenciamento de recursos do Azure permite que você crie um grupo de recursos
 
 Assim como acontece com o [modo de gerenciamento de serviço (* * asm * *)](../virtual-machines-command-line-tools.md), o modo **arm** da CLI do Azure fornece comandos que criam recursos de forma imperativa na linha de comando. Por exemplo, se você digitar `azure group create <groupname> <location>` você está solicitando o Azure para criar um grupo de recursos e com `azure group deployment create <resourcegroup> <deploymentname>` você está instruindo o Azure a criar uma implantação de qualquer número de itens e colocá-los em um grupo. Como cada tipo de recurso tem comandos imperativos, é possível encadeá-los para criar implantações bastante complexas.
 
-No entanto, usar os _modelos_ do grupo de recursos  que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](resource-groups-overview).
+No entanto, usar os _modelos_ do grupo de recursos que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](resource-groups-overview).
 
 > [AZURE.NOTE]Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser utilizados para exibir a saída detalhada, como opções de solicitação e códigos de status. O parâmetro -v fornece saída detalhada e o parâmetro -vv fornece saída mais detalhada ainda. A opção-- json produzirá o resultado no formato json bruto e é muito útil para cenários de script.
 >
@@ -940,7 +940,7 @@ Opções de parâmetro:
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [opções] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Remove o recurso de intervalo de pool de IP de back-end do balanceador de carga.
 
@@ -1245,7 +1245,7 @@ Cria um recurso de ip público. Você criará o recurso ip público e o associar
 	info:    network public-ip create command OK
 
 
-Opções de parâmetro: -h, --help informações de uso de saída -v, -- verbose usa a saída detalhada -- json usa a saída json -g, --resource-group <resource-group> o nome do recurso de grupo -n, --nome <name> o nome do ip público -l, --location <location> o local -d, --domain-name-label <domain-name-label> o rótulo de nome de domínio. Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> o método de alocação [Estático][Dynamic] -i, --idletimeout <idletimeout> o tempo limite de ociosidade em minutos -f, --reverse-fqdn <reverse-fqdn> o fqdn inverso -t, --tags <tags> a lista de marcas. Podem ser vários. No formato "name = value". O nome é obrigatório e o valor é opcional. Por exemplo, -t tag1=value1;tag2 -s, --subscription <subscription> o identificador de assinatura <br>
+Opções de parâmetro: -h, --help informações de uso de saída -v, -- verbose usa a saída detalhada -- json usa a saída json -g, --resource-group <resource-group> o nome do recurso de grupo -n, --nome <name> o nome do ip público -l, --location <location> o local -d, --domain-name-label <domain-name-label> o rótulo de nome de domínio. Isso configura o DNS para <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> o método de alocação [Static][Dynamic] -i, --idletimeout <idletimeout> o tempo limite de ociosidade em minutos -f, --reverse-fqdn <reverse-fqdn> o fqdn inverso -t, --tags <tags> a lista de marcas. Podem ser vários. No formato "name = value". O nome é obrigatório e o valor é opcional. Por exemplo, -t tag1=value1;tag2 -s, --subscription <subscription> o identificador de assinatura <br>
 
 	network public-ip set [options] <resource-group> <name>
 Atualiza as propriedades de um recurso ip público existente. No exemplo a seguir alteramos o endereço IP público de Dinâmico para Estático.
@@ -1286,7 +1286,7 @@ Opções de parâmetro:
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [opções] <resource-group>Lista todos os recursos IP públicos dentro de um grupo de recursos.
+<br> network public-ip list [options] <resource-group> Lista todos os recursos IP públicos dentro de um grupo de recursos.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1306,7 +1306,7 @@ Opções de parâmetro:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [opções] <resource-group> <name> Exibe as propriedades de ip público de um recurso de ip público dentro de um grupo de recursos.
+<BR> network public-ip show [options] <resource-group> <name> Exibe as propriedades de ip público de um recurso de ip público dentro de um grupo de recursos.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1735,5 +1735,6 @@ Opções de parâmetro:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

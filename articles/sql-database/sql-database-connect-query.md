@@ -1,27 +1,27 @@
-
-<properties 
-	pageTitle="Conectar-se ao Banco de Dados SQL e faça uma consulta com C#" 
+<properties
+	pageTitle="Conectar-se ao Banco de Dados SQL e faça uma consulta com C#"
 	description="Exemplo de código para um cliente C# usando o ADO.NET para conectar e interagir com o banco de dados do AdventureWorks no serviço de nuvem do Banco de Dados SQL do Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Conectar e consultar o Banco de Dados SQL com C# 
+# Conectar-se ao Banco de Dados SQL e faça uma consulta com C&#x23;
 
-Este tópico fornece um exemplo de código C# que mostra como se conectar a um Banco de Dados SQL do AdventureWorks existente usando o ADO.NET. O exemplo é compilado em um aplicativo de console que consulta o banco de dados e exibe os resultados.
+
+Este tópico fornece um exemplo de código C# que mostra como se conectar a um Banco de Dados SQL do AdventureWorks existente usando o ADO.NET. O exemplo é compilado em um aplicativo de console que consulta o banco de dados e exibe o conjunto de resultados.
 
 
 ## Pré-requisitos
@@ -34,7 +34,7 @@ Este tópico fornece um exemplo de código C# que mostra como se conectar a um B
 ## Etapa 1: aplicativo de console
 
 
-1. Com o Visual Studio, crie um aplicativo de console em C#.
+1. No Visual Studio, crie um aplicativo de console C#.
 
 
 ![Conectar e consultar](./media/sql-database-connect-query/ConnectandQuery_VisualStudio.png)
@@ -70,7 +70,7 @@ Cole este código-fonte em seu arquivo **Program.cs**.
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -114,20 +114,20 @@ Cole este código-fonte em seu arquivo **Program.cs**.
 ## Etapa 3: localizar a cadeia de conexão do banco de dados
 
 
-1. Abra o [Portal do Azure](http://portal.azure.com/).
+1. Abra o [portal de visualização do Azure](http://portal.azure.com/).
 2. Clique em **Procurar** > **Banco de Dados SQL** > **Banco de dados do "Adventure Works"**> **Propriedades** > **Mostrar cadeias de conexão de banco de dados**.
 
 
 ![Portal](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-Na folha de cadeias de conexão do banco de dados, é possível ver as cadeias de conexão apropriadas para ADO.NET, ODBC, PHP e JDBC.
+Na folha de cadeias de conexão de banco de dados, é possível localizar as cadeias de conexão apropriadas para ADO.NET, ODBC, PHP e JDBC.
 
 
 ## Etapa 4: substituir as informações reais de conexão
 
 
--No código-fonte que você colou, substitua o espaço reservado *[Your_Connection_String]* pela cadeia de conexão e não esqueça de substituir *your_password_here* nessa cadeia pela sua senha real.
+- No código-fonte que você colou, substitua o espaço reservado *[Your_Connection_String]* pela cadeia de conexão e não se esqueça de substituir *your_password_here* nessa cadeia pela sua senha real.
 
 
 ## Etapa 5: executar o aplicativo
@@ -135,5 +135,6 @@ Na folha de cadeias de conexão do banco de dados, é possível ver as cadeias d
 
 1. Para compilar e executar o aplicativo, clique em **DEPURAR** > **Iniciar depuração**
 2. O programa imprime os resultados da consulta na janela do console.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

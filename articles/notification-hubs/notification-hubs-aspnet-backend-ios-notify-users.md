@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Notificação de Usuários nos Hubs de Notificação do Azure" 
-	description="Saiba como enviar notificações por push seguro no Azure.  Exemplos de códigos escritos em Objective-C usando a API .NET." 
+	description="Saiba como enviar notificações por push para usuários no Azure. Amostras de código escritas em Objective-C e a API do .NET para o back-end." 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,105 +13,140 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
-	ms.author="yuaxu"/>
+	ms.date="05/31/2015" 
+	ms.author="wesmc"/>
 
 #Notificação de Usuários nos Hubs de Notificação do Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
-</div>
+[AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.  Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico.  Um back-end da API Web ASP.NET é usado para autenticar clientes e gerar notificações, como mostrado no tópico de instrução[ Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx).
+##Visão geral
 
-> [AZURE.NOTE] Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).  Este tutorial também é um pré-requisito para o tutorial [Push seguro (iOS)]notification-hubs-aspnet-backend-ios-secure-push.md) .
-> Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) deste tutorial.
+O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usada para autenticar clientes e gerar notificações, como mostrado no tópico de instrução [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx).
+
+> [AZURE.NOTE]Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) deste tutorial.
 
 
-## Criar e configurar o hub de notificação
-
-Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).  Para obter recursos adicionais sobre o provisionamento de dispositivo iOS, confira o guia em [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modificar seu aplicativo iOS
 
-1. Abra o aplicativo de exibição em Página Única que você criou seguindo as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
+1. Abra o aplicativo de exibição de Página única criado no tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
-> [AZURE.NOTE] Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio.  Se não, você precisa prefixar o nome da organização a todos os nomes de classe.
+	> [AZURE.NOTE]Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio. Caso contrário, será necessário preceder o nome da sua organização a todos os nomes de classe.
 
-2. Em seu Main.storyboard. adicione os seguintes componentes da biblioteca de objetos:
-	+ Um UITextField com texto de espaço reservado **Nome de Usuário**
-	+ Um UITextField com texto de espaço reservado**Senha**, e verifique a opção **Proteger** no Inspetor de Atributos, sob a tecla Enter do Textfield
-	+ Um UIButton com rótulo **1.  Entre em** e desmarque a opção **Habilitado** no Inspetor de Atributos, em Controle e Conteúdo
-	+ Um UIButton com rótulo **2.  Envie por Push** e desmarque a opção **Habilitado**
+2. Em seu Main.storyboard, adicione os componentes mostrados na captura de tela abaixo da biblioteca de objetos.
 
-	O storyboard deve ter a seguinte aparência:
+    ![][1]
+ 
+	+ **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio. 
+	+ **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
+	+ **Log on**: um UIButton chamado imediatamente abaixo do campo de texto de senha e desmarque a opção **Habilitado** no Inspetor de atributos, em *Conteúdo de controle*
+	+ **WNS**: o rótulo e o comutador para habilitar o envio da notificação do Serviço de Notificação do Windows, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Windows](notification-hubs-windows-store-dotnet-get-started.md).
+	+ **GCM**: o rótulo e a opção para habilitar o envio da notificação para o Google Cloud Messaging, se ele tiver sido configurado no hub. Consulte o tutorial [Introdução ao Android](notification-hubs-android-get-started.md).
+	+ **APNS**: o rótulo e a opção para habilitar o envio da notificação ao Apple Platform Notification Service.
+	+ **Nome do Usuário do Destinatário**: um UITextField com texto de espaço reservado *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo GCM e restrita às margens esquerda e direita e abaixo do rótulo do GCM.
+	
 
-    ![][IOS1]
+	Alguns componentes foram adicionados ao tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
-3. Crie saídas para UITextFields e UIButtons na parte da interface do ViewController.h
+3. Pressione **Ctrl** e arraste dos componentes, no modo de exibição, para ViewController.h e adicione essas novas saídas.
 
 	    @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
 		@property (weak, nonatomic) IBOutlet UITextField *PasswordField;
+		@property (weak, nonatomic) IBOutlet UITextField *RecipientField;
+		@property (weak, nonatomic) IBOutlet UITextField *NotificationField;
+
+		// Used to enable the buttons on the UI
 		@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
-		@property (weak, nonatomic) IBOutlet UIButton *SendPushButton;
+		@property (weak, nonatomic) IBOutlet UIButton *SendNotificationButton;
 
-		- (IBAction)LogInAction:(id)sender;
-		- (IBAction)SendPushAction:(id)sender;
+		// Used to enabled sending notifications across platforms
+		@property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
 
-4. Primeiro, criaremos uma classe RegisterClient para fazer interface com nosso back-end.  Crie uma classe de Objetivo C chamada RegisterClient, que herde de NSObject.  Em seguida, adicione o seguinte código na seção da interface RegisterClient.h:
+		- (IBAction)LogInAction:(id)sender;		
+
+4. No ViewController.h, adicione o seguinte `#define` logo abaixo das instruções de importação. Substitua o espaço reservado *< Inserir o seu ponto de extremidade do back-end >* pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo, *http://you_backend.azurewebsites.net*.
+
+		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+
+4. Em seu projeto, crie uma nova **classe Cocoa Touch** chamada **RegisterClient** para fazer a interface com o back-end ASP.NET criado por você. Criar a classe herdeira de `NSObject`. Em seguida, adicione o seguinte código no RegisterClient.h.
+
+		@interface RegisterClient : NSObject
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
-		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
+		
+		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
+			andCompletion:(void(^)(NSError*))completion;
 
-5. Em RegisterClient.m, adicione a seguinte seção da interface:
+		-(instancetype) initWithEndpoint:(NSString*)Endpoint;
+
+		@end
+
+5. No RegisterClient.m, atualize a seção `@interface`:
 
 		@interface RegisterClient ()
 
 		@property (strong, nonatomic) NSURLSession* session;
-		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
-		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSString*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
+		@property (strong, nonatomic) NSURLSession* endpoint;
+
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+					andCompletion:(void(^)(NSError*))completion;
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+					completion:(void(^)(NSString*, NSError*))completion;
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token 
+					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
 
 		@end
 
-6. Depois, adicione o código a seguir na seção de implementação RegisterClient.m e substitua o espaço reservado *{backend endpoint}* pela URL de destino utilizada para implantar o back-end do aplicativo na seção anterior.
+6. Substitua a seção `@implementation` no RegisterClient.m pelo código a seguir.
 
-		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
-		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
 
-		- (instancetype)init
+		@implementation RegisterClient
+
+		// Globals used by RegisterClient
+		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";		
+
+		-(instancetype) initWithEndpoint:(NSString*)Endpoint
 		{
 		    self = [super init];
 		    if (self) {
 		        NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
 		        _session = [NSURLSession sessionWithConfiguration:config delegate:nil delegateQueue:nil];
+				_endpoint = Endpoint;
 		    }
 		    return self;
 		}
 
-		-(void) registerWithDeviceToken:(NSData*) token tags:(NSSet*) tags andCompletion: (void(^)(NSError*)) completion;
+		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags 
+					andCompletion:(void(^)(NSError*))completion
 		{
 		    [self tryToRegisterWithDeviceToken:token tags:tags retry:YES andCompletion:completion];
 		}
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*) token tags:(NSSet*) tags retry: (BOOL) retry andCompletion: (void(^)(NSError*)) completion;
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+					andCompletion:(void(^)(NSError*))completion
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
 
-		    NSString *deviceTokenString = [[token description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
+		    NSString *deviceTokenString = [[token description] 
+				stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] 
+									uppercaseString];
 
-		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString completion:^(NSString* registrationId, NSError *error) {
+		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString 
+				completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
 		            completion(error);
 		            return;
 		        }
 
-		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
+		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString 
+					tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
 		                return;
@@ -123,32 +158,41 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		            } else if (httpResponse.statusCode == 410 && retry) {
 		                [self tryToRegisterWithDeviceToken:token tags:tags retry:NO andCompletion:completion];
 		            } else {
-		                NSLog(@"Registration error with response status: %ld", (long) httpResponse.statusCode);
+		                NSLog(@"Registration error with response status: %ld", (long)httpResponse.statusCode);
 
-		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode userInfo:nil]);
+		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+									userInfo:nil]);
 		            }
 
 		        }];
 		    }];
 		}
 
-		-(void) upsertRegistrationWithRegistrationId: (NSString*) registrationId deviceToken: (NSData*) token tags: (NSSet*)tags andCompletion: (void(^)(NSURLResponse*, NSError*)) completion;
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token 
+					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion
 		{
-		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, @"Tags": [tags allObjects]};
-		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration options:NSJSONWritingPrettyPrinted error:nil];
+		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, 
+													@"Tags": [tags allObjects]};
+		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration 
+								options:NSJSONWritingPrettyPrinted error:nil];
 
-		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData 
+												encoding:NSUTF8StringEncoding]);
 
-		    NSString* endpoint = [NSString stringWithFormat:@"%@/%@", BackEndEndpoint, registrationId];
+		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint, 
+									registrationId];
 		    NSURL* requestURL = [NSURL URLWithString:endpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"PUT"];
 		    [request setHTTPBody:jsonData];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.authenticationHeader];
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 		    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+			{
 		        if (!error)
 		        {
 		            completion(response, error);
@@ -162,9 +206,11 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		    [dataTask resume];
 		}
 
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken: (NSString*) token completion: (void(^)(NSString*, NSError*)) completion;
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+					completion:(void(^)(NSString*, NSError*))completion
 		{
-		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] objectForKey:RegistrationIdLocalStorageKey];
+		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] 
+										objectForKey:RegistrationIdLocalStorageKey];
 
 		    if (registrationId)
 		    {
@@ -173,22 +219,29 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		    }
 
 		    // request new one & save
-		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?handle=%@", BackEndEndpoint, token]];
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@", 
+									_endpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.authenticationHeader];
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
-		            NSString* registrationId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+		            NSString* registrationId = [[NSString alloc] initWithData:data 
+						encoding:NSUTF8StringEncoding];
 
 		            // remove quotes
-		            registrationId = [registrationId substringWithRange: NSMakeRange(1, [registrationId length]-2)];
+		            registrationId = [registrationId substringWithRange:NSMakeRange(1, 
+										[registrationId length]-2)];
 
-		            [[NSUserDefaults standardUserDefaults] setObject:registrationId forKey:RegistrationIdLocalStorageKey];
+		            [[NSUserDefaults standardUserDefaults] setObject:registrationId 
+						forKey:RegistrationIdLocalStorageKey];
 		            [[NSUserDefaults standardUserDefaults] synchronize];
 
 		            completion(registrationId, nil);
@@ -199,34 +252,40 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		            if (error)
 		                completion(nil, error);
 		            else {
-		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode userInfo:nil]);
+		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+									userInfo:nil]);
 		            }
 		        }
 		    }];
 		    [dataTask resume];
 		}
 
-	O código acima implementa a lógica explicada no artigo de orientação [Registrando-se no back-end do seu aplicativo](http://msdn.microsoft.com/library/dn743807.aspx), usando NSURLSession para realizar chamadas de REST para o back-end do seu aplicativo e NSUserDefaults para armazenar localmente o registrationId retornado pelo hub de notificação.
+		@end
 
-	Observe que essa classe requer que a propriedade **authorizationHeader** seja configurada para funcionar adequadamente.  Essa propriedade é definida pela classe **ViewController** após o logon.
+	O código acima implementa a lógica explicada no artigo de orientação [Registrando-se a partir do back-end do seu aplicativo](http://msdn.microsoft.com/library/dn743807.aspx), utilizando NSURLSession para realizar chamadas de REST para o back-end do seu aplicativo e NSUserDefaults para armazenar localmente o registrationId retornado pelo hub de notificação.
 
-7. No ViewController.h, adicione a seguinte declaração ao dispositivo de token e referência a uma instância RegisterClient:
+	Observe que essa classe requer que a propriedade **authorizationHeader** seja configurada para funcionar adequadamente. Essa propriedade é definida pela classe **ViewController** após o logon.
+
+7. Em ViewController.h, adicione uma instrução `#import` RegisterClient.h. Em seguida, adicione uma declaração para o token do dispositivo e faça referência a uma instância `RegisterClient` na seção `@interface`:
+
+		#import "RegisterClient.h"
 
 		@property (strong, nonatomic) NSData* deviceToken;
 		@property (strong, nonatomic) RegisterClient* registerClient;
 
-8. No ViewController.m, transforme a classe ViewController em uma UITextFieldDelegate.  Em seguida, adicione uma declaração de método privado:
+8. No ViewController.m, adicione uma declaração de método privado à seção `@interface`:
 
-		@interface ViewController () <UITextFieldDelegate>
+		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 		// create the Authorization header to perform Basic authentication with your app back-end
-		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+						AndPassword:(NSString*)password;
 
 		@end
 
-> [AZURE.NOTE] O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** pelo seu mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente do registro, por exemplo, OAuth, Active Directory.
+> [AZURE.NOTE]O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** pelo seu mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente do registro, por exemplo, OAuth, Active Directory.
 
-9. Em seguida, na seção de implementação de ViewController.m, adicione o código a seguir:
+9. Em seguida, na seção `@implementation` do ViewController.m, adicione o seguinte código que adiciona a implementação para definir o cabeçalho de autenticação e o token do dispositivo. 
 
 		-(void) setDeviceToken: (NSData*) deviceToken
 		{
@@ -234,13 +293,15 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		    self.LogInButton.enabled = YES;
 		}
 
-		-(void) createAndSetAuthenticationHeaderWithUsername: (NSString*) username AndPassword: (NSString*) password;
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+						AndPassword:(NSString*)password;
 		{
 		    NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
 
 		    NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
 
-		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
+		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData 
+														encoding:NSUTF8StringEncoding];
 		}
 
 		-(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -249,9 +310,9 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		    return YES;
 		}
 
-	Observe como a configuração do token do dispositivo ativa o botão de logon.  Isso ocorre porque, como parte da ação de logon, o controlador de exibição registra-se para notificações por push no back-end do aplicativo.  Portanto, não queremos que a ação de Logon seja acessível até que o token do dispositivo seja configurado corretamente.  Você pode desacoplar o logon do registro de push, contanto que o primeiro ocorra antes do último.
+	Observe como a configuração do token do dispositivo ativa o botão de logon. Isso ocorre porque, como parte da ação de logon, o controlador de exibição se registra para notificações por push no back-end do aplicativo. Portanto, não queremos que ação de Login seja acessível até que o token do dispositivo seja configurado corretamente. É possível desacoplar o login do registro push desde que a primeira opção ocorra antes da última citada.
 
-10. No ViewController.m, adicione uma constante ao ponto de extremidade do back-end e use os seguintes snippets para implementar os métodos de ação para os UIButtons.  Substitua o ponto de extremidade do back-end de espaço reservado pela URL de destino que você usou para o seu backend.
+10. Em ViewController.m, use os trechos de código a seguir para implementar o método de ação em seu botão de **Fazer Logon** e um método para enviar a mensagem de notificação usando o back-end do ASP.NET.
 
 		- (IBAction)LogInAction:(id)sender {
 		    // create authentication header and set it in register client
@@ -261,77 +322,148 @@ Siga as seções de 1 a 5 em [Introdução aos Hubs de Notificação (iOS)](noti
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
 
 		    __weak ViewController* selfie = self;
-		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil andCompletion: ^(NSError* error) {
+		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil 
+				andCompletion:^(NSError* error) {
 		        if (!error) {
-		            dispatch_async(dispatch_get_main_queue(), ^{
-		                selfie.SendPushButton.enabled = YES;
-
-		                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:
-		                                      @"Registered successfully!" delegate:nil cancelButtonTitle:
-		                                      @"OK" otherButtonTitles:nil, nil];
-		                [alert show];
+		            dispatch_async(dispatch_get_main_queue(), 
+					^{
+		                selfie.SendNotificationButton.enabled = YES;
+		                [self MessageBox:@"Success" message:@"Registered successfully!"];
 		            });
 		        }
 		    }];
 		}
 
-		NSString *const SendNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
-		- (IBAction)SendPushAction:(id)sender {
+		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag 
+					Message:(NSString*)message
+		{
 		    NSURLSession* session = [NSURLSession
-		                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-		                             delegate:nil
-		                             delegateQueue:nil];
+		    	sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
+		        delegateQueue:nil];
+		    
+			// Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
+		    NSURL* requestURL = [NSURL URLWithString:[NSString 
+				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns, 
+				usernameTag]];
 
-
-		    NSURL* requestURL = [NSURL URLWithString:SendNotificationEndpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", self.registerClient.authenticationHeader];
-		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+			// Get the mock authenticationheader from the register client
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+				self.registerClient.authenticationHeader];
+		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+		    
+		    //Add the notification message body
+		    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+		    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
+		    
+			// Execute the send notification REST API on the ASP.NET Backend
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
 		        {
-		            NSLog(@"Error status: %d, request: %@", httpResponse.statusCode, error);
+		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n", 
+										pns, httpResponse.statusCode, error];
+		            dispatch_async(dispatch_get_main_queue(),
+		            ^{
+						// Append text because all 3 PNS calls may also have information to view
+		                [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];
+		            });
+		            NSLog(status);
 		        }
-		    }];
+		        
+		        if (data != NULL)
+		        {
+		            xmlParser = [[NSXMLParser alloc] initWithData:data];
+		            [xmlParser setDelegate:self];
+		            [xmlParser parse];
+		        }		    
+			}];
 		    [dataTask resume];
 		}
 
-11. Na função**ViewDidLoad**, adicione o código a seguir para instanciara instância RegisterClient e definir o delegado para os seus campos de texto.
+
+11. Atualizar a ação para o botão **Enviar notificação** para usar o back-end do ASP.NET e enviar a qualquer PNS habilitado por um comutador.
+
+
+		- (IBAction)SendNotificationMessage:(id)sender
+		{
+		    //[self SendNotificationRESTAPI];
+		    [self SendToEnabledPlatforms];
+		}
+
+
+		-(void)SendToEnabledPlatforms
+		{
+		    NSString* json = [NSString stringWithFormat:@""%@"",self.notificationMessage.text];
+		    
+			[self.sendResults setText:@""];
+
+		    if ([self.WNSSwitch isOn])
+		        [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
+		
+		    if ([self.GCMSwitch isOn])
+		        [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
+		
+		    if ([self.APNSSwitch isOn])
+		        [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
+		}
+		
+		
+
+11. Na função **ViewDidLoad**, adicione o código a seguir para instanciar a instância RegisterClient e definir o delegado para os seus campos de texto.
 
 		self.UsernameField.delegate = self;
 		self.PasswordField.delegate = self;
-		self.registerClient = [[RegisterClient alloc] init];
+		self.RecipientField.delegate = self;
+		self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
 
-12. Agora, em**AppDelegate.m**, remova todo o conteúdo do método**application:didRegisterForPushNotificationWithDeviceToken:** e substitua-o pelo seguinte para se certificar de que o controlador de exibição contenha o token de dispositivo mais recente, recuperado de APNs:
+12. Agora, em **AppDelegate.m**, remova todo o conteúdo do método **application:didRegisterForPushNotificationWithDeviceToken:** e substitua-o pelo seguinte para se certificar de que o controlador de exibição contenha o token de dispositivo mais recente, recuperado de APNs:
 
-	    ViewController* rvc = (ViewController*) self.window.rootViewController;
-	    rvc.deviceToken = deviceToken;
+		// Add import to the top of the file
+		#import "ViewController.h"
 
-13. Finalmente, em **AppDelegate.m**, verifique se você tem o seguinte método:
+	    - (void)application:(UIApplication *)application 
+	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken 
+	    {
+		    ViewController* rvc = (ViewController*) self.window.rootViewController;
+		    rvc.deviceToken = deviceToken;
+		}
+
+13. Por fim, em **AppDelegate.m**, verifique se você tem o seguinte método:
 
 		- (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
-		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		                          [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle:
-		                          @"OK" otherButtonTitles:nil, nil];
-		    [alert show];
+		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 		}
 
-## Executar o aplicativo
+## Testar o aplicativo
 
 1. No XCode, execute o aplicativo em um dispositivo iOS físico (as notificações por push não funcionarão no simulador).
 
-2. Na interface do usuário do aplicativo iOS, insira um nome de usuário e senha.  Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.  Em seguida, clique em **Logon**.
+2. Na interface do usuário do aplicativo iOS, insira um nome de usuário e senha. Eles podem ser qualquer cadeia de caracteres, mas devem ter o mesmo valor da cadeia de caracteres. Em seguida, clique em **Fazer logon**.
 
-3. Você deverá ver um pop-up informando sobre o sucesso da inscrição.  Clique em **OK**.
-
-4. Clique em **Enviar por push** e no botão da página inicial.  Uma notificação por push aparecerá em breve.
+	![][2]
 
 
-[IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
+3. Você deverá ver um pop-up informando sobre o sucesso da inscrição. Clique em **OK**.
 
-<!--HONumber=49--> 
+	![][3]
+
+4. No campo de texto **Marca de nome de usuário do destinatário*, insira a marca de nome de usuário usada com o registro de outro dispositivo.
+5. Digite uma mensagem de notificação e clique em **Enviar notificação**. Somente os dispositivos que têm um registro com a marca de nome de usuário do destinatário recebem a mensagem de notificação. Isso é enviado somente aos usuários.
+
+	![][4]
+
+
+[1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
+[2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
+[3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
+[4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
+ 
+
+<!---HONumber=58_postMigration-->

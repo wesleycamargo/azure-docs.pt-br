@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
@@ -324,7 +324,7 @@ A maneira difícil é desligando a VM primária (hadb01) por meio do Portal ou a
 
 ## STONITH
 
-Deve ser possível emitir um desligamento da VM por meio das ferramentas de linha de comando do Azure para Linux em lugar de um script STONITH que controla um dispositivo físico. É possível usar `/usr/lib/stonith/plugins/external/ssh` como base e habilitar STONITH na configuração do cluster. A CLI do Azure deve estar instalada globalmente e as configurações/perfil de publicação devem ser carregadas para o usuário do cluster.
+Deve ser possível emitir um desligamento da VM por meio da CLI do Azure, em vez de um script STONITH que controle um dispositivo físico. É possível usar `/usr/lib/stonith/plugins/external/ssh` como base e habilitar STONITH na configuração do cluster. A CLI do Azure deve estar instalada globalmente e as configurações/perfil de publicação devem ser carregadas para o usuário do cluster.
 
 Código de exemplo para o recurso disponível em [GitHub](https://github.com/bureado/aztonith). Você precisa alterar a configuração do cluster adicionando o seguinte a `sudo crm configure`:
 
@@ -346,5 +346,6 @@ As seguintes limitações se aplicam:
 - Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.
 - O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

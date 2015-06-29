@@ -376,4 +376,6 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

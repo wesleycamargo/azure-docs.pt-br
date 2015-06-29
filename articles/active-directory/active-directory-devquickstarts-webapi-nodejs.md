@@ -25,7 +25,7 @@ Este passo a passo lhe oferecerá uma maneira rápida e fácil de configurar um 
 No final deste passo a passo, você deve ser capaz de criar um servidor de API REST em execução, contando com os seguintes recursos:
 
 * Um servidor node.js com uma interface REST API com JSON usando MongoDB como armazenamento persistente
-* APIs REST aproveitando a proteção API OAuth2, com tokens Bearner usando o Active Directory do Azure
+* APIs REST aproveitando a proteção de API OAuth2, com tokens Bearer usando o Active Directory do Azure
 
 
 Já lançamos todo o código-fonte para este exemplo em execução no GitHub sob uma licença do Apache 2.0, então fique à vontade para fazer a clonagem (ou melhor ainda, bifurcação), fornecer comentários e receber solicitações.
@@ -50,7 +50,7 @@ Para habilitar seu aplicativo a autenticar usuários, primeiro você precisará 
 - Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
 - Clique na guia **Aplicativos** e clique em adicionar na lista de botões.
-- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
+- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
     - O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	A **URL de logon** é a URL base do seu aplicativo. O padrão do esqueleto é `https://localhost:8888`.
@@ -1177,5 +1177,6 @@ Simplesmente faça a clonagem para sua máquina de desenvolvedor e configure con
 [ADAL para Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL para .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -443,9 +443,9 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 ### Como executar o aplicativo que exige muita computação
 
 1. Faça logon na máquina virtual.
-2. Crie uma pasta chamada **c:\TSP**. É onde você executará o aplicativo.
-3. Copie TSPSolver.exe e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPSolver, para **c:\TSP**.
-4. Crie um arquivo chamado **c:\TSP\cities.txt** com o seguinte conteúdo:
+2. Crie uma pasta chamada **C:\TSP**. É onde você executará o aplicativo.
+3. Copie TSPSolver.exe e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPSolver, para **C:\TSP**.
+4. Crie um arquivo chamado **C:\TSP\cities.txt** com o seguinte conteúdo:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
+5. Em um prompt de comando, altere os diretórios para C:\TSP.
 6. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço:
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@ O solver será executado até terminar de examinar todas as rotas.
 
 ### Como executar o aplicativo cliente de monitoramento
 1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
-2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\TSP.
-4. Em um prompt de comando, altere os diretórios para c:\TSP.
+2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **C:\TSP**.
+3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta C:\TSP.
+4. Em um prompt de comando, altere os diretórios para C:\TSP.
 5. Execute o comando a seguir:
 
         TSPClient
@@ -545,5 +545,6 @@ Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou exclu
 [click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

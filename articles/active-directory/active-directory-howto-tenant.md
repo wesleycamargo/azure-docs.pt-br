@@ -18,7 +18,7 @@
 
 # Como obter um locatário do Active Directory do Azure
 
-No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização. Ele é uma instância dedicada do serviço AD do Azure que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o InTune ou o Office 365. Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.
+No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização. Ele é uma instância dedicada do serviço Azure AD que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o Microsoft InTune ou o Office 365. Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.
 
 Um locatário acomoda os usuários em uma empresa e as informações sobre eles - suas senhas, dados de perfil do usuário, permissões e assim por diante. Ele também contém grupos, aplicativos e outras informações referentes a uma organização e à sua segurança.
 
@@ -64,5 +64,6 @@ Se você já se inscreveu anteriormente para uma assinatura do Azure com sua con
 Se todos os itens acima forem sem sentido para você, não se preocupe. Basta visitar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização. Depois de concluir o processo, você terá seu próprio locatário do AD do Azure com o nome de domínio escolhido durante a inscrição. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), você pode localizar seu locatário navegando para "Active Directory" no painel de navegação à esquerda.
 
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito. Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->
