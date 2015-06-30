@@ -311,10 +311,11 @@ A URL de autoridade precisa da instância STS e do nome do locatário: https://l
 
 ### Consultar itens do cache
 
-A ADAL fornece cache padrão em SharedPrefrecens com algumas funções de consulta simples de cache. Você pode obter o cache atual de AuthenticationContext com: ```Java
+A ADAL fornece cache padrão em SharedPrefrecens com algumas funções de consulta simples de cache. Você pode obter o cache atual de AuthenticationContext com:
+```Java
  ITokenCacheStore cache = mContext.getCache();
 ```
-Você também pode fornecer sua implementação de cache, se desejar personalizá-la. 
+Você também pode fornecer sua implementação de cache, se desejar personalizá-la.
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
