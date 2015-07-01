@@ -93,7 +93,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Adicionar autenticação ao seu aplicativo de Serviços Móveis]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Introdução às notificações por push]: mobile-services-javascript-backend-android-get-started-push.md
-
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 

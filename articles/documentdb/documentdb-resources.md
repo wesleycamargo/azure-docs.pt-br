@@ -350,7 +350,7 @@ A execução de um procedimento armazenado é feita com a emissão de um HTTP PO
 	        console.log("Error");
 	    });
 
-###Unregistering a stored procedure
+###Cancelando o registro de um procedimento armazenado
 Cancelar o registro de um procedimento armazenado é um processo simples, feito com a emissão de um HTTP DELETE para um recurso de procedimento armazenado existente.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
