@@ -59,7 +59,7 @@ Para discos de dados, a **Preferência de Cache do Host** deve ser definida como
 
 Isso adicionará um disco vazio à sua máquina virtual. Repita essa etapa mais três vezes para que você tenha 4 discos de dados para o RAID.
 
-Você pode ver as unidades adicionadas na máquina virtual, observando o log de mensagens do kernel. Por exemplo, para ver isso no Ubuntu, use o seguinte comando:
+Você pode ver as unidades adicionadas na máquina virtual, observando o log de mensagens do kernel. Por exemplo, para ver isso no Ubuntu, use o seguinte comando:  
 
 	sudo grep SCSI /var/log/dmesg
 
@@ -161,7 +161,7 @@ Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme most
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-Em seguida, monte novamente o sistema de arquivos com o seguinte comando:
+Em seguida, monte novamente o sistema de arquivos com o seguinte comando:  
 
 	mount -o remount /RAID0
 
@@ -304,15 +304,15 @@ Observe que o tamanho do arquivo usado para esse teste é 30GB e 1GB respectivam
 
 **A definição de configuração para padrão e otimização é a seguinte:**
 
-|Parâmetros |Padrão |otimização
+|Parâmetros	|Padrão	|otimização
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |Nenhum |7G
-|**innodb_log_file_size** |5 M |512 M
-|**max_connections** |100 |5.000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8 M |128 M
-|**query_cache_size** |16 M |0
+|**innodb_buffer_pool_size**	|Nenhum |7G
+|**innodb_log_file_size**	|5 M	|512 M
+|**max_connections**	|100	|5.000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1	|2
+|**innodb_log_buffer_size**	|8 M	|128 M
+|**query_cache_size**	|16 M	|0
 
 
 Parâmetros de configuração de otimização mais detalhados, consulte as instruções oficiais do mysql.
@@ -323,12 +323,15 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 
 **Ambiente de teste**
 
-|Hardware |Detalhes
+|Hardware	|Detalhes
 |-----------|-------
-|Cpu |Processador AMD Opteron(tm) 4171 HE/4 cores
-|Memória |14G
-|disk |10G/disco
-|os |Ubuntu 14.04.1 LTS
+|Cpu	|Processador AMD Opteron(tm) 4171 HE/4 cores
+|Memória	|14G
+|disk	|10G/disco
+|os	|Ubuntu 14.04.1 LTS
+
+
+
 [1]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-01.png
 [2]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-02.png
 [3]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-03.png
@@ -344,4 +347,4 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 
