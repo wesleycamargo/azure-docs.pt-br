@@ -46,7 +46,150 @@ Examinaremos as seções do modelo em detalhes mais adiante neste tópico. Por e
 
 ## Expressões e funções
 
-A sintaxe básica do modelo é JSON. No entanto, expressões e funções estendem o JSON que está disponível no modelo e permitem criar valores que não são valores literais rígidos. As expressões são colocadas entre colchetes ([ e ]) e avaliadas quando o modelo é implantado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete [, você deverá usar dois colchetes [[. Normalmente, você usa expressões com funções para executar operações e configurar a implantação. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)**. Você faz referência às propriedades usando os operadores dot e [index]. A lista a seguir mostra funções comuns. - **parameters(parameterName)** Retorna um valor de parâmetro que é fornecido quando a implantação é executada. - **variables(variableName)** Retorna uma variável que é definida no modelo. - **concat(arg1,arg2,arg3,...)** Combina vários valores de cadeia de caracteres. Essa função pode usar qualquer número de argumentos. - **base64(inputString)** Retorna a representação base64 da cadeia de caracteres de entrada. - **resourceGroup()** Retorna um objeto estruturado (com ID, nome e propriedades do local) que representa o grupo de recursos atual. - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)** Retorna o identificador exclusivo de um recurso. Pode ser usada para recuperar o recurso de outro grupo de recursos. O exemplo a seguir mostra como usar várias funções ao construir valores: "variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } Por enquanto, você sabe o suficiente sobre expressões e funções para entender as seções do modelo. Para obter informações mais detalhadas sobre todas as funções do modelo, incluindo parâmetros e o formato dos valores retornados, consulte [Azure Resource Manager template functions](./resource-group-template-functions.md). ## Parâmetros Na seção de parâmetros do modelo, você especifica quais valores um usuário pode inserir ao implantar os recursos. Você pode usar esses valores de parâmetro em todo o modelo para definir valores para os recursos implantados. Somente os parâmetros que são declarados na seção de parâmetros podem ser usados em outras seções do modelo. Na seção de parâmetros, é possível usar um valor de parâmetro para construir outro valor de parâmetro. Esse tipo de operação geralmente ocorre na seção de variáveis. Você define parâmetros com a seguinte estrutura: "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | Nome do elemento | Obrigatório | Descrição | :------------: | :------: | :---------- | parameterName | Sim | Nome do parâmetro. Deve ser um identificador JavaScript válido. | type | Sim | Tipo de valor do parâmetro. Consulte a lista abaixo de tipos permitidos. | defaultValue | Não | Valor padrão para o parâmetro, se nenhum valor for fornecido para o parâmetro. | allowedValues | Não | Matriz de valores permitidos para o parâmetro a fim de garantir que o valor certo seja fornecido. Os tipos e valores permitidos são: - string or secureString - qualquer cadeia de caracteres JSON válida - int - qualquer inteiro JSON válido - bool - qualquer booliano JSON válido - object - qualquer objeto JSON válido - array - qualquer matriz JSON válida >[AZURE.NOTE] Todas as senhas, chaves e outros segredos devem usar o tipo **secureString**. Os parâmetros do modelo com o tipo secureString não podem ser lidos após a implantação de recursos. O exemplo a seguir mostra como definir parâmetros: "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "Free", "Shared", "Basic", "Standard", "Premium" ], "defaultValue": "Free" } } ## Variáveis Na seção de variáveis, você constrói valores que podem ser usados para simplificar expressões de linguagem do modelo. Normalmente, essas variáveis serão baseadas em valores fornecidos pelos parâmetros. O exemplo a seguir mostra como definir uma variável que é construída de dois valores de parâmetro: "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } O próximo exemplo mostra uma variável que é um tipo JSON complexo e as variáveis que são construídas de outras variáveis: "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+A sintaxe básica do modelo é JSON. No entanto, expressões e funções estendem o JSON que está disponível no modelo e permitem criar valores que não são valores literais rígidos. As expressões são colocadas entre colchetes ([ e ]) e avaliadas quando o modelo é implantado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete [, você deverá usar dois colchetes [[.
+
+Normalmente, você usa expressões com funções para executar operações e configurar a implantação. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)**. Você faz referência às propriedades usando os operadores dot e [index].
+
+A lista a seguir mostra funções comuns.
+
+- **parameters(parameterName)**
+
+    Retorna um valor de parâmetro fornecido quando a implantação é executada.
+
+- **variables(variableName)**
+
+    Retorna uma variável que é definida no modelo.
+
+- **concat(arg1,arg2,arg3,...)**
+
+    Combina vários valores de cadeia de caracteres. Essa função pode conter qualquer número de argumentos.
+
+- **base64(inputString)**
+
+    Retorna a representação base64 da cadeia de caracteres de entrada.
+
+- **resourceGroup()**
+
+    Retorna um objeto estruturado (com id, nome e propriedades de local) que representa o grupo de recursos atual.
+
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+
+    Retorna o identificador exclusivo de um recurso. Pode ser usada para recuperar o recurso de outro grupo de recursos.
+
+O seguinte exemplo mostra como usar várias das funções ao construir valores:
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+Por enquanto, você sabe o suficiente sobre expressões e funções para entender as seções do modelo. Para obter mais informações sobre todas as funções de modelo, incluindo parâmetros e o formato dos valores retornados, consulte [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
+
+
+## Parâmetros
+
+Na seção de parâmetros do modelo, você deve especificar os valores que um usuário pode inserir ao implantar os recursos. Você pode usar esses valores de parâmetro em todo o modelo para definir valores para os recursos implantados. Somente os parâmetros que são declarados na seção de parâmetros podem ser usados em outras seções do modelo.
+
+Na seção de parâmetros, é possível usar um valor de parâmetro para construir outro valor de parâmetro. Esse tipo de operação geralmente ocorre na seção de variáveis.
+
+Você define parâmetros com a seguinte estrutura:
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| Nome do elemento | Obrigatório | Descrição
+| :------------: | :------: | :----------
+| parameterName | Sim | Nome do parâmetro. Deve ser um identificador JavaScript válido.
+| type | Sim | Tipo do valor do parâmetro. Consulte a lista de tipos permitidos abaixo.
+| defaultValue | Não | Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro.
+| allowedValues | Não | Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido.
+
+Os valores e tipos permitidos são:
+
+- string ou secureString - qualquer cadeia de caracteres JSON válida
+- int - qualquer inteiro JSON válido
+- bool - qualquer booliano JSON válido
+- object - qualquer objeto JSON válido
+- array - qualquer matriz JSON válida
+
+
+>[AZURE.NOTE]Todas as senhas, chaves e outros segredos devem usar o tipo **secureString**. Os parâmetros do modelo com o tipo secureString não podem ser lidos após a implantação de recursos.
+
+O seguinte exemplo mostra como definir parâmetros:
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## Variáveis
+
+Na seção de variáveis, você constroi valores que podem ser usados para simplificar expressões de idioma do modelo. Normalmente, essas variáveis serão baseadas em valores fornecidos pelos parâmetros.
+
+O seguinte exemplo mostra como definir uma variável que é construída com base em dois valores de parâmetro:
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+O próximo exemplo mostra uma variável que é um tipo JSON complexo e variáveis que são construídas com base em outras variáveis:
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## Recursos
 
@@ -254,7 +397,7 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 
 ## Próximas etapas
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
