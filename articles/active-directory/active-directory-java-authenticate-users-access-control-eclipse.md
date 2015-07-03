@@ -113,11 +113,14 @@ Nesta tarefa, você configura o ACS para reconhecer seu aplicativo web Java como
 1.  No Portal de Gerenciamento do ACS, clique em **Aplicativos de terceiras partes confiáveis**.
 2.  Na página **Aplicativos de terceiras partes confiáveis**, clique em **Adicionar**.
 3.  Na página **Adicionar aplicativos de terceiras partes confiáveis**, faça o seguinte:
-    1.  Em **Nome**, digite o nome do RP. Para fins desse tutorial, digite **Aplicativo Web do Azure**.
+    1.  Em **Nome**, digite o nome do RP. Para fins desse tutorial, digite **Aplicativo Web do
+        Azure**.
     2.  Em **Modo**, selecione **Inserir as configurações manualmente**.
     3.  Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para esta tarefa, digite **http://localhost:8080/**.
-        ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator] 4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![A terceira parte confiável retorna a URL para uso no emulador de computação][relying_party_return_url_emulator] 5.  Aceite os valores padrão no restante dos campos.
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
+    4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp**
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
+    5.  Aceite os valores padrão no restante dos campos.
 
 4.  Clique em **Salvar**.
 
@@ -312,4 +315,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
