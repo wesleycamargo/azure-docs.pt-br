@@ -98,7 +98,8 @@ Essa etapa retornará informações semelhantes às seguintes:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE]Você deve salvar essa saída, principalmente a chave simétrica gerada. Essa chave só é revelada a você durante a criação da Entidade de Serviço, e você não pode recuperá-la no futuro. Os outros valores são necessários para usar a Graph API para ler e gravar informações no diretório.
+> [AZURE.NOTE]
+> Você deve salvar essa saída, principalmente a chave simétrica gerada. Essa chave só é revelada a você durante a criação da Entidade de Serviço, e você não pode recuperá-la no futuro. Os outros valores são necessários para usar a Graph API para ler e gravar informações no diretório.
 
 6. A etapa final define a URL de resposta para o seu aplicativo. A URL de resposta é onde as respostas são enviadas após tentativas de autenticação. Digite os comandos a seguir e pressione enter:
 
