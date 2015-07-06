@@ -1,4 +1,12 @@
-< propriedades pageTitle = "Criar um backup manual" description = "Explica como iniciar um manual, trabalho de backup sob demanda." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" / > <tags 
+<properties 
+   pageTitle="Criar um backup manual"
+   description="Explica como iniciar um manual, trabalho de backup sob demanda."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS" 
+   manager="adinah"
+   edito**r="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -13,13 +21,13 @@
 
 2. Selecione a política clicando em qualquer lugar na linha correspondente, exceto a primeira coluna. Na parte inferior da página, clique em **Fazer backup**. O botão se expandirá para mostrar as opções de backup: instantâneo local e instantâneo em nuvem.
 
-3. Quando você escolhe uma dessas opções, você será solicitado para confirmação. Clique em **Sim**.
+3. Quando você escolhe uma dessas opções, você será solicitado para confirmação. Clique em **Sim**. 
 
     ![Criar o backup manual1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
  
     Isso iniciará um trabalho para criar um instantâneo. Depois que o trabalho foi criado com êxito, você verá uma notificação na parte inferior da página.
 
-4. Para monitorar o trabalho, clique em **Exibir trabalho** na área de notificação (na parte inferior da página).
+4. Para monitorar o trabalho, clique em **Exibir trabalho** na área de notificação (na parte inferior da página). 
 
     ![Criar o backup manual2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 
