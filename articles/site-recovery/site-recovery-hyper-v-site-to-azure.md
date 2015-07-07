@@ -61,7 +61,11 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 - Você deve executar as versões mais recentes do Provedor e do agente.
 - Todos os servidores Hyper-V em um cofre devem ter as mesmas versões.
 - O Provedor precisará se conectar ao Azure Site Recovery pela Internet. Você pode fazer isso sem um proxy, usando as configurações de proxy configuradas no servidor VMM ou usando as configurações personalizadas de proxy definidas durante a instalação do Provedor. Para usar um servidor proxy existente, verifique se as URLs de conexão com o Azure têm permissão no firewall:
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net 
 - Para usar o proxy personalizado, configure-o antes de instalar o Provedor. Durante a instalação do Provedor, você precisará especificar o endereço do servidor proxy e a porta, além das credenciais que podem ser usadas para acesso.
 
 A figura abaixo mostra os canais de comunicação e as portas diferentes usados pelo Azure Site Recovery para coordenação e a replicação
@@ -139,7 +143,11 @@ Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hype
 	- Se o proxy padrão no servidor Hyper-V exigir autenticação, você deverá selecionar o uso de um servidor proxy personalizado. Digite os detalhes do proxy padrão e especifique as credenciais.
 	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor. 
 	- As URLs a seguir devem estar acessíveis no host Hyper-v
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net 
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
@@ -188,7 +196,8 @@ Observe que se você quiser instalar o Provedor no Server Core do Windows Server
 
 ## Etapa 5: Criar e configurar grupos de proteção
 
-Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo. 1. Em **Criar e configurar grupos de proteção**, clique em **Criar um grupo de proteção**. Se algum pré-requisito não estiver em vigor, uma mensagem será emitida e você poderá clicar em **Exibir detalhes** para saber mais.
+Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo.
+1. Em **Criar e configurar grupos de proteção**, clique em **Criar um grupo de proteção**. Se algum pré-requisito não estiver em vigor, uma mensagem será emitida e você poderá clicar em **Exibir detalhes** para saber mais.
 
 2. Na guia **Grupos de Proteção**, adicione um grupo de proteção. Especifique um nome, o site de origem Hyper-V, o **Azure** de destino, o nome da sua assinatura do Azure Site Recovery e a conta de armazenamento do Azure.
 
