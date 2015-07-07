@@ -22,38 +22,45 @@ Aplicativos de API fazem parte do pacote [Serviço de Aplicativo do Azure](../ap
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-A parte de aplicativos da API desse pacote fornece uma rica plataforma e ecossistema para compilar, consumir e distribuir APIs na nuvem e nos locais.
+A parte de aplicativos da API desse pacote fornece uma rica plataforma e ecossistema para compilar, hospedar, consumir e distribuir APIs na nuvem e localmente.
 
->[AZURE.NOTE]Aplicativos de API estão atualmente em visualização pública. Ele é compilado na parte superior dos [aplicativos Web do Serviço de Aplicativo](../app-service-web/app-service-web-overview.md), que é um serviço GA (Geralmente Disponível) destinado à compilação e hospedagem segura de aplicativos críticos em escala global. Se você estiver procurando por um serviço GA para compilação de sua API hoje, os aplicativos Web são uma ótima opção. Quando os aplicativos de API ficarem disponíveis, forneceremos um caminho para usar os aplicativos Web existentes e aproveitar os recursos dos aplicativos de API.
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) é um serviço separado que oferece recursos como a otimização e consolidação de pontos de extremidade. Você pode usar o Gerenciamento de API com Aplicativos de API.
+>
+>Aplicativos de API estão atualmente em visualização pública. Ele é compilado na parte superior dos [aplicativos Web do Serviço de Aplicativo](../app-service-web/app-service-web-overview.md), que é um serviço GA (Geralmente Disponível) destinado à compilação e hospedagem segura de aplicativos críticos em escala global. Se você estiver procurando por um serviço GA para compilação de sua API hoje, os aplicativos Web são uma ótima opção. Quando os aplicativos de API ficarem disponíveis, forneceremos um caminho para usar os aplicativos Web existentes e aproveitar os recursos dos aplicativos de API.
 
 ## Por que aplicativos de API?
 
 Um aplicativo de API é um [aplicativo Web do Serviço de Aplicativo](../app-service-web/app-service-web-overview.md) com recursos adicionais que melhoram a experiência de desenvolvimento, implantação, publicação, consumo, gerenciamento e monetização de APIs Web RESTful.
 
-Isso significa que aplicativos de API compartilham com os aplicativos Web todos os recursos de hospedagem da Web da plataforma do Serviço de Aplicativo do Azure:
+### Recursos do aplicativo Web para serviços Web
+
+Você pode usar um aplicativo Web para hospedar um serviço Web e você obterá todos os recursos de hospedagem Web da plataforma do Serviço de Aplicativo do Azure:
 
 - Aplicação de patch automática do sistema operacional
 - Segurança de nível corporativo
 - Alta disponibilidade
 - Dimensionamento automático e balanceamento de carga
 - [WebJobs](../app-service-web/websites-webjobs-resources.md) para processamento em segundo plano
-- Implantação rápida e fácil e várias opções de entrega contínua - Para obter informações sobre a variedade de opções de implantação disponíveis para aplicativos da API, consulte [Implantar um aplicativo Web no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md). 
+- Implantação rápida e fácil, além de [muitas opções de entrega contínua](../app-service-web/web-sites-deploy.md)
+- Acesse dados locais usando [conexões híbridas](../integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
-Os recursos adicionais que a plataforma de aplicativos de API fornece facilitam o desenvolvimento, a hospedagem e o consumo de APIs:
+### Recursos de Aplicativos de API disponíveis agora em visualização
 
-- **Traga sua API como ela é** - Use ASP.NET, Java, PHP, Node.js ou Python para suas APIs. Suas APIs podem aproveitar a plataforma de aplicativos da API sem alterações.
+Se você usar Aplicativos de API em vez de Aplicativos Web para hospedar seus serviços Web, o Serviço de Aplicativo oferece recursos adicionais:
 
-- **Controle de acesso simples** -Configure suas APIs para autenticação do Active Directory do Azure ou serviços de terceiros, como o Facebook e Twitter sem alterações ao seu código. Use uma sintaxe simplificada como código de autorização. Para obter mais informações, consulte [Proteger um aplicativo API](app-service-api-dotnet-add-authentication.md).
+- **Consumo fácil** - o suporte integrado [Swagger](http://swagger.io/) torna suas APIs facilmente consumíveis por uma variedade de clientes. O SDK de aplicativos de API é capaz de gerar o código do cliente para suas APIs em uma variedade de linguagens incluindo C#, Java e Javascript.
+
+- **Controle de acesso simples** - Os serviços internos de autenticação dão suporte ao Active Directory do Azure ou serviços de terceiros, como o Facebook e Twitter. Você pode proteger um aplicativo de API de acesso não autenticado sem fazer alterações ao seu código. Se você estiver familiarizado com os serviços de autenticação fornecidos pelo [Serviços Móveis do Azure](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), os aplicativos de API são compilados nesse framework e o estendem a serviços Web hospedados por Aplicativos de API. O SDK do Serviço de Aplicativo também permite que você use uma sintaxe simplificada como código de autorização. Para obter mais informações, consulte [Proteger um aplicativo API](app-service-api-dotnet-add-authentication.md).
 
 - **Conexão fácil com plataformas SaaS** - [Aplicativos de API do conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) no Azure Marketplace são fornecidos pela Microsoft e terceiros para simplificar o código que você escreve para interagir com SalesForce, Office 365, Twitter, Facebook, Dropbox e muitos outros.
 
-- **Acessar dados locais** - Aplicativos de API podem expor APIs que consomem dados de seu próprio centro de dados usando [conexões híbridas](../integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
-
-- **Consumo fácil** - Use o suporte integrado [Swagger](http://swagger.io/) para tornar suas APIs facilmente consumíveis por uma variedade de clientes. Ou use o SDK de aplicativos de API para gerar o código do cliente para suas APIs em uma variedade de linguagens incluindo C#, Java e Javascript.
-
-- **Integração com aplicativos lógicos** -Aplicativos de API criados por você podem ser consumidos por aplicativos lógicos do Serviço de Aplicativo.
+- **Integração com aplicativos lógicos** - Aplicativos de API criados por você podem ser consumidos por [aplicativos lógicos do Serviço de Aplicativo](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 - **Integração do visual Studio** -Ferramentas dedicadas no Visual Studio simplificam o trabalho de [criar](app-service-dotnet-create-api-app.md), [implantar](app-service-dotnet-deploy-api-app.md), [depurar](app-service-dotnet-remotely-debug-api-app) e gerenciar aplicativos de API.
+
+Você pode colocar sua API existente como ela é: você não precisa alterar nenhuma parte do código em suas APIs existentes para tirar proveito de todos esses recursos, basta implantar seu código em um aplicativo de API. Você pode usar ASP.NET, Java, PHP, Node.js ou Python para suas APIs.
+
+### Recursos de Aplicativos de API disponíveis futuramente
 
 Em breve, a plataforma de aplicativos da API também criará um rico ecossistema de APIs, facilitando o compartilhamento do código:
 
@@ -77,9 +84,10 @@ Muitos desses recursos, como marketplace público e atualizações automáticas,
 
 Para começar a usar os aplicativos de API, siga [Criar um tutorial de aplicativo de API](app-service-dotnet-create-api-app.md).
 
-Para ver uma lista de problemas conhecidos com aplicativos de API, consulte [este artigo no fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para ver uma lista de problemas conhecidos com aplicativos de API, consulte [este artigo no fórum do MSDN](https://social.msdn.microsoft.com/Forums/pt-br/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

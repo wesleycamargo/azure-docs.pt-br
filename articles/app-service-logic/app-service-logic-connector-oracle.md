@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Conector do Oracle" 
+   pageTitle="Usando o Conector do Oracle no Serviço de Aplicativo do Microsoft Azure" 
    description="Como usar o conector do Oracle" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,163 +13,109 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Conector do Banco de Dados Oracle #
+# Conector do Banco de Dados Oracle
 
-Conectores podem ser usados em aplicativos de lógicos para obter, processar ou enviar dados como parte de um fluxo. Utilizando o Conector do Oracle em seu fluxo, você pode chegar a diversos resultados. Alguns exemplos:  
+Conecte-se a um servidor local de Banco de Dados Oracle para criar e alterar suas informações ou dados. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Quando usa o Conector do Oracle em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
-1.	Expor uma seção dos dados residentes no seu banco de dados Oracle por meio de um front-end Web ou móvel do usuário.
-2.	Inserir dados em sua tabela de banco de dados Oracle para armazenamento (exemplo: registros de funcionários, pedidos de vendas etc.)
-3.	Extrair dados do Oracle para uso em um processo comercial
-
-Nesses cenários, é necessário fazer o seguinte: 
-
-1. Criar uma instância do Aplicativo de API do Conector do Oracle
-2. Estabelecer conectividade híbrida para o aplicativo de API se comunicar com o servidor Oracle local
-3. Usar o aplicativo de API criado em um aplicativo lógico para obter o processo comercial desejado
-
-	###Gatilhos e ações básicos
-		
-    - Dados de Sondagem (Gatilho) 
-    - Inserir em Tabela
-    - Atualizar Tabela
-    - Selecionar de Tabela
-    - Excluir de Tabela
-    - Chamar Procedimento Armazenado
-
-## Criar uma instância do Aplicativo de API do Conector do Banco de Dados Oracle ##
-
-Para usar o Conector do Oracle, você precisa criar uma instância do Aplicativo de API para o Conector do Oracle. Isso pode ser feito da seguinte maneira:
-
-1. Abra o Azure Marketplace usando a opção '+ NEW' na parte inferior esquerda do Portal do Azure.
-2. Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "Conector do Oracle".
-3. Forneça os detalhes genéricos, como nome, plano de serviço de aplicativo e assim por diante na primeira folha
-4. Forneça as configurações mencionadas na tabela a seguir.
-
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>Nome</th><th>Obrigatório</th><th>Descrição</th></tr>
- <tr><td>Fonte de dados</td><td>Sim</td><td>Um nome de fonte de dados (serviço de rede) que é especificado no arquivo tnsnames.ora no computador em que o cliente Oracle está instalado. Para obter mais informações sobre nomes de fonte de dados e tnsnames.ora, consulte [Configurando o cliente Oracle]</td></tr>
- <tr><td>Nome de usuário</td><td>Sim</td><td>Especifique um nome de usuário válido para se conectar ao servidor Oracle.</td></tr>
- <tr><td>Senha</td><td>Sim</td><td>Especifique uma senha válida para se conectar ao servidor Oracle.</td></tr>
- <tr><td>Cadeia de conexão do Barramento de Serviço</td><td>Sim</td><td>Opcional. Especifique esse parâmetro se o servidor Oracle for local. Deve ser uma cadeia de conexão válida do Namespace do Barramento de Serviço. Você precisa instalar um agente de escuta em um servidor que possa acessar seu servidor Oracle. Você pode ir para a página de resumo do aplicativo de API e clicar em Conexão Híbrida' para instalar o agente.</td></tr>
- <tr><td>Tabelas</td><td>Não</td><td>Opcional. Especifique as tabelas no banco de dados que podem ser modificadas pelo conector. Exemplo: OrdersTable, EmployeeTable</td></tr>
- <tr><td>Procedimentos Armazenados</td><td>Não</td><td>Opcional. Especifique os procedimentos armazenados no banco de dados que podem ser chamados pelo conector. Ex: IsEmployeeEligible, CalculateOrderDiscount</td></tr>
- <tr><td>Funções</td><td>Não</td><td>Opcional. Especifique as funções no banco de dados que podem ser chamadas pelo conector. Ex: IsEmployeeEligible, CalculateOrderDiscount</td></tr>
- <tr><td>Entidades de Pacote</td><td>Não</td><td>Opcional. Especifique os pacotes no banco de dados que podem ser chamados pelo conector. Ex.: PackageOrderProcessing.CompleteOrder, PackageOrderProcessing.GenerateBill</td></tr>
- <tr><td>Instrução de Dados Disponíveis</td><td>Não</td><td>Opcional. Especifique a instrução para determinar se há dados disponíveis para sondagem. Exemplo: SELECT * from table_name</td></tr>
- <tr><td>Tipo de Sondagem</td><td>Não</td><td>Opcional. Especifique o tipo de sondagem. Os valores permitidos são "Select", "Procedure", "Function" e "Package"</td></tr>
- <tr><td>Instrução de Sondagem</td><td>Não</td><td>Opcional. Especifique a instrução para sondar o banco de dados do servidor Oracle. Exemplo: SELECT * from table_name</td></tr>
- <tr><td>Instrução de Sondagem de Postagem</td><td>Não</td><td>Opcional. Especifique a instrução a ser executada após a sondagem. Exemplo: DELETE * from table_name.</td></tr>
-</table>
+- Expor uma seção dos dados residentes no seu banco de dados Oracle usando um aplicativo Web ou móvel.
+- Inserir dados na tabela do banco de dados Oracle para armazenamento. Por exemplo, você pode inserir registros de funcionários, atualizar ordens de venda e assim por diante.
+- Obter dados do Oracle para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce. 
 
 
+## Gatilhos e Ações
+*Gatilhos* são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma *Ação* é o resultado do gatilho. Por exemplo, quando uma ordem é atualizada, enviar um alerta para o vendedor. Ou, quando um novo cliente for adicionado, enviar um email de boas-vindas para ele.
 
- ![][1]  
+O conector do Banco de Dados Oracle pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. Para cada tabela incluída nas configurações do pacote (falaremos mais sobre isso posteriormente neste tópico), há um conjunto de ações de JSON e um conjunto de ações de XML. Se você estiver usando um gatilho/ação de XML, será possível usar o [Aplicativo de API de Transformação](app-service-logic-transform-xml-documents.md) para converter dados em outro formato de dados XML.
 
-## Configuração Híbrida ##
+O Conector de Banco de Dados Oracle tem os seguintes Gatilhos e Ações disponíveis:
 
-Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> <nome do aplicativo de API> e você verá o seguinte comportamento. A instalação está incompleta, pois a conexão híbrida ainda não foi estabelecida.
+Gatilhos | Ações
+--- | ---
+Sondar dados | <ul><li>Inserir na Tabela</li><li>Atualizar Tabela</li><li>Selecionar da Tabela</li><li>Excluir da Tabela</li><li>Chamar Procedimento Armazenado</li>
 
-![][2] 
 
-Para estabelecer a conectividade híbrida, faça o seguinte:
+## Criar um Conector do Banco de Dados Oracle
 
-1. Copie a cadeia de conexão principal
-2. Clique no link 'Baixar e Configurar'
-3. Siga o processo de instalação que é iniciado e forneça a cadeia de conexão principal quando for solicitado
-4. Quando o processo de instalação for concluído, uma caixa de diálogo semelhante a esta será exibida
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector usando o Azure Marketplace:
 
-![][3] 
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Selecione **Aplicativos de API** e pesquise “Conector de Banco de Dados Oracle”.
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades.
+4. Insira as seguintes configurações de pacote:
 
-Agora, quando navegar até o aplicativo de API, você observará que o status da conexão híbrida será Conectado. 
+	Nome | Obrigatório | Descrição
+--- | --- | ---
+Fonte de dados | Sim | Um nome de fonte de dados (serviço de rede) que é especificado no arquivo tnsnames.ora no computador em que o cliente Oracle está instalado. Para obter informações sobre nomes de fonte de dados e tnsnames.ora, consulte [Configurando o Cliente Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
+Nome de usuário | Sim | Insira um nome de usuário para se conectar ao servidor Oracle.
+Senha | Sim | Digite a senha do nome de usuário.
+Cadeia de conexão do Barramento de Serviço | Sim | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+Tabelas | Não | Insira as tabelas no banco de dados que podem ser modificadas pelo conector. Por exemplo, digite *OrdersTable, EmployeeTable*.
+Procedimentos Armazenados | Não | Insira os procedimentos armazenados no banco de dados que podem ser chamados pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
+Funções | Não | Insira as funções no banco de dados que podem ser chamadas pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
+Entidades de Pacote | Não | Insira os pacotes no banco de dados que podem ser chamados pelo conector. Por exemplo, insira *PackageOrderProcessing.CompleteOrder, PackageOrderProcessing.GenerateBill*.
+Instrução de Dados Disponíveis | Não | Insira a instrução para determinar se há dados disponíveis para sondagem. Por exemplo, digite *SELECT * from nome_da_tabela*.
+Tipo de Sondagem | Não | Especifique o tipo de sondagem. Os valores permitidos são "Select", "Procedure", "Function" e "Package".
+Instrução de Sondagem | Não | Insira a instrução para sondar o banco de dados do servidor Oracle. Por exemplo, digite *SELECT * from nome_da_tabela*.
+Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executada após a sondagem. Por exemplo, insira *DELETE * from nome_da_tabela*.
 
-![][4] 
+5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
-Observação: caso você queira trocar para a cadeia de conexão secundária, basta fazer novamente a configuração híbrida e fornecer a cadeia de conexão secundária em vez da cadeia principal  
 
-## Uso em um aplicativo lógico ##
-
-O Conector do Oracle pode ser usado como um gatilho/ação em um aplicativo lógico. O gatilho e todas as ações dão suporte aos formatos de dados JSON e XML. Para cada tabela que é fornecida como parte das configurações de pacote, haverá um conjunto de ações de JSON e um conjunto de ações de XML. Se você estiver usando o gatilho/ação de XML, será possível usar o aplicativo de API de transformação para converter dados em outro formato de dados XML. 
-
+## Usar o Conector como um Gatilho
 Vamos examinar um aplicativo lógico simples que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
 
+### Adicionar o Gatilho
+1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso listará os gatilhos disponíveis - **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5] 
 
+2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: <br/> ![][6]
 
--  Ao criar/editar um aplicativo lógico, escolha o Aplicativo de API do Conector do Oracle criado como o gatilho. Isso listará os gatilhos disponíveis - Sondar Dados (JSON) e Sondar Dados (XML).
+3. O gatilho agora aparece conforme configurado no aplicativo lógico. A saída(s) do gatilho será mostrada e pode ser usada como entradas em quaisquer ações posteriores: <br/> ![][7]
 
- ![][5] 
+## Usar o Conector como uma Ação
+Uso de nosso aplicativo lógico simples, que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
 
+Para usar o Conector do Oracle como uma ação, insira o nome de tabelas e/ou procedimentos armazenados que você inseriu quando criou o Conector do Oracle:
 
-- Selecione o gatilho - Sondar Dados (JSON), especifique a frequência e clique em ✓.
+1. Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
-![][6] 
+2. Especifique os valores das entradas do registro a ser inserido e clique em ✓: <br/> ![][9]
 
+3. Na galeria, selecione o mesmo Conector do Oracle que você criou. Como uma ação, selecione a ação Atualizar na mesma tabela, como *Atualizar TempEmployeeDetails*: <br/> ![][11]
 
-
-- O gatilho aparecerá conforme configurado no aplicativo lógico. A(s) saída()s do gatilho será(ão) mostrada(s) e pode(m) ser usada(s) como entrada(s) em ações posteriores. 
-
-![][7] 
-
-
-- Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir - inserir em TempEmployeeDetails (JSON).
-
-![][8] 
-
-
-
-- Forneça as entradas do registro a ser inserido e clique em ✓. 
-
-![][9] 
-
-
-
-- Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione a ação de atualização na mesma tabela (Ex.: Update EmployeeDetails)
-
-![][11] 
-
-
-
-- Forneça as entradas para a ação de atualização e clique em ✓. 
-
-![][12] 
+4. Insira os valores de entrada para a ação de atualização e clique em ✓: <br/> ![][12]
 
 Você pode testar o aplicativo lógico adicionando um novo registro na tabela que está sendo sondada.
 
+## Configuração Híbrida
+
+> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o Oracle local por trás do firewall.
+
+O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um Oracle local, o Gerenciador de Conexão Híbrida será necessário.
+
+Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
+
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+
+
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-oracle/Create.jpg
-[2]: ./media/app-service-logic-connector-oracle/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-oracle/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-oracle/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-oracle/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-oracle/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-oracle/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-oracle/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-oracle/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
-
-<!--Links-->
-[Configurando o cliente Oracle]: https://msdn.microsoft.com/pt-br/library/dd787872.aspx
+[1]: ./media/app-service-logic-connector-oracle/Create.png
+[5]: ./media/app-service-logic-connector-oracle/LogicApp1.png
+[6]: ./media/app-service-logic-connector-oracle/LogicApp2.png
+[7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
+[8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
+[9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
+[12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
 
 
-<!--HONumber=52--> 
+ 
+
+<!---HONumber=62-->

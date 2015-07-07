@@ -71,7 +71,7 @@ Os seguintes tipos de arquivo são aceitos:
 	
 > [AZURE.NOTE]Se seu aplicativo Web for executado em mais de uma instância, um Trabalho Web em execução contínua será executado em todas as suas instâncias. Trabalhos Web agendados e sob demanda são executados em uma única instância selecionada para o balanceamento de carga pelo Microsoft Azure.
 	
-> Para Trabalhos Web contínuos, é recomendável que você habilite **Sempre Ativado** para seu aplicativo Web. O recurso Sempre Ativado, disponível nos modos Básico e Padrão, impede que os aplicativos Web sejam descarregados, mesmo que tenham permanecido ociosos por algum tempo. Se seu aplicativo Web estiver sempre carregado, seu Trabalho Web em execução contínua poderá ser executado de maneira mais confiável.
+> Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
 
 ## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado
 
@@ -179,7 +179,7 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
 Para obter mais informações, consulte [Recursos Recomendados para Trabalhos Web do Azure][WebJobsRecommendedResources].
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
@@ -208,5 +208,6 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

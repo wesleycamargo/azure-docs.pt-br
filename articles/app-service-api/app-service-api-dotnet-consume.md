@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # Consumir um aplicativo de API no serviço de aplicativo do Azure por meio de um cliente .NET 
 
@@ -27,9 +27,11 @@ Este tutorial mostra como usar o SDK do serviço de aplicativo para escrever um 
 
 Cada uma dessas seções do tutorial é independente - você pode seguir as instruções para o segundo cenário sem ter concluído as etapas para primeiro.
 
+Para obter informações sobre como chamar um aplicativo de API **Interno**, consulte [Consumir um aplicativo de API interno de um cliente .NET](app-service-api-dotnet-consume-internal.md).
+
 ## Pré-requisitos
 
-o tutorial presume que você esteja familiarizado com a criação de projetos e com adicionar código a eles no Visual Studio, e como [Gerenciar aplicativos de API no portal de visualização do Azure](../app-service-api-apps-manage-in-portal.md).
+o tutorial presume que você esteja familiarizado com a criação de projetos e com adicionar código a eles no Visual Studio, e como [Gerenciar aplicativos de API no portal de visualização do Azure](app-service-api-apps-manage-in-portal.md).
 
 Os exemplos de projeto e o código neste artigo baseiam-se no projeto de aplicativo de API que você criar, implantar e proteger nesses artigos:
 
@@ -159,7 +161,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 
 		webBrowser1.Navigate(string.Format(@"{0}login/[authprovider]", GATEWAY_URL));
 
-	Substitua "[authprovider]" pelo código para o provedor de identidade que você configurou no gateway, por exemplo, "aad", "twitter", "google", "microsoftaccount" ou "facebook". Por exemplo:
+	Substitua "[authprovider]" pelo código para o provedor de serviço de identidade que você configurou no gateway, por exemplo, "aad", "twitter", "google", "microsoftaccount" ou "facebook". Por exemplo:
 
 		webBrowser1.Navigate(string.Format(@"{0}login/aad", GATEWAY_URL));
 
@@ -201,6 +203,6 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 Este artigo mostra como utilizar um aplicativo de API de um cliente .NET, para aplicativos de API definidos com os níveis de acesso **Público (autenticado)** e **Público (anônimo)**.
 
 Para obter exemplos adicionais de um código que chame um aplicativo de API de clientes .NET, baixe o aplicativo de exemplo [Azure cartões](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

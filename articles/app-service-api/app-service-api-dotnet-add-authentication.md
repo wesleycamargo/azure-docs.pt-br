@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-No tutorial [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md), você implantou um aplicativo de API com nível de acesso **Disponível para qualquer pessoa**. Este tutorial mostra como proteger um aplicativo de API para que somente usuários autenticados possam acessá-lo.
+Este tutorial mostra como proteger um aplicativo de API para que somente usuários autenticados possam acessá-lo. O tutorial também mostra código que você pode usar em um aplicativo de API do ASP.NET para recuperar informações sobre o usuário conectado.
 
 Você executará as seguintes etapas:
 
@@ -29,6 +29,7 @@ Você executará as seguintes etapas:
 - Chamar o aplicativo de API novamente para verificar se ele rejeita as solicitações não autenticadas.
 - Fazer logon no provedor configurado.
 - Chamar o aplicativo de API novamente para verificar se o acesso autenticado funciona.
+- Escrever e testar o código que recupera as declarações para o usuário conectado.
 
 ## Pré-requisitos
 
@@ -158,7 +159,13 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 
 	![URL de gateway](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	O valor de [providername] é "microsoftaccount", "facebook", "twitter", "google", ou "aad".
+	O [providername] deve ser um dos seguintes valores:
+	
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+	* "aad"
 
 	Aqui está um exemplo de URL de logon para o Active Directory do Azure:
 
@@ -230,6 +237,74 @@ Estas instruções mostram como usar a ferramenta Postman no navegador Chrome, m
 
 	![Resposta 403 Proibido](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
+## Obter informações sobre o usuário conectado
+
+Nesta seção, você altera o código no aplicativo de API ContactsList para que ele recupere e retorne o nome e endereço de email do usuário conectado.
+
+1. No Visual Studio, abra o projeto de aplicativo de API que você implantou em [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md) e esteve chamando para este tutorial.
+
+3. Abra o arquivo apiapp.json e adicione uma linha que indica que o aplicativo de API usa a autenticação do Active Directory do Azure.
+
+		"authentication": [{"type": "aad"}]
+
+	O arquivo apiapp.json final será parecido com o exemplo a seguir:
+
+		{
+		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		    "id": "ContactsList",
+		    "namespace": "microsoft.com",
+		    "gateway": "2015-01-14",
+		    "version": "1.0.0",
+		    "title": "ContactsList",
+		    "summary": "",
+		    "author": "",
+		    "endpoints": {
+		        "apiDefinition": "/swagger/docs/v1",
+		        "status": null
+		    },
+		    "authentication": [{"type": "aad"}]
+		}
+
+	Este tutorial usa o Active Directory do Azure como um exemplo. Para outros provedores, você usaria o identificador apropriado. Aqui estão os valores de provedor válidos:
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook". 
+
+2. No arquivo *ContactsController.cs*, substitua o código no método `Get` pelo código a seguir.
+
+		var runtime = Runtime.FromAppSettings(Request);
+		var user = runtime.CurrentUser;
+		TokenResult token = await user.GetRawTokenAsync("aad");
+		var name = (string)token.Claims["name"];
+		var email = (string)token.Claims["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"];
+		return new Contact[]
+		{
+		    new Contact { Id = 1, EmailAddress = email, Name = name }
+		};
+
+	Em vez de três contatos de exemplo, o código retorna informações de contato para o usuário conectado.
+
+	O código de exemplo usa o Active Directory do Azure. Para outros provedores, você usaria o identificador de declarações e o nome de token apropriados, conforme mostrado na etapa anterior.
+
+	Para obter informações sobre declarações do Active Directory do Azure que estão disponíveis, consulte [Tipos de declaração e token com suporte](https://msdn.microsoft.com/library/dn195587.aspx).
+
+3. Adicione uma instrução using para `Microsoft.Azure.AppService.ApiApps.Service`.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+3. Reimplante o projeto.
+
+	O Visual Studio lembrará das configurações de quando você implantou o projeto ao seguir o tutorial [Implantar](app-service-dotnet-deploy-api-app.md). Clique com o botão direito do mouse no projeto, clique em **Publicar**, e, em seguida, clique em **Publicar** na caixa de diálogo **Publicar Web**.
+
+6. Siga o procedimento que você fez anteriormente para enviar uma solicitação Get para o aplicativo de API protegido.
+
+	A mensagem de resposta mostra o nome e a ID da identidade usada para efetuar o logon.
+
+	![Mensagem de resposta com o usuário conectado](./media/app-service-api-dotnet-add-authentication/chromegetuserinfo.png)
+
 ## Próximas etapas
 
 Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para obter mais informações, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
@@ -239,4 +314,6 @@ Você viu como proteger um aplicativo de API do Azure exigindo autenticação do
 [Portal de visualização do Azure]: https://portal.azure.com/
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

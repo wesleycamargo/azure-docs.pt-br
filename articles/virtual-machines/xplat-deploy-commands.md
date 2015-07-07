@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Implantando um modelo usando a CLI do Azure para Mac, Linux e Windows"
+   pageTitle="Implantando um modelo usando a CLI do Azure para Mac, Linux e Windows | Microsoft Azure"
    description="Descreve as etapas básicas para implantar ou atualizar qualquer modelo."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Implantando um modelo usando a CLI do Azure para Mac, Linux e Windows
 
@@ -30,11 +30,11 @@ As etapas a seguir o habilitarão a implantar um modelo do Azure, mesmo que ele 
 Baixe o arquivo azuredeploy-parameters.json se ele existir para o modelo que você deseja implantar.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## Inserir suas informações de implantação de grupo de recursos
-    
+
 Abra esse arquivo com seu editor favorito. Você verá que precisa especificar um valor para várias das chaves, particularmente **adminUsername**, **adminPassword** (lembre-se das regras de complexidade!) e o nome da conta de armazenamento e os nomes DNS desejados.
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,7 +70,7 @@ Abra esse arquivo com seu editor favorito. Você verá que precisa especificar u
         "value": "myNic"
       }
     }
-    
+
 Adicione novos valores (oAzure criará novo recursos de armazenamento e DNS para você, se possível) ou use recursos que você já criou. O seguinte arquivo azuredeploy-parameters.json mostra um exemplo:
 
 
@@ -105,6 +105,6 @@ Vestibul precedente ipsum primis na faucibus orci luctus et ultrices posuere cub
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

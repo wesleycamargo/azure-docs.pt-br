@@ -26,7 +26,7 @@ Com alguns cliques do botão, você pode habilitar a autenticação e autorizaç
 
 >[AZURE.NOTE]Esse recurso está atualmente na visualização.
 
-## Implementar autenticação e autorização manualmente  ##
+## Implementar autenticação e autorização manualmente ##
 
 Em muitos cenários, convém personalizar o comportamento de autenticação e autorização do aplicativo, assim como uma página de logon e logout, lógica de autorização personalizada, o comportamento do aplicativo multilocatário e assim por diante. Nesses casos, talvez seja melhor configurar a autenticação e autorização manualmente para obter maior flexibilidade de seus recursos. Veja a seguir duas opções principais
 
@@ -35,7 +35,7 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 	-	Pode usar um provedor de identidade exclusivamente para o Azure, sem nenhuma infraestrutura local.
 	-	Também permite configurar a sincronização de diretórios com um AD local (gerenciado no local).
 	-	O AD do Azure com a sincronização de diretório do seu domínio do AD local habilita uma experiência tranquila de SSO para seu aplicativo Web quando os usuários do AD o acessam por meio da intranet e da Internet. Na intranet, os usuários do AD podem acessar automaticamente o aplicativo Web por meio da autenticação integrada. Da Internet, os usuários do AD podem fazer logon no aplicativo Web usando suas credenciais do Windows.
-	-	Fornece SSO para [todos os aplicativos com suporte pelo AD do Azure](/marketplace/active-directory/), incluindo o Azure, o Office 365, o Dynamics CRM Online, o Windows InTune e milhares de aplicativos em nuvem que não são da Microsoft. 
+	-	Fornece SSO [para todos os aplicativos com suporte do AD do Azure](/marketplace/active-directory/), incluindo Azure, Office 365, Dynamics CRM Online, o Microsoft Intune e milhares de aplicativos em nuvem que não são da Microsoft. 
 	-	O AD do Azure delega o gerenciamento de aplicativos de [terceira parte confiável](http://en.wikipedia.org/wiki/Relying_party) para funções de não administrador, enquanto o acesso do aplicativo a dados de diretório confidenciais ainda deve ser configurado pelos administradores globais.
 	-	Envia um conjunto de finalidade geral de tipos de declaração para todos os aplicativos de terceira parte confiável. Para a lista de tipos de declaração, consulte [Token com suporte e tipos de declaração](http://msdn.microsoft.com/library/azure/dn195587.aspx). Declarações não são personalizáveis.
 	-	A [Graph API do AD do Azure](http://msdn.microsoft.com/library/azure/hh974476.aspx) habilita acesso do aplicativo aos dados de diretório no AD do Azure.
@@ -49,7 +49,8 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

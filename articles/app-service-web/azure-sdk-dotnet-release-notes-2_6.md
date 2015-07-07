@@ -91,7 +91,16 @@ A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo 
  
 ##Problemas conhecidos
 
-A coleta de logs de diagnóstico no emulador requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador.
+- A coleta de logs de diagnóstico no emulador requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador. 
 
-<!--HONumber=52-->
+- O SDK do Azure 2.6, lançado, em 29/04/2015, tinha dois problemas:
+
+	- Não era possível carregar o aplicativo universal no Visual Studio 2015 quando o SDK do Azure SDK 2.6 era instalado na máquina.
+	- A depuração de um projeto de serviço de nuvem falhava no Visual Studio 2013 e Visual Studio 2015, e o Visual Studio não responde e falha ao exibir uma caixa de diálogo com a mensagem "Configurando o diagnóstico do emulador".
+	
+	Uma atualização para o SDK do Azure 2.6 foi lançada em 18/05/2015. A versão atualizada é 2.6.30508.1601; ela contém correções para dois problemas descritos acima. Você pode identificar a compilação do SDK no Painel de Controle -> Programas e Recursos -> Ferramentas do Microsoft Azure para Microsoft Visual Studio 2013 – v 2.6. A coluna Versão exibirá o número da compilação.
+
+	Se você ainda estiver enfrentando os problemas acima, instale a versão mais recente do SDK do Azure 2.6 para [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+
+<!---HONumber=62-->

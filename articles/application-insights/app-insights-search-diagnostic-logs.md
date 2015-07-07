@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Pesquise por logs de diagnóstico" 
-	description="Pesquise logs gerados com Trace, NLog ou Log4Net." 
+	pageTitle="Logs, exceções e diagnóstico personalizado para o ASP.NET no Application Insights" 
+	description="Diagnosticar problemas em aplicativos Web ASP.NET pesquisando solicitações, exceções e logs gerados com Rastreamento, NLog ou Log4Net." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,57 +12,131 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Pesquisa de diagnóstico no Application Insights
+# Logs, exceções e diagnóstico personalizado para o ASP.NET no Application Insights
 
-Um dos métodos de depuração mais tradicionais é inserir linhas de código que emitem um log de rastreamento. [O Application Insights][start] pode capturar seus logs do servidor Web e ajudá-lo a pesquisa e filtrá-los. Se você já usa o log4Net, NLog ou System.Diagnostics.Trace, você pode capturar esses logs com nosso adaptador. Ou então, você pode usar os métodos TrackTrace e TrackException incorporados ao SDK do Application Insights.
+O [Application Insights][start] inclui uma potente ferramenta de [Pesquisa de Diagnóstico][diagnostic] que permite a você a explorar e analisar telemetria enviada pelo SDK do Application Insights do seu aplicativo. Muitos eventos, tais como exibição de página de usuário, serão automaticamente enviados pelo SDK.
 
-Os resultados da pesquisa também podem incluir o modo de exibição de página normal os eventos de solicitação que são usados para criar os relatórios de [uso][usage] e [desempenho][perf], juntamente com quaisquer [chamadas TrackEvent personalizadas][track] que você tenha escrito.
+Você também pode escrever código para enviar eventos personalizados, relatórios de exceção e rastreamentos. Se você já usa uma estrutura de registros em log como log4J, log4net, NLog ou System.Diagnostics.Trace, poderá capturar os logs e incluí-los na pesquisa. Isso facilita a correlação de rastreamentos de log com ações do usuário, exceções e outros eventos.
+
+## <a name="send"></a>Antes de escrever telemetria personalizada
+
+Se você ainda não [configurou o Application Insights para seu projeto][start], faça isso agora.
+
+Quando você executar o aplicativo, ele enviará algumas telemetrias que aparecerão na Pesquisa de Diagnóstico, incluindo solicitações recebidas pelo servidor, exibições de página registradas no cliente e exceções não detectadas.
+
+Abra a Pesquisa de Diagnóstico para ver a telemetria que o SDK envia automaticamente.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-45diagnostic.png)
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
+
+Os detalhes variam de um tipo de aplicativo para outro. Você pode clicar em qualquer evento individual para obter mais detalhes.
+
+##<a name="events"></a>Eventos personalizados
+
+Eventos personalizados aparecem tanto na [Pesquisa de Diagnóstico][diagnostic] quanto no [Metrics Explorer][metrics]. Você pode enviá-los de dispositivos, páginas da Web e aplicativos de servidor. Eles podem ser usados para fins de diagnóstico e para [entender os padrões de uso][track].
+
+Um evento personalizado, além de ter um nome, pode conter propriedades segundo as quais você pode filtrar, juntamente com medidas numéricas.
+
+JavaScript no cliente
+
+    appInsights.trackEvent("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+C# no servidor
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
 
 
-2. [Instalar um adaptador para sua estrutura de log?](#capture)
-+ [Inserir chamadas de log de diagnóstico](#pepper)
-+ [Exceções](#exceptions)
-+ [Ver dados de log](#view)
-+ [Dados do log de pesquisa](#search)
-+ [Solucionar problemas](#questions)
-+ [Próximas etapas](#next)
+VB no servidor
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+### Execute o aplicativo e exiba os resultados.
+
+Abra a Pesquisa de Diagnóstico.
+
+Selecione Evento Personalizado e escolha o nome de um evento específico.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-332filterCustom.png)
 
 
+Filtre mais os dados, inserindo um termo de pesquisa em um valor da propriedade.
 
-## <a name="capture"></a> Instalar um adaptador para sua estrutura de log?
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-5.png)
 
-Se você ainda não [instalou o Application Insights em seu projeto][start], faça isso agora.
+Analise de modo aprofundado um evento individual para ver suas propriedades detalhadas.
 
-Se você usa as chamadas do SDK Track*() interno do Application Insights, não será necessário um adaptador - [pule para a próxima seção](#pepper).
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-Para pesquisar os logs gerados com o log4Net, NLog ou System.Diagnostics.Trace, instale o adaptador apropriado:
+##<a name="pages"></a> Visualizações de página
+
+Telemetria de exibição de página é enviada pela chamada trackPageView() no [trecho de JavaScript que você insere em suas páginas da Web][usage]. Sua finalidade principal é contribuir para as contagens de exibições de página exibidas na página Visão Geral.
+
+Geralmente, ele é chamado uma vez em cada página HTML, mas você pode inserir mais chamadas, por exemplo, se você tiver um aplicativo de página única e desejar registrar uma nova página sempre que o usuário obtiver mais dados.
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
+
+Pode ser útil associar propriedades que possam ser usadas como filtros na pesquisa de diagnóstico:
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
+     {Game: currentGame.name, Difficulty: currentGame.difficulty});
+
+
+##<a name="trace"></a> Telemetria de rastreamento
+
+Telemetria de rastreamento é o código que você insere especificamente para criar logs de diagnóstico.
+
+Por exemplo, você poderia inserir chamadas como essa:
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+
+####  Instalar um adaptador para sua estrutura de log
+
+Você também pode pesquisar logs gerados por uma estrutura de registros - log4Net, NLog ou System.Diagnostics.Trace.
 
 1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto. 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha  **Gerenciar Pacotes NuGet**.
-3. Selecione Online > Todos, selecione **Incluir Pré-lançamento** e pesquise por "Microsoft.ApplicationInsights"
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
+3. Selecione Online > Todos, selecione **Incluir pré-lançamento** e pesquise "Microsoft.ApplicationInsights"
 
-    ![Get the prerelease version of the appropriate adapter](./media/app-insights-search-diagnostic-logs/appinsights-36nuget.png)
+    ![Obtenha a versão de pré-lançamento do adaptador correto](./media/app-insights-search-diagnostic-logs/appinsights-36nuget.png)
 
 4. Selecione o pacote apropriado entre:
   + Microsoft.ApplicationInsights.TraceListener (para capturar chamadas do System.Diagnostics.Trace)
   + Microsoft.ApplicationInsights.NLogTarget
   + Microsoft.ApplicationInsights.Log4NetAppender
 
-O pacote NuGet instala os assemblies necessários e também modifica o app.config ou web. config.
+O pacote NuGet instala os assemblies necessários e também modifica o app.config ou web.config.
 
-## <a name="pepper"></a>3. Inserir chamadas de log de diagnóstico
+#### <a name="pepper"></a>Inserir chamadas de log de diagnóstico
 
-Insira chamadas de log de eventos usando a estrutura de log que tiver escolhido. 
-
-Por exemplo, se você usar o SDK do Application Insights, você pode inserir:
-
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
-
-Ou então, se você usar System.Diagnostics.Trace:
+Se você usa System.Diagnostics.Trace, uma chamada típica é semelhante a:
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
@@ -69,13 +144,19 @@ Se você preferir log4net ou NLog:
 
     logger.Warn("Slow response - database01");
 
-Execute o aplicativo no modo de depuração ou implante-o em seu servidor web.
+Execute o aplicativo no modo de depuração ou implante-o.
+
+Ao selecionar o filtro de Rastreamento, você verá as mensagens na Pesquisa de Diagnóstico.
 
 ### <a name="exceptions"></a>Exceções
 
-Para enviar as exceções ao log:
+Obter relatórios de exceção no Application Insights resulta em uma experiência muito poderosa, especialmente porque você pode navegar entre as solicitações com falha e as exceções, além de ler a pilha de exceções.
 
-JavaScript no cliente
+Em alguns casos, você precisa [inserir algumas linhas de código][exceptions] para certificar-se de que suas exceções estão sendo detectadas automaticamente.
+
+Você também pode escrever código explícito para enviar telemetria de exceção:
+
+JavaScript
 
     try 
     { ...
@@ -87,7 +168,7 @@ JavaScript no cliente
          State: currentGame.State.ToString()});
     }
 
-C# no servidor
+C#
 
     var telemetry = new TelemetryClient();
     ...
@@ -107,7 +188,7 @@ C# no servidor
        telemetry.TrackException(ex, properties, measurements);
     }
 
-VB no servidor
+VB
 
     Dim telemetry = New TelemetryClient
     ...
@@ -127,166 +208,60 @@ VB no servidor
 
 Os parâmetros de medidas e propriedades são opcionais, mas são úteis para filtrar e adicionar informações extras. Por exemplo, se você tiver um aplicativo que pode executar vários jogos, será possível localizar todos os relatórios de exceção relacionados a um jogo específico. Você pode adicionar quantos itens desejar a cada dicionário.
 
-## <a name="view"></a>4. Ver dados de log
+#### Visualizando exceções
+
+Você verá um resumo das exceções reportadas na lâmina Visão Geral e poderá clicar no conteúdo para ver mais detalhes. Por exemplo:
 
 
-1. No Application Insights, abra a pesquisa de diagnóstico.
+![](./media/app-insights-search-diagnostic-logs/appinsights-039-1exceptions.png)
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-30openDiagnostics.png)
-   
-2. Defina o filtro para os tipos de evento que você gostaria de ver.
+Clique em qualquer tipo de exceção para ver ocorrências específicas:
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-331filterTrace.png)
+![](./media/app-insights-search-diagnostic-logs/appinsights-333facets.png)
 
+Você também pode abrir a Pesquisa de Diagnóstico diretamente, filtrar exceções e escolher o tipo de exceção que deseja ver.
 
-Os tipos de evento são:
+### Relatando exceções sem tratamento
 
-* **Rastreamento** - pesquise logs de diagnóstico que você capturou de seu servidor web. Isso inclui chamadas log4Net, NLog, System.Diagnostic.Trace e ApplicationInsights TrackTrace.
-* **Solicitação** - pesquise solicitações HTTP recebidas pelo componente servidor do seu aplicativo da Web, incluindo solicitações de páginas, solicitações de dados, imagens e assim por diante. Os eventos que você verá são a telemetria enviada pelo SDK do servidor do Application Insights, eventos que são usados para criar o relatório de contagem de solicitações.
-* **Exibição de Página** - eventos de exibição da página de pesquisa. Esses eventos são enviados pelo cliente Web e são usados para criar relatórios no modo de exibição de página. (Se você não vê nada aqui, configure o [monitoramento de cliente Web][usage].)
-* **Evento personalizado** - se você tiver inserido chamadas TrackEvent() e TrackMetric() para [monitorar o uso][track], você pode pesquisá-las aqui.
+Onde possível, o Application Insights reporta exceções sem tratamento por meio de dispositivos, [navegadores da Web][usage] ou servidores Web, usando como instrumento o [Monitor de Status][redfield] ou então o [SDK do Application Insights][greenbrown].
 
-Selecione qualquer evento de log para ver os detalhes. 
+No entanto, não é possível para o servidor fazer isso em alguns casos, porque o .NET framework captura as exceções. Para certificar-se de que você vê todas as exceções você precisa, portanto, escrever um pequeno manipulador de exceção. O melhor procedimento varia de acordo com a tecnologia. Consulte a [Telemetria de exceção para o ASP.NET][exceptions] para obter detalhes.
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-32detail.png)
+### Correlacionar com uma compilação
 
-Você pode usar cadeias simples (sem curingas) para filtrar os dados dentro de um item.
+Quando você lê logs de diagnóstico, é provável que seu código-fonte tenha sido alterado desde que o código ativo foi implantado.
 
-Os campos disponíveis dependem da estrutura de log e dos parâmetros que você usou na chamada.
+Portanto, é útil colocar informações de compilação (por exemplo, a URL da versão atual) em uma propriedade, junto com cada exceção ou rastreamento.
 
+Em vez de adicionar a propriedade separadamente para cada chamada de exceção, você pode definir as informações no contexto padrão.
 
-## <a name="search"></a>5. Pesquisar os dados
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
 
-Defina um intervalo de tempo e pesquise pelos termos. Pesquisas que levam em consideração intervalos de tempo menores são mais rápidas. 
+No inicializador de aplicativo como Global.asax.cs:
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-311search.png)
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
 
-Observe que você pesquisa por termos, e não subcadeias. Os termos são cadeias alfanuméricas que incluem alguns sinais de pontuação como "." e "_". Por exemplo:
+###<a name="requests"></a> Solicitações do Servidor Web
 
-<table>
-  <tr><th>o termo</th><th>NÃO corresponde a</th><th>, mas estes são correspondentes a</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+A telemetria de solicitação é enviada automaticamente quando você [instala o Monitor de Status no servidor Web][redfield] ou quando [o Application Insights é adicionado ao seu projeto Web][greenbrown]. Ela também alimenta os gráficos de solicitação e tempo de resposta no Metrics Explorer e a página de Visão Geral.
 
-Estas são algumas expressões de pesquisa que você pode usar:
-
-<table>
-                    <tr>
-                      <th>
-                        <p>Exemplo de consulta</p>
-                      </th>
-                      <th>
-                        <p>Efeito</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">lento</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento"</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">banco de dados??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corresponde a banco de dados01, banco de dadosAB, ...</p>
-                        <p>? não é permitido no início de um termo de pesquisa.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">banco de dados*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corresponde a banco de dados, banco de dados01, banco de dadosNNNN</p>
-                        <p>* não é permitido no início de um termo de pesquisa</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">maçã AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Encontra eventos que contêm os dois termos. Use "AND" em letras maiúsculas, e não "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">maçã OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">maçã banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Encontra eventos que contêm um dos dois termos. Use "OR", e não "or".</p>
-                        <p>Forma curta.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">maçã NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">maçã -banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Encontra eventos que contêm um dos termos, mas não o outro.</p>
-                        <p>Forma curta.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>maç* AND banana NOT (uva OR pera)</p>
-                        <p>
-                          <span class="code">maç* AND banana -(uva pera)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Operadores lógicos e uso de colchetes.</p>
-                        <p>Forma mais curta.</p>
-                      </td>
-                    </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">message:slow</span>
-                        </p>
-                        <p>
-                          <span class="code">endereço IP:(10.0.0.* OU 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Corresponda ao campo especificado. Por padrão, todos os campos são pesquisados. Para ver quais campos estão disponíveis, selecione um evento para ver os detalhes.</p>
-                      </td>
-                    </tr>
- -->
-</table>
-
+Se você deseja enviar eventos adicionais, você pode usar a API TrackRequest().
 
 ## <a name="questions"></a>Perguntas e respostas
 
-### <a name="emptykey"></a>Eu recebo um erro "Chave de instrumentação não pode ser vazio"
+### <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 
 Parece que você instalou o pacote de Nuget de adaptador para registro em log sem instalar o Application Insights.
 
@@ -295,14 +270,6 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em `Applicati
 ### <a name="limits"></a>Que quantidade de dados é mantida?
 
 Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
-
-### <a name="cani"></a>Posso...?
-
-- Definir alertas para eventos e exceções
-- Exportar logs para análise posterior
-- Pesquisar propriedades específicas
-
-Não ainda, mas todos esses recursos estão na lista de pendências.
 
 ## <a name="add"></a>Próximas etapas
 
@@ -313,11 +280,19 @@ Não ainda, mas todos esses recursos estão na lista de pendências.
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

@@ -69,6 +69,8 @@ Por padrão, projetos de aplicativos de API são habilitados com geração autom
 
 No entanto, o modelo de novo projeto de aplicativo de API do desabilita a página de teste de API. Se você tiver criado seu projeto de aplicativo de API usando o modelo de projeto de aplicativo de API, terá de executar as etapas a seguir para habilitar a página de teste.
 
+**Observação:** se você implantar o aplicativo de API como *público anônimo* e com a interface do usuário do Swagger habilitada, qualquer pessoa poderá usar a interface do usuário do Swagger para descobrir e chamar suas APIs.
+
 1. Abra o arquivo *App_Start/SwaggerConfig.cs*, e pesquise por **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@ Para exibir a página de teste da API, execute as etapas a seguir.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

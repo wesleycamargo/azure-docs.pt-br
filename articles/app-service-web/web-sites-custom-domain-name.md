@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Aplicativos Web" class="current">Aplicativos Web</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Aplicativos Web com o Gerenciador de Tráfego">Aplicativos Web com o Gerenciador de Tráfego</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Aplicativos Web">Comprar Domínio para Aplicativos Web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Aplicativos Web" class="current">Aplicativos Web com Domínios Externos</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Aplicativos Web com o Gerenciador de Tráfego">Aplicativos Web com o Gerenciador de Tráfego</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 </div>
 
@@ -27,14 +27,14 @@
 
 Quando você cria um aplicativo Web, o Azure o atribui a um subdomínio do azurewebsites.net. Por exemplo, se seu aplicativo Web é chamado **contoso**, a URL é **contoso.azurewebsites.net**. O Azure também fornece um endereço IP virtual.
 
-Para um aplicativo Web de produção, é bem provável que você queira que os usuários vejam um nome de domínio personalizado. Este artigo explica como configurar um domínio personalizado com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). (Este artigo fornece instruções genéricas para qualquer registrador de domínio. As guias na parte superior do artigo fornecem links para artigos sobre determinados registradores.
+Para um aplicativo Web de produção, é bem provável que você queira que os usuários vejam um nome de domínio personalizado. Este artigo explica como reservar ou configurar um domínio personalizado com [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). (Este artigo fornece instruções genéricas para qualquer registrador de domínio. As guias na parte superior do artigo fornecem links para artigos sobre determinados registradores.
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 
 ## Visão geral
 
-Estas são as etapas gerais para configurar um nome de domínio personalizado:
+Se você tiver um nome de domínio ou quiser reservar um domínio de outros registradores de domínio, aqui estão as etapas gerais para obter um nome de domínio personalizado para o aplicativo Web:
 
 1. Reserve o seu nome de domínio. Este artigo não aborda este processo. Existem muitas opções de registradores de domínio. Quando você se inscrever, o site do registrador vai fornecer instruções sobre o processo.
 1. Crie registros DNS que mapeiem o domínio para seu aplicativo Web do Azure.
@@ -108,8 +108,10 @@ Considerando que o nome de domínio é “contoso.com”, isso criaria os seguin
 - **contoso.com** mapeado para 127.0.0.1.
 - **www.contoso.com** mapeado para **contoso.azurewebsites.net**.
 
+>[AZURE.NOTE]Você pode usar o DNS do Azure para hospedar os registros de domínio necessárias para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns-web-sites-custom-domain).
+
 <a name="awverify" />
-## Criar um registro “awverify” (somente registros A)
+## Criar um registro awverify (apenas registros A)
 
 Ao criar um registro A, os o aplicativo Web também exige um registro CNAME especial, utilizado para verificar a existência do domínio que você está tentando utilizar. Esse registro CNAME deve ter o seguinte formato.
 
@@ -124,8 +126,13 @@ Os visitantes do seu aplicativo Web não enxergarão o subdomínio awverify; ele
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
+
+## Próximas etapas
+
+Para obter mais informações, consulte: [Introdução ao DNS do Azure](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) e [Domínio delegado para DNS do Azure](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
+
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
@@ -137,5 +144,6 @@ Os visitantes do seu aplicativo Web não enxergarão o subdomínio awverify; ele
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,13 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
 
 Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você gostaria de receber um alerta por email sobre eventos com propriedades específicas? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
 
+A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="setup"></a> Configurar a exportação contínua
 
@@ -45,6 +46,7 @@ Se você quiser alterar os tipos de evento mais tarde, basta editar a exportaç�
 Para interromper o fluxo, clique em Desabilitar. Quando você clicar em Habilitar novamente, o fluxo será reiniciado com novos dados. Você não obterá os dados recebidos no portal enquanto a exportação estava desabilitada.
 
 Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclui seus dados do armazenamento.
+
 #### Não consegue adicionar nem alterar uma exportação?
 
 * Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre as funções][roles].
@@ -58,7 +60,7 @@ Os dados exportados são a telemetria bruta que recebermos do seu aplicativo, ex
 
 Métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
-## <a name="get"></a> Como obtê-los?
+## <a name="get"></a> Inspecionar os dados
 
 Ao abrir o repositório de blob com uma ferramenta como o [Gerenciador de Servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx), você verá um contêiner com um conjunto de arquivos de blob. O URI de cada arquivo é id-do-aplicativo/tipo-de-telemetria/data/hora.
 
@@ -66,18 +68,11 @@ Ao abrir o repositório de blob com uma ferramenta como o [Gerenciador de Servid
 
 A data e hora são em formato UTC, e referentes a quando a telemetria foi depositada no repositório - não à hora em que essa telemetria foi gerada. Então, se você escrever código para baixar os dados, ele pode percorrer os dados linearmente.
 
-Para baixar dados programaticamente, use a [API REST do repositório de blob](../storage-dotnet-how-to-use-blobs.md#configure-access) ou [cmdlets do Azure PowerShell](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-Ou considere a possibilidade de usar o [DataFactory](http://azure.microsoft.com/services/data-factory/), no qual você pode configurar pipelines para gerenciar dados em grande escala.
-
-Vamos começar escrevendo um novo blob por hora (se eventos forem recebidos). Portanto, você deve sempre processar até a hora anterior, mas aguardar até que a hora atual termine.
-
-[Exemplo de código][exportcode]
 
 
-## <a name="format"></a> Qual a aparência dos dados?
+## <a name="format"></a> Formato dos dados
 
-* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”.
+* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \n”.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar sentado e olhando para ele, tente usar um visualizador como o Bloco de notas++ com o plug-in JSON:
 
 ![Veja a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
@@ -90,7 +85,7 @@ As durações de tempo são em tiques, em que 10.000 tiques = 1 ms. Por exemplo,
 
 
 
-## Como processá-los?
+## Processamento dos dados
 
 Em pequena escala, você pode escrever um código para extrair e separar seus dados, lê-los em uma planilha e assim por diante. Por exemplo:
 
@@ -111,8 +106,17 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
       }
     }
 
+Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
-Ou então, você pode movê-los para um banco de dados SQL - consulte o [exemplo de código][exportcode].
+#### Exportar para SQL
+
+Outra opção é mover os dados para um banco de dados SQL, no qual você pode executar análises mais potentes.
+
+Temos exemplos mostrando dois métodos alternativos de mover os dados do armazenamento de blob para um banco de dados:
+
+* [Exportar para SQL usando uma função de trabalho][exportcode]
+* [Exportar para o SQL usando o Stream Analytics][exportasa]
+
 
 Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
 
@@ -129,10 +133,6 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 
 A exportação contínua será reiniciada.
 
-
-## Exemplo de código
-
-[Mover dados exportados para um banco de dados SQL][exportcode]
 
 ## Perguntas e respostas
 
@@ -170,7 +170,9 @@ A exportação contínua será reiniciada.
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Comparação de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais do Azure" 
+<properties
+	pageTitle="Comparação de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais do Azure"
 	description="Saiba quando usar o Serviço de Aplicativo do Azure, Serviços de Nuvem e Máquinas Virtuais para hospedar aplicativos Web."
-	services="•app-service\web, virtual-machines, cloud-services" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	services="app-service\web, virtual-machines, cloud-services"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
 # Comparação de Serviço de Aplicativo, Serviços de nuvem e Máquinas virtuais do Azure
@@ -52,20 +52,20 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 
 Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal de gerenciamento e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O novo recurso [Webjobs][] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, enquanto que a conectividade híbrida e os [recursos de VNET](../fundamentals-introduction-to-azure.md#networking/) facilitam a conexão de volta aos recursos no local. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
-* Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção. 
+* Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
-* Faça backup e restaurações para recuperação de desastres. 
+* Faça backup e restaurações para recuperação de desastres.
 * Esteja de acordo com os padrões ISO, SOC2 e PCI.
 * Integre-se com o Active Directory
 
-### <a id="corp"></a> Preciso de uma maneira confiável de hospedar meu Website corporativo que seja bem escalada e ofereça alcance global. 
+### <a id="corp"></a> Preciso de uma maneira confiável de hospedar meu Website corporativo que seja bem escalada e ofereça alcance global.
 
 O Serviço de Aplicativo do Azure é uma ótima solução para hospedar sites corporativos. Ele permite que os aplicativos Web tenham a escala ajustada rápida e facilmente para atender à demanda em uma rede global de datacenters. Ele oferece alcance local, tolerância a falhas e gerenciamento de tráfego inteligente. Tudo em uma plataforma que oferece ferramentas de gerenciamento de nível mundial, permitindo que você obtenha informações sobre o funcionamento e o tráfego do site de forma rápida e fácil. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
-* Execute seus sites de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção. 
+* Execute seus sites de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
-* Faça backup e restaurações para recuperação de desastres. 
-* Gerencie logs e o tráfego com ferramentas integradas. 
+* Faça backup e restaurações para recuperação de desastres.
+* Gerencie logs e o tráfego com ferramentas integradas.
 * Esteja de acordo com os padrões ISO, SOC2 e PCI.
 * Integre-se com o Active Directory
 
@@ -74,8 +74,8 @@ O Serviço de Aplicativo do Azure é uma ótima solução para hospedar sites co
 O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.movemetowebsites.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o portal de gerenciamento do Azure oferece ferramentas de gerenciamento robustas que permitem realizar uma redução vertical para gerenciar custos e o dimensionamento para atender à demanda conforme necessário. Com a ferramenta de migração, você pode:
 
 * Migrar rápida e facilmente seu aplicativo Web do Windows Server 2003 legado para a nuvem.
-* Escolha deixar seu banco de dados SQL conectado localmente para criar um aplicativo híbrido. 
-* Mova automaticamente seu banco de dados SQL juntamente com o aplicativo legado. 
+* Escolha deixar seu banco de dados SQL conectado localmente para criar um aplicativo híbrido.
+* Mova automaticamente seu banco de dados SQL juntamente com o aplicativo legado.
 
 ### <a id="smallbusiness"></a>Eu sou um pequeno empresário e preciso de uma maneira barata de hospedar meu site, mas com crescimento futuro em mente.
 
@@ -108,16 +108,16 @@ Escolha Máquinas Virtuais para uma ou mais de suas camadas se quiser usar sua p
 
 Se seu aplicativo requer instalação complexa ou configuração do software e do sistema operacional, máquinas virtuais é provavelmente a melhor solução. Com Máquinas Virtuais, você pode:
 
-- Usar a Galeria de Máquina Virtual para iniciar com um sistema operacional, como Windows ou Linux, e personalizar para seus requisitos de aplicativo. 
-- Criar e carregar uma imagem personalizada de um servidor local existente para ser executado em uma máquina virtual no Azure. 
+- Usar a Galeria de Máquina Virtual para iniciar com um sistema operacional, como Windows ou Linux, e personalizar para seus requisitos de aplicativo.
+- Criar e carregar uma imagem personalizada de um servidor local existente para ser executado em uma máquina virtual no Azure.
 
 ### <a id="oss"></a>Meu site usa software livre e quero hospedá-lo no Azure
 
 Se sua estrutura de software livre tiver suporte no Serviço de Aplicativo, as linguagens e estruturas de que seu aplicativo precisa serão configuradas automaticamente. O Serviço de Aplicativo permite que você:
 
-- Use vários idiomas open source populares como [.NET][dotnet], [PHP][], [Node.js][nodejs] e [Python][]. 
-- Instale o WordPress, Drupal, Umbraco, DNN e muitos outros aplicativos Web de terceiros. 
-- Migre um aplicativo existente ou crie um novo aplicativo na Galeria de Aplicativos. 
+- Use vários idiomas open source populares como [.NET][dotnet], [PHP][], [Node.js][nodejs] e [Python][].
+- Instale o WordPress, Drupal, Umbraco, DNN e muitos outros aplicativos Web de terceiros.
+- Migre um aplicativo existente ou crie um novo aplicativo na Galeria de Aplicativos.
 
 Se sua estrutura de software livre não tiver suporte no Serviço de Aplicativo, você pode executá-la em uma das duas outras opções de hospedagem na Web do Azure. Com os Serviços de Nuvem, você usa tarefas de inicialização para instalar e configurar qualquer software livre necessário que é executado no Windows. Com as Máquinas Virtuais, você instala e configura o software na imagem da máquina, que pode ser baseada em Windows ou Linux.
 
@@ -131,10 +131,10 @@ Serviços da Web baseados em HTTP permitem que você ofereça suporte a uma ampl
 
 - Criar rapidamente um aplicativo Web para hospedar o serviço Web HTTP em um dos datacenters globalmente distribuídos do Azure.
 - Migrar serviços existentes ou criar novos.
-- Obter o SLA de disponibilidade com uma única instância ou dimensionar para várias máquinas exclusivas. 
+- Obter o SLA de disponibilidade com uma única instância ou dimensionar para várias máquinas exclusivas.
 - Use o site publicado para fornecer APIs REST para quaisquer clientes HTTP, incluindo clientes móveis.
 
-Além disso, o Serviço de Aplicativo do Azure tem um novo recurso de visualização para APIs REST: aplicativos de API. Para obter mais informações sobre aplicativos de API, consulte [O que são aplicativos de API](app-service-api/app-service-api-apps-why-best-platform.md).
+Além disso, o Serviço de Aplicativo do Azure tem um novo recurso de visualização para APIs REST: aplicativos de API. Para obter mais informações sobre aplicativos de API, consulte [O que são aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 ##<a name="features"></a>Comparação de Recursos
 
@@ -230,7 +230,7 @@ A tabela a seguir compara os recursos de Serviço de Aplicativo, serviços de nu
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um Website dedicado para alcançar escalabilidade independente para a camada. O recurso de visualização [aplicativos de API](app-service-api/app-service-api-apps-why-best-platform.md) fornece ainda mais recursos para hospedar serviços REST.</td>
+   <td valign="middle">Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de visualização [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) fornece ainda mais recursos para hospedar serviços REST.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Suporte integrado do MySQL como serviço</p></td>
@@ -349,21 +349,22 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
 * [Serviços de nuvem do Azure](/documentation/services/cloud-services/)
 * [Máquinas Virtuais do Azure](/documentation/services/virtual-machines/)
 
-[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-[Serviço de Aplicativo do Azure]: /services/app-service/
-[Serviços de nuvem]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[armazenamento]: http://www.windowsazure.com/documentation/services/storage/
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+  [Serviço de Aplicativo do Azure]: /services/app-service/
+  [Serviços de nuvem]: http://go.microsoft.com/fwlink/?LinkId=306052
+  [Máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [ClearDB]: http://www.cleardb.com/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

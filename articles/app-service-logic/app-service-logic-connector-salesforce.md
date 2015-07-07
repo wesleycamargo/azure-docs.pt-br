@@ -26,9 +26,9 @@ Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de
 - Fluxo da ordem ao caixa do Salesforce para sistemas de ERP
 
 
-Como parte das configurações do pacote do conector, o usuário pode especificar entidades que o conector pode gerenciar e os parâmetros de ações, entrada e saída são preenchidos dinamicamente. A seguir, as diferentes ações disponíveis no Salesforce.
+Como parte das configurações do pacote do conector, o usuário pode especificar entidades que o conector pode gerenciar e os parâmetros de ações, entrada e saída são preenchidos dinamicamente. A seguir estão as diferentes ações disponíveis no Salesforce.
  
-- Criar Entidade - Use esta ação para criar uma nova entidade do Salesforce, como Conta e Caso.
+- Criar Entidade - Use esta ação para criar uma nova entidade do Salesforce, como Conta, Caso ou um Objeto Personalizado.
 
 - Atualizar Entidade - Use esta ação para atualizar uma entidade existente do Salesforce
 
@@ -134,5 +134,6 @@ Vamos criar um aplicativo lógico simples que cria uma conta no Salesforce e atu
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

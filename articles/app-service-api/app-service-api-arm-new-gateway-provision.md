@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy an API app with a new gateway" 
-	description="Use an Azure Resource Manager template to deploy an API app with a new gateway and new App Service plan." 
+	pageTitle="Implantar um aplicativo de API com um novo gateway" 
+	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo de API com um novo gateway e um novo plano de Serviço de Aplicativo." 
 	services="app-service\api" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -16,42 +16,41 @@
 	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Provision an API app with a new gateway
+# Provisionar um aplicativo de API com um novo gateway
 
-In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure API app and a gateway. You will learn how to define which resources are deployed and 
-how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo de API do Azure e um gateway. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-For the complete template, see [API app with new gateway template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
+Para o modelo completo, consulte [Aplicativo de API com novo modelo de gateway](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
 
-## What you will deploy
+## O que você implantará
 
-In this template, you will deploy:
+Neste modelo, você implantará:
 
-- API app
-- new gateway
-- new App Service hosting plan
+- Aplicativo de API
+- novo gateway
+- novo plano de hospedagem do Serviço de Aplicativo
 
-## Parameters
+## Parâmetros
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
     
-## Variables
+## Variáveis
 
-This template defines a variable which is used when deploying the resources.
+Esse modelo define uma variável que é usada ao implantar os recursos.
 
     "variables": {
       "packageId": "Microsoft.ApiApp"
     }
     
-The value is used below as **variables('packageId')**.
+O valor é usado abaixo como **variables('packageId')**.
 
-## Resources to deploy
+## Recursos a implantar
 
-### Hosting plan
+### Plano de hospedagem
 
-Creates the service hosting plan for the API app.
+Cria o plano de hospedagem de serviço para o aplicativo de API.
 
     {
       "type": "Microsoft.Web/serverfarms",
@@ -67,12 +66,11 @@ Creates the service hosting plan for the API app.
       }
     }
 
-### Web app that hosts the gateway
+### Aplicativo Web que hospeda o gateway
 
-Creates a web app that hosts the gateway. 
+Cria um aplicativo Web que hospeda o gateway.
 
-Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. 
-A link is defined between the hosting app and the gateway. The app settings section includes necessary values for hosting the API app.
+Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativo Web. Um link é definido entre o aplicativo responsável pela hospedagem e o gateway. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
 
 
     {
@@ -107,7 +105,7 @@ A link is defined between the hosting app and the gateway. The app settings sect
             },
             {
               "name": "EmaStorage",
-              "value": "D:\\home\\data\\apiapps"
+              "value": "D:\home\data\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -121,11 +119,11 @@ A link is defined between the hosting app and the gateway. The app settings sect
       ]
     }
 
-### Geteway
+### Gateway
 
-Creates the gateway.
+Cria o gateway.
 
-The hosting web app is defined as a property of the gateway.
+O aplicativo Web responsável pela hospedagem é definido como uma propriedade do gateway.
 
     {
       "type": "Microsoft.AppService/gateways",
@@ -155,12 +153,11 @@ The hosting web app is defined as a property of the gateway.
       }
     }
 
-### Web app that hosts the API app
+### Aplicativo Web que hospeda o aplicativo de API
 
-Creates a web app that hosts the API app. 
+Cria um aplicativo Web que hospeda o aplicativo de API.
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
-to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
+Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativo Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -226,11 +223,11 @@ to install the default empty API app package. A link is defined between the API 
       ]
     }
 
-### API app
+### Aplicativo de API
 
-Creates the API app.
+Cria o aplicativo de API.
 
-Notice that the names of the hosting web app and gateway are defined as properties in the API app. 
+Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway são definidos como propriedades no aplicativo de API.
 
     {
       "type": "Microsoft.AppService/apiapps",
@@ -267,7 +264,7 @@ Notice that the names of the hosting web app and gateway are defined as properti
       }
     }
 
-## Commands to run deployment
+## Comandos para executar a implantação
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -275,9 +272,11 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
     New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
 
-### Azure CLI
+### CLI do Azure
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
 
 
  
+
+<!---HONumber=62-->

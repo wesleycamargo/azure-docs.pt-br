@@ -1,12 +1,10 @@
-# Criar um aplicativo com um dispositivo móvel e cliente da Web no Serviço de Aplicativo do Azure
-
 Este tópico mostra como criar um aplicativo tanto com um dispositivo móvel quanto com um cliente Web. Você criará um aplicativo móvel e um aplicativo Web e usará o mesmo banco de dados subjacente para ambos.
 
-Primeiro você criará um novo back-end de aplicativo móvel e um aplicativo simples de *To do list*, que armazena dados de aplicativo no novo back-end de aplicativo móvel. O back-end do aplicativo móvel usa, para lógica de negócios do lado do servidor, os idiomas do .NET para os quais há suporte. O aplicativo cliente pode usar qualquer plataforma de cliente à qual o aplicativo móvel dá suporte, incluindo iOS, Windows, Xamarin iOS e Xamarin Android.
+Primeiro você criará um novo back-end de aplicativo móvel e um aplicativo simples de *lista de tarefas*, que armazena dados de aplicativo no novo back-end de aplicativo móvel. O back-end do aplicativo móvel usa, para lógica de negócios do lado do servidor, os idiomas do .NET para os quais há suporte. O aplicativo cliente pode usar qualquer plataforma de cliente à qual o aplicativo móvel dá suporte, incluindo iOS, Windows, Xamarin iOS e Xamarin Android.
 
 Em seguida, você criará um aplicativo Web, usando o mesmo banco de dados como seu aplicativo móvel. Ao final do tutorial, você terá um cliente da Web e um cliente móvel que funcionam com os mesmos dados.
 
->[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Criar um novo cliente e back-end de aplicativo móvel
 
@@ -18,7 +16,7 @@ Em seguida, você criará um aplicativo Web, usando o mesmo banco de dados como 
 
 Nesta seção, você criará um novo aplicativo Web usando uma solução de exemplo de aplicativo Web. Você modificará o exemplo para usar o mesmo nome do esquema de banco de dados e a mesma cadeia de conexão que o aplicativo móvel.
 
-    > [AZURE.NOTE] Antes de concluir essas etapas, certifique-se de ter inicializado o banco de dados de back-end do aplicativo móvel, conectando a ele um cliente. Caso contrário, o aplicativo Web não poderá se conectar ao mesmo banco de dados.
+>[AZURE.NOTE]Antes de concluir essas etapas, certifique-se de ter inicializado o banco de dados de back-end do aplicativo móvel, conectando a ele um cliente. Caso contrário, o aplicativo Web não poderá se conectar ao mesmo banco de dados.
 
 1. No [Portal do Azure](https://portal.azure.com/), crie um novo aplicativo Web usando o mesmo Grupo de Recursos e Plano de Hospedagem como seu aplicativo móvel.
 
@@ -44,7 +42,7 @@ Nesta seção, você criará um novo aplicativo Web usando uma solução de exem
 
 ## Publicar uma interface de usuário de cliente Web de lista de tarefas pendentes do Visual Studio
 
-Nesta seção você usará um aplicativo de cliente da Web de exemplo, implementado com AngularJS. Em seguida, você usará o Visual Studio para publicar o projeto em um novo aplicativo Web de Serviço de Aplicativo hospedado no Azure. 
+Nesta seção você usará um aplicativo de cliente da Web de exemplo, implementado com AngularJS. Em seguida, você usará o Visual Studio para publicar o projeto em um novo aplicativo Web de Serviço de Aplicativo hospedado no Azure.
 
 1. No Visual Studio, abra o projeto **MultiChannelToDo.Web**. Edite o arquivo `js/service/ToDoService.js`, adicionando a URL para a API da Web recém-publicada por você:
 
@@ -52,31 +50,31 @@ Nesta seção você usará um aplicativo de cliente da Web de exemplo, implement
 
 2. Clique com botão direito do mouse no projeto **MultiChannelToDo.Web** e selecione **Publicar**.
 
-3. No assistente **Publicar Web**, selecione **Aplicativo Web do Azure** como o destino de publicação e crie um novo aplicativo Web, sem um banco de dados. 
+3. No assistente **Publicar para a Web**, selecione **Aplicativo Web do Azure** como o destino de publicação e crie um novo aplicativo Web, sem um banco de dados.
 
 4. Assim que o projeto tiver sido publicado com sucesso, você verá a interface de usuário da Web no seu navegador.
 
-## Testar os aplicativos Web e móveis 
+## Testar os aplicativos Web e móveis
 
 1. Na interface de usuário da Web, adicione ou edite alguns itens de tarefas pendentes.
 
-    ![View of Web Application in the Browser](./media/app-service-mobile-dotnet-backend-web-and-mobile/web-app-in-browser.png)
+    ![Exibição de aplicativo Web no navegador](./media/app-service-mobile-dotnet-backend-web-and-mobile/web-app-in-browser.png)
 
-2. Execute o aplicativo móvel que você criou no tutorial [Criar um aplicativo móvel]. Você verá os mesmos itens de tarefas pendentes no aplicativo Web. 
+2. Execute o aplicativo móvel que você criou no tutorial [Criar um aplicativo móvel]. Você verá os mesmos itens de tarefas pendentes no aplicativo Web.
 
-    ![View of Xamarin Mobile App](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
+    ![Exibição do aplicativo móvel Xamarin](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
 ## Próximas etapas
 
 Neste exemplo, mostramos como usar o mesmo banco de dados subjacente para um aplicativo que tenha tanto um site quanto um cliente móvel. Nesse caso não existia nenhuma lógica de negócios no back-end que desejávamos reutilizar entre os dois clientes, portanto, ele foi suficiente para simplesmente compartilhar o mesmo banco de dados. Em um tutorial futuro, você aprenderá como adicionar lógica de negócios à sua API da Web e reutilizar essa lógica em seu código de back-end do aplicativo móvel.
 
 ## O que mudou
-* Para obter um guia para a mudança de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a mudança do portal antigo para o novo portal, consulte: [Referência para navegação no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Criar um aplicativo móvel]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!--HONumber=49-->
+<!---HONumber=62-->

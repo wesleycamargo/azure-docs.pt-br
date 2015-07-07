@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -89,15 +89,17 @@ O seguinte atualiza seu aplicativo lógico existente para usar parâmetros para 
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Role até a ação `twitterconnector`, localize o valor de consulta e substitua por `@concat('#', parameters('topic'))`. A função **concat** une duas ou mais cadeias de caracteres.
+2. Role até a ação `twitterconnector`, localize o valor de consulta e substitua por `#@{parameters('topic')}`. Você também pode usar a função **concat** para unir duas ou mais cadeias, por exemplo: `@concat('#',parameters('topic'))` é idêntico ao acima.
  
 3. Por fim, vá para a ação `dropboxconnector` e adicione o parâmetro de tópico da seguinte maneira:
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 Os parâmetros são uma boa maneira de recuperar valores que você provavelmente vai alterar várias vezes. Eles são especialmente úteis quando você precisa substituir parâmetros em ambientes diferentes. Para obter mais informações sobre como substituir parâmetros com base no ambiente, consulte nossa [Documentação da API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 Agora, quando você clicar em **Salvar**, a cada hora você obterá quaisquer novos tweets com mais de 5 retweets entregues em uma pasta chamada **tweets** na sua Pasta de Recados.
+
+Para saber mais sobre as definições de aplicativos lógicos, consulte [Criar definições de aplicativos lógicos](app-service-logic-author-definitions.md).
 
 ## Iniciando um fluxo de trabalho do aplicativo lógico
 Há várias opções diferentes para iniciar o fluxo de trabalho definido no aplicativo lógico. Um fluxo de trabalho sempre pode ser iniciado por demanda no [Portal do Azure].
@@ -130,4 +132,5 @@ Para iniciar o aplicativo lógico sob demanda, clique no botão **Executar agora
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Portal do Azure]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

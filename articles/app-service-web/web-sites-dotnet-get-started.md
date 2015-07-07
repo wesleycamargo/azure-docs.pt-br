@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure" 
-	description="Este tutorial mostra como criar um projeto Web ASP.NET no Visual Studio 2013 e implantá-lo em um aplicativo Web no Serviço de Aplicativo do Azure. Em menos de 15 minutos, você terá um aplicativo em funcionamento na nuvem." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+<properties
+	pageTitle="Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure"
+	description="Este tutorial mostra como criar um projeto Web ASP.NET no Visual Studio 2013 e implantá-lo em um aplicativo Web no Serviço de Aplicativo do Azure. Em menos de 15 minutos, você terá um aplicativo em funcionamento na nuvem."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="03/24/2015"
 	ms.author="tdykstra"/>
 
 # Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure
@@ -59,7 +59,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 3. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
 
 4. Desmarque a caixa de seleção **Adicionar Application Insights ao Projeto**.
- 
+
 4. Nomeie o aplicativo **MyExample** e clique em **OK**.
 
 	![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-get-started/GS13newprojdb.png)
@@ -85,13 +85,13 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 	As configurações padrão especificam que o Visual Studio crie um aplicativo Web do Azure para seu projeto Web. Na próxima seção do tutorial, você implantará o projeto Web para o aplicativo Web recém-criado.
 
 5. Se você ainda não tiver entrado no Azure, o Visual Studio solicitará a você que o faça. Entre com a ID e a senha da conta que você usa para gerenciar sua assinatura do Azure.
-	
+
 	Quando você estiver conectado, a caixa de diálogo **Definir configurações de Aplicativo Web do Microsoft Azure** perguntará quais recursos você deseja criar.
 
 	![Conectado no Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
 3. Na caixa de diálogo **Definir configurações de Aplicativo Web do Microsoft Azure**, mantenha o valor padrão.
- 
+
 	Você poderá inserir um **nome de Aplicativo Web** diferente, se preferir, mas o nome deverá ser exclusivo no domínio *azurewebsites.net*. O nome padrão que o Visual Studio fornece é exclusivo.
 
 	O Azure usará esse nome como o prefixo para a URL do aplicativo. A URL completa consistirá nesse nome, mais *.azurewebsites.net* (conforme mostrado ao lado da caixa de texto **Nome do Aplicativo Web**). Por exemplo, se o nome for `MyExample6442`, a URL será `MyExample6442.azurewebsites.net`. A URL precisa ser exclusiva. Se outra pessoa já tiver usado o que você digitou, você verá um ponto de exclamação vermelho à direita em vez de uma marca de verificação verde e precisará inserir outro nome de site.
@@ -105,7 +105,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 6. No menu suspenso **Grupo de recursos**, selecione **Criar novo grupo de recursos**.
 
 	A seção [Próximas etapas](#next-steps) tem links para informações sobre grupos de recursos.
- 
+
 5. Digite *MyExampleResourceGroup* ou outro nome, se preferir, para o nome do grupo de recursos.
 
 5. Na lista suspensa **Região**, escolha o local mais próximo de você.
@@ -163,19 +163,19 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 	O menu suspenso **Configuração** permite que você implante uma compilação de Depuração para depuração remota. A seção [Próximas etapas](#next-steps) vincula a um tutorial que mostra como executar o Visual Studio no modo de depuração remotamente.
 
 	Se você expandir **Opções de Publicação de Arquivos**, verá diversas configurações que permitem a você gererenciar cenários que não se aplicam a este tutorial:
- 
+
 	* Remova os arquivos adicionais presentes no destino.
-	  
-		Deletes any files at the server that aren't in your project. You might need this if you were deploying a project to a web app that you had deployed a different project to earlier.
 
-	* Faça a pré-compilação durante a publicação. 
-	 
-		Can reduce first-request warm up times for large applications.
+		Exclua quaisquer arquivos do servidor que não estejam em seu projeto. Você pode precisar disso se estiver implantando um projeto em um aplicativo Web para o qual você já implantou um projeto diferente, anteriormente.
 
-	* Exclua os arquivos da pasta App_Data. 
-	 
-		For testing you sometimes have a SQL Server database file in App_Data which you don't want to deploy to production.
-	
+	* Faça a pré-compilação durante a publicação.
+
+		Pode reduzir os tempos de aquecimento da primeira solicitação para aplicativos grandes.
+
+	* Exclua os arquivos da pasta App_Data.
+
+		Para teste, algumas vezes você tem um arquivo de banco de dados de SQL Server na pasta App_Data que você não deseja implantar na produção.
+
 11. Na guia **visualização**, clique em **Iniciar Visualização**.
 
 	![Botão StartPreview na guia Visualização](./media/web-sites-dotnet-get-started/GS13Preview.png)
@@ -202,7 +202,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 Nesta seção do tutorial, você altera o título **h1** da home page, executa o projeto localmente no seu computador de desenvolvimento para verificar a alteração e, em seguida, implanta a alteração no Azure.
 
-2. Abra os arquivos *Views/Home/Index.cshtml* ou *.vbhtml* no **Gerenciador de Soluções**, altere o título **h1** de "ASP.NET" para "ASP.NET e Azure" e salve o arquivo. 
+2. Abra os arquivos *Views/Home/Index.cshtml* ou *.vbhtml* no **Gerenciador de Soluções**, altere o título **h1** de "ASP.NET" para "ASP.NET e Azure" e salve o arquivo.
 
 	![index.cshtml de MVC](./media/web-sites-dotnet-get-started/index.png)
 
@@ -237,13 +237,13 @@ Nesta seção do tutorial, você altera o título **h1** da home page, executa o
 ## Monitore e gerencie o aplicativo Web no Portal de Gerenciamento
 
 O [Portal de Gerenciamento do Azure](/services/management-portal/) é uma interface da Web que o habilita a gerenciar e monitorar seus serviços do Azure, como o aplicativo Web que você acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
-  
-1. Em seu navegador, vá até [http://portal.azure.com]() e entre com suas credenciais do Azure.
+
+1. Em seu navegador, vá até [https://portal.azure.com]() e entre com suas credenciais do Azure.
 
 2. Clique em **Procurar > aplicativos Web** e, em seguida, clique no nome de seu aplicativo Web.
 
 	A folha **Aplicativo Web** para seu aplicativo Web exibe uma visão geral de estatísticas de uso e links para funções de gerenciamento de aplicativos Web usadas com frequência.
-  
+
 	![Folha de aplicativos Web](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
 
 	Nesse ponto, seu aplicativo Web ainda não teve muito tráfego e pode não mostrar nada no gráfico. Se navegar até o aplicativo, atualizar a página algumas vezes e, em seguida, atualizar a página de portal, você verá que algumas estatísticas serão mostradas.
@@ -251,7 +251,7 @@ O [Portal de Gerenciamento do Azure](/services/management-portal/) é uma interf
 3. Clique em **Todas as configurações** para ver mais opções para configurar seu aplicativo Web.
 
 	Você verá uma lista dos tipos de configurações.
-  
+
 	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)-->
 
 4. Clique em **Configurações do aplicativo** para ver um exemplo dos tipos de configurações que você pode definir no portal.
@@ -262,7 +262,7 @@ O [Portal de Gerenciamento do Azure](/services/management-portal/) é uma interf
 
 Esses são apenas alguns dos recursos do Portal de Gerenciamento. Você pode criar novos aplicativos Web, excluir aplicativos Web existentes, parar e reiniciar aplicativos Web e gerenciar outros tipos de serviços do Azure, como bancos de dados e máquinas virtuais.
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido; não há compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Próximas etapas
 
@@ -290,7 +290,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Para obter informações sobre como utilizar SSL e seu próprio domínio (por exemplo www.contoso.com, em vez de contoso.azurewebsites.net), consulte os recursos a seguir:
 
-	* [Configurando um nome de domínio personalizado para um Site do Azure](web-sites-custom-domain-name.md). 
+	* [Configurando um nome de domínio personalizado para um Site do Azure](web-sites-custom-domain-name.md).
 	* [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
 
 * Como evitar tempo de espera para voltar ao funcionamento após intervalos em ociosidade
@@ -309,11 +309,11 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * [Como escolher ou criar um grupo de recursos](../azure-preview-portal-using-resource-groups.md)
 
-	  
+
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

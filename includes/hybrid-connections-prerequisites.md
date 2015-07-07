@@ -1,11 +1,13 @@
 
-- **Visual Studio 2013** <br/>This a requirement for using To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
+- **Visual Studio 2013** <br/>É obrigatório para usar Para baixar uma versão de avaliação gratuita do Visual Studio 2013, consulte [Downloads do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
 
-- **SQL Server 2014 Express with Tools** <br/>Download Microsoft SQL Server Express for free at the [Microsoft SQL Server Express Edition page](http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Choose the **Download SQL Server Express** and fill out your profile, choosing **SQL Server 2014 Express with Tools**, then click continue. This starts the download of the installer for both SQL Server Express and the SQL Server Express Management Tools. Save the installer package to your on-premises computer.
+- **SQL Server 2014 Express with Tools** <br/>Baixe o Microsoft SQL Server Express gratuitamente na [página do Microsoft SQL Server Express Edition](http://www.microsoft.com/pt-br/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Escolha **Baixar SQL Server Express** e preencha seu perfil, selecionando **SQL Server 2014 Express with Tools** e, em seguida, clique em continuar. Isso inicia o download do instalador do SQL Server Express e do SQL Server Express Management Tools. Salve o pacote de instalação no seu computador local.
 
-- **An on-premises computer** <br/>You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer. The computer on which the Hybrid Connection Manager runs must meet the following criteria:
+- **Um computador local** <br/>Você pode executar o Gerenciador de Conexões Híbridas no mesmo computador local que a instância do SQL Server, ou pode executar cada um em um computador separado. O computador no qual o Gerenciador de Conexões Híbridas é executado deve atender aos seguintes critérios:
 
-	- Be able to connect to Azure over port 5671.
-	- Be able to access the *hostname*:*portnumber* of the computer running your SQL Server instance.  
+	- Poder se conectar ao Azure pela porta 5671.
+	- Poder acessar o *nome do host*: *número da porta* do computador que executa a instância do SQL Server.  
 
-	For more information see [Hybrid Connections Overview](../articles/integration-hybrid-connection-overview.md).
+	Para obter mais informações, consulte [Visão geral do Gerenciador de Conexões Híbridas](../articles/integration-hybrid-connection-overview.md).
+
+<!---HONumber=62-->

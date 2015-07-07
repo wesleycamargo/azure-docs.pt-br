@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure" 
+<properties
+	pageTitle="Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure"
 	description="Saiba como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure"
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure
@@ -63,7 +63,7 @@ Logs de diagnóstico podem ser acessado de três maneiras; Usando o protocolo FT
 
 	npm install azure-cli -g
 
-Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte o **como fazer o download e importar as configurações de publicação** seção a [como uso o Azure Command-line Tools] artigo.
+Uma vez instalado, as ferramentas podem ser acessadas usando o comando 'azure'. As ferramentas de linha de comando devem primeiro ser configuradas para usar sua assinatura do Azure. Para obter informações sobre como realizar essa tarefa, consulte a seção **Como baixar e importar as configurações de publicação** do artigo Como usar as Ferramentas de Linha de Comando do Azure.
 
 ###FTP
 
@@ -73,7 +73,7 @@ Para acessar as informações de diagnóstico por meio de FTP, visite o [portal 
 
 É a URL FTP retornado no painel de controle para o **arquivos de log** diretório, que irá conter as seguintes subpastas:
 
-* [Método de implantação] - se você usar um método de implantação como git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
+* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
 
 * nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -89,7 +89,7 @@ Isso fará o download uma **diagnostics.zip** no diretório atual. Este arquivo 
 
 * Arquivos de log
 
-	* [Método de implantação] - se você usar um método de implantação como Git, uma pasta com o mesmo nome será criada e conterá informações relacionadas às implantações.
+	* [Método de implantação] - se você usar um método de implantação, como git, uma pasta de mesmo nome será criada e conterá informações relacionadas às implantações.
 
 	* nodejs - Stdout e stderr informações capturadas de todas as instâncias do seu aplicativo (quando loggingEnabled for true.)
 
@@ -118,10 +118,11 @@ Para obter informações sobre como especificar uma versão do Node. js para seu
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[como uso o Azure Command-line Tools]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
 [usando o Node. js módulos com aplicativos do Azure]: ../nodejs-use-node-modules-azure-apps.md
 [especificar uma versão do Node. js em um aplicativo do Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

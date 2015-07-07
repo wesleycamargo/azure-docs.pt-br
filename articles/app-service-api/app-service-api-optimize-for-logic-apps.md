@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Enhance your API App for Logic Apps"
-	description="This article demonstrates how to decorate your API App to work nicely with Logic Apps"
+	pageTitle="Aprimore seu aplicativo de API para Aplicativos Lógicos"
+	description="Este artigo demonstra como decorar seu aplicativo de API para funcionar bem com Aplicativos Lógicos"
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="sameerch"
@@ -17,59 +17,56 @@
 	ms.date="06/09/2015"
 	ms.author="sameerch;guayan;tarcher"/>
 
-# Enhance your API App for Logic Apps #
+# Aprimore seu aplicativo de API para Aplicativos Lógicos #
 
-In this article, you'll learn how to define the API definition of your API app so that it works well with Logic Apps. This will enhance the end user experience for your API app when it is used in the Logic Apps designer.
+Neste artigo, você aprenderá como estabelecer a definição de API do seu aplicativo de API para que ele funcione bem com Aplicativos Lógicos. Isso vai melhorar a experiência do usuário final para o seu aplicativo API quando ele é usado no designer de Aplicativos Lógicos.
 
-## Prerequisites
+## Pré-requisitos
 
-If you are new to [API apps](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md), we recommend reading the multi-part series on [creating API apps](app-service-dotnet-create-api-app.md)
+Se você não tem experiência com [aplicativos de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), é recomendável ler a série composta de várias partes em [criação de aplicativos da API](app-service-dotnet-create-api-app.md)
 
 
-## Add Display Names ##
-The Logic Apps designer displays the names of operations, fields, and parameters, which may at times be cumbersome to read as they are programmatically generated. To improve readability, the Logic Apps designer can, where it is available, display a more readable text value - known as a *display name* - instead of the operation, field, and parameter default names. To accomplish this, the Logic Apps designer scans for the presence of certain properties in the swagger metadata provided by your API app.  The following properties are used as display names:
+## Adicionar Nomes de Exibição ##
+O designer de Aplicativos Lógicos exibe os nomes das operações, campos e parâmetros, os quais às vezes podem ser difíceis de ler já que são gerados por meio de programação. Para melhorar a legibilidade, o designer de Aplicativos Lógicos pode, onde ele estiver disponível, exibir um valor de texto mais legível - conhecido como um *nome de exibição* - em vez dos nomes padrão de operação, campo e parâmetro. Para fazer isso, o designer de Aplicativos Lógicos verifica a presença de certas propriedades nos metadados swagger fornecidos pelo seu aplicativo de API. As propriedades a seguir são usadas como nomes de exibição:
 
-* Operations (Action and Triggers)  
-  The value of the **summary** property if present; otherwise the value of **operationId** property. Note that the Swagger 2.0 specification allows for up to 120 characters for the **summary** property.
+* Operações (Ação e Gatilhos) O valor da propriedade **summary**, se houver; caso contrário, o valor da propriedade **operationId**. Observe que a especificação Swagger 2.0 permite até 120 caracteres para a propriedade **summary**.
 
-* Parameters (Inputs)  
-  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
+* Parâmetros (Entradas) O valor da propriedade de extensão **x-ms-summary**, se houver; caso contrário, o valor da propriedade **name**. A propriedade de extensão **x-ms-summary** deve ser definida dinamicamente no código. Esse processo é descrito na seção "Usando atributos personalizados para anotar as propriedades de extensão" deste tópico. A propriedade **name** pode ser definida usando comentários ///. Esse processo é descrito na seção "Usando comentários XML na geração da Definição de API" deste tópico.
 
-* Schema Fields (Output Responses)  
-  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
+* Campos de Esquema (Respostas de Saída) O valor da propriedade de extensão **x-ms-summary**, se houver; caso contrário, o valor da propriedade **name**. A propriedade de extensão **x-ms-summary** deve ser definida dinamicamente no código. Esse processo é descrito na seção "Usando atributos personalizados para anotar as propriedades de extensão" deste tópico. A propriedade **name** pode ser definida usando comentários ///. Esse processo é descrito na seção "Usando comentários XML na geração da Definição de API" deste tópico.
 
-**Note:** It is recommended to keep the length of your display names to 30 characters or less.
+**Observação:** é recomendável manter seus nomes de exibição com extensão de até 30 caracteres.
 
-### Using XML Comments in API Definition generation
+### Usando comentários XML na geração da Definição de API
 
-For development using Visual Studio, it is common practice to annotate your API controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The Swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata, and you can configure your API project to do that by following these steps:
+Para o desenvolvimento usando o Visual Studio, é uma prática comum anotar os controladores de API usando [comentários XML](https://msdn.microsoft.com/library/b2s063f7.aspx). Quando compilado com [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), o compilador criará um arquivo de documentação XML. O conjunto de ferramentas Swashbuckle incluído no SDK do aplicativo de API pode incorporar esses comentários ao gerar os metadados de API, e você pode configurar seu projeto de API para fazer isso seguindo estas etapas:
 
-1. Open your project in Visual Studio.
+1. Abra o projeto no Visual Studio.
 
-2. From the **Solution Explorer**, right-click the project and select **Properties**.
+2. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Propriedades**.
 
-	![Project Properties](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
+	![Propriedades do Projeto](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
 
-3. When the project's property pages appear, perform the following steps:
+3. Quando as páginas de propriedades do projeto forem exibidas, execute as seguintes etapas:
 
-	- Select the **Configuration** for which the settings will apply. Typically, you will select All Configurations so that the settings you specify apply to both Debug and Release builds.
+	- Selecione a **Configuração** para a qual as definições serão aplicadas. Normalmente você selecionará “Todas as configurações”, para que as definições especificadas apliquem-se tanto à compilação de Depuração quanto à compilação de Versão.
 	
-	- Select the **Build** tab on the left
+	- Selecione a guia **Compilar** à esquerda
 	
-	- Confirm that the **XML documentation file** option is checked. Visual Studio will supply a default file name based on your project's name. You can set its value to whatever your naming convention requires or leave it as-is.
+	- Confirme que a opção **Arquivo de documentação XML** está marcada. O Visual Studio fornecerá um nome de arquivo padrão com base no nome do seu projeto. Você pode definir seu valor como o que requer que seja requerido pela convenção de nomenclatura utilizada ou deixá-lo como está.
 
-	![Set XML Doc property](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
+	![Definir a propriedade de documento XML](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
 
-4. Open the *SwaggerConfig.cs* file (located in the project's **App_Start** folder).
+4. Abra o arquivo *SwaggerConfig.cs* (localizado na pasta **App_Start** do projeto).
 
-5. Add **using** directives to the top of the *SwaggerConfig.cs* file for the **System** and **System.Globalization** namespaces.
+5. Adicione diretivas **using** à parte superior do arquivo *SwaggerConfig.cs* para os namespaces **System** e **System.Globalization**.
 
 		using System;
 		using System.Globalization;
  
-6. Search the *SwaggerConfig.cs* file for a call to **GetXmlCommentsPath**, and uncomment the line so that it executes. Since you have not yet implemented this method, Visual Studio will underline the call to **GetXmlCommentsPath** and indicate that it's not defined in the current context. That's okay. You'll implement it in the next step.
+6. Pesquise o arquivo *SwaggerConfig.cs* buscando uma chamada para **GetXmlCommentsPath**, remova a marca de comentário da linha para que ela seja executada. Já que você ainda não implementou esse método, o Visual Studio sublinhará a chamada para **GetXmlCommentsPath** e indicará que ela não está definida no contexto atual. Não há problema nisso. Você o implementará na próxima etapa.
 
-7. Add the following implementation of the **GetXmlCommentsPath** method to the **SwaggerConfig** class (defined in the *SwaggerConfig.cs* file). This method will simply return the XML documentation file you specified earlier in the project's settings.
+7. Adicione a implementação a seguir do método **GetXmlCommentsPath** para a classe **SwaggerConfig** (definida no arquivo *SwaggerConfig.cs*). Esse método simplesmente retornará o arquivo de documentação XML especificado anteriormente nas configurações do projeto.
 
         public static string GetXmlCommentsPath()
         {
@@ -78,35 +75,32 @@ For development using Visual Studio, it is common practice to annotate your API 
 								 AppDomain.CurrentDomain.BaseDirectory);
         }
 
-8. Finally, specify the XML comments for your controller methods. To do this, open one of your API app's controller files and type /// on an empty line preceding a controller method you want to document. Visual Studio will automatically insert a commented section within which you can specify a method summary as well as parameter and return value information. 
+8. Por fim, especifique os comentários XML para os métodos de controlador. Para fazer isso, abra um dos arquivos do controlador do seu aplicativo de API e digite /// em uma linha vazia que preceda um método de controlador que você deseje documentar. O Visual Studio vai inserir automaticamente uma seção comentada dentro da qual você pode especificar um resumo do método, bem como informações de valor retornado e de parâmetro.
 
-Now, when you build and publish your API app, you'll see that the documentation file is also in the payload and uploaded with the rest of your API app.
+Agora, quando você criar e publicar seu aplicativo de API, você verá que o arquivo de documentação também faz parte da carga e é carregado com o restante do seu aplicativo de API.
 
-## Categorize Advanced Operations and Properties
+## Categorizar Propriedades e Operações Avançadas
 
-The Logic Apps designer has limited screen real estate for showing operations, parameters, and properties. Additionally, an API App can define an extensive set of operations and properties. The result of so much information being displayed in a small area can result can make using the designer difficult for the end-user. 
+O designer de Aplicativos Lógicos limitou o espaço na tela para mostrar as operações, parâmetros e propriedades. Além disso, um aplicativo de API pode definir um amplo conjunto de operações e propriedades. O resultado de tantas informações serem exibidas em uma pequena área pode tornar o uso do designer difícil para o usuário final.
 
-To mitigate this clutter, the Logic Apps designer allows you to group the API app's operations and properties into user-defined categories. By using a proper categorization of the operations and properties, an API app can improve the user experience by presenting the most basic and useful operations and properties first.  
+Para atenuar essa confusão, o designer de Aplicativos Lógicos permite que você agrupe operações e propriedades do aplicativo de API em categorias definidas pelo usuário. Usando uma categorização adequada das operações e propriedades, um aplicativo de API pode melhorar a experiência do usuário, apresentando as mais básicas e úteis operações e propriedades por primeiro.
 
-To provide this ability, the Logic Apps designer looks for the presence of a specific custom vendor extension property in the swagger API definition of your API App. This property is named **x-ms-visibility** and can take the following values:
+Para fornecer essa capacidade, o designer de Aplicativos Lógicos procura a presença de uma propriedade de extensão de fornecedor personalizada específica na definição de API do swagger de sua API de aplicativo. Essa propriedade é denominada **x-ms-visibility** e pode ter os seguintes valores:
 
-* empty or "none"  
-  These operations and properties are readily viewable by the user.
+* vazio ou "nenhum" Essas operações e propriedades são prontamente visíveis pelo usuário.
 
-* "advanced"  
-  As these operations and properties are advanced, they are hidden by default. However, the user can easily access them if needed.
+* "avançado" Já que essas operações e propriedades são avançadas, elas ficam ocultas por padrão. No entanto, o usuário pode acessá-los facilmente se necessário.
 
-* "internal"  
-  These operations and properties are treated as system or internal properties and not meant to be directly used by the user.  As a result, they are hidden by the designer, and available only in the Code View.  For such properties, you may also specify the **x-ms-scheduler-recommendation** extension property to set the value through the Logic Apps designer.  For an example, refer the article on [adding triggers to an API App](app-service-api-dotnet-triggers.md).
+* "internas" Essas operações e propriedades são tratadas como propriedades de sistema ou internas, e não devem ser usadas diretamente pelo usuário. Como resultado, elas são ocultas pelo designer e disponíveis apenas no modo de Exibição de Código. Para essas propriedades, você também pode especificar a propriedade de extensão **x-ms-scheduler-recommendation** para definir o valor por meio do designer de Aplicativos Lógicos. Para obter um exemplo, consulte o artigo sobre [adição de gatilhos a um aplicativo de API](app-service-api-dotnet-triggers.md).
 
 
-## Using Custom Attributes to annotate extension properties
+## Usando atributos personalizados para anotar as propriedades de extensão
 
-As mentioned above, custom vendor extension properties are used to annotate the API metadata to provide richer information that the Logic Apps designer can use.  If you use static metadata to describe your API app, you can directly edit the */metadata/apiDefinition.swagger.json* in your project to manually add the necessary extension properties.
+Conforme mencionado acima, propriedades de extensão do fornecedor personalizadas são usadas para anotar os metadados de API para fornecer informações mais detalhadas do que aquelas que o designer de Aplicativos Lógicos pode usar. Se você usar metadados estáticos para descrever seu aplicativo de API, você pode editar diretamente o */metadata/apiDefinition.swagger.json* em seu projeto para adicionar manualmente as propriedades de extensão necessárias.
 
-For API apps that use dynamic metadata, you can make use of custom attributes to annotate your code.  You can then define an operation filter in the *SwaggerConfig.cs* file to look for the custom attributes and add the necessary vendor extension.  This approach is described in detail below for dynamically generating the **x-ms-summary** extension property.
+Para aplicativos de API que usam metadados dinâmicos, você pode fazer uso de atributos personalizados para anotar o código. Você pode definir um filtro de operação no arquivo *SwaggerConfig.cs* para localizar os atributos personalizados e adicionar a extensão de fornecedor necessária. Essa abordagem é descrita em detalhes abaixo, para gerar dinamicamente a propriedade de extensão **x-ms-summary**.
 
-1. Define an attribute class called **CustomSummaryAttribute** that will be used to annotate your code.
+1. Defina uma classe de atributo chamada **CustomSummaryAttribute**, que será usada para fazer anotações em seu código.
 
 	    [AttributeUsage(AttributeTargets.All)]
 	    public class CustomSummaryAttribute : Attribute
@@ -119,7 +113,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-2. Define an operation filter called **AddCustomSummaryFilter** that will look for this custom attribute in the operation parameters.
+2. Defina um filtro de operação chamado **AddCustomSummaryFilter**, que vai procurar esse atributo personalizado nos parâmetros da operação.
 
 
 	    using Swashbuckle.Swagger;
@@ -154,7 +148,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-3. Edit the *SwaggerConfig.cs* file and add the filter class defined above.
+3. Editar o *SwaggerConfig.cs* arquivo e adicione a classe de filtro definida acima.
 
 
             GlobalConfiguration.Configuration
@@ -165,7 +159,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
                         ...
                     }
 
-4. Use the **CustomSummaryAttribute** class to annotate your code, as shown in the following code snippet.
+4. Use a classe **CustomSummaryAttribute** para anotar o código, conforme mostrado no trecho de código a seguir.
 
         /// <summary>
         /// Send Message
@@ -179,7 +173,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
              ...
         }
 
-	When you build the above API app, it would generate the following API metadata:
+	Quando você compila o aplicativo API acima, isso gera os seguintes metadados de API:
 
 
 			...
@@ -205,7 +199,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
                 ],
                 ...
 
-5. Similarly, you can define schema filter **AddCustomSummarySchemaFilter** to automatically annotate the **x-ms-summary** extension property for your schema models, as in the following example.
+5. De modo similar, você pode definir o filtro de esquema **AddCustomSummarySchemaFilter** para anotar automaticamente a propriedade de extensão **x-ms-summary** para os modelos de esquema, como no exemplo a seguir.
 
 	    public class AddCustomSummarySchemaFilter: ISchemaFilter
 	    {
@@ -236,7 +230,9 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-## Summary
+## Resumo
 
-In this article, you have seen how to enhance the user experience of your API app when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  It is also recommended that you provide no more than 5 basic operations.  For input parameters, the recommendation is to restrict the number of basic properties to no more than 4, and for properties, the recommendation is 5 or less. The remainder of your operations and properties should be marked as advanced.
+Neste artigo, você viu como aprimorar a experiência do usuário do seu aplicativo API quando ele é usado no designer de Aplicativos Lógicos. Como melhor prática, é recomendável que você forneça nomes amigáveis adequados para todas as operações (ações e gatilhos), parâmetros e propriedades. Também é recomendável que você forneça no máximo 5 operações básicas. Para parâmetros de entrada, a recomendação é restringir o número de propriedades básicas para não mais do que 4 e, para propriedades, a recomendação é de 5 ou menos. O restante das suas operações e propriedades devem ser marcadas como avançadas.
  
+
+<!---HONumber=62-->

@@ -67,9 +67,11 @@ Nesta seção, você verá as etapas necessárias para implantar um aplicativo d
 
 	![Implantando o aplicativo de API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-A janela **Atividade do Serviço de Aplicativo do Azure** mostra o andamento da implantação.
+	A janela **Atividade do Serviço de Aplicativo do Azure** mostra o andamento da implantação.
 
-![Notificação de status na janela Atividade do Serviço de Aplicativo do Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Notificação de status na janela Atividade do Serviço de Aplicativo do Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	Durante esse processo de implantação, o Visual Studio reinicia automaticamente o *gateway*. O gateway é um aplicativo Web que lida com as funções administrativas para todos os aplicativos de API em um grupo de recursos, e precisa ser reiniciado para reconhecer as alterações de API em um aplicativo de API. Se você utiliza outro método para implantar um aplicativo de API e se sua implantação alterar a API, você talvez precise reiniciar o gateway manualmente. Para obter informações sobre como reiniciar o gateway no portal, consulte [Gerenciar um aplicativo API](app-service-api-manage-in-portal.md).
 
 ## Exibir o aplicativo no Portal de visualização do Azure
 
@@ -125,5 +127,6 @@ Nesta seção, você navegará até o portal para exibir as configurações bás
 ## Próximas etapas
 
 Você viu como os recursos de implantação direta do Visual Studio facilitam o processo de iteração e implantação rapidamente e testam se sua API funciona corretamente. No [próximo tutorial](../app-service-dotnet-remotely-debug-api-app.md), você verá como depurar seu aplicativo de API enquanto ele é executado no Azure.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

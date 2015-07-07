@@ -21,5 +21,8 @@ O conteúdo padrão do arquivo *apiapp.json* tem a aparência do seguinte exempl
 		    }
 		}
 
+Observe o ponto de extremidade `apiDefinition` `/swagger/docs/v1`: por padrão, projetos de aplicativo de API usam o pacote do NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) para fornecer geração de metadados [Swagger](http://swagger.io/) automática.
+
 Para este tutorial, você pode aceitar os padrões. A seção [Metadados de aplicativo de API](#api-app-metadata) posteriormente no tutorial explica como personalizar esses metadados.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

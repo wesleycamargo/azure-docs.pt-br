@@ -18,7 +18,7 @@
 
 # Criar um aplicativo Web do PHP no Serviço de Aplicativo do Azure usando o Armazenamento do Azure
 
-Este tutorial mostra como criar um site do PHP no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e usar o serviço de armazenamento de tabelas do Azure no back-end. Este tutorial presume que você tenha o [PHP][install-php] e um servidor Web instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Ao concluir este guia, você terá um aplicativo Web PHP sendo executado no Azure e acessando o serviço de armazenamento de tabela.
+Este tutorial mostra como criar um site do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e usar o serviço de armazenamento de tabelas do Azure no back-end. Este tutorial assume que você tem [PHP][install-php] e um servidor web instalados no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Ao concluir este guia, você terá um aplicativo Web PHP sendo executado no Azure e acessando o serviço de armazenamento de tabela.
  
 Você aprenderá:
 
@@ -33,16 +33,15 @@ Você criará um aplicativo Web de lista de tarefas simples no PHP. Abaixo, uma 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Instalar as bibliotecas de cliente do Azure
 
 Para instalar as Bibliotecas de Clientes do PHP através do computador, siga estas etapas:
 
-1. [Instalar o Git][install-git]
+1. [Instalação do Git][install-git]
 
-	> [AZURE.NOTE]
-	> No Windows, você também precisará adicionar o executável do Git à variável de ambiente PATH.
+	> [AZURE.NOTE]No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 
@@ -67,7 +66,7 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 ##Introdução à biblioteca de clientes
 
-Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada para um API do Azure usando as bibliotecas. Você criará um script de inicialização que executará essas etapas.
+Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada para um API do Azure usando as bibliotecas. Você criará um script de inicialização que irá executar essas etapas.
 
 * Crie um arquivo chamado **init.php**.
 
@@ -85,7 +84,7 @@ Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada p
 
 		use WindowsAzure\Common\ServiceException;
 	
-* Para criar uma instância de cliente de serviço será necessário uma cadeia de conexão válida. O formato para as cadeias de conexão do serviço Tabela é:
+* Para criar uma instância de cliente de serviço será necessário uma sequência de conexão válida. O formato para as cadeias de conexão do serviço Tabela é:
 
 	Para acessar um serviço ao vivo:
 	
@@ -104,7 +103,7 @@ Há quatro etapas básicas que devem ser executadas antes de fazer uma chamada p
 
 ## Criando uma tabela
 
-Antes de armazenar dados, você primeiro precisa criar um recipiente para ele, a tabela. 
+Antes de armazenar dados, você primeiro precisa criar um recipiente para ele, a tabela.
 
 * Crie um arquivo chamado **createtable.php**.
 
@@ -125,14 +124,14 @@ Antes de armazenar dados, você primeiro precisa criar um recipiente para ele, a
 		}
 		?>
 
-	Os códigos de erro e a verificação de mensagens são encontrados aqui: [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
+	Códigos de erro e verificação de mensagens ser encontradas aqui: [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##Consultando uma tabela
 
 A home page do aplicativo Tasklist deve listar todas as tarefas existentes e permite a inserção de novos produtos.
 
-* Crie um arquivo chamado **index.php** e insira o seguinte código HTML e PHP, que formará o cabeçalho da página:
+* Crie um arquivo chamado **index.php** e insira o seguinte código HTML e PHP que formarão o cabeçalho da página:
 	
 		<html>
 		<head>
@@ -156,7 +155,7 @@ A home page do aplicativo Tasklist deve listar todas as tarefas existentes e per
 		<?php		
 		require_once "init.php";
 
-* Para consultar tabelas do Azure para **todas as entidades** armazenadas na tabela *tasks*, você chamará o método *queryEntities* passando apenas o nome da tabela. Na seção **Atualizar uma entidade** abaixo, você também verá como passar um filtro de consulta para uma entidade específica.
+* Para consultar tabelas do Azure para **todas as entidades** armazenadas na tabela *tarefas*, você chamará o método *queryEntities*passando apenas o nome da tabela. Na seção **Atualizar uma entidade** abaixo, você também verá como passar um filtro de consulta para uma entidade específica.
 
 		try {
 		    $result = $tableRestProxy->queryEntities('tasks');
@@ -269,7 +268,7 @@ Seu aplicativo pode ler todos os itens armazenados na tabela. Desde que não haj
 	
 ## Atualizando uma entidade
 
-O aplicativo de lista de tarefas tem a capacidade de marcar um item como concluído, bem como desmarcá-lo. A home page passa o *RowKey* e *PartitionKey* de uma entidade e o estado de destino (marked==1, unmarked==0).
+O aplicativo de lista de tarefa tem a capacidade de marcar um item como concluído, bem como desmarcá-lo. A home page passa o *RowKey* e *PartitionKey* de uma entidade e o estado de destino (marcado==1, desmarcado==0).
 
 * Crie um arquivo chamado **markitem.php** e adicione a parte de inicialização:
 
@@ -279,11 +278,11 @@ O aplicativo de lista de tarefas tem a capacidade de marcar um item como conclu�
 
 * O primeiro passo para atualização de uma entidade é buscá-la da tabela:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-	Como você pode ver, o filtro de consulta passado tem o formato 'Key eq 'Value''. Uma descrição completa da sintaxe de consulta está disponível [aqui][msdn-table-query-syntax].
+	Como você pode ver no filtro da consulta aprovado, o formato é `Key eq 'Value'`. Uma descrição completa da sintaxe de consulta está disponível [aqui][msdn-table-query-syntax].
 
 * Em seguida, você pode alterar quaisquer propriedades:
 
@@ -321,11 +320,11 @@ A exclusão de um item é realizada por uma única chamada para `deleteItem`. Os
 
 ## Criar uma conta de Armazenamento do Azure
 
-Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar uma conta de armazenamento no Azure e, em seguida, passar as informações de autenticação adequadas para a classe *Configuration*.
+Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar uma conta de armazenamento no Azure e, em seguida, passar as informações de autenticação adequadas para a classe *Configuração*.
 
 1. Faça logon no [Portal do Azure][management-portal].
 
-2. Clique no ícone **Novo** na parte inferior esquerda do portal e clique em **Dados + Armazenamento** > **Armazenamento**. Dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../azure-preview-portal-using-resource-groups.md) para ela.
+2. Clique no ícone **Novo** na parte inferior esquerda do portal e clique em **Dados + Armazenamento** > **Armazenamento**. Dê um nome exclusivo à conta de armazenamento e crie um novo [grupo de recursos](../resource-group-overview.md) para ela.
 
 	![Criar uma nova conta de armazenamento][storage-quick-create]
 	
@@ -335,7 +334,7 @@ Para fazer seu aplicativo armazenar dados na nuvem, você precisa primeiro criar
 
 	![Selecione Gerenciar chaves][storage-access-keys]
 
-7. Abra **init.php** e substitua `[NOME DE SUA CONTA DE ARMAZENAMENTO]` e `[NOME DE SUA CHAVE DE CONTA DE ARMAZENAMENTO]` pelo nome da conta e a chave que você anotou na última etapa. Salve o arquivo.
+7. Abra **init.php** e substitua `[YOUR_STORAGE_ACCOUNT_NAME]` e `[YOUR_STORAGE_ACCOUNT_KEY]` com o nome da conta e a chave que você anotou na última etapa. Salve o arquivo.
 
 ## Criar um aplicativo Web do Azure e configurar a publicação Git
 
@@ -343,21 +342,21 @@ Siga estas etapas para criar um aplicativo Web do Azure:
 
 1. Faça logon no [Portal do Azure][management-portal].
 
-2. Crie um aplicativo Web vazio com as instruções em [Como: Criar um aplicativo Web usando o Portal do Azure](../web-sites-create-deploy.md#createawebsiteportal). Crie um novo [Plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview) e selecione o grupo de recursos que você criou anteriormente para a conta de armazenamento.
+2. Crie um aplicativo web vazio com as instruções em [Como: Criar um aplicativo web usando o Portal do Azure](../web-sites-create-deploy.md#createawebsiteportal). Certifique-se de criar um novo [plano de serviço do aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview) e selecione o grupo de recursos que você criou anteriormente para a conta de armazenamento.
 
-	Quando o aplicativo Web tiver sido criado, o botão **Notificações** piscará **ÊXITO** em verde e a folha do aplicativo Web será aberta para mostrar que ele pertence ao novo grupo de recursos que você criou.
+	Quando o aplicativo Web tiver sido criado, o botão **Notificações** piscará **ÊXITO** em verde e a folha do aplicativo web será aberta para mostrar que ele pertence ao novo grupo de recursos que você criou.
 
-6. Na folha do aplicativo Web, clique em **Configurar implantação contínua** e escolha **Repositório do Git local**. Clique em **OK**.
+6. Na folha do aplicativo web, clique em **Configurar implantação contínua** e escolha **Repositório do Git local**. Clique em **OK**.
 
 	![Configurar a publicação do Git][setup-git-publishing]
 
-7. Para poder implantar seu repositório do Git local no Azure, você também deve configurar credenciais de implantação. Na folha do aplicativo Web, clique em **Todas as configurações** > **Credenciais de implantação** para configurar as credenciais. Clique em **Salvar** quando terminar.
+7. Para poder implantar seu repositório do Git local no Azure, você também deve configurar credenciais de implantação. Na folha do aplicativo web, clique em **Todas as configurações** > **Credenciais de implantação** para configurar as credenciais. Clique em **Salvar** quando terminar.
 
 	![Criar credenciais de publicação][credentials]
 
 	Levará alguns segundos para configurar seu repositório.
 
-8. Quando o repositório Git estiver pronto, você enviará suas alterações para ele. Você pode encontrar a URL do repositório clicando na mesma parte de implantação na folha do aplicativo Web. 
+8. Quando o repositório Git estiver pronto, você enviará suas alterações para ele. Você pode encontrar a URL do repositório clicando na mesma parte de implantação na folha do aplicativo Web.
 
 	![Instruções da implantação do Git retornadas após a criação de um repositório para o site.][git-instructions]
 
@@ -367,14 +366,14 @@ Siga estas etapas para criar um aplicativo Web do Azure:
 
 Para publicar o aplicativo com Git, siga as etapas abaixo.
 
-1. Abra a pasta **vendor/microsoft/windowsazure** na raiz do aplicativo e exclua os seguintes arquivos e pastas:
+1. Abra a pasta **vendor/microsoft/windowsazure** sob a raiz do aplicativo e exclua os seguintes arquivos e pastas:
 	* .git
 	* .gitattributes
 	* .gitignore
 			
-	Quando o Gerenciador de pacotes do Composer baixa as bibliotecas de cliente Azure e suas dependências, ele faz isso por meio da clonagem de repositório GitHub em que reside. Na próxima etapa, o aplicativo será implantado por meio do Git através da criação de um repositório fora da pasta raiz do aplicativo. O Git ignorará o repositório sub onde as bibliotecas de cliente residem, a menos que os arquivos específicos do repositório são removidos.
+	Quando o Gerenciador de pacotes do Composer baixa as bibliotecas de cliente do Azure e suas dependências, isso é feito por meio da clonagem do repositório GitHub no qual eles residem. Na próxima etapa, o aplicativo será implantado por meio de Git, criando um repositório fora da pasta raiz do aplicativo. O Git ignorará o repositório sub onde as bibliotecas de cliente residem, a menos que os arquivos específicos do repositório são removidos.
 
-2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere para o diretório raiz de seu aplicativo e execute os seguintes comandos:
 
 		git init
 		git add .
@@ -384,10 +383,10 @@ Para publicar o aplicativo com Git, siga as etapas abaixo.
 
 	Será solicitada a senha que você criou anteriormente.
 
-3. Vá para **http://[domínio do seu aplicativo Web]/createtable.php** para criar a tabela para o aplicativo.
-4. Vá para **http://[domínio do seu aplicativo Web]/index.php** para começar a usar o aplicativo.
+3. Vá para **http://[yourweb app domain]/createtable.php** para criar a tabela para o aplicativo.
+4. Vá para **http://[yourweb app domain]/index.php** para começar a usar o aplicativo.
 
-Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
+Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo.
 
 ##Publicar alterações em seu aplicativo
 
@@ -402,11 +401,11 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
 	Será solicitada a senha que você criou anteriormente.
 
-3. Vá para **http://[domínio do seu aplicativo Web]/index.php** para ver suas alterações. 
+3. Vá para **http://[yourweb app domain]/index.php** para ver suas alterações.
 
 ## O que mudou
-* Para obter um guia para a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal antigo para o novo portal, consulte: [Referência à navegação pelo portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -427,5 +426,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
+ 
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

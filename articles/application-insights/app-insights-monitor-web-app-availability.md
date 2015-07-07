@@ -2,9 +2,9 @@
 	pageTitle="Monitorar a disponibilidade e a capacidade de resposta de qualquer site" 
 	description="Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente." 
 	services="application-insights" 
-documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,82 +12,77 @@ documentationCenter=""
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="04/21/2015" 
 	ms.author="awills"/>
  
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 
+[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+
 Após ter implantado seu aplicativo Web, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O Application Insights envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
 
-![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
 Você pode configurar testes na Web para qualquer ponto de extremidade HTTP que for acessível da Internet pública.
 
-*Trata-se de um site do Azure? Apenas [crie o teste na lâmina][azurewebtest] do site.*
+Há dois tipos de teste da Web:
+
+* [Teste de ping de URL](#set-up-a-url-ping-test): um teste simples que você pode criar no Portal do Azure.
+* [Teste da web de várias etapas](#multi-step-web-tests): criado no Visual Studio Ultimate ou Visual Studio Enterprise e carregado no portal.
+
+*Trata-se de um aplicativo Web do Azure? Basta [criar o teste da Web na folha de aplicativo Web][azure-availability].*
 
 
-1. [Criar um novo recurso?](#create)
-1. [Configurar um teste na Web](#setup)
-1. [Exibir resultados](#monitor)
-2. [Se você encontrar falhas...](#failures)
-2. [Testes na Web com diversas etapas](#multistep)
-1. [Editar ou desabilitar um teste](#edit)
 
-
- [Vídeo](#video)
- [Próximas etapas](#next)
-
-## Configurando um teste na Web
+## Configurar um teste de ping de URL
 
 ### <a name="create"></a>1. Criar um novo recurso?
 
-Pule esta etapa se você já [configurou um][início] do recurso Application Insights para este aplicativo, e deseja ver os dados de disponibilidade no mesmo local.
+Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os dados de disponibilidade no mesmo local.
 
-Inscreva-se para o [Microsoft Azure](http://azure.com), vá para o [Portal de visualização](https://portal.azure.com) e crie um novo recurso do Application Insights. 
+Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [Portal do Azure](https://portal.azure.com) e crie um novo recurso do Application Insights.
 
-![New > Application Insights](./media/app-insights-monitor-web-app-availability/appinsights-11newApp.png)
+![Novo > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
+
+A folha de Visão Geral para o novo recurso será aberta. Para encontrá-los a qualquer momento o [Portal do Azure](https://portal.azure.com), clique em Procurar.
 
 ### <a name="setup"></a>2. Crie um teste na Web
 
-Na lâmina visão geral do seu aplicativo, clique no bloco de testes na Web. 
+Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Clique para abrir a folha de testes da Web para seu aplicativo e adicione um teste da Web.
 
-![Click the empty availability test](./media/app-insights-monitor-web-app-availability/appinsights-12avail.png)
-
-*Já obteve alguns testes na Web? Clique no bloco de testes na Web e selecione Adicionar teste na Web.*
-
-Configure os detalhes do teste.
-
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/appinsights-13availChoices.png)
+![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **A URL** deve estar visível na Internet pública. Ela pode incluir uma cadeia de caracteres de consulta - por exemplo, você poderia utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento nós a seguiremos, até um máximo de 10 redirecionamentos.
 
-- **Os locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Não é possível selecionar mais de três.
+- Se **Habilitar tentativas** for selecionado, quando o teste falhar, ele será repetido após um breve intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes serão então executados no intervalo usual. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste.
+
+- Os **locais de teste** são os locais por meio dos quais nossos servidores enviam solicitações da Web para sua URL. Escolha dois ou três para que você possa diferenciar problemas no site de problemas da rede. Você pode selecionar até 16 locais.
 
 - **Critérios de sucesso**:
-    **Códigos de retorno HTTP**: 200 é normal. 
 
-    **Cadeia de caracteres de correspondência de** conteúdo, como "Bem-vindo!" Faremos o teste para comprovar se ela ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
+    **Código de status HTTP**: 200 é o normal.
 
-- **Alertas**: Por padrão, alertas são enviados a você se houver falhas repetidas por 15 minutos. Você pode alterar a configuração para torná-la mais ou menos sensível, e pode alterar também os endereços de email para notificação.
+    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste para comprovar se ela ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
+
+
+- **Alertas** são, por padrão enviados para você se houver falhas repetidas por 15 minutos. Você pode alterar a configuração para torná-la mais ou menos sensível, e pode alterar também os endereços de email para notificação.
 
 #### Testar mais URLs
 
-Você pode adicionar mais testes para quantas URLs quiser. Por exemplo, além de testar a página inicial, você poderia certificar-se de que o banco de dados está sendo executado testando a URL para uma pesquisa.
-
-![On the web tests blade, choose Add](./media/app-insights-monitor-web-app-availability/appinsights-16anotherWebtest.png)
+Você pode adicionar mais testes para quantas URLs desejar. Por exemplo, além de testar a página inicial, você poderia certificar-se de que o banco de dados está sendo executado testando a URL para uma pesquisa.
 
 
 ### <a name="monitor"></a>3. Exibir relatórios de disponibilidade
 
-Depois de 1 a 2 minutos, clique em Atualizar na lâmina visão geral. (Nesta versão, ela não é atualizada automaticamente.)
+Depois de 1 a 2 minutos, clique em Atualizar na folha de disponibilidade. (Ele não atualiza automaticamente.)
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/appinsights-14availSummary.png)
+![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-O gráfico na lâmina visão geral combina os resultados para todos os testes na Web desse aplicativo.
+O gráfico na folha de disponibilidade combina os resultados para todos os testes na Web desse aplicativo.
 
 #### Componentes de página
 
-Imagens, folhas de estilo e scripts, além de outros componentes estáticos, são solicitados como parte do teste.  
+Imagens, folhas de estilo e scripts, além de outros componentes estáticos, são solicitados como parte do teste.
 
 O tempo de resposta gravado é o tempo transcorrido até que o carregamento de todos os componentes tenha sido concluído.
 
@@ -95,27 +90,36 @@ Se algum componente não for carregado, o teste será marcado com falha.
 
 ## <a name="failures"></a>Se você encontrar falhas...
 
-Clique na lâmina testes na Web para ver os resultados separados para cada teste.
+Na folha de testes da Web, role para baixo e clique em um teste no qual você pode ver as falhas.
 
-Abra um teste na Web específico.
+![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/appinsights-15webTestList.png)
+Isso mostrará os resultados do teste em questão.
 
-Role para baixo até  **Testes com falha** e selecione um resultado.
+![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/appinsights-17-availViewDetails.png)
+O teste é executado em vários locais, escolha um local em que os resultados são menores que 100%.
 
-O resultado mostra o motivo da falha.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/appinsights-18-availDetails.png)
-
-Para obter mais detalhes, baixe o arquivo de resultado e inspecione-o no Visual Studio.
+![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
 
+Role para baixo até **Testes com falha** e selecione um resultado.
 
-##<a name="multistep"></a>Testes na Web de várias etapas
+Clique no resultado para avaliá-lo no portal e ver o motivo da falha.
 
-Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se você estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente. 
+![Resultado do teste da Web](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
+
+
+Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio.
+
+
+*Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será ser relatado como falha, mesmo se a página html principal carregar com êxito.
+
+
+
+## Testes na Web com diversas etapas
+
+Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se você estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
 
 Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduzirá o cenário em intervalos e verificará as respostas.
 
@@ -124,57 +128,68 @@ Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e
 Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
 1. Crie um projeto de teste de desempenho na Web.
-    ![In Visual Studio, create a new project from the Web Performance and Load Test template.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+    ![No Visual Studio, crie um novo projeto do modelo de teste de carga e desempenho na Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
 2. Abra o arquivo .webtest e inicie a gravação.
-    ![Open the .webtest file and click Record.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
-3. Siga as ações do usuário que você deseja simular em seu teste: abra seu site, adicione um produto ao carrinho e assim por diante. Em seguida, interrompa seu teste. 
-    ![The web test recorder runs in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
+
+    ![Abra o arquivo .webtest e clique em Registrar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
+
+3. Siga as ações do usuário que você deseja simular em seu teste: abra seu site, adicione um produto ao carrinho e assim por diante. Em seguida, interrompa seu teste.
+
+    ![O gravador de teste da Web é executado no Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
+
     Não crie um cenário longo. Há um limite de 100 etapas e 2 minutos.
+
 4. Execute o teste no Visual Studio para confirmar que ele funciona.
-    O executor do teste na Web abre um navegador da Web e repete as ações gravadas por você. Verifique se que ele funciona conforme o esperado. 
-    ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
+
+    O executor do teste na Web abre um navegador da Web e repete as ações gravadas por você. Verifique se que ele funciona conforme o esperado.
+
+    ![No Visual Studio, abra o arquivo .webtest e clique em Executar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
  
 
 (Não insira loops em seu código de teste na Web.)
 
 #### 2. Carregar o teste na Web para o Application Insights
 
-No portal do Application Insights, crie um novo teste na Web.
+1. No portal do Application Insights, crie um novo teste na Web.
 
-![On the web tests blade, choose Add.](./media/app-insights-monitor-web-app-availability/appinsights-16anotherWebtest.png)
+    ![Na folha de testes na Web, selecione Adicionar.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 
-Selecione o teste com várias etapas e carregue o arquivo .webtest.
+2. Selecione o teste com várias etapas e carregue o arquivo .webtest.
 
-![Select multi-step webtest.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+    ![Selecione teste da Web em várias etapa.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-Visualize seus resultados do teste quaisquer eventuais falhas do mesmo modo que faria para testes de url única. 
+Exiba seus resultados de teste quaisquer eventuais falhas do mesmo modo que faria para testes de url única.
 
 Uma razão comum para falha é executar o teste por um período excessivamente longo. Ele não deve ser executado por mais de dois minutos.
+
+Não se esqueça de que todos os recursos de uma página devem carregar corretamente para o teste ter êxito, incluindo scripts, folhas de estilos, imagens e assim por diante.
 
 
 ### Conectando a hora e números aleatórios em seu teste de várias etapas
 
-Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques por meio de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os todavia como parâmetros do teste, StartTime e EndTime.
+Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os todavia como parâmetros do teste, StartTime e EndTime.
 
-![A web test with parameters.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
+![Um teste da Web com parâmetros.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
 
 Quando você executa o teste, o ideal é que EndTime seja sempre a hora atual e StartTime seja o horário de 15 minutos atrás.
 
 Plug-ins de teste na Web fornecem uma maneira de fazer isso.
 
-1. Adicione um plug-in de teste na Web para cada valor de parâmetro variável desejado. Na barra de ferramentas de teste da web, escolha **Adicionar Plugin de Teste na Web**.
+1. Adicione um plug-in de teste na Web para cada valor de parâmetro variável desejado. Na barra de ferramentas de teste da Web, escolha **Adicionar Plug-in de Teste na Web**.
 
-    ![Choose Add Web Test Plugin and select a type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
+    ![Escolha Adicionar plug-ins de teste da Web e selecione um tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Neste exemplo, vamos usar duas instâncias do plug-in Data e Hora. Uma instância é para "15 minutos atrás" e outra é para "agora". 
+    Neste exemplo, vamos usar duas instâncias do plug-in de Data e Hora. É uma instância de "15 minutos atrás" e outra de "agora".
 
-2. Abra as propriedades de cada plug-in. Dê a ele um nome e configure-o para usar a hora atual. Para um deles, defina Add Minutes = -15.
+2. Abra as propriedades de cada plug-in. Atribua um nome e configure-o para usar a hora atual. Para um deles, defina Add Minutes = -15.
 
-    ![Set name, Use Current Time, and Add Minutes.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
+    ![Definir nome, Usar hora atual e Adicionar minutos.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
 
 3. Nos parâmetros de teste na Web, use {{nome do plug-in}} para fazer referência a um nome de plug-in.
 
-    ![In the test parameter, use {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
+    ![No parâmetro de teste, use {{nome do plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas as execuções do teste.
 
@@ -182,7 +197,7 @@ Agora, carregue seu teste no portal. Ele usará os valores dinâmicos em todas a
 
 Abra um teste individual para editá-lo ou desabilitá-lo.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/appinsights-19-availEdit.png)
+![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenção de seu serviço.
 
@@ -192,19 +207,20 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
 ## <a name="next"></a>Próximas etapas
 
-[Pesquise por logs de diagnóstico][diagnóstico]
+[Pesquisar logs de diagnóstico][diagnostic]
 
-[Solução de problemas][qna]
-
-
-
-
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+[Solucionar problemas][qna]
 
 
 
 
-[azurewebtest]: ../insights-create-web-tests/
+<!--Link references-->
 
-<!--HONumber=46--> 
+[azure-availability]: ../insights-create-web-tests.md
+[diagnostic]: app-insights-diagnostic-search.md
+[qna]: app-insights-troubleshoot-faq.md
+[start]: app-insights-get-started.md
+
  
+
+<!---HONumber=62-->

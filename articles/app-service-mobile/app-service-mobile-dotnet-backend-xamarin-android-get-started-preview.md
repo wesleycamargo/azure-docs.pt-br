@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar os Aplicativos Móveis do Azure para desenvolvimento Android Xamarin"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
@@ -12,15 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/11/2014"
+	ms.topic="get-started-article"
+	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>Criar um aplicativo Xamarin Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin Android usando o Aplicativo Móvel do Azure. Neste tutorial, você criará um novo serviço .NET e um aplicativo simples de _Lista de tarefas pendentes_, que armazena dados do aplicativo no novo back-end do .NET.
+Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a um aplicativo Xamarin Android com os Aplicativos Móveis do Azure. Neste tutorial, você criará um novo serviço .NET e um aplicativo simples de _Lista de tarefas pendentes_, que armazena dados do aplicativo no novo back-end do .NET.
 
 Uma captura de tela do aplicativo completo está disponível abaixo:
 
@@ -54,13 +54,13 @@ Neste tutorial, você baixará um novo aplicativo Xamarin Android e um projeto d
     Isso exibe as três etapas fáceis para criar um aplicativo Xamarin Android conectado a seu back-end de aplicativo móvel.
 
 
-3. Se ainda não o fez, baixe e instale o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> no seu computador local ou na máquina virtual.  
+3. Se ainda não o fez, baixe e instale o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> no seu computador local ou na máquina virtual.
 
 4. Se ainda não o fez, baixe e instale ou o [Xamarin Studio]. Você também pode usar Xamarin para Visual Studio.
 
 5. Em **Baixar e publicar seu serviço na nuvem**, clique em **Baixar**.
 
-  Isso baixa uma solução que contém projetos para o back-end de aplicativo móvel e para o aplicativo cliente de exemplo de _Lista de tarefas pendentes_ que está conectado ao seu back-end de aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
+  	Isso baixa uma solução que contém projetos para o back-end de aplicativo móvel e para o aplicativo cliente de exemplo de _Lista de tarefas pendentes_ que está conectado ao seu back-end de aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
 6. Baixe seu perfil de publicação, salve o arquivo baixado no computador local e anote o local onde o salvou.
 
@@ -90,10 +90,9 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	![][10]
 
-	Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo back-end de aplicativo móvel, e os dados são exibidos na lista.
+	Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Itens armazenados na tabela são retornados pelo back-end do aplicativo móvel e os dados são exibidos na lista.
 
-	> [AZURE.NOTE]
-   	> Você pode examinar o código que acessa o back-end de aplicativo móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
+	> [AZURE.NOTE]Você pode examinar o código que acessa o back-end do aplicativo móvel para consultar e inserir dados que estão localizados no arquivo ToDoActivity.cs C#.
 
 
 
@@ -109,6 +108,6 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
 
 
@@ -41,11 +41,11 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 
 Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as opções .NET, PHP e Python.
 
-**Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64-bit requere o modo Básico ou Padrão. Modos Livre e Compartilhado são sempre executados em um ambiente de 32 bits.
+<a name="platform"></a> **Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64-bit requere o modo Básico ou Padrão. Modos Livre e Compartilhado são sempre executados em um ambiente de 32 bits.
 
 **Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo Web utiliza [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
-**Sempre Ativado**. Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite que o sistema conservar os recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se seu aplicativo executar continuamente trabalhos Web, você deve habilitar a opção **Sempre Ativado**; caso contrário, é possível que os trabalhos Web não sejam executados de modo seguro.
+<a name="alwayson"></a> **Sempre ativo**. Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um determinado período de tempo. Isso permite ao sistema conservar recursos. No modo Básico ou Padrão, você pode habilitar a opção **Sempre Ativado** para manter o aplicativo carregado o tempo todo. Se seu aplicativo executar continuamente trabalhos Web, você deve habilitar a opção **Sempre Ativado**; caso contrário, é possível que os trabalhos Web não sejam executados de modo seguro.
 
 **Versão do Pipeline Gerenciado**. Configurar o IIS [modo de pipeline](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application). Deixar este conjunto como Integrado (o padrão), a menos que você tenha um aplicativo herdado que exija uma versão anterior do IIS.
 
@@ -128,7 +128,7 @@ Para exibir os arquivos de log, você deve criar credenciais FTP da seguinte man
 ![](./media/web-sites-configure/configure03.png)
 
 
-O nome de usuário complete do FTP é “app\\nomedousuário” onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
+O nome de usuário complete do FTP é “app\nomedousuário” onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -148,7 +148,7 @@ Para exibir seus nomes de domínio, clique em **Todas as Configurações** > **D
 
 ### Implantações
 
-- Configure a implantação contínua. Consulte [Usar Git para implantar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md)
+- Configure a implantação contínua. Consulte [Usando Git para implantar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md)
 - Slots de implantação. Consulte [Implantar em ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 
 Para exibir seus slots de implantação, clique em **Todas as Configurações** > **Slots de implantação**.
@@ -170,7 +170,8 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 - [Conceitos básicos de monitoramento para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

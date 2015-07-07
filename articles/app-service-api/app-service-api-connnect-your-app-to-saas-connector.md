@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar um conector de SaaS por meio do código" 
+	pageTitle="Implantar e configurar um aplicativo de API de conector SaaS" 
 	description="Saiba como configurar um conector de SaaS que você instala em sua assinatura do Azure por meio do Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Usar um conector de SaaS por meio do código
+# Implantar e configurar um aplicativo de API de conector SaaS em um Serviço de Aplicativo do Azure
 
 ## Visão geral
 
@@ -24,7 +24,7 @@ Este tutorial mostra como instalar, configurar e testar um [conector de SaaS (So
 
 Por exemplo, para codificar solicitações de HTTP com a finalidade de ler e gravar arquivos em sua conta do Dropbox, o processo de autenticação para trabalhar diretamente com Dropbox é complicado. Um conector de Dropbox cuida da complexidade da autenticação para que você possa se concentrar em escrever seu código específico ao negócio.
 
-> [AZURE.WARNING]As instruções aqui **não *deverão* ser seguidas se você quiser usar um conector de SaaS em um aplicativo lógico**. Consulte [Criar um novo aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) para obter detalhes sobre como usar conectores de SaaS em aplicativos lógicos. Este artigo é especificamente para quando você quer usar *código* para chamar seu conector.
+> [AZURE.NOTE]Não é requerido seguir as instruções expostas aqui se você quiser usar um conector de SaaS em um aplicativo lógico. Consulte [Criar um novo aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) para obter informações sobre como usar conectores de SaaS em aplicativos lógicos.
  
 Este tutorial usa um conector de DropBox como um exemplo e orienta você durante as etapas a seguir:
 
@@ -275,4 +275,6 @@ Você viu como instalar, configurar e testar um conector de SaaS. Para obter mai
 
 [Portal de visualização do Azure]: https://portal.azure.com/
 [Portal Azure]: https://manage.windowsazure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

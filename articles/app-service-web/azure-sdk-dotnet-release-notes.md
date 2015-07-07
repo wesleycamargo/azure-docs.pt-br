@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Notas de versão SDK do Azure para .NET" 
+	pageTitle="Notas de versão do SDK do Azure para .NET" 
 	description="Notas de versão SDK do Azure para .NET" 
 	services="app-service/web" 
 	documentationCenter="" 
@@ -21,6 +21,11 @@
 #Notas de versão SDK do Azure para .NET
 
 Este tópico contém links para as Notas de versão SDK do Azure para .NET
+
+
+##Notas de versão SDK do Azure para .NET 2.6
+
+[Notas de versão SDK do Azure para .NET 2.6](azure-sdk-dotnet-release-notes-2_6.md)
 
 ##Notas de versão SDK do Azure para .NET 2.5.1
 
@@ -54,5 +59,7 @@ Este tópico contém links para as Notas de versão SDK do Azure para .NET
 
 [SDK do Azure para .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx) <!--HONumber=52-->
+[Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
+
+<!---HONumber=62-->

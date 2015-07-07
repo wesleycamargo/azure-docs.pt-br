@@ -13,36 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
 
-Este tutorial mostra como criar um aplicativo Web do PHP no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao Banco de Dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], os [Drivers da Microsoft para SQL Server para PHP][install-drivers], um servidor Web e [Git][install-git] instalados em seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], o [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), um servidor web, e [gito][install-git] instalado no seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
 
-> [AZURE.NOTE]
-> Você pode instalar e configurar o PHP, o SQL Server Express, os Drivers da Microsoft para SQL Server para PHP e o IIS (Serviços de Informações da Internet) usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP e Serviços de Informações da Internet (IIS) usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Você aprenderá:
 
-* Como criar um aplicativo Web do Azure e um banco de dados SQL usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos Aplicativos Web do Serviço de Aplicativo por padrão, não é necessário nada de especial para executar seu código PHP.
+* Como criar um aplicativo web do Azure e um banco de dados SQL usando o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos Aplicativos Web do Serviço de Aplicativo por padrão, não é necessário nada de especial para executar seu código PHP.
 * Como publicar e publicar novamente o aplicativo no Azure usando o Git.
  
-Seguindo este tutorial, você criará um aplicativo Web de registro simples no PHP. O aplicativo será hospedado em um Site do Azure. Abaixo, uma captura de tela do aplicativo concluído:
+Seguindo este tutorial, você irá criar um aplicativo da web de registro simples no PHP. O aplicativo será hospedado em um Site do Azure. Abaixo, uma captura de tela do aplicativo concluído:
 
-![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
+![Site PHP do Azure](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Criar um aplicativo Web do Azure e configurar a publicação Git
 
 Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
 
-1. Faça logon no [Portal do Azure][management-portal].
+1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com/).
 
-2. Abra o Azure Marketplace clicando no ícone **Marketplace** ou então clicando no ícone **novo** no canto inferior esquerdo do painel, selecionando **Web + Móvel** e **Azure Marketplace** na parte inferior.
+2. Abra o Azure Marketplace clicando no ícone **Marketplace** ou então clicando no ícone **Novo** no canto inferior esquerdo do painel, selecionando **Web + Móvel** e **Azure Marketplace** na parte inferior.
 	
 3. No Marketplace, selecione **Aplicativos Web**.
 
@@ -56,7 +55,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
 	- Configurar credenciais de servidor de banco de dados
 	- Selecione a região mais próxima de você
 
-	![configure your app](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
+	![configurar o aplicativo](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
 
 7. Quando terminar de definir o aplicativo Web, clique em **Criar**.
 
@@ -64,13 +63,13 @@ Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
 
 4. Clique no ícone do aplicativo Web na folha do grupo de recursos para abrir a folha do aplicativo Web.
 
-	![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
+	![grupo de recursos do aplicativo Web](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. Clique em **Configurar implantação contínua** > **Escolher Origem**. Selecione **Repositório Git Local** e clique em **OK**.
+5. Clique em **Configurar implantação contínua** > **Escolher origem**. Selecione **Repositório Git local** e clique em **OK**.
 
-	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
+	![onde está o código-fonte](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	Se não tiver configurado um repositório Git antes, você deverá fornecer um nome de usuário e senha. Para fazer isso, clique em **Definir credenciais de implantação** na folha do aplicativo Web.
+	Se não tiver configurado um repositório Git antes, você deverá fornecer um nome de usuário e senha. Para fazer isso, clique em **Definir credenciais de implantação** na folha do aplicativo web.
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
@@ -82,9 +81,9 @@ Para se conectar à instância do banco de dados SQL que está vinculada a seu a
 
 1. Na folha do grupo de recursos, clique no ícone do banco de dados SQL.
 
-2. Na folha do banco de dados SQL, clique em **Propriedades** e em **Mostrar cadeias de conexão do banco de dados**. 
+2. Na folha do banco de dados SQL, clique em **Propriedades** e em **Mostrar cadeias de conexão do banco de dados**.
 
-	![View database properties](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
+	![Exibir propriedades do banco de dados](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
 3. Na seção **PHP** da caixa de diálogo resultante, anote os valores de `Server`, `SQL Database` e `User Name`. Você usará posteriormente esses valores ao publicar seu aplicativo Web do PHP para o Serviço de Aplicativo do Azure.
 
@@ -92,19 +91,19 @@ Para se conectar à instância do banco de dados SQL que está vinculada a seu a
 
 O aplicativo Registro é um aplicativo simples do PHP que permite que você se registre em um evento fornecendo seu nome e endereço de email. As informações sobre inscritos anteriores são exibidas em uma tabela. As informações de registro são armazenadas em uma instância do Banco de Dados SQL. O aplicativo consiste em dois arquivos (copie/cole o código disponível abaixo):
 
-* **index.php**: Exibe um formulário de registro e uma tabela que contém informações de registro.
-* **createtable.php**: Cria a tabela de banco de dados SQL para o aplicativo. Este arquivo será usado apenas uma vez.
+* **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
+* **createtable.php**: cria a tabela de Banco de Dados SQL para o aplicativo. Este arquivo será usado apenas uma vez.
 
-Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tenha PHP, SQL Server Express e um servidor Web configurados em seu computador local e que tenha habilitado a [Extensão PDO para SQL Server][pdo-sqlsrv].
+Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP, SQL Server Express e um servidor Web definido na sua máquina local, e que você tenha habilitado a [extensão PDO para SQL Server][pdo-sqlsrv].
 
-1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso no prompt de comando `sqlcmd` com estes comandos:
+1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso a partir do comando `sqlcmd` com estes comandos:
 
 		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
 
-2. No seu diretório raiz do servidor Web, crie uma pasta chamada `registration` e crie dois arquivos nela: um chamado `createtable.php` e outro chamado `index.php`.
+2. No seu diretório raiz do servidor Web , crie uma pasta chamada `registration` e crie dois arquivos nela: um chamado `createtable.php` e outro chamado `index.php`.
 
 3. Abra o arquivo `createtable.php` em um editor de texto ou IDE e adicione o código abaixo. Esse código será usado para criar a tabela `registration_tbl` no banco de dados `registration`.
 
@@ -133,9 +132,9 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
 
 	Observe que você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do servidor SQL local.
 
-4. Abra um navegador da Web e navegue até **http://localhost/registration/createtable.php** Isso criará a tabela `registration_tbl` no banco de dados.
+4. Abra um navegador da web e navegue até **http://localhost/registration/createtable.php**. Isso criará a tabela `registration_tbl` no banco de dados.
 
-5. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em etapas posteriores).
+5. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em várias etapas).
 
 		<html>
 		<head>
@@ -186,7 +185,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
 
     Novamente, você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do MySQL local.
 
-7. Após o código de conexão de banco de dados, adicione código para inserir informações de registro no banco de dados.
+7. Após o código de conexão do banco de dados, adicione código para inserir informações de registro no banco de dados.
 
 		if(!empty($_POST)) {
 		try {
@@ -229,11 +228,11 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Agora você pode navegar para **http://localhost/registration/index.php** para testar o aplicativo.
+Agora você pode navegar até **http://localhost/registration/index.php** para testar o aplicativo.
 
 ##Publicar seu aplicativo
 
-Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão de banco de dados no aplicativo. Com o uso das informações de conexão do banco de dados obtido previamente (na seção **Obter informações de conexão do Banco de Dados SQL**), atualize as seguintes informações nos **dois** arquivos  `createdatabase.php` and `index.php` com os valores apropriados:
+Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão de banco de dados no aplicativo. Usando as informações de conexão do banco de dados obtidas previamente (na seção **Obter informações de conexão do banco de dados SQL**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
 
 	// DB connection info
 	$host = "tcp:<value of Server>";
@@ -241,14 +240,12 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicati
 	$pwd = "<your password>";
 	$db = "<value of SQL Database>";
 
-> [AZURE.NOTE]
-> Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
+> [AZURE.NOTE]Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
 
 
 Agora, você está pronto para configurar a publicação gito e publicar o aplicativo.
 
-> [AZURE.NOTE]
-> Essas são as mesmas etapas observadas no fim da seção **Criar um aplicativo Web do Azure e configurar a publicação do Git**, acima.
+> [AZURE.NOTE]Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git**, acima.
 
 
 1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo (o diretório de **registro**) e execute os seguintes comandos:
@@ -261,10 +258,10 @@ Agora, você está pronto para configurar a publicação gito e publicar o aplic
 
 	Será solicitada a senha que você criou anteriormente.
 
-2. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/createtable.php** para criar a tabela do banco de dados SQL para o aplicativo.
-3. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/index.php** para começar a usar o aplicativo.
+2. Navegue até **http://[webapp name].azurewebsites.net/createtable.php** para criar a tabela do banco de dados SQL para o aplicativo.
+3. Navegue **http://[webapp name].azurewebsites.net/index.php** até para começar a usar o aplicativo.
 
-Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
+Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo.
 
 ##Publicar alterações em seu aplicativo
 
@@ -279,11 +276,11 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
 	Será solicitada a senha que você criou anteriormente.
 
-3. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/index.php** para ver suas alterações.
+3. Navegue até **http://[webapp name].azurewebsites.net/index.php** para ver suas alterações.
 
 ## O que mudou
-* Para obter um guia para a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal antigo para o novo portal, consulte: [Referência à navegação pelo portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração do portal para o portal de visualização, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -293,6 +290,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

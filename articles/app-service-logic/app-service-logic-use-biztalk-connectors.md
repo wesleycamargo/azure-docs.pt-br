@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Usando conectores" 
-   description="Usando conectores" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Usando conectores"
+   description="Usando conectores"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@ Os Serviços de Aplicativos do Azure oferecem uma série de conectores prontos p
 * [Conector de HTTP]
 * [Conector do Office 365]
 * [Conector do OneDrive]
-* [Conector do Oracle]
 * [Conector POP3]
 * [Conector do QuickBooks]
 * [Conector do Salesforce]
@@ -53,18 +52,18 @@ Os Serviços de Aplicativos do Azure oferecem uma série de conectores prontos p
 ##Conectores Premium e aplicativos deAPI##
 * Conector AS2
 * BizTalk EDIFACT
-* Codificador de arquivo simples do BizTalk
-* Serviço de transformação do BizTalk
-* Regras do BizTalk
+* [Codificador de Arquivo Simples do BizTalk]
+* Serviço de Transformação do BizTalk
+* [Regras do BizTalk]
 * BizTalk X12
-* Extrator XPath do BizTalk
-* Validador de XML do BizTalk
+* [Extrator de XPath do BizTalk]
+* [Validador de XML do BizTalk]
 * Conector do DB2
 * Conector do Informix
-* Conector do Banco de Dados Oracle
+* [Conector do Oracle]
 * Conector MQ
 * [Conector do SAP]
- 
+
 Para obter mais detalhes, consulte a Referência de API do Conector [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Aplicativos lógicos e conectores##
@@ -108,6 +107,10 @@ Os conectores também podem ser usados como ações como parte do aplicativo ló
 [Conector do OneDrive]: app-service-logic-connector-onedrive.md
 [Conector de arquivo]: app-service-logic-connector-file.md
 [Conector de margem de atraso]: app-service-logic-connector-slack.md
+[Codificador de Arquivo Simples do BizTalk]: app-service-logic-flatfile-encoder.md
+[Extrator de XPath do BizTalk]: app-service-logic-xpath-extract.md
+[Validador de XML do BizTalk]: app-service-logic-xml-validator.md
+[Regras do BizTalk]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

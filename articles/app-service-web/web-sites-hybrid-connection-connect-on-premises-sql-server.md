@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # Conectar-se ao SQL Server local por meio de um aplicativo Web no Serviço de Aplicativo do Azure usando conexões híbridas
@@ -23,8 +23,8 @@ As conexões híbridas podem conectar aplicativos Web do [Serviço de Aplicativo
 Neste tutorial, você aprenderá a criar um aplicativo Web dos Serviços de Aplicativo na [visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), conectar o aplicativo Web a seu banco de dados local SQL Server local usando o novo recurso de conexão híbrida, criar um aplicativo ASP.NET simples que usará a conexão híbrida e implantar o aplicativo para o aplicativo Web do Serviço de Aplicativo. O aplicativo Web completo no Azure armazena credenciais de usuário em um banco de dados de associação local. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure nem com o ASP.NET.
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
-> [AZURE.NOTE]A parte Aplicativos Web do recurso Conexões Híbridas está disponível somente no [portal de visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>
+>A parte Aplicativos Web do recurso Conexões Híbridas está disponível somente no [portal de visualização do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Pré-requisitos ##
 
@@ -176,35 +176,9 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 Nesse ponto, você concluiu uma parte importante da infraestrutura de conexão híbrida de nuvem. Em seguida, você criará uma parte local correspondente.
 
 <a name="InstallHCM"></a>
-## D. Instalar o Hybrid Connection Manager local para concluir a conexão ##
+## D. Instalar o Gerenciador de Conexões Híbridas local para completar a conexão ##
 
-1. Na folha **Conexões híbridas**, clique na conexão híbrida recém-criada e clique em **Configuração de Ouvinte**.
-	
-	![Clique em Configuração do Ouvinte][ClickListenerSetup]
-	
-4. A lâmina **Propriedades da Conexão Híbrida** se abre. Em **Gerenciador de Conexão Híbrida Local**, escolha **Clique aqui para instalar**.
-	
-	![Clique aqui para instalar][ClickToInstallHCM]
-	
-5. Na caixa de diálogo de aviso de segurança Executar Aplicativo, selecione **Executar** para continuar.
-	
-	![Selecione Executar para continuar][ApplicationRunWarning]
-	
-6.	Na caixa de diálogo **Controle de Conta de Usuário**, selecione **Sim**.
-	
-	![Selecione Sim][UAC]
-	
-7. O Gerenciador de Conexão Híbrida é baixado e instalado para você.
-	
-	![Instalando][HCMInstalling]
-	
-8. Quando a instalação é concluída, clique em **Fechar**.
-	
-	![Clique em Fechar][HCMInstallComplete]
-	
-	Na lâmina **Conexões Híbridas**, a coluna **Status** agora exibe **Conectado**.
-	
-	![Status Conectado][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
 Agora que a infraestrutura de conexão híbrida está concluída, você criará um aplicativo Web que a utilize.
 
@@ -244,7 +218,7 @@ Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde enco
 	
 	Ao compor a cadeia de conexão, mantenha em mente o seguinte:
 	
-	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas. 
+	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas. 
 	
 	- É recomendável que você especifique a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão, de modo que você possa ter certeza de que seu SQL Server local tem TCP habilitado e utiliza a porta correta.
 	
@@ -402,5 +376,6 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

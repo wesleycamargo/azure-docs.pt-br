@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Application Insights para aplicativos de área de trabalho do Windows" 
+	pageTitle="Application Insights para serviços e aplicativos da Área de Trabalho do Windows" 
 	description="Analise utilização e desempenho de seu aplicativo do Windows com o Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
 
-# Application Insights em aplicativos de área de trabalho do Windows
+# Application Insights em serviços e aplicativos da Área de Trabalho do Windows
 
 *O Application Insights está em modo de visualização.*
 
@@ -23,19 +23,16 @@
 
 O Application Insights permite que você monitore seu aplicativo implantado quanto à utilização e ao desempenho.
 
-*Embora seja possível fazer o SDK do Application Insights funcionar em um aplicativo de área de trabalho, não é um cenário ao qual damos suporte atualmente. Mas, se desejar tentar fazê-lo experimentalmente, aqui estão algumas dicas para isso.*
-
-
+Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecido pelo SDK principal do Application Insights. Esse SDK fornece o suporte completo à API para todos os dados de telemetria, mas não oferece nenhuma coleta automática de telemetria.
 
 
 ## <a name="add"></a> Criar um recurso do Application Insights
 
 
-1.  No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha aplicativo ASP.NET ou aplicativo da Windows Store. 
+1.  No [Portal do Azure][portal], crie um novo recurso do Application Insights. Para o tipo de aplicativo, escolha aplicativo da Windows Store. 
 
     ![Clique em Novo, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
-    (Sua escolha do tipo de aplicativo define o conteúdo da folha Visão Geral e as propriedades disponíveis no [Metrics Explorer][metrics].)
 
 2.  Faça uma cópia da chave de instrumentação.
 
@@ -46,11 +43,9 @@ O Application Insights permite que você monitore seu aplicativo implantado quan
 
 1. No Visual Studio, edite os pacotes do NuGet do seu projeto de aplicativo de área de trabalho. ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Instale o núcleo do SDK do Application Insights.
+2. Instale o pacote de API do Application Insights.
 
     ![Selecione **Online**, **Incluir pré-lançamento**, e procure "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
-
-    (Como alternativa, você poderia escolher o SDK do Application Insights para aplicativos Web. Isso oferece alguma telemetria interna de contadores de desempenho.)
 
 3. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
 
@@ -60,11 +55,10 @@ O Application Insights permite que você monitore seu aplicativo implantado quan
     
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
 
-4. Se você instalou o SDK de aplicativos Web, talvez você também deseje comentar os módulos de telemetria da Web de ApplicationInsights.config
 
 ## <a name="telemetry"></a>Inserir chamadas de telemetria
 
-Crie uma instância `TelemetryClient` e, em seguida, [use-a para enviar telemetria][track].
+Crie uma instância `TelemetryClient` e, em seguida, [use-a para enviar telemetria][api].
 
 Use `TelemetryClient.Flush` para enviar mensagens antes de fechar o aplicativo. (Isso não é recomendado para outros tipos de aplicativo).
 
@@ -78,6 +72,15 @@ Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
         ...
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Alternative to setting ikey in config file:
+            tc.InstrumentationKey = "key copied from portal";
+
+            // Set session data:
+            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.Session.Id = Guid.NewGuid().ToString();
+            tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
+
+            // Log a page view:
             tc.TrackPageView("Form1");
             ...
         }
@@ -94,23 +97,25 @@ Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
 ```
 
-Use qualquer uma das [APIs do Application Insights][track] para enviar telemetria. Em aplicativos de área de trabalho do Windows, nenhuma telemetria é enviada automaticamente. Normalmente você utilizaria:
+Use qualquer uma das [APIs do Application Insights][api] para enviar telemetria. Em aplicativos de área de trabalho do Windows, nenhuma telemetria é enviada automaticamente. Normalmente você utilizaria:
 
 * TrackPageView(pageName) para alternar entre formulários, páginas ou guias
 * TrackEvent(eventName) para outras ações de usuário
+* TrackMetric (nome, valor) em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
 * TrackTrace(logEvent) para [registro de diagnóstico][diagnostic]
 * TrackException(exception) para cláusulas catch
-* TrackMetric (nome, valor) em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
 
-Para ver as contagens de usuários e sessões, defina um inicializador de contexto:
+#### Inicializadores de contexto
 
-    class TelemetryInitializer: IContextInitializer
+Como alternativa a definir os dados de sessão em cada instância de TelemetryClient, você pode usar um inicializador de contexto:
+
+```C#
+    class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
         {
             context.User.Id = Environment.UserName;
-            context.Session.Id = DateTime.Now.ToFileTime().ToString();
-            context.Session.IsNewSession = true;
+            context.Session.Id = Guid.NewGuid().ToString();
         }
     }
 
@@ -120,8 +125,9 @@ Para ver as contagens de usuários e sessões, defina um inicializador de contex
         static void Main()
         {
             TelemetryConfiguration.Active.ContextInitializers.Add(
-                new TelemetryInitializer());
+                new UserSessionInitializer());
             ...
+```
 
 
 
@@ -149,7 +155,7 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 
 ## <a name="usage"></a>Próximas etapas
 
-[Acompanhar o uso do seu aplicativo][track]
+[Acompanhar o uso do seu aplicativo][knowUsers]
 
 [Capturar logs de diagnóstico e pesquisar neles][diagnostic]
 
@@ -164,7 +170,9 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[knowUsers]: app-insights-overview-usage.md
+[api]: app-insights-api-custom-events-metrics.md
+[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

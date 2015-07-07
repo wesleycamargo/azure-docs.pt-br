@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure" 
-	description="Saiba como criar um pacote de aplicativos de API do Node.js e implantá-lo no serviço de aplicativo do Azure." 
-	services="app-service\api" 
-	documentationCenter="nodejs" 
-	authors="pkefal" 
-	manager="" 
+<properties
+	pageTitle="Criar e implantar um aplicativo de API do Node.js no serviço de aplicativo do Azure"
+	description="Saiba como criar um pacote do aplicativo de API do Node.js e implantá-lo no Serviço de Aplicativo do Azure."
+	services="app-service\api"
+	documentationCenter="nodejs"
+	authors="pkefal"
+	manager=""
 	editor=""/>
 
 <tags
@@ -23,6 +23,8 @@ Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) e imp
 Eis aqui uma captura de tela do aplicativo concluído:
 
 ![][sample-api-app-page]
+
+> [AZURE.NOTE]Você também pode usar o Visual Studio Code para compilar e implantar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure. Para obter mais informações sobre o Visual Studio Code e Node.js, consulte [Visual Studio Code](http://code.visualstudio.com/Docs/) e [Desenvolvimento de Aplicativos de Nó](http://code.visualstudio.com//Docs/nodejs).
 
 ## Criar um aplicativo de API no Portal de Visualização do Azure
 
@@ -189,7 +191,7 @@ Nesta seção você criará um repositório Git local e enviará por push a part
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	* [nova ramificação] mestre -> mestre
+	 	* [new branch]      master -> master
 
 ## Exibir a definição de API no portal de visualização do Azure
 
@@ -219,8 +221,6 @@ No portal de visualização do Azure, vá até a folha **Host de aplicativo de A
 
 O navegador exibe a home page que vimos anteriormente, quando você executou o aplicativo de exemplo localmente.
 
-## Metadados do aplicativo de API
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Próximas etapas
@@ -243,6 +243,6 @@ Você implantou um aplicativo Web Node.js que usa um back-end do aplicativo de A
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -87,19 +87,17 @@ Você tipicamente implanta um projeto Web com o `customErrors`sinalizador no arq
 
 ![Página de erro inútil](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Normalmente, a maneira mais fácil de encontrar a causa do erro é habilitar mensagens de erro detalhadas, que a primeira das capturas de tela anteriores explica como fazer. Isso exige uma alteração no arquivo Web.config implantado. Você pode editar o arquivo *Web.config* no projeto e reimplantar o projeto ou criar uma  [transformação de Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e implantar uma compilação de depuração, mas há uma maneira mais rápida: no **Gerenciador de Soluções**, você pode exibir e editar diretamente arquivos no aplicativo Web remoto usando o recurso *exibição remota*.
+Normalmente, a maneira mais fácil de encontrar a causa do erro é habilitar mensagens de erro detalhadas, que a primeira das capturas de tela anteriores explica como fazer. Isso exige uma alteração no arquivo Web.config implantado. Você pode editar o arquivo *Web.config* no projeto e reimplantar o projeto ou criar uma [transformação de Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e implantar uma compilação de depuração, mas há uma maneira mais rápida: no **Gerenciador de Soluções**, você pode exibir e editar diretamente arquivos no aplicativo Web remoto usando o recurso *exibição remota*.
 
-1. No **Gerenciador de Servidores**, expanda **Azure**, **Aplicativos Web** e o nó do aplicativo Web que você está implantando.
+1. No **Server Explorer**, expanda **Azure**, expanda **Serviço de Aplicativo**, expanda o grupo de recursos em que seu aplicativo Web está localizado em e, em seguida, expanda o nó de seu aplicativo Web.
 
 	Você vê nós que dão acesso aos arquivos de conteúdo e de log do aplicativo Web.
-
-	![Arquivo e arquivos de log](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
 2. Expanda o nó **Arquivos** e clique duas vezes no arquivo *Web.config*.
 
 	![Abrir Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-	O Visual Studio abre o arquivo Web.config no site remoto e mostra [Remoto] ao lado do nome do arquivo na barra de título.
+	O Visual Studio abre o arquivo Web.config no site remoto e mostra Remoto ao lado do nome do arquivo na barra de título.
 
 3. Adicione a seguinte linha ao elemento `system.web`:
 
@@ -111,7 +109,7 @@ Normalmente, a maneira mais fácil de encontrar a causa do erro é habilitar men
 
 	![Mensagem de erro detalhada](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(O erro mostrado foi criado adicionando-se a linha mostrada em vermelho a *Views\\Home\\Index.cshtml*.)
+	(O erro mostrado foi criado adicionando-se a linha mostrada em vermelho a *Views\Home\Index.cshtml*.)
 
 A edição do arquivo Web.config é apenas um exemplo dos cenários em que a capacidade de ler e editar arquivos no aplicativo Web do Azure facilita a solução de problemas.
 
@@ -125,7 +123,7 @@ Esta seção mostra como depurar remotamente usando o projeto criado por você c
 
 1. Abra o projeto Web que você criou em [Introdução ao Azure e ao ASP.NET][GetStarted].
 
-1. Abra o *Controllers\\HomeController.cs*.
+1. Abra o *Controllers\HomeController.cs*.
 
 2. Exclua o método `About()` e insira o código a seguir em seu lugar.
 
@@ -298,7 +296,7 @@ Para saber mais sobre como criar logs de aplicativo em Trabalhos Web, confira [C
 
 ### Adicionar instruções de rastreamento ao aplicativo
 
-1. Abra *Controllers\\HomeController.cs* e substitua o conteúdo do arquivo pelo seguinte código para adicionar instruções `Trace` e uma instrução `using` para `System.Diagnostics`:
+1. Abra *Controllers\HomeController.cs* e substitua o conteúdo do arquivo pelo seguinte código para adicionar instruções `Trace` e uma instrução `using` para `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -519,9 +517,9 @@ Todos os logs que podem ser monitorados na janela **Saída** também podem ser b
 
 	![Arquivo baixado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Os logs de rastreamento de aplicativos estão em arquivos *.txt* na pasta *LogFiles\\Application*.
-	* Os logs de servidor Web estão em arquivos *.log* na pasta *LogFiles\\http\\RawLogs*. Você pode usar uma ferramenta como o [Analisador de log (a página pode estar em inglês)](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para exibir e manipular esses arquivos.
-	* Os logs de mensagens de erro detalhadas estão em arquivos *.html* na pasta *LogFiles\\DetailedErrors*.
+	* Os logs de rastreamento de aplicativos estão em arquivos *.txt* na pasta *LogFiles\Application*.
+	* Os logs de servidor Web estão em arquivos *.log* na pasta *LogFiles\http\RawLogs*. Você pode usar uma ferramenta como o [Analisador de log (a página pode estar em inglês)](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para exibir e manipular esses arquivos.
+	* Os logs de mensagens de erro detalhadas estão em arquivos *.html* na pasta *LogFiles\DetailedErrors*.
 
 	(A pasta *deployments* é para os arquivos criados pela publicação de controle do código-fonte; ela não tem nada relacionado à publicação do Visual Studio. A pasta *Git* é para rastreamentos relacionados à publicação de código-fonte e o serviço de streaming de arquivos de log.)
 
@@ -567,8 +565,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 1. Na janela **Aplicativo Web do Azure** do Visual Studio, clique na guia **Logs** e depois em **Configurar registro em log no portal de gerenciamento**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Isso abre a guia **Configurar** no portal de gerenciamento do seu aplicativo Web. Outra maneira de fazer isso é clicar na guia **Aplicativos Web**, clicar em seu aplicativo Web e, em seguida, clicar na guia **Configurar**.
 
@@ -737,7 +734,7 @@ Não existem introduções completas e atualizadas para rastreamento do ASP.NET 
 
 Para o log de erros, uma alternativa para escrever seu próprio código de rastreamento é usar uma estrutura de software livre, como o [ELMAH (a página pode estar em inglês)](http://nuget.org/packages/elmah/) Para obter mais informações, consulte as [postagens no blog de Scott Hanselman sobre o ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)
 
-Além disso, observe que você não precisa usar o rastreamento do ASP.NET ou do System.Diagnostics se quiser obter logs de streaming do Azure. O serviço de log de streaming de aplicativos web do Azure transmitirá qualquer arquivo *.txt*, *.html* ou *.log* que encontrar na pasta *LogFiles*. Portanto, você pode criar seu próprio sistema de log que grava no sistema de arquivos do aplicativo Web, e o arquivo será automaticamente transmitido e baixado. Tudo o que você precisa fazer é escrever o código do aplicativo que cria arquivos na pasta *d:\\home\\logfiles*.
+Além disso, observe que você não precisa usar o rastreamento do ASP.NET ou do System.Diagnostics se quiser obter logs de streaming do Azure. O serviço de log de streaming de aplicativos web do Azure transmitirá qualquer arquivo *.txt*, *.html* ou *.log* que encontrar na pasta *LogFiles*. Portanto, você pode criar seu próprio sistema de log que grava no sistema de arquivos do aplicativo Web, e o arquivo será automaticamente transmitido e baixado. Tudo o que você precisa fazer é escrever o código do aplicativo que cria arquivos na pasta *d:\home\logfiles*.
 
 ### Analisando logs de servidor Web
 
@@ -759,10 +756,11 @@ Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo We
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

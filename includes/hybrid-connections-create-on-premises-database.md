@@ -1,55 +1,55 @@
 
-This section shows you how to install a SQL Server Express, enable TCP/IP, set a static port, and create a database that can be used with Hybrid Connections.  
+Esta seção mostra como instalar uma SQL Server Express, ativar TCP/IP, definir uma porta estática e criar um banco de dados que pode ser usado com conexões híbridas.
 
-###Install SQL Server Express
+###Instalar SQL Server Express
 
-To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. Because of this, we will install the default instance. If you already have the default instance of SQL Server Express installed, you can skip this section.
+Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. As instâncias padrão no SQL Server usam a porta estática 1433, ao passo que instâncias nomeadas não. Por isso, instalaremos a instância padrão. Se você já tiver a instância padrão do SQL Server Express instalada, pode ignorar esta seção.
 
-1. To install SQL Server Express, run the **SQLEXPRWT_x64_ENU.exe** or **SQLEXPR_x86_ENU.exe** file that you downloaded. The SQL Server Installation Center wizard appears.
+1. Para instalar o SQL Server Express, execute o arquivo **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que você baixou. O assistente do Centro de Instalação do SQL Server é exibido.
 	
-2. Choose **New SQL Server stand-alone installation or add features to an existing installation**, follow the instructions, accepting the default choices and settings, until you get to the **Instance Configuration** page.
+2. Escolha **Nova instalação independente do SQL Server ou adicionar recursos a uma instalação existente**, siga as instruções, aceitando as escolhas e configurações padrão, até que chegue à página **Configuração de Instância**.
 	
-3. On the **Instance Configuration** page, choose **Default instance**, then accept the default settings on the **Server Configuration** page.
+3. Na página **Configuração da Instância**, escolha **Instância padrão**, em seguida, aceite as configurações padrão na página **Configuração do Servidor**.
 
-	>[AZURE.NOTE]If you already have a default instance of SQL Server installed, you can skip to the next section and use this instance with Hybrid Connections. 
+	>[AZURE.NOTE]Se já tiver uma instância padrão do SQL Server instalada, você pode pular para a próxima seção e usar essa instância com conexões híbridas.
 	
-5. On the **Database Engine Configuration** page, under **Authentication Mode**, choose **Mixed Mode (SQL Server authentication and Windows authentication)**, and provide a secure password for the built-in **sa** administrator account.
+5. Na página **Configuração do Mecanismo do Banco de Dados**, em **Modo de Autenticação**, selecione **Modo Misto (autenticação de SQL Server e autenticação do Windows)** e forneça uma senha para a conta de administrador de **autenticação de servidor** integrada.
 	
-	In this tutorial, you will be using SQL Server authentication. Be sure to remember the password that you provide, because you will need it later.
+	Neste tutorial, você utilizará autenticação de SQL Server. Certifique-se de lembrar da senha fornecida por você, porque você precisará dela mais tarde.
 	
-6. Finish the wizard to complete the installation.
+6. Encerre o assistente para concluir a instalação.
 
-###Enable TCP/IP and setting a static port
+###Habilitar TCP/IP e configurar uma porta estática
 
-This section uses SQL Server Configuration Manager, which was installed when you installed SQL Server Express, to enable TCP/IP and set a static IP address. 
+Esta seção usa o SQL Server Configuration Manager, que foi instalado quando você instalou o SQL Server Express, para habilitar TCP/IP e configurar um endereço IP estático.
 
-1. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) to enable TCP/IP access to the instance.
+1. Siga as etapas em [Habilitar Protocolo de Rede TCP/IP para SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) para habilitar o acesso de TCP/IP à instância.
 
-2. (Optional) If you are not able to use the default instance, you must follow the steps in [Configure a Server to Listen on a Specific TCP Port ](https://msdn.microsoft.com/library/ms177440.aspx) to set a static port for the instance. If you complete this step, you will connect using the new port that you define, instead of port 1433.
+2. (Opcional) Se você não conseguir usar a instância padrão, você deve seguir as etapa sem [Configurar um servidor para escutar em uma porta TCP específica ](https://msdn.microsoft.com/library/ms177440.aspx) para definir uma porta estática para a instância. Se concluir esta etapa, você se conectará usando a nova porta que você definir, em vez de a porta 1433.
 
-3. (Optional) If needed, add exceptions in the firewall to allow remote access to the SQL Server process (sqlservr.exe).
+3. (Opcional) Se necessário, adicione exceções no firewall para permitir acesso remoto ao processo do SQL Server (sqlservr.exe).
 
-###Create a new database in the on-premises SQL Server instance
+###Criar um novo banco de dados na instância local do SQL Server
 
-1. In SQL Server Management Studio, connect to the SQL Server you just installed. (If the **Connect to Server** dialog does not appear automatically, navigate to **Object Explorer** in the left pane, click **Connect**, and then click **Database Engine**.) 	
+1. No SQL Server Management Studio, conecte-se ao SQL Server que você acabou de instalar. (Se a caixa de diálogo **Conectar ao Servidor** não aparecer automaticamente, vá até **Pesquisador de Objetos** no painel à esquerda, clique em **Conectar** e em **Mecanismo de banco de dados**.) 	
 
-	![Connect to Server](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
+	![Conectar-se ao servidor](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
 	
-	For **Server type**, choose **Database Engine**. For **Server name**, you can use **localhost** or the name of the computer where you installed SQL Server. Choose **SQL Server authentication**, and supply the password for the sa login that you created earlier. 
+	Para **Tipo de servidor**, selecione **Mecanismo de Banco de Dados**. Para **Nome de servidor**, use **localhost** ou o nome do computador em que instalou o SQL Server. Escolha **Autenticação do SQL Server** e forneça a senha para a autenticação de servidor que você criou anteriormente.
 	
-2. To create a new database by using SQL Server Management Studio, right-click **Databases** in Object Explorer, and then click **New Database**.
+2. Para criar um novo banco de dados utilizando o SQL Server Management Studio, clique com o botão direito **Bancos de Dados** no Gerenciador de Objetos, então clique em **Novo Bancos de Dados**.
 	
-3. In the **New Database** dialog, type `OnPremisesDB`, and then click **OK**. 
+3. Na caixa de diálogo **Novo banco de dados**, digite `OnPremisesDB` e clique em **OK**.
 	
-4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
+4. No Gerenciador de Objetos, se expandir o item **Bancos de Dados**, você verá que o novo banco de dados foi criado.
 
-###Create a new SQL Server login and set permissions
+###Criar um novo logon do SQL Server e definir permissões
 
-Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premise SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
+Finalmente, você criará um novo logon do SQL Server com permissões restritas. O serviço do Azure se conectará ao SQL Server no local usando esse logon, em vez de o logon de autenticação do servidor interno, que possui permissões totais no servidor.
 
-1. In SQL Server Management Studio Object Explorer, right-click the **OnPremisesDB** database and click **New Query**.
+1. No Gerenciador de Objetos do SQL Server Management Studio, clique com o botão direito no banco de dados **OnPremisesDB** e em **Nova consulta**.
 
-2.  Paste the following TSQL query into the query window.
+2.  Copie e cole a seguinte consulta TSQL na janela de consulta.
 
 		USE [master]
 		GO
@@ -74,7 +74,8 @@ Finally, you will create a new SQL Server login with restricted permissions. You
 		GRANT CREATE SCHEMA TO [HybridConnectionLogin]
 		GO  
    
-3. In the above script, replace the string `<**secure_password**>` with a secure password for the new *HybridConnectionsLogin*.
+3. No script anterior, substitua a cadeia de caracteres `<**secure_password**>` por uma senha segura para o novo *HybridConnectionsLogin*.
 
-4. **Execute** the query to create the new login and grant the required permissions in the on-premises database.
+4. **Execute** a consulta para criar o novo logon e conceder as permissões necessárias no banco de dados local.
 
+<!---HONumber=62-->

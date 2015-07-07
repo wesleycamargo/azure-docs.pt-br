@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #Implantar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -67,8 +67,13 @@ O Azure simplifica as tarefas de gerenciamento de site que você terá que execu
 * [Scripts do FTP](#ftp2)
 * [Windows PowerShell](#powershell)
 * [API de gerenciamento do .NET](#api)
-* [Linha de comando entre plataformas (xplat-cli)](#cli)
+* [Interface de linha de comando do Azure (CLI do Azure)](#cli)
 * [Linha de comando de Implantação da Web](#webdeploy)
+ 
+###<a name="octopus"></a>Octopus Deploy
+
+[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) pode ser usado com aplicativos Web do Serviço de Aplicativo. Para obter mais informações, consulte [Implantar aplicativos ASP.NET em Sites do Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -86,7 +91,7 @@ O [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/bu
 Para obter mais informações, consulte os recursos a seguir:
 
 * [Publicando por meio do Controle do Código-fonte em Aplicativos Web com Git](web-sites-publish-source-control.md). Como usar o Git para publicar diretamente do computador local em aplicativos Web (no Azure, esse método de publicação é denominado Git local). Ele também mostra como habilitar a implantação contínua de repositórios Git a partir do GitHub, do CodePlex ou do BitBucket.
-* [Implantar em Aplicativos Web com o GitHub usando o Kudu](/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman e David Ebbo que mostra como implantar um aplicativo Web diretamente do GitHub para Aplicativos Web.
+* [Implantar em Aplicativos Web com o GitHub usando o Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman e David Ebbo que mostra como implantar um aplicativo Web diretamente do GitHub para Aplicativos Web.
 * [Implantar em um botão do Azure para Aplicativos Web](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre um método para acionar a implantação por meio de um repositório Git.
 * [Fórum do Azure para Git, Mercurial e Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -152,7 +157,7 @@ Para obter mais informações, consulte os recursos a seguir:
 * [Implantando DOIS sites no Azure de um repositório Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx) Postagem de blog de Scott Hanselman.
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 Se você usar o [IDE do Visual Studio](#vs) para desenvolvimento, poderá usar o [MSBuild](http://msbuildbook.com/) para automatizar qualquer tarefa que possa ser executada no seu IDE. Você pode configurar o MSBuild para usar a [Implantação da Web](#webdeploy) ou o [FTP/FTPS](#ftp) para copiar arquivos. A Implantação da Web também pode automatizar várias outras tarefas relacionadas à implantação tarefas, como a implantação de bancos de dados.
 
@@ -186,13 +191,13 @@ Para obter mais informações, consulte o recurso a seguir:
 
 * [Automatizando tudo com as bibliotecas de gerenciamento do Azure e o .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) Introdução à API de gerenciamento do .NET e links para mais documentação.
 
-##<a name="cli"></a>Linha de comando entre plataformas (xplat-cli)
+##<a name="cli"></a>Interface de linha de comando do Azure (CLI do Azure)
 
-Você pode usar a linha de comando em máquinas Mac ou Linux para implantar usando FTP. Se fizer isso, você também poderá acessar a API de gerenciamento do REST do Azure usando a interface de linha de comando entre plataformas (xplat-cli) do Azure. A xplat-cli também pode ser usada em máquinas com Windows.
+É possível utilizar a linha de comando em máquinas Windows, Mac ou Linux para implantar utilizando o FTP. Se fizer isso, você também poderá acessar a API de gerenciamento do REST do Azure usando a CLI do Azure.
 
 Para obter mais informações, consulte o recurso a seguir:
 
-* [Ferramentas de linha de comando](/downloads/#cmd-line-tools). Página de portal em Azure.com que fornece informações da ferramenta de linha de comando.
+* [Ferramentas de linha de comando do Azure.](/downloads/#cmd-line-tools). Página de portal em Azure.com que fornece informações da ferramenta de linha de comando.
 
 ##<a name="webdeploy"></a>Linha de comando de Implantação da Web
 
@@ -217,7 +222,8 @@ Para obter informações sobre como usar o Controle de Acesso Baseado em Funçã
 Para obter mais informações sobre outros tópicos de implantação, consulte a seção Implantar na [Documentação de Aplicativos Web](/documentation/services/web-sites/).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

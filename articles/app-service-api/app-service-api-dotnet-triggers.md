@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Gatilhos de aplicativo de API do serviço de aplicativo do Azure
@@ -22,11 +22,7 @@
 
 Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los a partir de um aplicativo lógico.
 
-Se você for novo no mundo dos aplicativos de API, aqui estão alguns artigos para iniciar.
-
-1. [Criar um aplicativo de API](app-service-dotnet-create-api-app.md) - crie um novo aplicativo de API a partir do zero ou converta um projeto de API da Web existente em um aplicativo de API. 
-2. [Implantar um aplicativo de API](app-service-dotnet-deploy-api-app.md) - implante um aplicativo de API em sua assinatura do Azure.
-3. [Depurar um aplicativo de API](../app-service-dotnet-remotely-debug-api-app.md) - use o Visual Studio para depurar remotamente um aplicativo de API em execução no Azure.
+Se você não tem experiência com [aplicativos de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), é recomendável ler a série composta de várias partes em [criação de aplicativos da API](app-service-dotnet-create-api-app.md)
 
 Além disso, todos os trechos de código neste tópico são copiados do [exemplo de código do aplicativo de API de FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
@@ -36,7 +32,7 @@ Observe que você precisará baixar o seguinte pacote do nuget para que o códig
 
 É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API.
 
-Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../app-service-logic/app-service-logic-connector-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de push ou de sondagem para facilitar essa necessidade.
+Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../app-service-logic/app-service-logic-connector-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
 
 ## Gatilho de sondagem versus gatilho de envio
 
@@ -343,6 +339,6 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

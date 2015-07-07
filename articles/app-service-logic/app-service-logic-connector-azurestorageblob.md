@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Conector do Blob de Armazenamento do Azure
@@ -24,19 +24,9 @@ O conector do Blob de Armazenamento do Azure permite carregar, baixar e excluir 
 ##Criar um novo conector do Blob de Armazenamento do Azure
 Para criar um novo conector de Armazenamento do Azure, siga as etapas abaixo. <ul> <li>Inicie o portal do Azure <li>Abra o Azure Marketplace usando +Novo (na parte inferior da página) -> Web+Móvel --> Azure Marketplace </ul>
 
-![Iniciar o Azure Marketplace][1]
-<br>
-<ul>
-<li>Clique em aplicativos de API
-<li>Procure por <i>Blob</i> e selecione o Conector do Blob de Armazenamento do Azure
-</ul>
+![Iniciar o Azure Marketplace][1]<br> <ul> <li>Clique em aplicativos de API <li>Procure por <i>Blob</i> e selecione o Conector do Blob de Armazenamento do Azure </ul>
 
-![Selecionar o conector de Blob de Armazenamento do Azure][2]
-<br>
-<ul> 
-<li>Clique em Criar
-<li>Na folha do conector do Blob de Armazenamento do Azure que aparece e forneça os dados a seguir.
-</ul>
+![Selecionar o conector de Blob de Armazenamento do Azure][2] <br> <ul> <li>Clique em Criar <li>Na folha do conector do Blob de Armazenamento do Azure que aparece e forneça os dados a seguir. </ul>
 
 ![Criar o conector de Blob de Armazenamento do Azure][3]
 
@@ -69,7 +59,7 @@ Clique no Conector do Blob de Armazenamento do Azure no painel à direita. O con
 
 ![Lista de ações de Blob de armazenamento do Azure][10]
 
-O Conector do Blob de Armazenamento do Azure dá suporte a quatro ações. São elas
+O Conector do Blob de Armazenamento do Azure dá suporte a seis ações. Elas são
 
 - **Obter Blob** - Obtenha um blob específico do contêiner
 - **Carregar Blob** - Carregue um novo blob ou atualize um existente
@@ -116,5 +106,6 @@ Você pode defini-lo como qualquer valor desejado. Este é apenas um exemplo. A 
 [9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

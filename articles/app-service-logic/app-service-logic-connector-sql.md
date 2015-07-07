@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Conector do SQL" 
+   pageTitle="Usando o conector do SQL no Serviço de Aplicativo do Microsoft Azure" 
    description="Como usar o conector do SQL" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,162 +13,125 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="sutalasi"/>
 
 
-# Conector do Microsoft SQL #
+# Conector do Microsoft SQL
 
-Conectores podem ser usados em aplicativos de lógicos para obter, processar ou enviar dados como parte de um fluxo. Há situações em que você pode precisar trabalhar com o banco de dados SQL no SQL Azure ou no SQL Server (que é instalado no local e por trás do firewall). Utilizando o Conector do SQL em seu fluxo, você pode chegar a diversos resultados. Alguns exemplos:  
+Conecte-se ao SQL Server local ou a um banco de dados SQL do Azure para criar e alterar suas informações ou dados. Conectores podem ser usados em aplicativos lógicos para recuperar, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do SQL em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
-1.	Expor uma seção dos dados residentes no seu banco de dados SQL por meio de um front-end Web ou móvel do usuário.
-2.	Inserir dados em sua tabela de banco de dados SQL para armazenamento (exemplo: registros de funcionários, pedidos de vendas etc.)
-3.	Extrair dados do SQL para uso em um processo comercial
+- Expor uma seção dos dados residentes no seu banco de dados SQL usando um aplicativo da Web ou móvel. 
+- Inserir dados em uma tabela de banco de dados SQL para armazenamento. Por exemplo, você pode inserir registros de funcionários, atualizar ordens de venda e assim por diante.
+- Extrair dados do SQL para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce. 
 
-Nesses cenários, é necessário fazer o seguinte: 
+## Gatilhos e ações
+*Gatilhos* são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma *ação* é o resultado do gatilho. Por exemplo, quando uma ordem é atualizada, enviar um alerta para o vendedor. Ou, quando um novo cliente for adicionado, enviar um email de boas-vindas para ele.
 
-1. Criar uma instância do Aplicativo de API do Conector do SQL
-2. Estabelecer conectividade híbrida para o aplicativo de API se comunicar com o SQL local Essa etapa é opcional e é necessária apenas para o servidor SQL local e não para o SQL Azure.
-3. Usar o aplicativo de API criado em um aplicativo lógico para obter o processo comercial desejado
+O conector do SQL pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. Para cada tabela incluída nas configurações do pacote (falaremos mais sobre isso posteriormente neste tópico), há um conjunto de ações de JSON e um conjunto de ações de XML.
 
-	###Gatilhos e ações básicos
-		
-    - Dados de Votação (Gatilho) 
-    - Inserir em Tabela
-    - Atualizar Tabela
-    - Selecionar de Tabela
-    - Excluir de Tabela
-    - Chamar Procedimento Armazenado
+O conector de SQL tem os seguintes gatilhos e ações disponíveis:
 
-## Criar uma instância do Aplicativo de API do Conector do SQL ##
+Gatilhos | Ações
+--- | ---
+Sondar dados | <ul><li>Inserir na Tabela</li><li>Atualizar Tabela</li><li>Selecionar da Tabela</li><li>Excluir da Tabela</li><li>Chamar Procedimento Armazenado</li>
 
-Para usar o Conector do SQL, você precisa criar uma instância do Aplicativo de API para o Conector do SQL. Isso pode ser feito da seguinte maneira:
+## Criar o conector do SQL
 
-1. Abra o Azure Marketplace usando a opção "+NOVO" na parte inferior esquerda do Portal do Azure.
-2. Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "Conector do SQL".
-3. Forneça os detalhes genéricos, como nome, plano de serviço de aplicativo e assim por diante na primeira folha
-4. Forneça as configurações mencionadas na tabela a seguir.	
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-<style type="text/css">
-	table.tableizer-table {
-	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-} 
-.tableizer-table td {
-	padding: 4px;
-	margin: 3px;
-	border: 1px solid #ccc;
-}
-.tableizer-table th {
-	background-color: #525B64; 
-	color: #FFF;
-	font-weight: bold;
-}
-</style><table class="tableizer-table">
-<tr class="tableizer-firstrow"><th>Nome</th><th>Obrigatório</th><th>Valor Padrão</th><th>Descrição</th></tr>
- <tr><td>Nome do Servidor</td><td>Sim</td><td>&nbsp;</td><td>Especifique o nome do SQL Server. Exemplo: "SQLserver", "SQLserver/sqlexpress" ou "SQLserver.mydomain.com".</td></tr>
- <tr><td>Port</td><td>Não</td><td> 1433</td><td>Opcional. O número da porta em que a conexão é estabelecida. Se você não especificar um valor, o conector se conectará por meio da porta padrão.</td></tr>
- <tr><td>Nome de usuário</td><td>Sim</td><td>&nbsp;</td><td>Especifique um nome de usuário válido para se conectar ao SQL Server.</td></tr>
- <tr><td>Senha</td><td>Sim</td><td>&nbsp;</td><td>Especifique uma senha válida para se conectar ao SQL Server.</td></tr>
- <tr><td>Nome do Banco de Dados</td><td>Sim</td><td>&nbsp;</td><td>Especifique um nome de banco de dados válido no SQL Server. Exemplo: "orders" ou "dbo/orders" ou "myaccount/employees".</td></tr>
- <tr><td>Local</td><td>Sim</td><td>FALSE</td><td>Especifique se o SQL Server é local atrás de um firewall ou não. Se definido como TRUE, será necessário instalar um agente de escuta em um servidor que possa acessar o servidor SQL. Você pode ir para a página de resumo do aplicativo de API e clicar em 'Conexão Híbrida' para instalar o agente</td></tr>
- <tr><td>Cadeia de conexão do Barramento de Serviço</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique esse parâmetro se o SQL Server for local. Deve ser uma cadeia de conexão válida do Namespace do Barramento de Serviço. Use a edição 'Padrão' do Barramento de Serviço do Azure e não a edição 'Básica'.</td></tr>
- <tr><td>Nome do Servidor Parceiro</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique o servidor de parceiro ao qual se conectar quando servidor primário estiver inoperante.</td></tr>
- <tr><td>Tabelas</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique as tabelas no banco de dados que podem ser modificadas pelo conector. Exemplo: OrdersTable, EmployeeTable</td></tr>
- <tr><td>Procedimentos Armazenados</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique os procedimentos armazenados no banco de dados que podem ser chamados pelo conector. Exemplo: IsEmployeeEligible, CalculateOrderDiscount</td></tr>
- <tr><td>Consulta de Dados Disponíveis</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique a instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Exemplo: SELECT COUNT(*) from table_name.</td></tr>
- <tr><td>Sondar Consulta de Dados</td><td>Não</td><td>&nbsp;</td><td>Opcional. Especifique a instrução SQL para sondar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Exemplo: SELECT * from table_name; DELETE from table_name. OBSERVAÇÃO: Você precisa fornecer a instrução de sondagem de forma que ela não termine em um loop infinito. Por exemplo, select deve ser seguido por delete e select com base em um sinalizador e deve ser seguido pela atualização do sinalizador.</td></tr>
-</table>
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Selecione **Aplicativos de API** e pesquise “Conector do SQL”.
+3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades.
+4. Insira as seguintes configurações de pacote:
 
+	Nome | Obrigatório | Descrição
+--- | --- | ---
+Nome do Servidor | Sim | Especifique o nome do SQL Server. Por exemplo, digite *SQLserver/sqlexpress* ou *SQLserver.mydomain.com*.
+Port | Não | O padrão é 1433.
+Nome de usuário | Sim | Insira um nome de usuário que possa fazer logon no SQL Server. Caso esteja se conectando a um SQL Server local, digite o domínio/nome de usuário. 
+Senha | Sim | Digite a senha do nome de usuário.
+Nome do Banco de Dados | Sim | Informe o banco de dados ao qual está se conectando. Por exemplo, você pode inserir *Clientes* ou *dbo/pedidos*.
+Local | Sim | O padrão é False. Insira False se estiver se conectando a um banco de dados SQL do Azure. Insira True caso esteja se conectando a um SQL Server local. 
+Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
+Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponível, você poderá informar um servidor parceiro como servidor alternativo ou de backup. 
+Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação. 
+Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp_IsEmployeeEligible* ou *sp_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação. 
+Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from table_name. 
+Sondar Consulta de Dados | Para suporte de gatilho | Instrução SQL para sondar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente. 
 
- ![][1]  
+5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
-## Configuração Híbrida (opcional) ##
-
-Observação: Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
-
-Navegue até o Aplicativo de API recém-criado, em Procurar -> Aplicativos de API -> < nome do aplicativo de API> e você verá o seguinte comportamento. A instalação está incompleta, pois a conexão híbrida ainda não foi estabelecida.
-
-![][2] 
-
-Para estabelecer a conectividade híbrida, faça o seguinte:
-
-1. Copie a cadeia de conexão principal
-2. Clique no link 'Baixar e Configurar'
-3. Siga o processo de instalação que é iniciado e forneça a cadeia de conexão principal quando for solicitado
-4. Quando o processo de instalação for concluído, uma caixa de diálogo semelhante a esta será exibida
-
-![][3] 
-
-Agora, quando navegar até o aplicativo de API, você observará que o status da conexão híbrida será Conectado. 
-
-![][4] 
-
-Observação: caso você queira trocar para a cadeia de conexão secundária, basta fazer novamente a configuração híbrida e fornecer a cadeia de conexão secundária em vez da cadeia principal  
-
-## Uso em um aplicativo lógico ##
-
-O Conector do SQL pode ser usado como um gatilho/ação em um aplicativo lógico. O gatilho e todas as ações dão suporte aos formatos de dados JSON e XML. Para cada tabela que é fornecida como parte das configurações de pacote, haverá um conjunto de ações de JSON e um conjunto de ações de XML. Se você estiver usando o gatilho/ação de XML, será possível usar o aplicativo de API de transformação para converter dados em outro formato de dados XML. 
-
+## Usar o conector como um gatilho
 Vamos examinar um aplicativo lógico simples que sonda os dados de uma tabela SQL, adiciona os dados a outra tabela e os atualiza.
 
+Para usar o conector do SQL como um gatilho, informe os valores de **Consulta de Dados Disponíveis** e **Sondar Consulta de Dados**. **Consulta de Dados Disponíveis** é executada de acordo com o agendamento informado e determina se há dados disponíveis. Como essa consulta retorna apenas um número escalar, ela pode ser ajustada e otimizada para execução frequente.
 
+**Sondar Consulta de Dados** só é executado quando a consulta de dados disponíveis indica que há dados disponíveis. Essa instrução é executada em uma transação e só é confirmada quando os dados extraídos são armazenados permanentemente no fluxo de trabalho. É importante evitar extrair novamente os mesmos dados por tempo indefinido. A natureza transacional dessa execução pode ser usada para excluir ou atualizar os dados a fim de garantir que eles não sejam coletados na próxima consulta.
 
--  Ao criar/editar um aplicativo lógico, escolha o Aplicativo de API do Conector do SQL criado como o gatilho. Isso listará os gatilhos disponíveis - Sondar Dados (JSON) e Sondar Dados (XML).
+> [AZURE.NOTE]O esquema retornado por essa instrução identifica as propriedades disponíveis em seu conector. Todas as colunas devem ser nomeadas.
 
- ![][5] 
+#### Exemplo de Consulta de Dados Disponíveis
 
+	SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
 
-- Selecione o gatilho - Sondar Dados (JSON), especifique a frequência e clique em ✓.
+#### Exemplo de Sondar Consulta de Dados
 
-![][6] 
+	SELECT *, GetData() as 'PollTime' FROM [Order] 
+		WHERE OrderStatus = 'ProcessedForCollection' 
+		ORDER BY Id DESC; 
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
+		WHERE Id = 
+		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
+### Adicionar o gatilho
+1. Ao criar ou editar um aplicativo lógico, selecione o conector do SQL criado como gatilho. Isso listará os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5] 
 
+2. Selecione o gatilho **Sondar Dados (JSON)**, especifique a frequência e clique em ✓: <br/> ![][6]
 
-- O gatilho aparecerá conforme configurado no aplicativo lógico. A(s) saída()s do gatilho será(ão) mostrada(s) e pode(m) ser usada(s) como entrada(s) em ações posteriores. 
+3. O gatilho aparecerá conforme configurado no aplicativo lógico. As saídas do gatilho serão mostradas e poderão ser usadas como entradas em ações posteriores: <br/> ![][7]
 
-![][7] 
+## Usar o conector como uma ação
+Usaremos o cenário de aplicativo lógico simples que sonda os dados de uma tabela SQL, adiciona os dados a outra tabela e os atualiza.
 
+Para usar o conector do SQL como uma ação, insira o nome de tabelas e/ou procedimentos armazenados que você inseriu quando você criou o conector do SQL:
 
-- Selecione o mesmo conector do SQL da galeria como uma ação. Selecione uma das ações Inserir - inserir em TempEmployeeDetails (JSON).
+1. Após o gatilho (ou escolha 'executar esta lógica manualmente'), adicione o conector do SQL criado na galeria. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
-![][8] 
+2. Especifique as entradas do registro a ser inserido e clique em ✓: <br/> ![][9]
 
+3. Na galeria, selecione o mesmo conector do SQL que você criou. Como uma ação, selecione a ação de atualização na mesma tabela, como *Atualizar EmployeeDetails*: <br/> ![][11]
 
-
-- Forneça as entradas do registro a ser inserido e clique em ✓. 
-
-![][9] 
-
-
-
-- Selecione o mesmo conector do SQL da galeria como uma ação. Selecione a ação de atualização na mesma tabela (Ex.: Update EmployeeDetails)
-
-![][11] 
-
-
-
-- Forneça as entradas para a ação de atualização e clique em ✓. 
-
-![][12] 
+4. Insira os valores de entrada para a ação de atualização e clique em ✓: <br/> ![][12]
 
 Você pode testar o aplicativo lógico adicionando um novo registro na tabela que está sendo sondada.
 
+## Configuração Híbrida (opcional)
+
+> [AZURE.NOTE]Essa etapa será necessária apenas se você estiver usando o SQL Server local por trás do firewall.
+
+O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se conectar com segurança ao sistema local. Se seu conector usar um SQL Server local, o Gerenciador de Conexão Híbrida será necessário.
+
+Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
+
+
+## Faça mais com seu conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um aplicativo lógico. Consulte [O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Você também pode analisar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+
+
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.jpg
-[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-sql/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-sql/Create.png
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.png
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.png
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.png
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.png
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.png
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

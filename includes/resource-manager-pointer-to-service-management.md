@@ -1,3 +1,5 @@
-### Azure Resource Manager and Azure Service Management
+### Gerenciador de Recursos do Azure e o Gerenciamento de Serviços do Azure
  
-This article is for a Resource Manager-based Azure resource, which Microsoft recommends over the use of Azure Service Management. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md). To do the equivalent task with Azure Service Management, see the following article:
+Este artigo destina-se a um recurso do Azure com base no Gerenciador de Recursos, que a Microsoft recomenda para o uso do Gerenciamento de Serviços do Azure. Para obter uma explicação das vantagens do Gerenciador de Recursos, consulte [Computação do Azure, rede e provedores de armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md). Para fazer a tarefa equivalente com o Gerenciador de Serviços do Azure, consulte o seguinte artigo:
+
+<!---HONumber=62-->

@@ -3,7 +3,7 @@
 	description="Siga este tutorial para começar a usar o Serviço de Aplicativo do Azure para desenvolvimento do iOS."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
@@ -47,7 +47,7 @@ Depois de criar seu back-end móvel, você poderá seguir um início rápido fá
 
 3. Se ainda não o fez, baixe e instale o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> no seu computador local ou na máquina virtual.
 
-4. Baixe e instale o [Xcode] v4.4 ou versão posterior e o [Xamarin Studio]. Você também pode usar Xamarin para Visual Studio.
+4. Baixe e instale o [Xcode] v4.4 ou uma versão posterior e o Xamarin Studio. Você também pode usar Xamarin para Visual Studio.
 
 5. Em **Baixar e publicar seu serviço na nuvem**, clique em **Baixar**.
 
@@ -84,6 +84,6 @@ Depois de criar seu back-end móvel, você poderá seguir um início rápido fá
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

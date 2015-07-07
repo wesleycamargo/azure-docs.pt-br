@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/06/2015" 
 	ms.author="awills"/>
  
 # Application Insights: plataformas
@@ -24,27 +24,34 @@
 
 ## Idiomas
 
-+ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
-+ [Páginas da Web de JavaScript](app-insights-web-track-usage.md)
-+ [Aplicativos JavaScript da Windows Store](#cordova)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
++ [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](../app-insights-java.md)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
-+ [PHP](https://github.com/Microsoft/AppInsights-PHP)
++ [Páginas da Web de JavaScript](app-insights-web-track-usage.md)
++ [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
++ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Qualquer outra coisa](#projects)
 
 ## Plataformas
 
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET 5](app-insights-asp-net-five.md)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Aplicativos Web do Azure e máquinas virtuais](../insights-perf-analytics.md)
-+ [Android](https://github.com/Microsoft/AppInsights-Android)
-+ [iOS](https://github.com/Microsoft/AppInsights-iOS)
-+ [Cordova](#cordova)
++ [Serviços de nuvem do Azure](app-insights-cloudservices.md)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
-+ [Área de trabalho do Windows](app-insights-windows-desktop.md)
++ [Windows Store C#|VB](app-insights-windows-get-started.md)
++ [Windows Store C++](app-insights-windows-cpp.md)
++ [Serviços e aplicativos de área de trabalho do Windows](app-insights-windows-desktop.md)
++ [Qualquer outra coisa](#projects)
 
 
 ## Estruturas de log
@@ -53,27 +60,12 @@
 +	[Java, Log4J ou Logback](app-insights-java-trace-logs.md)
 
 
-## Projetos
+## <a name="projects"></a> Criar seu próprio SDK
 
-Visite também o [Projeto SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home)
+Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje criar um? Examine o código dos SDKs existentes listados no [projeto do SDK do Application Insights no GitHub](https://github.com/Microsoft/AppInsights-Home)
 
 
-### <a name="cordova"></a>Aplicativos JavaScript da Windows Store e Cordova
 
-No Visual Studio, clique com o botão direito em seu projeto e escolha **Gerenciar pacotes NuGet**.
-
-Selecione **Online** e pesquise no Application Insights.
-
-Instale a **API do Application Insights para aplicativos JavaScript**.
-
-Use o [script de aplicativo da Web](app-insights-web-track-usage.md) padrão de lado do cliente, mas com uma alteração.
-
-Quando você obtiver o script do portal do Application Insights, insira uma linha após a chave de instrumentação:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
 
 [Cordova](http://cordova.apache.org/)
 
@@ -81,6 +73,4 @@ Quando você obtiver o script do portal do Application Insights, insira uma linh
 
 <!--Link references-->
 
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

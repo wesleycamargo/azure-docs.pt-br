@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure" 
-	description="Aprenda a compilar e implantar um aplicativo Web do Node.js no Azure." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure"
+	description="Aprenda a compilar e implantar um aplicativo Web do Node.js no Azure."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 # Compilar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure
@@ -31,7 +31,7 @@ Siga estas etapas para criar um aplicativo Web e habilitar a publicação Git.
 > [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/pt-br/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
- 
+
 2. Clique no ícone **+ NOVO** na parte inferior esquerda do portal.
 
 3. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web**.
@@ -93,7 +93,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 ##Publicar seu aplicativo
 
-1. Na linha de comando, altere para o diretório **helloworld** e digite os seguintes comandos para inicializar um repositório Git local. 
+1. Na linha de comando, altere para o diretório **helloworld** e digite os seguintes comandos para inicializar um repositório Git local.
 
 		git init
 
@@ -108,7 +108,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 		git remote add azure [URL for remote repository]
 
- 
+
 4. Envie as alterações por push ao Azure usando o seguinte comando:
 
 		git push azure master
@@ -128,13 +128,13 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		 * [new branch]      master -> master
-    
+
 
 5. Para exibir seu aplicativo, clique no botão **Procurar** na parte **Aplicativo Web** contida no portal de gerenciamento.
 
 ##Publicar alterações em seu aplicativo
 
-1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\\n' para 'Hello Azure\\n'. Salve o arquivo.
+1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\n' para 'Hello Azure\n'. Salve o arquivo.
 2. Na linha de comando, altere para o diretório **helloworld** e execute os seguintes comandos:
 
 		git add .
@@ -142,7 +142,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 		git push azure master
 
 	Será solicitada a senha que você criou anteriormente.
-	
+
 3. Navegue até seu aplicativo clicando em **Procurar** e observe se as atualizações foram aplicadas.
 
 	![Página da web exibindo 'Hello Azure'][helloworld-completed]
@@ -153,7 +153,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 ##Próximas etapas
 
-Embora as etapas deste artigo usem o Portal do Azure para criar um site, você também pode usar as [Ferramentas de Linha de Comando do Azure para Mac e Linux](../xplat-cli.md) para executar as mesmas operações.
+Embora as etapas neste artigo usem o Portal do Azure para criar um aplicativo Web, você também pode usar a [Interface de linha de comando do Azure](../xplat-cli.md) para executar as mesmas operações.
 
 O Node.js fornece um rico ecossistema de módulos que podem ser usadas por seus aplicativos. Para saber como os Aplicativos Web funcionam com módulos, consulte [Usando módulos do Node.js com aplicativos do Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -165,7 +165,7 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 ##Recursos adicionais
 
 * [PowerShell do Azure](../install-configure-powershell.md)
-* [Ferramenta de linha de comando do Azure para Mac e Linux](../xplat-cli.md)
+* [Interface de linha de comando do Azure](../xplat-cli.md)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -194,5 +194,6 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

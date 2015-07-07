@@ -13,34 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="josephd"/>
 
 # Diretrizes de implementação dos Serviços de Infraestrutura do Azure
  
-Essas diretrizes se concentram nas principais decisões de design e nas tarefas para determinar a variedade de recursos que estão envolvidos na maioria das implementações de serviços de infraestrutura do Azure.
+O Azure é uma excelente plataforma para implementar configurações de desenvolvimento/teste ou de verificação de conceito, pois requer muito pouco investimento para testar uma abordagem específica para a implementação das soluções. No entanto, você deve ser capaz de distinguir entre as práticas fáceis de um ambiente de desenvolvimento/teste e as práticas mais difíceis e detalhadas para uma implementação totalmente funcional e pronta para a produção de uma carga de trabalho de TI.
 
-O Azure é uma excelente plataforma para implementar a configuração de verificação de conceito, pois requer muito pouco investimento para testar uma abordagem específica para a implementação de soluções. No entanto, você deve ser capaz de distinguir entre as práticas fáceis de uma verificação de conceito e as práticas mais difíceis e detalhadas para uma implementação totalmente funcional e pronta para a produção de uma carga de trabalho de TI.
+Esta diretriz identifica muitas áreas para as quais o planejamento é essencial para o sucesso de uma carga de trabalho de TI no Azure. Também fornece uma ordem para a criação dos recursos necessários. Embora haja alguma flexibilidade, a Microsoft recomenda que você aplique a ordem deste artigo ao seu planejamento e à sua tomada de decisões.
 
-Este guia identifica muitas áreas para as quais o planejamento é essencial para o sucesso de uma infraestrutura de TI ou carga de trabalho no Azure. Além disso, ele ajuda na implementação de soluções na plataforma Azure fornecendo um pedido para a criação dos recursos necessários. Embora haja alguma flexibilidade, a Microsoft recomenda que você aplique esta ordem ao seu planejamento e à sua tomada de decisões.
+Este artigo foi adaptado do conteúdo na postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) e Greg Hinkel (antigo gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
 
-1.	Convenções de nomenclatura
-2.	Assinaturas e contas
-3.	Armazenamento
-4.	Redes virtuais
-5.	Serviços de Nuvem
-6.	Conjuntos de Disponibilidade
-7.	Máquinas virtuais
-
-Estabelecer uma boa convenção de nomenclatura, bem como seguir uma ordem específica e sistemática para criar os recursos no Azure, reduz substancialmente a carga administrativa e aumenta as chances de sucesso de qualquer projeto de implementação.
-
-> [AZURE.NOTE]Os grupos de afinidade não são descritos, pois seu uso foi substituído. Para saber mais, confira [Sobre VNets regionais e grupos de afinidade](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Grupos de afinidade foram preteridos e seu uso não está descrito aqui. Para saber mais, confira [Sobre VNets regionais e grupos de afinidade](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 ## 1. Convenções de nomenclatura
 
 Antes de criar qualquer coisa no Azure, deve haver uma boa convenção de nomenclatura. Uma convenção de nomenclatura garante que todos os recursos tenham um nome previsível, o que ajuda a reduzir a carga administrativa associada com o gerenciamento desses recursos.
 
-Você pode seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para os indivíduos das organizações estabelecerem regras implícitas ao trabalharem com os recursos do Azure, quando uma equipe precisa trabalhar em um projeto no Azure, esse modelo não se adapta bem.
+Você pode optar por seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para os indivíduos das organizações estabelecerem regras implícitas ao trabalharem com os recursos do Azure, quando uma equipe precisa trabalhar em um projeto no Azure, esse modelo não se adapta bem.
 
 Vocês devem concordar sobre o conjunto de convenções de nomenclatura antecipadamente. Há algumas considerações sobre convenções de nomenclatura que abrangem vários conjuntos de regras que compõem essas convenções.
 
@@ -66,7 +56,7 @@ Ambiente | dev, stg, prod | Dependendo da finalidade e do nome de cada ambiente.
 Local | usw (Oeste dos EUA), use (Leste dos EUA 2) | Dependendo da região do datacenter ou da região da organização.
 Componente, serviço ou produto do Azure | Svc para serviço de nuvem, VNet para rede virtual | Dependendo do produto para o qual o recurso oferece suporte.
 Função | SQL, ora, sp, iis | Dependendo da função da VM.
-Instância | 01, 02, 03 etc. | Para recursos que podem ter mais de uma instância. Por exemplo, servidores Web com balanceamento de carga em um serviço de nuvem.
+Instância | 01, 02, 03 etc. | Para recursos com mais de uma instância. Por exemplo, servidores Web com balanceamento de carga em um serviço de nuvem.
 		
 Ao estabelecer as convenções de nomenclatura, verifique se elas determinam claramente quais afixos devem ser usados para cada tipo de recurso e em qual posição (sufixo versus prefixo).
 
@@ -93,15 +83,15 @@ Os nomes devem ser os mais descritivos possíveis para garantir que o nome forne
 
 ### Nomes de computadores
 
-Quando os administradores criam uma máquina virtual, o Microsoft Azure exige que eles forneçam um nome de máquina virtual. O Microsoft Azure usará o nome da máquina virtual como o nome do recurso da máquina virtual do Azure. O Azure usará o mesmo nome do computador para o sistema operacional instalado na máquina virtual. No entanto, esses nomes nem sempre poderão ser os mesmos.
+Quando os administradores criam uma máquina virtual, o Microsoft Azure exige que eles forneçam um nome de máquina virtual. O Microsoft Azure usará o nome da máquina virtual como o nome do recurso da máquina virtual do Azure. O Azure usará o mesmo nome do computador para o sistema operacional instalado na máquina virtual. No entanto, esses nomes nem sempre serão os mesmos.
 
-Nos casos em que uma máquina virtual é criada a partir de um arquivo .VHD que já contenha um sistema operacional, o nome da máquina virtual no Microsoft Azure pode ser diferente do nome do computador do sistema operacional da máquina virtual. Essa situação pode adicionar um grau de dificuldade para o gerenciamento de máquinas virtuais, o que não é recomendável. Verifique sempre se o nome do recurso de máquina virtual do Azure é igual ao nome do computador atribuído ao sistema operacional daquela máquina virtual.
+Nos casos em que uma máquina virtual é criada a partir de um arquivo .VHD que já contém um sistema operacional, o nome da máquina virtual no Microsoft Azure pode ser diferente do nome do computador do SO da máquina virtual. Essa situação pode acrescentar um grau de dificuldade ao gerenciamento de máquinas virtuais, o que não é recomendável. Verifique sempre se o nome do recurso de máquina virtual do Azure é igual ao nome do computador atribuído ao sistema operacional daquela máquina virtual.
 
 Recomendamos que o nome da Máquina Virtual do Azure seja igual ao nome do computador do sistema operacional subjacente. Por isso, siga as regras de nomenclatura do NetBIOS, descritas em [Convenções de nomenclatura de computadores do Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
 
 ### Nomes de contas de armazenamento
 
-As contas de armazenamento têm regras especiais para os nomes. Você só pode usar letras minúsculas e números e o nome atribuído, concatenado ao serviço (blob, tabela ou fila) e o domínio padrão (core.windows.net) deve processar um nome DNS exclusivo e globalmente válido. Por exemplo, quando a conta de armazenamento é chamada de minhacontadearmazenamento, as URLs resultantes abaixo devem ser nomes DNS válidos e exclusivos: 
+As contas de armazenamento têm regras especiais para os nomes. Você só pode usar letras minúsculas e números e o nome atribuído, concatenado ao serviço (blob, tabela ou fila) e o domínio padrão (core.windows.net) deve processar um nome DNS exclusivo e globalmente válido. Por exemplo, quando a conta de armazenamento é chamada de minhacontadearmazenamento, as URLs resultantes abaixo devem ser nomes DNS válidos e exclusivos:
 
 - minhacontadearmazenamento.blob.core.windows.net
 - minhacontadearmazenamento.table.core.windows.net
@@ -111,7 +101,7 @@ Além disso, as contas de armazenamento podem aproveitar os contêineres. Elas d
 
 ### Nomes de Blocos de Construção do Azure
 
-Os Blocos de Construção do Azure são serviços de nível de aplicativo oferecidos pelo Azure, normalmente aos aplicativos que utilizam os recursos de PaaS, embora os recursos de IaaS possam aproveitar alguns deles, como o SQL Azure, Traffic Manager e outros.
+Os Blocos de Construção do Azure são serviços de nível de aplicativo oferecidos pelo Azure, normalmente aos aplicativos que utilizam os recursos de PaaS, embora os recursos de IaaS possam aproveitar alguns deles, como o SQL do Azure, o Gerenciador de Tráfego e outros.
 
 Esses serviços dependem de uma matriz de artefatos que são criados e registrados no Azure. Eles também precisam ser considerados nas convenções de nomenclatura.
 
@@ -331,7 +321,7 @@ Decisão:
 Tarefas:
 
 - Defina o nome de cada máquina virtual usando a sua convenção de nomenclatura.
-- Crie as suas máquinas virtuais com o Portal de Visualização do Azure, o Portal de Gerenciamento do Azure ou o cmdlet do PowerShell **New-AzureVM**.
+- Crie as suas máquinas virtuais com o Portal de Visualização do Azure, com o Portal de Gerenciamento do Azure, com o cmdlet do PowerShell **New-AzureVM**, com o Azure CLI ou com os modelos do Gerenciador de Recursos.
 
 ## Exemplo de uma carga de trabalho de TI: o mecanismo de análise financeira Contoso
 
@@ -358,12 +348,12 @@ O projeto resultante deve incorporar:
 
 Todos os itens acima seguirão estas convenções de nomenclatura Contoso:
 
-- A Contoso usa [local]-[carga de trabalho TI]-[recurso Azure] como prefixo. Neste exemplo, "azfae" (Mecanismo de Análise Financeira do Azure) é o nome da carga de trabalho de TI e "use" (Leste dos EUA 2) é o local, já que a maioria dos clientes iniciais da Contoso está na Costa Leste dos Estados Unidos.
+- A Contoso usa [carga de trabalho de TI]-[local]-[recurso do Azure] como prefixo. Neste exemplo, "azfae" (Mecanismo de Análise Financeira do Azure) é o nome da carga de trabalho de TI e "use" (Leste dos EUA 2) é o local, já que a maioria dos clientes iniciais da Contoso está na Costa Leste dos Estados Unidos.
 - As contas de armazenamento usam contosoazfaeusesa[descrição] Observe que a palavra contoso foi adicionada ao prefixo para garantir a exclusividade e que os nomes das contas de armazenamento não permitem o uso de hifens.
-- Os serviços de nuvem usam contoso-azfae-use-cs-[descrição] Observe que ccontoso foi adicionada ao prefixo para garantir a exclusividade.
+- Os serviços de nuvem usam contoso-azfae-use-cs-[descrição] Observe que ccontoso foi adicionado ao prefixo para garantir a exclusividade.
 - As redes virtuais usam AZFAE-USE-VN[número].
 - Os conjuntos de disponibilidade usam azfae-use-as-[função].
-- Os nomes de máquinas virtuais usam azfae-use-vm -[vmname].
+- Os nomes de máquina virtual usam azfae-use-vm-[nomedavm].
 
 ### Assinaturas e contas do Azure
 
@@ -552,4 +542,10 @@ Esses comandos do PowerShell do Azure criam as máquinas virtuais nesta configur
 
 [Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md)
 
-<!--HONumber=54--> 
+[Estrutura de integração de plataforma de nuvem (padrões de arquitetura do Azure)](../azure-architectures-cpif-overview.md)
+
+[Diagrama da arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+
+ 
+
+<!---HONumber=62-->

@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Monitorar aplicativos Web no Serviço de Aplicativo do Azure" 
-	description="Saiba como monitorar Aplicativos Web no Serviço de Aplicativo do Azure usando o Portal de Gerenciamento." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Monitorar aplicativos Web no Serviço de Aplicativo do Azure"
+	description="Saiba como monitorar Aplicativos Web no Serviço de Aplicativo do Azure usando o Portal de Gerenciamento."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 
 
-#<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure 
+#<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure
 
 [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) oferecem funcionalidade de monitoramento para planos de Serviço de Aplicativo Padrão e Premium, por meio da página de gerenciamento Monitoramento. A página de gerenciamento Monitoramento fornece estatísticas de desempenho para um aplicativo Web, conforme descrito abaixo.
 
 ##<a name="websitemetrics"></a>Como: adicionar métricas de aplicativo Web
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), nas páginas de gerenciamento do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitoramento**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**. 
+1. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), nas páginas de gerenciamento do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitoramento**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
 
 2. Para exibir as métricas adicionais para o aplicativo Web, clique em **Adicionar métricas** na parte inferior da página para exibir a caixa de diálogo **Escolher métricas**.
 
@@ -44,7 +44,7 @@ No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas m
 Os aplicativos Web podem ser configurados para serem executados em modo **Compartilhado** ou **Padrão** por meio da página de gerenciamento **Escala** do aplicativo Web. Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
 
 >[AZURE.NOTE]Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
- 
+
 ### Como: exibir cotas de uso para aplicativos Web configurados para modo Compartilhado ###
 Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso de recursos, siga estas etapas:
 
@@ -52,7 +52,7 @@ Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso d
 2. Na seção **visão geral de uso**, as cotas de uso para seu respectivo plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) são exibidas, as quais são um subconjunto dos seguintes itens:
 	-	**Saída de dados**, **Tempo de CPU** e **Memória** - quando a cota é excedida, o Azure interrompe o aplicativo Web para o restante do intervalo de cota atual. O Azure iniciará o aplicativo Web no início do próximo intervalo da cota.
 	-	**Armazenamento do sistema de arquivos** - quando essa cota é atingida o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do aplicativo Web, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o aplicativo Web para um Plano de Serviço de Aplicativo com uma cota mais alta.
-	-	**Recursos vinculados** - cotas para quaisquer recursos vinculados do aplicativo Web, como banco de dados ou armazenamento, são exibidas aqui também.   
+	-	**Recursos vinculados** - cotas para quaisquer recursos vinculados do aplicativo Web, como banco de dados ou armazenamento, são exibidas aqui também.
 
 	Algumas cotas podem ser aplicadas por plano de hospedagem da web, enquanto outas podem ser aplicadas por site. Para informações detalhadas sobre cotas de uso para cada plano de hospedagem da web, consulte [Limites de sites](azure-subscription-service-limits.md#websiteslimits).
 
@@ -61,7 +61,7 @@ Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso d
 
 As cotas não são uma questão de desempenho ou custo, mas a maneira como o Azure regula o uso de recursos em um ambiente multilocatário evitando que os locatários usem em excesso os recursos compartilhados. Uma vez que exceder suas cotas significa tempo de inatividade ou funcionalidade reduzida para seu aplicativo Web, considere o seguinte se desejar manter o site operando quando as cotas estiverem prestes a serem atingidas:
 
-- Mova seus aplicativos Web para um Plano de Serviço de Aplicativo de nível mais alto, para tirar proveito de uma cota maior. Por exemplo, a única cota para os planos **Básico** e **Padrão** é o Armazenamento de sistema de arquivos. 
+- Mova seus aplicativos Web para um Plano de Serviço de Aplicativo de nível mais alto, para tirar proveito de uma cota maior. Por exemplo, a única cota para os planos **Básico** e **Padrão** é o Armazenamento de sistema de arquivos.
 - Conforme o número de instâncias de um aplicativo Web aumenta, o mesmo ocorre com a probabilidade de exceder as cotas de recursos compartilhados. Se adequado, considere redimensionar instâncias adicionais de um aplicativo Web quando as cotas de recursos compartilhados estiverem sendo excedidas.
 
 
@@ -98,14 +98,14 @@ Como o log do aplicativo no armazenamento requer o uso de um cliente de armazena
 > [AZURE.NOTE]**Diagnóstico de Aplicativo (sistema de arquivos)**, **Diagnóstico de Aplicativo (armazenamento de tabela)**, e **Diagnóstico de Aplicativo (armazenamento de blob)** podem ser ativados ao mesmo tempo e ter configurações de nível de log individuais. Por exemplo, você poderá registrar erros e avisos no armazenamento como uma solução a longo prazo do log, ao mesmo tempo em que habilita o log de sistema de arquivos com um nível de detalhe após instrumentar o código do aplicativo para solucionar um problema.
 
 > [AZURE.NOTE]O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**.
-> 
+>
 > Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE]O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas de idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
-> 
+>
 > - **.NET** [Habilitar o registro em log de diagnóstico para Sites do Azure](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
 > - **Node.js** - [Como depurar um aplicativo Node.js nos Sites do Azure](/develop/nodejs/how-to-guides/Debug-Website/).
-> 
+>
 > Log de aplicativo para o armazenamento de tabela ou blob só é suportado para aplicativos .NET.
 
 #### Diagnóstico de Site ####
@@ -137,7 +137,7 @@ Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à 
 
 - O local no qual os logs do aplicativo serão salvos em relação à raiz da web.
 
-- Valor padrão: ....\\LogFiles\\Application
+- Valor padrão: ....\LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -153,7 +153,7 @@ Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à 
 
 ###Baixando arquivos de log para um aplicativo Web
 
-Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou ferramentas de linha de comando do Azure.
+Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI do Azure.
 
 **FTP**
 
@@ -173,14 +173,14 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou ferrame
 		Save-AzureWebSiteLog -Name webappname
 
 	Isso baixará os arquivos de log no site especificado por **NomeDoAplicativoWeb** e os salvará em um arquivo **log.zip** no diretório atual.
-	
+
 	Você também pode exibir um fluxo ao vivo de eventos de log usando o seguinte comando:
 
 		Get-AzureWebSiteLog -Name webappname -Tail
 
 	Isso exibirá informações de log no prompt do PowerShell do Azure conforme ocorrerem.
 
-**Ferramentas de linha de comando do Azure**
+**CLI do Azure**
 
 Abra um novo prompt de comando, PowerShell, bash ou sessão de terminal e use o comando a seguir para baixar os arquivos de log:
 
@@ -208,13 +208,13 @@ Os arquivos de log gerados depois de você ter habilitado o log e/ou rastreament
 
 **Tipo de arquivo de log: Falha no Rastreamento de Solicitação**
 
-- Local: /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer. 
+- Local: /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
 
 - Leia os arquivos com: Internet Explorer
 
 **Tipo de arquivo de log: Log de erro detalhado**
 
-- Local: /LogFiles/DetailedErrors/. A pasta /LogFiles/DetailedErrors/ contém um ou mais arquivos .htm que fornecem informações abrangentes sobre quaisquer erros HTTP que ocorreram. 
+- Local: /LogFiles/DetailedErrors/. A pasta /LogFiles/DetailedErrors/ contém um ou mais arquivos .htm que fornecem informações abrangentes sobre quaisquer erros HTTP que ocorreram.
 
 - Leia os arquivos com: navegador da Web
 
@@ -248,10 +248,10 @@ Depois de configurar o monitoramento de ponto de extremidade, você pode analisa
 **Para configurar o ponto de extremidade:**
 
 1.	Abra **Aplicativos Web**. Clique no nome do aplicativo Web que você deseja configurar.
-2.	Clique na guia **Configurar**. 
+2.	Clique na guia **Configurar**.
 3.     Vá para a seção **Monitoramento** para inserir as configurações do ponto de extremidade.
 4.	Insira um nome para o ponto de extremidade.
-5.	Insira a URL para uma parte do seu aplicativo Web que você deseje monitorar. Por exemplo, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive). 
+5.	Insira a URL para uma parte do seu aplicativo Web que você deseje monitorar. Por exemplo, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive).
 6.	Selecione uma ou mais localizações geográficas da lista.
 7.	Opcionalmente, repita as etapas anteriores para criar um segundo ponto de extremidade.
 8.	Clique em **Salvar**. Pode levar alguns minutos até que os dados de monitoramento do ponto de extremidade esteja disponível nas guias **Painel** e **Monitoramento**.
@@ -281,6 +281,6 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

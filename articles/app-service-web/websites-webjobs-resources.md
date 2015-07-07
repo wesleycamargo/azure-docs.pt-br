@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Recursos de Trabalhos Web do Azure" 
+	pageTitle="Recursos de documentação do Azure Webjobs" 
 	description="Recursos recomendados para aprender a usar os WebJobs do Azure e o SDK WebJobs do Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/07/2015" 
 	ms.author="tdykstra"/>
 
-# Recursos de Trabalhos Web do Azure
+# Recursos de documentação do Azure Webjobs
 
 ## Visão geral
 
@@ -31,6 +31,7 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 ##<a name="getstarted"></a>Guia de Introdução a Trabalhos Web e ao SDK dos Trabalhos Web
 
 * [Introdução aos Trabalhos Web do Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [O Azure Webjobs é impressionante e você deve começar a usá-lo agora mesmo!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Postagem no blog por Troy Hunt).
 * [Recursos de Trabalhos Web do Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [O que é o SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md)
 * [Diretrizes de trabalhos em segundo plano pelos Padrões e Práticas da Microsoft](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
@@ -54,7 +55,8 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio.](websites-dotnet-deploy-webjobs.md)
 * [Como implantar Trabalhos Web usando o Portal de Gerenciamento do Azure](web-sites-create-web-jobs.md)
 * [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [Implantando por Git um aplicativo de console .NET no Azure usando Trabalhos Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
+* [Implantando por Git um aplicativo de console .NET no Azure usando Trabalhos Web](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [Implantando um WebJob F# para o Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * Vídeos
 	* [Apresentando as ferramentas de Trabalhos Web do Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Depuração remota e ferramentas de Trabalhos Web](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -102,12 +104,7 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 ##<a name="additionalsdk"></a>Recursos adicionais do SDK de Trabalhos Web
 
 * [Código-fonte do SDK de Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk)
-* [Parâmetros disparadores, de associações e de rota em AzureJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
-* Associações do armazenamento do Azure
-	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
-	* [Filas](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
-	* [Tabelas](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
-* [Como funciona o [BlobTrigger]?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
+* [Como o [BlobTrigger] funciona?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
 * [Associações avançadas com o SDK de Trabalhos Web do Azure](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [Trabalho Web para carregar arquivos FREB no armazenamento do Azure usando o SDK de Trabalhos Web](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Hospedando Trabalhos Web do Azure fora do Azure com os benefícios de log do Trabalho Web hospedado no Azure](http://bypassion.dk/?p=510)
@@ -135,9 +132,11 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * [Fórum de aplicativos Web do Serviço de Aplicativo do Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Site de voz do usuário de Aplicativos Web do Azure](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use a hashtag #AzureWebJobs.
+* [Relatar um problema ou bug do WebJobs](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

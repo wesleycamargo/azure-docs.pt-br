@@ -2,8 +2,9 @@
 	pageTitle="Monitorar a integridade e o uso do aplicativo com o Application Insights" 
 	description="Introdução ao Application Insights. Analise o uso, disponibilidade e desempenho de seu local ou aplicativos do Microsoft Azure." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,77 +12,52 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2014" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Monitore o desempenho dos aplicativos web
+# Monitore o desempenho em aplicativos da web
 
-*O Application Insights está em visualização.*
+*O Application Insights está em modo de visualização.*
 
 
-Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. [O Application Insights][start] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
+Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
 
-O Application Insights pode monitorar os aplicativos da web ASP.NET hospedados no local ou em máquinas virtuais, bem como em sites do Microsoft Azure. 
+O Application Insights pode monitorar os aplicativos da web ASP.NET e serviços WCF hospedados no local ou em máquinas virtuais, bem como em sites do Microsoft Azure.
 
-* [Configurar o monitoramento de desempenho](#setup)
-* [Consulte os dados](#view)
-* [O que significa tudo isso?](#metrics)
-* [Problemas de diagnóstico](#diagnosis)
-* [Próximas etapas](#next)
 
 ## <a name="setup"></a>Configurar o monitoramento de desempenho
 
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
 * [Adicione o Application Insights ao seu projeto de aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
-* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplantar o site da web.
-* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring.md)  você já pode ver métricas lentea de monitoramento do site. 
+* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplamnetar o site da web.
+* [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring.md) você já pode ver as métricas na lente de Monitoramento do site. 
+
+Usando qualquer um desses métodos, você verá rapidamente os dados na lâmina de visão geral do Application Insights.
 
 
-## <a name="view"></a>Exibir relatórios
-
-Execute seu aplicativo com F5 e experimente - abra páginas diferentes.
-
-No Visual Studio, você verá uma contagem de eventos que foram recebidas.
-
-![](./media/app-insights-web-monitor-performance/appinsights-09eventcount.png)
-
-
-Abrir Application Insights do seu projeto.
-
-![Right-click your project and open the Azure portal](./media/app-insights-web-monitor-performance/appinsights-04-openPortal.png)
-
-
-Procure pelos dados nos mosaicos da **integridade do aplicativo**. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
-
-![Click through to more data](./media/app-insights-web-monitor-performance/appinsights-41firstHealth.png)
-
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que você deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados se acumulam mais lentamente.
-
-Se você não vê os dados de primeira, aguarde um minuto e, em seguida, clique em Atualizar.
-
-### Explorando métricas
+## <a name="view"></a>Explorando métricas
 
 Clique em qualquer bloco para ver mais detalhes, e para ver os resultados por um período mais longo. Por exemplo, clique no bloco Solicitações e, em seguida, selecione um intervalo de tempo:
 
 
-![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![Clique por mais dados e selecione um intervalo de tempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 Clique em um gráfico para selecionar outras medidas que são exibidas, ou adicionar um novo gráfico e selecionar a métrica:
 
-![Click a graph to choose metrics](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![Clique em um gráfico para escolher métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE] **Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
+> [AZURE.NOTE]**Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
 
 
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 
-Existe uma variedade de métricas de desempenho que você pode obter. Vamos começar com as que aparecem por padrão na lâmina do aplicativo.
+Existe uma variedade de métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
 
 ### Solicitações
 
-O número de solicitações de HTTP recebidas em um período especifico. Compare isso com os resultados em outros relatórios, para ver como seu aplicativo se comporta conforme a carga varia.
+O número de solicitações de HTTP receberam em um período especifico. Compare isso com os resultados em outros reatórios para ver como seu aplicativo se comporta conforme a carga varia.
 
 As solicitações HTTP incuem todas as solicitações GET ou POST para páginas, dados e imagens.
 
@@ -91,9 +67,9 @@ Clique no mosaico para obter contagens para URLs específicas.
 
 Mede o tempo entre uma solicitação da web inserindo seu aplicativo e a resposta que está sendo devolvida.
 
-Os pontos mostram uma média móvel. Se existem várias solicitações, pode haver algumas que desviam da média sem um pico ou vale óbvio no gráfico.
+Os pontos mostram uma média da movimentação. Se existe várias solicitações, pode haver agumas que desviam da média sem um pico óbvio ou profundo no gráfico.
 
-Procure por picos incomuns. Em geral, espere o tempo de resposta para elevar com uma elevação nas solicitações. Se a elevação é desproporcional, seu aplicativo pode ser atingido por um limite de recurso como a CPU ou a capacidade de um serviço que ele usa.
+Procure por picos incomuns. Em geral, espere o tempo de resposta para eevar com uma elevação nas solicitações. Se a elevação é desproporcional, seu aplicativo pode ser atingido por um limite de recurso como CPU ou a capacidade de um serviço que usa.
 
 Clique no bloco para obter tempos para URLs específicas.
 
@@ -113,18 +89,48 @@ Mostra quais solicitações podem precisar de sintonização de desempenho.
 
 Uma contagem de solicitações que gerou exceções não capturadas.
 
-Clique no bloco para ver os detalhes de falhas específicas, e selecione uma solicitação individual para ver seus detalhes. 
+Clique no mosaico para ver os detalhes de falhas específicas, e selecione uma solicitação individual para ver seus detalhes.
 
 Somente uma amostra representativa de falhas é retida para inspeção individual.
 
 ### Outras métricas
 
-Para ver que outras métricas que você pode exibir, clique em um gráfico e, em seguida, desmarque a seleção de todas as métricas para ver todo o conjunto disponível. Clique em (i) para ver cada definição da métrica.
+Para ver o que outras métricas que você pode exibir, clique em um gráfico e, em seguida, desmarque a seleção de todas as métricas para ver o conjunto disponível completo. Clique em (i) para ver cada definição da métrica.
 
-![Deselect all metrics to see the whole set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![Desmarque a seleção de todas as métricas para ver o conjunto completo](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
 Ao selecionar qualquer métrica, desaticará as outras que não podem aparecer no mesmo gráfico.
+
+## Coletar mais contadores de desempenho
+
+Algumas das métricas dentre as quais você pode escolher são [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). O Windows fornece uma ampla variedade deles, mas você também pode definir seus próprios contadores de desempenho.
+
+Se os contadores que você deseja não estiverem na lista, você poderá adicioná-los ao conjunto coletado pelo SDK. Abra ApplicationInsights.config e edite a diretiva do coletor de desempenho:
+
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+      <Counters>
+        <Add PerformanceCounter="\Objects\Processes"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+      </Counters>
+    </Add>
+
+O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias.
+
+`ReportAs` é necessário para os nomes de contadores que contêm caracteres além dos seguintes: letras, colchetes arredondados, barras "/", hifens, sublinhados, espaços e pontos.
+
+Se você especificar uma instância, ela será coletada como uma propriedade "CounterInstanceName" da métrica reportada.
+
+Se preferir, você pode escrever código que tenha o mesmo efeito:
+
+    var perfCollector = new PerformanceCollectorModule();
+    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
+    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+      @"\Sales(electronics)# Items Sold", "Items sold"));
+    perfCollector.Initialize(TelemetryConfiguration.Active);
+    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+
+
 
 ## Definir alertas
 
@@ -136,34 +142,40 @@ Defina o recurso antes de outras propriedades. Não escolha os recursos webtest 
 
 Observe as unidades quando você for solicitado para inserir o valor de limite.
 
-*Não estou encontrando o botão Adicionar alerta.* - Isso acontece provavelmente porque você tem acesso somente de leitura. 
+*Não vejo o botão Adicionar Alerta.* - Esta é uma conta de grupo para a qual você tem acesso somente leitura? Verifique com o administrador da conta.
 
-## <a name="diagnosis"></a>Problemas de diagnóstico
+## <a name="diagnosis"></a>Diagnosticando problemas
 
 Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
-* Configure os [testes na Web][availability] para ser alertado se seu site cair ou responder de forma incorreta ou lenta. 
+* Configure os [testes de web][availability] para ser alertado se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
 * [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar problemas de pinpoint.
 
 ## <a name="next"></a>Próximas etapas
 
-[Testes na web][availability] - faça com que solicitações da web sejam enviadas a seu aplicativo em intervalos regulares, em todo o mundo.
+[Testes da web][availability] - Tem solicitações da web enviadas ao seu aplicativo em intervaos regulares em todo o mundo.
 
-[Capture e pesquise rastreamentos de diagnóstico][diagnostic] - insira chamadas de rastreamento e filtre os resultados para identificar os problemas.
+[Capture e pesquise rastreamento de diagnóstico][diagnostic] - Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
 
-[Acompanhamento de uso][usage] - saiba como as pessoas usam seu aplicativo.
+[Rastreamento de uso][usage] - Saiba como as pessoas usam se aplicativo.
 
 [Solução de problemas][qna] - e Perguntas e respostas
 
+## Vídeo
 
+[AZURE.VIDEO performance-monitoring-application-insights]
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

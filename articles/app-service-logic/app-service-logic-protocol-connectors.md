@@ -105,7 +105,7 @@ Um conector pode ser criado usando o portal do Azure.
 
 Vamos examinar a criação de um conector SMTP usando o Azure Marketplace
 
-1. Entre no [portal](https://manage.windowsazure.com) do Microsoft Azure.
+1. Entre no [portal de visualização](https://portal.azure.com) do Microsoft Azure.
 2. Selecione **NOVO** > **Web + móvel** > **Azure Marketplace**.
 3. Na **Caixa de pesquisa**, digite **protocolo** e pressione **Enter**. Você também pode selecioná-lo da lista. Quando selecionada, uma nova folha ou janela é aberta. Selecione **Criar**. 
 4. Insira as seguintes propriedades:
@@ -130,7 +130,7 @@ O Serviço de Aplicativo do Microsoft Azure expõe os diferentes tipos de aplica
 
 Para usar os conectores no aplicativo *Lógico*, selecione um conector configurado na lista, adicione-o ao seu fluxo de trabalho de design, faça as alterações de configuração necessárias e estará pronto para uso.
 
-Para executar essas etapas, você precisa de um aplicativo Web, móvel ou lógico. Consulte <> para conhecer as etapas específicas. Quando seu aplicativo estiver disponível, adicione os conectores. Faça assim:
+Para executar essas etapas, você precisa de um aplicativo Web, aplicativos móveis ou aplicativo lógico. Quando seu aplicativo estiver disponível, adicione os conectores. Faça assim:
 
 Use as etapas a seguir para adicionar um conector a um aplicativo lógico:
 
@@ -149,11 +149,12 @@ Use as etapas a seguir para adicionar um conector a um aplicativo lógico:
 Conectores usam nomes OAuth ou nomes e senhas de usuário.
 
 ## Leia sobre aplicativos lógicos e aplicativos Web
-[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md) | [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-app-azure-portal.md) |
+[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md) | [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-overview.md) |
 
 
 ## Mais conectores
 
 [Conectores de integração do BizTalk](app-service-logic-integration-connectors.md) | [Conectores empresariais](app-service-logic-enterprise-connectors.md) | [Conectores entre empresas](app-service-logic-b2b-connectors.md) | [Conectores sociais](app-service-logic-social-connectors.md) | [Conectores de aplicativos e serviços de dados](app-service-logic-data-connectors.md) | [Conectores e lista de aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

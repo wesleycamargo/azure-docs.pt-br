@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web
 
 ## Visão geral
 
-Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
 
-Para obter exemplos de código que mostram como criar blobs, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obter exemplos de código que mostram como criar blobs, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
 O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> Como disparar uma função quando um blob é criado ou atualizado
 
-Esta seção mostra como usar o atributo `BlobTrigger`. 
+Esta seção mostra como usar o atributo `BlobTrigger`.
+
+> **Observação:** o SDK dos trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Se seu aplicativo precisar processar blobs imediatamente, o método recomendado será criar uma mensagem da fila ao criar o blob e usar o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger), em vez do atributo `BlobTrigger` na função que processa o blob.
 
 ### Espaço reservado único para nome de blob com extensão  
 
-O exemplo de código a seguir copia blobs de texto que aparecem no contêiner *input* para o contêiner *output*:
+O exemplo de código a seguir copia blobs de texto que aparecem no contêiner de *entrada* para o contêiner de *saída*:
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("output/{name}")] out string output)
@@ -40,7 +42,7 @@ O exemplo de código a seguir copia blobs de texto que aparecem no contêiner *i
 		    output = input.ReadToEnd();
 		}
 
-O construtor de atributo utiliza um parâmetro de cadeia de caracteres que especifica o nome do contêiner e um espaço reservado para o nome do blob. Neste exemplo, se um blob denominado *Blob1.txt* for criado no contêiner *input*, a função criará um blob denominado *Blob1.txt* no contêiner *output*. 
+O construtor de atributo utiliza um parâmetro de cadeia de caracteres que especifica o nome do contêiner e um espaço reservado para o nome do blob. Neste exemplo, se um blob denominado *Blob1.txt* for criado no contêiner de *entrada*, a função criará um blob denominado *Blob1.txt* no contêiner de *saída*.
 
 Você pode especificar um padrão de nome com o espaço reservado de nome de blob, conforme é mostrado no seguinte exemplo de código:
 
@@ -50,9 +52,9 @@ Você pode especificar um padrão de nome com o espaço reservado de nome de blo
 		    output = input.ReadToEnd();
 		}
 
-Esse código copia somente os blobs que têm nomes que começam com "original-". Por exemplo, *original-Blob1.txt* no contêiner *input* é copiado para *copy-Blob1.txt* no contêiner *output*.
+Esse código copia somente os blobs que têm nomes que começam com "original-". Por exemplo, *original-Blob1.txt* no contêiner de *entrada* é copiado para *copy-Blob1.txt* no contêiner de *saída*.
 
-Se você precisar especificar um padrão de nome para nomes de blob que têm chaves no nome, duplique as chaves. Por exemplo, para localizar blobs no contêiner *images* que têm nomes como este:
+Se você precisar especificar um padrão de nome para nomes de blob que têm chaves no nome, duplique as chaves. Por exemplo, para localizar blobs no contêiner *imagens* que têm nomes como este:
 
 		{20140101}-soundfile.mp3
 
@@ -60,11 +62,11 @@ Use o seguinte para o padrão:
 
 		images/{{20140101}}-{name}
 
-No exemplo, o valor do espaço reservado *name* seria *soundfile.mp3*. 
+No exemplo, o *nome* seria o valor de espaço reservado *soundfile.mp3*.
 
 ### Separar espaços reservados de nome de blob e extensão
 
-O exemplo de código a seguir altera a extensão de arquivo à medida que ele copia blobs que aparecem no contêiner *input* para o contêiner *output*. O código registra a extensão do blob *input* e define a extensão do blob *output* como *.txt.
+O exemplo de código a seguir altera a extensão de arquivo à medida que ele copia blobs que aparecem no contêiner de *entrada* para o contêiner de *saída*. O código registra a extensão do blob de *entrada* e define a extensão do blob de *saída* como *. txt*.
 
 		public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
 		    [Blob("output/{name}.txt")] out string output,
@@ -93,7 +95,7 @@ Para trabalhar diretamente com a conta de Armazenamento do Azure, você também 
 
 ## <a id="string"></a> Obtendo o conteúdo do blob de texto associando à cadeia de caracteres
 
-Se blobs de texto forem esperados `BlobTrigger` poderá ser aplicado a um parâmetro `string`. O exemplo de código a seguir associa um blob de texto a um parâmetro `string` denominado `logMessage`. A função usa esse parâmetro para gravar o conteúdo do blob no painel do SDK de Trabalhos Web. 
+Se blobs de texto forem esperados, `BlobTrigger` poderá ser aplicado a um parâmetro `string`. O exemplo de código a seguir associa um blob de texto a um parâmetro `string` denominado `logMessage`. A função usa esse parâmetro para gravar o conteúdo do blob no painel do SDK de Trabalhos Web.
  
 		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
 		    string name, 
@@ -146,17 +148,17 @@ O código de associação `WebImage` é fornecido em uma classe `WebImageBinder`
 
 Quando uma função `BlobTrigger` falha, o SDK a chama novamente, caso a falha tenha sido causada por um erro transitório. Se a falha for causada pelo conteúdo do blob, a função falhará sempre que tentar processar o blob. Por padrão, o SDK chama uma função até cinco vezes para um blob específico. Se a quinta tentativa falhar, o SDK adicionará uma mensagem a uma fila denominada *webjobs-blobtrigger-poison*.
 
-O número máximo de novas tentativas é configurável. A mesma configuração [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas. 
+O número máximo de novas tentativas é configurável. A mesma [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) é usada para manipular blob suspeitos e manipular mensagens de filas suspeitas.
 
 A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no formato {nome do WebJob}.Functions.{nome de Function name}, por exemplo: WebJob1.Functions.CopyBlob)
-* BlobType ("BlockBlob" or "PageBlob")
+* FunctionId (no formato *{WebJob name}*.Functions.*{Function name}*, por exemplo: WebJob1.Functions.CopyBlob)
+* BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName
-* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-No exemplo de código a seguir, a função `CopyBlob` tem código que faz com que ela falhe sempre que for chamada. Depois que o SDK a chamar pelo número máximo de tentativas, será criada uma mensagem na fila de blobs suspeitos, e essa mensagem será processada pela função `LogPoisonBlob`. 
+No exemplo de código a seguir, a função `CopyBlob` tem código que faz com que ela falhe sempre que for chamada. Depois que o SDK a chamar pelo número máximo de tentativas, será criada uma mensagem na fila de blobs suspeitos, e essa mensagem será processada pela função `LogPoisonBlob`.
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("textblobs/output-{name}")] out string output)
@@ -176,7 +178,7 @@ No exemplo de código a seguir, a função `CopyBlob` tem código que faz com qu
 		    logger.WriteLine("ETag: {0}", message.ETag);
 		}
 
-O SDK automaticamente desserializa a mensagem JSON. Aqui está a classe `PoisonBlobMessage`: 
+O SDK automaticamente desserializa a mensagem JSON. Aqui está a classe `PoisonBlobMessage`:
 
 		public class PoisonBlobMessage
 		{
@@ -191,13 +193,13 @@ O SDK automaticamente desserializa a mensagem JSON. Aqui está a classe `PoisonB
 
 O SDK de Trabalhos Web examina todos os contêineres especificados por atributos `BlobTrigger` ao iniciar o aplicativo. Em uma conta de armazenamento grande, essa verificação pode levar algum tempo. Portanto, pode demorar um pouco até que novos blobs sejam encontrados e funções `BlobTrigger` sejam executadas.
 
-Para detectar blobs novos ou alterados após a inicialização do aplicativo, o SDK lê periodicamente dos logs do armazenamento de blob. Os logs de blob são armazenados em buffer e são gravados fisicamente apenas a cada 10 minutos, aproximadamente. Portanto, pode haver um atraso significativo após um blob ser criado ou atualizado antes que a função `BlobTrigger` correspondente seja executada. 
+Para detectar blobs novos ou alterados após a inicialização do aplicativo, o SDK lê periodicamente dos logs do armazenamento de blob. Os logs de blob são armazenados em buffer e são gravados fisicamente apenas a cada 10 minutos, aproximadamente. Portanto, pode haver um atraso significativo após um blob ser criado ou atualizado antes que a função `BlobTrigger` correspondente seja executada.
 
 Há uma exceção para blobs que você cria usando o atributo `Blob`. Quando o SDK de Trabalhos Web cria um novo blob, ele passa o novo blob imediatamente para quaisquer funções `BlobTrigger` correspondentes. Portanto, se você tiver uma cadeia de entradas e saídas de blob, o SDK poderá processá-las com eficiência. Porém, se você quer que haja baixa latência ao executar as funções de processamento de blob para blobs criados ou atualizados por outros meios, é recomendável usar `QueueTrigger` em vez de `BlobTrigger`.
 
 ### <a id="receipts"></a> Recebimentos de blob
 
-O SDK de Trabalhos Web garante que nenhuma função `BlobTrigger` seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Ele faz isso mantendo *blob receipts* para determinar se uma versão de determinado blob foi processada.
+O SDK de Trabalhos Web garante que nenhuma função `BlobTrigger` seja chamada mais de uma vez para o mesmo blob novo ou atualizado. Ele faz isso mantendo *recebimentos de blob* para determinar se uma versão de determinado blob foi processada.
 
 Os recebimentos de blob são armazenados em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure especificada pela cadeia de conexão AzureWebJobsStorage. Um recebimento de blob tem as seguintes informações:
 
@@ -211,14 +213,14 @@ Para forçar o reprocessamento de um blob, você pode excluir manualmente o rece
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo sobre filas
 
-Para obter informações sobre como lidar com o processamento de blob disparado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obter informações sobre como lidar com o processamento de blob disparado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de blob, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Os tópicos relacionados abordados neste artigo incluem o seguinte:
 
 * Funções assíncronas
 * Várias instâncias
 * Desligamento normal
-* Usar atributos do SDK WebJobs no corpo de uma função
+* Usar atributos do SDK de Trabalhos Web no corpo de uma função
 * Definir as cadeias de conexão do SDK no código
 * Definir valores para parâmetros do construtor do SDK WebJobs no código
 * Configurar `MaxDequeueCount` para manipulação de blobs suspeitos.
@@ -227,7 +229,7 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure - Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

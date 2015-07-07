@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Debug an API App in Azure App Service" 
-	description="Learn how to debug an API App while it runs in Azure App Service, using Visual Studio." 
+	pageTitle="Depurar um aplicativo de API no Serviço de Aplicativo do Azure" 
+	description="Saiba como depurar um aplicativo de API enquanto ele é executado no Serviço de Aplicativo do Azure, usando o Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -16,110 +16,112 @@
 	ms.date="06/01/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Debug an API App in Azure App Service
+# Depurar um aplicativo de API no Serviço de Aplicativo do Azure
 
-## Overview
+## Visão geral
 
-In this tutorial, you'll learn how to debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You’ll debug both locally and remotely (while it runs in Azure). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
+Neste tutorial, você aprenderá como depurar o código de API Web ASP.NET que está configurado para ser executado em um [Aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você vai depurar ambos localmente e remotamente (enquanto ele é executado no Azure). O tutorial funciona com o aplicativo de API que você [criar](app-service-dotnet-create-api-app.md) e [implantar](app-service-dotnet-deploy-api-app.md) nos tutoriais anteriores desta série.
 
-## Debug an API app remotely 
+## Depurar um aplicativo de API remotamente 
 
-The following steps enable you to debug your API app while it runs in the cloud using the Swagger UI as the test client.
+As etapas a seguir permitem depurar seu aplicativo de API enquanto ele é executado na nuvem, usando a IU do Swagger como o cliente de teste.
 
-1. In the Visual Studio **Solution Explorer**, right-click the project that you [deployed in the previous tutorial](app-service-dotnet-deploy-api-app.md), and select **Publish**.
+1. No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no projeto que você [implantou no tutorial anterior](app-service-dotnet-deploy-api-app.md), e selecione **Publicar**.
 
-	![Publish project](./media/app-service-api-dotnet-debug/rd-publish.png)
+	![Publicar projeto](./media/app-service-api-dotnet-debug/rd-publish.png)
 
-2. In the **Publish Web** dialog, select the Settings tab and verify that the **Debug** build configuration is selected. When finished, click **Publish** to push any changes to your Azure subscription.
+2. Na caixa de diálogo **Publicar Web**, selecione a guia Configurações e verifique se a configuração da compilação **Depurar** está selecionada. Quando terminar, clique em **Publicar** para enviar quaisquer eventuais alterações por push à sua assinatura do Azure.
 
-	![Publish project](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
+	![Publicar projeto](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
 
-3. A browser window should open and display a message confirming that your API app has been successfully created.
+3. Uma janela do navegador deve ser aberta e exibir uma mensagem confirmando que o aplicativo API foi criado com êxito.
 
-4. In the browser address bar, add /swagger to the end of the URL and press &lt;Enter>. This will display the Swagger UI client.
+4. Na barra de endereços do navegador, adicione "/swagger" ao fim da URL e pressione &lt;Enter>. Isso exibirá o cliente de IU do Swagger.
 
-	![Swagger UI](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
+	![IU do Swagger](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
 
-5. Return to Visual Studio, and from the **View** menu, select **Server Explorer**. 
+5. No Visual Studio, no Menu **Exibir**, selecione **Gerenciador de Servidores**.
 
-6. In **Server Explorer**, expand the **Azure > App Service** node. 
+6. No **Gerenciador de Servidores**, expanda o nó **Azure > Serviço de Aplicativo**.
 
-7. Locate the resource group that you created when you deployed your API app. 
+7. Localize o grupo de recursos que você criou quando implantou o aplicativo de API.
 
-8. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+8. No grupo de recursos, clique com o botão direito no nó do aplicativo de API e selecione **Anexar Depurador**.
 
-	![Attaching debugger](./media/app-service-api-dotnet-debug/rd-attach-debugger.png)
+	![Anexando o depurador](./media/app-service-api-dotnet-debug/rd-attach-debugger.png)
 
-	The remote debugger will try to connect. In some cases, you may need to retry clicking **Attach Debugger** to establish a connection, so if it fails, try again.
+	O depurador remoto tentará se conectar. Em alguns casos, talvez seja necessário clicar novamente em **Anexar Depurador** para estabelecer uma conexão. Portanto, em caso de falha, tente novamente.
 
-	![Attaching debugger](./media/app-service-api-dotnet-debug/rd-attaching.png)
+	![Anexando o depurador](./media/app-service-api-dotnet-debug/rd-attaching.png)
 
-9. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
+9. Depois que a conexão for estabelecida, abra o arquivo **ContactsController.cs** no aplicativo de API e adicione pontos de interrupção em `Get` e `Post` métodos. A princípio, podem não aparecer como ativos, mas se o depurador remoto estiver anexado, você estará pronto para depurar.
 
-	![Applying breakpoints to controller](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
+	![Aplicando pontos de interrupção ao controlador](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
-10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. If you set a breakpoint in the controller's **Get** method, Visual Studio will stop program execution, and you can debug your controller's logic. 
+10. Retorne para a sessão do navegador, clique no verbo **Obter** para exibir o esquema para o objeto *Contato* e, em seguida, clique em **Experimentar**. Se você definir um ponto de interrupção no método **Get** do controlador, o Visual Studio interromperá a execução do programa e você poderá depurar a lógica do controlador.
 
-	![Try it out](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
+	![Experimentar](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
 
-## Debug an API app locally 
+## Depurar um aplicativo de API localmente 
 
-There may be times when you want to debug your API app locally; for example, to avoid potentially slow round-trips during your test/debug cycle. The following steps illustrate how to debug your API app locally using the Swagger UI  as the test client.
+Pode haver ocasiões em que você deseja depurar seu aplicativo API localmente; por exemplo, para evitar idas e voltas potencialmente lentas durante seu ciclo de testes/depuração. As etapas a seguir ilustram como depurar seu aplicativo de API localmente usando a IU do Swagger como o cliente de teste.
 
-1. In Visual Studio, open the API app project's *web.config* file. 
+1. No Visual Studio, abra o arquivo *web.config* do projeto de aplicativo de API. 
  
-2. In your browser, navigate to the [Azure preview portal](http://portal.azure.com). 
+2. No navegador, vá para o [Portal de visualização do Azure](http://portal.azure.com).
 
-3. Click the **Browse** button on the sidebar and select **API Apps**. 
+3. Clique no botão **Procurar** na barra lateral e selecione **Aplicativos de API**.
 
-	![Browse options on Azure portal](./media/app-service-api-dotnet-debug/ld-browse.png)
+	![Procurar opções no portal do Azure](./media/app-service-api-dotnet-debug/ld-browse.png)
 
-4. From the list of API apps in your subscription, select the API app you created.
+4. Selecione, na lista de aplicativos de API de sua assinatura, o aplicativo de API que você criou.
 
-	![API App List](./media/app-service-api-dotnet-debug/ld-api-app-list.png)
+	![Lista de Aplicativos de API](./media/app-service-api-dotnet-debug/ld-api-app-list.png)
 
-5. In the API app's blade, click the **API app host**.
+5. Na folha do aplicativo de API, clique no **Host de aplicativo de API**.
 
-	![API App Host](./media/app-service-api-dotnet-debug/ld-api-app-blade-api-app-host.png)
+	![Host de Aplicativo de API](./media/app-service-api-dotnet-debug/ld-api-app-blade-api-app-host.png)
 
-6. In the API app host's blade, click **All Settings**.
+6. Na folha do host de aplicativo de API, clique em **Todas as Configurações**.
 
-	![API App Host All Settings](./media/app-service-api-dotnet-debug/ld-api-app-host-all-settings.png)
+	![Todas as Configurações de Host de Aplicativo de API](./media/app-service-api-dotnet-debug/ld-api-app-host-all-settings.png)
 
-7. In the **Settings** blade, click **Application settings**.
+7. Na folha **Configurações**, clique em **Configurações do aplicativo**.
 
-	![API App Host Application Settings](./media/app-service-api-dotnet-debug/ld-application-settings.png)
+	![Configurações de Aplicativo Host de Aplicativo de API](./media/app-service-api-dotnet-debug/ld-application-settings.png)
 
-8. In the **Web app settings** blade, scroll down to the **App settings** section.
+8. Na folha **Configurações de aplicativo da Web**, role para baixo até a seção **Configurações do aplicativo**.
 
-	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
+	![Configurações de Aplicativo Host de Aplicativo de API para Depuração Local](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
-9. From **App settings**, locate each of the following values and add them to the *web.config* file's **appSettings** section.
-	- **EMA\_MicroserviceId**
-	- **EMA\_Secret**
-	- **EMA\_RuntimeUrl**
+9. Em **Configurações do aplicativo**, localize cada um dos valores a seguir e adicione-os, no arquivo *web.config*, à seção **appSettings**.
+	- **EMA_MicroserviceId**
+	- **EMA_Secret**
+	- **EMA_RuntimeUrl**
 
-	When done, the **appSettings** section of your *web.config* should resemble the following screenshot.
+	Quando terminar, a seção **appSettings** de seu *web.config* deve se parecer com a captura de tela a seguir.
 
-	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
+	![Configurações de Aplicativo Host de Aplicativo de API para Depuração Local](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Note:** The *EMA_* values you added to your *web.config* file in this section contain sensitive authorization information. Therefore, it is recommended that you use caution when committing this file into a public source control medium (such as *github*) as these secrets will then be visible to others. See the article, [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) for more information.   
+	**Observação:** os valores *EMA_* adicionados por você ao seu arquivo *web.config* nesta seção contêm informações de autorização confidenciais. Portanto, é recomendável que você tenha cuidado ao alocar esse arquivo em um meio de controle do código-fonte público (como *github*), já que esses segredos ficarão então visíveis para outras pessoas. Para obter mais informações, consulte o artigo [Práticas recomendadas para implantação de senhas e outros dados confidenciais no Serviço de Aplicativo do Azure e ASP.NET](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
-10. Place one or more breakpoints in your API app's controller code (in the `Get` and `Post` methods).
+10. Coloque um ou mais pontos de interrupção no código do controlador do seu aplicativo de API (nos métodos `Get` e `Post`).
 
-	![Setting breakpoints](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
+	![Definição de pontos de interrupção](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Click &lt;F5> to start a Visual Studio debugging session. When the browser loads the page, you should see an error message. Add */swagger* to the end of the URL in your browser's address bar and press &lt;Enter>.
+11. Clique em &lt;F5> para iniciar uma sessão de depuração do Visual Studio. Quando o navegador carregar a página, você deverá ver uma mensagem de erro. No final da URL na barra de endereços do navegador, adicione */swagger* e pressione &lt;Enter>.
 
-12. Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**. Visual Studio will now stop program execution on the breakpoints you set earlier, and you can debug your controller's logic. 
+12. Após a IU do Swagger ter carregado, clique no verbo **Obter** para exibir o esquema para o objeto Contato e, em seguida, clique em **Experimentar**. O Visual Studio agora interromperá a execução do programa nos pontos de interrupção que você definiu anteriormente, e você pode depurar a lógica do controlador.
 
-	![Try it out](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	![Experimentar](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
 
-## Next steps
+## Próximas etapas
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for Azure API apps. 
+Depuração remota para aplicativos de API torna mais fácil ver como o código está em execução no Serviço de Aplicativo do Azure. Diagnóstico avançado e depuração de dados estão disponíveis no IDE do Visual Studio para aplicativos de API do Azure.
 
-App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). 
+Aplicativos de API do Serviço de Aplicativo são aplicativos Web do Serviço de Aplicativo com recursos adicionais para hospedagem de serviços Web, para que você possa usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web. Para obter mais informações, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).
+O aplicativo de API que você criou nesta série está disponível publicamente para qualquer pessoa que chamar. Para obter informações sobre como proteger o aplicativo de API para que somente usuários autenticados possam chamá-lo, consulte [Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social](app-service-api-dotnet-add-authentication.md).
  
+
+<!---HONumber=62-->
