@@ -499,7 +499,8 @@ Nesta etapa, você baixará um arquivo que contém informações sobre sua assin
 
 	Esse comando inicia um navegador e acessa a página de download. Se solicitado, faça o logon usando a conta associada à sua assinatura do Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->O download do arquivo deve começar automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
+	<!-- ![The download page][download-publishing-settings] -->
+	O download do arquivo deve começar automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
 
 2. Digite o seguinte comando para importar as configurações:
 

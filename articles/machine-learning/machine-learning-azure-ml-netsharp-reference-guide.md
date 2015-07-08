@@ -388,7 +388,7 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 -	O número de pesos por núcleo é 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300.
 -	Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\1 = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
 -	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
 -	Como **Sharing**[d] é Falso somente para d == 0, o número de kernels é **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
