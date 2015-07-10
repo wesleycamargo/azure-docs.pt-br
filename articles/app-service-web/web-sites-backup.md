@@ -127,7 +127,8 @@ Tenho um site que contém os arquivos de log e imagens estáticas dos últimos a
 
 Eu já tenho um backup completo do site que inclui as imagens antigas. Agora, desejo fazer um backup diário do site, mas não quero pagar pelo armazenamento de arquivos de log ou de arquivos de imagem estática que nunca mudam.
 
-![Pasta Logs][LogsFolder] ![Pasta Imagens][ImagesFolder]
+![Pasta Logs][LogsFolder]
+![Pasta Imagens][ImagesFolder]
 	
 As etapas a seguir mostram como eu poderia excluir esses arquivos do backup.
 
@@ -267,4 +268,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
