@@ -50,7 +50,7 @@ Siga estas etapas para gerar a chave de autenticação SSH.
 2.	Execute PUTTYGEN.EXE.
 3.	Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela. ![][1]
 4.	Após o processo de geração, Puttygen.exe mostrará a chave gerada. Por exemplo: ![][2]
-5.	Selecione e copie a chave pública em  **Chave** e salve-a em um arquivo chamado publicKey.pem. Não clique em **Salvar chave pública**, porque o formato de arquivo da chave pública salva é diferente da chave pública que queremos.
+5.	Selecione e copie a chave pública em **Chave** e salve-a em um arquivo chamado publicKey.pem. Não clique em **Salvar chave pública**, porque o formato de arquivo da chave pública salva é diferente da chave pública que queremos.
 6.	Clique em **Salvar chave privada** e salve-a em um arquivo chamado privateKey.ppk. 
 
 ###Etapa 2: Criar a imagem no Portal de Visualização do Azure.
@@ -301,5 +301,6 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

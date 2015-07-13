@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="05/13/2015" 
 	ms.author="ricksal"/>
 
 
@@ -56,10 +56,6 @@ Agora que você criou o serviço móvel, baixe o projeto de serviço móvel pers
 
 	Isso baixa o projeto do Visual Studio que implementa o serviço móvel. Salve o arquivo de projeto compactado em seu computador local e anote onde ele foi salvo.
 
-<!--
-4. Also, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
--->
-
 ## Testar o serviço móvel
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
@@ -86,12 +82,10 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 
 ## Executar seu aplicativo Android
 
-[WACOM.INCLUDE [mobile-services-run-your-app](mobile-services-android-get-started.md)]
+[AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
-
-* [Introdução aos dados] <br/> Saiba mais sobre armazenar e consultar dados usando os Serviços Móveis.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 
@@ -124,7 +118,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 <!-- URLs. -->
 [Introdução (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
-[Introdução aos dados]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Introdução à autenticação]: mobile-services-dotnet-backend-android-get-started-users.md
 [Introdução às notificações por push]: mobile-services-dotnet-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
@@ -133,5 +127,6 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

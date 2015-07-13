@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # Introdução à Análise Móvel (Capptain)
@@ -100,5 +100,6 @@ Saiba mais sobre o que o Capptain pode fazer em seu aplicativo em [http://www.ca
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [Serviços Móveis camada Padrão]: /pricing/details/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Dados de exemplo no Armazenamento de Blobs do Azure| Azure" 
+	pageTitle="Dados de exemplo no Armazenamento de Blobs do Azure| Microsoft Azure" 
 	description="Dados de exemplo no Armazenamento de Blobs do Azure" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Dados de exemplo no Armazenamento de Blobs do Azure
+#<a name="heading"></a>Dados de exemplo no Armazenamento de Blob do Azure
 
-Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-o por meio de programação e realizando amostragem com um código Python de exemplo.  As etapas para isso são os seguintes:
+Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-o por meio de programação e realizando amostragem com um código Python de exemplo. As etapas para isso são os seguintes:
 
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
 
@@ -45,7 +45,7 @@ Este documento aborda os dados de amostragem armazenados no Armazenamento do Blo
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Selecione amostras dos dados usando o `numpy`do `random.choice` da seguinte maneira:
+3. Exemplo de dados usando o `random.choice` da `numpy`, da seguinte maneira:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -85,10 +85,15 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Leia os dados de blob do Azure usando o AM do Azure *Reader Module* como mostra a captura de tela abaixo:
+3. Leia os dados de blob do Azure usando o [Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do AM do Azure como mostra a captura de tela abaixo:
  
-![reader blob][1]
+![blob de leitor][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

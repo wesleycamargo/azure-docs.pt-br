@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # Tratamento de conflitos com sincronização de dados offline nos Serviços Móveis
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##Visão geral
 
@@ -198,21 +198,21 @@ Para tratar conflitos de sincronização offline no seu código, crie uma classe
 
      await App.MobileService.SyncContext.InitializeAsync(store, new SyncHandler(App.MobileService));
 
-A classe `SyncHandler` no arquivo **MainPage.xaml.cs** implementa `IMobileServiceSyncHandler`. O método `ExecuteTableOperationAsync` é chamado quando cada operação de push é enviada ao servidor. Se uma exceção do tipo `MobileServicePreconditionFailedException` for lançada, isso significará que há um conflito entre as versões local e remota de um item.
+A classe `SyncHandler` no arquivo **MainPage.xaml.cs** implementa `IMobileServiceSyncHandler`. O método `ExecuteTableOperationAsync` é chamado quando cada operação de push é enviada ao servidor. Se uma exceção do tipo `MobileServicePreconditionFailedException` for lançada, isso significa que há um conflito entre as versões locais e remotas de um item.
 
 Para resolver conflitos em favor do item local, simplesmente repita a operação. Depois que um conflito ocorreu, a versão local do item será atualizada para corresponder à versão do servidor, portanto, executar a operação novamente substituirá as alterações de servidor pelas alterações locais:
 
     await operation.ExecuteAsync(); 
 
-Para resolver conflitos em favor do item do servidor, apenas retorne do `ExecuteTableOperationAsync`. A versão local do objeto será descartada e substituída pelo valor do servidor.
+Para resolver conflitos em favor do item de servidor, simplesmente retorne da `ExecuteTableOperationAsync`. A versão local do objeto será descartada e substituída pelo valor do servidor.
 
 Para parar a operação de push (mas manter as mudanças enfileiradas), use o método `AbortPush()`:
 
     operation.AbortPush();
 
-Isso interromperá a operação atual de push mas manterá todas as alterações pendentes, inclusive a operação atual, se `AbortPush` for chamado de `ExecuteTableOperationAsync`. Na próxima vez que `PushAsync()` for chamado, essas alterações serão enviadas ao servidor.
+Isso interromperá a operação atual de push mas manterá todas as alterações pendentes, incluindo a operação atual, se `AbortPush` for chamado de `ExecuteTableOperationAsync`. Na próxima vez em que `PushAsync()` for chamado, essas alterações serão enviadas ao servidor.
 
-Quando um push for cancelado, o `PushAsync` lançará uma `MobileServicePushFailedException` e a propriedade de exceção `PushResult.Status` terá o valor `MobileServicePushStatus.CancelledByOperation`.
+Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedException` e a propriedade de exceção `PushResult.Status` terá o valor `MobileServicePushStatus.CancelledByOperation`.
 
 
 
@@ -239,5 +239,6 @@ Quando um push for cancelado, o `PushAsync` lançará uma `MobileServicePushFail
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

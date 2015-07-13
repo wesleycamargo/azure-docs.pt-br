@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Carregar os testes padrão de aplicativo - padrões de arquitetura do Azure" 
 	description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um sistema de teste de carga no Azure." 
 	services="" 
@@ -22,13 +22,10 @@ O serviço de teste de carga baseado em nuvem pode testar a carga de seus aplica
 
 <!--links-->
 
-[Azure e Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Executando testes de carga em ambientes mistos]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
-[Usando os testes de carga do Visual Studio em funções do Azure]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
+[Azure and Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
+[Running Load Tests In Mixed Environments]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Using Visual Studio Load Tests in Azure Roles]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
-
-
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

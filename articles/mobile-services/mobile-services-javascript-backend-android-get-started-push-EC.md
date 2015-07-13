@@ -1,4 +1,3 @@
-
 <properties 
 	pageTitle="Introdução às notificações por push (Android JavaScript) | Mobile Dev Center" 
 	description="Saiba como usar serviços móveis do Azure para enviar notificações por push para seu aplicativo JavaScript do Android." 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -26,7 +25,7 @@ Este tópico mostra como usar os Serviços Móveis do Azure para enviar notifica
 
 Este tutorial explica as etapas básicas para habilitar as notificações por push:
 
-1. [Habilitar Google Cloud Messaging](#register)
+1. [Habilitar as mensagens em nuvem do Google](#register)
 2. [Configurar os Serviços Móveis](#configure)
 3. [Adicionar notificações de push para seu aplicativo](#add-push)
 4. [Atualizar scripts para enviar notificações por push](#update-scripts)
@@ -202,15 +201,16 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Configurar o SDK do Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Como usar a biblioteca de cliente Android para os Serviços Móveis]: mobile-services-android-how-to-use-client-library.md
-[Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
+
 [objeto gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
 [O que são Hubs de Notificação?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

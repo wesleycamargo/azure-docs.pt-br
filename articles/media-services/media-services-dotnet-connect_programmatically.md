@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 # Conectando-se a conta dos serviços de mídia usando o SDK dos serviços de mídia para .NET
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md). e [fluxo de trabalho de transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
 Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o SDK dos serviços de mídia para .NET.
 
@@ -41,10 +41,10 @@ Para localizar esses valores, vá para o Portal de Gerenciamento do Azure, selec
 
 Para começar a programar em relação aos serviços de mídia, você precisa criar uma instância **CloudMediaContext** que representa o contexto do servidor. O **CloudMediaContext** inclui referências para coleções importantes incluindo trabalhos, ativos, arquivos, políticas de acesso e localizadores.
 
->[AZURE.NOTE] A classe **CloudMediaContext** não é thread-safe. Você deve criar um novo CloudMediaContext por thread ou por conjunto de operações.
+>[AZURE.NOTE]A classe **CloudMediaContext** não é thread-safe. Você deve criar um novo CloudMediaContext por thread ou por conjunto de operações.
 
 
-O CloudMediaContext possui cinco sobrecargas de construtor. É recomendável usar construtores que usam **MediaServicesCredentials** como um parâmetro. Para obter mais informações, consulte **Reutilizando Tokens de serviço de controle de acesso** que segue. 
+O CloudMediaContext possui cinco sobrecargas de construtor. É recomendável usar construtores que usam **MediaServicesCredentials** como um parâmetro. Para obter mais informações, consulte **Reutilizando Tokens de serviço de controle de acesso**, a seguir.
 
 O exemplo a seguir usa o construtor CloudMediaContext(credenciais MediaServicesCredentials) público:
 
@@ -83,9 +83,9 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		
 		CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-- Você pode também armazenar em cache a cadeia de caracteres AccessToken e os valores de TokenExpiration. Os valores podem ser usados depois para criar um novo objeto MediaServicesCredentials com os dados em token armazenados em cache.  Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+- Você pode também armazenar em cache a cadeia de caracteres AccessToken e os valores de TokenExpiration. Os valores podem ser usados depois para criar um novo objeto MediaServicesCredentials com os dados em token armazenados em cache. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
-	Os trechos de código a seguir chamam os métodos SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage e UpdateTokenDataInExternalStorageIfNeeded que não são definidos neste exemplo. É possível definir esses métodos para armazenar, recuperar e atualizar dados do token no armazenamento externo. 
+	Os trechos de código a seguir chamam os métodos SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage e UpdateTokenDataInExternalStorageIfNeeded que não são definidos neste exemplo. É possível definir esses métodos para armazenar, recuperar e atualizar dados do token no armazenamento externo.
 
 		CloudMediaContext context1 = new CloudMediaContext(_mediaServicesAccountName, _mediaServicesAccountKey);
 		
@@ -96,7 +96,7 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		// Save token values for later use. 
 		// The SaveTokenDataToExternalStorage method should check 
 		// whether the TokenExpiration value is valid before saving the token data. 
-		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
+		// If it is not valid, call MediaServicesCredentials’s RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
 	Use os valores do token salvos para criar MediaServicesCredentials.
@@ -117,7 +117,7 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Atualize a cópia do token caso o token tenha sido atualizado pelo SDK dos Serviços de Mídia. 
+	Atualize a cópia do token caso o token tenha sido atualizado pelo SDK dos Serviços de Mídia.
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -125,7 +125,7 @@ Começando com o SDK dos serviços de mídia na versão 3.0.0.0, é possível re
 		}
 		
 
-- Se você tiver várias contas de serviços de mídia (por exemplo, para fins ou distribuição geográfica de compartilhamento de carga) você pode armazenar em cache objetos MediaServicesCredentials usando a coleção de System.Collections.Concurrent.ConcurrentDictionary (a coleção de ConcurrentDictionary representa uma coleção thread-safe de pares de chave/valor que pode ser acessada simultaneamente por vários threads). Em seguida, você pode usar o método GetOrAdd para obter as credenciais armazenadas em cache. 
+- Se você tiver várias contas de serviços de mídia (por exemplo, para fins ou distribuição geográfica de compartilhamento de carga) você pode armazenar em cache objetos MediaServicesCredentials usando a coleção de System.Collections.Concurrent.ConcurrentDictionary (a coleção de ConcurrentDictionary representa uma coleção thread-safe de pares de chave/valor que pode ser acessada simultaneamente por vários threads). Em seguida, você pode usar o método GetOrAdd para obter as credenciais armazenadas em cache.
 
 		// Declare a static class variable of the ConcurrentDictionary type in which the Media Services credentials will be cached.  
 		private static readonly ConcurrentDictionary<string, MediaServicesCredentials> mediaServicesCredentialsCache = 
@@ -166,18 +166,18 @@ Por exemplo:
 
 ## Armazenando valores de conexão na configuração
 
-É uma prática altamente recomendável armazenar valores de conexão, especialmente valores confidenciais como seu nome de conta e senha, na configuração. Além disso, é uma prática recomendada criptografar dados de configuração confidenciais. Você pode criptografar o arquivo de configuração inteiro usando o sistema de arquivos com criptografia (EFS) do Windows. Para habilitar o EFS em um arquivo, clique com o botão direito do mouse no arquivo, selecione **Propriedades**e habilite a criptografia na guia de configurações **Avançadas**. Ou você pode criar uma solução personalizada para criptografar as partes selecionadas de um arquivo de configuração usando a configuração protegida. Consulte [Criptografando informações de configuração usando configuração protegida](https://msdn.microsoft.com/library/53tyfkaw.aspx).
+É uma prática altamente recomendável armazenar valores de conexão, especialmente valores confidenciais como seu nome de conta e senha, na configuração. Além disso, é uma prática recomendada criptografar dados de configuração confidenciais. Você pode criptografar o arquivo de configuração inteiro usando o sistema de arquivos com criptografia (EFS) do Windows. Para habilitar o EFS em um arquivo, clique com o botão direito do mouse no arquivo, selecione **Propriedades** e habilite a criptografia na guia de configurações **Avançadas**. Ou você pode criar uma solução personalizada para criptografar as partes selecionadas de um arquivo de configuração usando a configuração protegida. Consulte [Criptografando informações de configuração usando configuração protegida](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores necessários que você obteve do processo de configuração de conta dos serviços de mídia.
 
 
 <pre><code>
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
 </code></pre>
 
 Para recuperar valores de conexão da configuração, você pode usar a classe **ConfigurationManager** e, em seguida, atribuir valores aos campos em seu código:
@@ -191,5 +191,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

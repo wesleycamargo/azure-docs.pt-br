@@ -16,7 +16,7 @@
 					// Change 'MobileService' to the name of your MobileServiceClient instance.
 					// Sign-in using Facebook authentication.
                     user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
                     message = 
                         string.Format("You are now signed in - {0}", user.UserId);
                 }
@@ -59,7 +59,7 @@
 6. No projeto de aplicativo do Windows Phone, adicione os seguintes elementos **Button** imediatamente antes do elemento que define o botão **Salvar**:
 
 		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button> 
+                        Visibility="Visible" Margin="10, 0, 0, 0">Sign in</Button> 
 
 5. Abra o arquivo de projeto App.xaml.cs compartilhado e adicione a seguinte instrução em uso, se ela já não existe:
 
@@ -90,4 +90,4 @@
 
 9. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

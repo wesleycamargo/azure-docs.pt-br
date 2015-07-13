@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Definir sua estratégia do Mobile Engagement" 
-	description="Saiba como usar carregamentos e otimizar seu Mobile Engagement com Análises e Notificações por Push." 
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Definir sua estratégia do Mobile Engagement"
+	description="Saiba como usar carregamentos e otimizar seu Mobile Engagement com Análises e Notificações por Push."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/10/2015"
 	ms.author="kapiteir" />
 
 #Definir sua estratégia do Mobile Engagement
@@ -48,9 +48,9 @@ Uma vez definidos os casos de uso e o segmento, ele fornece uma diretriz para de
 Com base na integração, depois que os aplicativos são publicados, como um Comerciantes poderão ver sua análise em tempo real, segmentar seu público-alvo e, em seguida, começar a enviar notificação por push inteligente e segmentada para se comunicar com usuários finais ou não do aplicativo.
 
 ###Casos de uso para começar
-1. Estratégia de boas-vindas: crie várias campanhas de notificação por push com base no comportamento do usuário final na inicialização do aplicativo para envolver novamente D+2/5/10/15 após a primeira sessão e aumentar a primeira a retenção de execução.	
-2. Promova um novo conteúdo (recurso, artigo/vídeo, produto, etc.) com base no comportamento do usuário final para enviar as informações somente para os usuários finais que têm mais probabilidade de se envolver.	
-3. Classifique o aplicativo: meta de menos de 1% de sua base de usuários com maior probabilidade de classificar o aplicativo como 5 estrelas no repositório.	
+1. Estratégia de boas-vindas: crie várias campanhas de notificação por push com base no comportamento do usuário final na inicialização do aplicativo para envolver novamente D+2/5/10/15 após a primeira sessão e aumentar a primeira a retenção de execução.
+2. Promova um novo conteúdo (recurso, artigo/vídeo, produto, etc.) com base no comportamento do usuário final para enviar as informações somente para os usuários finais que têm mais probabilidade de se envolver.
+3. Classifique o aplicativo: meta de menos de 1% de sua base de usuários com maior probabilidade de classificar o aplicativo como 5 estrelas no repositório.
 4. Aumente as assinaturas: promova conteúdo valioso para usuários finais que ainda não os viram para aumentar as assinaturas.
 5. Tutorial: o tutorial não é mais obrigatório para todos. Por que não compilar tutoriais excelentes no aplicativo e, em seguida, acioná-los por meio de mensagens no aplicativo somente se o usuário parecer não usar ou ter dificuldades ao usar um recurso?
 
@@ -91,7 +91,7 @@ Colete se os usuários finais criaram uma conta na primeira inicialização do a
 ###Como criar um bom plano de marca?
 
 Um plano de marca deve ser como uma descrição do caminho de usuário ou um tipo de fluxo de trabalho do aplicativo, fornecendo todas as marcas necessárias (dados) que devem ser coletadas para que se tenha uma análise suficiente para entender o comportamento do usuário e segmentar corretamente a base de usuários. Isso não é um processo técnico. Portanto, os comerciantes são capazes de especificar os dados que desejam coletar, com base em sua estratégia do Mobile Engagement.
- 
+
 O mínimo é marcar pelo menos todas as telas (chamadas de `Activities` no Mobile Engagement) de um aplicativo. Isso permitirá noções básicas sobre o caminho do usuário.
 
 Uma Atividade pode incorporar `Events` que coletam informações sobre a ação como clicar em um botão. Isso permite coletar interação dentro do aplicativo. Portanto, os comerciantes são capazes de saber o que os usuários da tela estão visitando e o que eles estão fazendo.
@@ -126,5 +126,6 @@ Todos esses tipos de dados podem ser aumentados com Parâmetros (`extra-informat
 <!-- URLs. -->
 [Conceitos do Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriais]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

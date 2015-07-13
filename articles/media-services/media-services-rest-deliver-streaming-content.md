@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-#Como: Fornecer conteúdo de streaming
+#Como fornecer conteúdo de Streaming
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).  
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
 ##Visão geral
 
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [Codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico. 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico.
 
-Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
+Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
 
 Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e criar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
 
-A [seguinte](#types) seção mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
+A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.
   
 ##Criar um localizador de streaming sob demanda
 
@@ -63,7 +63,7 @@ Solicitação:
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Resposta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -102,7 +102,7 @@ Solicitação:
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Response:
+Resposta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -123,7 +123,7 @@ Response:
 
 ###Criar URLs de streaming
 
-Use o valor **Caminho** retornado após a criação do localizador para criar o Smooth, HLS e URLs do MPEG DASH. 
+Use o valor **Caminho** retornado após a criação do localizador para criar as URLs MPEG DASH, Smooth e HLS.
 
 Smooth Streaming: **Caminho** + nome de arquivo de manifesto + "/manifest"
 
@@ -138,7 +138,7 @@ exemplo:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-TRAÇO: **Caminho** + nome de arquivo de manifesto + "/manifest(format=mpd-time-csf)"
+DASH: **Caminho** + nome de arquivo de manifesto + "/manifest(format=mpd-time-csf)"
 
 
 exemplo:
@@ -148,7 +148,7 @@ exemplo:
 
 ###Crie URLs de download progressivo
 
-Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.   
+Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.
 
 URL: **Caminho** + nome do arquivo MP4 do ativo
 
@@ -173,7 +173,6 @@ exemplo:
         None = 0,
         Sas = 1,
         OnDemandOrigin = 2,
-    }
+    } 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

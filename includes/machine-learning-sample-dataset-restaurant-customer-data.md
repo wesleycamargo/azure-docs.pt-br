@@ -1,3 +1,3 @@
 Um conjunto de metadados sobre consumidores, incluindo demografia e preferências.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

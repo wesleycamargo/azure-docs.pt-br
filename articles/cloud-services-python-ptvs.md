@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Funções da Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio" 
-	description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Funções da Web e de Trabalho do Python com o Python Tools 2.1 para Visual Studio"
+	description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -104,7 +104,7 @@ Para obter informações mais detalhadas sobre como usar funções Web e de Trab
 - [Projetos do serviço de nuvem][]
 
 Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funções Web e de Trabalho, como o uso do armazenamento ou barramento de serviço do Azure, veja os guias a seguir:
- 
+
 - [Serviço Blob][]
 - [Serviço Tabela][]
 - [Serviço Fila][]
@@ -139,4 +139,4 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

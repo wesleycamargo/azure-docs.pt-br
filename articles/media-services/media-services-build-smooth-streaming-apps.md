@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aplicativo Smooth Streaming da Windows Store - Tutoriais do Azure .NET" 
+	pageTitle="Tutorial do aplicativo de Smooth Streaming da Windows Store" 
 	description="Saiba como usar os Serviços de Mídia do Azure para criar um aplicativo C# da Windows Store com um controle XML MediaElement para reprodução de conteúdo de Smooth Streaming." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
 
-# Como compilar um aplicativo Smooth Streaming da Windows Store
+#Como compilar um aplicativo Smooth Streaming da Windows Store
 
-O SDK do Smooth Streaming Client para Windows 8 permite que os desenvolvedores criem aplicativos da Windows Store que podem reproduzir conteúdo de Smooth Streaming sob demanda e ao vivo. Além da reprodução básica de conteúdo do Smooth Streaming, o SDK também fornece recursos avançados, como proteção do Microsoft PlayReady, restrição de nível de qualidade, Live DVR, alternância de fluxo de áudio, escuta de atualizações de status (como alterações no nível da qualidade), eventos de erros e assim por diante. Para obter mais informações sobre os recursos com suporte, consulte as [notas da versão](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
+O SDK do Smooth Streaming Client para Windows 8 permite que os desenvolvedores criem aplicativos da Windows Store que podem reproduzir conteúdo de Smooth Streaming sob demanda e ao vivo. Além da reprodução básica de conteúdo do Smooth Streaming, o SDK também fornece recursos avançados, como proteção do Microsoft PlayReady, restrição de nível de qualidade, Live DVR, alternância de fluxo de áudio, escuta de atualizações de status (como alterações no nível da qualidade), eventos de erros e assim por diante. Para obter mais informações sobre os recursos suportados, consulte as [notas da versão (a página pode estar em inglês)](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
 
-Este tutorial aborda as APIs. Para o desenvolvimento do player, a Microsoft recomenda usar o [Player Framework para Windows 8](http://playerframework.codeplex.com/). O Player Framework facilita a criação de aplicativos e fornece muitos recursos adicionais. 
+Este tutorial aborda as APIs. Para o desenvolvimento do player, a Microsoft recomenda usar o [Player Framework para Windows 8 (a página pode estar em inglês)](http://playerframework.codeplex.com/) O Player Framework facilita a criação de aplicativos e fornece muitos recursos adicionais.
 
 Este tutorial contém quatro lições:
 
@@ -31,20 +31,19 @@ Este tutorial contém quatro lições:
 3. Selecionar fluxos do Smooth Streaming
 4. Selecionar faixas do Smooth Streaming
 
-# Pré-requisitos
-- Windows 8 32 bits ou 64 bits. Você pode obter o [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) no MSDN.
+##Pré-requisitos
+- Windows 8 32 bits ou 64 bits. Você pode obter o [Windows 8 Enterprise Evaluation (a página pode estar em inglês)](http://msdn.microsoft.com/evalcenter/jj554510.aspx) no MSDN.
 - Visual Studio Express 2012 ou Visual Studio Express 2012 para Windows 8 instalado no Windows 8. Você pode obter a versão de avaliação [aqui](http://www.microsoft.com/visualstudio/11/downloads).
-- [SDK do Microsoft Smooth Streaming Client para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+- [SDK do Microsoft Smooth Streaming Client para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-A solução completa para cada lição pode ser baixada das Amostras de Código de Desenvolvedor do MSDN (Galeria de Códigos): [Lição 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Lição 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Lição 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection"), e [Lição 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
+A solução completa para cada lição pode ser baixada das Amostras de Código de Desenvolvedor do MSDN (Galeria de Códigos): [Lição 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Um Media Player simples de Smooth Streaming do Windows 8"), [Lição 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Um Media Player simples de Smooth Streaming do Windows 8 com um controle de barra deslizante"), [Lição 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Um Media Player simples de Smooth Streaming do Windows 8 com seleção de fluxo") e [Lição 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Um Media Player simples de Smooth Streaming do Windows 8 com seleção de faixa").
 
-# Lição 1: Criar um aplicativo de armazenamento básico Smooth Streaming
-Nesta lição, você criará um aplicativo da Windows Store com um controle MediaElement para reproduzir conteúdo de Smooth Streaming.  O aplicativo em execução é semelhante a:
+##Lição 1: Criar um aplicativo básico de Smooth Streaming para a Store
+Nesta lição, você criará um aplicativo da Windows Store com um controle MediaElement para reproduzir conteúdo de Smooth Streaming. O aplicativo em execução é semelhante a:
 
 ![Exemplo de aplicativo de Smooth Streaming da Windows Store][PlayerApplication]
  
-Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte [Desenvolver ótimos aplicativos para o Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). 
-Esta lição contém os seguintes procedimentos:
+Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte [Desenvolver Ótimos Aplicativos para o Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Esta lição contém os seguintes procedimentos:
 
 1.	Criar um novo projeto da Windows Store
 2.	Criar a interface do usuário (XAML)
@@ -58,35 +57,35 @@ Esta lição contém os seguintes procedimentos:
 3.	Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
 	<table border="1">
-	<tr>
-		<th>Nome</th>
-		<th>Valor</th>
-	</tr>
-	<tr>
-		<td>Grupo de modelos</td>
-		<td>Instalado/Modelos/Visual C#/Windows Store</td>
-	</tr>
-	<tr>
-		<td>Modelo</td>
-		<td>Aplicativo em branco (XAML)</td>
-	</tr>
-	<tr>
-		<td>Nome</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Local</td>
-		<td>C:\SSTutorials</td>
-	</tr>
-	<tr>
-		<td>Nome da solução</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Criar diretório para a solução</td>
-		<td>(selecionado)</td>
-	</tr>
-	</table>
+<tr>
+	<th>Nome</th>
+	<th>Valor</th>
+</tr>
+<tr>
+	<td>Grupo de modelos</td>
+	<td>Instalado/Modelos/Visual C#/Windows Store</td>
+</tr>
+<tr>
+	<td>Modelo</td>
+	<td>Aplicativo em branco (XAML)</td>
+</tr>
+<tr>
+	<td>Nome</td>
+	<td>SSPlayer</td>
+</tr>
+<tr>
+	<td>Local</td>
+	<td>C:\SSTutorials</td>
+</tr>
+<tr>
+	<td>Nome da solução</td>
+	<td>SSPlayer</td>
+</tr>
+<tr>
+	<td>Criar diretório para a solução</td>
+	<td>(selecionado)</td>
+</tr>
+</table>
 
 4.	Clique em **OK**.
 
@@ -96,24 +95,24 @@ Esta lição contém os seguintes procedimentos:
 2.	Digite ou selecione os valores a seguir:
 
 	<table border="1">
-	<tr>
-		<th>Nome</th>
-		<th>Valor</th>
-	</tr>
-	<tr>
-		<td>Grupo de referências</td>
-		<td>Windows/Extensões</td>
-	</tr>
-	<tr>
-		<td>Referência</td>
-		<td>Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ 
-		</td>
-	</tr>
-	</table>
+<tr>
+	<th>Nome</th>
+	<th>Valor</th>
+</tr>
+<tr>
+	<td>Grupo de referências</td>
+	<td>Windows/Extensions</td>
+</tr>
+<tr>
+	<td>Referência</td>
+	<td>Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ 
+	</td>
+</tr>
+</table>
 	
-3.	Clique em **OK**. 
+3.	Clique em **OK**.
 
-Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU.  No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
+Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU. No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
 
 **Para criar a interface do usuário do player**
 
@@ -166,27 +165,27 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
 
 3.	Pressione **CTRL+S** para salvar o arquivo.
 
-O controle MediaElement não dá suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME.  Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStremHandler do namespace Windows.Media.
+O controle MediaElement não oferece suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME. Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStremHandler do namespace Windows.Media.
 
-Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controles.  Você deve definir esses manipuladores de eventos.
+Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controles. Você deve definir esses manipuladores de eventos.
 
 **Para modificar o arquivo code-behind**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
+1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**, e, em seguida, clique em **Exibir Código**.
 2.	Na parte superior do arquivo, adicione a seguinte instrução using:
 
 		using Windows.Media;
 
-3.	No início da classe **MainPage**, adicione o membro de dados a seguir:
+3.	No início da classe **MainPage** adicione os membros de dados a seguir:
 
 		private MediaExtensionManager extensions = new MediaExtensionManager();
 
-4.	No final do construtor **MainPage**, adicione as duas linhas a seguir:
+4.	No final do construtor **MainPage** adicione as duas linhas a seguir:
 
 		extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
 		extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 		
-5.	No final da classe **MainPage**, cole o código a seguir:
+5.	No final da classe **MainPage** cole o código a seguir:
 
 		#region UI Button Click Events
 		private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -229,7 +228,7 @@ Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controle
 		}
 		#endregion
 
-	O manipulador de eventos sliderProgress_PointerPressed é definido aqui.  Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
+	O manipulador de eventos sliderProgress_PointerPressed é definido aqui. Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
 6.	Pressione **CTRL+S** para salvar o arquivo.
 
 O arquivo code-behind concluído deve ser semelhante ao seguinte:
@@ -238,22 +237,22 @@ O arquivo code-behind concluído deve ser semelhante ao seguinte:
 
 **Para compilar e testar o aplicativo**
 
-1.	No menu **COMPILAR**, clique em **Gerenciador de Configurações**.
+1.	No menu **COMPILAR** clique em **Gerenciador de Configurações**.
 2.	Altere **Plataforma da solução ativa** para que corresponda à sua plataforma de desenvolvimento.
 3.	Pressione **F6** para compilar o projeto. 
 4.	Pressione **F5** para executar o aplicativo.
 5.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-6.	Clique em **Definir Origem**. Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente.  Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e **Parar**.  É possível controlar o volume da mídia usando o controle deslizante vertical.  No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado. 
+6.	Clique em **Definir Origem**. Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente. Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e **Parar**. É possível controlar o volume da mídia usando o controle deslizante vertical. No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado. 
 
-Você concluiu a Lição 1.  Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming.  Na próxima lição, você adicionará um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
+Você concluiu a Lição 1. Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming. Na próxima lição, você adicionará um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
 
 
-# Lição 2: Adicionar um barra deslizante para controlar o andamento da mídia
-Na Lição 1, você criou um aplicativo da Windows Store com um controle XAML MediaElement para reproduzir conteúdo de mídia de Smooth Streaming.  Ele vem com algumas funções básicas de mídia, como iniciar, parar e pausar.  Nesta lição, você adicionará um controle de barra deslizante ao aplicativo.
+##Lição 2: Adicionar um barra deslizante para controlar o andamento da mídia
+Na Lição 1, você criou um aplicativo da Windows Store com um controle XAML MediaElement para reproduzir conteúdo de mídia de Smooth Streaming. Ele vem com algumas funções básicas de mídia, como iniciar, parar e pausar. Nesta lição, você irá adicionar um controle de barra deslizante ao aplicativo.
 
-Neste tutorial, usaremos um timer para atualizar a posição do controle deslizante com base na posição atual do controle MediaElement.  A hora de início e de término do controle deslizante também precisam ser atualizadas no caso de conteúdo ao vivo.  Isso pode ser manipulado melhor no evento de atualização de origem adaptável.
+Neste tutorial, usaremos um timer para atualizar a posição do controle deslizante com base na posição atual do controle MediaElement. A hora de início e de término do controle deslizante também precisam ser atualizadas no caso de conteúdo ao vivo. Isso pode ser manipulado melhor no evento de atualização de origem adaptável.
 
-As origens de mídia são objetos que geram dados de mídia.  O resolvedor de origem utiliza um fluxo de bytes ou uma URL e cria a origem de mídia adequada para esse conteúdo.  O resolvedor de origem é o modo padrão para os aplicativos criarem origens de mídia. 
+As origens de mídia são objetos que geram dados de mídia. O resolvedor de origem utiliza um fluxo de bytes ou uma URL e cria a origem de mídia adequada para esse conteúdo. O resolvedor de origem é o modo padrão para os aplicativos criarem origens de mídia.
 
 Esta lição contém os seguintes procedimentos:
 
@@ -276,7 +275,7 @@ Esta lição contém os seguintes procedimentos:
 		private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
 		private IAdaptiveSourceManager adaptiveSourceManager;
 	
-4.	Dentro do construtor **MainPage**, adicione o seguinte código após a linha **this.Initialize Components();** e as linhas de código do registro escritas na lição anterior:
+4.	Dentro do construtor **MainPage** adicione o seguinte código após a linha **this.Initialize Components();** e as linhas de código do registro escritas na lição anterior:
 	
 		// Gets the default instance of AdaptiveSourceManager which manages Smooth 
 		//Streaming media sources.
@@ -306,7 +305,7 @@ Esta lição contém os seguintes procedimentos:
 **Para adicionar o manipulador de eventos no nível do gerenciador de origens adaptáveis**
 
 1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	Dentro da classe **MainPage**, adicione o seguinte membro de dados:
+2.	No início da classe **MainPage** adicione os membros de dados a seguir:
 
 		private AdaptiveSource adaptiveSource = null;
 
@@ -321,15 +320,14 @@ Esta lição contém os seguintes procedimentos:
 
 4.	No final do construtor **MainPage**, adicione a seguinte linha para inscrever-se para o evento de fonte aberta adaptável:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
-	    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += novo AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
 
 5.	Pressione **CTRL+S** para salvar o arquivo.
 
 **Para adicionar os manipuladores de eventos de origens adaptáveis**
 
 1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	Dentro da classe **MainPage**, adicione o seguinte membro de dados:
+2.	No início da classe **MainPage** adicione os membros de dados a seguir:
 	
 		private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
 		private Manifest manifestObject;
@@ -354,7 +352,7 @@ Esta lição contém os seguintes procedimentos:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	No final do **método mediaElement AdaptiveSourceOpened**, adicione o seguinte código para se inscrever nos eventos:
+4.	No final do método <strong>mediaElement AdaptiveSourceOpened</strong>, adicione o seguinte código para se inscrever nos eventos:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -389,7 +387,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		}
 		#endregion Media Element Event Handlers
 
-3.	No final do construtor **MainPage**, adicione o seguinte código para inscrever-se nos eventos:
+3.	No final do construtor **MainPage**, adicione o seguinte código para se inscrever nos eventos:
 	
 		mediaElement.MediaOpened += MediaOpened;
 		mediaElement.MediaEnded += MediaEnded;
@@ -404,12 +402,12 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 	
 		using Windows.UI.Core;
 
-3.	Dentro da classe **MainPage**, adicione os seguintes membros de dados:
+3.	No início da classe **MainPage** adicione os membros de dados a seguir:
 	
 		public static CoreDispatcher _dispatcher;
 		private DispatcherTimer sliderPositionUpdateDispatcher;
 	
-4.	No final do construtor **MainPage**, adicione o código a seguir:
+4.	No final do construtor **MainPage** adicione o código a seguir:
 
 		_dispatcher = Window.Current.Dispatcher;
 		PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
@@ -492,7 +490,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		}
 		#endregion sliderMediaPlayer
 
-	**Observação:** o CoreDispatcher é usado para fazer alterações ao thread de interface do usuário por meio de um Thread sem interface do usuário. No caso de afunilamento no expedidor de threads, o desenvolvedor pode optar por usar um expedidor fornecido pelo elemento de interface do usuário que pretende atualizar. Por exemplo:
+	**Observação:** o CoreDispatcher é usado para fazer alterações no thread da interface do usuário a partir do thread que não é da interface do usuário. No caso de afunilamento no dispatcher de threads, o desenvolvedor pode optar por usar o dispatcher fornecido pelo elemento da interface do usuário que pretende atualizar. Por exemplo:
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -505,11 +503,9 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
 
-7.	No final do método **MediaOpened**, adicione o código a seguir:
+7.	No final do método **MediaOpened**, adicione o seguinte código:
 	
-	sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
-	sliderProgress.Width = mediaElement.Width;
-	setupTimer();
+	sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); sliderProgress.Width = mediaElement.Width; setupTimer();
 
 8.	Pressione **CTRL+S** para salvar o arquivo.
 
@@ -521,10 +517,10 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 4.	Clique em **Definir Origem**. 
 5.	Teste a barra de controle deslizante.
 
-Você concluiu a lição 2.  Nesta lição, você adicionou um controle deslizante ao aplicativo. 
+Você concluiu a lição 2. Nesta lição, você adicionou um controle deslizante ao aplicativo.
 
-# Lição 3: Selecionar fluxos do Smooth Streaming
-O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vários idiomas que podem ser selecionadas pelos visualizadores.  Nesta lição, você habilitará a seleção dos fluxos pelos visualizadores. Esta lição contém os seguintes procedimentos:
+##Lição 3: Selecionar fluxos de Smooth Streaming
+O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vários idiomas que podem ser selecionadas pelos visualizadores. Nesta lição, você habilitará a seleção dos fluxos pelos visualizadores. Esta lição contém os seguintes procedimentos:
 
 1. Modificar o arquivo XAML
 2. Modificar o arquivo code-behind
@@ -533,8 +529,8 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 
 **Para modificar o arquivo XAML**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Designer de Modo de Exibição**.
-2. Localize &lt;Grid.RowDefinitions&gt; e modifique as RowDefinitions para que se pareçam com:
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**, e, em seguida, clique em **Designer de Modos de Exibição**.
+2. Localize &lt;Grid.RowDefinitions&gt; e modifique as RowDefinitions para que sejam semelhantes a:
 
 		<Grid.RowDefinitions>            
 			<RowDefinition Height="20"/>
@@ -575,9 +571,8 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 
 **Para modificar o arquivo code-behind**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2. Dentro do namespace SSPlayer, adicione uma nova classe:
-		#region class Stream
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**, e, em seguida, clique em **Exibir Código**.
+2. Dentro do namespace SSPlayer, adicione uma nova classe: #region class Stream
 	
 	    public class Stream
 	    {
@@ -772,7 +767,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
 
-	Quando o manifesto MediaElement estiver pronto, o código obterá uma lista dos fluxos disponíveis e preencherá a caixa de listagem da interface do usuário com a lista.
+	Quando o manifesto MediaElement estiver pronto, o código obterá uma lista dos fluxos disponíveis e populará a caixa de listagem da interface do usuário com a lista.
 
 6. Na classe MainPage, localize a região de eventos de cliques de botões da interface do usuário e adicione a seguinte definição de função:
 
@@ -795,9 +790,9 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 4.	Clique em **Definir Origem**. 
 5.	O idioma padrão é audio_eng. Tente alternar entre audio_eng e audio_es. Toda vez que selecionar um novo fluxo, você deverá clicar no botão Enviar.
 
-Você concluiu a lição 3.  Nesta lição, você adicionará a funcionalidade de escolher fluxos.
+Você concluiu a lição 3. Nesta lição, você adicionará a funcionalidade de escolher fluxos.
 
-# Lição 4: Selecionar faixas do Smooth Streaming
+##Lição 4: Selecionar faixas de Smooth Streaming
 Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo codificados com diferentes níveis de qualidade (taxas de bits) e resoluções. Nesta lição, você habilitará a seleção de faixas pelos usuários. Esta lição contém os seguintes procedimentos:
 
 1. Modificar o arquivo XAML
@@ -806,8 +801,8 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 
 **Para modificar o arquivo XAML**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Designer de Modo de Exibição**.
-2. Localize a marca &lt;Grid&gt; com o nome **gridStreamAndBitrateSelection** e acrescente o seguinte código no final da marca:
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**, e, em seguida, clique em **Designer de Modos de Exibição**.
+2. Localize a marca &lt;Grid&gt; com o nome **gridStreamAndBitrateSelection** e acrescente o seguinte código no final do rótulo:
 
 		<StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
 		 <StackPanel Orientation="Horizontal">
@@ -829,7 +824,7 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 
 **Para modificar o arquivo code-behind**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**, e, em seguida, clique em **Exibir Código**.
 2. Dentro do namespace SSPlayer, adicione uma nova classe:
 	
 		#region class Track
@@ -996,17 +991,17 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 2.	Pressione **F5** para executar o aplicativo.
 3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
 4.	Clique em **Definir Origem**. 
-5.	Por padrão, todas as faixas do fluxo de vídeo são selecionadas. Para testar as alterações de taxa de bits, é possível selecionar a taxa de bits mais baixa disponível e, em seguida, selecionar a taxa de bits mais alta disponível. Você deve clicar em Enviar após cada alteração.  Você pode ver as alterações na qualidade do vídeo.
+5.	Por padrão, todas as faixas do fluxo de vídeo são selecionadas. Para testar as alterações de taxa de bits, é possível selecionar a taxa de bits mais baixa disponível e, em seguida, selecionar a taxa de bits mais alta disponível. Você deve clicar em Enviar após cada alteração. Você pode ver as alterações na qualidade do vídeo.
 
-Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade de escolher faixas.
+Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de escolher faixas.
 
 
-# Outros recursos:
+##Outros recursos:
 - [Como criar um aplicativo JavaScript de Smooth Streaming do Windows 8 com recursos avançados](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-- [Visão geral técnica de Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+- [Visão Geral Técnica de Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

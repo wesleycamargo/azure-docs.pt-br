@@ -319,4 +319,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

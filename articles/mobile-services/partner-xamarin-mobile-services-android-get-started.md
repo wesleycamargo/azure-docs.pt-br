@@ -137,4 +137,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

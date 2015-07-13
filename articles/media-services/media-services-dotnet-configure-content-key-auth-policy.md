@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criptografia dinâmica:  Configurar política de autorização de chave de conteúdo usando o .NET" 
+	pageTitle="Criptografia dinâmica: configurar a política de autorização de chave de conteúdo usando .NET" 
 	description="Saiba como configurar uma política de autorização para uma chave de conteúdo." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,51 +13,51 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 
-# Criptografia dinâmica: Configurar a Política de Autorização de Chave de Conteúdo 
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
+#Criptografia dinâmica: configurar a política de autorização de chave de conteúdo 
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md) . 
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
-## Visão geral
+##Visão geral
 
-Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo criptografado (dinamicamente) com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados. 
+Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo criptografado (dinamicamente) com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados.
 
-No momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
+Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
-Se você deseja que os serviços de mídia criptografem um ativo, você precisa associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) com o ativo (conforme descrito [aqui](media-services-dotnet-create-contentkey.md)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo). 
+Se desejar que os serviços de mídia criptografem um ativo, você precisará associar uma chave de criptografia (**CommonEncryption** ou **EnvelopeEncryption**) ao ativo (conforme descrito [aqui](media-services-dotnet-create-contentkey.md)) e também configurar políticas de autorização para a chave (conforme descrito neste artigo).
 
 Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: **abra**, restrição do **token** ou restrição de **IP**. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato **JWT](** (JSON Web Token).  
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: **abrir**, restrição de **token** ou restrição de **IP**. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato **JWT (**JSON Web Token).
 
 Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo.
 
-Para obter mais informações, consulte 
+Para obter mais informações, consulte
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
-### Algumas considerações se aplicam:
+###Algumas considerações se aplicam:
 
-- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints). 
+- Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se você tem pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-manage-origins.md#scale_streaming_endpoints). 
 - O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).  
 - Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted**.
 - Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
-- O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
+- O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos. Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
 - Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
 
 
-## Criptografia dinâmica AES-128 
+##Criptografia dinâmica AES-128 
 
-### Restrição aberta
+###Restrição aberta
 
 A restrição aberta significa que o sistema fornecerá a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
@@ -100,13 +100,13 @@ O exemplo a seguir cria uma política de autorização aberta e o adiciona à ch
 	}
 
 
-### Restrição de token
+###Restrição de token
 
 Esta seção descreve como criar uma política de autorização de chave de conteúdo e associá-la com a chave de conteúdo. A política de autorização descreve quais requisitos de autorização devem ser atendidos para determinar se o usuário está autorizado a receber a chave (por exemplo, a lista de "chave de verificação" contém a chave que o token foi assinado).
 
 Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. O XML de configuração de restrição de token deve estar de acordo com o esquema XML a seguir.
 
-#### <a id="schema"></a>Esquema de restrição de token
+####<a id="schema"></a>Esquema de restrição de token
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -155,10 +155,9 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-Ao configurar a política restrita do **token**, você deve especificar os parâmetros da** chave de verificação** primária, **emissor** e **audiência**. A **chave de verificação primária **contém a chave que o token foi assinado, o **emissor** é o serviço de token seguro que emite o token. A **audiência** (às vezes chamada de **escopo**) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo. 
+Ao configurar a política restrita do **token**, você deve especificar os parâmetros de **chave de verificação** primária, **emissor** e **audiência**. A **chave de verificação primária **contém a chave com a qual o token foi assinado. O **emissor** é o serviço de token seguro que emite o token. A **audiência** (às vezes chamada de **escopo**) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos Serviços de Mídia valida que esses valores no token correspondem aos valores no modelo. 
 
-Ao usar o **SDK dos serviços de mídia para .NET**, você pode usar a classe **TokenRestrictionTemplate** para gerar o token de restrição.
-O exemplo a seguir cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente precisa apresentar um token que contém: chave de assinatura (VerificationKey), um emissor de token e declarações necessárias.
+Ao usar o **SDK dos serviços de mídia para .NET**, você pode usar a classe **TokenRestrictionTemplate** para gerar o token de restrição. O exemplo a seguir cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente precisa apresentar um token que contém: chave de assinatura (VerificationKey), um emissor de token e declarações necessárias.
 	
 	public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 	{
@@ -214,7 +213,7 @@ O exemplo a seguir cria uma política de autorização com uma restrição de to
 	    return TokenRestrictionTemplateSerializer.Serialize(template);
 	}
 
-#### <a id="test"></a>Token de teste
+####<a id="test"></a>Token de teste
 
 Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, faça o seguinte:
 	
@@ -228,20 +227,20 @@ Para obter um token de teste com base na restrição de token que foi usada para
 	// TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
 	Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
 	
-	//The GenerateTestToken method returns the token without the word "Bearer" in front
+	//The GenerateTestToken method returns the token without the word “Bearer” in front
 	//so you have to add it in front of the token string. 
 	string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 	Console.WriteLine();
 
 
-## Criptografia dinâmica do PlayReady 
+##Criptografia dinâmica do PlayReady 
 
-Os serviços de mídia permitem que você configure os direitos e restrições que você deseja para que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. 
+Os serviços de mídia permitem que você configure os direitos e restrições que você deseja para que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido.
 
-Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). No SDK dos serviços de mídia para .NET, as classes **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** ajudarão você a definir o modelo de licença do PlayReady. 
+Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). No SDK dos serviços de mídia para .NET, as classes **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** o ajudarão a definir o modelo de licença do PlayReady.
 
-### Restrição aberta
+###Restrição aberta
 	
 A restrição aberta significa que o sistema fornecerá a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
@@ -284,9 +283,9 @@ O exemplo a seguir cria uma política de autorização aberta e o adiciona à ch
 	    contentKey = contentKey.UpdateAsync().Result;
 	}
 
-### Restrição de token
+###Restrição de token
 
-Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. A configuração XML de restrição de token deve estar em conformidade com o esquema XML mostrado [nesta](#schema) seção .
+Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. A configuração XML de restrição de token deve estar em conformidade com o esquema XML mostrado [nesta](#schema) seção.
 	
 	public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 	{
@@ -360,11 +359,11 @@ Para configurar a opção de restrição de token, você precisa usar um XML par
 	    return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
 	}
 
-Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, consulte [isso](#test) . 
+Para obter um token de teste com base na restrição de token que foi usada para a política de autorização da chave, consulte[esta](#test) seção.
 
-## <a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
+##<a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
 
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -372,7 +371,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
         IPRestricted = 2,
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
     public enum ContentKeyDeliveryType
     {
@@ -381,7 +380,7 @@ Para obter um token de teste com base na restrição de token que foi usada para
         BaselineHttp = 2,
     }
 
-### <a id="TokenType"></a>TokenType
+###<a id="TokenType"></a>TokenType
 
     public enum TokenType
     {
@@ -392,8 +391,8 @@ Para obter um token de teste com base na restrição de token que foi usada para
 
 
 
-## Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md) .
+##Próximas etapas
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

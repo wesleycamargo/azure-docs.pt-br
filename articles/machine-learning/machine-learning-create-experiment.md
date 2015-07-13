@@ -233,4 +233,4 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

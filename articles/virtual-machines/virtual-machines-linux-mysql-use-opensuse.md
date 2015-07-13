@@ -43,4 +43,4 @@ Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux
 [AzurePortal]: http://manage.windowsazure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

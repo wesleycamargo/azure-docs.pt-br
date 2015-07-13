@@ -11,10 +11,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="06/05/2015" 
 	ms.author="yuaxu"/>
 
 # Armazene dados com o Armazenamento de Tabela do Azure usando Serviços Móveis
@@ -22,5 +22,6 @@
 Saiba como trabalhar com Armazenamento de Tabela usando os Serviços Móveis com o tutorial de Chris Risner, [Serviços Móveis e Armazenamento do Microsoft Azure].
 
 [Serviços Móveis e Armazenamento do Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

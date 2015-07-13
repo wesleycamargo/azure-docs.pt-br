@@ -2,6 +2,7 @@
 	pageTitle="Autorização de serviço de usuários nos Serviços Móveis com o Backend .NET | Centro de Desenvolvimento Móvel"
 	description="Saiba como autorizar usuários no backend .NET dos Serviços Móveis do Azure."
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Autorização de serviço de usuários nos serviços móveis
@@ -20,9 +22,9 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-Este tópico mostra como usar a lógica de servidor para autorizar usuários. Neste tutorial, você modifica os métodos de acesso de dados no .NET, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados.
+Este tópico mostra como usar a lógica de servidor para autorizar usuários. Neste tutorial, você modifica os controladores de tabela, filtra consultas com base nas IDs de usuário e concede acesso aos usuários apenas para seus próprios dados. Filtrar os resultados da consulta do usuário pela ID de usuário é a forma mais básica de autorização. Dependendo do seu cenário específico, você também poderá criar tabelas de Usuários ou Funções para monitorar informações mais detalhadas de autorização do usuário, como quais pontos de extremidade um determinado usuário tem permissão para acessar.
 
-Este tutorial se baseia no Início Rápido dos Serviços Móveis e se baseia no tutorial [Adicionar autenticação a um aplicativo de Serviços Móveis existente]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existente] primeiro.
+Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis existentes]. Preencha [Adicionar autenticação ao aplicativo de serviços móveis existente] primeiro.
 
 ## <a name="register-scripts"></a>Modificar os métodos de acesso a dados
 
@@ -67,12 +69,8 @@ Este tutorial se baseia no Início Rápido dos Serviços Móveis e se baseia no 
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Adicionar autenticação a um aplicativo de Serviços Móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Adicionar autenticação ao aplicativo de Serviços Móveis existentes]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

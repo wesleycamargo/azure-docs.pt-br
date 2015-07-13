@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fornecer ativos de mídia - Azure" 
+	pageTitle="Como fornecer ativos de mídia" 
 	description="Saiba quais são as opções para entregar ativos de mídia que foram carregados nos Serviços de Mídia no Azure. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
-# Como: Fornecer um Ativo por Download
+#Como fornecer um ativo por Download
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md).  
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
 Este tópico descreve as opções para a entrega de ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Você pode baixar ativos de mídia ou acessá-los usando um localizador. Você pode enviar conteúdo de mídia para outro aplicativo ou para outro provedor de conteúdo. Para melhor desempenho e escalabilidade, você também pode fornecer conteúdo usando uma CDN (Rede de Entrega de Conteúdo).
 
@@ -73,7 +73,6 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 	{
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
-  
+   
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

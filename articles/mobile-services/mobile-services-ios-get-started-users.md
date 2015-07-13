@@ -10,29 +10,25 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
-# Adicionar autenticação ao aplicativo Serviços Móveis do Azure existente
+# Adicionar autenticação a um aplicativo existente
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Neste tutorial, você adiciona a autenticação ao projeto de Início Rápido usando um provedor de identidade com suporte.
+Neste tutorial, você adiciona a autenticação ao [tutorial de início rápido dos Serviços Móveis] usando um provedor de identidade com suporte. Você deve concluir o [tutorial de início rápido dos Serviços Móveis] primeiro.
 
-Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro.
-
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+##<a name="register"></a>Registrar o aplicativo para autenticação
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
+##<a name="permissions"></a>Restringir permissões de dados a usuários autenticados
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-No Xcode, abra o projeto. Pressione o botão **Executar** para iniciar o aplicativo. Verifique se uma exceção com um código de status 401 (não autorizado) é gerada após o aplicativo ser iniciado. Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
@@ -44,7 +40,7 @@ No Xcode, abra o projeto. Pressione o botão **Executar** para iniciar o aplicat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móveis], você fornecerá ao usuário o valor da ID de usuário para filtrar os dados retornados.
+Em seguida, aprenda [como usar o valor da ID de usuário para filtrar dados retornados](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -73,17 +69,18 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 
 
 <!-- URLs. -->
-[Autorização de serviço de usuários dos Serviços Móveis]: mobile-services-javascript-backend-service-side-authorization.md
+[Service-side authorization of Mobile Services users]: mobile-services-javascript-backend-service-side-authorization.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[tutorial de Início Rápido dos Serviços Móveis]: /develop/mobile/tutorials/get-started-ios
+[tutorial de início rápido dos Serviços Móveis]: /develop/mobile/tutorials/get-started-ios
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

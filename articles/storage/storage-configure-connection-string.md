@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurando cadeias de conexão do Azure" 
-	description="Saiba como configurar cadeias de conexão para a conta de armazenamento no Azure." 
+	pageTitle="Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Azure" 
+	description="Saiba como configurar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso programático a recursos em uma conta de armazenamento. A cadeia de conexão pode encapsular sua chave de acesso da conta para uma conta que você possui, ou pode incluir uma assinatura de acesso compartilhado para acessar recursos em uma conta sem a chave de acesso." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,30 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/15/2015" 
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
 
 ## Visão geral
 
-Uma cadeia de conexão inclui as informações necessárias para acessar sua conta de armazenamento do Azure programaticamente. Você pode configurar uma cadeia de conexão para se conectar ao Armazenamento do Azure das seguintes maneiras:
+Uma cadeia de conexão inclui as informações necessárias para acessar programaticamente os recursos do Armazenamento do Azure. Seu aplicativo usa a cadeia de conexão para fornecer as informações necessárias para autenticar o acesso ao Armazenamento do Azure.
+
+Você pode configurar uma cadeia de conexão para:
 
 - Conecte-se ao emulador de armazenamento do Azure quando testar localmente seu serviço ou aplicativo.
+- Conecte-se a uma conta de armazenamento no Azure usando os pontos de extremidade padrão para os serviços de armazenamento ou pontos de extremidade explícitos que você definiu.
+- Acessar recursos em uma conta de armazenamento por meio de uma assinatura de acesso compartilhado (SAS).
 
-- Conecte-se a uma conta de armazenamento no Azure usando os pontos de extremidade padrão para os serviços de armazenamento.
+## Armazenar a sua cadeia de conexão
 
-- Conecte-se a uma conta de armazenamento no Azure usando pontos de extremidade explícitos para os serviços de armazenamento.
+Seu aplicativo precisará armazenar a cadeia de conexão para autenticar o acesso ao Armazenamento do Azure durante a execução. Você tem algumas opções diferentes para armazenar a cadeia de conexão:
 
-Se o aplicativo for um serviço de nuvem em execução no Azure, você geralmente salvará a cadeia de conexão no [arquivo de esquema de configuração de serviço do Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Se seu aplicativo é executado em outro ambiente (por exemplo, na área de trabalho), você normalmente salvará a cadeia de conexão em um arquivo app.config ou em outro arquivo de configuração. Você pode usar a classe  `CloudConfigurationManager` do Azure para acessar a cadeia de conexão em tempo de execução, independentemente de onde ela está sendo executada.
+- Para um aplicativo em execução na área de trabalho ou em um dispositivo, você pode armazenar a cadeia de conexão em um arquivo app.config ou em outro arquivo de configuração. Se você estiver usando um arquivo App. config, adicione a cadeia de conexão na seção **AppSettings**.
+- Para um aplicativo em execução em um serviço de nuvem do Azure, você pode armazenar a cadeia de conexão no [arquivo de esquema (.cscfg) de configuração de serviço do Azure](https://msdn.microsoft.com/library/ee758710.aspx). Adicionar a cadeia de conexão à seção **ConfigurationSettings** do arquivo de configuração de serviço.
+
+Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o emulador de armazenamento e uma conta de armazenamento do Azure na nuvem. Você precisa editar a cadeia de conexão para apontar para sua conta de armazenamento.
+
+Você pode usar a classe [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) do Azure para acessar a cadeia de conexão em tempo de execução, independentemente de onde ela estiver sendo executada.
 
 ## Criar uma cadeia de conexão para o emulador de armazenamento
 
-O emulador de armazenamento é uma conta local com um nome conhecido e uma chave. Como o nome da conta e a chave são os mesmos para todos os usuários, você pode usar um formato de cadeia de caracteres de atalho para se referir ao emulador de armazenamento dentro de uma cadeia de conexão. Defina o valor da cadeia de conexão para `UseDevelopmentStorage=true`.
+O emulador de armazenamento é uma conta local com um nome conhecido e uma chave. Você pode usar um formato de cadeia de caracteres de atalho, `UseDevelopmentStorage=true`, para se referir ao emulador de armazenamento de dentro de uma cadeia de conexão. Por exemplo, uma cadeia de conexão para o emulador de armazenamento em um app.config ficará parecido a:
+
+    <appSettings>
+      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+    </appSettings>
 
 Você também pode especificar um proxy HTTP para usar quando estiver testando seu serviço no emulador de armazenamento. Isso pode ser útil para observar solicitações e respostas HTTP enquanto você estiver depurando operações nos serviços de armazenamento. Para especificar um proxy, adicione a opção `DevelopmentStorageProxyUri` à cadeia de conexão e defina seu valor para o URI de proxy. Por exemplo, aqui está uma cadeia de conexão que aponta para o emulador de armazenamento e configura um proxy HTTP:
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+
+Consulte [Usar o Emulador de Armazenamento do Azure para Desenvolvimento e Teste](storage-use-emulator.md) para obter mais informações sobre o emulador de armazenamento.
 
 ## Criar uma cadeia de conexão para uma conta de armazenamento do Azure
 
@@ -49,9 +64,9 @@ Por exemplo, a cadeia de conexão será semelhante à seguinte cadeia de conexã
 ```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
 ```
 
-> [AZURE.NOTE] O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
+> [AZURE.NOTE]O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
     
-## Criando uma cadeia de conexão para um ponto de extremidade explícito do Armazenamento
+## Criando uma cadeia de conexão para um ponto de extremidade explícito do armazenamento
 
 Você pode para especificar explicitamente os pontos de extremidade do serviço em sua cadeia de conexão se:
 
@@ -73,7 +88,7 @@ Quando você especifica explicitamente pontos de extremidade de serviço na cade
 
 ### Especificando um ponto de extremidade de blob com um nome de domínio personalizado 
 
-Se você registrou o nome de domínio personalizado para uso com o serviço Blob, convém configurar explicitamente o ponto de extremidade de blob em sua cadeia de conexão. O valor de ponto de extremidade que está listado na cadeia de conexão é usado para construir os URIs de solicitação ao serviço Blob e ele determina a forma que os URIs são retornados ao seu código. 
+Se você registrou o nome de domínio personalizado para uso com o serviço Blob, convém configurar explicitamente o ponto de extremidade de blob em sua cadeia de conexão. O valor de ponto de extremidade que está listado na cadeia de conexão é usado para construir os URIs de solicitação ao serviço Blob e ele determina a forma que os URIs são retornados ao seu código.
 
 Por exemplo, uma cadeia de conexão para um ponto de extremidade de Blob em um domínio personalizado pode ser semelhante a:
 
@@ -103,6 +118,6 @@ Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cad
 
 	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

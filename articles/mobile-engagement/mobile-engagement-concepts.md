@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Conceitos do Mobile Engagement" 
+<properties
+	pageTitle="Conceitos do Mobile Engagement"
 	description="Conceitos do Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="01/24/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="01/24/2015"
 	ms.author="kapiteir" />
 
 #Conceitos do Azure Mobile Engagement
@@ -77,4 +77,6 @@ Os dados extras (ou extras) são alguns dados arbitrários que podem ser anexado
 Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de de uma árvore de pares chave/valor. As chaves são limitadas a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [_]) e o tamanho total de extras é limitado a 1024 caracteres (uma vez codificados em JSON pelo SDK do Mobile Engagement).
 
 A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento “SciFi fans” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content_viewed" com a chave extra "content_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO1-->

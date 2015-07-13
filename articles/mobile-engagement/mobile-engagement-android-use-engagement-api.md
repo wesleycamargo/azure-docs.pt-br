@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -36,7 +36,7 @@ Se o usuário permanecer mais de alguns segundos ocioso entre duas *atividades*,
 
 Uma *atividade* geralmente está associada com uma tela do aplicativo, isso significa que a *atividade* inicia quando a tela é exibida e é interrompida quando a tela for fechada: esse é o caso quando o SDK Engagement é integrado usando as classes `EngagementActivity`.
 
-Mas as *atividades* também podem ser controladas manualmente usando a API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
+Mas as *atividades* também podem ser controladas manualmente usando o API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
 
 ##Relatório de atividades
 
@@ -248,7 +248,7 @@ Esses dados podem ser estruturados, eles usam a classe de pacote do Android (na 
 
 #### simétricas
 
-Cada chave no `Bundle` deve corresponder à seguinte expressão regular:
+Cada chave no `Bundle` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -296,5 +296,6 @@ As informações do aplicativo são limitadas a **1024** caracteres por chamada 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"expiration":"2016-12-07","status":"premium"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -106,7 +106,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
         cd text
         echo Hello Azure Storage from Hudson > hello.txt
         date /t > date.txt
-        time /t > date.txt
+        time /t >> date.txt
  
 5. Na seção **Post-build Actions** de configuração do trabalho, clique em **Upload artifacts to Microsoft Azure Blob storage**.
 6. Em **Nome de Conta de Armazenamento**, selecione a conta de armazenamento a ser usada.
@@ -168,4 +168,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

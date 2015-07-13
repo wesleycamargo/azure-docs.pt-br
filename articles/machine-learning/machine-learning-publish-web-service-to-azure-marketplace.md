@@ -109,4 +109,4 @@ implantar o serviço em produção.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

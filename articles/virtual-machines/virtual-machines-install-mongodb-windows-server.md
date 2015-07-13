@@ -56,4 +56,4 @@ Neste tutorial você aprendeu a criar uma Máquina Virtual do Windows Server e a
 [AzureManagementPortal]: http://manage.windowsazure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

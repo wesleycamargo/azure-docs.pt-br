@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/05/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,12 +21,12 @@
 #Carregar arquivos em uma conta de serviços de mídia usando a API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Este artigo faz parte da série do [vídeo de serviços de mídia no fluxo de trabalho de demanda](media-services-video-on-demand-workflow.md) series. 
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais.
 
 
->[AZURE.NOTE]Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Nome** não pode ter nenhum um dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+>[AZURE.NOTE]Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 O fluxo de trabalho básico para a ingestão de Ativos é dividido nas seguintes seções:
 
@@ -37,28 +37,27 @@ O fluxo de trabalho básico para a ingestão de Ativos é dividido nas seguintes
 
 ##Criar um ativo
 
->[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+>[AZURE.NOTE]Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
  
 Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
-Uma das propriedades que você pode especificar quando criar um ativo está em **opções**. **Opções ** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores. 
+Uma das propriedades que você pode especificar quando criar um ativo está em **Opções**. **Opções** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores.
 
-- **None** = **0**: Nenhuma criptografia será usada. Esse é o valor padrão. Observe que ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
-	Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
+- **None** = **0**: nenhuma criptografia será usada. Esse é o valor padrão. Observe que ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
 
-- **StorageEncrypted** = **1**: Especifique se você deseja que os arquivos sejam criptografados com a criptografia AES de 256 bits para carregamento e armazenamento.
+- **StorageEncrypted** = **1**: especifique se você deseja que os arquivos sejam criptografados com a criptografia AES de 256 bits para carregamento e armazenamento.
 
 	Se seu ativo tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
-- **CommonEncryptionProtected** = **2**: Especifique se você estiver carregando arquivos protegidos com um método de criptografia comum (por exemplo, PlayReady). 
+- **CommonEncryptionProtected** = **2**: especifique se você estiver carregando arquivos protegidos com um método de criptografia comum (por exemplo, PlayReady).
 
-- **EnvelopeEncryptionProtected** = **4**: Especifique se você estiver carregando HSL criptografado com arquivos AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
+- **EnvelopeEncryptionProtected** = **4**: especifique se você estiver carregando HLS criptografado com arquivos AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
->[AZURE.NOTE]Se o ativo for usar criptografia, você deve criar um **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](media-services-rest-create-contentkey.md). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **ativos**. Faça isso usando a solicitação HTTP de **mesclar**. 
+>[AZURE.NOTE]Se o ativo for usar criptografia, você deve criar uma **ContentKey** e vinculá-lo ao seu ativo conforme descrito no tópico a seguir:[Como criar um ContentKey](media-services-rest-create-contentkey.md). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE**.
 
 
 O exemplo a seguir mostra como criar um ativo.
@@ -72,7 +71,7 @@ O exemplo a seguir mostra como criar um ativo.
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"BigBuckBunny.mp4"}
@@ -110,11 +109,11 @@ Se for bem-sucedido, será retornado o seguinte:
 	
 ##Criar um AssetFile
 
-A entidade do [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
+A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
 Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
-Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP de **mesclar** para atualizar o AssetFile com informações sobre o arquivo de mídia (como mostrado posteriormente no tópico). 
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
 
 **Solicitação HTTP**
 
@@ -125,7 +124,7 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	Content-Length: 164
 	
@@ -175,7 +174,7 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
 
 ## Criando o AccessPolicy com permissão de gravação. 
 
-Antes de carregar todos os arquivos no armazenamento de blob, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para obter mais informações sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Antes de carregar todos os arquivos no armazenamento de blob, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 O exemplo a seguir mostra como criar um AccessPolicy:
 		
@@ -188,7 +187,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -222,7 +221,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 
 ##Obter a URL de carregamento
 
-Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usam o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para obter mais informações, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usam o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
 Uma URL SAS tem o seguinte formato:
@@ -231,11 +230,11 @@ Uma URL SAS tem o seguinte formato:
 
 Algumas considerações se aplicam:
 
-- Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para obter mais informações, consulte localizador.
-- Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor StartTime deve ser no formato de data e hora a seguir: YYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").	
+- Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
+- Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").	
 - Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
 
-O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade de **caminho** retornada contém a URL que você deve usar para carregar seu arquivo.
+O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
 	
 **Solicitação HTTP**
 	
@@ -246,7 +245,7 @@ O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido p
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	{  
 	   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -290,11 +289,11 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 ## Carregar um arquivo em um contêiner de armazenamento de blob
 	
-Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos. 
+Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos.
 
->[AZURE.NOTE] Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor do **caminho** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
-Para obter mais informações sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
 ## Atualizar o AssetFile 
@@ -308,7 +307,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{  
@@ -322,8 +321,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
-	HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 
@@ -336,7 +334,7 @@ Se for bem-sucedido, será retornado o seguinte:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 	
@@ -355,7 +353,7 @@ Se for bem-sucedido, será retornado o seguinte:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 **Resposta HTTP**
@@ -366,7 +364,7 @@ Se for bem-sucedido, será retornado o seguinte:
 	...
 
  
-[Como obter um processador de mídia]: media-services-get-media-processor.md
+[How to Get a Media Processor]: media-services-get-media-processor.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

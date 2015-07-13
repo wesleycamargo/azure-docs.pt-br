@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Azure" 
+	pageTitle="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Microsoft Azure" 
 	description="Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,24 +14,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="msolhab" /> 
+	ms.date="05/29/2015" 
+	ms.author="msolhab" />
 
 # Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 
-Para carregamento/transferência de big data para um banco de dados SQL, a importação de dados para o banco de dados SQL e as consultas subsequentes podem ser melhorados usando _Tabelas Particionadas e Exibições_.  Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server.
+Para carregamento/transferência de big data para um banco de dados SQL, a importação de dados para o banco de dados SQL e as consultas subsequentes podem ser melhorados usando _Tabelas Particionadas e Exibições_. Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server.
+
 
 ## Criar um novo banco de dados e um conjunto de grupos de arquivos
 
 - [Criar um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx) (se já não existir)
 - Adicionar grupos de arquivos de banco de dados ao banco de dados que vai conter os arquivos físicos particionados
-- Observação:  Isso pode ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx) se for novo ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx) se o banco de dados já existir
+- Isso pode ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx) se for novo ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx) se o banco de dados já existir
 
 - Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados
 
- > [AZURE.NOTE] Especifique o grupo de arquivos de destino que conterá os dados para essa partição e os nomes dos arquivos de banco de dados físico onde serão armazenados os dados do grupo de arquivos.
+ >[AZURE.NOTE]Especifique o grupo de arquivos de destino que conterá os dados para essa partição e os nomes dos arquivos de banco de dados físico onde serão armazenados os dados do grupo de arquivos.
  
-O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que não são os grupos principal e de registro, contendo um arquivo físico cada um.  Os arquivos de banco de dados são criados na pasta de Dados do SQL Server padrão, conforme configurado na instância do SQL Server.  Para obter mais informações sobre os locais de arquivo padrão, consulte [Locais de arquivo para instâncias padrão e nomeadas do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que não são os grupos principal e de registro, contendo um arquivo físico cada um. Os arquivos de banco de dados são criados na pasta de Dados do SQL Server padrão, conforme configurado na instância do SQL Server. Para obter mais informações sobre os locais de arquivo padrão, consulte [Locais de arquivo para instâncias padrão e nomeadas do SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -55,7 +55,7 @@ O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que 
     
 ## Criar uma tabela particionada
 
-Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior.  Quando dados são importados em massa para a tabela particionada, os registros serão distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
+Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior. Quando dados são importados em massa para a tabela particionada, os registros serão distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
 
 **Para criar uma tabela de partição, você precisa:**
 
@@ -75,7 +75,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- Dica:  Para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
+- Dica: para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -94,13 +94,13 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 
 ## Importe os dados em massa para cada tabela de partição individual
 
-- Você pode usar o BCP, BULK INSERT ou outros métodos como o [Assistente de Migração do SQL Server](http://sqlazuremw.codeplex.com/).  O exemplo fornecido usa o método BCP.
+- Você pode usar o BCP, BULK INSERT ou outros métodos como o [Assistente de Migração do SQL Server](http://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
 
 - [Altere o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de registro em log de transações como BULK_LOGGED para minimizar a sobrecarga de registros, por exemplo:
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
-- Para acelerar o carregamento de dados, inicie as operações de importação em massa paralela.  Para obter dicas sobre como acelerar a importação em massa de big data em bancos de dados do SQL Server, consulte [Carregar 1 TB em menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+- Para acelerar o carregamento de dados, inicie as operações de importação em massa paralela. Para obter dicas sobre como acelerar a importação em massa de big data em bancos de dados do SQL Server, consulte [Carregar 1 TB em menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 O script do PowerShell a seguir é um exemplo de carregamento de dados paralela que usa o BCP.
 
@@ -178,10 +178,11 @@ ou
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] Você pode optar por criar os índices antes de importar os dados em massa.  Criar índices antes da importação em massa retardará o carregamento de dados.
+ >[AZURE.NOTE]Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retardará o carregamento de dados.
 
-### Exemplo da Ciência de Dados do Azure em Ação
+### Exemplo de Processo e Tecnologia de Análise Avançada em ação
 
-Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de Dados do Azure usando um conjunto de dados público, consulte [Processo de Ciência de Dados do Azure em ação](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo de ponta a ponta usando o ADAPT (Processo e Tecnologia de Análise Avançada) com um conjunto de dados público, confira [Processo e Tecnologia de Análise Avançada em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

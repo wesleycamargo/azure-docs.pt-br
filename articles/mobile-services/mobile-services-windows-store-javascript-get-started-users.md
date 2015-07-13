@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -24,7 +24,7 @@ Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em 
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
+1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 4. [Armazenar os tokens de autenticação no cliente]
@@ -33,9 +33,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 >[AZURE.NOTE]Este tutorial demonstra o fluxo de autnticação gerenciado pelos Serviços Móveis utilizando uma variedade de provedores de identidade. Esse método é fácil de configurar e oferece suporte a vários provedores. Em vez de usar o Live Connect com autenticação gerenciada pelo cliente e forneça uma experiência de logon único em seu aplicativo da Windows Phone, consulte o tópico [Logon único para aplicativos da Windows Store usando o Live Connect]. Ao usar a autenticação gerenciada pelo cliente, seu aplicativo tem acesso aos dados adicionais do usuário mantidos pelo provedor de identidade. Você pode obter os mesmos dados do usuário em seu serviço móvel ao chamar a função **user.getIdentities()** nos scripts do servidor. Para obter mais informações, consulte [essa postagem](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+##<a name="register"></a> Registrar seu aplicativo para a autenticação e configure os Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 <ol start="5">
 <li><p>(Opcional) Conclua as etapas em <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft</a>.</p>
@@ -48,7 +48,7 @@ O serviço móvel e seu aplicativo agora estão configurados para funcionar com 
 
 ##<a name="permissions"></a>Restringir as permissões aos usuários autenticados
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
 <li><p>No Visual Studio 2012 Express para Windows 8, abra o projeto que você criou quando concluiu o tutorial <a href="/develop/mobile/tutorials/get-started/">Introdução aos Serviços Móveis</a>.</p></li> 
@@ -61,11 +61,11 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="add-authentication"></a> Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
 
 ##<a name="tokens"></a>Armazenar os tokens de autorização no cliente
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -73,7 +73,7 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
+[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
 [Restringir permissões de tabela para usuários autenticados]: #permissions
 [Adicionar autenticação ao aplicativo]: #add-authentication
 [Armazenar os tokens de autenticação no cliente]: #tokens
@@ -92,5 +92,6 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -466,4 +466,4 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Solucionar problemas de coleções híbridas - criação"
+    pageTitle="Solucionar problemas na criação de coleções híbridas do RemoteApp"
     description="Saiba como solucionar problemas de falhas de criação de coleção híbrida do RemoteApp" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
@@ -9,51 +9,78 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="vikbucha" />
+    ms.date="06/30/2015" 
+    ms.author="elizapo" />
 
 
 
-# Solucionar problemas de coleções híbridas - criação
+# Solucionar problemas na criação de coleções híbridas do RemoteApp do Azure
 
-Antes de solucionar falhas durante a criação de coleção híbrida, é importante entender como as coleções híbrida são criadas. Uma coleção híbrida requer que instâncias do RemoteApp sejam adicionadas ao domínio. Isso é feito durante a criação da coleção.  Quando o processo de criação de coleção se inicia, cópias das imagens do modelo que você carregou são criadas na VNET e adicionadas ao domínio usando o túnel VPN site a site resolvido com o registro de IP DNS especificado durante a criação da VNET.
+Uma coleção híbrida é hospedada e armazena os dados na nuvem do Azure, mas também permite aos usuários acessarem dados e recursos armazenados em sua rede local. Os usuários podem acessar aplicativos ao efetuar logon com suas credenciais corporativas sincronizadas ou federadas com o Active Directory do Azure. Você pode implantar uma coleção híbrida que usa uma Rede Virtual existente do Azure, ou você pode criar uma nova rede virtual. Recomendamos que você crie ou use uma sub-rede da rede virtual com uma variedade CIDR grande o suficiente para futuro crescimento estimado para o RemoteApp do Azure.
 
-Erros comuns vistos no Portal de Gerenciamento do Azure:
+Ainda não criou sua coleção? Confira [Criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md) para obter as etapas.
 
-	DNS server could not be reached
+Se estiver enfrentando problemas para criar sua coleção, ou se a coleção não está funcionando como você acha que deveria, verifique as informações a seguir.
 
-	Could not join the domain. Unable to reach the domain.
+## A sua VNET usa túnel forçado? ##
+O RemoteApp atualmente não dá suporte ao uso de VNETs que tem habilitada a opção de túnel forçado. Se você precisar dessa função, contate a equipe do RemoteApp para solicitar ajuda.
 
-Se você vir um dos erros anteriores, consulte os seguintes procedimentos:
+Depois que a solicitação for aprovada, verifique se as portas a seguir estão abertas na sub-rede que você escolheu para o RemoteApp do Azure e para as VMs na sub-rede. As VMs em suas sub-redes também devem ser capazes de acessar as URLs mencionadas na seção sobre grupos de segurança de rede.
 
-- Verifique se as configurações de IP de DNS são válidas
-- Certifique-se de que os registros de IP de DNS são registros de IP públicos ou fazem parte do "espaço de endereço local" especificado durante a criação de VNET
-- Verifique o túnel VNET para garantir que está no estado ativo ou conectado 
-- Certifique-se de que o lado local da conexão VPN não está bloqueando o tráfego de rede. Você pode verificar isso consultando os logs do software ou dispositivo VPN local.
-- Certifique-se de que o domínio especificado durante a criação de coleção esteja em execução.
+Saída: TCP: 443, TCP: 10101-10175
 
-	ProvisioningTimeout
+## A sua VNET tem grupos de segurança de rede definidos? ##
+Se você tiver grupos de segurança de rede definidos na sub-rede que você está usando para sua coleção, verifique se as seguintes URLs estão acessíveis de dentro da sub-rede:
 
+	https://management.remoteapp.windowsazure.com  
+	https://opsapi.mohoro.com  
+	https://telemetry.remoteapp.windowsazure.com  
+	https://*.remoteapp.windowsazure.com  
+	https://login.windows.net (if you have Active Directory)  
+	https://login.microsoftonline.com  
+	Azure storage *.remoteapp.windowsazure.com  
+	*.core.windows.net  
+	https://www.remoteapp.windowsazure.com  
+	https://www.remoteapp.windowsazure.com  
 
-Se você receber esse erro, verifique as seguintes ações:
+Abra as seguintes portas na sub-rede virtual:
 
-- Certifique-se de que o lado local da conexão VPN não está bloqueando o tráfego de rede. Você pode verificar isso consultando os logs do software ou dispositivo VPN local.
-- Certifique-se de que a imagem de modelo do RemoteApp carregada corretamente foi preparada para o sistema corretamente. Você pode verificar os requisitos de imagem do RemoteApp aqui: http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/ 
-- Tente criar uma VM usando a imagem de modelo carregada e certifique-se de que ela seja inicializada e executada corretamente (a) em um servidor local do Hyper-V; (b) criando uma VM IAAS do Azure na sua assinatura do Azure. Se a criação da VM falhar ou não iniciar, isso geralmente indica que a imagem de modelo não foi preparada corretamente e você terá de corrigi-la.
+Entrada - TCP: 3030, TCP: 443 Saída - TCP: 443
 
-	DomainJoinFailed_InvalidUserNameOrPassword
+Você pode adicionar grupos de segurança de rede adicionais às máquinas virtuais implantadas por você na sub-rede para um controle mais rigoroso.
 
-	DomainJoinFailed_InvalidParameter
+## Você está usando seus próprios servidores DNS? Eles são acessíveis da sua sub-rede VNET? ##
+Para coleções híbridas, use seus próprios servidores DNS. Você os especifica no seu esquema de configuração de rede ou por meio do portal de gerenciamento ao criar a rede virtual. Os servidores DNS são usados na ordem em que eles forem especificados em uma forma de failover (em vez de round robin).
 
-Se você vir um dos erros anteriores, consulte os seguintes procedimentos:
+Verifique se os servidores DNS de sua coleção estão acessíveis e disponíveis da sub-rede VNET especificada para essa coleção.
 
-- Verifique se as credenciais inseridas para ingresso no domínio são válidas
-- Verifique se as credenciais para ingresso no domínio estão corretas ou têm as permissões de associação de domínio apropriadas
-- Verifique se a UO (unidade organizacional) está formatada corretamente e existe no Active Directory.
+Por exemplo:
 
+	<VirtualNetworkConfiguration>
+    <Dns>
+      <DnsServers>
+        <DnsServer name="" IPAddress=""/>
+      </DnsServers>
+    </Dns>
+	</VirtualNetworkConfiguration>
 
-<!--HONumber=52--> 
+![Definir o DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
+
+Para saber mais, confira [Resolução de nome usando seu próprio servidor DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
+
+## Você está usando um controlador de domínio do Active Directory em sua coleção? ##
+No momento, somente um domínio do Active Directory pode ser associado ao RemoteApp do Azure. A coleção híbrida dá suporte somente às contas do Active Directory do Azure que foram sincronizadas usando a ferramenta DirSync de uma implantação do Active Directory do Windows Server. Mais especificamente, sincronizado com a opção de Sincronização de Senha ou com federação dos Serviços de Federação do Active Directory (AD FS) configurada. Você precisa criar um domínio personalizado que coincide com o sufixo de domínio para seu domínio local e configurar a integração de diretório.
+
+Confira [Configurando o Active Directory para o RemoteApp do Azure](remoteapp-ad.md) para obter informações de planejamento.
+
+Verifique se os detalhes do domínio fornecidos são válidos e se o controlador de domínio está acessível da VM criada na sub-rede usada para o RemoteApp do Azure. Verifique também se as credenciais da conta de serviço fornecidas têm permissões para adicionar computadores ao domínio fornecido e se o nome do AD fornecido pode ser resolvido a partir do DNS fornecido na VNET.
+
+## Que nome de domínio você especificou quando criou a sua coleção? ##
+
+O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
+
+<!---HONumber=July15_HO1-->

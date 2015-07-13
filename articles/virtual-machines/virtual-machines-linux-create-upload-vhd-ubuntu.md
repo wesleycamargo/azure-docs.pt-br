@@ -93,7 +93,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 	a) Abra o arquivo /etc/grub.d/00_header.
 
-	b) Na função **make_timeout()**, procure **if ["\${recordfail}" = 1 ]; então**
+	b) Na função **make_timeout()**, pesquise por **se ${recordfail}" = 1 ]; e, em seguida**
 
 	c) Altere a instrução abaixo desta linha para **set timeout=5**.
 
@@ -122,4 +122,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 11. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

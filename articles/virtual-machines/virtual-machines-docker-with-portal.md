@@ -72,25 +72,25 @@ Nos campos do formulário, insira as versões codificadas em base64 do certifica
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE]Observe que (como na imagem anterior) a 4243 é preenchido por padrão. Você pode inserir qualquer ponto de extremidade nesse campo, mas precisará abrir o ponto de extremidade correspondente na próxima etapa. Se alterar o padrão, lembre-se de abrir o ponto de extremidade correspondente na etapa seguinte.
+> [AZURE.NOTE]Observe que (como na imagem anterior) 2376 é preenchido por padrão. Você pode inserir qualquer ponto de extremidade nesse campo, mas precisará abrir o ponto de extremidade correspondente na próxima etapa. Se alterar o padrão, lembre-se de abrir o ponto de extremidade correspondente na etapa seguinte.
 
 ## Adicionar o ponto de extremidade de comunicação do Docker
 Ao visualizar sua máquina virtual no grupo de recursos que você criou, navegue para clicar em **Pontos de extremidade** e visualizar os pontos na máquina virtual, como mostramos abaixo.
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-Clique em **+ Adicionar** para adicionar outro ponto de extremidade. No caso padrão, insira o nome do ponto de extremidade (neste exemplo, **Docker**) e informe 4243 como porta privada e pública. Selecione **TCP** como valor do protocolo e clique em **OK** para criar o ponto de extremidade.
+Clique em **+ Adicionar** para adicionar outro ponto de extremidade. No caso padrão, insira o nome do ponto de extremidade (neste exemplo, **docker**) e informe 2376 como porta privada e pública. Selecione **TCP** como valor do protocolo e clique em **OK** para criar o ponto de extremidade.
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## Testar o cliente Docker e o host Docker do Azure
-Localize e copie o nome do domínio da sua máquina virtual. Na linha de comando do computador cliente, insira `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (onde *dockerextension* é substituído pelo subdomínio da máquina virtual).
+Localize e copie o nome do domínio da sua máquina virtual. Na linha de comando do computador cliente, insira `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (onde *dockerextension* é substituído pelo subdomínio da máquina virtual).
 
 O resultado deve ter esta aparência:
 
 ```
-$ docker --tls -H tcp://dockerextension.cloudapp.net:4243 info
+$ docker --tls -H tcp://dockerextension.cloudapp.net:2376 info
 Containers: 0
 Images: 0
 Storage Driver: devicemapper
@@ -145,4 +145,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -35,4 +35,4 @@ O disco permanece no armazenamento mas não esteja conectado a uma máquina virt
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

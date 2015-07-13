@@ -71,6 +71,6 @@ Execute as etapas a seguir para atualizar a criptografia de dados de serviço no
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change).
+3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

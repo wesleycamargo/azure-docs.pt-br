@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="06/03/2015" 
+	ms.author="ricksal"/>
 
 # Chamar uma API personalizada do cliente
 
@@ -33,7 +33,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-[AZURE.INCLUDE [mobile-services-android-call-custom-api](mobile-services-android-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
 ## Próximas etapas
 
@@ -61,5 +61,6 @@ Agora que você criou uma API personalizada e a chamou em seu aplicativo Android
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

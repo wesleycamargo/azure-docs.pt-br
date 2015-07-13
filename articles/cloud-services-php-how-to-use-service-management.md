@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Como usar as APIs de gerenciamento de serviços do Azure (PHP)" 
-	description="Saiba como usar as APIs de Gerenciamento de Serviços do PHP do Azure para gerenciar serviços de nuvem e outros aplicativos do Azure." 
-	services="web-sites" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Como usar as APIs de gerenciamento de serviços do Azure (PHP)"
+	description="Saiba como usar as APIs de Gerenciamento de Serviços do PHP do Azure para gerenciar serviços de nuvem e outros aplicativos do Azure."
+	services="web-sites"
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="11/17/2014" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="11/17/2014"
 	ms.author="tomfitz"/>
 
 # Como usar o Gerenciamento de Serviços do PHP
@@ -52,14 +52,14 @@ Para criar o certificado `.cer`, execute isto:
 
 Para obter mais informações sobre certificados do Azure, consulte [Visão geral dos certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/azure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Se você baixou e importou seu arquivo de configurações de publicação usando as [Ferramentas de linha de comando do Azure][command-line-tools], você poderá usar o arquivo `.pem` que as ferramentas criaram em vez de criar o seu próprio arquivo. As ferramentas criam um arquivo `.cer` para você e o atualizam no Azure, colocam o arquivo `.pem` correspondente no diretório do `.azure` em seu computador (em seu diretório de usuário).
+Se você baixou e importou o seu arquivo de configurações de publicação usando a [Interface de linha de comando do Azure][Azure CLI], você pode usar o arquivo `.pem` criado pelas ferramentas criam em vez de criar o seu próprio arquivo. As ferramentas criam um arquivo `.cer` para você e o atualizam no Azure, colocam o arquivo `.pem` correspondente no diretório do `.azure` em seu computador (em seu diretório de usuário).
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio do [portal de gerenciamento][management-portal], e precisará anotar o local onde salvou o arquivo `.pem`.
 
 Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure criando uma cadeia de conexão e passando-a para o método **createServiceManagementService** na classe **ServicesBuilder**:
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 
 	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.pem_certificate>";
@@ -79,9 +79,9 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
 
 	try{
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-	
+
 		$result = $serviceManagementRestProxy->listLocations();
-	
+
 		$locations = $result->getLocations();
 
 		foreach($locations as $location){
@@ -90,7 +90,7 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -99,19 +99,19 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
 
 Quando cria um serviço de nuvem, um serviço de armazenamento ou um grupo de afinidade, você precisa fornecer um local válido. O método **listLocations** sempre retornará uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
 
-- Em qualquer lugar dos EUA 
-- Em qualquer lugar da Europa 
-- Europa Ocidental 
-- Em qualquer lugar da Ásia 
-- Sudeste Asiático 
-- Ásia Oriental 
-- Centro-Norte dos EUA 
-- Norte da Europa 
-- Centro-Sul dos Estados Unidos 
-- Oeste dos EUA 
+- Em qualquer lugar dos EUA
+- Em qualquer lugar da Europa
+- Europa Ocidental
+- Em qualquer lugar da Ásia
+- Sudeste Asiático
+- Ásia Oriental
+- Centro-Norte dos EUA
+- Norte da Europa
+- Centro-Sul dos Estados Unidos
+- Oeste dos EUA
 - Leste dos EUA
 
-Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar locais como enumerações usando a classe <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
+Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar locais como enumerações usando a classe <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
 
 ## Como: criar um serviço de nuvem
 
@@ -126,7 +126,7 @@ Quando você cria um aplicativo e o executa no Azure, o código e a configuraç�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -138,7 +138,7 @@ Quando você cria um aplicativo e o executa no Azure, o código e a configuraç�
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -162,9 +162,9 @@ Você pode listar todos os serviços hospedados para sua assinatura com o métod
 Se desejar obter informações sobre um determinado serviço hospedado, você pode fazê-lo passando o nome do serviço hospedado para o método **getHostedServiceProperties**:
 
 	$getHostedServicePropertiesResult = $serviceManagementRestProxy->getHostedServiceProperties("myhostedservice");
-		
+
 	$hosted_service = $getHostedServicePropertiesResult->getHostedService();
-		
+
 	echo "Service name: ".$hosted_service->getName()."<br />";
 	echo "Management URL: ".$hosted_service->getUrl()."<br />";
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
@@ -203,7 +203,7 @@ O exemplo a seguir cria uma nova implantação no slot de produção de um servi
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
@@ -217,13 +217,13 @@ O exemplo a seguir cria uma nova implantação no slot de produção de um servi
 														 $packageUrl,
 														 $configuration,
 														 $label);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -236,7 +236,7 @@ Você pode acessar as propriedades de implantação com o método **getDeploymen
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
 	$getDeploymentResult = $serviceManagementRestProxy->getDeployment("myhostedservice", $options);
 	$deployment = $getDeploymentResult->getDeployment();
 
@@ -268,20 +268,20 @@ O método **changeDeploymentConfiguration** permite carregar um novo arquivo de 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$configuration = base64_encode(file_get_contents('path to .cscfg file'));
 		$options = new ChangeDeploymentConfigurationOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
 
         $result = $serviceManagementRestProxy->changeDeploymentConfiguration($name, $configuration, $options);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -299,19 +299,19 @@ O método **updateDeploymentStatus** permite que você defina o status de uma im
 	use WindowsAzure\ServiceManagement\Models\DeploymentSlot;
 	use WindowsAzure\ServiceManagement\Models\GetDeploymentOptions;
 	use WindowsAzure\Common\ServiceException;
-	
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
         $result = $serviceManagementRestProxy->updateDeploymentStatus("myhostedservice", DeploymentStatus::RUNNING, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -324,7 +324,7 @@ O Azure fornece dois ambientes de implantação: preparo e produção. Normalmen
 
 O exemplo a seguir mostra como usar o método **swapDeployment** para permutar duas implantações (com os nomes de implantação `v1` e `v2`). No exemplo, antes de chamar o método **swapDeployment**, a implantação `v1` está no slot de produção e a implantação `v2` está no slot de preparo. Após chamar **swapDeployment**, a implantação `v2` está em produção e a implantação `v1` está em preparo.
 
-	require_once 'vendor\autoload.php';	
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
@@ -332,12 +332,12 @@ O exemplo a seguir mostra como usar o método **swapDeployment** para permutar d
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$result = $serviceManagementRestProxy->swapDeployment("myhostedservice", "v2", "v1");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -358,15 +358,15 @@ Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::STAGING);
-		
+
 		$result = $serviceManagementRestProxy->deleteDeployment("myhostedservice", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -378,16 +378,16 @@ Para excluir uma implantação, use o método **deleteDeployment**. O exemplo a 
 Um [serviço de armazenamento] fornece acesso a [Blobs][azure-blobs], [Tabelas][azure-tables] e [Filas][azure-queues] do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), um rótulo (um nome com até 100 caracteres codificado em base 64 para o serviço) e um local ou um grupo de afinidade. Fornecer uma descrição para o serviço é opcional. O local, o grupo de afinidade e a descrição são definidos em um objeto [CreateServiceOptions], que é passado para o método **createStorageService**. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local. Se desejar usar um grupo de afinidade, você precisará primeiro criar um grupo de afinidade (consulte [Como criar um grupo de afinidade](#CreateAffinityGroup)) e defini-lo com o método **CreateServiceOptions->setAffinityGroup**.
 
 	require_once 'vendor\autoload.php';
-	 
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
-	 
+
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "mystorageaccount";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -401,7 +401,7 @@ Um [serviço de armazenamento] fornece acesso a [Blobs][azure-blobs], [Tabelas][
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -430,19 +430,19 @@ Você pode listar suas contas de armazenamento e suas propriedades com o método
 Você pode excluir um serviço de armazenamento passando o nome do serviço para o método **deleteStorageService**. A exclusão de um serviço de armazenamento excluirá todos os dados armazenados no serviço (blobs, tabelas e filas).
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$serviceManagementRestProxy->deleteStorageService("mystorageservice");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -456,27 +456,27 @@ Um grupo de afinidade é um agrupamento lógico dos serviços do Azure que infor
 Para criar um grupo de afinidade, você precisa de um nome, de um rótulo (nome codificado em base 64), e de um local. Opcionalmente, você pode fornecer uma descrição:
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateAffinityGroupOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myAffinityGroup";
         $label = base64_encode($name);
         $location = "West US";
 
         $options = new CreateAffinityGroupOptions();
 		$options->setDescription = "My affinity group description.";
-		
+
         $serviceManagementRestProxy->createAffinityGroup($name, $label, $location, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -485,10 +485,10 @@ Para criar um grupo de afinidade, você precisa de um nome, de um rótulo (nome 
 
 Depois de criar um grupo de afinidade, você pode especificar o grupo (em vez de um local) ao [criar um serviço de armazenamento](#CreateStorageService).
 
-Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o método **listAffinityGroups** e, em seguida, chamando os métodos apropriados na classe [AffinityGroup]\:
+Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o método **listAffinityGroups** e, em seguida, chamando os métodos apropriados na classe [AffinityGroup]:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
-	
+
 	$groups = $result->getAffinityGroups();
 
 	foreach($groups as $group){
@@ -499,30 +499,31 @@ Você pode listar grupos de afinidade e inspecionar suas propriedades chamando o
 	}
 
 ## Como excluir um grupo de afinidade
-	
+
 Você pode excluir um grupo de afinidade passando o nome do grupo para o método **deleteAffinityGroup**. Observe que para poder excluir um grupo de afinidade, o grupo de afinidade deve estar desassociado de qualquer serviço (ou os serviços que usam o grupo de afinidade devem ser excluídos).
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
-		// An affinity group must be disassociated from all services 
+
+		// An affinity group must be disassociated from all services
 		// before it can be deleted.
 		$serviceManagementRestProxy->deleteAffinityGroup("myAffinityGroup");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
@@ -530,7 +531,7 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 [storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
-[command-line-tools]: virtual-machines-command-line-tools.md
+[Azure CLI]: virtual-machines/virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
@@ -554,4 +555,4 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 
 [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

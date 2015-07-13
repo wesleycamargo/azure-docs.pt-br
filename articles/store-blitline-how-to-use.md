@@ -143,12 +143,11 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
 * Biblioteca de Nuget de terceiros <http://nuget.org/packages/Blitline.Net>
 
 
-[Próximas etapas]: #nextsteps
-[O que é o Blitline?]: #whatis
-[O que o Blitline NÃO é]: #whatisnot
-[Criar uma conta do Blitline]: #createaccount
-[Como criar um trabalho do Blitline]: #createjob
-[Como salvar uma imagem em seu Armazenamento do Azure]: #saveazure
+  [Próximas etapas]: #nextsteps
+  [O que é o Blitline?]: #whatis
+  [O que o Blitline NÃO é]: #whatisnot
+  [Criar uma conta do Blitline]: #createaccount
+  [Como criar um trabalho do Blitline]: #createjob
+  [Como salvar uma imagem em seu Armazenamento do Azure]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

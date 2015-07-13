@@ -125,7 +125,7 @@ Em um host Docker, execute: ```
 ## Executando comandos da CLI do Azure
 
 Quando a CLI do Azure estiver instalada, você poderá usar o comando **azure** na sua interface de linha de comando (Bash, Terminal, cmd.exe, etc.) para acessar os comandos da CLI do Azure. Por exemplo, para executar o comando de ajuda no Windows, inicie um prompt de comando (cmd.exe) com privilégios de administrador: ```
-	c:> azure help
+	C:\> azure help
 ```
 
 Agora você está pronto! Em seguida, você pode [conectar-se à sua assinatura do Azure na CLI do Azure](xplat-cli-connect.md) e começar a usar os comandos **azure**.
@@ -150,7 +150,7 @@ Agora você está pronto! Em seguida, você pode [conectar-se à sua assinatura 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

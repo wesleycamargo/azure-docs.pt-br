@@ -62,7 +62,7 @@ Baixe [a versão mais recente do Azure PowerShell](https://github.com/Azure/azur
 LoadBalancerDistribution pode ser definido como sourceIP para balanceamento de carga de 2 tuplas (IP de origem, IP de destino), sourceIPProtocol para balanceamento de carga de 3 tuplas (IP de destino, IP de origem, protocolo) ou nenhum se você quiser o comportamento padrão (balanceamento de carga de 5 tuplas).
 
 ### Recupee uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade
-    PS C:> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -161,4 +161,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

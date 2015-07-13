@@ -65,7 +65,7 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 
 	![Cadeia de conexão exibida](./media/create-mysql-db/shown-conn-string.png)
 
-> [AZURE.NOTE]As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no objeto **connectionStrings**. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para saber mais, consulte [Como configurar sites][configure].
+> [AZURE.NOTE]As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no objeto **connectionStrings**. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para obter mais informações, consulte [Como configurar sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
@@ -73,4 +73,4 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

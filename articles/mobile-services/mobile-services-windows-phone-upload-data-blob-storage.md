@@ -2,8 +2,7 @@
 	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Phone) | Serviços Móveis" 
 	description="Aprenda a usar os Serviços Móveis para carregar imagens no Armazenamento de blobs do Azure." 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="wesmc"/>
+	ms.date="06/04/2015" 
+	ms.author="glenga"/>
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
 
@@ -38,7 +37,7 @@ Este tutorial exige o seguinte:
 + [SDK do Windows Phone 8.0] ou superior
 + Gerenciador de Pacotes Nuget instalado para o Microsoft Visual Studio.
 + [Conta de Armazenamento do Azure][How To Create a Storage Account]
-+ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-windows-phone-get-started-data.md)   
++ Conclua o tutorial [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-windows-phone-get-started-data.md)  
 
 
 ##Instalar o cliente Storage para aplicativos do Windows Phone
@@ -49,7 +48,7 @@ Para poder usar uma SAS para carregar imagens para o armazenamento de Blob, voc�
 
 2. No painel esquerdo, selecione a categoria **Online**, selecione **Incluir Pré-liberação**, pesquise **WindowsAzure.Storage-Preview**, clique em **Instalar** no pacote **Armazenamento do Azure**, em seguida, aceite os acordos de licença.
 
-  	![][2]
+  	![Adicionar NuGet do Armazenamento do Azure](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	Isso adicionará a biblioteca de cliente para os serviços de armazenamento do Azure ao projeto.
 
@@ -77,42 +76,31 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
   Saiba como usar a funcionalidade de agendador de trabalhos dos Serviços Móveis para definir o código de script de servidor executado em um agendamento definido por você.
 
+##Consulte também
+
 + [Referência de script de servidor dos Serviços Móveis]
 
   Tópicos de referência para o uso de scripts de servidor para executar tarefas no lado do servidor e integração com outros componentes do Azure e recursos externos.
  
-+ [Referência conceitual do tutorial do .NET dos Serviços Móveis]
++ [Referência conceitual do tutorial do .NET de Serviços Móveis]
 
   Saiba mais sobre como usar os Serviços Móveis com o .NET
   
- 
-
 <!-- Images. -->
 
-
-[2]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-
-
-[5]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
-[6]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-wp8.png
-[7]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
-[8]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-save-wp8.png
-[9]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-final-wp8.png
-
-[11]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png
-
 <!-- URLs. -->
-[Enviar email dos Serviços Móveis com SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
-[Agendar trabalhos de back-end nos Serviços Móveis]: /develop/mobile/tutorials/schedule-backend-tasks/
-[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Enviar email dos Serviços Móveis com SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
+[Agendar trabalhos de back-end nos Serviços Móveis]: mobile-services-schedule-recurring-tasks.md
+[Referência de script de servidor dos Serviços Móveis]: mobile-services-how-to-use-server-scripts.md
 [Get started with Mobile Services]: ../mobile-services-windows-phone-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[Referência conceitual do tutorial do .NET dos Serviços Móveis]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK do Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

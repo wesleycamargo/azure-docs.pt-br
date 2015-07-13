@@ -123,5 +123,6 @@ Vamos supor que você deseja automatizar estas etapas para implantar aplicativos
 Há muitos outros recursos para configurar uma pilha LAMP no Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

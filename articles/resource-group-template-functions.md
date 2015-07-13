@@ -1,6 +1,6 @@
 <properties
    pageTitle="Funções de modelo do Gerenciador de Recursos do Azure"
-   description="Descreve as funções para usar em um modelo do Gerenciador de Recursos do Azure para implantar aplicativos no Azure."
+   description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
 
@@ -52,6 +52,33 @@ O exemplo a seguir mostra como combinar diversos valores para retornar um valor.
         }
     }
 
+## implantação
+
+**deployment()**
+
+Retorna informações sobre a operação de implantação atual.
+
+As informações sobre a implantação são retornadas como um objeto com as seguintes propriedades:
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+O exemplo a seguir mostra como retornar informações sobre a implantação da seção de saídas.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -72,7 +99,29 @@ O exemplo a seguir mostra como retornar as chaves de uma conta de armazenamento 
       } 
     } 
 
-## parâmetros
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
+  
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringToPad | Sim | A cadeia de caracteres para alinhar à direita.
+| totalLength | Sim | O número total de caracteres na cadeia de caracteres retornada.
+| paddingCharacter | Sim | O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido.
+
+O exemplo a seguir mostra como preencher o valor do parâmetro fornecido pelo usuário adicionando o caractere zero até que a cadeia de caracteres atinja 10 caracteres. Se o valor do parâmetro original for maior que 10 caracteres, nenhum caractere será adicionado.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
+
+## parameters
 
 **parâmetros (parameterName)**
 
@@ -128,7 +177,7 @@ O exemplo a seguir mostra como usar a função provider:
 
 ## reference
 
-**reference (resourceName ou resourceIdentifier, [apiVersion])**
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 Habilita uma expressão a derivar seu valor do estado de tempo de execução do outro recurso.
 
@@ -146,6 +195,27 @@ Usando a expressão de referência, você declara que um recurso depende de outr
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## substitui
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Retorna uma nova cadeia de caracteres com todas as instâncias de um caractere na cadeia de caracteres especificada substituída por outro caractere.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| originalString | Sim | A cadeia de caracteres que terá todas as instâncias de um caractere substituído por outro caractere.
+| oldCharacter | Sim | O caractere a ser removido da cadeia de caracteres original.
+| newCharacter | Sim | O caractere a ser adicionado no lugar do caractere removido.
+
+O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,6 +326,45 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
       } 
     } 
 
+## toLower
+
+**toLower(stringToChange)**
+
+Converte a cadeia de caracteres especificada em letras minúsculas.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sim | A cadeia de caracteres a ser convertida em letras minúsculas.
+
+O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em letras minúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+Converte a cadeia de caracteres especificada em maiúsculas.
+
+| Parâmetro | Obrigatório | Descrição
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sim | A cadeia de caracteres a ser convertida em letras maiúsculas.
+
+O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em letras maiúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variáveis
 
 **variables (NomedaVariável)**
@@ -270,7 +379,7 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 ## Próximas etapas
 - [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resouce-group-template-deploy.md)
+- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

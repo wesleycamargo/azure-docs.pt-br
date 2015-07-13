@@ -3,8 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
-	writer="" 
+	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="micflan"/>
+	ms.date="06/24/2015" 
+	ms.author="tomfitz"/>
 
 
 # Usando marcas para organizar os recursos do Azure
@@ -89,6 +88,16 @@ Fixe as marcas mais importantes no seu quadro inicial para acesso rápido e voc�
 
 ![Fixar marcas no Quadro Inicial](./media/resource-group-using-tags/pin-tags.png)
 
+## Marcação e cobrança
+
+Para serviços com suporte, você pode usar marcas para agrupar os dados de cobrança. Por exemplo, [Máquinas Virtuais integrado ao Gerenciador de Recursos do Azure](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) permitem definir e aplicar marcas para organizar o uso de cobrança para máquinas virtuais. Se você estiver executando várias VMs para organizações diferentes, poderá usar as marcas para o uso do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
+
+Você pode recuperar informações sobre marcas por meio da [api de uso](billing-usage-rate-card-overview.md) ou o arquivo CSV de uso que pode ser baixado no [Portal de Contas do Azure](https://account.windowsazure.com/) ou [portal EA](https://ea.azure.com).
+
+Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobrança, as marcas aparecerão na coluna **Marcas**. Para obter mais detalhes, consulte [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
+
+![Ver as marcas de cobranças](./media/resource-group-using-tags/billing_csv.png)
+
 ## Próximas etapas
 Introdução
 
@@ -112,4 +121,4 @@ Gerenciar e auditar o acesso
 - [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

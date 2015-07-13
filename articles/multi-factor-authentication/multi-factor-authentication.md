@@ -61,4 +61,4 @@ Para obter informações adicionais sobre por que usar o Azure Multi-Factor Auth
 * [Para usuários](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

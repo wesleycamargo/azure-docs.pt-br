@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="03/13/2015" 
 	ms.author="szark"/>
 
 
@@ -24,9 +24,9 @@
 
 
 ## Anexando discos de dados
-Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID.  Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux.  Consulte o artigo do Microsoft Azure [anexar um disco](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
+Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux. Consulte o artigo do Windows Azure [anexar um disco](storage-windows-attach-disk.md#attachempty) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
 
->[AZURE.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual.  Consulte [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
+>[AZURE.NOTE]O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual. Consulte [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados aceitos.
 
 
 ## Instalar o utilitário mdadm
@@ -51,14 +51,14 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 - Iniciar fdisk para começar a criar partições
 
 		# sudo fdisk /dev/sdc
-		O dispositivo não contém uma tabela de partição do DOS válida, nem um disklabel Sun, SGI ou OSF
-		Criando um novo disklabel DOS com identificador de disco 0xa34cb70c.
-		As alterações permanecerão na memória apenas, até que você decida gravá-las.
-		Depois disso, é claro, o conteúdo anterior não será recuperável.
+		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
+		Building a new DOS disklabel with disk identifier 0xa34cb70c.
+		Changes will remain in memory only, until you decide to write them.
+		After that, of course, the previous content won't be recoverable.
 
-		AVISO: O Modo compatível com DOS foi preterido. É altamente recomendável
-				 desligar o modo (comando 'c') e alterar as unidades de exibição para
-				 setores (comando ' u').
+		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+				 switch off the mode (command 'c') and change display units to
+				 sectors (command 'u').
 
 - Pressione 'n' no prompt para criar uma **n**ova partição:
 
@@ -91,7 +91,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		Selected partition 1
 		Hex code (type L to list codes): fd
 
-- Finalmente, grave a tabela de partição na unidade e saia do fdisk:
+- Finalmente, grave a tabela da partição na unidade e saia do fdisk:
 
 		Command (m for help): w
 		The partition table has been altered!
@@ -104,7 +104,7 @@ Neste exemplo, criaremos uma única partição de disco em /dev/sdc. A nova part
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se anteriormente esses discos de dados faziam parte de outro conjunto de RAID desabilitado, poderá ser necessário adicionar o parâmetro `--force` ao comando  `mdadm`.
+Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que se, anteriormente, esses discos de dados faziam parte de outro conjunto de RAID desabilitado, talvez seja necessário adicionar o parâmetro `--force` ao comando `mdadm`.
 
 
 2. Criar o sistema de arquivos no novo dispositivo RAID
@@ -117,23 +117,23 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES e openSUSE** - habilitar boot.md e criar mdadm.conf
+3. **SLES & openSUSE** - habilitar boot.md e criar mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE] Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE.
+	>[AZURE.NOTE]Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE.
 
 
 ## Adicionar o novo sistema de arquivos a /etc/fstab
 
-**Cuidado:** a edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editar esse arquivo adequadamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+**Cuidado:** a edição inadequada do arquivo /etc/fstab pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
 
 1. Crie o ponto de montagem desejado para o novo sistema de arquivos, por exemplo:
 
 		# sudo mkdir /data
 
-2. Ao editar o /etc/fstab, a **UUID** deve ser usada para fazer referência ao sistema de arquivos em vez do nome do dispositivo.  Use o utilitário  `blkid` para determinar a UUID do novo sistema de arquivos:
+2. Ao editar o /etc/fstab, a **UUID** deve ser usada para fazer referência ao sistema de arquivos em vez do nome do dispositivo. Use o utilitário `blkid` para determinar a UUID do novo sistema de arquivos:
 
 		# sudo /sbin/blkid
 		...........
@@ -155,24 +155,28 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
 	Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo /etc/fstab.
 
-	Em seguida, execute o comando  `mount` para garantir que o sistema de arquivos esteja montado:
+	Em seguida, execute o comando `mount` para garantir que o sistema de arquivos esteja montado:
 
 		# mount
 		.................
 		/dev/md127 on /data type ext4 (rw)
 
-5. Parâmetros opcionais
+5. (Opcional) Parâmetros de inicialização à prova de falhas
 
-	Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+	**configuração fstab**
+
+	Várias distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo /etc/fstab. Esses parâmetros permitem falhas ao montar um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização, mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
 	Exemplo (Ubuntu):
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
 
-	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded = true`" pode permitir que o sistema inicialize, mesmo que seja detectado que o RAID está danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
+	**Parâmetros de inicialização do Linux**
 
-	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` no "/etc/default/grub".
+	Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema inicialize mesmo que seja detectado que o RAID esteja danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
 
+	Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`". No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/default/grub".
 
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

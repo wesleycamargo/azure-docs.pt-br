@@ -13,19 +13,22 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
-# Adicionar autenticação ao aplicativo de Serviços Móveis
+# Adicionar autenticação ao seu aplicativo Android dos Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+
+## Resumo
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-Resumo ##
+
 
 <p>Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.</p>
+
 </div>
 
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a><span class="time">10:42</span></div>
@@ -38,33 +41,33 @@ Este tutorial explica as etapas básicas para habilitar a autenticação em seu 
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-<h2><a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis</h2>
+## Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Restringir as permissões aos usuários autenticados</h2>
+## Restringir permissões a usuários autenticados
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3. No Android Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis]. 
+1. No Android Studio, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis]. 
 
-4. No menu **Executar**, clique em **Executar aplicativo**. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado.
+2. No menu **Executar**, clique em **Executar aplicativo**. Verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é acionada depois que o aplicativo é iniciado.
 
 	 Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-<h2><a name="add-authentication"></a>Adicionar autenticação ao aplicativo</h2>
+## Adicionar autenticação ao aplicativo
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../../includes/mobile-services-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Armazenar tokens de autenticação em cache no cliente
+## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
 
-## <a name="refresh-tokens"></a>Atualizar o cache do token
+## <a name="refresh-tokens"></a>Atualizar o token armazenado em cache
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
+[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 
 
@@ -112,5 +115,6 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

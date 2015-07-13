@@ -3,18 +3,17 @@
 	description="Saiba como definir uma API personalizada e chamá-la de um aplicativo HTML que usa os Serviços Móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
-	writer="jparrel" 
+	authors="bureado"  
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Chamar uma API personalizada a partir de um aplicativo HTML
@@ -25,19 +24,13 @@ Este tópico mostra como chamar uma API personalizada a partir de um aplicativo 
 
 A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador concluído como `true` para todos os itens de tarefas pendentes na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
 
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução a dados]. Para fazer isso, você executará as seguintes etapas:
-
-1. [Definir a API personalizada]
-2. [Atualizar o aplicativo para chamar a API personalizada]
-3. [Testar o aplicativo] 
-
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir o tutorial [Introdução aos Serviços Móveis] ou [Introdução aos dados].
+Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir um dos tutoriais [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].
 
 ## <a name="define-custom-api"></a>Definir a API personalizada
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada</h2>
+##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
 1. Usando seu editor de texto, abra o arquivo index.html, localize o elemento **botão** chamado `buttonRefresh` e adicione o novo elemento abaixo logo depois dele: 
 
@@ -79,20 +72,24 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 ## Próximas etapas
 
-Agora que você criou uma API personalizada e a chamou a partir de seu aplicativo HTML, saiba mais sobre os tópicos de Serviços Móveis a seguir:
+Esse tópico mostrou como usar a função **invokeApi** para chamar uma API personalizada bastante simples de seu aplicativo HTML/JavaScript. Para saber mais sobre como usar a função **invokeApi**, confira a postagem [API personalizada nos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+
+Além disso, considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 
 * [Referência de script de servidor de Serviços Móveis]<br/>Saiba mais sobre como criar APIs personalizadas.
 
+* [Scripts de servidor de armazenamento no controle do código-fonte] <br/>Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
+
 <!-- Anchors. -->
-[Definir a API personalizada]: #define-custom-api
-[Atualizar o aplicativo para chamar a API personalizada]: #update-app
-[Testar o aplicativo]: #test-app
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
 [Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Introdução aos Serviços Móveis]: mobile-services-html-get-started.md
-[Introdução a dados]: mobile-services-html-get-started-data.md
-[Introdução aos dados]: mobile-services-html-get-started-data.md
-<!--HONumber=54--> 
+[Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-html-get-started-data.md
+[Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
+
+<!---HONumber=July15_HO1-->

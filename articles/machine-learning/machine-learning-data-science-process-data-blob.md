@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Processar Dados no  Blob do Azure" 
-	description="Processar dados no Blob do Azure" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="Processar dados de blob do Azure com análises avançadas | Microsoft Azure" 
+	description="Processar dados no Armazenamento de Blob do Azure." 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Processar dados de Blob do Azure no seu ambiente de ciência de dados
+#<a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 
-Este documento aborda a exploração de dados e geração de recursos por meio dos dados armazenados em Blobs do Azure.  Para fazer isso, os dados devem ser baixados da fonte de blob para um arquivo local que pode então ser carregado em um quadro de dados Pandas para exploração e manipulação.  Siga essas etapas:
+Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. Para fazer isso, os dados devem ser baixados da fonte de blob para um arquivo local que pode então ser carregado em um quadro de dados Pandas para exploração e manipulação. Siga essas etapas:
 
 1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
 
@@ -48,7 +47,7 @@ Este documento aborda a exploração de dados e geração de recursos por meio d
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-####<a name="blob-dataexploration"></a>Exploração de Dados
+##<a name="blob-dataexploration"></a>Exploração de Dados
 
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
@@ -89,7 +88,7 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. Crie um gráfico de histograma usando um número variável de compartimentos para plotar a distribuição de uma variável	
+8. Crie um gráfico de histograma usando um número variável de compartimentos para plotar a distribuição de uma variável
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
@@ -104,11 +103,11 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>Geração de Recursos
+##<a name="blob-featuregen"></a>Geração de Recursos
 	
 Podemos gerar recursos usando o Python da seguinte maneira:
 
-#####<a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
+###<a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
 
 Recursos categóricos podem ser criados da seguinte maneira:
 
@@ -121,7 +120,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. Unir a coluna de indicador com o quadro de dados original 
+3. Unir a coluna de indicador com o quadro de dados original
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -131,7 +130,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>Compartimentalizar a Geração de Recursos
+###<a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
 
 Para gerar recursos compartimentalizados, faça o seguinte:
 
@@ -148,11 +147,9 @@ Para gerar recursos compartimentalizados, faça o seguinte:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no AM do Azure
+##<a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 
-Depois de ter explorado os dados e criado os recursos necessários, você pode carregar os dados (amostras ou em destaque) para um blob do Azure e consumi-los no AM do Azure usando as seguintes etapas:
-Observe que recursos adicionais também podem ser criados no Estúdio AM do Azure. 
-1. Grave o quadro de dados no arquivo local
+Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também. 1. Grave o quadro de dados no arquivo local
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
@@ -178,10 +175,15 @@ Observe que recursos adicionais também podem ser criados no Estúdio AM do Azur
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Agora os dados podem ser lidos no blob usando o AM do Azure *Reader Module* conforme mostrado na imagem abaixo:
+3. Agora, os dados podem ser lidos do blob usando o módulo [Leitor][reader] do Aprendizado de Máquina do Azure, como mostra a tela abaixo:
  
-![reader blob][1]
+![blob de leitor][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

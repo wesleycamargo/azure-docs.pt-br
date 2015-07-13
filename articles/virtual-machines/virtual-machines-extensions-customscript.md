@@ -15,6 +15,7 @@
    ms.workload="infrastructure-services"
    ms.date="02/19/2015"
    ms.author="kundanap"/>
+
 # Extensão de script personalizado para o Windows
 
 Este artigo fornece uma visão geral do uso de extensão do script personalizado no Windows usando cmdlets do Powershell do Azure.
@@ -77,5 +78,6 @@ Em breve incluiremos uso de script personalizado para Linux e exemplos, fique at
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

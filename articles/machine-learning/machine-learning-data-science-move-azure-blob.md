@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Mover os dados de e para o  Armazenamento do Blobs do Azure" 
-	description="Mover os dados de e para o  Armazenamento do Blobs do Azure" 
-	services="machine-learning" 
+	pageTitle="Mover dados de e para o Armazenamento de Blobs do Azure | Microsoft Azure" 
+	description="Mover dados de e para o Armazenamento de Blobs do Azure" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,sachouks" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,48 +13,46 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,sachouks" />
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;sachouks;mohabib;bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure
 
-O artigo [Cenários de exemplo de ciência da dados de nuvem](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios) ajuda a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados.  Se você precisar mover os dados de e para o armazenamento de Blobs do Azure com base no seu cenário, use um dos seguintes métodos:
+O artigo [Cenários para ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md) o ajudará a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada. Se você precisar mover os dados de e para o armazenamento de Blobs do Azure com base no seu cenário, use um dos seguintes métodos:
 
 - [Usando o Gerenciador de Armazenamento do Azure](#explorer)
-- [Usar o utilitário de linha de comando AzCopy](#AzCopy)
-- [Usar o SDK do Azure em Python](#PythonSDK)
+- [Usando o utilitário de linha de comando AzCopy](#AzCopy)
+- [Usando o SDK do Azure em Python](#PythonSDK)
 
 
+> [AZURE.TIP]Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/pt-br/services/data-factory/) para criar e agendar um pipeline que baixará os dados do armazenamento de Blob do Azure, os passará para um serviço Web publicado do Aprendizado de Máquina do Azure, receberá os resultados de análise preditiva e carregará os resultados no armazenamento. Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Aprendizado de Máquina do Azure](../data-factory/data-factory-create-predictive-pipelines.md).
 
-> [AZURE.NOTE] Para ver uma introdução completa ao armazenamento de Blobs do Azure, consulte [Fundamentos básicos de Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e  [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
+<para></para>
 
-Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.  Para obter instruções sobre como obter essas informações, consulte a seção "Como:  Exibir, copiar e regenerar chaves de acesso de armazenamento" em [Gerenciar contas de armazenamento](../storage-create-storage-account.md).  Este documento presume que você tem uma conta de Armazenamento do Azure e tem as chaves de armazenamento correspondentes.
+> [AZURE.NOTE]Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+
+Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure. Para obter instruções sobre como obter essas informações, consulte a seção "Como: exibir, copiar e regenerar chaves de acesso de armazenamento" de [Gerenciar contas de armazenamento](../storage-create-storage-account.md). Este documento presume que você tem uma conta de Armazenamento do Azure e tem as chaves de armazenamento correspondentes.
+
 
 <a id="explorer"></a>
 ## Usar o Gerenciador de Armazenamento do Azure 
 
-O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows para inspecionar e alterar dados em uma conta de Armazenamento do Azure.  Ela pode ser baixada em [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com/).  As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de Armazenamento do Azure. 
+O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows para inspecionar e alterar dados em uma conta de Armazenamento do Azure. Ele pode ser baixado do [Gerenciador de Armazenamento do Azure](http://azurestorageexplorer.codeplex.com/). As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de Armazenamento do Azure.
 
 1.  Abra o Gerenciador de Armazenamento do Azure 
-2.  Se a conta de armazenamento que você deseja acessar não tiver sido adicionada ao Gerenciador de Armazenamento do Azure, clique no botão "Adicionar Conta" para adicionar a conta.  Se já tiver sido adicionada, selecione a conta na lista suspensa "--Selecione uma conta de armazenamento--".  
-![Create workspace][1]
-<br>
-3. Digite o nome e a chave de conta de armazenamento e clique em Adicionar Conta de Armazenamento.  Você pode adicionar várias contas de armazenamento e cada conta será exibidas em uma guia.  Os contêineres nesta conta de armazenamento são mostrados no painel à esquerda.  Selecione um contêiner para ver os blobs no contêiner no painel à direita.  
-![Create workspace][2]
-<br>
-![Create workspace][3]
-<br>
-4. Carregue os dados clicando no botão "Carregar".  Selecione um ou vários arquivos para carregar do sistema de arquivos e clique em "Abrir" para começar a carregar os arquivos.
-5. Baixe os dados selecionando o blob no contêiner correspondente e clicando no botão "Baixar".
+2.  Se a conta de armazenamento que você deseja acessar não tiver sido adicionada ao Gerenciador de Armazenamento do Azure, clique no botão "Adicionar Conta" para adicionar a conta. Se já tiver sido adicionada, selecione a conta na lista suspensa “--Selecione uma conta de armazenamento.” ![Criar espaço de trabalho][1] <br>
+3. Digite o nome e a chave de conta de armazenamento e clique em Adicionar Conta de Armazenamento. Você pode adicionar várias contas de armazenamento e cada conta será exibidas em uma guia. Os contêineres nesta conta de armazenamento são mostrados no painel à esquerda. Selecione um contêiner para ver os blobs no contêiner no painel à direita. ![Criar espaço de trabalho][2] <br> ![Criar espaço de trabalho][3] <br>
+4. Carregue os dados clicando no botão "Carregar". Selecione um ou vários arquivos para carregar do sistema de arquivos e clique em "Abrir" para começar a carregar os arquivos.
+5. Baixe os dados selecionando o blob no contêiner correspondente e clicando no botão “Baixar".
 
 <a id="AzCopy"></a>
 ## Usar AzCopy
 
-AzCopy é um utilitário de linha de comando para carregar e baixar os dados. 
+AzCopy é um utilitário de linha de comando para carregar e baixar os dados.
 
-**Aviso** Se você estiver usando um computador diferente da VM que foi configurada anteriormente no processo de ciência de dados de nuvem, instale o AzCopy usando as seguintes instruções de instalação:  [Baixar e instalar o AzCopy](../storage-use-azcopy.md#install).
+**Aviso** Se você estiver usando um computador diferente da VM que foi configurada anteriormente no processo de análise avançada, instale o AzCopy usando as seguintes instruções de instalação: [Baixar e instalar o AzCopy](../storage-use-azcopy.md#install).
 
-####Exemplos de carregar/baixar arquivos de/para blobs:
+###Exemplos de carregar/baixar arquivos de/para blobs:
 
 	# Uploading from local file system
 	AzCopy /Source:<your_local_directory> /Dest: https://<your_account_name>.blob.core.windows.net/<your_container_name> /DestKey:<your_account_key> /S 
@@ -72,10 +70,7 @@ AzCopy é um utilitário de linha de comando para carregar e baixar os dados.
 	<your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
 
-> [AZURE.TIP]   
-> 1.  Ao carregar arquivos, /S carregará arquivos recursivamente.  Sem esse parâmetro, todos os arquivos no subdiretório não serão carregados.  
-> 2.  Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados.  
-> 3.    Não é possível especificar um arquivo de blob específico para baixar usando o parâmetro /Source.  Para baixar um arquivo específico, especifique o nome do arquivo de blob para baixar usando o parâmetro /Pattern.  O parâmetro /S pode ser usado com AzCopy para procurar recursivamente por um padrão de nome de arquivo.  Sem o parâmetro padrão, o AzCopy baixará todos os arquivos nesse diretório. 
+> [AZURE.TIP]1. Ao carregar arquivos, /S carregará arquivos recursivamente. Sem esse parâmetro, todos os arquivos no subdiretório não serão carregados. 2. Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados. 3. Não é possível especificar um arquivo de blob específico para baixar usando o parâmetro /Source. Para baixar um arquivo específico, especifique o nome do arquivo de blob a ser baixado usando o parâmetro /Pattern. O parâmetro /S pode ser usado para que AzCopy procure recursivamente um padrão de nome de arquivo. Sem o parâmetro padrão, o AzCopy baixará todos os arquivos nesse diretório.
 
 Para ver o uso detalhado de AzCopy, consulte [Noções básicas sobre o utilitário de linha de comando AzCopy](../storage-use-azcopy.md#install).
 
@@ -91,16 +86,17 @@ Com a API de Python fornecida no SDK do Azure, você pode:
 - Listar os blobs em um contêiner
 - Excluir um blob
 
-Esta seção documenta como listar, carregar e baixar blobs.  Para obter mais detalhes do uso da API de Python, consulte [Como usar o Serviço de Armazenamento de Blobs do Python](../storage-python-how-to-use-blob-storage.md). 
+Esta seção documenta como listar, carregar e baixar blobs. Para obter mais detalhes do uso da API de Python, consulte [Como usar o Serviço de Armazenamento de Blobs do Python](../storage-python-how-to-use-blob-storage.md).
 
-> [AZURE.NOTE] Se você estiver usando um computador diferente da VM que foi configurada anteriormente no processo de ciência de dados de nuvem, instale o [SDK do Azure de Python](../python-how-to-install.md) usando o código de exemplo abaixo.
+> [AZURE.NOTE]Se você estiver usando um computador diferente da VM que foi configurada anteriormente no processo de análise avançada, instale o [SDK do Azure de Python](../python-how-to-install.md) usando o código de exemplo abaixo.
 
-###Carregar dados para Blob
+### Carregar dados para Blob
+
 Adicione o trecho de código a seguir à parte superior de qualquer código Python no qual você deseja acessar programaticamente o Armazenamento do Azure:
 
 	from azure.storage import BlobService
 
-O objeto **BlobService** permite que você trabalhe com contêineres e blobs.  O código a seguir cria um objeto BlobService usando o nome da conta de armazenamento e a chave da conta.  Substitua o nome e a chave de conta pela sua conta e chave reais.
+O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto BlobService usando o nome da conta de armazenamento e a chave da conta. Substitua o nome e a chave de conta pela sua conta e chave reais.
 	
 	blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
 
@@ -140,21 +136,17 @@ O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em 
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
-###Baixar Dados de Blob
+### Baixar Dados de Blob
 
-Use os métodos a seguir para baixar dados de um blob:
-1. get_blob_to_path
-2. get_blob_to_file
-3. get_blob_to_bytes
-4. get_blob_to_text 
+Use os seguintes métodos para baixar os dados de um blob: 1. get_blob_to_path 2. get_blob_to_file 3. get_blob_to_bytes 4. get_blob_to_text
 
-Esses métodos realizam a divisão necessária quando o tamanho dos dados excede 64 MB. 
+Esses métodos realizam a divisão necessária quando o tamanho dos dados excede 64 MB.
 
-O código de exemplo a seguir baixa o conteúdo de um blob em um contêiner para um arquivo local: 
+O código de exemplo a seguir baixa o conteúdo de um blob em um contêiner para um arquivo local:
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-O código de exemplo a seguir baixa todos os blobs de um contêiner.  Ele usa list_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local. 
+O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa list_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local.
 
 	from azure.storage import BlobService
 	from os.path import join
@@ -181,5 +173,6 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner.  Ele usa li
 [1]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img1.png
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

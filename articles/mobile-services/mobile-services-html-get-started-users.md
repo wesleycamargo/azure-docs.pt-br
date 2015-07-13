@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis 
@@ -22,21 +22,15 @@
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo HTML, incluindo aplicativos PhoneGap ou Cordova. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
-Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
-
-1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
-2. [Restringir permissões de tabela para usuários autenticados]
-3. [Adicionar autenticação ao aplicativo]
-
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. No diretório do aplicativo, inicie um dos seguintes arquivos de comando da subpasta **server**.
@@ -107,7 +101,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 			$("#logged-in button").click(logOut);
 		});
 
-    Isso cria um conjunto de funções para manipular o processo de autenticação. O usuário é autenticado usando um logon do Facebook. Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método <strong>login</strong> acima para um dos seguintes: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> ou <em>aad</em>.
+    Isso cria um conjunto de funções para manipular o processo de autenticação. O usuário é autenticado usando um logon do Facebook. Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método **login** acima para um dos seguintes: *microsoftaccount*,*facebook*, *twitter*, *google* ou *aad*.
 
 	>[AZURE.IMPORTANT]Em um aplicativo PhoneGap, você também deve adicionar os seguintes plug-ins para o projeto: <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> e <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -122,9 +116,9 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis. Saiba mais sobre como usar os Serviços Móveis com HTML/JavaScript em [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
-[Restringir permissões de tabela para usuários autenticados]: #permissions
-[Adicionar autenticação ao aplicativo]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -141,6 +135,7 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: /documentation/articles/mobile-services-html-how-to-use-client-library
+[Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

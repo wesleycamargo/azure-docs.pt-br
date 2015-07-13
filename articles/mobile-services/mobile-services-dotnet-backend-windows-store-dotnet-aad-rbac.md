@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-## Visão geral
+##Visão geral
 
 O controle de acesso baseado em função (RBAC) é a prática de atribuir permissões a funções que os usuários podem manter. Ele define adequadamente limites sobre o que determinadas classes de usuários podem e não podem fazer. Este tutorial o orientará durante a adição de RBAC básica para os Serviços Móveis do Azure.
 
@@ -29,7 +29,7 @@ Este tutorial demonstrará o controle de acesso baseado em função, verificando
 
 >[AZURE.NOTE]O objetivo deste tutorial é ampliar o seu conhecimento de autenticação para incluir práticas de autorização. É esperado que você conclua primeiro o tutorial [Adicionar Autenticação ao aplicativo] usando o provedor de autenticação do Active Directory do Azure. Este tutorial continua a atualizar o aplicativo TodoItem usado no tutorial [Adicionar Autenticação ao aplicativo].
 
-## Pré-requisitos
+##Pré-requisitos
 
 Este tutorial exige o seguinte:
 
@@ -39,30 +39,30 @@ Este tutorial exige o seguinte:
  
 
 
-## Gerar uma chave para o Aplicativo Integrado
+##Gerar uma chave para o Aplicativo Integrado
 
 
 Durante o tutorial [Adicionar Autenticação ao aplicativo], você criou um registro para o aplicativo integrado quando concluiu a etapa [Registrar-se para usar um logon do Active Directory do Azure]. Nesta seção, você gera uma chave para ser usada ao ler as informações de diretório com essa ID integrada de cliente do aplicativo.
 
-Se seguiu o tutorial [Acessar informações do Azure Active Directory Graph], você já concluiu essa etapa e poderá ignorar esta seção.
+Se seguiu o tutorial [Acessar informações de Gráfico do Active Directory do Azure], você já concluiu essa etapa e poderá ignorar esta seção.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
-## Criar um grupo de Vendas com associação
+##Criar um grupo de Vendas com associação
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 
-## Criar um atributo de autorização personalizado no serviço móvel 
+##Criar um atributo de autorização personalizado no serviço móvel 
 
 Nesta seção, você criará um novo atributo de autorização personalizado que pode ser usado para executar verificações de acesso em operações de serviço móvel. O atributo procurará um grupo do Active Directory com base no nome da função passado para ele. Em seguida, executará verificações de acesso com base na associação desse grupo.
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto de back-end .NET de serviço móvel e clique em **Gerenciar pacotes NuGet**.
 
-2. No diálogo do Gerenciador de pacotes NuGet, insira **ADAL** no critério de pesquisa para localizar e instalar a **Biblioteca de Autenticação do Active Directory** para seu serviço móvel. Este tutorial foi testado mais recentemente com a versão do pacote ADAL 3.0.110281957-alpha (pré-lançamento) .
+2. No diálogo do Gerenciador de pacotes NuGet, insira **ADAL** no critério de pesquisa para localizar e instalar a **Biblioteca de Autenticação do Active Directory** para seu serviço móvel. Este tutorial foi testado mais recentemente com a versão do pacote ADAL 3.3.205061641-alpha (pré-lançamento) .
 
 3. No Visual Studio, clique com o botão direito do mouse no projeto de serviço móvel e clique em **Adicionar** depois em **Nova pasta**. Nomeie a nova pasta **Utilitários**.
 
@@ -178,7 +178,8 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 
     >[AZURE.NOTE]O ADAL para .NET inclui um cache de token na memória por padrão para ajudar a minimizar o tráfego de rede adicional no seu Active Directory. No entanto, você pode escrever sua própria implementação de cache ou desabilitar totalmente o cache. Para saber mais, consulte [ADAL para .NET].
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else
@@ -324,7 +325,7 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 
 12. Salve suas alterações no AuthorizeAadRole.cs.
 
-## Adicionar verificação de acesso baseada em função às operações de banco de dados
+##Adicionar verificação de acesso baseada em função às operações de banco de dados
 
 1. No Visual Studio, expanda a pasta **Controladores** no projeto de serviço móvel. Abra o TodoItemController.cs.
 
@@ -366,7 +367,7 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 5. Publique o serviço móvel em sua conta do Azure.
 
 
-## Testar o acesso do cliente
+##Testar o acesso do cliente
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -388,6 +389,7 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [Registrar-se para usar um logon do Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Acessar informações do Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
+[Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO1-->

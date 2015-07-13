@@ -13,42 +13,42 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #Desenvolvimento de serviços de mídia com o .NET 
 
-Este tópico discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET. 
+Este tópico discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET.
 
-A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você programe em relação aos serviços de mídia usando o .NET. Para facilitar ainda mais o desenvolvimento com o .NET, a biblioteca de **extensões do SDK do .NET dos Serviços de Mídia** é fornecida. Esta biblioteca contém um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código .NET. As duas bibliotecas estão disponíveis por meio de **NuGet** e **GitHub**.
+A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você programe em relação aos serviços de mídia usando o .NET. Para facilitar ainda mais o desenvolvimento com o .NET, a biblioteca de **Extensões do SDK do .NET dos Serviços de Mídia** é fornecida. Esta biblioteca contém um conjunto de métodos de extensão e funções auxiliares que simplificarão seu código .NET. As duas bibliotecas estão disponíveis por meio de **NuGet** e **GitHub**.
  
 
 ##Pré-requisitos
 
--   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta dos Serviços de Mídia](media-services-create-account.md).
+-   Uma conta dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Consulte o tópico [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
 -   Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
--   .NET Framework 4,5.
+-   .NET Framework 4.5.
 -   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 
   
 
 ##Criar e configurar um projeto do Visual Studio 
 
-Esta seção mostra como criar um projeto no Visual Studio e configurá-lo para o desenvolvimento de Serviços de Mídia.  Nesse caso, o projeto é um aplicativo de console C# do Windows, mas as mesmas etapas de configuração mostradas aqui se aplicam a outros tipos de projetos que podem ser criados para aplicativos de Serviços de Mídia (por exemplo, um aplicativo do Windows Forms ou um aplicativo Web ASP .NET).
+Esta seção mostra como criar um projeto no Visual Studio e configurá-lo para o desenvolvimento de Serviços de Mídia. Nesse caso, o projeto é um aplicativo de console C# do Windows, mas as mesmas etapas de configuração mostradas aqui se aplicam a outros tipos de projetos que podem ser criados para aplicativos de Serviços de Mídia (por exemplo, um aplicativo do Windows Forms ou um aplicativo Web ASP .NET).
 
-Esta seção mostra como usar **NuGet** para adicionar o SDK do .NET dos Serviços de Mídia e outras bibliotecas dependentes. 
+Esta seção mostra como usar **NuGet** para adicionar o SDK do .NET dos Serviços de Mídia e outras bibliotecas dependentes.
 
-Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia do GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Observe que todas as dependências necessárias obtém por download e são extraídas automaticamente.   
+Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia do GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Observe que todas as dependências necessárias obtém por download e são extraídas automaticamente.
 
 1. Crie um novo Aplicativo de Console C# no Visual Studio 2013, no Visual Studio 2012 ou no Visual Studio 2010 SP1. Digite o **nome**, o **local** e o **Nome da solução** e OK. 
 
 2. Compilar a solução.
 
-2. Use o **NuGet** para instalar e adicionar **extensões do SDK do .NET dos Serviços de Mídia do Azure**. Instalar esse pacote também instala os **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
+2. Use o **NuGet** para instalar e adicionar **extensões do SDK do .NET dos Serviços de Mídia do Azure**. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
 	1. Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](http://nuget.codeplex.com/).
 	
 	2. No Gerenciador de Solução, clique o nome do projeto e escolha gerenciar pacotes NuGet...
 	
-		A caixa de diálogo Gerenciar pacotes NuGet será exibida.
+		A caixa de diálogo Gerenciar Pacotes NuGet será exibida.
 
 	3. Na Galeria Online, procure por extensões de serviços de mídia do Azure, escolha extensões do SDK do .NET dos Serviços de Mídia e, em seguida, clique no botão Instalar.
  
@@ -56,9 +56,9 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 
 	4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
 
-3. Adicione uma referência ao assembly do **System.Configuratio**n. Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config). 
+3. Adicione uma referência ao assembly do **System.Configuration**. Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
 
-	Para adicionar referências usando a caixa de diálogo Gerenciar Referências, proceda da maneira a seguir: 
+	Para adicionar referências usando a caixa de diálogo Gerenciar Referências, proceda da maneira a seguir:
 
 	1. No Gerenciador de Solução, clique no nome do projeto. Em seguida, selecione Adicionar e Referências.
 
@@ -68,19 +68,19 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 	3. Pressione OK.
 
 
-4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir. 
+4. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo. Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir.
 	
 	Para obter as informações de **nome da conta** e de **chave da conta**, abra o **Portal de Gerenciamento do Azure**, selecione sua conta de serviços de mídia e clique no botão **GERENCIAR CHAVES**.
 
 
 	<pre><code>
-	&lt;configuration&gt;
-        &lt;appSettings&gt;
-    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-  	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-	</code></pre>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</code></pre>
 
 
 5. Substitua a instruções using existentes no início do arquivo Program.cs pelo código a seguir.
@@ -95,7 +95,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
-Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia.    
+Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

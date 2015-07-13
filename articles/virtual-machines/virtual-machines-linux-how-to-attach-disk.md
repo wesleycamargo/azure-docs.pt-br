@@ -142,4 +142,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Logon]: virtual-machines-linux-how-to-log-on.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

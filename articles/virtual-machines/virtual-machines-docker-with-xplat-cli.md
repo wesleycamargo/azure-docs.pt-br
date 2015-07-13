@@ -87,7 +87,7 @@ Se o comando for bem-sucedido, você verá algo semelhante ao seguinte, dependen
 
 Para testar a VM do Docker que você criou no Azure, digite
 
-`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
 onde *<vm-name-you-used>* é o nome da máquina virtual que você usou em sua chamada para `azure vm docker create`. Você deve ver algo semelhante ao código a seguir, que indica que sua máquina virtual host do Docker está funcionando no Azure e aguardando seus comandos.
 
@@ -96,10 +96,10 @@ onde *<vm-name-you-used>* é o nome da máquina virtual que você usou em sua ch
 ### Autenticação da máquina virtual host do Docker
 Além de criar a VM do Docker, o comando `azure vm docker create` também cria automaticamente os certificados necessários para permitir que seu computador cliente Docker se conecte ao host do contêiner do Azure usando HTTPS, e os certificados são armazenados nas máquinas cliente e host, conforme adequado. Em execuções subsequentes, os certificados existentes são reutilizados e compartilhados com o novo host.
 
-Por padrão, os certificados são colocados em `~/.docker` e o Docker será configurado para ser executado na porta **4243**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções da linha de comando `azure vm docker create` a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
+Por padrão, os certificados são colocados em `~/.docker` e o Docker será configurado para ser executado na porta **2376**. Se você desejar usar uma porta ou diretório diferentes, use uma das opções da linha de comando `azure vm docker create` a seguir para configurar a VM host do contêiner do Docker para usar outra porta ou outros certificados para conectar clientes:
 
 ```
--dp, --docker-port [port]              Port to use for docker [4243]
+-dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
@@ -139,4 +139,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

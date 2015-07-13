@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Tratando conflitos de gravação do banco de dados
@@ -31,8 +31,8 @@ Neste tutorial, você adicionará funcionalidade ao aplicativo de início rápid
 
 Este tutorial requer o seguinte:
 
-+ Microsoft Visual Studio 2012 Express para Windows ou posterior.
-+ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
++ Microsoft Visual Studio 2013 ou posterior.
++ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. 
 + [Conta do Azure]
 + Pacote NuGet 1.1.0 ou posterior dos Serviços Móveis do Azure. Para obter a versão mais recente, siga as etapas abaixo:
 	1. No Visual Studio, abra o projeto e clique com o botão direito do mouse no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**. 
@@ -66,12 +66,7 @@ Nesta seção, você atualizará a interface do usuário do TodoList para permit
 		</ListView>
 
 
-3. Em MainPage.xaml.cs, adicione a diretiva `using` a seguir à parte superior da página.
-
-		using System.Threading.Tasks;
-
-
-4. No Gerenciador de Soluções do Visual Studio, abra a MainPage.xaml.cs. Adicione o manipulador de eventos a MainPage para o evento da CaixaDeTexto `LostFocus`, como mostrado abaixo.
+4. No Gerenciador de Soluções do Visual Studio, abra MainPage.cs no projeto compartilhado. Adicione o manipulador de eventos a MainPage para o evento da CaixaDeTexto `LostFocus`, como mostrado abaixo.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -86,7 +81,7 @@ Nesta seção, você atualizará a interface do usuário do TodoList para permit
             }
         }
 
-4. Em MainPage.xaml.cs, adicione a definição do método `UpdateToDoItem()` da MainPage referenciado no manipulador de eventos, como mostrado abaixo.
+4. No MainPage.cs do projeto compartilhado, adicione a definição do método `UpdateToDoItem()` da MainPage referenciado no manipulador de eventos, conforme mostrado abaixo.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -112,8 +107,8 @@ Agora o aplicativo grava as alterações de texto em cada item do banco de dados
 
 Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O [Controle de Simultaneidade Otimista] pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida. Os Serviços Móveis do Azure oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é adicionada a cada tabela. Nesta seção, habilitaremos o aplicativo para detectar esses conflitos de gravação por meio da propriedade do sistema `__version`. O aplicativo será notificado por uma `MobileServicePreconditionFailedException` durante uma tentativa de atualização, se o registro tiver sido alterado desde a última consulta. Em seguida, ele poderá optar por confirmar a alteração no banco de dados ou deixar a última alteração no banco de dados intacta. Para obter mais informações sobre as propriedades do sistema para Serviços Móveis, consulte [Propriedades do sistema].
 
-1. Em MainPage.xaml.cs, atualize a definição da classe **TodoItem** com o código a seguir para incluir a propriedade do sistema **__version** habilitando o suporte para detecção de conflitos de gravação. 
-		
+1. Abra TodoItem.cs no projeto compartilhado e atualize a definição de classe `TodoItem` com o seguinte código para incluir a propriedade do sistema `__version` __version ativando o suporte para a detecção de conflitos de gravação.
+
 		public class TodoItem
 		{
 			public string Id { get; set; }			
@@ -125,7 +120,7 @@ Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, e
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]Ao usar tabelas não tipadas, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
+	> [AZURE.NOTE]Ao usar tabelas sem tipo, habilite a simultaneidade otimista para adicionar o sinalizador Version a SystemProperties da tabela.
 	>
 	>````` 
 	//Enable optimistic concurrency by retrieving __version
@@ -133,7 +128,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. Adicionando a propriedade `Version` à classe `TodoItem`, o aplicativo será notificado com uma exceção `MobileServicePreconditionFailedException` durante uma atualização caso o registro tenha sido alterado desde a última consulta. Essa exceção inclui a versão mais recente do item do servidor. Em MainPage.xaml.cs, adicione o código a seguir para tratar a exceção no método `UpdateToDoItem()`.
+2. Adicionando a propriedade `Version` à classe `TodoItem`, o aplicativo será notificado com uma exceção `MobileServicePreconditionFailedException` durante uma atualização caso o registro tenha sido alterado desde a última consulta. Essa exceção inclui a versão mais recente do item do servidor. No MainPage.cs para o projeto compartilhado, adicione o seguinte código para tratar da exceção no método `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -167,7 +162,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. Em MainPage.xaml.cs, adicione a definição para o método referenciado `ResolveConflict()` em `UpdateToDoItem()`. Observe que para resolver o conflito, você define a versão do item local como a versão atualizada do servidor antes de confirmar a decisão do usuário. Caso contrário, você encontrará o conflito continuamente.
+3. No MainPage.cs, adicione a definição para o método `ResolveConflict()` referenciado em `UpdateToDoItem()`. Observe que para resolver o conflito, você define a versão do item local como a versão atualizada do servidor antes de confirmar a decisão do usuário. Caso contrário, você encontrará o conflito continuamente.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -369,5 +364,6 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -268,11 +268,11 @@ A biblioteca agora está instalada e pronta para uso.
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
 
-O aplicativo agora pode receber eventos do Pusher e atualizar a lista de tarefas pendentes adequadamente.
+O aplicativo agora pode receber eventos do Pusher e atualizar a lista itens ToDo adequadamente.
 
 
 
-<h2><a name="install-scripts"></a>Instalar scripts de servidor</h2>
+##<a name="install-scripts"></a>Instalar scripts de servidor
 
 
 
@@ -385,7 +385,7 @@ Só falta configurar seus scripts de servidor. Podemos inserir um script para qu
 
 
 
-<h2><a name="test-app"></a>Testar seu aplicativo</h2>
+##<a name="test-app"></a>Testar seu aplicativo
 
 
 
@@ -442,5 +442,6 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
 [Referência de script do servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

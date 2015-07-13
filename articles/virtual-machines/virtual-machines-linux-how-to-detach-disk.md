@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# Como desanexar um disco de uma máquina virtual Linux
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=45--> 
+## Recursos adicionais
+
+[Como anexar um disco de dados na máquina virtual Linux](virtual-machines-linux-how-to-attach-disk.md)
  
+
+<!---HONumber=July15_HO1-->

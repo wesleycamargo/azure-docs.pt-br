@@ -1,44 +1,34 @@
-<properties 
-	pageTitle="Visualização da versão da API REST de Gerenciamento da Pesquisa do Azure de 31-07-2014" 
-	description="Visualização da versão da API REST de Gerenciamento da Pesquisa do Azure de 31-07-2014" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="Visualização da versão da API REST de Gerenciamento da Pesquisa do Azure de 31-07-2014" description="API REST do Gerenciamento da Pesquisa do Azure: versão 2014-07-31-Visualização" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/11/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-# Visualização da versão da API REST de Gerenciamento da Pesquisa do Azure de 31-07-2014 #
+# Gerenciamento de API: versão 2014-07-31-Visualização
+
+Este documento descreve a versão **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure. Ela foi substituída pela versão disponível, a [API REST de Gerenciamento da Pesquisa do Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN. ________________________________________
+
+## Operações de gerenciamento de serviço
 
 A API REST de Gerenciamento do Serviço de Pesquisa do Azure fornece acesso programático a grande parte das funcionalidades disponíveis no portal, permitindo que os administradores automatizem as seguintes operações:
 
 - Criar ou excluir um serviço de Pesquisa do Azure.
-- Criar, alterar ou recuperar `api-keys` para automatizar alterações regulares nas chaves administrativas usadas para autenticar operações de dados de pesquisa. 
+- Criar, alterar ou recuperar `api-keys` para automatizar alterações regulares nas chaves administrativas usadas para autenticar operações de dados de pesquisa.
 - Ajustar a escala de um serviço de Pesquisa do Azure em resposta a alterações nos requisitos de volume de consulta ou de armazenamento.
 
 Para administrar o serviço de forma totalmente programática, você precisará de duas APIs: a API REST de Gerenciamento da Pesquisa do Azure e a [API REST comum do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). A API do Gerenciador de Recursos é usada para operações de uso geral que não são específicas de serviços, como consultar dados de assinatura, listar localizações geográficas e assim por diante. Para criar e gerenciar os serviços da Pesquisa do Azure em sua assinatura, verifique se a solicitação HTTP inclui o ponto de extremidade do Gerenciador de Recursos, a ID da assinatura, o provedor (nesse caso, a Pesquisa do Azure) e a operação específica do serviço de pesquisa.
 
 [Introdução à API REST do Gerenciamento da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) é uma explicação passo a passo de um código de exemplo que demonstra operações de configuração de aplicativos e o gerenciamento de serviços. O aplicativo de exemplo emite solicitações para a API do Gerenciador de Recursos do Azure, bem como a API de gerenciamento de serviço para a Pesquisa do Azure, dando a você uma noção de como criar um aplicativo coeso que tire proveito de ambas as APIs.
 
-### Ponto de extremidade ###
+### Ponto de extremidade
 
 O ponto de extremidade para operações de administração de serviços é a URL do Gerenciador de Recursos do Azure, `https://management.azure.com`.
 
 Observe que todas as chamadas à API de gerenciamento devem incluir a ID da assinatura e uma versão da API.
 
-### Versões ###
+### Versões
 
 A versão atual da API REST de Gerenciamento da Pesquisa do Azure é `api-version=2014-07-31-Preview`. É a única versão dessa API.
 
-### Autenticação e controle de acesso###
+### Autenticação e controle de acesso
 
 A API REST de Gerenciamento da Pesquisa do Azure é uma extensão do Gerenciador de Recursos do Azure e compartilha suas dependências. Assim, o Active Directory é um pré-requisito para a administração do serviço de Pesquisa do Azure. Todas as solicitações administrativas do código do cliente devem ser autenticadas usando o Active Directory do Azure antes que a solicitação atinja o gerenciador de recursos.
 
@@ -52,7 +42,7 @@ O aplicativo de exemplo documentado em [Introdução à API REST de Gerenciament
 O controle de acesso para o Gerenciador de Recursos do Azure usa as funções internas Proprietário, Colaborador e Leitor. Por padrão, todos os administradores de serviço são membros da função Proprietário. Para mais detalhes, confira [Controle de acesso baseado em função no portal de Visualização do Azure](../role-based-access-control-configure.md).
 
 
-### Resumo das APIs ##
+### Resumo das APIs
 
 As operações incluem as APIs a seguir.
 
@@ -97,7 +87,7 @@ As operações incluem as APIs a seguir.
     `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/deleteQueryKey/[key]?api-version=2014-07-31-Preview`
 
 <a name="ServiceOps"></a>
-## Operações de serviço ##
+## Operações de serviço
 
 Você pode provisionar ou desprovisionar serviços de Pesquisa do Azure emitindo solicitações HTTP em relação à sua assinatura do Azure. Os cenários habilitados por meio dessas operações incluem a criação de ferramentas de administração personalizadas ou a preparação de um ambiente de produção ou desenvolvimento de ponta a ponta (desde criar o serviço até preencher um índice). Da mesma forma, os fornecedores de soluções que criam e vendem soluções de nuvem podem querer uma abordagem automatizada e reprodutível para provisionar serviços para cada novo cliente.
 
@@ -113,13 +103,13 @@ As opções relacionadas ao serviço incluem as seguintes APIs:
 
 
 <a name="CreateService"></a>
-## Criar Serviço de Pesquisa ##
+## Criar Serviço de Pesquisa
 
 A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesquisa com os parâmetros especificados. Essa API também pode ser usada para atualizar uma definição de serviço existente.
 
     PUT	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### Solicitar parâmetros de URI  ###
+### Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. O `subscriptionID` para o usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -130,18 +120,18 @@ A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesqu
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
 
-### Cabeçalhos da solicitação ###
+### Cabeçalhos da solicitação
 
 `Content-Type`: obrigatório. Defina este cabeçalho como application/json.
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
 
-### Corpo da solicitação ###
+### Corpo da solicitação
 
 { "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free | standard | standard2" }, "replicaCount": 1 | 2 | 3 | 4 | 5 | 6, "partitionCount": 1 | 2 | 3 | 4 | 6 | 12 } }
 
-### Parâmetros do corpo da solicitação ###
+### Parâmetros do corpo da solicitação
 
 `location`: obrigatório. Uma das regiões geográficas do Azure registradas e com suporte (por exemplo, oeste dos EUA, leste dos EUA, sudeste da Ásia e assim por diante). Observe que o local de um recurso não pode ser alterado depois de ser criado.
 
@@ -154,19 +144,19 @@ A operação **Criar Serviço de Pesquisa** provisiona um novo serviço de pesqu
 `partitionCount`: opcional. O padrão é UTF-1. Os valores válidos são 1, 2, 3, 4, 6 ou 12. Válido somente quando `sku` é `standard`.
 
 
-### Resposta ###
+### Resposta 
 
 HTTP 200 (OK) é retornado quando uma definição de serviço é atualizada. HTTP 201 (criado) é retornado quando um novo serviço é criado.
 
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
 
-### Corpo da resposta ###
+### Corpo da resposta
 
 Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
     
@@ -193,7 +183,7 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
     } 
 
 
-### Elementos do corpo da resposta ###
+### Elementos do corpo da resposta
 
 `id`: a ID é a URL (exceto o nome do host/esquema) para esse serviço de Pesquisa.
 
@@ -235,13 +225,13 @@ Para HTTP 200 e 201, o corpo da resposta contém a definição de serviço.
 O provisionamento é um estado intermediário que ocorre enquanto a capacidade de serviço está sendo estabelecida. Depois que a capacidade é configurada, o `provisioningState` é alterado para "êxito" ou "falha". Aplicativos cliente podem pesquisar o status de provisionamento (o intervalo de pesquisa recomendado é de 30 segundos a um minuto) usando a operação **Obter Serviço de Pesquisa** para ver quando uma operação é concluída. Se você estiver usando o serviço gratuito, esse valor tenderá a ser retornado como "êxito" diretamente na chamada para criar o serviço. Isso ocorre porque o serviço gratuito usa a capacidade que já está configurada.
 
 <a name="GetService"></a>
-## Obter Serviço de Pesquisa  ##
+## Obter Serviço de Pesquisa
 
 A operação **Obter Serviço de Pesquisa** retorna as propriedades para o serviço de pesquisa especificado. Observe que chaves de administração não são retornadas. Use a operação **Obter Chaves de Administração** para recuperar chaves de administração.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### URI da solicitação ###
+### URI da solicitação 
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -251,28 +241,28 @@ A operação **Obter Serviço de Pesquisa** retorna as propriedades para o servi
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
-### Cabeçalhos da solicitação ###
+### Cabeçalhos da solicitação 
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
 
-### Corpo da solicitação ###
+### Corpo da solicitação 
 
 Nenhum.
 
 
-### Código de status de resposta ###
+### Código de status de resposta 
 
 HTTP 200 (OK), caso bem-sucedido.
 
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-### Corpo da resposta ###
+### Corpo da resposta 
 
     {
       "id": "/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]",
@@ -296,7 +286,7 @@ HTTP 200 (OK), caso bem-sucedido.
       }
     }
 
-### Elementos do corpo da resposta ###
+### Elementos do corpo da resposta
 
 `id`: a ID é a URL (exceto o nome do host/esquema) para esse serviço de Pesquisa.
 
@@ -337,13 +327,13 @@ HTTP 200 (OK), caso bem-sucedido.
 
 
 <a name="ListService"></a>
-## Listar serviços de pesquisa ##
+## Listar serviços de pesquisa
 
 A operação **Listar Serviços** retorna uma lista de todos os serviços de pesquisa na assinatura de um grupo de recursos específico. Essa operação retorna as definições de serviço, menos as chaves de api de administração. Use a operação **Obter Chaves de Administração** para recuperar chaves de administração.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2014-07-31-Preview
     
-### Solicitar parâmetros de URI ###
+### Solicitar parâmetros de URI 
 
 `subscriptionId`: obrigatório. O `subscriptionID` para o usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -351,26 +341,26 @@ A operação **Listar Serviços** retorna uma lista de todos os serviços de pes
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
-### Cabeçalhos da solicitação ###
+### Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 O código de status é HTTP 200 (OK), caso bem-sucedido.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
 
-### Corpo da resposta ###
+### Corpo da resposta
 
 O corpo da resposta é uma lista de serviços, retornados como uma matriz JSON, em que cada serviço segue o formato na operação **Obter serviço de pesquisa**.
 
@@ -424,7 +414,7 @@ Observe que o campo `nextLink` é sempre nulo porque a versão atual não dá su
 
 
 <a name="DeleteService"></a>
-## Excluir serviço ##
+## Excluir serviço 
 
 A operação **Excluir serviço** exclui os dados de pesquisa e do serviço de pesquisa, incluindo todos os índices e documentos.
     
@@ -432,7 +422,7 @@ A operação **Excluir serviço** exclui os dados de pesquisa e do serviço de p
 
 **Observação:** administradores e desenvolvedores estão acostumados a fazer backup dos dados de aplicativos antes de excluí-los de um servidor de produção. Na Pesquisa do Azure, não há operação de backup. Se estiver usando o índice como armazenamento primário para seu aplicativo, você precisará usar uma operação de pesquisa para retornar todos os dados no índice, que podem ser armazenados externamente.
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -442,30 +432,30 @@ A operação **Excluir serviço** exclui os dados de pesquisa e do serviço de p
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 Para HTTP 200, o corpo da resposta estará vazio. HTTP 200 (OK) será a resposta correta se o recurso não existir.
 
 Você pode usar **Obter API do Serviço de Pesquisa** para sondar o status do serviço de exclusão. Recomendamos intervalos de sondagem de 30 segundos a um minuto.
 
-###Cabeçalhos de resposta###
+###Cabeçalhos de resposta
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
 Nenhum.
 
 <a name="UpdateService"></a>
-## Atualizar Serviço ##
+## Atualizar Serviço
 
 A operação **Atualizar Serviço** altera a configuração do serviço de pesquisa. Alterações válidas incluem alterar as marcas, a partição ou a contagem de réplicas, o que adiciona ou remove unidades de pesquisa do serviço como um evento faturável. Se você tentar diminuir as partições abaixo da quantidade necessária para armazenar o corpus de pesquisa existente, ocorrerá um erro, bloqueando a operação. Alterações na topologia do serviço podem levar algum tempo. Leva tempo para realocar dados e configurar ou subdividir clusters no data center.
 
@@ -477,7 +467,7 @@ Como alternativa, você pode usar PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. O `subscriptionID` para o usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -487,13 +477,13 @@ Como alternativa, você pode usar PUT.
 
 `api-version`: obrigatório. Especifica a versão do protocolo usado para esta solicitação. À medida que novas versões se tornarem disponíveis, você poderá especificar qual delas usar em cada solicitação para obter comportamentos específicos da versão.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `Content-Type`: obrigatório. Defina este cabeçalho como application/json.
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
     {
       "tags": {
@@ -506,7 +496,7 @@ Como alternativa, você pode usar PUT.
      	}
     }
 
-###Parâmetros do corpo da solicitação###
+###Parâmetros do corpo da solicitação
 
 `tags`: opcional. Uma lista de pares de chave e valor que descrevem o recurso. Essas marcas podem ser usadas para exibir e agrupar esse recurso (entre grupos de recursos). Podem ser fornecidas no máximo 10 marcas para um recurso. Cada marca deve ter uma chave com no máximo 128 caracteres e um valor com no máximo 256 caracteres.
 
@@ -514,24 +504,24 @@ Como alternativa, você pode usar PUT.
 
 `partitionCount`: opcional. O padrão é UTF-1. Os valores válidos são 1, 2, 3, 4, 6 ou 12. Válido somente quando `sku` é `standard`.
 
-###Resposta###
+###Resposta
 
 HTTP 200 (OK) será retornado se a operação for bem-sucedida. Você pode usar **Obter API do serviço de pesquisa** para sondar o status do serviço de atualização. Recomendamos intervalos de sondagem de 30 segundos a um minuto.
 
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-### Corpo da resposta ###
+### Corpo da resposta 
 
 O corpo da resposta contém a definição de serviço atualizada. Para obter um exemplo, confira **Obter API do serviço de pesquisa**.
 
 
 <a name="KeyOps"></a>
-## Operações de chave ##
+## Operações de chave
 
 A autenticação para um serviço de Pesquisa do Azure exige duas informações: uma URL de serviço de pesquisa e uma chave de api. As chaves de api são geradas quando o serviço é criado e podem ser regeneradas sob demanda depois que o serviço é provisionado. Há dois tipos de chave de api.
 
@@ -558,7 +548,7 @@ As operações relacionadas às chaves incluem as seguintes APIs:
 
 
 <a name="ListAdminKey"></a>
-## Listar Chaves de Administração ##
+## Listar Chaves de Administração 
 
 A operação **Listar Chaves de Administração** retorna as chaves de administração primárias e secundárias para o serviço de pesquisa especificado. O método POST é usado porque essa ação retorna chaves de leitura/gravação.
 
@@ -566,7 +556,7 @@ A operação **Listar Chaves de Administração** retorna as chaves de administr
 
 Chaves de administração são criadas com o serviço. Há sempre duas chaves, a primária e a secundária. Você pode regenerar essas chaves, mas não pode excluí-las.
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -578,25 +568,25 @@ Chaves de administração são criadas com o serviço. Há sempre duas chaves, a
 
 `listAdminKeys`: obrigatório. Essa ação recupera as chaves de administração primárias e secundárias para o serviço de pesquisa.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
     {
       "primaryKey": "api key",
@@ -605,13 +595,13 @@ HTTP 200 (OK) será retornado se a operação for bem-sucedida.
     
 
 <a name="RegenAdminKey"></a>
-## Regenerar Chaves de Administração ##
+## Regenerar Chaves de Administração 
 
 A operação **Regenerar Chaves de Administração** exclui e regenera a chave primária ou secundária. Você só pode regenerar uma chave de cada vez. Ao regenerar chaves, considere como você manterá o acesso ao serviço. Existe uma chave secundária para que você tenha uma chave disponível ao substituir a chave primária. Cada serviço sempre tem as duas chaves. Você pode regenerar chaves, mas não pode excluí-las nem executar um serviço sem elas.
  
     POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2014-07-31-Preview
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -628,34 +618,34 @@ A operação **Regenerar Chaves de Administração** exclui e regenera a chave p
 - `primary`
 - `secondary`
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `Content-Type`: obrigatório. Defina este cabeçalho como application/json.
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
     {
       "primaryKey": "api key",
       "secondaryKey": "api key"
     }
     
-###Elementos do corpo da resposta###
+###Elementos do corpo da resposta
 
 `primaryKey`: a chave de administração primária, caso tenha sido regenerada.
 
@@ -664,7 +654,7 @@ HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
 
 <a name="CreateQueryKey"></a>
-## Criar Chave de Consulta ##
+## Criar Chave de Consulta
 
 A operação **Criar Chave de Consulta** gera uma nova chave de consulta para o serviço de pesquisa. Você pode criar até 50 chaves de consulta por serviço.
 
@@ -684,25 +674,25 @@ A operação **Criar Chave de Consulta** gera uma nova chave de consulta para o 
 
 `name`: obrigatório. O nome da nova chave.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 O código de status de resposta será HTTP 200 (OK) se a operação for bem-sucedida.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
     {
       "name": "name of key",
@@ -710,21 +700,21 @@ O código de status de resposta será HTTP 200 (OK) se a operação for bem-suce
     }
 
 
-###Elementos do corpo da resposta###
+###Elementos do corpo da resposta
 
 `name`: o nome da chave de consulta.
 
 `key`: o valor da chave de consulta.
 
 <a name="ListQueryKey"></a>
-## Listar Chaves de Consulta ##
+## Listar Chaves de Consulta 
 
 
 A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o serviço de pesquisa especificado. As chaves de consulta são usadas para enviar chamadas à API de consulta (somente leitura) para um serviço de pesquisa. Pode haver até 50 chaves de consulta por serviço.
 
     GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2014-07-31-Preview
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -736,25 +726,25 @@ A operação **Listar Chaves de Consulta** retorna as chaves de consulta para o 
 	
 `listQueryKeys`: obrigatório. Essa ação recupera as chaves de consulta para o serviço de pesquisa.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 O código de status de resposta será HTTP 200 (OK) será retornado se a operação for bem-sucedida.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
     {
       "value": [
@@ -770,7 +760,7 @@ O código de status de resposta será HTTP 200 (OK) será retornado se a operaç
     "nextLink": null
     }
 
-###Elementos do corpo da resposta###
+###Elementos do corpo da resposta
 
 `name`: o nome da chave de consulta.
 
@@ -778,7 +768,7 @@ O código de status de resposta será HTTP 200 (OK) será retornado se a operaç
 
 
 <a name="DeleteQueryKey"></a>
-## Excluir Chaves de Consulta ##
+## Excluir Chaves de Consulta 
 
 A operação **Excluir Chave de Consulta** exclui a chave de consulta especificada. As chaves de consulta são opcionais e são usadas para consultas somente leitura.
 
@@ -786,7 +776,7 @@ A operação **Excluir Chave de Consulta** exclui a chave de consulta especifica
 
 Diferentemente das chaves de administração, as chaves de consulta não são regeneradas. O processo para regenerar uma chave de consulta consiste em excluí-la e recriá-la.
 
-###Solicitar parâmetros de URI###
+###Solicitar parâmetros de URI
 
 `subscriptionId`: obrigatório. A subscriptionID do usuário do Azure. Você pode obter esse valor por meio da API do Gerenciador de Recursos do Azure ou por meio do portal.
 
@@ -800,28 +790,29 @@ Diferentemente das chaves de administração, as chaves de consulta não são re
 
 `key`: obrigatório. A chave a ser excluída.
 
-###Cabeçalhos da solicitação###
+###Cabeçalhos da solicitação
 
 `x-ms-client-request-id`: opcional. Um valor de GUID gerado pelo cliente que identifica esta solicitação. Se especificado, esse valor será incluído nas informações de resposta como uma maneira de mapear a solicitação.
 
-###Corpo da solicitação###
+###Corpo da solicitação
 
 Nenhum.
 
-###Resposta###
+###Resposta
 
 O código de status de resposta será HTTP 200 (OK) se tiver êxito.
 
-### Cabeçalhos de resposta ###
+### Cabeçalhos de resposta 
 
 `Content-Type`: esse cabeçalho é sempre definido como application/json.
 
 `x-ms-request-id`: um identificador exclusivo para a operação atual, gerado pelo serviço.
 
-###Corpo da resposta###
+###Corpo da resposta
 
 Nenhum.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

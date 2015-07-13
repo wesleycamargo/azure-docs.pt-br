@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="06/18/2015" 
 	ms.author="tamram"/>
 
 # Habilitando métricas de armazenamento e exibição de dados de métricas
@@ -27,11 +27,11 @@ Quando você habilita as métricas de armazenamento, você deve escolher um per�
 No Portal de gerenciamento do Azure, você pode usar a página Configurar para uma conta de armazenamento para controlar métricas de armazenamento. Para monitoramento, você pode definir um nível e um período de retenção em dias para cada um dos blobs, tabelas e filas. Em cada caso, o nível é um dos seguintes:
 
 
-- Desativado - isso significa que nenhuma métrica será coletada.
+- Desativado — isso significa que nenhuma métrica será coletada.
 
-- Mínimo - as métricas de armazenamento coletam um conjunto básico de métricas como ingresso/egresso, disponibilidade, latência e porcentagens de êxitos, que são agregadas para os serviços Blob, tabela e fila.
+- Mínimo — as métricas de armazenamento coletam um conjunto básico de métricas como ingresso/egresso, disponibilidade, latência e porcentagens de êxitos, que são agregadas para os serviços Blob, tabela e fila.
 
-- Detalhado - as métricas de armazenamento coletam um conjunto completo de métricas que inclui as mesmas métricas para cada operação de API, além das métricas de nível de serviço de armazenamento. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
+- Detalhado — as métricas de armazenamento coletam um conjunto completo de métricas que inclui as mesmas métricas para cada operação de API, além das métricas de nível de serviço de armazenamento. As métricas no modo detalhado permitem uma análise mais próxima dos problemas que ocorrem durante operações de aplicativo.
 
 Observe que o Portal de gerenciamento não permite atualmente configurar métricas por minuto em sua conta de armazenamento. Você deve habilitar a métrica de minutos usando o PowerShell ou programaticamente.
 
@@ -56,7 +56,7 @@ O comando a seguir recupera o nível de métricas por hora atual e dias de reten
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Para obter informações sobre como configurar os cmdlets do PowerShell do Azure para funcionar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão para usar, consulte: [Como instalar e configurar o PowerShell do Azure](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+Para saber mais sobre como configurar os cmdlets do PowerShell do Azure para funcionar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão para usar, consulte: [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
 
 ## Como habilitar métricas de armazenamento por meio de programação
 
@@ -106,12 +106,12 @@ Se você quiser baixar as métricas para armazenamento a longo prazo ou para ana
 
 Você pode encontrar detalhes completos dos esquemas para essas tabelas no [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343264.aspx). As linhas de exemplo a seguir mostram apenas um subconjunto das colunas disponíveis, mas ilustram alguns recursos importantes da maneira como as métricas de armazenamento salvam essas métricas:
 
-| PartitionKey  |       RowKey       |                    Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidade | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilidade | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 |---------------|:------------------:|-----------------------------:|---------------|-----------------------|--------------|-------------|--------------|-------------------|----------------------|----------------|
-| 20140522T1100 |      user;All      | 2014-05-22T11:01:16.7650250Z | 7             | 7                     | 4003         | 46801       | 100          | 104.4286          | 6.857143             | 100            |
-| 20140522T1100 | usuário;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5             | 5                     | 2694         | 45951       | 100          | 143.8             | 7.8                  | 100            |
-| 20140522T1100 |  user;QueryEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 538          | 633         | 100          | 3                 | 3                    | 100            |
-| 20140522T1100 | user;UpdateEntity  | 2014-05-22T11:01:16.7650250Z | 1             | 1                     | 771          | 217         | 100          | 9                 | 6                    | 100               |
+| 20140522T1100 | user;All | 2014-05-22T11:01:16.7650250Z | 7 | 7 | 4003 | 46801 | 100 | 104.4286 | 6.857143 | 100 |
+| 20140522T1100 | usuário;QueryEntities | 2014-05-22T11:01:16.7640250Z | 5 | 5 | 2694 | 45951 | 100 | 143.8 | 7.8 | 100 |
+| 20140522T1100 | user;QueryEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 538 | 633 | 100 | 3 | 3 | 100 |
+| 20140522T1100 | user;UpdateEntity | 2014-05-22T11:01:16.7650250Z | 1 | 1 | 771 | 217 | 100 | 9 | 6 | 100 |
 
 Neste exemplo dos dados de métrica de minutos, a chave de partição usa o tempo de resolução minuto. A chave de linha identifica o tipo de informação que é armazenado na linha, e isso é composto de duas partes de informações, o tipo de acesso e o tipo de solicitação:
 
@@ -190,6 +190,6 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 
 ## Próximas etapas:
 [Habilitando o armazenamento de log e acessando os dados de log](https://msdn.microsoft.com/library/dn782840.aspx)
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

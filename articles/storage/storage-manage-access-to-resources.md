@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Gerenciar o acesso aos recursos de Armazenamento do Azure" 
-	description="Saiba mais sobre as diferentes maneiras que você pode gerenciar o acesso aos recursos de armazenamento do Azure." 
+	pageTitle="Gerenciar o acesso aos recursos do Armazenamento do Azure | Microsoft Azure" 
+	description="Saiba como gerenciar como os usuários acessam os recursos do Armazenamento do Azure." 
 	services="storage" 
 	documentationCenter="" 
-	authors="micurd,tamram" 
-	manager="jahogg" 
+	authors="tamram" 
+	manager="jdial" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="micurd"/>
+	ms.date="05/28/2015" 
+	ms.author="micurd;tamram"/>
 
 # Gerenciar o acesso aos recursos de Armazenamento do Azure
 
 ## Visão geral
 
-Por padrão, somente o proprietário da conta de armazenamento pode acessar blobs, tabelas e filas nessa conta. Se seu serviço ou aplicativo precisar tornar esses recursos disponíveis para outros clientes sem compartilhar sua chave de acesso, você tem as seguintes opções para permitir acesso:
+Por padrão, somente o proprietário da conta de armazenamento pode acessar os recursos de armazenamento nessa conta. Se seu serviço ou aplicativo precisar tornar esses recursos disponíveis para outros clientes sem compartilhar sua chave de acesso, você tem as seguintes opções para permitir acesso:
 
 - Definir permissões do contêiner para permitir o acesso de leitura anônimo para o contêiner e seus blobs. Isso não é permitido para tabelas ou filas.
 
@@ -30,53 +30,53 @@ Por padrão, somente o proprietário da conta de armazenamento pode acessar blob
 
 ## Restringir o acesso aos contêineres e blobs
 
-Por padrão, um contêiner e todos os blobs dentro dele podem ser acessados somente pelo proprietário da conta de armazenamento. Se você quiser dar aos usuários anônimos permissões de leitura a um contêiner e seus blobs, é possível definir as permissões de contêiner para permitir acesso público. Usuários anônimos podem ler blobs dentro de um contêiner publicamente acessível sem autenticar a solicitação.
+Por padrão, um contêiner e todos os blobs dentro dele podem ser acessados somente pelo proprietário da conta de armazenamento. Para dar aos usuários anônimos permissões de leitura a um contêiner e seus blobs, é possível definir as permissões de contêiner para permitir acesso público. Usuários anônimos podem ler blobs dentro de um contêiner publicamente acessível sem autenticar a solicitação.
 
 Os contêineres fornecem as seguintes opções para gerenciar o acesso do contêiner:
 
-- Acesso de leitura público completo: Os dados do contêiner e do blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
+- **Acesso completo de leitura pública:** os dados de contêiner e blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
 
-- Acesso de leitura público para somente para blobs: Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
+- **Acesso de leitura pública somente para blobs:** os dados blob nesse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
 
-- Nenhum acesso de leitura público: Dados de contêiner e blob podem ser lidos apenas pelo proprietário da conta.
+- **Sem acesso de leitura público:** os dados de contêiner e de blob podem ser lidos por apenas o proprietário da conta.
 
->[AZURE.NOTE]Se seu serviço exigir que você exerça controle mais granular sobre recursos de blob ou se você quiser fornecer permissões para operações diferentes de operações de leitura, é possível usar uma Assinatura de Acesso Compartilhado para tornar um recurso acessível aos usuários. 
+>[AZURE.NOTE]Se seu serviço exigir que você exerça controle mais granular sobre recursos de blob ou se você quiser fornecer permissões para operações diferentes de operações de leitura, é possível usar uma Assinatura de Acesso Compartilhado para tornar um recurso acessível aos usuários.
 
 ### Recursos disponíveis para usuários anônimos
 A tabela a seguir mostra quais operações podem ser chamadas por usuários anônimos quando a ACL do contêiner é definida para permitir acesso público.
 
-| Operação REST | Permissão com acesso de leitura público completo | Permissão de acesso de leitura público para blobs apenas |
+| Operação REST | Permissão com acesso de leitura público completo | Permissão de acesso de leitura público apenas para blobs |
 |--------------------------------------------------------|-----------------------------------------|---------------------------------------------------|
-| Listar contêineres | Somente o proprietário | Somente o proprietário                                         |
-| Criar Contêiner                                       | Somente o proprietário                              | Somente o proprietário                                        |
-| Obter propriedades de contêiner | Todos                                     | Somente o proprietário                                        |
-| Obter Metadados do Contêiner | Todos                                     | Somente o proprietário                                        |
-| Definir Metadados do Contêiner                                 | Somente o proprietário | Somente o proprietário                                        |
-| Obter ACL do Contêiner | Somente o proprietário | Somente o proprietário                                        |
-| Definir ACL do Contêiner | Somente o proprietário | Somente o proprietário                                        |
-| Excluir Contêiner | Somente o proprietário | Somente o proprietário                                        |
-| Listar Blobs                                             | Todos                                     | Somente o proprietário                                        |
-| Colocar Blob                                               | Somente o proprietário                               | Somente o proprietário                                        |
-| Obter Blob                                               | Todos                                     | Todos                                             |
-| Obter Propriedades do Blob | Todos                                     | Todos                                               |
-| Definir Propriedades do Blob | Somente o proprietário | Somente o proprietário                                       |
-| Obter Metadados do Blob | Todos                                     | Todos                                             |
-| Definir Metadados do Blob | Somente o proprietário | Somente o proprietário                                        |
-| Colocar Bloco                                              | Somente o proprietário                              | Somente o proprietário                                        |
-| Obter Lista de Blocos (somente blocos confirmados) | Todos                                     | Todos                                               |
-| Obter Lista de Blocos (somente blocos não confirmados ou todos os blocos) | Somente o proprietário | Somente o proprietário                                        |
-| Colocar Lista de Blocos | Somente o proprietário | Somente o proprietário                                        |
-| Excluir Blob                                            | Somente o proprietário | Somente o proprietário                                        |
-| Copiar Blob                                              | Somente o proprietário | Somente o proprietário                                        |
-| Blob de Instantâneo | Somente o proprietário | Somente o proprietário                                        |
-| Blob de Concessão                                             | Somente o proprietário | Somente o proprietário                                        |
-| Colocar Página                                               | Somente o proprietário | Somente o proprietário                                        |
-| Obter Intervalos de Página | Todos                                     | Todos                                                  |
+| Listar contêineres | Somente proprietário | Somente proprietário |
+| Create Container | Somente proprietário | Somente proprietário |
+| Get Container Properties | Todos | Somente proprietário |
+| Get Container Metadata | Todos | Somente proprietário |
+| Set Container Metadata | Somente proprietário | Somente proprietário |
+| Get Container ACL | Somente proprietário | Somente proprietário |
+| Set Container ACL | Somente proprietário | Somente proprietário |
+| Delete Container | Somente proprietário | Somente proprietário |
+| Listar Blobs | Todos | Somente proprietário |
+| Put Blob | Somente proprietário | Somente proprietário |
+| Get Blob | Todos | Todos |
+| Get Blob Properties | Todos | Todos |
+| Set Blob Properties | Somente proprietário | Somente proprietário |
+| Get Blob Metadata | Todos | Todos |
+| Set Blob Metadata | Somente proprietário | Somente proprietário |
+| Put Block | Somente proprietário | Somente proprietário |
+| Obter lista de blocos (somente blocos confirmados) | Todos | Todos |
+| Obter lista de blocos (somente blocos não confirmados ou todos os blocos) | Somente proprietário | Somente proprietário |
+| Put Block List | Somente proprietário | Somente proprietário |
+| Delete Blob | Somente proprietário | Somente proprietário |
+| Copiar blob | Somente proprietário | Somente proprietário |
+| Blob de instantâneo | Somente proprietário | Somente proprietário |
+| Lease Blob | Somente proprietário | Somente proprietário |
+| Put Page | Somente proprietário | Somente proprietário |
+| Get Page Ranges | Todos | Todos |
 
 ## Criar e usar uma assinatura de acesso compartilhado
 Uma assinatura de acesso compartilhado é um URI que concede direitos de acesso restrito para contêineres, blobs, filas e tabelas por um intervalo de tempo específico. Fornecendo um cliente com uma assinatura de acesso compartilhado, você poderá habilitá-los a acessar recursos na sua conta de armazenamento sem compartilhar sua chave de conta com eles.
 
->[AZURE.NOTE] Para uma visão geral conceitual aprofundada e um tutorial sobre assinaturas de acesso compartilhado, consulte [Assinaturas de acesso compartilhado](storage-dotnet-shared-access-signature-part-1.md).
+>[AZURE.NOTE]Para uma visão geral conceitual e um tutorial detalhado sobre assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md).
 
 As operações com suporte para uso de assinaturas de acesso compartilhado incluem:
 
@@ -94,65 +94,65 @@ As operações com suporte para uso de assinaturas de acesso compartilhado inclu
 
 Os parâmetros de consulta URI de assinatura de acesso compartilhado incorporam todas as informações necessárias para conceder acesso controlado a um recurso de armazenamento. Os parâmetros de consulta URI especificam o intervalo de tempo no qual a assinatura de acesso compartilhado é válida, as permissões concedidas por ela, o recurso que deve ser disponibilizado e a assinatura que os serviços de armazenamento devem usar para autenticar a solicitação.
 
-Além disso, o URI da assinatura de acesso compartilhado pode fazer referência a uma política de acesso armazenado que fornece um nível adicional de controle sobre um conjunto de assinaturas, incluindo a capacidade de modificar ou revogar acesso ao recurso, se necessário. 
+Além disso, o URI da assinatura de acesso compartilhado pode fazer referência a uma política de acesso armazenado que fornece um nível adicional de controle sobre um conjunto de assinaturas, incluindo a capacidade de modificar ou revogar acesso ao recurso, se necessário.
 
-Para obter informações sobre o formato de URI de uma assinatura de acesso compartilhado, consulte [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/ee395415.aspx).
+Para obter informações sobre o formato de URI de uma assinatura de acesso compartilhado, consulte [Delegando Acesso com uma Assinatura de Acesso Compartilhado](https://msdn.microsoft.com/library/ee395415.aspx).
 
 ### Uso seguro de assinaturas de acesso compartilhado
 Uma assinatura de acesso compartilhado concede acesso ao recurso especificado pelas permissões concedidas do URI. Você deve sempre usar HTTPS para construir um URI de assinatura de acesso compartilhado. Usando HTTP com assinaturas de acesso compartilhado pode tornar sua conta de armazenamento vulnerável ao uso mal-intencionado.
 
 Se uma assinatura de acesso compartilhado concede acesso que não se destina ao público em geral, ela deve ser construída com o menor número possível de permissões. Além disso, uma assinatura de acesso compartilhado deve ser distribuída seguramente aos clientes em uma conexão segura, deve estar associada uma política de acesso armazenado para fins de revogação e deve especificar o menor tempo de vida possível para a assinatura.
 
->[AZURE.NOTE] Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta. 
+>[AZURE.NOTE]Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
 
 ### Criar uma assinatura de acesso compartilhado
 O exemplo de código a seguir cria uma política de acesso em um contêiner e gera uma assinatura de acesso compartilhado para o contêiner. Essa assinatura de acesso compartilhado pode ser oferecida a clientes:
 
-    // A cadeia de conexão para a conta de armazenamento.  Modificação para sua conta.
+    // The connection string for the storage account.  Modify for your account.
     string storageConnectionString =
        "DefaultEndpointsProtocol=https;" +
        "AccountName=myaccount;" +
        "AccountKey=<account-key>";
     
-    // Como alternativa, você pode recuperar informações da conta de armazenamento de um arquivo app.config. 
-    Essa é uma maneira de armazenar e recuperar uma cadeia de conexão se você estiver 
-    // escrevendo um aplicativo que será executado localmente, em vez de no Microsoft Azure.
+    // As an alternative, you can retrieve storage account information from an app.config file. 
+    // This is one way to store and retrieve a connection string if you are 
+    // writing an application that will run locally, rather than in Microsoft Azure.
     
     // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
     
-    // Crie a conta de armazenamento com a cadeia de conexão.
+    // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
        
-    // Crie o objeto de cliente do blob.
+    // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     
-    // Obtenha uma referência para o contêiner para o qual a assinatura de acesso compartilhado será criada.
+    // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
     
-    // Crie permissões do contêiner do blob, que consistem em uma política de acesso compartilhado 
-    // e uma configuração de acesso público. 
+    // Create blob container permissions, consisting of a shared access policy 
+    // and a public access setting. 
     BlobContainerPermissions blobPermissions = new BlobContainerPermissions();
     
-    // A política de acesso compartilhado fornece 
-    // acesso de leitura e gravação ao contêiner por 10 horas.
+    // The shared access policy provides 
+    // read/write access to the container for 10 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
-       // Para garantir que o SAS seja válido imediatamente, não defina a hora de início.
-       // Dessa forma, você pode evitar falhas causadas por pequenas diferenças no relógio.
+       // To ensure SAS is valid immediately, don’t set start time.
+       // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
        Permissions = SharedAccessBlobPermissions.Write |
       SharedAccessBlobPermissions.Read
     });
     
-    // A configuração de acesso público especifica explicitamente que 
-    // o contêiner é privado, de modo que não pode ser acessado anonimamente.
+    // The public access setting explicitly specifies that 
+    // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Defina a política de permissão no contêiner.
+    // Set the permission policy on the container.
     container.SetPermissions(blobPermissions);
     
-    // Obtenha a assinatura de acesso compartilhado para compartilhar com usuários.
+    // Get the shared access signature to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
@@ -161,15 +161,15 @@ Um cliente que recebe uma assinatura de acesso compartilhado pode usá-la no seu
 
     Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
     
-    // Crie credenciais com o token SAS. O token SAS foi criado no exemplo anterior.
+    // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
     
-    // Crie um novo blob.
+    // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
     
-    // Carregar o blob. 
-    // Se o blob ainda não existir, ele será criado. 
-    // Se o blob existir, seu conteúdo existente será substituído.
+    // Upload the blob. 
+    // If the blob does not yet exist, it will be created. 
+    // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
     {
     blob.UploadFromStream(fileStream);
@@ -182,10 +182,10 @@ Uma política de acesso armazenado proporciona maior controle sobre assinaturas 
 
 Por exemplo, suponha que você tenha emitido uma assinatura de acesso compartilhado associada a uma política de acesso armazenado. Se você tiver especificado o tempo de término na política de acesso armazenado, é possível modificar a política de acesso para aumentar a vida da assinatura, sem precisar reemitir uma nova assinatura.
 
-Práticas recomendadas aconselham especificar uma política de acesso armazenado para qualquer recurso assinado para o qual você esteja emitindo uma assinatura de acesso compartilhado, porque a política armazenada pode ser usada para modificar ou revogar a assinatura depois que ela tiver sido emitida. Se você não especificar uma política armazenada, é recomendável que você limite o tempo de vida da sua assinatura para minimizar qualquer risco aos seus recursos da conta de armazenamento. 
+Práticas recomendadas aconselham especificar uma política de acesso armazenado para qualquer recurso assinado para o qual você esteja emitindo uma assinatura de acesso compartilhado, porque a política armazenada pode ser usada para modificar ou revogar a assinatura depois que ela tiver sido emitida. Se você não especificar uma política armazenada, é recomendável que você limite o tempo de vida da sua assinatura para minimizar qualquer risco aos seus recursos da conta de armazenamento.
 
 ### Associar uma assinatura de acesso compartilhado a uma política de acesso armazenado
-Uma política de acesso armazenado inclui um nome de até 64 caracteres que é exclusivo dentro do contêiner, fila ou tabela. Para associar uma assinatura de acesso compartilhado com uma política de acesso armazenado, você especificar esse identificador ao criar a assinatura de acesso compartilhado. No URI de assinatura de acesso compartilhado, o *signedidentifier* campo especifica o identificador da política de acesso armazenado.
+Uma política de acesso armazenado inclui um nome de até 64 caracteres que é exclusivo dentro do contêiner, fila ou tabela. Para associar uma assinatura de acesso compartilhado com uma política de acesso armazenado, você especificar esse identificador ao criar a assinatura de acesso compartilhado. No URI de assinatura de acesso compartilhado, o campo *signedidentifier* especifica o identificador da política de acesso armazenado.
 
 Um contêiner, fila ou tabela pode incluir até 5 políticas de acesso armazenado. Cada política pode ser usada por qualquer número de assinaturas de acesso compartilhado.
 
@@ -208,5 +208,10 @@ Juntas, a assinatura de acesso compartilhado e a política de acesso armazenado 
 
 Para revogar o acesso a assinaturas de acesso compartilhado que usam a mesma política de acesso armazenado, remova a política armazenada do recurso de armazenamento substituindo a lista de políticas armazenadas por uma nova lista que não contém o nome da política. Para alterar as configurações de acesso de uma política de acesso armazenado, substitua a lista de políticas armazenadas por uma nova lista que contenha uma política de mesmo nome que tenha detalhes do novo controle de acesso.
 
+## Consulte também
 
-<!--HONumber=52--> 
+- [Autenticação para os Serviços de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+- [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+
+<!---HONumber=July15_HO1-->

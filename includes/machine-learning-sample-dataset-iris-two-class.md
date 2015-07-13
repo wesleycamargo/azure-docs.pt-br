@@ -1,3 +1,3 @@
 Esse é provavelmente o banco de dados mais conhecido encontrado na literatura de reconhecimento padrão. O conjunto de dados é relativamente pequeno, contém 50 exemplos de cada medida em pétalas das três variáveis da íris.<p> </p><b>Uso:</b> prever o tipo de íris por meio das medições. <p> </p><b>Pesquisa relacionada:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

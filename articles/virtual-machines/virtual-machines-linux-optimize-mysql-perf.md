@@ -59,7 +59,7 @@ Para discos de dados, a **Preferência de Cache do Host** deve ser definida como
 
 Isso adicionará um disco vazio à sua máquina virtual. Repita essa etapa mais três vezes para que você tenha 4 discos de dados para o RAID.
 
-Você pode ver as unidades adicionadas na máquina virtual, observando o log de mensagens do kernel. Por exemplo, para ver isso no Ubuntu, use o seguinte comando:  
+Você pode ver as unidades adicionadas na máquina virtual, observando o log de mensagens do kernel. Por exemplo, para ver isso no Ubuntu, use o seguinte comando:
 
 	sudo grep SCSI /var/log/dmesg
 
@@ -68,7 +68,7 @@ Siga este artigo para obter as etapas detalhadas de configuração do RAID:
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE] Se você estiver usando o sistema de arquivos XFS, siga as etapas abaixo após ter criado o RAID.
+>[AZURE.NOTE]Se você estiver usando o sistema de arquivos XFS, siga as etapas abaixo após ter criado o RAID.
 
 Para instalar o XFS no Debian, Ubuntu ou Linux Mint, use o seguinte comando:
 
@@ -131,7 +131,7 @@ Use os seguintes comandos:
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE] Configurar este somente para /dev/sda não é útil. Ele precisa ser definido em todos os discos de dados onde o banco de dados reside.  
+>[AZURE.NOTE]Configurar este somente para /dev/sda não é útil. Ele precisa ser definido em todos os discos de dados onde o banco de dados reside.
 
 Você verá o resultado, indicando que o grub.cfg foi recriado com êxito e que o agendador padrão foi atualizado para o NOOP.
 
@@ -149,11 +149,11 @@ Para a família de distribuição Redhat, só é necessário o seguinte comando:
 	echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ##Definir as configurações de operações de arquivos do sistema
-Uma prática recomendada é desabilitar o recurso de log no sistema de arquivos. Atime é a hora do último acesso ao arquivo. Sempre que um arquivo é acessado, o sistema de arquivos registra o carimbo de data/hora no log. No entanto, essas informações raramente são usadas. Você pode desabilitá-lo se não precisar dele, o que reduzirá o tempo de acesso total do disco.  
+Uma prática recomendada é desabilitar o recurso de log no sistema de arquivos. Atime é a hora do último acesso ao arquivo. Sempre que um arquivo é acessado, o sistema de arquivos registra o carimbo de data/hora no log. No entanto, essas informações raramente são usadas. Você pode desabilitá-lo se não precisar dele, o que reduzirá o tempo de acesso total do disco.
  
-Para desabilitar o log atime, você precisa modificar o arquivo de configuração do sistema de arquivos /etc/ fstab e adicionar a opção **noatime**.  
+Para desabilitar o log atime, você precisa modificar o arquivo de configuração do sistema de arquivos /etc/ fstab e adicionar a opção **noatime**.
 
-Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme mostrado abaixo.  
+Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme mostrado abaixo.
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -161,13 +161,13 @@ Por exemplo, edite o arquivo vim /etc/fstab, adicionando o noatime conforme most
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-Em seguida, monte novamente o sistema de arquivos com o seguinte comando:  
+Em seguida, monte novamente o sistema de arquivos com o seguinte comando:
 
 	mount -o remount /RAID0
 
-Teste o resultado modificado. Observe que, quando você modifica o arquivo de teste, o tempo de acesso não é atualizado.  
+Teste o resultado modificado. Observe que, quando você modifica o arquivo de teste, o tempo de acesso não é atualizado.
 
-Antes do exemplo:		
+Antes do exemplo:
 
 ![][5]
  
@@ -213,8 +213,7 @@ Os seguintes itens de configuração são os principais fatores que afetam o des
 -	**innodb_buffer_pool_size**: o pool de buffers contém dados armazenados em buffer e o índice. Isto é geralmente definido como 70% da memória física.
 -	**innodb_log_file_size**: esse é o tamanho do redo log. Você pode usar os logs de refazer para garantir que as operações de gravação sejam rápidas, confiáveis e recuperáveis após uma falha. Isto é definido para 512MB, o que lhe dará bastante espaço para operações de gravação em log.
 -	**max_connections**: às vezes, os aplicativos não fecham as conexões corretamente. Um valor maior oferece ao servidor mais tempo para reciclar conexões ociosas. O número máximo de conexões é 10000, mas o máximo recomendado é 5000.
--	**Innodb_file_per_table**: esta configuração habilita ou desabilita a capacidade de InnoDB para armazenar as tabelas em arquivos separados. Ativar a opção garantirá que várias operações de administração avançada possam ser aplicadas com eficiência. Do ponto de vista de desempenho, ela pode acelerar a transmissão de espaço de tabela e otimizar o desempenho do gerenciamento de resíduos. Portanto, a configuração recomendada para esta opção é Ativada.</br>
-	No MySQL 5.6, a configuração padrão é Ativada. Portanto, nenhuma ação é necessária. Para outras versões, que sejam anteriores a 5.6, as configurações padrão estão Desativadas. É necessário ativá-las. E deve aplicá-la antes do carregamento de dados, porque apenas as tabelas criadas recentemente são afetadas.
+-	**Innodb_file_per_table**: esta configuração habilita ou desabilita a capacidade de InnoDB para armazenar as tabelas em arquivos separados. Ativar a opção garantirá que várias operações de administração avançada possam ser aplicadas com eficiência. Do ponto de vista de desempenho, ela pode acelerar a transmissão de espaço de tabela e otimizar o desempenho do gerenciamento de resíduos. Portanto, a configuração recomendada para esta opção é Ativada.</br> No MySQL 5.6, a configuração padrão é Ativada. Portanto, nenhuma ação é necessária. Para outras versões, que sejam anteriores a 5.6, as configurações padrão estão Desativadas. É necessário ativá-las. E deve aplicá-la antes do carregamento de dados, porque apenas as tabelas criadas recentemente são afetadas.
 -	**innodb_flush_log_at_trx_commit**: o valor padrão é 1, com o escopo definido como 0~2. O valor padrão é a opção mais adequada para o banco de dados do MySQL autônomo. A configuração de 2 habilita mais integridade de dados e é adequada para mestre no cluster do MySQL. A configuração de 0 permite a perda de dados, que pode afetar a confiabilidade, em alguns casos com melhor desempenho e é adequada para o subordinado no cluster do MySQL.
 -	**Innodb_log_buffer_size**: o buffer de log permite que as transações sejam executados sem ter que liberar o log no disco antes que as transações sejam confirmadas. No entanto, se houver objetos binários grandes ou campo de texto, o cache será consumido rapidamente e a e/s de disco frequente será disparada. É melhor aumentar o tamanho do buffer se a variável de estado Innodb_log_waits não é 0.
 -	**query_cache_size**: a melhor opção é desabilitá-lo desde o início. Defina query_cache_size como 0 (este agora é a configuração padrão no MySQL 5.6) e use outros métodos para agilizar as consultas.  
@@ -238,7 +237,7 @@ Observe que por padrão isso não está habilitado. Ativar o log de consultas le
 
 ###Etapa 3: verificar se a configuração está produzindo efeito usando o comando “show”
  
-![][7]   
+![][7]
    
 ![][8]
  
@@ -266,15 +265,13 @@ Os seguintes são dados de teste de desempenho de amostra produzidos no ambiente
 <a name="AppendixB"></a>Apêndice B: **comparação de desempenho do MySQL (taxa de transferência) com níveis de RAID diferentes** (sistema de arquivos XFS)
 
  
-![][10]  
-![][11]
+![][10] ![][11]
 
 **Comandos de teste:**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**Comparação de desempenho (OLTP) do MySQL com níveis de RAID diferentes**  
-![][12]
+**Comparação de desempenho (OLTP) do MySQL com níveis de RAID diferentes** ![][12]
 
 **Comandos de teste:**
 
@@ -304,15 +301,15 @@ Observe que o tamanho do arquivo usado para esse teste é 30GB e 1GB respectivam
 
 **A definição de configuração para padrão e otimização é a seguinte:**
 
-|Parâmetros	|Padrão	|otimização
+|Parâmetros |Padrão |otimização
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size**	|Nenhum |7G
-|**innodb_log_file_size**	|5 M	|512 M
-|**max_connections**	|100	|5.000
-|**innodb_file_per_table**	|0	|1
-|**innodb_flush_log_at_trx_commit**	|1	|2
-|**innodb_log_buffer_size**	|8 M	|128 M
-|**query_cache_size**	|16 M	|0
+|**innodb_buffer_pool_size** |Nenhum |7G
+|**innodb_log_file_size** |5 M |512 M
+|**max_connections** |100 |5.000
+|**innodb_file_per_table** |0 |1
+|**innodb_flush_log_at_trx_commit** |1 |2
+|**innodb_log_buffer_size** |8 M |128 M
+|**query_cache_size** |16 M |0
 
 
 Parâmetros de configuração de otimização mais detalhados, consulte as instruções oficiais do mysql.
@@ -323,12 +320,12 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 
 **Ambiente de teste**
 
-|Hardware	|Detalhes
+|Hardware |Detalhes
 |-----------|-------
-|Cpu	|Processador AMD Opteron(tm) 4171 HE/4 cores
-|Memória	|14G
-|disk	|10G/disco
-|os	|Ubuntu 14.04.1 LTS
+|Cpu |Processador AMD Opteron(tm) 4171 HE/4 cores
+|Memória |14G
+|disk |10G/disco
+|os |Ubuntu 14.04.1 LTS
 
 
 
@@ -346,5 +343,6 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [12]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
+ 
 
-<!----HONumber=58--> 
+<!---HONumber=July15_HO1-->

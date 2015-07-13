@@ -82,4 +82,4 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 	Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

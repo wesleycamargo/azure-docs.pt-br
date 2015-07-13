@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -142,7 +142,7 @@ Se desejar que o aplicativo seja capaz de receber push de dados do Reach, você 
 	   return true;
 	};
 
-Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` será retornado para o Engagement.
+Você pode ver que o retorno de chamada de cada método retorna um valor booleano. O Engagement envia um comentário ao seu back-end após distribuir o push de dados. Se o retorno de chamada retorna false, o comentário `exit` será enviado. Caso contrário, ele será `action`. Se nenhum retorno de chamada for definido para os eventos, o comentário `drop` retornará ao Engagement.
 
 > [AZURE.WARNING]O Engagement não é capaz de receber múltiplos comentários para um push de dados. Se você pretende definir vários manipuladores em um evento, lembre-se de que os comentários corresponderá ao último enviado. Nesse caso, é recomendável sempre retornar o mesmo valor para evitar que os comentários sejam confusos no front-end.
 
@@ -264,5 +264,6 @@ Você pode definir o retorno de chamada em seu método `Application_Launching` d
 [Políticas de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [Requisitos adicionais para tipos específicos de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

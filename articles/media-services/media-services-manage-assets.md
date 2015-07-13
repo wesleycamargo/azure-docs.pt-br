@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como gerenciar ativos nos Serviços de Mídia - Azure" 
+	pageTitle="Como gerenciar ativos nos Serviços de Mídia" 
 	description="Saiba como gerenciar ativos em Serviços de Mídia. Você também pode gerenciar trabalhos, tarefas, políticas de acesso, localizadores e muito mais. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-#Como: Gerenciar ativos no armazenamento
+#Como gerenciar ativos no armazenamento
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).  
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
 
 Depois de criar ativos de mídia, você pode acessar e gerenciar os ativos no servidor. Você também pode gerenciar outros objetos no servidor que fazem parte dos Serviços de Mídia, incluindo trabalhos, tarefas, políticas de acesso, localizadores e muito mais.
 
-O exemplo a seguir mostra como consultar um ativo por assetId. 
+O exemplo a seguir mostra como consultar um ativo por assetId.
 
 	static IAsset GetAsset(string assetId)
 	{
@@ -84,6 +84,6 @@ O trecho de código a seguir exclui todos os ativos da conta de Serviços de Mí
 	    asset.Delete();
 	}
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

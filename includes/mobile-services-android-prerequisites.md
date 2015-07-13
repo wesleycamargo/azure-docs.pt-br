@@ -1,6 +1,6 @@
 Para concluir este tutorial, você precisará do seguinte:
 
-- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pt-br/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
+- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
 
 
 - o [SDK do Android dos Serviços Móveis do Azure](http://aka.ms/Iajk6q);
@@ -14,4 +14,4 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de inici
 [Introdução aos Serviços Móveis]: ../articles/mobile-services/mobile-services-android-get-started.md
 [Adicionar Serviços Móveis a um aplicativo existente]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

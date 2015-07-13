@@ -5,18 +5,19 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/> <tags 
+	editor="mollybos"/>
+<tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
-# Oferecendo suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel
+# Oferecendo suporte a várias plataformas de dispositivo de um único serviço móvel
  
-Um dos principais benefícios de usar os Serviços Móveis do Azure no desenvolvimento de aplicativos móveis é a capacidade de usar um único serviço de back-end que oferece suporte a um aplicativo em várias plataformas de cliente. Os Serviços Móveis fornecem bibliotecas de cliente nativas para todas as principais plataformas de dispositivos, o que facilita o desenvolvimento de aplicativos usando um único serviço de back-end e usando ferramentas de desenvolvedor entre plataformas. Este tópico discute considerações para que o seu aplicativo execute em várias plataformas clientes ao usar um único serviço móvel de back-end: Para informações mais gerais sobre os Serviços Móveis, consulte o [Centro do desenvolvedor dos Serviços Móveis](/documentation/services/mobile-services/).
+Um dos principais benefícios de usar os Serviços Móveis do Azure no desenvolvimento de aplicativos móveis é a capacidade de usar um único serviço de back-end que oferece suporte a um aplicativo em várias plataformas de cliente. Os Serviços Móveis fornecem bibliotecas de cliente nativas para todas as principais plataformas de dispositivos, o que facilita o desenvolvimento de aplicativos usando um único serviço de back-end e usando ferramentas de desenvolvedor entre plataformas. Este tópico discute considerações para que o seu aplicativo execute em várias plataformas clientes ao usar um único serviço móvel de back-end:
 
 ##<a id="push"></a>Notificações por push de plataformas cruzadas
 
@@ -205,5 +206,6 @@ A biblioteca cliente do .NET dos Serviços Móveis fornece suporte para os aplic
 [O que vem a seguir para os desenvolvedores do Windows Phone 8.]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Criar aplicativos universais do Windows para todos os dispositivos Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Projeto de aplicativos universais do Windows para os Serviços Móveis do Azure usando o MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

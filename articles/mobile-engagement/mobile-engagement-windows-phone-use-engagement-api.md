@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -338,7 +338,7 @@ Isso significa que as chaves devem começar com pelo menos uma letra, seguida po
 
 #### Tamanho
 
-Os extras estão limitados à **1024** caracteres por chamada.
+Os arquivos extras estão limitados a **1024** caracteres por chamada.
 
 ##Relatório de informações de aplicativo
 
@@ -377,5 +377,6 @@ As informações do aplicativo estão limitadas a **1024** caracteres por chamad
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"subscription":"2013-12-07","premium":"true"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

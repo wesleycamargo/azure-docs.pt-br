@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Guia de solução de problemas de integração do SDK
 
@@ -34,7 +33,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 - A maioria dos problemas com o SDK do Mobile Engagement do Azure que precisam ser resolvidos será descoberta por uma falha em seu aplicativo (por exemplo, uma falha de coleta de dados da interface do usuário, uma falha de envio por push, uma falha de recurso avançado, uma falha de API, falhas do Aplicativo ou uma interrupção de serviço aparente).  
 - Se um recurso específico do Mobile Engagement do Azure nunca funcionou em seu aplicativo antes, você precisará concluir a integração. 
-- Se um recurso específico do Mobile Engagement do Azure estava funcionando e foi e interrompido, talvez seja necessário atualizar para a versão mais recente usando o SDK do Mobile Engagement do Azure. Lembre-se de que há uma versão diferente do SDK do Mobile Engagement do Azure para cada plataforma com suporte do Mobile Engagement do Azure (Android, iOS, Web, Windows e Windows Phone).
+- Se um recurso específico do Azure Mobile contrato estava trabalhando e interrompido, talvez seja necessário atualizar para a última versão com o SDK do Mobile Engagement do Azure. Lembre-se de que há uma versão diferente do SDK do Mobile Engagement do Azure para cada plataforma suportada pelo Mobile Engagement do Azure (Android, iOS, Windows e Windows Phone).
 
 #### Integração do SDK
 
@@ -43,19 +42,32 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 - Certificado expirado ou incorreto PROD versus DEV (somente iOS).
 - GCM ou ADM não estão corretamente integrados no SDK (somente Android - Envios por Push Específicos do Serviço).
 - O rastreamento não está corretamente integrado no SDK (instalar rastreamento de loja).
-- Localização lenta ou Localização de GPS não estão corretamente integradas no SDK (direcionamento por localização geográfica). [Documentação do SDK - guias de integração][Link 5], [Guia de solução de problemas - Envio por Push][Link 23]
+- Localização lenta ou localização de GPS não estão corretamente integrados no SDK (direcionamento por localização geográfica).
+
+
+**Consulte também:**
+
+- [Documentação do SDK - Guias de integração][Link 5] 
+- [Guia de solução de problemas - Push][Link 23]
 
 #### Atualização do SDK
 
 - É necessário atualizar o SDK para resolver problemas com versões anteriores do SDK (geralmente relacionadas às versões mais recentes do sistema operacional do dispositivo).
-- Desinstale todas as versões anteriores do aplicativo do seu dispositivo e reinstale a versão mais recente do seu aplicativo, registre novamente a ID do Dispositivo da interface do usuário do Mobile Engagement do Azure para confirmar se o dispositivo está usando a versão mais recente do seu aplicativo. [Documentação do SDK - notas de versão](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentação do SDK - guias de atualização](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentação da interface do usuário - configurações][Link 20]
+- Desinstale todas as versões anteriores do aplicativo do dispositivo e reinstale a versão mais recente do seu aplicativo, registre novamente o ID do dispositivo da interface do usuário do Mobile Engagement do Azure para confirmar que o dispositivo está usando a versão mais recente do seu aplicativo.
+
+**Consulte também:**
+
+- [Documentação do SDK - Notas de versão] (http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [Documentação do SDK - Guias de atualização] (http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### Outros problemas no SDK
 
-- Erros nas seções de código relacionadas ao Mobile Engagement do Azure podem fazer o Mobile Engagement do Azure parar de funcionar.
-- Erros no manifesto do aplicativo “Androidmanifest.xml” podem fazer o Mobile Engagement do Azure parar de funcionar (somente Android).
-- Um problema comum com a integração do SDK e 
-- o uso da API é confundir a Chave do SDK e a Chave de API. [Conceitos - glossário][Link 6]
+- Erros no manifesto do aplicativo “Androidmanifest.xml” podem causar o não funcionamento do Mobile Engagement do Azure (somente Android).
+- Um problema comum envolvendo a integração do SDK e o uso da API é confundir a chave do SDK com a chave de API.
+
+**Consulte também:**
+
+- [Conceitos - Glossário][Link 6]
 
 ## Problemas de codificação avançados
 
@@ -67,20 +79,15 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 - Muitos problemas de codificação avançada com o Mobile Engagement do Azure são causados por código específico de plataforma escrito incorretamente não diretamente relacionado ao Mobile Engagement do Azure. Você precisará consultar a documentação específica da plataforma para a qual está desenvolvendo além da documentação do Mobile Engagement do Azure (Android, iOS, Web, Windows e Windows Phone).
 - “Categorias” não corretamente configuradas impedem a vinculação de uma notificação para outro local dentro ou fora do aplicativo (somente Android). 
 - “UIKit.framework” não definido como “opcional” em seu código do iOS mostra um “Erro de símbolo não encontrado” e/ou falha em dispositivos mais antigos do iOS (somente iOS).
-- Os certificados expirados ou que não estejam usando  corretamente a versão DEV ou Prod do certificado causam problemas de envio por push (somente iOS).
+- Os certificados expirados ou que não estejam usando corretamente a versão DEV ou Prod do certificado causam problemas de envio por push (somente iOS).
 - Existem algumas limitações inerentes às plataformas que o Mobile Engagement do Azure não pode controlar (como por exemplo, o funcionamento do system center para envios por push no Android e no iOS).
 - O Mobile Engagement do Azure publica uma lista completa dos pacotes internos usados pelo Mobile Engagement do Azure para iOS e Android para referência. Tenha em mente que alguns recursos do Mobile Engagement do Azure são específicos para a plataforma (Android, iOS, Web, Windows e Windows Phone).
-- Os SDKs para cada plataforma são escritos nas seguintes linguagens de programação:
-    -     SDK do Android escrito em Java
-    -     SDK do iOS escrito em objective C
-    -     SDK da Web escrito em JavaScript
-    -     SDK do Windows escrito em C# e JavaScript
-    -     SDK do Windows Phone escrito em C# e JavaScript
 
 ### Consulte também
 
- - [Guia de solução de problemas - envio por push][Link 23], [Documentação do SDK - notas de versão][Link 5], [Documentação do SDK - guias de atualização][Link 5], [Documentação do SDK - Android - visão geral da documentação técnica do Mobile Engagement do Azure][Link 5], [Documentação do SDK - iOS - visão geral da documentação técnica do Mobile Engagement do Azure][Link 5], [Documentação do SDK - iOS - como preparar seu aplicativo para notificações por push da Apple][Link 5], [Desenvolvedor do Android](https://developer.android.com/), [Desenvolvedor do iOS](https://developer.apple.com/), [Desenvolvedor do Windows](https://developer.windows.com/) 
- 
+ - [Guia de solução de problemas - Push][Link 23] 
+ - [Documentação do SDK - Notas de versão][Link 5]
+ - [Documentação do SDK - Guias de atualização][Link 5]
 
 ## Falhas do aplicativo
 
@@ -89,27 +96,24 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 ### Causas
 
-- As informações sobre a falha podem ser exibidas na interface do usuário de Análise ou na API de Análise.
-- Você pode encontrar a ID do Dispositivo do seu dispositivo de teste e executar a mesma ação que causou a falha do aplicativo para um usuário final para ajudar a identificar a causa de sua falha.
-- Algumas vezes, os problemas conhecidos com o SDK do Mobile Engagement do Azure que causam falhas em aplicativos são resolvidos com a atualização para a versão mais recente do SDK, então verifique as notas de versão sobre a sua plataforma ao investigar falhas.
+- As informações de falha podem ser exibidas na *interface do usuário de análise* ou na *API de análise*
+- Você pode encontrar a ID de dispositivo do seu dispositivo de teste e executar a mesma ação que causou a falha do aplicativo para um usuário final para ajudar a identificar a causa de sua falha.
+- Problemas conhecidos com o SDK do Mobile Engagement do Azure que causam falhas de aplicativos são às vezes resolvidos com a atualização para a versão mais recente do SDK. Verifique as notas de versão sobre a plataforma ao investigar falhas.
 
 ### Consulte também
 
-- [Conceitos - perguntas frequentes][Link 6], [Conceitos - glossário][Link 6], [Documentação da API - API de Análise - falhas][Link 4], [Documentação da interface do usuário - Análise - falhas][Link 15], [Documentação da interface do usuário - configurações][Link 20], [Documentação do SDK - notas de versão][Link 5], [Documentação do SDK - guias de atualização][Link 5]
+- [Documentação do SDK - Notas de versão][Link 5]
+- [Documentação do SDK - Guias de atualização][Link 5]
 
 ## Falhas de carregamento nas lojas de aplicativos
 
 ### Problema
-- Erros relacionados ao carregamento da versão mais recente do seu aplicativo para as lojas do iTunes, do GooglePlay, do Windows ou do Windows Phone.
+- Erros relacionados ao upload da versão mais recente do seu aplicativo para Apple, Google ou Windows Store.
 
 ### Causas
 
-- As lojas de aplicativos algumas vezes bloqueiam aplicativos com determinados recursos habilitados (o iTunes impede o uso de IDFV em aplicativos e o GooglePlay impede o compartilhamento de informações do aplicativo entre os aplicativos). 
-- Verifique as notas de versão sobre a plataforma e a versão atual do SDK se você tiver dificuldade para carregar um aplicativo na loja.
-
-### Consulte também
-
-- [Documentação do SDK - notas de versão][Link 5], [Documentação do SDK - guias de atualização][Link 5] 
+- As lojas de aplicativos algumas vezes bloqueiam os aplicativos com determinados recursos habilitados (por exemplo, a Apple Store impede o uso de IDFV em aplicativos no repositório e a GooglePlay store impede o compartilhamento de informações do aplicativo entre os aplicativos). 
+- Certifique-se de verificar as notas de versão sobre a plataforma e a versão atual do SDK se você tiver dificuldade para carregar um aplicativo para a loja.
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -141,5 +145,6 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

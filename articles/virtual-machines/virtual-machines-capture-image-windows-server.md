@@ -87,5 +87,6 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

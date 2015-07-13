@@ -57,4 +57,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 
 > [AZURE.NOTE]Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

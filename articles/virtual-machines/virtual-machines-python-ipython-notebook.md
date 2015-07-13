@@ -276,4 +276,4 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

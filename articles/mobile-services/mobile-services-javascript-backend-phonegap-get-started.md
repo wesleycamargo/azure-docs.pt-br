@@ -171,4 +171,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -3,7 +3,7 @@
 	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,22 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="ricksal"/>
+	ms.date="04/27/2015" 
+	ms.author="wesmc"/>
+
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="C# da Windows Store " class="current">C# da Windows Store</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
-Este tópico mostra como usar o recurso **template** dos Hubs de Notificação do Azure para transmitir notificações de últimas notícias que foram localizadas por idioma e dispositivo.  Neste tutorial você começa com o aplicativo da Windows Store criado em [Usar Hubs de Notificação para enviar últimas notícias].  Ao concluir, você poderá se registrar em categorias de seu interesse, especificar um idioma no qual deseja receber as notificações e receber notificações por push para as categorias selecionadas nesse idioma.
+##Visão geral
 
-Este tutorial explicará estas etapas básicas a serem seguidas para habilitar este cenário:
-
-1. [Conceitos de modelo] 
-2. [A interface do usuário do aplicativo]
-3. [Criando o aplicativo cliente da Windows Store]
-4. [Enviar notificações de seu back-end]
+Este tópico mostra como usar o recurso **template** dos Hubs de Notificação do Azure para transmitir notificações de últimas notícias que foram localizadas por idioma e dispositivo. Neste tutorial você começa com o aplicativo da Windows Store criado em [Usar Hubs de Notificação para enviar últimas notícias]. Ao concluir, você poderá se registrar em categorias de seu interesse, especificar um idioma no qual deseja receber as notificações e receber notificações por push para as categorias selecionadas nesse idioma.
 
 
 Há duas partes que compõem esse cenário:
@@ -39,22 +35,20 @@ Há duas partes que compõem esse cenário:
 
 
 
-##Pré-requisitos ##
+##Pré-requisitos
 
-Você já deve ter concluído o tutorial [Usar Hubs de Notificação para envio de últimas notícias] e ter o código disponível, porque este tutorial se baseia diretamente no código. 
+Você já deve ter concluído o tutorial [Usar Hubs de Notificação para envio de últimas notícias] e ter o código disponível, porque este tutorial se baseia diretamente no código.
 
 O Visual Studio 2012 também é necessário.
 
 
-<h2><a name="concepts"></a>Conceitos de modelo</h2>
+##Conceitos de modelo
 
-Em [Usar Hubs de Notificação para envio de últimas notícias] você criou um aplicativo que usou **marcas** para assinar notificações para diferentes categorias de notícias.
-No entanto, muitos aplicativos são destinados a vários mercados e requerem localização.  Isso significa que o próprio conteúdo das notificações deve ser localizado e entregue para o conjunto de dispositivos correto.
-Neste tópico, mostraremos como usar o recurso **template** de Hubs de Notificação para entregar facilmente notificações de últimas notícias localizadas.
+Em [Usar Hubs de Notificação para envio de últimas notícias] você criou um aplicativo que usou **marcas** para assinar notificações para diferentes categorias de notícias. No entanto, muitos aplicativos são destinados a vários mercados e requerem localização. Isso significa que o próprio conteúdo das notificações deve ser localizado e entregue para o conjunto de dispositivos correto. Neste tópico, mostraremos como usar o recurso **template** de Hubs de Notificação para entregar facilmente notificações de últimas notícias localizadas.
 
-Observação: uma maneira de enviar notificações localizadas é criar várias versões de cada marca.  Por exemplo, para oferecer suporte a inglês, francês e mandarim, precisamos de três marcas diferentes para notícias do mundo:  "world_en", "world_fr" e "world_ch".  Em seguida, precisamos enviar uma versão localizada das notícias do mundo para cada uma dessas marcas.  Neste tópico, usamos modelos para evitar a proliferação de marcas e a necessidade de enviar várias mensagens.
+Observação: uma maneira de enviar notificações localizadas é criar várias versões de cada marca. Por exemplo, para oferecer suporte a inglês, francês e mandarim, precisamos de três marcas diferentes para notícias do mundo: "world_en", "world_fr" e "world_ch". Em seguida, precisamos enviar uma versão localizada das notícias do mundo para cada uma dessas marcas. Neste tópico, usamos modelos para evitar a proliferação de marcas e a necessidade de enviar várias mensagens.
 
-Em um alto nível, os modelos são uma maneira de especificar como um dispositivo específico deve receber uma notificação.  O modelo especifica o formato exato da carga referindo-se às propriedades que fazem parte da mensagem enviada por seu aplicativo de back-end.  Em nosso caso, enviaremos uma mensagem independente de localidade contendo todos os idiomas com suporte:
+Em um alto nível, os modelos são uma maneira de especificar como um dispositivo específico deve receber uma notificação. O modelo especifica o formato exato da carga referindo-se às propriedades que fazem parte da mensagem enviada por seu aplicativo de back-end. Em nosso caso, enviaremos uma mensagem independente de localidade contendo todos os idiomas com suporte:
 
 	{
 		"News_English": "...",
@@ -62,7 +56,7 @@ Em um alto nível, os modelos são uma maneira de especificar como um dispositiv
 		"News_Mandarin": "..."
 	}
 
-Em seguida, verificaremos se os dispositivos se registram com um modelo que faz referência à propriedade correta.  Por exemplo, um aplicativo da Windows Store que deseja receber uma mensagem de notificação do sistema simples se registrará no seguinte modelo:
+Em seguida, verificaremos se os dispositivos se registram com um modelo que faz referência à propriedade correta. Por exemplo, um aplicativo da Windows Store que deseja receber uma mensagem de notificação do sistema simples se registrará no seguinte modelo:
 
 	<toast>
 	  <visual>
@@ -74,15 +68,15 @@ Em seguida, verificaremos se os dispositivos se registram com um modelo que faz 
 
 
 
-Os modelos são um recurso muito avançado sobre o qual você pode aprender em nosso artigo [Diretrizes dos Hubs de Notificação].  Uma referência à linguagem de expressão do modelo é incluída em [Instruções dos Hubs de Notificação para a Windows Store].
+Os modelos são um recurso muito avançado sobre o qual você pode aprender em nosso artigo [Diretrizes dos Hubs de Notificação]. Uma referência à linguagem de expressão do modelo é incluída em [Instruções dos Hubs de Notificação para a Windows Store].
 
 
-<h2><a name="ui"></a>A interface do usuário do aplicativo</h2>
+##A interface do usuário do aplicativo
 
 Agora vamos modificar o aplicativo Breaking News que você criou no tópico [Usar Hubs de Notificação para envio de últimas notícias] para enviar últimas notícias localizadas usando modelos.
 
 
-Para adaptar seus aplicativos cliente para receber mensagens localizadas, você precisa substituir seus registros  *nativos* (ou seja, registros que você especifica em um modelo) pelos registros do modelo.
+Para adaptar seus aplicativos cliente para receber mensagens localizadas, você precisa substituir seus registros *nativos* (ou seja, registros que você especifica em um modelo) pelos registros do modelo.
 
 
 Em seu aplicativo da Windows Store:
@@ -118,9 +112,9 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-<h2><a name="building-client"></a><span class="building app">Interface do usuário do aplicativo</span>Criando o aplicativo cliente da Windows Store</h2>
+##Criando o aplicativo cliente da Windows Store
 
-1. Em sua classe de notificações, adicionar um parâmetro de localidade para seus métodos  *StoreCategoriesAndSubscribe* e *SubscribeToCateories*.
+1. Na sua classe de Notificações, adicione o parâmetro de localidade a seus métodos *StoreCategoriesAndSubscribe* e *SubscribeToCateories*.
 
 		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -137,9 +131,9 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
         }
 
-	Observe que, em vez de chamar o método *RegisterNativeAsync*, chamamos *RegisterTemplateAsync*: estamos registrando um formato de notificação específico no qual o modelo depende da localidade.  Também fornecemos um nome para o modelo ("newsTemplate"), porque queremos registrar mais de um modelo (por exemplo um para notificações do sistema e um para notificação de bloco) e precisamos nomeá-los para que possam ser atualizados ou excluídos.
+	Observe que, em vez de chamar o método *RegisterNativeAsync*, chamamos *RegisterTemplateAsync*: estamos registrando um formato de notificação específico em que o modelo depende da localidade. Também fornecemos um nome para o modelo ("newsTemplate"), porque queremos registrar mais de um modelo (por exemplo um para notificações do sistema e um para notificação de bloco) e precisamos nomeá-los para que possam ser atualizados ou excluídos.
 
-	Observe que se um dispositivo registrar vários modelos com a mesma marca, uma mensagem de entrada direcionada para aquela marca resultará em várias notificações entregues ao dispositivo (um para cada modelo).  Esse comportamento é útil quando a mesma mensagem lógica precisa resultar em várias notificações visuais, por exemplo, mostrando uma notificação e uma notificação do sistema em um aplicativo da Windows Store.
+	Observe que se um dispositivo registrar vários modelos com a mesma marca, uma mensagem de entrada direcionada para aquela marca resultará em várias notificações entregues ao dispositivo (um para cada modelo). Esse comportamento é útil quando a mesma mensagem lógica precisa resultar em várias notificações visuais, por exemplo, mostrando uma notificação e uma notificação do sistema em um aplicativo da Windows Store.
 
 2. Adicione o seguinte método para recuperar a localidade armazenada:
 
@@ -167,13 +161,12 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Por fim, no arquivo App.xaml.cs, certifique-se de atualizar sua chamada para o 
-Singleton de notificações no método *OnLaunched*:
+4. Por fim, no seu arquivo App.xaml.cs, certifique-se de atualizar sua chamada ao singleton Notificações no método *OnLaunched*:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
 
-<h2><a name="send"></a>Enviar notificações localizadas de seu back-end</h2>
+##Enviar notificações localizadas de seu back-end
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -183,14 +176,14 @@ Singleton de notificações no método *OnLaunched*:
 
 ## Próximas etapas
 
-Para obter mais informações sobre como usar modelos, consulte [Notificar usuários com Hubs de Notificação:  ASP.NET], [Notificar usuários com Hubs de Notificação:  Serviços Móveis] e consulte também [Diretrizes dos Hubs de Notificação].  Uma referência à linguagem de expressão do modelo é [Instruções dos Hubs de Notificação para a Windows Store].
+Para obter mais informações sobre como usar modelos, consulte [Notificar usuários com Hubs de Notificação: ASP.NET], [Notificar usuários com Hubs de Notificação: Serviços Móveis] e também [Diretrizes de Hubs de Notificação]. Uma referência à linguagem de expressão do modelo é [Instruções dos Hubs de Notificação para a Windows Store].
 
 <!-- Anchors. -->
-[Conceitos de modelo]: #concepts
-[A interface do usuário do aplicativo]: #ui
-[Criando o aplicativo cliente da Windows Store]: #building-client
-[Enviar notificações de seu back-end]: #send
-[Próximas etapas]:#next-steps
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -215,26 +208,29 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 
 
 <!-- URLs. -->
-[Serviço Móvel]: /develop/mobile/tutorials/get-started
-[Notificar usuários com Hubs de Notificação:  ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notificar usuários com Hubs de Notificação:  Serviços Móveis]: /manage/services/notification-hubs/notify-users
-[Usar hubs de notificação para enviar notícias recentes]: /manage/services/notification-hubs/breaking-news-dotnet 
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notificar usuários com Hubs de Notificação: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notificar usuários com Hubs de Notificação: Serviços Móveis]: /manage/services/notification-hubs/notify-users
+[Usar Hubs de Notificação para enviar últimas notícias]: /manage/services/notification-hubs/breaking-news-dotnet
+[Usar Hubs de Notificação para envio de últimas notícias]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[Enviar uma página do aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started/#create-new-service
-[Introdução aos dados]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Notificações por push para usuários do aplicativo]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript e HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Azure Management Portal]: https://manage.windowsazure.com/
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Diretrizes de Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
-[Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

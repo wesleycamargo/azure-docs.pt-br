@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -217,7 +217,7 @@ Os dados arbitrários podem ser anexados aos eventos, erros, atividades e trabal
 
 Esses dados podem ser estruturados, eles usam a classe NSDictionary do iOS.
 
-Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`. 
+Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`.
 
 > [AZURE.NOTE]Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
 >
@@ -283,5 +283,6 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"birthdate":"1983-12-07","gender":"female"}
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

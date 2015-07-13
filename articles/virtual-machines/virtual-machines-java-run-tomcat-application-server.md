@@ -160,4 +160,4 @@ Neste ponto, o site do Tomcat deve ser visível de um navegador externo usando u
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

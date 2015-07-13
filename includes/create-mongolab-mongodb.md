@@ -34,4 +34,4 @@ Para criar um banco de dados MongoDB na [Azure Store], faça o seguinte:
 [Azure Store]: ../articles/overview.md
 [portal]: http://windows.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

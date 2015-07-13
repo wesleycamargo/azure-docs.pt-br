@@ -35,12 +35,12 @@ Faça logon na máquina virtual Linux usando autenticação de senha ou chave SS
 	# sudo <command>
 	[sudo] password for azureuser:
 
-Nesse caso, o usuário será solicitado para uma senha. Depois de inserir a senha,  `sudo` executará o comando com privilégios de `root`.
+Nesse caso, o usuário será solicitado para uma senha. Depois de inserir a senha, `sudo` executará o comando com privilégios de `root`.
 
 Você também pode habilitar sudo sem senha editando o arquivo `/etc/sudoers.d/waagent`, por exemplo:
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 Essa alteração permitirá sudo sem senha pelo usuário azureuser.
 
@@ -52,4 +52,6 @@ Faça logon na máquina virtual Linux usando autenticação de chave SSH, em seg
 
 Nesse caso, o usuário **não** será solicitado para uma senha. Depois de pressionar `<enter>`, `sudo` executará o comando com privilégios `root`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

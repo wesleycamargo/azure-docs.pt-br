@@ -129,4 +129,4 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

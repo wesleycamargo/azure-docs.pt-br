@@ -43,4 +43,7 @@ Para obter instruções, baixe o “Guia de introdução" disponível na página
 [Como fazer logon em uma máquina virtual executando o Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

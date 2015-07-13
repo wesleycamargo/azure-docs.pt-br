@@ -38,7 +38,7 @@ Essa parte é fácil, a menos que você não tenha uma conta do Azure. [Obtenha 
 
 1. Depois que você fizer logon, clique em **Novo** no canto inferior esquerdo para criar uma nova imagem de VM. Você pode ver a imagem correta na faixa imediatamente:
 
-> ![Escolha a imagem  Ubuntu do Docker na faixa](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
+> ![Escolha a imagem Ubuntu do Docker na faixa](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
 
 2. Se não, pesquise-a na Galeria de Imagens:
 
@@ -79,5 +79,6 @@ Você vai querer começar a usar o [Docker]!
 [Docker scratch image]: https://docs.docker.com/articles/baseimages/#creating-a-simple-base-image-using-scratch
 [Canonical]: http://www.canonical.com/
 [MSOpenTech]: http://msopentech.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

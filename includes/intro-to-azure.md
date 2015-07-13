@@ -172,9 +172,9 @@ Em alguns casos, você deseja mover um grande volume dados para o Azure. Isso le
 
 
 ###Serviço de Arquivos do Azure###
-![Serviço de Arquivos do Azure](./media/intro-to-azure/FileServiceIntroNew.png) **Figura: os serviços de arquivo do Azure fornecem caminhos SMB \\server\share a aplicativos executados na nuvem.**
+![Serviço de Arquivos do Azure](./media/intro-to-azure/FileServiceIntroNew.png) **Figura: os serviços de arquivo do Azure fornecem caminhos SMB \server\share a aplicativos executados na nuvem.**
 
-No local, é comum ter grandes volumes de armazenamento de arquivos acessíveis pelo protocolo SMB utilizando um formato \\Server\share. O Azure agora conta com um serviço que permite que você utilize esse protocolo em nuvem. Os aplicativos sendo executados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente via uma interface REST, que permite que você acesse os compartilhamentos diretamente do local quando você também configurar uma rede virtual. Os Arquivos do Azure são criados sobre o serviço Blob, de modo que herdam a mesma disponibilidade, durabilidade, escalabilidade e redundância geográfica existentes no Armazenamento do Azure.
+No local, é comum ter grandes volumes de armazenamento de arquivos acessíveis pelo protocolo SMB utilizando um formato \Server\share. O Azure agora conta com um serviço que permite que você utilize esse protocolo em nuvem. Os aplicativos sendo executados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente via uma interface REST, que permite que você acesse os compartilhamentos diretamente do local quando você também configurar uma rede virtual. Os Arquivos do Azure são criados sobre o serviço Blob, de modo que herdam a mesma disponibilidade, durabilidade, escalabilidade e redundância geográfica existentes no Armazenamento do Azure.
 
 **Cenários para arquivos do Azure**
 
@@ -372,11 +372,11 @@ Toda empresa precisa fazer backup e restauração de dados. Você pode utilizar 
 ###Recuperação de Site###
 
  
-Recuperação de Site do Azure (anteriormente Gerenciador de Recuperação Hyper-V) pode ajudar você a proteger aplicativos importantes, coordenando a replicação e recuperação de imagens Hyper-V pelos sites. Você pode fazer o backup para seu próprio site secundário, o site de um hoster ou então utilizar o Azure e evitar a despesa e a complexidade de criar e gerenciar seu próprio local secundário. O Azure criptografa os dados e comunicações e você tem a opção de habilitar a criptografia também para os dados em repouso.
+O Azure Site Recovery (anteriormente Gerenciador de Recuperação Hyper-V) pode ajudar você a proteger aplicativos importantes, coordenando a replicação e recuperação entre locais. O Site Recovery fornece a capacidade de proteger aplicativos com base em Hyper-V, VMware ou SAN em seu próprio local secundário, no local de um hoster ou no Azure, além de eliminar a despesa e a complexidade de criação e gerenciamento do seu próprio local secundário. O Azure criptografa dados e comunicações e você também tem a opção de habilitar a criptografia para os dados em repouso.
 
-Ele monitora continuamente a condição de seus serviços e ajuda a automatizar a recuperação ordenada dos serviços no caso de interrupção no funcionamento do site no datacenter primário. Máquinas virtuais podem ser trazidas de modo organizado para ajudar a restaurar o serviço rapidamente, mesmo para cargas de trabalho complexas e multicamadas.
+Ele monitora continuamente a integridade de seus serviços e ajuda a automatizar a recuperação ordenada dos serviços no caso de interrupção no funcionamento do site no datacenter primário. As máquinas virtuais podem ser ativadas de modo organizado para ajudar a restaurar o serviço rapidamente, mesmo para cargas de trabalho complexas de multicamadas.
 
-A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server AlwaysOn.
+A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V, System Center e SQL Server AlwaysOn. Verifique [Visão geral do Azure Site Recovery](hyper-v-recovery-manager-overview.md) para obter mais detalhes.
 
 ###Serviço de Backup do Azure###
 ![Serviço de Backup do Azure](./media/intro-to-azure/AzureBackupIntroNew.png) **Figura: o backup do Azure realiza o backup dos dados de Windows Servers locais para a nuvem.**
@@ -578,4 +578,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

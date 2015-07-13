@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Visão geral do portal de visualização do Microsoft Azure" 
-	description="Aprenda como usar o portal de visualização do Microsoft Azure." 
-	services="" 
-	documentationCenter="" 
-	authors="davidwrede" 
-	manager="dwrede" 
+<properties
+	pageTitle="Visão geral do portal de visualização do Microsoft Azure"
+	description="Aprenda como usar o portal de visualização do Microsoft Azure."
+	services=""
+	documentationCenter=""
+	authors="davidwrede"
+	manager="dwrede"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="na" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="na"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.topic="hero-article"
+	ms.date="04/28/2015"
 	ms.author="dwrede"/>
 
 # Visão geral do portal de visualização do Microsoft Azure
@@ -32,7 +32,7 @@ O Azure tem um marketplace com milhares de itens que você pode criar em um úni
 
 1.	O Windows Server 2012 está em destaque, portanto você pode selecioná-lo na categoria Computação.  
 2.	Preencha algumas informações básicas em um formulário.
-3.	Clique em 'Criar' e sua VM começará a provisionar imediatamente. 
+3.	Clique em 'Criar' e sua VM começará a provisionar imediatamente.
 
 O hub de notificações vai alertá-lo quando o recurso tiver sido criado e uma folha de gerenciamento será aberta (você sempre pode procurar recursos posteriormente).
 
@@ -87,4 +87,4 @@ O portal de visualização do Microsoft Azure simplifica radicalmente a criaçã
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

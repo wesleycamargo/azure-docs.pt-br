@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia do Azure" 
+	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Como: Fornecer conteúdo de streaming
+#Como fornecer conteúdo de Streaming
 
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).  
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
-## Visão geral
+##Visão geral
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [Codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico. 
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico.
 
-Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
+Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e criar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo. 
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e criar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
   	 
-## Criar um localizador de streaming sob demanda
+##Criar um localizador de streaming sob demanda
 
 Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
 
@@ -42,9 +42,9 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
    4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
    
 
-### Usar o SDK do .NET dos Serviços de Mídia 
+###Usar o SDK do .NET dos Serviços de Mídia 
 
-Criar URLs de streaming 
+Criar URLs de streaming
 
 	private static void BuildStreamingURLs(IAsset asset)
 	{
@@ -92,7 +92,7 @@ As saídas do código:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
-Crie URLs de download progressivo 
+Crie URLs de download progressivo
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
 	{
@@ -131,7 +131,7 @@ As saídas do código:
 	
 	. . . 
 
-### Usam o SDK do .NET dos Serviços de Mídia
+###Usam o SDK do .NET dos Serviços de Mídia
 
 O código a seguir chama métodos de extensões do SDK do .NET que criam um localizador e geram o Smooth Streaming, HLS e URLs do MPEG-DASH para streaming adaptável.
 
@@ -150,6 +150,6 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

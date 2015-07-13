@@ -92,4 +92,4 @@ Um módulo pode ter um conjunto de parâmetros que você pode usar para configur
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->
