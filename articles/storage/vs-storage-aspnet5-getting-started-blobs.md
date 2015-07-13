@@ -148,7 +148,8 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 	// Delete the blob.
 	await blockBlob.DeleteAsync();
 
-[Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/) Confira também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
+[Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
+ Confira também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
  
 
 <!---HONumber=58_postMigration-->
