@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um novo gateway
@@ -22,7 +22,9 @@ Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos 
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para o modelo completo, consulte [Aplicativo de API com novo modelo de gateway](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
+Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Para o modelo completo, consulte [Aplicativo de API com novo modelo de gateway](../../templates/app-service-api-arm-new-gateway-provision/).
 
 ## O que você implantará
 

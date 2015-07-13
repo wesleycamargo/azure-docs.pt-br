@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights para aplicativos da Windows Store e Windows Phone
@@ -60,11 +60,11 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Selecione **Online**, **Incluir pré-lançamento**, e procure "Application Insights".
+2. Pesquise “Application Insights”.
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Selecione **Application Insights para aplicativos do Windows**
+3. Selecione **Application Insights para aplicativos .NET Windows**
 
 4. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
 
@@ -132,6 +132,10 @@ Adicione o Application Insights por meio do Gerenciador de Soluções.
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## Para atualizar para uma nova versão do SDK
+
+Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): * clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. * Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
 
 
 ## <a name="usage"></a>Próximas etapas

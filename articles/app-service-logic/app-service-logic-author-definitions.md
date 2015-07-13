@@ -25,7 +25,7 @@ Um padrão comum é ter uma etapa que obtém uma lista de itens e, em seguida, v
 
 ![Repetir em listas](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-Neste exemplo, há 3 ações:
+Neste exemplo, há três ações:
 
 1. Obtenha uma lista de artigos. Isso retorna um objeto que contém uma matriz.
 
@@ -574,7 +574,7 @@ Valores de Data/Hora podem ser úteis, especialmente quando você estiver tentan
 
 Neste exemplo, estamos extraindo o `startTime` da etapa anterior. Em seguida obtemos a hora atual e subtraímos um segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (você pode usar outras unidades de tempo, como `minutes` ou `hours`). Por fim, podemos comparar esses dois valores. Se o primeiro for menor do que o segundo, isso significa que mais de um segundo decorreu desde o primeiro momento em que a ordem foi emitida.
 
-Observe também que podemos usar formatadores de cadeia de caracteres para formatar datas: na cadeia de caracteres de consulta, utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) para obter o RFC1123. Todas a formatação das datas [está documentada no MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+Observe também que podemos usar formatadores de cadeia de caracteres para formatar datas: na cadeia de caracteres de consulta, utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) para obter o RFC1123. Toda a formatação das datas [está documentada no MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
 
 ## Passando valores em tempo de execução para variar o comportamento
 
@@ -633,7 +633,7 @@ Quando esse aplicativo lógico for executado, ele chamará o uri que passei e ex
 
 ## Uso de parâmetros de tempo de implantação para ambientes diferentes
 
-É comum ter um ciclo de vida de implantação em que você tem um ambiente de desenvolvimento, um ambiente de preparo e um ambiente de produção. Em todos eles você pode, por exemplo, desejar a mesma definição mas usar bancos de dados diferentes. Do mesmo modo, talvez você queira usar a mesma definição em muitas regiões diferentes para alta disponibilidade, mas deseje que cada instância de Aplicativo lógico se comunique com o banco de dados dessa região.
+É comum ter um ciclo de vida de implantação em que você tem um ambiente de desenvolvimento, um ambiente de preparo e um ambiente de produção. Em todos eles você pode, por exemplo, desejar a mesma definição, mas usar bancos de dados diferentes. Do mesmo modo, talvez você queira usar a mesma definição em muitas regiões diferentes para alta disponibilidade, mas deseje que cada instância de Aplicativo lógico se comunique com o banco de dados dessa região.
 
 Observe que isso é diferente de pegar parâmetros diferentes em *tempo de execução*; para isso, você deve usar a função `trigger()` conforme indicado acima.
 

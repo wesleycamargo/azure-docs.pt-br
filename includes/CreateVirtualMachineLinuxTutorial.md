@@ -159,8 +159,6 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 	Se o segundo comando produzir um erro, verifique o arquivo /etc/fstab para obter a sintaxe correta.
 
 
-	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
+	>[AZURE.NOTE]Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se essa for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema seja inicializado mesmo que o disco não esteja presente. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

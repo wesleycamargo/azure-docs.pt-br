@@ -11,27 +11,33 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET
 
-Este tópico mostra como usar Migrações Code First do Entity Framework para fazer alterações no modelo de dados para um Banco de Dados SQL existente para evitar perder os dados existentes. Este procedimento pressupõe que você já tenha publicado o projeto de serviço móvel no Azure, que há dados existentes no banco de dados, e que os modelos de dados locais e remotos ainda estão sincronizados. Este tópico também descreve os inicializadores do Code First implementados pelos Serviços Móveis do Azure que são usados durante o desenvolvimento. Estes inicializadores permite quem você faça alterações de esquema facilmente sem usar as Migrações Iniciais do Código quando não for necessário manter seus dados existentes.
+Este tópico mostra como usar Migrações Code First do Entity Framework para fazer alterações no modelo de dados para um Banco de Dados SQL existente para evitar perder os dados existentes. Este procedimento pressupõe que você já tenha publicado o projeto de serviço móvel no Azure, que há dados existentes no banco de dados, e que os modelos de dados locais e remotos ainda estão sincronizados. Este tópico também descreve os inicializadores do Code First implementados pelos Serviços Móveis do Azure que são usados durante o desenvolvimento. Esses inicializadores permitem quem você faça alterações de esquema facilmente sem usar as Migrações Code First quando não for necessário manter seus dados existentes.
 
->[AZURE.NOTE]O nome do esquema usado para prefixar suas tabelas no banco de dados SQL é definido pela configuração de aplicativo <strong>MS_MobileServiceName</strong> no arquivo web. config. Ao baixar o projeto inicial do portal, esse valor já está definido como o nome do serviço móvel. Quando o nome do esquema coincide com o serviço móvel, vários serviços móveis podem compartilhar com segurança a mesma instância de banco de dados.
+>[AZURE.NOTE]O nome do esquema usado para prefixar suas tabelas no banco de dados SQL é definido pela configuração de aplicativo MS_MobileServiceName no arquivo web. config. Ao baixar o projeto inicial do portal, esse valor já está definido como o nome do serviço móvel. Quando o nome do esquema coincide com o serviço móvel, vários serviços móveis podem compartilhar com segurança a mesma instância de banco de dados.
+
+## Atualização do modelo de dados
+
+Conforme você adiciona funcionalidades ao serviço móvel de back-end do .NET, pode adicionar novos controladores para expor os novos pontos de extremidade em sua API. Você cria uma nova API como um controlador personalizado ou um controlador de tabela. Um [TableController<TEntity>] expõe um tipo de dados que herda de [EntityData]. Para permitir que dados sejam mantidos no banco de dados, esse tipo de dados deve ser adicionado ao modelo de dados como um novo [DbSet<T>] no [DbContext]. Para saber mais sobre o Code First no Entity Framework, consulte [Criar um modelo com o Code First](https://msdn.microsoft.com/data/ee712907#codefirst).
+
+O Visual Studio facilita a criação de um novo controlador de tabela para expor um novo tipo de dados para aplicativos cliente. Para obter mais informações, consulte [Como usar controladores para acessar dados nos serviços móveis](https://msdn.microsoft.com/library/windows/apps/xaml/dn614132.aspx).
 
 ## Inicializadores de modelo de dados
 
-Os Serviços Móveis fornecem suporte para duas classes base do inicializador do modelo de dados em um projeto do serviço móvel de back-end do .NET. Estes inicializadores descartam e recriam tabelas no banco de dados sempre que o Entity Framework detectar uma alteração no modelo de dados no seu [DbContext]. Estes inicializadores são criados para trabalhar quando seu serviço móvel está executando em um computador local e quando ele está hospedado no Azure.
+Os Serviços Móveis fornecem duas classes básicas do inicializador do modelo de dados em um projeto do serviço móvel de back-end do .NET. Ambos os inicializadores descartam e recriam tabelas no banco de dados quando o Entity Framework detectar uma alteração no modelo de dados no seu [DbContext]. Esses inicializadores são criados para funcionar quando seu serviço móvel está sendo executado em um computador local e quando está hospedado no Azure.
 
 >[AZURE.NOTE]Quando você publica um serviço móvel de back-end do .NET, o inicializador não é executado até que ocorra uma operação de acesso a dados. Isso significa que, para um serviço publicado recentemente, as tabelas de dados usadas para o armazenamento não são criadas até que uma operação de acesso as dados, como uma consulta, é solicitada pelo cliente.
 >
 >Você também pode executar uma operação de acesso a dados usando a funcionalidade interna de ajuda da API, acessada por meio do link **Experimentar** na página inicial. Para obter mais informações sobre como usar a API de páginas para testar o seu serviço móvel, consulte a seção Testar o projeto de serviço móvel localmente em [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#test-the-service-locally).
 
-Ambas as classes base do inicializador excluem do banco de dados todas as tabelas, exibições, funções e procedimentos no esquema usado pelo serviço móvel.
+Ambos os inicializadores excluem do banco de dados todas as tabelas, exibições, funções e procedimentos no esquema usado pelo serviço móvel.
 
 + **ClearDatabaseSchemaIfModelChanges** <br/> Os objetos de esquema são excluídos somente quando o Code First detecta uma alteração no modelo de dados. O inicialiazador padrão em um projeto de back-end do .NET baixado do [Portal de Gerenciamento do Azure] herda desta classe base.
  
@@ -160,5 +166,9 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
+[EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
+[DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

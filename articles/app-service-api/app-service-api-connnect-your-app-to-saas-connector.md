@@ -79,7 +79,7 @@ Este tutorial usa um conector de DropBox como um exemplo e orienta você durante
 
 Para habilitar o acesso da API à sua conta do Dropbox, você precisa criar um aplicativo Dropbox no site do desenvolvedor do Dropbox. Em seguida, copie a ID do cliente e os valores de segredo do cliente daquele aplicativo Dropbox para seu conector do Dropbox e defina o conector para aceitar somente solicitações autenticadas.
 
-### Criar um aplicativo Dropbox
+### <a id="createdbapp"></a>Criar um aplicativo do Dropbox
 
 As etapas a seguir mostram o processo de criação de um aplicativo Dropbox usando o site Dropbox.com. Como o site Dropbox.com pode ser alterado sem aviso, você poderá ver diferenças entre a interface do usuário e o que é exibido.
 
@@ -103,7 +103,7 @@ As etapas a seguir mostram o processo de criação de um aplicativo Dropbox usan
 
 	![Criar aplicativo Dropbox](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
 
-### Copiar as configurações de aplicativo do Dropbox no conector de Dropbox do Azure e vice-versa 
+### <a id="copysettings"></a>Copiar as configurações de aplicativo do Dropbox no conector de Dropbox do Azure e vice-versa 
 
 4. Em outra janela ou guia do navegador, vá para o [Portal de visualização do Azure].
 

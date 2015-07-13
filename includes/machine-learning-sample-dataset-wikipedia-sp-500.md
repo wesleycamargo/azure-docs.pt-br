@@ -1,3 +1,3 @@
 Os dados são derivados da Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) com base nos artigos de cada empresa S&P 500, armazenados como dados XML.<p> </p>Antes de ser carregado no Estúdio de AM do Azure, o conjunto de dados foi processado da seguinte maneira:<ul><li>Extrair o conteúdo de texto para cada empresa específica</li><li>Remover a formatação do wiki</li><li>Remover caracteres não alfanuméricos</li><li>Converter todo o texto em minúsculas</li><li>Categorias conhecidas da empresa foram adicionadas</li></ul><p> </p>Observe que, para algumas empresas, um artigo não foi encontrado, assim, o número de registros é menor que 500.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

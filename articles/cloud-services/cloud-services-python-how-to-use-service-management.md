@@ -23,7 +23,7 @@ Este guia mostra como executar tarefas de gerenciamento de serviços comuns de f
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
 A API de Gerenciamento de Serviços fornece acesso programático a grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [Portal de Gerenciamento][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
 
-Para usar a API de Gerenciamento de Serviços, será necessário [criar uma conta do Azure](http://www.windowsazure.com/pricing/free-trial/).
+Para usar a API de Gerenciamento de Serviços, será necessário [criar uma conta do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Conceitos
 O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
@@ -42,7 +42,7 @@ Para criar o certificado `.cer`, execute isto:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal], e anotar o local onde você salvou o arquivo `.pem`.
 
@@ -64,7 +64,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/gg551722.aspx).
 
 Depois que você tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal].
 
@@ -74,7 +74,7 @@ Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregad
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -112,7 +112,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local 
 
 ## <a name="CreateCloudService"> </a>Como criar um serviço de nuvem
 
-Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\\hosted\\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local.
+Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\hosted\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -443,5 +443,6 @@ Agora que você aprendeu os fundamentos do gerenciamento de serviços, você pod
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

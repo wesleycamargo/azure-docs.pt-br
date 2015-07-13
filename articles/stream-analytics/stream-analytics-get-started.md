@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Introdução à Stream Analytics: detecção de fraudes em tempo real | Microsoft Azure"
-	description="Saiba como usar a Stream Analytics para criar uma solução de detecção de fraudes em tempo real sobre os dados de telecomunicação gerados."
+	description="Aprenda a criar uma solução para detecção de fraudes em tempo real com a Stream Analytics. Use um hub de eventos para o processamento de eventos em tempo real."
+	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -10,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="04/28/2015"
@@ -20,21 +21,24 @@
 
 # Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
+Aprenda a criar uma solução de ponta a ponta para detecção de fraudes em tempo real com a Stream Analytics. Exibir eventos nos Hubs de eventos do Azure, escrever consultas de Stream Analytics para agregação ou alerta e enviar os resultados em um coletor de saída para obter informações sobre os dados com processamento em tempo real.
+
 A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md).
 
-Aprenda a criar uma solução de ponta a ponta para detecção de fraudes em tempo real com a Stream Analytics. Exibir eventos nos Hubs de eventos do Azure, escrever consultas de Stream Analytics para agregação ou alerta e enviar os resultados em um coletor de saída para obter informações sobre os dados em tempo real.
 
-##Cenário: Fraude de telecomunicações e SIM
+## Cenário: detecção de fraudes de telecomunicações e SIM em tempo real
 
-Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. Eles desejam reduzir esses dados a um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e as regiões geográficas. Eles também estão muito interessados na detecção de fraudes de SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que eles possam responder facilmente notificando os clientes ou desligando o serviço. São a Internet das Coisas (IoT) canônica como cenários onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias.
+Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: * Fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente durantes o tempo e regiões geográficas. * Detectar fraudes SIM (várias chamadas veio a mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que eles possam responder facilmente notificando os clientes ou desligando o serviço.
 
-##Pré-requisitos
+Nos cenários da Internet das Coisas (IoT) canônica onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias em tempo real.
+
+## Pré-requisitos
 
 Este cenário utiliza um gerador de evento localizado no GitHub. Baixe-o [aqui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) e siga as etapas deste tutorial para configurar a sua solução.
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
-O aplicativo de exemplo gerará eventos e os enviará por push a uma instância do Hub de eventos. Os Hubs de evento do Barramento de Serviço são o método preferencial de ingestão de eventos para Stream Analytics e você pode aprender mais sobre os Hubs de eventos na [Documentação do barramento de serviço do Azure](/documentation/services/service-bus/).
+O aplicativo de exemplo gerará eventos e os enviará por push a uma instância do Hub de eventos para processamento em tempo real. Os Hubs de evento do Barramento de Serviço são o método preferencial de ingestão de eventos para Stream Analytics e você pode aprender mais sobre os Hubs de eventos na [Documentação do barramento de serviço do Azure](/documentation/services/service-bus/).
 
 Siga as etapas abaixo para criar um Hub de Eventos.
 
@@ -63,7 +67,7 @@ O exemplo a seguir gerará 1000 eventos com uma probabilidade de 20% de fraude a
 
     TelcoDataGen.exe 1000 .2 2
 
-Você verá os registros que estão sendo enviados para o Hub de eventos. Alguns campos-chave que vamos usar neste aplicativo são definidos aqui:
+Você verá os registros que estão sendo enviados para o Hub de eventos. Alguns campos-chave que vamos usar neste aplicativo de detecção de fraudes em tempo real são definidos aqui:
 
 | Registro | Definição |
 | ------------- | ------------- |
@@ -120,7 +124,7 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 
 ### Especifique a consulta de trabalho
 
-A Análise de fluxo dá suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados de chamada.
+O Stream Analytics oferece suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados em tempo real de chamada.
 
 #### Opcional: Dados de entrada de exemplo
 Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo de amostra [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) para fins de teste.
@@ -180,7 +184,7 @@ Para comparar a quantidade de chamadas de entrada por região, aproveitaremos um
 
 	![Resultados da consulta para Timestand By](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-### Identificando fraude de SIM com uma associação a si mesmo
+### Detecção de fraudes SIM com uma associação a si mesmo
 
 Para identificar o uso potencialmente fraudulento vamos observar as chamadas originadas do mesmo usuário, mas em locais diferentes em menos de 5 segundos. Nós [ingressamos](https://msdn.microsoft.com/library/azure/dn835026.aspx) no fluxo de eventos de chamada com ele próprio para verificar esses casos.
 
@@ -228,21 +232,21 @@ Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se 
 
 6.	Clique no botão de seleção para adicionar essa fonte e verificar se o Stream Analytics pode se conectar com êxito à conta de armazenamento.
 
-## Iniciar trabalho
+## Inicie o trabalho para processamento em tempo real
 
-Como uma entrada de trabalho, uma consulta e uma saída foram especificadas, estamos prontos para iniciar o trabalho de Stream Analytics.
+Como uma entrada de trabalho, uma consulta e uma saída foram especificadas, estamos prontos para iniciar o trabalho de Stream Analytics para uma detecção de fraude em tempo real.
 
 1.	No trabalho **PAINEL**, clique em **INICIAR** na parte inferior da página.
 2.	Na caixa de diálogo que será exibida, selecione **HORA DE INÍCIO DO TRABALHO** e clique no botão de verificação na parte inferior da caixa de diálogo. O status do trabalho será alterado para **Iniciando** e logo mudará para **Em execução**.
 
-## Exibir saída
+## Exiba a saída de detecção de fraudes
 
 Use uma ferramenta como o [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para exibir eventos fraudulentos conforme eles forem gravados para a sua saída em tempo real.
 
-![Eventos fraudulentos exibidos em tempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+![Detecção de fraudes: eventos fraudulentos exibidos em tempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -251,6 +255,7 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
 - [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
+- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Criar um novo serviço StorSimple Manager"
-   description="Descreve como criar uma nova instância do serviço StorSimple Manager usando o Portal de Governo do Azure."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
 
 #### Para criar um novo serviço
 
@@ -35,4 +18,4 @@
  
        ![criação de serviço](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

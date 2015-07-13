@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
-#Como: Verificar o andamento do trabalho
+#Como verificar o andamento do trabalho
 
-Este artigo faz parte das séries do [vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) . 
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento [definindo um manipulador de eventos StateChanged](#statechange_event_handler) ou [usando o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia](#check_progress_with_queues). Ambos os métodos são descritos neste tópico. 
+Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento [definindo um manipulador de eventos StateChanged](#statechange_event_handler) ou [usando o armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia](#check_progress_with_queues). Ambos os métodos são descritos neste tópico.
 
 ##<a id="statechange_event_handler"></a>Definir o manipulador de eventos StateChanged para monitorar o andamento do trabalho
 
@@ -107,9 +107,9 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged. Esse
 
 Os Serviços de Mídia do Microsoft Azure têm a capacidade de entregar mensagens de notificação ao [Armazenamento de Fila do Azure](../storage-dotnet-how-to-use-queues.md#what-is) ao processar trabalhos de mídia. Este tópico mostra como obter essas mensagens de notificação do Armazenamento de Fila.
 
-As mensagens entregues ao Armazenamento de Fila podem ser acessadas de qualquer lugar no mundo. A arquitetura de mensagens da Fila do Azure é confiável e altamente escalonável. A sondagem do armazenamento de fila é recomendável, em vez do uso de outros métodos. 
+As mensagens entregues ao Armazenamento de Fila podem ser acessadas de qualquer lugar no mundo. A arquitetura de mensagens da Fila do Azure é confiável e altamente escalonável. A sondagem do armazenamento de fila é recomendável, em vez do uso de outros métodos.
 
-Um cenário comum para escutar as notificações dos Serviços de Mídia é se você estiver desenvolvendo um sistema de gerenciamento de conteúdo que precise realizar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, disparar a próxima etapa em um fluxo de trabalho ou publicar conteúdo). 
+Um cenário comum para escutar as notificações dos Serviços de Mídia é se você estiver desenvolvendo um sistema de gerenciamento de conteúdo que precise realizar alguma tarefa adicional após a conclusão de um trabalho de codificação (por exemplo, disparar a próxima etapa em um fluxo de trabalho ou publicar conteúdo).
 
 ###Considerações
 
@@ -118,7 +118,7 @@ Considere o seguinte ao desenvolver aplicativos dos Serviços de Mídia que usam
 - O serviço de Filas não fornece uma garantia de entrega ordenada FIFO (primeiro a entrar, primeiro a sair). Para obter mais informações, consulte [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 - As Filas de Armazenamento do Azure não são um serviço de envio por push. Você deve fazer a sondagem da fila. 
 - Você pode ter qualquer número de filas. Para obter mais informações, consulte [API REST do Serviço de Fila](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-- As Filas de Armazenamento do Azure têm algumas limitações e características específicas que são descritas no seguinte artigo: [Filas do Azure e Filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+- As Filas de Armazenamento do Azure têm algumas limitações e características específicas que são descritas no seguinte artigo: [Filas do Azure e filas do Barramento de Serviço do Azure comparadas e contrastadas](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 
 ###Exemplo de código
 
@@ -138,7 +138,7 @@ O exemplo de código nesta seção faz o seguinte:
 
 >[AZURE.NOTE]A maneira recomendada de monitorar o estado de um trabalho é ouvir mensagens de notificação, conforme mostrado no exemplo a seguir.
 >
->Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State**.  Observe que uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** refletirá o estado preciso com um pequeno atraso.
+>Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State**. Observe que uma mensagem de notificação sobre a conclusão de um trabalho pode chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** refletirá o estado preciso com um pequeno atraso.
 
 	
 	using System;
@@ -425,6 +425,6 @@ O exemplo acima produziu a saída a seguir. Os valores variarão.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

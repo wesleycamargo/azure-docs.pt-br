@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Carregar um aplicativo Web Java personalizado no Azure
@@ -30,7 +30,7 @@ As configurações esperadas para aplicativos Web Java personalizados no Azure s
 - Todas as portas de escuta que não sejam a única porta ouvinte HTTP devem ser desabilitadas. No Tomcat, que inclui o desligamento, as portas HTTPS e AJP.
 - O contêiner precisa ser configurado apenas para tráfego IPv4.
 - O comando **startup** do aplicativo precisa ser definido na configuração.
-- Os aplicativos que precisam de diretórios com permissão de gravação precisam estar localizados no diretório de conteúdo do aplicativo Web do Azure, que é **D:\\home**. A variável de ambiente `HOME` refere-se a D:\\home.  
+- Os aplicativos que precisam de diretórios com permissão de gravação precisam estar localizados no diretório de conteúdo do aplicativo Web do Azure, que é **D:\home**. A variável de ambiente `HOME` refere-se a D:\home.  
 
 Você pode definir as variáveis de ambiente conforme necessário no arquivo web.config.
 
@@ -71,7 +71,7 @@ Exemplos:
                                                                                       
 **stdoutLogEnabled** (Padrão = "true".) Se verdadeiros, **stdout** e **stderr** para o processo especificado na configuração de **processPath** serão redirecionados para o arquivo especificado em **stdoutLogFile** (consulte a seção **stdoutLogFile**).
                                     
-**stdoutLogFile** (Padrão="d:\\home\\LogFiles\\httpPlatformStdout.log".) Caminho absoluto do arquivo para o qual **stdout** e **stderr** do processo especificado em **processPath** será registrado.
+**stdoutLogFile** (Padrão="d:\home\LogFiles\httpPlatformStdout.log".) Caminho absoluto do arquivo para o qual **stdout** e **stderr** do processo especificado em **processPath** será registrado.
                                     
 > [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` é um espaço reservado especial que precisa ser especificado como parte de **arguments** ou como parte da lista de **httpPlatform** **environmentVariables**. Será substituído por uma porta gerada internamente por **HttpPlatformHandler** para que o processo especificado por **processPath** possa escutar nessa porta.
 
@@ -139,9 +139,9 @@ A configuração do Jetty precisa ser alterada no start.ini para definir `java.n
 
 Nosso teste usou o war do Hudson 3.1.2 e a instância padrão do Tomcat 7.0.50, mas sem usar a interface do usuário para configurar as coisas. Como o Hudson é uma ferramenta de criação de software, é aconselhável instalá-lo em instâncias dedicadas em que o sinalizador **AlwaysOn** pode ser definido no aplicativo Web.
 
-1. Na raiz dos sites do Azure, ou seja, **d:\\home\\site\\wwwroot**, crie um diretório **webapps** (se ainda não existir um) e coloque o Hudson.war em **d:\\home\\site\\wwwroot\\webapps**.
-2. Baixe o Apache Maven 3.0.5 (compatível com Hudson) e coloque-o em **d:\\home\\site\\wwwroot**.
-3. Crie o web.config em **d:\\home\\site\\wwwroot** e cole o seguinte conteúdo nele:
+1. Na raiz dos sites do Azure, ou seja, **d:\home\site\wwwroot**, crie um diretório **webapps** (se ainda não existir um) e coloque o Hudson.war em **d:\home\site\wwwroot\webapps**.
+2. Baixe o Apache Maven 3.0.5 (compatível com Hudson) e coloque-o em **d:\home\site\wwwroot**.
+3. Crie o web.config em **d:\home\site\wwwroot** e cole o seguinte conteúdo nele:
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -194,7 +194,7 @@ Usando o Liferay 6.1.2 Community Edition GA3 empacotado com o Tomcat, os seguint
 - Altere o conector HTTP para `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 - Comente o conector AJP.
 
-Na pasta **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes**, crie um arquivo chamado **portal-ext.properties**. Esse arquivo deve conter uma linha, como mostrado aqui:
+Na pasta **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes**, crie um arquivo chamado **portal-ext.properties**. Esse arquivo deve conter uma linha, como mostrado aqui:
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -234,5 +234,6 @@ Para obter mais informações sobre o Liferay, consulte [http://www.liferay.com]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

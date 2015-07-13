@@ -45,4 +45,4 @@ O AD do Azure fornece vários relatórios para administradores. Mais relatórios
 * [Identidade do Azure](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

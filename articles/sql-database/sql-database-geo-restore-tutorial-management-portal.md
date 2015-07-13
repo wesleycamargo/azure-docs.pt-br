@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/18/2015"
    ms.author="elfish; v-romcal"/>
 
 # Recuperar um banco de dados do SQL Azure usando a restauração geográfica no portal do Azure.
 
 > [AZURE.SELECTOR]
-- [Restauração geográfica - PowerShell](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-powershell/)
-- [Restauração geográfica - API REST](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-rest/)
+- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
+- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)   
 
 ## Visão geral
 
-Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a restauração geográfica no [portal Azure](http://manage.windowsazure.com/). A restauração geográfica é a proteção de recuperação de desastres do núcleo incluída para camadas de serviço do banco de dados do SQL Azure Basic, Standard e Premium.
+Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a restauração geográfica no [portal Azure](http://manage.windowsazure.com). A restauração geográfica é a proteção de recuperação de desastres do núcleo incluída para camadas de serviço do banco de dados do SQL Azure Basic, Standard e Premium.
 
 ## Segurança e restrições
 
@@ -40,13 +40,13 @@ Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a rest
  
 	* Se você tiver um banco de dados Web ou Business Edition, você pode usar cópia de banco de dados para obter uma cópia transacional consistente do banco de dados e, em seguida, exportar o banco de dados copiado para uma conta de armazenamento do Microsoft Azure. Para obter mais informações, consulte [Como: Usar cópia de banco de dados (banco de dados do SQL Azure)](http://msdn.microsoft.com/library/azure/ff951631.aspx) e [Como: Usar o serviço de importação e exportação no banco de dados do SQL Azure](http://msdn.microsoft.com/library/azure/hh335292.aspx).
 
-	* A Web e Business Editions serão desativadas em setembro de 2015. Para obter mais informações, consulte [Web e Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx).
+	* A Web e Business Editions serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
 ## Como: Recuperar um banco de dados do SQL Azure usando a restauração geográfica no portal do Azure.
 
-<iframe src="http://channel9.msdn.com/Blogs/Windows-Azure/Restore-a-SQL-Database-Using-Geo-Restore/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+> [AZURE.VIDEO restore-a-sql-database-using-geo-restore]
 
-1. Entre no portal do Azure usando sua conta da Microsoft e selecione **bancos de dados SQL**.
+1. Entre no [portal do Azure](http://manage.windowsazure.com) usando sua conta da Microsoft e selecione **bancos de dados SQL**.
 
 2. No painel de navegação esquerdo, clique em **BANCOS DE DADOS SQL**.
 
@@ -58,9 +58,9 @@ Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a rest
 
 5. Clique no banco de dados que deseja restaurar.
 
-6. Na parte inferior da página na barra de comandos, clique em **Restaurar**. Isso inicia a caixa de diálogo **Especificar as configurações de restauração**. 
+6. Na parte inferior da página na barra de comandos, clique em **Restaurar**. Isso inicia a caixa de diálogo **Especificar as configurações de restauração**.
 
-7. Escolha o **NOME DO BANCO DE DADOS** e o **SERVIDOR DE DESTINO** que você deseja restaurar o banco de dados. Por padrão, um nome de banco de dados é escolhido para você, mas você pode alterá-lo se desejar.   
+7. Escolha o **NOME DO BANCO DE DADOS** e o **SERVIDOR DE DESTINO** que você deseja restaurar o banco de dados. Por padrão, um nome de banco de dados é escolhido para você, mas você pode alterá-lo se desejar.
 
 9. Clique na marca de seleção para enviar a solicitação de restauração.
 
@@ -68,16 +68,16 @@ Uma restauração pode levar algum tempo para concluir. Para monitorar o status 
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o seguinte: 
+Para obter mais informações, consulte o seguinte:
 
-[Restaurar um banco de dados do SQL Azure usando o ponto de restauração pontual no portal do Azure](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
+[Restaurar um banco de dados do SQL Azure usando o ponto de restauração pontual no portal do Azure](sql-database-point-in-time-restore-tutorial-management-portal.md)
 
-[Restaurar um banco de dados do SQL Azure excluído no portal do Azure](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
+[Restaurar um banco de dados do SQL Azure excluído no portal do Azure](sql-database-restore-deleted-database-tutorial-management-portal.md)
 
 [Continuidade dos negócios no Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
 [Restauração e Backup de banco de dados do SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
 [Restauração geográfica do banco de dados do SQL Azure (blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-<!--HONumber=47-->
- 
+
+<!---HONumber=62-->

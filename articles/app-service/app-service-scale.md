@@ -56,7 +56,7 @@ Se seu aplicativo depender de outros serviços, como SQL ou armazenamento, você
 	
 3. Naquela folha do recurso vinculado, clique na parte de **Camada de preço**, selecione uma das camadas com base em suas necessidades de desempenho e clique em **Selecionar**.
 	
-	![Dimensione seu banco de dados SQL](./media/app-service-scale/ScaleDatabase.png)
+	![Dimensionar seu banco de dados SQL](./media/app-service-scale/ScaleDatabase.png)
 	
 4. Se seu aplicativo usar o armazenamento, a replicação geográfica é automaticamente configurada quando você escolhe uma camada de preços que dá suporte a ela. Para SQL, por outro lado, você precisa configurar manualmente a replicação geográfica para aumentar os recursos de recuperação de desastres alta disponibilidade do banco de dados SQL. Para fazer isso, clique na parte **Replicação Geográfica**.
 	
@@ -81,7 +81,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 
 - Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="Next Steps"></a>
 ## Próximas etapas
@@ -103,7 +103,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 	
 	[Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](/pricing/details/web-sites/#ssl-connections)
 
-- Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Vídeos sobre como dimensionar aplicativos Web:
 	
@@ -113,7 +113,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -125,5 +125,6 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

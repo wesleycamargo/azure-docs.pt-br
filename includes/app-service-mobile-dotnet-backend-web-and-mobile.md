@@ -26,7 +26,7 @@ Nesta seção, você criará um novo aplicativo Web usando uma solução de exem
 
         modelBuilder.HasDefaultSchema("your_mobile_app"); // your service name, replacing dashes with underscore
 
-4. Em seguida, iremos obter a cadeia de conexão do aplicativo móvel por meio do Portal do Azure:
+4. Em seguida, vamos obter a cadeia de conexão do aplicativo móvel por meio do Portal do Azure:
 
     - Selecione seu aplicativo móvel no portal e clique na parte chamada **Código de usuário**.
 

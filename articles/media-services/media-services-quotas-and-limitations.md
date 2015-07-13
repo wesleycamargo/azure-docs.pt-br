@@ -65,7 +65,7 @@ Este tópico descreve as cotas e limitações associadas aos serviços de mídia
 	**Importante** não crie mais contas de serviços de mídia para aumentar os limites, em vez disso, envie um tíquete de suporte.
 
 
-- O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503). Para obter mais informações, consulte a descrição do erro 503 no tópico [Códigos de erro dos serviços de mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+- O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503). Para saber mais, consulte a descrição do erro 503 no tópico [Códigos de erro dos serviços de mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
 
 ##<a id="request_higher_limit"></a>Como solicitar um limite superior para cotas atualizáveis
 
@@ -102,4 +102,4 @@ Para abrir um tíquete de suporte, faça o seguinte:
 1. Clique em Enviar para abrir o tíquete.
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

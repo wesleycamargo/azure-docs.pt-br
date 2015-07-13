@@ -34,6 +34,6 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 A política de retenção se aplica a todos os usuários e, atualmente não, pode ser personalizada.
 
 ## Artigos relacionados
-- [Fazendo backup da Automação do Azure](https://msdn.microsoft.com/library/dn643635.aspx)
+- [Fazendo backup da Automação do Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

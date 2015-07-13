@@ -108,7 +108,7 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitore a integridade de sua infraestrutura local do Active Directory e obtenha a análise de uso.
 - Substituição de senha para LinkedIn, Facebook e Twitter. Para obter mais informações, leia [este artigo](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Associação de grupo dinâmico. Para obter mais informações, consulte [este artigo](https://msdn.microsoft.com/library/azure/dn913807.aspx).
-- [Acesso condicional](https://msdn.microsoft.com/library/azure/dn906877.aspx): Multi-Factor Authentication por aplicativo.
+- [Acesso condicional](https://msdn.microsoft.com/library/azure/dn906877.aspx): autenticação multifator por aplicativo.
 - Integração de aplicativos de RH: jornada de trabalho
 - Privileged Identity Management: o gerenciamento de identidades com privilégios fornece supervisão aprimorada para ajudar a atender aos requisitos de conformidade a normas e contratos de nível de serviço.
 - Solicitações de aplicativos de autoatendimento: os administradores podem fornecer uma lista de aplicativos SaaS para usuários de modo que os usuários possam escolher aqueles que desejam usar, e os aplicativos ou estarão disponíveis imediatamente ou depois da aprovação.
@@ -122,4 +122,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

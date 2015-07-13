@@ -28,5 +28,4 @@ Por padrão, todas as solicitações para os aplicativo móvel do Serviço de Ap
 
 6. Republique seu projeto de aplicativo móvel.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

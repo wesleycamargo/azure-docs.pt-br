@@ -116,7 +116,7 @@ Essas apresentações de visão geral sobre aplicativos de desenvolvimento com o
 - **[Desenvolva aplicativos nativos modernos com o Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios recorrente dedicada a oferece a você entrevistas curtas de 10 a 15 minutos com especialistas em uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) é uma série de vídeos introdutórios recorrente dedicada a você que oferece entrevistas curtas de 10 a 15 minutos com especialistas em uma variedade de tópicos do Azure. Use o recurso de filtro de serviços na página para ver todos os vídeos do Azure Active Directory.
 
 - **[Identidade do Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
 - **[Identidade do Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
@@ -132,4 +132,4 @@ Essas apresentações de visão geral sobre aplicativos de desenvolvimento com o
 
 - **[Azure AD no Twitter](https://twitter.com/azuread)**: anúncios do Azure AD em 140 caracteres ou menos.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

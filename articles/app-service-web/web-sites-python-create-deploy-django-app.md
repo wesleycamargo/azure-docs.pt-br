@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criando aplicativos Web com Django no Azure" 
-	description="Um tutorial que apresenta a execução de um aplicativo Web do Python em aplicativos Web do Serviço de Aplicativo do Azure." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Criando aplicativos Web com Django no Azure"
+	description="Um tutorial que apresenta a execução de um aplicativo Web do Python em aplicativos Web do Serviço de Aplicativo do Azure."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -27,7 +27,7 @@ Você criará um aplicativo usando a estrutura da Web Django (consulte versões 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 
 ## Pré-requisitos
@@ -57,7 +57,7 @@ Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das v
 
 A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).
 
-1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo. 
+1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo.
 2. Clique em **Web + Móvel** > **Azure Marketplace** > **Aplicativos Web**.
 3. Na caixa de pesquisa, digite "python".
 4. Nos resultados da pesquisa, selecione **Django** e clique em **Criar**.
@@ -111,7 +111,7 @@ Proxy de IIS para ambientes virtuais e suporte à depuração remota de PTVS.
     \requirements.txt
 
 Pacotes externos requeridos por este aplicativo. O script de implantação fará a instalação por pip dos pacotes listados nesse arquivo.
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -229,7 +229,7 @@ Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adici
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Criar um ambiente virtual
 
@@ -318,7 +318,7 @@ Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adici
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Criar um ambiente virtual
 
@@ -423,7 +423,7 @@ A coleta de arquivos estáticos é feita automaticamente como parte do script de
 
 Se você quiser ignorar a coleção de arquivos estáticos para seu aplicativo Django:
 
-    .skipDjango 
+    .skipDjango
 
 Em seguida, você precisará fazer a coleta manualmente no computador local:
 
@@ -453,7 +453,7 @@ ou para habilitar qualquer um:
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 Na prática, talvez você queira fazer algo mais complexo para lidar com a alternância entre os modos de depuração e liberação, e obter o nome do host.
 
 Você pode definir variáveis de ambiente por meio da página **CONFIGURAR** do portal do Azure, na seção **configurações do aplicativo**. Isso pode ser útil para definir valores que você não deseja que apareçam nas fontes (cadeias de conexão, senhas etc.), ou que você deseja definir de maneira diferente entre o Azure e o computador local. Em `settings.py`, você pode consultar as variáveis de ambiente usando `os.getenv`.
@@ -480,7 +480,7 @@ Depois que ele estiver habilitado, sincronize o banco de dados, execute o aplica
 ## Próximas etapas
 
 Siga esses links para saber mais sobre o Django e Python Tools para o Visual Studio:
- 
+
 - [Documentação do Django]
 - [Ferramentas Python para documentação do Visual Studio]
 
@@ -491,7 +491,7 @@ Para obter informações sobre como usar o MySQL e banco de dados SQL:
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -513,6 +513,6 @@ Para obter informações sobre como usar o MySQL e banco de dados SQL:
 [Documentação do PTVS]: http://pytools.codeplex.com/documentation
 [Ferramentas Python para documentação do Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentação do Django]: https://www.djangoproject.com/
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

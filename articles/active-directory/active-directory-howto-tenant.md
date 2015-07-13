@@ -66,4 +66,4 @@ Se todos os itens acima forem sem sentido para você, não se preocupe. Basta vi
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito. Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

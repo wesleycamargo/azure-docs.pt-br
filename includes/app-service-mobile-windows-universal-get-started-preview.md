@@ -7,4 +7,4 @@ A seguir, há capturas de tela do aplicativo concluído:
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Aplicativos Móveis para aplicativos da Windows Store e da Loja do Windows Phone.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

@@ -44,4 +44,7 @@ Conta corporativa ou de estudante | Uma conta de usuário atribuída por uma org
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Restrições e limites de serviço do AD do Azure](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

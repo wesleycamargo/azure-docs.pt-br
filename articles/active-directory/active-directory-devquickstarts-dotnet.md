@@ -44,7 +44,7 @@ Para habilitar seu aplicativo para obter tokens, primeiro será necessário regi
 -	Clique em **Active Directory** no painel de navegação à esquerda
 -	Selecione um locatário no qual registrar o aplicativo.
 -	Clique na guia **Aplicativos** e clique em **Adicionar** na lista de botões.
--	Siga os prompts e crie um novo **Aplicativo cliente nativo**.
+-	Siga os prompts e crie um novo **Aplicativo cliente nativo**.  
 
     -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens. Insira um valor específico para seu aplicativo, por exemplo, `http://DirectorySearcher`.
@@ -162,5 +162,6 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [Proteger uma API da Web .NET com o AD do Azure >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure em [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

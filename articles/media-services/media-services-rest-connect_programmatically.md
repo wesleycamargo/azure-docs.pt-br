@@ -19,28 +19,27 @@
 
 # Conectando-se a conta dos serviços de mídia usando a API REST dos serviços de mídia
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia.](media-services-live-streaming-workflow.md)  
+Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
 Este tópico descreve como obter uma conexão programática aos serviços de mídia do Microsoft Azure quando você estiver programando com o API REST dos serviços de mídia.
 
-Duas coisas são necessárias ao acessar os serviços de mídia do Microsoft Azure: Um token de acesso fornecido pelo Azure Access Control Services (ACS) e o URI dos serviços de mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que você especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
+Duas coisas são necessárias ao acessar os Serviços de Mídia do Microsoft Azure: um token de acesso fornecido pelos ACSs (Serviços de Controle de Acesso) e o URI dos Serviços de Mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
 
-As etapas a seguir descrevem o fluxo de trabalho mais comuns ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
+As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
 
 1. Obtendo um token de acesso 
 2. Conectando o URI dos serviços de mídia 
 
-	>[AZURE.NOTE] Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
-	Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+	>[AZURE.NOTE]Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
 
-3. Poste suas chamadas de API subsequentes para a nova URL. 
+3. Poste suas chamadas de API subsequentes para a nova URL.
 
 	Por exemplo, se depois de tentar se conectar, você tem o seguinte:
 
-		HTTP/1.1 301 Movido permanentemente
-		Local: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Você deve postar suas chamadas de API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/..
+	Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ##Obtendo um token de acesso
 
@@ -54,21 +53,21 @@ O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado par
 	Content-Type: application/x-www-form-urlencoded
 	Host: wamsprodglobal001acs.accesscontrol.windows.net
 	Content-Length: 120
-	Experar: 100-continue
-	Conexão: Keep-Alive
-	Aceitar: application/json
+	Expect: 100-continue
+	Connection: Keep-Alive
+	Accept: application/json
 
 	
 **Corpo**:
 
-Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta. 
+Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
 
-Observe que o AccountKey da sua conta de serviços de mídia deve ter a codificação de URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) ao ser usado como o valor de client_secret em sua solicitação de token de acesso.
+Observe que a AccountKey da sua conta de Serviços de Mídia deve ter a codificação de URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) ao ser usado=a como o valor de client_secret em sua solicitação de token de acesso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Por exemplo: 
+Por exemplo:
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -94,18 +93,17 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 	}
 	
 
->[AZURE.NOTE]
-É recomendável armazenar em cache os valores "access_token" e "expires_in" para um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+>[AZURE.NOTE]É recomendável armazenar em cache os valores "access_token" e "expires_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
 Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
 ###Conectando o URI dos serviços de mídia
 
-O URI raiz para os serviços de mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se você obtiver um redirecionamento 301 em resposta, você deve fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
+O URI raiz para os Serviços de Mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se obtiver um redirecionamento 301 em resposta, deverá fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
 
-Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/, em que o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de serviços de mídia.
+Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/, em que o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de Serviços de Mídia.
 
-O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos serviços de mídia(https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
+O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços de Mídia (https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
 
 **Solicitação HTTP**:
 	
@@ -161,7 +159,7 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos serviços 
 	 
 
 
->[AZURE.NOTE] Depois que obtiver o novo URI, este é o URI que deve ser usado para se comunicar com os serviços de mídia. 
+>[AZURE.NOTE]Depois que obtiver o novo URI, este é o URI que deve ser usado para se comunicar com os serviços de mídia.
 
 
 <!-- Anchors. -->
@@ -169,5 +167,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos serviços 
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

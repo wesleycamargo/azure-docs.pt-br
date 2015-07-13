@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Como usar o Banco de Dados SQL do Azure em Java
 
-As etapas a seguir mostram como usar o Banco de Dados SQL do Azure com Java. Exemplos de linha de comando são mostrados para simplificar, mas etapas muito semelhantes podem ser apropriadas para aplicativos Web, independentemente de estarem hospedados no local, no Azure ou em outros ambientes. Este guia aborda a criação de um servidor e a criação de um banco de dados por meio do [Portal de Gerenciamento do Azure](https://windows.azure.com).
+As etapas a seguir mostram como usar o Banco de Dados SQL do Azure com Java. Exemplos de linha de comando são mostrados para simplificar, mas etapas muito semelhantes podem ser apropriadas para aplicativos Web, independentemente de estarem hospedados no local, no Azure ou em outros ambientes. Este guia aborda a criação de um servidor e a criação de um banco de dados a partir do [Portal de Gerenciamento do Azure](https://windows.azure.com).
 
 ## O que é Banco de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ A seguir estão os pré-requisitos se você pretende usar o Banco de Dados SQL c
 
 * Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 * Uma assinatura de Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-* Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Se estiver usando o Eclipse, você precisará do Eclipse IDE para desenvolvedores de Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. Também precisará do plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies). Durante a instalação desse plug-in, certifique-se de que o Microsoft JDBC Driver 4.0 para SQL Server esteja incluído. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Se não estiver usando o Eclipse, você precisará do Microsoft JDBC Driver 4.0 para SQL Server, que pode ser baixado em <http://www.microsoft.com/download/details.aspx?id=11774>.
 
 ## Criando um Banco de Dados SQL do Azure
@@ -47,21 +47,21 @@ Antes de usar o Banco de Dados SQL do Azure no código Java, você deverá criar
 1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2. Clique em **Novo**.
 
-    ![Create new SQL database][create_new]
+    ![Criar novo banco de dados SQL][create_new]
 
-3. Clique em **Banco de Dados SQL** e em **Criação personalizada**.
+3. Clique em **Banco de Dados SQL** e, em seguida, clique em **Criação Personalizada**.
 
-    ![Create custom SQL database][create_new_sql_db]
+    ![Criar Banco de Dados SQL personalizado][create_new_sql_db]
 
 4. Na caixa de diálogo **Configurações do banco de dados**, especifique o nome de seu banco de dados. Para as finalidades deste guia, use **gettingstarted** como o nome do banco de dados.
 5. Para **Servidor**, selecione **Novo Servidor do Banco de Dados SQL**. Use os valores padrão para os outros campos.
 
-    ![SQL database settings][create_database_settings]
+    ![Configurações do Banco de Dados SQL][create_database_settings]
 
-6. Clique na seta avançar.	
+6. Clique na seta avançar.
 7. Na caixa de diálogo **Configurações do servidor**, especifique um nome de logon do SQL Server. Para os fins deste guia, **MySQLAdmin** foi usado. Especifique e confirme uma senha. Especifique uma região e certifique-se de que a opção **Permitir que os serviços do Azure acessem o servidor** esteja marcada.
 
-    ![SQL server settings][create_server_settings]
+    ![Configurações do SQL Server][create_server_settings]
 
 8. Clique no botão de conclusão.
 
@@ -73,25 +73,18 @@ Antes de usar o Banco de Dados SQL do Azure no código Java, você deverá criar
 4. Clique em **Mostrar cadeias de conexão**.
 5. Realce o conteúdo da cadeia de conexão **JDBC**.
 
-    ![Determine JDBC connection string][get_jdbc_connection_string]
+    ![Determinar a cadeia de conexão JDBC][get_jdbc_connection_string]
 
 6. Clique com o botão direito do mouse no conteúdo realçado da cadeia de conexão **JDBC** e clique em **Copiar**.
-7. Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua  *your_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua  *your_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.) 
+7. Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.) 
 
-    String connectionString =
-		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
-    	"database=gettingstarted" + ";" + 
-    	"user=MySQLAdmin@*your_server*" + ";" +  
-    	"password=*your_password*" + ";" +  
-        "encrypt=true" + ";" +
-        "hostNameInCertificate=*.int.mscds.com" + ";" +  
-        "loginTimeout=30";
+    Cadeia connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your_server*" + ";" + "password=*your_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por enquanto, você deve conhecer as etapas para determinar a cadeia de conexão. Além disso, dependendo das necessidades de seu aplicativo, você talvez não precise usar as configurações **encrypt** e **hostNameInCertificate** e talvez precise modificar a configuração **loginTimeout**.
 
 ## Para permitir o acesso a um intervalo de endereços IP
 
-1. Faça logon no [Portal de Gerenciamento](https://manage.windowsazure.com).
+1. Logon no [Portal de Gerenciamento](https://manage.windowsazure.com).
 2. Clique em **Banco de Dados SQL**.
 3. Clique em **Servidores**.
 4. Clique no servidor que você deseja usar.
@@ -99,7 +92,7 @@ Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por
 6. Clique em **Configurar**.
 7. Em **Endereços IP permitidos**, digite o nome de uma nova regra de IP. Especifique o início e o final do intervalo de endereços IP. Para a sua conveniência, o endereço IP do cliente atual é exibido. O exemplo a seguir permite um único endereço IP de cliente (o seu endereço IP será diferente).
 
-    ![Allowed IP addresses dialog][allowed_ips_dialog]
+    ![Caixa de diálogo Endereços IP permitidos][allowed_ips_dialog]
 
 8. Clique no botão de conclusão. Os endereços IP que você especificar agora terão acesso ao seu servidor de banco de dados.
 
@@ -111,20 +104,20 @@ Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por
 
    Se estiver usando o Eclipse:
 
-    1. Dentro do explorador de projetos do Eclipse, clique com o botão direito do mouse no projeto **HelloSQLAzure** e clique em **Propriedades**.
-    2. No painel esquerdo da caixa de diálogo **Propriedades**, clique no **Caminho de Compilação do Java**.
-    3. Clique na guia **Bibliotecas** e em **Adicionar Biblioteca**.
-    4. Na caixa de diálogo **Adicionar Biblioteca**, selecione **Microsoft JDBC Driver 4.0 para SQL Server**, clique em **Avançar** e em **Concluir**.
-    5. Clique em **OK** para fechar a caixa de diálogo **Propriedades**.
+    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
+    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
+    3. Click the **Libraries** tab, and then click **Add Library**.
+    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
+    5. Click **OK** to close the **Properties** dialog.
 
-    Se não estiver usando o Eclipse, adicione o JAR do Microsoft JDBC Driver 4.0 para SQL Server ao caminho de sua classe. Para obter informações relacionadas, consulte [Usando JDBC Driver](http://msdn.microsoft.com/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/library/ms378526.aspx).
 
-4. Em seu código **HelloSQLAzure.java**, adicione instruções  `import` conforme mostrado a seguir:
+4. Em seu código **HelloSQLAzure.java**, adicione `import`instruções conforme mostrado a seguir:
 
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Especifique sua cadeia de conexão. A seguir está um exemplo. Como acima, substitua *your_server* (em dois lugares) *your_user* e *your_password* com os valores apropriados para seu servidor de banco de dados SQL.
+5. Especifique sua cadeia de conexão. A seguir está um exemplo. Conforme mostrado acima, substitua *your_server* (em dois lugares), *your_user* e *your_password* pelos valores apropriados para seu servidor do Banco de Dados SQL.
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -397,7 +390,7 @@ Para recuperar linhas usando uma cláusula, use o código conforme mostrado acim
 	
 As cláusulas WHERE também pode ser usadas ao recuperar contagens, atualizar linhas ou excluir linhas.
 
-<h2><a id="to_retrieve_row_count"></a>Para recuperar uma contagem de linhas</h2>
+## Para recuperar uma contagem de linhas
 
 O código a seguir mostra como recuperar uma contagem de linhas da tabela **Person**.
  
@@ -692,7 +685,7 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 
 1. Dentro do explorador de projetos do Eclipse, clique com o botão direito do mouse no projeto e clique em **Propriedades**.
 2. No painel esquerdo da caixa de diálogo **Propriedades**, clique em **Assembly de Implantação**e, em seguida, clique em **Adicionar**.
-3. Na caixa de diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e em **Avançar**.
+3. Na caixa de diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e, em seguida, clique em **Avançar**.
 4. Selecione **Microsoft JDBC Driver 4.0 para SQL Server** e clique em **Concluir**.
 5. Clique em **OK** para fechar a caixa de diálogo **Propriedades**.
 6. Exporte o arquivo WAR de seu projeto para a pasta approot e recompile seu projeto do Azure, de acordo com as etapas documentadas em [Criando um aplicativo Hello World usando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies) (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). Este tópico também descreve como executar seu aplicativo no emulador de computação e no Azure.
@@ -705,32 +698,32 @@ Para usar o Banco de Dados SQL em Java em uma implantação do Azure, além de t
 
 Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão geral do JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). Para saber mais sobre o Banco de Dados SQL, consulte [Visão geral do Banco de Dados SQL (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
-[Conceitos]:#concepts
-[Pré-requisitos]:#prerequisites
-[Criando um Banco de Dados SQL do Azure]:#create_db
-[Determinando a cadeia de conexão do Banco de Dados SQL]:#determine_connection_string
-[Para permitir o acesso a um intervalo de endereços IP]:#specify_allowed_ips
-[Para usar o Banco de Dados SQL do Azure em Java]:#use_sql_azure_in_java
-[Comunicando-se com o Banco de Dados SQL do Azure a partir de seu código]:#communicate_from_code
-[Para criar uma tabela]:#to_create_table
-[Para criar um índice em uma tabela]:#to_create_index
-[Para inserir linhas]:#to_insert_rows
-[Para recuperar linhas]:#to_retrieve_rows
-[Para recuperar linhas usando uma cláusula WHERE]:#to_retrieve_rows_using_where
-[Para recuperar uma contagem de linhas]:#to_retrieve_row_count
-[Para atualizar linhas]:#to_update_rows
-[Para excluir linhas]:#to_delete_rows
-[Para verificar se existe uma tabela]:#to_check_table_existence
-[Para remover um índice]:#to_drop_index
-[Para remover uma tabela]:#to_drop_table
-[Usando o Banco de Dados SQL em Java em uma implantação do Azure]:#using_in_azure
-[Próximas etapas]:#nextsteps
+[Concepts]: #concepts
+[Prerequisites]: #prerequisites
+[Creating an Azure SQL Database]: #create_db
+[Determining the SQL Database connection string]: #determine_connection_string
+[To allow access to a range of IP addresses]: #specify_allowed_ips
+[To use Azure SQL Database in Java]: #use_sql_azure_in_java
+[Communicating with Azure SQL Database from your code]: #communicate_from_code
+[To create a table]: #to_create_table
+[To create an index on a table]: #to_create_index
+[To insert rows]: #to_insert_rows
+[To retrieve rows]: #to_retrieve_rows
+[To retrieve rows using a WHERE clause]: #to_retrieve_rows_using_where
+[To retrieve a count of rows]: #to_retrieve_row_count
+[To update rows]: #to_update_rows
+[To delete rows]: #to_delete_rows
+[To check whether a table exists]: #to_check_table_existence
+[To drop an index]: #to_drop_index
+[To drop a table]: #to_drop_table
+[Using SQL Database in Java within an Azure Deployment]: #using_in_azure
+[Próximas etapas]: #nextsteps
 [create_new]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
 [create_new_sql_db]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
 [create_database_settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
 [create_server_settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
 [get_jdbc_connection_string]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

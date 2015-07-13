@@ -34,5 +34,4 @@ Por exemplo, para enviar uma solicitação JSON para uma API personalizada chama
 	     completion:completion ];
 		
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

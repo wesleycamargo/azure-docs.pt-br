@@ -1,10 +1,11 @@
 <properties 
-	pageTitle="Monitorar o desempenho do aplicativo" 
-	description="Traçar tempo de resposta e de carga, informações de dependência e definir alertas para desempenho." 
-	services="azure-portal" 
-	documentationCenter="na" 
+	pageTitle="Monitorar desempenho do aplicativo" 
+	description="Tempo de resposta e de carga, informações de dependência e alertas definidos sobre o desempenho do gráfico." 
+	services="azure-portal"
+    documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/> 
+	manager="keboyd"/>
+
 <tags 
 	ms.service="azure-portal" 
 	ms.workload="na" 
@@ -12,69 +13,72 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/28/2015" 
-	ms.author="awills"/> 
+	ms.author="awills"/>
 
-# Monitorar desempenho do aplicativo 
+# Monitorar desempenho do aplicativo
 
-No [Portal do Azure](http://portal.azure.com) você pode configurar o monitoramento para coletar as estatísticas e detalhes sobre as dependências de aplicativo em seus aplicativos Web ou máquinas virtuais.
+No [Portal do Azure](http://portal.azure.com) você pode configurar o monitoramento a fim de coletar estatísticas e detalhes sobre as dependências do aplicativo em seus aplicativos Web ou máquinas virtuais.
 
-O Azure dá suporte ao APM (monitoramento do desempenho de aplicativos) tirando vantagem das *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e reportam-se de volta aos serviços de monitoramento. 
+O Azure oferece suporte ao Monitoramento de desempenho do aplicativo (ou, *APM*) aproveitando as *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e informam os serviços de monitoramento.
 
-## Habilitar uma extensão 
+## Habilitar uma extensão
 
 1. Clique em **Procurar** e selecione o aplicativo Web ou a máquina virtual que você deseja instrumentar.
 
 2. Clique no bloco **Monitoramento de aplicativos** sob **Monitoramento**.
 
-3. Escolha o provedor de extensão que você gostaria de usar, como **Application Insights** ou **New Relic**. 
+3. Escolha o provedor de extensão que você deseja usar como **Application Insights** ou **New Relic**.
 
-![Web app APM](./media/insights-perf-analytics/05-extend.png) 
+![APM do aplicativo Web](./media/insights-perf-analytics/05-extend.png)
 
-Ou então, se você estiver usando uma máquina virtual:
+Ou, se você estiver usando uma máquina virtual:
 
-![Máquina virtual](./media/insights-perf-analytics/10-vm1.png) 
+![Máquina virtual](./media/insights-perf-analytics/10-vm1.png)
 
-## Explorar os dados de seu aplicativo por um tempo para gerar alguma telemetria. 
+### Para o Application Insights: reconstrução com o SDK
 
-1. Em seguida, do seu aplicativo Web ou de uma folha de máquina virtual, você verá a extensão instalada. 
+New Relic pode ser instalada automaticamente sem qualquer instrumentação adicional, mas o Application Insights tem um requisito adicional.
 
-2. Clique na linha que representa o aplicativo para navegar até esse provedor: 
+No Visual Studio, adicione o SDK do Application Insights ao projeto.
 
-![Clique em Atualizar](./media/insights-perf-analytics/06-overview.png) 
+![Clique com o botão direito do mouse no projeto e escolha Adicionar Application Insights](./media/insights-perf-analytics/03-add.png)
 
-Você também pode usar **Procurar** para ir diretamente até a conta do New Relic ou o componente do Application Insights que você usou. 
+Quando receber uma solicitação de logon, use as credenciais da conta do Azure.
 
-Depois de abrir a lâmina, para Application Insights, por exemplo, você pode: 
+Você pode testar a telemetria executando o aplicativo em seu computador de desenvolvimento, ou simplesmente republique-a.
 
-- Desempenho aberto: 
+O SDK fornece uma API para que você possa [escrever uma telemetria personalizada](../app-insights-api-custom-events-metrics.md) para controlar o uso.
 
-![Na lâmina de visão geral do Application Insights, clique no bloco Desempenho](./media/insights-perf-analytics/07-dependency.png)
+## Explorar os dados
 
-- Analise de modo mais aprofundado para ver as solicitações individuais: 
-![Na grade, clique em uma dependência para ver as solicitações relacionadas.](./media/insights-perf-analytics/08-requests.png) 
+Use o aplicativo durante um tempo para gerar telemetria.
 
-- Este é um exemplo que mostra a quantidade de tempo gasto em uma dependência SQL, incluindo o número de chamadas SQL e estatísticas relacionadas, como a duração média e o desvio padrão. 
+1. Em seguida, do seu aplicativo Web ou de uma folha de máquina virtual, você verá a extensão instalada.
+2. Clique na linha que representa o aplicativo para navegar até esse provedor: ![Clicar em Atualizar](./media/insights-perf-analytics/06-overview.png)
 
-![](./media/insights-perf-analytics/01-example.png) 
+Você também pode usar **Procurar** para ir diretamente ao componente Application Insights ou conta New Relic usada.
 
-### Requisitos adicionais para o Application Insights 
+Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o Desempenho:
 
-O New Relic pode ser instalado automaticamente sem nenhuma instrumentação adicional, mas o Application Insights tem um requisito adicional.
+![Na folha de visão geral do Application Insights, clique no bloco Desempenho](./media/insights-perf-analytics/07-dependency.png)
 
-![Na caixa de diálogo Novo Projeto, selecione o Application Insights](./media/insights-perf-analytics/03-add.png) 
+- Analisar as solicitações individuais:
 
-Quando for solicitado que você faça logon, use as credenciais de sua conta do Azure. 
+![Na grade, clique em uma dependência para ver as solicitações relacionadas.](./media/insights-perf-analytics/08-requests.png)
 
-##Próximas etapas 
+- Aqui está um exemplo que mostra a quantidade de tempo gasto em uma dependência de SQL, incluindo o número de chamadas SQL e estatísticas relacionadas, como a duração média e o desvio padrão. 
 
-* [Monitorar as métricas de integridade do serviço](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo. 
+![](./media/insights-perf-analytics/01-example.png)
 
-* [Habilitar monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência no seu serviço. 
 
-* [Receber notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas cruzarem um limite. 
 
-* Usar [Application Insights para páginas da Web e aplicativos JavaScript](../app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da web. 
+## Próximas etapas
 
-* [Monitorar a disponibilidade e capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
+* [Monitore as métricas de integridade do serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço esteja disponível e responsivo.
+* [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
+* [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

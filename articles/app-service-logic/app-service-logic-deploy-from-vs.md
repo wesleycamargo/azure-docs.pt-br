@@ -64,4 +64,5 @@ Finalmente, depois de configurar seu aplicativo, você pode implantar diretament
 No futuro, você pode revisar seu aplicativo lógico no controle do código-fonte e usar o Visual Studio para implantar novas versões. Observe que se você modificar diretamente a definição no Portal do Azure, na próxima vez que você implantar por meio do Visual Studio essas alterações serão substituídas.
 
 Se você não deseja usar o Visual Studio, mas ainda deseja ter ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, você pode sempre utilizar diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

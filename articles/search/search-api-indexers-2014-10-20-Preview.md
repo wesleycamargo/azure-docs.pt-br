@@ -53,13 +53,13 @@ Você pode criar e gerenciar fonte de dados no serviço Azure Search por meio de
 
 ### Criar fonte de dados
 
-Você pode criar uma nova fonte de dados  em um serviço Azure Search usando uma solicitação HTTP POST.
+Você pode criar uma nova fonte de dados em um serviço Azure Search usando uma solicitação HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
 
-Como alternativa, você pode usar PUT e especificar o nome da fonte de dados  no URI. Se a fonte de dados não existir, ela será criada.
+Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no URI. Se a fonte de dados não existir, ela será criada.
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
@@ -135,7 +135,7 @@ Essa política pode ser especificada da seguinte maneira:
 
 ***Política de Detecção de Alteração de Dados Integrada do SQL***
 
-Se o banco de dados SQL der suporte ao [Controle Integrado de Alterações do SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), recomendamos o uso da Política de Controle Integrado de Alterações do SQL. Essa política habilita o controle de alterações mais eficiente e permite que o Azure Search identifique linhas excluídas sem que seja preciso ter uma coluna explícita de "exclusão reversível" no esquema.
+Se o banco de dados SQL der suporte ao [Controle Integrado de Alterações do SQL(http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), recomendamos o uso da Política de Controle Integrado de Alterações do SQL. Essa política habilita o controle de alterações mais eficiente e permite que o Azure Search identifique linhas excluídas sem que seja preciso ter uma coluna explícita de "exclusão reversível" no esquema.
 
 Há suporte ao controle integrado de alterações do SQL a partir das seguintes versões de banco de dados SQL: ‒ SQL Server 2008 R2, se você estiver usando VMs SQL IaaS. ‒ Banco de Dados Azure SQL V12, se você estiver usando o Azure SQL.
 
@@ -294,7 +294,7 @@ Você pode criar um novo indexador em um serviço Azure Search usando uma solici
     Content-Type: application/json
     api-key: [admin key]
 
-Como alternativa, você pode usar PUT e especificar o nome da fonte de dados  no URI. Se a fonte de dados não existir, ela será criada.
+Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no URI. Se a fonte de dados não existir, ela será criada.
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
@@ -320,7 +320,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um sobconjunto restrito de um valor de [duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada duas horas. 
+- `interval`: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obrigatório. Uma data/hora, no horário UTC, quando o indexador deve começar a ser executado.
 
@@ -436,7 +436,7 @@ Quando um indexador é excluído, as execuções do indexador em andamento no mo
  
 **Resposta**
 
-Código de status: 204 sem Conteúdo é retornado para uma resposta bem-sucedida.
+Código de status: 204 Sem Conteúdo é retornado para uma resposta bem-sucedida.
 
 <a name="RunIndexer"></a>
 ### Executar Indexador
@@ -656,4 +656,5 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 <td>Sem suporte; no momento, o Azure Search dá suporte apenas a tipos primitivos e coleções de cadeias de caracteres</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

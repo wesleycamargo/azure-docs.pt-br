@@ -1,9 +1,9 @@
 
 O exemplo anterior mostra uma entrada padrão, que requer que o cliente contate tanto o provedor de identidade quanto o Serviço de Aplicativo sempre que o aplicativo for iniciado. Esse método é ineficiente, e seria melhor armazenar em cache o token de autorização retornado pelo Serviço de Aplicativo e tentar usar esse token primeiro, antes de usar uma entrada baseada em provedor.
 
-1. A maneira recomendada para criptografar e armazenar os tokens de autenticação em um cliente iOS é usar o Conjunto de Chaves do iOS. Este tutorial usa o [SSKeychain](https://github.com/soffes/sskeychain) – um wrapper simples em torno do conjunto de chaves do iOS. Siga as instruções na página SSKeychain e adicione-as ao seu projeto. Verifique se a configuração **Habilitar módulos** está habilitada nas **Configurações de compilação** do projeto (seção **LLVM (máquina virtual de baixo nível) da Apple - Idiomas - Módulos**).
+1. A maneira recomendada para criptografar e armazenar os tokens de autenticação em um cliente iOS é usar o Conjunto de Chaves do iOS. Este tutorial usa o [SSKeychain](https://github.com/soffes/sskeychain) – um wrapper simples em torno do conjunto de chaves do iOS. Siga as instruções na página SSKeychain e adicione-as ao seu projeto. Verifique que a configuração **Habilitar Módulos** está habilitada nas **Configurações de compilação** do projeto (seção **LLVM (máquina virtual de baixo nível) da Apple - Idiomas - Módulos**.)
 
-2. Abra **QSTodoListViewController.m** e adicione o código a seguir:
+2. Abra o **QSTodoListViewController.m** e adicione o código a seguir:
 
 
 		- (void) saveAuthInfo {
@@ -29,4 +29,4 @@ O exemplo anterior mostra uma entrada padrão, que requer que o cliente contate 
 
 				[self loadAuthInfo];
 
-<!--HONumber=54-->
+<!---HONumber=62-->

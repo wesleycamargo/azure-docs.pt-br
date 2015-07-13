@@ -36,18 +36,18 @@ Para criar uma atividade personalizada:
 
 4. Atualize a classe para implementar a interface **IDotNetActivity**.
 	<ol type='a'>
-		<li>
-			Derive a classe de <b>IDotNetActivity</b>.
-			<br/>
-			Exemplo: <br/>
-			classe pública <b>MyDotNetActivity: IDotNetActivity</b>
-		</li>
+	<li>
+		Derive a classe de <b>IDotNetActivity</b>.
+		<br/>
+		Exemplo: <br/>
+		classe pública <b>MyDotNetActivity: IDotNetActivity</b>
+	</li>
 
-		<li>
-			Implemente o método <b>Execute</b> da interface <b>IDotNetActivity</b>
-		</li>
+	<li>
+		Implemente o método <b>Execute</b> da interface <b>IDotNetActivity</b>
+	</li>
 
-	</ol>
+</ol>
 5. Compile o projeto.
 
 
@@ -58,14 +58,13 @@ Para usar a atividade personalizada em um pipeline:
 2.	**Carregue o arquivo zip** como um blob para o **Armazenamento de blob do Azure**. 
 3.	Atualize o arquivo **pipeline JSON** para referir-se ao arquivo zip, à DLL de atividade personalizada, à classe de atividade e ao blob que contém o arquivo zip no pipeline JSON. No arquivo JSON:
 	<ol type ="a">
-		<li><b>Tipo de atividade</b> deve ser definido como <b>DotNetActivity</b>.</li>
-		<li><b>AssemblyName</b> é o nome da DLL de saída do projeto do Visual Studio.</li>
-		<li><b>EntryPoint</b> especifica o <b>namespace</b> e o <b>nome</b> da <b>classe</b> que implementa a interface <b>IDotNetActivity</b>.</li>
-		<li><b>PackageLinkedService</b> é o serviço vinculado que faz referência ao blob que contém o arquivo zip. </li>
-		<li><b>PackageFile</b> especifica o local e o nome do arquivo zip que foi carregado para o armazenamento de blob do Azure.</li>
-		<li><b>LinkedServiceName</b> é o nome do serviço vinculado que vincula um cluster HDInsight (sob demanda ou seu próprio) a uma data factory. A atividade personalizada é executada como um trabalho somente de mapa no cluster HDInsight especificado.</li>
-	</ol>
-	**Exemplo de JSON parcial**
+	<li><b>Tipo de atividade</b> deve ser definido como <b>DotNetActivity</b>.</li>
+	<li><b>AssemblyName</b> é o nome da DLL de saída do projeto do Visual Studio.</li>
+	<li><b>EntryPoint</b> especifica o <b>namespace</b> e o <b>nome</b> da <b>classe</b> que implementa a interface <b>IDotNetActivity</b>.</li>
+	<li><b>PackageLinkedService</b> é o serviço vinculado que faz referência ao blob que contém o arquivo zip. </li>
+	<li><b>PackageFile</b> especifica o local e o nome do arquivo zip que foi carregado para o armazenamento de blob do Azure.</li>
+	<li><b>LinkedServiceName</b> é o nome do serviço vinculado que vincula um cluster HDInsight (sob demanda ou seu próprio) a uma data factory. A atividade personalizada é executada como um trabalho somente de mapa no cluster HDInsight especificado.</li>
+</ol>**Exemplo de JSON parcial**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -524,4 +523,4 @@ Aqui estão os passos de alto nível para usar o serviço vinculado Azure Batch 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

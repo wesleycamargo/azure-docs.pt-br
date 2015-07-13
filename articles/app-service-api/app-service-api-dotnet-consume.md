@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consumir um aplicativo de API no serviço de aplicativo do Azure por meio de um cliente .NET" 
+	pageTitle="Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET" 
 	description="Saiba como consumir um aplicativo de API a partir de um cliente .NET usando o SDK do serviço de aplicativo." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -157,7 +157,7 @@ Aplicativos de API do Azure também dão suporte ao fluxo de autenticação de c
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
 
-4. No designer de formulário, clique duas vezes no botão para adicionar um manipulador de click e, em seguida, no método adicionar código do manipulador para ir para a URL de logon para o gateway, por exemplo:
+4. No designer de formulário, clique duas vezes no botão para adicionar um manipulador de clique e, em seguida, no método adicionar código do manipulador para ir para a URL de logon para o gateway, por exemplo:
 
 		webBrowser1.Navigate(string.Format(@"{0}login/[authprovider]", GATEWAY_URL));
 

@@ -90,5 +90,6 @@ Você criará um aplicativo Web Orchard CMS que usa um modelo padrão. O [Orchar
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

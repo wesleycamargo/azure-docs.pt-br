@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/17/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurar um banco de dados do SQL Azure usando o ponto de restauração pontual com API REST
 
 > [AZURE.SELECTOR]
-- [Ponto de restauração pontual - portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
-- [Ponto de restauração pontual - PowerShell](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/)
+- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md) 
 
 ## Visão geral
 
@@ -30,19 +30,19 @@ A restauração pontual cria um novo banco de dados. O serviço seleciona automa
 
 ## Segurança e restrições
 
-Consulte [Restaurar um banco de dados do SQL Azure usando o ponto de restauração pontual no portal do Azure](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
+Consulte [Restaurar um banco de dados do SQL Azure usando o ponto de restauração pontual no portal do Azure](sql-database-point-in-time-restore-tutorial-management-portal.md).
 
 ## Como: Restaurar um banco de dados do SQL Azure usando a API REST
 
-1.	Obter o banco de dados que você deseja restaurar utilizando a operação [Obter banco de dados](http://msdn.microsoft.com/library/azure/dn505708.aspx).
+1.	Obtenha o banco de dados que deseja restaurar usando a operação [Obter banco de dados](http://msdn.microsoft.com/library/azure/dn505708.aspx).
 
-2.	Criar a solicitação de restauração usando a operação [Criar solicitação de restauração de banco de dados](http://msdn.microsoft.com/library/azure/dn509571.aspx).
+2.	Crie a solicitação de restauração usando a operação [Criar solicitação de restauração de banco de dados](http://msdn.microsoft.com/library/azure/dn509571.aspx).
 	
-3.	Controlar a solicitação de restauração usando a operação [Status da operação de banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+3.	Acompanhe a solicitação de restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 ## Próximas etapas
 
-Para obter mais informações, consulte o seguinte: 
+Para obter mais informações, consulte o seguinte:
 
 [Continuidade dos negócios no Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
@@ -51,6 +51,6 @@ Para obter mais informações, consulte o seguinte:
 [Ponto de banco de dados do SQL Azure em tempo de restauração (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
 [Referência de API REST de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

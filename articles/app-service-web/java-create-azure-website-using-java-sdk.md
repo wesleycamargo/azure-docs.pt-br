@@ -461,7 +461,7 @@ Para obter informações de conexão FTP por meio da folha do aplicativo Web no 
 
 1. Em **Essentials**, localize e copie o **Nome do host FTP**. Isso é um URI similar a `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
-2. Em **Essentials**, localize e copie o **nome de usuário de implantação/FTP**. Ele terá o formato *nomedoaplicativoWeb\\nomedeusuário-implantação*; por exemplo, `WebDemoWebApp\deployer77`.
+2. Em **Essentials**, localize e copie o **nome de usuário de implantação/FTP**. Ele terá o formato *nomedoaplicativoWeb\nomedeusuário-implantação*; por exemplo, `WebDemoWebApp\deployer77`.
 
 Para obter informações de conexão de FTP por meio do perfil de publicação:
 
@@ -542,7 +542,7 @@ Outra ferramenta que você pode usar para publicar o aplicativo é o FileZilla, 
 1. No FileZilla, clique em **Arquivo > Gerenciador de Site**.
 2. Na caixa de diálogo **Gerenciador de Sites**, clique em **Novo Site**. Um novo site FTP em branco aparecerá em **Selecionar Entrada**, solicitando que você forneça um nome. Para este procedimento, nomeie-o como `AzureWebDemo-FTP`.
 
-    Na guia **Geral**, especifique as seguintes configurações: - **Host:** insira o **nome do Host FTP** que você copiou do painel. - **Porta:** (deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.) - **Protocolo:** protocolo de transferência de arquivos FTP - **Criptografia:** usar FTP simples - **Tipo de Logon:** normal - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Isso é o nome de usuário FTP completo, que tem o formato *nomedoaplicativoWeb\\nomedeusuário*. - **Senha:** digite a senha que você especificou quando definiu as credenciais de implantação.
+    Na guia **Geral**, especifique as seguintes configurações: - **Host:** insira o **nome do Host FTP** que você copiou do painel. - **Porta:** (deixe isso em branco, já que se trata de uma transferência passiva e o servidor determinará a porta a ser usada.) - **Protocolo:** protocolo de transferência de arquivos FTP - **Criptografia:** usar FTP simples - **Tipo de Logon:** normal - **Usuário:** insira o usuário de implantação/FTP que você copiou do painel. Isso é o nome de usuário FTP completo, que tem o formato *nomedoaplicativoWeb\nomedeusuário*. - **Senha:** digite a senha que você especificou quando definiu as credenciais de implantação.
 
     Na guia **Configurações de Transferência**, selecione **Passiva**.
 
@@ -578,15 +578,16 @@ Este procedimento cria um aplicativo Web do Serviço de Aplicativo. Você será 
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-[1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
-[2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
-[3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
-[4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
-[5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
-[6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
-[7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
-[8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
-[9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
-[10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+  [1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
+  [2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
+  [3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
+  [4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
+  [5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
+  [6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
+  [7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
+  [8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
+  [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
+  [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

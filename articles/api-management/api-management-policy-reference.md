@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Referência de políticas do Gerenciamento de API do Azure
 
 Esta seção fornece um índice para as políticas de [referência de política de Gerenciamento de API][]. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API][].
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][], [Expressões de política][] e assista o vídeo a seguir.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][] e [Expressões de política][].
 
 ## Índice de referência de política
 
@@ -33,7 +31,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Definir cota de uso][] - Permite que você aplique uma cota renovável ou permanente de volume da chamada e/ou largura de banda.
 	-	[Validar JWT][] - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
 -	[Políticas avançadas][]
-	-	[Controlar fluxo][] - Aplica a instruções de políticas condicionalmente com base nos resultados da avaliação do booliano [expressions][].
+	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
 	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
 -	[Políticas de autenticação][]
 	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
@@ -54,8 +52,13 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 	-	[Definir corpo][] - Define o corpo da mensagem para solicitações de entrada e saída.
 	-	[Definir cabeçalho HTTP][] - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
 	-	[Definir parâmetro de cadeia de consulta][] - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.
-	-	[Reescrever URI][] - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
+	-	[Reescrever URL][] - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
 
+## Próximas etapas
+
+Para obter mais informações sobre expressões de política, consulte o vídeo a seguir.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Políticas de restrição de acesso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Verificar cabeçalho HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
@@ -91,7 +94,7 @@ Expressões de política podem ser usadas como valores de atributo ou texto em q
 [Definir corpo]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
 [Definir cabeçalho HTTP]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
 [Definir parâmetro de cadeia de consulta]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter
-[Reescrever URI]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
+[Reescrever URL]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
 
 
 

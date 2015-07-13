@@ -1,5 +1,5 @@
-﻿
-As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da Windows Store, mas isso pode ser testado em qualquer uma das outras plataformas compatíveis com os Serviços Móveis do Azure. 
+
+As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da Windows Store, mas isso pode ser testado em qualquer uma das outras plataformas compatíveis com os Serviços Móveis do Azure.
 
 1. No Visual Studio, execute o aplicativo cliente e tente autenticar com a conta do usuário chamado Dave criada. 
 
@@ -17,7 +17,4 @@ As instruções e capturas de tela abaixo se aplicam ao teste de um cliente da W
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-
-
-
-<!--HONumber=49-->
+<!---HONumber=62-->

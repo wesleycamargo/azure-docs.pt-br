@@ -29,7 +29,7 @@ Para usar o conector do OneDrive, primeiro você precisa criar uma instância do
 2.	Em "Tudo", pesquise "Conector do OneDrive".
 3.	Configure o Conector do OneDrive da seguinte maneira:
 
-	![][1] - **Nome** - dê um nome para o Conector do OneDrive - **Plano de serviço do aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
+	![][1] - **Nome** - dê um nome para o Conector do OneDrive - **Plano do Serviço de Aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
 
 4. Clique em Criar. Será criado um novo Conector do OneDrive.
 5. Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do OneDrive.

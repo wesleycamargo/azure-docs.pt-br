@@ -11,10 +11,9 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Adicione o seguinte método para a classe **ToDoActivity**: 
+2. Adicione o método a seguir à classe **ToDoActivity**:
 	
-	    private void authenticate() {
-	    // Login using the Google provider.
+	private void authenticate() { // Logon usando o provedor Google.
 	    
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
@@ -36,7 +35,7 @@
 
 	Isso cria um novo método para manipular o processo de autenticação. O usuário é autenticado usando um logon do Google. Será exibida uma caixa de diálogo que exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    > [AZURE.NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método **login** acima para um dos seguintes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
+    > [AZURE.NOTE]Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
 3. No método **onCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto `MobileServiceClient`.
 
@@ -62,9 +61,8 @@
 			refreshItemsFromTable();
 		}
 
-9. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com seu provedor de identidade. 
+9. No menu **Executar**, clique em **Executar** para iniciar o aplicativo e entrar com seu provedor de identidade escolhido.
 
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

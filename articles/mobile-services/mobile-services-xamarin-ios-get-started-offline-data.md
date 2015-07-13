@@ -183,5 +183,6 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 
 [Xamarin Studio]: http://xamarin.com/download
 [extensão Xamarin]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,22 +1,5 @@
-<properties 
-   pageTitle="Configurar e registrar o dispositivo"
-   description="Explica como usar o Windows PowerShell para StorSimple para configurar e registrar seu dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-
-### Para configurar e registrar o dispositivo
+#### Para configurar e registrar o dispositivo
 
 1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
 
@@ -32,9 +15,11 @@
   
      Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.** O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
 
-5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é *Password1*.
+5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
 
-6. Digite o seguinte comando: **Invoke-HcsSetupWizard**
+6. Digite o seguinte comando:
+
+     `Invoke-HcsSetupWizard`
 
 7. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações:
    - Endereço IP para a interface de rede DADOS 0
@@ -43,10 +28,13 @@
    - Endereço IP do servidor DNS Primário
    - Endereço IP do servidor NTP Primário
    
-    > [AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
+      >[AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
 
 8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
+
+      >[AZURE.NOTE]Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. As configurações aplicadas antes de você dar esse comando serão mantidas.
+
 9. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão e você precisará alterá-la nas sessões subsequentes. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter uma combinação de caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
 
 10. A senha do Gerenciador de Instantâneos StorSimple também é definida aqui. Use essa senha ao autenticar um dispositivo com o host do Windows executando o Gerenciador de Instantâneos StorSimple. Quando solicitado, forneça uma senha de 14 a 15 caracteres. A senha deve conter uma combinação de três das seguintes opções: caracteres com letras minúsculas e maiúscula, numéricos e especiais.
@@ -56,8 +44,6 @@
     Você pode redefinir a senha do Gerenciador de Instantâneos StorSimple na interface de serviço Gerenciador StorSimple.
 
 11. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na etapa 2. Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
-
-    > [AZURE.NOTE]Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. As configurações aplicadas antes de você dar esse comando serão mantidas.
 
 12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
 
@@ -74,7 +60,6 @@
    
     ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-  >[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
+      >[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

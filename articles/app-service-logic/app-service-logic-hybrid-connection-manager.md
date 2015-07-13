@@ -48,7 +48,7 @@ No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serv
 2. Selecione **Conexão híbrida**. A cadeia de conexão do Barramento de Serviço inserida anteriormente é listada.
 3. Copie a **cadeia de configuração principal**: <br/> ![][PrimaryConfigString]
 
-4. Em **Gerenciador de Conexão Híbrida Local**, você pode baixar o Gerenciador de Conexão Híbrida ou instalá-lo diretamente a partir do portal. <br/><br/> Para instalar diretamente a partir do portal, vá para o servidor IIS local, navegue até o portal e selecione **Baixar e Configurar**. <br/><br/> Para fazer o download do Gerenciador de Conexão Híbrida, vá para o servidor IIS local e acesse o **aplicativo ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). A instalação inicia automaticamente para que você possa executá-la.
+4. Em **Gerenciador de Conexão Híbrida Local**, você pode baixar o Gerenciador de Conexão Híbrida ou instalá-lo diretamente por meio do portal. <br/><br/> Para instalar diretamente por meio do portal, vá para o servidor IIS local, navegue até o portal e selecione **Baixar e Configurar**. <br/><br/> Para baixar o Gerenciador de Conexão Híbrida, vá para o servidor IIS local e acesse o **aplicativo ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). A instalação inicia automaticamente para que você possa executá-la.
 
 5. Na janela **Configuração de Ouvinte**, digite a **cadeia de configuração principal** colada anteriormente (na etapa 3) e selecione **Instalar**.
 

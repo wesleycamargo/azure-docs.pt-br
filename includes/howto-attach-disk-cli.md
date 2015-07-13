@@ -1,18 +1,18 @@
 
-For more information about disks, see [About Virtual Machine Disks in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+Para mais informações sobre discos, consulte [Sobre discos da máquina virtual no Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>How to: Attach an empty disk
-Attaching an empty disk is the simpler way to add a data disk. Run the following command to attach a new empty disk:
+##<a id="cliattachempty"></a>Tutorial: anexar um disco vazio
+Anexar um disco vazio é a maneira mais simples de adicionar um disco de dados. Execute o seguinte comando para anexar um novo disco vazio:
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]
 
-Replace `vm-name` with the name of your virtual machine, and `size-in-gb` with the size of your new disk. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.  
+Substitua `vm-name` pelo nome da máquina virtual e `size-in-gb` pelo tamanho do seu novo disco. Opcionalmente, você pode usar uma URL de blob como o último argumento para especificar explicitamente o blob de destino a ser criado. Se você não especificar uma URL de blob, um objeto blob será gerado automaticamente.
 
-Run the following command to verify that your disk has been created:
+Execute o seguinte comando para verificar se o disco foi criado:
 
     vm disk list <vm-name>
 
-Here is a sample walkthrough of the above commands including terminal output:
+Aqui está um exemplo passo a passo dos comandos acima incluindo a saída de terminal:
 
     ~$ azure vm disk attach-new pinkylinux 20 http://pinkylinux.blob.core.windows.net/vhds/pinkydisk1.vhd
     info:   Executing command vm disk attach-new
@@ -30,3 +30,5 @@ Here is a sample walkthrough of the above commands including terminal output:
     data:    0    5         pinkydisk1.vhd
     data:    1    20        pinkylinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

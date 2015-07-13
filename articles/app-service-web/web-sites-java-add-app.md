@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
@@ -22,8 +22,8 @@ Após inicializar seu aplicativo Web Java no [Serviço de Aplicativo do Azure](h
 
 O caminho de navegação para a pasta **webapps** varia dependendo de como você configurou sua instância dos Aplicativos Web.
 
-- Se você configurar o aplicativo Web usando o Azure Marketplace, o caminho para a pasta **webapps** estará no formato **d:\\home\\site\\wwwroot\\bin\\application_server\\webapps**, em que **application_server** é o nome do servidor de aplicativos em vigor para a instância dos Aplicativos Web. 
-- Se você configurar o aplicativo Web usando a interface do usuário de configuração do Azure, o caminho para a pasta **webapps** estará no formato **d:\\home\\site\\wwwroot\\webapps**. 
+- Se você configurar o aplicativo Web usando o Azure Marketplace, o caminho para a pasta **webapps** estará no formato **d:\home\site\wwwroot\bin\application_server\webapps**, em que **application_server** é o nome do servidor de aplicativos em vigor para a instância dos Aplicativos Web. 
+- Se você configurar o aplicativo Web usando a interface do usuário de configuração do Azure, o caminho para a pasta **webapps** estará no formato **d:\home\site\wwwroot\webapps**. 
 
 Observe que você pode usar o controle do código-fonte para carregar o aplicativo ou páginas da web, incluindo cenários de integração contínua. Instruções para usar o controle de origem com o aplicativo Web estão disponíveis em [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](web-sites-publish-source-control.md). O FTP também é uma opção para carregar seu aplicativo ou suas páginas web.
 
@@ -33,5 +33,6 @@ Observação para aplicativos Web Tomcat: assim que você tiver carregado seu ar
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

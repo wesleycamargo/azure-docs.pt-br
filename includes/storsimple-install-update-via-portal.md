@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Instalar a Atualização 1 por meio do Portal de Gerenciamento do Azure"
-   description="Explica como usar o Portal de Gerenciamento para instalar a Atualização 1 do StorSimple Série 8000."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
 
 #### Para instalar a Atualização 1 por meio do Portal de Gerenciamento
 
@@ -61,4 +45,4 @@
 
     ![Página de manutenção](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

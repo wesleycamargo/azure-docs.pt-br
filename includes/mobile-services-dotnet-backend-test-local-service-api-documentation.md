@@ -1,17 +1,17 @@
-﻿
+
 1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto de serviço e clique em **Iniciar nova instância** no menu de contexto **Depurar**.
 
-    ![start mobile service project locally](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png)
+    ![iniciar o projeto de serviço móvel localmente](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png)
 
     O Visual Studio abre a página da Web padrão do serviço. Por padrão, o Visua Studio hospeda o serviço móvel localmente no IIS Express.
 
 2. Clique com o botão direito do mouse no ícone de bandeja para o IIS Express na barra de tarefa do Windows e verifique se o serviço móvel iniciou.
 
-	 ![verify the mobile service in the taskbar](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
+	 ![verificar o serviço móvel na barra de tarefas](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png)
 
-3. Na página inicial do serviço móvel, clique em **Experimentar**.
+3. Na página inicial do back-end do .NET, clique em **Experimentar**.
 
-    ![mobile service start up page](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png)
+    ![página inicial do serviço móvel](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png)
 
     Esta exibe a página de documentação API, que você pode usar para testar o serviço móvel.
 
@@ -27,9 +27,8 @@
  
 	![](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png)
 
-	Isso envia uma solicitação GET ao serviço móvel local para devolver todas as linhas na tabela TodoItem. Como a tabela é propagada pelo inicializador, dois objetos TodoItem são devolvidos no corpo da mensagem de resposta. Para obter mais informações sobre inicializadores, consulte [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET](./pt-br/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
+	Isso envia uma solicitação GET ao serviço móvel local para devolver todas as linhas na tabela TodoItem. Como a tabela é propagada pelo inicializador, dois objetos TodoItem são devolvidos no corpo da mensagem de resposta. Para obter mais informações sobre inicializadores, consulte [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png)
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

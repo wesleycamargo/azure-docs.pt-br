@@ -281,7 +281,7 @@ Isso insere dados do objeto JSON fornecido na tabela. Você também pode especif
 
 ###Trabalhando com valores de ID
 
-Os Serviços Móveis dão suporte a valores exclusivos e personalizados de cadeia de caracteres para a coluna **id** da tabela. Isso permite que aplicativos usem valores personalizados, como endereços de email ou nomes de usuário para a ID. Por exemplo, o código abaixo insere um novo item como um objeto JSON, onde a ID exclusiva é um endereço de email:
+Os Serviços Móveis oferecem suporte a valores exclusivos e personalizados de cadeia de caracteres para a coluna **id** da tabela. Isso permite que aplicativos usem valores personalizados, como endereços de email ou nomes de usuário para a ID. Por exemplo, o código abaixo insere um novo item como um objeto JSON, onde a ID exclusiva é um endereço de email:
 
 	todoItemTable.insert({
 	   id: "myemail@domain.com",
@@ -365,7 +365,7 @@ Esta seção mostra como exibir os objetos de dados retornados usando elementos 
 
 Em um aplicativo da Windows Store, os resultados de uma consulta podem ser usados para criar um objeto [WinJS.Binding.List], que pode ser vinculado como a fonte de dados para um objeto [ListView]. Para obter mais informações, consulte [Associação de dados (aplicativos da Windows Store usando JavaScript e HTML)].
 
-##<a name="#custom-api"></a>Como chamar uma API personalizada
+##<a name="#custom-api"></a>Chamar uma API personalizada
 
 Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON. Para um exemplo completo, incluindo como criar uma API personalizada em seu serviço móvel, consulte [Chamar uma API personalizada do cliente].
 
@@ -398,9 +398,9 @@ Os Serviços Móveis oferecem suporte a autenticação e a autorização de usu�
 Há dois fluxos de autenticação com suporte: um fluxo de _servidor_ e um fluxo de _cliente_. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, como logon único, uma vez que depende de provedores específicos e SDKs específicos do dispositivo.
 
 ###Fluxo de servidor
-Para que os Serviços Móveis gerenciem o processo de autenticação em seu aplicativo da Windows Store ou HTML5, você deve registrar seu aplicativo no provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para saber mais, confira o tutorial [Adicionar autenticação ao seu aplicativo](mobile-services-html-get-started-users.md).
+Para que os Serviços Móveis gerenciem o processo de autenticação em seu aplicativo da Windows Store ou HTML5, você deve registrar seu aplicativo no provedor de identidade. Em seguida, no seu serviço móvel, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor. Para obter mais informações, consulte o tutorial [Adicionar autenticação ao seu aplicativo](mobile-services-html-get-started-users.md).
 
-Depois de registrar o provedor de identidade, basta chamar o [método LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, para fazer logon com o Facebook, use o código a seguir.
+Depois de registrar o provedor de identidade, basta chamar o método [LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, para fazer logon com o Facebook, use o código a seguir.
 
 	client.login("facebook").done(function (results) {
 	     alert("You are now logged in as: " + results.userId);
@@ -410,9 +410,9 @@ Depois de registrar o provedor de identidade, basta chamar o [método LoginAsync
 
 Se estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método `login` acima para um dos seguintes: `microsoftaccount`, `facebook`, `twitter`, `google` ou `windowsazureactivedirectory`
 
-Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login], quando concluída, retorna um objeto JSON (**user**) que expõe a ID do usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache].
+Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login], quando concluída, retorna um objeto JSON (**user**) que expõe a ID do usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte Armazenando o [token de autenticação em cache].
 
-> [AZURE.NOTE]**Windows Store app** Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote de aplicativos nos Serviços Móveis. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Após as informações do pacote serem registradas nos Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> para reutilizar as credenciais.
+> [AZURE.NOTE]**Aplicativo da Windows Store** Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote de aplicativos nos Serviços Móveis. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Após as informações do pacote serem registradas nos Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> para reutilizar as credenciais.
 
 ###Fluxo de cliente
 Seu aplicativo também pode entrar em contato independentemente com o provedor de identidade e fornecer o token retornado aos Serviços Móveis para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
@@ -444,7 +444,7 @@ Ao usar as APIs do Facebook ou do Google para autenticação do cliente, o exemp
 	     alert("Error: " + err);
 	});
 
-Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável `token`. O Twitter não pode ser usado para autenticação de cliente desta vez.
+Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável `token`. O Twitter não pode ser usado para autenticação de cliente desta vez. O Microsoft Azure Active Directory não pode ser usado com back-ends do JavaScript para autenticação de cliente no momento.
 
 ###Armazenando o token de autenticação em cache
 Em alguns casos, a chamada para o método login pode ser evitada após a primeira vez que o usuário é autenticado. Podemos usar [sessionStorage] ou [localStorage] para armazenar em cache a identidade do usuário quando fizerem o login pela primeira vez e todas as vezes subsequentes que verificamos se já temos a identidade do usuário armazenada em cache. Se o cache estiver vazio ou a chamada falhar (ou seja, a sessão de logon atual tiver expirado), ainda precisaremos passar pelo processo de logon.
@@ -606,5 +606,6 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referência de opções de consulta do sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [Chamar uma API personalizada do cliente]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

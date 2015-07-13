@@ -178,7 +178,7 @@ Isso resulta na saída abaixo.
 
 ### Matrizes
 
-Se o parâmetro for uma matriz, como [array] ou [string[]], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores: *[Value1,Value2,Value3]*. Esses valores devem ser tipos simples.
+Se o parâmetro for uma matriz, como [array] ou [string], você pode usar o seguinte formato JSON para enviar-lhe uma lista de valores: *[Value1,Value2,Value3]*. Esses valores devem ser tipos simples.
 
 Considere o runbook de teste a seguir que aceita um parâmetro chamado *user*.
 
@@ -230,6 +230,6 @@ Supondo que o nome de usuário nas credenciais foi *vmonte*, isso resulta na sa�
 
 ## Artigos relacionados
 
-- [Iniciando um runbook de outro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- [Iniciando um runbook de outro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

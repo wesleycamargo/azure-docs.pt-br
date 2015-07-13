@@ -1,5 +1,3 @@
-
-
 >[AZURE.NOTE]Para concluir o procedimento, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
@@ -15,7 +13,7 @@
 
 	No tutorial, posteriormente, você definirá esse valor como a variável PROJECT_ID no cliente.
 
-4. Na coluna à esquerda, clique em **APIs e autenticação**, clique em **APIs**, role para baixo e clique na alternância para habilitar o **Google Cloud Messaging for Android** e aceite os termos do serviço. Na próxima página, clique em **Habilitar API habilitar** e aceite os termos do serviço.
+4. Na coluna à esquerda, expanda **APIs e autenticação**, clique em **APIs**, então role para baixo e clique em **Cloud Messaging para Android**. Na próxima página, clique em **Habilitar API habilitar** e aceite os termos do serviço.
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
@@ -33,5 +31,4 @@
 
 	Você usará esse valor de chave de API para habilitar o Azure para autenticar com o GCM e enviar notificações por push em nome do seu aplicativo.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

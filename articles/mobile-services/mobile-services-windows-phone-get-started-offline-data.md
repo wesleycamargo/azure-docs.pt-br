@@ -215,7 +215,7 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 
 2.  Faça logon no Portal de Gerenciamento do Microsoft Azure e observe o banco de dados para seu serviço móvel. Se o serviço usar o back-end do JavaScript para serviços móveis, você poderá procurar os dados na guia **Dados** do serviço móvel.
 
-    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, vá para **Gerenciador de Servidores** -> **Azure** -> **Bancos de Dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione** Abrir no Gerenciador de Objetos do SQL Server**.
+    Se você estiver usando o back-end do .NET para o serviço móvel, no Visual Studio, vá para **Gerenciador de Servidores** -> **Azure** -> **Bancos de Dados SQL**. Clique com o botão direito do mouse em seu Banco de Dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**.
 
     Observe que os dados não foram sincronizados entre o banco de dados e o repositório local.
 
@@ -233,7 +233,7 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 
 5. Desta vez, pressione o botão **Executar Pull** no aplicativo. O aplicativo chama somente `IMobileServiceSyncTable.PullAsync()` e `RefreshTodoItems`. Observe que é efetuado pull de todos os dados do banco de dados do serviço móvel para o repositório local, conforme mostrado no aplicativo. No entanto, observe também que todos os dados do repositório local ainda foram enviados por push ao banco de dados do serviço móvel. Isso ocorre porque um **pull sempre executa um push primeiro**.
  
-    Neste exemplo, recuperamos todos os registros no `todoTable` remoto, mas também é possível filtrar os registros, realizando uma consulta. O primeiro parâmetro para `PullAsync` é uma ID de consulta que é usada para sincronização incremental, que usa o carimbo de data e hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe`null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
+    Neste exemplo, recuperamos todos os registros no `todoTable` remoto, mas também é possível filtrar os registros, realizando uma consulta. O primeiro parâmetro para `PullAsync` é uma ID da consulta usada para sincronização incremental, que usa o carimbo de data/hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
 
     >[AZURE.NOTE]Para dar suporte à sincronização dos registros excluídos com a sincronização de dados offline, você deve habilitar[ Exclusão Reversível]. Caso contrário, você precisará chamar `IMobileServiceSyncTable.PurgeAsync()` para limpar o armazenamento local.
 
@@ -253,7 +253,7 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 
 * [Tratando conflitos com o suporte offline para Serviços Móveis]
 
-* [Usando exclusão reversível nos Serviços Móveis][Soft Delete]
+* [Usando a exclusão reversível nos Serviços Móveis][Soft Delete]
 
 <!-- Anchors. -->
 [Atualizar o aplicativo para oferecer suporte aos recursos offline]: #enable-offline-app
@@ -290,5 +290,6 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

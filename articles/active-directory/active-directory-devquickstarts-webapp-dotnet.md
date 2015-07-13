@@ -38,7 +38,7 @@ Para habilitar seu aplicativo a autenticar usuários, primeiro você precisará 
 - Clique em **Active Directory** no painel de navegação à esquerda.
 - Selecione o locatário em que você deseja registrar o aplicativo.
 - Clique na guia **Aplicativos** e clique em adicionar na lista de botões.
-- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
+- Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
     - O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	A **URL de logon** é a URL base do seu aplicativo. O padrão do esqueleto é `https://localhost:44320/`.
@@ -175,5 +175,6 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 [Proteger uma API da Web com o AD do Azure >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

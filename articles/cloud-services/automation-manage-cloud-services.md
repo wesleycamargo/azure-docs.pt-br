@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
 
-# Gerenciamento de Serviços de Nuvem do Azure usando a Automação do Azure
+#Gerenciamento de Serviços de Nuvem do Azure usando a Automação do Azure
 
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento de seus serviços de nuvem do Azure.
 
@@ -40,7 +40,7 @@ Os serviços de nuvem do Azure podem ser gerenciados na Automação do Azure usa
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para serviços de nuvem do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-Consulte o [Tutorial de Introdução](../automation/automation-create-runbook-from-samples.md) da Automação do Azure
+Confira o [Guia de introdução](../automation/automation-create-runbook-from-samples.md) da Automação do Azure.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

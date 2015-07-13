@@ -65,4 +65,4 @@ Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilit
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

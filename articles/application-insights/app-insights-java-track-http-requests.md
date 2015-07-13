@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
 # Acompanhar solicitações HTTP em um aplicativo Web Java
@@ -88,8 +88,11 @@ Localize e abra o arquivo ApplicationInsights.xml em seu projeto e mescle o trec
 Se não houver nenhum elemento < TelemetryInitializers> nesse arquivo, adicione um sob o elemento <ApplicationInsights>.
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
@@ -134,5 +137,6 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

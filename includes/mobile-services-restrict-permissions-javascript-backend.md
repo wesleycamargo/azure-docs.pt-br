@@ -1,7 +1,10 @@
 
+Para proteger seus pontos de extremidade, você deve restringir o acesso apenas a clientes autenticados.
 
-1. No Portal de Gerenciamento, clique na guia **Dados** e clique na tabela _TodoItem_.
+1. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), navegue até seu serviço móvel e clique em **Dados** > nome da sua tabela (**TodoItem**) > **Permissões**. 
 
-2. Clique na guia **Permissões**, defina todas as permissões para **Somente usuários autenticados** e clique em **Salvar**. Isso garante que todas as operações em relação a tabela _TodoItem_ exigem um usuário autenticado.
+2. Defina todas as permissões de operação da tabela como **Somente usuários autenticados**.
 
-<!--HONumber=54-->
+	 Isso garante que todas as operações feitas na tabela exijam um usuário autenticado, que é obrigatório neste tutorial. Você pode definir permissões diferentes em cada operação para oferecer suporte ao seu cenário específico.
+
+<!---HONumber=62-->

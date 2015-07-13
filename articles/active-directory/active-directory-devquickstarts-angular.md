@@ -45,7 +45,7 @@ Para habilitar seu aplicativo para autenticar usuários e obter tokens, primeiro
 -	Clique em **Active Directory** no painel de navegação à esquerda
 -	Selecione um locatário no qual registrar o aplicativo.
 -	Clique na guia **Aplicativos** e clique em **Adicionar** na lista de botões.
--	Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
+-	Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.  
 
     -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais.
     -	O **URI de redirecionamento** é o local no qual o AAD retornará tokens. O local padrão para esse exemplo é `https://localhost:44326/`
@@ -149,5 +149,6 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [Chamar uma API da Web CORS de um SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure em [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -65,13 +65,13 @@ Depois de criar um indexador, você pode recuperar seu status de execução usan
 
 ## Criar fonte de dados
 
-Você pode criar uma nova fonte de dados  em um serviço Azure Search usando uma solicitação HTTP POST.
+Você pode criar uma nova fonte de dados em um serviço Azure Search usando uma solicitação HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
 
-Como alternativa, você pode usar PUT e especificar o nome da fonte de dados  no URI. Se a fonte de dados não existir, ela será criada.
+Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no URI. Se a fonte de dados não existir, ela será criada.
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
@@ -330,7 +330,7 @@ Você pode criar um novo indexador em um serviço Azure Search usando uma solici
     Content-Type: application/json
     api-key: [admin key]
 
-Como alternativa, você pode usar PUT e especificar o nome da fonte de dados  no URI. Se a fonte de dados não existir, ela será criada.
+Como alternativa, você pode usar PUT e especificar o nome da fonte de dados no URI. Se a fonte de dados não existir, ela será criada.
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
@@ -774,4 +774,5 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 <td>Sem suporte; no momento, o Azure Search dá suporte apenas a tipos primitivos e coleções de cadeias de caracteres</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -1,6 +1,3 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
-
-
 
 # Como desanexar um disco de dados de uma máquina virtual 
 
@@ -38,4 +35,4 @@ O disco permanece no armazenamento mas não esteja conectado a uma máquina virt
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

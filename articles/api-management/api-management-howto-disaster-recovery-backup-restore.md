@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -38,7 +38,7 @@ Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do A
 
 A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal de Gerenciamento](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
->[AZURE.NOTE]Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão no Portal do Azure](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão no Portal do Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Criar aplicativo do Active Directory do Azure][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@ No corpo da solicitação, especifique o local de arquivo de backup, por exemplo
 	    backupName : {backup blob name}  
 	}'
 
-Defina o valor do cabeçalho de solicitação `Content-Type` para `application\json`.
+Defina o valor do cabeçalho de solicitação `Content-Type` para `application/json`.
 
 Restaure uma operação longa de execução que pode levar até 30 minutos ou mais para concluir. Se a solicitação foi bem sucedida e o processo de restauração foi iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho do `Location`. Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto a restauração está em andamento, você continuará a receber o código de status “202 Aceito”. Um código de resposta `200 OK` indicará a conclusão com sucesso da operação de restauração.
 
@@ -189,4 +189,4 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

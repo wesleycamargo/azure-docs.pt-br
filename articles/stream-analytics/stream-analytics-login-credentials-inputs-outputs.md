@@ -136,15 +136,15 @@ Você deverá obter a seguinte confirmação:
 	Command(s) completed successfully.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 - [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
-- [Dimensionar trabalhos do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Referência da linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+- [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 [graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
@@ -190,6 +190,6 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

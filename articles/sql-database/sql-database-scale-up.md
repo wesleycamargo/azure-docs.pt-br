@@ -31,6 +31,8 @@ Durante a movimentação entre as camadas de serviço, lembre-se do seguinte: - 
 
 - Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. Para saber mais sobre o tamanho permitido para cada camada de serviço, confira a tabela de tamanho de banco de dados e camada de serviço, mais adiante nesta seção.
 
+- Ao atualizar um banco de dados com [Replicação geográfica padrão](https://msdn.microsoft.com/library/azure/dn758204.aspx) ou [Replicação geográfica](https://msdn.microsoft.com/library/azure/dn741339.aspx) habilitada, é necessário atualizar primeiro seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário.
+
 - Ao fazer downgrade de uma camada de serviço Premium, primeiro, você deve encerrar todos os relacionamentos de Replicação Geográfica. Você pode seguir as etapas descritas no tópico [Finalizar uma relação de cópia contínuo](https://msdn.microsoft.com/library/azure/dn741323.aspx) para interromper o processo de replicação entre os bancos de dados primários e secundários ativos.
 
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se estiver fazendo downgrade, talvez você perca a capacidade de fazer uma restauração pontual ou tenha um período menor de retenção do backup. Para saber mais, confira [Backup e restauração do Banco de dados SQL do Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
@@ -225,5 +227,6 @@ Crie contexto do servidor usando **New-AzureSqlDatabaseServerContext**.
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

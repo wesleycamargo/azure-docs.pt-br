@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,14 +149,15 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
 
 * [Como configurar um certificado SSL em um ponto de extremidade HTTPS][]
 
-[Como criar um certificado para uma função]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [Como criar um certificado para uma função]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

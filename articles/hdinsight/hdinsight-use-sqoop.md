@@ -57,7 +57,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 <tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
 <tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
 <tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-</table> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
 * **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
 
@@ -645,4 +645,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

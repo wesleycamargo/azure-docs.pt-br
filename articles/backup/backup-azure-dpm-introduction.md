@@ -23,7 +23,7 @@ Este artigo fornece uma introdução ao uso do Backup do Microsoft Azure para pr
 - Como funciona o backup do servidor DPM do Azure
 - Os pré-requisitos para obter uma experiência positiva de backup
 - Os erros típicos encontrados e como lidar com eles
-- Cenários suportados
+- Cenários com suporte
 
 O System Center DPM faz backup dos dados de arquivos e aplicativos. O backup dos dados no DPM pode ser feito em fita, em disco, ou no Azure com o Backup do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte maneira:
 
@@ -34,7 +34,7 @@ O System Center DPM faz backup dos dados de arquivos e aplicativos. O backup dos
 
 Os benefícios comerciais do uso do Backup do Azure para backup de servidores DPM são:
 
-- Para a implantação do DPM no local, é possível usar o backup do Azure como alternativa para a implantação de longo prazo em fita.
+- Para a implantação do DPM local, é possível usar o backup do Azure como alternativa para a implantação de longo prazo em fita.
 - Para implantações do DPM no Azure, o Backup do Azure possibilita descarregar o armazenamento do disco do Azure, permitindo escalar verticalmente ao armazenar os dados mais antigos no Backup do Azure e os dados novos em disco.
 
 ## Como funciona o backup do servidor DPM?
@@ -58,7 +58,7 @@ Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeir
 2. Clique em **Novo** -> **Serviços de Dados** -> **Serviços de Recuperação** -> **Cofre de Backup** > **Criação Rápida**. Se você tem várias assinaturas associadas à sua conta organizacional, escolha a assinatura correta a ser associada ao cofre de backup. Em cada assinatura do Azure, é possível ter vários cofres de backup para organizar os dados que estão sendo protegidos.
 3. Em **Nome**, digite um nome amigável para identificar o cofre. Ele precisa ser exclusivo para cada assinatura.
 4. Em **Região**, selecione a região geográfica para o cofre. Observe que o cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se você tiver máquinas virtuais em diferentes regiões, crie um cofre em cada uma delas. Não é necessário especificar contas de armazenamento para armazenar os dados de backup – o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente.
-    > [AZURE.NOTE][regiões suportadas](http://azure.microsoft.com/regions/#services)
+    > [AZURE.NOTE][regiões com suporte](http://azure.microsoft.com/regions/#services)
 
 5. Em **Assinatura**, digite a assinatura do Azure que você deseja usar com o cofre de backup.
 6. Clique em **Criar cofre**. ![Criar cofre de backup](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
@@ -113,13 +113,13 @@ Quando você especificar uma senha e clicar em **Concluir**, demora alguns segun
 
 ## Requisitos (e limitações)
 
-- O DPM pode ser executado como servidor físico ou máquina virtual Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Também pode ser executado como máquina virtual do Azure em execução no System Center 2012 R2 com pelo menos Rollup de atualização 3 do DPM 2012 R2 ou máquina virtual do Windows em VMWare em execução no System Center 2012 R2 com pelo menos Rollup de atualização 5.
+- O DPM pode ser executado como servidor físico ou máquina virtual Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Também pode ser executado como máquina virtual do Azure em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 3 do DPM 2012 R2 ou máquina virtual do Windows em VMWare em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 5.
 - Se você estiver executando o DPM com o System Center 2012 SP1, instale o Rollup de atualização 2 do System Center Data Protection Manager SP1. Isso é necessário antes da instalação do Agente de Backup do Azure.
 - O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
-- O DPM pode fazer backup da maioria das cargas de trabalho no Backup do Azure. Para obter uma lista completa do que é suportado, consulte os itens de suporte do Backup do Azure abaixo.
+- O DPM pode fazer backup da maioria das cargas de trabalho no Backup do Azure. Para obter uma lista completa do que tem suporte, consulte os itens de suporte do Backup do Azure abaixo.
 - Os dados armazenados no Backup do Azure não podem ser recuperados com a opção "copiar em fita".
 - Você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
-- O uso o Backup do Azure requer que o Agente de Backup do Azure esteja instalado nos servidores onde você deseja fazer backup. Cada servidor deve ter pelo menos 2,5 GB de espaço livre local para o local do cache, embora sejam recomendados 15 GB de espaço livre local para o local do cache.
+- O uso o Backup do Azure requer que o Agente de Backup do Azure esteja instalado nos servidores onde você deseja fazer backup. Cada servidor deve ter pelo menos 2,5 GB de espaço de armazenamento livre local para o local do cache, embora sejam recomendados 15 GB de espaço de armazenamento livre local para o local do cache.
 - Os dados serão armazenados no armazenamento do cofre do Azure. Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve exceder 1,65 TB.
 
 No Azure, é possível fazer backup dos seguintes tipos de arquivo:

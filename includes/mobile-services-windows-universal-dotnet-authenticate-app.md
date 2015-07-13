@@ -1,9 +1,5 @@
 
-1. Abra o arquivo do projeto MainPage.cs compartilhado e adicione a seguinte instrução usando:
-
-        using Windows.UI.Popups;
-
-2. Adicione o seguinte snippet de código para a classe MainPage:
+1. Abra o arquivo de projeto MainPage.xaml.cs compartilhado e adicione o seguinte trecho de código à classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Repita a etapa anterior para o projeto do aplicativo da Loja do Windows Phone, mas dessa vez, adicione o **Botão** no **TitlePanel**, após o elemento **TextBlock**.
+6. No projeto de aplicativo do Windows Phone, adicione os seguintes elementos **Button** imediatamente antes do elemento que define o botão **Salvar**:
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. Abra o arquivo de projeto App.xaml.cs compartilhado e adicione a seguinte instrução em uso, se ela já não existe:
 
@@ -90,4 +89,5 @@
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
 9. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

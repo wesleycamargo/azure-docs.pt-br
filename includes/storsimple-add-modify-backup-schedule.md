@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Adicionar ou modificar uma agenda de backup do StorSimple"
-   description="Explica como você pode usar o serviço StorSimple Manager para criar e editar agendas de backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
 #### Para adicionar ou modificar uma agenda de backup do StorSimple
 
@@ -44,4 +28,4 @@
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

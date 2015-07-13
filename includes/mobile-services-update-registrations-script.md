@@ -1,4 +1,4 @@
-﻿
+
 
 1. No Portal de Gerenciamento, clique na guia **Dados** e, em seguida, clique na tabela **Registros**. 
 
@@ -10,7 +10,7 @@
 
 	Isso exibe a função que é chamada quando ocorre uma inserção na tabela **Registros**.
 
-3. Substitua a função de inserção pelo seguinte código e clique em **Salvar**:
+3. Substitua a função de inserção com o seguinte código e **Salvar**:
 
 		function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registrations');
@@ -28,5 +28,4 @@
 
    Isso registra um novo script de inserção, que armazena as informações de registro na nova tabela.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

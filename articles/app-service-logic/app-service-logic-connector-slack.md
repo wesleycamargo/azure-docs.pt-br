@@ -46,10 +46,7 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
 	![][2]
 4.	Você pode colocar o aplicativo de API do conector de margem de atraso no editor clicando em "Conector de margem de atraso". Clique no botão Autorizar. Forneça suas credenciais da Microsoft (se não tiver entrado automaticamente). Entre na sua conta de margem de atraso, seguindo as etapas. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Clique em "Authorizify"
  
-	![][3]
-	![][4]
-	![][5]
-	![][6]
+	![][3] ![][4] ![][5] ![][6]
 	
 5.	Agora você pode usar o conector de margem de atraso no fluxo. Atualmente, os gatilhos não estão disponíveis no conector de margem de atraso. As ações disponíveis são - Postagem
  
@@ -64,7 +61,7 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
  - **Texto** - especifique o texto da mensagem a ser postada
  - **Nome do canal** - especifique o canal de margem de atraso para o qual esta mensagem será carregada. Se não for fornecido, em seguida, mensagem será publicada em #geral
 
- **Propriedades avançadas** - **Nome de usuário de Bot** - nome do bot a ser usado para esta mensagem. A mensagem será lançada como "Bot" se essa propriedade não for especificada. - **Ícone URL** - URL a ser usada por uma imagem como o ícone para esta mensagem - **Emoji ícone** - Emoji a ser usado como o ícone para esta mensagem. Substitui a URL do ícone
+ 	**Propriedades avançadas** - **Nome de usuário de Bot** - nome do bot a ser usado para esta mensagem. A mensagem será lançada como "Bot" se essa propriedade não for especificada. - **Ícone URL** - URL a ser usada por uma imagem como o ícone para esta mensagem - **Emoji ícone** - Emoji a ser usado como o ícone para esta mensagem. Substitui a URL do ícone
  
 
 7. Para usar o conector fora de um aplicativo lógico, as APIs REST exibidas pelo conector podem ser utilizadas. Você pode exibir essas definições da API usando Procurar -> Aplicativo de API -> Conector de margem de atraso. Agora clique na lente Definição de API sob a seção Resumo para exibir todas as APIs exibidas por esse conector.
@@ -87,5 +84,5 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição de API de margem de atraso]: https://msdn.microsoft.com/pt-br/library/dn708020.aspx
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

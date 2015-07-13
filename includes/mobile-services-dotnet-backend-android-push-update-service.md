@@ -31,4 +31,5 @@
     Esse código irá enviar uma notificação por push (com o texto do item inserido) depois de inserir um item de tarefa pendente. Se ocorrer um erro, o código adicionará uma entrada no log de erros que pode ser visualizada na guia **Logs** do serviço móvel no Portal de Gerenciamento.
 
 3. Republique o projeto de serviço móvel no Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
@@ -40,7 +40,7 @@ Sondar dados | <ul><li>Inserir na Tabela</li><li>Atualizar Tabela</li><li>Seleci
 
 ## Criar um Conector do Banco de Dados Oracle
 
-Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector usando o Azure Marketplace:
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Selecione **Aplicativos de API** e pesquise “Conector de Banco de Dados Oracle”.
@@ -69,7 +69,7 @@ Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executad
 Vamos examinar um aplicativo lógico simples que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
 
 ### Adicionar o Gatilho
-1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso listará os gatilhos disponíveis - **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5] 
+1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5] 
 
 2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: <br/> ![][6]
 
@@ -82,7 +82,7 @@ Para usar o Conector do Oracle como uma ação, insira o nome de tabelas e/ou pr
 
 1. Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8] 
 
-2. Especifique os valores das entradas do registro a ser inserido e clique em ✓: <br/> ![][9]
+2. Especifique os valores de entrada do registro a ser inserido e clique em ✓: <br/> ![][9]
 
 3. Na galeria, selecione o mesmo Conector do Oracle que você criou. Como uma ação, selecione a ação Atualizar na mesma tabela, como *Atualizar TempEmployeeDetails*: <br/> ![][11]
 
@@ -99,9 +99,9 @@ O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se co
 Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
 
 ## Faça mais com seu Conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -111,6 +111,7 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
 [8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
 [9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 

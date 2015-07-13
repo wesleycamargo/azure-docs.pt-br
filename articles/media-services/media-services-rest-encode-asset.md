@@ -26,7 +26,7 @@ Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os ar
 
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de tarefa para os Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Se você usou um codificador de terceiros, você deve [validar seus arquivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos serviços de midia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento do lote de Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/). Você também pode encontrar um exemplo de processamento em lotes no tópico [Trabalho](https://msdn.microsoft.com/library/azure/hh974289.aspx).
+Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/). Você também pode encontrar um exemplo de processamento em lotes no tópico [Trabalho](https://msdn.microsoft.com/library/azure/hh974289.aspx).
 
 Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx). Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -68,7 +68,7 @@ Resposta:
 
 ##Considerações
 
-- As propriedades TaskBody DEVEM usar XML literal para definir o número de entrada ou os ativos de saída que serão usados pela tarefa. O tópico de tarefa contém a definição de esquema XML para o XML.
+- As propriedades TaskBody DEVEM usar XML literal para definir o número de entrada ou os ativos de saída que serão usados pela tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
 - Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 - Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 - Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
@@ -136,8 +136,7 @@ Para habilitar o encadeamento de tarefas:
 
 Ao processar múltiplos Ativos usando um conjunto comum de Tarefas, os JobTemplates são úteis para especificar as predefinições padrão da Tarefa, a ordem das Tarefas e assim por diante.
 
-O exemplo a seguir mostra como criar um JobTemplate com uma TaskTemplate definida de forma embutida. A TaskTemplate usa o Azure Media Encoder como o MediaProcessor para codificar o arquivo de  
-Ativo; no entanto, outros MediaProcessors também podem ser usados.
+O exemplo a seguir mostra como criar um JobTemplate com uma TaskTemplate definida de forma embutida. A TaskTemplate usa o Codificador de Mídia do Azure como o MediaProcessor para codificar o arquivo de Ativo; no entanto, outros MediaProcessors também podem ser usados.
 
 
 	POST https://media.windows.net/API/JobTemplates HTTP/1.1
@@ -189,22 +188,22 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 
 Por padrão, o Codificador de Mídia do Azure cria nomes de arquivo de saída ao combinar diversos atributos do ativo de entrada e o processo de codificação. Cada atributo é identificado usando uma macro, conforme discutido abaixo.
 
-Segue uma lista completa das macros disponíveis para a nomeação de arquivo de saída: Audio Bitrate – a taxa de bits usada durante a codificação de áudio, especificada em kbps
+Segue uma lista completa das macros disponíveis para a nomeação de arquivo de saída: Taxa de Bits de Áudio – a taxa de bits usada durante a codificação de áudio, especificada em kbps
 
 - Codec de Áudio – o codec usado para codificação de áudio, os valores válidos são: AAC, WMA e DDP
 - Contagem de Canais – o número de canais de áudio codificados, os valores válidos são: 1, 2 ou 6
 - Extensão padrão – a extensão de arquivo padrão 
 - Idioma – o código de idioma BCP-47 representando a linguagem usada no áudio. O padrão atual é "und". 
-- Nome de arquivo original – o nome do arquivo carregado no armazenamento do Azure
+- Nome de arquivo original – o nome do arquivo carregado no Armazenamento do Azure
 - StreamId – a ID do fluxo, conforme definido pelo atributo streamID do elemento <StreamInfo> no arquivo de predefinição 
 - Codec de vídeo – o codec usado para codificar, os valores válidos são: H264 e VC1
-- Video Bitrate – a taxa de bits usada durante a codificação do vídeo, especificada em kbps
+- Taxa de Bits de Vídeo – a taxa de bits usada durante a codificação do vídeo, especificada em kbps
 
 Essas macros podem ser combinadas em qualquer permutação para controlar o nome dos arquivos gerados pelo Codificador de Serviços de Mídia. Por exemplo, a convenção de nomenclatura padrão é:
 
 	{Original File Name}_{Video Codec}{Video Bitrate}{Audio Codec}{Language}{Channel Count}{Audio Bitrate}.{Default Extension}
 
-A convenção de nomenclatura de arquivo é especificada usando o atributo DefaultMediaOutputFileName do elemento [predefinido](https://msdn.microsoft.com/library/azure/dn554334.aspx). Por exemplo:
+A convenção de nomenclatura de arquivo é especificada usando o atributo DefaultMediaOutputFileName do elemento [Preset](https://msdn.microsoft.com/library/azure/dn554334.aspx). Por exemplo:
 
 	<Preset DefaultMediaOutputFileName="{Original file name}{StreamId}_LongOutputFileName{Bit Rate}{Video Codec}{Video Bitrate}{Audio Codec}{Audio Bitrate}{Language}{Channel Count}.{Default extension}"
 	  Version="5.0">
@@ -244,4 +243,4 @@ Agora que você sabe como criar um trabalho para codificar um ativo, vá para o 
 [Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

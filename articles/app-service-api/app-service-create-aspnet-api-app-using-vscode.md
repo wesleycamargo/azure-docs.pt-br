@@ -35,7 +35,7 @@ Este tutorial mostra como criar um aplicativo de API ASP.NET 5 usando o [Visual 
 * Instale o [Node.js](http://nodejs.org/download/).<br> O [Nó](http://nodejs.org/) é uma plataforma para a criação rápida e dimensionável de aplicativos de servidor usando JavaScript. O Nó é o tempo de execução (nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo de API 5 ASP.NET neste tutorial.
 
 ## Instalar o ASP.NET 5 e DNX
-O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizado para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
+O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
 
 > [AZURE.NOTE]O ASP.NET 5 e o DNX (o ambiente de execução do .NET) em OS X e Linux estão em um estado inicial Beta/de Visualização.
 
@@ -214,7 +214,7 @@ Para fornecer um arquivo de definição de API Swagger 2.0 estática, você prec
     "version": "v1",
     "title": "ContactsList"
   },
-  "host": "É PRECISO SUBSTITUIR ISTO PELA SUA URL DE HOST",
+  "host": "DEVE SUBSTITUIR PELA URL DO SEU HOST",
   "schemes": [
     "https"
   ],
@@ -309,7 +309,7 @@ Para fornecer um arquivo de definição de API Swagger 2.0 estática, você prec
 }
 </pre>
 
-Posteriormente neste tutorial, você substituirá a cadeia de caracteres de espaço reservado de URL de host acima por sua URL de host do Azure que você criará e copiará mais tarde.
+Mais adiante neste tutorial, você substituirá a cadeia de caracteres de espaço reservado de URL do host acima pela sua URL de host do Azure que você criará e copiar posteriormente.
 
 ## Criar um aplicativo de API no Portal de Visualização do Azure
 
@@ -371,7 +371,7 @@ No portal, você gerencia os recursos específicos dos aplicativos de API na fol
 
 	* Clique em **Salvar**.
 
-	![Credenciais de Implantação do Azure](./media/app-service-create-aspnet-api-app-using-vscode/16-azure-credentials.png)
+	![Credenciais de implantação do Azure](./media/app-service-create-aspnet-api-app-using-vscode/16-azure-credentials.png)
 
 7. Na folha **Host de aplicativo de API**, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em "URL GIT".
 
@@ -387,9 +387,9 @@ No portal, você gerencia os recursos específicos dos aplicativos de API na fol
 11. Além disso, remova os caracteres "https://" do início do valor do host.
 12. Salve suas alterações ao arquivo *apiDefinition.swagger.json*.
 
-## Publicar seu aplicativo de API no serviço de aplicativo do Azure
+## Publicar seu aplicativo de API no Serviço de Aplicativo do Azure
 
-Nesta seção você criará um repositório Git local e enviará por push a partir desse repositório para o Azure, para implantar seu aplicativo de exemplo no Aplicativo de API em execução no Serviço de Aplicativo do Azure.
+Nesta seção você criará um repositório Git local e enviará por push por meio desse repositório para o Azure, para implantar seu aplicativo de exemplo no Aplicativo de API em execução no Serviço de Aplicativo do Azure.
 
 1. No VSCode na barra de navegação à esquerda, selecione a opção Git.
 2. Se o Git ainda não estiver instalado instale-o, escolhendo um dos links fornecidos ([Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads)). Se você for novo no Git, escolha **git-scm.com** e selecione a opção para usar Git com GitBash no Prompt de Comando do Windows. 
@@ -401,7 +401,7 @@ Nesta seção você criará um repositório Git local e enviará por push a part
 5. 
 6. Adicione uma mensagem de confirmação e marque a caixa de seleção **Confirmar Todos**.
 
-	![Git Confirmar Todos](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
+	![Confirmar Tudo do Git](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
 6. Localize e abra **GitBash**. Como alternativa, você pode usar o Prompt de Comando do Windows.
 7. Em **GitBash**, altere as pastas para sua pasta do projeto VSCode. Por exemplo:

@@ -26,7 +26,7 @@ Consulte [Introdução aos aplicativos do Application Insights para Windows Phon
 #### Como atualizar para o SDK mais recente 
 
 * Faça uma cópia do ApplicationInsights.config, para manter todas as personalizações que você fez.
-* No Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto e escolha **Gerenciar pacotes NuGet**.
+* No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar pacotes NuGet**.
 * Defina o filtro para mostrar os pacotes instalados. 
 * Selecione os pacotes instalados do Application Insights e escolha Atualizar.
 * Compare as versões nova e antiga do ApplicationInsights.config. Mescle novamente as personalizações feitas na versão antiga.
@@ -50,4 +50,4 @@ Visualização 2015-04-28
 
 Não há notas de versão disponíveis para versões anteriores.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

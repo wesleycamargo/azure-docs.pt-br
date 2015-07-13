@@ -50,7 +50,7 @@ Para obter mais informações, consulte [SDK do Azure para Visual Studio 2.6](/b
 
 ### Azure PowerShell 0.8.0 ou posterior ###
 
-A partir de versão 0.8.0, a instalação do Azure PowerShell inclui o módulo do Gerenciador de Recursos do Azure, além do módulo do Azure. Este novo módulo permite que você escreva script para implantação de grupos de recursos.
+A partir da versão 0.8.0, a instalação do Azure PowerShell inclui o módulo do Gerenciador de Recursos do Azure, além do módulo do Azure. Este novo módulo permite que você escreva script para implantação de grupos de recursos.
 
 Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
@@ -95,7 +95,7 @@ Tudo o que você acabou de ver em poucos minutos é um aplicativo complexo total
 -	O botão Implantar no Azure
 -	O arquivo azuredeploy.json na raiz do repositório
 
-Você pode implantar esse mesmo aplicativo dezenas, centenas ou milhares de vezes e ter sempre exatamente a mesma configuração. A capacidade de repetição e a previsibilidade dessa abordagem permite que você implante aplicativos de grande escala com facilidade e confiança.
+Você pode implantar esse mesmo aplicativo dezenas, centenas ou milhares de vezes e ter sempre exatamente a mesma configuração. A capacidade de repetição e a previsibilidade dessa abordagem permitem que você implante aplicativos de grande escala com facilidade e confiança.
 
 ## Examinar (ou editar) AZUREDEPLOY.JSON ##
 
@@ -113,7 +113,7 @@ Não vou descrever todos os detalhes do formato JSON, mas a seção [Mais Recurs
 
 ### Parâmetros ###
 
-Dê uma olhada na seção de parâmetros para ver que a maioria desses parâmetros são aquilo que o botão **Implantar no Azure** solicita que você insira. O site por trás do botão **Implantar no Azure** preenche a Interface do Usuário de entrada, usando os parâmetros definidos em azuredeploy.json. Esses parâmetros são usados em toda as definições de recurso, como nomes de recurso, valores de propriedade, etc.
+Dê uma olhada na seção de parâmetros para ver que a maioria desses parâmetros são aquilo que o botão **Implantar no Azure** solicita que você insira. O site por trás do botão **Implantar no Azure** preenche a Interface do Usuário de entrada, usando os parâmetros definidos em azuredeploy.json. Esses parâmetros são usados em todas as definições de recurso, como nomes de recurso, valores de propriedade, etc.
 
 ### Recursos ###
 
@@ -184,7 +184,7 @@ As configurações do controle do código-fonte também serão definidas como um
 
 `RepoUrl` e `branch` devem ser bastante intuitivos e devem apontar para o repositório Git e o nome da ramificação por meio da qual publicar. Mais uma vez, estes são definidos pelos parâmetros de entrada.
 
-Observe no elemento `dependsOn` que, além do recurso de aplicativo Web, `sourcecontrols/web` também depende de `config/appsettings` e `config/connectionstrings`. Isso ocorre porque quando `sourcecontrols/web` é configurado, o processo de implantação do Azure tentará automaticamente implantar, compilar e iniciar o código do aplicativo. Portanto, inserir essa dependência ajuda você a garantir que o aplicativo tenha acesso às configurações e cadeias de conexão necessárias do aplicativo antes do código desse aplicativo ser executado. [TAREFA PENDENTE: é necessário verificar se isso é verdadeiro.]
+Observe no elemento `dependsOn` que, além do recurso de aplicativo Web, `sourcecontrols/web` também depende de `config/appsettings` e `config/connectionstrings`. Isso ocorre porque quando `sourcecontrols/web` é configurado, o processo de implantação do Azure tentará automaticamente implantar, compilar e iniciar o código do aplicativo. Portanto, inserir essa dependência ajuda você a garantir que o aplicativo tenha acesso às configurações e cadeias de conexão necessárias do aplicativo antes de o código desse aplicativo ser executado. [TAREFA PENDENTE: é necessário verificar se isso é verdadeiro.]
 
 >[AZURE.NOTE]Observe também que `IsManualIntegration` é definido como `true`. Esta propriedade é necessária neste tutorial porque você na verdade não possui o repositório GitHub e, portanto, não pode efetivamente conceder permissão ao Azure para configurar a publicação contínua por meio de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (ou seja, enviar por push atualizações automáticas de repositório ao Azure). Você pode usar o valor padrão `false` para o repositório especificado somente se configurou as credenciais do proprietário GitHub no [Portal de Visualização do Azure](https://portal.azure.com) previamente. Em outras palavras, se você configurou o controle do código-fonte para GitHub ou BitBucket para qualquer aplicativo no [Portal de Visualização do Azure](https://portal.azure.com) previamente, usando suas credenciais de usuário, então o Azure lembrará dessas credenciais e as utilizará sempre que você implantar qualquer aplicativo do GitHub ou BitBucket no futuro. No entanto, se você ainda não tiver feito isso, a implantação do modelo JSON falhará quando o Gerenciador de Recursos do Azure tentar definir configurações de controle do código-fonte do aplicativo Web, porque ele não poderá fazer logon no GitHub ou BitBucket com as credenciais do proprietário do repositório.
 

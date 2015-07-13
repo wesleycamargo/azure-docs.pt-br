@@ -91,7 +91,7 @@ $ open QuickStart.xcworkspace
     -	O `clientId` é a clientId do seu aplicativo que você copiou do portal.
     -	O `redirectUri` é a URL de redirecionamento registrada no portal.
 
-## *4. Usar a ADAL para obter tokens do AD do Azure*
+## *4. Usar a ADAL para obter tokens do AAD*
 O princípio básico da ADAL é que sempre que seu aplicativo precisar de um token de acesso, ele simplesmente chama um completionBlock `+(void) getToken : `, e a ADAL faz o resto.
 
 -	No projeto `QuickStart`, abra `GraphAPICaller.m` e localize o comentário `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` perto da parte de cima. É aqui que você passa à ADAL as coordenadas necessárias, por um CompletionBlock, para se comunicar com o Azure AD e informar a ele como armazenar tokens em cache.
@@ -220,12 +220,12 @@ A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu ap
 
 Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Agora você pode passar para cenários de adicionais. Você pode desejar experimentar:
 
-[Proteger uma API da Web Node.JS com o Azure AD >](../active-directory-devquickstarts-webapi-nodejst.md)
+[Proteger uma API da Web Node.JS com o Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
 ##Para obter recursos adicionais, consulte:
-- [AzureADSamples no GitHub >](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >](https://cloudidentity.com)
-- Documentação do Azure AD no [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+- [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples)
+- [CloudIdentity.com >>](https://cloudidentity.com)
+- Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

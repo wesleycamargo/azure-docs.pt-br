@@ -47,7 +47,7 @@ Você tem três maneiras de aplicar o Application Insights em seus aplicativos W
 
 ## Instalar o Application Insights Status Monitor em seu servidor Web do IIS
 
-1. É necessário uma assinatura do [Microsoft Azure](http://azure.com). 
+1. É necessário ter uma assinatura do [Microsoft Azure](http://azure.com). 
 
 1. No servidor Web IIS, faça logon com as credenciais de administrador.
 2. Baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648).

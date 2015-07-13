@@ -22,62 +22,11 @@
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O Conector do QuickBooks permite criar e modificar entidades do QuickBooks diferentes. A seguir há uma lista de entidades do QuickBooks às quais o Conector do QuickBooks dá suporte.
 
 <Table>
-<TR><TD><B>Entidades</TD><TD><B>Descrição</TR>
-<TR>	<TD>	Account	</TD>	<TD>	A Conta é um componente de um Plano de Contas e faz parte de um Razão. Usado para registrar um valor monetário total alocado em relação a um uso específico	</TD>	</TR>
-<TR>	<TD>	Aviso de Crédito	</TD>	<TD>	O Aviso de Crédito é uma transação financeira que representa um reembolso ou crédito de pagamento ou parte de um pagamento por mercadorias ou serviços que foram vendidos.	</TD>	</TR>
-<TR>	<TD>	Cliente	</TD>	<TD>	Um cliente é um consumidor do serviço ou produto que sua empresa oferece.	</TD>	</TR>
-<TR>	<TD>	Estimativa	</TD>	<TD>	A Estimativa representa uma proposta para uma transação financeira de uma empresa a um cliente por mercadorias ou serviços propostos para serem vendidos, incluindo os preços propostos.	</TD>	</TR>
-<TR>	<TD>	Fatura	</TD>	<TD>	Uma Fatura representa um formulário de venda em que o cliente paga por um produto ou serviço posteriormente. Informações adicionais sobre como usar o modelo de dados de Fatura podem ser encontradas aqui.	</TD>	</TR>
-<TR>	<TD>	Item	</TD>	<TD>	Um item é algo que sua empresa compra, vende ou revende, como produtos, frete e manuseio de encargos, descontos e impostos sobre vendas (caso aplicável).  Um item é mostrado como uma linha em uma fatura ou outro formulário de venda.	</TD>	</TR>
-<TR>	<TD>	SalesReceipt	</TD>	<TD>	Essa entidade representa o recibo de venda que é fornecido a um cliente.	</TD>	</TR>
-</Table>
+<TR><TD><B>Entidades</TD><TD><B>Descrição</TR> <TR> <TD> Conta </TD> <TD> Conta é um componente de um plano de contas e faz parte de um livro-razão. Usado para registrar o valor monetário total alocado em relação a um uso específico </TD> </TR> <TR> <TD> CreditMemo </TD> <TD> O CreditMemo é uma transação financeira que representa um reembolso ou crédito de pagamento ou parte de um pagamento por mercadorias ou serviços que foram vendidos. </TD> </TR> <TR> <TD> Cliente </TD> <TD> Um cliente é um consumidor do serviço ou produto que sua empresa oferece. </TD> </TR> <TR> <TD> Estimativa </TD> <TD> A Estimativa representa uma proposta para uma transação financeira de uma empresa a um cliente por mercadorias ou serviços propostos para serem vendidos, incluindo os preços propostos. </TD> </TR> <TR> <TD> Fatura </TD> <TD> Uma Fatura representa um formulário de vendas em que o cliente paga por um produto ou serviço posteriormente. Informações adicionais sobre como usar o modelo de dados de Fatura podem ser encontradas aqui. </TD> </TR> <TR> <TD> Item </TD> <TD> Um item é algo que sua empresa compra, vende ou revende, como produtos, frete e manuseio de encargos, descontos e impostos sobre vendas (caso aplicável). Um item é mostrado como uma linha em uma fatura ou outro formulário de venda. </TD> </TR> <TR> <TD> SalesReceipt </TD> <TD> Essa entidade representa o recibo de venda que é fornecido a um cliente.</TD> </TR> </Table>
 
 
 ##Ações do QuickBooks ##
-A seguir estão as diferentes ações disponíveis no Conector do QuickBooks.
-	<table>
-	<tbody>
-		<tr><td>
-		<strong>Ação</strong>
-		</td>
-		<td>
-		<strong>Descrição</strong>
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Ler Entidade
-		</td>
-		<td>
-		Ler um objeto de entidade.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Criar ou Atualizar Entidade
-		</td>
-		<td>
-		Criar ou atualizar um objeto de entidade. O objeto será atualizado se já existir; caso contrário, um novo objeto será criado.
-		</td>
-		</tr>
-		<tr>
-		<td>
-		Excluir
-		</td>
-		<td>
-		Essa ação exclui o objeto especificado da entidade selecionada.
-		</td>
-		</tr>
-		<tr>	
-		<td>
-		Consultar
-		</td>
-		<td>
-		A operação de consulta é o método para criar uma consulta guiada em relação a uma entidade.
-		</td>
-		</tr>
-	</tbody>
-	</table>
+A seguir estão as diferentes ações disponíveis no Conector do QuickBooks. <table> <tbody> <tr><td> <strong>Ação</strong> </td> <td> <strong>Descrição</strong> </td> </tr> <tr> <td> Entidade de Ler </td> <td> Objeto de entidade de Ler. </td> </tr> <tr> <td> Entidade de Criar ou Atualizar </td> <td> Objeto de entidade de Criar ou Atualizar. O objeto será atualizado se já existir; caso contrário, um novo objeto será criado. </td> </tr> <tr> <td> Excluir </td> <td> Essa ação exclui o objeto especificado da entidade selecionada. </td> </tr> <tr> <td> Consulta </td> <td> A operação de consulta é o método para criar uma consulta guiada em relação a uma entidade. </td> </tr> </tbody> </table>
 
 ##Criar um aplicativo de API do Conector do QuickBooks##
 1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
@@ -85,30 +34,30 @@ A seguir estão as diferentes ações disponíveis no Conector do QuickBooks.
 3.	Configure o Conector do QuickBooks fornecendo os detalhes do Plano de Hospedagem e o grupo de recursos e selecionando o nome do Aplicativo de API.
 
 	![][13]
-4. Configure as Entidades do QuickBooks que você está interessado em ler/gravar nas 'Configurações do Pacote'.
+4. Configure as Entidades do QuickBooks que você está interessado em ler/gravar nas “Configurações do Pacote”.
 
 Assim, agora você pode criar um Aplicativo de API do Conector do QuickBooks.
 
 
 ##Criar um aplicativo lógico##
-Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atualiza o 'Tipo de Categoria' da mesma conta.
+Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atualiza o “Tipo de Categoria” da mesma conta.
 
-1.	Faça logon no Portal do Azure e clique em 'Novo -> Web + Móvel -> Aplicativo Lógico'
+1.	Faça logon no Portal do Azure e clique em “Novo -> Web + Móvel -> Aplicativo Lógico”
 
 	![][1]
 
-2.	Na página 'Criar aplicativo lógico', forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local.
+2.	Na página “Criar aplicativo lógico”, forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local.
 
 	![][2]
 
-3.	Clique em 'Gatilhos e Ações', e a tela do editor de Aplicativos Lógicos aparecerá.
+3.	Clique em “Gatilhos e Ações” e a tela do editor do Aplicativo Lógico aparecerá.
 
 	![][3]
 
-4.	Selecione 'Executar esta lógica manualmente', o que significa que o aplicativo lógico pode ser invocado apenas manualmente.
+4.	Selecione “Executar esta lógica manualmente”, o que significa que o aplicativo lógico pode ser chamado apenas manualmente.
 
 
-5.	Expanda 'Aplicativos de API neste grupo de recursos' na Galeria para ver todos os aplicativos de API disponíveis. Selecione 'Conector do QuickBooks' na galeria, e o 'Conector do QuickBooks' será adicionado ao fluxo.
+5.	Expanda “Aplicativos de API” neste grupo de recursos na Galeria para ver todos os aplicativos de API disponíveis. Selecione “Conector do QuickBooks” na galeria, e o “Conector do QuickBooks” será adicionado ao fluxo.
 
 
 6.	Você precisa autenticar e autorizar os aplicativos lógicos para executar operações em seu nome para o QuickBooks online. Para iniciar a autorização, clique em Autorizar no Conector do QuickBooks.
@@ -127,21 +76,21 @@ Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atu
 
 	![][7]
 
-10.	Selecione 'Criar ou Atualizar Conta', e os parâmetros de entrada serão exibidos.
+10.	Selecione a ação “Criar ou Atualizar Conta”, e os parâmetros de entrada serão exibidos.
 
 	![][8]
 
-11.	Forneça o 'Nome' e o 'Tipo de Conta' e clique em ✓. 
+11.	Forneça o “Nome” e o “Tipo de Conta” e clique em ✓.
 
 	![][9]
 
-12.	Selecione 'Conector do QuickBooks' na seção 'Usados Recentemente' na galeria, e uma nova ação do QuickBooks será adicionada.
+12.	Selecione “Conector do QuickBooks” na seção “Usados Recentemente” na galeria, e uma nova ação do QuickBooks será adicionada.
 
-13.	Selecione 'Criar ou Atualizar Conta' na lista de ações, e os parâmetros de entrada da ação serão exibidos.
+13.	Selecione “Criar ou Atualizar Conta” na lista de ações, e os parâmetros de entrada da ação serão exibidos.
 
 	![][10]
 
-14.	Clique em '+' ao lado de 'Id' para obter o valor da id na saída da ação Criar Conta. 
+14.	Clique em “+” ao lado do “Id” para obter o valor da id na saída da ação Criar Conta.
 
 	![][11]
 
@@ -149,11 +98,11 @@ Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atu
 
 	![][12]
 
-16. Clique em OK na tela do editor de aplicativo lógico e clique em 'Criar'. Serão necessários cerca de 30 segundos para a conclusão da criação.
+16. Clique em OK na tela do editor do aplicativo lógico e clique em “Criar”. Serão necessários cerca de 30 segundos para a conclusão da criação.
 
-17. Procure pelo aplicativo lógico recém-criado e clique em 'Executar' para iniciar uma execução.
+17. Procure pelo aplicativo lógico recém-criado e clique em “Executar” para iniciar uma execução.
 
-18. Você pode verificar se uma nova conta com o nome 'Contoso' foi criada em sua conta do QuickBooks.
+18. Você pode verificar se uma nova conta com o nome “Contoso” foi criada na sua conta do QuickBooks.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png
@@ -171,6 +120,6 @@ Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atu
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

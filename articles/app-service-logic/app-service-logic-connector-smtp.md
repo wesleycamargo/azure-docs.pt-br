@@ -17,7 +17,7 @@
    ms.author="adgoda"/>
 
 
-# Usando o Conector de SMTP em seu aplicativo lógico #
+# Usando o conector de SMTP em seu aplicativo lógico #
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 

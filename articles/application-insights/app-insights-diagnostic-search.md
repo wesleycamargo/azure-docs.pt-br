@@ -107,7 +107,7 @@ Obtenha todas o solicitações com tempo de resposta > 5 s. Tempos são represen
 
 
 
-## <a name="search"></a>Pesquisar os dados
+## Pesquisar os dados
 
 Você pode pesquisar termos em qualquer um dos valores de propriedade. Isso é especialmente útil se você tiver gravado [eventos personalizados][track] com valores de propriedade.
 
@@ -180,8 +180,6 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
 
 
-
-
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -192,5 +190,6 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

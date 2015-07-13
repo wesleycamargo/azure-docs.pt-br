@@ -1,7 +1,7 @@
 Este tutorial é baseado no **GetStartedWithData**, que é um aplicativo do Android. A interface do usuário para esse aplicativo é idêntica no quickstart dos serviços móveis do Android, exceto que os itens adicionados à lista são armazenados localmente na memória. Você adicionará o código necessário para persistir os dados no armazenamento.
 
 
-1. Baixe o projeto do aplicativo no gitHub clicando <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio" target="blank">aqui</a> e, em seguida, clique em **Baixar ZIP**.
+1. Baixe o repositório de exemplos do gitHub clicando <a href="https://github.com/Azure/mobile-services-samples" target="blank">aqui</a> e, em seguida, clique em **Baixar ZIP**.
 
 2. Descompacte o arquivo baixado e anote sua localização, ou mova-o para o diretório de projetos do Android Studio.
 
@@ -14,8 +14,5 @@ Este tutorial é baseado no **GetStartedWithData**, que é um aplicativo do Andr
 
 	O projeto agora está pronto para ser trabalhado.
  
->[AZURE.NOTE]Se você deseja obter o arquivo de amostra usado na versão anterior do SDK Android dos Serviços Móveis, você pode obtê-lo [aqui][GitHub].
 
-<!-- URLs. -->
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+<!---HONumber=62-->

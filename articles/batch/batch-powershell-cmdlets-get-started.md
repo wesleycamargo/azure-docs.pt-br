@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introdução aos cmdlets do PowerShell para o Lote do Azure | Microsoft Azure"
+   pageTitle="Introdução aos cmdlets do PowerShell para o Azure Batch | Microsoft Azure"
    description="Introduz os cmdlets do PowerShell do Azure usados para gerenciar o serviço Azure Batch"
    services="batch"
    documentationCenter=""
@@ -19,7 +19,7 @@
 # Introdução aos cmdlets do PowerShell para o Azure Batch
 Este artigo é uma breve introdução aos cmdlets do PowerShell do Azure que você pode usar para gerenciar suas contas do Batch e obter informações sobre os itens de trabalho, trabalhos e tarefas do Batch.
 
-Para obter a sintaxe detalhada do cmdlet, digite `get-help <Cmdlet_name>` ou consulte a [Referência de cmdlet do Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Para obter a sintaxe detalhada do cmdlet, digite `get-help <Cmdlet_name>` ou consulte a [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Pré-requisitos
@@ -161,7 +161,7 @@ Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 ## Tópicos relacionados
 * [Visão geral técnica do Batch](batch-technical-overview.md)
 * [Baixar o PowerShell do Azure](http://go.microsoft.com/p/?linkid=9811175)
-* [Referência de cmdlet de Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficientes](batch-efficient-list-queries.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

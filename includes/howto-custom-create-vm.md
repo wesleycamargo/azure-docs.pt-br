@@ -1,5 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
-
 #Como criar uma máquina virtual personalizada
 
 Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **de Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
@@ -53,7 +51,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 17. Clique na seta para criar a máquina virtual.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![A personalização da máquina virtual foi bem-sucedida](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##Próximas etapas##
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
@@ -61,6 +59,4 @@ Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando
 - [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -28,9 +28,9 @@ Há muitas outras maneiras de implantar aplicativos de API. Um aplicativo de API
 
 O fato de que aplicativos de API sejam baseados em aplicativos Web também significa que você pode implantar o código escrito em plataformas diferentes do ASP.NET nos aplicativos de API. Para obter um exemplo que usa Git para implantar o código do Node.js em um aplicativo de API, consulte [Criar um aplicativo de API do Node.js no Serviço de Aplicativo do Azure](app-service-api-nodejs-api-app.md).
  
-## Implantar o aplicativo de API 
+## <a id="provision"></a>Criar um aplicativo de API no Azure 
 
-Nesta seção, você verá as etapas necessárias para implantar um aplicativo de API em uma assinatura do Azure.
+Nesta seção, use o assistente **Publicar Web** do Visual Studio para criar um novo aplicativo de API no Azure.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto (não na solução) e clique em **Publicar...**. 
 
@@ -63,7 +63,11 @@ Nesta seção, você verá as etapas necessárias para implantar um aplicativo d
 
 	![Notificação de status pela janela de atividade do Serviço de Aplicativo do Azure](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. Após o Aplicativo de API ser provisionado, clique com o botão direito do mouse no **Gerenciador de Soluções** e selecione **Publicar** para reabrir a caixa de diálogo de publicação. O perfil de publicação criado na etapa anterior deve estar pré-selecionado. Clique em **Publicar** para iniciar o processo de implantação.
+## <a id="deploy"></a>Implantar seu código no novo aplicativo de API
+
+Nesta seção, use o mesmo assistente **Publicar Web** para implantar seu código.
+
+7. Clique com o botão direito do mouse no projeto em **Gerenciador de Soluções** e selecione **Publicar** para reabrir a caixa de diálogo de publicação. O perfil de publicação criado na etapa anterior deve estar pré-selecionado. Clique em **Publicar** para iniciar o processo de implantação. 
 
 	![Implantando o aplicativo de API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 

@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Detectar, realizar a triagem e diagnosticar" 
-	description="Analise as falhas, detecte e diagnostique problemas de desempenho em seus aplicativos" 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="Detectar, realizar a triagem e diagnosticar"
+	description="Analise as falhas, detecte e diagnostique problemas de desempenho em seus aplicativos"
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
 # Detectar, realizar triagem e diagnosticar com o Application Insights
@@ -45,12 +45,12 @@ O Application Insights funciona para aplicativos de dispositivos e aplicativos W
 
 
 
-## Detectar baixa disponibilidade 
+## Detectar baixa disponibilidade
 
 
 Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]:
 
-* Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.) 
+* Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.)
 
 
 * Um teste de várias etapas mais aprofundado, que faz logon e obtém uma listagem atual das contas, verificando alguns detalhes principais em cada página. Esse teste verifica se o link para o banco de dados de contas está funcionando. Ela usa uma ID do cliente fictícia: algumas delas são mantidas para fins de teste.
@@ -67,7 +67,7 @@ Falhas aparecem como pontos vermelhos no gráfico de visão geral do teste da We
 Mas o mais importante, um alerta sobre qualquer falha será enviado por email à equipe de desenvolvimento. Desse modo, eles sabem a respeito antes de quase todos os clientes.
 
 
-## Monitorar métricas de desempenho 
+## Monitorar métricas de desempenho
 
 
 Na mesma página de visão geral do gráfico de disponibilidade, há um gráfico que mostra uma variedade de [principais métricas][perf].
@@ -107,13 +107,13 @@ Exceções são relatadas ao Application Insights chamando [TrackException()][ap
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ Na verdade, a estratégia deles é ainda mais ampla do que isso: enviam telemetr
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ Exceções e eventos aparecem na folha [Pesquisa de diagnóstico][diagnostic]. V
 
 ![Na Pesquisa de diagnóstico, use filtros para exibir tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoramento de eventos positivos 
+## Monitoramento de eventos positivos
 
 
 A equipe de desenvolvimento da Fabrikam deseja controlar coisas boas, tanto quanto aquelas desagradáveis. Em parte porque é bom saber quanto sucesso está ocorrendo e onde; e segundo porque é desagradável quando coisas boas param repentinamente de acontecer.
@@ -171,7 +171,7 @@ Marcela não fica apenas sentada esperando por alertas. Logo após cada reimplan
 Ela pode avaliar o efeito no desempenho de cada implantação, geralmente comparando cada semana com a última. Se houver uma deterioração repentina do quadro, ela levanta a questão com os desenvolvedores relevantes.
 
 
-## Triagem 
+## Triagem
 
 
 Triagem - avaliar a gravidade e a extensão de um problema - é a primeira etapa depois da detecção. Devemos chamar a equipe à meia-noite? Ou o problema pode esperar até o próximo intervalo conveniente na lista de pendências? Há algumas perguntas cruciais na triagem.
@@ -197,7 +197,7 @@ No caso de resposta lenta, compare a tabela das solicitações com respostas mai
 Quão importante é o cenário bloqueado? Se esse for um problema funcional bloqueando uma história de usuário específica, isso importa muito? Se os clientes não podem pagar suas contas, isso é sério; se eles não podem alterar suas preferências de cor da tela, talvez isso possa esperar. Os detalhes do evento ou da exceção, ou a identidade da página lenta, informam onde os clientes estão tendo problemas.
 
 
-## Diagnóstico 
+## Diagnóstico
 
 
 O diagnóstico não é exatamente o mesmo que depuração. Antes de iniciar o rastreamento por meio do código, você deve ter uma ideia de porquê, de quando e de onde o problema está ocorrendo.
@@ -223,7 +223,7 @@ Alguns problemas de dependência de lentidão são problemas de localização ge
 A Fabrikam tinha um problema intermitente com transferências entre contas, mas apenas com determinados tipos de conta. Para entender melhor o que estava acontecendo, eles inseriram chamadas TrackTrace() em pontos-chave do código, anexando o tipo de conta como uma propriedade para cada chamada. Isso facilitou filtrar apenas esses rastreamentos na pesquisa de diagnóstico. Eles também anexaram valores de parâmetro, como propriedades e medidas, às chamadas de rastreamento.
 
 
-## Lidando com o problema 
+## Lidando com o problema
 
 
 Depois de diagnosticar o problema, você pode fazer um plano para corrigi-lo. Talvez você precise reverter uma alteração recente, ou talvez você possa simplesmente seguir em frente e corrigir o problema. Quando a correção tiver sido realizada, o Application Insights dirá a você se o processo foi bem-sucedido.
@@ -231,7 +231,7 @@ Depois de diagnosticar o problema, você pode fazer um plano para corrigi-lo. Ta
 
 A equipe de desenvolvimento do banco da Fabrikam utiliza uma abordagem mais estruturada para medição de desempenho do que costumava utilizar antes do Application Insights.
 
-* Eles definem metas de desempenho em termos de medidas específicas na página de visão geral do Application Insights. 
+* Eles definem metas de desempenho em termos de medidas específicas na página de visão geral do Application Insights.
 
 * Eles criam medidas de desempenho no aplicativo desde o início, como as métricas que medem o progresso do usuário por meio de “funis”.
 
@@ -248,7 +248,7 @@ Portanto, é assim que uma equipe usa o Application Insights não apenas para co
 
 ## Vídeo
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,6 @@ Portanto, é assim que uma equipe usa o Application Insights não apenas para co
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 # Como criar APIs, operações e produto no Gerenciamento de API do Azure
@@ -26,30 +26,40 @@ Uma API no Gerenciamento de API representa um conjunto de operações que pode s
 
 Este guia mostra como criar e configurar uma nova API no Gerenciamento de API.
 
--   [Como criar APIs][Como criar APIs]
+-   [Como criar APIs][]
 
 ## <a name="add-operations"> </a>Como adicionar operações a uma API
 
 Antes que uma API no Gerenciamento de API possa ser usada, as operações devem ser adicionadas. Este guia mostra como adicionar e configurar tipos diferentes de operações para uma API em Gerenciamento de API.
 
--   [Como adicionar operações a uma API][Como adicionar operações a uma API]
+-   [Como adicionar operações a uma API][]
 
 Uma API e suas operações também podem ser importadas em etapas de um, nos formatos WADL ou Swagger.
 
--   [Como importar a definição de uma API com operações][Como importar a definição de uma API com operações]
+-	[Como importar a definição de uma API com operações][]
 
 ## <a name="add-product"> </a>Como criar e publicar um produto
 
 No Gerenciamento de API, um produto contém uma ou mais APIs, bem como uma quota de uso e os termos de uso. Uma vez publicado o produto, os desenvolvedores podem assinar o produto e começar a usar as APIs do produto. Estes tópicos fornecem um guia para criar um produto, adicionar uma API e publicá-la para os desenvolvedores.
 
--   [Como adicionar e publicar um produto][Como adicionar e publicar um produto]
--   [Como criar e definir configurações avançadas de produto][Como criar e definir configurações avançadas de produto]
+-   [Como adicionar e publicar um produto][]
+-	[Como criar e definir configurações avançadas de produto][]
 
-  [Como criar APIs]: ../api-management-howto-create-apis
-  [Como adicionar operações a uma API]: ../api-management-howto-add-operations
-  [Como importar a definição de uma API com operações]: ../api-management-howto-import-api
-  [Como adicionar e publicar um produto]: ../api-management-howto-add-products
-  [Como criar e definir configurações avançadas de produto]: ../api-management-howto-product-with-rules
+[Create a product]: #create-product
+[Add APIs to a product]: #add-apis
+[Add descriptive information to a product]: #add-description
+[Publish a product]: #publish-product
+[Make a product visible to developers]: #make-visible
+[View subscribers to a product]: #view-subscribers
+[Next steps]: #next-steps
 
-<!--HONumber=46--> 
- 
+[api-management-]: ./media/
+
+[Como criar APIs]: api-management-howto-create-apis.md
+[Como adicionar operações a uma API]: api-management-howto-add-operations.md
+[Como adicionar e publicar um produto]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Como importar a definição de uma API com operações]: api-management-howto-import-api.md
+[Como criar e definir configurações avançadas de produto]: api-management-howto-product-with-rules.md
+
+<!---HONumber=62-->

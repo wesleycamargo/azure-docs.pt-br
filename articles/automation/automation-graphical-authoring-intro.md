@@ -280,4 +280,4 @@ Os dados criados por qualquer atividade que não tenha um link de saída serão 
 - [Ativos de automação](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

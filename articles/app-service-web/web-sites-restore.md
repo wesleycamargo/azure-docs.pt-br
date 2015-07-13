@@ -77,7 +77,7 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 	
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
@@ -95,5 +95,6 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

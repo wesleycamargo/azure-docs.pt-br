@@ -29,11 +29,11 @@ Você aprenderá:
 
 * Como usar npm (gerenciador de pacote de nós) para instalar os módulos do nó
 
-* Como trabalhar com o serviço Tabela do Azure
+* Como trabalhar com o serviço de Tabela do Azure
 
 * Como usar a CLI do Azure para criar um aplicativo da web.
 
-Seguindo este tutorial, você criará um aplicativo simples de “lista de tarefas” baseado na Web que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas no serviço Tabela.
+Seguindo este tutorial, você criará um aplicativo simples de “lista de tarefas” baseado na web, que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas no serviço Tabela.
 
 Aqui está o aplicativo concluído:
 
@@ -483,7 +483,7 @@ As etapas desta seção usam as ferramentas de linha de comando do Azure para cr
 
 > [AZURE.NOTE]Essas etapas também podem ser executadas usando o [Portal do Azure](https://portal.azure.com). Confira [Criar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure].
 >
-> Se esse for o primeiro aplicativo Web que você criou, use o Portal do Azure para implantar o aplicativo.
+> Se esse for o primeiro aplicativo web que você criou, use o Portal do Azure para implantar o aplicativo.
 
 Para começar, instale a [Interface de Linha de Comando do Azure] digitando o seguinte comando na linha de comando:
 
@@ -499,8 +499,7 @@ Nesta etapa, você baixará um arquivo que contém informações sobre sua assin
 
 	Esse comando inicia um navegador e acessa a página de download. Se solicitado, faça o logon usando a conta associada à sua assinatura do Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	O download do arquivo deve começar automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
+	<!-- ![The download page][download-publishing-settings] -->O download do arquivo deve começar automaticamente. Se não, você pode clicar no link no início da página para baixar manualmente o arquivo. Salve o arquivo e anote o caminho do arquivo.
 
 2. Digite o seguinte comando para importar as configurações:
 
@@ -644,4 +643,4 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -114,9 +114,9 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE] Esse script exige que o utilitário sqlcmd esteja instalado no computador. Se você tiver o SQL Server instalado, você já o possui. Caso contrário, [baixe][sqlcmd-install] e instale o utilitário.
+	Esse script exige que o utilitário sqlcmd esteja instalado no computador. Se você tiver o SQL Server instalado, você já o possui. Caso contrário, [baixe][sqlcmd-install] e instale o utilitário.
 	
-	> Alternativamente, você pode usar os arquivos na pasta: C:\ADFWalkthrough\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
+	Alternativamente, você pode usar os arquivos na pasta: C:\ADFWalkthrough\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
    
 2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o **Portal de Gerenciamento do Azure** ou **sp_set_firewall_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
 4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\ADFWalkthrough**)
@@ -254,14 +254,14 @@ Nesta etapa, você criará os seguintes serviços vinculados: StorageLinkedServi
 	
 	O HDInsightLinkedService vincula um cluster HDInsight sob demanda para a data factory. Para usar seu próprio cluster HDInsight, atualize a seção Propriedades do arquivo HDInsightLinkedService.json, conforme mostrado a seguir (substitua clustername, username e password com valores apropriados):
 	
-			"Properties": 
-			{
-        		"Type": "HDInsightBYOCLinkedService",
-	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
-    	    	"UserName": "<username>",
-    	    	"Password": "<password>",
-    	    	"LinkedServiceName": "HDInsightStorageLinkedService"
-    		}
+		"Properties": 
+		{
+    		"Type": "HDInsightBYOCLinkedService",
+        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+	    	"UserName": "<username>",
+	    	"Password": "<password>",
+	    	"LinkedServiceName": "HDInsightStorageLinkedService"
+		}
 		
 
 18. Use o seguinte comando para definir a variável $df com o nome do data factory.
@@ -559,4 +559,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

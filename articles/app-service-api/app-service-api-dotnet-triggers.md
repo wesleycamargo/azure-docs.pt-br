@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gatilhos de aplicativo de API do serviço de aplicativo do Azure" 
+	pageTitle="Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure" 
 	description="Este artigo demonstra como implementar gatilhos em um aplicativo de API" 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los a partir de um aplicativo lógico.
+Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
 
 Se você não tem experiência com [aplicativos de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), é recomendável ler a série composta de várias partes em [criação de aplicativos da API](app-service-dotnet-create-api-app.md)
 

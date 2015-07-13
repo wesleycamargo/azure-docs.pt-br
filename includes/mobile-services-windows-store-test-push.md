@@ -1,4 +1,4 @@
-﻿
+
 1. No Visual Studio, pressione F5 para executar o aplicativo.
 
 2. No aplicativo, digite um texto em **Inserir um TodoItem** e, em seguida, clique em **Salvar**.
@@ -9,4 +9,4 @@
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
 
-<!--HONumber=42-->
+<!---HONumber=62-->

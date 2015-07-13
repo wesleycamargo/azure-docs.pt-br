@@ -1,9 +1,9 @@
-﻿
+
 1. Abra o arquivo de projeto MainPage.xaml.cs e adicione o seguinte usando a declaração:
 
         using Windows.UI.Popups;
 
-2. Adicione o seguinte trecho de código para a classe MainPage:
+2. Adicione o seguinte snippet de código para a classe MainPage:
 	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -39,9 +39,8 @@
             RefreshTodoItems();
         }
 		
-4. Pressione a tecla F5 para executar o aplicativo e entrar no aplicativo com seu provedor de identidade escolhido. 
+4. Pressione a tecla F5 para executar o aplicativo e entrar no aplicativo com seu provedor de identidade escolhido.
 
    	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

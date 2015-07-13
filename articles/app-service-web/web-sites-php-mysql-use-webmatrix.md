@@ -41,7 +41,7 @@ Seguindo este tutorial, você criará um simples aplicativo Lista de Tarefas em 
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Pré-requisitos
 
@@ -187,7 +187,7 @@ Antes da publicação de seu aplicativo em Aplicativos Web do Serviço de Aplica
 
 3. Navegue até http://[your nome do site].azurewebsites.net/createtable.php para criar a tabela `items`.
 
-4. Navegue até  http://[your nome do site].azurewebsites.net/index.php para usar o aplicativo.
+4. Navegue até http://[your nome do site].azurewebsites.net/index.php para usar o aplicativo.
 	
 ##Modificar e republicar seu aplicativo
 
@@ -208,7 +208,7 @@ Você pode facilmente modificar seu aplicativo editando a cópia local do site q
 * [Site do WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 ## O que mudou
-* Para obter um guia para a alteração de sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia para a alteração do portal antigo para o novo portal, consulte: [Referência para navegação no o portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -261,5 +261,6 @@ Você pode facilmente modificar seu aplicativo editando a cópia local do site q
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

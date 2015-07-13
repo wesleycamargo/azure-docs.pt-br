@@ -178,7 +178,7 @@ Use este método para especificar códigos de resposta se sua versão do Swashbu
 	
 		![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
 	
-1. Para gerar o arquivo de documentação XML, vá nas propriedades do projeto e habilite o arquivo de documentação XML, como mostrado na captura de tela abaixo.
+1. Para gerar o arquivo de documentação XML, acesse as propriedades do projeto e habilite o arquivo de documentação XML, como mostrado na captura de tela abaixo.
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/enable-xml-documentation-file.png)
 
@@ -250,4 +250,4 @@ O código para esta demonstração pode ser encontrado [nesse repositório GitHu
 Este artigo mostrou como personalizar a maneira que o Swashbuckle gera ids de operação e códigos de resposta válidos. Para obter mais informações, consulte [Swashbuckle no GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

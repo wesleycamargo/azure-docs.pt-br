@@ -160,4 +160,4 @@ Na página **Painel**, você pode examinar informações sobre máquinas virtuai
   ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

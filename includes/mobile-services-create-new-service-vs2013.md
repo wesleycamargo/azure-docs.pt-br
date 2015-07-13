@@ -5,7 +5,7 @@ As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código 
 
 1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito do mouse no projeto do aplicativo do Windows Store, clique em **Adicionar**e, em seguida, em **Serviço Conectado...**.  
 
-2. No diálogo Gerenciador de Serviços, clique em **Criar serviço...**, selecione **&lt;Manage...&gt;** em **Assinatura** na caixa de diálogo Criar Serviço Móvel.
+2. No diálogo Gerenciador de Serviços, clique em **Criar serviço...**, selecione **&lt;Gerir...&gt;** em **Assinatura** na caixa de diálogo Criar Serviço Móvel.
 
 	![criar serviço de gerenciar assinaturas](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png)
 
@@ -28,4 +28,4 @@ As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código 
 
 	Depois que o assistente é concluído, os pacotes NuGet necessários são instalados, uma referência à biblioteca de cliente de Serviços Móveis é adicionada ao projeto e o código-fonte do seu projeto é atualizado.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

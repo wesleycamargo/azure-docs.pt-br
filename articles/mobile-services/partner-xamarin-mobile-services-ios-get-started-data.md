@@ -240,5 +240,6 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

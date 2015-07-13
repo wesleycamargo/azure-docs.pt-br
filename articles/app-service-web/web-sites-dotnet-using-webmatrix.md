@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -116,7 +116,7 @@ O exemplo de confeitaria inclui um formulário de pedido simulado que envia uma 
         }*/
 
 
-5. Adicione o código para usar o SendGrid para enviar emails em vez do WebMail. Adicione o seguinte código no lugar do código que você excluiu na etapa anterior.
+5. Adicione o código para usar o SendGrid para enviar emails em vez do WebMail. Adicione o seguinte código no lugar do código que você excluiu na etapa anterior. Adicione seu nome de usuário do SendGrid e sua senha ao criar a NetworkCredential.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@ O exemplo de confeitaria inclui um formulário de pedido simulado que envia uma 
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -187,7 +187,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente na ins
 
 	![][modify5]
 
-3. Localize a linha "var shipping = Request["orderShipping"];" no arquivo e insira a seguinte linha de código logo em seguida.
+3. Localizar "remessa var = solicitação["orderShipping"];" linha no arquivo e insira a seguinte linha de código logo a seguir.
 
 		var gift = Request["isGift"];
 
@@ -216,7 +216,7 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente na ins
 * [Site do WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -248,5 +248,6 @@ Você pode usar o WebMatrix para modificar o site e publicá-lo novamente na ins
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

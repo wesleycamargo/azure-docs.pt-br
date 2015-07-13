@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -20,6 +20,8 @@
 Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você gostaria de receber um alerta por email sobre eventos com propriedades específicas? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
 
 A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](http://azure.microsoft.com/pricing/details/application-insights/).
+
+(Se você quiser apenas fazer uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou pesquisa, clique em Exportar na parte superior da folha.)
 
 ## <a name="setup"></a> Configurar a exportação contínua
 
@@ -138,7 +140,7 @@ A exportação contínua será reiniciada.
 
 * *Mas tudo o que eu quero é um download único de um gráfico.*  
  
-    Estamos trabalhando nisso separadamente.
+    Sim, você pode fazer isso. Na parte superior da folha, clique [Exportar dados](app-insights-metrics-explorer.md#export-to-excel).
 
 * *Eu configuro uma exportação, mas não há nenhum dado no meu repositório.*
 
@@ -152,7 +154,7 @@ A exportação contínua será reiniciada.
 
 * *Eu posso exportar diretamente para meu próprio repositório local?*
 
-    Não, infelizmente. Nosso mecanismo de exportação precisa contar com um grande canal aberto para dentro do qual deve enviar os dados por push.
+    Não, infelizmente. Nosso mecanismo de exportação funciona apenas com o armazenamento do Azure no momento.
 
 * *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?*
 

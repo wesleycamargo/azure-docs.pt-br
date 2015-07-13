@@ -40,7 +40,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Aplicativos Web do Azure e máquinas virtuais](../insights-perf-analytics.md)
-+ [Serviços de nuvem do Azure](app-insights-cloudservices.md)
++ [Serviços de Nuvem do Azure](app-insights-cloudservices.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)

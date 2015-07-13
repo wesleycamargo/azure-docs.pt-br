@@ -1,71 +1,71 @@
 <properties
-	pageTitle="Backup do Azure - perguntas Frequentes"
-	description="Perguntas freqüentes sobre o serviço de Backup do Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Backup do Azure - Perguntas frequentes"
+   description="Perguntas frequentes sobre o serviço de Backup do Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
 	 ms.date="03/26/2015"
 	 ms.author="prvijay"/>
 
-# Backup do Azure - perguntas Frequentes
-A seguir é uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o o [Fórum de discussão](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazureonlinebackup) e publique suas perguntas. Alguém da sua comunidade ajudará você a obter respostas. Se uma pergunta for frequente, adicionaremos-lo a este artigo para que ela pode ser encontrada com rapidez e facilidade.
+# Backup do Azure - Perguntas frequentes
+Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/pt-br/home?forum=windowsazureonlinebackup) e publique suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 ## Instalação e configuração
 
-**P1. O que é a lista de sistemas operacionais com suporte da qual eu pode fazer backup do Azure usando o Backup do Azure?** <br/> A1. A seguinte lista de OS'es é suportada pelo Backup do Azure
+**P1. Qual é a lista de sistemas operacionais com suporte por meio dos quais posso fazer backup no Azure usando o Backup do Azure?** <br/> R1. Os sistemas operacionais da lista a seguir têm suporte no Backup do Azure
 
 
 | Sistema operacional | Plataforma | SKU |
 | :------------- |-------------| :-----|
-| Windows 8 e o SPs mais recentes | 64 bits | Enterprise, Pro |
-| O Windows 7 e o SPs mais recentes | 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 e o SPs mais recentes | 64 bits | Enterprise, Pro |
-|Windows Server 2012 R2 e o SPs mais recentes|	64 bits|	Padrão, Datacenter, Foundation|
-|O Windows Server 2012 e o SPs mais recentes|	64 bits|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 e o SPs mais recentes |64 bits|	Standard, Workgroup|
-|Windows Storage Server 2012 e o SPs mais recentes |64 bits |Standard, Workgroup
-|Windows Server 2012 R2 e o SPs mais recentes |64 bits|	Essenciais|
+| Windows 8 e SPs mais recentes | 64 bits | Enterprise, Pro |
+| Windows 7 e SPs mais recentes | 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 e SPs mais recentes | 64 bits | Enterprise, Pro |
+|Windows Server 2012 R2 e SPs mais recentes|	64 bits|	Standard, Datacenter, Foundation|
+|Windows Server 2012 e SPs mais recentes|	64 bits|	Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 e SPs mais recentes |64 bits|	Standard, Workgroup|
+|Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup
+|Windows Server 2012 R2 e SPs mais recentes |64 bits|	Essential|
 |Windows Server 2008 R2 SP1 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 
-**Q2. Onde posso baixar o agente de Backup do Azure mais recente?** <br/> A2. Você pode baixar o agente mais recente do [aqui](http://aka.ms/azurebackup_agent). Isso pode ser instalado no Windows Server, Windows cliente ou servidor SCDPM
+**P2. Onde posso baixar o agente mais recente do Backup do Azure?** <br/> R2. Você pode baixar o agente mais recente [aqui](http://aka.ms/azurebackup_agent). Ele pode ser instalado no Windows Server, no servidor SCDPM ou no cliente Windows.
 
-**3º TRIMESTRE. Qual versão do servidor SCDPM é suportada?** <br/> A3. É recomendável que você instale o [mais recente](http://aka.ms/azurebackup_agent) Azure Backup agent no update rollup mais recente do SCDPM (UR5 a partir de fevereiro de 2015)
+**P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. É recomendável que você instale o agente [mais recente](http://aka.ms/azurebackup_agent) do Backup do Azure no pacote cumulativo de atualizações mais recente do SCDPM (UR5 de fevereiro de 2015)
 
-**4º TRIMESTRE. Ao configurar o agente de Backup do Azure, eu estou solicitado a inserir as credenciais"cofre". Há qualquer data de expiração anexado às credenciais do cofre?** <br/> A4. Sim, a credencial de cofre expiram após 48hours. Se o arquivo expirar, faça logon no portal do Azure e baixar os arquivos de credenciais do cofre do seu Cofre de Backup.
+**P4. Ao configurar o agente do Backup do Azure, sou solicitado a inserir as “credenciais do cofre”. Há uma data de expiração associada às credenciais do cofre?** <br/> R4. Sim, a credencial do cofre expira após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
 
-**P5. Há nenhum limite no número de cofres de backup que pode ser criado em cada assinatura do Azure?** <br/> A5. Sim. Desde março de 2015, você pode criar 25 cofres por assinatura. Se você precisar de mais cofres, crie uma nova assinatura.
+**P5. Há algum limite para o número de cofres de backup que podem ser criados em cada assinatura do Azure?** <br/> R5. Sim. Desde março de 2015, você pode criar 25 cofres por assinatura. Se você precisar de mais cofres, crie uma nova assinatura.
 
-**P6. Deve ser no cofre como uma entidade de cobrança?** <br/> A6. Embora seja possível obter uma lista detalhada de cada compartimento, é altamente recomendável que você considere uma assinatura do Azure como uma entidade de cobrança. Ela é consistente em todos os serviços e é mais fácil de gerenciar.
+**P6. Devo considerar o cofre como uma entidade de cobrança?** <br/> R6. Embora seja possível obter uma fatura detalhada de cada cofre, é altamente recomendável que você considere uma assinatura do Azure como uma entidade de cobrança. Ela é consistente entre todos os serviços e é mais fácil de gerenciar.
 
-**P7. Há limites no número de servidores/máquinas que pode ser registrado em relação a cada cofre?** <br/> A7. Sim, você pode registrar até 50 máquinas por cofre. Se você precisar registrar mais máquinas, crie um novo cofre.
+**P7. Há um limite para o número de servidores/computadores que podem ser registrados em cada cofre?** <br/> R7. Sim, você pode registrar até 50 computadores por cofre. Se você precisar registrar mais computadores, crie um novo cofre.
 
-**P8. Há limites na quantidade de dados que podem fazer backup de um servidor/cliente do Windows ou um servidor SCDPM?** <br/> A8. Nº
+**P8. Há um limite em relação à quantidade de dados que pode ser incluída no backup de um servidor/cliente Windows ou em um servidor SCDPM?** <br/> R8. Nº
 
-**P9. Como registrar meu servidor para outro datacenter?**<br/> A9. Em geral, os dados de backup são enviados para o datacenter do serviço de Backup para o qual ele está registrado. A maneira mais fácil de alterar o datacenter é desinstalar o agente e reinstale o agente e registre-se para um novo data center.
+**P9. Como registro meu servidor em outro datacenter?**<br/> R9. Em geral, os dados de backup são enviados para o datacenter do serviço de Backup no qual estão registrados. A maneira mais fácil de alterar o datacenter é desinstalar e reinstalar o agente e registrar-se em um novo datacenter.
 
-**P10. O que acontece se eu renomear um servidor Windows que fazer backup de dados no Azure?** <br/> A10. Os backups atualmente configurados serão interrompidos. Você precisará registrar o servidor com o Cofre de backup e será considerado um novo servidor pelos serviços de recuperação, para que a primeira operação de backup que ocorre após o registro de um backup completo de todos os dados incluídos no backup, em vez de apenas as alterações desde o último backup. No entanto, se você precisar executar uma operação de recuperação pode recuperar os dados dos quais foi feitos usando-se recuperar de outra opção de recuperação do servidor. Para obter mais informações, consulte renomear um servidor.
+**P10. O que acontece se eu renomear um Windows Server que está fazendo backup de dados no Azure?** <br/> R10. Os backups configurados atualmente serão interrompidos. Você precisará registrar novamente o servidor no cofre de backup e ele será considerado um novo servidor pelos Serviços de Recuperação, portanto, a primeira operação de backup que ocorrer após o registro será um backup completo de todos os dados incluídos no backup e não apenas as alterações desde o último backup. No entanto, se você precisar executar uma operação de recuperação, poderá recuperar os dados que passaram por backup usando Recuperar em outra opção de recuperação de servidor. Para obter mais informações, consulte Renomear um servidor.
 
-**P11. Que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> A11. O seguinte conjunto de unidades/volumes pode ser backup:
+**P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. É possível fazer backup do seguinte conjunto de unidades/volumes:
 
-+ Mídia removível: A unidade deve ser reportada como corrigida para ser usado como uma fonte de item de backup.
++ Mídia removível: a unidade deve ser indicada como fixa para ser usada como uma origem para itens de backup.
 
-+ Volumes somente leitura: O volume deve ser gravável para o volume shadow copy service (VSS) para funcionar.
++ Volumes somente leitura: o volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
 
-+ Volumes offline: O volume deve estar online para VSS funcione.
++ Volumes offline: o volume deve estar online para que o VSS funcione.
 
-+ Compartilhamento de rede: O volume deve ser local para o servidor de backup usando o backup online.
++ Compartilhamento de rede: O volume deve ser local para o backup do servidor usando o backup online.
 
-**P12. Quais tipos de arquivo e pasta posso fazer backup do meu servidor?**<br/> A12. Há suporte para os seguintes tipos:
+**P12. De quais tipos de arquivo e pasta no servidor posso fazer backup?**<br/> R12. Os seguintes tipos têm suporte:
 
 + Criptografado
 
@@ -75,82 +75,83 @@ A seguir é uma lista de perguntas frequentes sobre o Backup do Azure. Se você 
 
 + Compactado + esparso
 
-+ Links físicos: Não suportado, ignorado
++ Links físicos: sem suporte, ignorado
 
-+ Ponto de nova análise Não suportado, ignorado
++ Ponto de nova análise: sem suporte, ignorado
 
-+ Criptografado + compactado: Não suportado, ignorado
++ Criptografado + compactado: sem suporte, ignorado
 
-+ Criptografado + esparso: Não suportado, ignorado
++ Criptografado + esparso: sem suporte, ignorado
 
-+ Fluxo compactado: Não suportado, ignorado
++ Fluxo compactado: sem suporte, ignorado
 
-+ Fluxo esparso: Não suportado, ignorado
++ Fluxo esparso: sem suporte, ignorado
 
-**Q13. O que é o requisito de tamanho mínimo para a pasta de cache?** <br/> A13. O tamanho da pasta de cache é determinado pela quantidade de dados que você está fazendo backup. Em geral, você deve esperar que 10 a 15% do espaço necessário para armazenamento de dados deve ser alocado para a pasta de cache.
+**P13. Qual é o requisito de tamanho mínimo para a pasta de cache?** <br/> R13. O tamanho da pasta de cache é determinado pela quantidade de dados submetida a backup. Em geral, de 10 a 15% do espaço necessário para o armazenamento de dados deve ser alocado para a pasta de cache.
 
-**Q14. Como posso isolar dados de servidor específico seja recuperado por outros servidores da minha organização? **<br/> A14. Todos os servidores registrados usando o mesmo cofre será capazes de recuperar os dados de backup por outros servidores que usam a mesma senha. Se você tiver servidores que você deseja garantir a recuperação ocorre apenas para servidores específicos na sua organização, você deve usar uma senha separada designada para esses servidores. Por exemplo, servidores de recursos humanos pode usar uma senha de criptografia, os servidores de contabilização outro armazenamento servidores e um terceiro.
+**P14. Como posso isolar dados de servidor específicos para que não sejam recuperados por outros servidores da minha organização? **<br/> R14. Qualquer servidor registrado no mesmo cofre será capaz de recuperar os dados do backup feito por outros servidores que usam a mesma senha. Se você tiver servidores que deseja garantir que a recuperação ocorra apenas em servidores específicos na sua organização, deverá usar uma senha separada designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
-**Q15. Posso "migrar" Meus dados de backup entre assinaturas?** <br/> A15: não
+**P15. Posso "migrar" meus dados de backup entre assinaturas?** <br/> R15: Não
 
-**Q16: Posso "migrar" Meu Cofre de backup entre assinaturas?** <br/> A16: não. O cofre é criado em um nível de assinatura e não pode ser reatribuído a outra assinatura depois que ela é criada.
+**P16: Posso "migrar" meu cofre de backup entre assinaturas?** <br/> R16: Não. O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
 
 ## Backup e retenção
-**P1. Há um limite para o tamanho de cada fonte de dados que está sendo feito backup?** <br/> A1. Desde março de 2015, cada fonte de dados deve ser menor ou igual a 1,7 TB. É uma fonte de dados
+**P1. Há um limite para o tamanho de cada fonte de dados submetida a backup?** <br/> R1. Desde março de 2015, cada fonte de dados deve ser menor ou igual a 1,7 TB. Uma fonte de dados é:
 
-+ Volume de arquivo/pasta
++ Volume de arquivos/pastas
 
-+ BANCO DE DADOS SQL
++ Banco de dados SQL
 
 + Farm do SharePoint
 
-+ Servidor do Exchange
++ Exchange Server
 
 + VM do Hyper-V
 
-**Q2. Há limite no número de vezes de backup pode ser programada por dia?**<br/> A2. Sim, Backup do Azure permite 3 cópias de backup por dia por meio de servidor/cliente Windows e duas cópias de backup por dia por meio de SCDPM.
+**P2. Há um limite para o número de vezes que um backup pode ser agendado por dia?**<br/> R2. Sim, o Backup do Azure permite três cópias de backup por dia com o Windows Server/cliente Windows e duas cópias de backup por dia com o SCDPM.
 
-**3º TRIMESTRE. Há uma diferença entre do DPM e diretiva de agendamento de backup Azure Backup (ou seja no Windows Server sem o DPM)?** <br/> A3. Sim. Usando o DPM, você pode especificar a programação diária, semanal, mensal, anual enquanto de um servidor do Windows (sem o DPM), você pode especificar apenas diariamente, agendamentos semanais.
+**P3. Há uma diferença entre a política de agendamento de backup do DPM e do Backup do Azure (ou seja, no Windows Server sem o DPM)?** <br/> R3. Sim. Usando o DPM, você pode especificar as programações diária, semanal, mensal ou anual. Já em um Windows Server (sem o DPM), você pode especificar apenas as programações diária e semanal.
 
-**4º TRIMESTRE. Há uma diferença entre do DPM e do Azure do Backup (ou seja no Windows Server sem o DPM) política de retenção?**<br/> A4. Não, você tem os mesmos recursos. Você pode especificar diária, semanal, mensal e anual políticas de retenção.
+**P4. Há uma diferença entre a política de retenção de backup do DPM e do Backup do Azure (ou seja, no Windows Server sem o DPM)?**<br/> R4. Não, você tem os mesmos recursos. Você pode especificar as políticas de retenção diária, semanal, mensal e anual.
 
-**P5. Posso configurar meu retenção políticas – ou seja, configurar seletivamente semanalmente e diariamente, mas não anual e mensal?**<br/> A5. Você tem o conjunto completo de botões para criar diretivas que definem melhor seus requisitos de conformidade/retenção.
+**P5. Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?**<br/> R5. Você tem o conjunto completo de botões para criar políticas que melhor definam seus requisitos de conformidade/retenção.
 
-**P6. É possível "Agendar um backup" às 18h00 e especifique "políticas de retenção" em um momento diferente?**<br/> A6. Não. Políticas de retenção só podem ser aplicadas em pontos de backup. Na abaixo da imagem, a política de retenção está sendo especificada em backups feitos em 12: 00 e 18: 00. <br/>
+**P6. Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?**<br/> R6. Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem abaixo, a política de retenção está sendo especificada em backups realizados às 0h e às 18h. <br/>
 
-![Retenção e agendamento Backup][1] <br/>
+![Retenção e agendamento de Backup][1] <br/>
 
-**P7. Uma cópia incremental é transferida para as políticas de retenção agendadas?** <br/> A7. Não, a cópia incremental é enviada com base na hora mencionada na página de agendamento de backup. Os pontos que podem ser mantidos são determinados com base na política de retenção.
+**P7. Uma cópia incremental é transferida de acordo com as políticas de retenção agendadas?** <br/> R7. Não. A cópia incremental é enviada com base na hora mencionada na página de agendamento de backup. Os pontos que podem ser retidos são determinados com base na política de retenção.
 
-**P8. Se o backup é mantido por muito tempo, leva um tempo significativo para recuperar os dados (digamos que o ponto mais antigo)?** <br/> A8. Não – o tempo necessário para recuperação mais antigo ou o último ponto é o mesmo. Cada ponto de recuperação se comporta como um ponto de total.
+**P8. Se o backup for retido por um período longo, a recuperação dos dados demora muito (por exemplo, o ponto mais antigo)?** <br/> R8. Não. O tempo necessário para recuperar tanto o ponto mais recente quanto o mais antigo é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
 
-**P9. Se cada ponto de recuperação é como um ponto completo, ele afeta o armazenamento total de backup cobrável?**<br/> A9. Produtos retenção típico de longo prazo armazenam dados de backup como pontos completos. No entanto, eles são armazenamento ineficiente mas são mais fácil e rápido de restaurar. Cópias incrementais são armazenamento eficiente, mas exige que você restaure uma cadeia de dados que afeta o tempo de recuperação. Arquitetura de armazenamento exclusivo do Backup do Azure oferece o melhor dos dois mundos, armazenando dados para restaurações rápidas e incorrer em custos de armazenamento de baixo ideal. Essa abordagem garante que a largura de banda (de entrada e saída) é usada com eficiência, armazenamento é mantido no mínimo e o tempo necessário para recuperar é mantido no mínimo.
+**P9. Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?**<br/> R9. Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos. No entanto, eles não oferecem economia de armazenamento, mas são mais fáceis e rápidos de restaurar. As cópias incrementais oferecem economia de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação. A arquitetura de armazenamento exclusiva do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Essa abordagem garante que a largura de banda (de entrada e saída) seja usada com eficiência e que o armazenamento e o tempo de recuperação sejam mínimos.
 
-**P10. Há um limite no número de pontos de recuperação que podem ser criados?**<br/> A10. A partir de abril de 2015, você pode ter até 366 pontos de recuperação. Você pode usar qualquer permutação para chegar a um número que é menor que 366. Por exemplo – pontos a retenção de abaixo imagem adicionar 354. <br/>
+**P10. Há um limite para o número de pontos de recuperação que podem ser criados?**<br/> R10. Desde abril de 2015, você pode ter até 366 pontos de recuperação. Você pode usar qualquer permutação para chegar a um número que seja menor que 366. Por exemplo: os pontos de retenção na imagem abaixo totalizam 354. <br/>
 
 ![Tela de retenção][2]
 
-**P11. Depois que a Microsoft aprimora o limite de 366, será preciso atualizar o agente ou propagar novamente o backup inicial?** <br/> A11. Não. Depois de fazermos a alteração no nosso serviço, você será notificado por meio de nossos veículos de mídia social (blogs, anúncios do Azure, portal etc.). Com base em suas necessidades, você deve, em seguida, precise apenas alterar a política de retenção.
+**P11. Depois que a Microsoft aumentar o limite de 366, será necessário atualizar o agente ou propagar novamente o backup inicial?** <br/> R11. Não. Depois que fizermos a alteração no nosso serviço, você será notificado por meio de nossos veículos de mídia social (blogs, anúncios do Azure, portal, etc.). Com base em suas necessidades, você precisará apenas alterar a política de retenção.
 
-**P12. Por que a quantidade de dados é transferida no backup não é igual à quantidade de dados de que backup feito?**<br/> A12. Todos os dados de backup são compactados e criptografados antes de serem transferidos. Você pode esperar os benefícios da compactação de 30 a 40% dependendo do tipo de dados de backup.
+**P12. Por que a quantidade de dados transferida no backup não é igual à quantidade de dados da qual fiz backup?**<br/> R12. Todos os dados que passam por backup são compactados e criptografados antes de serem transferidos. Você pode esperar benefícios de compactação de 30 a 40% dependendo do tipo de dados de backup.
 
 ## Recuperações
-**P1. O número de recuperações pode executar nos dados que são copiados para o Azure?**<br/> A1. Não há nenhum limite no número de recuperações do Backup do Azure.
+**P1. Quantas recuperações posso executar nos dados dos quais faço backup no Azure?**<br/> R1. Não há limite para o número de recuperações do Backup do Azure.
 
-**Q2. É necessário pagar para o tráfego de saída do data center do Azure durante recuperações?**<br/> A2. Não. Seus recuperações são gratuitas e que não seja cobrado para o tráfego de saída.
+**P2. É necessário pagar pelo tráfego de saída do datacenter do Azure durante as recuperações?**<br/> R2. Não. As suas recuperações são gratuitas e você não é cobrado pelo tráfego de saída.
 
 ## Segurança
-**P1. Os dados são enviados para o Azure criptografado?** <br/> A1. Sim. Os dados são criptografados no computador cliente/servidor/SCDPM no local usando AES256 e os dados são enviados por um link HTTPS seguro.
+**P1. Os dados são enviados para o Azure criptografados?** <br/> R1. Sim. Os dados são criptografados localmente no computador cliente/servidor/SCDPM usando AES256 e são enviados por um link HTTPS seguro.
 
-**Q2. São os dados de backup no Azure criptografado?**<br/> A2. Sim. Os dados que são enviados para o Azure permanecem criptografados (em repouso). Microsoft não descriptografa os dados de backup a qualquer momento.
+**P2. Os dados de backup também são criptografados no Azure?**<br/> R2. Sim. Os dados enviados para o Azure permanecem criptografados (em repouso). A Microsoft não descriptografa os dados de backup em nenhum momento.
 
-**3º TRIMESTRE. O que é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?** <br/> A3. A chave de criptografia deve ter pelo menos 16 caracteres.
+**P3. Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?** <br/> R3. A chave de criptografia deve ter pelo menos 16 caracteres.
 
-**4º TRIMESTRE. O que acontecerá se eu esquecer onde deixou a chave de criptografia? Posso recuperar os dados (ou) pode Microsoft recuperar os dados?** <br/> A4. A chave usada para criptografar os dados de backup está presente apenas em instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem nenhum acesso à chave. Se o cliente misplaces a chave, a Microsoft não pode recuperar os dados de backup.
+**P4. O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados ou a Microsoft pode recuperar os dados?** <br/> R4. A chave usada para criptografar os dados de backup está presente apenas nas instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente inserir a chave incorretamente, a Microsoft não poderá recuperar os dados de backup.
 
 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

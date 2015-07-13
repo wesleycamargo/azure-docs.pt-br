@@ -90,8 +90,9 @@ Use as etapas a seguir para comprar os nomes de domínio e atribuir ao seu aplic
 
 > [AZURE.NOTE]É possível "Cancelar compra" no prazo de 5 dias para obter reembolso total. Após 5 dias, não será mais possível "Cancelar comprar" e, em vez disso, você verá uma opção para "Excluir" o domínio. A exclusão do domínio resultará em sua liberação de sua assinatura sem reembolso e ele se tornará um domínio disponível.
 
-	Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **Vínculos de Hostname** de seu aplicativo Web.
+	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

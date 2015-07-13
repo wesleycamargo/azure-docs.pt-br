@@ -35,13 +35,13 @@ Você aprenderá a:
 * Como desenvolver um aplicativo PHP usando o WebMatrix.
 * Como publicar e publicar novamente o aplicativo no Azure usando o WebMatrix.
  
-Seguindo este tutorial, você criará um simples aplicativo Lista de Tarefas em PHP. O aplicativo será hospedado em Aplicativos Web do Serviço de Aplicativo. Uma captura de tela do aplicativo em execução está exibida a seguir:
+Seguindo este tutorial, você criará um simples aplicativo Lista de Tarefas em PHP. O aplicativo será hospedado nos Aplicativos Web do Serviço de Aplicativo. Uma captura de tela do aplicativo em execução está exibida a seguir:
 
 ![Site PHP do Azure][running-app]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Pré-requisitos
 
@@ -150,7 +150,7 @@ Nas próximas etapas, você desenvolverá o aplicativo Lista de Tarefas ao adici
 
 	Salve o arquivo `taskmodel.php`.
 
-3. Para que o aplicativo seja executado, a tabela `items` deverá ser criada. Clique no arquivo `createtable.php` com o botão direito do mouse e selecione **Iniciar no navegador**. Isto iniciará o `createtable.php` no navegador e executará o código que cria a tabela `items` no banco de dados `tasklist`.
+3. Para que o aplicativo seja executado, a tabela `items` deverá ser criada. Clique no arquivo `createtable.php` com o botão direito do mouse e selecione **Iniciar no navegador**. Isto iniciará o `createtable.php` no seu navegador e executará o código que cria a tabela `items` no banco de dados `tasklist`.
 
 	![WebMatrix - iniciar o createtable.php no navegador][edit_run]
 
@@ -183,7 +183,7 @@ Antes da publicação de seu aplicativo em Aplicativos Web do Serviço de Aplica
 
 	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site-choose.png)
 
-3. Continue clicando em **Continuar** até que o WebMatrix publique o site em Aplicativos Web do Serviço de Aplicativo do Azure.
+3. Continue clicando em **Continuar** até que o WebMatrix publique o site nos Aplicativos Web do serviço de Aplicativo do Azure.
 
 3. Navegue para http://[your nome do site].azurewebsites.net/createtable.php para criar a tabela `items`.
 
@@ -209,7 +209,7 @@ Você pode facilmente modificar o aplicativo editando a cópia local do site e r
 Você viu como criar e implantar um aplicativo Web do WebMatrix para Aplicativos Web do Serviço de Aplicativo do Azure. Para saber mais sobre o WebMatrix, consulte [Site do WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398).
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal para o portal de visualização, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -246,5 +246,6 @@ Você viu como criar e implantar um aplicativo Web do WebMatrix para Aplicativos
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

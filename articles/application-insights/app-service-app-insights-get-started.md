@@ -123,5 +123,6 @@ Agora que você está enviando dados do lado do servidor do seu aplicativo, aqui
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

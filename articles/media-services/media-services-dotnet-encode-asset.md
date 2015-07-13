@@ -3,7 +3,7 @@
 	description="Saiba como usar o Codificador de Mídia do Azure para codificar conteúdo de mídia nos Serviços de Mídia. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Como codificar um ativo usando o Codificador de Mídia do Azure
+#Como codificar um ativo usando o Codificador de Mídia do Azure
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md). 
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
-## Visão geral
+##Visão geral
 
 Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia.
 
-Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte Predefinições de tarefa para os serviços de mídia do Azure. Se você usou um codificador de terceiros, você deve [validar seus arquivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
+Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. Você pode especificar os detalhes das tarefas de codificação usando cadeias de caracteres predefinidas para seu codificador ou usando arquivos de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de tarefa para os Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Se você usou um codificador de terceiros, você deve [validar seus arquivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx).
+Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx). Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-Se seu ativo de saída tiver o armazenamento criptografado, você deverá configurar apolítica de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
+Se seu ativo de saída tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## Criar um trabalho com uma única tarefa de codificação 
+##Criar um trabalho com uma única tarefa de codificação 
 
 Quando estiver codificando com o Codificador de Mídia do Azure, você pode usar as predefinições de tarefa de configuração especificadas [aqui](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 
-### Use o SDK dos serviços de mídia para o .NET  
+###Use o SDK dos serviços de mídia para o .NET  
 
-O seguinte método **EncodeToAdaptiveBitrateMP4Set** cria um trabalho de codificação e adiciona uma única tarefa de codificação para o trabalho. A tarefa usa "Azure Media Encoder" para codificar como "H264 Adaptive Bitrate MP4 Set 720p". 
+O seguinte método **EncodeToAdaptiveBitrateMP4Set** cria um trabalho de codificação e adiciona uma única tarefa de codificação para o trabalho. A tarefa usa "Azure Media Encoder" para codificar como "H264 Adaptive Bitrate MP4 Set 720p".
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
     {
@@ -106,7 +106,7 @@ O seguinte método **EncodeToAdaptiveBitrateMP4Set** cria um trabalho de codific
         return processor;
     }
 
-### Use o SDK dos serviços de mídia para as extensões do .NET
+###Use o SDK dos serviços de mídia para as extensões do .NET
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
     {
@@ -138,11 +138,11 @@ O seguinte método **EncodeToAdaptiveBitrateMP4Set** cria um trabalho de codific
         return outputAsset;
     } 
 
-## Criar um trabalho com tarefas encadeadas 
+##Criar um trabalho com tarefas encadeadas 
 
-Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de tarefas de processamento. Nos serviços de mídia, você pode criar uma série de tarefas encadeadas. Cada tarefa executa etapas de processamento diferentes e pode usar diferentes processadores de mídia. As tarefas encadeadas podem entregar um ativo de uma tarefa para outra, desempenhando uma sequência linear de tarefas no ativo. No entanto, as tarefas executadas em um trabalho não precisam estar em uma sequência. Quando você cria uma tarefa encadeada, os objetos**ITask** são criados em um único objeto **IJob**.
+Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de tarefas de processamento. Nos serviços de mídia, você pode criar uma série de tarefas encadeadas. Cada tarefa executa etapas de processamento diferentes e pode usar diferentes processadores de mídia. As tarefas encadeadas podem entregar um ativo de uma tarefa para outra, desempenhando uma sequência linear de tarefas no ativo. No entanto, as tarefas executadas em um trabalho não precisam estar em uma sequência. Quando você cria uma tarefa encadeada, os objetos **ITask** são criados em um único objeto **IJob**.
 
->[AZURE.NOTE] Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
+>[AZURE.NOTE]Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
 
 O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém duas tarefas encadeadas. Como resultado, o método retorna um trabalho que contém dois ativos de saída.
 
@@ -207,15 +207,15 @@ O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém
     }
 
 
-## Próximas etapas
+##Próximas etapas
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Predefinição do codificador]: http://msdn.microsoft.com/library/dn619392.aspx
-[Como: Obter uma instância do processador de mídia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Como: carregar um ativo criptografado]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Como: fornecer um ativo por download]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Como verificar o andamento do trabalho]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Predefinição de tarefa para o empacotador de mídia do Azure]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
+[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
+[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
+[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
+[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
+[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

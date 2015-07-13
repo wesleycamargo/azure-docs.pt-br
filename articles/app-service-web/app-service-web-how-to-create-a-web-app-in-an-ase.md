@@ -20,22 +20,22 @@
 
 O procedimento para criar aplicativos Web em um ASE (ambiente de serviço de aplicativo) é praticamente o mesmo que o usado normalmente. Se você não estiver familiarizado com a capacidade do Ambiente de Serviço de Aplicativo, leia o documento aqui [O que é um ambiente de serviço de aplicativo](app-service-app-service-environment-intro.md).
 
-Para criar um aplicativo Web em um ASE, você precisa primeiro ter um ASE. Para obter informações sobre como criar um ASE, leia aqui o documento [Como criar um ambiente de serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
+Para criar um aplicativo Web em um ASE, você precisa primeiro ter um ASE. Para obter informações sobre como criar um ASE, leia aqui o documento [Como criar um ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
-A primeira etapa para criar um aplicativo Web é criar ou selecionar um ASP (Plano de serviço de aplicativo). Criar um ASP em um ASE começa do mesmo modo que ao criá-lo normalmente, ou seja, seguindo o fluxo de criação de aplicativos Web, começando com Novo -> Web + Móvel -> Aplicativo Web.
+A primeira etapa para criar um aplicativo Web é criar ou selecionar um ASP (Plano de Serviço de Aplicativo). Criar um ASP em um ASE começa do mesmo modo que ao criá-lo normalmente, ou seja, seguindo o fluxo de criação de aplicativos Web, começando com Novo -> Web + Móvel -> Aplicativo Web.
 
 ![][1]
 
 
 Se você estiver usando um plano de serviço de aplicativo que você já criou em seu ambiente de serviço de aplicativo, selecione esse plano, digite o nome do seu aplicativo Web e selecione Criar. É o mesmo fluxo pelo qual você passa quando cria um aplicativo Web normalmente. A principal diferença é que seu aplicativo Web será acessado em:
 
-[*nomedosite*].[*nome do seu ambiente de serviço de aplicativo*].p.azurewebsites.net
+[*nomedosite*].[*nome do seu ambiente de Serviço de Aplicativo*].p.azurewebsites.net
 
 em vez de
 
 [*nomedosite*]. azurewebsites.net
 
-Por enquanto, o nome de seu aplicativo Web precisa ser exclusivo em todo o serviço de aplicativo do Azure. Isso significa que, se você quiser criar um aplicativo Web chamado "meuaplicativoweb", então atualmente não pode existir nenhum outro aplicativo Web chamado "meuaplicativoweb" no serviço de aplicativo do Azure.
+Por enquanto, o nome de seu aplicativo Web precisa ser exclusivo em todo o Serviço de Aplicativo do Azure. Isso significa que, se você quiser criar um aplicativo Web chamado "meuaplicativoweb", então atualmente não pode existir nenhum outro aplicativo Web chamado "meuaplicativoweb" no serviço de aplicativo do Azure.
 
 ### Planos de serviço de aplicativo ###
 
@@ -71,7 +71,7 @@ Há algumas considerações para executar aplicativos Web e gerenciar ASPs em um
 
 Conforme observado anteriormente, o proprietário do ASE é responsável pelo tamanho do sistema e, como resultado, responsável também por garantir que haja capacidade suficiente para hospedar os ASPs desejados. Se não houver nenhum processador disponível, você não poderá criar o ASP. Isso também é verdadeiro ao dimensionar seu aplicativo Web. Se você precisar de mais instâncias, será necessário que o administrador de seu ambiente de serviço de aplicativo adicione mais processadores.
 
-Depois de criar seu aplicativo Web e ASP, é uma boa ideia dimensioná-lo, aumentando-o. Em um ASE, é sempre necessário ter pelo menos 2 instâncias do seu ASP para proporcionar tolerância a falhas para seus aplicativos. Dimensionar um ASP em um ASE é o igual ao método normal, por meio da interface de usuário do ASP. Para obter mais detalhes sobre dimensionamento, leia aqui o documento [Como dimensionar um aplicativo Web em um ambiente de serviço de aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+Depois de criar seu aplicativo Web e ASP, é uma boa ideia dimensioná-lo, aumentando-o. Em um ASE, é sempre necessário ter pelo menos 2 instâncias do seu ASP para proporcionar tolerância a falhas para seus aplicativos. Dimensionar um ASP em um ASE é o igual ao método normal, por meio da interface de usuário do ASP. Para obter mais detalhes sobre dimensionamento, leia aqui o documento [Como dimensionar um aplicativo Web em um ambiente de Serviço de Aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

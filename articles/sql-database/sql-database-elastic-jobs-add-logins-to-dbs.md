@@ -46,4 +46,4 @@ Executar um trabalho no pool de banco de dados. Consulte [Criando e gerenciando 
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

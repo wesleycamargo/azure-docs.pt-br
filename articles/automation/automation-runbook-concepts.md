@@ -165,6 +165,6 @@ Para obter mais detalhes sobre como usar o InlineScript, confira [Executando com
 
 ## Artigos relacionados
 
-- [Criando ou importando um Runbook](http://technet.microsoft.com/library/dn919921.aspx)
+- [Criando ou importando um Runbook](http://technet.microsoft.com/library/dn919921.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Criar um conector do SharePoint para usar em seu aplicativo lógico" 
+   pageTitle="Criar um Conector do SharePoint para usar em seu aplicativo lógico" 
    description="Criar um Conector do SharePoint; Usando o Conector do SharePoint em seu aplicativo lógico" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="vagarw"/>
 
 # Usando o Conector do SharePoint em seu aplicativo lógico
 
-Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de dados e oferecem conectores para obter e processar dados como uma parte do fluxo. O conector do Microsoft SharePoint permite que você se conecte ao Microsoft SharePoint Server/SharePoint Online e gerencie documentos e itens de lista. Você pode executar várias ações, como criar, atualizar, obter e excluir documentos e itens de lista. No caso do servidor SharePoint local, é possível fornecer a cadeia de conexão do Barramento de Serviço como parte da configuração do conector e instalar o agente de ouvinte local para se conectar ao servidor.
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O conector do Microsoft SharePoint permite que você se conecte ao Microsoft SharePoint Server ou SharePoint Online e gerencie documentos e itens de lista. Você pode executar várias ações, como criar, atualizar, obter e excluir documentos e itens de lista. Ao usar o servidor SharePoint local, é possível inserir a cadeia de conexão do Barramento de Serviço como parte da configuração do conector e instalar o agente de ouvinte local para se conectar ao servidor.
 
 O aplicativo de Conector do SharePoint Online e do SharePoint Server na galeria oferece gatilho e ações como mecanismos de interação com o SharePoint.
 
@@ -33,15 +33,13 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do Site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 
-5. Após a conclusão, as configurações de pacote são semelhantes às seguintes:
-<br/>
-![][1]
+5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Online.
 
-## Criar um Conector do SharePoint Server
+## Criando um Conector do SharePoint Server
 
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
@@ -52,15 +50,13 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do Site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
 Nome de usuário | Não | Especifique um nome de usuário válido para se conectar ao site do SharePoint, se o modo de autenticação não for Padrão.
 Senha | Não | Especifique uma senha válida para se conectar ao site do SharePoint, se o modo de Autenticação não for Padrão.
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Após a conclusão, as configurações de pacote são semelhantes às seguintes:
-<br/>
-![][2]
+5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][2]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Server.
 
@@ -71,32 +67,17 @@ Depois de criar seu aplicativo de API, agora você pode usar o conector do Share
 
 1. Criar um novo Aplicativo Lógico e escolher o mesmo grupo de recursos que contém o Conector do SharePoint.
 
-2. Abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo. O Conector do SharePoint aparece na seção “Usados Recentemente" na galeria à direita. Selecione-o.
+2. Abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo de trabalho. O Conector do SharePoint aparece na seção “Usados Recentemente" na galeria à direita. Selecione-o.
 
 3. Se o conector do SharePoint é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações poderiam ser realizadas na conta do SharePoint usando o conector.
 
-4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint:
-<br/>
-![][3]
+4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint: <br/> ![][3]
 
-5. Clicar em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações:
-<br/>
-![][4]
+5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações: <br/> ![][4]
 
-6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome:
-<br/>
-![][5]
+6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: <br/> ![][5]
 
-7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, é exibida uma lista de ações e você pode escolher a operação apropriada que você deseja executar:
-<br/>
-![][6]
-<br/>
-**URL relativa configurada para a biblioteca de documentos**
-<br/>
-![][7]
-<br/>
-**URL relativa configurada para a lista de documentos**
-<br/>
+7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, é exibida uma lista de ações e você pode escolher a operação apropriada que você deseja executar: <br/> ![][6] <br/> **URL relativa configurada para a biblioteca de documentos** <br/> ![][7] <br/> **URL relativa configurada para a lista de documentos**
 
 > [AZURE.NOTE]Para os gatilhos a seguir, supõe-se que você especificou “Documentos compartilhados, Listas/Tarefa” na configurações de Pacote do Conector, em que “Documentos Compartilhados” é uma biblioteca de documentos e “Listas/Tarefa” é uma Lista.
 
@@ -112,7 +93,7 @@ Este gatilho é acionado quando um novo documento está disponível em “Docume
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
-Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
+Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite: “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
 Local do Arquivo Morto | Não | Especifique uma URL de pasta válida, relativa ao site do SharePoint, na qual os documentos processados são arquivados.
 Substituir no Arquivo Morto | Não | Marque esta opção para substituir um arquivo no caminho do arquivo morto se ele já existir.
 Consulta Caml | Não, Avançado | Especifique uma consulta CAML válida para filtrar documentos. Por exemplo, insira: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -135,7 +116,7 @@ O gatilho é acionado quando um novo item é adicionado à lista “Tarefas”.
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
-Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar itens na lista. Por exemplo, digite “Ordens Aprovadas”. Para processar todos os novos itens, deixe esse campo vazio. 
+Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar itens na lista. Por exemplo, digite: “Ordens Aprovadas”. Para processar todos os novos itens, deixe esse campo vazio. 
 Local do Arquivo Morto | Não | Especifique uma URL de pasta válido, relativo ao site do SharePoint, na qual os itens de lista processados são arquivados.
 Consulta CAML | Não, Avançado | Especifique uma consulta CAML válida para filtrar documentos. Por exemplo, insira: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
@@ -154,7 +135,7 @@ Este gatilho é acionado quando um novo documento está disponível em “Docume
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
-Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
+Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite: “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
 Local do Arquivo Morto | Não | Especifique uma URL de pasta válida, relativa ao site do SharePoint, na qual os documentos de lista processados são arquivados.
 Substituir no Arquivo Morto | Não | Marque esta opção para substituir um arquivo no caminho do arquivo morto se ele já existir.
 Consulta Caml | Não, Avançado | Especifique uma consulta CAML válida para filtrar documentos. Por exemplo, insira: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -177,7 +158,7 @@ Nome | Obrigatório | Descrição
 --- | --- | ---
 Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar itens na lista. Exemplo: “Pedidos aprovados”. Para processar todos os novos itens, deixe esse campo vazio. 
 Local do Arquivo Morto | Não | Especifique uma URL de pasta válido, relativo ao site do SharePoint, na qual os itens de lista processados são arquivados.
-Consulta CAML | Não, Avançado | Especifique uma consulta Caml válida para filtrar itens de lista. Por exemplo, insira `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Consulta CAML | Não, Avançado | Especifique uma consulta Caml válida para filtrar itens de lista. Por exemplo, insira: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Saída
 
@@ -187,8 +168,8 @@ Conteúdo | Conteúdo do documento.
 ContentTransferEncoding | Codificação de Transferência de Conteúdo da Mensagem. (“nenhuma” ou ”base64”)
 
 
-## Ações
-Para os gatilhos abaixo, supõe-se que o usuário especificou “Documentos compartilhados, Listas/Tarefa” na configurações de pacote do Connector, em que “Documentos Compartilhados” é uma biblioteca de documentos e “Listas/Tarefa” é uma Lista.
+##  Ações
+Para as ações a seguir, supõe-se que você especificou “Documentos compartilhados, Listas/Tarefa” nas configurações de Pacote do Conector, em que “Documentos Compartilhados” é uma biblioteca de documentos e “Listas/Tarefa” é uma Lista.
 
 ### 1. Carregar em Documentos Compartilhados (JSON)
 
@@ -209,13 +190,14 @@ OptionalParam2* | Não. Avançado | Este é um dos parâmetros opcionais para ad
 
 **Observação**: todos os parâmetros da biblioteca de documentos são preenchidos dinamicamente. Os parâmetros obrigatórios estão visíveis, onde os parâmetros opcionais estão na seção avançada.
 
-
 #### Saída
 
 Nome | Descrição
 --- | --- 
 ItemId | ItemId do documento adicionado à biblioteca de documentos.
 Status | O carregamento bem-sucedido do documento retornará o código de status 200 (OK).
+
+
  
 
 ### 2. Obter dos Documentos Compartilhados (JSON)
@@ -226,7 +208,6 @@ Esta ação obtém o documento da biblioteca de documentos com base na URL relat
 Nome | Obrigatório | Descrição
 --- | --- | ---
 URI Relativo do Documento | Não | Especifique a URL do documento, relativa a “Documentos compartilhados”. Por exemplo, insira: *myspec1,myfolder/orders*.
-
 
 #### Saída
 
@@ -274,7 +255,6 @@ OptionalParam2* | Não. Avançado | Este é um dos parâmetros necessários para
 
 **Observação**: todos os parâmetros da “Lista” são preenchidos dinamicamente. Os parâmetros obrigatórios estão visíveis, enquanto os parâmetros opcionais estão na seção avançado.
 
- 
 #### Saída
 
 Nome | Descrição
@@ -299,7 +279,6 @@ OptionalParam2* | Não. Avançado | Este é um dos parâmetros necessários para
 
 **Observação**: todos os parâmetros da “Lista” são preenchidos dinamicamente. Os parâmetros obrigatórios estão visíveis, enquanto os parâmetros opcionais estão na seção avançado.
 
-
 #### Saída
 
 Nome | Descrição
@@ -317,7 +296,6 @@ Nome | Obrigatório | Descrição
 --- | --- | ---
 ItemId | Sim | O ItemId do item da lista.
 
-
 #### Saída
 
 Nome | Descrição
@@ -333,13 +311,11 @@ Status | Uma execução bem-sucedida da ação retorna o código de status 200 (
 
 Esta ação exclui um item da lista de itens.
 
- 
 #### Entrada
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
 ItemId | Sim | O ItemId do item da lista.
-
 
 #### Saída
 
@@ -352,12 +328,11 @@ Status | Uma exclusão bem-sucedida do item de lista retornará o código de sta
 
 Esta ação lista todos os documentos de uma biblioteca de documentos. Você pode usar uma Exibição ou uma consulta CAML para filtrar os documentos.
 
- 
 #### Entrada
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
-Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
+Nome de Exibição | Não | Especifique um modo de exibição válido usado para filtrar os documentos a serem separados. Por exemplo, digite: “Ordens Aprovadas”. Para processar todos os documentos existentes, deixe esse campo vazio. 
 Consulta Caml | Não | Especifique uma consulta CAML válida para filtrar documentos. Por exemplo, insira: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Saída
@@ -372,7 +347,6 @@ Status | Uma inserção bem-sucedida de item de lista retorna o código de statu
 
 Esta ação carrega o novo documento em “Documentos Compartilhados”. O documento de entrada deve ser uma carga XML. A resposta da ação será uma carga XML.
  
-
 #### Entrada
 
 Nome | Obrigatório | Descrição
@@ -382,7 +356,6 @@ Conteúdo | Sim | Conteúdo do documento.
 ContentTransferEncoding | Sim | Codificação de Transferência de Conteúdo da Mensagem. (“nenhuma”|”base64”)
 Forçar Substituição | Sim | Se for definido como TRUE e houver um documento com o nome especificado, ele será substituído.
  
-
 #### Saída
 
 Nome | Descrição
@@ -394,13 +367,12 @@ Status | O carregamento bem-sucedido do documento retornará o código de status
 
 Esta ação obtém o documento da biblioteca de documentos com base na URL relativa (estrutura de pastas) do documento.
 
- 
 #### Entrada
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
 URI Relativo do Documento | Não | Especifique a URL do documento, relativa a “Documentos compartilhados”. Por exemplo, insira: *myspec1,myfolder/orders*.
-Tipo de Arquivo | Sim | Especifique se o arquivo é um arquivo binário ou um arquivo de texto.
+Tipo de arquivo | Sim | Especifique se o arquivo é um arquivo binário ou um arquivo de texto.
 
 #### Saída
 
@@ -418,11 +390,10 @@ Esta ação adiciona um item à lista de itens. A entrada deve ser uma carga XML
 
 Nome | Obrigatório | Descrição
 --- | --- | ---
-Inserir XML | Sim | A mensagem XML que contém os valores dos campos do item de lista a ser inserido. Você pode usar o Aplicativo de API de Transformação para gerar a mensagem XML.
+XML de entrada | Sim | A mensagem XML que contém os valores dos campos do item de lista a ser inserido. Você pode usar o Aplicativo de API de Transformação para gerar a mensagem XML.
 
 **Observação**: todos os parâmetros da “Lista” são preenchidos dinamicamente. Os parâmetros obrigatórios estão visíveis, enquanto os parâmetros opcionais estão na seção avançado.
 
- 
 #### Saída
 
 Nome | Descrição
@@ -443,7 +414,7 @@ ItemID | Sim | ItemId do item de lista.
 Inserir XML | Sim | A mensagem XML que contém os valores dos campos do item de lista a ser inserido. Você pode usar o Aplicativo de API de Transformação para gerar a mensagem XML.
 
 **Observação**: todos os parâmetros da “Lista” são preenchidos dinamicamente. Os parâmetros obrigatórios estão visíveis, enquanto os parâmetros opcionais estão na seção avançado.
- 
+
 #### Saída
 
 Nome | Descrição
@@ -460,7 +431,6 @@ Esta ação obtém um item da lista de itens.
 Nome | Obrigatório | Descrição
 --- | --- | ---
 ItemID | Sim | O ItemId do item da lista.
-
 
 #### Saída
 
@@ -481,7 +451,7 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -493,4 +463,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

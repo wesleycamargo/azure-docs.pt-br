@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 #  Monitorar utilização em aplicativos da Windows Store e Windows Phone com o Application Insights
@@ -87,6 +87,35 @@ Clique em qualquer ocorrência para ver suas propriedades detalhadas, inclusive 
 
 Consulte [referência da API][api] para obter mais informações sobre eventos personalizados.
 
+## Sessões
+
+Sessão é um conceito fundamental no Application Insights, que se esforça para associar cada evento de telemetria - como falhas ou eventos personalizados que você codificar por conta própria - a uma sessão de usuário específica.
+
+Informações de contexto avançadas são coletadas sobre cada sessão, como características de dispositivo, localização geográfica, sistema operacional e assim por diante.
+
+Ao [diagnosticar problemas][diagnostic], você pode localizar toda a telemetria relacionada à sessão em que ocorreu um problema, incluindo todas as solicitações e todos os eventos, exceções ou rastreamentos registrados em log.
+
+Sessões fornecem uma boa medida de popularidade dos contextos, como dispositivo, sistema operacional ou local. Por exemplo, mostrando a contagem de sessões agrupada por dispositivo, você obter uma contagem mais precisa da frequência com que esse dispositivo é usado com seu aplicativo do que pela contagem de exibições de página. Essa seria um dado útil para fazer a triagem de qualquer problema específico do dispositivo.
+
+
+#### O que é uma sessão?
+
+Uma sessão representa uma ocorrência única entre o usuário e o aplicativo. Em sua forma mais simples, a sessão começa quando o usuário inicia o aplicativo e termina quando o usuário sai do aplicativo. Para aplicativos móveis, a sessão é encerrada quando o aplicativo fica suspenso (movido para o segundo plano) por mais de 20 segundos. Se o aplicativo for reiniciado, uma nova sessão será iniciada. Naturalmente, um usuário pode ter várias sessões em um dia ou até mesmo em uma única hora.
+
+**Duração da sessão** é uma métrica que representa o período de tempo entre o primeiro e o último item de telemetria da sessão. (Não inclui o período de tempo limite).
+
+
+**Contagem de sessões** em um determinado intervalo é definida como o número de sessões exclusivas com alguma atividade durante esse intervalo. Quando você examina um intervalo de tempo longo, como uma contagem de sessão diária para a semana anterior, isso normalmente é equivale ao número total de sessões.
+
+No entanto, ao explorar intervalos de tempo menores, como granulação por hora, uma sessão longa englobando várias horas será contada para cada hora em que a sessão esteve ativa.
+
+## Usuários e contagens de usuário
+
+Cada sessão de usuário é associado uma id de usuário exclusiva, gerada no uso do aplicativo e mantida no armazenamento local do dispositivo. Um usuário que utiliza vários dispositivos será contado mais de uma vez.
+
+A métrica de **contagem de usuários** em um certo intervalo é definida como o número de usuários exclusivos com atividade registrada durante esse intervalo. Como resultado, usuários com sessões longas podem ser contados várias vezes quando você define um intervalo de tempo em que o detalhamento é menor que cerca de uma hora.
+
+**Novos usuários** conta os usuários cujas primeiras sessões com o aplicativo ocorreram durante esse intervalo.
 
 
 ## <a name="debug"></a>Modo Depurar versus Liberar
@@ -114,10 +143,14 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
+[diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [windows]: app-insights-windows-get-started.md
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

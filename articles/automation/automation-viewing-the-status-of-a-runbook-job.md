@@ -30,7 +30,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 |Failed|O trabalho foi concluído com um erro.|
 |Erro, aguardando recursos|O trabalho falhou porque atingiu o limite de [fração justa](http://msdn.microsoft.com/library/azure/3179b655-ab39-407a-9169-33571f958325#fairshare) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes.|
 |Em fila|O trabalho está aguardando recursos de um trabalho do Automation ficar disponível para que ele possa ser iniciado.|
-|Iniciando|O trabalho foi atribuído a um trabalho, e o sistema está iniciando-o.  |
+|Iniciando|O trabalho foi atribuído a um trabalho, e o sistema está iniciando-o.|
 |Continuando|O sistema está reiniciando o trabalho depois que ele foi suspenso.|
 |Executando|O trabalho está em execução.|
 |Executando, aguardando recursos|O trabalho foi descarregado, pois atingiu o limite de [fração justa](http://msdn.microsoft.com/library/azure/3179b655-ab39-407a-9169-33571f958325#fairshare). Ele continuará em breve a partir de seu último ponto de verificação.|
@@ -84,6 +84,6 @@ Os comandos de exemplo a seguir recuperam o último trabalho para um exemplo de 
 
 ## Artigos relacionados
 
-- [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md)
+- [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

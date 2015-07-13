@@ -13,14 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="06/24/2015"
    ms.author="danlep"/>
 
 # Big Compute no Azure: recursos técnicos para Lote e HPC (Computação de Alto Desempenho).
 Este é um guia para recursos técnicos para ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure. Amplie suas cargas de trabalho de lote ou HPC existentes para a nuvem do Azure ou crie novas soluções Big Compute no Azure usando diversos serviços do Azure.
 
 ## Opções de soluções
-
 
 Saiba mais sobre as opções do Big Compute no Azure e escolha a abordagem certa para suas necessidades de negócios e cargas de trabalho.
 
@@ -31,7 +30,7 @@ Saiba mais sobre as opções do Big Compute no Azure e escolha a abordagem certa
 
 ## Lote do Azure
 
-O [Lote](http://azure.microsoft.com/services/batch/) (visualização) é um serviço de plataforma que facilita a habilitação de seus aplicativos para a nuvem e a execução de trabalhos sem configurar e gerenciar um cluster e um agendador de trabalhos. Use o SDK para integrar aplicativos clientes ao Lote do Azure por meio de uma variedade de linguagens, preparar dados no Azure e criar pipelines de execução de trabalho.
+O [Lote](http://azure.microsoft.com/services/batch/) é um serviço de plataforma que facilita a habilitação de seus aplicativos para a nuvem e a execução de trabalhos sem configurar e gerenciar um cluster e um agendador de trabalhos. Use o SDK para integrar aplicativos clientes ao Lote do Azure por meio de uma variedade de linguagens, preparar dados no Azure e criar pipelines de execução de trabalho.
 
 * Inscreva-se para obter a [visualização](http://azure.microsoft.com/services/preview/)
 
@@ -47,7 +46,7 @@ O [Lote](http://azure.microsoft.com/services/batch/) (visualização) é um serv
 
 ## Soluções de cluster HPC
 
-Migre ou amplie seu cluster existente do Windows HPC para executar cargas de trabalho com consumo intensivo de computação no Azure.
+Implante ou amplie seu cluster HPC existente do Windows ou Linux para executar cargas de trabalho com uso intensivo de computação no Azure.
 
 ### Microsoft HPC Pack
 
@@ -60,6 +59,13 @@ O [HPC Pack](https://technet.microsoft.com/library/cc514029) é o gerenciador de
 * [Tutorial: Configurar um cluster híbrido com o HPC Pack no Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Fóruns do Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
+
+### Soluções de cluster do Linux
+Use esses modelos do Gerenciador de Recursos do Azure para implantar clusters HPC do Linux.
+
+* [Crie um cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) e uma [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+
+* [Crie um cluster de Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -75,8 +81,7 @@ O [HPC Pack](https://technet.microsoft.com/library/cc514029) é o gerenciador de
 
 ## Instâncias de computação intensiva
 
-O Azure oferece uma [variedade de tamanhos](https://msdn.microsoft.com/library/azure/dn197896.aspx), incluindo [instâncias A8, A9, A10 e A11](https://msdn.microsoft.com/library/azure/dn689095.aspx), para executar suas cargas de trabalho do Lote e do HPC.
-
+O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md), incluindo [instâncias A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação para executar as cargas de trabalho de Lote e de HPC.
 
 * [Instâncias A8 e A9: Início Rápido com HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -113,4 +118,4 @@ O Azure oferece uma [variedade de tamanhos](https://msdn.microsoft.com/library/a
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](http://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

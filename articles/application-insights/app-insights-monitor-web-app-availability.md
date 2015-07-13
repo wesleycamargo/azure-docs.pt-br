@@ -158,7 +158,7 @@ Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
 2. Selecione o teste com várias etapas e carregue o arquivo .webtest.
 
-    ![Selecione teste da Web em várias etapa.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+    ![Selecione teste da Web em várias etapas.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 Exiba seus resultados de teste quaisquer eventuais falhas do mesmo modo que faria para testes de url única.
 
@@ -169,7 +169,7 @@ Não se esqueça de que todos os recursos de uma página devem carregar corretam
 
 ### Conectando a hora e números aleatórios em seu teste de várias etapas
 
-Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os todavia como parâmetros do teste, StartTime e EndTime.
+Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os, todavia, como parâmetros do teste, StartTime e EndTime.
 
 ![Um teste da Web com parâmetros.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
 

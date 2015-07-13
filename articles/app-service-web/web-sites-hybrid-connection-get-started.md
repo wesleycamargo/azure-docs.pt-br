@@ -90,19 +90,19 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 	
 	![Clique em OK][CreateBTScomplete]
 	
-6. Quando o processo for concluído, a área de notificações no portal informará que a conexão foi criada com sucesso. 
-<!-- TODO
+6. Quando o processo for concluído, a área Notificações no portal informa a você que a conexão foi criada com sucesso.
+	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-	
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
+
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. Na folha do aplicativo Web, o ícone **Conexões híbridas** agora mostra que uma conexão híbrida foi criada.
 	
 	![Uma conexão híbrida criada][CreateHCOneConnectionCreated]
@@ -205,5 +205,6 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCMInstalling]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
 [HCMInstallComplete]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

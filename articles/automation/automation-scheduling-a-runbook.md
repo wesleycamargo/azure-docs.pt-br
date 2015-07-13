@@ -94,6 +94,6 @@ Os comandos de exemplo a seguir mostram como desabilitar uma agenda.
 ## Artigos relacionados
 
 - [Agendar Ativos na Automação do Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md)
+- [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

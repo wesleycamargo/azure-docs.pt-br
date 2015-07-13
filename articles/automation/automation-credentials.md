@@ -101,4 +101,6 @@ A imagem a seguir mostra um exemplo do uso de uma credencial em um runbook gráf
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

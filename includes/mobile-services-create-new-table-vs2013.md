@@ -13,9 +13,6 @@ Antes de armazenar dados em seu novo serviço móvel, você deve criar uma nova 
 
 	>[AZURE.NOTE]A chave de aplicativo é distribuída com o aplicativo. Como essa chave não é distribuída com segurança, ela não pode ser considerada como um token de segurança. Para proteger o acesso aos seus dados de serviços móveis, você deve autenticar os usuários antes de acessar. Para obter mais informações, consulte [Permissões](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 	>
-	>Novas tabelas são criadas com as colunas Id, __createdAt, __updatedAt,  e __versão. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>Novas tabelas são criadas com as colunas Id, __createdAt, __updatedAt, e __versão. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

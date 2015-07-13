@@ -82,7 +82,7 @@ As folhas gateway e host do gateway compartilham a mesma IU presente nas folhas 
 
 Você usa a folha **Host de gateway** para todas as tarefas que você realizaria para qualquer aplicativo da Web. Para obter mais informações, consulte [Gerenciar aplicativos Web no portal](web-sites-manage.md).
 
-## Como navegar até as folhas de aplicativo de API e de gateway 
+## <a id="navigate"></a>Como navegar até as folhas de aplicativo de API e de gateway 
 
 Uma maneira de chegar à folha **Aplicativo de API** é por meio do recurso de navegação do Portal do Azure. Na home page do portal, clique em **Procurar > Aplicativos de API** para ver todos os aplicativos de API que você pode gerenciar.
 

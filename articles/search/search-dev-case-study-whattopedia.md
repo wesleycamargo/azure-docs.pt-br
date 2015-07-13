@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Estudo de caso do desenvolvedor de Pesquisa do Azure</h1>
+# Estudo de caso do desenvolvedor de Pesquisa do Azure
 
-<font size="5">Como [WhatToPedia.com](http://whattopedia.com/) criou um portal de mídia informativa no Microsoft Azure</font>
+## Como [WhatToPedia.com](http://whattopedia.com/) criou um portal de mídia informativa no Microsoft Azure
 
  ![][6] &nbsp;&nbsp;&nbsp; <font size="9">A grande ideia</font>
 
@@ -419,5 +419,6 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,4 +1,4 @@
-﻿
+
 1. Clique com o botão direito do mouse no projeto do Windows Store, clique em **Definir como Projeto de Inicialização** e pressione a tecla F5 para executar o aplicativo do Windows Store.
 	
 	Depois que o aplicativo é iniciado, o dispositivo está registrado para notificações por push.
@@ -19,5 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

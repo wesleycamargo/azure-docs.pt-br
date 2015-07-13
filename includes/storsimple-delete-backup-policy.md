@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Excluir uma política de backup do StorSimple"
-   description="Explica como é possível usar o serviço StorSimple Manager para excluir uma política de backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Para excluir uma política de backup do StorSimple
 
@@ -26,4 +10,4 @@
 A página **Políticas de Backup** será atualizada para exibir a nova lista de políticas.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

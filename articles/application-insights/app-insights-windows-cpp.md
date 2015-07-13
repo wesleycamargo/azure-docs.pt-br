@@ -1,10 +1,4 @@
-<properties 
-	pageTitle="Application Insights para aplicativos C++" 
-	description="Analise a utilização e o desempenho de seu aplicativo C++ com o Application Insights."
-	services="application-insights" 
-	documentationCenter="cpp" 
-	authors="crystk" 
-	manager="jakubo"/>
+<properties pageTitle="Application Insights para aplicativos C++" description="Analise a utilização e o desempenho de seu aplicativo C++ com o Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -23,7 +17,7 @@ O Application Insights do Visual Studio permite que você monitore seu aplicativ
 
 Você precisará de:
 
-* Uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços de nuvem da Microsoft.
+* Uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços em nuvem da Microsoft.
 * Visual Studio 2015 ou posterior.
 
 ## Criar um recurso do Application Insights
@@ -49,7 +43,7 @@ A chave identifica o recurso, e você a instalará em breve no SDK para direcion
 
 2. Instale o SDK do Application Insights para Aplicativos C++.
 
-    ![Selecione **Online**, **Incluir pré-lançamento**, e procure "Application Insights"](./media/app-insights-windows-cpp/04-ai-nuget.png)
+    ![Consulte **Incluir pré-lançamento** e pesquise “Application Insights”.](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. Nas configurações do projeto para lançamento e depuração:
   - Adicione $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc às propriedades do projeto -> Diretórios VC++ -> Incluir Diretórios
@@ -57,6 +51,14 @@ A chave identifica o recurso, e você a instalará em breve no SDK para direcion
 
 4. Adicione ApplicationInsights.winmd como uma referência ao projeto por meio de $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DE PLATAFORMA> \release\ApplicationInsights
 5. Adicione o AppInsights_Win10-UAP.dll de $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DE PLATAFORMA>\release\AppInsights_Win10-UAP. Vá até as propriedades e defina o conteúdo como SIM. Isso copiará a dll para o diretório de compilação.
+
+
+#### Para atualizar o SDK para versões futuras
+
+Quando um novo [SDK é lançado](app-insights-release-notes-windows-cpp.md):
+
+* No Gerenciador de pacotes do NuGet, selecione o SDK instalado e escolha a ação: Atualizar.
+* Repita as etapas de instalação usando o novo número de versão.
 
 ## Usar o SDK
 

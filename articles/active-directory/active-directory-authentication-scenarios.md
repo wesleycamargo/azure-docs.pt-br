@@ -466,4 +466,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

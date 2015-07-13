@@ -1,7 +1,7 @@
-﻿#####Criar uma tabela
-Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **CloudTableClient** e o utiliza para criar uma nova tabela. O código tenta fazer referência a uma tabela denominada "people". Se não localizar uma tabela com esse nome, ele criará uma.
+#####Criar uma tabela
+Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **CloudTableClient** e o utiliza para criar uma nova tabela. O código tenta fazer referência a uma tabela denominada “people”. Se uma tabela com esse nome não for localizada, ela será criada.
 
-**OBSERVAÇÃO:** Todos os códigos deste guia pressupõe que o aplicativo que está sendo criado é um projeto do Serviço de Nuvem do Azure e usa uma cadeia de conexão de armazenamento armazenada na configuração de serviço do aplicativo do Azure.
+**OBSERVAÇÃO**: todos os códigos deste guia pressupõe que o aplicativo que está sendo criado é um projeto do Serviço de Nuvem do Azure e usa uma cadeia de conexão de armazenamento armazenada na configuração de serviço do aplicativo do Azure.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -11,7 +11,7 @@ Um objeto **CloudTableClient** permite obter os objetos de referência para tabe
 	table.CreateIfNotExists();
 
 #####Adicionar uma entidade a uma tabela
-Para adicionar uma entidade a uma tabela, crie uma classe que defina as propriedades da sua entidade. O código a seguir define uma classe chamada **CustomerEntity**, que usa o nome do cliente como a chave de linha e o sobrenome como a chave de partição.
+Para adicionar uma entidade a uma tabela, crie uma classe que defina as propriedades da sua entidade. O código a seguir define uma classe chamada **CustomerEntity** que usa o nome do cliente como a chave de linha e o sobrenome como a chave de partição.
 
 	public class CustomerEntity : TableEntity
 	{
@@ -71,7 +71,7 @@ Você pode inserir várias entidades em uma tabela em uma única operação de g
 	table.ExecuteBatch(batchOperation);
 
 #####Obter todas as entidades em uma partição
-Para consultar uma tabela de todas as entidades em uma partição, use um objeto **TableQuery**. O exemplo de código a seguir especifica um filtro para as entidades em que 'Smith' é a chave de partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
+Para consultar uma tabela de todas as entidades em uma partição, use um objeto **TableQuery**. O exemplo de código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -87,7 +87,7 @@ Para consultar uma tabela de todas as entidades em uma partição, use um objeto
 	}
 
 #####Obter uma única entidade
-Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado no TableResult.Result é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço **Tabela**.
+Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Esse método retorna uma única entidade, em vez de uma coleção, e o valor retornado no TableResult.Result é um objeto **CustomerEntity**. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço **Table**.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -133,8 +133,6 @@ Você poderá excluir uma entidade facilmente depois de encontrá-la. O código 
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-[Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+[Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/) Veja também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

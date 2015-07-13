@@ -50,10 +50,14 @@ Introdução:
 
 4. Neste exemplo, estamos monitorando um aplicativo Web, por isso é possível usar as ferramentas do Azure no Visual Studio para instalar o SDK. Dizemos a ele o nome do nosso recurso do Application Insights:
 
-    ![No Visual Studio, na caixa de diálogo Novo Projeto, marque Adicionar Application Insights e, em Enviar telemetria para, opte por criar um novo aplicativo ou usar um já existente.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione Adicionar Application Insights. Em Enviar telemetria para, crie um novo recurso ou use um já existente.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. Publicar seu aplicativo e observar os dados de telemetria que aparecem em seu recurso Application Insights.
 
 
 ## Criar armazenamento no Azure
+
+Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
 1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].
 
@@ -88,20 +92,20 @@ Introdução:
 
     ![Escolher os tipos de evento](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-Agora relaxe deixe as pessoas usarem seu aplicativo por algum tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas][metrics] e eventos individuais na [pesquisa de diagnóstico][diagnostic].
+Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas][metrics] e eventos individuais na [pesquisa de diagnóstico][diagnostic].
 
 E, além disso, os dados serão exportados para o armazenamento, no qual você pode inspecionar o conteúdo. Por exemplo, há um navegador de armazenamento no Visual Studio:
 
 
 ![No Visual Studio, abra o Navegador do Servidor, Azure e Armazenamento](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todo tipo de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL. Isso nos permitirá executar diversas consultas interessantes.
+Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL. Isso nos permitirá executar diversas consultas interessantes.
 
 ## Criar um Banco de Dados SQL do Azure
 
-Mais uma vez desde a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
+Mais uma vez, começando com a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
 
-![Novos dados, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
+![Novo, Dados, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
 
 Verifique se o servidor de banco de dados permite o acesso aos serviços do Azure:
@@ -274,12 +278,12 @@ Inicie o trabalho na barra de ação:
 
 ![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
-Você pode optar por iniciar o processamento de dados neste momento ou iniciar com dados anteriores. Isso é útil se você a Exportar Contínua estiver em execução já há algum tempo.
+Você pode optar por iniciar o processamento de dados neste momento ou iniciar com dados anteriores. O último é útil se você tiver Exportação Contínua já em execução por um tempo.
 
 
 ![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
-Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Server e observe o dados entrando. Por exemplo, use uma consulta como esta:
+Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Server e observe os dados entrando. Por exemplo, use uma consulta como esta:
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]

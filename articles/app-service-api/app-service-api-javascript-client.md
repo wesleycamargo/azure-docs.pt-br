@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este artigo mostra como criar um cliente HTML e JavaScript para um [aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço De Aplicativo do Azure](/documentation/services/app-service/). Este artigo pressupõe conhecimento prático de HTML e JavaScript e usa da estrutura JavaScript [AngularJS](https://angularjs.org/) para fazer chamadas REST para o aplicativo de API.
+Este artigo mostra como criar um cliente HTML e JavaScript para um [aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](/documentation/services/app-service/). Este artigo pressupõe conhecimento prático de HTML e JavaScript e usa da estrutura JavaScript [AngularJS](https://angularjs.org/) para fazer chamadas REST para o aplicativo de API.
 
 Alguns artigos para ler antes disso, para lhe ajudar a começar.
 
@@ -338,7 +338,7 @@ Nesta seção você implantará o cliente HTML/JavaScript como um aplicativo Web
 
 	Observe que a URL especifica HTTPS. O uso de HTTPS não é opcional; Aplicativos de API não oferecem suporte a HTTP.
 
-1. Clique com o botão direito no projeto da Web HTML/JavaScript e selecione o item de menu de contexto **Publicar**.
+1. Clique com o botão direito no projeto Web HTML/JavaScript e selecione o item de menu de contexto **Publicar**.
 
 	![apiapp.json e metadados no Gerenciador de soluções](./media/app-service-api-javascript-client/13-publish-web-app.png)
 

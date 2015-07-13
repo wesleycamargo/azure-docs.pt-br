@@ -42,5 +42,6 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 * Consulte o [Tutorial de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
 * Leia a postagem de blog da comunidade [Módulo do PowerShell para as APIs REST de Gerenciamento de API do #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

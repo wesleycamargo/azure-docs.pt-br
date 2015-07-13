@@ -60,4 +60,5 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -1,13 +1,13 @@
 ## Enviar mensagens ao Hub de Eventos
-Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid project](http://qpid.apache.org/). Isso é análogo a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
+Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos supor que seja um ambiente Linux, por exemplo, um [VM Linux do Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) com 14.04 do Ubuntu.
+1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos considerar um ambiente Linux, por exemplo, uma [VM do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) com Ubuntu 14.04.
 
 2. Para compilar a biblioteca Proton, instale os pacotes a seguir:
 
 		sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
 
-3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html) library, and extract it, e.g.:
+3. Baixe a [biblioteca Qpid Proton](http://qpid.apache.org/proton/index.html) e extraia-, por exemplo:
 
 		wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
 		tar xvfz qpid-proton-0.7.tar.gz
@@ -20,7 +20,7 @@ Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hu
 		cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 		sudo make install
 
-5. No seu diretório de trabalho, crie um novo arquivo chamado **sender.c** com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do hub de eventos e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar com URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. No seu diretório de trabalho, crie um novo arquivo chamado **sender.c** com o seguinte conteúdo. Lembre-se de substituir o valor para o nome do hub de eventos e o nome de namespace (o último é geralmente `{event hub name}-ns`). Você também deve substituir uma versão codificada em URL da chave para o **SendRule** criado anteriormente. Você pode codificar a URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		#include "proton/message.h"
 		#include "proton/messenger.h"
@@ -60,7 +60,7 @@ Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hu
 
 		int sendMessage(pn_messenger_t * messenger) {
 			char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
-			char * msgtext = (char *) "Olá do C!";
+			char * msgtext = (char *) "Hello from C!";
 
 			pn_message_t * message;
 			pn_data_t * body;
@@ -82,7 +82,7 @@ Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hu
 		}
 
 		int main(int argc, char** argv) {
-			printf("Pressione Ctrl-C para interromper o processo do remetente\n");
+			printf("Press Ctrl-C to stop the sender process\n");
 
 			pn_messenger_t *messenger = pn_messenger(NULL);
 			pn_messenger_set_outgoing_window(messenger, 1);
@@ -105,7 +105,6 @@ Nesta seção, iremos escrever um aplicativo C para enviar eventos para o seu hu
 
 		gcc sender.c -o sender -lqpid-proton
 
-> [AZURE.NOTE] No código acima, usamos uma janela de saída de 1 para forçar as mensagens enviadas assim que possível. Em geral, o aplicativo deve tentar mensagens em lote para aumentar a taxa de transferência. Consulte a página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obter mais informações sobre como usar a biblioteca Qpid Proton neste e em outros ambientes e de plataformas para as quais associações são fornecidas (atualmente Perl, PHP, Python e Ruby).
+> [AZURE.NOTE]No código acima, usamos uma janela de saída de 1 para forçar as mensagens enviadas assim que possível. Em geral, o aplicativo deve tentar mensagens em lote para aumentar a taxa de transferência. Consulte a página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obter mais informações sobre como usar a biblioteca Qpid Proton neste e em outros ambientes e de plataformas para as quais associações são fornecidas (atualmente Perl, PHP, Python e Ruby).
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

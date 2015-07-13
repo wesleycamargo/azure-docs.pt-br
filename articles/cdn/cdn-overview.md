@@ -3,7 +3,7 @@
 	description="Saiba o que é a CDN (Rede de Distribuição de Conteúdo) do Azure e como usá-la para fornecer conteúdo de alta largura de banda armazenando em cache blobs e conteúdo estático." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="akucer" 
+	authors="zhangmanling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="akucer"/>
+	ms.date="05/26/2015" 
+	ms.author="mazha"/>
 
 #Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo estático e blobs do Azure usados por serviços de nuvem em locais estrategicamente posicionados para fornecer largura de banda máxima para o fornecimento de conteúdo aos usuários. 
+A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo estático e blobs do Azure usados por serviços de nuvem em locais estrategicamente posicionados para fornecer largura de banda máxima para o fornecimento de conteúdo aos usuários.
 
-Se for um cliente existente da CDN, agora você poderá gerenciar seus pontos de extremidade da CDN por meio do [Portal de Gerenciamento do Microsoft Azure](https://manage.windowsazure.com). 
+Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal de Gerenciamento do Microsoft Azure](https://manage.windowsazure.com).
 
 
->[AZURE.NOTE] A CDN do Azure tem um [plano de cobrança](http://www.microsoft.com/windowsazure/pricing/) separado do Armazenamento do Azure ou dos serviços de nuvem do Azure.
+>[AZURE.NOTE]A CDN do Azure tem um [plano de faturamento](http://www.microsoft.com/windowsazure/pricing/) separado do Armazenamento do Azure ou dos Serviços de Nuvem do Azure.
  
 
-A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista atual dos locais de nós da CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/gg680302.aspx).
+A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
 Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 
@@ -34,7 +34,7 @@ Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 - Grande escala distribuída para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto. 
 
 
->[AZURE.IMPORTANT] Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 60 minutos para que a propagação seja feita no mundo inteiro.
+>[AZURE.IMPORTANT]Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 60 minutos para que a propagação seja feita no mundo inteiro.
  
 Quando uma solicitação de um objeto é feita pela primeira vez à CDN, o objeto é recuperado diretamente do serviço Blob ou do serviço de nuvem. Quando uma solicitação é feita usando a sintaxe da CDN, a solicitação é redirecionada para o ponto de extremidade da CDN mais próximo do local em que a solicitação foi feita para fornecer acesso ao objeto. Se o objeto não for encontrado nesse ponto de extremidade, ele será recuperado do serviço e armazenado em cache no ponto de extremidade, em que uma configuração de TTL (vida útil) será mantida para o objeto armazenado em cache.
  
@@ -51,40 +51,41 @@ Quando você habilita o acesso à CDN para uma conta de armazenamento, o Portal 
 
 ##Armazenando em cache o conteúdo dos sites do Azure
 
-Você pode habilitar a CDN de seus sites para armazenar em cache o conteúdo da Web, como imagens, scripts e folhas de estilo. Consulte [Integrar um site do Azure à CDN do Azure](../cdn-websites-with-cdn.md).
+Você pode habilitar a CDN de seus sites para armazenar em cache o conteúdo da Web, como imagens, scripts e folhas de estilo. Consulte [Integrar um site do Azure com a CDN do Azure](../cdn-websites-with-cdn.md).
 
-Quando você habilita o acesso à CDN para um site, o Portal de Gerenciamento fornece um nome de domínio da CDN no seguinte formato: http://<identificador>.vo.msecnd.net/. Esse nome de domínio pode ser usado para recuperar objetos de um site. Por exemplo, com um contêiner público chamado cdn e um arquivo de imagem chamado music.png, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
+Quando você habilita o acesso à CDN para um site, o Portal de Gerenciamento fornece um nome de domínio da CDN no seguinte formato: http://<identifier>.vo.msecnd.net/. Esse nome de domínio pode ser usado para recuperar objetos de um site. Por exemplo, com um contêiner público chamado cdn e um arquivo de imagem chamado music.png, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
 
 - **URL do site do Azure**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
-- **URL da CDN do Azure**: `http://<identifier>.vo.msecnd.net/cdn/music.png` 
+- **URL da CDN do Azure**: `http://<identifier>.vo.msecnd.net/cdn/music.png`
+ 
 ##Armazenando em cache o conteúdo dos serviços de nuvem do Azure
 
-Você pode armazenar em cache para a CDN os objetos que são fornecidos por um serviço de nuvem do Azure. 
+Você pode armazenar em cache para a CDN os objetos que são fornecidos por um serviço de nuvem do Azure.
 
-O cache para serviços de nuvem tem as seguintes restrições: 
+O cache para serviços de nuvem tem as seguintes restrições:
 
 
 - A CDN deve ser usada para armazenar em cache apenas conteúdo estático.
 
-	>[AZURE.WARNING] O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
+	>[AZURE.WARNING]
 - O serviço de nuvem deve ser implantado em uma implantação de produção.
 - O serviço de nuvem deve fornecer o objeto na porta 80 usando HTTP.
 - O serviço de nuvem deve colocar o conteúdo a ser armazenado em cache ou entregue na pasta /cdn do serviço de nuvem.
 
-Quando você habilita o acesso à CDN para um serviço de nuvem, o Portal de Gerenciamento fornece um nome de domínio da CDN no seguinte formato: http://<identificador>.vo.msecnd.net/. Esse nome de domínio pode ser usado para recuperar objetos de um serviço de nuvem. Por exemplo, com a um serviço de nuvem chamado myHostedService e uma página da Web do ASP.NET chamada Music. aspx que fornece conteúdo, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
+Quando você habilita o acesso à CDN para um serviço de nuvem, o Portal de Gerenciamento fornece um nome de domínio da CDN no seguinte formato: http://<identifier>.vo.msecnd.net/. Esse nome de domínio pode ser usado para recuperar objetos de um serviço de nuvem. Por exemplo, com a um serviço de nuvem chamado myHostedService e uma página da Web do ASP.NET chamada music.aspx que fornece conteúdo, os usuários podem acessar o objeto usando uma das duas seguintes URLs:
 
 
-- **URL do serviço de nuvem do Azure**: `http://myHostedService.cloudapp.net/cdn/music.aspx` 
+- **URL do Serviço de Nuvem do Azure**: `http://myHostedService.cloudapp.net/cdn/music.aspx` 
 - **URL da CDN do Azure**: `http://<identifier>.vo.msecnd.net/music.aspx` 
 
 
 ###Armazenando em cache conteúdo específico com cadeias de caracteres de consulta
 
-Você pode usar cadeias de consulta para diferenciar os objetos recuperados de um serviço de nuvem. Por exemplo, se o serviço de nuvem exibir um gráfico que pode variar, você poderá passar uma cadeia de consulta para recuperar o gráfico específico necessário. Por exemplo: 
+Você pode usar cadeias de consulta para diferenciar os objetos recuperados de um serviço de nuvem. Por exemplo, se o serviço de nuvem exibir um gráfico que pode variar, você poderá passar uma cadeia de consulta para recuperar o gráfico específico necessário. Por exemplo:
 
 `http://<identifier>.vo.msecnd.net/chart.aspx?item=1`
 
-Cadeias de caracteres de consulta são passadas como literais de cadeia de caracteres. Se você tiver um serviço que usa dois parâmetros, como `?area=2&item=1`, e faz uma chamada subsequente ao serviço usando `?item=1&area=2`, armazenará em cache duas cópias do mesmo objeto.
+Cadeias de caracteres de consulta são passadas como literais de cadeia de caracteres. Se você tiver um serviço que usa dois parâmetros, como `?area=2&item=1`, e fizer uma chamada subsequente ao serviço usando `?item=1&area=2`, armazenará em cache duas cópias do mesmo objeto.
  
 
 ##Acessando conteúdo armazenado em cache por HTTPS
@@ -102,14 +103,15 @@ O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
 
 Mesmo quando o HTTPS é habilitado, o conteúdo da CDN pode ser recuperado usando HTTP e HTTPS.
 
-Para obter mais informações sobre como habilitar o HTTPS para conteúdo da CDN, consulte [Como habilitar a CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/gg680301.aspx).
+Para saber mais sobre como habilitar o HTTPS para conteúdo da CDN, consulte [Como habilitar a CDN (Rede de Distribuição de Conteúdo) do Azure](http://msdn.microsoft.com/library/azure/gg680301.aspx).
 
 
 ##Acessando conteúdo armazenado em cache com domínios personalizados
 
 Você pode mapear o ponto de extremidade HTTP da CDN para um nome de domínio personalizado e usar esse nome para solicitar objetos da CDN.
 
-Para obter mais informações sobre como mapear um domínio personalizado, consulte [Como mapear conteúdo da CDN (Rede de Distribuição de Conteúdo) para um domínio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx).
+Para saber mais sobre como mapear um domínio personalizado, consulte [Como mapear conteúdo da CDN (Rede de Distribuição de Conteúdo) para um domínio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx).
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

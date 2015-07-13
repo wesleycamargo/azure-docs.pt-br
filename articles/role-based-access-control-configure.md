@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Controle de acesso com base em função no portal de Visualização do Azure" 
+<properties 
+	pageTitle="Controle de acesso baseado em função no portal do Microsoft Azure" 
 	description="Descreve como funciona o controle de acesso baseado em função e como configurá-lo" 
 	services="" 
 	documentationCenter="" 
@@ -13,44 +13,36 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/20/2015" 
+	ms.date="05/05/2015" 
 	ms.author="justinha"/>
 
-<!--Este é um modelo básico que mostra como usar a redução para criar um tópico que inclui um Sumário, seções com subtítulos, links para outros tópicos azure.microsoft.com, links para outros sites, negrito, itálico, listas numeradas e com marcadores, trechos de código, e imagens. Para redução mais sofisticada, localize um tópico publicado e copie a redução ou HTML que desejar. Para obter mais detalhes sobre o uso da redução, consulte http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+# Controle de acesso baseado em função no portal do Microsoft Azure 
 
-<!--Properties section (above): this is required in all topics. Please fill it out!-->
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
-# Controle de acesso com base em função no portal de visualização do Azure 
-
-<p> Adicionamos suporte para o controle de acesso com base em função (RBAC) no portal de visualização do Azure para ajudar as organizações a atender seus requisitos de gerenciamento de acesso de forma simples e precisa. A <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">postagem no blog</a> fornecerá a você uma introdução rápida do recurso e ajudará você a começar. Este tópico descreve os conceitos em detalhes e abrange casos de uso adicionais. </p>
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+Adicionamos suporte para o RBAC (controle de acesso com base em função) no portal de Microsoft Azure para ajudar as organizações a atender seus requisitos de gerenciamento de acesso de forma simples e precisa. A [postagem no blog](http://go.microsoft.com/fwlink/?LinkId=511576) fornecerá a você uma introdução rápida do recurso e ajudará você a começar. Este tópico descreve os conceitos em detalhes e abrange casos de uso adicionais.
 
 
 ## RBAC no Azure
                                                                    
-Cada assinatura do Azure está associada com um Active Directory do Azure. Os usuários e serviços que acessam os recursos da assinatura usando o portal de Gerenciamento do Azure ou a API do Gerenciador de Recursos do Azure primeiro precisam se autenticar com aquele Azure Active Directory.
+Cada assinatura do Azure está associada com um Active Directory do Azure. Os usuários e serviços que acessam os recursos da assinatura usando o Portal de Gerenciamento do Microsoft Azure ou a API de Gerenciador de Recursos do Azure primeiro precisam se autenticar com o Active Directory do Azure.
 
-![][1] 
+![][1]
 
-O controle de acesso com base em função permite que você conceda acesso apropriado aos usuários, grupos e serviços do Azure AD, atribuindo funções para eles em uma assinatura ou grupo de recursos ou nível de recurso individual. A função atribuída define o nível de acesso que os usuários, grupos ou serviços tem no recurso do Azure. 
+O controle de acesso com base em função permite que você conceda acesso apropriado aos usuários, grupos e serviços do Azure AD, atribuindo funções para eles em uma assinatura ou grupo de recursos ou nível de recurso individual. A função atribuída define o nível de acesso que os usuários, grupos ou serviços tem no recurso do Azure.
 
 ### Função
 
-Uma função é uma coleção de ações que podem ser executadas nos recursos do Azure. Um usuário ou um serviço tem a permissão de executar uma ação em um recurso do Azure, se eles forem atribuídos uma função que contém aquela ação. Para obter uma lista de funções internas e **suas** ações e não as propriedades das **ações**, consulte [Funções internas](#builtinroles).
+Uma função é uma coleção de ações que podem ser executadas nos recursos do Azure. Um usuário ou um serviço tem a permissão de executar uma ação em um recurso do Azure, se eles forem atribuídos uma função que contém aquela ação. Para obter uma lista de funções internas e **suas** ações e **não** as propriedades das ações, consulte [Funções internas](#builtinroles).
 
 ### Atribuição de função
 
-O acesso é concedido aos usuários e serviços do Azure AD atribuindo a função apropriada a eles em um recurso do Azure. 
+O acesso é concedido aos usuários e serviços do Azure AD atribuindo a função apropriada para eles em um recurso do Azure.
 
 #### Entidades de segurança do Azure AD
 
 As funções podem ser atribuídas para os seguintes tipos de entidades de segurança do Azure AD:
 
 + **Usuários**: As funções podem ser atribuídas aos usuários organizacionais que estão no Azure AD com os quais a assinatura do Azure está associada. As funções também podem ser atribuídas aos usuários da conta da Microsoft externa (como joe@outlook.com) usando a ação de Convite para atribuir ao usuário um função no portal de visualização do Azure. Ao atribuir uma função a um usuário de conta da Microsoft externa faz com que uma conta de convidado seja criada no Azure AD para ele. Se essa conta de convidado está desabilitada no diretório, o usuário externo não poderá acessar nenhum recurso do Azure para o qual o usuário tem concedido acesso.
-+ **Grupos**: as funções podem ser atribuídas para os grupos de segurança do Azure AD. Um usuário é concedido acesso automaticamente a um recurso se ele se tornar um membro de um grupo que tem acesso. O usuário também perde o acesso automaticamente ao recurso após ser removido do grupo. Gerenciar o acesso através de grupos ao atribuir funções aos grupos e adicionar usuários a esses grupos é a prática recomendada, em vez de atribuir funções diretamente aos usuários. O RBAC do Azure não permite atribuir funções a listas de distribuição.
-	A capacidade de atribuir funções a grupos permite que uma organização estenda seu modelo de controle de acesso existente de seu diretório local para a nuvem, para que os grupos de segurança que já estejam estabelecidos para controlar o acesso local possam ser reutilizados no portal de Visualização do Azure. Para obter mais informações sobre as diferentes opções para sincronizar usuários e grupos de um diretório local, consulte [Integração de diretórios](http://technet.microsoft.com/library/jj573653.aspx). O Azure AD Premium também oferece um [recurso de gerenciamento de grupos delegados](http://msdn.microsoft.com/library/azure/dn641267.aspx) com o qual a capacidade de criar e gerenciar grupos pode ser delegada aos usuários não administradores do Azure AD.
++ **Grupos**: as funções podem ser atribuídas para os grupos de segurança do Azure AD. Um usuário é concedido acesso automaticamente a um recurso se ele se tornar um membro de um grupo que tem acesso. O usuário também perde o acesso automaticamente ao recurso após ser removido do grupo. Gerenciar o acesso através de grupos ao atribuir funções aos grupos e adicionar usuários a esses grupos é a prática recomendada, em vez de atribuir funções diretamente aos usuários. O RBAC do Azure não permite atribuir funções a listas de distribuição. A capacidade de atribuir funções a grupos permite que uma organização estenda seu modelo de controle de acesso existente de seu diretório local para a nuvem, para que os grupos de segurança que já estejam estabelecidos para controlar o acesso local possam ser reutilizados no portal de Portal do Azure. Para obter mais informações sobre as diferentes opções para sincronizar usuários e grupos de um diretório local, consulte [Integração de diretórios](http://technet.microsoft.com/library/jj573653.aspx). O Azure AD Premium também oferece um [recurso de gerenciamento de grupos delegados](http://msdn.microsoft.com/library/azure/dn641267.aspx) com o qual a capacidade de criar e gerenciar grupos pode ser delegada aos usuários não administradores do Azure AD.
 + **Entidades de serviço**: as identidades de serviço são representadas como entidades de serviço no diretório. Elas se autenticam com o Azure AD e se comunicam com segurança umas com as outras. Os serviços podem ser concedidos acesso aos recursos do Azure ao atribuir funções através do módulo do Azure para o Windows PowerShell à entidade de serviço do Azure AD representando aquele serviço. 
 
 #### Escopo do recurso
@@ -61,39 +53,38 @@ O acesso não precisa ser concedido para toda a assinatura. As funções podem s
 
 ## Coexistência do RBAC com os coadministradores de assinatura
 
-Os administradores e coadministradores de assinatura continuarão a ter acesso completo aos portais do Azure e as APIs de gerenciamento. No modelo RBAC, eles recebem a função de Proprietário no nível de assinatura.  
-No entanto, há suporte para o novo modelo RBAC apenas no portal de visualização do Azure e nas APIs do Gerenciador de Recursos do Azure. Os usuários e serviços que são atribuídos às funções RBAC não podem acessar o portal de Gerenciamento do Azure e as APIs de Gerenciamento de serviços. Ao adicionar um usuário a função de Proprietário de uma assinatura no portal de visualização do Azure não torna aquele usuário um coadministrador da assinatura no portal completo do Azure.
+Os administradores e coadministradores de assinatura continuarão a ter acesso completo aos portais do Azure e as APIs de gerenciamento. No modelo RBAC, eles recebem a função de Proprietário no nível de assinatura. No entanto, há suporte para o novo modelo RBAC apenas no Portal do Azure e nas APIs do Gerenciador de Recursos do Azure. Os usuários e serviços que são atribuídos às funções RBAC não podem acessar o Portal de Gerenciamento do Azure e as APIs de Gerenciamento de serviços. Ao adicionar um usuário a função de Proprietário de uma assinatura no Portal do Azure não torna aquele usuário um coadministrador da assinatura no portal completo do Azure.
 
-Se você deseja permitir acesso a um usuário para um recurso do Azure que ainda não está disponível para ser gerenciado por meio do portal de Visualização do Azure, você deve adicioná-los aos coadministradores de assinatura usando o portal completo de Gerenciamento do Azure. O Barramento de Serviço e os Serviços de Nuvem são exemplo de recursos que hoje não podem ser gerenciados usando o RBAC.
+Se você deseja permitir acesso a um usuário para um recurso do Azure que ainda não está disponível para ser gerenciado por meio do Portal de Gerenciamento, você deve adicioná-los aos coadministradores de assinatura usando o portal completo de Gerenciamento do Azure. O Barramento de Serviço e os Serviços de Nuvem são exemplo de recursos que hoje não podem ser gerenciados usando o RBAC.
 
 ## Autorização para o gerenciamento versus operações de dados
 
-O controle de acesso com base em função tem suporte somente para as operações de gerenciamento dos recursos do Azure no portal de Visualização do Azure e nas APIs do Gerenciador de Recursos do Azure. Nem todas as operações no nível de dados para os recursos do Azure podem ser autorizadas por meio do RBAC. Por exemplo, a criação/leitura/atualização/exclusão de contas de armazenamento pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de blobs ou tabelas dentro da conta de armazenamento não pode ser controlada por meio do RBAC. Semelhantemente, a criação/leitura/atualização/exclusão de um BD SQL pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de tabelas de SQL dentro do BD ainda não pode ser controlada por meio do RBAC.
+O controle de acesso com base em função tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Gerenciador de Recursos do Azure. Nem todas as operações no nível de dados para os recursos do Azure podem ser autorizadas por meio do RBAC. Por exemplo, a criação/leitura/atualização/exclusão de contas de armazenamento pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de blobs ou tabelas dentro da conta de armazenamento não pode ser controlada por meio do RBAC. Semelhantemente, a criação/leitura/atualização/exclusão de um BD SQL pode ser controlada por meio do RBAC, mas a criação/leitura/atualização/exclusão de tabelas de SQL dentro do BD ainda não pode ser controlada por meio do RBAC.
 
 ## Como adicionar e remover acesso
 
 Vamos olhar um exemplo de como o proprietário do recurso em uma organização pode gerenciar o acesso. Nesse cenário, você tem várias pessoas trabalhando em uma variedade de testes e projetos de produção que são desenvolvidos usando os recursos do Azure. Você deseja seguir as práticas recomendadas para conceder acesso. Os usuários devem ter acesso a todos os recursos que eles precisam, porém não acesso adicional. Você deseja reutilizar todos os investimentos que você fez nos processos e ferramentas para usar grupos de segurança que são controlados em um Active Directory local. Estas seções cobrem como configurar o acesso para estes recursos:
 
-* [Adicionar acesso](#add)
-* [Remover acesso](#remove)
-* [Adicionar ou remover o acesso para o usuário externo](#addremoveext)
+* [Adicionar acesso](#add-access)
+* [Remover acesso](#remove-access)
+* [Adicionar ou remover o acesso para o usuário externo](#add-or-remove-access-for-external-user)
 
-<h3><a id="add"></a>Adicionar acesso</h3>
+### Adicionar acesso
 
 Aqui está um resumo dos requisitos de acesso e como eles são configurados no Azure.
 
-Usuário/grupo | Requisito de acesso | função e o escopo para acesso	
+Usuário/Grupo | Requisitos de acesso | função e escopo para o acesso	
 ------------- | -------------  | ------------
-Toda a equipe de Jill Santos | Ler todos os recursos do Azure | Adicionar o grupo do AD que representa a equipe de Jill Santos à função de Leitor para a assinatura do Azure
-Toda a equipe de Jill Santos | Criar e gerenciar todos os recursos no grupo de recursos de teste | Adicionar o grupo do AD que representa a equipe de Jill Santos à função de Colaborador para o grupo de recursos de teste
-Brock | Criar e gerenciar todos os recursos no grupo de recursos Prod | Adicionar Brock à função de Colaborador para o grupo de recursos Prod
+Todas as equipes de Jill Santos | Leia todos os recursos do Azure | Adicione o grupo AD que representa a equipe de Jill Santos para a função de Leitor para a assinatura do Azure.
+Todas as equipes de Jill Santos | Crie e gerencie todos os recursos do grupo de recursos Test | Adicione o grupo AD que representa a equipe de Jill Santos para a função de Colaborador para o grupo de recursos Test
+Brock | Crie e gerencie todos os recursos do grupo de recursos Prod | Adicione Brock à função de Colaborador para o grupo de recursos Prod
 
 
-Primeiro, vamos adicionar o acesso de Leitura para todos os recursos da assinatura. Clique em **Procurar > Tudo > Assinaturas**.
+Primeiro, vamos adicionar o acesso à Leitura para todos os recursos da assinatura. Clique em **Procurar > Todos > Assinaturas**.
 
-![][3] 
+![][3]
 
-Clique em  *name of your subscription*** > Leitor > Adicionar**. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
+Clique no *nome de sua assinatura* ** > Leitor > Adicionar**. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
 
 ![][4]
 
@@ -101,17 +92,17 @@ Depois adicione a mesma equipe à função de colaborador do grupo de recursos d
 
 ![][5]
 
-Para adicionar Brock à função de Colaborador do grupo de recursos Prod, clique no grupo de recursos, clique em **Colaborador > Adicionar** e digite o nome do Brock. 
+Para adicionar Brock à função de Colaborador do grupo de recursos Prod, clique no grupo de recursos, clique em **Colaborador > Adicionar** e digite o nome do Brock.
 
 ![][6]
 
 As atribuições de função podem também ser gerenciadas usando o módulo Microsoft Azure para o Windows PowerShell. Aqui está um exemplo de como adicionar a conta de Brock usando o cmdlet New-AzureRoleAssignment em vez do portal:
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
+Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](role-based-access-control-powershell.md).
 
-<h3><a id="remove"></a>Remover acesso</h3>
+### Remover acesso
 
 Você também pode remover atribuições facilmente. Digamos que você deseja remover um usuário chamado de Brad Adams da função de Leitor para um grupo de recursos chamado TestDB. Abra a lâmina do grupo de recursos, clique em **Leitor > Brad Adams > Remover**.
 
@@ -119,16 +110,15 @@ Você também pode remover atribuições facilmente. Digamos que você deseja re
 
 Aqui está um exemplo de como remover Brad Adams usando o cmdlet New-AzureRoleAssignment:
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-<h3><a id="addremoveext"></a>Adicionar ou remover o acesso para o usuário externo</h3>
+### Adicionar ou remover o acesso para o usuário externo
 
-A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários externos. Essas opções podem ser alteradas apenas na interface do usuário (não há nenhum método de API do Windows PowerShell) no portal do Azure completo por um administrador global do diretório. 
-Para abrir a guia **Configurar** no portal do Azure completo, clique em **Active Directory** e clique no nome do diretório.
+A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários externos. Essas opções podem ser alteradas apenas na interface do usuário (não há nenhum método de API do Windows PowerShell) no portal do Azure completo por um administrador global do diretório. Para abrir a guia **Configurar** no portal do Azure, clique em **Active Directory** e no nome do diretório.
 
 ![][10]
 
-Então você pode editar as opções para controlar o acesso para os usuários externos. 
+Então você pode editar as opções para controlar o acesso para os usuários externos.
 
 ![][8]
 
@@ -138,56 +128,56 @@ Por padrão, os convidados não podem enumerar o conteúdo do diretório, assim 
 - Eles podem ver detalhes limitados de um usuário se sabem o endereço de email do usuário.
 - Eles podem ver detalhes limitados de um grupo quando eles sabem o nome do grupo.
 
-A capacidade dos convidados verem detalhes limitados de um usuário ou grupo permite que eles convidem outras pessoas e vejam alguns detalhes das pessoas com quem eles estão colaborando.  
+A capacidade dos convidados verem detalhes limitados de um usuário ou grupo permite que eles convidem outras pessoas e vejam alguns detalhes das pessoas com quem eles estão colaborando.
 
-Vamos passar pelo processo para adicionar o acesso para um usuário externo. Adicionaremos um usuário externo a mesma função de Leitor para grupo de recursos TestDB para que o usuário possa ajudar a depurar um erro. Abra a lâmina do grupo de recursos, clique em **Leitor > Adicionar > Convidar** e digite o endereço de email do usuário que deseja adicionar. 
+Vamos passar pelo processo para adicionar o acesso para um usuário externo. Adicionaremos um usuário externo a mesma função de Leitor para grupo de recursos TestDB para que o usuário possa ajudar a depurar um erro. Abra a lâmina do grupo de recursos, clique em **Leitor > Adicionar > Convidar** e digite o endereço de email do usuário que deseja adicionar.
 
 ![][9]
 
-Quando você adiciona um usuário externo, um convidado é criado no diretório. Posteriormente, aquele convidado pode ser adicionado a um grupo ou removido de um grupo, ou você pode adicioná-lo ou removê-lo individualmente de uma função simplesmente como faria para qualquer outro usuário do diretório. 
+Quando você adiciona um usuário externo, um convidado é criado no diretório. Posteriormente, aquele convidado pode ser adicionado a um grupo ou removido de um grupo, ou você pode adicioná-lo ou removê-lo individualmente de uma função simplesmente como faria para qualquer outro usuário do diretório.
 
-Você pode também remover um convidado de qualquer função, simplesmente como você removeria qualquer usuário. Remover o convidado de uma função em um recurso não remove o convidado do diretório. 
+Você pode também remover um convidado de qualquer função, simplesmente como você removeria qualquer usuário. Remover o convidado de uma função em um recurso não remove o convidado do diretório.
  
 ## Problemas conhecidos ao usar o controle de acesso com base em função
 
-Se você encontrar um problema ao usar o recurso do controle de acesso com base em função enquanto estiver na visualização, consulte [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/) para qualquer problema conhecido que possa estar relacionado ao problema.
+Se você encontrar um problema ao usar o recurso do controle de acesso com base em função, consulte [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md) para qualquer problema conhecido que possa estar relacionado ao problema.
 
 
 ## Funções internas
 
 O controle de acesso baseado em função do Azure é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar a definição das funções integradas. Em uma versão futura do RBAC do Azure, você poderá definir funções personalizadas pela composição de um conjunto de ações de uma lista de ações disponíveis que podem ser executadas nos recursos do Azure.
 
-Clique no link correspondente para ver as **ações** e não as propriedades das **ações** de uma definição de função. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade **não-ações** da definição de função especifica as ações que devem ser excluídas das ações permitidas. 
+Clique no link correspondente para ver as **ações** e **não** as propriedades das ações de uma definição de função. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade **não-ações** da definição de função especifica as ações que devem ser excluídas das ações permitidas.
 
 
 Nome da função | Descrição  	
 ------------- | -------------  
-[Colaborador de serviço de gerenciamento de API](#APIMgmt) | Permite gerenciar o serviço de gerenciamento de API, mas não acessá-lo.
-[Colaborador de componente do Application Insights](#AppInsights) | Permite gerenciar componentes do Application Insights, mas não acessá-los.
-[Colaborador do BizTalk](#BizTalk) | Permite gerenciar os serviços do BizTalk, mas não acessá-los.
-[Colaborador do DB MySQL ClearDB](#ClearDB) | Permite que você gerencie bancos de dados MySQL ClearDB, mas não acessá-los.
-[Colaborador](#Contributor) | Colaboradores podem gerenciar tudo, exceto o acesso.
-[Colaborador da fábrica de dados](#DataFactory) | Permite que você gerencie fábricas de dados, mas não acessá-las.
-[Colaborador de conta do banco de dados de documento](#DocDBContrib) | Permite gerenciar contas do DocumentDB, mas não acessá-las.
-[Colaborador de conta de sistemas inteligentes](#IntelliSysContrib) | Permite gerenciar contas de sistemas inteligentes, mas não acessá-las.
-[Colaborador de conta do APM NewRelic](#NewRelicContrib) | Permite gerenciar novas contas e aplicativos de gerenciamento de desempenho de aplicativo Relic, mas não acessá-las.
-[Proprietário](#Owner) | O proprietário pode gerenciar tudo, incluindo o acesso.
-[Leitor](#Reader) | Os leitores podem ver tudo, mas não podem fazer alterações.
-[Colaborador do Cache Redis](#Redis) | Permite gerenciar caches Redis, mas não acessá-los.
-[Colaborador do banco de dados SQL](#SQLDBContrib) | Permite que você gerencie bancos de dados SQL, mas não acessá-los. Além disso, você não pode gerenciar suas políticas de segurança ou seus SQL servers principais.
-[Gerenciador de Segurança do SQL](#SQLSecMgr) | Permite que você gerencie políticas de segurança de SQL servers e bancos de dados, mas não acessá-las.
-[Colaborador do SQL Server](#SQLSrvContrib) | Permite que você gerencie SQL servers e bancos de dados, mas não acessá-los nem as políticas de segurança.
-[Colaborador de Coleções de Trabalho do Agendador](#SchedContrib) | Permite que você gerencie coleções de trabalho do Agendador, mas não acessá-las.
-[Colaborador do Serviço de Pesquisa](#SearchContrib) | Permite que você gerencie Serviços de pesquisa, mas não acessá-los.
-[Colaborador da Conta de Armazenamento](#StorageContrib) | Permite que você gerencie contas de armazenamento, mas não acessá-las.
-[Administrador de Acesso do Usuário](#UserAccessAdmin) | Permite que você gerencie o acesso do usuário aos recursos do Azure.
-[Colaborador de Máquina Virtual](#VMContrib) | Permite que você gerencie máquinas virtuais, mas não acessá-las e não a rede virtual ou conta de armazenamento que estão conectadas.
-[Colaborador de Rede Virtual](#VNetContrib) | Permite gerenciar redes virtuais, mas não acessá-las.
-[Colaborador do Plano de Web](#WebPlanContrib) | Permite que você gerencie os planos da Web para sites, mas não acessá-los.
-[Colaborador do Site](#WebsiteContrib) | Permite que você gerencie sites (não os planos da Web), mas não acessá-los.
+[Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) | Permite gerenciar o serviço de gerenciamento de API, mas não acessá-lo.
+[Colaborador de componente do Application Insights](#application-insights-component-contributor) | Permite gerenciar componentes do Application Insights, mas não acessá-los.
+[Colaborador do BizTalk](#biztalk-contributor) | Permite gerenciar os serviços do BizTalk, mas não acessá-los.
+[Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) | Permite que você gerencie bancos de dados MySQL ClearDB, mas não acessá-los.
+[Colaborador](#contributor) | Colaboradores podem gerenciar tudo, exceto o acesso.
+[Colaborador da fábrica de dados](#data-factory-contributor) | Permite que você gerencie fábricas de dados, mas não acessá-las.
+[Colaborador de conta do banco de dados de documento](#document-db-account-contributor) | Permite gerenciar contas do DocumentDB, mas não acessá-las.
+[Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Permite gerenciar contas de sistemas inteligentes, mas não acessá-las.
+[Colaborador de conta do APM NewRelic](#newrelic-apm-account-contributor) | Permite gerenciar novas contas e aplicativos de gerenciamento de desempenho de aplicativo Relic, mas não acessá-las.
+[Proprietário](#owner) | O proprietário pode gerenciar tudo, incluindo o acesso.
+[Leitor](#reader) | Os leitores podem ver tudo, mas não podem fazer alterações.
+[Colaborador do Cache Redis](#redis-cache-contributor) | Permite gerenciar caches Redis, mas não acessá-los.
+[Colaborador do banco de dados SQL](#sql-db-contributor) | Permite que você gerencie bancos de dados SQL, mas não acessá-los. Além disso, você não pode gerenciar suas políticas de segurança ou seus SQL servers principais.
+[Gerenciador de Segurança do SQL](#sql-security-manager) | Permite que você gerencie políticas de segurança de SQL servers e bancos de dados, mas não acessá-las.
+[Colaborador do SQL Server](#sql-server-contributor) | Permite que você gerencie SQL servers e bancos de dados, mas não acessá-los nem as políticas de segurança.
+[Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Permite que você gerencie coleções de trabalho do Agendador, mas não acessá-las.
+[Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite que você gerencie Serviços de pesquisa, mas não acessá-los.
+[Colaborador da Conta de Armazenamento](#storage-account-contributor) | Permite que você gerencie contas de armazenamento, mas não acessá-las.
+[Administrador de Acesso do Usuário](#user-access-administrator) | Permite que você gerencie o acesso do usuário aos recursos do Azure.
+[Colaborador de Máquina Virtual](#virtual-machine-contributor) | Permite que você gerencie máquinas virtuais, mas não acessá-las e não a rede virtual ou conta de armazenamento que estão conectadas.
+[Colaborador de Rede Virtual](#virtual-network-contributor) | Permite gerenciar redes virtuais, mas não acessá-las.
+[Colaborador do Plano de Web](#web-plan-contributor) | Permite que você gerencie os planos da Web para sites, mas não acessá-los.
+[Colaborador do Site](#website-contributor) | Permite que você gerencie sites (não os planos da Web), mas não acessá-los.
 
 
-<h3><a id="APIMgmt"></a>Colaborador de serviço de gerenciamento de API</h3>
+### Colaborador de serviço de gerenciamento de API
 
 <table style=width:100%">
 <tr>
@@ -219,7 +209,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="AppInsights"></a>Colaborador de componente do Application Insights</h3>
+### Colaborador de componente do Application Insights
 
 <table style=width:100%">
 <tr>
@@ -254,7 +244,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="BizTalk"></a>Colaborador do BizTalk</h3>
+### Colaborador do BizTalk
 
 <table style=width:100%">
 <tr>
@@ -286,14 +276,14 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="ClearDB"></a>Colaborador do DB MySQL ClearDB</h3>
+### Colaborador do DB MySQL ClearDB
 
 <table style=width:100%">
 <tr>
 <th colspan="2">Ações</th>
 </tr>
 <tr>
-<td>successbricks.cleardb/databases/*</td>
+<td>successbricks.cleardb/Databases/*</td>
 <td>Criar e gerenciar bancos de dados MySQL ClearDB</td>
 </tr>
 <tr>
@@ -318,7 +308,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="Contributor"></a>Colaborador</h3>
+### Colaborador
 
 <table style=width:100%">
 <tr>
@@ -341,7 +331,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="DataFactory"></a>Colaborador da fábrica de dados</h3>
+### Colaborador da fábrica de dados
 
 <table style=width:100%">
 <tr>
@@ -370,7 +360,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="DocDBContrib"></a>Colaborador de conta do banco de dados de documento</h3>
+### Colaborador de conta do banco de dados de documento
 
 <table style=width:100%">
 <tr>
@@ -402,7 +392,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="IntelliSysContrib"></a>Colaborador de conta do sistemas inteligentes</h3>
+### Colaborador de conta do sistemas inteligentes
 
 <table style=width:100%">
 <tr>
@@ -434,7 +424,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="NewRelicContrib"></a>Colaborador de conta do APM NewRelic</h3>
+### Colaborador de conta do APM NewRelic
 
 <table style=width:100%">
 <tr>
@@ -466,7 +456,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="Owner"></a>Proprietário</h3>
+### Proprietário
 
 <table style=width:100%">
 <tr>
@@ -478,7 +468,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="Reader"></a>Leitor</h3>
+### Leitor
 
 <table style=width:100%">
 <tr>
@@ -490,7 +480,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="Redis"></a>Colaborador do Cache Redis</h3>
+### Colaborador do Cache Redis
 
 <table style=width:100%">
 <tr>
@@ -519,7 +509,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="SQLDBContrib"></a>Colaborador do banco de dados SQL</h3>
+### Colaborador do banco de dados SQL
 
 <table style=width:100%">
 <tr>
@@ -538,8 +528,16 @@ Nome da função | Descrição
 <td>Funções de leitura e atribuições de função</td>
 </tr>
 <tr>
+<td>Microsoft.Resources/subscriptions/resources/read</td>
+<td>Recursos de assinatura de leitura</td>
+</tr>
+<tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
 <td>Grupos de recursos de leitura</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/resources/read</td>
+<td>Recursos do grupo de recursos de leitura</td>
 </tr>
 <tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
@@ -574,7 +572,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="SQLSecMgr"></a>Gerenciador de segurança do SQL</h3>
+### Gerenciador de Segurança do SQL
 
 <table style=width:100%">
 <tr>
@@ -630,23 +628,31 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="SQLSrvContrib"></a>Colaborador do SQL Server</h3>
+### Colaborador do SQL Server
 
 <table style=width:100%">
 <tr>
 <th colspan="2">Ações</th>
 </tr>
 <tr>
-<td>Microsoft.ApiManagement/Services/*</td>
-<td>Criar e gerenciar os serviços de gerenciamento de API</td>
+<td>Microsoft.Sql/servers/*</td>
+<td>Criar e gerenciar bancos de dados SQL</td>
 </tr>
 <tr>
 <td>Microsoft.Authorization/*/read</td>
 <td>Funções de leitura e atribuições de função</td>
 </tr>
 <tr>
+<td>Microsoft.Resources/subscriptions/resources/read</td>
+<td>Recursos de assinatura de leitura</td>
+</tr>
+<tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
 <td>Grupos de recursos de leitura</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/resources/read</td>
+<td>Recursos do grupo de recursos de leitura</td>
 </tr>
 <tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
@@ -685,7 +691,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="SchedContrib"></a>Colaborador de coleções de trabalho do Agendador</h3>
+### Colaborador de Coleções de Trabalho do Agendador
 
 <table style=width:100%">
 <tr>
@@ -717,7 +723,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="SearchContrib"></a>Colaborador do serviço de pesquisa</h3>
+### Colaborador do Serviço de Pesquisa
 
 <table style=width:100%">
 <tr>
@@ -749,7 +755,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="StorageContrib"></a>Colaborador da conta de armazenamento</h3>
+### Colaborador da Conta de Armazenamento
 
 <table style=width:100%">
 <tr>
@@ -781,7 +787,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="UserAccessAdmin"></a>Administrador de Acesso do Usuário</h3>
+### Administrador de Acesso do Usuário
 
 <table style=width:100%">
 <tr>
@@ -801,7 +807,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="VMContrib"></a>Colaborador de Máquina Virtual</h3>
+### Colaborador de Máquina Virtual
 
 <table style=width:100%">
 <tr>
@@ -861,7 +867,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="VNetContrib"></a>Colaborador de Rede Virtual</h3>
+### Colaborador de Rede Virtual
 
 <table style=width:100%">
 <tr>
@@ -893,7 +899,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="WebPlanContrib"></a>Colaborador do Plano da Web</h3>
+### Colaborador do Plano de Web
 
 <table style=width:100%">
 <tr>
@@ -925,7 +931,7 @@ Nome da função | Descrição
 </tr>
 </table>
 
-<h3><a id="WebsiteContrib"></a>Colaborador do Site</h3>
+### Colaborador do Site
 
 <table style=width:100%">
 <tr>
@@ -972,22 +978,19 @@ Nome da função | Descrição
 
 ## Como fornecer comentários
 
-Tente o Azure RBAC e nos envie [comentários](http://aka.ms/azurerbacfeedback). 
+Tente o Azure RBAC e nos envie [comentários](http://aka.ms/azurerbacfeedback).
 
 
 ## Próximas etapas
 
-Veja alguns recursos adicionais para ajudar você a usar o controle de acesso com base em função: 
+Veja alguns recursos adicionais para ajudar você a usar o controle de acesso com base em função:
 
-+ [Gerenciar o controle de acesso com base em função com o Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
-+ [Gerenciar o controle de acesso com base em função com o XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Solucionar problemas do controle de acesso com base em função](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
-+ [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium e Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
-+ [Como as assinaturas do Azure estão associadas ao Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
++ [Gerenciar o controle de acesso com base em função com o Windows PowerShell](role-based-access-control-powershell.md)
++ [Gerenciar o controle de acesso com base em função com o Azure CLI](role-based-access-control-xplat-cli.md)
++ [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
++ [Azure Active Directory Premium e Basic](active-directory-editions.md)
++ [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 + Para uma introdução para o gerenciamento de grupo de autoatendimento para os grupos de segurança, consulte o [Blog da equipe do Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
-
-
 
 <!--Image references-->
 [1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
@@ -1001,6 +1004,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-
-
-<!--HONumber=47-->
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
@@ -75,5 +75,4 @@ Depois que as regiões desejadas forem removidas, clique em **Salvar**.
 [unidade]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

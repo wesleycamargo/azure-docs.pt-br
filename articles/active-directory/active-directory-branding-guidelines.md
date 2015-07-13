@@ -30,7 +30,7 @@ A Microsoft gerencia dois tipos de contas de usuário:
 
 - **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
-As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem, na plataforma do Azure AD ou sincronizadas para o Azure AD a partir de um diretório local, como o Windows Server Active Directory. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
+As contas comerciais ou de estudante da Microsoft normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem, na plataforma do Azure AD ou sincronizadas para o Azure AD a partir de um diretório local, como o Windows Server Active Directory. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
 ## Fazendo referência às contas do Azure AD em seu aplicativo
 
@@ -94,4 +94,6 @@ Você também pode fornecer uma explicação adicional para ajudar os usuários 
 
 Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você precisa incluir dois botões de login separados em seu aplicativo. Estamos trabalhando ativamente em uma atualização que permitirá que você integre uma vez e ofereça suporte a contas pessoais e comerciais da Microsoft. Quando isso estiver disponível, você poderá mostrar um único botão de "login na Microsoft" em seu aplicativo.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

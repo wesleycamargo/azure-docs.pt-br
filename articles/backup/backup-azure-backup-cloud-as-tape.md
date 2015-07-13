@@ -1,72 +1,71 @@
 <properties
-	pageTitle="Use o Backup do Azure para substituir a infra-estrutura de fitas"
-	description="Saiba como Backup do Azure fornece semântica semelhante de fita que permite fazer backup e restaurar dados no Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Usar o Backup do Azure para substituir a infraestrutura de fita"
+   description="Saiba como o Backup do Azure fornece semântica semelhante à fita que permite fazer backup e restaurar dados no Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
-# Use o Backup do Azure para substituir a infra-estrutura de fitas
+# Usar o Backup do Azure para substituir a infraestrutura de fita
 
-Os clientes de Backup e o System Center Data Protection Manager do Azure podem:
+Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
 
-+ Dados de backup em agendas que melhor atendem às suas necessidades da organização
++ Fazer backup de dados em cronogramas que melhor atendem às necessidades da organização
 
-+ Manter os dados de backup por mais longas
++ Manter os dados de backup por durações mais longas
 
-+ Verifique o Azure precisa de uma parte de sua retenção de longo prazo (em vez de fitas).
++ Tornar o Azure parte de suas necessidades de retenção de longo prazo (em vez de fitas).
 
-Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam as fitas para abordar sua longo-prazo retenção agora precisa ter uma alternativa viável e eficiente com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do Backup do Azure (que está disponível [aqui](http://aka.ms/azurebackup_agent)). Os clientes SCDPM precisaria mover para UR5 antes de usar esse recurso.
+Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam fitas para tratar suas necessidades de retenção de longo prazo agora têm uma alternativa viável e eficiente com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do Backup do Azure (que está disponível [aqui](http://aka.ms/azurebackup_agent)). Os clientes do SCDPM precisariam migrar para UR5 antes de usar esse recurso.
 
-## Qual é a agenda de Backup?
-Agendamento de backup indica a frequência (ou com que freqüência) da operação de backup por exemplo, as configurações de tela abaixo indica que backup será feito diariamente às 18: 00 e à meia-noite. <br/>
+## Qual é o agendamento de backup?
+O agendamento de backup indica a frequência (ou com que frequência) da operação de backup, por exemplo, as configurações na tela abaixo indicam que o backup será feito diariamente às 18h e à meia-noite. <br/>
 
-![Agenda diária][1]
+![Agendamento diário][1]
 
-Os clientes também podem agendar um backup semanal, por exemplo, as configurações na tela a seguir indica que backup será feito todas as alternativo domingo e quarta-feira 9h30min e 1h00. <br/>
+Os clientes também podem agendar um backup semanal, por exemplo, as configurações na tela a seguir indicam que o backup será feito a cada dois domingos e a cada duas quartas-feiras às 9h30 e 1h. <br/>
 
-![Agenda semanal][2]
+![Agendamento semanal][2]
 
 ## Qual é a política de retenção?
-Política de retenção Especifica a duração para a qual o backup deve ser armazenado. Em vez de especificar apenas uma "política simples" para todos os pontos de backup, os clientes podem especificar diferentes políticas de retenção com base em quando o backup é feito. Para, por exemplo, o ponto de backup feito no final de cada trimestre talvez precisem ser preservados por mais tempo para fins de auditoria, enquanto o ponto de backup feito diariamente (que funciona como uma recuperação operacional ponto) deve ser preservado por 90 dias. <br/>
+A política de retenção especifica durante quanto tempo o backup deverá ser armazenado. Em vez de especificar apenas uma “política simples” para todos os pontos de backup, os clientes podem especificar diferentes políticas de retenção com base em quando o backup é feito. Por exemplo, o ponto de backup criado no final de cada trimestre talvez precise ser preservado por mais tempo para fins de auditoria, enquanto o ponto de backup feito diariamente (que funciona como um ponto de recuperação operacional) deve ser preservado por 90 dias. <br/>
 
 ![Política de retenção][3]
 
-O número total de pontos de retenção"" especificada na diretiva é 90 (pontos de diários) + 40 (um para cada trimestre há 10 anos) = 130.
+O número total de “pontos de retenção” especificado nessa política é de 90 (pontos diários) + 40 (um a cada trimestre por 10 anos) = 130.
 
-## Exemplo – juntando ambos
+## Exemplo – Juntando ambos
 <br/> ![Tela de exemplo][4]
 
-1. **a política de retenção diária**: os Backups diários são armazenados por 7 dias.
-2. **a política de retenção semanal**: Backups feitos cada à meia-noite e 18: 00 Sábado será preservado por 4 semanas
-3. **a política de retenção mensal**: Backups feitos em meia-noite e 18: 00 no último sábado de cada mês serão preservados para 12months
-4. **Anual política de retenção**: Backups feitos à meia-noite no último sábado de março, todos serão preservados por 10 anos
+1. **Política de retenção diária**: os backups diários são armazenados por 7 dias.
+2. **Política de retenção semanal**: os backups feitos aos sábados à meia-noite e às 18h serão preservados por quatro semanas
+3. **Política de retenção mensal**: os backups feitos à meia-noite e às 18h no último sábado de cada mês serão preservados por 12 meses
+4. **Política anual de retenção**: os backups feitos à meia-noite no último sábado de cada mês de março serão preservados por 10 anos
 
-O número total de pontos de retenção"" (dos quais um cliente pode restaurar dados pontos) no diagrama acima é calculado da seguinte forma:
+O número total de “pontos de retenção” (dos quais um cliente pode restaurar dados) no diagrama acima é calculado da seguinte forma:
 
-+ 2 pontos por dia para recuperação de 7 dias = 14 pontos
++ 2 pontos por dia por 7 dias = 14 pontos de recuperação
 
 + 2 pontos por semana por 4 semanas = 8 pontos de recuperação
 
-+ 2 pontos por mês para 12 meses = 24 pontos de recuperação
++ 2 pontos por mês por 12 meses = 24 pontos de recuperação
 
-+ 1 ponto por ano e por recuperação de 10 anos = 10 pontos
++ 1 ponto por ano por 10 anos = 10 pontos de recuperação
 
 O número total de pontos de recuperação é 56.
 
 ## Configuração avançada
 
-Clicando em **modificar** na tela anterior, os clientes têm mais flexibilidade ao especificar agendamentos de retenção. <br/>
+Clicando em **Modificar** na tela acima, os clientes têm mais flexibilidade para especificar agendamentos de retenção. <br/>
 
 ![Modificar][5]
 
@@ -77,5 +76,6 @@ Clicando em **modificar** na tela anterior, os clientes têm mais flexibilidade 
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

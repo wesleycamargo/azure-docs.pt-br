@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -89,14 +89,12 @@ O limite de armazenamento do pool é determinado pela quantidade de DTUs do pool
 
 | propriedade | valor padrão | valores válidos |
 | :-- | :-- | :-- |
-| Dtu | 200 | 200, 400, 800, 1200 |
+| Dtu | 100 | 100, 200, 400, 800, 1200 |
 | databaseDtuMax | 100 | 10, 20, 50 100 |
 | databaseDtuMin | 0 | 0, 10, 20, 50 |
-| storageMB | 200 GB* | 200 GB, 400 GB, 800 GB, 1200 GB |
+| storageMB | 100 GB* | 100 GB, 200 GB, 400 GB, 800 GB, 1200 GB |
 
 *as unidades na API estão em MB, não em GB
-
-Se for excedido o limite de um pool de armazenamento, todos os bancos de dados no pool se tornam somente leitura. Se isso ocorrer, tente aumentar o DTUs ou o armazenamento do pool em si ou ainda mover um ou mais bancos de dados fora do pool. Para identificar e evitar exceder o limite de armazenamento do pool, você pode criar um alerta no Portal para disparar quando a utilização de armazenamento do pool exceder um valor predefinido.
 
 ## Limites de sessão e de trabalho
 
@@ -104,6 +102,7 @@ O número máximo de trabalhados simultâneos e sessões simultâneas permitido 
 
 | DTUs | Máximo de trabalhos simultâneos | Máximo de sessões simultâneas |
 | :-- | :-- | :-- |
+| 100 | 200 | 2.400 |
 | 200 | 400 | 4.800 |
 | 400 | 800 | 9.600 |
 | 800 | 1.600 | 19.200 |
@@ -193,8 +192,4 @@ O preço unitário por DTU de um pool elástico é maior que o preço unitário 
 | 40891 | EX_USER | O mínimo de DTUs por banco de dados (%d) não pode ser superior ao máximo de DTUs por banco de dados (%d). | Mínimo de DTUs por banco de dados; máximo de DTUs por banco de dados. | Tentando definir o mínimo de DTUs por banco de dados acima do máximo de DTUs por banco de dados. | Certifique-se de que o mínimo de DTUs por bancos de dados não seja superior ao máximo de DTUs por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

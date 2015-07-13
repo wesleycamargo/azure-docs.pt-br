@@ -1,9 +1,9 @@
 
-## <a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
+##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. Adicionaremos um botão rotulado como "Concluir Tudo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Eclipse, abra o arquivo  *res\layout\activity_to_do.xml* em seu projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado  `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
+1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Eclipse, abra o arquivo *res\layout\activity_to_do.xml* do projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
 
-2. No segundo **LinearLayout**, exclua o elemento **EditText** e adicione o código a seguir imediatamente após o elemento **Botão** existente: 
+2. No segundo **LinearLayout**, exclua o elemento **EditText** e adicione o código a seguir imediatamente após o elemento **Botão** existente:
 
         <Button
             android:id="@+id/buttonCompleteItem"
@@ -42,7 +42,7 @@
 
 
 
-5. No Gerenciador de Pacotes, clique com botão direito do mouse no nome do projeto na *src* pasta (`com.example. {nome dos seus projetos}`), escolha **Novo** e, em seguida, **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome de classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
+5. No Gerenciador de Pacotes, clique com o botão direito do mouse no nome do projeto na pasta *src* (`com.example.{your projects name}`), escolha **Novo** e **Classe**. Na caixa de diálogo, digite **MarkAllResult** no campo do nome da classe, escolha OK e substitua a definição da classe resultante pelo seguinte código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -59,15 +59,15 @@
 			}
 		}
 
-	Essa classe é usada para armazenar o valor da contagem de linhas retornado pela API personalizada. 
+	Essa classe é usada para armazenar o valor da contagem de linhas retornado pela API personalizada.
 
-6. Localize o método **refreshItemsFromTable** no arquivo **ToDoActivity.java**, e certifique-se de que a primeira linha de código no bloco `try` tem esta aparência:
+6. Localize o método **refreshItemsFromTable** no arquivo **ToDoActivity.java**, e certifique-se de que a primeira linha do código no bloco `try` tem esta aparência:
 
         final MobileServiceList<ToDoItem> result = mToDoTable.where().field("complete").eq(false).execute().get();
 
 	Isso filtra os itens de forma que os itens concluídos não sejam retornados pela consulta.
 
-7. Verifique se **ToDoActivity.java** contém a instrução imports no início do arquivo:
+7. Verifique se **ToDoActivity.java** contém a instrução as importações a seguir no início do arquivo:
 
 		import com.google.common.util.concurrent.FutureCallback;
 		import com.google.common.util.concurrent.Futures;
@@ -75,7 +75,7 @@
 
 8. No arquivo **ToDoActivity.java**, adicione o seguinte método:
 
-	    public void completeItem(View view) {
+	public void completeItem(View view) {
 	    
 	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
 	    	
@@ -97,7 +97,7 @@
 
 ## Testar o aplicativo
 
-1. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador do Android.
+1. No menu **Executar**, clique em **Executar** para iniciar o projeto no emulador Android.
 
 	Isso executa seu aplicativo criado com o SDK do Android que usa a biblioteca cliente para enviar uma consulta que retorna os itens de seu serviço móvel.
 
@@ -112,5 +112,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

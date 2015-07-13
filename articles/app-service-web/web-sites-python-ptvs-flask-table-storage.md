@@ -22,9 +22,9 @@
 
 # Flask e armazenamento de tabela do Azure no Azure com ferramentas 2.1 do Python para Visual Studio 
 
-Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=qUtZWtPwbTk).
+Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
-O aplicativo Web de votação define uma abstração para seu repositório, para que possa alternar facilmente entre diferentes tipos de repositórios (In-Memory, Azure Table Storage, MongoDB).
+O aplicativo Web de votação define uma abstração para seu repositório, para que você possa alternar facilmente entre diferentes tipos de repositórios (In-Memory, Azure Table Storage, MongoDB).
 
 Aprenderemos como criar uma conta de Armazenamento do Azure, como configurar o aplicativo Web para usar o Armazenamento de Tabela do Azure e como publicar o aplicativo Web nos [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -96,7 +96,7 @@ Nesta seção, configuraremos nosso aplicativo para usar a conta de armazenament
 
     Isso definirá as variáveis de ambiente quando você **Iniciar a Depuração**. Se quiser que as variáveis sejam definidas quando você **Iniciar sem Depurar**, configure também os mesmos valores em **Executar Comando do Servidor**.
 
-    Como alternativa, é possível definir variáveis de ambiente usando o Painel de Controle do Windows. Esta é uma opção melhor se desejar evitar armazenar credenciais no código-fonte/arquivo de projeto. Observe que precisará reiniciar o Visual Studio para que os novos valores de ambiente estejam disponíveis ao aplicativo.
+    Como alternativa, é possível definir variáveis de ambiente usando o Painel de Controle do Windows. Esta é uma opção melhor se desejar evitar armazenar credenciais no código-fonte/arquivo de projeto. Observe que você precisará reiniciar o Visual Studio para que os novos valores de ambiente estejam disponíveis ao aplicativo.
 
 1.  O código que implementa o repositório do Armazenamento de Tabela do Azure está em **models/azuretablestorage.py**. Consulte a [documentação] para obter mais informações sobre como usar o Serviço de Tabela do Python.
 
@@ -141,11 +141,11 @@ O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web no 
 
 1.  Seu navegador da Web será aberto automaticamente para o aplicativo Web publicado. Se navegar até a página sobre, você verá que ela usa o repositório **Na memória**, não o repositório do **Armazenamento de tabela do Azure**.
 
-    Isso ocorre porque as variáveis de ambiente não estão configuradas na instância Aplicativos Web do Serviço de Aplicativo do Azure; portanto, ele usa os valores padrão especificados em **settings.py**.
+    Isso ocorre porque as variáveis de ambiente não estão configuradas na instância Aplicativos Web do Serviço de Aplicativo do Azure. Portanto, ele usa os valores padrão especificados em **settings.py**.
 
 ## Configurar a instância Aplicativos Web
 
-Nesta seção, configuraremos variáveis do ambiente para a instância Aplicativos Web.
+Nesta seção, configuraremos variáveis do ambiente para a instância de Aplicativos Web.
 
 1.  No [Portal do Azure], abra a folha do aplicativo Web clicando em **Procurar** > **Aplicativos Web** > nome do aplicativo Web.
 

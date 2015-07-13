@@ -19,4 +19,5 @@ Este tutorial é baseado no **GetStartedWithData**, que é um aplicativo do Andr
 
 <!-- URLs. -->
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+
+<!---HONumber=62-->

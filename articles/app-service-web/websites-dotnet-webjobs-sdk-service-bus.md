@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web" 
-	description="Saiba como usar tópicos e filas do barramento de serviço do Azure com o SDK de Trabalhos Web."
+	description="Saiba como usar tópicos e filas do barramento de serviço do Azure com o SDK de Trabalhos Web." 
 	services="app-service\web, service-bus" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -20,11 +20,11 @@
 
 ## Visão geral
 
-Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md)  versão 1.x.
+Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código que usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
 
 O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 
-Os trechos de código mostram apenas funções, não o código que cria o objeto `JobHost` como neste exemplo:
+Os trechos de código mostram apenas funções, não o código que cria o objeto `JobHost`, como neste exemplo:
 
 		static void Main(string[] args)
 		{
@@ -34,9 +34,9 @@ Os trechos de código mostram apenas funções, não o código que cria o objeto
 		
 ## <a id="prerequisites"></a> Pré-requisitos
 
-Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) além dos pacotes do SDK de Trabalhos Web. 
+Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/), além dos pacotes do SDK de Trabalhos Web.
 
-Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento.  Você pode fazer isso na seção `connectionStrings` do arquivo Web.config, conforme mostrado no seguinte exemplo:
+Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento. Você pode fazer isso na seção `connectionStrings` do arquivo Web.config, conforme mostrado no seguinte exemplo:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -52,11 +52,11 @@ Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da
 
 ### Como funciona o ServicebusTrigger
 
-O SDK recebe uma mensagem em `PeekLock` modo e chamadas `Complete` na mensagem se a função é concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o `PeekLock` limite, o bloqueio é renovado automaticamente.
+O SDK recebe uma mensagem em modo `PeekLock` e chamadas `Complete` na mensagem se a função for concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock`, o bloqueio é renovado automaticamente.
 
-O barramento de serviço faz seu próprio tratamento de filas suspeitas, para que nenhuma delas seja controlada nem configurável no SDK de Trabalhos Web. 
+O barramento de serviço faz seu próprio tratamento de filas suspeitas, para que nenhuma delas seja controlada nem configurável no SDK de Trabalhos Web.
 
-### Mensagens da fila da cadeia
+### Mensagem da fila da cadeia
 
 O exemplo de código a seguir lê uma mensagem da fila que contém uma cadeia de caracteres e grava a cadeia de caracteres no painel do SDK de Trabalhos Web.
 
@@ -86,7 +86,7 @@ Além dos tipos `string` e POCO, você pode usar o atributo `ServiceBusTrigger` 
 
 ## <a id="create"></a> Como criar mensagens de fila do Barramento de Serviço
 
-Para escrever uma função que cria um uma nova mensagem de fila, use o atributo `ServiceBus` e passe o nome da fila para o construtor de atributo. 
+Para escrever uma função que cria um uma nova mensagem de fila, use o atributo `ServiceBus` e passe o nome da fila para o construtor de atributo.
 
 
 ### Criar uma mensagem de fila única em uma função não sincronizada
@@ -105,7 +105,7 @@ O parâmetro de saída para a criação de uma mensagem de fila única pode ser 
 * `string`
 * `byte[]`
 * `BrokeredMessage`
-* A serializable POCO type that you define. Automatically serialized as JSON.
+* Um tipo POCO serializável que você define. Automaticamente serializado como JSON.
 
 Para parâmetros de tipo POCO, uma mensagem de fila sempre é criada quando a função termina. Se o parâmetro for null, o SDK cria uma mensagem de fila que retorna nula quando a mensagem é recebida e desserializada. Para outros tipos, se o parâmetro for nulo nenhuma mensagem da fila é criada.
 
@@ -139,7 +139,7 @@ Para criar uma mensagem em um tópico, use o atributo `ServiceBus` com um nome d
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
 
-Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Os tópicos abordados nesse artigo incluem o seguinte:
 
@@ -148,13 +148,13 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 * Desligamento normal
 * Usar atributos do SDK de Trabalhos Web no corpo de uma função
 * Definir as cadeias de conexão do SDK no código
-* Definir valores para parâmetros do construtor do SDK de Trabalhos Web no código
+* Definir valores para parâmetros do construtor do SDK WebJobs no código
 * Disparar uma função manualmente
 * Gravar logs
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com o barramento de serviço do Azure. Para obter mais informações sobre como usar o WebJobs do Azure o SDK de Trabalhos Web, consulte [Recursos recomendados de Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

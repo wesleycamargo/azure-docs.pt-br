@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Eu uso os serviços móveis, como o serviço de aplicativo ajuda?"
+	pageTitle="Eu uso Serviços Móveis, como o Serviço de Aplicativo ajuda?"
 	description="Saiba quais são as vantagens que o Serviço de Aplicativo traz para os projetos de serviços móveis existentes."
 	services="app-service\mobile"
 	documentationCenter="ios"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -24,18 +24,18 @@ Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, 
 - Oferta mais simples, mais fácil e mais econômica para aplicativos que incluem tanto Web quanto clientes móveis
 - Novos recursos de host, incluindo Trabalhos da Web, CNames personalizados, melhor monitoramento
 - Integração pronta para uso com o Office 365, Dynamics CRM, Salesforce e outras APIs SaaS vitais.
-- Suporte a código de back-end Java e PHP, além do Node.js e .NET 
+- Suporte a código de back-end Java e PHP, além do Node.js e .NET
 - Integração pronta para uso com o Gerenciador de Tráfego
 - Conectividade com seus recursos locais e VPNs usando VNet, além de conexões híbridas
 - Monitoramento e solução de problemas do seu aplicativo usando NewRelic ou AppInsights, além de alertas
-- Espectro mais avançado de recursos de computação subjacentes, por exemplo, tamanhos de VM 
+- Espectro mais avançado de recursos de computação subjacentes, por exemplo, tamanhos de VM
 - Dimensionamento automático interno, balanceamento de carga e monitoramento de desempenho.
-- Recursos de preparação integrada, backup, reversão e testes em produção 
+- Recursos de preparação integrada, backup, reversão e testes em produção
 
 ## Novos recursos de hospedagem
 Em *Serviço de Aplicativo do Azure*, o código de back-end *Aplicativo Móvel* é executado no mesmo contêiner como Aplicativo Web e Aplicativo de API. Desse modo você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos serviços móveis:
 
-- adicionar lógica de back-end em execução contínua por meio de trabalhos da Web 
+- adicionar lógica de back-end em execução contínua por meio de trabalhos da Web
 - assegurar que seu código de back-end esteja sempre em execução
 - usar CNames personalizado para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móveis de back-end
 - realizar o geodimensionamento de seu aplicativo com o Gerenciador de Tráfego
@@ -65,8 +65,6 @@ Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambiente
 
 
 Até que o recurso *Aplicativo Móvel do Serviço de Aplicativo do Azure* fique disponível, forneceremos uma experiência de migração perfeita para seus serviços móveis existentes para o serviço de aplicativo, se você optar por migrar. Enquanto isso, você pode começar a explorar o *Serviço de Aplicativo* e tirar proveito do *Serviço de Aplicativo* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -3,7 +3,7 @@
 	description="Saiba como enviar notificações por push para todos os dispositivos de um usuário específico."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Enviar notificações entre plataformas para um usuário específico
@@ -105,5 +105,6 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 [Introdução à autenticação]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Introdução às notificações por push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

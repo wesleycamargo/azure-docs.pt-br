@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Usar o PuTTY para conectar-se ao console serial do dispositivo"
-   description="Explica como usar o software de emulação de terminal PuTTY para se conectar ao dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+
 
 #### Para conectar-se por meio do console serial
 
@@ -45,4 +30,4 @@
 7. Clique em **Abrir** para iniciar uma sessão serial.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

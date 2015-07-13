@@ -38,13 +38,13 @@ Este tutorial exige o seguinte:
 
 ## Examinar o código de sincronização do aplicativo móvel
 
-A sincronização offline do aplicativo móvel permite aos usuários finais interagirem com um banco de dados local quando a rede não está acessível. Para usar esses recursos em seu aplicativo, você deve inicializar `MobileServiceClient.SyncContext` para um repositório local. Então consulte sua tabela por meio da interface `IMobileServiceSyncTable`. Esta seção orienta você quanto ao código relacionado à sincronização offline em `QSTodoService.cs`.
+A sincronização offline do aplicativo móvel permite aos usuários finais interagirem com um banco de dados local quando a rede não está acessível. Para usar esses recursos em seu aplicativo, você deve inicializar `MobileServiceClient.SyncContext` para um repositório local. Em seguida, faça referência à sua tabela por meio da interface da `IMobileServiceSyncTable`. Esta seção orienta você quanto ao código relacionado à sincronização offline em `QSTodoService.cs`.
 
 1. No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução a Aplicativos Móveis]. Abra o arquivo `QSTodoService.cs`.
 
-2. Observe que o tipo do membro `todoTable` é `IMobileServiceSyncTable`. A sincronização offline usa essa interface de tabela de sincronização, em vez de `IMobileServiceTable`. Quando uma tabela de sincronização é usada, todas as operações vão para o armazenamento local e só são sincronizadas com o serviço remoto com operações de push e pull explícitas.
+2. Observe que o tipo do membro `todoTable` é `IMobileServiceSyncTable`. A sincronização offline usa essa interface de tabela de sincronização em vez de `IMobileServiceTable`. Quando uma tabela de sincronização é usada, todas as operações vão para o armazenamento local e só são sincronizadas com o serviço remoto com operações de push e pull explícitas.
 
-    Para obter uma referência a uma tabela de sincronização, utiliza-se o método `GetSyncTable()`. Para remover a funcionalidade de sincronização offline, use `GetTable()` em vez disso.
+    Para obter uma referência a uma tabela de sincronização, utiliza-se o método `GetSyncTable()`. Para remover a funcionalidade de sincronização offline, use `GetTable()`.
 
 3. Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. Isso é feito com o método `InitializeStoreAsync`:
 
@@ -59,7 +59,7 @@ A sincronização offline do aplicativo móvel permite aos usuários finais inte
 
     Isso cria um repositório local usando a classe `MobileServiceSQLiteStore`, que é fornecida no SDK do aplicativo móvel. Você também pode fornecer uma implementação de repositório local diferente implementando `IMobileServiceLocalStore`.
 
-    O método `DefineTable` cria uma tabela no repositório local que corresponde aos campos no tipo fornecido, que é `ToDoItem` neste caso. O tipo não precisa incluir todas as colunas que estão no banco de dados remoto - é possível armazenar apenas um subconjunto de colunas.
+    O método `DefineTable` cria uma tabela no repositório local que corresponde aos campos no tipo fornecido, `ToDoItem`, neste caso. O tipo não precisa incluir todas as colunas que estão no banco de dados remoto - é possível armazenar apenas um subconjunto de colunas.
 
 <!--     This overload of `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
  -->
@@ -83,7 +83,7 @@ A sincronização offline do aplicativo móvel permite aos usuários finais inte
 
     Em seguida, o método chama `IMobileServiceSyncTable.PullAsync()` para extrair dados de uma tabela no servidor para o aplicativo. Observe que se houver quaisquer alterações pendentes no contexto de sincronização, um pull sempre emite um push primeiro. Isso serve para garantir que todas as tabelas no repositório local, juntamente com os relacionamentos, permaneçam consistentes. Neste caso, chamamos push explicitamente.
 
-    Neste exemplo, recuperamos todos os registros na tabela remota `TodoItem`, mas também é possível filtrar os registros realizando uma consulta. O primeiro parâmetro para `PullAsync()` é uma ID de consulta que é usada para sincronização incremental, que usa o carimbo de data/hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
+    Neste exemplo, recuperamos todos os registros na tabela remota `TodoItem`, mas também é possível filtrar os registros passando uma consulta. O primeiro parâmetro para `PullAsync()` é uma ID de consulta que é usada para sincronização incremental, que usa o carimbo de data/hora `UpdatedAt` para obter apenas os registros modificados desde a última sincronização. A ID da consulta deve ser uma cadeia de caracteres descritiva que é exclusiva para cada consulta lógica em seu aplicativo. Se desejar sair da sincronização incremental, passe `null` como a ID da consulta. Isso recuperará todos os registros de cada operação de pull, o que é potencialmente ineficiente.
 
 <!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
 
@@ -164,5 +164,6 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 
 [Xamarin Studio em OS X]: http://xamarin.com/download
 [Extensão Xamarin]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

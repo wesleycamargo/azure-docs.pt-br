@@ -50,7 +50,7 @@ O objeto **$WebhookData** terá as seguintes propriedades:
 |:--- |:---|
 | WebhookName | O nome do webhook. |
 | RequestHeader | Tabela de hash contendo os cabeçalhos da solicitação de POST de entrada. |
-| RequestBody | O corpo da solicitação de POST de entrada. Isso manterá qualquer formatação, como a cadeia de caracteres, JSON, XML ou os dados codificados de formulário. O runbook deve ser escrito para trabalhar com o formato de dados esperado.|
+| RequestBody | O corpo da solicitação de POST de entrada. Isso manterá qualquer formatação, como a cadeia de caracteres, JSON, XML ou os dados codificados de formulário. O runbook deve ser escrito para trabalhar com o formato de dados esperado. O runbook deve ser escrito para trabalhar com o formato de dados esperado.|
 
 
 Nenhuma configuração do webhook é necessária para suporte ao parâmetro **$WebhookData** e o runbook não é necessário para aceitá-lo. Se o runbook não definir o parâmetro, os detalhes da solicitação enviada pelo cliente são ignorados.
@@ -173,4 +173,4 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 - [Iniciando um runbook](automation-starting-a-runbook.md)
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -26,7 +26,7 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 ![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
 ## Descobrir máquinas virtuais do Azure
-As consultas de processo de descoberta do Azure para a lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
+O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região.
 
 > [AZURE.NOTE]O processo de descoberta sempre deve ser executado como a primeira etapa. Isso é para garantir que quaisquer novas máquinas virtuais adicionadas à assinatura sejam identificadas.
 
@@ -36,7 +36,7 @@ Para disparar o processo de descoberta, execute as seguintes etapas:
 
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão **Selecionar**. ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique no **DISCOVER** botão na parte inferior da página. ![botão descobrir](./media/backup-azure-vms/discover-button.png)
+3. Clique no botão **DESCOBERTA** na parte inferior da página. ![botão descobrir](./media/backup-azure-vms/discover-button.png)
 
 4. O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. É exibida uma notificação do sistema na parte inferior da tela enquanto o processo de descoberta está em execução. ![descobrir vms](./media/backup-azure-vms/discovering-vms.png)
 
@@ -44,27 +44,27 @@ Para disparar o processo de descoberta, execute as seguintes etapas:
 
 
 ## Registre as máquinas virtuais do Azure
-Antes de uma máquina virtual pode ser protegida, ele precisa ser registrado com o serviço Backup do Azure. O processo de registro tem dois objetivos principais:
+Antes que uma máquina virtual possa ser protegida, ela precisa ser registrada com o serviço de Backup do Azure. O processo de registro tem dois objetivos principais:
 
 1. Para conectar a extensão de backup ao agente de VM na máquina virtual
 
-2. Para associar a máquina virtual com o serviço Backup do Azure
+2. Para associar a máquina virtual ao serviço de Backup do Azure
 
 Normalmente, o registro é uma atividade realizada uma única vez. O serviço de Backup do Azure manipula perfeitamente a atualização e aplicação de patches da extensão de backup sem a necessidade de nenhuma intervenção complicada pelo usuário. Isso libera o usuário da "sobrecarga de gerenciamento do agente" que é geralmente associada a produtos de backup.
 
 ### Para registrar as máquinas virtuais
 
-1. Navegue até o Cofre de backup, que pode ser encontrado em **Serviços de recuperação** no portal do Azure e clique no **itens registrados** guia
+1. Navegue até o cofre de backup, encontrado em **Serviços de Recuperação** no Portal do Azure e clique na guia **Itens Registrados**
 
-2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão de seleção. ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
+2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão Selecionar. ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique no **registrar** botão na parte inferior da página. ![botão registrar](./media/backup-azure-vms/register-button.png)
+3. Clique no botão **REGISTRAR** na parte inferior da página. ![botão registrar](./media/backup-azure-vms/register-button.png)
 
-4. No pop-up **Registrar Itens**, escolha as máquinas virtuais que você deseja registrar. Se houver dois ou mais máquinas virtuais com o mesmo nome de usar o serviço de nuvem para distinguir entre as máquinas virtuais.
+4. No pop-up **Registrar Itens**, escolha as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
     A operação **registrar** pode ser feita em grande escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem registradas. Isso reduz consideravelmente o esforço feito uma única vez na preparação da máquina virtual para backup.
 
-    >[AZURE.NOTE]Somente as máquinas virtuais que não estão registradas e estão na mesma região que o Cofre de backup será exibido.
+    >[AZURE.NOTE]Somente as máquinas virtuais que não estão registradas e estão na mesma região que o Cofre de backup serão exibidas.
 
 5. Um trabalho é criado para cada máquina virtual que deve ser registrada. A notificação do sistema mostra o status dessa atividade. Clique em **Exibir Trabalho** para ir para a página **Trabalhos**. ![trabalho de registro](./media/backup-azure-vms/register-create-job.png)
 
@@ -78,9 +78,9 @@ Essa etapa envolve configurar uma política de backup e de retenção para a má
 1. Navegue até o cofre de backup, que pode ser encontrado em **Serviços de Recuperação** no Portal do Azure, então clique na guia **Itens Registrados**.
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão **Selecionar**. ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
 
-3. Clique no **proteger** botão na parte inferior da página.
+3. Clique no botão **PROTEGER** na parte inferior da página.
 
-4. Isso abrirá um assistente para **Proteger Itens**, no qual as máquinas virtuais a serem protegidas podem ser selecionadas. Se houver dois ou mais máquinas virtuais com o mesmo nome de usar o serviço de nuvem para distinguir entre as máquinas virtuais.
+4. Isso abrirá um assistente para **Proteger Itens**, no qual as máquinas virtuais a serem protegidas podem ser selecionadas. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
     A operação **Proteger** pode ser feita em grande escala, o que significa que várias máquinas virtuais podem ser selecionadas ao mesmo tempo para serem registradas. Isso reduz consideravelmente o esforço feito para proteger a máquina virtual.
 
@@ -107,65 +107,64 @@ Essa etapa envolve configurar uma política de backup e de retenção para a má
 Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. Além disso, a página Painel mostra o número de trabalhos das últimas 24h que tiveram êxito, falha e que ainda estão em andamento. Clicar em qualquer categoria vai detalhar tal categoria na página **Trabalhos**. ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Solucionar erros
-Você pode solucionar os erros encontrados enquanto usando o Azure Backup com as informações listadas na tabela a seguir.
+Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
 
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Descoberta | Falha ao detectar novos itens - Backup do Microsoft Azure encontrado e erro interno. Aguarde alguns minutos e repita a operação. | Repita o processo de descoberta após 15 minutos.
 | Descoberta | Falha ao descobrir novos itens – outra operação de descoberta já está em andamento. Aguarde até que a operação de descoberta atual seja concluída. | Nenhum |
 | Registrar | A função VM do Azure não está em um estado que permite instalar a extensão – verifique se a VM está no estado Em Execução. A extensão Serviços de Recuperação do Azure requer que a VM esteja Em Execução. | Inicie a máquina virtual e quando ele estiver no estado Em Execução, então repita a operação de registro.|
-| Registrar | Número de discos de dados anexados à máquina virtual excedeu o limite suportado -, desanexar alguns discos de dados nesta máquina virtual e repita a operação. O backup do Azure oferece suporte a até 5 discos de dados anexados a uma máquina virtual do Azure para backup | Nenhum |
-| Registrar | Backup do Microsoft Azure encontrou um erro interno - aguardar alguns minutos e tente a operação novamente. Se o problema persistir, contate o Microsoft Support. | Você pode obter esse erro devido a uma das seguintes configurações sem suporte: <ol><li>LRS Premium <li>múltiplas NIC <li>balanceador de carga </ol> |
-| Registrar | Certificado do agente de convidado VM não encontrado | Siga estas instruções para resolver o erro: <ol><li>Baixar a versão mais recente do agente de VM do [aqui](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Verifique se a versão do agente baixado é 2.6.1198.718 ou superior. <li>Instale o agente de VM na máquina virtual.</ol> [Saiba](#validating-vm-agent-installation) como verificar a versão do agente de VM. |
-| Registrar | Falha no registro com o tempo limite da operação instalar agente | Verifique se a versão do sistema operacional da máquina virtual é suportada. |
-| Registrar | Execução de comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída | Nenhum |
-| Backup | Copiar VHDs do Cofre de backup atingiu o tempo limite - tente novamente a operação em alguns minutos. Se o problema persistir, contate o Microsoft Support. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de 6 discos de dados. |
-| Backup | Instantâneo VM sub tarefa foi esgotado - tente novamente a operação em alguns minutos. Se o problema persistir, contate o Microsoft Support | Esse erro é gerado se há um problema com o agente de VM ou acesso à rede a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre [depuração de problemas do agente de VM](#Troubleshooting-vm-agent-related-issues) <li>Conheça [depuração de problemas de rede](#troubleshooting-networking-issues) </ul> |
-| Backup | Falha no backup com um erro interno - tente novamente a operação em alguns minutos. Se o problema persistir, contate o Microsoft Support | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. Verifique se você tem menos de 6 discos. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas os backup erros de parada, desproteger a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrente. |
-| Backup | Falha ao instalar os serviços de recuperação do Azure extensão no item selecionado - agente de VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de config VM está definido corretamente.</ol> [Ler mais](#validating-vm-agent-installation) sobre a instalação do agente VM e como validar a instalação do agente VM. |
-| Backup | Execução de comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente | Um backup existente ou um trabalho de restauração para a máquina virtual está em execução e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. <br><br>Se você quiser a opção de cancelar um trabalho em andamento, adicione seu voto para o [Fórum de comentários do Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+| Registrar | O número de discos de dados anexados à máquina virtual excedeu o limite com suporte. Retire alguns discos de dados dos anexos nesta máquina virtual e repita a operação. O backup do Azure dá suporte a até cinco discos de dados anexados a uma máquina virtual do Azure para backup | Nenhum |
+| Registrar | O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. | Você pode obter esse erro devido a uma das seguintes configurações sem suporte: <ol><li>LRS Premium <li>múltiplas NIC <li>balanceador de carga </ol> |
+| Registrar | Certificado do agente de convidado VM não encontrado | Siga estas instruções para resolver o erro: <ol><li>Baixar a versão mais recente do agente de VM [aqui](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Verifique se a versão do agente baixado é 2.6.1198.718 ou mais recente. <li>Instale o agente de VM na máquina virtual.</ol> [Saiba](#validating-vm-agent-installation) como verificar a versão do Agente de VM. |
+| Registrar | Falha no registro com o tempo limite da operação Instalar agente | Verifique se a versão do sistema operacional da máquina virtual tem suporte. |
+| Registrar | A execução do comando falhou - há outra operação em andamento neste item. Aguarde até que a operação anterior seja concluída | Nenhum |
+| Backup | A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de seis discos de dados. |
+| Backup | A subtarefa VM Instantânea atingiu o seu tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul><li>Saiba mais sobre a [Depuração de problemas do agente de VM](#Troubleshooting-vm-agent-related-issues) <li>Saiba mais sobre a [Depuração de problemas de rede](#troubleshooting-networking-issues) </ul> |
+| Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. Verifique se você tem menos de seis discos. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
+| Backup | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
+| Backup | A execução do comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente | Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. <br><br>Se você quiser a opção de cancelar um trabalho em andamento, adicione seu voto ao [Fórum de comentários do Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
 
-### Problemas relacionados ao agente de VM de solução de problemas
+### Solução de problemas relacionados ao agente de VM
 
 #### Configurando o agente de VM
-Normalmente, o VM Agent já está presente em máquinas virtuais que são criadas a partir da Galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teria o VM Agent instalado. Para essas VMs, o agente de VM precisa ser instalado explicitamente. Leia mais sobre [Instalando o agente VM em uma VM existente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+Normalmente, o agente de VM já está presente em máquinas virtuais que são criadas na Galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teriam o Agente de VM instalado. Para essas VMs, o Agente de VM precisa ser instalado explicitamente. Leia mais sobre [Instalando o Agente de VM em uma VM existente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
 Para VMs do Windows:
 
-- Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de administrador para concluir a instalação.
-- [Atualizar a propriedade VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
+- Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação.
+- [Atualizar a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado.
 
 
-#### Atualizar o agente de VM
-Atualizar o agente de VM é tão simple quanto reinstalando o [binários do agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). No entanto, você precisa garantir que nenhuma operação de backup está em execução enquanto o VM Agent está sendo atualizado.
+#### Atualizar o Agente de VM
+Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). No entanto, você precisa garantir que nenhuma operação de backup esteja em execução enquanto o Agente de VM estiver sendo atualizado.
 
 
-#### Validando a instalação do agente de VM
-Como verificar a versão do agente de VM em VMs do Windows:
+#### Validando a instalação do Agente de VM
+Como verificar a versão do Agente de VM em VMs do Windows:
 
-- Logon na máquina virtual do Azure e navegue até a pasta *C:\WindowsAzure\Packages*.
+- Faça logon na máquina virtual do Azure e navegue até a pasta *C:\WindowsAzure\Packages*.
 - Você deve encontrar o arquivo WaAppAgent.exe presente.
-- Com o botão direito no arquivo, vá para **propriedades**, e, em seguida, selecione o **detalhes** guia.
-- O campo de versão do produto deve ser 2.6.1198.718 ou superior
+- Clique com o botão direito do mouse no arquivo, acesse **Propriedades** e, em seguida, selecione a guia **Detalhes**.
+- O campo Versão do produto deve ser 2.6.1198.718 ou mais recente
 
 ### Solucionando problemas de rede
-Como todas as extensões, extensão de Backup precisam acessar a internet pública para trabalhar. Sem acesso à internet pública pode se manifestar de inúmeras formas:
+Como todas as extensões, a extensão de Backup precisa acessar a Internet pública para trabalhar. A falta de acesso à Internet pública pode se manifestar de inúmeras formas:
 
 - A instalação da extensão pode falhar
-- As operações de backup (como disco snapshot) podem falhar
-- Exibindo o status da operação de backup pode falhar
+- As operações de backup (como snapshot de disco) podem falhar
+- A exibição do status da operação de backup pode falhar
 
-A necessidade de resolução de endereços de internet pública foi articulada [aqui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Você precisará verificar as configurações de DNS para o VNET e certifique-se de que os URIs do Azure possam ser resolvidos.
+A necessidade de resolução de endereços de Internet pública foi articulada [aqui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Você precisará verificar as configurações de DNS para o VNET e certificar-se de que os URIs do Azure possam ser resolvidos.
 
-Depois que a resolução de nomes é feita corretamente, acesso a IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga estas etapas:
+Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure também deve ser fornecido. Para desbloquear o acesso à infraestrutura do Azure, siga estas etapas:
 
-1. Obter a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/
-2. / library/azure/dn175718.aspx) para entrar na lista branca.
-2. Desbloquear o IPs usando a [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. Execute este comando na VM do Azure, em uma janela do PowerShell com privilégios elevados (Executar como administrador).
+1. Obter a lista de [IPs do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) a colocar na lista branca.
+2. Desbloquear o IPs usando o commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Executar este commandlet na VM do Azure em uma janela do PowerShell com privilégios elevados (Executar como administrador).
 
 
 ## Consistência de pontos de recuperação
-Ao lidar com dados de backup, os clientes se preocupar sobre o comportamento da VM depois que ele for restaurado. Perguntas típicas feitas pelos clientes são:
+Ao lidar com dados de backup, os clientes se preocupam com o comportamento da VM após ela ser restaurada. Perguntas típicas feitas pelos clientes são:
 
 - A máquina virtual será inicializada corretamente?
 - Os dados estarão disponíveis no disco (ou) há alguma perda de dados?
@@ -185,5 +184,6 @@ Para saber mais sobre a introdução ao Backup do Azure, consulte:
 
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms)
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

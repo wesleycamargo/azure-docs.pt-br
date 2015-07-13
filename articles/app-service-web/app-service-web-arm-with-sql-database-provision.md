@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo Web com um banco de dados SQL
 
-Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web e um banco de dados SQL. Você aprenderá a definir quais recursos são implantados e a definir parâmetros que são especificados quando a implantação é executada. Você pode usar esse modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web e um banco de dados SQL. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](app-service-deploy-complex-application-predictably.md).
+
+Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
 
 ## O que você implantará
 
@@ -176,7 +178,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

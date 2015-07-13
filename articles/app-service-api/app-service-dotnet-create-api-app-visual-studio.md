@@ -36,9 +36,9 @@ Esta seção mostra como configurar um projeto de API Web existente como um apli
 
 2. Selecione **Arquivo > Novo Projeto**.
 
-3. Selecione o modelo **Aplicativo Web ASP.NET**.
+3. Selecione o modelo **Aplicativo Web ASP .NET**.
 
-4. Certifique-se de que a caixa de seleção **Adicionar o Application Insights ao Projeto** está desmarcada.
+4. Verifique se a caixa de seleção **Adicionar o Application Insights ao Projeto** está desmarcada.
 
 4. Nomeie o projeto *ContactsList*
 

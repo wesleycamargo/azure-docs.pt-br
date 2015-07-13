@@ -11,7 +11,7 @@ ms.workload="mobile"
 ms.tgt_pltfrm="mobile-ios" 
 ms.devlang="objective-c" 
 ms.topic="article" 
-ms.date="02/20/2015" 
+ms.date="05/19/2015" 
 ms.author="mahender" />
 
 # Adicionar logon único do Active Directory do Azure ao seu aplicativo iOS
@@ -35,7 +35,7 @@ Este tutorial exige o seguinte:
 
 ## <a name="require-authentication"></a>Configurar o aplicativo para exigir autenticação
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>Adicione uma referência à biblioteca de autenticação do Active Directory
 
@@ -96,7 +96,7 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
 
 5. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DO-RECURSO-AQUI** pelo URI da **ID do Aplicativo** para o seu Aplicativo Móvel. Se você acompanhou o tópico [Como configurar seu aplicativo móvel com o Active Directory do Azure], o URI da ID do aplicativo deve ser similar a https://contosogateway.azurewebsites.net/login/aad.
 
-6. No código, para o método `loginAndGetData` acima, substitua **INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
+6. No código, para o método `loginAndGetData` acima, substitua **￼INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
 
 7. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-REDIRECIONAMENTO-AQUI** pelo ponto de extremidade de logon/feito para seu Gateway do Serviço de Aplicativo. Esse deve ser semelhante a https://contosogateway.azurewebsites.net/login/done.
 
@@ -114,6 +114,7 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
 [Como configurar seu aplicativo móvel com o Active Directory do Azure]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-[Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

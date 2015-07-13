@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Adicionar notificações por push ao seu aplicativo da Windows Store
@@ -30,7 +30,7 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 4. [Adicionar notificações por push ao seu aplicativo](#add-push)
 5. [Testar notificações por push no seu aplicativo](#test)
 
-Este tutorial baseia-se no início rápido do aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir uma [Introdução aos aplicativos móveis do Serviço de Aplicativo].
+Este tutorial se baseia no guia de início rápido do Aplicativo móvel do Serviço de Aplicativo. Antes de iniciar este tutorial, você deve primeiro concluir uma [Introdução aos aplicativos móveis do Serviço de Aplicativo].
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -190,4 +190,5 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

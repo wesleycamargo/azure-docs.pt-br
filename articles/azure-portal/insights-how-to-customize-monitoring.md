@@ -1,72 +1,76 @@
 <properties 
-	pageTitle="Como personalizar o monitoramento" 
+	pageTitle="Monitorar métricas de serviço" 
 	description="Saiba como personalizar gráficos de monitoramento no Azure." 
-	authors="alancameronwills" 
-	manager="kamrani" 
+	authors="stepsic-microsoft-com" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal"
+documentationCenter=""/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
-	ms.author="awills"/>
+	ms.date="04/28/2015" 
+	ms.author="stepsic"/>
 
-# Personalizando o monitoramento
+# Monitorar métricas de serviço
 
-O aplicativo Azure tem uma variedade de métricas que você pode monitorar, e você pode colocá-las em gráficos durante um período de tempo que você escolher.
+Todos os serviços do Azure monitoram métricas-chave que permitem que você monitore a integridade, o desempenho, a disponibilidade e o uso de seus serviços. Você pode exibir essas métricas no portal do Azure, e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou o [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para acessar o conjunto completo de métricas programaticamente.
 
-1. Na [Visualização do Portal do Azure](https://portal.azure.com/), clique em **Navegar** e, em seguida, clique em um recurso que você esteja interessado em monitorar.
-2. A lente **Monitoramento** contém as métricas mais importantes para cada recurso do Azure. Por exemplo, Sites têm Solicitações, Erros, [testes da Web](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409), e [Análises](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409). Um clique na parte **Solicitações e erros hoje** mostrará a folha **Métrica**.  
-    ![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
-3. A lâmina **Métrica** mostra detalhes das métricas que você seleciona. Na parte superior da lâmina há um gráfico, abaixo dele há uma tabela que mostra agregação dessas métricas, como a média, o mínimo e o máximo. Abaixo, há uma lista dos alertas que você definiu, filtrados pelas métricas que aparecem na tabela. Dessa forma, se você tiver muitos alertas, você verá apenas os que são relevantes aqui. Você ainda pode ver todos os alertas de seu site clicando na parte **Regras de alerta** na folha **Site**.  
-    ![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
-4. Para personalizar as métricas exibidas, clique com o botão direito do mouse no gráfico e selecione **Editar Consulta**:  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_MetricMenu.png)
-5. Na folha Editar Consulta, você pode fazer duas coisas: alterar o intervalo de tempo e escolher métricas diferentes.  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-6. A alteração do intervalo de tempo é tão fácil quanto selecionar um intervalo diferente (como **Última Hora**) e clicar em **Salvar** na parte inferior da lâmina. Novidade na Visualização do Portal, você pode escolher **Personalizar**:  
-    ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
-7. A opção Personalizar permite que você escolha qualquer período de tempo nas últimas duas semanas, por exemplo, você pode ver as duas semanas inteiras ou apenas uma hora de ontem. Digite na caixa de texto para inserir outra hora.
-8. Abaixo do intervalo de tempo, você pode escolher qualquer número de métricas para mostrar no gráfico. Você pode ver algumas novas métricas: **Conjunto de trabalho da memória** e **Conjunto de trabalho da média de memória**.
+Para alguns serviços, talvez seja necessário ativar o diagnóstico para ver as métricas. Para outros, como máquinas virtuais, você obterá um conjunto básico de métricas, mas precisa habilitar o conjunto completo de métricas de alta frequência. Consulte [Habilitar monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para obter mais informações.
 
-9. Quando você clica em Salvar, suas alterações persistirão até que você saia da lâmina Site. Quando voltar mais tarde, você verá a métrica e o intervalo de tempo originais novamente.
+## Usando gráficos de monitoramento 
 
-## Monitoramento de novos recursos
+Você pode criar um gráfico com as métricas relativas a qualquer período de tempo escolhido.
 
-A novidade na Visualização do Portal do Azure é a capacidade de monitorar as métricas de desempenho para vários Recursos novos, incluindo:
-- Planos de hospedagem na Web
-- Cache Redis
-- Conta DocumentDB
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Navegar** e, em seguida, clique em um recurso que você esteja interessado em monitorar.
 
-Os planos de hospedagem da Web são um pouco mais complicados que outros recursos, porque representam o desempenho das instâncias nas quais seus **sites** são executadas. Para acessar as métricas do plano de hospedagem da Web, clique no ícone de plano de hospedagem na Web no lente Resumo para seu site.
+2. A seção **Monitoramento** contém as métricas mais importantes para cada recurso do Azure. Por exemplo, um aplicativo Web tem **Solicitações e erros**, enquanto que uma máquina virtual teria **Percentual de CPU** e **Leitura e gravação de disco**: ![Lente Monitoramento](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
+3. Clicar em qualquer gráfico mostrará a folha **Métrica**. Na folha, além do gráfico, há uma tabela que mostra as agregações das métricas (como média, mínima e máxima, para o intervalo de tempo que você escolheu). Abaixo disso estão as regras de alerta para o recurso. ![Lâmina Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
-Ali, você pode ver um gráfico na lente **Monitoramento** que se comporta exatamente como o gráfico na lâmina Site, com a exceção de que você pode ver as novas métricas:
+4. Para personalizar as linhas que aparecem, clique no botão **Editar** no gráfico ou no comando **Editar gráfico** na folha Métrica.
 
-- Porcentagem de CPU
-- Porcentagem de Memória
-- Profundidade da Fila HTTP
-- Profundidade da Fila do Disco
+5. Na folha Editar consulta, você pode fazer três coisas:
+    - Alterar o intervalo de tempo
+    - Trocar a aparência das barras e linhas
+    - Escolher métricas diferentes ![Editar Consulta](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
+
+6. A alteração do intervalo de tempo é tão fácil quanto selecionar um intervalo diferente (como **Última Hora**) e clicar em **Salvar** na parte inferior da lâmina. Você também pode escolher **Personalizar**, permite escolher qualquer período de tempo nas duas últimas semanas. Por exemplo, você pode ver as duas semanas inteiras ou apenas uma hora do dia anterior. Digite na caixa de texto para inserir outra hora. ![Intervalo de tempo personalizado](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+
+7. Abaixo do intervalo de tempo, você pode escolher qualquer número de métricas para mostrar no gráfico.
+
+8. Quando você clica em Salvar, suas alterações serão salvas para esse recurso em particular. Por exemplo, se você tiver duas máquinas virtuais, e alterar um gráfico em uma delas, isso não afetará a outra.
 
 ## Criando gráficos lado a lado
 
-Com a personalização avançada pelo usuário na Visualização do Portal do Azure, você pode criar gráficos lado a lado para personalização.
+Com a poderosa personalização no portal, você pode adicionar quantos gráficos quiser.
 
-1. Primeiro, clique com o botão direito do mouse no gráfico no qual você deseja iniciar e selecione **Personalizar**  
-    ![Customize chart](./media/insights-how-to-customize-monitoring/Insights_Customize.png)
-2. Em seguida, clique em **Clonar** no menu **...** para copiar a parte  
-    ![Clone part](./media/insights-how-to-customize-monitoring/Insights_ClonePart.png)
-3. Finalmente, clique em **Concluído** na barra de ferramentas na parte superior da tela. Agora você pode tratar essa parte como uma parte de métrica normal. Se você clicar com o botão direito do mouse e alterar a métrica exibida, você verá duas métricas diferentes lado a lado ao mesmo tempo:  
-    ![Two metrics Side by Side](./media/insights-how-to-customize-monitoring/Insights_SideBySide.png)
+1. No menu **...** na parte superior da folha, clique em **Adicionar blocos**:![Adicionar menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
+2. Em seguida, você pode selecionar um gráfico na **Galeria** no lado direito da tela: ![Galeria](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+3. Se você não vir a métrica desejada, você sempre poderá adicionar uma das métricas predefinidas e **Editar** o gráfico para mostrar a métrica que você precisa. 
 
-Observe que o intervalo de tempo do gráfico e as métricas escolhidas serão redefinidas quando você sair do portal.
+## Monitorando cotas de uso
 
+A maioria das métricas mostra tendências ao longo do tempo, mas determinados dados, como cotas de uso, são informações específicas com um limite.
 
-<!--HONumber=46--> 
+Você também pode ver as cotas de uso na folha para recursos que têm cotas:
+
+![Uso](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+
+Assim como com as métricas, você pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou o [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para acessar o conjunto completo de cotas de uso programaticamente.
+
+## Próximas etapas
+
+* [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que uma métrica cruzar um limite.
+* [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
+* [Dimensione a contagem de instâncias automaticamente](insights-how-to-scale.md) para se certificar de que o serviço está disponível e responsivo.
+* [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
+* Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
+
+<!---HONumber=62-->

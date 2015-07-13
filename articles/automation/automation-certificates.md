@@ -107,4 +107,4 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

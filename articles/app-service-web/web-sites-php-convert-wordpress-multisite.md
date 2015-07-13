@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -70,7 +70,7 @@ Depois de fazer essas atualizações, você precisará fazer logoff e um novo lo
 
 Agora deve haver um menu adicional na barra de admin de rotulado **Meus Sites** Esse menu permite que você controle sua nova rede através do **Admin de rede** painel de controle.
 
-# Adicionando domínios personalizados
+## Adicionando domínios personalizados
 
 O [mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] plug-in facilita adicionar domínios personalizados para qualquer site na sua rede. O plug-in funcionar corretamente, é necessário fazer algumas configurações adicionais no Portal e também em seu registrador de domínio.
 
@@ -152,5 +152,6 @@ Aplicativos Web do Azure permitem que você adicione um número ilimitado de dom
 
 [wordpress-manage-domains]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

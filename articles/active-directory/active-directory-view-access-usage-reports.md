@@ -60,7 +60,7 @@ No Portal de Gerenciamento do Azure, os relatórios são categorizados das segui
 
 ## Edições de relatório
 
-|	Relatório |	Grátis |	Basic |	Premium |
+|	Relatório |	Grátis |	Básico |	Premium |
 |	------												|	----	|	-----	|	--------	|
 |	Entradas de fontes desconhecidas |	✓ |	✓ |	✓ |
 |	Entradas após várias falhas |	✓ |	✓ |	✓ |
@@ -329,4 +329,4 @@ Sim, para desativar as notificações relacionadas a entradas anômalas no Porta
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

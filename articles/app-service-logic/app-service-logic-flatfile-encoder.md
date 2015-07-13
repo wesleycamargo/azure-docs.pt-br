@@ -37,7 +37,7 @@ Os usuários podem carregar esquemas do disco ou gerar um com base em uma instâ
 ![Parte de esquemas do Codificador de Arquivo Simples do BizTalk][3]
 
 
-###Usando o Codificador de Arquivo Simples do BizTalk  na superfície do designer
+###Usando o Codificador de Arquivo Simples do BizTalk na superfície do designer
 Uma vez configurado, os usuários podem clicar em *->* e escolher uma ação em uma lista de ações.
 
 ![Lista de ações do Codificador de Arquivo Simples do BizTalk][4]
@@ -98,5 +98,6 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 [4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
 [5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

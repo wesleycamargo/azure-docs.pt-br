@@ -36,7 +36,7 @@ O conteúdo do cabeçalho é editável no campo **Corpo**. Altere o texto para "
 
 Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolvedor!
 
-> Para abrir o portal do publicador enquanto estiver no console de gerenciamento, clique em **Portal do publicador** na barra superior.
+> Para abrir o portal do desenvolvedor enquanto estiver no console de gerenciamento, clique em **Portal do desenvolvedor** na barra superior.
 
 ## <a name="change-headers-styling"> </a>Alterar o estilo dos cabeçalhos
 

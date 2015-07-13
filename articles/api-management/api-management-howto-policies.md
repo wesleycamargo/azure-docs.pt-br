@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,9 +25,7 @@ Consulte a [Referência de Política][] para ver uma lista completa das instruç
 
 As políticas são aplicados dentro do proxy que fica entre o consumidor da API e a API gerenciada. O proxy recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][], [Expressões de política][] e assista ao vídeo a seguir.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][] e [Expressões de política][].
 
 ## <a name="scopes"> </a>Como configurar políticas
 As políticas podem ser configuradas globalmente ou no escopo de um [Produto][], [API][] ou [Operação][]. Para configurar uma política, navegue até o Editor de políticas no Portal do Editor.
@@ -105,6 +103,12 @@ Por exemplo, se você tiver uma política no nível global e uma política confi
 No exemplo de definição de política acima, a instrução entre domínios seria executada antes de quaisquer políticas mais elevadas que, por sua vez, seriam seguidas da política de “localizar e substituir”.
 
 Observação: uma política global não tem nenhuma política pai e usar o elemento `<base>` nela não tem nenhum efeito.
+
+## Próximas etapas
+
+Confira o vídeo a seguir sobre expressões de política.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Referência de Política]: api-management-policy-reference.md
 [Produto]: api-management-howto-add-products.md

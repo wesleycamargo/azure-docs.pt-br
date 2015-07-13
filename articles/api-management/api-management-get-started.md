@@ -51,10 +51,10 @@ O sistema é composto pelos seguintes componentes:
 	* gerenciar usuários
 
 * O **portal do desenvolvedor** serve como a presença da web principal para desenvolvedores, na qual eles podem:
-	* Ler documentação da API
-	* experimente uma API pelo console interativo
-	* crie uma conta e assine para obter chaves de API
-	* análise de acesso do seu próprio uso
+	* ler a documentação da API
+	* experimentar uma API por meio do console interativo
+	* criar uma conta e fazer uma assinatura para obter chaves de API
+	* acessar a análise do seu próprio uso
 
 
 ## <a name="create-service-instance"> </a>Criar uma instância de Gerenciamento de API
@@ -71,13 +71,13 @@ Selecione a **Assinatura** e a **Região** da sua instância de serviço. Após 
 
 ![Novo serviço de Gerenciamento de API][api-management-create-instance-step1]
 
-Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no email do administrador.
+Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo de email do administrador.
 
 >Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Configurar Notificações][].
 
 ![Novo serviço de Gerenciamento de API][api-management-create-instance-step2]
 
-Instâncias de serviço de Gerenciamento de API estão disponíveis em três camadas: Developer, Standard e Premium. Por padrão, as novas instâncias de serviço de gerenciamento de API são criadas usando a camada do desenvolvedor. Para selecionar a camada Standard ou Premium, marque a caixa de seleção **Configurações avançadas** e selecione a camada desejada na próxima tela.
+As instâncias de serviço de Gerenciamento de API estão disponíveis em três camadas: Developer, Standard e Premium. Por padrão, as novas instâncias de serviço de gerenciamento de API são criadas usando a camada do desenvolvedor. Para selecionar a camada Standard ou Premium, marque a caixa de seleção **Configurações avançadas** e selecione a camada desejada na próxima tela.
 
 >O Microsoft Azure oferece três camadas em que você pode executar o serviço de Gerenciamento de API: Developer, Standard e Premium. A Camada do Desenvolvedor é para programas pilotos de API, teste e desenvolvimento, onde a alta disponibilidade não é uma preocupação. Nas camadas Standard e Premium, você pode dimensionar sua contagem de unidade reservada para lidar com mais tráfego. As camadas Standard e Premium fornecem um serviço de Gerenciamento de API com o maior poder de processamento e desempenho. Este tutorial pode ser concluído com qualquer camada. Para obter mais informações sobre as camadas de Gerenciamento de API, consulte [Preços de Gerenciamento de API][].
 
@@ -128,7 +128,7 @@ Para fazer chamadas para uma API, os desenvolvedores precisam primeiro assinar u
 
 ## <a name="call-operation"> </a>Chamar uma operação no Portal do Desenvolvedor
 
-As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do tutorial, você chamará a operação **Adicionar dois inteiros** da API da **Calculadora Básica**. Clique em **Portal do Desenvolvedor** no menu da parte superior direita do portal do publicador.
+As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do tutorial, você chamará a operação **Adicionar dois inteiros** da API da **Calculadora Básica**. Clique em **Portal do Desenvolvedor** no menu da parte superior direita do portal do editor.
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
 

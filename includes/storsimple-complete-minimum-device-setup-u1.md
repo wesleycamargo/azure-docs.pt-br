@@ -1,3 +1,4 @@
+
 #### Para concluir a configuração mínima do dispositivo StorSimple
 
 1. Selecione o dispositivo e clique em **Início Rápido**. Clique em **Concluir a instalação do dispositivo** para iniciar o Assistente para configurar o dispositivo.
@@ -28,4 +29,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

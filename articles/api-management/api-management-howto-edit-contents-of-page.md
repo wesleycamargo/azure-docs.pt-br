@@ -35,4 +35,4 @@ Clique na página “Bem-vindo" para editar o que é exibido na home page do por
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -88,7 +88,7 @@ Nesta etapa, você pode usar o Portal de Gerenciamento do Azure para criar uma i
 
 8. Na folha **Nova data factory**, clique em **Criar**.
 
-	> [AZURE.NOTE] O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “ADFTutorialOnPremDF” não está disponível**, altere o nome da data factory (por exemplo, yournameADFTutorialOnPremDF) e tente criá-la novamente. Use esse nome em vez de ADFTutorialOnPremDF ao executar as etapas restantes neste tutorial.
+	O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “ADFTutorialOnPremDF” não está disponível**, altere o nome da data factory (por exemplo, yournameADFTutorialOnPremDF) e tente criá-la novamente. Use esse nome em vez de ADFTutorialOnPremDF ao executar as etapas restantes neste tutorial.
 
 9. Procure as notificações do processo de criação no hub **NOTIFICAÇÕES** à esquerda. Clique em **X** para fechar a folha **NOTIFICAÇÕES** se ela estiver aberta.
 
@@ -487,7 +487,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de comando e saída**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de saída de comando:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. No PowerShell do Azure, alterne para a pasta **C:\Arquivos de Programas\Microsoft Data Management Gateway\1.0\PowerShellScript\ e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

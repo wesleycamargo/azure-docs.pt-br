@@ -255,5 +255,6 @@ Este tutorial demonstrou as noções básicas de como habilitar um aplicativo HT
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

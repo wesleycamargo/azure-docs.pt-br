@@ -82,7 +82,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 * *Erros de validação de soma de verificação ou compilação?*
  * Tente usar uma versão específica, como: * `<version>0.9.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Para atualizar para um novo SDK*
- * Atualizar as dependências do projeto.
+ * Atualize as dependências do seu projeto.
 
 #### Se você estiver usando o Gradle...
 
@@ -101,7 +101,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 * *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'0.9.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](app-insights-release-notes-java.md).* 
 * *Para atualizar para um novo SDK*
- * Atualizar as dependências do projeto.
+ * Atualize as dependências do seu projeto.
 
 #### Caso contrário...
 
@@ -221,7 +221,7 @@ Adicione este item ao arquivo de configuração do Struts (geralmente chamado de
 
 ## 5. Habilitar a coleta do contador de desempenho
 
-Na computador do servidor, se for uma computador Windows, instale
+No computador do servidor, se for um computador Windows, instale
 
 * [Microsoft Visual C++ redistribuível](http://www.microsoft.com/download/details.aspx?id=40784)
 
@@ -339,7 +339,7 @@ OK, você está enviando a telemetria do seu servidor Web. Agora, para ver o pan
 
 Você pode usar o Application Insights para fracionar e dividir logs de Log4J, Logback ou outras estruturas de registros. Você pode correlacionar os logs de solicitações HTTP e outras telemetrias. [Saiba como][javalogs].
 
-## Enviar sua próprias telemetrias
+## Enviar sua própria telemetria
 
 Agora que você instalou o SDK, você pode usar a API para enviar sua próprias telemetrias.
 

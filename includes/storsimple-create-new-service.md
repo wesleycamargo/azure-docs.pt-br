@@ -1,24 +1,7 @@
-<properties 
-   pageTitle="Criar um novo serviço StorSimple Manager"
-   description="Descreve como criar uma nova instância do serviço StorSimple Manager."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
-
 
 #### Para criar um novo serviço
 
-1. Usando suas credenciais de conta da Microsoft, faça logon no Portal de Gerenciamento nesta URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Usando suas credenciais de conta da Microsoft, faça logon no Portal de Gerenciamento na seguinte URL: [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. No Portal de Gerenciamento, clique em **Novo** > **Serviços de Dados** > **StorSimple Manager** > **Criação Rápida**.
 

@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Criar um contêiner de volume"
-   description="Descreve como criar um contêiner de volume em um dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Para criar um contêiner de volume
 
@@ -31,4 +15,4 @@
 
   O contêiner de volume recém-criado será listado na página **Contêineres de volume**.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

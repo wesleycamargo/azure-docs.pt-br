@@ -16,7 +16,7 @@
 	ms.date="03/31/2015"
 	ms.author="adgoda"/>
 
-# Usando o Conector do Dropbox em seu aplicativo lógico #
+# Usando o conector do Dropbox em seu aplicativo lógico #
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 

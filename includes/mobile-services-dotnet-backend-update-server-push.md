@@ -32,6 +32,4 @@
 
 2. Republique o projeto de serviço móvel no Azure.
 
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

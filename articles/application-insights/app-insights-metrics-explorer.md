@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -158,7 +158,28 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 
 ![No Metrics Explorer, escolher Regras de Alerta, Adicionar Alerta](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Saiba mais][alerts].
+[Saiba mais sobre alertas][alerts].
+
+## Exportar para o Excel
+
+Você pode exportar dados da métrica que são exibidos no Gerenciador de Métrica para um arquivo do Excel. Os dados exportados incluem dados de todos os gráficos e tabelas, como visto no portal.
+
+
+![No Metrics Explorer, escolher Regras de Alerta, Adicionar Alerta](./media/app-insights-metrics-explorer/31-export.png)
+
+Os dados para cada tabela ou gráfico são exportados para uma planilha separada no arquivo do Excel.
+
+O que você vê é o que é exportado. Altere o intervalo de tempo ou os filtros se quiser alterar o intervalo de dados exportados. Para tabelas, se o comando **carregar mais** estiver visível, você poderá clicar nele antes de clicar em Exportar para exportar mais dados.
+
+*Exportação funciona somente para Internet Explorer e Chrome no momento. Estamos trabalhando para adicionar suporte a outros navegadores.*
+
+Se desejar que os dados sejam exportados continuamente para que você possa processá-los externamente, considere usar [Exportação contínua](app-insights-export-telemetry.md).
+
+
+## Próximas etapas
+
+* [Monitorando o uso com o Application Insights](app-insights-overview-usage.md)
+* [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,6 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

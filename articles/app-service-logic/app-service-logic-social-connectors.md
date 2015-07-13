@@ -102,7 +102,17 @@ Vamos começar.
 
 1. No portal do Azure, selecione **NOVO** > **Web + móvel** > **Azure Marketplace**.
 2. **Pesquise** o conector ou selecione-o na lista. Quando selecionada, uma nova folha ou janela é aberta. Selecione **Criar**. 
-3. Insira as seguintes propriedades para o conector: <table> <tr><th>Propriedade</th> <th>Descrição</th> </tr> <tr><td>Nome</td> <td>Insira qualquer nome para seu aplicativo de API. Por exemplo, você pode chamá-lo de RulesDiscountTaxCode ou APIAppValidateXML</td> </tr> <tr><td>Plano do Serviço de Aplicativo</td> <td>Lista seu plano de pagamento. Você pode alterá-lo se precisar de mais ou menos recursos</th> </td> <tr><td>Camada de Preços</td> <td>Propriedade somente leitura que lista a categoria de preço na assinatura do Azure.</td> </tr> <tr><td>Grupo de Recursos</td> <td>Crie um novo ou use um grupo existente. Usando grupos de recursos explica essa propriedade</td> </tr> <tr><td>Assinatura</td> <td>Propriedade somente leitura que lista sua assinatura atual</td> </tr> <tr><td>Local</td> <td>O local geográfico que hospeda o serviço do Azure </td></tr> <tr><td>Adicionar ao Quadro Inicial</td> <td>Selecione esta opção para adicionar o aplicativo de API ao seu quadro inicial (a home page)</td></tr> </table> 
+3. Insira as seguintes propriedades para o conector: 
+	<table>
+    <tr><th>Propriedade</th> <th>Descrição</th> </tr>
+    <tr><td>Nome</td> <td>Digite um nome para seu Aplicativo de API. Por exemplo, é possível atribuir o nome RulesDiscountTaxCode ou APIAppValidateXML</td> </tr>
+    <tr><td>Plano de Serviço de Aplicativo</td> <td>Lista seu plano de pagamento. Você pode alterá-lo se precisar de mais ou menos recursos</th> </td>
+    <tr><td>Camada de preços</td> <td>Propriedade somente leitura que lista a categoria de preço em sua assinatura do Azure.</td> </tr>
+    <tr><td>Grupo de recursos</td> <td>Crie um grupo novo ou use um existente. O uso de grupos de recursos explica esta propriedade</td> </tr>
+    <tr><td>Assinatura</td> <td>Propriedade somente leitura que lista sua assinatura atual</td> </tr>
+    <tr><td>Local</td> <td>A localização geográfica que hospeda o serviço do Azure </td></tr>
+    <tr><td>Adicionar ao quadro inicial</td> <td>Selecione essa opção para adicionar o Aplicativo de API ao seu quadro inicial</td></tr>
+</table>
 4. Selecione **Criar**. O conector será criado. Pode levar algum tempo para ser concluído, e a tela inicial será exibida durante a criação do conector. Use o item de menu Notificações à esquerda para monitorar o status do conector.
 
 Agora que você criou seu primeiro conector, considere a criação de um aplicativo Web, móvel ou lógico com ele.
@@ -137,11 +147,12 @@ Use as etapas a seguir para adicionar um conector a um aplicativo lógico:
 Conectores usam nomes OAuth ou nomes e senhas de usuário.
 
 ## Leia sobre aplicativos lógicos e aplicativos Web
-[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md) | [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-app-azure-portal.md) |
+[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md) | [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-overview.md) |
 
 
 ## Mais conectores
 
 [Conectores de integração do BizTalk](app-service-logic-integration-connectors.md) | [Conectores empresariais](app-service-logic-enterprise-connectors.md) | [Conectores entre empresas](app-service-logic-b2b-connectors.md) | [Conectores de protocolo](app-service-logic-protocol-connectors.md) | [Conectores de aplicativos + serviços de dados](app-service-logic-data-connectors.md) | [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

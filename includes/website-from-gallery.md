@@ -78,4 +78,4 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 [resourcegroup]: ./media/website-from-gallery/showgroup.png
 [browse]: ./media/website-from-gallery/browse.png
 
-<!--HONumber=54-->
+<!---HONumber=62-->

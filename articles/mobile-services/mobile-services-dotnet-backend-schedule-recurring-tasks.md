@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis 
@@ -29,14 +28,7 @@ Este tópico mostra como usar a funcionalidade de agendador de trabalhos do Port
 + Solicitação e armazenamento de dados externos, como tweets, entradas RSS e informações sobre local.
 + Processamento ou redimensionamento de imagens armazenadas.
 
-Este tutorial explica as etapas de como usar o agendador de trabalhos para criar um trabalho agendado que solicita dados de tweet do Twitter e armazena os tweets em uma nova tabela de atualizações:
-
-1. [Registrar-se para acesso ao Twitter e armazenar as credenciais]
-2. [Baixar e instalar a biblioteca LINQ to Twitter]
-3. [Criar a nova tabela Updates]
-4. [Criar um novo trabalho agendado]
-5. [Testar o trabalho agendado localmente]
-6. [Publicar o serviço e registrar o trabalho]
+Este tutorial explica como usar o agendador de trabalhos para criar um trabalho agendado que solicita dados de tweet do Twitter e armazena os tweets em uma nova tabela de atualizações:
 
 >[AZURE.NOTE]Este tutorial usa o LINQ para a biblioteca do Twitter de terceiros para simplificar o acesso de OAuth 2.0 às APIs do Twitter v1.1. Você deve baixar e instalar o Pacote NuGet do LINQ para Twitter para concluir este tutorial. Para obter mais informações, consulte [LINQ para projeto CodePlex do Twitter].
 
@@ -258,7 +250,7 @@ O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móve
 
 2. Clique na guia **Agendador** e clique em **+Criar**.
 
-    >[AZURE.NOTE]Ao executar o seu serviço móvel na camada <em>Gratuita</em>, você pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados ao mesmo tempo.
+    >[AZURE.NOTE]Quando você executa o serviço móvel na camada <em>Gratuita</em>, pode executar apenas um trabalho agendado de cada vez. Em camadas pagas, você pode executar até dez trabalhos agendados ao mesmo tempo.
 
 3. Na caixa de diálogo Agendador, digite _Exemplo_ no **Nome do Trabalho**, defina o intervalo e as unidades do agendamento e clique no botão de seleção.
    
@@ -283,12 +275,12 @@ O trabalho deve ser registrado na guia **Agendador** para que os Serviços Móve
 Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móvel. Esse trabalho será executado conforme programado até que você o desabilite ou modifique.
 
 <!-- Anchors. -->
-[Registrar-se para acesso ao Twitter e armazenar as credenciais]: #get-oauth-credentials
-[Baixar e instalar a biblioteca LINQ to Twitter]: #install-linq2twitter
-[Criar a nova tabela Updates]: #create-table
-[Criar um novo trabalho agendado]: #add-job
-[Testar o trabalho agendado localmente]: #run-job-locally
-[Publicar o serviço e registrar o trabalho]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

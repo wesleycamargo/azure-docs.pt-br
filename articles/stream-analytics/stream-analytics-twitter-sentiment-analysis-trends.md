@@ -1,33 +1,36 @@
 <properties
-   pageTitle="Analisar sentimento e tópicos mais populares do Twitter em tempo real | Microsoft Azure"
-   description="Saiba como usar o Stream Analytics para analisar sentimento e tópicos mais populares do Twitter em tempo real. Este tutorial inclui etapas de geração de eventos para dados em um painel em tempo real."
-   services="stream-analytics"
-   documentationCenter=""
-   authors="jeffstokes72"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Análise de sentimento Twitter em tempo real com a Stream Analytics | Microsoft Azure"
+	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="stream-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/28/2015"
-   ms.author="jeffstok"/>
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="jeffstok"/>
 
 
-# Análise de mídia social: análise de sentimento do Twitter em tempo real
+# Análise de mídia social: análise de sentimento do Twitter em tempo real na Stream Analytics do Azure
 
-Neste tutorial, você aprenderá a criar uma solução inserindo eventos do Twitter em Hubs de Eventos, gravando consultas de Stream Analytics para analisar os dados e, em seguida, armazenando os resultados ou usando um painel para fornecer percepções em tempo real.
+Neste tutorial, você aprenderá a criar uma solução de análise de sentimento em tempo real no Twitter em Hubs de Eventos, gravando consultas de Stream Analytics para analisar os dados e, em seguida, armazenando os resultados ou usando um painel para fornecer percepções em tempo real.
+
+Ferramentas de análise de mídias sociais ajudam as organizações a compreender tópicos tendências, assuntos significados e atitudes com um alto volume de postagens em mídia social. Análise de sentimento - também chamado de "mineração opinião" - usa as ferramentas de análise de mídia social para determinar as atitudes em direção a um produto, ideia e assim por diante.
 
 ## Cenário
 
-Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real sobre o volume de tweets e de sentimento para os tópicos principais.
+Um site de mídia de notícias está interessado em obter uma vantagem sobre seus concorrentes apresentando conteúdo do site que é imediatamente relevante para seus leitores. Eles usam percepções de mídia social sobre tópicos relevantes para seus leitores fazendo uma análise de sentimento em tempo real sobre dados do Twitter. Especificamente, para identificar quais são os tópicos mais populares, eles precisam de análise em tempo real no Twitter sobre o volume de tweets e de sentimento para os tópicos principais.
 
 ## Pré-requisitos
 1.	É necessária uma conta do Twitter para este tutorial.  
-2.	Essa explicação passo a passo utiliza um gerador de evento localizados no GitHub. Baixe-o [aqui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e siga as etapas abaixo para configurar sua solução.
+2.	Essa explicação passo a passo utiliza um gerador de evento localizado no GitHub. Baixe-o [aqui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e siga as etapas abaixo para configurar sua solução.
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
@@ -41,8 +44,7 @@ Siga as etapas abaixo para criar um Hub de Eventos.
 4.	Em **POLÍTICAS DE ACESSO COMPARTILHADO**, crie uma nova política com permissões para **GERENCIAR**.
 
 
-
-  ![Políticas de Acesso Compartilhado em que você pode criar uma política com permissões para Gerenciar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![Políticas de Acesso Compartilhado em que você pode criar uma política com permissões para Gerenciar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Na parte inferior da página, clique em **SALVAR**.
 6.	Navegue até o **PAINEL**, clique em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página e copie e salve as informações de conexão. (Use o ícone de cópia que aparece sob o ícone de pesquisa).
@@ -58,17 +60,17 @@ Siga estas etapas para configurar o aplicativo:
 
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Observe que você precisa criar um aplicativo vazio para gerar um token.
+	Observe que você precisa criar um aplicativo vazio para gerar um token.  
 3.	Substitua os valores EventHubConnectionString e EventHubName em App.config pela cadeia de conexão e o nome do Hub de Eventos.
 4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter_keywords em App.config, se desejar.
 5.	Compilar a solução
 6.	Inicie o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
 
-	![Valores de SentimentScore enviados a um hub de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![Análise de sentimento: valores de SentimentScore enviados para um hub de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## Criar um trabalho de Stream Analytics
 
-Agora que temos um fluxo de eventos de Tweets, podemos configurar um trabalho de Stream Analytics para analisar esses eventos em tempo real.
+Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalho de Stream Analytics para analisar esses eventos em tempo real.
 
 ### Provisionar um trabalho de análise de fluxo
 
@@ -92,7 +94,7 @@ Agora que temos um fluxo de eventos de Tweets, podemos configurar um trabalho de
 
 	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione o namespace em que o hub de eventos está.
 
-		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
+		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para ** NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
 
 	* **NOME DO HUB DE EVENTOS**: selecione o nome do Hub de Eventos
 	* **NOME DE POLÍTICA DO HUB DE EVENTOS**: selecione a política de hub de eventos criada anteriormente neste tutorial.
@@ -215,23 +217,23 @@ Como uma entrada de trabalho, uma consulta e uma saída foram especificadas, est
 2.	Na caixa de diálogo que será exibida, selecione **HORA DE INÍCIO DO TRABALHO** e clique no botão de marca de seleção na parte inferior da caixa de diálogo. O status do trabalho será alterado para **Iniciando** e logo mudará para **Em execução**.
 
 
-## Exibir saída
+## Exibir saída para análise sentimento
 
-Use uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou o [Gerenciador do Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para exibir a saída do trabalho em tempo real. Daqui, você pode ampliar seu aplicativo para incluir um painel personalizado sobre a saída, como aquele mostrado abaixo usando o [Power BI](https://powerbi.com/).
+Depois que o trabalho estiver executando e processando, o fluxo do Twitter em tempo real, escolha como você deseja exibir a saída para análise sentimento. Use uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou o [Gerenciador do Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para exibir a saída do trabalho em tempo real. Daqui, você pode ampliar seu aplicativo para incluir um painel personalizado sobre a saída, como aquele mostrado abaixo usando o [Power BI](https://powerbi.com/).
 
-![Saída de Stream Analytics em um painel do Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![Análise de mídia social: resultado da análise de fluxo sentimento análise (mineração de opinião) em um painel do Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-- [Começar a usar o Stream Analytics do Azure](stream-analytics-get-started.md)
-- [Dimensionar trabalhos de Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-- [Referência da linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
+- [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+- [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
+
+<!---HONumber=62-->

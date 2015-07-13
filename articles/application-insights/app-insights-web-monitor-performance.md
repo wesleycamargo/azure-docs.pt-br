@@ -30,7 +30,7 @@ O Application Insights pode monitorar os aplicativos da web ASP.NET e serviços 
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
 * [Adicione o Application Insights ao seu projeto de aplicativo no Visual Studio][greenbrown] - Recomendado. Além do monitoramento de desempenho passivo, você pode inserir o registro em log do diagnóstico e acompanhar o uso.
-* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplamnetar o site da web.
+* [Monitorar o desempenho de um site ao vivo agora][redfield] - Dessa forma, você não precisa atualizar o projeto do aplicativo ou reimplantar o site da web.
 * [Para um site do Microsoft Azure](../insights-how-to-customize-monitoring.md) você já pode ver as métricas na lente de Monitoramento do site. 
 
 Usando qualquer um desses métodos, você verá rapidamente os dados na lâmina de visão geral do Application Insights.
@@ -100,7 +100,7 @@ Para ver o que outras métricas que você pode exibir, clique em um gráfico e, 
 ![Desmarque a seleção de todas as métricas para ver o conjunto completo](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
-Ao selecionar qualquer métrica, desaticará as outras que não podem aparecer no mesmo gráfico.
+Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer no mesmo gráfico.
 
 ## Coletar mais contadores de desempenho
 
@@ -150,11 +150,11 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
 * Configure os [testes de web][availability] para ser alertado se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
-* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar problemas de pinpoint.
+* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
 
 ## <a name="next"></a>Próximas etapas
 
-[Testes da web][availability] - Tem solicitações da web enviadas ao seu aplicativo em intervaos regulares em todo o mundo.
+[Testes da web][availability] - Tem solicitações da web enviadas ao seu aplicativo em intervalos regulares em todo o mundo.
 
 [Capture e pesquise rastreamento de diagnóstico][diagnostic] - Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
 

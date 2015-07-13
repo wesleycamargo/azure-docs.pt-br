@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 # Introdução à configuração avançada do Gerenciamento de API do Azure
@@ -22,20 +22,18 @@ Os tutoriais desta seção fornecem orientação sobre configuração e tarefas 
 
 -	[Personalização do portal do desenvolvedor no Gerenciamento de API do Azure][] - Este tutorial mostra como modificar a aparência do portal do desenvolvedor para permanecer consistentes com sua marca.
 -	[Como usar o inspetor de API para rastrear chamadas no Gerenciamento de API do Azure][] - Este tutorial mostra como usar o inspetor de API para rastrear e coletar informações sobre as chamadas de operações.
--	[Como criar e definir configurações avançadas de produto no Gerenciamento de API do Azure][] - Este tutorial mostra como definir algumas configurações avançadas, incluindo o limite de taxa e as políticas de cota, além de fornecer uma demonstração de invocação de operações até que o limite de taxa seja excedido.
+-	[Proteger sua API com limites de taxa usando o Gerenciamento de API do Azure][] - este tutorial mostra como definir o limite de taxa e as políticas de cota, além de fornecer uma demonstração de invocação de operações até que o limite de taxa seja excedido.
 -	[Como delegar o registro de usuário e a assinatura do produto][] - Este tutorial mostra como usar seu site existente para gerenciar entrada no sistema/inscrição e assinatura de produtos em vez de usar a funcionalidade integrada no portal do desenvolvedor.
 
 
-[Personalização do portal do desenvolvedor no Gerenciamento de API do Azure]: ../api-management-customize-portal
+[Personalização do portal do desenvolvedor no Gerenciamento de API do Azure]: api-management-customize-portal.md
 
-[Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: ../api-management-howto-api-inspector
+[Como usar o inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
 
-[Como criar e definir configurações avançadas no Gerenciamento de API do Azure]: ../api-management-howto-product-with-rules
+[Proteger sua API com limites de taxa usando o Gerenciamento de API do Azure]: api-management-howto-product-with-rules.md
 
-[Como delegar o registro de usuário e a assinatura do produto]: ../api-management-howto-setup-delegation
+[Como delegar o registro de usuário e a assinatura do produto]: api-management-howto-setup-delegation.md
 
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

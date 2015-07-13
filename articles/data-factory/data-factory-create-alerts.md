@@ -170,5 +170,6 @@ Para recuperar a lista de implantações do grupo de recursos do Azure já impla
 Execute o comando a seguir para ver os eventos gerados:
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

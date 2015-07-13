@@ -1,71 +1,60 @@
-<properties 
-	pageTitle="Chamar uma API personalizada em um aplicativo iOS | Serviços Móveis" 
-	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo iOS que usa os serviços móveis do Azure." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	writer="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Saiba como chamar uma API personalizada de um cliente iOS"
+	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo iOS que usa os serviços móveis do Azure."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	writer="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/04/2015"
 	ms.author="krisragh"/>
 
-# Chamar uma API personalizada do cliente
+# Como chamar uma API personalizada de um cliente iOS (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 
-Este tópico mostra como chamar uma API personalizada em um aplicativo iOS. Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma operação de inserção, atualização, exclusão ou leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
+Este tópico mostra como chamar uma API personalizada em um aplicativo iOS. Uma API personalizada permite que você defina pontos de extremidade personalizados com funcionalidade de servidor, mas não mapeia para uma operação de inserção, atualização, exclusão ou leitura de banco de dados. Ao usar uma API personalizada, você tem mais controle sobre mensagens, incluindo cabeçalhos HTTP e formato de corpo.
 
-A API personalizada criada neste tópico fornece a capacidade de enviar uma única solicitação POST que define o sinalizador de conclusão como `true` para todos os itens todo na tabela. Sem essa API personalizada, o cliente precisa enviar solicitações individuais para atualizar o sinalizador para cada item todo na tabela.
-
-Você adicionará essa funcionalidade ao aplicativo que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis] ou [Introdução a dados]. Para fazer isso, você executará as seguintes etapas:
-
-1. [Definir a API personalizada]
-2. [Atualizar o aplicativo para chamar a API personalizada]
-3. [Testar o aplicativo]
-
-Este tutorial baseia-se no Guia de início rápido dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis]. Este tutorial requer o [SDK do iOS para Serviços Móveis](https://go.microsoft.com/fwLink/p/?LinkID=266533), o [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) e o iOS 5.0 ou posterior.
-
-## <a name="define-custom-api"></a>Definir a API personalizada
+## <a name="define-custom-api"></a>Definir uma API personalizada
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-[AZURE.INCLUDE [mobile-services-ios-call-custom-api](mobile-services-ios-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
 ## Próximas etapas
 
-Agora que você criou uma API personalizada e a chamou em seu aplicativo iOS, procure mais informações sobre os seguintes tópicos de Serviços Móveis:
+Este tópico mostrou como usar o método **invokeApi** para chamar uma API personalizada bastante simples de seu aplicativo do iOS. Para saber mais sobre como usar o método **invokeApi**, consulte a postagem [API personalizada nos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-* [Referência de script de servidor dos Serviços Móveis]
-  <br/>Saiba mais sobre como criar APIs personalizadas.
+Além disso, considere a possibilidade de obter mais informações sobre os seguintes tópicos de Serviços Móveis:
 
-* [Scripts de servidor de armazenamento no controle do código-fonte]
-  <br/> Saiba como usar o recurso de controle do código-fonte para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
+* [Referência de script de servidor de Serviços Móveis]<br/>Saiba mais sobre como criar APIs personalizadas.
+
+* [Scripts de servidor de armazenamento no controle do código-fonte] <br/>Saiba como usar o recurso de controle de origem para desenvolver e publicar o código de script da API personalizada mais facilmente e de maneira mais segura.
 
 <!-- Anchors. -->
-[Definir a API personalizada]: #define-custom-api
-[Atualizar o aplicativo para chamar a API personalizada]: #update-app
-[Testar o aplicativo]: #test-app
-[Próximas etapas]: #next-steps
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
 
 <!-- URLs. -->
-[Notificações por push e Live Connect do Windows]: http://go.microsoft.com/fwlink/?LinkID=257677
-[Referência de script de servidor dos Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Painel Meus Aplicativos]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introdução aos Serviços Móveis]: /pt-br/documentation/articles/mobile-services-ios-get-started/
-[Introdução aos dados]: /pt-br/documentation/articles/mobile-services-ios-get-started-data/
-[Introdução à autenticação]: /pt-br/documentation/articles/mobile-services-ios-get-started-users/
-[Introdução às notificações por push]: /pt-br/documentation/articles/mobile-services-ios-get-started-push/
-[Scripts de servidor de armazenamento no controle do código-fonte]: /pt-br/documentation/articles/mobile-services-store-scripts-source-control
-
-
-
-<!--HONumber=42-->
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Referência de script de servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Mobile Services Quick Start]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Get started with authentication]: mobile-services-ios-get-started-users.md
+[Get started with push notifications]: ../mobile-services-ios-get-started-push.md
+[Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
  
+
+<!---HONumber=62-->

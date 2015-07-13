@@ -70,7 +70,7 @@ Nesta seção, você criará um aplicativo ASP.NET chamado "Minha Lista de Taref
 	![Selecionar modelo do MVC][VS2013SelectMVCTemplate]
 
 1. Se você ainda não tiver entrado no Microsoft Azure, será solicitada a sua conexão. Siga os prompts para entrar no Azure.
-2. Depois de se conectar, você poderá começar a configurar seu aplicativo Web do Serviço de Aplicativo. Especifique o **Nome do Aplicativo Web**, o **Plano Serviço do Aplicativo**, o **Grupo de recursos** e a  **Região** e, em seguida, clique em **OK**.
+2. Depois de se conectar, você poderá começar a configurar seu aplicativo Web do Serviço de Aplicativo. Especifique o **Nome do Aplicativo Web**, o **Plano Serviço do Aplicativo**, o **Grupo de recursos** e a **Região** e, em seguida, clique em **OK**.
 
 	![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 
@@ -245,7 +245,7 @@ No **Gerenciador de soluções**, clique com o botão direito do mouse no projet
 	}
 
 ## Adicionar um controlador ##
-abra o arquivo * Controllers\\HomeController.cs* no **Gerenciador de soluções** e substitua o código existente com o seguinte:
+abra o arquivo * Controllers\HomeController.cs* no **Gerenciador de soluções** e substitua o código existente com o seguinte:
 
 	using System;
 	using System.Collections.Generic;
@@ -326,11 +326,11 @@ abra o arquivo * Controllers\\HomeController.cs* no **Gerenciador de soluções*
 	}
 
 ## Configurar os estilos ##
-Para alterar o título na parte superior da página, abra o arquivo *Views\\Shared\_Layout.cshtml* no **Gerenciador de soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
+Para alterar o título na parte superior da página, abra o arquivo *Views\Shared_Layout.cshtml* no **Gerenciador de soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Para configurar o menu Lista de Tarefas, abra o arquivo *\\Views\\Home\\Index.cshtml* e substitua o código existente pelo seguinte código:
+Para configurar o menu Lista de Tarefas, abra o arquivo *\Views\Home\Index.cshtml* e substitua o código existente pelo seguinte código:
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -367,7 +367,7 @@ Para configurar o menu Lista de Tarefas, abra o arquivo *\\Views\\Home\\Index.cs
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Para adicionar a capacidade de criar uma nova tarefa, clique com botão direito do mouse na pasta *Views\\Home* e clique em **Adicionar** uma **Exibição**. Dê o nome *Criar* à exibição. Substitua o código pelo seguinte código:
+Para adicionar a capacidade de criar uma nova tarefa, clique com botão direito do mouse na pasta *Views\Home* e clique em **Adicionar** uma **Exibição**. Dê o nome *Criar* à exibição. Substitua o código pelo seguinte código:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -497,5 +497,6 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Create and run the My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

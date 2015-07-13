@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/25/2015" 
 	ms.author="tomfitz"/>
 
 #Como acessar o Banco de Dados SQL do Azure a partir do PHP 
 
 ## Visão geral
 
-Este guia mostrará as noções básicas do uso do Banco de Dados SQL no PHP. As amostras são escritas em PHP. Os cenários abordados incluem **criar um banco de dados SQL** e **conectar-se a um banco de dados SQL**. Este guia aborda a criação de um Banco de Dados SQL a partir do [Portal de Gerenciamento][management-portal]. Para obter informações sobre como realizar essas tarefas a partir do portal de produção, consulte [Introdução ao PHP e ao Banco de Dados SQL][prod-portal-instructions] Para obter mais informações, consulte a seção [Próximas etapas](#NextSteps) .
+Este guia mostrará as noções básicas do uso do Banco de Dados SQL no PHP. As amostras são escritas em PHP. Os cenários abordados incluem **criar um banco de dados SQL** e **conectar-se a um banco de dados SQL**. Este guia aborda a criação de um Banco de Dados SQL a partir do [Portal de Gerenciamento][management-portal]. Para obter informações sobre como realizar essas tarefas a partir do portal de produção, consulte [Introdução ao PHP e ao Banco de Dados SQL][prod-portal-instructions] Para obter mais informações, consulte a seção [Próximas etapas](#NextSteps).
 
 ##O que é o Banco de Dados SQL?
 
@@ -29,51 +29,51 @@ O Banco de Dados SQL fornece um sistema de gerenciamento de banco de dados relac
 ##<a id="Concepts"></a>Conceitos
 Como o Banco de Dados SQL baseia-se em tecnologias do SQL Server, o acesso ao Banco de Dados SQL do PHP é muito semelhante ao acesso ao SQL Server do PHP. Você pode desenvolver um aplicativo localmente (usando o SQL Server) e depois conectar-se ao Banco de Dados SQL, alterando a cadeia de conexão. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][limitations]
 
-A abordagem recomendável para acessar o Banco de Dados SQL do PHP é usar os [Drivers da Microsoft para PHP para o SQL Server][download-drivers]. (Os exemplos neste artigo usarão esses drivers). Os Drivers da Microsoft para PHP para o SQL Server só funcionam no Windows.
+A abordagem recomendável para acessar o Banco de Dados SQL do PHP é usar os [Drivers da Microsoft para PHP para o SQL Server][download-drivers] (Os exemplos neste artigo usarão esses drivers). Os Drivers da Microsoft para PHP para o SQL Server só funcionam no Windows.
 
 ##<a id="Setup"></a>Como: configurar seu ambiente
 
-A maneira recomendável para configurar o ambiente de desenvolvimento é usar o [Microsoft Web Platform Installer][wpi-installer]. O Web Platform Installer permitirá que você escolha os elementos de sua plataforma de desenvolvimento da web e automaticamente instale-os e configure-os. Ao baixar o Web Platform Installer e optar por instalar o WebMatrix, o PHP para WebMatrix e o SQL Server Express, um ambiente completo de desenvolvimento será definido para você.
+A maneira recomendável para configurar o ambiente de desenvolvimento é usar o [Web Platform Installer da Microsoft][wpi-installer] O Web Platform Installer permitirá que você escolha os elementos de sua plataforma de desenvolvimento da web e automaticamente instale-os e configure-os. Ao baixar o Web Platform Installer e optar por instalar o WebMatrix, o PHP para WebMatrix e o SQL Server Express, um ambiente completo de desenvolvimento será definido para você.
 
 Como alternativa, você pode configurar seu ambiente manualmente:
 
-* Instale o PHP e configure o IIS: [http://php.net/manual/en/install.windows.iis7.php][manual-config].
+* Instale o PHP e configurar o IIS: [http://php.net/manual/en/install.windows.iis7.php][manual-config].
 * Baixe e instale o SQL Server Express: [http://www.microsoft.com/download/details.aspx?id=29062][install-sql-express]
-* Baixe e instale os Drivers da Microsoft para PHP para o SQL Server: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
+* Baixe e instale os [Drivers da Microsoft para PHP para o SQL Server][download-drivers].
 
-##<a id="CreateServer"></a>Como: Criar um banco de dados SQL
+##<a id="CreateServer"></a>Como: criar um banco de dados SQL
 
 Siga estas etapas para criar um Banco de Dados SQL do Azure:
 
-1. Faça logon no [Portal de Gerenciamento][management-portal].
+1. Logon no [Portal de Gerenciamento][management-portal].
 2. Clique no ícone **Novo** localizado na parte inferior esquerda do portal.
 
-	![Create New Azure Web Site][new-website]
+	![Criar um novo site do Azure][new-website]
 
-3. Clique em **SERVIÇOS DE DADOS****, BANCO DE DADOS SQL** e depois em **CRIAÇÃO RÁPIDA**. Forneça um nome para o banco de dados, se deseja usar um servidor de banco de dados existente ou um novo, uma região e um nome de administrador e senha.
+3. Clique em **SERVIÇOS DE DADOS**, **BANCO DE DADOS SQL** e depois em **CRIAÇÃO RÁPIDA**. Forneça um nome para o banco de dados, se deseja usar um servidor de banco de dados existente ou um novo, uma região e um nome de administrador e senha.
 
-	![Custom Create a new SQL Database][quick-create]
+	![Criar um novo banco de dados SQL personalizado][quick-create]
 
 
 Para visualizar as informações do servidor e do banco de dados, clique em **Bancos de Dados SQL** no Portal de Gerenciamento. Em seguida, você poderá clicar em **BANCO DE DADOS** ou **SERVIDORES** para visualizar as informações relevantes.
 
-![View server and database information][sql-dbs-servers]
+![Exibir informações de servidor e banco de dados][sql-dbs-servers]
 
-##<a id="ConnectionInfo"></a>Como: Obter informações da conexão de Banco de Dados SQL
+##<a id="ConnectionInfo"></a>Como: obter informações de conexão do banco de dados SQL
 
 Para obter informações de conexão do banco de dados SQL, clique em **BANCOS DE DADOS SQL** no portal e, em seguida, clique no nome do banco de dados.
 
-![View database information][go-to-db-info]
+![Exibir informações de banco de dados][go-to-db-info]
 
 Em seguida, selecione **Visualizar cadeias de conexão do Banco de Dados SQL para ADO.NET, ODBC, PHP e JDBC**.
 
-![Show connection strings][show-connection-string]
+![Mostrar Cadeias de Conexão][show-connection-string]
 
 Na seção PHP da janela resultante, anote os valores de **SERVIDOR**, **BANCO DE DADOS** e **NOME DE USUÁRIO**. A senha será a usada na criação do seu banco de dados SQL.
 
-##<a id="Connect"></a>Como: Conectar-se à instância do banco de dados SQL
+##<a id="Connect"></a>Como: conectar-se a uma instância do Banco de Dados SQL
 
-Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV** para se conectar a um Banco de Dados SQL denominado  `testdb`. Para obter informações sobre as APIs do **SQLSRV** e **PDO_SQLSRV**, consulte a documentação de [Drivers da Microsoft para PHP para o SQL Server][driver-docs]. Você precisará de informações obtidas na seção acima. Substtiua `SERVER_ID` pela ID de 10 dígitos do servidor (que são os primeiros 10 caracteres do valor do SERVIDOR obtidos na seção acima) e atribua os valores corretos (seu nome de usuário e senha) às variáveis `$user` e `$pwd`.
+Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV** para se conectar a um Banco de Dados SQL denominado`testdb`. Para obter informações sobre as APIs do **SQLSRV** e **PDO_SQLSRV**, consulte a [documentação de Drivers da Microsoft para PHP para o SQL Server][driver-docs]. Você precisará de informações obtidas na seção acima. Substitua `SERVER_ID` pela ID de 10 dígitos do servidor (que são os primeiros 10 caracteres do valor do SERVIDOR obtidos na seção acima) e atribua os valores corretos (seu nome de usuário e senha) às variáveis `$user` e `$pwd`.
 
 #####SQLSRV
 
@@ -105,7 +105,7 @@ Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV**
 
 
 ##<a id="NextSteps"></a>Próximas etapas
-Como mencionado anteriormente, usar o Banco de Dados SQL é muito semelhante ao uso do SQL Server. Depois de ter estabelecido uma conexão com um Banco de Dados SQL (conforme mostrado acima), é possível usar as APIs do **SQLSRV** ou **PDO_SQLSRV** para inserir, recuperar, atualizar e excluir dados.  No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][limitations]
+Como mencionado anteriormente, usar o Banco de Dados SQL é muito semelhante ao uso do SQL Server. Depois de ter estabelecido uma conexão com um Banco de Dados SQL (conforme mostrado acima), é possível usar as APIs do **SQLSRV** ou **PDO_SQLSRV** para inserir, recuperar, atualizar e excluir dados. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][limitations]
 
 Um exemplo que mostra como usar o banco de dados SQL no Azure está disponível em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
@@ -128,6 +128,6 @@ Um exemplo que mostra como usar o banco de dados SQL no Azure está disponível 
 [go-to-db-info]: ./media/sql-database-php-how-to-use/go-to-db-info.png
 [show-connection-string]: ./media/sql-database-php-how-to-use/show-connection-string-2.png
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

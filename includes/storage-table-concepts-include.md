@@ -29,7 +29,7 @@ O serviço Tabela contém os seguintes componentes:
 
 
   
-[Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [OData.org]: http://www.odata.org/
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar a entradas e saídas | Azure" 
+	pageTitle="Conectar a entradas e saídas | Microsoft Azure" 
 	description="Saiba como se conectar às fontes de entrada e aos destinos de saída e como configurá-los para soluções do Stream Analytics." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -74,19 +74,21 @@ Neste exemplo, as credenciais fornecidas estavam incorretas. Você pode corrigir
 ##Usando Hubs de Eventos
 
 ###Visão geral
+ 
 Os Hubs de Eventos são ingestores de eventos altamente escalonáveis e normalmente são a maneira mais comum de entrada de dados do Stream Analytics. Eles são projetados para coletar fluxos de eventos de alguns dispositivos e serviços diferentes. Juntos, os Hubs de Eventos e o Stream Analytics oferecem aos clientes uma solução ponta a ponta para análise em tempo real -- os Hubs de Eventos permitem que os clientes alimentem eventos no Azure em tempo real, e os trabalhos do Stream Analytics podem processá-los em tempo real. Por exemplo, os clientes podem publicar cliques da Web, leituras de sensor, eventos de log online para Hubs de Eventos, e criar trabalhos do Stream Analytics que usem os Hubs de Eventos como os fluxos de dados de entrada para filtragem, agregação e junção em tempo real. Os Hubs de Eventos também podem ser usados para egresso de dados. O uso mais comum de Hubs de Eventos como saída é quando a saída de um trabalho do Stream Analytics será a entrada de outro trabalho de streaming.
 
 ###Grupos de consumidores
 Cada entrada do trabalho do Stream Analytics deve ser configurada para ter seu próprio grupo de consumidores do hub de eventos. Quando um trabalho contiver autojunção ou várias saídas, alguma entrada poderá ser lida por mais de um leitor, fazendo com que o número total de leitores de um único grupo de consumidores exceda o limite de 5 leitores por grupo de consumidores do hub de eventos. Nesse caso, a consulta precisará ser dividida em várias consultas e resultados intermediários roteados por meio de hubs de eventos adicionais. Observe que também há um limite de 20 grupos de consumidores por hub de eventos. Para obter detalhes, consulte o Guia do desenvolvedor de Hubs de eventos.
 
- 
+ 
 ###Parâmetros
+ 
 Há alguns parâmetros que os clientes precisam configurar para fluxos de dados do Hub de Eventos. Esses parâmetros se aplicam aos fluxos de dados de entrada e de saída do Hub de Eventos, a menos que observado o contrário.
 
 1. Namespace do Barramento de Serviço: Namespace do Barramento de Serviço do Hub de Eventos. Um namespace Barramento de Serviço é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também criou um namespace Barramento de Serviço. 
 2. Nome do Hub de Eventos: o nome do Hub de Eventos. É o nome que você especificou ao criar um novo Hub de Eventos. 
 3. Nome da Política de Hub de Eventos: o nome da política de acesso compartilhado para acessar o Hub de Eventos. As políticas de acesso compartilhado podem ser configuradas para um Hub de Eventos na guia Configurar. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso.
-4. Chave da Política do Hub de Eventos: a chave primária ou secundária da política de acesso compartilhado para acessar o Hub de Eventos. 
+4. Chave da Política do Hub de Eventos: a chave primária ou secundária da política de acesso compartilhado para acessar o Hub de Eventos.  
 5. Grupo de Consumidores do Hub de Eventos: parâmetro opcional para entradas do Hub de Eventos. O Grupo de Consumidores para ingerir dados do Hub de Eventos. Se não for especificado, os trabalhos do Stream Analytics usarão o Grupo de Consumidores Padrão para ingerir dados do Hub de Eventos. É recomendável usar um Grupo de consumidores distinto para cada trabalho do Stream Analytics.
 
 Coluna Chave de Partição: parâmetro opcional para as saídas do Hub de Eventos. A coluna de atributo de dados usada como a chave de partição para saída do Hub de Eventos.
@@ -148,15 +150,15 @@ Neste exemplo, as credenciais fornecidas estavam incorretas. Você pode corrigir
 ![elementográfico19][graphic19]
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-- [Introdução ao uso do Azure Stream Analytics](stream-analytics-get-started.md)
-- [Dimensionar trabalhos do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Referência da linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referência da API REST do gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+- [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
@@ -180,6 +182,6 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [graphic17]: ./media/stream-analytics-connect-data-event-input-output/17-stream-analytics-connect-data-event-input-output.png
 [graphic18]: ./media/stream-analytics-connect-data-event-input-output/18-stream-analytics-connect-data-event-input-output.png
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

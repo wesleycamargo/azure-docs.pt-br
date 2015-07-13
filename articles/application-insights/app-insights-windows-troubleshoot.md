@@ -35,7 +35,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights no Windows][wind
 #### Eu costumava ver os dados, mas eles foram interrompidos
 
 * Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
-* Você atingiu sua cota mensal de pontos de dados? Abra Configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou, então, pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
+* Você atingiu sua cota mensal de pontos de dados? Abra Configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Como adicionar o Application Insights a um Aplicativo Universal?
@@ -120,4 +120,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

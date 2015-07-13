@@ -41,4 +41,4 @@ O registro de dispositivos do AD do Azure provisiona dispositivos com uma identi
 * [Identidade do Azure](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

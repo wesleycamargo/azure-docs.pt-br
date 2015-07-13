@@ -4,6 +4,6 @@ Para começar, configure o ambiente de desenvolvimento instalando o [SDK do Azur
 
 Se você não tiver o Visual Studio instalado, o Visual Studio Express para a Web será instalado com o SDK.
 
->[AZURE.NOTE] Dependendo de quantas dependências de SDK você já tiver no seu computador, a instalação do SDK pode demorar bastante, de vários minutos a meia hora ou mais.
+>[AZURE.NOTE]Dependendo de quantas dependências de SDK você já tiver no seu computador, a instalação do SDK pode demorar bastante, de vários minutos a meia hora ou mais.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -22,7 +22,7 @@ The **Azure Data Factory** service is a fully managed service for composing data
 -->
 
 
-O **Azure Data Factory** é um serviço completamente gerenciado para compor serviços de movimentação de dados, processamento de dados e armazenamento de dados em pipelines de produção de dados eficiente, escalonável e confiável. O serviço de Fábrica de Dados permite que você:
+A **Azure Data Factory** é um serviço completamente gerenciado para compor serviços de movimentação de dados, processamento de dados e armazenamento de dados em pipelines de produção de dados eficiente, escalonável e confiável. O serviço de Fábrica de Dados permite que você:
 
 - Compile fluxos de trabalho orientados a dados (pipelines) que unem, agregam e transformam dados originados no local, baseados em nuvem e de repositórios de dados da Internet. 
 - Transforme dados semiestruturados, não estruturados e estruturados de diversas fontes de dados em informações confiáveis.
@@ -30,10 +30,10 @@ O **Azure Data Factory** é um serviço completamente gerenciado para compor ser
 - Configure processamento de dados complexo por meio de scripts JSON simples.
 - Monitore e gerencie pipelines em um relance com uma avançada experiência visual oferecida pelo Portal de Visualização do Azure.  
 
-O vídeo a seguir fornece uma visão geral do service Factory de dados do Azure.
+O vídeo a seguir fornece uma visão geral rápida do serviço Azure Data Factory.
 
 
-- [Vídeo: Introdução ao alocador de dados do Azure](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
+- [Vídeo: Introdução à Azure Data Factory](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
 
 
 <!--
@@ -49,16 +49,16 @@ Tradicionalmente, os projetos de integração de dados têm girado em torno da c
 
 O panorama de dados atual para as empresas continua a crescer exponencialmente em volume, variedade e complexidade. Ele está mais diversificado do que nunca com dados em nuvem e locais de velocidades e formas diferentes. O processamento de dados deve ocorrer em locais geográficos e inclui uma combinação de software livre, soluções comerciais e serviços de processamento personalizados e que são caros e difíceis de integrar e manter. A agilidade necessária para se adaptar o grande cenário de dados atual é uma oportunidade para mesclar o EDW tradicional com recursos necessários para um sistema de produção de informações modernos.
 
-![Cenário de processamento diferentes hoje][image-data-factory-introduction-todays-diverse-processing-landspace]
+![Diversos cenários de processamento de hoje][image-data-factory-introduction-todays-diverse-processing-landspace]
 
-O **Azure Data Factory** service é a plataforma de composição para trabalho em EDWs tradicionais e o cenário de dados mutável para capacitar as empresas a aproveitar todos os dados que está disponível a eles para a tomada de decisões orientados a dados. Ele capacita as empresas a aproveitar essa diversidade, fornecendo uma plataforma para compor os serviços de processamento, armazenamento e movimentação de dados em pipelines de produção de informações e gerenciar ativos de dados confiáveis.
+O serviço **Azure Data Factory** é a plataforma de composição para trabalhar em EDWs tradicionais e o cenário de dados mutável que permite às empresas aproveitar todos os dados disponíveis a elas para a tomada de decisões orientada a dados. Ele capacita as empresas a aproveitar essa diversidade, fornecendo uma plataforma para compor os serviços de processamento, armazenamento e movimentação de dados em pipelines de produção de informações e gerenciar ativos de dados confiáveis.
 
 O serviço de Fábrica de Dados do Azure permite que você:
 
-- **Trabalhe facilmente com os sistemas de armazenamento e processamento de dados diferentes.** O serviço de Fábrica de Dados permite criar pipelines de produção de informações que movem e processam fontes de dados locais (como o SQL Server) e fontes de dados de nuvem como o Banco de Dados SQL do Azure, a tabela do Azure e blobs. 
+- **Trabalhe facilmente com os diversos sistemas de armazenamento e processamento de dados.** O serviço de Fábrica de Dados permite criar pipelines de produção de informações que movem e processam fontes de dados locais (como o SQL Server) e fontes de dados de nuvem como o Banco de Dados SQL do Azure, a tabela do Azure e blobs. 
 - **Transforme dados em informações confiáveis.** O serviço de Fábrica de Dados dá suporte a Hive, Pig e processamento C#, além de recursos de processamento de chave, como gerenciamento automático de cluster Hadoop (HDInsight), novas tentativas para falhas transitórias, políticas de tempo limite configurável e alertas.  
-- **Monitorar os pipelines de dados em um único lugar.** O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. Ele ajuda a avaliar rapidamente a integridade de dados de ponta a ponta do pipeline, identificar problemas e tomar uma ação corretiva, se necessário. Você também pode controlar visualmente a linhagem de dados e as relações entre os dados em qualquer uma de suas fontes e ver um histórico completo de execução de trabalhos, integridade do sistema e dependências em um único painel de monitoramento.
-- **Obter boas ideias de dados transformados** serviço a fábrica de dados permite que você crie os pipelines de dados que geram dados confiáveis que podem ser consumidos por ferramentas de business intelligence e análise e outros aplicativos.
+- **Monitore os pipelines de dados em um único lugar.** O serviço de Fábrica de Dados fornece uma exibição confiável e completa de seus serviços de armazenamento, processamento e movimentação de dados. Ele ajuda a avaliar rapidamente a integridade de dados de ponta a ponta do pipeline, identificar problemas e tomar uma ação corretiva, se necessário. Você também pode controlar visualmente a linhagem de dados e as relações entre os dados em qualquer uma de suas fontes e ver um histórico completo de execução de trabalhos, integridade do sistema e dependências em um único painel de monitoramento.
+- **Obtenha informações completas de dados transformados** O serviço Data Factory permite criar pipelines de dados que geram dados confiáveis, os quais podem ser consumidos pelas ferramentas de análise e business intelligence, bem como por outros aplicativos.
 
 <!--
 Today, to take advantage of the benefits of Data Factory, developers interact directly with individual data pipelines, storage services, and compute services.  As the Data Factory service evolves over time, we will introduce additional storage and processing services, and new mechanisms of grouping compute and storage services and data pipelines together into ‘Hubs’.  We describe Hubs here in our introduction, as this nascent concept appears throughout the service as a precursor for future releases.
@@ -76,8 +76,8 @@ O diagrama a seguir ilustra o modelo de aplicativo com suporte pelo serviço de 
 
 Há três estágios de produção de informações em uma fábrica de dados do Azure:
 
-- **Conectar e coletar**. Nesse estágio, os dados de várias fontes de dados são importados para hubs de dados. Um pipeline em uma fábrica de dados pode ter uma ou mais atividades. Use um ou mais **cópia** atividades em um pipeline de dados para coletar dados de origem armazenamentos de dados para um armazenamento de dados de destino com um hub de dados para processamento adicional. Um cluster HDInsight (computação) e seu armazenamento de blob do Azure associado (armazenamento) formam juntos um hub de dados, um hub de dados do HDInsight. Para usar um hub de dados do HDInsight, você pode copiar todos os dados de origem para um armazenamento de BLOBs do Azure associado ao HDInsight para que os dados possam ser processados pelo cluster HDInsight. Um pipeline é executado em um recurso de computação em um hub de dados como um cluster HDInsight.      
-- **Transformar e enriquecer**. Nesse estágio, os dados coletados são processados. Por exemplo, um **HDInsight atividade** em um pipeline pode processar dados armazenados no armazenamento de blob do Azure associado ao executar transformações usando scripts de Hive/Pig para produzir informações confiáveis. Os pipelines podem ser encadeados (conforme mostrado no diagrama) de forma que conjuntos de dados de saída de um pipeline possam ser conjuntos de dados de entrada para outro pipeline no mesmo hub de dados ou em outro hub de dados.  
+- **Conectar e coletar**. Nesse estágio, os dados de várias fontes de dados são importados para hubs de dados. Um pipeline em uma fábrica de dados pode ter uma ou mais atividades. Use uma ou mais atividades de **Cópia** em um pipeline de dados para coletar dados dos repositórios de dados de origem para um repositório de dados de destino em um hub de dados para processamento futuro. Um cluster HDInsight (computação) e seu armazenamento de blob do Azure associado (armazenamento) formam juntos um hub de dados, um hub de dados do HDInsight. Para usar um hub de dados do HDInsight, você pode copiar todos os dados de origem para um armazenamento de BLOBs do Azure associado ao HDInsight para que os dados possam ser processados pelo cluster HDInsight. Um pipeline é executado em um recurso de computação em um hub de dados como um cluster HDInsight.      
+- **Transformar e enriquecer**. Nesse estágio, os dados coletados são processados. Por exemplo, uma **Atividade do HDInsight** em um pipeline pode processar dados armazenados no repositório de blob do Azure associado executando transformações usando scripts Hive/Pig para gerar informações confiáveis. Os pipelines podem ser encadeados (conforme mostrado no diagrama) de forma que conjuntos de dados de saída de um pipeline possam ser conjuntos de dados de entrada para outro pipeline no mesmo hub de dados ou em outro hub de dados.  
 - **Publicar**. Nesse estágio, os dados são publicados para que eles possam ser consumidos por ferramentas de BI, ferramentas de análise e outros aplicativos. Por exemplo, uma Atividade de Cópia no pipeline pode copiar dados de saída do processamento realizado no estágio de Transformação e Enriquecimento para um repositório de dados (por exemplo: SQL Server local), com base no qual soluções de business intelligence podem ser criadas.   
 
 <!--
@@ -93,13 +93,13 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 
 ##Próximas etapas
-1. [Introdução aos dados fábrica][datafactory-getstarted]. Este artigo fornece um tutorial de ponta a ponta que mostra como criar uma fábrica de dados do Azure que copia dados de um blob do Azure para um banco de dados SQL do Azure.
-2. [Tutorial: mover e processar os arquivos de log usando o alocador de dados][adf-tutorial]. Este artigo fornece uma **passo a passo de ponta a ponta** que mostra como implementar um **cenário do mundo real** usando a fábrica de dados do Azure para transformar dados de arquivos de log em ideias.
+1. [Introdução à Data Factory][datafactory-getstarted]. Este artigo fornece um tutorial de ponta a ponta que mostra como criar uma fábrica de dados do Azure que copia dados de um blob do Azure para um banco de dados SQL do Azure.
+2. [Tutorial: Mover e processar arquivos de log usando a Data Factory][adf-tutorial]. Este artigo apresenta um **passo a passo completo** que mostra como implementar um **cenário do mundo real** usando a Azure Data Factory para transformar dados dos arquivos de log em informações.
 
 ## Consulte também
-- [Dados Factory - terminologia][adf-terminology]. Este artigo apresenta a terminologia usada na criação de fábricas de dados usando o serviço de fábrica de dados do Azure 
-- [Dados Factory - perguntas frequentes][adf-faq]. Este artigo fornece uma lista de perguntas frequentes e as respostas.
-- [Cenários comuns para uso do Azure Data Factory][adf-common-scenarios]. Este artigo descreve alguns cenários comuns para usar o serviço de Fábrica de Dados do Azure. 
+- [Data Factory — terminologia][adf-terminology]. Este artigo apresenta a terminologia usada na criação de data factories usando o serviço Azure Data Factory 
+- [Data Factory — perguntas frequentes][adf-faq]. Este artigo fornece uma lista de perguntas frequentes e as respostas.
+- [Cenários comuns para uso da Azure Data Factory][adf-common-scenarios]. Este artigo descreve alguns cenários comuns para usar o serviço de Fábrica de Dados do Azure. 
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
@@ -136,4 +136,8 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 [image-data-factory-data-flow]: ./media/data-factory-introduction/DataFactoryDataFlow.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

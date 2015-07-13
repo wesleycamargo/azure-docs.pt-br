@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Cenários avançados para usar a atividade de cópia no Azure Data Factory 
@@ -236,7 +236,6 @@ Os tipos de dados especificados na seção Estrutura da definição de tabela se
 		<ul>
 			<li> <b>TextFormat:</b> todos os tipos de coluna são tratados como cadeia de caracteres e todos os nomes de coluna são definidos como "Prop_&lt;0-N>"</li> 
 			<li><b>AvroFormat:</b> utilize os nomes e tipos de coluna internos no arquivo Avro.</li> 
-			<li><b>JsonFormat:</b> todos os tipos de coluna são tratados como cadeia de caracteres e utilizam os nomes de coluna internos no arquivo Json.</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@ Ao copiar dados no SQL Server ou no Banco de Dados SQL do Azure, um procedimento
 O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela][table-valued-parameters].
 
 ## Especificar codificação para arquivos de texto
-Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de horário no Blob do Azure utilizam outras codificações por razões históricas. A propriedade **encodingName** permite que você especifique a codificação por nome de página de código para tabelas do tipo TextFormat. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. Por exemplo: windows-1250 ou shift_jis. O valor padrão é UTF-8. Consulte [Classe de codificação](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) para nomes de codificação válidos.
+Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de horário no Blob do Azure utilizam outras codificações por razões históricas. A propriedade **encodingName** permite que você especifique a codificação por nome de página de código para tabelas do tipo TextFormat. Para obter a lista de nomes de codificação válidos, consulte: Propriedade Encoding.EncodingName. Por exemplo: windows-1250 ou shift_jis. O valor padrão é UTF-8. Consulte [Classe de codificação](https://msdn.microsoft.com/library/system.text.encoding.aspx) para nomes de codificação válidos.
 
 ## Consulte também
 
@@ -341,10 +340,11 @@ Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/pt-br/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

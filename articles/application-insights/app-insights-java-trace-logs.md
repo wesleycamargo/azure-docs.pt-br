@@ -147,5 +147,6 @@ Agora que você configurou o projeto para enviar os rastreamentos para Applicati
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

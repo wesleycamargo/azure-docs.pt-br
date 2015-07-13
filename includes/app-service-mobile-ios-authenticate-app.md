@@ -1,6 +1,6 @@
 
 
-1. Abra **QSTodoListViewController.m** e adicione o método a seguir:
+1. Abra **QSTodoListViewController.m** e adicione o seguinte método:
 
 
         - (void) loginAndGetData
@@ -25,4 +25,4 @@
 
 3. Pressione **Executar** para iniciar o aplicativo e, em seguida, faça logon com o provedor de identidade escolhido por você. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

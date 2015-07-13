@@ -78,15 +78,16 @@ Você preparou uma implantação e atualizou uma implantação em produção com
 - [Como implantar um serviço atualizado na produção permutando VIPs no Azure]
 - [Visão geral do gerenciamento de implantações no Azure]
 
-[Etapa 1: Preparar um aplicativo]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[Etapa 2: Implantar um aplicativo na produção permutando VIPs]: #step2
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Etapa 1: Preparar um aplicativo]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Etapa 2: Implantar um aplicativo na produção permutando VIPs]: #step2
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Como implantar um serviço atualizado na produção permutando VIPs no Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Como implantar um serviço atualizado na produção permutando VIPs no Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

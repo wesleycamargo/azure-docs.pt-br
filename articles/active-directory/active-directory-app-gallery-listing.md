@@ -56,5 +56,6 @@ Depois que o teste for concluído, o aplicativo poderá ser listado na galeria d
 > Anexe o ícone grande do aplicativo (arquivo PNG, 215px por 215px, cor de plano de fundo transparente):
 >
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

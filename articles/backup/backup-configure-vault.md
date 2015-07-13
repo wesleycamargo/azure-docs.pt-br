@@ -16,30 +16,32 @@
 	ms.date="06/03/2015" 
 	ms.author="markgal"/>
 
+
+
 #Configurar o Backup do Azure para fazer backup rápido e fácil do Windows Server
 
 Para concluir este tutorial, você precisa de uma conta do Azure. Este tutorial o levará através da ativação do recurso de Backup do Azure.
 >[AZURE.NOTE]Anteriormente, você precisaria criar ou adquirir um certificado X.509 v3, a fim de registrar seu servidor de backup. Os certificados ainda não suportados, mas agora para facilitar o registro do cofre do Azure a um servidor, você pode gerar uma credencial de cofre direto da página de Início Rápido. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Para fazer o backup de arquivos e dados do seu Windows Server para Azure, você deve criar um cofre de backup na região geográfica em que deseja armazenar os dados. Este tutorial o orientará na:
+Para fazer o backup de arquivos e dados do seu Windows Server para Azure, você deve criar um cofre de backup na região geográfica em que deseja armazenar os dados. Este tutorial o orientará:
 
-- a criação de cofre que você usará para armazenar os backups
-- baixar uma credencial de cofre
+- na criação do cofre que você usará para armazenar os backups
+- o download de uma credencial do cofre
 - a instalação de um agente de backup
 - uma visão geral das tarefas de gerenciamento de backup disponíveis por meio do portal de gerenciamento
 
 ##Criar um cofre de backup
 
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
-2. Clique em **novo** > **Data Services** > **Serviços de recuperação** > **cofre de Backup** > **criação rápida**.
+2. Clique em **Novo** -> **Serviços de Dados** -> **Serviços de Recuperação** -> **Cofre de Backup** > **Criação Rápida**.
 3. Em **Nome**, digite um nome amigável para identificar o cofre de backup.
-4. Em **região**, selecione a região geográfica para o Cofre de backup.
+4. Em **Região**, selecione a região geográfica para o cofre de backup.
 
     ![Novo cofre de backup](./media/backup-configure-vault/RS_newbackupvault.png)
 
 5. Clique em **Criar cofre**.
 
-    Pode levar algum tempo para que o cofre de backup seja criado. Para verificar o status, você pode monitorar as notificações na parte inferior do portal. Depois que o Cofre de backup foi criado, uma mensagem informará o cofre foi criado com êxito e ele será listado nos recursos para serviços de recuperação como **ativos**.
+    Pode levar algum tempo para que o cofre de backup seja criado. Para verificar o status, você pode monitorar as notificações na parte inferior do portal. Depois de o cofre de backup ter sido criado, uma mensagem informará que o cofre foi criado com êxito e ele será listado nos recursos de Serviços de Recuperação como **Ativo**.
 
     ![Criação de um cofre de backup](./media/backup-configure-vault/RS_backupvaultcreation.png)
 
@@ -51,7 +53,7 @@ As credenciais do sofre substituem os certificados como forma de registrar o seu
 
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
 2. Clique em **Serviços de Recuperação**, em seguida, selecione o cofre de backup que você quer registrar com um servidor. A página de Início Rápido para esse cofre de backup aparece.
-3. Sobre o **página início rápido**, clique em **as credenciais do cofre Download** para solicitar o portal para gerar e baixar as credenciais do cofre que você usará para registrar o servidor com o Cofre de backup.
+3. Na página de **Início Rápido**, clique em **Baixar as credenciais de cofre** para solicitar que o portal gere e baixe as credenciais de cofre que você usará para registrar o seu servidor com o cofre de backup.
 
     O portal gerará uma credencial de cofre usando uma combinação do nome do cofre e a data atual.
 
@@ -63,8 +65,8 @@ As credenciais do sofre substituem os certificados como forma de registrar o seu
 2. Clique em **Serviços de Recuperação**, em seguida, clique no cofre de backup para exibir a página de Início Rápido.
 3. Na página de Início Rápido, selecione o tipo de agente que você quer baixar. Você pode escolher **Baixar o Agente de Backup do Azure**, **Windows Server e System Center Data Protection Manager**, ou **Windows Server Essentials**. Para obter mais informações, consulte:
 
-	* [Instalar o agente de Backup do Azure para Windows Server 2012 e System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
-	* [Instalar o agente de Backup do Azure para Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
+	* [Instalar o Azure Backup Agent para Windows Server 2012 e System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Instalar o Azure Backup Agent para o Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 Depois que o agente está instalado, você pode usar a interface de gerenciamento local apropriada (como o snap-in Microsoft Management Console, o System Center Data Protection Manager Console ou o painel do Windows Server Essentials) para configurar a política de backup para o servidor.
 
@@ -94,4 +96,7 @@ Depois que o agente está instalado, você pode usar a interface de gerenciament
 - Para saber mais sobre o Backup do Azure, consulte [Visão geral do backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 - Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir--> 
+
+ 
+
+<!---HONumber=62-->

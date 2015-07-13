@@ -24,13 +24,13 @@ Este guia fornece exemplos de código em C# que mostram como ler e gravar tabela
 
 O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
 		
-Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, não usando um dos atributos de gatilho. 
+Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, que não usam um dos atributos de acionamento.
 
 ## <a id="ingress"></a> Como adicionar entidades a uma tabela
 
-Para adicionar entidades a uma tabela, use o atributo `Table` com um parâmetro `ICollector<T>` ou `IAsyncCollector<T>` em que `T` especifica o esquema das entidades que pretende adicionar. O construtor de atributos utiliza um parâmetro de cadeia de caracteres que especifica o nome da tabela. 
+Para adicionar entidades em uma tabela, use o atributo `Table` com um parâmetro `ICollector<T>` ou `IAsyncCollector<T>`, no qual `T` especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
 
-O seguinte exemplo de código acrescenta `Person` entidades em uma tabela denominada *Ingress*.
+O exemplo de código a seguir adiciona entidades `Person` em uma tabela nomeada *entrada*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -47,7 +47,7 @@ O seguinte exemplo de código acrescenta `Person` entidades em uma tabela denomi
 		    }
 		}
 
-Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou implementa `ITableEntity`, mas ele não precisa fazer isso. Qualquer uma das seguintes classes `Person` funciona com o código mostrado no  método `Ingress` anterior.
+Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou implementa `ITableEntity`, mas ele não precisa fazer isso. Qualquer uma das seguintes classes `Person` funciona com o código mostrado no método `Ingress` anterior.
 
 		public class Person : TableEntity
 		{
@@ -69,7 +69,7 @@ Como as funções de entrada de dados geralmente processam grandes volumes de da
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-A página **Detalhes de Invocação** relata o progresso da função (número de entidades gravadas) enquanto ela está em execução e lhe dá a oportunidade de anulá-la. 
+A página **Detalhes de Invocação** relata o progresso da função (número de entidades gravadas) enquanto ela está em execução e lhe dá a oportunidade de anulá-la.
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
@@ -79,7 +79,7 @@ Quando a função é concluída, a página **Detalhes de Invocação** relata o 
 
 ## <a id="multiple"></a> Como ler várias entidades de uma tabela
 
-Para ler uma tabela, use o atributo `Table` com um parâmetro `IQueryable<T>`, em que tipo `T` derives from `TableEntity` ou implementa `ITableEntity`.
+Para ler uma tabela, use o atributo `Table` com um parâmetro `IQueryable<T>`, em que tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`.
 
 O seguinte exemplo de código lê e registra em log todas as linhas da tabela `Ingress`:
  
@@ -99,7 +99,7 @@ O seguinte exemplo de código lê e registra em log todas as linhas da tabela `I
 
 Há um construtor de atributo `Table` com dois parâmetros adicionais que permite especificar a chave de partição e a chave de linha quando você deseja associar a uma entidade de tabela única.
 
-O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person` com base nos valores de chave de partição e chave de linha recebidos em uma mensagem de fila:  
+O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person` com base nos valores de chave de partição e chave de linha recebidos em uma mensagem de fila:
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -125,7 +125,7 @@ A classe `Person` nesse exemplo não precisa implementar `ITableEntity`.
 
 Você também pode usar o atributo `Table` com um objeto `CloudTable` para ter mais flexibilidade ao trabalhar com uma tabela.
 
-O seguinte exemplo de código usa um objeto `CloudTable` para adicionar uma única entidade à tabela *Ingress*. 
+A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma única entidade de *entrada* à tabela.
  
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
@@ -141,11 +141,11 @@ O seguinte exemplo de código usa um objeto `CloudTable` para adicionar uma úni
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [Como usar o Armazenamento de Tabela do .NET](../storage-dotnet-how-to-use-tables.md). 
+Para obter mais informações sobre como usar o objeto `CloudTable`, consulte [Como usar o Armazenamento de Tabela do .NET](../storage-dotnet-how-to-use-tables.md).
 
 ## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
 
-Para obter informações sobre como lidar com o processamento de tabelas disparado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de tabelas, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de tabelas, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Os tópicos abordados nesse artigo incluem o seguinte:
 
@@ -160,7 +160,7 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure - Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

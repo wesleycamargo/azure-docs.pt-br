@@ -46,7 +46,7 @@ Você pode alterar as configurações de um runbook no Portal de Gerenciamento d
 
 ### Alterando as configurações de runbook com o Windows PowerShell
 
-Você pode usar o cmdlet  [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
+Você pode usar o cmdlet [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
 
 Os comandos de exemplo a seguir mostram como definir as propriedades de um runbook. Este exemplo adiciona três rótulos aos rótulos existentes e especifica que registros detalhados devem ser registrados em log.
 
@@ -58,6 +58,6 @@ Os comandos de exemplo a seguir mostram como definir as propriedades de um runbo
 
 ## Artigos relacionados
 - [Saída de Runbook e Mensagens](../automation-runbook-output-and-messages) 
-- [Criando ou Importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
+- [Criando ou Importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

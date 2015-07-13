@@ -3,8 +3,8 @@
    description="As últimas notícias de versão e a compatibilidade do SDK para o SO convidado dos serviços de nuvem do Azure." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="05/20/2015"
+   ms.author="yuemlu"/>
 
 # Matriz de Compatibilidade de Versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações o ajudarão a planejar seu caminho de atualização antes de um SO convidado ser desabilitado.
@@ -28,6 +28,14 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 
 
 ## Notícias atualizadas
+
+###### **15 de junho de 2015**.
+A distribuição do SO convidado de junho está começando hoje, 15 de junho de 2015, e está projetado para ser lançado em 9 de julho de 2015.
+
+As versões 4.20, 3.27 e 2.39 do SO convidado foram lançadas em 12 de junho de 2015.
+
+###### **20 de maio de 20 2015**
+A distribuição do SO convidado de maio está começando hoje, 20 de maio de 2015, e está projetado para ser lançado em 12 de junho de 2015.
 
 ###### **17 de abril de 2015**
 As versões 4.19, 3.26 e 2.38 do SO convidado foram lançadas hoje.
@@ -64,16 +72,6 @@ Como [anunciado anteriormente][ssl3 announcement], a atualização de segurança
 ###### **16 de dezembro de 2014. Atualizado em 7 de janeiro de 2015**
 A edição do SO convidado de dezembro está prevista para começar em 9 de janeiro de 2015 ou após essa data.
 
-
-###### **11 de novembro de 2014**
-
-A edição de novembro (4.14, 3.21 e 2.33) foi lançada no dia 11 desse mês. Essa atualização foi enviada mais cedo, porque ela inclui a atualização do MSRC [Boletim de segurança Microsoft MS14-066 - crítica][MS14-066]. Suas funções de trabalho e da Web em atualização automática devem reinicializar uma vez ao longo dos próximos dias e receber essa correção.
-
-###### **10 de novembro de 2014**
-A data de desabilitação do lançamento de outubro (4.13, 3.20 e 2.32) foi atualizada com base nos comentários dos clientes. A data de desabilitação será sempre pelo menos dois meses posterior à data de lançamento.
-
-###### **4 de novembro de 2014**
-A edição de outubro (4.13 3.20 e 2.32) foi lançada em 4 de novembro de 2014. Ela inclui o patch MSRC que causou problemas com as versões de agosto e setembro. Para contornar esse problema, a versão de outubro inclui o .NET 3.5 e 3.5.1 pré-instalado, mas desabilitado. Scripts tentando instalar o .NET 3.5 ou 3.5.1 vão efetivamente reabilitá-lo e retornar "sucesso" como resultado da instalação do .NET, além de evitar o problema de instalação completa criado pelo patch do MSRC.
 
 
 
@@ -113,8 +111,10 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2 (Observação 2)
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4.21 | WA-GUEST-OS-4.21_201506-01 | Projetado em 9 de julho de 2015 | Será atualizada quando a 4.23 for lançada | TBD |
+| 4.20 | WA-GUEST-OS-4.20_201505-02 | 12 de Junho de 2015. | Será atualizada quando a 4.22 for lançada | TBD |
 | 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 de abril de 2015 | Será atualizada quando a 4.21 for lançada | TBD |
-| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 de abril de 2015 | Será atualizada quando a 4.20 for lançada | TBD |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 de abril de 2015 | 12 de julho de 2015 | TBD |
 | 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 de março de 2015 | 17 de maio de 2015 | TBD |
 | 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 de janeiro de 2015 | 2 de maio de 2015 | TBD |
 | 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 de janeiro de 2015 | 9 de abril de 2015 | TBD |
@@ -134,8 +134,10 @@ Dá suporte a .NET 4.0, 4.5
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3.28 | WA-GUEST-OS-3.28_201506-01 | Projetado em 9 de julho de 2015 | Será atualizada quando a 3.30 for lançada | TBD |
+| 3.27 | WA-GUEST-OS-3.27_201505-02 | 12 de Junho de 2015. | Será atualizada quando a 3.29 for lançada | TBD |
 | 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 de abril de 2015 | Será atualizada quando a 3.28 for lançada | TBD |
-| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 de abril de 2015 | Será atualizada quando a 3.27 for lançada | TBD |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 de abril de 2015 | 12 de julho de 2015 | TBD |
 | 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 de março de 2015 | 17 de maio de 2015 | TBD |
 | 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 de janeiro de 2015 | 2 de maio de 2015 | TBD |
 | 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 de janeiro de 2015 | 9 de abril de 2015 | TBD |
@@ -156,8 +158,10 @@ Dá suporte a .NET 3.5, 4.0
 
 | Versão do SO convidado | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2.40 | WA-GUEST-OS-2.40_201506-01 | Projetado em 9 de julho de 2015 | Será atualizada quando a 2.42 for lançada | TBD |
+| 2.39 | WA-GUEST-OS-2.39_201505-02 | 12 de Junho de 2015. | Será atualizada quando a 2.41 for lançada | TBD |
 | 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 de abril de 2015 | Será atualizada quando a 2.40 for lançada | TBD |
-| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 de abril de 2015 | Será atualizada quando a 2.39 for lançada | TBD |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 de abril de 2015 | 12 de julho de 2015 | TBD |
 | 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 de março de 2015 | 17 de maio de 2015 | TBD |
 | 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 de janeiro de 2015 | 2 de maio de 2015 | TBD |
 | 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 de janeiro de 2015 | 9 de abril de 2015 | TBD |
@@ -181,7 +185,7 @@ Os lançamentos de agosto e setembro de 2014 foram liberados parcialmente devido
 #### Observação 2
 A partir de 19 de setembro de 2014, o .NET 4.5.2 não foi especificamente testado no SO convidado do Azure. Mas o SO convidado é basicamente equivalente ao Windows Server. As mesmas regras de compatibilidade que se aplicam ao produto do Windows Server, portanto, se aplicam às famílias do SO convidado equivalente. Se você encontrar uma exceção para essa política, entre em contato com o [Suporte do Azure][azuresupport]. A Microsoft fará um esforço comercialmente aceitável para solucionar seu problema. [Pacote de instalação manual para .NET 4.5.2][net install pkg].
 
-### Atualizações do MSRC incluídas no SO convidado
+## Atualizações do MSRC incluídas no SO convidado
 A lista de correções incluídas em cada lançamento mensal de SO convidado está disponível [aqui][patches].
 
 ## Suporte a SDK
@@ -214,6 +218,16 @@ Se você atualizar manualmente o SO convidado, leia [Política de desativação 
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
  
 ## Arquivo de notícias
+
+###### **11 de novembro de 2014**
+
+A edição de novembro (4.14, 3.21 e 2.33) foi lançada no dia 11 desse mês. Essa atualização foi enviada mais cedo, porque ela inclui a atualização do MSRC [Boletim de segurança Microsoft MS14-066 - crítica][MS14-066]. Suas funções de trabalho e da Web em atualização automática devem reinicializar uma vez ao longo dos próximos dias e receber essa correção.
+
+###### **10 de novembro de 2014**
+A data de desabilitação do lançamento de outubro (4.13, 3.20 e 2.32) foi atualizada com base nos comentários dos clientes. A data de desabilitação será sempre pelo menos dois meses posterior à data de lançamento.
+
+###### **4 de novembro de 2014**
+A edição de outubro (4.13 3.20 e 2.32) foi lançada em 4 de novembro de 2014. Ela inclui o patch MSRC que causou problemas com as versões de agosto e setembro. Para contornar esse problema, a versão de outubro inclui o .NET 3.5 e 3.5.1 pré-instalado, mas desabilitado. Scripts tentando instalar o .NET 3.5 ou 3.5.1 vão efetivamente reabilitá-lo e retornar "sucesso" como resultado da instalação do .NET, além de evitar o problema de instalação completa criado pelo patch do MSRC.
 
 **20 de outubro de 2014. Atualizado em 4 de novembro de 2014** - o lançamento de setembro (4.12, 3.19, 2.31 e 1.39) parcialmente liberado devido ao mesmo [patch de MSRC MS14-046][MS14-046] causando falhas para aqueles tentando instalar o .NET 3.5 ou 3.5.1 na família 3 ou 4. O .NET 3.5.x NÃO tem suporte oficial por nenhuma das duas famílias, mas a Microsoft está respondendo à alteração no comportamento porque algumas instalações de clientes dependem dele e a alteração ocorreu sem aviso prévio. As datas de desabilitação de SOs convidados anteriores (junho e julho) serão adiadas adequadamente para que pelo menos dois SOs convidados totalmente liberados fiquem disponíveis e com suporte. Uma solução para o problema de instalação do .NET apareceu no lançamento de outubro de 2014.
 
@@ -283,6 +297,8 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 | 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 de outubro de 2013 | N/D | 14 de maio de 2014 |
 | 2.19 versão 3 | WA-GUEST-OS-2.19_201309-03 | 9 de outubro de 2013 | N/D | 14 de maio de 2014 |
 | 2.19 versão 1 | WA-GUEST-OS-2.19_201309-01 | 23 de setembro de 2013 | N/D | 14 de maio de 2014 |
+
+
 [Configurações de atualização de SO convidado do Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -301,5 +317,6 @@ Devido à liberação parcial dos duas últimos lançamentos, as pessoas utiliza
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

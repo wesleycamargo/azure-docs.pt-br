@@ -29,7 +29,7 @@ O Azure analisa os requisitos atuais de desempenho e recursos avaliando o uso hi
 
 Com a análise dessas informações, são recomendados a camada de serviço e o nível de desempenho mais adequados para execução da carga de trabalho comum do banco de dados e manutenção do respectivo conjunto de recursos atuais.
 
-- O serviço examina de 15 a 30 dias anteriores dos dados históricos (uso de recursos, tamanho do banco de dados e atividade do banco de dados) e faz uma comparação entre a quantidade de recursos consumidos e as reais limitações das camadas de serviço e dos níveis de desempenho atualmente disponíveis 
+- O serviço examina de 15 a 30 dias anteriores dos dados históricos (uso de recursos, tamanho do banco de dados e atividade do banco de dados) e faz uma comparação entre a quantidade de recursos consumidos e as reais limitações das camadas de serviço e dos níveis de desempenho atualmente disponíveis
 - Os dados são analisados em intervalos de 15 segundos e cada resultset do intervalo é classificado na camada de serviço e no nível de desempenho existentes mais adequados para tratamento da carga de trabalho do resultset.
 - Essas amostras de 15 segundos são agregadas à análise mais ampla de 15 a 30 dias, sendo assim recomendados a camada de serviço e o nível de desempenho que podem tratar de forma mais eficiente 95% da carga de trabalho histórica.
 
@@ -87,4 +87,7 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 [4]: ./media/sql-database-pricing-tier-recommendations/choose-pricing-tier.png
 [5]: ./media/sql-database-pricing-tier-recommendations/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

@@ -16,11 +16,11 @@
 	ms.date="05/04/2015" 
 	ms.author="Justinha"/>
 
-# Gerenciamento de identidades com privilégios do AD do Azure
+# Gerenciamento de identidades com privilégios do Azure AD
 
 O Azure AD Privileged Identity Management permite gerenciar, controlar e monitorar suas identidades com privilégios e o acesso destas a recursos no Azure AD e em outros serviços online da Microsoft, como Office 365 ou o Microsoft Intune.
 
-Para habilitar os usuários a executarem operações privilegiadas, as organizações geralmente precisam oferecer a muitos de seus usuários acesso privilegiado permanente ao AD do Azure, ou então a recursos do Azure ou Office 365 ou outros aplicativos SaaS. Para muitos clientes, isso é um risco de segurança cada vez maior para seus recursos hospedados em nuvem porque eles não podem monitorar suficientemente o que os usuários estão fazendo com seus privilégios de administrador. Além disso, uma conta de usuário comprometida que tem acesso privilegiado poderá afetar sua segurança de nuvem como um todo. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
+Para habilitar os usuários a executarem operações privilegiadas, as organizações geralmente precisam oferecer a muitos de seus usuários acesso privilegiado permanente ao Azure AD, ou então a recursos do Azure ou Office 365 ou outros aplicativos SaaS. Para muitos clientes, isso é um risco de segurança cada vez maior para seus recursos hospedados em nuvem porque eles não podem monitorar suficientemente o que os usuários estão fazendo com seus privilégios de administrador. Além disso, uma conta de usuário comprometida que tem acesso privilegiado poderá afetar sua segurança de nuvem como um todo. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
 
 O gerenciamento de identidades com privilégios do AD do Azure nesta visualização permite que você:
 
@@ -107,4 +107,4 @@ Usando o Gerenciamento de identidades com privilégios do AD do Azure, também �
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

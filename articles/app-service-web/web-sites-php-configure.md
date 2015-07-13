@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
@@ -40,30 +40,30 @@ Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas
 3. Clique no botão **Salvar** na parte superior da folha **Configurações do aplicativo Web**.
 
 	![Salvar definições de configuração][save-button]
-	
+
 ### PowerShell do Azure (Windows)
 
 1. Abra o Windows PowerShell
 2. Digite `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` e pressione enter.
 3. A versão do PHP agora está definida.
-	
+
 	![Definindo a versão do PHP com o PowerShell do Azure][SETPHPVERPS]
 4. Você pode confirmar essas configurações digitando `Get-AzureWebiste -Name <site-name>` e pressionando enter.
-	
+
 	![Verificando a versão do PHP com o PowerShell do Azure][GETPHPVERPS]
 
 ### Interface de linha de comando do Azure (Linux, Mac, Windows)
 
->[Azure.Note]A Interface de Linha de Comando do Azure requer que **Node.js** seja instalado em seu computador para uso.
+Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js** instalado no computador.
 
 1. Abra o Terminal.
 2. Digite `azure site set --php-version [5.4 | 5.5] [site-name]` e pressione enter.
 3. A versão do PHP agora está definida.
-	
-	![Definindo a versão do PHP com a interface de linha de comando do Azure][SETPHPVERXPLAT]
+
+	![Definindo a versão do PHP com a interface de linha de comando do Azure][SETPHPVERCLI]
 4. Você pode confirmar essas configurações digitando `azure site show [site-name]` e pressionando enter.
-	
-	![Verificando a versão do PHP com a interface de linha de comando do Azure][GETPHPVERXPLAT]
+
+	![Verificando a versão do PHP com a interface de linha de comando do Azure][GETPHPVERCLI]
 
 ## Como: alterar as configurações internas do PHP
 
@@ -120,7 +120,7 @@ Conforme indicado na seção anterior, a melhor forma de visualizar a versão pa
 	![Configurações do aplicativo Web][settings-button]
 
 5. Na folha **Configurações**, selecione **Configurações do Aplicativo** e role até a seção **Configurações do Aplicativo**.
-6. Na seção **Configurações do aplicativo**, crie uma chave **PHP_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\\seu-arquivo-de-ext**.
+6. Na seção **Configurações do aplicativo**, crie uma chave **PHP_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\seu-arquivo-de-ext**.
 
 	![Habilitar extensões em configurações do aplicativo][php-extensions]
 
@@ -151,7 +151,7 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 
 	![Salvar definições de configuração][save-button]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -171,9 +171,10 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

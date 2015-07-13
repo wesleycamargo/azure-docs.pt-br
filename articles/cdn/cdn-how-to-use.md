@@ -57,7 +57,7 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 5.  Na lista suspensa **Região/Grupo de Afinidade**, selecione uma localização ou um grupo de afinidade para a conta de armazenamento. Selecione um grupo de afinidade em vez de uma região se desejar ter os serviços de armazenamento no mesmo data center com outros serviços do Microsoft Azure que você está usando. Isso pode melhorar o desempenho e nenhum encargo será incorrido para a saída.
 
-    **Observação:** para criar um grupo de afinidade, abra a área **Configurações** do Portal de Gerenciamento, clique em **Grupos de Afinidade** e, em seguida, clique em **Adicionar um Grupo de Afinidade** ou então em **Adicionar**. Você também pode criar e gerenciar os grupos de afinidade usando a API de Gerenciamento de Serviços do Microsoft Azure. Para obter mais informações, consulte [Operações em grupos de afinidades].
+    **Observação:** para criar um grupo de afinidade, abra a área **Configurações** do Portal de Gerenciamento, clique em **Grupos de Afinidade** e, em seguida, clique em **Adicionar um Grupo de Afinidade** ou então em **Adicionar**. Você também pode criar e gerenciar os grupos de afinidade usando a API de Gerenciamento de Serviços do Microsoft Azure. Para saber mais, consulte [Operações em grupos de afinidade].
 
 6. Na lista suspensa **Assinatura**, selecione a assinatura com a qual a conta de armazenamento será usada.
 7.  Clique em **Criar Conta de Armazenamento**. O processo de criação da conta de armazenamento pode levar vários minutos para ser concluído.
@@ -126,4 +126,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [create-new-storage-account]: ./media/cdn-how-to-use/CDN_CreateNewStorageAcct.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

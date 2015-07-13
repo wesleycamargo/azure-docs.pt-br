@@ -1,34 +1,34 @@
-       <properties 
-	pageTitle="Introdução ao Active Directory do Azure (Projetos .NET))" 
+<properties 
+	pageTitle="Introdução ao Active Directory do Azure (Projetos .NET)" 
 	description="Introdução ao Active Directory do Azure no Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
- 
+  
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
 # Introdução ao Active Directory do Azure (Projetos .NET)
 
 > [AZURE.SELECTOR]
-> - [Introdução](vs-active-directory-dotnet-getting-started.md)
-> - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Exigir autenticação para acessar os controladores 
 
-Todos os controladores do seu projeto receberam o atributo **Authorize**.  Este atributo exigirá que o usuário seja autenticado antes de acessar esses controladores.  Para permitir que o controlador seja acessado anonimamente, remova este atributo do controlador.  Se desejar definir as permissões em um nível mais granular, aplique o atributo a cada método que necessita de autorização em vez de aplicá-lo à classe do controlador.
+Todos os controladores em seu projeto foram marcados com o atributo **Autorizar**. Este atributo exigirá que o usuário seja autenticado antes de acessar esses controladores. Para permitir que o controlador seja acessado anonimamente, remova este atributo do controlador. Se desejar definir as permissões em um nível mais granular, aplique o atributo a cada método que necessita de autorização em vez de aplicá-lo à classe do controlador.
  
 #####Adicionar controles de SignIn / SignOut 
 
-Para adicionar os controles de SignIn/SignOut à sua visualização, use a visualização parcial **_LoginPartial.cshtml**para adicionar a funcionalidade a uma de suas visualizações.  Veja um exemplo da funcionalidade adicionada à visualização **_Layout.cshtml**.  (Observe o último elemento no div com classe navbar-collapse):
+Para adicionar os controles de SignIn/SignOut à sua visualização, use a visualização parcial **_LoginPartial.cshtmlpara adicionar a funcionalidade a uma de suas visualizações. Veja um exemplo da funcionalidade adicionada à visualização **_Layout.cshtml. (Observe o último elemento no div com classe navbar-collapse):
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@ Para adicionar os controles de SignIn/SignOut à sua visualização, use a visua
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

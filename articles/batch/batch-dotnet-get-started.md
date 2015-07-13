@@ -602,4 +602,4 @@ Um trabalho descreve uma carga de trabalho a ser executada e precisa incluir tod
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

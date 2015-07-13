@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Chamar o Programa MapReduce da Data Factory do Azure" 
-	description="Saiba como processar dados executando programas MapReduce em um cluster HDInsight do Azure em uma fábrica de dados do Azure." 
+	description="Saiba como processar dados executando programas MapReduce em um cluster HDInsight do Azure em uma Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,23 +17,23 @@
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
-Este artigo descreve como chamar um **MapReduce** programa a partir de um pipeline de fábrica de dados do Azure usando o **HDInsight atividade** com **transformação MapReduce**.
+Este artigo descreve como invocar um programa **MapReduce** de um pipeline da Azure Data Factory usando a **Atividade de HDInsight** com **Transformação MapReduce**.
 
 ## Introdução 
 Um pipeline em uma fábrica de dados do Azure processa dados nos serviços de armazenamento vinculados utilizando serviços de computação vinculados. Ela contém uma sequência de atividades em que cada atividade executa uma operação de processamento específica. Este artigo descreve como usar a transformação MapReduce da Atividade do HDInsight.
  
-Consulte [usar o Pig e Hive com dados Factory][data-factory-pig-hive-activities] para obter detalhes sobre como executar o Pig/Hive scripts em um HDInsight cluster de um pipeline de fábrica de dados do Azure usando transformações de Pig/ramificação da atividade HDInsight.
+Consulte [Usar o Pig e Hive com Data Factory][data-factory-pig-hive-activities] para obter detalhes sobre como executar os scripts Pig/Hive em um cluster do HDInsight de um pipeline da Azure Data Factory usando transformações Pig/Hive da Atividade do HDInsight.
 
 ## JSON para atividade de HDInsight usando a transformação MapReduce 
 
 Na definição do JSON para a atividade de HDInsight:
  
-1. Definir o **tipo** do **atividade** para **HDInsightActivity**.
-2. Definir o **tipo** do **transformação** para **MapReduce**.
-3. Especifique o nome da classe para **className** propriedade.
-4. Especifique o caminho para o arquivo JAR incluindo o nome do arquivo **jarFilePath** propriedade.
-5. Especificar o serviço vinculado que faz referência ao armazenamento de Blob do Azure que contém o arquivo JAR **jarLinkedService** propriedade.   
-6. Especifique quaisquer argumentos para o programa MapReduce no **argumentos** seção. 
+1. Defina **type** de **activity** como **HDInsightActivity**.
+2. Defina **type** de **transformation** como **MapReduce**.
+3. Especifique o nome da classe para a propriedade **className**.
+4. Especifique o caminho para o arquivo JAR, incluindo o nome do arquivo para a propriedade **jarFilePath**.
+5. Especifique o serviço vinculado que faz referência ao Armazenamento de Blob do Azure que contém o arquivo JAR para a propriedade **jarLinkedService**.   
+6. Especifique todos os argumentos para o programa MapReduce na seção **arguments**. 
 
    
  
@@ -90,14 +90,14 @@ Na definição do JSON para a atividade de HDInsight:
 Você pode usar a transformação MapReduce para executar qualquer arquivo de jar do MapReduce em um cluster do HDInsight. Na seguinte definição de JSON de exemplo de uma pipeline, a Atividade HDInsight é configurada para executar um arquivo JAR do Mahout.
 
 ## Amostra
-Você pode baixar um exemplo para usar a atividade de HDInsight com o MapReduce transformação de: [dados fábrica amostras no GitHub][data-factory-samples].
+Você pode baixar um exemplo para usar a Atividade de HDInsight com a transformação MapReduce de: [Exemplos de Data Factory no GitHub][data-factory-samples].
 
 ## Consulte também
 
 Artigo | Descrição
 ------ | ---------------
-[Tutorial: Mover e processar os arquivos de log usando o alocador de dados][adf-tutorial] | Este artigo fornece uma explicação de ponta a ponta que mostra como implementar um near real usando o alocador de dados do Azure para transformar dados de arquivos de log em ideias de cenário do mundo. Neste tutorial, você irá usar transformações Pig e Hive para processar dados. 
-[Referência do desenvolvedor de fábrica de dados do Azure][developer-reference] | A referência do desenvolvedor tem o conteúdo de referência abrangente de cmdlets, o script JSON, funções, etc... 
+[Tutorial: Mover e processar arquivos de log usando a Data Factory][adf-tutorial] | Este artigo apresenta um passo a passo completo que mostra como implementar um cenário parecido com um do mundo real usando a Azure Data Factory para transformar dados dos arquivos de log em informações. Neste tutorial, você vai usar transformações Pig e Hive para processar dados. 
+[Referência do desenvolvedor da Azure Data Factory][developer-reference] | A Referência do desenvolvedor tem o conteúdo de referência abrangente de cmdlets, script JSON, funções, etc… 
 
 
 [data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
@@ -121,5 +121,6 @@ Artigo | Descrição
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

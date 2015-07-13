@@ -143,7 +143,7 @@ Por fim, você precisa publicar o back-end de aplicativo móvel no Azure e verif
 
 	Após a publicação, o serviço reiniciará e a página inicial do back-end será exibida.
 
-4. Usando o botão **Experimente agora** na página inicial ou usando um aplicativo cliente conectado ao seu aplicativo móvel, chame algumas operações que geram alterações de banco de dados.
+4. Usando o botão **Experimente agora** na página inicial ou usando um aplicativo cliente conectado ao seu aplicativo móvel, invoque algumas operações que geram alterações de banco de dados.
 
 	>[AZURE.NOTE]Quando você usar o botão **Experimente agora** para abrir as páginas de API de Ajuda, lembre-se de fornecer a chave de aplicativo como a senha (com um nome de usuário em branco).
 

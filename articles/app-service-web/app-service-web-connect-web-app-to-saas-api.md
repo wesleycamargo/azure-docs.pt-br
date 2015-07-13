@@ -69,11 +69,19 @@ No [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=52
 
 	![Atualizações de código HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
-1. Atualize a exibição `Contact` para refletir a lista dinâmica de contatos com o código a seguir: <pre>// Adicione à parte superior do arquivo de exibição @model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Substitua os endereços de email padrão pelo seguinte &lt;h3&gt;Public Contacts&lt;/h3&gt; &lt;ul&gt; @foreach (contato var no modelo) { &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt; } &lt;/ul&gt; </pre>
+1. Atualize a exibição `Contact` para refletir a lista dinâmica de contatos com o seguinte código:
+	<pre>// Add to the very top of the view file
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Atualizações de código Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// Replace the default email addresses with the following
+&lt;h3>Contatos públicos&lt;/h3>
+&lt;ul>
+    @foreach (contato var no Modelo)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Atualizações de código Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Implantar o aplicativo Web para Aplicativos Web no Serviço de Aplicativo
 
@@ -84,5 +92,6 @@ Siga as instruções disponíveis em [Como Implantar um Aplicativo Web do Azure]
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

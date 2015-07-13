@@ -51,7 +51,7 @@ Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem 
 
 Se você tiver um gateway de dados existente que você possa usar, ignore esta etapa.
 
-1.	Crie um gateway de dados lógicos. No **Azure Preview Portal**, clique em **Serviços vinculados** no **DATA FACTORY** lâmina.
+1.	Crie um gateway de dados lógicos. No **Portal de Visualização do Azure**, clique em **Serviços vinculados** na folha **DATA FACTORY**.
 2.	Clique em **Adicionar (+) Gateway de Dados** na barra de comandos.  
 3.	Na folha **Novo gateway de dados**, clique em **CRIAR**.
 4.	Na folha **Criar**, insira **MyGateway** para o **nome** do gateway de dados.
@@ -97,46 +97,46 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar o serviço vinculado
 
-1.	No **Azure Preview Portal**, clique em **Serviços vinculados** bloco a **DATA FACTORY** lâmina para **LogProcessingFactory**.
-2.	No **Serviços vinculados** lâmina, clique em **Adicionar (+) de armazenamento de dados**.
-3.	No **novo armazenamento de dados** lâmina, digite **OnPremSqlLinkedService** para o **nome**. 
-4.	Clique em **(configurações necessárias) do tipo** e selecione **SQL Server**. Você deve ver o **GATEWAY dados**, **Server**, **banco de dados**, e **CREDENCIAIS** configurações no **novo armazenamento de dados** lâmina agora. 
-5.	Clique em **dados GATEWAY (Configurar configurações necessárias)** e selecione **MyGateway** criado anteriormente. 
-6.	Digite **nome** do servidor de banco de dados que hospeda o **MarketingCampaigns** banco de dados. 
-7.	Digite **MarketingCampaigns** do banco de dados. 
+1.	No **Portal de Visualização do Azure**, clique no bloco **Serviços Vinculados** na folha **DATA FACTORY** de **LogProcessingFactory**.
+2.	Na folha **Serviços Vinculados**, clique em **Adicionar (+) armazenamento de dados**.
+3.	Na folha **Novo armazenamento de dados**, insira **OnPremSqlLinkedService** como o **Nome**. 
+4.	Clique em **Tipo (Configurações necessárias)** e selecione **SQL Server**. Agora você deve ver as configurações de **GATEWAY DE DADOS**, **Servidor**, **Banco de dados** e **CREDENCIAIS** na folha **Novo armazenamento de dados**. 
+5.	Clique em **GATEWAY DE DADOS (definir configurações necessárias)** e selecione o **MyGateway** criado anteriormente. 
+6.	Insira o **nome** do servidor de banco de dados que hospeda o banco de dados **MarketingCampaigns**. 
+7.	Insira **MarketingCampaigns** para o Banco de dados. 
 8.	Clique em **CREDENCIAIS**. 
-9.	No **credenciais** lâmina, clique em **clique aqui para definir as credenciais de segurança**.
-10.	Ele instala um aplicativo em um único clique pela primeira vez e inicia o **Definindo credenciais **caixa de diálogo. 11.	No **Definindo credenciais** caixa de diálogo, digite **nome de usuário** e **senha**, e clique em **OK**. Aguarde até que a caixa de diálogo seja fechada. 
-12.	Clique em **OK** no **novo armazenamento de dados** lâmina. 
-13.	No **Serviços vinculados** lâmina, confirme se **OnPremSqlLinkedService** aparece na lista e o **status** do serviço vinculado é **BOM**.
+9.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais com segurança**.
+10.	Ela instala um aplicativo em um único clique pela primeira vez e inicia a **caixa de diálogo **Definindo credenciais. 11.	Na caixa de diálogo **Definindo Credenciais**, insira **Nome de Usuário** e **Senha**, e clique em **OK**. Aguarde até que a caixa de diálogo seja fechada. 
+12.	Clique em **OK** na folha **Novo armazenamento de dados**. 
+13.	Na folha **Serviços Vinculados**, confirme se **OnPremSqlLinkedService** aparece na lista e o **status** do serviço vinculado é **Bom**.
 
 ## <a name="OnPremStep3"></a> Etapa 3: criar tabela e pipeline
 
 ### Criar a tabela lógica local
 
-1.	Em **PowerShell do Azure**, alterne para o **C:\ADFWalkthrough\OnPremises** pasta. 
-2.	Use o cmdlet **novo AzureDataFactoryTable** para criar as tabelas da seguinte maneira para **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+1.	No **PowerShell do Azure**, alterne para a pasta **C:\ADFWalkthrough\OnPremises**. 
+2.	Use o cmdlet **New-AzureDataFactoryTable** para criar as Tabelas da seguinte maneira para **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Criar o pipeline para copiar os dados do Blob do Azure para o SQL Server
 
-1.	Use o cmdlet **AzureDataFactoryPipeline novo** criar o Pipeline da seguinte maneira para **EgressDataToOnPremPipeline.json**.
+1.	Use o cmdlet **New-AzureDataFactoryPipeline** para criar o Pipeline da seguinte maneira para **EgressDataToOnPremPipeline.json**.
 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use o cmdlet **conjunto AzureDataFactoryPipelineActivePeriod** para especificar o período ativo do **EgressDataToOnPremPipeline**.
+2. Use o cmdlet **Set-AzureDataFactoryPipelineActivePeriod** para especificar o período ativo de **EgressDataToOnPremPipeline**.
 
 			
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
-	Pressione **'Y'** para continuar.
+	Pressione **‘Y’** para continuar.
 	
 ## <a name="OnPremStep4"></a> Etapa 4: monitorar o pipeline e exibir o resultado
 
-Agora você pode usar as mesmas etapas introduzidas no [etapa 6: monitoramento tabelas e pipelines](#MainStep6) para monitorar o novo pipeline e as frações de dados para a nova tabela ADF local.
+Agora você pode usar as mesmas etapas introduzidas na [Etapa 6: Monitoramento de tabelas e pipelines](#MainStep6) para monitorar o novo pipeline e as fatias de dados para a nova tabela ADF local.
  
 Quando você ver o status de uma fatia da tabela **MarketingCampaignEffectivenessOnPremSQLTable** mudar para Pronto, isso significa que o pipeline concluiu a execução da fatia. Para exibir os resultados, consulte a tabela **MarketingCampaignEffectiveness** no banco de dados **MarketingCampaigns** no seu SQL Server.
  
@@ -168,4 +168,6 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

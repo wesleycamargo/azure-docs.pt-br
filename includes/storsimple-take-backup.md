@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Fazer um backup"
-   description="Descreve como definir uma política de backup do StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 ### Para fazer um backup
 
@@ -40,4 +24,4 @@
 
 Você concluiu a configuração do dispositivo.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

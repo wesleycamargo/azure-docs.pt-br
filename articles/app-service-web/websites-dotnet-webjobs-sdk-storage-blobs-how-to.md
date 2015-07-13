@@ -221,7 +221,7 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 * Várias instâncias
 * Desligamento normal
 * Usar atributos do SDK de Trabalhos Web no corpo de uma função
-* Definir as cadeias de conexão do SDK no código
+* Definir as cadeias de conexão do SDK no código.
 * Definir valores para parâmetros do construtor do SDK WebJobs no código
 * Configurar `MaxDequeueCount` para manipulação de blobs suspeitos.
 * Disparar uma função manualmente

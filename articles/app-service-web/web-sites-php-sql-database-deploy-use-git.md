@@ -18,7 +18,7 @@
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
 
-Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], o [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), um servidor web, e [gito][install-git] instalado no seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], o [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), um servidor web, e [Git][install-git] instalado no seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
 
 > [AZURE.NOTE]É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP e Serviços de Informações da Internet (IIS) usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
@@ -243,7 +243,7 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicati
 > [AZURE.NOTE]Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
 
 
-Agora, você está pronto para configurar a publicação gito e publicar o aplicativo.
+Agora, você está pronto para configurar a publicação Git e publicar o aplicativo.
 
 > [AZURE.NOTE]Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git**, acima.
 

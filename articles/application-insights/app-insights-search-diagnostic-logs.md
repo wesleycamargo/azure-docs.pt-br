@@ -111,7 +111,7 @@ Pode ser útil associar propriedades que possam ser usadas como filtros na pesqu
 
 Telemetria de rastreamento é o código que você insere especificamente para criar logs de diagnóstico.
 
-Por exemplo, você poderia inserir chamadas como essa:
+Por exemplo, você poderia inserir chamadas como esta:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");

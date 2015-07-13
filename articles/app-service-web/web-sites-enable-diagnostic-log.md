@@ -38,7 +38,7 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 ### Diagnóstico de aplicativo
 
-O diagnóstico de aplicativos permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
+O diagnóstico de aplicativos permite que você capture informações produzidas por um aplicativo Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/pt-br/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 

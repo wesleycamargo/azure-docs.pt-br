@@ -9,4 +9,4 @@
 
 4. (Opcional) Repita as etapas 1-3 em um dispositivo de um cliente diferente e usando uma conta diferente ao fazer logon. Verifique se a notificação é recebida apenas pelos dispositivos que fazem a autenticação com a mesma conta de usuário.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

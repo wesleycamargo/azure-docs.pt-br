@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> O número de núcleos por conta de Lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte ao cliente para discutir opções de aumento.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

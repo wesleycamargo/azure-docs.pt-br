@@ -1,25 +1,22 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Balanceamento de carga para Serviços de infraestrutura do Azure" description="Descreve os recursos para executar o balanceamento de carga com o Gerenciador de Tráfego e o balanceador de carga." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
-
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 #Balanceamento de carga para Serviços de infraestrutura do Azure#
 
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
 
-- **Nível DNS**:  O balanceamento de carga para tráfego de diferentes serviços de nuvem localizados em centros de dados diferentes, para sites do Azure diferentes localizados em centros de dados diferentes, ou para pontos de extremidade externos. Isso é feito com o Gerenciador de Tráfego e o método de balanceamento de carga Round Robin.
-- **Nível de rede**:  O balanceamento de carga de tráfego de internet de entrada para máquinas virtuais diferentes de um serviço de nuvem, ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
+- **Nível DNS**: balanceamento de carga para tráfego de diferentes serviços de nuvem localizados em diferentes datacenters, para diferentes sites do Azure localizados em diferentes datacenters ou para pontos de extremidade externos. Isso é feito com o Gerenciador de Tráfego e o método de balanceamento de carga Round Robin.
+- **Nível de rede**: balanceamento de carga de tráfego da Internet para diferentes máquinas virtuais de um serviço de nuvem ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
 
-##Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites
+##Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites##
 
-O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domínio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes em todo o mundo. 
+O Gerenciador de Tráfego do Azure permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que inclui serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domúnio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes em todo o mundo.
 
-Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade. 
+Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade.
 
 O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga para distribuir o tráfego:
 
-- **Failover**:  Use este método quando desejar usar um ponto de extremidade primário para todos os seus tráfegos, mas forneça backups no caso de um primário se tornar indisponível.
-- **Desempenho**:  Use este método quando tiver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade "mais próximo" em termos de menor latência.
-- **Round Robin**: use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
+- **Failover**: use este método quando quiser usar um ponto de extremidade primário para todo o tráfego, mas fornecer backups caso o primário se torne indisponível.
+- **Desempenho**: use este método quando houver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade “mais próximo” em termos de menor latência.
+- **Round Robin:** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
 
 Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
@@ -54,9 +51,9 @@ O Azure também pode balancear a carga dentro de um serviço de nuvem ou rede vi
 - Balanceamento de carga para aplicativos de linha de negócios (LOB) hospedados no Azure sem exigir hardware ou software do balanceador de carga adicional. 
 - Incluindo servidores locais no conjunto de computadores, cujo tráfego é de carga balanceada.
 
-Semelhante ao balanceamento de carga do Azure, o balanceamento de carga interno é facilitado pela configuração de um conjunto de carga balanceada interno. 
+Semelhante ao balanceamento de carga do Azure, o balanceamento de carga interno é facilitado pela configuração de um conjunto de carga balanceada interno.
 
-A seguinte imagem mostra um exemplo de um ponto de extremidade de carga balanceada interna para um aplicativo de linha de negócios (LOB), que é compartilhado entre três máquinas virtuais em uma rede virtual entre instalações. 
+A seguinte imagem mostra um exemplo de um ponto de extremidade de carga balanceada interna para um aplicativo de linha de negócios (LOB), que é compartilhado entre três máquinas virtuais em uma rede virtual entre instalações.
 
 ![loadbalancing](./media/load-balancing-vms/LOBServers.png)
 
@@ -64,5 +61,4 @@ Para obter mais informações, consulte [Balanceamento de carga interno](http://
 
 <!-- LINKS -->
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

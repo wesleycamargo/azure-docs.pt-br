@@ -1,85 +1,74 @@
 <properties 
-	pageTitle="Como usar o diagnóstico" 
+	pageTitle="Habilitar monitoramento e diagnóstico" 
 	description="Saiba como configurar o diagnóstico para os seus recursos no Azure." 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# Configurando os diagnósticos
+# Habilitar monitoramento e diagnóstico
 
-Na Visualização do Portal do Azure, você agora pode configurar os dados completos, frequentes, de monitoramento e de diagnóstico sobre suas máquinas virtuais do Windows e suas contas de armazenamento.
+No [Portal Azure](http://portal.azure.com), você pode configurar dados de monitoramento e diagnóstico avançados e frequentes sobre seus recursos. Você também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) ou [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para configurar diagnósticos programaticamente.
 
-## Coletando dados completos das máquinas virtuais
-1. Na [Visualização do Portal do Azure](https://portal.azure.com/), clique em **Navegar**. em seguida, em **Máquinas virtuais**. Selecione a máquina virtual que você está interessado em monitorar.
-2. As lentes de **Monitoramento** contém algumas métricas padrão, como **percentual de CPU**, **Leitura e gravação de disco** e **Rede ativa e inativa**. Um clique em qualquer uma das partes o mostrará a folha **Métrica**.  
-    ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
-3. A lâmina **Métrica** mostra detalhes das métricas que você seleciona. Na parte superior da lâmina há um gráfico, abaixo dele há uma tabela que mostra agregação dessas métricas, como a média, o mínimo e o máximo. Abaixo, há uma lista dos alertas que você definiu, filtrados pelas métricas que aparecem na folha.  
-    ![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
-4. Para habilitar os diagnósticos completos, clique no botão **Configurações** e você verá a folha **Diagnósticos**. Escolha **ON**:  
-    ![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
-    - **Métricas básicas**: Métricas de Integridade sobre sua máquina virtual como processador e memória 
-    - **Por métricas de disco**: Métricas sobre todos os discos anexados à sua máquina virtual
-    - **Métricas .NET**: Métricas sobre os aplicativos .NET e ASP.NET que executam na sua máquina virtual
-    - **Métricas de rede**: Métricas sobre suas conexões de rede e serviços Web
-    - **Logs do aplicativo do evento Windows**: Eventos do Windows que são enviados para o canal do aplicativo
-    - **Logs do sistema de evento do Windows** : Eventos do Windows que são enviados para o canal do sistema. Isso também inclui todos os eventos do [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
-    - **Logs de segurança de evento do Windows** : Eventos do Windows que são enviados para o canal de segurança
-    - **Logs de infraestrutura de diagnósticos** : Registro em log sobre a infraestrutura de coleta de diagnósticos
-    - **Logs IIS**: Logs sobre o servidor IIS
-    Todas as métricas e logs serão registrados em intervalos de um minuto, então você pode sempre ter a maioria das informações sobre seu computador atualizadas.
+Dados de diagnóstico, monitoramento e métrica no Azure são salvos em uma conta de armazenamento de sua escolha. Isso permite que você use as ferramentas que quiser para ler os dados, desde um gerenciador de armazenamento, Power BI a ferramentas de terceiros.
 
-Quando você habilita as informações de diagnóstico para uma conta de armazenamento, essa conta será carregada no armazenamento normal, transação e custos egressos. No entanto, estes recursos não produzem um grande volume de dados, com a possível exceção dos logs IIS. A fim de minimizar os custos egressos, exigimos que você selecione uma conta de armazenamento na mesma região do que a máquina virtual.
+## Quando criar um recurso
 
-Uma vez que você clica em **OK**, os dados começarão a aparecer na sua conta de armazenamento dentro de alguns minutos. Você não pode habilitar os diagnósticos para máquinas virtuais que executam o Linux, e o Agente Convidado deve estar instalado para habilitar os diagnósticos.
+A maioria dos serviços permite que você habilite diagnósticos ao criá-los no [Portal Azure](http://portal.azure.com).
 
-## Coletando dados completos das contas de armazenamento
+1. Vá para **Novo** e escolha o recurso em que você está interessado. 
 
-Você sempre será capaz de coletar alguns dados das contas de armazenamento, mas agora na Visualização do Portal do Azure você pode coletar dados de granularidade de um minuto para realmente entender o que está acontecendo dentro de sua conta de armazenamento. As etapas para permitir métricas de um minuto são semelhantes para as máquinas virtuais:
+2. Selecione **Configuração opcional**. ![Folha de diagnósticos](./media/insights-how-to-use-diagnostics/Insights_CreateTime.png)
 
-1. Vá para a folha **Métrica** ao clicar em qualquer um dos gráficos na folha **Conta de armazenamento**.
-2. Clique no botão **Diagnósticos** na barra de comandos.
-3. Selecione quais dados você quer coletar por meio da conta de armazenamento:  
-    ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
-4.  Clique em **OK**. Levará alguns minutos para que os dados apareçam pela primeira vez.
+3. Selecione **Diagnóstico**, e clique em **Em**. Você precisa escolher a conta de armazenamento na qual deseja salvar o diagnóstico. Você pagará taxas de dados normais por armazenamento e transações ao enviar diagnóstico para uma conta de armazenamento.
 
-## Visualizando dados de diagnósticos 
+4. Clique em **OK** e crie o recurso.
 
-Uma vez que você habilitou os diagnósticos, você pode ver a lista completa de métricas disponíveis clicando com o botão direito do mouse em qualquer gráfico e indo para **Editar consulta**:
+## Alterar configurações para um recurso existente
 
-![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
+Se você criou um recurso e quer alterar as configurações de diagnóstico (alterar o nível de coleta de dados, por exemplo), poderá fazer isso diretamente no Portal do Azure.
 
-Você pode plotar estas métricas, e ampliar para a **Última hora**, para a **Semana passada** ou até mesmo escolher um intervalo de tempo **Personalizado**:
+1. Vá para o recurso e clique no comando **Configurações**.
+
+2. Selecione **Diagnóstico**.
+
+3. A folha **Diagnóstico** tem todos os dados de coleta de diagnóstico e monitoramento possíveis para esse recurso. Para alguns recursos, você também pode escolher uma política de **Retenção** de dados, para limpá-los de sua conta de armazenamento. ![Diagnóstico de armazenamento](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
+
+4. Depois de escolher as configurações, clique no comando **Salvar**. Pode demorar um pouco para o monitoramento de dados aparecer se você o estiver habilitando pela primeira vez.
+
+### Categorias de coleta de dados para máquinas virtuais
+Todas as métricas e logs de máquinas virtuais serão registrados em intervalos de um minuto, para que você tenha sempre as informações mais atualizadas sobre seu computador.
+
+- **Métricas básicas**: métricas de integridade sobre sua máquina virtual, como processador e memória 
+- **Métricas de rede e Web**: métricas sobre suas conexões de rede e serviços Web
+- **Métricas .NET**: métricas sobre aplicativos .NET e ASP.NET em execução em sua máquina virtual
+- **Métricas SQL**: se você estiver executando o Microsoft SQL Service, suas métricas de desempenho
+- **Logs de aplicativo de eventos do Windows**: eventos do Windows que são enviados para o canal de aplicativos
+- **Logs do sistema de eventos do Windows**: eventos do Windows que são enviados para o canal do sistema. Isso também inclui todos os eventos do [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
+- **Logs de segurança de eventos do Windows**: eventos do Windows que são enviados para o canal de segurança
+- **Logs de infraestrutura de diagnósticos**: registro em log sobre a infraestrutura de coleta de diagnósticos
+- **Logs de IIS**: logs sobre o servidor IIS
+
+Observe que, neste momento, determinadas distribuições do Linux não têm suporte e o agente convidado deve ser instalado na máquina virtual.
+
+## Próximas etapas
+
+* [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
+* [Dimensionar contagem de instâncias automaticamente](insights-how-to-scale.md) para garantir que o serviço seja dimensionado conforme a demanda.
+* [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
+* [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
+* [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho. 
  
-![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
 
-Você perceberá que essas métricas estão mais para granulares do que os dados que estavam disponíveis anteriormente, e que existem um retardo mínimo.
-
-Neste momento, não existe uma forma para plotar métricas que tem instâncias múltiplas, como medidas por processo ou por disco. Para obter mais informações sobre como personalizar os gráficos de monitoramento, consulte [Como personalizar o monitoramento](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409).
-
-## Alertas nos dados de diagnóstico
-
-Além de visualizar as métricas, você pode alertar sobre qualquer dessas métricas na Visualização do Portal. Primeiro, role para baixo para a parte de **Regras de alerta** na máquina virtual ou folha de armazenamento e, em seguida, clique em **Adicionar alerta**:
-
-![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
-
-Em seguida, você pode selecionar de qualquer uma das métricas que você tem habilitada para diagnóstico:
-
-![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
-
-O gráfico lhe mostrará uma visualização de seu limite de alerta comparado à métrica do dia anterior. Depois de clicar em **Salvar**, dentro de alguns minutos você será informado sempre que a métrica que escolheu exceder o limite. 
-
-Observe que as métricas em que aparece apenas no Portal de Visualização não são alertáveis no Portal Completo. Como resultado, certas regras de alerta no Portal de Visualização não estão no Portal Completo.
-
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

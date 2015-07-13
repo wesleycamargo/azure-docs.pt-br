@@ -1,11 +1,11 @@
-﻿
+
 ##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. No Visual Studio, abra o arquivo default.html em seu projeto de início rápido, localize o elemento **botão** chamado  `buttonRefresh` e adicione o seguinte elemento novo logo depois dele: 
+1. No Visual Studio, abra o arquivo default.html em seu projeto de início rápido, localize o elemento **button** chamado `buttonRefresh` e adicione o seguinte elemento novo logo depois dele: 
 
 		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-	Isso adiciona um novo botão à página. 
+	Isso adiciona um novo botão à página.
 
 2. Abra o arquivo de código default.js na pasta do projeto `js`, localize a função **refreshTodoItems** e verifique se essa função contém o seguinte código:
 
@@ -62,5 +62,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

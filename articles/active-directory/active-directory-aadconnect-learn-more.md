@@ -19,7 +19,7 @@
 # Azure Active Directory Connect - Saiba mais
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="O que é">O que é</a> <a href="../active-directory-aadconnect-how-it-works/" title="Como ele funciona">Como ele funciona</a> <a href="../active-directory-aadconnect-get-started/" title="Introdução">Introdução</a> <a href="../active-directory-aadconnect-whats-next/" title="Próximos passos">Próximos passos</a> <a href="../active-directory-aadconnect-learn-more/" title="Saiba mais" class="current">Saiba mais</a>
+<a href="../active-directory-aadconnect/" title="O que é">O que é</a> <a href="../active-directory-aadconnect-how-it-works/" title="Como funciona">Como funciona</a> <a href="../active-directory-aadconnect-get-started/" title="Introdução">Introdução</a> <a href="../active-directory-aadconnect-whats-next/" title="Próximos passos">Próximos passos</a> <a href="../active-directory-aadconnect-learn-more/" title="Saiba mais" class="current">Saiba mais</a>
 </div>
 
 A seguir, uma lista de recursos adicionais para usar o Azure AD Connect e integrar seus diretórios locais com o AD do Azure.
@@ -41,10 +41,10 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 <br> <br>
 
-Assista a este vídeo para saber como é fácil estender seu Active Directory local para a nuvem usando as configurações express do Azure Active Directory Connect.
+Assista a este vídeo para saber como é fácil estender seu Active Directory local para a nuvem usando as configurações expressas do Azure Active Directory Connect.
 
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

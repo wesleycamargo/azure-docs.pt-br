@@ -18,7 +18,7 @@
 
 # Instalar o .NET em uma Função do Serviço de Nuvem 
 
-Este artigo descreve como instalar o .NET Framework em funções de trabalho ou Web do serviço de nuvem. Você pode usar estas etapas para instalar uma versão do .NET Framework que não está presente no sistema operacional convidado do Azure por padrão. Para obter as informações mais recentes sobre versões do sistema operacional convidado, consulte [Azure Guest OS Releases and SDK Compatibility Matrix (Matriz de compatibilidade do SDK e das versões do sistema operacional convidado do Azure)](cloud-services-guestos-update-matrix.md).
+Este artigo descreve como instalar o .NET Framework em funções de trabalho ou Web do serviço de nuvem. Você pode usar estas etapas para instalar o .NET framework 4.5.2 na Família 4 de SO Convidado do Azure. Para obter as informações mais recentes sobre versões do sistema operacional convidado, consulte [Azure Guest OS Releases and SDK Compatibility Matrix (Matriz de compatibilidade do SDK e das versões do sistema operacional convidado do Azure)](cloud-services-guestos-update-matrix.md).
 
 O processo de instalação do .NET em suas funções de trabalho e web envolve incluir o pacote do instalador do .NET como parte do seu projeto de nuvem e iniciar o instalador como parte das tarefas de inicialização da função.
 
@@ -115,6 +115,6 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

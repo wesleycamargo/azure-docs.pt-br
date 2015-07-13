@@ -143,7 +143,7 @@ Consulte as opções na seguinte interface do usuário:
 ![Insira suas credenciais de AD do Azure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. Clique em Avançar. 
-8. Na página “Pronto para configurar”, deixe “Iniciar o processo de sincronização assim que a configuração for concluída” marcado.[AZURE.NOTE]Começará a sincronização entre o Windows Server Active Directory e o Active Directory do Azure, mas nenhuma alteração será exportada para o AD do Azure. Apenas uma ferramenta de sincronização pode exportar ativamente alterações de cada vez.
+8. Na página "Pronto para configurar", mantenha marcada a opção "Iniciar o processo de sincronização assim que a configuração for concluída".[AZURE.NOTE]A sincronização entre o Active Directory do Windows Server e o Active Directory do Azure começará, mas nenhuma alteração será exportada para o AD do Azure. Apenas uma ferramenta de sincronização pode exportar ativamente alterações de cada vez.
 9. Clique em "Instalar".
 
 [AZURE.NOTE]Desmarque a caixa de seleção de sincronização inicial para garantir que o DirSync, que ainda está instalado e em execução, e o Azure AD Connect não tentem gravar no AAD ao mesmo tempo.
@@ -205,4 +205,4 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

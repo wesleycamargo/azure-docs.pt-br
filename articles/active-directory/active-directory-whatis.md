@@ -52,4 +52,4 @@ Acesse os links para obter mais informações sobre recursos do Active Directory
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -72,4 +72,8 @@ Consulte os tópicos a seguir para consumir dados utilizando o Power Query:
 
 [image-data-factory-introduction-secenario2-operationalize-infoproduction]: ./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

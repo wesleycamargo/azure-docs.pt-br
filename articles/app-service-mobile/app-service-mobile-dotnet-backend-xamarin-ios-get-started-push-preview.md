@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="02/22/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Adicionar notificações por push a seu aplicativo Xamarin iOS
@@ -37,7 +37,7 @@ O APNS (Serviço de Notificação por Push da Apple) usa certificados para auten
 
 Primeiro, gere o arquivo CSR (Solicitação de Assinatura de Certificado), que é usado pela Apple para gerar um certificado assinado.
 
-1. Em Utilitários, execute a **ferramenta Acesso do Conjunto de Chaves**.
+1. Em utilitários, execute a **ferramenta Acesso do Conjunto de Chaves**.
 
 2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
 
@@ -63,7 +63,7 @@ Para poder enviar notificações por push para um dispositivo iOS do seu aplicat
     
     ![][102]
 
-2. Digite um nome para o seu aplicativo em **Descrição**, insira e lembre-se do valor exclusivo para **Identificador de Pacote**, marque a opção "Notificações por Push" na seção "Serviços de Aplicativos" e depois clique em **Continuar**. Este exemplo usa a ID **MobileServices.Quickstart**, mas você não pode reutilizar essa mesma ID, pois as IDs de aplicativo devem ser exclusivas para todos os usuários. Portanto, recomenda-se acrescentar o nome completo ou as iniciais após o nome do aplicativo.
+2. Digite um nome para seu aplicativo em **Descrição**, insira e lembre-se do **Identificador de pacote** exclusivo, marque a opção "Notificações por Push" na seção "Serviços de Aplicativos" e, em seguida, clique em **Continuar**. Este exemplo usa a ID **MobileServices.Quickstart**, mas você não pode reutilizar essa mesma ID, pois as IDs de aplicativo devem ser exclusivas para todos os usuários. Portanto, recomenda-se acrescentar o nome completo ou as iniciais após o nome do aplicativo.
 
     ![][103]
    
@@ -181,21 +181,21 @@ Posteriormente, você usará esse certificado para gerar um arquivo .p12 e vai c
 
 ## <a name="configure-app"></a>Configurar seu aplicativo Xamarin.iOS
 
-1. No Xamarin.Studio, abra **Info.plist** e atualize o **Identificador de Pacote** com a ID criada anteriormente.
+1. No Xamarin.Studio, abra **Info.plist** e atualize o **Identificador de Pacote** com a ID que você criou anteriormente.
 
     ![][121]
 
-2. Role para baixo até **Modos de Plano de Fundo** e marque a caixa **Habilitar Modos de Plano de Fundo** e a caixa **Notificações remotas**.
+2. Role para baixo até **Modos de Tela de Fundo** e marque a caixa **Habilitar Modos de Plano de Fundo** e a caixa **Notificações remotas**.
 
     ![][122]
 
 3. Clique duas vezes em seu projeto no Painel de Solução para abrir **Opções de Projeto**.
 
-4.  Escolha **iOS Bundle Signing** em **Compilação** e selecione a **Identidade** e o **Perfil de provisionamento** correspondentes recém-configurados para esse projeto.
+4.  Escolha **Assinatura do Pacote iOS** em **Compilar** e selecione a **Identidade** e o **Perfil de provisionamento** correspondente que você acabou de configurar para este projeto.
 
     ![][120]
 
-    Isso garantirá que o projeto Xamarin use o novo perfil para a assinatura de código. Para a documentação oficial de provisionamento do dispositivo Xamarin, consulte [Provisionamento do dispositivo Xamarin].
+    Isso garantirá que o projeto Xamarin use o novo perfil para a assinatura de código. Para obter a documentação oficial de provisionamento do dispositivo Xamarin, consulte [Provisionamento do dispositivo Xamarin].
 
 ## <a name="add-push"></a>Adicionar notificações por push ao seu aplicativo
 
@@ -334,5 +334,6 @@ Este tutorial foi concluído com êxito.
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

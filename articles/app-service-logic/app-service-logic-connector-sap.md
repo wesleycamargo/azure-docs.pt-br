@@ -93,5 +93,6 @@ Conclua o aplicativo lógico para definir o processo comercial e execute-o para 
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

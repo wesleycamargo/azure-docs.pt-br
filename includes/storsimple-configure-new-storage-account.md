@@ -1,21 +1,5 @@
-<properties 
-   pageTitle="Opcional: configurar uma nova conta de armazenamento para o serviço"
-   description="Explica como configurar uma conta de armazenamento para o serviço StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-### Para configurar uma nova conta de armazenamento
+#### Para adicionar uma nova conta de armazenamento na versão de lançamento do StorSimple (GA)
 
 1. Na página inicial do serviço StorSimple Manager, selecione seu serviço e clique duas vezes nele. Isso o levará para a página de **Início Rápido**. Selecione a página **Configurar**.
 
@@ -33,4 +17,4 @@
 
 4. A conta de armazenamento recém-criada será exibida na página **Configurar** em **Contas de armazenamento**. Clique em **Salvar** para salvar a conta de armazenamento recém-criada. Clique em **OK** quando solicitado para confirmar.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

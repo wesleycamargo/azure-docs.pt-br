@@ -59,7 +59,7 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
 - **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Provisionar clusters Hadoop no HDInsight usando opções personalizadas][hdinsight-provision] ou [Introdução ao Hadoop com o Hive no HDInsight para analisar o uso de fones móveis][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border = "1">
@@ -79,7 +79,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 <tr><td>Nome de logon do banco de dados SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nome de logon do banco de dados SQL do Azure.</td></tr>
 <tr><td>Senha de logon do banco de dados SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Senha de logon do banco de dados SQL do Azure.</td></tr>
 <tr><td>Nome do banco de dados SQL</td><td>$sqlDatabaseName</td><td></td><td>Banco de dados SQL do Azure para o qual o Sqoop exportará dados. </td></tr>
-</table> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL do Azure][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL do Azure][sqldatabase-create-configue].
 
 
 > [AZURE.NOTE]O preenchimento dos valores nas tabelas é útil para o uso deste tutorial.
@@ -613,4 +613,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

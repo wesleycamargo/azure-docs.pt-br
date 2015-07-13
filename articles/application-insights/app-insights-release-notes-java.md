@@ -55,4 +55,4 @@ Compare o ApplicationInsights.xml antigo e novo. Muitas das alterações que voc
 - Capacidade de marcar um item de telemetria como sintético adicionando uma propriedade ```SyntheticSource``` ao item relatado.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

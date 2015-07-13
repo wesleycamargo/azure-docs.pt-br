@@ -26,11 +26,11 @@ Este tutorial baseia-se no início rápido do aplicativo móvel. Você também d
 
 ##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou simulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.</p>
@@ -107,5 +107,6 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 [Criar um aplicativo Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

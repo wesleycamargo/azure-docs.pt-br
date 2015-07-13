@@ -95,5 +95,6 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

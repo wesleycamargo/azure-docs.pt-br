@@ -46,7 +46,7 @@ Trace.TraceError("My error statement");
 
 A classe de rastreamento está no namespace System. Diagnostics.
 
-Em um aplicativo node. js, você pode escrever esse código para obter o mesmo resultado:
+Em um aplicativo node.js, você pode escrever esse código para obter o mesmo resultado:
 
 `````````````````````````
 console.log("My trace statement").

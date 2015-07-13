@@ -178,5 +178,6 @@ Aqui estão alguns recursos adicionais para ajudá-lo a usar o AD do Azure para 
 
 + [Exemplos de código do Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Cenários de autenticação do Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

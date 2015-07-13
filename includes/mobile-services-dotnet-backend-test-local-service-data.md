@@ -1,12 +1,12 @@
-﻿Nesta seção você usará o Visual Studio para hospedar o aplicativo e o serviço móvel localmente em sua estação de trabalho de desenvolvimento no IIS Express. Em seguida, você testará o aplicativo e o serviço de back-end.
+Nesta seção você usará o Visual Studio para hospedar o aplicativo e o serviço móvel localmente em sua estação de trabalho de desenvolvimento no IIS Express. Em seguida, você testará o aplicativo e o serviço de back-end.
 
 
 1. No Visual Studio, pressione a tecla F7 ou clique em **Compilar solução** no menu **Compilar** para compilar o aplicativo da Windows Store e o serviço móvel. Verifique se os dois projetos são compilados sem erros na janela de saída do Visual Studio
 
-2. No Visual Studio, pressione a tecla F5 ou clique em **Iniciar Depuração** no menu **Depurar** para executar o aplicativo e hospedar o serviço móvel localmente no IIS Express. 
+2. No Visual Studio, pressione a tecla F5 ou clique em **Iniciar Depuração** no menu **Depurar** para executar o aplicativo e hospedar o serviço móvel localmente no IIS Express.
 
  
-3. Digite um novo texto de todoitem. Em seguida, clique em **Salvar**. Isso insere um novo todoItem no banco de dados criado pelo serviço móvel hospedado localmente no IIS Express. 
+3. Digite um novo texto de todoitem. Em seguida, clique em **Salvar**. Isso insere um novo todoItem no banco de dados criado pelo serviço móvel hospedado localmente no IIS Express.
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png)
 
@@ -18,5 +18,4 @@
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

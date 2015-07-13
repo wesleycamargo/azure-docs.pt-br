@@ -1,89 +1,140 @@
 <properties 
-	pageTitle="Como dimensionar um site" 
-	description="Saiba como dimensionar seu plano de hospedagem no Azure." 
+	pageTitle="Dimensionar a contagem de instância manualmente ou automaticamente" 
+	description="Saiba como dimensionar seus serviços do Azure." 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# Como dimensionar um site
+# Dimensionar a contagem de instância manualmente ou automaticamente
 
-Na Visualização do Portal do Azure, você pode definir manualmente a contagem de instâncias de seu Plano de Hospedagem na Web ou definir parâmetros para que o dimensionamento seja feito automaticamente. Antes de configurar o dimensionamento de seu Plano de Hospedagem na Web, você deve considerar que o dimensionamento será afetado pelo tamanho da instância. Tamanhos maiores têm mais núcleos e memória e, portanto, terão melhor desempenho para o mesmo número de instâncias.
+No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente a contagem de instâncias de seu serviço ou definir parâmetros para que o dimensionamento seja feito automaticamente com base na demanda. Isso é normalmente conhecido como *Escala horizontal* ou *Redução horizontal*.
 
-A escala afeta todo um Plano de Hospedagem na Web. Quando cria um Site, você tem a opção de criar um novo Plano de Hospedagem na Web ou um Plano de Hospedagem na Web existente. Quando você tem um Plano de Hospedagem na Web, todos os sites compartilham as mesmas instâncias e, portanto, todas elas são dimensionadas coletivamente.
+Antes de dimensionamento com base na contagem de instâncias, você deve considerar que o dimensionamento é afetado pela **camada de preços** além de contagem de instâncias. Diferentes faixas de preço podem ter diferentes números de núcleos e memória e, portanto, terão melhor desempenho para o mesmo número de instâncias (o que significa *escalar verticalmente* ou *reduzir verticalmente*). Este artigo aborda especificamente a *redução horizontam* e a *expansão*.
 
-## Dimensionando um Plano de Hospedagem na Web
+Você pode reduzir horizontalmente no portal, e você também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para ajustar o dimensionamento manual ou automaticamente.
 
-1. Na [Visualização do Portal do Azure](https://portal.azure.com/), clique em **Navegar**, em seguida, em **Sites** e clique no nome do Site para abrir a folha.
-2. A parte **Escala** na lente **Operações** da folha Site informará o status do Plano de Hospedagem na Web: **Desativado** para quando você estiver dimensionando manualmente, **Desempenho** quando você estiver dimensionando por uma ou mais métricas de desempenho e **Agendamento** para quando você tiver habilitado vários perfis de dimensionamento automático.  
-    ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
-3. Um clique na parte abrirá a lâmina **Escala**. Na parte superior da folha de escala, você pode ver um histórico das ações de dimensionamento automático de Plano de Hospedagem na Web.  
+## Dimensionando manualmente
 
-    ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-4. Você pode ajustar manualmente o número de máquinas virtuais que executam seu Plano de Hospedagem na Web com o controle deslizante **Instância**.
-5. Se desejar que o número de instâncias seja ajustado automaticamente com base na carga, selecione **Desempenho** em **Modo de Autoescala**. Neste ponto, você não pode selecionar **Agendamento** na Visualização do Portal do Azure.  
-    ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-6. Depois de selecionar Desempenho, há duas alterações:
-    - **Intervalo de Instâncias** agora permite que você escolha uma contagem de instância máxima e mínima. A autoescala sempre mantém você nesse intervalo, independentemente da carga.
-    - Você pode definir as métricas de desempenho na seção **Métricas de Destino**
-7. A seção **Porcentagem de CPU** permite que você defina um destino para a média de CPU entre todas as instâncias no seu Plano de Hospedagem na Web. Uma escala vertical acontecerá quando a média de CPU exceder o máximo definido.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano de Serviço de Aplicativo**.
 
-Com a autoescala habilitada, você verá **Desempenho** na parte da lâmina Site e o histórico de sua escala no gráfico:
+2. O bloco **Dimensionar** em **Operações** informará o status do dimensionamento: **Desativado** para quando você estiver dimensionando manualmente, **Ativado** para quando você estiver dimensionando de acordo com uma ou mais métricas de desempenho. ![Bloco Dimensionar](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScalePartBladeOn.png) 
+3. Clicar no bloco abrirá a folha **Dimensionar**. Na parte superior da folha Dimensionar, você pode ver um histórico das ações de dimensionamento automático do serviço. ![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+    
+>[AZURE.NOTE]Apenas as ações executadas pelo dimensionamento automático aparecerão neste gráfico. Se você ajustar manualmente a contagem de instâncias, a alteração não será refletida no gráfico.
 
-Observe que, na Visualização do Portal do Azure, você não pode alterar o número de instâncias de um Plano de Hospedagem na Web Compartilhado.
+4. Você pode ajustar manualmente o número de **instâncias** com o controle deslizante.
+5. Clique no comando **Salvar** e o dimensionamento será realizado para esse número de instâncias quase imediatamente. 
 
-## Dimensionamento avançado
+## Dimensionamento com base em uma métrica predefinida
 
-Novidade na Visualização do Portal do Azure, você pode dimensionar com base em métricas diferentes de Porcentagem de CPU e até mesmo ter um conjunto complexo de regras de expansão e redução.
+Se você quiser que o número de instâncias seja ajustado automaticamente com base em uma métrica, selecione a métrica desejada no menu suspenso **Dimensionar por**. Por exemplo, para um **plano de Serviço de Aplicativo**, você pode dimensionar de acordo com a **percentual de CPU**.
 
-### Dimensionamento com base em outras métricas de desempenho
-Além da CPU, você pode dimensionar com base em:
+1. Ao selecionar uma métrica, você obterá um controle deslizante e/ou caixas de texto para inserir o número de instâncias entre as quais deseja dimensionar:
 
-- Média de Memória se o percentual médio de memória usado nas instâncias ficar acima ou abaixo dos limites especificados, as instâncias serão adicionadas ou removidas.
-- Profundidade da Fila HTTP ou Profundidade da Fila do Disco se o número de mensagens na fila das solicitações HTTP ou do Disco ficar acima ou abaixo do limite especificado, as instâncias serão adicionadas ou removidas.
+    ![Lâmina Escala com a porcentagem de CPU](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
+    
+    O dimensionamento automático nunca dimensionará seu serviço abaixo ou acima dos limites definidos, independentemente de sua carga.
 
-Há duas maneiras diferentes de dimensionar por outra métrica. Se você desejar dimensionar apenas por uma única métrica, selecione a divisa ao lado do controle deslizante **Porcentagem da CPU**. Isso abrirá a folha Detalhes da Métrica:
+2. Em segundo lugar, você escolhe o intervalo de destino para a métrica. Por exemplo, se escolher **Percentual de CPU**, você pode definir um destino para a média de CPU entre todas as instâncias no seu serviço. Uma escala horizontal acontecerá quando a média de CPU exceder o máximo definido, da mesma forma, uma redução horizontal ocorrerá sempre que a média de CPU ficar abaixo do mínimo.
 
-![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
+3. Clique no comando **Salvar**. O dimensionamento automático verificará em intervalos regulares para certificar-se de que você está dentro do intervalo de instância e destino para sua métrica. Quando o serviço receber tráfego adicional, você obterá mais instâncias sem fazer nada.
 
-Para dimensionar por mais de uma métrica ao mesmo tempo, você pode clicar em **Adicionar Métrica** na barra de comandos:
+## Dimensionamento com base em outras métricas
 
-![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
+Você pode dimensionar com base em métricas que não sejam as métricas predefinidas que aparecem no menu suspenso **Dimensionar por** e pode até mesmo ter um conjunto complexo de regras de escala e redução horizontal.
 
-A folha Detalhes da Métrica contém todos os controles que você precisa para configurar seu perfil ideal de escala. Na parte superior, escolha a nova métrica pela qual você deseja dimensionar.
+### Adicionar ou alterar uma regra
+
+1. Escolha as **regras de planejamento e desempenho** no menu suspenso **Dimensionar por**: ![Regras de desempenho](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+
+2. Se você tiver utilizado o dimensionamento automático anteriormente, você verá uma exibição das regras exatas utilizadas.
+
+3. Para dimensionar com base em outra métrica clique na linha **Adicionar regra**. Você também pode clicar em uma das linhas existentes para alterar a métrica utilizada anteriormente para a métrica de acordo com a qual deseja dimensionar. ![Adicionar regra](./media/insights-how-to-scale/Insights_AddRule.png)
+
+4. Agora, você precisa selecionar de acordo com qual métrica deseja dimensionar. Ao escolher uma métrica, existem algumas coisas a serem consideradas:
+    * O *recurso* do qual a métrica é proveniente. Normalmente, ele será o mesmo que o recurso que você está dimensionando. No entanto, se quiser dimensionar pela profundidade de uma fila de armazenamento, o recurso é a fila de acordo com a qual você deseja dimensionar.
+    * O *nome da métrica* em si. 
+    * A *agregação de tempo* da métrica. É assim que os dados são combinados na *duração*.
+    
+5. Depois de escolher sua métrica, escolha o limite para a métrica e o operador. Por exemplo, você poderia dizer **Maior que** **80%**.
+
+6. Em seguida, escolha a ação que deseja executar. Há alguns tipos de ações diferentes:
+    * Aumentar ou diminui por - isso adicionará ou removerá o número do **valor** das instâncias definidas
+    * Aumentar ou diminuir a porcentagem - isso alterará a contagem de instâncias de acordo com uma porcentagem. Por exemplo, você poderia colocar 25 no campo **valor** e, caso tenha atualmente 8 instâncias, 2 seriam adicionadas.
+    * Aumentar ou diminuir para - isso definirá a contagem de instâncias para o **valor** definido.
+
+7. Por fim, você pode escolher Resfriamento - quanto tempo esta regra deve esperar após a ação anterior de dimensionamento para dimensionar novamente.
+    
+8. Depois de configurar a regra, pressione **OK**.
+
+9. Depois de configurar todas as regras que você deseja, certifique-se de pressionar o comando **Salvar**.
 
 ### Dimensionamento com várias etapas
 
-Abaixo do gráfico da métrica há duas seções: **Regras de expansão** e **Regras de redução**. Seu serviço será aumentado se **qualquer uma** das regras de aumento for atendida. De modo oposto, seu serviço será reduzido se **todas** as regras de redução forem atendidas.
+Os exemplos acima são bastante básicos. No entanto, se você quiser ser mais agressivo sobre como expandir (ou reduzir), você pode adicionar até mesmo várias regras de dimensionamento para a mesma métrica. Por exemplo, você pode definir duas regras de dimensionamento de acordo com um percentual de CPU:
 
-Para cada regra que você escolher:
+1. Escalar horizontalmente em uma instância se o percentual de CPU estiver acima de 60%
+2. Escalar horizontalmente em três instâncias se o percentual de CPU estiver acima de 85%
 
-- Condição - maior ou menor que
-- Limite - o número que essa métrica tem que passar para disparar a ação
-- Nos últimos - o número de minutos no qual a média dessa métrica é definida
-- Aumentar ou reduzir por - o tamanho da ação da escala
-- Resfriamento - quanto tempo esta regra deve esperar após a ação anterior de escala para dimensionar novamente
+![Várias regras de escala](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
 
-![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
+Com essa regra adicional, se sua carga exceder 85% antes de uma ação de escala, você terá duas instâncias adicionais em vez de uma.
 
-Com várias regras de escala, você pode ser mais agressivo sobre como expandir (ou reduzir) à medida que o desempenho muda. Por exemplo, você pode definir duas regras de escala:
+## Dimensionamento com base em um planejamento
 
-1. Aumentar uma instância se a porcentagem de CPU estiver acima de 60%
-2. Aumentar três instâncias se a porcentagem de CPU estiver acima de 85%
 
-Com essa regra adicional, se sua carga exceder 85% antes de uma ação de escala, você terá duas instâncias adicionais em vez de uma. 
+Por padrão, quando você cria uma regra de dimensionamento ela será sempre aplicada. Você pode ver isso ao clicar no cabeçalho do perfil:
 
-<!--HONumber=46--> 
+![Perfil](./media/insights-how-to-scale/Insights_Profile.png)
+
+No entanto, você talvez queira ter um dimensionamento mais agressivo durante o dia, ou a semana, do que no final de semana. Você pode até mesmo desligar o serviço totalmente fora do horário de trabalho.
+
+1. Para fazer isso, em seu perfil, selecione **Recorrência** em vez de **Sempre** e escolha os horários em que você deseja que o perfil se aplique.
+
+2. Por exemplo, para que um perfil se aplique durante a semana, no menu suspenso **Dias** desmarque **sábado** e **domingo**.
+
+3. Para que um perfil se aplique durante o dia, defina o **horário de início** para o horário do dia em que você deseja iniciar. ![Recorrência padrão](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+
+4. Clique em **OK**.
+
+5. Em seguida, você precisará adicionar o perfil que deseja aplicar em outros momentos. Clique na linha **Adicionar perfil**. ![Dia livre](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+
+6. Nomeie o segundo novo perfil. Por exemplo, você poderia chamá-lo de **Dias livres**.
+
+7. Selecione **Recorrência** novamente e escolha o intervalo de contagem de instância que você deseja durante esse tempo.
+
+8. Assim como com o perfil padrão, escolha os **Dias** aos quais quer que esse perfil seja aplicado e o **Horário de início** durante o dia.
+
+>[AZURE.NOTE]O dimensionamento automático usará as regras do horário de verão para o **fuso horário** selecionado. No entanto, durante o horário de verão, o deslocamento UTC mostrará o deslocamento de fuso horário base, não o deslocamento de UTC de horário de verão.
+
+9. Clique em **OK**.
+
+10. Agora, você precisará adicionar as regras que você deseja aplicar durante o segundo perfil. Clique em **Adicionar regra** e, em seguida, você pode construir a mesma regra usada durante o perfil padrão. ![Adicionar regra para dia livre](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+
+11. Certifique-se de criar uma regra para escala e redução horizontal, caso contrário, durante o perfil, a contagem de instâncias vai apenas aumentar (ou diminuir).
+
+12. Por fim, clique em **Salvar**.
+
+## Próximas etapas
+
+* [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
+* [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
+* [Receba notificações de alerta](insights-receive-alert-notifications.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
+* [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
+
+<!---HONumber=62-->

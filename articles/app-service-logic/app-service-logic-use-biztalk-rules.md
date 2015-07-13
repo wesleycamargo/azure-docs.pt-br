@@ -109,7 +109,7 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
   1.	Nome – apenas caracteres alfanuméricos são esperados, sem caracteres especiais. Ele deve ser exclusivo em sua lista de definições de vocabulário existente.
   2.	Descrição – campo opcional.
   3.	Tipo – dois tipos têm suporte. Neste exemplo, escolha Literal
-  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") ii. Booliano – pode ser verdadeiro ou falso iii. Número – pode ser qualquer número decimal iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM v. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
+  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") ii. Booliano – pode ser verdadeiro ou falso iii. Número – pode ser qualquer número decimal iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM v. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
 
 ![Alt text][5]
 ##Definição XML
@@ -135,8 +135,8 @@ As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a 
 ##Encadeamento de encaminhamento explícito
 As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte: 1. atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição. 2. Halt – esta palavra-chave interrompe todas as execuções de regra
 
-##Habilitar\\desabilitar regras
-Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\\desabilitar.
+##Habilitar\desabilitar regras
+Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\desabilitar.
 
 ##Prioridade da regra
 Todas as regras da política são executadas em ordem. A prioridade de execução é determinada pela ordem em que elas ocorrem na política. Essa prioridade pode ser alterada simplesmente arrastando e soltando a regra.
@@ -200,5 +200,6 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

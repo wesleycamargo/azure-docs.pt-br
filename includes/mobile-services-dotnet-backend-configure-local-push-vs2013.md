@@ -14,4 +14,5 @@ Você também pode testar notificações por push com seu serviço móvel em exe
 	Esta é a URL do host local para o projeto back-end .NET. Você usará esta URL para testar o aplicativo no serviço móvel eme xecução no computador local.
 
 Agora, o projeto do serviço móvel é configurado para se conectar ao hub de notificação no Azure, quando a execução ocorre localmente. Observe que é importante utilizar o mesmo nome de hub de notificação e cadeia de conexão utilizados no portal, porque essas configurações do arquivo Web.config são substituídas pelas configurações do portal durante a execução no Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

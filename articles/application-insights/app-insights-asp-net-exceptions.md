@@ -67,7 +67,7 @@ Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-Se você já estiver usando  uma estrutura de registro em log como Log4Net ou NLog, poderá [capturar esses logs][netlogs] e vê-los da mesma maneira.
+Se você já estiver usando uma estrutura de registro em log como Log4Net ou NLog, poderá [capturar esses logs][netlogs] e vê-los da mesma maneira.
 
 Os [Eventos personalizados][api] são normalmente usados para controle de uso, mas também pode ser encontrado em "Toda a telemetria para esta solicitação".
 
@@ -426,4 +426,6 @@ Adicione o atributo para as implementações de serviço:
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

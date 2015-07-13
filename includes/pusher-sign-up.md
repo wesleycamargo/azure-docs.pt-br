@@ -1,4 +1,4 @@
-﻿A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode usar o plano GRATUITO de Área Restrita, ele é perfeito para este tutorial.
+A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode usar o plano GRATUITO de Área Restrita, ele é perfeito para este tutorial.
 
 ### Para inscrever-se em uma conta de Pusher
 
@@ -20,15 +20,15 @@
 
 	![store-screen-1][store-screen-1]
 
-8. Escolha um valor para a região; por exemplo, oeste dos Estados Unidos. 
+8. Escolha um valor para a região; por exemplo, oeste dos Estados Unidos.
 
 9. Clique na seta à direita.
 
-10. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que você clicar na marca de seleção, a sua conta de Pusher iniciará o processo de provisionamento. 
+10. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que você clicar na marca de seleção, a sua conta de Pusher iniciará o processo de provisionamento.
 
 	![store-screen-2][store-screen-2]
 
-11. Depois de confirmar sua compra, você será redirecionado para o painel de complementos e verá a mensagem **Compra de Pusher**.
+11. Depois de confirmar sua compra, você será redirecionado para o painel de complementos e verá a mensagem **Compra de Pusher**
 
 	![store-screen-3][store-screen-3]
 
@@ -46,7 +46,7 @@ Ao usar o Pusher, você precisará fornecer as configurações de conexão do ap
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. Na caixa de diálogo *Connection info*, você verá sua ID de aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
+2. Na caixa de diálogo *Informações de Conexão*, você verá sua ID de aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
 
 	![pusher-connection-info][pusher-connection-info]
 
@@ -68,5 +68,4 @@ Para obter mais informações sobre como começar com o Pusher, consulte [Noçõ
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
 [Noções básicas sobre Pusher]: http://pusher.com/docs
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

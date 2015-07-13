@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath.m2\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -268,8 +268,7 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: 
-  o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
+11. **Agente**: o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -281,8 +280,7 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ```
- O usuário do agente será retornado se a conta for válida.
+ ``` O usuário do agente será retornado se a conta for válida.
 
  O manifesto do seu aplicativo deve ter permissões para usar contas do AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -311,12 +309,9 @@ A URL de autoridade precisa da instância STS e do nome do locatário: https://l
 
 ### Consultar itens do cache
 
-A ADAL fornece cache padrão em SharedPrefrecens com algumas funções de consulta simples de cache. Você pode obter o cache atual de AuthenticationContext com:
-```Java
+A ADAL fornece cache padrão em SharedPrefrecens com algumas funções de consulta simples de cache. Você pode obter o cache atual de AuthenticationContext com: ```Java
  ITokenCacheStore cache = mContext.getCache();
-```
-Você também pode fornecer sua implementação de cache, se desejar personalizá-la.
-```Java
+``` Você também pode fornecer sua implementação de cache, se desejar personalizá-la. ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -362,8 +357,7 @@ Você pode configurar a biblioteca para gerar mensagens de log que você pode us
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ```
- As mensagens podem ser gravadas em um arquivo de log personalizado, conforme mostrado abaixo. Infelizmente, não há um modo padrão de obter os logs de um dispositivo. Há alguns serviços que podem ajudá-lo. Você pode também criar seus próprios métodos, como enviar o arquivo para um servidor.
+ ``` As mensagens podem ser gravadas em um arquivo de log personalizado, conforme mostrado abaixo. Infelizmente, não há um modo padrão de obter os logs de um dispositivo. Há alguns serviços que podem ajudá-lo. Você pode também criar seus próprios métodos, como enviar o arquivo para um servidor.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -384,8 +378,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info(Information purposes)
 + Verbose(More details)
 
-Defina o nível de log da seguinte maneira: 
-```Java
+Defina o nível de log da seguinte maneira: ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -393,8 +386,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ```
-Mais exemplos de adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` Mais exemplos de adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Rastreamentos de rede
 
@@ -419,14 +411,12 @@ A classe AuthenticationParameters fornece funcionalidade para obter o authorizat
 
 ### Cookies de sessão no Webview
 
-O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo: 
-```java
+O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo: ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-```
- Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Substituições de recurso
 
@@ -450,4 +440,4 @@ Seu aplicativo deve substituí-las se desejar cadeias de caracteres localizadas.
 A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por meio do evento onReceivedHttpAuthRequest do WebViewClient. O layout da caixa de diálogo e as sequências de caracteres podem ser personalizadas.### Etapa 5: Baixe o código de exemplo do cliente nativo do iOS
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

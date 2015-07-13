@@ -1179,4 +1179,4 @@ Simplesmente faça a clonagem para sua máquina de desenvolvedor e configure con
 [ADAL para .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

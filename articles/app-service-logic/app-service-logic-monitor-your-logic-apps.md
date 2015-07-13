@@ -48,5 +48,6 @@ Há dois recursos adicionais que não são possíveis no momento na interface do
 1. **Histórico de gatilho** - gatilhos de sondagem verificam a API em um intervalo de sondagem, mas não necessariamente iniciam uma execução, dependendo da resposta (por exemplo um `200` significa executar e um `202` significa que não executar). O histórico de gatilho fornece uma maneira de ver todas as chamadas aconteceram, mas que não executam o aplicativo lógico (a respostas `202`).
 
 2. **Versões anteriores** - quando você atualizar a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, essa execução fará referência à versão do aplicativo lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST fornece acesso a essas informações.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

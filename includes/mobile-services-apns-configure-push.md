@@ -1,32 +1,6 @@
-Após registrar seu aplicativo com o APNS e configurar seu projeto, configure seu serviço móvel para integrá-lo ao APNS.
 
-1. No conjunto de chaves de acesso, clique com o botão direito do mouse no novo certificado do aplicativo de início rápido em **Chaves** ou **Meus certificados**, clique em **Exportar**, nomeie o arquivo como QuickstartPusher, selecione o formato **.p12** e clique em **Salvar**.
+* Siga as etapas em [Instalando uma identidade de assinatura SSL de cliente no servidor](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) para exportar o certificado que você baixou na etapa anterior para um arquivo. p12.
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+* No portal do Azure, clique em **Serviços Móveis** > seu aplicativo > a guia **Enviar por Push** > "configurações de notificação por push da Apple** > **Upload**. Carregue o arquivo. p12, verificando se o **modo** correto está selecionado (Área Restrita ou Produção, dependendo de o certificado SSL de cliente gerado ser de Desenvolvimento ou de Distribuição.) Agora, seu serviço móvel está configurado para funcionar com notificações por push no iOS!
 
-  Anote o nome do arquivo e o local do certificado exportado.
-
->[AZURE.NOTE]Este tutorial cria um arquivo QuickstartPusher.p12. O nome do arquivo e o local podem ser diferentes.
-
-2. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu aplicativo.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-services-selection.png)
-
-3. Clique na guia **Push** e clique em **Carregar**.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios.png)
-
-	Isso exibirá a caixa de diálogo Carregar Certificado.
-
-4. Clique em **Arquivo**, selecione o arquivo de certificado exportado do QuickstartPusher.p12, digite a **Senha**, verifique se o **Modo** correto está selecionado (Dev/Sandbox ou Prod/Production), clique no ícone de verificação e clique em **Salvar**.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios-upload.png)
-
-    > [AZURE.NOTE]Este tutorial usa certificados de desenvolvimento.
-
-Agora, seu serviço móvel está configurado para funcionar com o APNS.
-
-<!-- URLs. -->
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -127,7 +127,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     | Atributo | Tipo |
     |----------- |   ------    |
-    | ID | Número inteiro 64 |
+    | ID | Número Inteiro 64 |
     | itemId | Cadeia de caracteres |
     | propriedades | Dados binários |
     | tabela | Cadeia de caracteres |
@@ -140,7 +140,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | Atributo | Tipo |
     |----------- |   ------    |
     | ID | Cadeia de caracteres |
-    | operationId | Número inteiro 64 |
+    | operationId | Número Inteiro 64 |
     | propriedades | Dados binários |
     | tableKind | Número inteiro 16 |
 
@@ -152,7 +152,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     |----------- |   ------    |
     | ID | Número inteiro 64 |
     | chave | Cadeia de caracteres |
-    | keyType | Número inteiro 64 |
+    | keyType | Número Inteiro 64 |
     | tabela | Cadeia de caracteres |
     | valor | Cadeia de caracteres |
 
@@ -212,13 +212,13 @@ Nesta seção, você desligará o Wi-Fi no simulador para criar um cenário offl
 
 Para dar suporte a esse recurso de sincronização offline, usamos a interface `MSSyncTable` e inicializamos `MSClient.syncContext` com um repositório local. Nesse caso, o repositório local era um banco de dados baseado em dados principais.
 
-Ao usar um repositório local de dados principais, você deve definir várias tabelas com as [propriedades do sistema corretas][Review the Core Data model].
+Ao usar um armazenamento local de dados principais, você deve definir várias tabelas com [corrigir propriedades do sistema][Examinar o modelo de dados principais].
 
 As operações CRUD normais nos aplicativos móveis funcionam como se o aplicativo ainda estivesse conectado, mas todas as operações ocorrem no repositório local.
 
 Quando desejamos sincronizar o repositório local com o servidor, usamos os métodos `MSSyncTable.pullWithQuery` e `MSClient.syncContext.pushWithCompletion`.
 
-*  Para executar push das mudanças no servidor, chamamos `Review the Core Data model`. Esse método é um membro de `MSSyncContext` em vez da tabela de sincronização porque enviará as alterações a todas as tabelas.
+*  Para executar push das mudanças no servidor, chamamos `Review the Core Data model`. Esse método é um membro de `MSSyncContext` em vez da tabela de sincronização porque enviará as alterações a todas as tabelas:
 
     Somente os registros que foram modificados, de alguma forma, localmente (por meio de operações CUD) serão enviados ao servidor.
 
@@ -239,7 +239,7 @@ Quando desejamos sincronizar o repositório local com o servidor, usamos os mét
 
 * [Cloud Cover: sincronização offline em serviços móveis do Azure]
 
-* [Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] (observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas)
+* [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] (observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas)
 
 <!-- URLs. -->
 
@@ -275,6 +275,7 @@ Quando desejamos sincronizar o repositório local com o servidor, usamos os mét
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: sincronização offline em serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/pt-br/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -50,4 +50,4 @@ Quer saber mais sobre como gerenciar o AD do Azure? Como obter um diretório? Co
 * [Identidade do Azure](fundamentals-identity.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

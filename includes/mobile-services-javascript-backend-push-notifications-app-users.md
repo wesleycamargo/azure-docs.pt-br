@@ -1,5 +1,5 @@
 
-1. Faça o logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e clique em seu serviço móvel.
+1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
 2. Clique na guia **Push**, selecione **Apenas usuários autenticados** para **Permissões** e, em seguida, clique em **Editar script**.
 	
@@ -41,4 +41,5 @@
 	Isso adiciona uma marca ao registro que seja o ID do usuário conectado. As marcas fornecidas são validadas para impedir que um usuário se registre para outra ID de usuário. Quando uma notificação é enviada para esse usuário, ela é recebida por este e qualquer outro dispositivo registrado pelo usuário.
 
 4. Clique na seta para voltar, clique na guia **Dados**, clique no **TodoItem**, clique no **Script** e selecione **Insertar**.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

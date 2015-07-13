@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Obtenha a chave de registro do serviço"
-   description="Explica como obter a chave de registro usada para registrar todos os dispositivos StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 
 #### Para obter a chave de registro do serviço StorSimple
 

@@ -56,10 +56,12 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<th>Banco de Dados SQL Azure</th>
 		<th>SQL Server local</th>
 		<th>SQL Server na IaaS</th>
+		<th>Banco de Dados de Documentos do Azure</th>
 	</tr>	
 
 	<tr>
 		<td><b>Blob do Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Banco de Dados SQL do Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>Sistema de arquivos local</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>Sistema de arquivos local</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados MySQL local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados DB2 local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados Teradata local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados Sybase local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados PostgreSQL local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de Dados de Documentos do Azure</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+Consulte o tópico [Origens e coletores com suporte](https://msdn.microsoft.com/library/dn894007.aspx) na biblioteca MSDN para obter mais detalhes.
+
 ### SQL na IaaS(Infraestrutura como um serviço)
-Também há suporte para SQL Server no IaaS como fonte e coletor. Gateway de gerenciamento de dados é necessário ao criar um serviço vinculado ao SQL Server no IaaS. Considere a possibilidade de instalar o Gateway de gerenciamento de dados em uma máquina virtual que não seja uma hospedagem SQL Server para evitar a degradação de desempenho devido ao SQL Server e o gateway competindo pelos recursos. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
+Também há suporte para o SQL Server no IaaS como fonte e coletor. O Gateway de Gerenciamento de Dados é necessário na criação de um serviço vinculado ao SQL Server no IaaS. Você deve considerar a instalação do Gateway de Gerenciamento de Dados em uma máquina virtual diferente de um SQL Server de hospedagem para evitar a degradação do desempenho devido à concorrência entre o SQL Server e o gateway pelos recursos. Para obter detalhes sobre o gateway de gerenciamento de dados, consulte [Habilitar pipelines para acessar dados locais][use-onpremises-datasources].
 
 1.	Máquina virtual com o nome DNS público e porta estática pública: mapeamento de porta privada
 2.	Máquina virtual com o nome DNS público sem ponto de extremidade SQL exposto
@@ -146,7 +225,7 @@ A atividade de cópia contém os seguintes componentes:
 Uma atividade de cópia pode ter uma **tabela de entrada** e uma **tabela de saída**.
 
 ## <a name="CopyActivityJSONSchema"></a>JSON para atividade de cópia
-Uma pipeline consiste em uma ou mais atividades. As atividades nos pipelines são definidas na seção de **atividades []**. O JSON para uma pipeline é o seguinte:
+Uma pipeline consiste em uma ou mais atividades. As atividades nos pipelines são definidas na seção de **atividades**. O JSON para uma pipeline é o seguinte:
          
 	{
 		"name": "PipelineName",
@@ -364,7 +443,7 @@ Para armazenamentos de dados oferecer conexão HTTPS, escolha a conexão HTTPS p
 
 Para o **Banco de Dados SQL do Azure**, solicite explicitamente uma conexão criptografada e não confie em certificados de servidor para evitar o ataque de "homem no meio". Para fazer isso, use **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter detalhes, consulte [Diretrizes e limitações do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter mais informações, consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintaxe de cadeia de conexão.](https://msdn.microsoft.com/library/ms254500.aspx).
+Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para saber mais , consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintaxe de cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Cenários avançados
 - **Filtragem de coluna usando a definição de estrutura**. Dependendo do tipo de tabela, é possível especificar um subconjunto das colunas da fonte especificando menos colunas na definição de **estrutura** da definição de tabela que existe na fonte de dados subjacente.
@@ -405,5 +484,6 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

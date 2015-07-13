@@ -3,7 +3,7 @@ Nesta seção, você adicionará dois novos usuários a seu diretório, juntamen
 ### Criar os usuários
 
 
-1. No [Portal de Gerenciamento do Azure], navegue até o diretório que você configurou anteriormente para autenticação quando você concluiu o tutorial para adicionar autenticação ao seu aplicativo.
+1. No [Portal de Gerenciamento do Azure], navegue até o diretório que você configurou anteriormente para autenticação quando concluiu o tutorial para adicionar autenticação ao aplicativo.
 2. Clique em **Usuários** na parte superior da página. Clique no botão **Adicionar Usuário**, na parte inferior. 
 3. Preencha os diálogos do novo usuário para criar um usuário chamado **Bob**. Anote a senha temporária para esse usuário. 
 4. Crie outro usuário chamado **Dave**. Anote a senha temporária para esse usuário.
@@ -36,4 +36,5 @@ Nesta seção, você adicionará dois novos usuários a seu diretório, juntamen
 4. Navegue de volta para sua página de configuração do serviço móvel e adicione a ID de objeto como uma configuração de aplicativo chamada **AAD\_SALES\_GROUP\_ID**. Este tutorial usa a ID do objeto do grupo como uma configuração de aplicativo, em vez de procurar a identificação com base no nome do grupo. Isso porque o nome do grupo pode mudar, mas a ID permanece a mesma.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
-<!--HONumber=54-->
+
+<!---HONumber=62-->

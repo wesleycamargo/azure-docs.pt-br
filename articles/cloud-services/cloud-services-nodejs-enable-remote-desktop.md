@@ -13,46 +13,52 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="05/29/2015" 
 	ms.author="mwasson"/>
-
-
-
-
 
 
 # Habilitando a Área de Trabalho Remota no Azure
 
 A Área de Trabalho Remota permite que você acesse a área de trabalho da instância de função em execução no Azure. É possível usar uma conexão de área de trabalho remota para configurar a máquina virtual ou solucionar problemas do seu aplicativo.
 
-> [AZURE.NOTE]Este artigo se aplica a aplicativos de nó hospedados como um serviço de nuvem do Azure.
+> [AZURE.NOTE]Este artigo se aplica a aplicativos Node.js hospedados como um Serviço de Nuvem do Azure.
+
+
+## Pré-requisitos
+
+- Instalar e configurar o [Powershell do Azure](../install-configure-powershell.md).
+- Implantar um aplicativo Node.js para um Serviço de Nuvem do Azure Para saber mais, consulte [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
 ## Etapa 1: Usar o PowerShell do Azure para configurar o serviço para acesso à área de trabalho remota
 
-Para usar a Área de Trabalho Remota, é necessário configurar a definição do seu serviço e a configuração do serviço com um nome de usuário, senha e certificado para autenticação com instâncias de função na nuvem. O [PowerShell] do Azure inclui o cmdlet **Enable-AzureServiceProjectRemoteDesktop**, que faz essa configuração para você.
+Para usar a Área de Trabalho Remota, você precisa atualizar a definição e a configuração de serviço do Azure com um nome de usuário, senha e certificado.
 
-Execute as etapas a seguir no computador onde a definição do serviço foi criada.
+Execute as etapas a seguir em um computador que contém os arquivos de origem de seu aplicativo.
 
-1.  No menu **Iniciar**, selecione **PowerShell do Azure**.
+1. Execute o **PowerShell do Azure** como Administrador. (No **menu Iniciar** ou **tela Iniciar**, pesquise por **PowerShell do Azure**.)
 
-	![Entrada no menu de início do PowerShell do Azure][powershell-menu]
+2.  Navegue até o diretório que contém a definição de serviço (.csdef) e os arquivos de configuração de serviço (.cscfg).
 
-2.  Altere o diretório para o diretório de serviço, digite **Enable-AzureServiceProjectRemoteDesktop** e, em seguida, digite um nome de usuário e uma senha para ser usada durante a autenticação com instâncias de função na nuvem.
+3. Insira o seguinte cmdlet do PowerShell:
+
+		Enable-AzureServiceProjectRemoteDesktop
+
+4. No prompt, insira um nome de usuário e senha.
 
 	![enable-azureserviceprojectremotedesktop][enable-rdp]
 
-3.  Publique as alterações na configuração do serviço na nuvem. No prompt do **PowerShell do Azure**, digite **Publish-AzureServiceProject**.
+3.  Insira o seguinte cmdlet do PowerShell para publicar as alterações:
+
+    	Publish-AzureServiceProject
 
 	![publish-azureserviceproject][publish-project]
 
-Quando essas etapas forem concluídas, as instâncias de função do serviçon a nuvem estarão configuradas para acesso à Área de Trabalho Remota.
-
 ## Etapa 2: Conectar-se à instância da função
 
-Com a implantação ativa e em execução no Azure, é possível conectar à instância de função.
+Depois de publicar a definição do serviço de atualização, você pode se conectar à instância da função.
 
-1.  No [Portal de Gerenciamento do Azure], selecione **Serviços de Nuvem** e, em seguida, o serviço implantado na Etapa 1 acima
+1.  No [Portal de Gerenciamento do Azure], selecione **Serviços de Nuvem ** e, em seguida, selecione o serviço.
 
 	![portal de gerenciamento do azure][cloud-services]
 
@@ -60,7 +66,7 @@ Com a implantação ativa e em execução no Azure, é possível conectar à ins
 
     ![A página de instâncias][3]
 
-2.  Quando você clica em **Conectar**, o navegador da Web solicita que você salve um arquivo .rdp. Se estiver usando o Internet Explorer, clique em **Abrir**.
+2.  Quando você clica em **Conectar**, o navegador da Web solicita que você salve um arquivo .rdp. Abra este arquivo. (Por exemplo, se você estiver usando o Internet Explorer, clique em **Abrir**.)
 
     ![solicitação para abrir ou salvar o arquivo .rdp][4]
 
@@ -68,23 +74,25 @@ Com a implantação ativa e em execução no Azure, é possível conectar à ins
 
     ![Prompt de segurança do Windows][5]
 
-4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha que você criou na [Etapa 1][Step 1: Configure the service for Remote Desktop access using Azure PowerShell] e, em seguida, clique em **OK**.
+4.  Clique em **Conectar** e será exibido um prompt de segurança para a inserção das credenciais para acessar a instância. Digite a senha criada na [Etapa1][Etapa 1: Configurar o serviço para acesso à Área de Trabalho Remota usando o PowerShell do Azure] e, em seguida, clique em **OK**.
 
     ![prompt de nome de usuário/senha][6]
 
-Quando a conexão for feita, a Conexão de Área de Trabalho Remota exibe a área de trabalho da instância no Azure. Você obteve acesso remoto à sua instância com êxito e pode executar qualquer tarefa necessária para gerenciar o seu aplicativo.
+Quando a conexão for feita, a Conexão de Área de Trabalho Remota exibe a área de trabalho da instância no Azure.
 
 ![Sessão de área de trabalho remota][7]
 
 ## Etapa 3: Configurar o serviço para desabilitar o acesso à Área de Trabalho Remota 
 
-Quando você não precisar mais de conexões de área de trabalho remota para as instâncias de função na nuvem, desabilite o acesso à área de trabalho remota usando o [PowerShell do Azure]
+Quando você não precisar mais de conexões de área de trabalho remota para as instâncias de função na nuvem, desabilite o acesso à área de trabalho remota usando o [PowerShell do Azure].
 
-1.  No menu **Iniciar**, selecione **PowerShell do Azure**.
+1.  Insira o seguinte cmdlet do PowerShell:
 
-2.  Altere o diretório para o diretório de serviço e digite **Disable-AzureServiceProjectRemoteDesktop**:
+    	Disable-AzureServiceProjectRemoteDesktop
 
-3.  Publique as alterações na configuração do serviço na nuvem. No prompt do **PowerShell do Azure**, digite **Publish-AzureServiceProject**:
+2.  Insira o seguinte cmdlet do PowerShell para publicar as alterações:
+
+    	Publish-AzureServiceProject
 
 ## Recursos adicionais
 
@@ -92,20 +100,20 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
 - [Usando a Área de Trabalho Remota com as funções do Azure]
 
 
-[PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[PowerShell do Azure]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  [PowerShell do Azure]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-[powershell-menu]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-[Acessando instâncias de função remotamente no Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-[Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+  
+  [Acessando instâncias de função remotamente no Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+  [Usando a Área de Trabalho Remota com as funções do Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

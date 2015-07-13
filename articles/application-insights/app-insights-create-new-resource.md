@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 # Criar um novo recurso do Application Insights
@@ -78,6 +78,9 @@ Clique no bloco de Pesquisa para ver a [Pesquisa de Diagnóstico][diagnostic], n
 
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
 
+## Criando um recurso automaticamente
+
+Você pode escrever um [script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso automaticamente.
 
 
 <!--Link references-->

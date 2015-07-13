@@ -170,9 +170,9 @@
 
 <sup>2</sup>Sites Básicos e Padrões são executados em máquinas dedicadas. O número real de sites que podem ser hospedados nessas máquinas depende da atividade dos sites, do tamanho das instâncias da máquina e da utilização do recursos correspondente.
 
-<sup>3</sup>Com exceção da camada Gratuita, os limites dos Planos de hospedagem na Web são indicados por grupo de recursos. Para obter mais informações sobre como criar e gerenciar grupos de recursos, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][useresourcegroups].
+<sup>3</sup>Com exceção da camada Gratuita, os limites dos Planos de hospedagem na Web são indicados por grupo de recursos. Para obter mais informações sobre como criar e gerenciar grupos de recursos, consulte [Visão Geral do Gerenciador de Recursos do Azure](../articles/resource-group-overview.md).
 
-<sup>4</sup>Instâncias dedicadas podem ser Pequenas, Médias ou Grandes. Para obter mais informações, consulte a [Página de preço de sites do Azure][websitespricing]. Instâncias adicionais estão disponíveis por meio da abertura de uma solicitação de suporte.
+<sup>4</sup>Instâncias dedicadas podem ser Pequenas, Médias ou Grandes. Para obter mais informações, consulte a [Página de preço de sites do Azure](http://azure.microsoft.com/pricing/details/web-sites/). Instâncias adicionais estão disponíveis por meio da abertura de uma solicitação de suporte.
 
 <sup>5</sup>Todos os Sites da Web compartilham os mesmos recursos de armazenamento para o conteúdo do site. Por isso, o limite de armazenamento refere-se ao tamanho total de todos os sites, não a cada site individualmente. Para aumentar os limites de armazenamento, abra uma solicitação de suporte.
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>Esse valor representa as conexões simultâneas do soquete web por instância do site da Web. Por exemplo, se você tiver dimensionado um site da Web Basic para duas instâncias, você teria efetivamente 700 conexões simultâneas (350 x 2).
 
-<sup>9</sup>Para a camada Básica, é aplicado o [preço padrão para SSL][sslpricing].
+<sup>9</sup>Para a camada Básica, é aplicado o [preço padrão para SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>Execute executáveis e/ou scripts personalizados sob demanda, por agendamento ou continuamente como uma tarefa em segundo plano dentro da instância dos seus sites da Web. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard.
 
-[useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-[websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-[sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

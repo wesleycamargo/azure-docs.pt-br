@@ -4,15 +4,10 @@ Você pode usar a interface com usuário MongoLab para executar a maioria das ta
 
 Para acessar a MongoLab UI, faça o seguinte:
 
-1. Selecione **Complementos**.  
-![AddonsButton][button-addons]
-1. Localize o serviço MongoLab na sua lista de complementos.  
-![MongolabEntry][entry-mongolabaddon]
+1. Selecione **Complementos**. ![AddonsButton][button-addons]
+1. Localize o serviço MongoLab na sua lista de complementos. ![MongolabEntry][entry-mongolabaddon]
 1. Clique no nome do seu complemento para chegar à página de complemento.
-1. Clique em **Gerenciar**.  
-![ManageButton][button-manage]  
-Uma nova guia do navegador é aberta, exibindo a página inicial do banco de dados MongoLab:  
-![DbHome][screen-dblanding]
+1. Clique em **Gerenciar**. ![ManageButton][button-manage] Uma nova guia do navegador é aberta, exibindo a página inicial do banco de dados MongoLab: ![DbHome][screen-dblanding]
 
 A partir daqui, você pode selecionar uma coleção específica e aprofundar em documentos individuais. Fazer logout quando terminar.
 
@@ -21,4 +16,4 @@ A partir daqui, você pode selecionar uma coleção específica e aprofundar em 
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!----HONumber=62-->
+<!---HONumber=62-->

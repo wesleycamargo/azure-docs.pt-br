@@ -40,5 +40,6 @@ Se você habilitou o gerenciamento de grupos por autoatendimento para seus usuá
 - [Administrando o AD do Azure](active-directory-administer.md)
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar senhas no AD do Azure](active-directory-manage-passwords.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

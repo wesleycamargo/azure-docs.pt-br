@@ -16,14 +16,14 @@
 	ms.date="04/09/2015"
 	ms.author="andalmia"/>
 
-# Usando o Conector de Arquivo em seu aplicativo lógico #
+# Usando o conector de Arquivo em seu aplicativo lógico #
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
-O Conector de Arquivo permite que você carregue\baixe\exclua arquivos do sistema de arquivos em um computador host. Ele usa o Gerenciador de Conexões Híbridas para conectividade híbrida para o computador host.
+O conector de Arquivo permite que você carregue\baixe\exclua arquivos do sistema de arquivos em um computador host. Ele usa o Gerenciador de Conexões Híbridas para conectividade híbrida para o computador host.
 
-## Criando um Conector de Arquivo para seu aplicativo lógico ##
-Para usar o Conector de Arquivo, primeiro você precisa criar uma instância do aplicativo de API do Conector de Arquivo. Isso pode ser feito da seguinte maneira:
+## Criando um conector de Arquivo para seu aplicativo lógico ##
+Para usar o conector de Arquivo, primeiro você precisa criar uma instância do aplicativo de API do Conector de Arquivo. Isso pode ser feito da seguinte maneira:
 
 1.	Abra o Azure Marketplace usando a opção + NEW no lado esquerdo do Portal do Azure.
 2.	Navegue até “Marketplace > Aplicativos de API” e pesquise por “Conector de Arquivo”.

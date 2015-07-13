@@ -1,34 +1,18 @@
-<properties 
-   pageTitle="Option 2: Use the Azure Management Portal to apply Update 1"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
-#### To install Update 1 from the Azure Management Portal
+#### Para instalar a Atualização 1 do Portal de Gerenciamento do Azure
 
-1. In the Management Portal, go to the **Devices** page and select your device.
+1. No Portal de Gerenciamento, vá até a página **Dispositivos** e selecione seu dispositivo.
  
-2. Navigate to **Devices** > **Configure**. 
+2. Navegue até **Dispositivos** > **Configurar**.
 
-3. Under **Network Interfaces**, locate the network interface that has a gateway assigned. This will be a network interface other than DATA 0. 
+3. Em **Interfaces de Rede**, localize a interface de rede que tenha um gateway atribuído. Essa interface de rede será diferente de DATA 0.
 
-4. Clear the gateway setting. Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.
+4. Limpe a configuração do gateway. Observe que, como as configurações de gateway são necessárias em uma interface de rede habilitada para a nuvem, você precisará desabilitar o acesso à nuvem dessa interface para apagar a configuração.
 
-5. Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).
+5. Repita a etapa 4 para qualquer outra interface de rede que tenha um gateway atribuído (exceto DATA 0).
 
-6. Save the modified configuration.
+6. Salve a configuração modificada.
 
-7. You can now [use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1). 
+7. Agora você pode [usar o Portal de Gerenciamento para instalar a Atualização 1](#use-the-management-portal-to-install-update-1).
 
-
+<!---HONumber=62-->

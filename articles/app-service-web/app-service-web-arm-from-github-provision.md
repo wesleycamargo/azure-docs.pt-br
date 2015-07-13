@@ -18,9 +18,9 @@
 
 # Implantar um aplicativo Web vinculado a um repositório GitHub
 
-Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web vinculado a um projeto em um repositório GitHub. Você aprenderá a definir quais recursos são implantados e a definir os parâmetros especificados quando a implantação é executada. Você pode usar esse modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web vinculado a um projeto em um repositório GitHub. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
 Para obter o modelo completo, consulte [Modelo de aplicativo Web vinculado ao GitHub](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
 
@@ -42,7 +42,7 @@ Cria o aplicativo Web vinculado ao projeto no GitHub.
 
 Especifique o nome do aplicativo Web por meio do parâmetro **siteName** e o local do aplicativo Web por meio do parâmetro **siteLocation**. No elemento **dependsOn**, o modelo define o aplicativo Web como dependente do plano de hospedagem do serviço. Como depende do plano de hospedagem, o aplicativo Web não é criado até a conclusão da criação do plano de hospedagem. O elemento **dependsOn** só é usado para especificar a ordem de implantação. Se você não marcar o aplicativo Web como dependente do plano de hospedagem, o Gerenciador de Recursos do Azure tentará criar ambos os recursos ao mesmo tempo e você receberá um erro se o aplicativo Web for criado antes do plano de hospedagem.
 
-O aplicativo Web também tem um recurso filho que é definido na seção de **recursos** a seguir. Esse recurso filho define o controle de código-fonte para o projeto implantado com o aplicativo Web. Nesse modelo, o controle de código-fonte está vinculado a um repositório GitHub específico. O repositório GitHub é definido com o código **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Você poderá embutir a URL do repositório quando quiser criar um modelo que implanta repetidamente um único projeto, exigindo o número mínimo de parâmetros. Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para a URL do repositório e usar esse valor para a propriedade **RepoUrl**. Você pode ver um exemplo de parâmetro de URL do repositório no [modelo de aplicativo Web com trabalhos da Web](../app-service-web-deploy-web-app-with-webjobs.md).
+O aplicativo Web também tem um recurso filho que é definido na seção de **recursos** a seguir. Esse recurso filho define o controle do código-fonte para o projeto implantado com o aplicativo Web. Nesse modelo, o controle do código-fonte está vinculado a um repositório GitHub específico. O repositório GitHub é definido com o código **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Você poderá embutir a URL do repositório quando quiser criar um modelo que implanta repetidamente um único projeto, exigindo o número mínimo de parâmetros. Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para a URL do repositório e usar esse valor para a propriedade **RepoUrl**. Você pode ver um exemplo de parâmetro de URL do repositório no [modelo de aplicativo Web com trabalhos da Web](../app-service-web-deploy-web-app-with-webjobs.md).
 
     {
       "apiVersion":"2015-04-01",

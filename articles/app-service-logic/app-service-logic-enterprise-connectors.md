@@ -113,7 +113,7 @@ No Portal de Gerenciamento do Azure, abra seu aplicativo de API empresarial. Na 
 
 - Exibir eventos de informações e erro
 - Exibir a contagem de threads e uso de memória do processo de trabalho (w3wp)
-- Exibir logs\\ de servidor Web e do Aplicativo
+- Exibir logs\ de servidor Web e do Aplicativo
 
 Mais em [Monitorar seus Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md).
 
@@ -147,10 +147,11 @@ Alguns dos conectores empresariais fornecem segurança OAuth. Quando você adici
 
 
 ## Leia sobre aplicativos lógicos e aplicativos Web
-[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md)<br/> [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-app-azure-portal.md)
+[O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md)<br/> [Sites e aplicativos Web no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-overview.md)
 
 
 
 ## Mais conectores
 [Conectores de integração do BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores entre empresas](app-service-logic-b2b-connectors.md)<br/> [Conectores sociais](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicativos + Serviços de Dados](app-service-logic-data-connectors.md)<br/> [Conectores e lista de aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

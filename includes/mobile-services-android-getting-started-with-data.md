@@ -5,7 +5,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Agora, recompile o projeto clicando em **Sincronizar projetos com arquivos do Gradle**.
@@ -15,11 +15,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Abra o arquivo AndroidManifest.xml e adicione a linha a seguir, que permite que o aplicativo acesse os Serviços Móveis no Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. No Gerenciador de Projetos, abra o arquivo TodoActivity.java localizado na pasta **GetStartedWithData => app => src => java** e remova os comentários das seguintes linhas de código:
+4. No Gerenciador de Projetos, abra o arquivo TodoActivity.java localizado na pasta **GetStartedWithData => app => src => java** e remova os comentários das seguintes linhas de código:
 
 
 
@@ -165,4 +161,5 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

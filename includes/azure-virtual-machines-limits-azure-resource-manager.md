@@ -1,16 +1,18 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Recurso</th>
+   <th align="left" valign="middle">Limite padrão</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Virtual machines per Availability Set</p></td>
+   <td valign="middle"><p>Máquinas virtuais por Conjunto de Disponibilidade</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Certificates per subscription</p></td>
-   <td valign="middle"><p>Unlimited<sup>1</sup</p></td>
+   <td valign="middle"><p>Certificados por assinatura</p></td>
+   <td valign="middle"><p>Ilimitados<sup>1&lt;/sup</p></td>
 </tr>
 </table>
 
-<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an Availability Set).
+<sup>1</sup>Com o Gerenciador de Recursos do Azure, os certificados são armazenados no Cofre da Chave do Azure. Embora o número de certificados seja ilimitado para uma assinatura, ainda há um limite de 1 MB de certificados por implantação (que consiste em uma única VM ou então em um Conjunto de Disponibilidade).
+
+<!---HONumber=62-->

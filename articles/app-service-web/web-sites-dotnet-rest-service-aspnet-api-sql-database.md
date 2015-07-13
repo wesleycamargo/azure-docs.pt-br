@@ -63,7 +63,7 @@ Você criará um aplicativo Web de lista de contatos simples criado no ASP.NET M
 
 Se você não entrou anteriormente no Azure, será solicitado que você entre.
 
-1. O assistente de configuração sugerirá um nome exclusivo com base em  *ContactManager* (consulte a imagem abaixo). Selecione uma região perto de você. É possível utilizar o [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") para localizar o data center de latência mais baixa. 
+1. O assistente de configuração sugerirá um nome exclusivo com base em *ContactManager* (consulte a imagem abaixo). Selecione uma região perto de você. É possível utilizar o [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") para localizar o data center de latência mais baixa. 
 2. Se você não criou um servidor de banco de dados antes, selecione **Criar novo servidor**, digite um nome de usuário de banco de dados e uma senha.
 
 	![Configurar o site do Azure](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configAz.PNG)
@@ -75,10 +75,10 @@ Se você tiver um servidor de banco de dados, use isso para criar um novo banco 
 ### Configurar o cabeçalho e o rodapé da página
 
 
-1. No **Gerenciador de Soluções**, expanda a pasta *Views\\Shared* e abra o arquivo *_Layout.cshtml*. 
+1. No **Gerenciador de Soluções**, expanda a pasta *Views\Shared* e abra o arquivo *_Layout.cshtml*. 
 	![_Layout.cshtml no Gerenciador de Soluções][newapp004]
 
-1. Substitua o conteúdo do arquivo *Views\\Shared_Layout.cshtml* pelo código a seguir:
+1. Substitua o conteúdo do arquivo *Views\Shared_Layout.cshtml* pelo código a seguir:
 
 
 		<!DOCTYPE html>
@@ -235,7 +235,7 @@ A próxima tarefa é habilitar o recurso [Codificar Primeiras Migrações](http:
 
 	Na classe **Inicial**, o método **Up** cria a tabela Contatos e o método **Down** (usado quando você deseja retornar ao estado anterior) a descarta.
 
-3. Abra o arquivo *Migrations\\Configuration.cs*.
+3. Abra o arquivo *Migrations\Configuration.cs*.
 
 4. Adicione os seguintes namespaces.
 
@@ -318,7 +318,7 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 
 <h2><a name="bkmk_addview"></a>Editar a exibição</h2>
 
-1. Abra o arquivo *Views\\Home\\Index.cshtml*. Na próxima etapa, substituiremos a marcação gerada pelo código que usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos do uso da API Web e do JSON e associa os dados de contato à interface do usuário usando knockout.js. Para obter mais informações, consulte a seção [Próximas Etapas](#nextsteps) no final deste tutorial. 
+1. Abra o arquivo *Views\Home\Index.cshtml*. Na próxima etapa, substituiremos a marcação gerada pelo código que usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos do uso da API Web e do JSON e associa os dados de contato à interface do usuário usando knockout.js. Para obter mais informações, consulte a seção [Próximas Etapas](#nextsteps) no final deste tutorial. 
 
 
 2. Substitua o conteúdo do arquivo pelo código a seguir.
@@ -475,7 +475,7 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 
 	Usaremos esta folha de estilos no layout, nas cores e nos estilos usados no aplicativo do gerenciador de contatos.
 
-6. Abra o arquivo *AppStart\\BundleConfig.cs*.
+6. Abra o arquivo *AppStart\BundleConfig.cs*.
 
 
 7. Adicione o código a seguir para registrar o plug-in [Knockout](http://knockoutjs.com/index.html "KO").
@@ -548,7 +548,7 @@ A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um 
 
 Um ataque XSRF é diferente de um ataque de phishing. Os ataques de phishing exigem a interação da vítima. Em um ataque de phishing, um site mal-intencionado imita o site de destino e a vítima é levada a fornecer informações confidenciais ao invasor. Em um ataque XSRF, normalmente não é necessária nenhuma interação da vítima. Em vez disso, o invasor conta com que o navegador envie automaticamente todos os cookies relevantes ao site de destino.
 
-Para obter mais informações, consulte o [Abrir o projeto de segurança do aplicativo Web](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Para obter mais informações, consulte o [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ContactManager**, depois clique em **Adicionar** e em **Classe**.
 
@@ -630,7 +630,7 @@ Para obter mais informações, consulte o [Abrir o projeto de segurança do apli
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Atualize a seção *Scripts* do arquivo *Views\\Home\\Index.cshtml* para incluir o código para obtenção de tokens XSRF.
+1. Atualize a seção *Scripts* do arquivo *Views\Home\Index.cshtml* para incluir o código para obtenção de tokens XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -739,7 +739,7 @@ Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http:
 Deixe comentários sobre o que você gostou ou do que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação.
 
 ## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
@@ -809,5 +809,6 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

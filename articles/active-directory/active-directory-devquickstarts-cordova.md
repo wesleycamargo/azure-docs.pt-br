@@ -253,5 +253,6 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [Proteger uma API da Web Node.js com o AD do Azure >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure em [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

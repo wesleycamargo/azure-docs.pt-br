@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos"
-	description="Saiba como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos." 
-    services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="Saiba como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos."
+    services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Como configurar seu aplicativo para usar o logon do Google
@@ -69,5 +69,6 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

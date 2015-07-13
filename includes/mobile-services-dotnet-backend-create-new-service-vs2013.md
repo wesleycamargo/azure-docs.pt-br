@@ -26,5 +26,4 @@ As etapas a seguir criam um novo serviço móvel no Azure e adicionam o código 
  
    	Depois que assistente conclui, o projeto do serviço móvel é adicionado à sua solução, os pacotes NuGet necessários são instalados, uma referência à biblioteca de cliente de Serviços Móveis é adicionada ao projeto e o código-fonte do seu projeto é atualizado.
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

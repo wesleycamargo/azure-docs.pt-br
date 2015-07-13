@@ -111,4 +111,4 @@ Agora você está pronto para escrever um pequeno programa cliente que pode se c
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

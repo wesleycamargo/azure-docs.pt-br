@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/23/2015"
+   ms.date="06/24/2015"
    ms.author="rajram"/>
 
 
@@ -107,5 +107,6 @@ Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, dispara o ap
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

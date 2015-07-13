@@ -21,6 +21,21 @@
 
 [Consultar plataformas][platforms]
 
+## É gratuito?
+
+* Sim, se você escolher a [faixa de preços](app-insights-pricing.md) gratuita. Você obtém a maioria dos recursos e uma cota mais ampla de dados. 
+* Você deve fornecer os dados de cartão de crédito para se registrar com o Microsoft Azure, mas nenhum encargo será cobrado, a menos que você use outro serviço do Azure pago ou explicitamente atualize para uma faixa cobrada.
+* Se seu aplicativo enviar mais dados do que a cota mensal por camada gratuita, eles deixarão de ser registrados em log. Se isso acontecer, você pode optar por começar a pagar ou aguardar até que a cota seja reiniciada no final do mês.
+* Dados básicos de uso e da sessão não estão sujeitos a uma cota.
+* Há também uma avaliação gratuita de 30 dias, durante a qual você obtém os recursos Premium gratuitamente.
+* Cada recurso de aplicativo tem uma cota separada, e você define sua faixa de preço de modo independente dos outros.
+
+#### O que obtenho se pagar?
+
+* Uma maior [cota mensal de dados](http://azure.microsoft.com/pricing/details/application-insights/).
+* Opção de pagamento excedente para continuar coletando dados acima da cota mensal. Se os seus dados ficarem acima da cota, você será cobrado por Mb.
+* [Exportação contínua](app-insights-export-telemetry.md).
+
 ## Adicionando o SDK
 
 #### <a name="q01"></a>Não vejo nenhuma opção de Adicionar o Application Insights ao meu projeto no Visual Studio
@@ -77,11 +92,11 @@ Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
 
 + (Somente novos projetos - se [adicionar o Application Insights a um projeto existente][start], você precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso do Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
 
-####<a name="NuGetBuild"></a>Recebo a mensagem "Pacote(s) do NuGet ausentes" no meu servidor de compilação, embora tudo seja compilado sem problemas em meus computadores de desenvolvimento
+####<a name="NuGetBuild"></a> Recebo a mensagem "Pacote(s) do NuGet ausentes" no meu servidor de compilação, embora tudo seja compilado sem problemas em meus computadores de desenvolvimento
 
 Consulte [Restauração do Pacote NuGet](http://docs.nuget.org/Consume/Package-Restore) e [Restauração Automática do Pacote](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
-####<a name="FailUpdate"></a>Recebo a mensagem "O projeto faz referência ao(s) pacote(s) NuGet faltando no meu computador" ao tentar compilar após a atualização para 0.17 ou posterior dos pacotes NuGet.
+####<a name="FailUpdate"></a> Recebo a mensagem "O projeto faz referência ao(s) pacote(s) NuGet faltando no meu computador" ao tentar compilar após a atualização para 0.17 ou posterior dos pacotes NuGet.
 
 Se você vir o erro acima após a atualização para os pacotes NuGet versão 0.17 ou posterior, você precisará editar o arquivo de projeto e remover os destinos BCL que foram deixados para trás.
 
@@ -100,6 +115,11 @@ Para fazer isso:
 	</Target> ```
 4. Salve o arquivo.
 5. Clique com o botão direito do mouse no projeto e escolha Recarregar *seuProjeto.csproj*
+
+## Como atualizar de versões anteriores do SDK?
+
+Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
+
 
 ## Sem dados
 
@@ -159,7 +179,7 @@ Não! Ele mostra o status de serviço do Azure. Para ver os resultados de seu te
 
 #### <a name="q07"></a>Quando eu adiciono o Application Insights ao meu aplicativo e abro o portal do Application Insights, tudo parece completamente diferente das suas capturas de tela.
 
-Você pode estar usando [a versão mais antiga do SDK do Application Insights](http://msdn.microsoft.com/library/dn793604.aspx), que conecta-se à versão do Visual Studio Online.
+Você pode estar usando [a versão mais antiga do SDK do Application Insights](http://msdn.microsoft.com/library/dn793604.aspx), que se conecta à versão do Visual Studio Online.
 
 As páginas de ajuda que você está consultando referem-se ao [Application Insights para a Visualização do Microsoft Azure][start], que já vem ativado no Visual Studio 2013 Atualização 3 ou posterior.
 
@@ -197,6 +217,9 @@ Consulte [Privacidade e Retenção de Dados][data].
 
 Se o serviço Web está em execução em uma VM do Azure, você também pode [obter diagnóstico][azurediagnostic] lá.
 
+## Automação
+
+Você pode [gravar um Script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso do Application Insights.
 
 
 <!--Link references-->

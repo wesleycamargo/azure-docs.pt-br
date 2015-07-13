@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Serviços BizTalk: Backup e restauração | Azure" 
+	pageTitle="Criar e restaurar um backup nos Serviços BizTalk | Azure" 
 	description="Os serviços BizTalk incluem backup e restauração. Saiba como criar e restaurar um backup e determinar do que é feito backup. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,45 +13,40 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="05/24/2015" 
 	ms.author="mandia"/>
 
 
-# Serviços do BizTalk: Backup e restauração
+# Serviços BizTalk: backup e restauração
 
-Os Serviços BizTalk do Azure incluem recursos de backup e restauração. Este tópico descreve como fazer backup e restaurar os Serviços BizTalk usando o Portal de Gerenciamento do Azure, incluindo: 
+Os Serviços BizTalk do Azure incluem recursos de backup e restauração. Este tópico descreve como fazer backup e restaurar os Serviços BizTalk usando o Portal de Gerenciamento do Azure.
 
-- [Antes de começar](#beforebackup)
-- [Criar um backup](#createbu)
-- [Restaurar um backup](#restore)
-- [Do que é feito backup](#budata)
+Você também pode fazer backup dos Serviços do BizTalk usando os [API REST dos Serviços do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
-Você também pode fazer backup dos Serviços BizTalk usando o [API REST dos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+## Antes de começar
 
-##<a name="beforebackup"></a>Antes de começar
+- É possível que o backup e a restauração não estejam disponíveis para todas as edições. Consulte [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md).
 
-- É possível que o backup e a restauração não estejam disponíveis para todas as edições. Consulte [Serviços do BizTalk: Tabela de edições](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
+	**Observação** As conexões híbridas não feitas backup, independentemente da Edição.
 
-	**Observação** NÃO se faz backup das conexões híbridas, independentemente da Edição.
-
-- Usando o Portal de Gerenciamento do Azure, você pode criar um backup sob demanda ou criar um backup agendado. 
+- Usando o Portal de Gerenciamento do Azure, você pode criar um backup sob demanda ou criar um backup agendado.
 
 - O conteúdo de backup pode ser restaurado para o mesmo Serviço do BizTalk ou para um novo Serviço do BizTalk. Para restaurar o Serviço do BizTalk usando o mesmo nome, o Serviço do BizTalk existente precisa ser excluído e o nome precisa estar disponível. Após excluir um Serviço do BizTalk, pode levar mais tempo do que o desejado para que o mesmo nome esteja disponível. Se você não puder esperar para o mesmo nome esteja disponível, faça a restauração para um novo Serviço do BizTalk.
 
-- Os Serviços BizTalk podem ser restaurados para a mesma edição ou para uma edição superior. Não há suporte para a restauração dos Serviços BizTalk para uma edição inferior, de quando foi feito um backup.
+- Os Serviços do BizTalk podem ser restaurados para a mesma edição ou para uma edição superior. Não há suporte para a restauração dos Serviços do BizTalk para uma edição inferior, de quando foi feito um backup.
 
 	Por exemplo, um backup usando a Basic Edition pode ser restaurado para a Premium Edition. Um backup usando a Premium Edition não pode ser restaurado para a Standard Edition.
 
 - O backup dos números de controle de EDI são feitos para manter a continuidade dos números de controle. Se as mensagens forem processadas depois do último backup, a restauração desse conteúdo de backup pode provocar a duplicação dos números de controle.
 
-- Se um lote tiver mensagens ativas, processe o lote **antes** de executar um backup. Ao criar um backup (conforme necessário ou agendado), as mensagens em lotes nunca são armazenadas. 
+- Se um lote tiver mensagens ativas, processe o lote **antes** de executar um backup. Ao criar um backup (conforme necessário ou agendado), as mensagens em lotes nunca são armazenadas.
 
-	**Se um backup for feito com mensagens ativas em um lote, o backup dessas mensagens não será feito e, portanto, serão perdidas.**
+	**Se um backup for feito com mensagens ativas em um lote, o backup dessas mensagens não será feito e, portanto, elas serão perdidas.**
 
 - Opcional: no Portal dos Serviços BizTalk, interrompa todas as operações de gerenciamento.
 
 
-##<a name="createbu"></a>Criar um backup
+## Criar um backup
 
 Um backup pode ser obtido a qualquer momento e é totalmente controlado por você. Esta seção lista as etapas para criar backups usando o Portal de Gerenciamento do Azure, incluindo:
 
@@ -59,85 +54,80 @@ Um backup pode ser obtido a qualquer momento e é totalmente controlado por voc�
 
 [Agendar um backup](#backupschedule)
 
-####<a name="backupnow"></a>Backup sob demanda
-1. No Portal de Gerenciamento do Azure, selecione **Serviços BizTalk** e, em seguida, selecione o Serviço BizTalk do qual fazer backup.
+#### <a name="backupnow"></a>Backup sob demanda
+1. No Portal de Gerenciamento do Azure, selecione **Serviços BizTalk ** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
 2. Na guia **Painel**, selecione **Backup** na parte inferior da página.
-3. Insira um nome de backup. Por exemplo, insira *meuServiçodoBiztalk*BU*Data*.
+3. Insira um nome de backup. Por exemplo, insira *meuServiçoBizTalk*BU*Data*.
 4. Escolha uma conta de armazenamento de blob e selecione a marca de seleção para iniciar o backup.
 
 Quando o backup for concluído, um contêiner com o nome do backup inserido será criado na conta de armazenamento. Esse contêiner contém a configuração de backup do Serviço do BizTalk.
 
-####<a name="backupschedule"></a>Agendar um backup
+#### <a name="backupschedule"></a>Agendar um backup
 
-1. No Portal de Gerenciamento do Azure, selecione **Serviços BizTalk**, selecione o nome do Serviço BizTalk que você deseja fazer backup e, em seguida, selecione a guia **Configurar**.
-2. Defina o **Status de backup** como **Automático**. 
-3. Selecione a **Conta de armazenamento** na qual armazenar o backup, insira a **Frequência** de criação dos backups e por quanto tempo eles devem ser mantidos (**Dias de retenção**):
+1. No Portal de Gerenciamento do Azure, selecione **Serviços de BizTalk**, selecione o nome do Serviço de BizTalk que você deseja fazer backup e, em seguida, selecione a guia **Configurar**.
+2. Defina o **Status de Backup** para **Automático**. 
+3. Selecione a **Conta de Armazenamento** na qual armazenar o backup, insira a **Frequência** de criação dos backups e por quanto tempo eles devem ser mantidos (**Dias de retenção**):
 
 	![][AutomaticBU]
 
-	**Observações** 	
-- Em **Dias de retenção**, o período de retenção deve ser maior do que a frequência de backup.
-- Selecione **Sempre manter pelo menos um backup**, mesmo que o período de retenção tenha passado.
+	**Observações** - Em **Dias de Retenção**, o período de retenção deve ser maior do que a frequência de backup. - Selecione **Sempre manter pelo menos um backup**, mesmo se ele tiver passado o período de retenção.
 	
 
 4. Selecione **Salvar**.
 
 
-Quando um trabalho de backup agendado é executado, ele cria um contêiner (para armazenar os dados de backup) na conta de armazenamento especificada. O contêiner é nomeado como *Nome-data-hora do Serviço do BizTalk*. 
+Quando um trabalho de backup agendado é executado, ele cria um contêiner (para armazenar os dados do backup) na conta de armazenamento especificada. O nome do contêiner é *Nome do Serviço BizTalk-data-hora*.
 
-Se o painel do Serviço do BizTalk mostra um status **Falhou**:
+Se o painel do Serviço do BizTalk mostrar um status **Falha**:
 
-![Last scheduled backup status][BackupStatus] 
+![Último status do backup agendado][BackupStatus]
 
-O link abre os Logs de Operação de Serviços de Gerenciamento para ajudar solucionar os problemas. Consulte [Serviços do BizTalk: Solucione problemas usando os logs de operação](http://go.microsoft.com/fwlink/?LinkId=391211).
+O link abre os Logs de Operação de Serviços de Gerenciamento para ajudar solucionar os problemas. Consulte [Serviços BizTalk: solução de problemas usando logs de operação](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-##<a name="restore"></a>Restaurar
+## Restaurar
 
-Você pode fazer backups no Portal de Gerenciamento do Azure ou em [Restaurar API REST do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Esta seção lista as etapas para restaurar usando o Portal de Gerenciamento.
+Você pode fazer backups no Portal de Gerenciamento do Azure ou na [Restaurar API REST do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Esta seção lista as etapas para restaurar usando o Portal de Gerenciamento.
 
-####Antes de restaurar um backup
+#### Antes de restaurar um backup
 
-- Os novos armazenamentos de acompanhamento, arquivamento e monitoramento podem ser especificados ao restaurar um Serviço do BizTalk.
+- Os novos armazenamentos de acompanhamento, arquivamento e monitoramento podem ser especificados durante a restauração de um Serviço BizTalk.
 
 - Os mesmos dados de tempo de execução do EDI são restaurados. O backup do tempo de execução do EDI restaura os números de controle. Os números de controle restaurados estão em sequência da hora do backup. Se as mensagens forem processadas depois do último backup, a restauração desse conteúdo de backup pode provocar a duplicação dos números de controle.
 
-####Restaurar um backup
+#### Restaurar um backup
 
-1. No Portal de Gerenciamento do Azure, selecione **Novo** > **Serviços de Aplicativos** > **Serviço do BizTalk** > **Restaurar**:
+1. No Portal de Gerenciamento do Azure, selecione **Novo** > **Serviços do aplicativo** > **Serviço do BizTalk** > **Restaurar**:
 
-	![Restore a backup][Restore]
+	![Restaurar um backup][Restore]
 
-2. Na **URL de Backup**, selecione o ícone da pasta e expanda a conta de armazenamento do Azure que armazena o backup de configuração do Serviço do BizTalk. Expanda o contêiner e no painel esquerdo, selecione o arquivo .txt de backup correspondente. 
-<br/><br/>
-Selecione **Abrir**.
+2. Na **URL de backup**, selecione o ícone da pasta e expanda a conta de armazenamento do Azure que armazena o backup de configuração do Serviço de BizTalk. Expanda o contêiner e no painel esquerdo, selecione o arquivo .txt de backup correspondente. <br/><br/> Selecione **Abrir**.
 
-3. Na página **Restaurar o Serviço do BizTalk**, insira um **Nome de Serviço do BizTalk** e verifique a **URL do domínio**, **Edição** e **Região** para o Serviço de BizTalk restaurado. **Criar uma nova instância do banco de dados SQL** para o banco de dados de acompanhamento:
+3. Na página **Restaurar o Serviço do BizTalk**, insira um **Nome de Serviço do BizTalk** e verifique a **URL do domínio**, **Edição**, e **Região** para o Serviço de BizTalk restaurado. **Criar uma nova instância de banco de dados do SQL** para o banco de dados de acompanhamento:
 
 	![][RestoreBizTalkService]
-
 
 	Selecione a seta de avanço.
 
 4. 	Verificar o nome do banco de dados SQL, insira o servidor físico onde será criado o banco de dados SQL, e um nome de usuário/senha para aquele servidor.
 
 
-	Se você quiser configurar a edição, tamanho, e outras propriedades do banco de dados SQL, selecione **Definir as Configurações Avançadas do Banco de Dados**. 
+	Se você quiser configurar a edição, tamanho, e outras propriedades do banco de dados SQL, selecione **Definir as configurações avançadas do banco de dados**.
 
 	Selecione a seta de avanço.
 
-5. Criar uma nova conta de armazenamento ou especificar uma conta de armazenamento existente para o Serviço do BizTalk.
+5. Crie uma nova conta de armazenamento ou especifique uma conta de armazenamento existente para o Serviço BizTalk.
 
-7. Clique na marca de seleção para começar a restauração.
+7. Selecione a marca de seleção para começar a restauração.
 
 Quando a restauração for concluída com êxito, um novo Serviço do BizTalk será listado em um estado suspenso na página Serviços do BizTalk no Portal de Gerenciamento do Azure.
 
 
 
-###<a name="postrestore"></a>Depois de restaurar um backup
+### <a name="postrestore"></a>Depois de restaurar um backup
 
-O Serviço do BizTalk sempre é restaurado em um estado **Suspenso**. Neste estado, você pode fazer qualquer alteração de configuração antes que o novo ambiente esteja funcional, incluindo:
+O Serviço BizTalk sempre é restaurado em um estado **Suspenso**. Neste estado, você pode fazer qualquer alteração de configuração antes que o novo ambiente esteja funcional, incluindo:
 
-- Se você tiver criado aplicativos do Serviço do BizTalk usando o SDK dos Serviços do BizTalk do Azure, você precisará atualizar as credenciais do ACS nesses aplicativos para trabalhar com o ambiente restaurado.
+- Se você tiver criado aplicativos do Serviço BizTalk usando o SDK dos Serviços BizTalk do Azure, será necessário atualizar as credenciais de ACS (Controle de Acesso) nesses aplicativos para trabalhar com o ambiente restaurado.
 
 - Você restaura um Serviço do BizTalk para replicar um ambiente de Serviço do BizTalk existente. Nesta situação, se houver contratos configurados no portal original de Serviços do BizTalk que usam uma pasta FTP de origem, é possível que precise atualizar os contratos no ambiente recentemente restaurado para usar uma pasta FTP de origem diferente. De outra forma, pode haver dois contratos diferentes tentando puxar a mesma mensagem.
 
@@ -145,18 +135,18 @@ O Serviço do BizTalk sempre é restaurado em um estado **Suspenso**. Neste esta
 
 - É uma boa prática configurar backups automáticos no ambiente do Serviço do BizTalk Service recém-restaurado.
 
-Para iniciar o Serviço do BizTalk no Portal de Gerenciamento do Azure, selecione o Serviço de BizTalk e selecione **Continuar** na barra de tarefas. 
+Para iniciar o Serviço do BizTalk no Portal de Gerenciamento do Azure, selecione o Serviço de BizTalk e selecione **Reiniciar** na barra de tarefas.
 
 
 
-##<a name="budata"></a>Do que é feito backup
+## Do que é feito backup
 
 Quando um backup é criado, os seguintes itens são copiados:
 
 <table border="1"> 
 <tr bgcolor="FAF9F9">
 <th> </th>
-<TH>Itens dos quais é feito backup</TH> 
+<TH>Itens do backup</TH> 
 </tr> 
 <tr>
 <td colspan="2">
@@ -183,7 +173,7 @@ Quando um backup é criado, os seguintes itens são copiados:
  
 <tr>
 <td colspan="2">
- <strong>Serviço do BizTalk do Azure</strong></td>
+ <strong>Serviço BizTalk do Azure</strong></td>
 </tr> 
 <tr>
 <td>Certificado SSL</td> 
@@ -224,23 +214,23 @@ Se o Banco de Dados de Acompanhamento for excluído e o banco de dados precisar 
 
 ## Avançar
 
-Para criar Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, vá até [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197) (a página pode estar em inglês).
+Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionando com o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Consulte também
 - [Fazer o backup do Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 - [Restaurar o Serviço BizTalk do backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-- [Serviços do BizTalk: tabela de edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-- [Serviços do BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-- [Serviços do BizTalk: Gráfico de status do provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-- [Serviços do BizTalk: guias Painel, Monitoramento e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-- [Serviços do BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-- [Serviços do BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [Como começar a usar o SDK dos Serviços BizTalk do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [Serviços BizTalk: gráfico do status do provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)
+- [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)
+- [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)
+- [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+- [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

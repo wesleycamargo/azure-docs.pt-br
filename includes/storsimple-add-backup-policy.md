@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Adicionar políticas de backup do StorSimple"
-   description="Explica como é possível usar o serviço Gerenciador do StorSimple para criar uma política de backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
 
 #### Para adicionar uma política de backup do StorSimple
 
@@ -30,4 +14,4 @@
 A política recém-adicionada será exibida no modo de exibição tabular na página **Políticas de Backup**.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

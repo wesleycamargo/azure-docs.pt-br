@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="06/18/2015"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
 
 Este guia mostra como é fácil adicionar proteção à API de back-end configurando políticas de cota e limite de taxa com o Gerenciamento de API do Azure.
-
-Para obter mais informações e ver uma demonstração da definição de limites de taxa e cotas, consulte o vídeo a seguir.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
 
 Neste tutorial, você criará um produto de API de 'Avaliação gratuita' que permite aos desenvolvedores fazer até 10 chamadas por minuto e um máximo de 200 chamadas por semana para sua API. Depois você publicará a API e testará a política de limite de taxa.
 
@@ -54,7 +50,7 @@ Produtos de Gerenciamento de API podem ser **Livre** ou **Protegido**. Produtos 
 
 Se deseja que um administrador revise e aceite ou rejeite as tentativas de assinatura para este produto, marque **Requerer aprovação de assinatura**. Se a caixa não estiver marcada, as tentativas de assinatura serão aprovadas automaticamente. Neste exemplo, as assinaturas são aprovadas automaticamente; por isso, não marque a caixa.
 
-Para permitir que contas de desenvolvedor assinem várias vezes o novo produto, marque a caixa de seleção **Permitir várias assinaturas simultâneas**. Este tópico não utilizar várias inscrições simultâneas, por isso deixe-a desmarcada.
+Para permitir que contas de desenvolvedor assinem várias vezes o novo produto, marque a caixa de seleção **Permitir várias assinaturas simultâneas**. Este tópico não utiliza várias inscrições simultâneas, por isso deixe-o desmarcado.
 
 Após inserir todos os valores, clique em **Salvar** para criar o produto.
 
@@ -240,6 +236,9 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 ## <a name="next-steps"> </a>Próximas etapas
 
 -	Verifique os outros tópicos no tutorial [Introdução à configuração avançada de API][].
+-	Para obter mais informações e ver uma demonstração da definição de limites de taxa e cotas, consulte o vídeo a seguir.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png

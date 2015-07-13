@@ -76,7 +76,7 @@ Um novo script de inserção está registrado e gerará uma SAS quando um novo i
 
    	Isso substitui a função que é chamada quando ocorre uma inserção na tabela TodoItem por um novo script. Esse novo script gera uma nova SAS para a inserção, que é válida por 5 minutos e atribui o valor da SAS gerada à propriedade `sasQueryString` do item devolvido. A propriedade `imageUri` também é definida como o caminho do recurso do novo BLOB para habilitar a exibição da imagem durante a associação na interface do usuário do cliente.
 
-	>[AZURE.NOTE]Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">método generateSharedAccessSignature<pre> com um nome de recurso de blob vazio, da seguinte forma:</a><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Esse código cria uma SAS para um BLOB individual. Se você precisar carregar vários blobs em um contêiner usando a mesma SAS, poderá chamar o <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">método generateSharedAccessSignature</a> com um nome de recurso de blob vazio, da seguinte forma:<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalidade de carregamento de imagem usando a SAS gerada em Inserir.
  
@@ -88,4 +88,4 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 [Como criar uma conta de armazenamento]: /manage/services/storage/how-to-create-a-storage-account
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=62-->

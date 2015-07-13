@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos serviços de nuvem do Azure e ao ASP.NET" 
-	description="Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de armazenamento do Azure." 
-	services="cloud-services, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+<properties
+	pageTitle="Introdução aos serviços de nuvem do Azure e ao ASP.NET"
+	description="Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de armazenamento do Azure."
+	services="cloud-services, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="06/08/2015"
 	ms.author="tdykstra"/>
 
 # Introdução aos serviços de nuvem do Azure e ao ASP.NET
@@ -24,7 +24,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](fundamentals-application-models.md#CloudServices). O aplicativo usa o [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN. 
+Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](fundamentals-application-models.md#CloudServices). O aplicativo usa o [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN.
 
 O tutorial mostra como criar e executar o aplicativo localmente, como implantá-lo no Azure e executá-lo na nuvem e, finalmente, como criá-lo do zero. Você pode começar criando do zero e depois fazer o teste e implantar as etapas posteriormente se preferir.
 
@@ -32,13 +32,13 @@ O tutorial mostra como criar e executar o aplicativo localmente, como implantá-
 
 O aplicativo é um painel de anúncios eletrônico. Os usuários criam um anúncio inserindo texto e carregando uma imagem. Eles podem ver uma lista de anúncios com imagens em miniatura e podem ver a imagem em tamanho total ao selecionar um anúncio para ver os detalhes. Esta é uma captura de tela:
 
-![Ad list](./media/cloud-services-dotnet-get-started/list.png)
+![Lista de anúncios](./media/cloud-services-dotnet-get-started/list.png)
 
-O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end. 
+O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end.
 
-## Arquitetura alternativa: Sites e WebJobs
+## Arquitetura alternativa: sites e trabalhos Web
 
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](../websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em visualização) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](../websites-dotnet-webjobs-sdk-get-started.md). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem do Azure e Máquinas Virtuais do Azure](../choose-web-site-cloud-service-vm.md).
 
 ## O que você aprenderá
 
@@ -51,9 +51,9 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 
 ## Pré-requisitos
 
-O tutorial presume que você entenda [os conceitos básicos sobre os serviços de nuvem do Azure](fundamentals-application-models.md#CloudServices) como a terminologia *web role* e *worker role*.  Também presumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Formulários da Web. 
+O tutorial assume que você conhece os [conceitos básicos sobre os serviços de nuvem do Azure](fundamentals-application-models.md#CloudServices) como terminologia de *função Web* e de *função de trabalho*. Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Formulários da Web.
 
-Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se você não tiver uma conta, você poderá [ativar os benefícios de assinante do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscreva-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
+Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 As instruções do tutorial funcionam com qualquer um dos seguintes produtos:
 
@@ -66,7 +66,7 @@ Se não tiver nenhum desses produtos, o Visual Studio 2013 Express para Web ser�
 
 O aplicativo armazena anúncios em um banco de dados SQL usando Entity Framework Code First para criar as tabelas e acessar os dados. Para cada anúncio o banco de dados armazena duas URLs, uma para a imagem em tamanho total e outra para a miniatura.
 
-![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
+![Tabela de anúncios](./media/cloud-services-dotnet-get-started/adtable.png)
 
 Quando um usuário carrega uma imagem, o front-end sendo executado em uma função Web armazena a imagem em um [Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio no banco de dados com uma URL que aponta para o blob. Ao mesmo tempo, ele grava uma mensagem em uma fila do Azure. Um processo de back-end sendo executado periodicamente em um função de trabalho consulta a fila para ver se há novas mensagens. Quando uma mensagem é exibida, a função de trabalho cria uma miniatura para essa imagem e atualiza o campo do banco de dados da URL de miniatura desse anúncio. Veja a seguir este diagrama que mostra como as partes de um aplicativo interagem:
 
@@ -84,45 +84,45 @@ Quando um usuário carrega uma imagem, o front-end sendo executado em uma funç�
 
 3. Pressione CTRL+SHIFT+B para criar a solução.
 
-	Por padrão, o Visual Studio restaura automaticamente o conteúdo do pacote NuGet, que não foi incluído no arquivo *.zip*. Se os pacotes não forem restaurados, instale-os manualmente acessando a caixa de diálogo **Gerenciar Pacotes NuGet para Solução** e clicando no botão **Restaurar** na parte superior direita. 
+	Por padrão, o Visual Studio restaura automaticamente o conteúdo do pacote NuGet, que não foi incluído no arquivo *.zip*. Se os pacotes não forem restaurados, instale-os manualmente acessando a caixa de diálogo **Gerenciar Pacotes NuGet para Solução** e clicando no botão **Restaurar** na parte superior direita.
 
-3. No **Gerenciador de Soluções**, certifique-se de que **ContosoAdsCloudService** foi selecionado como projeto de inicialização.
+3. No **Gerenciador de Soluções**, certifique-se de que **ContosoAdsCloudService** foi selecionado como o projeto de inicialização.
 
 1. Pressione CTRL+F5 para executar o aplicativo.
 
-	Quando você executa um projeto de serviço de nuvem localmente, o Visual Studio invoca automaticamente o Azure *compute emulator* e o Azure *storage emulator*. O emulador de computação usa os recursos do seu computador para simular os ambientes de função Web e de função de trabalho. O emulador de armazenamento usa um banco de dados [LocalDB do SQL Server Express](http://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento em nuvem do Azure. 
+	Quando você executar um projeto de serviço de nuvem localmente, o Visual Studio invocará o *emulador de computação* e o *emulador de armazenamento* do Azure automaticamente. O emulador de computação usa os recursos do seu computador para simular os ambientes de função Web e de função de trabalho. O emulador de armazenamento usa um banco de dados [LocalDB do SQL Server Express](http://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento em nuvem do Azure.
 
 	A primeira vez que você executar um projeto de serviço de nuvem, levará por volta de um minuto para que os emuladores sejam inicializados. Quando a inicialização do emulador for finalizada, o navegador padrão abrirá na home page do aplicativo.
 
-	![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
+	![Arquitetura do Contoso Ads](./media/cloud-services-dotnet-get-started/home.png)
 
 2. Clique em **Criar um anúncio**.
 
 2. Insira alguns dados de teste e selecione uma imagem em *.jpg* para carregar e depois clique em **Criar**.
 
-	![Create page](./media/cloud-services-dotnet-get-started/create.png)
+	![Criar página](./media/cloud-services-dotnet-get-started/create.png)
 
-	O aplicativo vai para a Página de índice, mas não mostra uma miniatura do anúncio novo porque o processamento ainda não aconteceu.   
+	O aplicativo vai para a Página de índice, mas não mostra uma miniatura do anúncio novo porque o processamento ainda não aconteceu.
 
 3. Aguarde um momento e depois atualize a Página de índice para ver a miniatura.
 
-	![Index page](./media/cloud-services-dotnet-get-started/list.png)
+	![Página de índice](./media/cloud-services-dotnet-get-started/list.png)
 
 4. Clique em **Detalhes** do anúncio para ver a imagem em tamanho total.
 
-	![Details page](./media/cloud-services-dotnet-get-started/details.png)
+	![Página de detalhes](./media/cloud-services-dotnet-get-started/details.png)
 
 Você está executando o aplicativo totalmente em seu computador local sem conexão com a nuvem. O emulador de armazenamento guarda os dados de fila e do Blob em um banco de dados LocalDB do SQL Server Express e o aplicativo armazena os dados do anúncio em outro banco de dados LocalDB. O Entity Framework Code First criou automaticamente o banco de dados de anúncio na primeira vez que o aplicativo Web tentou acessá-lo.
 
-Na seção a seguir você configurará a solução para usar os recursos de nuvem do Azure em filas, blobs, e o banco de dados do aplicativo quando ele for executado na nuvem. Se você desejava continuar a executar localmente, mas usa armazenamento em nuvem e recursos de bancos de dados, pode fazer isso; basta definir as cadeias de conexão, que você verá como fazer. 
+Na seção a seguir você configurará a solução para usar os recursos de nuvem do Azure em filas, blobs, e o banco de dados do aplicativo quando ele for executado na nuvem. Se você desejava continuar a executar localmente, mas usa armazenamento em nuvem e recursos de bancos de dados, pode fazer isso; basta definir as cadeias de conexão, que você verá como fazer.
 
 ## Implantar o aplicativo no Azure
 
 Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 
-* Criar um serviço de nuvem do Azure 
+* Criar um serviço de nuvem do Azure
 * Criar um banco de dados SQL do Azure
-* Criar uma conta de Armazenamento do Azure
+* Criar uma conta de armazenamento do Azure
 * Configurar a solução para usar seu banco de dados SQL do Azure quando ele for executado no Azure
 * Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure
 * Implantar o projeto para seu serviço de nuvem do Azure
@@ -135,25 +135,25 @@ Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
 2. Clique em **Novo** - **Computação** - **Serviço de Nuvem** - **Criação Rápida**.
 
-4. Na caixa de entrada URL, digite um prefixo de URL. 
+4. Na caixa de entrada URL, digite um prefixo de URL.
 
-	Essa URL precisa ser exclusiva.  Você receberá uma mensagem de erro se o prefixo escolhido já estiver sendo usado por outra pessoa.
+	Essa URL precisa ser exclusiva. Você receberá uma mensagem de erro se o prefixo escolhido já estiver sendo usado por outra pessoa.
 
 5. Selecione a região onde deseja implantar o aplicativo.
 
-	Este campo especifica em qual datacenter seu serviço de nuvem será hospedado. Para um aplicativo de produção, você deve escolher a região mais próxima de seus clientes. Para este tutorial, escolha a região mais próxima de você.
+	Este campo especifica em qual datacenter seu serviço de nuvem será hospedado. Para um aplicativo de produção, você escolheria a região mais próxima aos seus clientes. Para este tutorial, escolha a região mais próxima de você.
 
-6. Clique em **Criar Serviço de Nuvem**. 
+6. Clique em **Criar Serviço de Nuvem**.
 
 	Na imagem a seguir, um serviço de nuvem é criado com a URL contosoads.cloudapp.net.
 
-	![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)	
+	![Novo serviço de nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Criar um banco de dados SQL do Azure
 
-Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem. 
+Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem.
 
-1. No Portal de Gerenciamento do Azure, clique em **Novo** - **Serviços de Dados** - **Banco de Dados SQL** - **Criação Rápida**.
+1. No Portal de [Gerenciamento do Azure](http://manage.windowsazure.com), clique em **Novo** - **Serviços de Dados** - **Banco de Dados SQL** - **Criação Rápida**.
 
 1. Na caixa **Nome do Banco de Dados**, insira *contosoads*.
 
@@ -161,17 +161,17 @@ Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na
 
 	Se a assinatura já tiver um servidor, você poderá selecioná-lo da lista suspensa.
 
-1. Selecione a mesma **Região** que você escolheu para o serviço de nuvem. 
+1. Selecione a mesma **Região** que você escolheu para o serviço de nuvem.
 
 	Quando o banco de dados e o serviço de nuvem estão em datacenters diferentes (regiões diferentes), a latência aumentará e você será cobrado pela largura de banda fora do datacenter. A largura de banda em um data center é gratuita.
 
-1. Insira um **Nome de Logon** e **Senha** de administrador. 
+1. Insira um **Nome de Logon** e **Senha** de administrador.
 
 	Se selecionou **Novo servidor do Banco de Dados SQL**, você não irá digitar um nome e uma senha existentes aqui; digite um novo nome e uma senha que você está definindo agora para usar mais tarde ao acessar o banco de dados. Se você selecionou um servidor criado anteriormente, você será solicitado a fornecer a senha da conta do usuário administrador já criada.
 
 1. Clique em **Criar Banco de Dados SQL**.
 
-	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)	
+	![Novo banco de dados SQL](./media/cloud-services-dotnet-get-started/newdb.png)
 
 1. Após o Azure terminar de criar o banco de dados, clique na guia **Bancos de dados SQL** no painel à esquerda do portal e depois clique no nome do novo banco de dados.
 
@@ -183,15 +183,15 @@ Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na
 
 5. Clique em **Salvar**.
 
-### Criar uma conta de Armazenamento do Azure
+### Criar uma conta de armazenamento do Azure
 
 Uma conta de armazenamento do Azure fornece os recursos para dados de blob e fila de armazenamento na nuvem.
 
 Em um aplicativo do mundo real, geralmente você cria contas separadas para dados de aplicativos e dados de log, e contas separadas para dados de teste e dados de produção. Neste tutorial você usará apenas uma conta.
 
-1. No Portal de Gerenciamento do Azure, clique em **Novo** - **Serviços de Dados** - **Armazenamento** - **Criação Rápida**.
+1. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), clique em **Novo** - **Serviços de Dados** - **Armazenamento** - **Criação Rápida**.
 
-4. Na caixa da **URL**, insira um prefixo de URL. 
+4. Na caixa da **URL**, insira um prefixo de URL.
 
 	Esse prefixo, além do texto que você vê sob a caixa será a URL exclusiva de sua conta de armazenamento. Se o prefixo inserido já estiver sendo usado por outra pessoa, você terá que escolher um diferente.
 
@@ -201,13 +201,13 @@ Em um aplicativo do mundo real, geralmente você cria contas separadas para dado
 
 	O grupos de afinidade do Azure fornecem um mecanismo para minimizar a distância entre os recursos em um data center, o que pode reduzir a latência. Este tutorial não usa grupos de afinidade. Para obter mais informações, consulte [Como criar um grupo de afinidade no Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
-6. Defina a lista suspensa **Replicação** para **Localmente redundante**. 
+6. Defina a lista suspensa **Replicação** para **Localmente redundante**.
 
-	Quando a replicação geográfica está habilitada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para habilitar o failover para essa localidade no caso de ocorrer um grande desastre no local principal. A replicação geográfica pode incorrer em custos adicionais. Para contas de teste e desenvolvimento, geralmente, você não deseja pagar pela replicação geográfica. Para obter mais informações, consulte [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/#replication-options).
+	Quando a replicação geográfica está habilitada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para habilitar o failover para essa localidade no caso de ocorrer um grande desastre no local principal. A replicação geográfica pode incorrer em custos adicionais. Para contas de teste e desenvolvimento, geralmente, você não deseja pagar pela replicação geográfica. Para saber mais, confira [Criar, gerenciar ou excluir uma conta de armazenamento](../storage-create-storage-account/#replication-options).
 
-5. Clique em **Criar Conta de Armazenamento**. 
+5. Clique em **Criar Conta de Armazenamento**.
 
-	![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)	
+	![Nova conta de armazenamento](./media/cloud-services-dotnet-get-started/newstorage.png)
 
 	Na imagem, uma conta de armazenamento é criada com a URL `contosoads.core.windows.net`.
 
@@ -217,9 +217,9 @@ O projeto Web e o projeto de função de trabalho possuem suas próprias cadeias
 
 Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função de trabalho e uma configuração de ambiente de serviço de nuvem para a função de trabalho.
 
->[AZURE.NOTE] Nesta seção e na próxima, você armazenará credenciais nos arquivos de projeto. [Não armazene dados confidenciais em repositórios de código-fonte público](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+>[AZURE.NOTE]Nesta seção e na próxima, você armazenará credenciais nos arquivos de projeto. [Não armazene dados confidenciais em repositórios de código-fonte público](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
-1. No projeto ContosoAdsWeb, abra o arquivo de transformação *Web.Release.config* para o arquivo  *Web.config* do aplicativo, exclua o bloco de comentário que contém um elemento '<connectionStrings>' e cole o código a seguir no lugar. 
+1. No projeto ContosoAdsWeb, abra o arquivo de transformação *Web.Release.config* para o arquivo *Web.config* do aplicativo, exclua o bloco de comentário que contém um elemento `<connectionStrings>` e cole o código a seguir no lugar.
 
 		<connectionStrings>
 	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
@@ -228,59 +228,59 @@ Você usará uma [transformação de Web.config](http://www.asp.net/mvc/tutorial
 
 	Deixe o arquivo aberto para edição.
 
-2. No Portal de Gerenciamento do Azure, clique em **Bancos de dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial, clique na guia **Painel** e, em seguida, clique em **Mostrar Cadeias de Conexão**.
+2. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), clique em **Bancos de dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial, clique na guia **Painel** e, em seguida, clique em **Mostrar Cadeias de Conexão**.
 
-	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)	
+	![Mostrar Cadeias de Conexão](./media/cloud-services-dotnet-get-started/showcs.png)
 
 	O portal exibe as cadeias de conexão com um espaço reservado para a senha.
 
-	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)	
+	![Cadeias de conexão](./media/cloud-services-dotnet-get-started/connstrings.png)
 
 4. No arquivo de transformação *Web.Release.config*, exclua `{connectionstring}` e cole no lugar a cadeia de conexão ADO.NET do Portal de Gerenciamento.
 
-5. Na cadeia de conexão que você colou no arquivo de transformação *Web.Release.config*, substitua  `{your_password_here}` pela senha que você criou para o novo Banco de Dados SQL.
+5. Na cadeia de conexão que você colou no arquivo de transformação *Web.Release.config*, substitua `{your_password_here}` pela senha que você criou para o novo Banco de Dados SQL.
 
-7. Salve o arquivo.  
+7. Salve o arquivo.
 
 6. Selecione e copie a cadeia de conexão (sem as aspas) para usar nas etapas a seguir para configurar o projeto de função de trabalho.
 
 5. Em **Gerenciador de Soluções**, em **Funções** no projeto de serviço de nuvem, clique com o botão direito do mouse em**ContosoAdsWorker** e depois clique em **Propriedades**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)	
+	![Propriedades da função](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 
 6. Clique na guia **Configurações**.
 
 7. Altere **Configuração de Serviço** para **Nuvem**.
 
-7. Selecione o texto na configuração  `ContosoAdsDbConnectionString` e cole a cadeia de conexão que você copiou da seção anterior do tutorial.
+7. Selecione o texto na configuração `ContosoAdsDbConnectionString` e cole a cadeia de conexão que você copiou da seção anterior do tutorial.
 
-	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)	
+	![Cadeia de conexão de banco de dados para função de trabalho](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
-7. Salve suas alterações.  
- 
+7. Salve suas alterações.
+
 ### Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure
 
-As cadeias de conexão da conta de armazenamento do Azure do projeto de função de trabalho e do projeto de função Web são armazenadas nas configurações de ambiente do projeto de serviço de nuvem. Para cada projeto existe um conjunto separado de configurações a ser usado quando o aplicativo é executado localmente e quando é executado na nuvem. Você atualizará as configurações de ambiente de nuvem para os projetos de função de trabalho e da Web. 
+As cadeias de conexão da conta de armazenamento do Azure do projeto de função de trabalho e do projeto de função Web são armazenadas nas configurações de ambiente do projeto de serviço de nuvem. Para cada projeto existe um conjunto separado de configurações a ser usado quando o aplicativo é executado localmente e quando é executado na nuvem. Você atualizará as configurações de ambiente de nuvem para os projetos de função de trabalho e da Web.
 
 4. No **Gerenciador de Soluções**, clique como o botão direito do mouse em **ContosoAdsWeb** em **Funções** no projeto **ContosoAdsCloudService** e depois clique em **Propriedades**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
+	![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
 5. Clique na guia **Configurações**. Na caixa suspensa **Configuração de Serviço** selecione **Nuvem**.
 
-	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)	
+	![Configuração de nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 
-6. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (**...**) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento**.
+6. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (...) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento**.
 
-	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)	
+	![Abra a caixa Criar Cadeia de Conexão](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
 1. Na caixa de diálogo **Criar Cadeia de conexão de armazenamento**, clique em **Conectar usando assinatura**, selecione a conta de armazenamento e, em seguida, clique em **OK**. Se você não tiver feito logon, suas credenciais da conta do Azure serão solicitadas.
 
-	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)	
+	![Criar cadeia de conexão de armazenamento](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
 1. Salve suas alterações.
 
-2. Siga o mesmo procedimento que usou para a cadeia de conexão `StorageConnectionString` para definir a cadeia de conexão  `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
+2. Siga o mesmo procedimento que usou para a cadeia de conexão `StorageConnectionString` para definir a cadeia de conexão `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
 	Essa cadeia de conexão é usada para o log.
 
@@ -290,7 +290,7 @@ As configurações do ambiente de função que você configurou usando a interfa
 
 * *ServiceDefinition.csdef* - Define os nomes de configuração.
 * *ServiceConfiguration.Cloud.cscfg* - Fornece os valores para quando o aplicativo for executado na nuvem.
-* *ServiceConfiguration.local.cscfg* - Fornece valores para quando o aplicativo é executado localmente.
+* *ServiceConfiguration.Local.cscfg* - Fornece os valores para quando o aplicativo for executado localmente.
 
 Por exemplo, ServiceDefinition.csdef inclui as seguintes definições:
 
@@ -311,46 +311,45 @@ E o arquivo *ServiceConfiguration.Cloud.cscfg* inclui os valores inseridos para 
 		  <!-- other settings not shown -->
 		</Role>
 
-A configuração "<Instances>" especifica o número de máquinas virtuais onde o Azure executará a o código da função de trabalho. A seção [Próximas etapas](#next-steps) inclui links para mais informações sobre o dimensionamento de um serviço de nuvem,
+A configuração `<Instances>` especifica o número de máquinas virtuais onde o Azure executará o código da função de trabalho. A seção [Próximas etapas](#next-steps) inclui links para mais informações sobre a ampliação de um serviço de nuvem,
 
 ###  Implantar o projeto no Azure
 
 3.	No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto de nuvem **ContosoAdsCloudService** e selecione **Publicar**.
 
-	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
+	![Menu Publicar](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
-2. Na etapa **Entrar** do assistente **Publicar aplicativo do Windows Azure** clique em **Avançar**.
+2. Na etapa **Entrar** do assistente **Publicar aplicativo do Azure** clique em **Avançar**.
 
-	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
+	![Etapa de entrada](./media/cloud-services-dotnet-get-started/pubsignin.png)
 
 3. Na etapa **Configurações** do assistente clique em **Avançar**.
 
-	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
+	![Etapa de configurações](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-	As configurações padrão na guia **Avançado** são adequadas para este tutorial. Para obter mais informações sobre a guia avançada, consulte [Assistente de publicação de Aplicativo do Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+	As configurações padrão na guia **Avançado** são adequadas para este tutorial. Para obter mais informações sobre a guia avançada, consulte [Assistente de publicação de aplicativo do Azure](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. Na etapa **Resumo**, clique em **Publicar**.
 
-	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)	
-   
-   A janela **Log de atividade do Azure** será exibida no Visual Studio. 
+	![Etapa de resumo](./media/cloud-services-dotnet-get-started/pubsummary.png)
+
+   A janela **Log de atividade do Azure** será exibida no Visual Studio.
 
 2. Clique no ícone de seta para a direita para expandir os detalhes da implantação.
 
 	A implantação pode levar cerca de 5 minutos ou mais para ser concluída.
 
-	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)	
+	![Janela Log de atividade do Azure](./media/cloud-services-dotnet-get-started/waal.png)
 
 1. Quando o status da implantação for concluído, clique na **URL do Site** para iniciar o aplicativo.
 
 9. Você pode testar o aplicativo criando, visualizando e editando alguns anúncios, como fez ao executar o aplicativo localmente.
 
->[AZURE.NOTE] Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No Portal de Gerenciamento do Azure acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir** na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso, clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE]Ao finalizar o teste, exclua ou interrompa o serviço de nuvem. Mesmo que não estiver usando o serviço de nuvem, seus acúmulos serão cobrados porque os recursos do computador virtual serão reservados para o serviço. E se você deixá-lo em execução, qualquer um que encontrar sua URL poderá criar e exibir anúncios. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com) acesse a guia **Painel** para seu serviço de nuvem e depois clique no botão **Excluir** na parte inferior da página. Se apenas deseja evitar que outros acessem temporariamente o site, em vez disso clique em **Parar**. Nesse caso, as tarifas continuarão a acumular. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
-## Criar o aplicativo do zero 
+## Criar o aplicativo do zero
 
-Se ainda não fez o download 
-[do aplicativo completo](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Você copiará os arquivos do projeto baixado para o novo projeto.
+Se ainda não fez o download do [aplicativo completo](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Você copiará os arquivos do projeto baixado para o novo projeto.
 
 A criação do Contoso Ads envolve as seguintes etapas:
 
@@ -361,36 +360,36 @@ A criação do Contoso Ads envolve as seguintes etapas:
 * Adicionar arquivos de código
 
 Após a solução ser criada, você revisará o código exclusivo dos projetos de serviço de nuvem e dos blobs e filas do Azure.
- 
+
 ### Criar um serviço de nuvem na solução Visual Studio
 
 1. No Visual Studio, selecione **Novo Projeto** no menu **Arquivo**.
 
-2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual C#** e selecione os modelos de **Nuvem**; em seguida, selecione o modelo de **Serviço de Nuvem do Windows Azure**.
+2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual C#** e selecione os modelos de **Nuvem**; em seguida, selecione o modelo de **Serviço de Nuvem do Azure**.
 
 3. Nomeie o projeto e a solução ContosoAdsCloudService e depois clique em **OK**.
 
-	![New Project](./media/cloud-services-dotnet-get-started/newproject.png)	
+	![Novo Projeto](./media/cloud-services-dotnet-get-started/newproject.png)
 
 4. Na caixa de diálogo **Novo projeto de serviço de nuvem**, adicione uma função de trabalho e uma função Web. Nomeie a função Web ContosoAdsWeb e a função de trabalho ContosoAdsWorker. (Use o ícone da caneta no painel direito para alterar os nomes padrão das funções.)
 
-	![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)	
+	![Novo Projeto de Serviço de Nuvem](./media/cloud-services-dotnet-get-started/newcsproj.png)
 
 5. Quando a caixa de diálogo **Novo projeto ASP.NET** da função Web for exibia, selecione o modelo MVC e clique em **Alterar autenticação**.
 
-	![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)	
+	![Alterar Autenticação](./media/cloud-services-dotnet-get-started/chgauth.png)
 
-7. Na caixa de diálogo Alterar Autenticação, escolha **Sem Autenticação** e clique em **OK**.
+7. Na caixa de diálogo Alterar autenticação, selecione **Sem autenticação** e depois clique em **OK**.
 
-	![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)	
+	![Sem Autenticação](./media/cloud-services-dotnet-get-started/noauth.png)
 
-8. Na caixa de diálogo **Novo projeto ASP.NET** clique em **OK**. 
+8. Na caixa de diálogo **Novo projeto ASP.NET** clique em **OK**.
 
 9. No **Gerenciador de Soluções**, clique com o botão direito na solução (não aquela de projetos) e selecione **Adicionar - Novo Projeto**.
 
-11. Na caixa de diálogo **Adicionar Novo Projeto**, selecione **Área de Trabalho do Windows** em **Visual C#** no painel esquerdo e, em seguida, clique no modelo **Biblioteca de Classes**.  
+11. Na caixa de diálogo **Adicionar Novo Projeto**, selecione **Área de Trabalho do Windows** em **Visual C#** no painel esquerdo e, em seguida, clique no modelo **Biblioteca de Classes**.
 
-10. Nomeie o projeto *ContosoAdsCommon* e clique em **OK**.
+10. Nomeie o projeto *ContosoAdsCommon*, e depois clique em **OK**.
 
 	Você precisa usar como referência o contexto e o modelo de dados do Entity Framework para os projetos de função de trabalho e da Web. Como alternativa, você pode definir as classes relacionadas ao EF no projeto de função Web e usar esse projeto como referência para o projeto de função de trabalho. Mas fazendo isso, o seu projeto de função de trabalho teria uma referência para um assembly da Web que não precisa.
 
@@ -399,20 +398,20 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 11. Abra a caixa de diálogo **Gerenciar pacotes NuGet** para a solução.
 
 12. No painel esquerdo selecione **Atualizações**.
-   
-13. Procure o pacote  *Azure Storage* e, se ele estiver na lista, clique em **Atualizar** para obter a última versão da biblioteca do cliente de armazenamento.
 
-	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)	
+13. Procure o pacote *Armazenamento do Azure* e se ele estiver na lista, clique em **Atualizar** para obter a última versão da biblioteca do cliente de armazenamento.
+
+	![Atualizar SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
 	A biblioteca de armazenamento do cliente é atualizada com mais frequência que os modelos de projetos do Visual Studio, por isso, você descobrirá com frequência que a versão em um projeto que acabou de ser criado precisa ser atualizada.
- 
+
 14. No painel esquerdo, selecione **Online**.
 
-16. Encontre o pacote do NuGet *EntityFramework* e instale-o em todos os três projetos.
+16. Encontre o pacote NuGet do *EntityFramework* e instale-o em todos os três projetos.
 
 ### Definir referências de projeto
 
-10. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito no projeto ContosoAdsWeb e depois clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gerenciador de referências**, selecione **Solução - Projetos** no painel esquerdo, selecione ContosoAdsCommon e depois clique em **OK**.
+10. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito no projeto ContosoAdsWeb e depois clique em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gerenciador de referências**, selecione **Solução – Projetos** no painel esquerdo, selecione ContosoAdsCommon e depois clique em **OK**.
 
 11. No projeto ContosoAdsWorker, defina uma referência para o projeto ContosAdsCommon.
 
@@ -426,7 +425,7 @@ Após a solução ser criada, você revisará o código exclusivo dos projetos d
 
 Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexão do SQL para o teste local. As instruções de implantação fornecidas anteriormente no tutorial explicam como definir as cadeias de conexão para quando o aplicativo for executado na nuvem.
 
-3. No projeto ContosoAdsWeb, abra o arquivo Web.config do aplicativo e insira o seguinte elemento  `connectionStrings` após o elemento  `configSections`:
+3. No projeto ContosoAdsWeb, abra o arquivo Web.config do aplicativo e insira o seguinte elemento `connectionStrings` após o elemento `configSections`:
 
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
@@ -436,15 +435,15 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 
 2. No projeto ContosoAdsCloudService, clique com o botão direito do mouse em ContosoAdsWeb abaixo de **Funções** e depois clique em **Propriedades**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
+	![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-3. Na janela de propriedades de **ContosAdsWeb[Role]**, clique na guia **Configurações** e depois clique em **Adicionar configuração**.
+3. Na janela de propriedades de **ContosAdsWeb [Role]**, clique na guia **Configurações** e depois clique em **Adicionar configuração**.
 
 	Deixe **Configuração de Serviço** definida como **Todas as configurações**.
 
-4. Adicione uma nova cadeia chamada *StorageConnectionString*. Defina **Tipo** para *ConnectionString* e defina **Valor** para *UseDevelopmentStorage=true*.
+4. Adicione uma nova cadeia chamada *StorageConnectionString*. Defina **Tipo** para *ConnectionString* e defina **Valor** como *UseDevelopmentStorage=true*.
 
-	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)	
+	![Nova cadeia de conexão](./media/cloud-services-dotnet-get-started/scall.png)
 
 5. Salve suas alterações.
 
@@ -452,19 +451,19 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 
 5. Ainda na janela de propriedades de **ContosoAdsWorker [Role]**, adicione outra cadeia de conexão:
 
-	* Name: ContosoAdsDbConnectionString
-	* Type: String
-	* Value: Paste the same connection string you used for the web role project:
-	
+	* Nome: ContosoAdsDbConnectionString
+	* Tipo: String
+	* Valor: cole a mesma cadeia de conexão usada para o projeto de função Web:
+
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
-	
+
 ### Adicionar arquivos de código
 
 Nesta seção você copiará códigos da solução baixada para a nova solução. As seções a seguir mostrarão e explicarão as partes principais desse código.
 
 Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mouse em **Adicionar** - **Item Existente**. Selecione os arquivos que deseja e clique em **Adicionar**. Se receber uma solicitação para confirmar se deseja substituir os arquivos existentes, clique em **Sim**.
 
-3. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e adicione em seu lugar os arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
+3. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e substitua-o pelos arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 	- *Global.asax.cs*  
@@ -473,7 +472,7 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 	- Na pasta *Controllers*: *AdController.cs*.
 	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
 
-3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* a partir do projeto baixado.
+3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto baixado.
 
 Você pode criar e executar os aplicativos conforme explicado anteriormente no tutorial e o aplicativo usará os recursos locais de banco de dados e emulador de armazenamento.
 
@@ -541,19 +540,19 @@ A classe ContosoAdsContext especifica que a classe de anúncio é usada em uma c
 		    }
 		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
 		}
- 
+
 A classe possui dois construtores. O primeiro deles é usado pelo projeto Web e especifica o nome de uma cadeia de conexão armazenada no arquivo Web.config. O segundo construtor habilita você a transmitir a cadeia de conexão real. Isso é necessário para o projeto de função de trabalho, porque ela não tem um arquivo Web.config. Foi mostrado anteriormente onde essa cadeia de conexão foi armazenada, e você verá mais adiante como o código recupera a cadeia de conexão quando ele cria uma instância de classe DbContext.
 
 ### ContosoAdsWeb - Global.asax.cs
 
-Código que é chamado por meio do método `Application_Start` cria um contêiner de blob *images* e uma fila *images*, se eles ainda não existirem. Isso garante que sempre que você começar a usar uma nova conta de armazenamento, ou começar a usar o emulador de armazenamento em um novo computador, o contêiner do blob e a fila necessários serão criados automaticamente.
+O código que é chamado do método`Application_Start` cria um contêiner de blob *images* e uma fila *images*, se ainda não existir. Isso garante que sempre que você começar a usar uma nova conta de armazenamento, ou começar a usar o emulador de armazenamento em um novo computador, o contêiner do blob e a fila necessários serão criados automaticamente.
 
 O código obtém acesso à conta de armazenamento usando a cadeia de conexão de armazenamento do arquivo *.cscfg*.
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
-Em seguida, ele obtém uma referência para o contêiner do blob *images*, cria o contêiner se ele ainda não existe e define permissões de acesso no novo contêiner. Por padrão, os novos contêineres somente permite que os clientes com credenciais da conta de armazenamento acessem os blobs. O site precisa que os blobs para o público para poder exibir imagens usando URLs que apontam para os blobs de imagem.
+Em seguida, ele obtém uma referência para o contêiner do blob de *imagens*, cria o contêiner se ele ainda não existe e define permissões de acesso no novo contêiner. Por padrão, os novos contêineres somente permite que os clientes com credenciais da conta de armazenamento acessem os blobs. O site precisa que os blobs para o público para poder exibir imagens usando URLs que apontam para os blobs de imagem.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -566,7 +565,7 @@ Em seguida, ele obtém uma referência para o contêiner do blob *images*, cria 
 		        });
 		}
 
-Um código semelhante obtém uma referência para a fila *images* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária.
+Um código similar obtém uma referência para a fila de *imagens* e cria uma nova fila. Nesse caso, nenhuma alteração de permissão é necessária.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("images");
@@ -578,8 +577,8 @@ O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodap�
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
-O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de Anúncio.
-	
+O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
+
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
 		<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
@@ -587,21 +586,21 @@ O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os li
 
 ### ContosoAdsWeb - AdController.cs
 
-No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas. 
+No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência para o contêiner de blob *images*, como você viu anteriormente em *Global.asax.cs*. Ao fazer isso, ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
+Em seguida, o código obtém uma referência para o contêiner do blob de *imagens* como visto anteriormente em *Global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
-Um código semelhante obtém uma referência para a fila *images*.
+Código similar obtém uma referência para a fila de *imagens*.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
-A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
+A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework usando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que atualiza um arquivo e o salva no armazenamento do blob. O associador de modelo fornece um objeto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -617,7 +616,7 @@ Se o usuário selecionou um arquivo para carregamento, o código carrega o arqui
 		    ad.ImageURL = blob.Uri.ToString();
 		}
 
-O código que faz o upload está no método `UploadAndSaveBlobAsync`. Ele cria um nome de GUID para o blob, carrega e salva o arquivo e retorna uma referência para o blob salvo.
+O código que não é carregado está no método `UploadAndSaveBlobAsync`. Ele cria um nome de GUID para o blob, carrega e salva o arquivo e retorna uma referência para o blob salvo.
 
 		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
 		{
@@ -630,14 +629,14 @@ O código que faz o upload está no método `UploadAndSaveBlobAsync`. Ele cria u
 		    return imageBlob;
 		}
 
-Depois de carregar um blob e atualizar o banco de dados, o método HttpPost `Create` criará uma mensagem da fila para informar o processo back-end que uma imagem está pronta para conversão em uma miniatura.
+Depois de carregar um blob e atualizar o banco de dados, o método `Create`HttpPost criará uma mensagem da fila para informar o processo back-end que uma imagem está pronta para conversão em uma miniatura.
 
 		string queueMessageString = ad.AdId.ToString();
 		var queueMessage = new CloudQueueMessage(queueMessageString);
 		await queue.AddMessageAsync(queueMessage);
 
-O código para o método HttpPost `Edit` é semelhante, exceto pelo fato de que se o usuário seleciona um novo arquivo de imagem, quaisquer blobs existentes deverão ser excluídos.
- 
+O código para o método `Edit` HttpPost é semelhante, exceto pelo fato de que se o usuário seleciona um novo arquivo de imagem, quaisquer blobs existentes deverão ser excluídos.
+
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
 		    await DeleteAdBlobsAsync(ad);
@@ -666,20 +665,20 @@ Este é o código que exclui os blobs quando você exclui um anúncio:
 		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
 		    await blobToDelete.DeleteAsync();
 		}
- 
+
 ### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
 
-O arquivo *Index.cshtml* exibe miniaturas com os outros dados do anúncio:
+O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio:
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-O arquivo *Details.cshtml* exibe a imagem em tamanho normal:
+O arquivo *Details.cshtml* exibe a imagem em tamanho real:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
 ### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
 
-Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação do formulário, que habilitam o controlador a obter o objeto `HttpPostedFileBase`.
+Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
@@ -689,9 +688,9 @@ Um elemento `<input>` informa o navegador para fornecer uma caixa de diálogo de
 
 ### ContosoAdsWorker - WorkerRole.cs - Método OnStart
 
-O ambiente da função de trabalho do Azure chama o método  `OnStart` na classe  `WorkerRole` quando a função de trabalho é iniciada e clama o método  `Run` quando o método  `OnStart` é concluído.
+O ambiente da função de trabalho do Azure chama o método `OnStart` na classe `WorkerRole` quando a função de trabalho é iniciada, e chama o método `Run` quando o método `OnStart` é concluído.
 
-O método  `OnStart` obtém a cadeia de conexão do banco de dados do arquivo .cscfg e a transmite para a classe DbContext do Entity Framework. O provedor SQLClient é usado por padrão para que o provedor não precisar ser especificado.
+O método `OnStart` obtém a cadeia de conexão do banco de dados do arquivo *.cscfg* e a transmite para a classe DbContext do Entity Framework. O provedor SQLClient é usado por padrão para que o provedor não precisar ser especificado.
 
 		var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
 		db = new ContosoAdsContext(dbConnString);
@@ -705,7 +704,7 @@ O método `Run` é chamado quando o método `OnStart` conclui seu trabalho de in
 		public override void Run()
 		{
 		    CloudQueueMessage msg = null;
-		
+
 		    while (true)
 		    {
 		        try
@@ -733,9 +732,9 @@ O método `Run` é chamado quando o método `OnStart` conclui seu trabalho de in
 
 Após cada interação do loop, se nenhuma mensagem foi encontrada na fila, o programa é suspenso durante um segundo. Isso evita que a função de trabalho utilize tempo excessivo de CPU e incorra em gastos de transação de armazenamento. A equipe de auxílio ao cliente da Microsoft relatou uma história sobre um desenvolvedor que esqueceu de incluir isso, implantou em produção e saiu de férias. Quando retornou, seu esquecimento custou mais que as férias.
 
-Algumas vezes o conteúdo de uma mensagem da fila causa um erro no processamento. Isso é chamado de *poison message*, e se você acabou de registrar um erro e reiniciou o loop, pode tentar processar essa mensagem infinitamente.  Portanto, o bloco de captura inclui uma instrução que verifica quantas vezes o aplicativo tentou processar a mensagem atual, e se isso aconteceu mais de 5 vezes, a mensagem é excluída da fila.
+Algumas vezes o conteúdo de uma mensagem da fila causa um erro no processamento. Isso é chamado de *mensagem suspeita*, e se você acabou de registrar um erro e reiniciou o loop, pode tentar processar essa mensagem infinitamente. Portanto, o bloco de captura inclui uma instrução que verifica quantas vezes o aplicativo tentou processar a mensagem atual, e se isso aconteceu mais de 5 vezes, a mensagem é excluída da fila.
 
-O "ProcessQueueMessage" é chamado quando uma mensagem é encontrada.
+O `ProcessQueueMessage` é chamado quando uma mensagem em fila é encontrada.
 
 		private void ProcessQueueMessage(CloudQueueMessage msg)
 		{
@@ -745,28 +744,28 @@ O "ProcessQueueMessage" é chamado quando uma mensagem é encontrada.
 		    {
 		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
 		    }
-		
+
 		    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
-		
+
 		    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
 		    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
-		
+
 		    using (Stream input = inputBlob.OpenRead())
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
 		        ConvertImageToThumbnailJPG(input, output);
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
-		
+
 		    ad.ThumbnailURL = outputBlob.Uri.ToString();
 		    db.SaveChanges();
-		
+
 		    this.imagesQueue.DeleteMessage(msg);
 		}
 
 Esse código lê o banco de dados para obter a URL da imagem, converte a imagem para uma miniatura, salva a miniatura em um blob, atualiza o banco de dados com a URL do blob da miniatura e exclui a mensagem da fila.
 
->[AZURE.NOTE] O código no método `ConvertImageToThumbnailJPG` usa classes no namespace System.Drawing para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET.
+>[AZURE.NOTE]O código no método `ConvertImageToThumbnailJPG` usa classes no namespace System.Drawing para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para saber mais sobre as opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Solucionar problemas
 
@@ -774,7 +773,7 @@ Caso algo não funcione enquanto você estiver seguindo as instruções nesse tu
 
 ### ServiceRuntime.RoleEnvironmentException
 
-O objeto `RoleEnvironment` é fornecido pelo Azure quando você executa uma aplicação no Azure ou quando você executa localmente usando o emulador de computação do Azure.  Se você obter esse erro quando estiver executando localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de inicialização. Isso define o projeto para ser executado usando o emulador de computação do Azure.
+O objeto `RoleEnvironment` é fornecido pelo Azure quando você executa uma aplicação no Azure ou quando você executa localmente usando o emulador de computação do Azure. Se você obter esse erro quando estiver executando localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de inicialização. Isso define o projeto para ser executado usando o emulador de computação do Azure.
 
 Uma das coisas para as quais o aplicativo usa o RoleEnvironment do Azure é para obter os valores de cadeia de conexão armazenados nos arquivos *.cscfg* e, portanto, uma nova causa dessa exceção é uma cadeia de conexão perdida. Certifique-se de que criou a configuração StorageConnectionString para as configurações local e de nuvem no projeto ContosoAdsWeb, e de que criou as duas cadeias de conexão para as ambas as configurações do projeto ContosoAdsWorker. Se fizer uma pesquisa **Localizar Tudo** para StorageConnectionString na solução inteira, você deverá vê-la 9 vezes em 6 filas.
 
@@ -786,7 +785,7 @@ Para obter uma outra alternativa que possa resolver o problema, consulte a seç�
 
 ### Outros erros que podem ocorrer ao executar localmente
 
-Por padrão, os novos projetos de serviço de nuvem usam o emulador de computação expresso do Azure para simular o ambiente do Azure. Essa é uma versão leve do emulador de computação completo e em algumas condições o emulador completo funcionará quando a versão expressa não funcionar.  
+Por padrão, os novos projetos de serviço de nuvem usam o emulador de computação expresso do Azure para simular o ambiente do Azure. Essa é uma versão leve do emulador de computação completo e em algumas condições o emulador completo funcionará quando a versão expressa não funcionar.
 
 Para alterar o projeto a fim de usar o emulador completo, clique com o botão direito do mouse no projeto ContosoAdsCloudService e depois clique em **Propriedades**. Na janela **Propriedades** clique na guia **Web** e depois clique no botão de opção **Usar Emulador Completo**.
 
@@ -794,25 +793,23 @@ Para executar o aplicativo com o emulador completo, abra o Visual Studio com pri
 
 ## Próximas etapas
 
-Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
+Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou [os padrões de unidade de trabalho e repositório](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
 
 Estes são alguns aplicativos função Web de serviço de nuvem que demonstram práticas mais reais de codificação, listados do menos para o mais complexo:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Em conceito, é semelhante ao Contoso Ads, mas implementa mais recursos e práticas mais reais de codificação.
 * [Aplicativo multicamada de serviço de nuvem do Azure com tabelas, filas e blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduz as tabelas de armazenamento do Azure, bem como blobs e filas, e vem com uma [série de tutoriais passo a passo](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
-* [Noções Básicas sobre Serviço de Nuvem no Windows Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Um exemplo abrangente que demonstra uma grande variedade de melhores práticas, produzido pelo grupo de Práticas e Padrões da Microsoft.
+* [Noções Básicas sobre Serviço de Nuvem no Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Um exemplo abrangente que demonstra uma grande variedade de melhores práticas, produzido pelo grupo de Práticas e Padrões da Microsoft.
 
 Para obter informações sobre como desenvolver para a nuvem, consulte [Criando aplicativos de nuvem do mundo real no Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-Para assistir a um vídeo de introdução às melhores práticas e padrões de armazenamento do Azure [Armazenamento do Microsoft Azure - O que há de novo, melhores práticas e padrões](http://channel9.msdn.com/Events/Build/2014/3-628).
+Para assistir a um vídeo de introdução às melhores práticas e padrões de armazenamento do Azure [Armazenamento do Microsoft Azure – O que há de novo, melhores práticas e padrões](http://channel9.msdn.com/Events/Build/2014/3-628).
 
-Para obter mais informações, consulte os recursos a seguir:
+Para saber mais, consulte os recursos a seguir:
 
 * [Serviços de nuvem do Azure Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Serviços de nuvem do Azure](/documentation/services/cloud-services/)
+* [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
-* [Como usar o Armazenamento de Blob no .NET](../storage-dotnet-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Fila no .NET](../storage-dotnet-how-to-use-queues.md)
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

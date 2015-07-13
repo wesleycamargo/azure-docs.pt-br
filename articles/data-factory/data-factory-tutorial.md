@@ -217,7 +217,7 @@ Nesta etapa, você criará os seguintes serviços vinculados:
 
 	![JSON do armazenamento de Blob do editor][image-editor-blob-storage-json]
 	
-	> [AZURE.NOTE] Consulte a [Referência de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obter detalhes sobre as propriedades JSON.
+	Consulte a [Referência de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obter detalhes sobre as propriedades JSON.
 
 4. Clique em **Implantar** na barra de ferramentas para implantar o StorageLinkedService. Confirme que você vê a mensagem **SERVIÇO VINCULADO CRIADO COM ÊXITO** na barra de título.
 
@@ -525,4 +525,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

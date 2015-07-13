@@ -77,9 +77,9 @@ O arquivo **.pfx** contendo o certificado será adicionado ao seu projeto de ser
 
 Quando um aplicativo do Node.js é implantado em uma função de trabalho, o certificado do servidor e a conexão SSL são gerenciados pelo Node.exe. Para tratar o tráfego do SSL, você deve usar o módulo 'https' em vez de 'http'. Execute as seguintes etapas para adicionar o certificado SSL ao seu projeto e, em seguida, modificar o aplicativo para usar o certificado.
 
-1.   Salve o arquivo **.pfx** fornecido por sua CA (Autoridade de Certificação) no diretório que contém o seu aplicativo. Por exemplo, **c:\\node\\securesite\\workerrole1** é o diretório que contém o aplicativo usado neste artigo.
+1.   Salve o arquivo **.pfx** fornecido por sua CA (Autoridade de Certificação) no diretório que contém o seu aplicativo. Por exemplo, **c:\node\securesite\workerrole1** é o diretório que contém o aplicativo usado neste artigo.
 
-2.   Abra o arquivo **c:\\node\\securesite\\workerrole1\\server.js** usando o Notepad.exe e substitua o conteúdo do arquivo pelo seguinte:
+2.   Abra o arquivo **c:\node\securesite\workerrole1\server.js** usando o Notepad.exe e substitua o conteúdo do arquivo pelo seguinte:
 
 		var https = require('https');
 		var fs = require('fs');
@@ -145,21 +145,32 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 
 [Como configurar um certificado SSL em um ponto de extremidade HTTPS]
 
-[Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem]: #step1
-[Etapa 2: Obter um certificado SSL]: #step2
-[Etapa 3: Modificar o aplicativo para usar o certificado SSL]: #step3
-[Etapa 4: Modificar o arquivo de definição de serviço]: #step4
-[Etapa 5: conectar-se à instância de função usando HTTPS]: #step5
-[**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
-[2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
-[3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-[Azure Management Portal]: http://manage.windowsazure.com
-[Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
-[8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-[Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
-[powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-[Configurando o SSL para um aplicativo Node.js em uma função web do Azure]: /develop/nodejs/common-tasks/enable-ssl/
+  [Etapa 1: Criar um serviço do Node.js e publicar o serviço para a nuvem]: #step1
+  [Etapa 2: Obter um certificado SSL]: #step2
+  [Etapa 3: Modificar o aplicativo para usar o certificado SSL]: #step3
+  [Etapa 4: Modificar o arquivo de definição de serviço]: #step4
+  [Etapa 5: conectar-se à instância de função usando HTTPS]: #step5
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  
+  
+  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
+  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
+  
+  
+  [Configurando o SSL para um aplicativo Node.js em uma função web do Azure]: /develop/nodejs/common-tasks/enable-ssl/
+  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

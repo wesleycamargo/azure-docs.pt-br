@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Acompanhe o uso em aplicativos Web" 
-	description="Log de atividades do usuário." 
+	pageTitle="Análise de uso para aplicativos Web com o Application Insights" 
+	description="Visão geral da análise de uso com o Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,65 +12,61 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Acompanhe o uso de aplicativos Web
+# Análise de uso para aplicativos Web com o Application Insights
 
-Descubra como o seu aplicativo Web está sendo usado. Configure a análise de uso e você descobrirá quais páginas os usuários estão visitando, quantos deles retornam e com que frequência eles visitam seu site. Adicione algumas [métricas e eventos personalizados][track] e você poderá analisar detalhadamente os recursos mais populares, os erros mais comuns e ajustar seu aplicativo para ter sucesso com os usuários.
+Saber como as pessoas usam seu aplicativo permite a você concentrar o trabalho de desenvolvimento nos cenários que são mais importantes para elas, além de adquirir percepção sobre quais objetivos elas têm maior ou menor dificuldade para atingir.
 
-A telemetria é coletada tanto do cliente quanto do servidor. Os dados do cliente são coletados de todos os navegadores modernos e, se sua plataforma é ASP.NET, os dados do servidor também podem ser coletados. (Ela não precisa estar em execução no Azure.) 
+O Visual Studio Application Insights fornece dois níveis de rastreamento de uso:
 
-* [Configurar análise de uso da Web](#webclient)
-* [Análise de uso](#usage)
-* [Contagens de página personalizadas para aplicativos de página única](#spa)
-* [Inspecionando eventos das páginas individuais](#inspect)
-* [Acompanhamento detalhado com métricas e eventos personalizados](#custom)
-* [Vídeo](#video)
+* **Dados da sessão e usuário** - fornecidos pronto para uso.  
+* **Telemetria personalizado** - você [escrever código][api] para rastrear os usuários por meio da experiência do usuário do seu aplicativo. 
 
-## <a name="webclient"></a> Configurando a análise de cliente Web
+## Configurando
 
-#### Obtenha um recurso Application Insights no Azure
+Dados de uso de um aplicativo Web são fornecidos no navegador do cliente.
 
-**Se você estiver desenvolvendo um aplicativo ASP.NET** e você ainda não fez isso, [adicione o Application Insights ao seu projeto da Web][start].
+#### Configurar um recurso do Application Insights 
 
-**Se sua plataforma de site não for ASP.NET:** Increva-se no [Microsoft Azure](http://azure.com), vá para o [Portal de visualização](https://portal.azure.com)e adicione um recurso de Application Insights.
+Um recurso do Application Insights é um local no Microsoft Azure em que os dados de telemetria do seu aplicativo são analisados e exibidos. Você pode já ter definido um para exibir dados do lado do servidor do aplicativo em [ASP.NET][greenbrown] ou [J2EE][java]. Caso contrário, talvez você queira fazer isso agora.
 
-![](./media/app-insights-web-track-usage/appinsights-11newApp.png)
+É melhor exibir os dados de uso do cliente da web no mesmo recurso que os dados do servidor. Dessa forma, você pode facilmente correlacionar diagnósticos e métricas das duas extremidades. Portanto, se você já tiver um recurso, pule para a próxima etapa.
 
-(Você pode voltar a ele mais tarde com o botão Procurar.)
+Mas se quiser usar um recurso separado para os dados de uso, basta entrar no [Portal do Azure][portal] e criá-lo:
+
+![](./media/app-insights-web-track-usage/01-create.png)
+
+#### Insira o código nas suas páginas da Web
+
+Em seu recurso no [Portal do Azure][portal], abra o Quick Start obtenha o trecho de código para monitorar as páginas da Web.
+
+![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
+
+Coloque o código em uma página mestra como _Layout.cshtml, (em .NET) ou em um arquivo de inclusão para garantir que ele seja incluído em todas as suas páginas.
+
+O trecho de código inclui a chave de instrumentação (iKey) que identifica o recurso. Para enviar dados para um recurso diferente - por exemplo, durante testes - você precisa apenas substituir a iKey.
+
+Publique suas páginas da Web ou use-as no modo de depuração para gerar alguns dados de telemetria.
 
 
+## Quão popular é o meu aplicativo Web?
 
-#### Adicione nosso script a suas páginas da Web
+Entre no [Portal do Azure][portal], navegue até seu recurso de aplicativo e clique em Utilização:
 
-Em Início Rápido, obtenha o script para páginas da Web.
+![](./media/app-insights-web-track-usage/14-usage.png)
 
-![](./media/app-insights-web-track-usage/appinsights-06webcode.png)
+* **Usuários:** a contagem de usuários distintos ao longo do intervalo de tempo do gráfico. (Cookies são usados para identificar usuários que retornam).
+* **Sessões:** uma sessão é contada quando um usuário não faz solicitações por 30 minutos.
+* **Exibições de página** conta o número de chamadas para trackPageView(), geralmente chamado uma vez em cada página da Web.
 
-Insira o script antes da marca </head> de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared_Layout.cshtml
+Clique em qualquer um dos gráficos para ver mais detalhes. Observe que você pode alterar o intervalo de tempo dos gráficos.
 
-## <a name="usage"></a>Análise de uso
 
-Execute seu site, use-o um pouco para gerar telemetria e aguarde 1 a 2 minutos. Você pode executá-lo com F5 em seu computador de desenvolvimento ou então implantá-lo em seu servidor.
+### Quais páginas são mais lidas?
 
-Na lâmina de visão geral do aplicativo, você verá estes blocos de uso:
-
-![](./media/app-insights-web-track-usage/appinsights-47usage.png)
-
-*Nenhum dado ainda? Clique em **Atualizar** na parte superior da página.*
-
-* **Sessões por navegador**
-
-    Uma *sessão* é um período que começa quando um usuário abre qualquer página em seu site e termina depois do usuário não ter enviado nenhuma solicitação da Web por um período de tempo limite de 30 minutos. 
-
-    Clique para aplicar zoom ao gráfico.
-
-* **Visualizações da página principal**
-
-    Mostra a contagem total nas últimas 24 horas.
-
-    Clique no bloco de visualizações da página para obter um histórico mais detalhado. Para obter um histórico mais longo, você pode alterar o intervalo de tempo do relatório.
+Clique no gráfico de modos de exibição de página para ver mais detalhes.
 
 ![](./media/app-insights-web-track-usage/appinsights-49usage.png)
 
@@ -78,59 +75,306 @@ Clique em um gráfico para ver outras medidas que você pode exibir, ou adiciona
 
 ![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE] Desmarque *todas* as métricas para habilitar todas elas. As métricas só podem ser exibidas em algumas combinações. Quando você seleciona uma métrica, aquelas incompatíveis são desabilitadas.
+> [AZURE.NOTE]As métricas só podem ser exibidas em algumas combinações. Quando você seleciona uma métrica, aquelas incompatíveis são desabilitadas.
 
 
 
-## <a name="spa"></a> Contagens de página personalizadas para aplicativos de página única
+### Onde os meus usuários vivem?
 
-Por padrão, uma contagem de página ocorre todas as vezes que uma nova página é carregada no navegador do cliente.  Por exemplo, você talvez queira contar visualizações de página adicionais. Por exemplo, uma página pode exibir seu conteúdo em guias e você quer contar uma página quando o usuário muda as guias. Ou o código do JavaScript na página pode carregar novo conteúdo sem mudar a URL do navegador. 
+Na folha Utilização, clique no gráfico Usuários para ver mais detalhes:
 
-Insira uma chamada do JavaScript como essa no ponto apropriado no código do seu cliente:
-
-    appInsights.trackPageView(myPageName);
-
-O nome da página pode conter os mesmos caracteres da URL, mas nada após o "#" ou "?" será ignorado.
-
-
-## <a name="inspect"></a> Inspecionando os eventos de exibição da página individual
-
-Normalmente a telemetria de exibição da página é analisada pelo Application Insights e você vê somente relatórios cumulativos, calculados sobre todos os seus usuários. Mas para a finalidade de depuração, você também pode olhar para os eventos de exibição da página individua.
-
-Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
-
-![](./media/app-insights-web-track-usage/appinsights-51searchpageviews.png)
-
-Selecione qualquer evento para ver mais detalhes.
-
-> [AZURE.NOTE] Se você usar [Pesquisar][diagnostic], observe que você tem que coincidir palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" sim. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre". 
-
-> [Saiba mais sobre pesquisa de diagnóstico][diagnostic]
-
-## <a name="custom"></a> Acompanhamento detalhado com métricas e eventos personalizados
-
-Quer saber o que os usuários fazem com seu aplicativo? Inserindo chamadas em seu código de cliente e servidor, você pode enviar sua própria telemetria ao Application Insights. Por exemplo, você pode descobrir o número de usuários que criam pedidos sem concluí-los ou quais erros de validação ocorrem com mais frequência, ou ainda a pontuação média em um jogo.
-
-[Saiba mais sobre os eventos personalizados e métricas de API][track].
-
-## <a name="video"></a> Vídeo: Acompanhamento de uso
-
-> [AZURE.VIDEO tracking-usage-with-application-insights]
-
-## <a name="next"></a> Próximas etapas
-
-[Controlar o uso com métricas e eventos personalizados][track]
-
-
-
-
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
-
-
-
-
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+![Na folha visão geral, clicar no gráfico Sessões](./media/app-insights-web-track-usage/02-sessions.png)
  
+(Este exemplo é de um site, mas os gráficos parecem semelhantes para aplicativos executados em dispositivos.)
+
+### É igual ao da semana passada?
+
+Compare com a semana anterior para ver se as coisas estão mudando:
+
+![Selecionar um gráfico que mostre uma única métrica, alterna para Semana Anterior](./media/app-insights-web-track-usage/021-prior.png)
+
+
+### Qual a proporção de usuários novos para o total dos meus usuários?
+
+Compare duas métricas, por exemplo, usuários e novos usuários:
+
+![Selecione um gráfico, procure por métricas e marque-as ou desmarque-as.](./media/app-insights-web-track-usage/031-dual.png)
+
+
+### Quais navegadores ou sistemas operacionais eles usam?
+
+Dados de grupo (segmento) segundo uma propriedade, como Navegador, Sistema Operacional ou Cidade:
+
+![Selecionar um gráfico que exibe uma única métrica, ativar Agrupamento e escolher uma propriedade](./media/app-insights-web-track-usage/03-browsers.png)
+
+
+## Sessões
+
+Sessão é um conceito fundamental no Application Insights, que se esforça para associar cada evento de telemetria - como solicitações, exibições de página, exceções ou eventos personalizados que você codificar por conta própria - a uma sessão de usuário específica.
+
+Informações de contexto avançadas são coletadas sobre cada sessão, como características de dispositivo, localização geográfica, sistema operacional e assim por diante.
+
+Se você instrumentar tanto o cliente quanto o servidor ([ASP.NET][greenbrown] ou [J2EE][java]), os SDKs propagarão a id da sessão entre o cliente e o servidor, de modo que os eventos em ambos os lados possam ser correlacionados.
+
+Ao [diagnosticar problemas][diagnostic], você pode localizar toda a telemetria relacionada à sessão em que ocorreu um problema, incluindo todas as solicitações e todos os eventos, exceções ou rastreamentos registrados em log.
+
+Sessões fornecem uma boa medida de popularidade dos contextos, como dispositivo, sistema operacional ou local. Por exemplo, mostrando a contagem de sessões agrupada por dispositivo, você obter uma contagem mais precisa da frequência com que esse dispositivo é usado com seu aplicativo do que pela contagem de exibições de página. Essa seria um dado útil para fazer a triagem de qualquer problema específico do dispositivo.
+
+
+#### O que é uma sessão?
+
+Uma sessão representa uma ocorrência única entre o usuário e o aplicativo. Em sua forma mais simples, a sessão começa quando o usuário inicia o aplicativo e termina quando o usuário sai do aplicativo. Para aplicativos Web, por padrão, a sessão é encerrada após 30 minutos de inatividade ou após 24 horas de atividade.
+
+Você pode alterar esses padrões editando o trecho de código:
+
+    <script type="text/javascript">
+        var appInsights= ... { ... }({
+            instrumentationKey: "...",
+            sessionRenewalMs: 3600000,
+            sessionExpirationMs: 172800000
+        });
+
+* `sessionRenewalMs` : o tempo, em milissegundos, para expirar a sessão devido a inatividade do usuário. Padrão: 30 minutos.
+* `sessionExpirationMs` : o comprimento máximo da sessão, em milissegundos. Se o usuário permanecer ativo após esse período, outra sessão será contada. Padrão: 24 horas.
+
+**Duração da sessão** é uma [métrica][metrics] que registra o período de tempo entre o primeiro e o último item de telemetria da sessão. (Não inclui o período de tempo limite).
+
+**Contagem de sessões** em um determinado intervalo é definida como o número de sessões exclusivas com alguma atividade durante esse intervalo. Quando você examina um intervalo de tempo longo, como uma contagem de sessão diária para a semana anterior, isso normalmente é equivale ao número total de sessões.
+
+No entanto, ao explorar intervalos de tempo menores, como granulação por hora, uma sessão longa englobando várias horas será contada para cada hora em que a sessão esteve ativa.
+
+## Usuários e contagens de usuário
+
+Cada sessão de usuário é associada uma id de usuário exclusiva.
+
+Por padrão, o usuário é identificado colocando um cookie. Nesse caso, um usuário que use vários navegadores ou dispositivos será contado mais de uma vez.
+
+A métrica de **contagem de usuários** em um certo intervalo é definida como o número de usuários exclusivos com atividade registrada durante esse intervalo. Como resultado, usuários com sessões longas podem ser contados várias vezes quando você define um intervalo de tempo em que o detalhamento é menor que cerca de uma hora.
+
+**Novos usuários** conta os usuários cujas primeiras sessões com o aplicativo ocorreram durante esse intervalo. Se for usado o método padrão de contagem de usuários por cookies, isso também incluirá os usuários que tenham apagados seus cookies ou que estejam usando um novo dispositivo ou navegador para acessar o aplicativo pela primeira vez.
+
+## Tráfego sintético
+
+Tráfego sintético inclui solicitações de testes de carga e disponibilidade, rastreadores de mecanismo de pesquisa e outros agentes.
+
+O Application Insights tenta determinar e classificar automaticamente o tráfego sintético e marcá-lo adequadamente. Na maioria dos casos, tráfego sintético não invoca o SDK do JavaScript, de modo que essa atividade é excluída da contagem do usuário e de sessão.
+
+No entanto, para [testes da web][availability] do Application Insights, a id de usuário é automaticamente definida com base na localização de POP e a id de sessão é definida com base na id de execução de teste. Em relatórios padrão, o tráfego sintético é filtrado por padrão, o que excluirá esses usuários e sessões. No entanto, quando tráfego sintético for incluído, ele pode causar um pequeno aumento nas contagens gerais de usuários e sessões.
+ 
+## Uso da página
+
+Clique no gráfico de modos de exibição de página para obter uma versão mais ampliada juntamente com uma análise das suas páginas mais populares:
+
+
+![Na folha Visão Geral, clicar no gráfico Visualizações de página](./media/app-insights-web-track-usage/05-games.png)
+ 
+O exemplo acima é de um site de jogos. Nele, podemos ver instantaneamente:
+
+* O uso não melhorou na última semana. Talvez devamos pensar em otimização do mecanismo de pesquisa?
+* O número de pessoas que consultam as páginas de jogos é muito menor do que aquelas que consultam a home page. Por que nossa página inicial não estimula as pessoas a jogar?
+* “Palavras Cruzadas” é o jogo mais popular. Lá, devemos dar prioridade a novas ideias e aprimoramentos.
+
+## Acompanhamento personalizado
+
+Vamos supor que, em vez de implementar cada jogo em uma página da Web separada, você decida refatorá-los todos no mesmo aplicativo de página única, com a maioria das funcionalidades codificadas como Javascript na página da Web. Isso permite que o usuário alterne rapidamente entre um jogo e outro, ou até mesmo entre vários jogos em uma única página.
+
+Mas você ainda gostaria que o Application Insights registrasse o número de vezes que cada jogo é aberto, exatamente do mesmo modo que fazia quando elas estavam em páginas da Web separadas. Isso é fácil: basta inserir uma chamada para o módulo de telemetria em seu JavaScript no qual você deseja registrar que uma nova “página” foi aberta:
+
+	telemetryClient.trackPageView(game.Name);
+
+## Eventos personalizados
+
+Use eventos personalizados para . Você pode enviá-los por meio de aplicativos de dispositivos, páginas da Web ou um servidor Web:
+
+(JavaScript)
+
+    telemetryClient.trackEvent("GameEnd");
+
+(C#)
+
+    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
+    tc.TrackEvent("GameEnd");
+
+(VB)
+
+    Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
+    tc.TrackEvent("GameEnd")
+
+
+Os eventos personalizados mais frequentes são listados na folha visão geral.
+
+![Na folha Visão Geral, role para baixo e clique em Eventos Personalizados.](./media/app-insights-web-track-usage/04-events.png)
+
+Clique no cabeçalho da tabela para ver o número total de eventos. Você pode segmentar o gráfico por diversos atributos, como o nome do evento:
+
+![Selecione um gráfico que mostra apenas uma métrica. Ative o Agrupamento. Escolha uma propriedade. Nem todas as propriedades estão disponíveis.](./media/app-insights-web-track-usage/06-eventsSegment.png)
+
+O recurso particularmente útil encontrado nas linhas do tempo é que você pode correlacionar alterações com outras métricas e eventos. Por exemplo, nos momentos em que mais jogos são executados, você esperaria ver um aumento também nos jogos abandonados. Mas o aumento nos jogos abandonados é desproporcional, e você gostaria de saber se a carga elevada está causando problemas que os usuários consideram inaceitáveis.
+
+## Analisar eventos específicos
+
+Para obter um melhor entendimento de como uma sessão típica decorre, convém concentrar-se na sessão de um usuário específico que contenha um determinado tipo de evento.
+
+Neste exemplo, codificamos um evento personalizado "NoGame", que é chamado se o usuário faz logoff sem chegar realmente a iniciar um jogo. Por que um usuário faria isso? Talvez, se analisarmos detalhadamente algumas ocorrências específicas, obteremos uma pista.
+
+Os eventos personalizados recebidos do aplicativo são listados por nome na folha visão geral:
+
+
+![Na lâmina Visão Geral, clique em um dos tipos de evento personalizado.](./media/app-insights-web-track-usage/07-clickEvent.png)
+ 
+Clique nos eventos de interesse e selecione uma ocorrência específica recente:
+
+
+![Na lista sob o gráfico de resumo, clicar em um evento](./media/app-insights-web-track-usage/08-searchEvents.png)
+ 
+Vamos examinar todas a telemetria para a sessão na qual o evento NoGame ocorreu.
+
+
+![Clicar em “toda a telemetria para a sessão”](./media/app-insights-web-track-usage/09-relatedTelemetry.png)
+ 
+Não havia nenhuma exceção, portanto, o usuário não foi impedido de jogar devido a alguma falha.
+ 
+É possível filtrar todos os tipos de telemetria exceto visualizações de página para esta sessão:
+
+
+![](./media/app-insights-web-track-usage/10-filter.png)
+ 
+E agora podemos ver que este usuário fez logon simplesmente para verificar os resultados mais recentes. Talvez devamos pensar em desenvolver uma história de usuário que torne isso mais fácil de fazer. (E devemos implementar um evento personalizado ao relatório quando essa história específica ocorrer.)
+
+## Filtre, pesquise e segmente seus dados com propriedades
+Você pode anexar marcas arbitrárias e valores numéricos aos eventos.
+ 
+
+JavaScript no cliente
+
+    appInsights.trackEvent("WinGame",
+        // String properties:
+        {Game: currentGame.name, Difficulty: currentGame.difficulty},
+        // Numeric measurements:
+        {Score: currentGame.score, Opponents: currentGame.opponentCount}
+    );
+
+C# no servidor
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+        {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+        {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
+
+VB no servidor
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+Anexe propriedades a visualizações de página do mesmo modo:
+
+JavaScript no cliente
+
+    appInsights.trackPageView("Win", 
+        {Game: currentGame.Name}, 
+        {Score: currentGame.Score});
+
+Na Pesquisa de Diagnóstico, exiba as propriedades clicando por uma ocorrência individual de um evento.
+
+
+![Na lista de eventos, abrir um evento e, em seguida, clicar em '...' para ver mais propriedades](./media/app-insights-web-track-usage/11-details.png)
+ 
+Use o campo Pesquisa para ver as ocorrências de eventos com um valor da propriedade específico.
+
+
+![Digitar um valor no campo Pesquisa](./media/app-insights-web-track-usage/12-searchEvents.png)
+
+
+## Testando A | B
+
+Se você não souber qual variante de um recurso terá mais êxito, libere ambas, tornando cada uma acessível para diferentes usuários. Avalie o sucesso de cada uma e então parta para uma versão unificada.
+
+Para essa técnica, você pode anexar marcas distintas a todas as telemetrias enviadas por cada versão do seu aplicativo. Você pode fazer isso definindo propriedades no TelemetryContext ativo. Essas propriedades padrão são adicionadas a todas as mensagens de telemetria que o aplicativo envia - não apenas a suas mensagens personalizadas, mas também à telemetria padrão.
+
+No portal do Application Insights, você então poderá filtrar e agrupar (segmentar) seus dados nas marcas, para comparar as diferentes versões.
+
+C# no servidor
+
+    using Microsoft.ApplicationInsights.DataContracts;
+
+    var context = new TelemetryContext();
+    context.Properties["Game"] = currentGame.Name;
+    var telemetry = new TelemetryClient(context);
+    // Now all telemetry will automatically be sent with the context property:
+    telemetry.TrackEvent("WinGame");
+
+VB no servidor
+
+    Dim context = New TelemetryContext
+    context.Properties("Game") = currentGame.Name
+    Dim telemetry = New TelemetryClient(context)
+    ' Now all telemetry will automatically be sent with the context property:
+    telemetry.TrackEvent("WinGame")
+
+A telemetria individual pode substituir os valores padrão.
+
+Você pode configurar um inicializador universal para que todos os novos clientes de telemetria usem automaticamente seu contexto.
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+No inicializador de aplicativo como Global.asax.cs:
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+
+
+## Compilar - Medir - Aprender
+
+Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvolvimento, não apenas algo a respeito do que você pensa para ajudar a resolver problemas. Aqui estão algumas dicas:
+
+* Determine a métrica principal do seu aplicativo. Você deseja a maior quantidade de usuários possível ou prefere um conjunto pequeno de usuários muito contentes? Você deseja maximizar visitas ou vendas?
+* Planeje medir cada história. Quando você faz o esboço de um novo recurso ou história de usuário, ou quando planeja atualizar um existente, pense sempre em como você medirá o sucesso da alteração. Antes da codificação começar, pergunte "Que efeito isso terá em nossas métricas, se funcionar? Devemos acompanhar quaisquer novos eventos?" E é claro, quando o recurso estiver ativo, certifique-se de examinar as análises e agir segundo os resultados. 
+* Relacione outras métricas à métrica principal. Por exemplo, se você adicionar um recurso "favoritos", você desejará saber com que frequência os usuários adicionam favoritos. Mas talvez é mais interessante saber com que frequência eles retornam aos seus Favoritos. E o mais importante, os clientes que usam Favoritos compram mais produtos?
+* Teste de canário. Configure um comutador de recurso que permita a você tornar um novo recurso visível apenas para alguns usuários. Use o Application Insights para ver se o novo recurso está sendo usado do modo que você previu. Faça ajustes, então libere-o para um público maior.
+* Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
+
+
+## Vídeo
+
+> [Azure.VIDEO usage-monitoring-application-insights]
+
+
+<!--Link references-->
+
+[api]: app-insights-api-custom-events-metrics.md
+[availability]: app-insights-monitor-web-app-availability.md
+[client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
+[windows]: app-insights-windows-get-started.md
+
+ 
+
+<!---HONumber=62-->

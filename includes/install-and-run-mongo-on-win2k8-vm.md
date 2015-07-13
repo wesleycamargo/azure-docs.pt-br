@@ -93,4 +93,4 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

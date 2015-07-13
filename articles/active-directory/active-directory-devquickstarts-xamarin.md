@@ -53,7 +53,7 @@ Para habilitar seu aplicativo para obter tokens, primeiro será necessário regi
 -	Clique em **Active Directory** no painel de navegação à esquerda
 -	Selecione um locatário no qual registrar o aplicativo.
 -	Clique na guia **Aplicativos** e clique em **Adicionar** na lista de botões.
--	Siga os prompts e crie um novo **Aplicativo Cliente Nativo**.
+-	Siga os prompts e crie um novo **Aplicativo cliente nativo**.  
 
     -	O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
     -	O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens. Insira um valor, por exemplo `http://DirectorySearcher`.
@@ -192,12 +192,13 @@ await UnivDirectoryHelper.Search(
 
 Parabéns! Agora você tem um aplicativo Xamarin em funcionamento que tem a capacidade de autenticar usuários e chamar as APIs de Web com segurança usando OAuth 2.0 em cinco plataformas diferentes. Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários. Execute o aplicativo DirectorySearcher e faça logon com um desses usuários. Procure por outros usuários com base em seus UPNs.
 
-A ADAL facilita a incorporar recursos comuns de identidade em seu aplicativo. Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais. Tudo o que você realmente precisa saber é uma única chamada de API, `authContext.AcquireToken*(…)`.
+A ADAL facilita a incorporar recursos comuns de identidade em seu aplicativo. Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais. Tudo o que você realmente precisa saber é uma única chamada à API, `authContext.AcquireToken*(…)`.
 
 Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Agora você pode passar para cenários de identidade adicionais. Você pode desejar experimentar:
 
 [Proteger uma API da Web .NET com o AD do Azure >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 for Visual Studio" 
+	pageTitle="Flask e MongoDB no Azure com Python Tools 2.1 para Visual Studio" 
 	description="Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Flask que armazena dados em uma instância do MongoDB e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure." 
 	services="app-service\web" 
 	tags="python"
@@ -19,13 +19,13 @@
 
 
 
-# Flask e MongoDB no Azure com Python Tools 2.1 for Visual Studio
+# Flask e MongoDB no Azure com Python Tools 2.1 para Visual Studio
 
   	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
-Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=eql-crFgrAE).
+Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=eql-crFgrAE).
 
-O aplicativo Web de votação define uma abstração para seu repositório, para que possa alternar facilmente entre diferentes tipos de repositórios (In-Memory, Azure Table Storage, MongoDB).
+O aplicativo Web de votação define uma abstração para seu repositório, para que você possa alternar facilmente entre diferentes tipos de repositórios (In-Memory, Azure Table Storage, MongoDB).
 
 Aprenderemos como usar um dos serviços MongoDB hospedados no Azure, como configurar o aplicativo para usar o MongoDB e como publicar o aplicativo Web nos [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 

@@ -110,5 +110,6 @@ A capacidade dos convidados verem detalhes limitados de um usuário ou grupo per
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -81,7 +81,7 @@ Quando vai até a folha do grupo de recursos no [Portal de visualização do Azu
 
 ![Diagrama do grupo de recursos](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### Configurar o aplicativo de API para exigir autenticação
+### <a id="apiapp"></a>Configurar o aplicativo de API para exigir autenticação
 
 Para configurar seu aplicativo de API para aceitar somente solicitações autenticadas, você definirá o acesso como **Público (autenticado)** e configurará o gateway para exigir a autenticação de um provedor, como o Active Directory do Azure, Google ou Facebook.
 

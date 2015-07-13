@@ -33,84 +33,79 @@ O aplicativo de galeria do Box fornece a você Ações como mecanismos para inte
 	a. *Listar Arquivos:* Esta operação retorna as informações de todos os arquivos em uma pasta. A seguir, a lista de parâmetros necessários para a ação:
 
 	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho da pasta</td>
-	    <td>Caminho da pasta na qual lista deve ser feita.</td>
-	    <td>Sim</td>
-	  </tr>
-	</table>
-
-	>[AZURE.NOTE] Ela não retorna nenhum conteúdo de arquivo.
+  <tr>
+    <td><b>Nome do parâmetro</b></td>
+    <td><b>Descrição</b></td>
+    <td><b>Obrigatório</b></td>
+  </tr>
+  <tr>
+    <td>Caminho da pasta</td>
+    <td>Caminho da pasta na qual lista deve ser feita.</td>
+    <td>Sim</td>
+  </tr>
+</table>>[AZURE.NOTE]Ela não retorna nenhum conteúdo de arquivo.
 
 
 
     b. *Obter Arquivo:* essa operação recupera um arquivo, incluindo conteúdo e propriedades. A seguir, a lista de parâmetros necessários para a ação:
 
 	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do arquivo</td>
-	    <td>Caminho da pasta na qual o arquivo está presente.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo de arquivo</td>
-	    <td>Especifica se o arquivo é de Texto ou Binário.</td>
-	   <td>Não</td>
-	  </tr>
-	</table>
-	>[AZURE.NOTE] Esta operação não exclui o arquivo depois de lê-lo.
+  <tr>
+    <td><b>Nome do parâmetro</b></td>
+    <td><b>Descrição</b></td>
+    <td><b>Obrigatório</b></td>
+  </tr>
+  <tr>
+    <td>Caminho do arquivo</td>
+    <td>Caminho da pasta na qual o arquivo está presente.</td>
+    <td>Sim</td>
+  </tr>
+  <tr>
+    <td>Tipo de arquivo</td>
+    <td>Especifica se o arquivo é de Texto ou Binário.</td>
+    <td>Não</td>
+  </tr>
+</table>>[AZURE.NOTE]Esta operação não exclui o arquivo depois de lê-lo.
 
 
 
     c. Carregar Arquivo: como o nome sugere, a ação carrega o arquivo na conta do Box. Se o arquivo já existir, ele não será substituído e um erro aparecerá. A seguir, a lista de parâmetros necessários para a ação:
 
 	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do arquivo</td>
-	    <td>Caminho para o arquivo.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Conteúdo do arquivo</td>
-	    <td>Conteúdo do arquivo a ser carregado.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Codificação de transferência de conteúdo</td>
-	    <td>O tipo de codificação do conteúdo pode ser Base64 ou Nenhum.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-    d. Excluir Arquivo: a ação exclui o arquivo especificado de uma pasta. Se o arquivo/pasta não for encontrado uma exceção será lançada. A seguir, a lista de parâmetros necessários para a ação:
+  <tr>
+    <td><b>Nome do parâmetro</b></td>
+    <td><b>Descrição</b></td>
+    <td><b>Obrigatório</b></td>
+  </tr>
+  <tr>
+    <td>Caminho do arquivo</td>
+    <td>Caminho para o arquivo.</td>
+    <td>Sim</td>
+  </tr>
+  <tr>
+    <td>Conteúdo do arquivo</td>
+    <td>Conteúdo do arquivo a ser carregado.</td>
+    <td>Sim</td>
+  </tr>
+  <tr>
+    <td>Codificação de transferência de conteúdo</td>
+    <td>O tipo de codificação do conteúdo pode ser Base64 ou Nenhum.</td>
+    <td> </td>
+  </tr>
+</table>d. Excluir Arquivo: a ação exclui o arquivo especificado de uma pasta. Se o arquivo/pasta não for encontrado uma exceção será lançada. A seguir, a lista de parâmetros necessários para a ação:
 
  	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do Arquivo</td>
-	    <td>Caminho Completo do Arquivo, incluindo Pastas.</td>
-	    <td>Sim</td>
-	  </tr>
-	</table>
+  <tr>
+    <td><b>Nome do parâmetro</b></td>
+    <td><b>Descrição</b></td>
+    <td><b>Obrigatório</b></td>
+  </tr>
+  <tr>
+    <td>Caminho do arquivo</td>
+    <td>Caminho Completo do Arquivo, incluindo Pastas.</td>
+    <td>Sim</td>
+  </tr>
+</table>
 
 
 
@@ -165,4 +160,4 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Box como um
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=62-->
+<!---HONumber=62-->

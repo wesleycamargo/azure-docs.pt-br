@@ -51,7 +51,7 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 ![Eventos](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
-É claro que você pode editar essa regra de alerta e **Desabilitar** ou **Habilitar** se  deseja interromper temporariamente a recepção de notificações sobre ele.
+É claro que você pode editar essa regra de alerta e **Desabilitar** ou **Habilitar** se deseja interromper temporariamente a recepção de notificações sobre ele.
 
 ## Próximas etapas
 
@@ -61,5 +61,6 @@ Depois de criar uma regra de alerta, você pode exibir uma visualização de seu
 * [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de auditoria](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

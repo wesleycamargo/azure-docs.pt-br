@@ -126,7 +126,7 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 <tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou no último procedimento. O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região que a especificada aqui.</p><p>As regiões disponíveis são: <strong>Ásia Oriental</strong>, <strong>Sudeste da Ásia</strong>, <strong>Norte da Europa</strong>, <strong>Oeste da Europa</strong>, <strong>Leste dos EUA</strong>, <strong>Oeste dos EUA</strong>, <strong>Centro-Norte dos EUA</strong>e <strong>Centro-Sul dos EUA</strong>.<br/>Se você tiver criado uma Rede Virtual do Azure, poderá selecionar a rede que o cluster HDInsight será configurado para usar.</p><p>Para obter informações sobre como criar uma Rede Virtual do Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tarefas de configuração de Rede Virtual</a>.</p></td></tr>
 <tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
 <tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
-</table>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+</table>>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
@@ -359,7 +359,7 @@ Enquanto provisiona um cluster, você pode usar as outras opções de configura�
 
 > [AZURE.NOTE]A partir de 29/8/2014, a CLI do Azure não pode ser usada para associar um cluster a uma rede virtual do Azure.
 
-Outra opção para o provisionamento de um cluster do HDInsight é a CLI do Azure. A CLI do Azure é implementada em Node.js. Ela pode ser usada em qualquer plataforma que dá suporte a Node. js, incluindo Windows, Mac e Linux. Você pode instalar a CLI nos seguintes locais:
+Outra opção para o provisionamento de um cluster HDInsight é a CLI do Azure. A CLI do Azure é implementada em Node.js. Ela pode ser usada em qualquer plataforma que dá suporte a Node. js, incluindo Windows, Mac e Linux. Você pode instalar a CLI nos seguintes locais:
 
 - **SDK do Node.js** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **CLI do Azure** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
@@ -374,7 +374,7 @@ As instruções a seguir orientam sobre como instalar a CLI do Azure no Linux e 
 
 #### <a id="clilin"></a>Configurar a CLI do Azure para Linux
 
-Execute os seguintes procedimentos para configurar seu computador Linux para a CLI (interface de linha de comando) do Azure:
+Execute os seguintes procedimentos para configurar seu computador Linux para usar as ferramentas de linha de comando do Azure (CLI do Azure):
 
 - Instale a CLI do Azure usando o NPM (Gerenciador de Pacotes Node.js)
 - Conecte-se à sua assinatura do Azure
@@ -398,7 +398,7 @@ Execute os seguintes procedimentos para configurar seu computador Linux para a C
 
 **Para conectar-se à sua assinatura do Azure**
 
-Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da sua assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
+Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
 
 > [AZURE.NOTE]O arquivo de configurações de publicação contém informações confidenciais. A Microsoft recomenda excluir o arquivo ou executar etapas adicionais para criptografar a pasta do usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use Criptografia de Unidade de Disco BitLocker.
 
@@ -426,7 +426,7 @@ Execute os seguintes procedimentos para configurar seu computador Windows para u
 - Baixar e importar as configurações de publicação da conta do Azure
 
 
-A CLI do Azure pode ser instalada através do NPM ou do Instalador do Windows. A Microsoft recomenda instalar usando apenas uma das duas opções.
+A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Microsoft recomenda instalar usando apenas uma das duas opções.
 
 **Para instalar a CLI do Azure usando o NPM**
 
@@ -456,7 +456,7 @@ A CLI do Azure pode ser instalada através do NPM ou do Instalador do Windows. A
 
 **Para baixar e importar as configurações de publicação**
 
-Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da sua assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
+Antes de usar a CLI do Azure, você deve configurar a conectividade entre sua estação de trabalho e o Azure. As informações da assinatura do Azure são utilizadas pela CLI do Azure para se conectar à sua conta. Essas informações podem ser obtidas no Azure em um arquivo de configurações de publicação. O arquivo de configurações de publicação pode ser importado como uma definição de configuração local persistente que a CLI do Azure usará para operações subsequentes. Você precisa importar suas configurações de publicação apenas uma vez.
 
 > [AZURE.NOTE]O arquivo de configurações de publicação contém informações confidenciais. A Microsoft recomenda excluir o arquivo ou executar etapas adicionais para criptografar a pasta do usuário que contém o arquivo. No Windows, modifique as propriedades da pasta ou use o BitLocker.
 

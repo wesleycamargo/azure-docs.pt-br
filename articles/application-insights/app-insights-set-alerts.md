@@ -23,7 +23,7 @@ O Application Insights monitora seu aplicativo ativo em um [ampla variedade de p
 
 Há dois tipos de alertas:
  
-* **Testes da Web** informam quando seu site está disponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
+* **Testes da Web** informam quando seu site está indisponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
 * **Alertas de métrica** informam quando qualquer métrica ultrapassa um valor limite durante determinado período, como contagens de falhas, memória ou exibições de páginas. 
 
 Há um [página separada sobre testes na Web][availability]; portanto, vamos nos concentrar nos alertas de métricas aqui.
@@ -78,4 +78,6 @@ Alguns alertas populares são:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar um aplicativo Web Node.js no Azure com o MongoDB em uma Máquina Virtual" 
+<properties
+	pageTitle="Criar um aplicativo Web Node.js no Azure com o MongoDB em uma Máquina Virtual"
 	description="Como usar o MongoDB para armazenar dados em um aplicativo Node.js hospedado no Azure."
-	tags="azure-portal" 
-	services="app-service\web, virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web, virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 
@@ -26,19 +26,19 @@ Você aprenderá a:
 
 * Como configurar uma máquina virtual executando o Ubuntu e o MongoDB no Repositório de VM.
 * Como acessar o MongoDB de um aplicativo de nó
-* Como usar as ferramentas de multiplataforma do Azure para criar um aplicativo Web no Serviço de Aplicativo do Azure
+* Como usar a CLI do Azure para criar um aplicativo Web no Serviço de Aplicativo do Azure
 
 Seguindo este tutorial, você criará um aplicativo simples de gerenciamento de tarefas baseado na web que permite criar, recuperar e concluir tarefas. As tarefas são armazenadas no MongoDB.
 
 > [AZURE.NOTE]Este tutorial usa uma instância do MongoDB instalado em uma máquina virtual. Se você preferir usar uma instância do MongoDB hospedada fornecida pela MongoLabs, consulte [Criar um aplicativo Web Node.js no Azure com o MongoDB usando o complemento da MongoLab](store-mongolab-web-sites-nodejs-store-data-mongodb).
- 
+
 Os arquivos do projeto deste tutorial serão armazenados em um diretório chamado **tasklist**, e o aplicativo completo terá um aspecto semelhante ao seguinte:
 
 ![Uma página da Web que exibe uma lista de tarefas vazia][node-mongo-finished]
 
 > [AZURE.NOTE]Muitas das etapas abaixo mencionam o uso da linha de comando. Para essas etapas, use a linha de comando de seu sistema operacional, como **Windows PowerShell** (Windows) ou **Bash** (Unix Shell). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo Terminal.
 
-## Pré-requisitos
+##Pré-requisitos
 
 As etapas deste tutorial usam o Node.js. É necessário ter uma versão recente do [Node.js][node] em seu ambiente de desenvolvimento.
 
@@ -46,9 +46,9 @@ Além disso, o [Git] deve estar disponível na linha de comando no ambiente de d
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## Criar uma máquina virtual
+##Criar uma máquina virtual
 
 <!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
@@ -86,7 +86,7 @@ Embora seja possível criar uma nova VM e, em seguida, instalar o MongoDB nela s
 	* Protocolo – TCP
 	* Porta pública – 28017
 	* Porta privada – 28017
-	
+
 	![captura de tela da configuração do ponto de extremidade][vmendpoint]
 
 9. Clique em **OK** duas vezes e, em seguida, clique em **Criar** para criar a VM.
@@ -105,28 +105,28 @@ Embora seja possível criar uma nova VM e, em seguida, instalar o MongoDB nela s
 	Se o log exibir erros, consulte a [Documentação do MongoDB][mongodocs] para obter as etapas de solução de problemas.
 
 
-## Instalar módulos e gerar scaffolding
+##Instalar módulos e gerar scaffolding
 
 Nesta seção você criará um novo aplicativo de nó em nosso ambiente de desenvolvimento e usará o npm para adicionar pacotes de módulo. Para o aplicativo de lista de tarefas você usará os módulos [Express] e [Mongoose]. O módulo Express fornece uma estrutura de Modelo-Exibição-Controlador para nós, enquanto Mongoose é um driver para a comunicação com o MongoDB.
 
-### Instalar o express e gerar scaffolding
+###Instalar o express e gerar scaffolding
 
 1. Da linha de comando, mude os diretórios para o diretório **tasklist**. Se o diretório **tasklist** não existir, crie-o.
 
-	> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **\~/node/tasklist** ou **c:\\node\\tasklist**
+	> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\node\tasklist**
 
 2. Digite o seguinte comando para instalar o comando Express.
 
 	npm install express-generator -g
- 
+
 	> [AZURE.NOTE]Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de ___Erro: EPERM, chmod '/usr/local/bin/express'___ e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando `sudo` para executar o npm com um nível de privilégio mais elevado.
 
     A saída desse comando deve ser semelhante ao seguinte:
 
 		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
-		└── commander@1.3.2 (keypress@0.1.0)                                                                         
- 
+		└── commander@1.3.2 (keypress@0.1.0)
+
 	> [AZURE.NOTE]O parâmetro '-g' usado durante a instalação do módulo expresso o instala globalmente. Isso é feito para que possamos acessar o comando ___express___ para gerar o scaffolding do aplicativo sem precisar digitar informações adicionais de caminho.
 
 4. Para criar o scaffolding que será usado para esse aplicativo, use o comando **express**:
@@ -152,10 +152,10 @@ Nesta seção você criará um novo aplicativo de nó em nosso ambiente de desen
 		   create : ./public/javascripts
 		   create : ./bin
 		   create : ./bin/www
-		
+
 		   install dependencies:
 		     $ cd . && npm install
-		
+
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
@@ -173,10 +173,10 @@ Nesta seção você criará um novo aplicativo de nó em nosso ambiente de desen
 
 	Isso é requerido porque o **server.js** (anteriormente **bin/www**,) está agora na mesma pasta que o arquivo **app.js** requerido.
 
-### Instalar módulos adicionais
+###Instalar módulos adicionais
 
 O arquivo **package.json** está localizado em um dos arquivos criados pelo comando **express**. Este arquivo contém uma lista dos módulos adicionais que são necessários para um aplicativo Express. Posteriormente, quando você implantar esse aplicativo nos Aplicativos Web do Serviço de Aplicativo, esse arquivo será usado para determinar quais módulos precisam ser instalados no Azure para oferecer suporte ao seu aplicativo.
-	
+
 1. Na pasta **tasklist**, use o seguinte para instalar os módulos descritos no arquivo **package.json**:
 
         npm install
@@ -184,19 +184,19 @@ O arquivo **package.json** está localizado em um dos arquivos criados pelo coma
     A saída desse comando deve ser semelhante ao seguinte:
 
 		debug@0.7.4 node_modules\debug
-		
+
 		cookie-parser@1.0.1 node_modules\cookie-parser
 		├── cookie-signature@1.0.3
 		└── cookie@0.1.0
-		
+
 		morgan@1.0.0 node_modules\morgan
 		└── bytes@0.2.1
-		
+
 		body-parser@1.0.2 node_modules\body-parser
 		├── qs@0.6.6
 		├── raw-body@1.1.4 (bytes@0.3.0)
 		└── type-is@1.1.0 (mime@1.2.11)
-		
+
 		express@4.0.0 node_modules\express
 		├── methods@0.1.0
 		├── parseurl@1.0.1
@@ -214,7 +214,7 @@ O arquivo **package.json** está localizado em um dos arquivos criados pelo coma
 		├── type-is@1.0.0 (mime@1.2.11)
 		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
 		└── serve-static@1.0.1 (send@0.1.4)
-		
+
 		jade@1.3.1 node_modules\jade
 		├── character-parser@1.2.0
 		├── commander@2.1.0
@@ -222,7 +222,7 @@ O arquivo **package.json** está localizado em um dos arquivos criados pelo coma
 		├── monocle@1.1.51 (readdirp@0.2.5)
 		├── constantinople@2.0.0 (uglify-js@2.4.13)
 		├── with@3.0.0 (uglify-js@2.4.13)
-		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                                                
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 
 	Isso instala todos os módulos padrão usados pelo aplicativo Express.
 
@@ -241,11 +241,11 @@ O arquivo **package.json** está localizado em um dos arquivos criados pelo coma
 		├── mpromise@0.4.3
 		├── ms@0.1.0
 		├── mquery@0.5.3
-		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
+		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)
 
     > [AZURE.NOTE]Você pode ignorar com segurança quaisquer mensagens sobre a instalação do analisador de bson C++.
 
-## Usando MongoDB em um aplicativo de nó
+##Usando MongoDB em um aplicativo de nó
 
 Nesta seção, você ampliará o aplicativo básico criado pelo comando **express**, adicionando um arquivo **task.js** que contém o modelo para suas tarefas. Você também vai modificar o **app.js** existente e criar um novo arquivo de controlador **tasklist.js** para usar o modelo.
 
@@ -273,7 +273,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 5. Salve e feche o arquivo **task.js**.
 
-### Criar o controlador
+###Criar o controlador
 
 1. No diretório **tasklist/routes**, crie um novo arquivo chamado **tasklist.js** e abra-o em um editor de texto.
 
@@ -309,7 +309,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
     	    });
     	  	res.redirect('/');
   		  },
-  
+
 
   		  completeTask: function(req,res) {
     		var completedTasks = req.body;
@@ -356,7 +356,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 4. Salve o arquivo **app.js**.
 
-### Modificar a exibição de índice
+###Modificar a exibição de índice
 
 1. Altere os diretórios para o diretório **views** e abra o arquivo **index.jade** em um editor de texto.
 
@@ -383,14 +383,14 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 		  input(type="submit", value="Update tasks")
 		hr
 		form(action="/addtask", method="post")
-		  table(border="1") 
+		  table(border="1")
 		    tr
-		      td Item Name: 
-		      td 
+		      td Item Name:
+		      td
 		        input(name="item[name]", type="textbox")
 		    tr
-		      td Item Category: 
-		      td 
+		      td Item Category:
+		      td
 		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
@@ -435,7 +435,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
-## Implantar seu aplicativo no Azure
+##Implantar seu aplicativo no Azure
 
 As etapas desta seção usam as ferramentas de linha de comando do Azure para criar um novo aplicativo Web no Serviço de Aplicativo do Azure e, em seguida, usam o Git para implantar seu aplicativo. Para realizar essas etapas, você deve ter uma assinatura do Azure.
 
@@ -443,26 +443,26 @@ As etapas desta seção usam as ferramentas de linha de comando do Azure para cr
 
 > [AZURE.NOTE]Se esse for o primeiro aplicativo Web do Serviço de Aplicativo que você criar, use o Portal do Azure para implantar esse aplicativo.
 
-### Instalar a interface de linha de comando entre plataformas do Azure
+###Instalar a interface de linha de comando do Azure (CLI do Azure)
 
-A Interface de linha de comando entre plataformas do Azure (xplat-cli) permite que você execute operações de gerenciamento para serviços do Azure. Se você ainda não tiver instalado e configurado o xplat-cli no ambiente de desenvolvimento, consulte [Instalar e configurar a Interface de linha de comando entre plataformas do Azure][xplatcli] para obter instruções.
+A CLI do Azure permite que você execute operações de gerenciamento para serviços do Azure. Se você ainda não tiver instalado e configurado a CLI do Azure no ambiente de desenvolvimento, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter instruções.
 
-### Criar um aplicativo Web do Serviço de Aplicativo
+###Criar um aplicativo Web do Serviço de Aplicativo
 
 1. Da linha de comando, mude os diretórios para o diretório **tasklist**.
 
 2. Use o comando a seguir para criar um novo aplicativo Web do Serviço do Aplicativo. Substitua 'myuniqueappname' por um nome exclusivo para seu aplicativo Web. Esse valor é usado como parte da URL do aplicativo Web resultante.
 
 		azure site create myuniqueappname --git
-		
+
 	Será solicitado o data center em que o aplicativo Web estará localizado. Selecione o data center geograficamente próximo de sua localidade.
-	
+
 	O parâmetro `--git` criará um repositório Git localmente na pasta **tasklist**, se não houver nenhum. Isso também criará um [Git remoto] chamado 'azure', que será usado para publicar o aplicativo no Azure. Isso criará um [iisnode.yml], que contém as configurações usadas pelo Azure para hospedar aplicativos de nó. Finalmente, também criará um arquivo .gitignore para excluir a pasta node-modules da publicação no .git.
-	
+
 	> [AZURE.NOTE]Se este comando for executado de um diretório que já contém um repositório Git, ele não inicializará novamente o diretório.
-	
+
 	> [AZURE.NOTE]Se o parâmetro '--git' for omitido, ainda que o diretório contenha um repositório Git, o 'azure' remoto ainda será criado.
-	
+
 	Quando este comando for concluído, você verá uma saída semelhante à seguinte. Observe que a linha que começa com **Site criado em** contém a URL para o aplicativo Web do Serviço de Aplicativo.
 
 		info:   Executing command site create
@@ -478,7 +478,7 @@ A Interface de linha de comando entre plataformas do Azure (xplat-cli) permite q
 
 	> [AZURE.NOTE> Se esse for o primeiro aplicativo Web do Serviço de Aplicativo para sua assinatura, você será instruído a usar o portal para criar o aplicativo Web. Para obter mais informações, consulte [Criar e implantar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-develop-deploy-mac.md).
 
-### Definir a variável de ambiente MONGODB_URI
+###Definir a variável de ambiente MONGODB_URI
 
 O aplicativo espera a cadeia de conexão para instância do MongoDB para ficarem disponíveis na variável de ambiente do .MONGODB_URI. Para definir este valor para o aplicativo Web, use o seguinte comando:
 
@@ -486,7 +486,7 @@ O aplicativo espera a cadeia de conexão para instância do MongoDB para ficarem
 
 Isso criará uma nova configuração de aplicativo para o aplicativo Web, que será usada para preencher a variável de ambiente do MONGODB_URI lida pelo aplicativo Web. Substitua o valor de 'mymongodb.cloudapp.net' pelo nome da máquina virtual onde o MongoDB foi instalado.
 
-### Publicar o aplicativo
+###Publicar o aplicativo
 
 1. Na janela do Terminal, altere os diretórios para o diretório **tasklist**, se você não ainda estiver lá.
 
@@ -498,7 +498,7 @@ Isso criará uma nova configuração de aplicativo para o aplicativo Web, que se
 3. Ao enviar as alterações mais recentes do repositório Git ao aplicativo Web do Serviço de Aplicativo, você deve especificar que a ramificação de destino é **master**, pois isso é usado para o conteúdo do aplicativo Web.
 
 		git push azure master
-	
+
 	Você verá saídas semelhantes ao seguinte. Durante a implantação, o Azure baixará todos os módulos npm.
 
 		Counting objects: 17, done.
@@ -516,10 +516,10 @@ Isso criará uma nova configuração de aplicativo para o aplicativo Web, que se
 		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
- 
+
 4. Quando a operação de envio for concluída, navegue para o aplicativo Web usando o comando `azure site browse` para exibir seu aplicativo.
 
-## Próximas etapas
+##Próximas etapas
 
 Embora as etapas deste artigo descrevam como usar o MongoDB para armazenar informações, você também pode usar o serviço Tabela do Azure. Consulte [Aplicativo Web Node.js usando o Serviço de Tabela do Azure] para obter mais informações.
 
@@ -527,7 +527,7 @@ Para saber como usar uma instância hospedada do MongoDB fornecida pela MongoLab
 
 Para saber como proteger o MongoDB, consulte [Segurança do MongoDB][mongosecurity].
 
-## Recursos adicionais
+##Recursos adicionais
 
 [Ferramenta de linha de comando do Azure para Mac e Linux][Build and deploy a Node.js web app in Azure App Service] [Implantação contínua usando GIT no Serviço de Aplicativo do Azure]
 
@@ -560,7 +560,7 @@ Para saber como proteger o MongoDB, consulte [Segurança do MongoDB][mongosecuri
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://portal.azure.com
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
@@ -571,4 +571,6 @@ Para saber como proteger o MongoDB, consulte [Segurança do MongoDB][mongosecuri
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

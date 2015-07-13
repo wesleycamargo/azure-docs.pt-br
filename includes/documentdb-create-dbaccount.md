@@ -1,56 +1,49 @@
-1.	Entre no [Portal de Visualização do Azure](https://portal.azure.com/).
+1.	Fazer logon no [portal de visualização do Microsoft Azure](https://portal.azure.com/).
 2.	Na barra de navegação rápida, clique em **Novo**, selecione **Dados + Armazenamento** e clique em **Banco de Dados de Documentos**. 
 
-	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
+	![Captura de tela do portal de visualização do Azure, destacando o botão Novo, Dados + Armazenamento na lâmina Criar e Banco de Dados de Documentos na lâmina Dados + Armazenamento][1]
 
-	Você pode, como alternativa, navegar pela Marketplace do Azure, selecionar **Dados + analíticos**, selecionar **Banco de Dados de Documentos** e clicar em **Criar**.  
-	
-	![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2] 
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]    -->
    
 
-3. Na lâmina **Novo Banco de Dados de Documentos (visualização)**, especifique a configuração desejada para a conta do Banco de Dados de Documentos. 
+3. Na lâmina **Novo Banco de Dados de Documentos**, especifique a configuração desejada para a conta do Banco de Dados de Documentos.
  
-	![Screen shot of the New DocumentDB (Preview) blade][3] 
+	![Captura de tela da lâmina Novo Banco de Dados de Documentos][3]
 
 
-- No campo **Id**, digite um nome para identificar a conta do Banco de Dados de Documentos. Esse valor torna-se o nome de host no URI. O Id pode conter somente letras minúsculas, números e o caractere "-", e deve ter entre 3 e 50 caracteres. Observe que documents.azure.com é anexado ao nome do ponto de extremidade que você escolher, e seu resultado se tornará o ponto de extremidade da sua conta do Banco de Dados de Documentos.
+	- No campo **ID**, digite um nome para identificar a conta do Banco de Dados de Documentos. Esse valor torna-se o nome de host no URI. A **ID** pode conter somente letras minúsculas, números e o caractere “-”, e deve ter entre 3 e 50 caracteres. Observe que *documents.azure.com* é anexado ao nome do ponto de extremidade que você escolher, e seu resultado vai se tornar o ponto de extremidade da sua conta do Banco de Dados de Documentos.
 
-- A lente **Camada de preços** fica bloqueada porque a visualização do Banco de Dados de Documentos suporta apenas uma camada de preço padrão. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
+	- A **Camada de Conta** está bloqueada porque o Banco de Dados de Documentos dá suporte a uma única camada de conta padrão. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
-- A lente **Configuração opcional** é usada para especificar a capacidade inicial alocada à conta do Banco de Dados de Documentos.  O Banco de Dados de Documentos utiliza as unidades de capacidade para permitir que você dimensione sua conta do Banco de Dados de Documentos, em que cada unidade de capacidade inclui o armazenamento e a taxa de transferência reservados para o banco de dados.  Por padrão, uma unidade de capacidade é provisionada.  Você pode ajustar o número de unidades de capacidade disponível para a sua conta do Banco de Dados de Documentos a qualquer momento por meio do [portal de visualização de gerenciamento](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Para ver detalhes sobre a capacidade e a taxa de transferência do Banco de Dados de Documentos, consulte o artigo [Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos ][documentdb-manage].
+	- Em **Grupo de recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos. Por padrão, um novo Grupo de recursos será criado. Você pode, no entanto, optar por selecionar um grupo de recursos existente ao qual gostaria de adicionar sua conta do Banco de Dados de Documentos. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](resource-group-portal.md).
 
-- Em **Grupo de recursos**, selecione ou crie um grupo de recursos para sua conta do Banco de Dados de Documentos.  Por padrão, um novo Grupo de recursos será criado.  Você pode, no entanto, optar por selecionar um grupo de recursos existente ao qual gostaria de adicionar sua conta do Banco de Dados de Documentos. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](azure-preview-portal-using-resource-groups.md)..
-
-- Para **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do Banco de Dados de Documentos. Se sua conta tem apenas uma assinatura, ela será selecionada automaticamente.*
+	- Para **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do Banco de Dados de Documentos. Se sua conta tem apenas uma assinatura, ela será selecionada automaticamente.
  
-- Utilize a **Localização** para especificar a localização geográfica em que a conta do Banco de Dados de Documentos será hospedada.   
+	- Utilize a **Localização** para especificar a localização geográfica em que a conta do Banco de Dados de Documentos será hospedada.
 
-3.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**.  Pode levar alguns minutos para que a conta do Banco de Dados de Documentos seja criada.  Para verificar o status, você pode monitorar o progresso na Startboard.  
-	![Screen shot of the Creating tile on the Startboard][4]  
+4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para que a conta do Banco de Dados de Documentos seja criada. Para verificar o status, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando, no quadro inicial][4]
   
-	Ou então, você pode monitorar o progresso do hub de notificações.  
+	Ou então, você pode monitorar o progresso do hub de notificações.
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account is being created][5]  
+	![Captura de tela do hub de notificações, mostrando que está sendo criada a conta do Banco de Dados de Documentos][5]
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deplyed to a resource group][6]
+	![Captura de tela do hub de notificações, mostrando que a conta do Banco de Dados de Documentos foi criada com êxito e implantada em um grupo de recursos][6]
 
-4.	Após a conta do Banco de Dados de Documentos ter sido criada, ela estará pronta para uso com as configurações padrão.
+5.	Após a conta do Banco de Dados de Documentos ter sido criada, ela estará pronta para uso com as configurações padrão. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como Sessão. Você pode ajustar a configuração da consistência padrão por meio do [portal de visualização do Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
 
-	*Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como Sessão.  Você pode ajustar a configuração da consistência padrão por meio do [portal de visualização de gerenciamento](.https://portal.azure.com/#gallery/Microsoft.DocumentDB)  
-	![Screen shot of the Resource Group blade][7]    
-
+    ![Captura de tela da lâmina Grupo de recursos][7]
 
 <!--Image references-->
-[1]: ./media/documentdb-create-dbaccount/ca1.png
-[2]: ./media/documentdb-create-dbaccount/ca2.png
-[3]: ./media/documentdb-create-dbaccount/ca3.png
-[4]: ./media/documentdb-create-dbaccount/ca4.png
-[5]: ./media/documentdb-create-dbaccount/ca5.png
-[6]: ./media/documentdb-create-dbaccount/ca6.png
-[7]: ./media/documentdb-create-dbaccount/ca7.png
+[1]: media/documentdb-create-dbaccount/ca1.png
+[2]: media/documentdb-create-dbaccount/ca2.png
+[3]: media/documentdb-create-dbaccount/ca3.png
+[4]: media/documentdb-create-dbaccount/ca4.png
+[5]: media/documentdb-create-dbaccount/ca5.png
+[6]: media/documentdb-create-dbaccount/ca6.png
+[7]: media/documentdb-create-dbaccount/ca7.png
 
-[Como: Criar uma conta do Banco de Dados de Documentos]: #Howto
-[Próximas etapas]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
+[documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!--HONumber=49-->
+<!---HONumber=62-->

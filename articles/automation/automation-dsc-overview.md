@@ -57,7 +57,7 @@ A DSC do PowerShell introduziu um novo conceito, chamado de configurações. As 
 
 Dentro do bloco de configuração, você pode definir blocos de configuração de nó que especificam a configuração desejada para um conjunto de nós (computadores) em seu ambiente que devem ser configurados exatamente da mesma maneira. Assim, uma configuração de nó representa uma "função" que um ou mais nós devem assumir. Um bloco de configuração de nó começa com a palavra-chave do nó. Inclua depois dessa palavra-chave o nome da função, que pode ser uma variável. Após o nome do computador, use chaves {} para delimitar o bloco de configuração de nó.
 
-![texto alternativo](./media/automation-dsc-overview/AADSC_2.png)
+![texto alt](./media/automation-dsc-overview/AADSC_2.png)
  
 Dentro do bloco de configuração de nó, você pode definir blocos de recursos para configurar recursos específicos da DSC. Um bloco de recursos começa com o nome do recurso, seguido do identificador que você deseja especificar para o bloco e chaves {} para delimitar o bloco.
 
@@ -179,7 +179,7 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 Um trabalho de compilação na DSC da Automação do Azure é uma instância da compilação de uma configuração para criar uma ou mais configurações de nó. Eles são semelhantes aos trabalhos de runbook da Automação do Azure, com a exceção de que não executam realmente tarefa alguma, exceto a criação de configurações de nó. As configurações do nó criadas por um trabalho de compilação são colocadas automaticamente no servidor de pull da DSC da Automação do Azure e substituem versões anteriores das Configurações de nó, se elas existirem para essa configuração. O nome de uma configuração de nó produzida por um trabalho de compilação tem o formato "<Configuration-name>.<Node configuration-block-name>". Por exemplo, a compilação da configuração a seguir geraria uma única configuração de nó chamada "MyConfiguration.webserver"
 
 
-![texto alternativo](./media/automation-dsc-overview/AADSC_5.png)
+![texto alt](./media/automation-dsc-overview/AADSC_5.png)
 
 
 >[AZURE.NOTE]Assim como os runbooks, as configurações podem ser publicadas. Isso não está relacionado a colocar itens da DSC no servidor de pull da DSC da Automação do Azure. Os trabalhos de compilação fazem com que itens da DSC sejam colocados no servidor de pull da DSC da Automação do Azure. Para obter mais informações sobre como "publicar" na Automação do Azure, consulte [Publicando um Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
@@ -206,7 +206,7 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - A Automação do Azure não dá suporte ao uso de módulos do PowerShell lado a lado. Isso significa que todas as configurações em uma conta da Automação devem trabalhar com a última versão de um módulo de PowerShell importado para essa conta da Automação de automação e com quaisquer recursos da DSC do PowerShell que o módulo contenha e que a configuração use.
 
-- O servidor de pull da DSC do PowerShell tradicional espera que zips de módulos sejam colocados no servidor de pull no formato **ModuleName_Version.zip "**. A Automação do Azure espera que módulos do PowerShell sejam importados com nomes no formato  **ModuleName.zip**. Consulte [esta postagem de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obter mais informações sobre o formato do Módulo de Integração necessário para importar o módulo para a Automação do Azure.
+- O servidor de pull da DSC do PowerShell tradicional espera que zips de módulos sejam colocados no servidor de pull no formato **ModuleName_Version.zip "**. A Automação do Azure espera que módulos do PowerShell sejam importados com nomes no formato **ModuleName.zip**. Consulte [esta postagem de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obter mais informações sobre o formato do Módulo de Integração necessário para importar o módulo para a Automação do Azure.
 
 - Os módulos do PowerShell que especificam recursos da DSC lado a lado dentro do módulo, usando o formato "versão por pasta", não funcionarão na Automação do Azure no momento.
 
@@ -220,4 +220,6 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - Ao se integrar uma VM do Azure para gerenciamento com a DSC da Automação do Azure usando `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` ou a extensão de VM da DSC da Automação do Azure no portal de visualização do Azure, se o registro falhar com **O nome do computador não foi especificado, e o diretório de configuração não tem nenhum arquivo de configuração**, isso é um alarme falso, e o registro da VM foi bem-sucedido. O registro bem-sucedido pode ser verificado usando-se o cmdlet `Get-AzureAutomationDscNode`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

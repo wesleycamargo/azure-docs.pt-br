@@ -42,6 +42,6 @@ Você não pode exportar certificados da Automação do Azure. Você deve garant
 
 - [Criando ou importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
 - [Ativos de automação](https://msdn.microsoft.com/library/dn939988.aspx)
-- [Cmdlets do Azure](https://msdn.microsoft.com/library/dn690262.aspx)
+- [Cmdlets do Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

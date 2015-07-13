@@ -27,4 +27,4 @@ Na guia **Publicação** no portal, clique em **Publicar**. Você pode adicionar
 > [AZURE.NOTE]Se deseja adicionar o seu aplicativo ao menu Iniciar, você precisa ter *adicionado tal aplicativo ao menu Iniciar em sua imagem de modelo.* Caso contrário, o RemoteApp verá somente o que *está* no menu Iniciar e você ficará confuso. Se você se esqueceu de adicionar o aplicativo ao menu **Iniciar** quando criou o modelo, opte por adicionar o caminho ao aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

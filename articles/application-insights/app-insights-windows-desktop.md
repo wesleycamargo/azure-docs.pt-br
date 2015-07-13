@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights para serviços e aplicativos da Área de Trabalho do Windows" 
-	description="Analise utilização e desempenho de seu aplicativo do Windows com o Application Insights." 
+	description="Analise a utilização e o desempenho do aplicativo da área de trabalho do Windows com o Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights em serviços e aplicativos da Área de Trabalho do Windows
@@ -23,7 +23,7 @@
 
 O Application Insights permite que você monitore seu aplicativo implantado quanto à utilização e ao desempenho.
 
-Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecido pelo SDK principal do Application Insights. Esse SDK fornece o suporte completo à API para todos os dados de telemetria, mas não oferece nenhuma coleta automática de telemetria.
+Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecido pelo SDK principal do Application Insights. Esse SDK fornece suporte completo à API para todos os dados de telemetria, mas não oferece nenhuma coleta automática de telemetria.
 
 
 ## <a name="add"></a> Criar um recurso do Application Insights
@@ -33,6 +33,7 @@ Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecid
 
     ![Clique em Novo, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
+    (Sua escolha do tipo de aplicativo define o conteúdo da folha Visão Geral e as propriedades disponíveis no [Metrics Explorer][metrics].)
 
 2.  Faça uma cópia da chave de instrumentação.
 
@@ -45,11 +46,11 @@ Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecid
 
 2. Instale o pacote de API do Application Insights.
 
-    ![Selecione **Online**, **Incluir pré-lançamento**, e procure "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Pesquise “Application Insights”](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
 
-    &lt;InstrumentationKey&gt;*a chave que você copiou*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     Como alternativa, você pode alcançar o mesmo efeito com esse código:
     
@@ -60,7 +61,7 @@ Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecid
 
 Crie uma instância `TelemetryClient` e, em seguida, [use-a para enviar telemetria][api].
 
-Use `TelemetryClient.Flush` para enviar mensagens antes de fechar o aplicativo. (Isso não é recomendado para outros tipos de aplicativo).
+Use `TelemetryClient.Flush()` para enviar mensagens antes de fechar o aplicativo. O SDK do Core utiliza um buffer na memória. O método flush garantirá que esse buffer seja esvaziado, ajudando a garantir que não haja perda de dados no encerramento do processo. (Isso não é recomendado para outros tipos de aplicativo. Os SDKs da plataforma implementam esse comportamento automaticamente.)
 
 Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
@@ -107,9 +108,10 @@ Use qualquer uma das [APIs do Application Insights][api] para enviar telemetria.
 
 #### Inicializadores de contexto
 
-Como alternativa a definir os dados de sessão em cada instância de TelemetryClient, você pode usar um inicializador de contexto:
+Para ver as contagens de usuários e sessões, você pode definir os valores em cada instância `TelemetryClient`. Como alternativa, você pode usar um inicializador de contexto para executar essa adição para todos os clientes:
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@ Como alternativa a definir os dados de sessão em cada instância de TelemetryCl
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 

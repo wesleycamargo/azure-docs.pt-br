@@ -47,7 +47,7 @@ O Visual Studio 2015 RC ainda não tem um modelo de projeto de aplicativo da API
 
 4. Nomeie o projeto *ContactsList*
 
-5. Desmarque a caixa de seleção **Adicionar Application Insights ao projeto**.
+5. Verifique se a caixa de seleção **Adicionar o Application Insights ao Projeto** está desmarcada.
 
 5. Clique em **OK**.
 
@@ -185,7 +185,7 @@ Para exibir a página de teste da API, execute as etapas a seguir.
 
 	* Em **Nome**, digite ContactsList.
 
-	* Em **Plano de Serviço do Aplicativo**, clique em **Criar Novo** e digite um nome, por exemplo: **ContactsList**.
+	* Em **Plano do Serviço de Aplicativo**, clique em **Criar Novo** e digite um nome, por exemplo: **ContactsList**.
 
 		Para obter mais informações sobre os planos do Serviço de Aplicativo, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -297,4 +297,4 @@ Nesta seção, navegue para o portal para exibir a definição de API para o apl
 Você criou e implantou um aplicativo de API usando o Visual Studio 2015 RC. Para obter mais documentação sobre aplicativos de API, consulte as entradas no painel de navegação mostrado no lado esquerdo da página (para janelas de navegador amplas) ou na parte superior da página (para janelas de navegador estreitas). A maior parte da documentação de aplicativos de API atualmente mostra o Visual Studio 2013, mas grande parte dela pode ser usada com o VS 2015 porque a interface do usuário é semelhante, o código que você escreve é o mesmo e a interface do usuário do portal é a mesma.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,4 +1,4 @@
-1. No Gerenciador de Projetos, expanda o **aplicativo** => **java** => **com.example.GetStartedWithData**, **src** e **.com.example.GetStartedWithData** e, em seguida, abra o arquivo *ToDoActivity.java*.
+1. No Gerenciador de Projetos, expanda **aplicativo** => **src** => **principal** => **java** => **com.example.GetStartedWithData** e, em seguida, abra o arquivo *Todoactivity*.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

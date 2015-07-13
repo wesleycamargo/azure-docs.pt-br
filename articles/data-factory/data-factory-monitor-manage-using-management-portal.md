@@ -17,88 +17,88 @@
 	ms.author="spelluru"/>
 
 # Monitorar o Data Factory do Azure utilizando o Portal de visualização do Azure
-Este artigo descreve vários cenários para usar o Portal de visualização do Azure para monitorar e gerenciar a fábrica de dados do Azure.
+Este artigo descreve diversos cenários de uso do Portal de Visualização do Azure para monitorar e gerenciar a Azure Data Factory.
 
-## <a name="AllDataFactories"></a> Exibir todas as fábricas de dados em uma assinatura do Azure
+## <a name="AllDataFactories"></a> Exibir todas as data factories em uma assinatura do Azure
 
-- Entrar para a [Portal de visualização do Azure][azure-preview-portal].
-- Clique em **Procurar** hub esquerda e clique **fábricas de dados**.  
+- Entre no [Portal de Visualização do Azure][azure-preview-portal].
+- Clique no hub **PROCURAR** à esquerda e clique em **Data factories**.  
 
-	![Procurar hub -> fábricas de dados][image-data-factory-browse-datafactories]
+	![Hub PROCURAR -> Data Factories][image-data-factory-browse-datafactories]
 
-	Se você não vir **fábricas de dados**, clique em **tudo** e, em seguida, clique em **factorries de dados** no **Procurar** lâmina.
+	Caso não visualize as **Data factories**, clique em **Tudo** e, em seguida, clique em **Data factories** na folha **Procurar**.
 
-	![Procurar hub -> tudo][image-data-factory-browse-everything]
+	![Hub PROCURAR -> Tudo][image-data-factory-browse-everything]
 
-- Você deve ver todas as fábricas de dados no **fábricas de dados** lâmina.
+- Você deve ver todas as data factories na folha **Data factories**.
 
-	![Blade de fábricas de dados][image-data-factory-datafactories-blade]
+	![Folha Data factories][image-data-factory-datafactories-blade]
 
     
-## <a name="DataFactoryDetails"></a> Exibir detalhes sobre uma fábrica de dados
+## <a name="DataFactoryDetails"></a> Exibir detalhes sobre uma data factory
 
 Para exibir detalhes sobre uma data factory, siga um destes procedimentos:
 
 
-- Clique em uma fábrica de dados no **fábricas de dados** lâmina mostrada acima.
-- Clique no link para a fábrica de dados sobre o **Startboard**. **Startboard** a lâmina que você vê quando você fazer logon no portal de visualização do Azure. Se você tiver selecionado **Adicionar ao quadro inicial** durante a criação de uma fábrica de dados (opção padrão), você deve ver a fábrica de dados vinculados no quadro inicial, conforme mostrado na imagem a seguir. Neste exemplo, **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** e **LogProcessingFactory** links de fábrica de dados estão disponíveis na **Startboard**.
+- Clique em uma data factory na folha **Data factories** mostrada acima.
+- Clique no link da data factory no **Quadro Inicial**. O **Quadro Inicial** é a folha exibida quando você faz logon no Portal de Visualização do Azure. Se tiver selecionado **Adicionar ao Quadro Inicial** durante a criação de uma data factory (opção padrão), você deverá ver o link da data factory no Quadro Inicial, conforme mostrado na imagem a seguir. Neste exemplo, os links de data factory **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** e **LogProcessingFactory** estão disponíveis no **Quadro Inicial**.
 
 
-![Fábrica de dados do quadro inicial][image-data-factory-datafactory-from-startboard]
+![Data factory do Quadro Inicial][image-data-factory-datafactory-from-startboard]
 
-De qualquer forma, você verá o **DATA FACTORY** blade da fábrica de dados selecionado, conforme mostrado na imagem a seguir.
+De qualquer forma, você verá a folha **DATA FACTORY** da data factory selecionada, conforme mostrado na imagem a seguir.
 
- ![Página inicial da fábrica de dados][image-data-factory-datafactory-home-page]
+ ![Página inicial da Data Factory][image-data-factory-datafactory-home-page]
  
-## <a name="DataFactoryDiagram"></a> Modo de exibição de diagrama da fábrica de dados
-No **DATA FACTORY** blade da fábrica de dados, clique em **diagrama** lado a lado para ver a exibição do diagrama da fábrica de dados.
+## <a name="DataFactoryDiagram"></a> Exibir modo de exibição de diagrama da data factory
+Na folha **DATA FACTORY** da data factory, clique no bloco **Diagrama** para ver o modo de exibição de diagrama da data factory.
 
-![Exibição de diagrama de fábrica de dados][image-data-factory-diagram-view]
+![Modo de Exibição de Diagrama da Data Factory][image-data-factory-diagram-view]
  
-### Abrir um pipeline na exibição de diagrama
-Você pode exibir todas as atividades em um pipeline clicando o pipeline na exibição de diagrama e, em seguida, clicando em **Abrir Pipeline**. Você deve ver as atividades no pipeline com conjuntos de dados de entrada e saídos para as atividades. ![Pipeline aberto](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
+### Abrir um pipeline no Modo de Exibição de Diagrama
+É possível exibir todas as atividades em um pipeline clicando com o botão direito do mouse no pipeline no Modo de Exibição de Diagrama e, em seguida, clicando em **Abrir Pipeline**. Você deve ver as atividades no pipeline juntamente com conjuntos de dados de entrada e saída das atividades. ![Pipeline aberto](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
-Clique em **Data factory** na navegação estrutural no canto superior esquerdo para voltar para o modo de exibição de diagrama. O modo de exibição de diagrama exibe todos os pipelines. Neste exemplo, somente você ter criado um pipeline.
+Clique em **Data factory** na trilha do canto superior esquerdo para voltar para o modo de exibição de diagrama. O modo de exibição de diagrama exibe todos os pipelines. Neste exemplo, você criou somente um pipeline.
 
-## <a name="DataFactoryLinkedServices"></a> Exibir serviços vinculados em uma fábrica de dados
-No **DATA FACTORY** blade da fábrica de dados, clique em **Serviços vinculados** lado a lado para ver todos os serviços vinculados em uma lista.
+## <a name="DataFactoryLinkedServices"></a> Exibir serviços vinculados em uma data factory
+Na folha **DATA FACTORY** da data factory, clique no bloco **Serviços Vinculados** para visualizar todos os serviços vinculados em uma lista.
 
-![Lâmina de serviços vinculados][image-data-factory-linked-services]
+![Folha Serviços Vinculados][image-data-factory-linked-services]
 
 ## <a name="DataFactoryLinkedService"></a> Exibir detalhes sobre um serviço vinculado
-No **Serviços vinculados** lâmina, clique o serviço vinculado na lista para ver detalhes sobre ele.
+Na folha **SERVIÇOS VINCULADOS**, clique no serviço vinculado na lista para visualizar detalhes sobre ele.
 
-![Lâmina de serviço vinculada][image-data-factory-linked-service]
+![Folha Serviço Vinculado][image-data-factory-linked-service]
 
-## <a name="DataFactoryDatasets"></a> Exibir conjuntos de dados em uma fábrica de dados 
-No **DATA FACTORY** blade da fábrica de dados, clique em **conjuntos de dados** lado a lado para ver todas as tabelas na fábrica dados.
+## <a name="DataFactoryDatasets"></a> Exibir conjuntos de dados em uma data factory 
+Na folha **DATA FACTORY** da data factory, clique no bloco **Conjunto de dados** para visualizar todas as tabelas na data factory.
 
-![Blade de conjuntos de dados][image-data-factory-datasets]
+![Folha Conjuntos de Dados][image-data-factory-datasets]
 
 ## <a name="DataFactoryDataset"></a> Exibir detalhes sobre um conjunto de dados
 Clique na lista de conjuntos de dados na folha CONJUNTOS DE DADOS para visualizar os detalhes sobre o conjunto de dados. Observe que uma tabela é um conjunto de dados retangular que tem um esquema. É o único tipo de conjunto de dados com suporte neste momento.
 
-![Blade de tabela][image-data-factory-table]
+![Folha Tabela][image-data-factory-table]
 
-No **tabela** lâmina acima, ambos **atualizado recentemente fatias** e **recentemente falha fatias** listas são classificadas pelo **hora da última atualização**. O tempo de atualização de uma fatia é alterado nas seguintes situações.
+Na folha **TABELA** acima, ambas as listas **Fatias atualizadas recentemente** e **Fatias com falha recente** são classificadas pela **HORA DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
 
--  Você atualiza o status da fatia manualmente, por exemplo, usando o **conjunto AzureDataFactorySliceStatus** (ou) clicando em **executar** no **FATIA** blade da fatia.
--  A fatia é alterado devido a uma execução (por exemplo, uma execução de Introdução, uma execução finalizada e falha, uma execução terminou e foi bem-sucedida, etc).
+-  Você atualiza o status da fatia manualmente, por exemplo, usando o **Set-AzureDataFactorySliceStatus** (ou) clicando em **EXECUTAR** na folha **FATIA** da fatia.
+-  A fatia é alterada devido a uma execução (por exemplo, uma execução iniciada, uma execução finalizada e com falha, uma execução finalizada e bem-sucedida, etc).
  
 	
-Para exibir as fatias de dados classificadas pelas horas de início/término fatia em vez disso, clique em **fatias de dados (por hora fatia)** lado a lado.
+Para exibir as fatias de dados classificadas pelas horas de início/término da fatia, clique no bloco **Fatias de dados (por hora da fatia)**.
  
-![Fatias de dados por intervalo de tempo][DataSlicesBySliceTime]
+![Fatias de Dados por Hora da Fatia][DataSlicesBySliceTime]
 
-Clique no título da lista ou **... (reticências)** Para ver a lista de intervalos de maior.
+Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias.
 
 ![Todas as fatias de uma tabela][image-data-factory-all-slices]
 
-No **fatias de dados** lâmina, clique o **filtro** para ver o **filtro** blade que permite que você **filtro** fatias para ver as fatias específicas que você deseja analisar. Você verá a lâmina semelhante ao apresentado a seguir quando você clica em **filtro** no **fatias de dados** lâmina com fatias **classificadas por hora de atualização**.
+Na folha **Fatias de Dados**, clique no botão **Filtro** para ver a folha **Filtro** que permite **filtrar** as fatias para ver as fatias específicas que deseja analisar. Você verá a folha semelhante à seguinte quando clicar em **Filtro** na folha **Fatias de Dados** com fatias **classificadas por hora de atualização**.
 
-![Blade de filtro][image-data-factory-filter-blade]
+![Folha Filtro][image-data-factory-filter-blade]
 
-O **filtro** lâmina permite filtrar com base em **atualizada pela última vez** e **fatiar status**. A tabela a seguir descreve todos os status de fatia e sua descrição.
+A folha **Filtro** permite filtrar com base na **hora da última atualização** e no **status da fatia**. A tabela a seguir descreve todos os status de fatia e suas descrições.
  
 Status da fatia | Descrição
 ------------ | ------------
@@ -110,68 +110,68 @@ Skip | Ignorar o processamento da fatia.
 Retry | Repetir a execução que produz a fatia.
 Timed Out | O processamento de dados da fatia expirou.
 PendingValidation | A fatia de dados está aguardando a validação em relação as políticas de validação antes de serem processadas.
-RetryValidation | Repetindo a validação da fatia.
+RetryValidation | Repetir a validação da fatia.
 FailedValidation | Falha na validação da fatia.
 LongRetry | Uma fatia será esse status se LongRetry for especificado na tabela JSON e repetições regulares da fatia falharem.
 ValidationInProgress | A validação da fatia (com base em políticas definidas na tabela JSON) está sendo executada.
 
-Quando você clica em **filtro** no **fatias de dados** lâmina com fatias **classificados por tempo a fatia**, você verá um tipo diferente de **filtro** lâmina.
+Ao clicar em **Filtro** na folha **Fatias de Dados** com fatias **classificadas por hora da fatia**, você vê um tipo diferente da folha **Filtro**.
 
-![Blade de filtro 2][image-data-factory-filter-blade-2]
+![Folha Filtro 2][image-data-factory-filter-blade-2]
 
 
-Quando você iniciar o **filtro** lâmina, o **para** campo será definido automaticamente como a hora mais recente (arredondada) para limitar o número de registros retornados. O **de** campo é automaticamente configurado assim. Você pode alterar o **de** data clicando o **calendário** botão. O **para** data será alterada automaticamente quando você altera o **de** Data.
+Ao iniciar a folha **Filtro**, o campo **Até** é definido automaticamente com a hora mais recente (arredondada) para limitar o número de registros retornados. O campo **A partir de** também é configurado automaticamente. Você pode alterar a data **A partir de** clicando no botão **Calendário**. A data **Até** será alterada automaticamente quando você alterar a data **A partir de**.
 
-Você pode clicar em **anterior**/ * * botões Avançar * * para exibir fatias no anterior período/próximo período. O intervalo de tempo **anterior** e **próximo** botões é definido com base na frequência fatia e intervalo conforme mostrado na tabela a seguir.
+É possível clicar nos botões **Anterior**/**Próximo** para exibir as fatias no período anterior/próximo período. O intervalo de tempo dos botões **Anterior** e **Próximo** é definido com base na frequência e no intervalo da fatia, conforme mostrado na tabela a seguir.
 
-Frequência | Intervalo de valores de intervalo | Parte de hora resultante
+Frequência | Faixa de valores de intervalo | Período de tempo resultante
 ----------| -------------------- | --------------------
 Minuto | 1-4 | 6 horas
 Minuto | 5-29 | 1 dia
 Minuto | 30-180 | 7 dias
-Minuto | 180 + | 28 dias (aproximado. mês)
+Minuto | Mais de 180 | 28 dias (aproximadamente mês do calendário)
 Hora | 1-3 | 7 dias
-Hora | 4-11 | 28 dias (aproximado. mês)
-Hora | 12 a 72 | 182 dias (aproximados. 6 meses)
-Hora | 73 + | 1 ano
+Hora | 4-11 | 28 dias (aproximadamente mês do calendário)
+Hora | 12 a 72 | 182 dias (aproximadamente 6 meses)
+Hora | Mais de 73 | 1 ano
 Dia | 1-6 | 1 ano
 Dia | 7-20 | 5 anos
-Dia | 21 + | 10 anos
+Dia | Mais de 21 | 10 anos
 Semana | 1-3 | 5 anos
-Semana | 4 + | 10 anos
+Semana | Mais de 4 | 10 anos
 Mês | qualquer | 10 anos
  
-Por exemplo, se você definir **freqüência** como **hora** e **intervalo** de **2**, clicando o **próximo**/ * * anterior * * botões Mover o intervalo de tempo **7 dias** em qualquer direção. Essa lógica se aplica a folha de filtro se você estiver exibindo todas as fatias fatias/problema fatias/recentes.
+Por exemplo, se você definir **frequency** como **Hour** e **interval** como **2**, clicar nos botões **Próximo**/**Anterior** mudará o intervalo de tempo em **7 dias**, em qualquer direção. Essa lógica se aplica a folha de filtro se você estiver exibindo todas as fatias fatias/problema fatias/recentes.
 
 
 
 
 ## <a name="DataFactorySlice"></a> Exibir detalhes sobre uma fatia
-Clique em uma fatia na lista de fatias no **tabela** lâmina ou **fatias de dados** lâmina para ver detalhes sobre essa fatia.
+Clique em uma fatia na lista de fatias da folha **TABELA** ou da folha **Fatias de Dados** para visualizar detalhes sobre essa fatia.
 
-![Fatia de dados][image-data-factory-dataslice]
+![Fatia de Dados][image-data-factory-dataslice]
 
-Se a fatia não está no **pronto** estado, você pode ver as fatias upstream que não estão prontos e estão bloqueando a fatia atual da execução no **fatias Upstream que não estão prontas** lista.
+Quando a fatia não está no estado **Pronto**, você pode ver as fatias upstream que não estão Prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas**.
 
-### <a name="DataFactoryActivtyRuns"></a> Exibir todas as execuções de atividade para uma fatia
-Para uma fatia, pode haver mais de uma execução. Por exemplo, quando uma fatia falha, o serviço pode tentar novamente por algumas vezes. Também é possível executar novamente uma fatia que falhou em todas as tentativas. Você pode ver todas a atividade é executada no * * fatia de dados * * lâmina na lista na parte inferior.
+### <a name="DataFactoryActivtyRuns"></a> Exibir todas as execuções de atividade de uma fatia
+Para uma fatia, pode haver mais de uma execução. Por exemplo, quando uma fatia falha, o serviço pode tentar novamente por algumas vezes. Também é possível executar novamente uma fatia que falhou em todas as tentativas. É possível visualizar toda as execuções de atividade na folha **Fatia de Dados** na lista da parte inferior.
 
-## <a name="DataFactoryActivtyRunDetails"></a> Exibir detalhes sobre uma atividade execute
-Clique em uma atividade seja executada na lista de execuções no **fatia de dados** lâmina para ver detalhes sobre a atividade seja executada.
+## <a name="DataFactoryActivtyRunDetails"></a> Exibir detalhes sobre uma execução de atividade
+Clique em uma execução de atividade na lista de execuções na folha **Fatia de Dados** para visualizar os detalhes sobre a execução da atividade.
 
-![Detalhes da execução de atividade][image-data-factory-activity-run-details]
+![Detalhes da execução da atividade][image-data-factory-activity-run-details]
 
-## <a name="EventsInThePastweek"></a> Operações Lente - eventos da semana anterior
-No **DATA FACTORY** blade (ou página inicial) para a fábrica de dados, clique em **eventos da semana anterior** na **operações** lente para ver os eventos da semana anterior. Isso ajuda a ter uma visão geral das operações realizadas pelo data factory na última semana. Também ajuda a solucionar quaisquer erros com o processamento/movimentação de dados.
+## <a name="EventsInThePastweek"></a> Lentes de Operações — Eventos da semana anterior
+Na folha **DATA FACTORY** (ou página inicial) da data factory, clique em **Eventos da semana anterior** em Lentes de **Operações** para ver os eventos da semana anterior. Isso ajuda a ter uma visão geral das operações realizadas pelo data factory na última semana. Também ajuda a solucionar quaisquer erros com o processamento/movimentação de dados.
 
-![Eventos de fábrica de dados][image-data-factory-events]
+![Eventos de Data Factory][image-data-factory-events]
 
 
 ## Consulte também
 
 Artigo | Descrição
 ------ | ---------------
-[Monitorar e gerenciar um Azure Data Factory usando o PowerShell][monitor-manage-using-powershell] | Este artigo descreve como monitorar uma fábrica de dados do Azure usando cmdlets do PowerShell do Azure. 
+[Monitorar e gerenciar a Azure Data Factory usando o PowerShell][monitor-manage-using-powershell] | Este artigo descreve como monitorar uma Azure Data Factory usando cmdlets do PowerShell do Azure. 
 
 
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
@@ -221,4 +221,4 @@ Artigo | Descrição
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

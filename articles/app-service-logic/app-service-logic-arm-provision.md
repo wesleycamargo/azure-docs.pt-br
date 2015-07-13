@@ -38,7 +38,7 @@ Neste modelo, você implantará um aplicativo lógico.
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/pt-br/status/feed/"
       }
     
 ## Recursos a implantar

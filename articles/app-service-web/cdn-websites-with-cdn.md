@@ -67,13 +67,11 @@ Nesta seção, você implantará o modelo de aplicativo ASP.NET MVC padrão no V
 
 8. Supondo que você não tenha criado um aplicativo Web no Azure, o Visual Studio poderá ajudá-lo a criá-lo. Na caixa de diálogo **Configurar o site do Microsoft Azure**, verifique se o que nome do site é exclusivo. Em seguida, clique em **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Depois de criar seu aplicativo ASP.NET, publique-o no Azure no painel Atividade de Publicação na Web, clicando em **Publicar `<app name>` para esse site agora**. Clique em **Publicar** para concluir o processo.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
@@ -205,11 +203,11 @@ namespace cdnwebapp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
 
-            if (Debugger.IsAttached) // Preserve a experiência de depuração
+            if (Debugger.IsAttached) // Preserve the debug experience
             {
                 return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
             }
-            else // Obtenha conteúdo da CDN do Azure
+            else // Get content from Azure CDN
             {
                 return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
             }
@@ -241,16 +239,16 @@ namespace cdnwebapp.Controllers
 
         private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
         {
-            // Calcule o tamanho real, diminua se necessário
+            // Compute actual size, shrink if needed
             while (true)
             {
                 size = g.MeasureString(text, font);
 
-                // Se couber, retorne
+                // It fits, back out
                 if (size.Height &lt; i.Height &amp;&amp;
                      size.Width &lt; i.Width) { return font; }
 
-                // Tente uma fonte menor (90% do tamanho antigo)
+                // Try a smaller font (90% of old size)
                 Font oldFont = font;
                 font = new Font(font.Name, (float)(font.Size * .9), font.Style);
                 oldFont.Dispose();
@@ -365,7 +363,7 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
                 "~/Scripts/jquery.validate*"));
 
-    // Use a versão de desenvolvimento do Modernizr para se desenvolver e aprender. Em seguida, você estará
+    // Use a versão de desenvolvimento do Modernizr para se desenvolver e aprender. Em seguida, quando você estiver
     // pronto para produzir, use a ferramenta de construção em http://modernizr.com para escolher apenas os testes necessários.
     bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
                 "~/Scripts/modernizr-*"));
@@ -461,7 +459,7 @@ public static void RegisterBundles(BundleCollection bundles)
 				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
             	.Include("~/Scripts/jquery.validate*"));
 
-    // Use a versão de desenvolvimento do Modernizr para se desenvolver e aprender. Em seguida, você estará
+    // Use a versão de desenvolvimento do Modernizr para se desenvolver e aprender. Em seguida, quando você estiver
     // pronto para produzir, use a ferramenta de construção em http://modernizr.com para escolher apenas os testes necessários.
     bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
 				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

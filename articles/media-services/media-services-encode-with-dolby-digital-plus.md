@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Codificação da mídia com Dolby Digital Plus" 
+	pageTitle="Codificando sua mídia com Dolby Digital Plus" 
 	description="Este tópico descreve como codificar suas mídias com Dolby Digital Plus." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
-#Codificação da mídia com Dolby Digital Plus
+#Codificando sua mídia com Dolby Digital Plus
 
-O Azure Media Encoder dá suporte à codificação **Dolby(r) Digital Plus**. Dolby(r) Digital Plus ou AC-3 melhorado (E-AC-3) é um codec de áudio de sistema surround avançado desenvolvido especificamente para mídia em evolução. De home theaters e PCs a celulares e transmissões online, o Dolby Digital Plus define áudio de alta fidelidade. Você obterá a experiência de cinema Dolby renomada de todas as suas opções de entretenimento. Dolby Digital Plus baseia-se nos principais tecnologias Dolby Digital, o padrão estabelecido para cinema, transmissão e sistema surround de home-theater. À medida que os dispositivos móveis proliferam, Dolby Digital Plus também está surgindo como o padrão para entretenimento móvel. Estas novas tecnologias avançadas para aprimorar áudio oferecem qualidade de som ainda melhor e economia de largura de banda adicional. Você obtém conteúdo excelente com menos interrupções, mesmo quando a largura de banda é limitada.
+O Codificador de Mídia do Azure oferece suporte à codificação **Dolby® Digital Plus**. Dolby® Digital Plus ou AC-3 melhorado (E-AC-3) é um codec de áudio de sistema surround avançado desenvolvido especificamente para mídia em evolução. De home theaters e PCs a celulares e transmissões online, o Dolby Digital Plus define áudio de alta fidelidade. Você obterá a experiência de cinema Dolby renomada de todas as suas opções de entretenimento. Dolby Digital Plus baseia-se nos principais tecnologias Dolby Digital, o padrão estabelecido para cinema, transmissão e sistema surround de home-theater. À medida que os dispositivos móveis proliferam, Dolby Digital Plus também está surgindo como o padrão para entretenimento móvel. Estas novas tecnologias avançadas para aprimorar áudio oferecem qualidade de som ainda melhor e economia de largura de banda adicional. Você obtém conteúdo excelente com menos interrupções, mesmo quando a largura de banda é limitada.
 
 
 ##Configurar o Azure Media Encoder para codificar com Dolby Digital Plus
@@ -38,11 +38,11 @@ Ao configurar as definições de codificação para uso com o Azure Media Encode
         configuration,
         _clearConfig);
 
-Este tópico descreve diversas predefinições XML de exemplo que configuram as definições do codificador. O elemento usado para configurar a codificação Dolby Digital Plus é [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) que aparece como um nó filho do elemento <AudioProfile> em uma predefinição XML do Azure Media Encoder. Este elemento XML contém um número de atributos que controlam a vários elementos da codificação.
+Este tópico descreve diversas predefinições XML de exemplo que configuram as definições do codificador. O elemento usado para configurar a codificação Dolby Digital Plus é [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) que aparece como um nó filho do elemento <AudioProfile> em uma predefinição XML do Codificador de Mídia do Azure. Este elemento XML contém um número de atributos que controlam a vários elementos da codificação.
 
 ##Codificação Dolby Digital Plus 5.1 multicanal
 
-Para codificar para Dolby Digital Plus 5.1 multicanal, defina os atributos Codec e EncoderMode como "DolbyDigitalPlus". O número de canais codificados é especificado usando o atributo AudioCodingMode do elemento <DolbyDigitalPlusAudioProfile>. Para uma codificação multicanal 5.1, defina o AudioCodingMode como "Mode32". 
+Para codificar para Dolby Digital Plus 5.1 multicanal, defina os atributos Codec e EncoderMode como "DolbyDigitalPlus". O número de canais codificados é especificado usando o atributo AudioCodingMode do elemento <DolbyDigitalPlusAudioProfile>. Para uma codificação multicanal 5.1, defina o AudioCodingMode como "Mode32".
 
 A predefinição XML a seguir contém uma predefinição completa do Azure Media Encoder XML que produz um arquivo MP4 com banda larga H264, vídeo 1080p e áudio multicanal 5.1 Dolby Digital Plus. Essa predefinição também especifica para codificar um canal de baixa frequência LFE (efeitos), que é especificada definindo o atributo LFEOn como true. Quaisquer atributos não especificados terão seus valores padrão.
 
@@ -129,7 +129,7 @@ Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** p
 
 Para codificar para Dolby Digital Plus estéreo, defina os atributos Codec e EncoderMode como "DolbyDigitalPlus". O número de canais codificados é especificado usando o atributo AudioCodingMode. Para uma codificação estéreo, defina o AudioCodingMode como "Mode20". O exemplo de predefinição XML a seguir mostra que o <DolbyDigitalPlusAudioProfile> é usado para codificar como áudio 5.1. Quaisquer atributos não especificados terão seus valores padrão.
 
-Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** para criar um trabalho de codificação, conforme descrito [neste](media-services-dotnet-encode-asset.md) tópico  (em vez de uma cadeia de caracteres de predefinição predefinida, você passará a predefinição XML inteira, como descrito [aqui](#configure_preset)).
+Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** para criar um trabalho de codificação, conforme descrito [neste](media-services-dotnet-encode-asset.md) tópico (em vez de uma cadeia de caracteres de predefinição predefinida, você passará a predefinição XML inteira, como descrito [aqui](#configure_preset)).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<!--Created for Azure Media Encoder, May 26 2013 -->
@@ -214,24 +214,24 @@ Esta predefinição XML deve ser passada ao **Codificador de Mídia do Azure** p
 
 A configuração a seguir gerará as seguintes saídas:
 
-- 8 Video-only MP4 files
-	- 1080p Video @ 6000 kbps
-	- 1080p Video @ 4700 kbps
-	- 720p Video @ 3400 kbps
-	- 960 x 540 Video @ 2250 kbps
-	- 960 x 540 Video @ 1500 kbps
-	- 640 x 380 Video @ 1000 kbps
-	- 640 x 380 Video @ 650 kbps
-	- 320 x 180 Video @ 400 kbps
+- 8 arquivos MP4 de apenas vídeo
+	- Vídeo 1080p @ 6000 kbps
+	- Vídeo de 1080p a 4700 kbps
+	- Vídeo 720p @ 3400 kbps
+	- Vídeo 960 x 540 @ 2250 kbps
+	- Vídeo de 960 x 540 a 1500 kbps
+	- Vídeo de 640 x 380 a 1000 kbps
+	- Vídeo de 640 x 380 a 650 kbps
+	- Vídeo de 320 x 180 a 400 kbps
 
-- 5 Audio-only MP4 files
-	- AAC Audio Stereo @ 128 kbp
-	- AAC Audio 5.1 @ 512 kbps
-	- Dolby Digital Plus Stereo @ 128 kbps
-	- Dolby Digital Plus 5.1 Multichannel @ 512 kbps
-	- AAC Stereo @ 56 kbps
-- A .ism manifest
-- An XML file listing the properties of the generated MP4 files.
+- 5 arquivos MP4 de apenas áudio
+	- Áudio estéreo AAC @ 128 kbps
+	- Áudio 5.1 AAC @ 512 kbps
+	- Dolby Digital Plus estéreo @ 128 kbps
+	- Dolby Digital Plus 5.1 multicanal @ 512 kbps
+	- Estéreo AAC @ 56 kbps
+- Um manifesto .ism
+- Um arquivo XML que lista as propriedades dos arquivos MP4 gerados.
 		
 		<?xml version="1.0" encoding="utf-16"?>
 		<!--Created for Azure Media Encoder, May 16 2013 -->
@@ -541,11 +541,11 @@ A configuração a seguir gerará as seguintes saídas:
 
 ##Criando serviços de codificação comercial
 
-Alguns clientes talvez queiram compilar um serviço de codificação comercial nos Serviços de Mídia do Azure. Se você estiver criando um 'compilação de serviço é importante que todos os parâmetros de codificação Dolby Digital Plus estejam disponíveis. Verifique se todos os parâmetros na marca <DolbyDigitalPlusAudioProfile> estão expostos e podem ser configurados pelo usuário final. Entre em contato com prolicensingsupport@dolby.com para obter orientação sobre como disponibilizar esses parâmetros.
+Alguns clientes talvez queiram compilar um serviço de codificação comercial nos Serviços de Mídia do Azure. Se você estiver criando um 'compilação de serviço é importante que todos os parâmetros de codificação Dolby Digital Plus estejam disponíveis. Certifique-se de que todos os parâmetros dentro da marca <DolbyDigitalPlusAudioProfile> sejam expostos e configuráveis pelo usuário final. Entre em contato com prolicensingsupport@dolby.com para obter orientação sobre como disponibilizar esses parâmetros.
 
 ##Usando suporte a Dolby Professional Loudness Metering (DPLM)
 
-O Azure Media Encoder pode usar o SDK do DPLM para medir a intensidade da caixa de diálogo no áudio de entrada e definir o valor correto de DialogNormalization. Esse recurso é habilitado somente se o áudio estiver sendo codificado como Dolby Digital Plus. O DPLM é configurado em um arquivo de configuração de predefinição usando o elemento <LoudnessMetering>, que é um filho do elemento <DolbyDigitalPlusAudioProfile>. A predefinição do exemplo a seguir mostra como configurar o DPLM:
+O Azure Media Encoder pode usar o SDK do DPLM para medir a intensidade da caixa de diálogo no áudio de entrada e definir o valor correto de DialogNormalization. Esse recurso é habilitado somente se o áudio estiver sendo codificado como Dolby Digital Plus. O DPLM é configurado em um arquivo de predefinição de configuração usando o elemento <LoudnessMetering>, que é um filho do elemento <DolbyDigitalPlusAudioProfile>. A predefinição do exemplo a seguir mostra como configurar o DPLM:
 	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset
@@ -583,7 +583,7 @@ O Azure Media Encoder pode usar o SDK do DPLM para medir a intensidade da caixa 
 	  </MediaFile>
 	</Preset>
 
-O elemento <LoudnessMetering> só pode ser especificado em um elemento <DolbyDigitalPlusAudioProfile>. Se o elemento <LoudnessMetering> for usado, o atributo DialogNormalization não deverá ser usado. O codificador gerará um erro se o elemento <LoudnessMetering> e o atributo DialogNormalization forem usados. Todos os atributos de LoudnessMetering são opcionais e o codificador usará como padrão os valores recomendados pela Dolby Laboratories, Inc.
+O elemento <LoudnessMetering> só pode ser especificado em um elemento <DolbyDigitalPlusAudioProfile>. Se o elemento <LoudnessMetering> é usado, o atributo DialogNormalization não deve ser usado. O codificador gera um erro se o elemento <LoudnessMetering> e o atributo DialogNormalization forem usados. Todos os atributos de LoudnessMetering são opcionais e o codificador usará como padrão os valores recomendados pela Dolby Laboratories, Inc.
 
 Cada atributo é descrito nas seções a seguir.
 
@@ -592,25 +592,25 @@ Cada atributo é descrito nas seções a seguir.
 Este atributo determina o modo de medição de intensidade. Valores permitidos são:
 
  
-**ITU_R_BS_1770_2_DI** (padrão) - indica ITU-R BS.1770-2 mais Dialogue Intelligence
+**ITU_R_BS_1770_2_DI** (padrão) — indica ITU-R BS.1770-2 mais Dialogue Intelligence
 
-**ITU_R_BS_1770_1_DI** -indica ITU-R BS.1770-1 mais Dialogue Intelligence
+**ITU_R_BS_1770_1_DI** — indica ITU-R BS.1770-1 mais Dialogue Intelligence
 
-**ITU_R_BS_1770_2** -indica ITU-R BS.1770-2
+**ITU_R_BS_1770_2** — indica ITU-R BS.1770-2
 
-**LEQA_DI** -indica Leq(A) mais Dialogue Intelligence
+**LEQA_DI** — indica Leq(A) mais Dialogue Intelligence
 
-**Observação:**
+**Observação**
 
-O modo** EBU R128** pode ser alcançado com **ITU_R_BS_1770_2_DI**
+O modo **EBU R128** pode ser alcançado com **ITU_R_BS_1770_2_DI**
 
-O **LEQ (a)** é incluído exclusivamente por motivos de herança e só deve ser usado em fluxos de trabalho herdados específicos
+O **Leq(A)** é incluído exclusivamente por motivos de herança e só deve ser usado em fluxos de trabalho herdados específicos
 
 O **ITU** recentemente lançou uma atualização chamada BS.1770-3, que é equivalente ao BS.1770-2 com TruePeakDCBlock e TruePeakEmphasis definidos como false
 
 ###Atributo SpeechThreshold
 
-Especifica o limite de fala usado pelo DPLM para produzir um resultado de intensidade integrado (por exemplo, selecionando entre restrição de fala, restrição de nível e nenhuma restrição). O intervalo de configuração de limite de fala é de 0% a 100%, em incrementos de 1%. Esse parâmetro tem efeito somente quando o DPLM é configurado de modo que utilize Dialogue Intelligence, que significa que só pode ser especificado se o modo é definido como ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI. O valor padrão, quando Moe é ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI, é 20%. Valores para este atributo devem ser definidos no intervalo entre 0, 1 - 100.
+Especifica o limite de fala usado pelo DPLM para produzir um resultado de intensidade integrado (por exemplo, selecionando entre restrição de fala, restrição de nível e nenhuma restrição). O intervalo de configuração de limite de fala é de 0% a 100%, em incrementos de 1%. Esse parâmetro tem efeito somente quando o DPLM é configurado de modo que utilize Dialogue Intelligence, que significa que só pode ser especificado se o modo é definido como ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI. O valor padrão, quando Mode for ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI, é 20%. Valores para este atributo devem ser definidos no intervalo entre 0, 1 – 100.
 
 ###Atributo TruePeakDCBlock
 
@@ -636,18 +636,19 @@ Quando uma tarefa de codificação especifica o uso do DPLM, os resultados da me
 
 Cada atributo é descrito abaixo.
 
-**DPLMVersionInformation** - uma cadeia de caracteres que representa a versão do SDK do DPLM usado.
+**DPLMVersionInformation**: uma cadeia de caracteres que representa a versão do SDK do DPLM usado.
 
-**DialogNormalization** -o valor de DialNorm, em decibéis, medido a partir do áudio de entrada, que será inserido no fluxo de saída DD +, no intervalo {-31, -30,..., -1} dB.
+**DialogNormalization**: o valor de DialNorm, em decibéis, medido a partir do áudio de entrada, que será inserido no fluxo de saída DD +, no intervalo {-31, -30,..., -1} dB.
 
-**IntegratedLoudness** - o integrado intensidade conforme medido pelo DPLM, no intervalo de -70 a + 10 LKFS/dBFS (onde dBFS é usado somente quando o modo é definido como LEQA_DI).
+**IntegratedLoudness**: a intensidade integrada conforme medida pelo DPLM, no intervalo de -70 a + 10 LKFS/dBFS (onde dBFS é usado somente quando o modo é definido como LEQA_DI).
 
-**IntegratedLoudnessGatingMethod** -os valores válidos são: 0 - nenhum/sem restrição; 1 - fala restrita; 2 - nível restrito.
+**IntegratedLoudnessGatingMethod**: os valores válidos são: 0 – None/Ungated; 1 – Speech Gated; 2 – Level Gated.
 
-**IntegratedLoudnessSpeechPercentage** -este resultado contém o percentual de tempo da mídia de entrada onde a fala é detectada. Os valores variam de 0% a 100%.
+**IntegratedLoudnessSpeechPercentage**: esse resultado contém a porcentagem da linha do tempo da mídia de entrada onde a fala é detectada. Os valores variam de 0% a 100%.
 
-**SamplePeak** -este resultado contém o maior valor de amostra absoluto em qualquer canal desde que a medição foi redefinida, e varia de -70 a + 10 dBFS.
+**SamplePeak**: esse resultado contém o maior valor de amostra absoluto em qualquer canal desde que a medição foi redefinida, e varia de -70 a + 10 dBFS.
 
-**TruePeak** -este resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
+**TruePeak**: esse resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
+ 
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

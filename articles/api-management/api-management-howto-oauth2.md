@@ -160,4 +160,4 @@ Para obter mais informações sobre como usar o OAuth 2.0 e o Gerenciamento de A
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -1,11 +1,3 @@
-< propriedades pageTitle = "Criar um backup manual" description = "Explica como iniciar um manual, trabalho de backup sob demanda." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" / > <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Para criar um backup manual
 
@@ -29,4 +21,4 @@
 
   O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@ Nesta seção, você criará um novo aplicativo universal do Windows conectado a
 
 2. Na parte superior da folha, clique em **Adicionar Cliente** e expanda **Windows (C#)**.
 
-   ![Etapas de início rápido do aplicativo móvel](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![Etapas de início rápido do aplicativo móvel](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   Isso exibe as três etapas fáceis para criar um aplicativo da Windows Store conectado ao back-end de aplicativo móvel.
+    Isso exibe as três etapas fáceis para criar um aplicativo da Windows Store conectado ao back-end de aplicativo móvel.
 
 3. Se ainda não o fez, baixe e instale o <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> no seu computador local ou na máquina virtual.
 
 4. Em **Baixar e executar seu aplicativo e serviço localmente**, selecione um idioma para seu aplicativo da Windows Store e clique em **Baixar**.
 
-   Isso baixa uma solução que contém projetos para o back-end de aplicativo móvel e para o aplicativo de exemplo _Lista de tarefas pendentes_ que está conectado ao seu back-end de aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
+    Isso baixa uma solução que contém projetos para o back-end de aplicativo móvel e para o aplicativo de exemplo _Lista de tarefas pendentes_ que está conectado ao seu back-end de aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
 ## Testar o aplicativo móvel
 
@@ -86,6 +86,6 @@ Agora que o back-end de aplicativo móvel está publicado e o cliente está cone
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

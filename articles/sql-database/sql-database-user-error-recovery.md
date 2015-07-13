@@ -58,7 +58,7 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 
 2.	Crie a solicitação de restauração usando a operação [Criar solicitação de restauração de banco de dados](http://msdn.microsoft.com/library/azure/dn509571.aspx).
 	
-3.	Acompanhe a solicitação de restauração usando a operação  [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+3.	Acompanhe a solicitação de restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
 
@@ -104,8 +104,9 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 
 3.	Comece sua restauração usando a operação [Criar solicitação de restauração do banco de dados](http://msdn.microsoft.com/library/azure/dn509571.aspx).
 	
-4.	Acompanhe o status de sua restauração usando a operação  [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
+4.	Acompanhe o status de sua restauração usando a operação [Status de operações do banco de dados](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

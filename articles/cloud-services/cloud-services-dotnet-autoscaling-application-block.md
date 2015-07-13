@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -32,7 +32,7 @@ Este guia demonstrará como executar cenários comuns usando o Bloco de Aplicati
 
 ## <a id="WhatIs"> </a>O que é o Bloco de Aplicativos de Dimensionamento Automático?
 
-O Bloco de Aplicativos de Dimensionamento Automático pode dimensionar seu aplicativo do Microsoft Azure automaticamente com base nas regras que você definir especificamente para seu aplicativo. Você pode usar essas regras para ajudar seu aplicativo do Azure a manter sua taxa de transferência em resposta a alterações em sua carga de trabalho e, ao mesmo tempo, controlar os custos associados à hospedagem de seu aplicativo no Azure. Junto com o dimensionamento, aumentando ou diminuindo o número de instâncias de função de seu aplicativo, o bloco também permite que você use outras ações de dimensionamento, como a limitação de determinada funcionalidade dentro de seu aplicativo ou o uso de ações personalizadas.
+O Bloco de Aplicativos de Dimensionamento Automático pode dimensionar seu aplicativo do Azure automaticamente com base nas regras que você definir especificamente para seu aplicativo. Você pode usar essas regras para ajudar seu aplicativo do Azure a manter sua taxa de transferência em resposta a alterações em sua carga de trabalho e, ao mesmo tempo, controlar os custos associados à hospedagem de seu aplicativo no Azure. Junto com o dimensionamento, aumentando ou diminuindo o número de instâncias de função de seu aplicativo, o bloco também permite que você use outras ações de dimensionamento, como a limitação de determinada funcionalidade dentro de seu aplicativo ou o uso de ações personalizadas.
 
 Você pode optar por hospedar o bloco em uma função do Azure ou em um aplicativo local.
 
@@ -111,7 +111,7 @@ Use o método **IServiceLocator.GetInstance** para instanciar o Dimensionador Au
 
 ## <a id="DefineServiceModel"> </a>Como definir seu modelo de serviço
 
-Normalmente, você armazena seu modelo de serviço (uma descrição do seu ambiente do Microsoft Azure que inclui informações sobre assinaturas, serviços hospedados, funções e contas de armazenamento) em um arquivo XML. Você pode localizar uma cópia do esquema desse arquivo XML no arquivo **AutoscalingServiceModel.xsd** em seu projeto. No Visual Studio, esse esquema fornece IntelliSense e validação quando você edita o arquivo XML de modelo de serviço.
+Normalmente, você armazena seu modelo de serviço (uma descrição do seu ambiente do Azure que inclui informações sobre assinaturas, serviços hospedados, funções e contas de armazenamento) em um arquivo XML. Você pode localizar uma cópia do esquema desse arquivo XML no arquivo **AutoscalingServiceModel.xsd** em seu projeto. No Visual Studio, esse esquema fornece IntelliSense e validação quando você edita o arquivo XML de modelo de serviço.
 
 Crie um novo arquivo XML denominado **services.xml** em seu projeto.
 
@@ -139,9 +139,9 @@ Você deve substituir os valores entre colchetes com valores específicos ao seu
 
 Entre no Portal de Gerenciamento.
 
--   **[subscriptionname]\:** escolha um nome amigável para referir-se à assinatura do Azure que contém o aplicativo em que você deseja usar o dimensionamento automático.
+-   **[subscriptionname]:** escolha um nome amigável para referir-se à assinatura do Azure que contém o aplicativo no qual você deseja usar o dimensionamento automático.
 
--   **[subscriptionid]\:** a ID exclusiva da assinatura do Azure que contém o aplicativo em que você deseja usar o dimensionamento automático.
+-   **[subscriptionid]:** a ID exclusiva da assinatura do Azure que contém o aplicativo em que você deseja usar o dimensionamento automático.
 
     1.  No Portal de Gerenciamento do Azure, clique em **Serviços de Nuvem**.
 
@@ -150,7 +150,7 @@ Entre no Portal de Gerenciamento.
         ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix]\:** o Prefixo DNS do serviço hospedado em que você deseja usar o dimensionamento automático.
+	-   **[hostedservicednsprefix]**: o Prefixo DNS do serviço hospedado em que você deseja usar o dimensionamento automático.
 
     1.  No Portal de Gerenciamento do Azure, clique em **Serviços de Nuvem**.
 
@@ -158,7 +158,7 @@ Entre no Portal de Gerenciamento.
 
         ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename]\:** o nome da função que é o destino de suas regras de dimensionamento automático
+	-   **[targetrolename]:** o nome da função que é o destino de suas regras de dimensionamento automático.
 
     1.  No Portal de Gerenciamento do Azure, clique em **Serviços de Nuvem**.
 
@@ -167,7 +167,7 @@ Entre no Portal de Gerenciamento.
         ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** e **[storageaccountkey]\:** o nome da Conta de Armazenamento do Azure que você está usando para o seu aplicativo do Azure de destino.
+	-   **[storageaccountname]** e **[storageaccountkey]:** o nome da Conta de Armazenamento do Azure que você está usando para o seu aplicativo do Azure de destino.
 
     1.  No Portal de Gerenciamento do Azure, clique em **Armazenamento**.
 
@@ -178,7 +178,7 @@ Entre no Portal de Gerenciamento.
         ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]\:** a **Impressão Digital** do Certificado de Gerenciamento que o bloco usará para proteger as solicitações de dimensionamento no aplicativo de destino.
+	-   **[managementcertificatethumbprint]:** a **Impressão Digital** do Certificado de Gerenciamento que o bloco usará para proteger as solicitações de dimensionamento no aplicativo de destino.
 
     1.  No Portal de Gerenciamento do Azure, clique em **Configurações**.
 
@@ -236,7 +236,7 @@ O exemplo de código a seguir mostra uma regra de exemplo definida em um arquivo
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -353,32 +353,33 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
 -   [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático][]
 -   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure][]
 
-[Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-[Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-[Próximas etapas]: #NextSteps
-[O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
-[Conceitos]: #Concepts
-[Coletar dados de contador de desempenho do aplicativo do Azure de destino]: #PerfCounter
-[Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático]: #CreateHost
-[Como instanciar e executar o dimensionador automático]: #Instantiate
-[Como definir o modelo de serviço]: #DefineServiceModel
-[Como definir seu modelo de serviço]: #DefineServiceModel
-[Como definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
-[Como configurar um bloco de aplicativo de dimensionamento automático]: #Configure
-[Usando contadores de desempenho no Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
-[NuGet]: http://nuget.org/
-[Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
-[Armazenando seus dados de informações de serviço]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
-[Hospedando o bloco de aplicativos de dimensionamento automático em uma função de trabalho]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
-[Implementando comportamento de limitação]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
-[Compreendendo as classificações e a reconciliação das regras]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
-[Estendendo e modificando o Bloco de Aplicativos de Dimensionamento Automático]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
-[Usando o Estabilizador de Otimização para evitar oscilação de alta frequência e otimizar os custos]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
-[Usando notificações e redimensionamento manual]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
-[Definindo grupos de escala]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
-[Usando os WASABiCmdlets para manipular o bloco via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
-[Guia do desenvolvedor para o Pacote de Integração da Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
-[Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
-[Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+  [Pacote de Integração da Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [Pacote de Integração do Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [Próximas etapas]: #NextSteps
+  [O que é o Bloco de Aplicativos de Dimensionamento Automático?]: #WhatIs
+  [Conceitos]: #Concepts
+  [Coletar dados de contador de desempenho do aplicativo do Azure de destino]: #PerfCounter
+  [Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático]: #CreateHost
+  [Como instanciar e executar o dimensionador automático]: #Instantiate
+  [Como definir o modelo de serviço]: #DefineServiceModel
+  [Como definir seu modelo de serviço]: #DefineServiceModel
+  [Como definir suas regras de dimensionamento automático]: #DefineAutoscalingRules
+  [Como configurar um bloco de aplicativo de dimensionamento automático]: #Configure
+  [Usando contadores de desempenho no Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [NuGet]: http://nuget.org/
+  [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
+  [Armazenando seus dados de informações de serviço]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
+  [Hospedando o bloco de aplicativos de dimensionamento automático em uma função de trabalho]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implementando comportamento de limitação]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Compreendendo as classificações e a reconciliação das regras]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Estendendo e modificando o Bloco de Aplicativos de Dimensionamento Automático]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Usando o Estabilizador de Otimização para evitar oscilação de alta frequência e otimizar os custos]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Usando notificações e redimensionamento manual]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Definindo grupos de escala]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Usando os WASABiCmdlets para manipular o bloco via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Guia do desenvolvedor para o Pacote de Integração da Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [Como o Sage reduz os custos de hospedagem do Azure usando dimensionamento automático]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

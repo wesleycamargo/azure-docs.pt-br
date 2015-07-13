@@ -12,7 +12,7 @@ Siga estas etapas para criar um novo aplicativo móvel.
 
 7. Selecione uma região. Neste tutorial, usamos a região **Centro-Sul dos EUA**.
 
-    > [AZURE.NOTE]Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo back-end de aplicativo móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
+    > [AZURE.NOTE]Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância do Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo back-end de aplicativo móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
 
 3. Selecione sua assinatura.
 
@@ -24,7 +24,7 @@ Siga estas etapas para criar um novo aplicativo móvel.
 
 6. Crie um novo plano de hospedagem Web com o mesmo nome que o aplicativo móvel.
 
-    > [AZURE.NOTE]Digite o nome do plano de hospedagem Web, não tente copiar/colar. Não há validação de nome neste campo que falha se você não digitar o nome. Ele não precisa ter exatamente o mesmo nome do site (mas precisa seguir as mesmas regras).
+    > [AZURE.NOTE]Digite o nome do plano de hospedagem Web, não tente copiar/colar. Haverá validação de nome neste campo que falha se você não digitar o nome. Ele não precisa ter exatamente o mesmo nome do site (mas precisa seguir as mesmas regras).
 
 8. Selecione uma faixa de preço. Neste tutorial, usamos **Padrão 1**.
 

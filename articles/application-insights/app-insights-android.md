@@ -95,8 +95,8 @@ Também é possível definir a chave de instrumentação no código. Isso substi
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -108,18 +108,18 @@ Adicione a importação a seguir à sua atividade-raiz de aplicativos
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 Adicione também o descrito a seguir ao retorno de chamada `onCreate` da atividade.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-Quando `AppInsights.start()` for chamado, o SDK começará a acompanhar a atividade de ciclo de vida do Android e quaisquer exceções não tratadas.
+Quando `ApplicationInsights.start()` for chamado, o SDK começará a acompanhar a atividade de ciclo de vida do Android e quaisquer exceções não tratadas.
 
 > [AZURE.NOTE]Eventos de ciclo de vida do aplicativo só são coletados no Android SDK versão 15 ou posterior (Sanduíche de sorvete+).
 
@@ -139,9 +139,9 @@ A seguir, um exemplo de inicialização e coleta da telemetria manual.
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
@@ -197,4 +197,6 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->
