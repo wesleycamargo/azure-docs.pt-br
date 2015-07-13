@@ -103,7 +103,7 @@ Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um di
 No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu).
 
 
-	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+	>[AZURE.NOTE] Note que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado na reinicialização da VM.
 
 No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
