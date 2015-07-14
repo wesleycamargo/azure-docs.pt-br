@@ -262,7 +262,7 @@ O estilo do [grupo de listas vinculadas][] do Bootstrap torna clicável a caixa 
 
 ![][AllSpeakersFixedDesktop]
 
-Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\Home\AllSpeakers.cshtml*, adicione uma marca <form> logo após a marca <h2>, como mostrado abaixo:
+Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\Home\AllSpeakers.cshtml*, adicione uma marca \<form\> logo após a marca \<h2\>, como mostrado abaixo:
 
     @model IEnumerable<string>
 
