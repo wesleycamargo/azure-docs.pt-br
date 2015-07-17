@@ -58,7 +58,7 @@ Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeir
 2. Clique em **Novo** -> **Serviços de Dados** -> **Serviços de Recuperação** -> **Cofre de Backup** > **Criação Rápida**. Se você tem várias assinaturas associadas à sua conta organizacional, escolha a assinatura correta a ser associada ao cofre de backup. Em cada assinatura do Azure, é possível ter vários cofres de backup para organizar os dados que estão sendo protegidos.
 3. Em **Nome**, digite um nome amigável para identificar o cofre. Ele precisa ser exclusivo para cada assinatura.
 4. Em **Região**, selecione a região geográfica para o cofre. Observe que o cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se você tiver máquinas virtuais em diferentes regiões, crie um cofre em cada uma delas. Não é necessário especificar contas de armazenamento para armazenar os dados de backup – o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente.
-    > [AZURE.NOTE][regiões com suporte](http://azure.microsoft.com/regions/#services)
+    > [AZURE.NOTE] O backup da máquina virtual com o serviço Backup do Azure tem suporte apenas em determinadas regiões. Verifique a lista de [regiões com suporte](http://azure.microsoft.com/regions/#services). Se a região que você estiver procurando não tiver suporte atualmente, ela não aparecerá na lista suspensa durante a criação do cofre.
 
 5. Em **Assinatura**, digite a assinatura do Azure que você deseja usar com o cofre de backup.
 6. Clique em **Criar cofre**. ![Criar cofre de backup](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
@@ -101,7 +101,7 @@ Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeir
 9. Na página **Configuração de criptografia**, especifique os detalhes de senha ou gere automaticamente uma senha.
 10. Clique em Gerar senha seguido de Copiar para a área de transferência. Você receberá uma mensagem de que sua senha foi copiada para a área de transferência. Agora é uma boa hora para abrir o bloco de notas e colar a senha da área de transferência e salvar o arquivo, e também imprimir o arquivo e guardá-lo. Clique em Registro para registrar o servidor DPM com o Cofre de Backup.
 
-    > [AZURE.TIP]
+    > [AZURE.TIP] Na etapa Configuração da Criptografia, lembre-se de copiar a senha na área de transferência.
 11. Clique em **Registrar**.
 
     Após a conclusão do registro, o console do DPM mostra a disponibilidade do Backup do Azure.

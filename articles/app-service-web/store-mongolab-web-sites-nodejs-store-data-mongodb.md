@@ -48,10 +48,13 @@ Antes de continuar, certifique-se de que você tem o seguinte instalado:
 Se você tiver alguma familiaridade com o Azure Store, use esta seção para fazer um início rápido. Caso contrário, vá para [Provisionar o banco de dados][provision] abaixo.
 
 1. Abra o Azure Marketplace clicando em **Novo** > **Marketplace**.  
-<!-- ![Store][button-store] -->
-2. Clique no complemento **MongoLab**. ![MongoLab][entry-mongolab]
-3. Clique no complemento **MongoLab** na lista Complementos e, em seguida, clique em **Informações de Conexão**. ![ConnectionInfoButton][button-connectioninfo]  
-4. Copie o **MONGOLAB_URI** para a sua área de transferência. ![ConnectionInfoScreen][screen-connectioninfo]
+<!--- ![Store][button-store] -->
+2. Clique no complemento **MongoLab**.  
+![MongoLab][entry-mongolab]
+3. Clique no complemento **MongoLab** na lista Complementos e, em seguida, clique em **Informações de Conexão**.  
+![ConnectionInfoButton][button-connectioninfo]  
+4. Copie o **MONGOLAB_URI** para a sua área de transferência.  
+![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]Esse URI contém seu nome de usuário do banco de dados e senha. Tratá-lo como informações confidenciais e não a compartilhe.
 
@@ -447,11 +450,11 @@ Antes de usar a CLI do Azure, você deve primeiro baixar um arquivo que contém 
 
 1. No portal do Azure, clique em **Novo**. ![Novo][button-new]
 2. Selecione **Computação > Aplicativo Web > Criação Rápida**.
-<!-- ![Create Web App][screen-mongolab-newwebsite] -->
+<!--- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Digite um prefixo de URL. Escolha um nome de sua preferência, mas lembre-se de que ele deve ser exclusivo ('mymongoapp' provavelmente não estará disponível).
 4. Clique em **Criar aplicativo Web**.
 5. Quando a criação do aplicativo Web for concluída, clique no nome do aplicativo Web na lista de aplicativos Web. O painel Aplicativo Web é exibido.
-<!-- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. Clique em **Configurar a implantação do controle do código-fonte** em **visão rápida**, selecione GitHub e insira seu nome de usuário git desejado e senha. Você usará essa senha ao enviar por push para o seu aplicativo Web (na etapa 9).  
 7. Se você tiver criado o seu aplicativo Web usando as etapas acima, o comando a seguir pode concluir o processo. No entanto, se você já tiver mais de um aplicativo Web, ignore as etapas acima e crie um novo aplicativo Web usando esse mesmo comando. De seu diretório de projeto **tasklist**:
 
@@ -570,4 +573,4 @@ Parabéns! Você acabou de lançar um aplicativo Node. js apoiado por um banco d
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

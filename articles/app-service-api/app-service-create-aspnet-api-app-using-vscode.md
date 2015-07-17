@@ -32,10 +32,11 @@ Este tutorial mostra como criar um aplicativo de API ASP.NET 5 usando o [Visual 
 ## Pré-requisitos  
 
 * Instale e configure o [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
-* Instale o [Node.js](http://nodejs.org/download/).<br> O [Nó](http://nodejs.org/) é uma plataforma para a criação rápida e dimensionável de aplicativos de servidor usando JavaScript. O Nó é o tempo de execução (nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo de API 5 ASP.NET neste tutorial.
+* Instale o [Node.js](http://nodejs.org/download/).<br\> 
+	O [Nó](http://nodejs.org/) é uma plataforma para a criação rápida e dimensionável de aplicativos de servidor usando JavaScript. O Nó é o tempo de execução (nó) e [npm](http://www.npmjs.com/) é o Gerenciador de Pacotes para os módulos do Nó. Você usará o npm para criar o scaffolding de um aplicativo de API 5 ASP.NET neste tutorial.
 
 ## Instalar o ASP.NET 5 e DNX
-O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizada para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
+O ASP.NET 5/DNX é uma pilha enxuta do .NET para criar aplicativos da Web e de nuvem modernos e executados em OS X, Linux e Windows. Ele foi criado do zero para fornecer uma estrutura de desenvolvimento otimizado para aplicativos que são implantados na nuvem ou então executados localmente. Ele consiste em componentes modulares com sobrecarga mínima, para que você mantenha a flexibilidade durante a construção de suas soluções.
 
 > [AZURE.NOTE]O ASP.NET 5 e o DNX (o ambiente de execução do .NET) em OS X e Linux estão em um estado inicial Beta/de Visualização.
 
@@ -45,14 +46,16 @@ Este tutorial é projetado para começar a criar aplicativos com as versões de 
 
 	<pre class="prettyprint">
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-</pre>Isso baixará o script DNVM e o colocará em seu perfil do usuário.
+	</pre>
+	Isso baixará o script DNVM e o colocará em seu perfil do usuário.
 
 2. Talvez seja necessário fazer logoff depois de inserir o comando acima para que a alteração para a variável de ambiente PATH entre em vigor.
 3. Verifique o local do DNVM executando o seguinte na Janela de Comando: 
 
 	<pre class="prettyprint">
 where dnvm
-</pre>A Janela de Comando mostrará um caminho semelhante ao seguinte:
+	</pre>
+	A Janela de Comando mostrará um caminho semelhante ao seguinte:
 
 	![local dnvm](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
@@ -66,7 +69,8 @@ dnvm upgrade
 
 	<pre class="prettyprint">
 dnvm list
-</pre>A Janela de Comando mostrará os detalhes do tempo de execução ativo:
+	</pre>
+	A Janela de Comando mostrará os detalhes do tempo de execução ativo:
 
 	![local dnvm](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -93,7 +97,8 @@ yo aspnet
 
 	![Yoman - gerador ASP.NET 5](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. Defina o nome do seu novo aplicativo de API do ASP.NET como **ContactsList**. Esse nome será usado no código fornecido posteriormente neste tutorial. <br> Yoman criará uma nova pasta chamada **ContactsList** e os arquivos necessários para o novo aplicativo.
+5. Defina o nome do seu novo aplicativo de API do ASP.NET como **ContactsList**. Esse nome será usado no código fornecido posteriormente neste tutorial. <br>
+	 Yoman criará uma nova pasta chamada **ContactsList** e os arquivos necessários para o novo aplicativo.
 6. Abra o **Visual Studio Code**.<br> Você pode abrir VSCode da janela de comando digitando **code .**.
 7. Do menu **Arquivo**, selecione **Abrir pasta** e selecione a pasta onde seu aplicativo de API do ASP.NET está localizado.
 
@@ -108,7 +113,8 @@ yo aspnet
 
 	<pre class="prettyprint">
 dnx:dnu restore - (ContactsList)
-</pre>Conforme você começa a digitar, você verá a linha de comando completa na lista.
+	</pre>
+	Conforme você começa a digitar, você verá a linha de comando completa na lista.
 
 	![Comando Restore](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
@@ -150,7 +156,7 @@ namespace ContactsList.Controllers
     {
         // GET: api/Contacts
         [HttpGet]
-        public IEnumerable&lt;Contact> Get()
+	        public IEnumerable&lt;Contact&gt; Get()
         {
             return new Contact[]{
                 new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
@@ -167,7 +173,8 @@ namespace ContactsList.Controllers
 
 	<pre class="prettyprint">
 dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-</pre>A janela de comando exibirá a mensagem *Iniciado*. Se a janela de comando não exibir a mensagem *Iniciado*, verifique o canto inferior esquerdo de VSCode em busca de erros em seu projeto.
+	</pre>
+	A janela de comando exibirá a mensagem *Iniciado*. Se a janela de comando não exibir a mensagem *Iniciado*, verifique o canto inferior esquerdo de VSCode em busca de erros em seu projeto.
 
 5. Abra uma janela de navegador e navegue até a seguinte URL:
 
@@ -181,7 +188,8 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 Os metadados que habilitam um projeto de API ASP.NET a ser implantado como um aplicativo de API estão contidos em um arquivo *apiapp.json* na raiz do projeto.
 
 1. No VSCode, clique com o botão direito do mouse na pasta *wwwroot* e selecione a opção **Novo Arquivo**.
-2. Nomeie o novo arquivo *apiapp.json*. <br> Certifique-se de que *apiapp.json* está na pasta *wwwroot*.
+2. Nomeie o novo arquivo *apiapp.json*. <br\>
+	 Certifique-se de que *apiapp.json* está na pasta *wwwroot*.
 3. Adicione o seguinte ao arquivo *apiapp.json*:
 
 	<pre class="prettyprint">
@@ -214,7 +222,7 @@ Para fornecer um arquivo de definição de API Swagger 2.0 estática, você prec
     "version": "v1",
     "title": "ContactsList"
   },
-  "host": "DEVE SUBSTITUIR PELA URL DO SEU HOST",
+	  "host": "DEVE SUBSTITUIR PELA URL DO SEU HOST",
   "schemes": [
     "https"
   ],
@@ -420,7 +428,8 @@ git remote add azure [URL para repositório remoto]
 
 	<pre class="prettyprint">
 git push azure master
-</pre>Será solicitada a senha que você criou anteriormente. **Observação: a senha não será visível.**
+	</pre>
+	Será solicitada a senha que você criou anteriormente. **Observação: a senha não será visível.**
 
 	A saída do comando acima termina com uma mensagem de que a implantação foi bem-sucedida:
 
@@ -438,7 +447,8 @@ Agora que você implantou uma API para seu aplicativo de API, você pode ver a d
 1. No portal de visualização do Azure, vá até a folha **APLICATIVO DE API** para o aplicativo de API que você criou anteriormente e clique no link **Gateway**.
 2. Na folha **GATEWAY**, clique em **Reiniciar**. Agora você pode fechar esta folha.
 3. Na folha **APLICATIVO DE API**, clique em **Reiniciar**. 
-4. Na folha **APLICATIVO DE API**, clique em **Definição de API**.<br> A folha Definição de API mostra dois métodos. Se você não vir os métodos GET e POST imediatamente, aguarde alguns segundos para o Azure atualizar o aplicativo. Então, clique em **Definição de API** na folha **APLICATIVO DE API**.
+4. Na folha **APLICATIVO DE API**, clique em **Definição de API**.<br>
+	 A folha Definição de API mostra dois métodos. Se você não vir os métodos GET e POST imediatamente, aguarde alguns segundos para o Azure atualizar o aplicativo. Então, clique em **Definição de API** na folha **APLICATIVO DE API**.
 
 ## Executar o aplicativo no Azure
 No Portal de Visualização do Azure, vá até a folha **HOST DE APLICATIVO DE API** para seu aplicativo de API e clique em **Procurar**. Em seguida, adicione **api/Contatos** ao final da URL para exibir os detalhes do contato.

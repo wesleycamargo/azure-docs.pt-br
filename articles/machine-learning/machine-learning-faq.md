@@ -93,7 +93,8 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento. <!--
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -304,4 +305,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO1-->
+<!----HONumber=July15_HO1-->

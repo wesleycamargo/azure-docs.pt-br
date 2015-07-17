@@ -41,7 +41,8 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 1. [Instalação do Git][install-git]
 
-	> [AZURE.NOTE]No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
+	> [AZURE.NOTE]
+	> No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 

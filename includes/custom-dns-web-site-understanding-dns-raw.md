@@ -10,13 +10,13 @@ Também existem vários tipos de registros, cada um com suas próprias funções
 
 ###Registro de endereço (registro A)
 
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como ***.contoso.com**, para um endereço IP. No caso de um aplicativo Web no Serviço de Aplicativo, será o IP virtual do serviço ou então um endereço IP específico que você adquiriu para seu aplicativo Web.
+Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga*, como **\*.contoso.com**, para um endereço IP. No caso de um aplicativo Web no Serviço de Aplicativo, será o IP virtual do serviço ou então um endereço IP específico que você adquiriu para seu aplicativo Web.
 
 Os principais benefícios de um registro A em relação a um registro CNAME são:
 
 * Você pode mapear um domínio raiz, como **contoso.com**, para um endereço IP; muitos registradores só permitem isso com registros A
 
-* É possível ter uma entrada que usa um curinga, como ***.contoso.com**, que lidaria com solicitações para vários subdomínios, como **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
+* É possível ter uma entrada que usa um curinga, como **\*.contoso.com**, que lidaria com solicitações para vários subdomínios, como **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]Já que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações feitas no endereço IP de seu aplicativo Web. Um endereço IP para uso com registros A é fornecido quando você define as configurações de nome de domínio personalizado para seu aplicativo Web; no entanto, esse valor poderá ser alterado se você excluir e recriar seu aplicativo Web, ou se alterar o modo do plano do Serviço de Aplicativo de volta para **Gratuito**.
 

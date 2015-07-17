@@ -21,7 +21,7 @@
 
 # Django e MySQL no Azure com Python Tools 2.1 para Visual Studio 
 
-Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
+Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
 Aprenderemos a usar um serviço MySQL hospedado no Azure, configurar o aplicativo para usar o MySQL e publicar o aplicativo web para os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -99,7 +99,7 @@ Você pode criar um banco de dados com um plano grátis seguindo estas etapas.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Digite de "* * * * de mysql" na caixa de pesquisa, clique em **Banco de dados MySQL**, e, em seguida, clique em **Criar**.
+1.  Digite de "**de mysql**" na caixa de pesquisa, clique em **Banco de dados MySQL**, e, em seguida, clique em **Criar**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 

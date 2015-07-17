@@ -135,8 +135,8 @@ Para gerar um tíquete de suporte para o ASR, acesse o Suporte do Azure usando a
 
 ## Artigos da Base de Dados de Conhecimento
 
--   [Como preservar a letra da unidade para máquinas virtuais
-    > http://support.microsoft.com/kb/3031135
+-   [Como preservar a letra da unidade 
+    > para máquinas virtuais](http://support.microsoft.com/kb/3031135)
 
 -   [Como solucionar problemas dos Serviços de Recuperação
     > do Azure](http://support.microsoft.com/kb/3005185)
