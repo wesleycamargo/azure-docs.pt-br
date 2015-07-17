@@ -29,7 +29,13 @@ Para usar o conector de margem de atraso, você precisa primeiro criar uma inst�
 2.	Navegue até "Web e Móvel > Azure Marketplace" e procure "Conector de margem de atraso".
 3.	Configure o conector de margem de atraso da seguinte maneira:
  
-	![][1] - **Nome** - dê um nome para o conector de margem de atraso - **Plano de serviço do aplicativo** - selecione ou crie um plano de serviço de aplicativo - **Camada de preços** - escolha uma camada de preços para o conector - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado - **Local** -escolha o local geográfico onde quer que o conector seja implantado
+	![][1]
+	- **Nome** - dê um nome para o conector de margem de atraso
+	- **Plano de serviço do aplicativo** - selecione ou crie um plano de serviço de aplicativo
+	- **Camada de preços** - escolha uma camada de preços para o conector
+	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
+	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
+	- **Local** -escolha o local geográfico onde quer que o conector seja implantado
 
 4. Clique em Criar. Será criado um novo conector de margem de atraso.
 5. Depois de criar a instância de aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector de margem de atraso.
@@ -46,7 +52,10 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
 	![][2]
 4.	Você pode colocar o aplicativo de API do conector de margem de atraso no editor clicando em "Conector de margem de atraso". Clique no botão Autorizar. Forneça suas credenciais da Microsoft (se não tiver entrado automaticamente). Entre na sua conta de margem de atraso, seguindo as etapas. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Clique em "Authorizify"
  
-	![][3] ![][4] ![][5] ![][6]
+	![][3]
+	![][4]
+	![][5]
+	![][6]
 	
 5.	Agora você pode usar o conector de margem de atraso no fluxo. Atualmente, os gatilhos não estão disponíveis no conector de margem de atraso. As ações disponíveis são - Postagem
  
@@ -85,4 +94,4 @@ Após seu aplicativo de API ser criado, você pode usar o conector de margem de 
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Definição de API de margem de atraso]: https://msdn.microsoft.com/pt-br/library/dn708020.aspx
 
-<!---HONumber=62-->
+<!----HONumber=62-->

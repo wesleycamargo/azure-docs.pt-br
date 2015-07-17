@@ -30,7 +30,19 @@ Para usar o conector de SMTP, primeiro você precisa criar uma instância do apl
 2.	Navegue até "Web e Dispositivos Móveis > Azure Marketplace" e pesquise "Conector SMTP".
 3.	Configure o Conector de SMTP da seguinte maneira:
  
-	![][1] - **Local** - escolha o local geográfico onde deseja que o conector seja implantado - **Assinatura** - escolha uma assinatura na qual deseja que esse conector seja criado - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Plano de hospedagem na Web** - selecione ou crie um plano de hospedagem na web - **Camada de preços** - escolha uma camada de preços para o conector - **Nome** - dê um nome para o conector SMTP - **Configurações do pacote** - **Nome de usuário** Especifique o nome de usuário para se conectar ao servidor SMTP - **Senha** Especifique a senha para se conectar ao servidor SMTP - **Endereço do servidor** Especifique o nome ou endereço IP do servidor SMTP - **Porta do servidor** Especifique o número da porta do servidor SMTP - **Habilitar SSL** Especifique true para usar o SMTP por meio de um canal SSL/TLS seguro
+	![][1]
+	- **Local** - escolha o local geográfico onde deseja que o conector seja implantado
+	- **Assinatura** - escolha uma assinatura na qual deseja que esse conector seja criado
+	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
+	- **Plano de hospedagem na Web** - selecione ou crie um plano de hospedagem na web
+	- **Camada de preços** - escolha uma camada de preços para o conector
+	- **Nome** - dê um nome para o conector SMTP
+	- **Configurações do pacote**
+		- **Nome de usuário** Especifique o nome de usuário para se conectar ao servidor SMTP
+		- **Senha** Especifique a senha para se conectar ao servidor SMTP
+		- **Endereço do servidor** Especifique o nome ou endereço IP do servidor SMTP
+		- **Porta do servidor** Especifique o número da porta do servidor SMTP
+		- **Habilitar SSL** Especifique true para usar o SMTP por meio de um canal SSL/TLS seguro
 4.	Clique em Criar. Será criado um novo Conector de SMTP.
 5.	Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do SMTP. 
 
@@ -64,7 +76,8 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector de SMTP
 		- Nome do Arquivo (Cadeia de Caracteres)
 	 
 	
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 
 	<!--Image references-->
@@ -76,4 +89,4 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector de SMTP
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

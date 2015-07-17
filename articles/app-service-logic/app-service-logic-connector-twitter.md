@@ -61,7 +61,8 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Twitter com
 	![][6]
 7.	De maneira semelhante, você pode usar as ações do Twitter no fluxo. Selecione uma ação do Twitter e configure as entradas para a respectiva ação.
 
-	![][7] ![][8]
+	![][7]
+	![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -74,4 +75,4 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Twitter com
 [8]: ./media/app-service-logic-connector-twitter/img8.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

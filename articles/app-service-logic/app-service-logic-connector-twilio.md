@@ -30,7 +30,16 @@ Para usar o conector do Twilio, primeiro você precisa criar uma instância do a
 2.	Navegue até "Aplicativos de API" e pesquise "Conector do Twilio".
 3.	Configure o conector do Twilio da seguinte maneira:
  
-	![][1] - **Local** - escolha o local geográfico onde deseja que o conector seja implantado - **Assinatura** - escolha uma assinatura na qual deseja que esse conector seja criado - **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir - **Plano de hospedagem na Web** - selecione ou crie um plano de hospedagem na Web - **Camada de preços** - escolha uma camada de preços para o conector - **Nome** - dê um nome para o conector do Twilio - **Configurações do pacote** - **SID da conta** -O identificador exclusivo da conta. O SID da sua conta pode ser recuperado em <https://www.twilio.com/user/account/settings> - **Token de autorização** - Token de autorização associado à conta. O token de autorização da sua conta pode ser recuperado em <https://www.twilio.com/user/account/settings>
+	![][1]
+	- **Local** - escolha o local geográfico onde deseja que o conector seja implantado
+	- **Assinatura** - escolha uma assinatura na qual deseja que esse conector seja criado
+	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
+	- **Plano de hospedagem na Web** - selecione ou crie um plano de hospedagem na Web
+	- **Camada de preços** - escolha uma camada de preços para o conector
+	- **Nome** - dê um nome para o conector do Twilio
+	- **Configurações do pacote**
+		- **SID da conta** -O identificador exclusivo da conta. O SID da sua conta pode ser recuperado em <https://www.twilio.com/user/account/settings>
+		- **Token de autorização** - Token de autorização associado à conta. O token de autorização da sua conta pode ser recuperado em <https://www.twilio.com/user/account/settings>
 
 
 4.	Clique em Criar. Será criado um novo conector do Twilio.
@@ -55,7 +64,8 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 	- **Para o Número de Telefone** - O número de telefone de destino. O formato aceito é: +, seguido do código do país e do número de telefone. Por exemplo, +16175551212 Se você omitir o +, o Twilio usará o código do país que você inseriu no número ‘De’.
 	- **Texto** - O texto da mensagem que você deseja enviar.
  
-	![][5] ![][6]
+	![][5]
+	![][6]
 
 
 
@@ -68,4 +78,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
