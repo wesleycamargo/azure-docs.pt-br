@@ -118,7 +118,7 @@ Associando um NSG a uma sub-rede: quando um NSG é associado a uma sub-rede, as 
 
 Associando um NSG a uma sub-rede e a uma VM: é possível associar um NSG a uma máquina virtual e um NSG diferente à sub-rede onde reside a VM. Há suporte para isso e, nesse caso, a VM obtém duas camadas de proteção. No tráfego de Entrada, o pacote percorre as regras de acesso especificadas na sub-rede seguidas por regras na VM e, em caso de Saída, ele percorre as regras especificadas na VM primeiro e depois passa pelas regras especificadas na sub-rede, conforme ilustrado no diagrama a seguir.
 
-![ACLs de NSG](./media/virtual-networks-nsg/IC757774.png)
+![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
 
 Quando um NSG está associado uma VM ou sub-rede, as regras de controle de acesso de rede se tornam bastante explícitas. A plataforma não irá inserir regras implícitas para permitir o tráfego em uma porta específica. Nesse caso, se você criar um ponto de extremidade na VM, também precisa criar uma regra para permitir o tráfego da Internet. Se você não fizer isso, o VIP:<Port> não estará acessível de fora.
 
