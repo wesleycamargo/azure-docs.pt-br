@@ -95,5 +95,6 @@ Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciam
 Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento dinâmico.
 
 - Arquivos mp4 Dolby digital plus.
-- Arquivos smooth Dolby digital plus. <!--HONumber=52-->
- 
+- Arquivos smooth Dolby digital plus.
+
+<!---HONumber=52-->
