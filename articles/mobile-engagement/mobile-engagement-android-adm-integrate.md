@@ -75,7 +75,7 @@ Siga as instruções das próximas seções.
 
 ### Comunicar a id de registro para o serviço de envio por push do Engagement e receber notificações
 
-Para comunicar a ID de registro do dispositivo para o serviço de Envio por Push do Engagement e receber notificações, adicione o seguinte ao seu arquivo `AndroidManifest.xml`  dentro da marca `<application/>` (mesmo que você use ADM sem Engagement):
+Para comunicar a ID de registro do dispositivo para o serviço de Envio por Push do Engagement e receber notificações, adicione o seguinte ao seu arquivo `AndroidManifest.xml` dentro da marca `<application/>` (mesmo que você use ADM sem Engagement):
 
 		<receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
 		  android:exported="false">
@@ -102,7 +102,7 @@ Certifique-se de ter as seguintes permissões em seu `AndroidManifest.xml` (ante
 
 ##Conceda as credenciais do Engagement OAuth
 
-Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) em $/#application/YOUR_APPID/native-push.
+Envie suas credenciais OAuth (ID do Cliente e Segredo do Cliente) em $/\\#application/YOUR\\_APPID/native-push.
 
 Agora você pode selecionar "Qualquer hora" durante a criação de pesquisas e anúncios de alcance.
 
@@ -111,5 +111,6 @@ Agora você pode selecionar "Qualquer hora" durante a criação de pesquisas e a
 [biblioteca de cliente do ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [ADM integrado]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

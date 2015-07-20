@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Integração do SDK do Engagement do Windows Universal
@@ -220,7 +220,7 @@ Se você não pode ou não quer sobrecarregar as classes `Page`, em vez disso, v
 
 > [AZURE.IMPORTANT]Certifique-se de encerrar a sua sessão corretamente.
 > 
-> O SDK do Windows Universal chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Portanto, é *ALTAMENTE* recomendado chamar o método `StartActivity` sempre que a atividade do usuário for alterada e *NUNCA* chamar o método `EndActivity`, visto que chamar esse método força o encerramento da sessão atual.
+> O SDK do Windows Universal chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Desse modo, é **ALTAMENTE** recomendável chamar o método `StartActivity` sempre na atividade de alteração de usuário e **NUNCA** chamar o método `EndActivity`; esse método envia ao servidor do Engagement esse usuário atual que deixa o aplicativo, e isso afeta todos os logs de aplicativo.
 
 ##Relatórios avançados
 
@@ -263,11 +263,12 @@ Para fazer isso, chame o método:
 
 O argumento é um valor em **milissegundos**. A qualquer momento, se você deseja reativar o registro em log em tempo real, basta chamar o método sem nenhum parâmetro, ou com o valor 0.
 
-O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s).
+O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s). Você deve estar ciente de que os logs salvos são limitados a 300 itens. Se o envio for muito longo, você poderá perder alguns logs.
 
 > [AZURE.WARNING]O limite de intermitência não pode ser configurado para um período menor que 1s. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, ou seja, 0s. Isso irá disparar o SDK para relatar os logs em tempo real.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

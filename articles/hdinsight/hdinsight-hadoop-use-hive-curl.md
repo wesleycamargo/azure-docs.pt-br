@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Executar consultas Hive com Hadoop no HDInsight com Curl
@@ -24,7 +24,7 @@ Neste documento, você aprenderá como usar o Curl para executar consultas Hive 
 
 O Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar, monitorar e recuperar os resultados de consultas do Pig. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
 
-> [AZURE.NOTE]Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux</a>.
+> [AZURE.NOTE]Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte [O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -32,17 +32,17 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um Hadoop no cluster HDInsight (baseado em Linux ou Windows)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Executar consultas Hive usando o Curl
 
 > [AZURE.NOTE]Ao usar o Curl ou qualquer outra comunicação do REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. Você também deve usar o nome do cluster como parte do URI (Uniform Resource Identifier) usado para enviar as solicitações ao servidor.
-> 
+>
 > Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster e substitua **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
-> 
-> A API REST é protegida por meio de <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticação básica</a>. Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
+>
+> A API REST é protegida por meio de [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
 1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
 
@@ -74,15 +74,15 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
     * **-d** - como `-G` não é usado, a solicitação resulta no método POST por padrão. `-d` especifica os valores de dados que são enviados com a solicitação.
 
         * **user.name** - o usuário que está executando o comando.
-        
+
         * **execute** - as instruções do HiveQL a executar.
-        
+
         * **statusdir** - o diretório no qual o status deste trabalho será gravado.
 
     Essas instruções executam as seguintes ações:
 
     * **DROP TABLE** - exclui a tabela e o arquivo de dados, caso a tabela já exista.
-    
+
     * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
 		> [AZURE.NOTE]As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa, como um processo automático de carregamento de dados, ou outra operação MapReduce, mas sempre quer que as consultas Hive utilizem os dados mais recentes.
@@ -90,10 +90,10 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 		> Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
     * **ROW FORMAT** - informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-    
+
     * **STORED AS TEXTFILE LOCATION** - informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-    
-    * **SELECT** - seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
+
+    * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
 
     > [AZURE.NOTE]Observe que os espaços entre as instruções HiveQL são substituídos pelo caractere `+` quando usados com o Curl. Os valores entre aspas que contêm um espaço, como o delimitador, não devem ser substituídos por `+`.
 
@@ -119,7 +119,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k` ou definir as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY**. Consulte <a href="hdinsight-upload-data.md" target="_blank"para obter mais informações.
+	> [AZURE.NOTE]Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k` ou definir as variáveis de ambiente **AZURE\\_STORAGE\\_ACCOUNT** e **AZURE\\_STORAGE\\_ACCESS\\_KEY**. Consulte <a href="hdinsight-upload-data.md" target="_blank"para obter mais informações.
 
 6. Use as instruções a seguir para criar uma nova tabela "interna" chamada **errorLogs**:
 
@@ -132,10 +132,10 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 		> [AZURE.NOTE]Ao contrário das tabelas externas, remover uma tabela interna excluirá também os dados subjacentes.
 
     * **STORES AS ORC**: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]**, então insere os dados na tabela **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
     * **SELECT** - seleciona todas as linhas da nova tabela **errorLogs**.
 
-7. Use a ID de trabalho retornada para verificar o status do trabalho. Quando a tiver utilizado com sucesso, use a CLI do Azure para Mac, Linux e Windows conforme descrito anteriormente para baixar e exibir os resultados. A saída deve conter três linhas, todas as quais contêm **[ERROR]**.
+7. Use a ID de trabalho retornada para verificar o status do trabalho. Quando a tiver utilizado com sucesso, use a CLI do Azure para Mac, Linux e Windows conforme descrito anteriormente para baixar e exibir os resultados. A saída deve conter três linhas, todos os quais contêm **[ERROR]**.
 
 
 ##<a id="summary"></a>Resumo
@@ -189,4 +189,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

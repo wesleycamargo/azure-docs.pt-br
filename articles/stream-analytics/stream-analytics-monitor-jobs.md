@@ -176,5 +176,6 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

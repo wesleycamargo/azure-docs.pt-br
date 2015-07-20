@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Guia de solução de problemas do Mobile Engagement do Azure - APIs" 
-   description="Guias de solução de problemas para o Mobile Engagement do Azure" 
+   description="Guias de solução de problemas para o Mobile Engagement do Azure - APIs" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # Guia de solução de problemas de API
@@ -35,9 +35,10 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 
 ### Consulte também
  
-- [Conceitos - glossário][Link 6], [Documentação da API][Link 4], [Informações do protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
+- [Documentação da API][Link 4]
+- [Informações do protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
  
-## Não é possível usar a API para executar a mesma ação disponível na interface do usuário do Mobile Engagement do Azure
+## Não é possível usar a API para executar a mesma ação disponível na interface de usuário do Mobile Engagement do Azure
 
 ### Problema
 - Uma ação que funciona da interface do usuário do Mobile Engagement do Azure não funciona da API do Mobile Engagement do Azure relacionada.
@@ -77,7 +78,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
         409        Name already associated to a different device ID or campaign.
         413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or the period is too large to be displayed (the server didn’t retrieve the analytics because the user request is for a period that is too large).
         503        Analytics not available yet (the requested information is not computed yet for an application).
-        504         The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
+        504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### Consulte também
 
@@ -95,7 +96,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 
 ### Consulte também
 
-- [Guia de solução de problemas - SDK][Link 25], [Documentação do SDK][Link 5]
+- [Guia de solução de problemas - SDK][Link 25]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -127,5 +128,6 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como adm
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

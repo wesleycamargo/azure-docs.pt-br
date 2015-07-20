@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
@@ -258,7 +258,7 @@ No seu ambiente de desenvolvimento, use as etapas a seguir para executar a topol
 
 2. Quando o site for criado, vá para o site no Portal do Azure e selecione a guia **Configurar**. Habilite o **Web Sockets** e clique em **Salvar** na parte inferior da página.
 
-2. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** e altere a linha abaixo para apontar para a URL do painel publicado:
+2. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** e altere a linha abaixo para apontar para a URL do painel publicado:
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -362,13 +362,13 @@ A parte do nome do domínio que começa com o nome do cluster é o sufixo DNS, c
 
 ### Habilitar o bolt do HBase
 
-1. Abra **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** e substitua as entradas `suffix` na linha a seguir com o sufixo DNS obtido anteriormente para o cluster HBase. Depois de fazer essas alterações, salve o arquivo.
+1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** e substitua as entradas `suffix` na linha a seguir com o sufixo DNS obtido anteriormente para o cluster HBase. Depois de fazer essas alterações, salve o arquivo.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	Isso será usado pelo bolt HBase para se comunicar com o cluster HBase.
 
-1. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts * * em um editor de texto e remova os comentários das linhas a seguir removendo o `//` desde o início. Salve o arquivo depois de fazer essa alteração.
+1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts * * em um editor de texto e remova os comentários das linhas a seguir removendo o `//` desde o início. Salve o arquivo depois de fazer essa alteração.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@ Antes de executar a topologia, você deve preparar o HBase para aceitar os dados
 
 2. Na área de trabalho, inicie a linha de comando do HDInsight e insira os seguintes comandos:
 
-    cd %HBASE_HOME% bin\hbase shell
+    cd %HBASE_HOME% bin\\hbase shell
 
 3. No shell do HBase, insira o seguinte comando para criar uma tabela na qual os dados do sensor serão armazenados:
 
@@ -419,6 +419,5 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 * Para saber mais sobre como se conectar ao cluster Storm, confira [Desenvolver topologias C# para Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

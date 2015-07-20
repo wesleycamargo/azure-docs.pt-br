@@ -1,24 +1,17 @@
-<properties 
-   pageTitle="Restaurar um volume do StorSimple de um conjunto de backup"
-   description="Explica como usar o catálogo de backup para restaurar um volume do StorSimple de um conjunto de backup."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
+<properties pageTitle="Restaurar um volume StorSimplede um cojunto de backups" | Descrição do Microsoft Azure ="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Restaurar um volume do StorSimple de um conjunto de backup
 
 ## Visão geral
 
-A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar essa página para listar todos os backups para uma política de backup ou um volume, selecionar ou excluir backups ou usar um backup para restaurar ou clonar um volume.
+A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
 
  ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
@@ -79,5 +72,6 @@ Você pode usar a página **Catálogo de Backup** para restaurar seu dispositivo
 
 ## Próximas etapas
 
-Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md) <!--HONumber=52-->
- 
+Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md)
+
+<!---HONumber=July15_HO2-->

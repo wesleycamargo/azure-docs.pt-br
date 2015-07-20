@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Introdução ao Mobile Engagement do Azure para aplicativos do Windows Universal" 
+<properties
+	pageTitle="Introdução ao Mobile Engagement do Azure para aplicativos do Windows Universal"
 	description="Aprenda a usar o Mobile Engagement do Azure com Análises e Notificações por Push para Aplicativos do Windows Universal."
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Introdução ao Mobile Engagement do Azure para aplicativos do Windows Universal
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 Este tópico mostra como usar o Mobile Engagement do Azure para entender o uso do aplicativo e enviar notificações por push para usuários segmentados de um aplicativo do Windows Universal. Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Engagement. Nele, você deve criar um aplicativo do Windows Universal em branco que coleta dados básicos e recebe notificações por push usando o Serviço de Notificação do Windows (WNS). Ao concluir, você poderá transmitir notificações por push para todos os dispositivos ou usuários específicos do destino com base em suas propriedades dos dispositivos. Siga o tutorial a seguir para aprender a usar o Mobile Engagement para endereçar usuários e grupos de dispositivos específicos.
 
@@ -43,11 +44,11 @@ Este tutorial exige o seguinte:
    	![][7]
 
 3. No pop-up exibido, insira as seguintes informações:
- 
+
    	![][8]
 
 	- **Nome do Aplicativo**: digite o nome do seu aplicativo. Fique à vontade para usar qualquer caractere.
-	- **Plataforma**: selecione a plataforma de destino (**Windows Universal**) para o aplicativo (se seu aplicativo for destinado para várias plataformas, repita esse tutorial para cada uma). 
+	- **Plataforma**: selecione a plataforma de destino (**Windows Universal**) para o aplicativo (se seu aplicativo for destinado para várias plataformas, repita esse tutorial para cada uma).
 	- **Nome do Recurso do Aplicativo**: é o nome pelo qual o aplicativo poderá ser acessado via APIs e URLs. Você só deve usar caracteres URL convencionais. O nome gerado automaticamente deve fornecer uma base sólida. Você também deve acrescentar o nome da plataforma para evitar qualquer conflito de nomes, pois o nome deve ser exclusivo.
 	- **Local**: selecione o datacenter no qual o aplicativo (e o mais importante, sua Coleção) será hospedado.
 	- **Coleção**: se você já tiver criado um aplicativo, selecione uma Coleção criada anteriormente, caso contrário, selecione a Nova Coleção.
@@ -58,7 +59,7 @@ Este tutorial exige o seguinte:
 4. Selecione o aplicativo que você acabou de criar na guia **Aplicativos**.
 
 5. Clique em **Informações da Conexão** para exibir as configurações da conexão para colocar em sua integração SDK no aplicativo móvel.
- 
+
    	![][10]
 
 6. Cópia da **Cadeia de Conexão** - isso é o que você precisará para identificar esse aplicativo no código do aplicativo e conectar o Mobile Engagement a partir de seu aplicativo do Universal.
@@ -67,7 +68,7 @@ Este tutorial exige o seguinte:
 
 ##<a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
 
-Este tutorial apresenta uma "integração básica," que é o conjunto mínimo necessário para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [documentação do SDK do Windows Universal para o Mobile Engagement.]
+Este tutorial apresenta uma "integração básica," que é o conjunto mínimo necessário para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [documentação do SDK do Windows Universal para o Mobile Engagement].
 
 Criaremos um aplicativo básico com o Visual Studio para demonstrar a integração.
 
@@ -83,12 +84,12 @@ Você pode ignorar esta etapa se você já tiver um aplicativo e estiver familia
 
 Você criou um novo aplicativo do Windows Universal no qual integraremos o SDK do Mobile Engagement do Azure.
 
-###Conecte seu aplicativo ao back-end do Mobile Engagement 
+###Conecte seu aplicativo ao back-end do Mobile Engagement
 
-1. Instalação do pacote nuget do [SDK do Windows Universal do Mobile Engagement] em seu projeto. Se você estiver selecionando ambas as plataformas Windows e Windows Phone para direcionamento você precisará fazer isso para os dois projetos. O mesmo pacote do Nuget colocará os binários específicos da plataforma correta em cada projeto. 
+1. Instalação do pacote nuget do [SDK do Windows Universal do Mobile Engagement] em seu projeto. Se você estiver selecionando ambas as plataformas Windows e Windows Phone para direcionamento você precisará fazer isso para os dois projetos. O mesmo pacote do Nuget colocará os binários específicos da plataforma correta em cada projeto.
 
 2. Abra `Package.appxmanifest` e adicione o seguinte se ele não for adicionado automaticamente:
-		
+
 		Internet (Client)
 
 	![][20]
@@ -106,11 +107,11 @@ Você criou um novo aplicativo do Windows Universal no qual integraremos o SDK d
 			using Microsoft.Azure.Engagement;
 
 	b. Inicializar o SDK no método `OnLaunched`:
-			
+
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -119,7 +120,7 @@ Você criou um novo aplicativo do Windows Universal no qual integraremos o SDK d
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -140,7 +141,7 @@ Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você
 	a. Adicione às suas declarações de namespaces:
 
 			xmlns:engagement="using:Microsoft.Azure.Engagement"
-	
+
 	b. Substitua o `Page` no nome da marca xml por `engagement:EngagementPage`
 
 ###Verifique se seu aplicativo está conectado com o monitoramento em tempo real
@@ -195,7 +196,7 @@ Você estará pronto para enviar uma Notificação do sistema, agora, verificare
 
 ###Conceder acesso ao Mobile Engagement para enviar Notificações
 
-1. Você precisará associar seu aplicativo com um aplicativo da Windows Store para obter seu `Package security identifier (SID)` e sua `Secret Key` (Segredo do cliente). Você pode criar um aplicativo a partir do [Centro de desenvolvimento da Windows Store] e, em seguida, certifique-se de **Associar o aplicativo com a Store** do Visual Studio. 
+1. Você precisará associar seu aplicativo com um aplicativo da Windows Store para obter seu `Package security identifier (SID)` e sua `Secret Key` (Segredo do cliente). Você pode criar um aplicativo a partir do [Centro de desenvolvimento da Windows Store] e, em seguida, certifique-se de **Associar o aplicativo com a Store** do Visual Studio.
 
 2. Navegue até as **Configurações** do seu Portal do Mobile Engagement e clique na seção `Native Push` à esquerda.
 
@@ -223,14 +224,14 @@ Agora, criaremos uma campanha simples de Notificação por Push que enviará uma
 
 4. Role para baixo e, na seção de conteúdo, selecione **Notificação apenas**. ![][39]
 
-5. Você terminou a configuração da campanha mais básica possível, agora role para baixo novamente  e clique em **Criar** para salvar a sua campanha.
+5. Você terminou a configuração da campanha mais básica possível, agora role para baixo novamente e clique em **Criar** para salvar a sua campanha.
 
 6. Última etapa, clique em **Ativar** para ativar sua campanha e enviar notificações por push. ![][41]
 
 Agora você verá uma notificação da sua campanha em seu dispositivo — o aplicativo deve ser fechado para ver essa notificação. Se o aplicativo estiver em execução, certifique-se que ele está fechado por alguns minutos antes de ativar a campanha para poder receber notificação do sistema. Se você deseja integrar a notificação no aplicativo para que a notificação apareça no aplicativo quando ele for aberto, consulte [Aplicativos do Windows Universal - Integração de sobreposição].
 
 <!-- URLs. -->
-[documentação do SDK do Windows Universal para o Mobile Engagement.]: ../mobile-engagement-windows-store-integrate-engagement/
+[documentação do SDK do Windows Universal para o Mobile Engagement]: ../mobile-engagement-windows-store-integrate-engagement/
 [SDK do Windows Universal do Mobile Engagement]: http://go.microsoft.com/?linkid=9864592
 [SDK do Windows Universal para o Mobile Engagement]: http://go.microsoft.com/?linkid=9864592
 [Centro de desenvolvimento da Windows Store]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
@@ -257,5 +258,6 @@ Agora você verá uma notificação da sua campanha em seu dispositivo — o apl
 [38]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-first-params.png
 [39]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-content.png
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

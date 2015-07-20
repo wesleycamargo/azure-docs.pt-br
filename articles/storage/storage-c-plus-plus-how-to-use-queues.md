@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # Como usar o armazenamento de filas do C++  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
 
 ## Visão geral
-Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
->[AZURE.NOTE]Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 0.5.0 e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 0.5.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
+>[AZURE.NOTE]Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 1.0.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
 
 [AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você 
 -	**Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 -	**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage 
  
 ## Configurar seu aplicativo para acessar o Armazenamento de Filas
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar as filas:
@@ -83,7 +83,7 @@ Use o objeto **cloud_queue_client** para obter uma referência para a fila que v
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
- queue.create_if_not_exists();
+ 	queue.create_if_not_exists();  
 
 ## Como inserir uma mensagem em uma fila
 Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud_queue_message**. Em seguida, chame o método **add_message**. Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World':
@@ -119,7 +119,7 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chaman
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## Como alterar o conteúdo de uma mensagem em fila
@@ -142,6 +142,8 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Como remover a próxima mensagem da fila
@@ -161,8 +163,7 @@ Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_messa
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## Como: aproveitar as opções adicionais para remover mensagens da fila
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for**. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages**, qualquer mensagem não excluída ficará visível novamente.
@@ -184,12 +185,10 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## Como obter o comprimento da fila
@@ -237,6 +236,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
 -	[Referência do MSDN de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

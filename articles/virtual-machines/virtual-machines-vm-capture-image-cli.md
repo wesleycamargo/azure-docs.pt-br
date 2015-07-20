@@ -162,4 +162,4 @@ Visite a [página de documentação da CLI do Azure][] para obter mais detalhes 
 [Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

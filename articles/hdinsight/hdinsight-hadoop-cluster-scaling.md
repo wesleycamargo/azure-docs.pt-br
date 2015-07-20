@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Dimensione os clusters do Hadoop, HBase ou Apache Storm para alterar o seu número de nós de dados no HDInsight 
@@ -145,4 +145,4 @@ Aqui está alguns exemplos de código que mostra como usar a versão síncrona d
 Consulte o tópico [Provisionar clusters Hadoop no HDInsight usando opções personalizadas](hdinsight-provision-clusters.md) para obter mais informações sobre como usar o HDInsight .NET SDK.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -49,14 +49,16 @@ Em uma janela de linha de comando **cmd.exe**, navegue até o diretório que con
 	npm install -g node-gyp
 
 
-Agora que o node-gyp está instalado, navegue até o *DiretórioDoSeuProjeto* e, em seguida, até **node_modules\msnodesql**. Em seguida, emita os seguintes comandos em sua janela **cmd.exe**.
+Agora que o node-gyp está instalado, navegue até o *DiretórioDoSeuProjeto* e, em seguida, até **node_modules\\msnodesql**. Em seguida, emita os seguintes comandos em sua janela **cmd.exe**.
 
 
 	node-gyp configure 
 	node-gyp build
 
 
-Depois, navegue até o diretório **build\release**. Copie o arquivo **sqlserver.node** e cole-o no diretório **msnodesql\lib**. Se necessário, substitua o arquivo antigo.
+Depois, navegue até o diretório **build\\release**. Copie o arquivo **sqlserver.node** e cole-o no diretório **msnodesql\\lib**. Se necessário, substitua o arquivo antigo.
+
+Confira nosso [blog da equipe](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) e o [vídeo](https://www.youtube.com/watch?v=kQo_L-D_zk8) para aprender a instalar e configurar os requisitos mencionados anteriormente.
 
 
 ### Criar um banco de dados e recuperar a cadeia de conexão
@@ -230,4 +232,6 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 	    });
 	});
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

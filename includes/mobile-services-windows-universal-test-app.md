@@ -13,4 +13,4 @@
 	
 	Observe que os dados salvos da etapa anterior são carregados por meio do serviço móvel após o aplicativo ser iniciado.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

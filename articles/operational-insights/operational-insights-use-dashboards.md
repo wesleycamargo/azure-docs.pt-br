@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Painéis de Informações Operacionais" 
-	description="Artigo informativo sobre o uso básico do painel para as Informações Operacionais" 
-	services="operational-insights" 
-	documentationCenter="" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Painéis de Informações Operacionais"
+	description="Artigo informativo sobre o uso básico do painel para as Informações Operacionais"
+	services="operational-insights"
+	documentationCenter=""
+	authors="ehissey"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
-	ms.author="banders"/>
+<tags
+	ms.service="operational-insights"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/02/2015"
+	ms.author="evanhi"/>
 
 # Painéis de Informações Operacionais
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Este guia ajuda a entender como os Painéis de Informações Operacionais podem visualizar todas as pesquisas salvas, dando a você uma lente única para exibir seu ambiente.
+Este guia ajuda a entender como os Painéis de Informações Operacionais podem visualizar todas as pesquisas de log salvas, dando a você uma lente única para exibir seu ambiente.
 
 ![Painel de Exemplo](./media/operational-insights-use-dashboards/example-dash.png)
 
@@ -34,15 +34,15 @@ Para começar, vá para a Visão Geral das Informações Operacionais do Azure c
 
 ## Adicionando um bloco
 
-Nos painéis, os blocos são ativados pelas pesquisas salvas. As Informações Operacionais vêm com muitas pesquisas salvas previamente, portanto, você pode começar imediatamente. Você verá a seguinte ilustração explicando como começar.
+Nos painéis, os blocos são ativados pelas pesquisas de log salvas. As Informações Operacionais vêm com muitas pesquisas de log salvas previamente, portanto, você pode começar imediatamente. Você verá a seguinte ilustração explicando como começar.
 
 ![Ilustração](./media/operational-insights-use-dashboards/pictorial.png)
 
-Na exibição Meu Painel, basta clicar na engrenagem 'personalizar' na parte inferior da página para entrar no modo de personalização. O painel que é aberto no lado direito da página mostra todas as pesquisas salvas do seu espaço de trabalho.
+Na exibição Meu Painel, basta clicar na engrenagem 'personalizar' na parte inferior da página para entrar no modo de personalização. O painel que é aberto no lado direito da página mostra todas as pesquisas de log salvas do seu espaço de trabalho.
 
 ![Adicionar Blocos 1](./media/operational-insights-use-dashboards/add-tile1.png)
 
-Para visualizar uma pesquisa salva como um bloco, simplesmente arraste-a para o espaço vazio à esquerda. Quando você arrastar, ela se transformará em um bloco.
+Para visualizar uma pesquisa de log salva como um bloco, simplesmente arraste-a para o espaço vazio à esquerda. Quando você arrastar, ela se transformará em um bloco.
 
 ![Adicionar Blocos 2](./media/operational-insights-use-dashboards/add-tile2.png)
 
@@ -58,11 +58,11 @@ Há dois tipos de visualizações do bloco para escolher:
 
 **Gráfico de Barras** <p> ![Gráfico de Barras](./media/operational-insights-use-dashboards/bar-chart.png)
 
-Exibe uma linha do tempo dos resultados salvos da pesquisa ou uma lista de resultados por campo, dependendo de sua pesquisa agregar os resultados por campo ou não.
+Exibe uma linha do tempo dos resultados salvos da pesquisa de log ou uma lista de resultados por campo, dependendo de sua pesquisa de log agrega os resultados por campo ou não.
 
 **Métrica** <p> ![Métrica](./media/operational-insights-use-dashboards/metric.png)
 
-Exibe as visitas totais dos resultados da pesquisa como um número em um bloco. Os blocos da métrica permitem que você defina um limite que destacará o bloco quando o limite for atingido.
+Exibe as visitas totais dos resultados da pesquisa de log como um número em um bloco. Os blocos da métrica permitem que você defina um limite que destacará o bloco quando o limite for atingido.
 
 ### Limite
 Você pode criar um limite em um bloco usando a visualização Métrica. Selecione para criar um valor de limite no bloco. Escolha se é para destacar o bloco quando o valor fica acima ou abaixo do limite escolhido, então, defina o valor de limite abaixo.
@@ -74,4 +74,5 @@ Para organizar seu painel, navegue para a exibição Meu Painel e clique na engr
 
 ## Remover um bloco
 Para remover um bloco, navegue para a exibição Meu Painel e clique na engrenagem **personalizar** na parte inferior da página para entrar no modo de personalização. Selecione o bloco que você deseja remover, clique no painel direito e selecione **Remover Bloco**. ![Remover um Bloco](./media/operational-insights-use-dashboards/remove-tile.png)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

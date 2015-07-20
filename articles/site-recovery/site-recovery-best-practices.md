@@ -155,7 +155,7 @@ Provedores e agentes são instalados em servidores locais para que possam se con
 - **Tamanho do disco de dados**: se você estiver replicando para o Azure, poderá ter até 32 discos de dados em uma máquina virtual, cada uma com um máximo de 1 TB. Você pode replicar e realizar de forma efetiva o failover de uma máquina virtual de aproximadamente 32 TB.
 - **Limites de plano de recuperação**: a Recuperação de Site pode ser ampliada para milhares de máquinas virtuais. Os planos de recuperação são projetados como um modelo para aplicativos que devem sofrer o failover juntos. Por isso, limitamos para 50 o número de máquinas em um plano de recuperação.
 - **Limites de serviço do Azure**: toda assinatura do Azure vem com um conjunto de limites padrão de núcleos, serviços em nuvem etc. Recomendamos a execução de um failover de teste para validar a disponibilidade de recursos em sua assinatura. Você pode modificar esses limites por meio do suporte do Azure.
-- **Planejamento de capacidade**: para obter orientação, use o [Planejador de capacidade para Réplica do Hyper-V](http://www.microsoft.com/pt-br/download/details.aspx?id=39057).
+- **Planejamento de capacidade**: para obter orientação, use o [Planejador de capacidade para Réplica do Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
 - **Largura de banda de replicação**: se você tiver pouca largura de banda de replicação, observe o seguinte:
 	- **ExpressRoute**: a Recuperação de Site funciona com o Azure ExpressRoute e com otimizadores de WAN, por exemplo, Riverbed. [Leia mais](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) sobre o ExpressRoute.
 	- **Tráfego de replicação**: a Recuperação de Site realiza uma replicação inicial inteligente usando apenas os blocos de dados e não o VHD inteiro. Somente as alterações são replicadas durante a replicação contínua.
@@ -189,4 +189,4 @@ Depois de revisar essas práticas recomendadas, inicie a implantação da Recupe
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

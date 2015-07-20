@@ -37,7 +37,7 @@
     A saída de exemplo é mostrada a seguir.
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     O status do firmware deve ser **UpToDate**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

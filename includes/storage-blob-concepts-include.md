@@ -10,7 +10,7 @@ Usos comuns de armazenamento de Blob incluem:
 -   Executar recuperação de desastre e backup seguro
 -   Armazenando dados para análise por um serviço local ou hospedado do Azure
 
-## Conceitos do Serviço de Blob
+## Conceitos do Serviço Blob
 
 O serviço Blob contém os seguintes componentes:
 
@@ -22,12 +22,45 @@ O serviço Blob contém os seguintes componentes:
 
 -   **Blob:** um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
--   **Formato da URL:** os blobs são endereçáveis usando o seguinte formato de URL: http://`<storage
-    account>`.blob.core.windows.net/`<container>`/`<blob>`
+## Nomeando e referenciando contêineres e blobs
+
+Você pode endereçar um blob na conta de armazenamento usando o seguinte formato de URL:
+   
+    http://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>  
       
-    A URL de exemplo a seguir poderia ser usada para endereçar um dos blobs no diagrama acima: `http://sally.blob.core.windows.net/movies/MOV1.AVI`
+Por exemplo, eis uma URL que endereça um dos blobs no diagrama acima:
+
+    http://sally.blob.core.windows.net/movies/MOV1.AVI
+
+### Regras de nomeação de contêiner
+
+Um nome de contêiner deve ser um nome DNS válido e estar em conformidade com as seguintes regras:
+
+- Um nome de contêiner deve estar em letras minúsculas.
+- Os nomes de contêiner devem começar com uma letra ou número e podem conter apenas letras, números e o caractere traço (-).
+- Cada caractere traço (-) deve ser imediatamente precedido e seguido por uma letra ou número. Não são permitidos traços consecutivos em nomes de contêiner.
+- Os nomes de contêiner devem ter de 3 a 63 caracteres.
+
+### Regras de nomenclatura blob
+
+Um nome blob deve obedecer às seguintes regras:
+
+- Um nome blob pode conter qualquer combinação de caracteres.
+- Um nome blob deve ter pelo menos um caractere e não pode ter mais de 1.024 caracteres.
+- Os nomes blob diferenciam letras maiúsculas de minúsculas.
+- Os caracteres reservados de URL devem ser substituídos corretamente.
+- O número de segmentos de caminho que inclui o nome blob não pode exceder 254. Um segmento de caminho é a cadeia de caracteres entre caracteres delimitadores consecutivos (*por exemplo*, a barra '/') que corresponde ao nome de um diretório virtual.
+
+O serviço Blob baseia-se em um esquema de armazenamento simples. Você pode criar uma hierarquia virtual especificando um delimitador de caractere ou de cadeia de caracteres no nome blob para criar uma hierarquia virtual. Por exemplo, a lista a seguir mostra alguns nomes blob válidos e exclusivos:
+
+	/a
+	/a.txt
+	/a/b
+	/a/b.txt
+
+Você pode usar o caractere delimitador para listar blobs hierarquicamente.
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

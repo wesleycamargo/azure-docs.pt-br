@@ -49,7 +49,7 @@ A CLI do Azure tem vários comandos para ajudar a evitar erros e detectar o que 
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. Este comando valida seu modelo e o parâmetro do modelo antes de você usá-los. Digite um modelo personalizado ou da galeria e os valores dos parâmetros do modelo que você pretende usar. Este cmdlet testa se o modelo é internamente consistente e se o conjunto de valores do parâmetro corresponde ao modelo.
+- **azure group template validate <resource group>**. Este comando valida seus modelos e o parâmetro do modelo antes de você usá-los. Digite um modelo personalizado ou da galeria e os valores dos parâmetros do modelo que você pretende usar.
 
     O exemplo a seguir mostra como validar um modelo e quaisquer parâmetros necessários; a CLI do Azure solicita os valores de parâmetro que são necessários.
 
@@ -115,7 +115,7 @@ A CLI do Azure tem vários comandos para ajudar a evitar erros e detectar o que 
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+Use a opção **-última implantação** para recuperar apenas o log para a implantação mais recente. O script a seguir usa a opção **-- json** e **jq** para pesquisar o log de falhas de implantação.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -213,6 +213,26 @@ Mas o Active Directory do Azure permite que você ou seu administrador controlem
 
 Você também pode ter problemas quando uma implantação atinge uma cota padrão, que pode ser por grupo de recursos, assinaturas, contas, bem como outros escopos. Confirme que você tenha os recursos disponíveis para implantar corretamente, conforme considerar adequado. Para obter informações completas sobre as cotas, consulte [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 
+Para examinar suas próprias cotas de assinatura de núcleos, você deve usar o comando `azure vm list-usage` na CLI do Azure e o cmdlet `Get-AzureVMUsage` do PowerShell. A seguir, é mostrado o comando na CLI do Azure e ilustrado que a cota de núcleo de uma conta de avaliação gratuita é 4:
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+Se você tentar implantar um modelo que crie mais de 4 núcleos para a região Oeste dos EUA na assinatura acima, obterá um erro de implantação que pode ser semelhante ao seguinte (no portal ou investigando os logs de implantação):
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
+
+> [AZURE.NOTE]Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, precisará pedir 30 núcleos de gerenciamento de recursos no Oeste dos EUA. Se você precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, deve solicitar 30 núcleos de gerenciamento de recursos em todas as regiões. <!-- --> Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota correto usando o seguinte comando, que sai em **jq** para análise json. O provedor do Azure <!-- --> mostra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+     
 
 ## Problemas de modo PowerShell e CLI do Azure
 
@@ -243,7 +263,7 @@ Para ver se o provedor está registrado para uso com a CLI do Azure, use o coman
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+Novamente, se você quiser obter mais informações sobre provedores, incluindo sua disponibilidade regional, digite `azure provider list --json`. O seguinte seleciona somente o primeiro na lista para exibir:
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ Muitas vezes, convém usar um recurso de fora do grupo de recursos atual, onde u
 
     }
 
-
-
 ## Próximas etapas
 
 Para dominar a criação de modelos, leia [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md), e navegue pelo [Repositório do AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) para obter exemplos de implantação. Um exemplo da propriedade **dependsOn** é o [Modelo de balanceador de carga com regra de NAT de entrada](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
@@ -367,6 +385,6 @@ Para dominar a criação de modelos, leia [Criação de modelos do Gerenciador d
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

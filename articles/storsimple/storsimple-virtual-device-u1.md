@@ -385,4 +385,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Saiba como [Restaurar de um conjunto de backups](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

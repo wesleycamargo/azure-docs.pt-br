@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Conectar o Banco de Dados do SQL Azure à Pesquisa do Azure usando indexadores#
@@ -261,5 +261,6 @@ R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e o
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

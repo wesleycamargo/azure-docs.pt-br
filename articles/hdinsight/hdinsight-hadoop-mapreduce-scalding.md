@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
@@ -168,7 +168,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -288,6 +288,5 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

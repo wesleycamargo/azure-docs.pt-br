@@ -194,13 +194,13 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\Processador(_Total)% Tempo do processador|
-|Memória disponível|\Memória\MBytes disponíveis|
-|IOPS|\Disco físico(_Total)\Transferências do disco/seg|
-|Operações de leitura da VM (IOPS)/seg|\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Operações de leitura/Seg|
-|Operações de gravação da VM (IOPS)/seg|\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Operações de gravação/S|
-|Taxa de transferência de leitura da VM|\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Bytes de leitura/seg|
-|Taxa de transferência de gravação da VM|\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\Bytes de gravação/seg|
+|CPU|\\Processador(_Total)\% Tempo do processador|
+|Memória disponível|\\Memória\\MBytes disponíveis|
+|IOPS|\\Disco físico(_Total)\\Transferências do disco/seg|
+|Operações de leitura da VM (IOPS)/seg|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Operações de leitura/Seg|
+|Operações de gravação da VM (IOPS)/seg|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Operações de gravação/S|
+|Taxa de transferência de leitura da VM|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Bytes de leitura/seg|
+|Taxa de transferência de gravação da VM|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Bytes de gravação/seg|
 
 
 ## Próximas etapas
@@ -214,4 +214,4 @@ Para iniciar a implantação do ASR:
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

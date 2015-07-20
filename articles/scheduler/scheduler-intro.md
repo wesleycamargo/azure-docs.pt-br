@@ -51,4 +51,4 @@ O Agendador permite criar, atualizar, excluir, exibir e gerenciar [“coleções
  [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

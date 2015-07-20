@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis
 
 O back-end .NET dos Serviços Móveis facilita a obtenção dos benefícios dos ativos existentes ao compilar um serviço móvel. Um cenário particularmente interessante é usar um banco de dados SQL existente (ou local ou em nuvem), que já possa ser usado por outros aplicativos, para disponibilizar os dados existentes aos clientes móveis. Nesse caso, há um requisito de que o modelo do banco de dados (ou o *esquema*) permaneça inalterado, para que as soluções existentes continuem funcionando.
-
-Este tutorial consiste nas seguintes sessões:
-
-1. [Explorar o modelo de banco de dados existente](#ExistingModel)
-2. [Criar objetos de transferência de dados (DTOs) para o seu serviço móvel](#DTOs)
-3. [Estabelecer um mapeamento entre DTOs e o modelo](#Mapping)
-4. [Implementar lógica específica de domínio](#DomainManager)
-5. [Implementar um TableController usando DTOs](#Controller)
 
 <a name="ExistingModel"></a>
 ## Explorando o modelo de banco de dados existente
@@ -158,7 +150,7 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Em seguida, adicione essas propriedades extras a cada uma das classes:
+4. Em seguida, adicione essas propriedades extras a cada uma das classes:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@ O modelo de dados que você deseja usar com o seu serviço móvel pode ser arbit
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Em seguida, no corpo do **ExistingContext**, substitua [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
+5. No corpo de **ExistingContext**, substitua [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
     }
 
-Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço.
-<!--HONumber=54--> 
+Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço. Para obter mais informações, consulte [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+
+<!---HONumber=July15_HO2-->

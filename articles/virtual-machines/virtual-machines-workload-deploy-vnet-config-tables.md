@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Criar uma rede virtual entre locais usando tabelas de configuração" 
-	description="Este tópico descreve como configurar uma rede virtual entre locais usando tabelas de configurações predeterminadas." 
+<properties
+	pageTitle="Criar uma rede virtual entre locais usando tabelas de configuração"
+	description="Este tópico descreve como configurar uma rede virtual entre locais usando tabelas de configurações predeterminadas."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2015"
 	ms.author="josephd"/>
 
 # Criar uma rede virtual entre locais usando tabelas de configuração
@@ -29,33 +29,33 @@ Estas tabelas geralmente são preenchidas em um tópico que descreve a configura
 
 O procedimento a seguir faz referência às informações dessas tabelas para orientar você durante o processo de configuração da rede virtual. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar a configurar uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx).
 
-> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
- 
-## Criar uma nova rede de virtual entre locais do Azure com os valores da sua tabela de configurações
+> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa do Azure para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
-1. Entre no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
+## Criar uma nova rede de virtual entre locais do Azure usando os valores da sua tabela de configurações
+
+1. Entre no [Portal do Azure](https://manage.windowsazure.com/).
 2. Na barra de tarefas, clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
-3. Na página Detalhes da Rede Virtual:
-- Em **Nome**, digite o nome do Item 1 na Tabela V.
-- Em **Local**, selecione a região do Item 2 na Tabela V. 
+3. Na página **Detalhes da Rede Virtual**:
+	- Em **Nome**, digite o nome do Item 1 na Tabela V.
+	- Em **Local**, selecione a região do Item 2 na Tabela V.
 4. Clique na seta de avanço para continuar.
-5. Página Conectividade de VPN e Servidores DNS:
-- Em **Servidores DNS**, para cada entrada da Tabela D, configure o nome amigável e o endereço IP dos servidores DNS locais.
-- Em **Conectividade Site a Site**, selecione **Configurar uma VPN site a site**.
-- Se você já tiver configurado uma rede local e desejar usá-la, selecione o nome dela em **Rede Local**. Se quiser criar uma nova rede local, selecione **Especificar uma Nova Rede Local** em **Rede Local**.
-- Se ainda não tiver configurado uma rede local para a sua assinatura, você não verá o campo **Rede Local**. 
+5. Página **Conectividade de VPN e Servidores DNS**:
+	- Em **Servidores DNS**, para cada entrada da Tabela D, configure o nome amigável e o endereço IP dos servidores DNS locais.
+	- Em **Conectividade Site a Site**, selecione **Configurar uma VPN site a site**.
+	- Se você já tiver configurado uma rede local e desejar usá-la, selecione o nome dela em **Rede Local**. Se quiser criar uma nova rede local, selecione **Especificar uma Nova Rede Local** em **Rede Local**.
+	- Se ainda não tiver configurado uma rede local para a sua assinatura, você não verá o campo **Rede Local**.
 6. Clique na seta de avanço para continuar.
-7. Na página Conectividade Site a Site (se você tiver selecionado **Especificar uma Nova Rede Local** na etapa 5):
-- Em **Nome**, digite o nome do Item 3 na Tabela V (o nome da rede local).
-- Em **Endereço IP do Dispositivo VPN**, digite o endereço do Item 4 na Tabela V.
-- Em **Espaço de Endereço**, para cada entrada da Tabela L, insira os espaços de endereço IP da rede da sua empresa em termos de prefixo (em **IP Inicial**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
+7. Na página **Conectividade Site a Site** (se você tiver selecionado **Especificar uma Nova Rede Local** na etapa 5):
+	- Em **Nome**, digite o nome do Item 3 na Tabela V (o nome da rede local).
+	- Em **Endereço IP do Dispositivo VPN**, digite o endereço do Item 4 na Tabela V.
+	- Em **Espaço de Endereço**, para cada entrada da Tabela L, insira os espaços de endereço IP da rede da sua empresa em termos de prefixo (em **IP Inicial**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
 8. Clique na seta de avanço para continuar.
-9. Na página Espaços de Endereço de Rede Virtual:
-- Em **Espaço de Endereço**, digite o espaço de endereço IP privado da rede virtual do Item 5 da Tabela V, em termos de prefixo (em **IP Inicial**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
-- Em **Sub-redes**, para cada entrada da Tabela S
-	- Digite o nome da sub-rede na coluna **Sub-redes**, substituindo o nome padrão, se necessário.
-	- Digite o espaço de endereço IP privado da sub-rede em termos de prefixo (em **IP Inicia**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
-- Clique em **Adicionar Sub-rede de Gateway**.
+9. Na página **Espaços de Endereço de Rede Virtual**:
+	- Em **Espaço de Endereço**, digite o espaço de endereço IP privado da rede virtual do Item 5 da Tabela V, em termos de prefixo (em **IP Inicial**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
+	- Em **Sub-redes**, para cada entrada da Tabela S
+		- Digite o nome da sub-rede na coluna **Sub-redes**, substituindo o nome padrão, se necessário.
+		- Digite o espaço de endereço IP privado da sub-rede em termos de prefixo (em **IP Inicia**) e comprimento do prefixo (em **CIDR (Contagem de Endereços)**).
+	- Clique em **Adicionar Sub-rede de Gateway**.
 10. Clique na marca de seleção para concluir a configuração.
 
 ## Recursos adicionais
@@ -64,6 +64,6 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 [Tarefas de configuração da rede virtual](https://msdn.microsoft.com/library/jj156206.aspx)
 
-[Configurar uma conexão site a site entre locais para uma máquina virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx)
+[Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

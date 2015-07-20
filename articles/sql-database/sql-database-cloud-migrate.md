@@ -78,4 +78,7 @@ Você deve usar a ferramenta mais recente de banco de dados do SQL Server do Vis
 | Ferramenta Microsoft com suporte. | Ferramenta com suporte da comunidade baixada do CodePlex. | Ferramentas com suporte da Microsoft com o uso opcional de ferramenta com suporte da comunidade baixadas do CodePlex. |
 | Processo em uma ou duas etapas configurado de maneira simples e fácil. | A transformação e a geração de esquema, bem como sua implantação na nuvem são organizadas de um único assistente fácil de usar. | Processo mais complexo com várias etapas (mais simples se for apenas a implantação do esquema). |
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

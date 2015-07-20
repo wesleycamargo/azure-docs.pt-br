@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução à Pesquisa do Azure no NodeJS" 
-	description="Percorra a criação de um aplicativo de Pesquisa do Azure personalizado usando NodeJS como sua linguagem de programação." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Introdução à Pesquisa do Azure no NodeJS"
+	description="Percorra a criação de um aplicativo de Pesquisa do Azure personalizado usando NodeJS como sua linguagem de programação."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Introdução à Pesquisa do Azure no NodeJS#
@@ -38,37 +38,37 @@ Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Na barra de navegação, clique em **Novo** | **Dados + armazenamento** | **Pesquisa**.
- 
+2. Na barra de navegação rápida, clique em **Novo** | **Dados + armazenamento** | **Pesquisa**.
+
      ![][1]
 
-3. Configure o nome do serviço, a camada de preços, o grupo de recursos, a assinatura e o local. Essas configurações são necessárias e não podem ser alteradas após o fornecimento do serviço.
+3. Configure o nome do serviço, camada de preços, grupo de recursos, assinatura e local. Essas configurações são necessárias e não podem ser alteradas após o início do fornecimento do serviço.
 
      ![][2]
 
-	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, abaixo de 15 caracteres, sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Confira [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura. 
-	
+	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, menos de 15 caracteres e sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Confira [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura.
+
 	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em diferentes níveis de recursos.
-	
-		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Ela oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
-		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade quando o serviço for criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de quinze minutos.
-	
+
+		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Essa camada oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
+		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade após o serviço ser criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de quinze minutos.
+
 	- **Grupos de recursos** são contêineres para serviços e contêineres usados para um fim comum. Por exemplo, se for compilar um aplicativo de pesquisa personalizado baseado na Pesquisa do Azure, Sites do Azure e armazenamento em Blob do Azure, você pode criar um grupo de recursos que mantém esses serviços juntos nas páginas de gerenciamento do portal.
-	
-	- **Assinatura** permite que você escolha entre várias assinaturas se tiver mais de uma.
-	
+
+	- **Assinatura** permite que você escolha entre várias assinaturas, se você tiver mais de uma.
+
 	- **Local** é a região do data center. Atualmente, todos os recursos devem ser executados no mesmo data center. Não há suporte para a distribuição de recursos em vários data centers.
 
 4. Clique em **Criar** para provisionar o serviço.
 
-Observe as notificações na barra de navegação. Um aviso é exibido quando o serviço fica pronto para uso.
+Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
 
 <a id="sub-2"></a>
 ##Localizar o nome do serviço e a chave de api do serviço de Pesquisa do Azure
 
 Depois que o serviço for criado, você poderá retornar ao portal para obter a URL ou `api-key`. As conexões com o serviço de Pesquisa exigem que você tenha a URL e a `api-key` para autenticar a chamada.
 
-1. Na barra de navegação rápida, clique em **Home** e clique no serviço de Pesquisa para abrir o painel do serviço. 
+1. Na barra de navegação rápida, clique em **Home** e clique no serviço de Pesquisa para abrir o painel do serviço.
 
 2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
@@ -112,7 +112,7 @@ Use uma janela do PowerShell para os comandos a seguir.
 
 ##Crie o índice e executar o aplicativo.
 
-1. Digite `npm run indexDocuments`. 
+1. Digite `npm run indexDocuments`.
 2. Digite `npm run build`.
 3. Digite `npm run start_server`.
 4. Direcione seu navegador para `http://localhost:8080/index.html`
@@ -121,7 +121,7 @@ Use uma janela do PowerShell para os comandos a seguir.
 
 O conjunto de dados do USGS inclui registros relevantes para o estado de Rhode Island. Se você clicar em **Pesquisar** em uma caixa de pesquisa vazia, obterá as 50 entradas principais, que é o valor padrão.
 
-A inserção de um termo de pesquisa fornecerá ao mecanismo de pesquisa algo para seguir. Tente inserir um nome regional. "Roger Williams" foi o primeiro administrador de Rhode Island. Vários parques, edifícios e escolas receberam seus nomes em homenagem a ele.
+A inserção de um termo de pesquisa fornecerá ao mecanismo de pesquisa algo para seguir. Tente inserir um nome regional. "Roger Williams" foi o primeiro governador de Rhode Island. Vários parques, edifícios e escolas receberam seus nomes em homenagem a ele.
 
 ![][9]
 
@@ -146,4 +146,6 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

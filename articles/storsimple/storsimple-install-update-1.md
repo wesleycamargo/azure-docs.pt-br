@@ -100,4 +100,4 @@ Se você verificou que há conectividade e o problema continuar, contate o Supor
 
 Saiba mais sobre o [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

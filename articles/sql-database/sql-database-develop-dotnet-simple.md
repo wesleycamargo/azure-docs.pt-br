@@ -127,4 +127,6 @@ O método [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclie
 	}
 	```
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

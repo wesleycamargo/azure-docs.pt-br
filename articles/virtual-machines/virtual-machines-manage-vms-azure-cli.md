@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Gerenciar suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows"
+   pageTitle="Gerenciar suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows | Microsoft Azure"
    description="Descreve como criar, gerenciar e excluir suas VMs do Azure usando a CLI do Azure para Mac, Linux e Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Gerenciar suas máquinas virtuais usando a CLI do Azure para Mac, Linux e Windows
 
@@ -38,7 +38,7 @@ Para obter informações sobre a VM, execute este comando, substituindo tudo ent
 Para armazenar a saída em uma variável $vm como um documento JSON, execute:
 
     vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
+
 ou você pode redirecionar o stdout para um arquivo.
 
 ## Fazer logon uma máquina virtual baseada em Linux
@@ -62,7 +62,7 @@ Você também precisará decidir se deseja anexar um novo disco ou um que conten
 
 Para anexar um novo disco, execute este comando:
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 Para anexar um disco de dados existente, execute este comando:
 
@@ -73,20 +73,12 @@ Para anexar um disco de dados existente, execute este comando:
 Para criar uma nova VM baseada no Linux, você precisará ter vários valores à mão, incluindo o nome de um grupo de recursos, um local, um nome de imagem, um nome de vm e uma conta de armazenamento para armazenar a imagem .vhd de backup. Depois que você tiver as informações que deseja usar, a CLI do Azure poderá criar uma sessão interativa para solicitar esses valores, digitando:
 
     azure vm create
-    
+
 É claro que, se já tiver esses valores, você poderá encontrar as opções apropriadas para passá-las diretamente digitando `azure help vm create`.
 
 ## Próximas etapas
 
 Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, consulte [Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-resource-manager.md). Para saber mais sobre recursos do Azure e seus conceitos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
-
-
-
-
-
-
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

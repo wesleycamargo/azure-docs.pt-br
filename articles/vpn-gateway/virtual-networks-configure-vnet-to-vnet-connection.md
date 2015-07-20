@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configurar uma conexão VNet a VNet"
-   description="O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que NÃO estão em uma rede virtual."
-   services="virtual-network"
+   description="Como conectar redes virtuais do Azure juntas nas mesmas ou em diferentes assinaturas ou em regiões."
+   services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="05/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -23,29 +23,42 @@ Conectar uma VNet (rede virtual) do Azure a outra rede virtual do Azure é muito
 
 ![Diagrama de conectividade VNet a VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
-## O que posso fazer com a conectividade VNet a VNet?
+## Por que conectar redes virtuais?
 
-### Redundância geográfica entre regiões e presença geográfica
-  - Você pode configurar sua própria sincronização ou replicação geográfica com conectividade segura sem passar por pontos de extremidade para a internet.
-  - Com o Balanceador de Carga do Azure e a tecnologia de clustering da Microsoft ou de terceiros, você pode configurar a carga de trabalho de alta disponibilidade com redundância geográfica em várias regiões do Azure. Um exemplo importante é configurar o recurso Sempre Ativado do SQL com Grupos de Disponibilidade espalhados por várias regiões do Azure.
+Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
-### Aplicativos multicamadas regionais com limite de isolamento forte
-  - Na mesma região, você pode configurar aplicativos multicamadas com várias redes virtuais conectadas com isolamento forte e comunicação entre camadas segura.
+- **Redundância geográfica entre regiões e presença geográfica**
+	- Você pode configurar sua própria sincronização ou replicação geográfica com conectividade segura sem passar por pontos de extremidade para a internet.
+	- Com o Balanceador de Carga do Azure e a tecnologia de clustering da Microsoft ou de terceiros, você pode configurar a carga de trabalho de alta disponibilidade com redundância geográfica em várias regiões do Azure. Um exemplo importante é configurar o recurso Sempre Ativado do SQL com Grupos de Disponibilidade espalhados por várias regiões do Azure.
 
-### Comunicação entre organizações e assinaturas no Azure
-  - Se tem várias assinaturas do Azure, agora você pode conectar em conjunto cargas de trabalho de assinaturas diferentes com segurança entre redes virtuais.
-  - Para empresas ou provedores de serviços, agora é possível habilitar a comunicação entre organizações com tecnologia de VPN segura no Azure.
+- **Aplicativos multicamadas regionais com limite de isolamento forte**
+	- Na mesma região, você pode configurar aplicativos multicamadas com várias redes virtuais conectadas com isolamento forte e comunicação entre camadas segura.
 
-### Requisitos e considerações
-  - O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que NÃO estão em uma rede virtual.
-  - A opção VNet a VNet requer gateways de VPN do Azure com VPNs de roteamento dinâmico. Não há suporte a VPNs de roteamento estático do Azure. A conexão de várias redes virtuais do Azure em conjunto não requer gateways de VPN lovais, a menos que a conectividade entre locais seja necessária.
-  - A conectividade de rede virtual pode ser usada simultaneamente com VPNs de multissite, com um máximo de 10 túneis de VPN para um gateway de VPN de rede virtual conectando a outras redes virtuais ou a sites locais.
-  - Os espaços de endereço das redes virtuais e os sites de redes locais NÃO DEVEM se sobrepor. A sobreposição de espaços de endereço causará a falha da criação de redes virtuais ou do carregamento de arquivos de configuração netcfg.
-  - As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes.
-  - As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
-  - Não há suporte a túneis redundantes entre um par de redes virtuais.
-  - Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga NÃO PODE se estender entre redes virtuais, mesmo que elas estejam conectadas.
-  - Todos os túneis de VPN da rede virtual, incluindo VPNs P2S, compartilham a largura de banda disponível no gateway de VPN do Azure e o mesmo SLA de tempo de ativação de gateway de VPN no Azure.
+- **Comunicação entre organizações e assinaturas no Azure**
+	- Se você tem várias assinaturas do Azure, agora é possível se conectar a cargas de trabalho de assinaturas diferentes com segurança entre redes virtuais.
+	- Para empresas ou provedores de serviço, você pode habilitar a comunicação entre organizações com tecnologia VPN segura dentro do Azure.
+
+## Perguntas Frequentes de VNet para VNet
+
+- As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes.
+
+- As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
+
+- Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga NÃO PODE se estender entre redes virtuais, mesmo que elas estejam conectadas.
+
+- A conexão de várias redes virtuais do Azure em conjunto não requer gateways de VPN locais, a menos que a conectividade entre locais seja necessária.
+
+- O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Ele não dá suporte à conexão de máquinas virtuais ou serviços de nuvem que NÃO estão em uma rede virtual.
+
+- VNet a VNet requer gateways de VPN do Azure com VPNs de roteamento dinâmico. Não há suporte para o gateway de VPNs do Azure com roteamento estático.
+
+- A conectividade de rede virtual pode ser usada simultaneamente com VPNs de multissite, com um máximo de 10 túneis de VPN para um gateway de VPN de rede virtual conectando a outras redes virtuais ou a sites locais.
+
+- Os espaços de endereço das redes virtuais e os sites de redes locais não devem se sobrepor. A sobreposição de espaços de endereço causará a falha da criação de redes virtuais ou do carregamento de arquivos de configuração netcfg.
+
+- Não há suporte a túneis redundantes entre um par de redes virtuais.
+
+- Todos os túneis de VPN da rede virtual, incluindo VPNs P2S, compartilham a largura de banda disponível no gateway de VPN do Azure e o mesmo SLA de tempo de ativação de gateway de VPN no Azure.
 
 ## Configurar uma conexão de VNet a VNet
 
@@ -55,7 +68,14 @@ Esse procedimento utiliza principalmente o Portal de Gerenciamento. No entanto, 
 
 ![Conectando VNet a VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
-Há cinco seções para planejar e configurar. Configure cada seção na ordem listada abaixo: 1. [Planejar seus intervalos de endereços IP](#plan-your-ip-address-ranges) 2. [Criar suas redes virtuais](#create-your-virtual-networks) 3. [Adicionar redes locais](#add-local-networks) 4. [Criar os gateways de roteamento dinâmico para cada VNet](#create-the-dynamic-routing-gateways-for-each-vnet) 5. [Conectar os gateways de VPN](#connect-the-vpn-gateways)
+Há cinco seções para planejar e configurar. Configure cada seção na ordem listada abaixo:
+
+1. [Planejar seus intervalos de endereços IP](#plan-your-ip-address-ranges)
+2. [Criar suas redes virtuais](#create-your-virtual-networks)
+3. [Adicionar redes locais](#add-local-networks)
+4. [Criar os gateways de roteamento dinâmico para cada VNet](#create-the-dynamic-routing-gateways-for-each-vnet)
+5. [Conectar os gateways de VPN](#connect-the-vpn-gateways)
+
 
 ## Planejar seus intervalos de endereços IP
 
@@ -82,31 +102,42 @@ VNet2: Espaço de Endereço = 10.2.0.0/16; Região=Leste do Japão
 
 2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
-3. Na página **Detalhes da Rede Virtual**, insira as informações a seguir. Para obter mais informações sobre as configurações na página de detalhes, consulte a [página de Detalhes da Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+Na página **Detalhes da Rede Virtual**, insira as informações a seguir. Para obter mais informações sobre as configurações na página de detalhes, consulte a [página de Detalhes da Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 
   ![Detalhes de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Nome** – nome de sua rede virtual. Por exemplo, VNet1.
   - **Local** – ao criar uma rede virtual, você a associa a um local do Azure (região). Por exemplo, se você desejar que as VMs implantadas em sua rede virtual estejam localizadas fisicamente no oeste dos EUA, selecione esse local. Você não pode alterar o local associado à sua rede virtual depois de criá-la.
 
-4. Na página **Servidores DNS e Conectividade de VPN**, insira as seguintes informações e, em seguida, clique na seta avançar no canto inferior direito. Para obter mais informações sobre as configurações nessa página, consulte a [página Servidores DNS e conectividade de VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
-  ![Conectividade de VPN e servidores DNS](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg) – **Servidores DNS** – insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu suspenso. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes para essa rede virtual. Se quiser ter a resolução de nomes entre suas redes virtuais, você precisará configurar seu próprio servidor DNS, em vez de usar a resolução de nomes fornecida pelo Azure.
+
+Na página **Servidores DNS e Conectividade de VPN**, insira as seguintes informações e, em seguida, clique na seta avançar no canto inferior direito. Para obter mais informações sobre as configurações nessa página, consulte a [página Servidores DNS e conectividade de VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+
+  ![Conectividade de VPN e servidores DNS](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
+
+
+- **Servidores DNS** – insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu suspenso. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes para essa rede virtual. Se quiser ter a resolução de nomes entre suas redes virtuais, você precisará configurar seu próprio servidor DNS, em vez de usar a resolução de nomes fornecida pelo Azure.
 
   - Não marque nenhuma das caixas de seleção. Basta clicar na seta no canto inferior direito para se mover para a próxima tela.
 
-5. Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. Há muitas regras quanto ao espaço de endereço de rede virtual, assim, convém consultar a página [Espaços de Endereço de Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obter mais informações. É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
+Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de endereços que você deseja usar para a sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. Há muitas regras quanto ao espaço de endereço de rede virtual, assim, convém consultar a página [Espaços de Endereço de Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obter mais informações. É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
 
-  Insira as informações a seguir e clique na marca de seleção no canto inferior direito para configurar sua rede.
 
   ![Página Espaços de endereço de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
+
+  **Insira as informações a seguir** e clique na marca de seleção no canto inferior direito para configurar a sua rede.
 
   - **Espaço de endereço** – incluindo o IP Inicial e a Contagem de Endereços. Verifique se que os espaços de endereço que você especificar não se sobrepõem a nenhum espaço de endereço que você tem em sua rede local. Para este exemplo, vamos usar 10.1.0.0/16 para VNet1.
   - **Adicionar sub-rede** – incluindo o IP Inicial e a Contagem de Endereços. Sub-redes adicionais não são necessárias, mas convém criar uma sub-rede separada para VMs que terão DIPS estáticos. Ou então, você pode colocar suas VMs em uma sub-rede separada das outras instâncias de função.
 
-6. Clique na marca de seleção no canto inferior direito da página, e sua rede virtual começará a ser criada. Quando ela for concluída, você verá a indicação Criada listada em **Status** na página **Redes** no Portal de Gerenciamento.
+**Clique na marca de seleção** no canto inferior direito da página, e a sua rede virtual começará a ser criada. Quando ela for concluída, você verá a indicação *Criada* listada em *Status* na página *Redes* no Portal de Gerenciamento.
 
-7. Crie outra rede virtual. Para os fins deste tutorial, use estes valores: **VNet2**: Espaço de Endereço = 10.2.0.0/16; Região=Leste do Japão
+## Crie outra rede virtual
+
+Em seguida, repita as etapas anteriores para criar outra rede virtual. Neste exercício, você conectará posteriormente essas duas redes virtuais. Observe que é muito importante não ter espaços de endereço sobrepostos ou duplicados. Para os fins deste tutorial, use estes valores:
+
+- **VNet2**: Espaço de Endereço = 10.2.0.0/16
+- **Região**= Leste do Japão
 
 ## Adicionar redes locais
 
@@ -164,31 +195,32 @@ Quando todas as etapas anteriores forem concluídas, você definirá as chaves p
 
 Para VNet1
 
-````PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
+	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
-For VNet2
+Para VNet2
 
-````PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
+	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Aguarde até que as conexões sejam inicializadas. Depois que o Gateway for inicializado, ele será semelhante ao gráfico abaixo, e suas redes virtuais estarão conectadas.
 
 ![Status do gateway – Conectado](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)
 
-##Consulte também
+## Próximas etapas
 
-**Conceitos**
+Você pode saber mais sobre a conectividade entre locais da Rede Virtual neste artigo: [Sobre conectividade segura entre locais da rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
-[Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
-[Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx)
+Se você quiser configurar uma conexão VPN site a site, confira [Configurar uma conexão VPN site a site](vpn-gateway-site-to-site-create.md)
 
-[Operações em Redes Virtuais](https://msdn.microsoft.com/library/azure/jj157182.aspx)
+Se quiser adicionar máquinas virtuais à sua rede virtual, consulte [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-[Operações em Gateways de Rede Virtual](https://msdn.microsoft.com/library/azure/jj154113.aspx)
+Se desejar configurar uma conexão VNet usando o RRAS, consulte [Configurar uma VPN site a site usando o Serviço de Acesso Remoto (RRAS) do Roteamento do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
 
-**Outros recursos**
+Para obter mais informações sobre o esquema de configuração, consulte [Esquema de Configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-[Postagem do blog – conexões VNet a VNet entre regiões diferentes](http://azure.microsoft.com/blog/2014/06/17/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)
 
-<!--HONumber=52-->
+[1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
+[2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
+
+<!---HONumber=July15_HO2-->

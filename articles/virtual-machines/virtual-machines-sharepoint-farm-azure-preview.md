@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Farm do SharePoint Server" 
-	description="Descreve o novo recurso Farm do SharePoint Server disponível no Portal de Visualização do Azure" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Farm do SharePoint Server"
+	description="Você pode criar rapidamente um novo farm do SharePoint Server 2013 usando o recurso de Farm do SharePoint Server no Portal de Visualização do Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Farm do SharePoint Server
@@ -31,14 +32,14 @@ O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png)
 
 É possível usar esta configuração de farm para testar cargas de clientes maiores, alta disponibilidade do site externo do SharePoint e o SQL Server AlwaysOn para um farm do SharePoint. Também é possível usar esta configuração para a implementação do aplicativo SharePoint em um ambiente de alta disponibilidade.
- 
+
 Para os detalhes de configuração de ambos os farms, consulte [Detalhes de configuração de farm no SharePoint Server](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Percorrendo a configuração
- 
+
 Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server, faça o seguinte:
 
-1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Computação** > **Farm do SharePoint Server**. Se **Farm do SharePoint Server** não aparecer, clique em **Novo** > **Computação** > **Azure Marketplace**, digite **SharePoint** em **Pesquisar Tudo** e, em seguida, clique em **Farm do SharePoint Server**. 
+1. No [Portal de Visualização do Microsoft Azure](https://portal.azure.com/), clique em **Novo** > **Computação** > **Farm do SharePoint Server**. Se **Farm do SharePoint Server** não aparecer, clique em **Novo** > **Computação** > **Marketplace**, digite **SharePoint** em **Pesquisar Computação** e, em seguida, clique em **Farm do SharePoint Server**. No painel **Farm do SharePoint Server**, clique em **Criar**.
 2. No painel **Criar um farm do SharePoint**, digite o nome de um grupo de recursos.
 3. Digite um nome de usuário e uma senha para uma conta de administrador local em cada máquina virtual em seu farm. Escolha um nome e uma senha difícil de adivinhar, grave-a e armazene-a em um local seguro.
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
@@ -55,35 +56,34 @@ Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server
 
 Os farms do SharePoint tem um ponto de extremidade pré-configurado para permitir o tráfego da Web não autenticado (porta TCP 80) para o servidor Web do SharePoint para um computador cliente conectado à Internet. Este ponto de extremidade é um site de equipe pré-configurado. Para acessa este site de equipe:
 
-1.	No Portal de visualização do Azure, clique em **Navegar** e, em seguida, clique em **Grupos de Recursos**. 
+1.	No Portal de visualização do Azure, clique em **Navegar** e, em seguida, clique em **Grupos de Recursos**.
 2.	Na lista de grupos de recursos, clique no nome do seu grupo de recursos do farm do SharePoint.
-3.	No painel do seu grupo de recursos do farm do SharePoint, clique em **Histórico de implantação**. 
+3.	No painel do seu grupo de recursos do farm do SharePoint, clique em **Histórico de implantação**.
 4.	No painel **Histórico de implantação**, clique em **Microsoft.SharePointFarm**.
-5.	No painel **Microsoft.SharePointFarm**, selecione a URL no campo SHAREPOINTSITEURL e copie-a. 
+5.	No painel **Microsoft.SharePointFarm**, selecione a URL no campo **SHAREPOINTSITEURL** e copie-a.
 6.	No seu navegador da Internet, cole a URL no campo de endereço.
 7.	Quando for solicitado, digite as credenciais da conta do usuário especificado quando o farm foi criado.
 
 No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para obter mais informações, consulte [Configurar o SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx). Para acessar o site Administração central do SharePoint:
 
-1.	No Portal de visualização do Azure, clique em **Navegar** e, em seguida, clique em **Grupos de Recursos**. 
+1.	No Portal de visualização do Azure, clique em **Navegar** e, em seguida, clique em **Grupos de Recursos**.
 2.	Na lista de grupos de recursos, clique no nome do seu grupo de recursos do farm do SharePoint.
-3.	No painel do seu grupo de recursos do farm do SharePoint, clique em **Histórico de implantação**. 
+3.	No painel do seu grupo de recursos do farm do SharePoint, clique em **Histórico de implantação**.
 4.	No painel **Histórico de implantação**, clique em **Microsoft.SharePointFarm**.
-5.	No painel **Microsoft.SharePointFarm**, selecione a URL no campo SHAREPOINTCENTRALADMINURL e copie-a. 
+5.	No painel **Microsoft.SharePointFarm**, selecione a URL no campo **SHAREPOINTCENTRALADMINURL** e copie-a.
 6.	No seu navegador da Internet, cole a URL no campo de endereço.
 7.	Quando for solicitado, digite as credenciais da conta do usuário especificado quando o farm foi criado.
 
 
 Observações:
 
-- O Portal de visualização do Azure cria estas máquinas virtuais em sua assinatura.
-- O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização. 
+- O Portal de visualização do Azure cria estas máquinas virtuais na assinatura especificada.
+- O Portal de visualização do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
 - É possível administrar esses servidores por meio de conexões de área de trabalho remota. Para saber mais, confira [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-log-on-windows-server.md).
-
 
 ## Gerenciador de Recursos do Azure
 
-O Farmo do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts para criar automaticamente as configurações do servidor para estes farms do SharePoint. Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciador de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos, consulte [Implantar farms do SharePoint com modelos de Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -95,4 +95,4 @@ O Farmo do SharePoint Server usa o Gerenciador de Recursos do Azure e os scripts
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

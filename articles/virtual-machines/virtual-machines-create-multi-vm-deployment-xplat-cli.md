@@ -65,5 +65,6 @@ Embora você possa encontrar mais informações usando a opção -help em qualqu
 
 * [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
 * [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,33 +21,45 @@
 
 ##Visão geral
 
-Ao se trabalhar com os Serviços de Mídia, um dos cenários comuns é:
+Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes.
 
-1. Carregar um arquivo de entrada (chamado de arquivo mezzanine) em um ativo. Por exemplo, H.264, MP4 ou WMV.
-1. Codifique o ativo em um conjunto de MP4s de taxa de bits adaptável.
-1. Publique o ativo. 
-2. Use o [empacotamento dinâmico](http://msdn.microsoft.com/library/azure/jj889436.aspx) para fornecer o conteúdo a seus clientes em qualquer um dos seguintes formatos: MPEG DASH, Apple HLS ou Smooth Streaming. 
+Para atingir esse objetivo:
 
-Este tópico fornece uma visão geral dos principais [conceitos](media-services-fornecer-content.md #concepts) e links para tópicos que mostram como executar [tarefas](../media-services-deliver-content.md#tasks) relacionadas ao fornecimento de conteúdo.
+- codifique seu fluxo para múltiplas taxas de bits (taxa de bits adaptável) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
+- use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+
+Este tópico fornece uma visão geral dos [conceitos de fornecimento de conteúdo](media-services-deliver-content-overview.md#concepts) e links para tópicos que mostram como executar [tarefas](media-services-deliver-content-overview.md#tasks) de fornecimento de conteúdo.
 
 ##<a id="concepts"></a>Conceitos
 
 A lista a seguir descreve conceitos e terminologia úteis para o fornecimento de mídia.
 
+###Empacotamento dinâmico
+
+É recomendável usar empacotamento dinâmico para fornecer seu conteúdo. Para obter mais informações, consulte [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+
+Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
+
+###Filtros e manifestos dinâmicos
+
+Os Serviços de Mídia permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos** criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
+
+Para obter mais informações, consulte [Filtros e manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
+
 ###Localizadores
 
-Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador.  Os localizadores fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: 
+Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores:
 
 - Os localizadores **OnDemandOrigin**, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar arquivos progressivamente.
--  Os localizadores de URL **SAS** (assinatura de acesso), usados para baixar arquivos de mídia para seu computador local.
+-  Os localizadores de URL **SAS** (assinatura de acesso), usados para baixar arquivos de mídia para seu computador local. 
 
-Uma **política de acesso** é usada para definir as permissões (como leitura, gravação e lista) e a duração pela qual um cliente tem acesso a determinado ativo. Observe que a permissão de lista (Accesspermissions) não deve ser usada ao criar um localizador OrDemandOrigin.
+Uma **política de acesso** é usada para definir as permissões (como leitura, gravação e lista) e a duração pela qual um cliente tem acesso a determinado ativo. Observe que a permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OrDemandOrigin.
 
-Os localizadores têm uma data de validade. Quando você usa o portal para publicar seus ativos, são criados localizadores com uma data de validade de 100 anos. 
+Os localizadores têm uma data de validade. Quando você usa o portal para publicar seus ativos, são criados localizadores com uma data de validade de 100 anos.
 
->[AZURE.NOTE] Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.  
+>[AZURE.NOTE]Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.
 
-Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada. 
+Para atualizar a data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
  
 Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de gerenciamento de direitos digitais (DRM). Para obter mais informações, consulte [Protegendo mídia](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
@@ -56,29 +68,20 @@ Observe que, quando você cria um localizador, pode haver um atraso de 30 segund
 
 ###Streaming adaptável 
 
-Tecnologias de taxa de bits adaptável permitem que os aplicativos de player de vídeo determinem as condições da rede e selecionem entre várias taxas de bits. Quando a comunicação da rede degrada, o cliente pode selecionar uma taxa de bits inferior, permitindo que o player continue a reproduzir o vídeo com uma qualidade de vídeo inferior. Como melhorarem as condições de rede cliente pode alternar para uma taxa de bits mais alta com melhor qualidade de vídeo. Os Serviços de Mídia do Azure dão suporte às seguintes tecnologias de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
+Tecnologias de taxa de bits adaptável permitem que os aplicativos de player de vídeo determinem as condições da rede e selecionem entre várias taxas de bits. Quando a comunicação da rede degrada, o cliente pode selecionar uma taxa de bits inferior, permitindo que o player continue a reproduzir o vídeo com uma qualidade de vídeo inferior. Como melhorarem as condições de rede cliente pode alternar para uma taxa de bits mais alta com melhor qualidade de vídeo. Os Serviços de Mídia do Azure dão suporte às seguintes tecnologias com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS.
 
-Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo que contém o conteúdo que você deseja transmitir. No entanto, para poder transmitir este conteúdo você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, você deve concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (ISM). Em seguida, anexe um formato apropriado (se necessário) ao caminho do localizador. 
+Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo que contém o conteúdo que você deseja transmitir. No entanto, para poder transmitir este conteúdo você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, você deve concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (ISM). Em seguida, anexe um formato apropriado (se necessário) ao caminho do localizador.
 
-Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. 
+Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS.
 
-Observe que você só pode transmitir por SSL se o ponto de extremidade de streaming por meio do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming após 10 de setembro, a URL contém "streaming.mediaservices.windows.net" (o novo formato). URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL. 
+Observe que você só pode transmitir por SSL se o ponto de extremidade de streaming por meio do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming após 10 de setembro, a URL contém "streaming.mediaservices.windows.net" (o novo formato). URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL.
 
 
 ####Formatos de URL de streaming:
 
-**Formato Smooth Streaming**
-
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-Exemplo:
-
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
-
-
 **Formato MPEG DASH**
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
 Exemplo
 
@@ -86,39 +89,56 @@ Exemplo
 
 **Formato Apple HTTP Live Streaming (HLS) V4**
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 **Formato Apple HTTP Live Streaming (HLS) V3**
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+
+**Formato Smooth Streaming**
+
+{nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest
+
+Exemplo:
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+
+**Manifesto Smooth Streaming 2.0 (manifesto legado)**
+
+Por padrão o formato de manifesto Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Esses clientes podem usar o formato que desabilita a r-tag:
+
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+
 **HDS (apenas para licenciados do Adobe PrimeTime/Access)**
 
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 
 ###Empacotamento dinâmico
 
-Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo. 
+Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming suportados pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
 - Codifique seu arquivo mezzanine (de origem) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,
-- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar unidades reservadas para Streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente. 
+Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
 Observe que, além de poder usar os recursos de empacotamento dinâmico, unidades reservadas de streaming sob demanda oferecem capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Por padrão, o streaming por demanda é configurado em um modelo de instância compartilhada para a qual os recursos do servidor (por exemplo, computação, capacidade de egresso etc.) são compartilhados com todos os outros usuários. Para melhorar a taxa de transferência de um streaming por demanda, é recomendável adquirir unidades reservadas para Streaming por Demanda.
 
 ###Download progressivo 
 
-O download progressivo permite iniciar a reprodução da mídia antes do arquivo inteiro ter sido baixado. Você não pode baixar progressivamente arquivos  .ism* (ismv, isma, ismt, ismc). 
+O download progressivo permite iniciar a reprodução da mídia antes do arquivo inteiro ter sido baixado. Você não pode baixar progressivamente arquivos .ism* (ismv, isma, ismt, ismc).
 
 Para baixar conteúdo progressivamente, use o tipo de localizador OnDemandOrigin. O exemplo a seguir mostra a URL que é baseada no tipo de localizador OnDemandOrigin:
 
@@ -131,7 +151,7 @@ A seguinte consideração é aplicável:
 
 ###Baixar
 
-Para baixar o conteúdo em um dispositivo de cliente, você deve criar um localizador SAS. O localizador SAS lhe dá acesso ao contêiner do Armazenamento do Azure em que o arquivo está localizado. Para criar a URL de download, você deve inserir o nome do arquivo entre o host e a assinatura SAS. 
+Para baixar o conteúdo em um dispositivo de cliente, você deve criar um localizador SAS. O localizador SAS lhe dá acesso ao contêiner do Armazenamento do Azure em que o arquivo está localizado. Para criar a URL de download, você deve inserir o nome do arquivo entre o host e a assinatura SAS.
 
 O seguinte exemplo mostra a URL que se baseia no localizador SAS:
 
@@ -150,15 +170,32 @@ Um **Ponto de Extremidade de Streaming** representa um serviço de streaming que
 
 ##<a id="tasks"></a>Tarefas relacionadas ao fornecimento de ativos
 
+
+###Configurando pontos de extremidade de streaming
+
+Para uma visão geral sobre streaming de pontos de extremidade e informações sobre como gerenciá-los, consulte [Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia](media-services-manage-origins.md).
+
+###Carregando mídia 
+
+Carregue seus arquivos usando **Portal de Gerenciamento do Azure**, **.NET** ou **API REST**.
+
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
+###Codificação de ativos
+
+Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal de Gerenciamento**, o **.NET** ou **API REST**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
+
 ###Configurando a política de fornecimento de ativos
 
-Configurar a política de fornecimento de ativos usando **.NET** ou **API REST**.
+Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ###Publicando ativos
 
-Publicar ativos (ao criar localizadores) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
+Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciamento do Azure** ou **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -166,6 +203,6 @@ Publicar ativos (ao criar localizadores) usando o **Portal de Gerenciamento do A
 ##Tópicos relacionados
 
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

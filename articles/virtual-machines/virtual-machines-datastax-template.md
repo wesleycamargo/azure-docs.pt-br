@@ -44,7 +44,7 @@ Siga estas etapas para criar um cluster do Apache Cassandra, com base no DataSta
 
 ### Etapa 1-a: Baixar os arquivos de modelo usando o PowerShell
 
-Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\Azure\Templates\DataStax).
+Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\\Azure\\Templates\\DataStax).
 
 Substitua o nome da pasta local e execute os seguintes comandos:
 
@@ -78,13 +78,13 @@ Substitua o nome da pasta local e execute os seguintes comandos:
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Etapa 1-b: Baixar os arquivos de modelo usando a CLI do Azure
+### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
 Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta **datastax-on-ubuntu** no diretório C:\Azure\Templates.
+Quando terminar, procure a pasta **datastax-on-ubuntu** no diretório C:\\Azure\\Templates.
 
 ### Etapa 2 (opcional): Compreender os parâmetros do modelo
 
@@ -439,7 +439,7 @@ Os discos anexados são formatados como parte das atividades de preparação do 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh faz parte da pasta **shared_scripts\ubuntu**, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
+vm-disk-utils-0.1.sh faz parte da pasta **shared_scripts\\ubuntu**, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
 
 Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais:
 
@@ -482,4 +482,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

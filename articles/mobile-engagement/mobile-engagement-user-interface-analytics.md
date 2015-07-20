@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Interface do usuário do Mobile Engagement do Azure - Análise" 
-   description="Saiba como analisar os dados históricos  sobre seu aplicativo usando o Mobile Engagement do Azure" 
+   description="Saiba como analisar os dados históricos sobre seu aplicativo usando o Mobile Engagement do Azure" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -172,5 +172,6 @@ A visão geral de retenção é dividida no meio em vários cartões, cada uma m
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

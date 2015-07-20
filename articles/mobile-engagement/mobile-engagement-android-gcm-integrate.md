@@ -103,7 +103,7 @@ No momento da gravação deste documento (5 de fevereiro de 2014), o procediment
 -   Selecione "Chave do servidor".
 -   Na tela seguinte, deixe em branco **(nenhuma restrição de IP)**, em seguida, clique em Criar.
 -   Copie a **chave de API** gerada.
--   Vá para $/#application/YOUR_ENGAGEMENT_APPID/native-push.
+-   Vá para $/\\#application/YOUR\\_ENGAGEMENT\\_APPID/native-push.
 -   Na seção GCM, edite a chave de API com aquela que você acabou de gerar e copiar.
 
 Agora você será capaz de selecionar "Qualquer hora" durante a criação de pesquisas e anúncios do Reach.
@@ -121,5 +121,6 @@ Agora, verifique sua integração lendo Como testar a integração do Engagement
 [Biblioteca de cliente GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Console de Desenvolvedor do Google]: https://cloud.google.com/console
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

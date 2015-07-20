@@ -338,4 +338,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

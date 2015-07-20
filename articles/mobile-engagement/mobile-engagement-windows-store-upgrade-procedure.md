@@ -45,7 +45,7 @@ O SDK usa o termo `Engagement`. Você precisa atualizar seu projeto para corresp
 
 Você precisa desinstalar o pacote nuget do Capptain atual. Considere que todas as alterações na pasta de recursos Capptain serão removidas. Se você quiser manter esses arquivos, então faça uma cópia deles.
 
-Depois disso, instale o novo pacote nuget do Engagement do Microsoft Azure em seu projeto. Você pode encontrá-lo diretamente no [site do NuGet]. ou aqui no índice. Essa ação substitui todos os arquivos de recursos usados pelo Engagement e adiciona a nova DLL do Engagement às suas referências do projeto.
+Depois disso, instale o novo pacote nuget do Engagement do Microsoft Azure em seu projeto. Você pode encontrá-lo diretamente no [site do nuget]. ou aqui no índice. Essa ação substitui todos os arquivos de recursos usados pelo Engagement e adiciona a nova DLL do Engagement às suas referências do projeto.
 
 Você precisa limpar as referências do projeto, excluindo as referências de Capptain DLL. Se você não fizer isso, a versão do Capptain entrará em conflito e ocorrerão erros.
 
@@ -127,7 +127,7 @@ Quando essas etapas forem concluídas, você só precisará substituir as refer�
 
 ### Declaração do projeto
 
-Em Package.appxmanifest  `File Type Associations` foi atualizado a partir de:
+Em Package.appxmanifest `File Type Associations` foi atualizado a partir de:
 
  -   capptain_reach_content para engagement_reach_content
  -   capptain_log_file para engagement_log_file
@@ -167,5 +167,6 @@ Exemplos de itens do Capptain usados normalmente :
 
 Observe que renomear também afeta métodos substituídos.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -25,5 +25,6 @@ O Banco de Dados SQL permite [escalar verticalmente](sql-database-service-tiers.
 O Banco de Dados SQL está disponível nas [camadas de serviço](sql-database-service-tiers.md) Basic, Standard e Premium, que oferecem suporte a cargas de trabalho de banco de dados leves e pesadas, de modo que você pode mudar de camada ou combiná-las para obter designs inovadores de aplicativo. Com a potência e o alcance do Azure, você pode combinar e corresponder serviços do Azure com o Banco de Dados SQL para atender às suas necessidades exclusivas de design de aplicativo moderno, direcionar as eficiências de recursos e custo, bem como descobrir novas oportunidades de negócios.
 
 Comece com uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seus primeiro banco de dados SQL](sql-database-get-started.md)!
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -117,7 +117,7 @@ Você pode usar a seção Notificação para definir as configurações básicas
 Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pesquisas, Envio de Dados por Push e Blocos (somente no Windows Phone). A configuração de conteúdo de campanhas de envio é específica para o tipo de campanha.
 
 ### Consulte também
-- [Documentação da Interface do Usuário - Alcance - Enviar conteúdo por push][Link 29]
+- [Documentação da interface do usuário - Reach - Enviar conteúdo por push][Link 29]
  
 ![Reach-Campaign5][24]
 
@@ -258,5 +258,6 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

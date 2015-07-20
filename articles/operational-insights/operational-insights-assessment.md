@@ -1,25 +1,27 @@
-<properties 
+<properties
    pageTitle="Otimizar seu ambiente com pacotes de inteligência de avaliação"
-   description="Usar pacotes de inteligência de avaliação para avaliar o risco e a integridade de seus ambientes de servidor em um intervalo regular"
+   description="Usar soluções de Avaliação para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Otimizar seu ambiente com pacotes de inteligência de avaliação
 
-Você pode usar pacotes de inteligência de avaliação para avaliar o risco e a integridade de seus ambientes de servidor em um intervalo regular. Eles fornecem uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. Recomendações categorizadas em seis áreas de foco que ajudam a compreender rapidamente o risco e a integridade da infraestrutura e a facilmente adotar medidas para diminuir riscos e melhorar a integridade.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Atualmente, os seguintes pacotes de inteligência de avaliação estão disponíveis:
+Você pode usar a solução Avaliação para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Eles fornecem uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. Recomendações categorizadas em seis áreas de foco que ajudam a compreender rapidamente o risco e a integridade da infraestrutura e a facilmente adotar medidas para diminuir riscos e melhorar a integridade.
+
+Atualmente, as seguintes soluções de avaliação estão disponíveis:
 
 - Active Directory
 
@@ -29,52 +31,41 @@ As recomendações baseiam-se no conhecimento e na experiências obtidas pelos e
 
 Você pode escolher as áreas de foco que são mais importantes para sua organização e acompanhar seu progresso no sentido de executar um ambiente íntegro e sem riscos.
 
-Instale os pacotes de inteligência para atualizar o agente de do Operations Manager e o módulo de configuração de base para o Insights Operacionais e adicione o arquivo AdvisorAssessment.exe a servidores monitorados. Dados de configuração são lidos e, em seguida, são enviados para o serviço de Insights Operacionais na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Quando as avaliações são concluídas, informações resumidas para áreas de foco são mostradas no painel **avaliação** para a infraestrutura em seu ambiente. Usando as informações no painel **Avaliação**, você pode exibir e executar as ações recomendadas para sua infraestrutura de servidor.
+Instale as soluções para atualizar o agente de do Operations Manager e o módulo de configuração de base para o Insights Operacionais e adicione o arquivo AdvisorAssessment.exe a servidores monitorados. Dados de configuração são lidos e, em seguida, são enviados para o serviço de Insights Operacionais na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Quando as avaliações são concluídas, informações resumidas para áreas de foco são mostradas no painel **Avaliação** para a infraestrutura em seu ambiente. Usando as informações no painel **Avaliação**, você pode exibir e executar as ações recomendadas para sua infraestrutura de servidor.
 
 ![imagem do bloco de Avaliação do SQL](./media/operational-insights-assessment/overview-sql-assess.png)
 
-![imagem do painel de Avaliação do SQL](./media/operational-insights-assessment/gallery-ad-01.png)
+![imagem do painel de avaliação do SQL](./media/operational-insights-assessment/gallery-ad-01.png)
 
 
-## Perguntas frequentes sobre pacotes de inteligência de avaliação
+## Perguntas frequentes sobre soluções de avaliação
 
-*Com que frequência uma avaliação é executada?*<br>
-A avaliação é executada a cada sete dias.
+*Com que frequência uma avaliação é executada?*<br> A avaliação é executada a cada sete dias.
 
-*Há uma maneira de configurar a frequência com que a avaliação é executada?*<br>
-Não no momento.
+*Há uma maneira de configurar a frequência com que a avaliação é executada?*<br> Não no momento.
 
-*Se outro servidor for descoberto após ter adicionado um pacote de inteligência de avaliação, ele será avaliado?*<br>
-Sim, assim que for descoberto, ele é avaliado a partir de então a cada sete dias.
+*Se outro servidor for descoberto após ter adicionado uma solução de avaliação, ele será avaliado?*<br> Sim, assim que for descoberto, ele é avaliado a partir de então a cada sete dias.
 
-*Se um servidor for encerrado, quando ele será removido da avaliação?*<br>
-Se um servidor não enviar dados por três semanas, ele será removido.
+*Se um servidor for encerrado, quando ele será removido da avaliação?*<br> Se um servidor não enviar dados por três semanas, ele será removido.
 
-*Qual é o nome do processo que faz a coleta de dados?*<br>
-AdvisorAssessment.exe
+*Qual é o nome do processo que faz a coleta de dados?*<br> AdvisorAssessment.exe
 
-*Quanto tempo leva para os dados serem coletados?*<br>
-A coleta de dados real no servidor leva aproximadamente 1 hora. Pode levar mais tempo em servidores que têm um grande número de servidores do Active Directory ou instâncias ou bancos de dados SQL.
+*Quanto tempo leva para os dados serem coletados?*<br> A coleta de dados real no servidor leva aproximadamente 1 hora. Pode levar mais tempo em servidores que têm um grande número de servidores do Active Directory ou instâncias ou bancos de dados SQL.
 
-*Que tipo de dados é coletado?*<br>
-Os seguintes tipos de dados são coletados:
+*Que tipo de dados é coletado?*<br> Os seguintes tipos de dados são coletados:
 
 - WMI
 - Registro
 - Contadores de desempenho
 - Exibições de gerenciamento dinâmico SQL (DMV).
 
-*Há uma maneira de configurar quando os dados são coletados?*<br>
-Não no momento.
+*Há uma maneira de configurar quando os dados são coletados?*<br> Não no momento.
 
-*Por que é necessário configurar uma conta Executar como?*<br>
-Para o SQL Server, um pequeno número de consultas SQL é executado. Para elas serem executadas, uma conta Executar como com permissões VIEW SERVER STATE devem ser usadas para SQL.  Além disso, para consultar WMI, são necessárias credenciais de administrador local.
+*Por que é necessário configurar uma conta Executar como?*<br> Para o SQL Server, um pequeno número de consultas SQL é executado. Para elas serem executadas, uma conta Executar como com permissões VIEW SERVER STATE devem ser usadas para SQL. Além disso, para consultar WMI, são necessárias credenciais de administrador local.
 
-*Por que apenas as 10 principais recomendações são exibidas?*<br>
-Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se preferir ver a lista detalhada, exiba todas as recomendações usando a pesquisa do Insights Operacionais.
+*Por que apenas as 10 principais recomendações são exibidas?*<br> Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se preferir ver a lista detalhada, exiba todas as recomendações usando a pesquisa de log do Insights Operacionais.
 
-*É possível ignorar uma recomendação?*<br>
-Não no momento.
+*É possível ignorar uma recomendação?*<br> Não no momento.
 
 ## Compreendendo como as recomendações são priorizadas
 
@@ -88,7 +79,7 @@ Os pesos são valores agregados com base em três fatores principais:
 
 - O *impacto* da questão na sua organização se ela causar um problema. Um impacto maior é igual a uma pontuação geral maior para a recomendação.
 
-- O *esforço*  necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
+- O *esforço* necessário para implementar a recomendação. Um esforço maior é igual a uma pontuação geral menor para a recomendação.
 
 A importância de cada recomendação é expressa como um percentual da pontuação total disponível para todas as áreas de foco. Por exemplo, se uma recomendação na área de foco de segurança e conformidade tiver uma pontuação de 5%, implementar essa recomendação aumentará sua pontuação geral de segurança e conformidade em 5%.
 
@@ -114,7 +105,7 @@ Cada recomendação feita inclui diretrizes sobre por que ela pode ser important
 
 ## Use as recomendações de área de foco de avaliação
 
-Antes de poder usar um pacote de inteligência de avaliação no Insights Operacionais do Microsoft Azure, você deve ter o pacote de inteligência instalado. Para saber mais sobre como instalar pacotes de inteligência, consulte [Usar a Galeria para adicionar ou remover pacotes de inteligência](../operational-insights-add-intelligence-packs.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco de avaliação da página Visão Geral do Insights Operacionais.
+Antes de usar uma solução de avaliação do Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco de avaliação da página Visão Geral do Insights Operacionais.
 
 Você pode resumir avaliações de conformidade para sua infraestrutura e então fazer uma análise detalhada das recomendações.
 
@@ -132,5 +123,4 @@ Você pode resumir avaliações de conformidade para sua infraestrutura e então
 
 4. Execute ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

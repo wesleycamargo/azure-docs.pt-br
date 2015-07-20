@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilar um serviço usando um armazenamento de dados não relacionais - Serviços Móveis do Azure" 
+	pageTitle="Criar um serviço usando um repositório de dados não relacional | Serviços Móveis do Azure" 
 	description="Aprenda a usar um armazenamento de dados não relacionais, como o MongoDB ou armazenamento de tabela do Azure com seu serviço móvel baseado em .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -16,61 +16,41 @@
 	ms.date="04/24/2015" 
 	ms.author="mahender"/>
 
-# Compilar um Serviço Usando o MongoDB como o armazenamento de dados com o back-end do .NET
+# Criar um Serviço Móvel de back-end .NET que usa o MongoDB em vez de um Banco de Dados SQL para armazenamento
 
-Este tópico mostra como usar o armazenamento de dados não relacionais para seu serviço móvel. Neste tutorial, você modificará o projeto de início rápido dos Serviços Móveis para usar o MongoDB em vez de um SQL como um armazenamento de dados.
+Este tópico mostra como usar um repositório de dados não relacional para seu serviço móvel de back-end .NET. Neste tutorial, você modificará o projeto de início rápido de Serviços Móveis para usar o MongoDB no lugar do repositório de dados padrão do Banco de Dados SQL do Azure.
 
-Este tutorial apresenta as etapas para configuração de um armazenamento não relacional:
+Este tutorial exige a conclusão do tutorial [Introdução ao Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente]. Você também precisará adicionar o serviço MongoLab à sua assinatura.
 
-1. [Criar um non-relational store]
-2. [Modificar dados e controladores]
-3. [Testar o aplicativo]
+## <a name="create-store"></a>Criar o repositório não relacional MongoLab
 
-O tutorial exige a conclusão do tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados].
+1. No [Portal de Gerenciamento do Azure], clique em **Novo** e em **Marketplace**.
 
-## <a name="create-store"></a>Criar um non-relational store
+2. Clique no complemento **MongoLab** e conclua o assistente para se inscrever em uma conta do MongoLab.
 
-1. No [Portal de Gerenciamento do Azure], clique em **Novo** e selecione **Armazenamento**.
+	Para saber mais sobre o MongoLab, consulte a [Página do complemento MongoLab].
 
-2. Selecione o suplemento **MongoLab** e navegue pelo assistente para se inscrever em uma conta. Para saber mais sobre o MongoLab, consulte a [Página de Suplemento do MongoLab].
+2. Quando a conta estiver definida, clique em **Informações de Conexão** e copie a cadeia de conexão.
 
-    ![][0]
+3. No seu serviço móvel, clique na guia **Configurar**, role para baixo até **Cadeias de conexão** e insira uma nova cadeia de conexão com um **Nome** de `MongoConnectionString` e um **Valor** que é sua conexão com o MongoDB e clique em **Salvar**.
 
-2. Quando a conta estiver definida, selecione **Informações de conexão** e copie a cadeia de conexão.
+	![Adicionar a cadeia de conexão do MongoDB](./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png)
 
-3. Navegue até a seção de Serviços Móveis do portal e selecione a guia **Configurar**.
+	A cadeia de conexão da conta de armazenamento é armazenada criptografada em configurações do aplicativo. Você pode acessar essa cadeia em qualquer controlador de tabela no tempo de execução.
 
-4. Em **Configurações do aplicativo**, insira sua cadeia de conexão com a chave "MongoConnectionString" e clique em **Salvar**.
+8. No Gerenciador de Soluções do Visual Studio, abra o arquivo Web.config do projeto de serviço móvel e adicione a seguinte cadeia de conexão nova:
 
-    ![][1]
+		<add name="MongoConnectionString" connectionString="<MONGODB_CONNECTION_STRING>" />
 
-2. Adicione o seguinte a `TodoItemController`:
+9. Substitua o espaço reservado `<MONGODB_CONNECTION_STRING>` pela cadeia de conexão do MongoDB.
 
-        static bool connectionStringInitialized = false;
+	O serviço móvel usa essa cadeia de conexão quando é executado no computador local, o que permite testar o código antes de publicá-lo. Quando em execução no Azure, o serviço móvel usa o valor de cadeia de conexão definido no portal e ignora a cadeia de conexão no projeto.
 
-        private void InitializeConnectionString(string connectionStringName)
-        {
-            if (!connectionStringInitialized)
-            {
-                connectionStringInitialized = true;
-                if (!this.Services.Settings.Connections.ContainsKey(connectionStringName))
-                {
-                    var connectionString = this.Services.Settings[connectionStringName];
-                    var connectionSetting = new ConnectionSettings(connectionStringName, connectionString);
-                    this.Services.Settings.Connections.Add(connectionStringName, connectionSetting);
-                }
-            }
-        }
-    
-    Esse código carregará a configuração do aplicativo e dirá ao serviço móvel para tratá-lo como uma conexão que pode ser usada por um `TableController`. Em seguida, é possível chamar esse método quando o `TodoItemController` for chamado.
-
-
-
-## <a name="modify-service"></a>Modificar dados e controladores
+## <a name="modify-service"></a>Modificar tipos de dados e controladores de tabela
 
 1. Instale o pacote NuGet **WindowsAzure.MobileServices.Backend.Mongo**.
 
-2. Modifique `TodoItem` para derivar de `DocumentData` em vez de `EntityData`.
+2. Modifique **TodoItem** para que seja derivado de **DocumentData** em vez de **EntityData**.
 
         public class TodoItem : DocumentData
         {
@@ -79,7 +59,7 @@ O tutorial exige a conclusão do tutorial [Introdução aos Serviços Móveis] o
             public bool Complete { get; set; }
         }
 
-3. No `TodoItemController`, substitua o método `Initialize` pelo seguinte:
+3. Em **TodoItemController**, substitua o método **Initialize** pelo seguinte:
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -87,26 +67,45 @@ O tutorial exige a conclusão do tutorial [Introdução aos Serviços Móveis] o
             string connectionStringName = "MongoConnectionString";
             string databaseName = "<YOUR-DATABASE-NAME>";
             string collectionName = "todoItems";
-            InitializeConnectionString(connectionStringName);
-            DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
+            DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, 
+				collectionName, Request, Services);
         }
 
-4. No código para o método `Initialize` acima, substitua **NOME-DO-SEU-BANCO-DE-DADOS** pelo nome escolhido por você ao fornecer o suplemento MongoLab.
+4. No código do método **Initialize** acima, substitua `<YOUR-DATABASE-NAME>` pelo nome escolhido por você ao fornecer o complemento MongoLab.
 
+Agora você está pronto para testar o aplicativo.
 
 ## <a name="test-application"></a>Testar o aplicativo
 
-1. Republicar seu projeto de back-end de serviço móvel.
+1. (Opcional) Publique novamente seu projeto de back-end .NET do serviço móvel.
 
-2. Executar seu aplicativo cliente. Observe que você não verá nenhum item que foi previamente armazenado no banco de dados SQL do tutorial do Início rápido.
+	Você também pode testar seu serviço móvel localmente antes de publicar o projeto de back-end .NET no Azure. Se você testar localmente ou no Azure, o serviço móvel usará o MongoDB para armazenamento.
 
-3. Criar um novo item. O aplicativo deve se comportar como anteriormente, exceto que agora seus dados irão para seu armazenamento não relacional.
+4. Usando o botão **Experimente agora** na página inicial ou usando um aplicativo cliente conectado ao seu aplicativo móvel, consulte itens no banco de dados.
+ 
+	Observe que você não verá nenhum item que foi previamente armazenado no banco de dados SQL do tutorial do Início rápido.
+
+	>[AZURE.NOTE]Quando você usar o botão **Experimente agora** para abrir as páginas de API de Ajuda, lembre-se de fornecer a chave de aplicativo como a senha (com um nome de usuário em branco).
+
+3. Criar um novo item.
+
+	O aplicativo e o serviço móvel devem se comportar como antes, exceto pelo fato de que agora os dados estão sendo armazenados no repositório não relacional, e não no Banco de Dados SQL.
+
+##Próximas etapas
+
+Agora que você viu como é fácil usar o armazenamento de tabela com o back-end .NET, que tal explorar algumas das outra opções de armazenamento de back-end?
+
++ [Criar um Serviço Móvel de back-end .NET que use armazenamento de tabela em vez de um Banco de Dados SQL](mobile-services-dotnet-backend-store-data-table-storage.md)</br>Assim como o tutorial que você acabou de concluir, este tópico mostra como usar um repositório de dados não relacional para seu serviço móvel. Neste tutorial, você modificará o projeto de início rápido de Serviços Móveis para usar o Armazenamento do Azure no lugar de um Banco de Dados SQL como o repositório de dados.
+ 
++ [Conectar-se a um SQL Server local usando Conexões Híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>As Conexões Híbridas permitem que o serviço móvel se conecte com segurança aos ativos locais. Dessa forma, você pode disponibilizar seus dados locais para os clientes móveis usando o Azure. Os ativos com suporte incluem qualquer recurso que seja executado em uma porta TCP estática, incluindo Microsoft SQL Server, MySQL, APIs da web HTTP e os serviços Web mais personalizados.
+
++ [Carregar imagens no Armazenamento do Azure usando Serviços Móveis](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Mostra como estender o exemplo TodoList do projeto para permitir que você carregue imagens do seu aplicativo no armazenamento de Blob do Azure.
 
 
 <!-- Anchors. -->
-[Criar um non-relational store]: #create-store
-[Modificar dados e controladores]: #modify-service
-[Testar o aplicativo]: #test-application
+[Create a non-relational store]: #create-store
+[Modify data and controllers]: #modify-service
+[Test the application]: #test-application
 
 
 <!-- Images. -->
@@ -115,10 +114,11 @@ O tutorial exige a conclusão do tutorial [Introdução aos Serviços Móveis] o
 
 
 <!-- URLs. -->
-[Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Introdução aos Dados]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[Introdução ao Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Adicionar Serviços Móveis a um aplicativo existente]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
-[Página de Suplemento do MongoLab]: /gallery/store/mongolab/mongolab
+[Página do complemento MongoLab]: /gallery/store/mongolab/mongolab
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

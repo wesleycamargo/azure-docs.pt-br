@@ -43,7 +43,7 @@ Você tem a opção de executar o script no nó de cabeçalho, no nó de trabalh
 
 > [AZURE.NOTE]Por ter privilégios administrativos nos nós de cluster durante o estágio **ClusterCustomization**, você pode usar o script para executar operações como parar e iniciar serviços, inclusive serviços relacionados ao Hadoop. Logo, como parte do script, você deve garantir que os serviços Ambari e outros serviços relacionados ao Hadoop estejam funcionando antes do script terminar a execução. Esses serviços são necessários para verificar a integridade e o estado do cluster enquanto ele estiver sendo criado. Se você alterar qualquer configuração no cluster que afete esses serviços, é necessário usar as funções auxiliares que são fornecidas. Para obter mais informações sobre funções auxiliares, consulte [Desenvolvimento da Ação de Script com o HDInsight][hdinsight-write-script].
 
-Os logs de saída e de erros do script são armazenados na conta padrão do Armazenamento que você especificou para o cluster. Os logs são armazenados em uma tabela de nome **u<\fragmento-do-nome-do-cluster><\carimbo-de-data-e-hora>setuplog**. São logs agregados dos scripts executados em todos os nós (nó de cabeçalho e nós de trabalho) no cluster.
+Os logs de saída e de erros do script são armazenados na conta padrão do Armazenamento que você especificou para o cluster. Os logs são armazenados em uma tabela de nome **u<\\fragmento-do-nome-do-cluster><\\carimbo-de-data-e-hora>setuplog**. São logs agregados dos scripts executados em todos os nós (nó de cabeçalho e nós de trabalho) no cluster.
 
 ## <a name="writescript"></a>Como escrever um script para personalização do cluster
 
@@ -164,4 +164,4 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante o provisionamento de cluster"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

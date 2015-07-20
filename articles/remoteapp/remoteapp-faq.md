@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # Perguntas frequentes sobre o RemoteApp do Azure
@@ -27,11 +27,12 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
 ## Configurações com suporte ##
 
-
+- **Quais são os limites de serviço?** Acabamos de adicionar um novo tópico que abrange todos os [limites de serviço e padrões](remoteapp-servicelimits.md). Avise-nos se você tiver mais dúvidas.
+- **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. Verifique outros [limites de usuário e padrões](remoteapp-servicelimits.md) aqui.
 - **Há suporte para aplicativos personalizados da linha de negócios (LOB)?** Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md) e, em seguida, carregue-a para a coleção do RemoteApp.
 - **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Examine os [requisitos de compatibilidade do aplicativo](http://www.microsoft.com/download/details.aspx?id=18704) e verifique o [Centro de compatibilidade de área de trabalho remota](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Qual método de implantação (nuvem ou híbrido) é o melhor para a minha organização?** As coleções híbridas fornecem a experiência mais completa se você deseja integração total com o logon único (SSO) e conectividade segura de rede local. As coleções de nuvem fornecem uma maneira fácil e ágil de isolar a sua implantação usando vários métodos de autenticação. Leia mais sobre as [Opções de implantação](remoteapp-whatis.md).
-- **A coleção híbrida requer uma VNET. Podemos usar nosso NET existente?** Não neste momento, mas nós sabemos que você deseja. Enquanto estamos trabalhando nisso, você pode conectar a sua VNET existente ao Azure RemoteApp VNET seguindo [estas instruções](http://blogs.msdn.com/b/rds/archive/2014/07/21/how-to-link-azure-remoteapp-to-an-existing-vnet.aspx).
+- **A coleção híbrida requer uma VNET. Podemos usar nossa VNET existente?** Sim, se a VNET existente for uma VNET do Azure. Consulte "Etapa 1: configurar sua rede virtual" nas [instruções de coleção híbrida](remoteapp-create-hybrid-deployment.md) para obter mais informações.
 - **Posso usar uma nuvem ou máquina virtual existente como modelo para a Minha coleção de RemoteApp?** Sim! Você pode criar uma imagem com base em uma VM do Azure, use uma das imagens incluídas com a sua assinatura ou crie uma imagem personalizada. Confira as [Opções de imagem do RemoteApp](remoteapp-imageoptions.md).
 - **Temos SQL ou outro banco de dados local ou no Azure. Qual o tipo de implantação que nós usamos?** Isso depende de onde está o seu banco de dados SQL ou back-end. Se o banco de dados estiver em uma rede privada, use a coleção híbrida. Se o banco de dados estiver exposto à Internet e permite ao cliente conexões para se conectar a ele, você pode usar a coleção na nuvem.
 - **E o mapeamento de unidade, USB e porta serial, o compartilhamento de área de transferência e o redirecionamento de impressora?** Todos esses recursos têm suporte no RemoteApp do Azure. O redirecionamento de impressora e o compartilhamento de área de transferência estão habilitados por padrão. Você pode aprender mais sobre redirecionamento [aqui](remoteapp-redirection.md). 
@@ -79,5 +80,6 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
 	Vídeos! Também temos inúmeros vídeos sobre o RemoteApp. Alguns fornecem a Introdução ([Introdução ao RemoteApp do Azure](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) enquanto outros o orientam por meio da implantação ([implantação de nuvem](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) e [implantação híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Experimente-os!
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

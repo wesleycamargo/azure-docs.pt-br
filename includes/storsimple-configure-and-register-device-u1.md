@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Configurar e registrar o dispositivo"
+   description="Explica como usar o Windows PowerShell para StorSimple para configurar e registrar seu dispositivo executando a Atualização 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/26/2015"
+   ms.author="alkohli" />
+
 
 ### Para configurar e registrar o dispositivo
 
@@ -64,4 +81,4 @@
      
        
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

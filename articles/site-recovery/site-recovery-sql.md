@@ -436,4 +436,4 @@ Para clusters padrão do SQL, a realização do failback após um failover não 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

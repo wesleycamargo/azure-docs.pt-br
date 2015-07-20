@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
 # Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem 
@@ -23,7 +23,7 @@ Diagnóstico e solução de problemas são habilidades chaves para a criação e
 
 Neste tutorial, demonstraremos como identificar certos erros do cliente que podem afetar o desempenho e solucionar esses erros de ponta a ponta usando as ferramentas fornecidas pela Microsoft e o Armazenamento do Azure para otimizar o aplicativo cliente.
 
-Este tutorial fornece uma exploração prática de um cenário de solução de problemas de ponta a ponta. Para obter um guia conceitual detalhado para solucionar problemas dos aplicativos de armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas de Armazenamento](../articles/storage-monitoring-diagnosing-troubleshooting/).
+Este tutorial fornece uma exploração prática de um cenário de solução de problemas de ponta a ponta. Para obter um guia conceitual detalhado para solucionar problemas dos aplicativos de armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas de Armazenamento](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Ferramentas para solucionar problemas de aplicativos de armazenamento do Azure
 
@@ -349,18 +349,7 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
 | Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError (todos) | *StatusCode == 500 |Todos |
-| Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
-| Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
-| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
-| 409 (todos) | *StatusCode == 409 | Todos |
-|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
-| Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento em PercentTimeoutError (todos) | *StatusCode == 500 |Todos | | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede | | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorização da Assinatura de Acesso Compartilhado (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede | | 409 (todos) | *StatusCode == 409 | Todos | |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede | | Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas
@@ -373,6 +362,6 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 - [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
-
-<!---HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

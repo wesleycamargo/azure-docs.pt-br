@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como criar uma coleção híbrida para o RemoteApp" 
+	pageTitle="Como criar uma coleção híbrida para o Azure RemoteApp" 
 	description="Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# Como criar uma coleção híbrida para o RemoteApp
+# Como criar uma coleção híbrida para o Azure RemoteApp
 
 Há dois tipos de coleções de RemoteApp:
 
 - Nuvem: reside completamente no Azure e é criada usando a opção **Criação rápida** no Portal de Gerenciamento do Azure.  
 - Híbrido: inclui uma rede virtual para acesso local e é criado usando a opção **Criar com VNET** no Portal de Gerenciamento.
 
-Este tutorial explica o processo de criação de uma coleção híbrida. Há sete etapas:
+Este tutorial explica o processo de criação de uma coleção híbrida. Há oito etapas:
 
-1.	Criar uma [imagem personalizada para o RemoteApp](remoteapp-imageoptions.md) ou escolher uma das imagens incluídas com a sua assinatura.
+1.	Decida qual [imagem](remoteapp-imageoptions.md) usar para sua coleção. Você pode criar uma imagem personalizada ou usar uma das imagens da Microsoft incluídas em sua assinatura.
 2. Configurar a sua rede virtual.
 2.	Criar uma coleção de RemoteApp.
 2.	Vincular a sua coleção à sua rede virtual.
@@ -42,8 +42,8 @@ Você precisa fazer o seguinte antes de criar a coleção:
 - Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 - Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
 - Instale o módulo [PowerShell do Azure](../install-configure-powershell.md).
-- Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory.
-- Crie sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Criar uma imagem do RemoteApp](remoteapp-imageoptions.md) para obter mais informações. 
+- Colete informações sobre os usuários aos quais deseja conceder acesso. Você precisará do nome UPN do Active Directory do Azure (por exemplo, name@contoso.com) para cada usuário.
+- Escolha sua imagem de modelo. Uma imagem de modelo do RemoteApp contém os aplicativos e programas que você deseja publicar para seus usuários. Consulte [Opções de imagem do RemoteApp](remoteapp-imageoptions.md) para obter mais informações. 
 - [Configure o Active Directory para RemoteApp](remoteapp-ad.md).
 
 
@@ -134,5 +134,6 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 É isso - a sua coleção híbrida do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, os usuários podem fazer o logon no cliente e acessar os aplicativos que você publicou.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -164,7 +164,7 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 
 6. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal de Gerenciamento do Azure].
 
-7. No código para o método `AuthenticateAsync` acima, substitua **INSIRA-URI-DO-RECURSO-AQUI** com o **URI da ID do Aplicativo** para o seu serviço móvel. Se o tópico [Como se registrar com o Active Directory do Azure] foi seguido, seu URI da ID do Aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
+7. No código para o método `AuthenticateAsync` acima, substitua **INSIRA-RECURSO-URI-AQUI** com o **URI do ID do aplicativo** para o seu serviço móvel. Se seguiu o tópico [Como se registrar com o Active Directory do Azure], sua URI da ID do aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
 
 8. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -215,4 +215,5 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Introdução aos Dados]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

@@ -16,31 +16,31 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-# Conteúdo do SDK
+#Conteúdo do SDK
 
 Este documento lista e descreve o conteúdo do arquivo SDK.
 
-## SDK do Engagement
+##SDK do Engagement
 
 `EngagementSDK`
 
 > O SDK do Engagement principal contendo os cabeçalhos, biblioteca e uma classe adicional fornecida como um código-fonte para habilitar/desabilitar a coleção IDFA.
 
-## SDK do Engagement Reach
+##SDK do Engagement Reach
 
 `EngagementReach`
-	
+
 > O SDK do Engagement Reach que contém cabeçalhos, biblioteca e recursos associados.
 
-## Arquivos adicionais
+##Arquivos adicionais
 
-`doc/index.html`(na pasta `doc`)
+`doc/index.html` (na `doc` pasta)
 
 > Documentação do Objective-C do SDK do Engagement e do SDK Reach.
 
-`src` pasta
+`src`pasta
 
 > Controladores de exibição do Engagement e código-fonte do SDK Reach (para usuários avançados que desejam adaptar a classes do Engagement as suas necessidades).
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

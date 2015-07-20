@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="Instalação mínima do dispositivo concluída"
+   description="Descreve como concluir a configuração mínima do dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/29/2015"
+   ms.author="v-sharos" />
 
 #### Para concluir a configuração mínima do dispositivo StorSimple
 
@@ -23,4 +39,4 @@
 
  >[AZURE.NOTE]Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

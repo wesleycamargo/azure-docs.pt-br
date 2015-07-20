@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="juliako"/>
 
 #Visão geral sobre a proteção de conteúdo
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados. 
+
+Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os serviços de mídia permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os serviços de mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados.
 
 ![content-protection][content-protection]
 
@@ -26,75 +27,99 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 
 ##Conceitos
 
+###Opções de criptografia de ativos
+
+Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
+
+**None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+
+Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
+
+**StorageEncrypted** - use essa opção para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregue-o para o armazenamento do Azure onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+
+Para entregar um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para que o Serviços de Mídia saiba como você deseja distribuir seu conteúdo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada (por exemplo, AES, PlayReady ou sem criptografia).
+
+**CommonEncryptionProtected** - use esta opção se você desejar criptografar conteúdo (ou carregar conteúdo que já foi criptografado) com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
+
+**EnvelopeEncryptionProtected** – Use esta opção se você deseja proteger conteúdo (ou carregar conteúdo já protegido) HLS (HTTP Live Streaming) criptografado com AES. Observe que se você estiver carregando um HLS já criptografado com AES, ele deve ter sido criptografado com o Transform Manager.
+
+
+
 ###Criptografia dinâmica
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. 
+Os Serviços de Mídia do Microsoft Azure permitem distribuir o conteúdo criptografado dinamicamente com criptografia AES (padrão avançado), usando chaves de criptografia de 128 bits e PlayReady DRM.
 
-No momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
+Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
 
-Se você deseja que os Serviços de Mídia criptografem um ativo, você precisa associar a seu ativo de uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) e também configurar políticas de autorização para a chave.
+Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
 
-Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega do ativo.  
+Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega de ativos.
 
 Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-###Serviços de entrega de licenças PlayReady DRM e chaves liberadas AES
+>[AZURE.NOTE]Para tirar proveito da criptografia dinâmica, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo criptografado. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-Os Serviços de Mídia oferecem um serviço de distribuição de licenças PlayReady e chaves liberadas AES aos clientes autorizados. Você pode usar o Portal de Gerenciamento, a API REST ou o SDK dos Serviços de Mídia para .NET para configurar políticas de autenticação e autorização para suas licenças e chaves.
+###Serviços de distribuição de licenças do PlayReady DRM e chaves não criptografadas AES
 
-Observe que se você estiver usando o Portal, poderá configurar uma política AES (que será aplicada a todo o conteúdo criptografado do AES) e uma política do PlayReady (que será aplicada a todo o conteúdo PlayReady criptografado). Use o SDK dos Serviços de Mídia para .NET se quiser mais controle sobre as configurações.
+Os Serviços de Mídia também fornecem um serviço de distribuição de chaves e licenças do PlayReady aos clientes autorizados. Você pode usar o Portal de Gerenciamento do Azure, a API REST ou o SDK dos Serviços de Mídia para .NET para configurar políticas de autenticação e autorização para suas licenças e chaves.
+
+Observe que se você estiver usando o Portal, você pode configurar uma política AES (que será aplicada a todo o conteúdo criptografado do AES) e uma política do PlayReady (que será aplicada a todo o conteúdo PlayReady criptografado). Use o SDK dos Serviços de Mídia para .NET se quiser mais controle sobre as configurações.
 
 ###Modelo de licença do PlayReady
 
-Os Serviços de Mídia fornecem um serviço de distribuição de licenças do PlayReady. Quando o player de usuário final (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licenças para obter uma licença. Se o serviço de licença aprova a solicitação, ele emite a licença que é enviada ao cliente e pode ser usada para descriptografar e reproduzir o conteúdo especificado.
+Os Serviços de Mídia fornecem um serviço de distribuição de licenças do PlayReady. Quando o player de usuário final (por exemplo, Silverlight) tenta reproduzir o conteúdo protegido por PlayReady, uma solicitação é enviada para o serviço de entrega de licença para obtenção de uma. Se o serviço de licença aprova a solicitação, ele emite a licença que é enviada ao cliente e pode ser usada para descriptografar e reproduzir o conteúdo especificado.
 
 As licenças contêm os direitos e restrições que você deseja que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. Os Serviços de Mídia fornecem APIs que permitem que você configure suas licenças do PlayReady. Para obter mais informações, consulte [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn783459.aspx)
 
 ###Restrição de token
 
-A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: abrir, restrição de token ou restrição de IP. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato SWT (Simple Web Tokens) e no formato JWT (JSON Web Token). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave (ou licença) solicitada para o cliente se o token for válido e as declarações no token corresponderem àquelas configurados para a chave (ou licença).
-Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
+A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta, restrição de token ou restrição de IP. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os serviços de mídia oferecem suporte a tokens no formato Simple Web Tokens (SWT) e no formato JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos Serviços de Mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem àquelas configuradas para a chave (ou licença). Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
 ##Cenários comuns
 
-###Proteger o conteúdo no armazenamento, fornecer mídia de streaming criptografada dinamicamente  
+###Proteger o conteúdo no armazenamento, fornecer mídia de streaming criptografada dinamicamente, usar chave AMS/serviço de entrega de licença  
 
-1. Ingerir um arquivo mezzanine de alta qualidade em um ativo. Aplicar a opção de criptografia de armazenamento ao ativo.
-2. Configurar pontos de extremidade de streaming.
-1. Codificar para MP4 definir a taxa de bits adaptável. Aplicar a opção de criptografia de armazenamento ao ativo de saída.
-1. Criar uma chave de criptografia de conteúdo para o ativo que você deseja que seja criptografado dinamicamente durante a reprodução.
-2. Configurar a política de autorização de chave de conteúdo
-1. Configurar a política de entrega de ativos (usada pelo empacotamento dinâmico e pela criptografia dinâmica).
-1. Publicar o ativo criando um localizador OnDemand.
+1. Ingerir um arquivo mezzanine de alta qualidade em um ativo. Aplique a opção de criptografia de armazenamento ao ativo.
+2. Configure os pontos de extremidade de streaming.
+1. Codifique para conjunto MP4 de taxa de bits adaptável. Aplique a opção de criptografia de armazenamento ao ativo de saída.
+1. Crie uma chave de conteúdo de criptografia para o ativo que você quer que seja criptografado dinamicamente durante a reprodução.
+2. Configure a política de autorização de chave de conteúdo.
+1. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
+1. Publique o ativo, criando um localizador OnDemand.
 1. Fluxo de conteúdo publicado.
 
 ###Usar o serviço de entrega de chave e licença do Serviço de Mídia com seus próprios serviços de criptografia e fluxo
 
 Para obter mais informações, consulte [Como integrar o serviço de licença do Azure PlayReady a seu próprio criptografador/servidor de streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 
+###Integração com parceiros
+
+[Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
+
+
 ##Tarefas comuns de criptografia de conteúdo
 
->[AZURE.NOTE] Se seu conteúdo tiver o armazenamento criptografado, configure a política de entrega de ativos.
+>[AZURE.NOTE]Se seu conteúdo tiver o armazenamento criptografado, configure a política de entrega de ativos.
 
 ###Configurando pontos de extremidade de streaming
 
-Para obter uma visão geral sobre pontos de extremidade de streaming e obter informações sobre como gerenciá-los, consulte [Como gerenciar pontos de extremidade de streaming em uma conta dos Serviços de Mídia](media-services-manage-origins.md).
+Para uma visão geral sobre streaming de pontos de extremidade e informações sobre como gerenciá-los, consulte [Como gerenciar pontos de extremidade de streaming em uma conta de Serviços de Mídia](media-services-manage-origins.md).
 
 ###Criando uma chave de conteúdo
 
-Crie uma chave de conteúdo com a qual você deseja criptografar seu ativo usando o **.NET** ou a **API REST**.
+Crie uma chave de conteúdo com a qual você deseja criptografar seu ativo usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
 
-###Configurando a política de autorização de chave de conteúdo 
+###Configuração da política de autorização de chave de conteúdo 
 
-Configurar a proteção de conteúdo e a política de autorização de chaves usando **.NET** ou **API REST**.
+Configurar a política de autorização de chave e a proteção de conteúdo usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ###Configurando a política de fornecimento de ativos
 
-Configurar a política de fornecimento de ativos usando **.NET** ou **API REST**.
+Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
@@ -109,11 +134,11 @@ Configurar a política de fornecimento de ativos usando **.NET** ou **API REST**
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

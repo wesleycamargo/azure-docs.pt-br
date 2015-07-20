@@ -77,11 +77,11 @@ Antes de começar, observe o seguinte:
 - Escreva scripts usando o Windows PowerShell.
 - Os cmdlets do VMM são entregues em um módulo do Windows PowerShell. O módulo VMM do Windows PowerShell é instalado quando você instala o console do VMM. O módulo VMM pode ser carregado em seu script usando o comando a seguir no script: Import-Module-Name virtualmachinemanager. [Obtenha mais detalhes](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Verifique se você possui pelo menos um servidor de biblioteca na sua implantação do VMM. Por padrão, o caminho de compartilhamento da biblioteca de um servidor VMM pode ser encontrado localmente no servidor VMM com o nome de pasta MSCVMMLibrary.
-- Se o caminho de compartilhamento da biblioteca for remoto (ou local, mas não compartilhado com MSCVMMLibrary, configure o compartilhamento como se segue (usando \libserver2.contoso.com\share\ como um exemplo):
+- Se o caminho de compartilhamento da biblioteca for remoto (ou local, mas não compartilhado com MSCVMMLibrary, configure o compartilhamento como se segue (usando \\libserver2.contoso.com\\share\\ como um exemplo):
 	- Abra o Editor do Registro.
-	- Navegue até HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+	- Navegue até HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Edite o valor ScriptLibraryPath.
-	- Coloque o valor como \libserver2.contoso.com\share. Especifique o FQDN completo.
+	- Coloque o valor como \\libserver2.contoso.com\\share. Especifique o FQDN completo.
 	- Forneça permissões para o local de compartilhamento.
 
 - Os scripts em um plano de recuperação são executados no contexto da conta de Serviço VMM. Verifique se essa conta tem permissões de Leitura no compartilhamento remoto no qual o script está localizado e teste o script a ser executado no nível de privilégio da conta de serviço VMM.
@@ -90,15 +90,15 @@ Antes de começar, observe o seguinte:
 	- Abra o console do Windows PowerShell de 64 bits usando privilégios elevados.
 	- Digite: **Set-executionpolicy bypass**. [Obtenha mais detalhes](https://technet.microsoft.com/library/ee176961.aspx).
 - Use blocos try-catch para que as exceções sejam tratadas normalmente. Se houver uma exceção no script, ele será interrompido e a tarefa será mostrada como com falha. Se ocorrer um erro, qualquer parte restante do script não será executada. Se isso ocorrer quando você estiver executando um failover não planejado, o plano de recuperação continuará. Se isso ocorrer quando você estiver executando um failover planejado, o plano de recuperação será interrompido. Se isso ocorrer, corrija o script, verifique se ele funciona conforme esperado e execute novamente o plano de recuperação.
-- O comando Write-Host não funciona em um script de plano de recuperação e o script falhará. Se deseja criar uma saída, crie um script de proxy que, por sua vez, execute seu script principal, e garanta que toda a saída seja direcionada usando o comando >.
+- O comando Write-Host não funciona em um script de plano de recuperação e o script falhará. Se deseja criar uma saída, crie um script de proxy que, por sua vez, execute seu script principal, e garanta que toda a saída seja direcionada usando o comando >>.
 - O script expira se não retornar em até 600 segundos.
 - Se nada for escrito em STDERR, o script será classificado como com falha. Essa informação será exibida nos detalhes de execução do script.
 
 Crie o script da seguinte maneira:
 
-1. Crie uma nova pasta no compartilhamento de biblioteca, por exemplo <NomeDoServidorVMM> \MSSCVMMLibrary\RPScripts. Coloque-a nos servidores VMM de origem e de destino.
+1. Crie uma nova pasta no compartilhamento de biblioteca, por exemplo <NomeDoServidorVMM> \\MSSCVMMLibrary\\RPScripts. Coloque-a nos servidores VMM de origem e de destino.
 2. Crie o script (por exemplo, RPScript) e verifique se ele funciona conforme esperado.
-3. Coloque o script no local <NomeDoServidorVMM>\MSSCVMMLibrary nos servidores VMM de origem e de destino.
+3. Coloque o script no local <NomeDoServidorVMM>\\MSSCVMMLibrary nos servidores VMM de origem e de destino.
 
 #### Criar um runbook da automação do Azure
 
@@ -110,7 +110,7 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 1. Abra o plano de recuperação que deseja personalizar.
 2. Clique para adicionar máquinas virtuais ou um novo grupo.
 3. Para adicionar um script ou ação manual, clique em qualquer item na lista **Etapa** e clique em **Script** ou **Ação Manual**. Especifique se deseja adicionar o script ou a ação antes ou depois do item selecionado. Use os botões de comando **Mover para Cima** e **Mover para Baixo** para movimentar o script para cima ou para baixo.
-4. Se estiver adicionando um script do VMM, selecione **Failover no script do VMM** e, no **Caminho do Script**, digite o caminho relativo para o compartilhamento. Portanto, em nosso exemplo, onde o compartilhamento está localizado em <VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
+4. Se estiver adicionando um script do VMM, selecione **Failover no script do VMM** e, no **Caminho do Script**, digite o caminho relativo para o compartilhamento. Portanto, em nosso exemplo, onde o compartilhamento está localizado em \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique o caminho: \\RPScripts\\RPScript.PS1.
 5. Se estiver adicionando um runboook da automação do Azure, especifique a **Conta de Automação do Azure** na qual o runbook está localizado e selecione o **Script de Runbook do Azure** apropriado.
 5. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 
@@ -122,4 +122,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

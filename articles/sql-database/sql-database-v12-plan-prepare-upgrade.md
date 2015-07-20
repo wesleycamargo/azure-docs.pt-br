@@ -14,17 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/07/2015"
 	ms.author="genemi"/>
 
 
 # Planejar e preparar a atualização para o Banco de Dados SQL V12
-
-
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
 
 
 Este tópico descreve o planejamento e a preparação que devem ser executados para atualizar os bancos de dados SQL do Azure da versão V11 para V12 ([no status de visualização em algumas regiões](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
@@ -54,9 +48,9 @@ As subseções a seguir descrevem o aprendizado e a tomada de decisão que devem
 Este documento aborda a atualização do Banco de dados SQL do Microsoft Azure da versão V11 para V12. Mais formalmente, os números de versão estão próximos aos dois valores a seguir, conforme relatado pela instrução Transact-SQL **SELECT @@version;** :
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(ou um pouco maior, V12)*
-
+- 11.0.9228.18 *(V11)*
+ - O V11 também era conhecido como SAWA v2.
 
 ### Planejamento da camada de serviço
 
@@ -156,6 +150,9 @@ Como outra alternativa, você pode usar o SQL Server Management Studio (SSMS) 20
 ### Limitação *durante* a atualização para V12
 
 
+O banco de dados anterior à V11 continua disponível para acesso aos dados durante a atualização para a V12. Ainda assim, há certas limitações a serem consideradas.
+
+
 | Limitações | Descrição |
 | :--- | :--- |
 | Duração da atualização | A duração da atualização depende do tamanho, da edição e do número de bancos de dados no servidor. O processo de atualização de servidores pode levar horas ou dias, especialmente para servidores que tenham bancos de dados:<br/><br/>* Com mais de 50 GB ou <br/>* Em uma camada de serviço que não seja Premium<br/><br/>A criação de novos bancos de dados no servidor durante a atualização também pode aumentar o tempo da atualização. |
@@ -245,5 +242,6 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

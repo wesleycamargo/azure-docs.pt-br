@@ -44,11 +44,11 @@ Os usuários devem ter certeza de que todos os scripts e outros artefatos usados
 
 
 ### <a name="bPS3"></a>Certifique-se de que o script de personalização do cluster seja idempotente
-Você deve esperar que os nós de um cluster HDInsight sejam recriados durante o ciclo de vida do cluster. O script de personalização do cluster é executado sempre que um cluster for recriado. Esse script deve ser projetado para ser personalizado para ser idempotente no sentido de que, após a nova geração de imagens, o script deve garantir que o cluster retorne para o mesmo estado em que se encontrava após o script ser executado pela primeira vez quando o cluster foi inicialmente criado. Por exemplo, se um script personalizado instalou um aplicativo em D:\AppLocation em sua primeira execução, em cada execução subsequente, ao ser recriado, o script deve verificar se o aplicativo existe no local D:\AppLocation antes de prosseguir com outras etapas no script.
+Você deve esperar que os nós de um cluster HDInsight sejam recriados durante o ciclo de vida do cluster. O script de personalização do cluster é executado sempre que um cluster for recriado. Esse script deve ser projetado para ser personalizado para ser idempotente no sentido de que, após a nova geração de imagens, o script deve garantir que o cluster retorne para o mesmo estado em que se encontrava após o script ser executado pela primeira vez quando o cluster foi inicialmente criado. Por exemplo, se um script personalizado instalou um aplicativo em D:\\AppLocation em sua primeira execução, em cada execução subsequente, ao ser recriado, o script deve verificar se o aplicativo existe no local D:\\AppLocation antes de prosseguir com outras etapas no script.
 
 
 ### <a name="bPS4"></a>Instalar componentes personalizados no local ideal 
-Quando nós de cluster serão recriados, a unidade de recurso C:\ e a unidade do sistema D:\ podem ser reformatadas, resultando na perda de dados e aplicativos que estavam instalados nessas unidades. Isso também pode ocorrer se um nó de VM do Azure que é parte do cluster falhar e for substituído por um novo nó. Você pode instalar componentes na unidade D:\ ou no local C:\apps no cluster. Todos os outros locais na unidade C:\ são reservados. Especifique o local onde bibliotecas ou aplicativos serão instalados no script de personalização do cluster.
+Quando nós de cluster serão recriados, a unidade de recurso C:\\ e a unidade do sistema D:\\ podem ser reformatadas, resultando na perda de dados e aplicativos que estavam instalados nessas unidades. Isso também pode ocorrer se um nó de VM do Azure que é parte do cluster falhar e for substituído por um novo nó. Você pode instalar componentes na unidade D:\\ ou no local C:\\apps no cluster. Todos os outros locais na unidade C:\\ são reservados. Especifique o local onde bibliotecas ou aplicativos serão instalados no script de personalização do cluster.
 
 
 ### <a name="bPS5"></a>Garantir alta disponibilidade da arquitetura de cluster
@@ -136,7 +136,7 @@ Aqui estão as etapas que utilizamos ao se preparar para implantar esses scripts
 2. Adicione as verificações em scripts para certificar-se de que elas são executadas de forma idempotencial, para que o script possa ser executado várias vezes no mesmo nó.
 3. Use o cmdlet **Write-Output** do Azure PowerShell para gravar em STDOUT, bem como em STDERR. Não use **Write-Host**.
 4. Use uma pasta de arquivo temporário, como $env:TEMP, para manter o arquivo baixado usado pelos scripts e, em seguida, limpá-los depois dos scripts serem executados.
-5. Instale o software personalizado apenas em D:\ ou C:\apps. Outros locais na unidade C: não devem ser usados pois estão reservados. Observe que instalar os arquivos na unidade C: fora da pasta C:\apps pode resultar em falhas de instalação durante as recriações do nó.
+5. Instale o software personalizado apenas em D:\\ ou C:\\apps. Outros locais na unidade C: não devem ser usados pois estão reservados. Observe que instalar os arquivos na unidade C: fora da pasta C:\\apps pode resultar em falhas de instalação durante as recriações do nó.
 6. Caso as configurações de nível de sistema operacional ou arquivos de configuração de serviço do Hadoop sejam alterados, talvez você deseje reiniciar os serviços do HDInsight para que eles possam pegar qualquer configuração de nível de sistema operacional, como as variáveis de ambiente definidas nos scripts.
 
 
@@ -189,9 +189,9 @@ Observe que em alguns casos, um script personalizado, na verdade, pode depender 
 
 ## <a name="debugScript"></a>Como depurar seu script personalizado
 
-Os logs de erros de script são armazenados juntamente com outra saída, na conta de armazenamento padrão especificada para o cluster na sua criação. Os logs são armazenados em uma tabela de nome *u<\fragmento-do-nome-do-cluster><\carimbo-de-data-e-hora>setuplog*. Eles são logs agregados com registros de todos os nós (nós principais e de trabalho) nos quais o script é executado no cluster.
+Os logs de erros de script são armazenados juntamente com outra saída, na conta de armazenamento padrão especificada para o cluster na sua criação. Os logs são armazenados em uma tabela de nome *u<\\fragmento-do-nome-do-cluster><\\carimbo-de-data-e-hora>setuplog*. Eles são logs agregados com registros de todos os nós (nós principais e de trabalho) nos quais o script é executado no cluster.
 
-Você pode também pode realizar acesso remoto aos nós de cluster para ver ambos STDOUT e o STDERR para scripts personalizados. Os logs em cada nó são específicos apenas para esse nó, e são registrados em **C:\HDInsightLogs\DeploymentAgent.log**. Esses arquivos de log registram todas as saídas por meio do script personalizado. Um exemplo de trecho do log para uma Ação de Script de Spark deve ser assim:
+Você pode também pode realizar acesso remoto aos nós de cluster para ver ambos STDOUT e o STDERR para scripts personalizados. Os logs em cada nó são específicos apenas para esse nó, e são registrados em **C:\\HDInsightLogs\\DeploymentAgent.log**. Esses arquivos de log registram todas as saídas por meio do script personalizado. Um exemplo de trecho do log para uma Ação de Script de Spark deve ser assim:
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -251,4 +251,4 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

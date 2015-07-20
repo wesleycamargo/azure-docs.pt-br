@@ -127,4 +127,4 @@ Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recupera
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

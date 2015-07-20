@@ -216,7 +216,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 2. Abra/execute o arquivo jar. Ele requer o [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Clique em **Avançar** duas vezes.
 4. Especifique um caminho onde você tenha permissão de gravação e, em seguida, clique em **Avançar**.
-	>[AZURE.NOTE]A pasta de instalação padrão é C:\Program Files\squirrel-sql-3.6. Para gravar nesse caminho, o instalador deve receber o privilégio de administrador. Abra um prompt de comando como administrador, navegue até a pasta bin do Java e, em seguida, execute
+	>[AZURE.NOTE]A pasta de instalação padrão é C:\\Program Files\\squirrel-sql-3.6. Para gravar nesse caminho, o instalador deve receber o privilégio de administrador. Abra um prompt de comando como administrador, navegue até a pasta bin do Java e, em seguida, execute
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Clique em **OK** para confirmar a criação do diretório de destino.
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

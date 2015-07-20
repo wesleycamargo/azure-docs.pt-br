@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
@@ -52,7 +53,7 @@ Essa configuração requer uma sub-rede de teste de até quatro computadores con
 
 Use as instruções na seção "Etapas para configurar a sub-rede Corpnet" do [Guia de Laboratório de Teste: configuração base do Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) para configurar os computadores DC1, APP1 e CLIENT1 em uma sub-rede chamada Corpnet. **Essa sub-rede deve ser isolada da rede da sua organização, porque ela será conectada diretamente à Internet através do computador RRAS1.**
 
-Em seguida, faça logon em DC1 com as credenciais de CORP\User1. Para configurar o domínio CORP para que computadores e usuários utilizem seu controlador de domínio local para autenticação, execute estes comandos em um prompt de comando do nível de administrador do Windows PowerShell.
+Em seguida, faça logon em DC1 com as credenciais de CORP\\User1. Para configurar o domínio CORP para que computadores e usuários utilizem seu controlador de domínio local para autenticação, execute estes comandos em um prompt de comando do nível de administrador do Windows PowerShell.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -238,7 +239,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-	- Nome: **DC2**[Nome da conta de administrador local]
+	- Nome: **DC2\**[Nome da conta de administrador local]
 	- Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -267,7 +268,7 @@ Em seguida, configure o DC2 como um controlador de domínio de réplica para o d
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Observe que você será solicitado a fornecer a senha de CORP\User1 e uma senha do Modo de Restauração dos Serviços de Diretório (DSRM) e reiniciar o DC2.
+Observe que você será solicitado a fornecer a senha de CORP\\User1 e uma senha do Modo de Restauração dos Serviços de Diretório (DSRM) e reiniciar o DC2.
 
 Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você deve configurar a rede virtual TestVNET para usar esse servidor DNS.
 
@@ -325,4 +326,4 @@ Em seguida, faça logon no RRAS1 como administrador local e execute estes comand
 Em seguida, vá para o Portal de Gerenciamento do Azure em seu computador local e aguarde até que a rede virtual TestVNET mostre um status de Conectado.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Pontos de extremidade da API de Escala" 
+	pageTitle="Escala de pontos de extremidade de API | Microsoft Azure" 
 	description="A escala de pontos de extremidade de serviço Web no Aprendizado de Máquina do Azure" 
-	services="machine-learning" 
+	services="machine-learning"
+	documentationCenter="" 
 	authors="hiteshmadan" 
 	manager="padou" 
 	editor=""/>
@@ -12,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/19/2015"
+	ms.date="06/29/2015"
 	ms.author="himad"/>
 
 
@@ -29,7 +30,7 @@ Se você planeja chamar a API com uma carga maior que o Máximo de Chamadas Simu
 
 Tenha em mente que pode ser prejudicial se você não estiver acessando a API com uma taxa alta de forma correspondente usando uma contagem de simultaneidade muito alta. Você pode ver tempos limite esporádicos e/ou picos na latência se colocar uma carga relativamente baixa em uma API configurada para alta carga.
 
-Observe que apenas ajustar configurações de limitação influencia o comportamento da API Síncrona. Você deve ajustar essas configurações se vir respostas frequentes de Serviço Indisponível 503 na API Síncrona.
+Observe que apenas ajustar configurações de limitação influencia o comportamento da API Síncrona (RRS). Você deve ajustar essas configurações se vir respostas frequentes de Serviço Indisponível 503 na API Síncrona.
 
 A interface de usuário de gerenciamento permite alternar o nível de limitação. Para ter um número de simultaneidade personalizado para limitar o Nível Alto, use a API de Ponto de Extremidade de Patch.
 
@@ -44,5 +45,6 @@ A interface de usuário de gerenciamento permite alternar o nível de limitaçã
 - Altere o nível de limitação para Alto e clique em Salvar.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -450,4 +450,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

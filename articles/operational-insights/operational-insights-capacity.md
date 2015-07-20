@@ -1,43 +1,45 @@
-<properties 
+<properties
    pageTitle="Gerenciar a capacidade de infraestrutura"
-   description="Aprenda a usar o pacote de inteligência de planejamento de capacidade no Insights Operacionais para ajudar a compreender a capacidade da sua infraestrutura de servidor"
+   description="Aprenda a usar a solução de planejamento de capacidade no Insights Operacionais para ajudar a compreender a capacidade da sua infraestrutura de servidor"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Gerenciar a capacidade de infraestrutura
 
-Você pode usar o pacote de inteligência de planejamento de capacidade no Insights Operacionais do Microsoft Azure para ajudá-lo a compreender a capacidade da sua infraestrutura de servidor. Instale o pacote de inteligência para atualizar o agente do Operations Manager e o módulo de configuração básica do Insights Operacionais. O pacote de inteligência lê os contadores de desempenho no servidor monitorado e envia dados de uso para o serviço de informações operacionais na nuvem para processamento. Lógica é aplicada aos dados de uso e o serviço de nuvem registra os dados. Ao longo do tempo, padrões de uso são identificados e a capacidade é projetada com base no consumo atual.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
+
+Você pode usar a solução Gerenciamento de Capacidade no Insights Operacionais do Microsoft Azure para ajudá-lo a compreender a capacidade da sua infraestrutura de servidor. Instale a solução para atualizar o agente do Operations Manager e o módulo de configuração básica no Insights Operacionais. A solução lê os contadores de desempenho no servidor monitorado e envia dados de uso para o serviço de informações operacionais na nuvem para processamento. Lógica é aplicada aos dados de uso e o serviço de nuvem registra os dados. Ao longo do tempo, padrões de uso são identificados e a capacidade é projetada com base no consumo atual.
 
 Por exemplo, uma projeção pode identificar quando a núcleos do de processador adicionais ou memória adicional serão necessários para um servidor individual. Neste exemplo, a projeção pode indicar que o servidor precisará de mais memória em 30 dias. Isso pode ajudá-lo a planejar uma atualização de memória durante a próxima janela de manutenção do servidor, que pode ocorrer uma vez a cada duas semanas.
 
 ## Painel de gerenciamento de capacidade
 
-Antes de poder usar o painel de gerenciamento de capacidade no Insights Operacionais do Microsoft Azure, você deve ter o pacote de inteligência instalado. Para saber mais sobre como instalar pacotes de inteligência, consulte [Usar a Galeria para adicionar ou remover pacotes de inteligência](../operational-insights-add-intelligence-packs.md). Após a instalação do pacote de inteligência de planejamento de capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do Insights Operacionais. 
+Para poder usar o painel de gerenciamento de capacidade no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). Após a instalação da solução de planejamento de capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do Insights Operacionais.
 
 ![imagem do bloco Planejamento de Capacidade](./media/operational-insights-capacity/overview-cap-plan.png)
 
 O bloco abre o painel **Gerenciamento de Capacidade**, em que você pode exibir um resumo da capacidade do servidor. A página exibe os seguintes blocos em que você pode clicar:
 
-- *Contagem de máquina virtual*: Mostra o número de dias restantes para a capacidade das máquinas virtuais
+- *Contagem de máquinas virtuais*: mostra o número de dias restantes para a capacidade das máquinas virtuais
 
-- *Computação*: Mostra os núcleos do processador e a memória disponível
+- *Computação*: mostra os núcleos do processador e a memória disponível
 
-- *Armazenamento*: Mostra o espaço em disco usado e a latência média do disco
+- *Armazenamento*: mostra o espaço em disco usado e a latência média do disco
 
-- *Pesquisa*: O Gerenciador de dados que você pode usar para pesquisar todos os dados no sistema do Insights Operacionais
+- *Pesquisa*: o Gerenciador de dados que você pode usar para pesquisar todos os dados no sistema do Insights Operacionais
 
->[AZURE.NOTE] Para exibir dados de gerenciamento de capacidade, habilite a conectividade do Operations Manager com o Virtual Machine Manager (VMM). Para obter informações adicionais sobre como conectar os sistemas, consulte Como conectar o VMM com o Operations Manager.
+>[AZURE.NOTE]Para exibir dados de gerenciamento de capacidade, habilite a conectividade do Operations Manager com o Virtual Machine Manager (VMM). Para obter informações adicionais sobre como conectar os sistemas, consulte Como conectar o VMM com o Operations Manager.
 
 ![imagem do painel Gerenciamento de Capacidade](./media/operational-insights-capacity/gallery-capacity-01.png)
 
@@ -66,31 +68,31 @@ Você pode gerar uma pasta de trabalho do Excel para as seguintes categorias:
 
 As seguintes áreas são mostradas no painel **Computação**:
 
-**Utilização**: Exiba a utilização de memória e núcleo da CPU em seus hosts da máquina virtual.
+**Utilização**: exiba a utilização de memória e núcleo da CPU em seus hosts da máquina virtual.
 
-- *Núcleos usados*: Soma de todos os hosts (% da CPU utilizada multiplicada pelo número de núcleos físicos no host).
+- *Núcleos usados*: soma de todos os hosts (% da CPU utilizada multiplicada pelo número de núcleos físicos no host).
 
-- *Núcleos livres*: Total de núcleos físicos menos núcleos usados.
+- *Núcleos livre*: total de núcleos físicos menos núcleos usados.
 
-- *Percentual de núcleos disponíveis*: Núcleos físicos livres divididos pelo número total de núcleos físicos.
+- *Percentual de núcleos disponíveis*: núcleos físicos livres divididos pelo número total de núcleos físicos.
 
-- *Núcleos virtuais por VM*: Total de núcleos virtuais no sistema dividido pelo número total de máquinas virtuais no sistema.
+- *Núcleos virtuais por VM*: total de núcleos virtuais no sistema dividido pelo número total de máquinas virtuais no sistema.
 
-- *Proporção de núcleos virtuais para núcleos físicos*: Proporção do total de núcleos virtuais para núcleos físicos que são usados por máquinas virtuais no sistema.
+- *Proporção de núcleos virtuais para núcleos físicos*: proporção do total de núcleos virtuais para núcleos físicos que são usados por máquinas virtuais no sistema.
 
-- *Número de núcleos virtuais disponíveis*: Proporção de núcleo virtual para núcleos físicos multiplicada pelos núcleos físicos disponíveis.
+- *Número de núcleos virtuais disponíveis*: proporção de núcleo virtual para núcleos físicos multiplicada pelos núcleos físicos disponíveis.
 
-- *Memória usada*: Soma da memória utilizada por todos os hosts.
+- *Memória utilizada*: soma da memória utilizada por todos os hosts.
 
-- *Memória livre*: Memória física total menos a memória usada.
+- *Memória livre*: memória física total menos a memória usada.
 
-- *Percentual de memória disponível*: Memória física livre dividida pelo total de memória física.
+- *Percentual de memória disponível*: memória física livre dividida pelo total de memória física.
 
-- *Memória virtual por VM*: Memória virtual total no sistema dividida pelo número total de máquinas virtuais no sistema.
+- *Memória Virtual por VM*: memória virtual total no sistema dividida pelo número total de máquinas virtuais no sistema.
 
 - *Proporção de memória virtual para memória física*: Memória virtual total no sistema dividida pela memória física total no sistema.
 
-- *Memória virtual disponível*: Proporção de memória virtual para memória física multiplicada pela memória física disponível.
+- *Memória virtual disponível*: proporção de memória virtual para memória física multiplicada pela memória física disponível.
 
 **Ferramenta de projeção**
 
@@ -98,13 +100,13 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 
 **Eficiência**
 
-- *VM ociosa*: Usando menos de 10% da CPU e 10% da memória para o período de tempo especificado.
+- *VM ociosa*: usando menos de 10% da CPU e 10% da memória para o período de tempo especificado.
 
 - *VM superutilizada*: Usando mais de 90% da CPU e 90% da memória para o período de tempo especificado.
 
-- *Host ocioso*: Usando menos de 10% da CPU e 10% da memória para o período de tempo especificado.
+- *Host ocioso*: usando menos de 10% da CPU e 10% da memória para o período de tempo especificado.
 
-- *Host Superutilizado*: Usando mais de 90% da CPU e 90% da memória para o período de tempo especificado.
+- *Host superutilizado*: usando mais de 90% da CPU e 90% da memória para o período de tempo especificado.
 
 ### Para trabalhar com itens na página Computação
 
@@ -116,7 +118,7 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 
 3. Na área **Eficiência**, exiba informações de eficiência da capacidade sobre máquinas virtuais e hosts de máquina virtual.
 
-## Página Armazenamento Anexado Direto
+##Página Armazenamento Anexado Direto
 
 Você pode usar o painel **Armazenamento Anexado Direto** no Insights Operacionais do Microsoft Azure para exibir informações de capacidade sobre utilização do armazenamento, desempenho do disco e dias projetados da capacidade do disco. Use a área **Utilização** para exibir o uso de espaço em disco em seus hosts de máquina virtual. Use a área **Desempenho do Disco** para exibir a taxa de transferência e a latência do disco e nos hosts da máquina virtual. Você também pode usar a ferramenta de projeção para estimar quanto de capacidade deve estar disponível para um determinado intervalo de datas. Você pode exibir detalhes sobre itens vinculados clicando neles.
 
@@ -128,17 +130,17 @@ Você pode gerar uma pasta de trabalho do Excel com base nessas informações de
 
 As seguintes áreas são mostradas na página **Armazenamento**:
 
-- *Utilização*: Exiba o uso de espaço em disco nos hosts da máquina virtual.
+- *Utilização*: exiba o uso de espaço em disco nos hosts da máquina virtual.
 
-- *Espaço Total em Disco*: Soma (espaço em disco lógico) para todos os hosts
+- *Espaço em disco total*: soma (espaço em disco lógico) para todos os hosts
 
-- *Espaço em Disco Usado*: Soma (espaço em disco lógico utilizado) para todos os hosts
+- *Espaço em disco usado*: soma (espaço em disco lógico utilizado) para todos os hosts
 
-- *Espaço em Disco Disponível*: Espaço total em disco menos o espaço em disco usado
+- *Espaço disponível no disco*: espaço total em disco menos o espaço em disco usado
 
-- *Percentual do disco usado*: Espaço em disco utilizado dividido pelo espaço total em disco
+- *Percentual de disco usado*: espaço em disco utilizado dividido pelo espaço total em disco
 
-- *Percentual do disco disponível*: Espaço em disco disponível dividido pelo espaço total em disco
+- *Percentual em disco disponível*: espaço em disco disponível dividido pelo espaço total em disco
 
 ![imagem da página Armazenamento Anexado Direto de Gerenciamento de Capacidade](./media/operational-insights-capacity/gallery-capacity-03.png)
 
@@ -160,6 +162,4 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 
 4. Na **ferramenta Projeção**, mova o controle deslizante de data para exibir uma projeção da capacidade que será usada na data que você escolher.
 
-
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

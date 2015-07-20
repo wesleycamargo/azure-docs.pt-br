@@ -97,7 +97,7 @@ A primeira etapa do carregamento de um arquivo é obter uma referência para o d
 Agora que você tem uma referência para o diretório raiz do compartilhamento, pode carregar um arquivo usando o código a seguir.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -221,4 +221,4 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

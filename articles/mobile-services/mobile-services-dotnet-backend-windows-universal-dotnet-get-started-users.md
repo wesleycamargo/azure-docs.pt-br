@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução à autenticação (Windows Store) | Mobile Dev Center" 
-	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo da Windows Store por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Adicionar autenticação ao seu aplicativo universal para Windows 8.1 | Serviços Móveis do Azure" 
+	description="Saiba como usar os Serviços Móveis para autenticar usuários do seu aplicativo universal para Windows 8.1 usando vários provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/01/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis 
@@ -24,46 +24,53 @@
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo Windows universal. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
+Este tutorial baseia-se no início rápido dos Serviços Móveis. Você também deve primeiro concluir os tutoriais [Introdução aos Serviços Móveis] ou [Adicionar os Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]Esse tutorial mostra como autenticar usuários nos aplicativos Windows Store e Windows Phone Store 8.1. Para um aplicativo Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução à autenticação dos Serviços Móveis](mobile-services-dotnet-backend-windows-phone-get-started-users.md).
+>[AZURE.NOTE]Este tutorial mostra como usar a autenticação para usuários direcionada pelo servidor nos aplicativos Windows Store e Windows Phone Store 8.1. Para um aplicativo Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consulte esta versão de [Introdução à autenticação dos Serviços Móveis](mobile-services-dotnet-backend-windows-phone-get-started-users.md). Para obter informações sobre autenticação direcionada pelo cliente, consulte [Fazendo logon com SDKs do Google, Microsoft e Facebook nos Serviços Móveis do Azure](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>No Visual Studio, clique com o botão direito do mouse no projeto do Windows Store para o aplicativo TodoList e clique em <strong>Definir como Projeto de Inicialização</strong>.</p></li>
-<li><p>No projeto compartilhado, abra o arquivo de projeto App.xaml.cs, localize a definição para o <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, e certifique-se de que está configurado para conectar ao serviço móvel em execução no Azure.</p>
-<p>Observe que, ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Serviço Móvel, a ferramenta gera dois conjuntos de definições <strong>MobileServiceClient</strong>, um para cada plataforma de cliente. Este é um bom momento para simplificar o código gerado, ao unificar as definições (contidas em um wrapper <code>#if...#endif</code>) do <strong>MobileServiceClient</strong> em uma única definição sem wrapper, usada por ambas as versões do aplicativo. Você não precisará fazer isso após ter baixado o aplicativo de início rápido do Portal de Gerenciamento do Azure.</p>
-</li> 
-<li><p>Pressione a tecla F5 para executar o aplicativo Windows Store e verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.</p>
+&nbsp;&nbsp;6. No Visual Studio, clique com o botão direito do mouse no projeto do Windows Store para o aplicativo TodoList e clique em **Definir como Projeto de Inicialização**.
+
+&nbsp;&nbsp;7. No projeto compartilhado, abra o arquivo de projeto App.xaml.cs, localize a definição para o [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx), e certifique-se de que está configurado para conectar ao serviço móvel em execução no Azure.
+
+>[AZURE.NOTE]Ao usar as ferramentas do Visual Studio para conectar seu aplicativo a um Serviço Móvel, a ferramenta gera dois conjuntos de definições **MobileServiceClient**, um para cada plataforma de cliente. Este é um bom momento para simplificar o código gerado, ao unificar as definições ajustadas do `#if...#endif` do **MobileServiceClient** em uma única definição não ajustada usada por ambas as versões do aplicativo. Você não precisará fazer isso após ter baixado o aplicativo de início rápido do Portal de Gerenciamento do Azure.
+
+&nbsp;&nbsp;8. Pressione a tecla F5 para executar o aplicativo da Windows Store e verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.
    
-   	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
-</ol>
+&nbsp;&nbsp;Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)]
 
 >[AZURE.NOTE]Se você registrou as informações do pacote de aplicativos da Windows Store nos Serviços Móveis, deverá chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> fornecendo um valor **true** para o parâmetro *useSingleSignOn*. Se você não fizer isso, uma solicitação de logon ainda será apresentada aos usuários toda vez que o método de logon for chamado.
 
 ##<a name="tokens"></a>Armazene os tokens de autorização no cliente
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)]
 
 
 ## <a name="next-steps"> </a>Próximas etapas
 
-No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis. Saiba mais sobre como usar os Serviços Móveis com .NET no [Referência conceitual do tutorial dos Serviços Móveis .NET]
+No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis][Authorize users with scripts], você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis.
+
+##Consulte também
+
++ [Recurso avançado de usuários](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Você pode obter dados de usuário adicionais mantidos pelo provedor de identidade no seu serviço móvel chamando o método **ServiceUser.GetIdentitiesAsync()** em um back-end .NET. 
+
++ [Referência conceitual do tutorial dos Serviços Móveis em .NET] <br/>Saiba mais sobre como usar os Serviços Móveis com um cliente .NET.
+
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -86,7 +93,8 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Referência conceitual do tutorial dos Serviços Móveis .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[Referência conceitual do tutorial dos Serviços Móveis em .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

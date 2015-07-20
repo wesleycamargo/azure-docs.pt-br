@@ -15,4 +15,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
  	</div>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

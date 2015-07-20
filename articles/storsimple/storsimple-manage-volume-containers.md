@@ -64,5 +64,6 @@ Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído so
 ## Próximas etapas
 
 Leia mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

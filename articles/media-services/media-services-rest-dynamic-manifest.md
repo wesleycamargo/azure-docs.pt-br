@@ -361,4 +361,6 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar os Parâmetros de Serviço Web de Aprendizado de Máquina do Azure | Azure" 
+	pageTitle="Usar os Parâmetros de Serviço Web de Aprendizado de Máquina do Azure | Microsoft Azure" 
 	description="Como usar Parâmetros de Serviço Web de Aprendizado de Máquina do Azure para modificar o comportamento do seu modelo quando o serviço Web é acessado." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="raymondl;garye"/>
 
 #Usar os parâmetros do serviço Web de Aprendizado de Máquina do Azure
@@ -22,7 +22,7 @@ Um serviço Web de Aprendizado de Máquina do Azure é criado pela publicação 
 
 Um exemplo comum é a configuração do módulo [Leitor][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Gravador][writer] para que um destino diferente possa ser especificado. Alguns exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection].
 
-Você pode definir os Parâmetros de Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas de acordo.
+Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando o serviço é acessado e as ações de módulo serão modificadas em tempo de execução.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,8 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Gravador][writ
 
     - Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".
     - Em **Especifique o tipo de autenticação**, selecione "Conta".
-    - Insira as informações de conta para o armazenamento de blobs do Azure. <p />
+    - Insira as informações de conta para o armazenamento de blobs do Azure. 
+    <p />
 
 3.	Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ele tem esta aparência:
 
@@ -88,5 +89,6 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

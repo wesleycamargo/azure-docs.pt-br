@@ -48,4 +48,4 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
 Agora você está pronto para usar o novo serviço móvel como armazenamento de dados para o aplicativo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

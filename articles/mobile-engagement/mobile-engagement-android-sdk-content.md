@@ -24,11 +24,11 @@ Este documento lista e descreve o conteúdo do arquivo SDK.
 
 > Arquivos de classe do SDK do Engagement.
 
-Pasta `res`
+`res`pasta
 
 > Recursos do SDK do Engagement Reach (arquivos sorteáveis e de layout para incluir em seus aplicativos).
 
-Pasta `src` 
+`src`pasta
 
 > Código-fonte do SDK do Engagement.
 >
@@ -39,6 +39,6 @@ Pasta `src`
 > Um atalho para o site de documentação correspondente à versão de download do SDK.
 
 Outros arquivos são uma cópia das licenças de software.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

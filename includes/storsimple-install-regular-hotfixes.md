@@ -1,3 +1,19 @@
+<properties
+   pageTitle="Instalar hotfixes normais"
+   description="Explica como usar o Windows PowerShell para StorSimple para instalar hotfixes normais."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="NA" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="06/02/2015"
+   ms.author="alkohli" />
 
 #### Para instalar hotfixes normais por meio do Windows PowerShell para StorSimple
 
@@ -15,4 +31,4 @@
 
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

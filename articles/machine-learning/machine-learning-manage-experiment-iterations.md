@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina | Azure" 
+	pageTitle="Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina | Microsoft Azure" 
 	description="Como gerenciar iterações de teste no Estúdio de Aprendizado de Máquina do Microsoft Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -83,5 +83,6 @@ Agora você pode continuar a modificar e executar esta versão do seu teste, cri
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

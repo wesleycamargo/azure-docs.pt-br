@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
 
-# Gerenciando o armazenamento do Azure usando a Automação do Azure
+#Gerenciando o armazenamento do Azure usando a Automação do Azure
 
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento dos bancos de dados SQL do Azure.
 
@@ -34,9 +34,9 @@ Reduza o custo operacional e libere a equipe de TI/ DevOps para se concentrar no
 
 ## Como a Automação do Azure ajuda a gerenciar o Armazenamento do Azure?
 
-O Armazenamento do Azure pode ser gerenciado na automação do Azure usando os cmdlets do PowerShell disponíveis em [Ferramentas PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure tem esses cmdlets do PowerShell do Armazenamento disponíveis imediatamente para que você possa executar todas as suas tarefas de blob, de tabela e de gerenciamento de fila no serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+O Armazenamento do Azure pode ser gerenciado na automação do Azure usando os cmdlets do PowerShell disponíveis em [Ferramentas PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure tem esses cmdlets do PowerShell do Armazenamento disponíveis imediatamente para que você possa executar todas as suas tarefas de blob, de tabela e de gerenciamento de fila no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
 
-A [Galeria de runbooks de automação do Azure](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks da comunidade e da equipe de produto para começar a automatizar o gerenciamento do Armazenamento do Azure, outros serviços do Azure e sistemas de terceiros. A galeria de runbooks inclui:
+A [Galeria de runbooks de Automação do Azure](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks da comunidade e da equipe de produto para começar a automatizar o gerenciamento do Armazenamento do Azure, outros serviços do Azure e sistemas de terceiros. A galeria de runbooks inclui:
 
  * [Remover blobs do Armazenamento do Azure mais antigos que X dias](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
  * [Baixar um blob de Armazenamento do Azure para Automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
@@ -47,7 +47,7 @@ A [Galeria de runbooks de automação do Azure](http://azure.microsoft.com/blog/
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar blobs de Armazenamento do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-Consulte o [Tutorial de Introdução](../automation-create-runbook-from-samples.md) da Automação do Azure
+Confira o [Guia de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

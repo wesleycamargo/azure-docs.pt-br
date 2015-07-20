@@ -61,4 +61,4 @@ Para obter mais informações, consulte [Balanceamento de carga interno](http://
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

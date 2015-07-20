@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Diferença no teste de proporções | Azure" 
+	pageTitle="Diferença no teste de proporções | Microsoft Azure" 
 	description="Diferença no teste de proporções" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="jaymathe"/> 
+	ms.date="06/24/2015" 
+	ms.author="jaymathe"/>
 
 
 #Diferença no teste de proporções
 
 
+Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0.50 e 0.51. Com uma pequena amostra, pode não haver dados suficientes para determinar se essas proporções são realmente diferentes.
 
 
-Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0,50 e 0,51, enquanto que, com uma amostra pequena, talvez não haja dados suficientes para determinar se essas proporções são, de fato, diferentes. 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Este [serviço Web]( https://datamarket.azure.com/dataset/aml_labs/prop_test) realiza um teste de hipóteses da diferença de duas proporções com base na entrada do usuário do número de sucessos e do número total de tentativas para os dois grupos de comparação. Um cenário seria esse serviço Web ser chamado de dentro de um aplicativo de comparação de filme, informando ao usuário, com base nas classificações de filme, se um dos filmes realmente foi 'curtido' com mais frequência do que o outro.
+Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/prop_test) realiza um teste de hipóteses da diferença de duas proporções com base na entrada do usuário do número de sucessos e do número total de tentativas para os dois grupos de comparação. Em um cenário possível, esse serviço Web poderia ser chamado de dentro de um aplicativo de comparação de filme, informando ao usuário se um dos filmes recebe “Likes” com mais frequência do que o outro, com base nas classificações de filmes.
 
->Embora esses serviços Web possam ser consumidos pelos usuários - potencialmente através de um aplicativo móvel, site ou mesmo um computador local, por exemplo, a finalidade do serviço Web também é servir como um exemplo de como o AM do Azure pode ser usado para criar serviços Web sobre código R. Com apenas algumas linhas de código R e cliques de botão dentro do Estúdio AM do Azure, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo - sem qualquer infraestrutura configurada pelo autor do serviço Web.
+>Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Aprendizado de Máquina do Azure pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Estúdio de Aprendizado de Máquina do Azure, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.
 
 
 ##Consumo do serviço Web
@@ -35,59 +36,59 @@ Esse serviço aceita quatro argumentos e forma uma hipótese de teste de propor�
 
 Os argumentos de entrada são:
 
-* Successes1: número de eventos de sucesso na amostra 1
-* Successes2: número de eventos de sucesso na amostra 2
-* Total1: tamanho da amostra 1
-* Total2: tamanho da amostra 2
+* Successes1 - número de eventos de sucesso na amostra 1.
+* Successes2 - número de eventos de sucesso na amostra 2.
+* Total1 - tamanho da amostra 1.
+* Total2 - tamanho da amostra 2.
 
 A saída do serviço é o resultado do teste de hipóteses juntamente com o valor da estatística do qui-quadrado, df, valor p, proporção em 1/2 amostra e limites de intervalo de confiança.
 
->Esse serviço conforme hospedado no Microsoft Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+>Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET.
 
-Há várias maneiras de consumir o serviço de forma automática (aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx )).
+Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
 ###Iniciando o código C# para consumo de serviço Web:
 
-	public class Input{
-	public double Recency;
-	public double Frequency;
-	public double Monetary;
-	public double Time;
-	public double Class;
+	public class Input
+	{
+	        public string successes1;
+	        public string successes2;
+	        public string total1;
+	        public string total2;
+	}
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 	}
 
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-        System.Diagnostics.Debug.WriteLine("AuthenticationHeaderValue" + new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)));
-        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-       
 	void Main()
 	{
-  	var input = new Input(){Recency =1, Frequency=0,Monetary=0,Time=1, Class= 0};
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
-  	scoreResult.Dump();
+	        var input = new Input() { successes1 = TextBox1.Text, successes2 = TextBox2.Text, total1 = TextBox3.Text, total2 = TextBox4.Text };
+	        var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+	    	var scoreResult = result.ReadAsStringAsync().Result;
 	}
+
 
 ##Criação de serviço Web
 
->Este serviço Web foi criado usando o Azure ML. Para uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de experiências e [publicação de serviços Web,](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+>Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
-De dentro do AM do Azure, foi criado uma novo teste em branco com dois "Scripts R de Executar". No primeiro módulo, o esquema de dados é definido, enquanto o segundo módulo usa o comando prop.test dentro do R para realizar o teste de hipóteses para duas proporções. 
+De dentro do Aprendizado de Máquina do Azure, uma nova experiência em branco foi criada com dois módulos [Executar Script R][execute-r-script]. No primeiro módulo, o esquema de dados é definido, enquanto o segundo módulo usa o comando prop.test dentro do R para realizar o teste de hipóteses para duas proporções.
 
 
 ###Fluxo de teste:
 
-![Experiment flow][2]
+![Fluxo de teste][2]
 
 
 ####Módulo 1:
@@ -116,13 +117,17 @@ De dentro do AM do Azure, foi criado uma novo teste em branco com dois "Scripts 
 
 ##Limitações 
 
-Este é um exemplo muito simples para teste de diferença em duas proporções. Como se pode ver no exemplo de código acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são contínuas.
+Este é um exemplo muito simples para um teste de diferença em duas proporções. Como se pode ver no exemplo de código acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são contínuas.
 
 ##Perguntas frequentes
-Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png
 
-<!--HONumber=46--> 
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Desenvolver topologias C# para Apache Storm no HDInsight usando ferramentas do Hadoop para Visual Studio
@@ -26,23 +26,23 @@ Você também aprenderá a criar topologias híbridas que usam componentes C# e 
 
 -	Uma das seguintes versões do Visual Studio
 
-	-	Visual Studio 2012 com <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Atualização 4</a>
+	-	Visual Studio 2012 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 com <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Atualização 4</a> ou <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 -	SDK do Azure 2.5.1 ou posterior
 
--	Ferramentas do HDInsight para o Visual Studio: consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introdução ao uso das Ferramentas do HDInsight para Visual Studio</a> para instalar e configurar as ferramentas do HDInsight para Visual Studio.
+-	Ferramentas do HDInsight para o Visual Studio: consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para instalar e configurar as ferramentas do HDInsight para Visual Studio.
 
--	Apache Storm no cluster HDInsight: consulte <a href="../hdinsight-storm-getting-started/" target="_blank">Introdução ao Apache Storm no HDInsight</a> para etapas para criar um cluster.
+-	Apache Storm no cluster HDInsight: consulte [Introdução ao Apache Storm no HDInsight](hdinsight-storm-getting-started.md) para etapas para criar um cluster.
 
 	> [AZURE.NOTE]Atualmente as Ferramentas do HDInsight para Visual Studio dão suporte apenas a clusters HDInsight versões 3.2.
 
 ##Criar uma topologia C#
 
-1.	Se você ainda não instalou a versão mais recente das Ferramentas do HDInsight para Visual Studio, consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introdução ao uso das Ferramentas do HDInsight para Visual Studio</a>.
+1.	Se você ainda não instalou a versão mais recente das Ferramentas do HDInsight para Visual Studio, consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Abra o Visual Studio, selecione **Arquivo** > **Novo** e **Projeto**.
 
@@ -58,7 +58,7 @@ Você também aprenderá a criar topologias híbridas que usam componentes C# e 
 
 	-	**Bolt.cs**: um bolt de exemplo que mantém uma contagem de números emitidos pelo spout.
 
-	Como parte da criação do projeto, os <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">pacotes SCP.NET</a> mais recentes serão baixados do NuGet.
+	Como parte da criação do projeto, os [pacotes SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) mais recentes serão baixados do NuGet.
 
 Nas próximas seções, você modificará esse projeto em um aplicativo WordCount básico.
 
@@ -579,7 +579,7 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos poder�
 
 6.	Salve as alterações e use **F5** ou selecione **Depurar** > **Iniciar Depuração** para iniciar o projeto. Uma janela de console deve aparecer e o status do log colocado como progresso dos testes. Quando **Testes concluídos** aparecer, pressione qualquer tecla para fechar a janela.
 
-7.	Use o **Windows Explorer** para localizar o diretório que contém o projeto, por exemplo, **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Neste diretório, abra **Bin** e clique em **Depuração**. Você deve ver os arquivos de texto produzidos após a execução dos testes: sentences.txt, counter.txt e splitter.txt. Abra cada arquivo de texto e inspecione os dados.
+7.	Use o **Windows Explorer** para localizar o diretório que contém o projeto, por exemplo, **C:\\Users<your_user_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. Neste diretório, abra **Bin** e clique em **Depuração**. Você deve ver os arquivos de texto produzidos após a execução dos testes: sentences.txt, counter.txt e splitter.txt. Abra cada arquivo de texto e inspecione os dados.
 
 	> [AZURE.NOTE]Os dados da cadeia de caracteres são persistidos como uma matriz de valores decimais nesses arquivos. Por exemplo, [[97,103,111]] no arquivo **splitter.txt** é a palavra “and”.
 
@@ -638,6 +638,5 @@ Para obter outras maneiras de trabalhar com o HDInsight e mais amostras do Storm
 **Apache HBase no HDInsight**
 
 -	[Introdução ao HBase no HDInsight](../hdinsight-hbase-get-started.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

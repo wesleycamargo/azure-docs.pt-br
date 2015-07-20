@@ -27,7 +27,7 @@ Twilio é alimentar o futuro das comunicações de negócios, que permite aos de
 **Twilio Voice** permite que seus aplicativos façam e recebam chamadas telefônicas. **Twilio SMS** permite que seus aplicativos enviem e recebam mensagens SMS. **Cliente de Twilio** permite que você faça chamadas VoIP de qualquer telefone, tablet ou navegador e oferece suporte a WebRTC.
 
 ## <a id="Pricing"></a>Preços e ofertas especiais da Twilio
-Os clientes do Azure recebem uma [oferta especial][special_offer]\: US$ 10 de cortesia de crédito da Twilio quando atualizam a sua conta da Twilio. Esse crédito de Twilio pode ser aplicado a qualquer uso de Twilio (equivalente a até 1.000 mensagens SMS de envio ou recebimento de até 1000 minutos de voz entrados, dependendo da localização do seu destino de chamada e mensagem ou número de telefone de crédito de US $10). Resgate esse crédito da Twilio e faça uma introdução em [ahoy.twilio.com/azure][special_offer].
+Os clientes do Azure recebem uma [oferta especial][special_offer]: US$ 10 de cortesia de crédito da Twilio quando atualizam a sua conta da Twilio. Esse crédito de Twilio pode ser aplicado a qualquer uso de Twilio (equivalente a até 1.000 mensagens SMS de envio ou recebimento de até 1000 minutos de voz entrados, dependendo da localização do seu destino de chamada e mensagem ou número de telefone de crédito de US $10). Resgate esse crédito da Twilio e faça uma introdução em [ahoy.twilio.com/azure][special_offer].
 
 Twilio é um serviço flexível. Não há nenhuma taxa de configuração e você pode fechar sua conta a qualquer momento. Você pode encontrar mais detalhes em [Preços da Twilio][twilio_pricing].
 
@@ -105,7 +105,7 @@ Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precis
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (\~). Não há suporte para uma referência com um acento circunflexo (^).
+	>[AZURE.NOTE]A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (~). Não há suporte para uma referência com um acento circunflexo (^).
 
 4. Confirme essa atualização de arquivo e envie a atualização de volta por push para o serviço móvel.
 
@@ -228,5 +228,6 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

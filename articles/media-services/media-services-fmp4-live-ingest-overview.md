@@ -42,7 +42,7 @@ O formato de conexão para ingestão de transmissão ao vivo que é abordado nes
 
 Veja abaixo uma lista de definições de formato especial que se aplicam à ingestão dinâmica nos Serviços de Mídia do Microsoft Azure:
 
-1. A caixa ‘ftyp’, LiveServerManifestBox e ‘moov’ DEVE ser enviada com cada solicitação (HTTP POST). Ela DEVE ser enviada no início do fluxo e a qualquer momento o codificador deve se reconectar para retomar a ingestão do fluxo. Consulte a Seção 6 em [1] para obter mais detalhes.
+1. A caixa ‘ftyp’, LiveServerManifestBox e ‘moov’ DEVE ser enviada com cada solicitação (HTTP POST). Ela DEVE ser enviada no início do fluxo e a qualquer momento o codificador deve se reconectar para retomar a ingestão do fluxo. Consulte a seção 6 em [1] para obter mais detalhes.
 2. A Seção 3.3.2 em [1] define uma caixa opcional chamada StreamManifestBox para ingestão dinâmica. Devido à lógica de roteamento do balanceador de carga do Microsoft Azure, o uso dessa caixa foi preterido e NÃO DEVE estar presente durante a ingestão no Serviço de Mídia do Microsoft Azure. Se essa caixa estiver presente, os Serviços de Mídia do Azure vai ignorá-la silenciosamente.
 3. O TrackFragmentExtendedHeaderBox definido na Seção 3.2.3.2 em [1] DEVE estar presente em cada fragmento.
 4. A versão 2 do TrackFragmentExtendedHeaderBox DEVE ser usada para gerar segmentos de mídia com URLs idênticas em vários datacenters. O campo do índice de fragmento é OBRIGATÓRIO para failover entre datacenters de formatos de streaming baseados em índice, como HTTP Live Streaming (HLS) da Apple e MPEG-DASH baseado em índice. Para habilitar o failover entre datacenters, o índice de fragmento DEVE ser sincronizado em vários codificadores e aumentado em incrementos de 1 para cada fragmento de mídia sucessivo, mesmo entre reinícios ou falhas do codificador.
@@ -204,4 +204,6 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

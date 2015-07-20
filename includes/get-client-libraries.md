@@ -1,4 +1,4 @@
-###Instalar por meio do Composer
+### Instalar por meio do Composer
 
 1. [instalar o Git][install-git]. 
 
@@ -25,15 +25,15 @@
 
 3. Baixe o **[composer.phar][composer-phar]** na raiz do seu projeto.
 
-4. Abra um prompt de comando e execute esta função na raiz do projeto
+4. Abra um prompt de comando e execute o seguinte comando na raiz do projeto
 
 		php composer.phar install
 
-###Instalar manualmente
+### Instalar manualmente
 
 Para baixar e instalar as Bibliotecas de Cliente PHP para o Azure manualmente, siga estas etapas:
 
-1. Fazer o download de um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para sua máquina local. (A última opção requer uma conta do GitHub e ter o Git instalado localmente).
+1. Fazer o download de um arquivo. zip que contém as bibliotecas de [GitHub][php-sdk-github]. Como alternativa, divida o repositório e clone-o para sua máquina local. A última opção requer uma conta do GitHub e ter o Git instalado localmente.
 
 	
 	> [AZURE.NOTE]As Bibliotecas de Cliente PHP para o Azure têm uma dependência de pacotes PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) e [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). A maneira recomendada de se resolver essas dependências é instalar esses pacotes usando o [gerenciador de pacotes PEAR](http://pear.php.net/manual/en/installation.php).
@@ -49,4 +49,4 @@ Para obter mais informações sobre como instalar as Bibliotecas de Clientes PHP
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

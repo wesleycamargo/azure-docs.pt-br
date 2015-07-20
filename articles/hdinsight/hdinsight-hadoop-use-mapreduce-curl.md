@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Executar trabalhos MapReduce com Hadoop no HDInsight usando o Curl
@@ -32,9 +32,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um Hadoop no cluster HDInsight (baseado em Linux ou Windows)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Executar trabalhos MapReduce usando o Curl
 
@@ -42,7 +42,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 >
 > Para os comandos nesta seção, substitua **USERNAME** com o usuário para autenticar o cluster e **PASSWORD** com a senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
 >
-> A API REST é protegida usando <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticação básica de acesso</a>. Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
+> A API REST é protegida usando [autenticação básica de acesso](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS para garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
 1. De uma linha de comando, use o seguinte comando para verificar se você pode conectar-se ao cluster HDInsight:
 
@@ -114,4 +114,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

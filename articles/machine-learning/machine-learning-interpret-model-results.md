@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como interpretar os resultados do modelo no Aprendizado de Máquina Azure | Azure" 
+	pageTitle="Como interpretar resultados de modelo no Aprendizado de Máquina | Microsoft Azure" 
 	description="Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação." 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **Compreendendo e Visualizando a saída do “Modelo de pontuação”** Este tópico explica como visualizar e interpretar os resultados de previsão no Estúdio de Aprendizado de Máquina do Microsoft Azure. Depois de ter treinado um modelo e feito previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão que obteve.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Há quatro tipos principais de modelos de aprendizado de máquina no Aprendizado de Máquina do Azure:
 
@@ -307,5 +307,6 @@ Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

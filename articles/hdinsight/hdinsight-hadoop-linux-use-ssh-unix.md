@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X (visualização)
@@ -76,7 +76,7 @@ Ao criar um cluster HDInsight baseado em Linux, você deve fornecer a chave púb
 
 * **CLI do Azure para Mac, Linux e Windows**: usa comandos de linha de comando para criar o cluster.
 
-Cada um desses métodos exigirá uma senha ou uma chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, consulte <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar clusters HDInsight baseados em Linux</a>.
+Cada um desses métodos exigirá uma senha ou uma chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, consulte [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Portal do Azure
 
@@ -94,7 +94,7 @@ Isso cria um logon para o usuário especificado, usando a senha ou a chave públ
 
 Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
-Para obter mais informações sobre como usar esse comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas</a>.
+Para obter mais informações sobre como usar esse comando, consulte [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Conectar-se a um cluster HDInsight baseado em Linux
 
@@ -139,7 +139,7 @@ Se usar uma chave SSH para autenticar a conta de usuário, você deverá conclui
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas para instalar e configurar o **ssh-agent** ou consulte <a href="http://mah.everybody.org/docs/ssh" target="_blank">Usando ssh-agent com SSH</a>.
+    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas para instalar e configurar o **ssh-agent** ou consulte [Usando ssh-agent com SSH](http://mah.everybody.org/docs/ssh).
 
 4. Após confirmar que o **ssh-agent** está em execução, use o seguinte para adicionar sua chave privada SSH ao agente:
 
@@ -241,11 +241,11 @@ Use as seguintes etapas para criar um túnel SSH e configurar seu navegador para
 
 	> [AZURE.NOTE]Selecionar **DNS Remoto** resolverá as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Se essa opção estiver desmarcada, o DNS será resolvido localmente.
 
-	Você pode confirmar que o tráfego está sendo roteado pelo túnel visitando um site como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
+	Você pode confirmar que o tráfego está sendo roteado pelo túnel visitando um site [como http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
 
 ###Extensões do navegador
 
-Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. Extensões de navegador, como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>, aceitam correspondência de padrões para solicitações de URL (somente FoxyProxy Standard ou Plus); logo, apenas solicitações de URLs específicas serão enviadas pelo túnel.
+Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. Extensões de navegador, como [FoxyProxy](http://getfoxyproxy.org/), aceitam correspondência de padrões para solicitações de URL (somente FoxyProxy Standard ou Plus); logo, apenas solicitações de URLs específicas serão enviadas pelo túnel.
 
 Se você tiver instalado o FoxyProxy padrão, use as etapas a seguir para configurá-lo para encaminhar somente tráfego do HDInsight pelo túnel:
 
@@ -294,6 +294,5 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

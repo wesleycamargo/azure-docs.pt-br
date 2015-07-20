@@ -18,7 +18,7 @@
 
 # Adicionar Serviços Móveis a um aplicativo existente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)] 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para utilizar os dados em um aplicativo Xamarin.Android. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no Portal de Gerenciamento do Azure para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
@@ -34,7 +34,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 > [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-Este tutorial requer o [Componente dos Serviços Móveis do Azure], o [Xamarin.Android] e o Android SDK 4.2 ou uma versão mais recente.
+Este tutorial requer o [Componente dos Serviços Móveis do Azure], [Xamarin.Android] e Android SDK 4.2 ou uma versão mais recente.
 
 > [AZURE.NOTE]O projeto GetStartedWithData baixado requer o Android 4.2 ou uma versão mais recente. No entanto, o SDK dos Serviços Móveis requer apenas o Android 2.2 ou uma versão mais recente.
 
@@ -281,5 +281,6 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

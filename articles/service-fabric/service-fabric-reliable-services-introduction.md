@@ -119,4 +119,4 @@ Se um dos seguintes itens caracterizar as necessidades de serviço do aplicativo
 + [Leia o modelo de programação de Atores Confiáveis](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

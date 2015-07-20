@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # Exemplo de MapReduce do Hadoop GraySort de 10 GB no HDInsight
 
 Este tópico de exemplo mostra como executar um programa MapReduce do Hadoop GraySort de finalidade geral no Azure HDInsight usando o PowerShell do Azure. GraySort é uma espécie de parâmetro de comparação cuja métrica é a taxa de classificação (TB/minuto) que é obtida durante a classificação de grandes quantidades de dados, geralmente um mínimo de 100 TB.
+
+> [AZURE.NOTE]As etapas deste documento exigem um cluster HDInsight baseado em Windows. Para obter informações sobre como executar este e outros exemplos com clusters baseados em Linux, consulte [Executar exemplos do Hadoop no HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/).
 
@@ -37,8 +39,8 @@ O formato de entrada e saída, usado por todos os três aplicativos, lê e grava
 **Pré-requisitos:**
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Um cluster HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [[Provisionar clusters HDInsight](hdinsight-provision-clusters.md).
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [[Provisionar clusters HDInsight](hdinsight-provision-clusters.md).
+- **Uma estação de trabalho com o PowerShell do Azure.** Consulte [Instalar e usar o PowerShell do Azure](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 
@@ -429,6 +431,5 @@ Para obter tutoriais que descrevam outros exemplos e que forneçam instruções 
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

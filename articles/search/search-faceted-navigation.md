@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="heidist"/>
 
-#Como implementar a navegação facetada na Pesquisa do Azure#
+#Como implementar a navegação facetada na Pesquisa do Azure
 
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. Embora o termo “navegação facetada” possa ser desconhecido, é quase certo que você já a tenha utilizado. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
 
-## Que aparência ela tem ##
+## Que aparência ela tem
 
  ![][1]
   
@@ -46,10 +46,10 @@ Este artigo contém as seguintes seções:
 - [Navegação mista com base em GeoPoints](#geofacets)
 - [Experimentar](#tryitout)
 
-##Por que usá-la##
+##Por que usá-la
 Os aplicativos de pesquisa mais eficazes têm vários modelos de interação, além de uma caixa de pesquisa. A navegação facetada é um ponto de entrada alternativo para pesquisa, oferecendo uma alternativa conveniente a digitar expressões de pesquisa complexas manualmente.
 
-##Conheça os conceitos básicos##
+##Conheça os conceitos básicos
 
 Se você for novo no desenvolvimento de pesquisa, a melhor maneira de pensar em navegação facetada é que ela mostra as possibilidades de pesquisa autodirigida. É um tipo de experiência de busca detalhada, com base em filtros predefinidos usados para restringir os resultados da pesquisa rapidamente por meio de ações de apontar e clicar.
 
@@ -96,7 +96,7 @@ Embora ambas as consultas sejam válidas, a segunda é melhor se você está pro
 Em aplicativos que incluam navegação facetada, você desejará ter certeza de que cada ação do usuário em uma estrutura de navegação facetada é acompanhada de uma redução dos resultados da pesquisa, obtida por meio de uma expressão de filtro.
 
 <a name="howtobuildit"></a>
-# Como criá-la #
+##Como criá-la
 
 A navegação facetada na Pesquisa do Azure é implementada no código do aplicativo que compila a solicitação, mas se baseia em elementos predefinidos no esquema.
 
@@ -113,7 +113,7 @@ A camada de apresentação em seu código fornece a experiência do usuário. El
 Nas seções a seguir, vamos examinar mais detalhadamente como criar cada parte, começando com a camada de apresentação.
 
 <a name="presentationlayer"></a>
-# Criar a camada de apresentação #
+##Criar a camada de apresentação
 
 Trabalhar na camada de apresentação pode ajudá-lo a descobrir requisitos que de outro modo poderiam ter sido ignorados, além de entender quais recursos são essenciais para a experiência de pesquisa.
 
@@ -131,7 +131,7 @@ Observe que cada faceta tem um rótulo (Cores, Categorias, Preços), uma associa
 > [AZURE.TIP]Ao criar a página de resultados da pesquisa, lembre-se de adicionar um mecanismo para limpar facetas. Se você usar as caixas de seleção, os usuários podem intuir facilmente como limpar os filtros. Para outros layouts, talvez seja necessário um padrão de navegação estrutural ou outra abordagem criativa. Por exemplo, no catálogo AdventureWorks, um aplicativo de exemplo, você pode clicar no título, catálogo AdventureWorks, para redefinir a página de pesquisa.
 
 <a name="buildindex"></a>
-# Compilar o índice #
+##Compilar o índice
 
 A facetagem está habilitada no índice de campo por campo, por meio desse atributo de índice: `"Facetable": true`. Todos os tipos de campo que poderiam ser usados na navegação facetada são `Facetable` por padrão. Esses tipos de campo incluem `Edm.String`, `Edm.DateTimeOffset` e todos os tipos de campo numérico (basicamente, todos os tipos de campo são facetáveis exceto `Edm.GeographyPoint`, que não pode ser usado na navegação facetada).
 
@@ -146,7 +146,7 @@ Observe que `Facetable` é desativado para os campos de cadeia de caracteres que
 > [AZURE.TIP]Como prática recomendada, inclua o conjunto completo de atributos de índice para cada campo. Embora `Facetable` seja ativado por padrão para quase todos os campos, definir propositadamente cada atributo pode ajudá-lo a considerar as implicações de cada decisão do esquema.
 
 <a name="checkdata"></a>
-# Verificar a qualidade de dados 
+##Verificar a qualidade de dados 
 
 Ao desenvolver qualquer aplicativo centrado em dados, preparar os dados geralmente é uma das maiores partes do trabalho. Os aplicativos de pesquisa não são exceção. A qualidade dos seus dados tem um efeito direto quanto à estrutura de navegação facetada se materializar conforme esperado ou não, bem como sua eficácia em lhe ajudar a criar filtros que reduzam o conjunto de resultados.
 
@@ -156,14 +156,14 @@ Alguns lembretes de pelo que se deve procurar estão listados abaixo:
 
 - Pergunte-se, para cada campo segundo o qual você deseja realizar a facetagem, se ele contém valores que são adequados como filtros na pesquisa autodirigida. Os valores devem ser curtos, descritivos e suficientemente diferentes para oferecer uma escolha clara entre as opções de concorrentes.
 - Erros de ortografia ou valores quase correspondentes. Se você realiza a facetagem por Cor e os valores de campo incluem Laranja e Laranja (erro), uma facetagem baseada no campo Cor utilizaria ambos.
-- Texto composto
+- Texto composto  
 de caracteres maiúsculos e minúsculos também pode causar estragos na navegação facetada, com laranja e Laranja aparecendo como dois valores diferentes. 
 - Versões do mesmo valor no singular e no plural podem resultar em uma faceta separada para cada uma.
 
 Como você pode imaginar, a auditoria na preparação dos dados é um aspecto essencial para uma navegação facetada eficiente.
 
 <a name="buildquery"></a>
-# Compilar a consulta #
+##Compilar a consulta
 
 O código que você escreve para a compilação de consultas deve especificar todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas, filtros, perfis de pontuação – tudo o que for usado para formular uma solicitação. Nesta seção, exploraremos onde as facetas se encaixam em uma consulta e como os filtros são usados com facetas para fornecer um conjunto de resultados reduzido.
 
@@ -179,7 +179,7 @@ Além de facetas, a solicitação formulada pelo seu aplicativo também deve cri
 
 Quando um usuário clica em "Vermelho" para indicar que somente os produtos vermelhos devem ser mostrados, a próxima consulta que o aplicativo envia incluiria `$filter=Color eq ‘Red’`.
 
-## Práticas recomendadas para navegação facetada ##
+## Práticas recomendadas para navegação facetada
 
 A lista a seguir resume algumas práticas recomendadas.
 
@@ -193,7 +193,7 @@ A lista a seguir resume algumas práticas recomendadas.
 
 
 <a name="tips"></a>
-# Dicas sobre como controlar a navegação facetada #
+##Dicas sobre como controlar a navegação facetada
 
 Abaixo está uma folha de dicas com orientações sobre questões específicas.
 
@@ -258,7 +258,7 @@ As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentaç
 Embora esse comportamento possa mudar a qualquer momento, se você encontrar esse problema hoje, você pode contorná-lo artificialmente aumentando count:<number> para um número muito grande para impor a emissão de relatórios completos de cada fragmento. Se o valor de contagem: é maior que ou igual ao número de valores exclusivos no campo, você tem a garantia de resultados precisos. No entanto, quando as contagens de documento são realmente altas há uma penalidade de desempenho, portanto, use essa opção criteriosamente.
 
 <a name="rangefacets"></a>
-# Navegação facetada com base em valores de intervalo #
+##Navegação facetada com base em valores de intervalo
 
 A facetagem em intervalos é um requisito comum de aplicativo de pesquisa. Intervalos têm suporte para dados numéricos e valores de DataHora. Você pode ler mais sobre cada abordagem em [Procurar documentos (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -286,7 +286,7 @@ No aplicativo de exemplo, a expressão de filtro usa os parâmetros **priceFrom*
   ![][6]
 
 <a name="geofacets"></a>
-# Navegação filtrada com base em GeoPoints #
+##Navegação filtrada com base em GeoPoints
 
 É comum ver filtros que ajudam você a escolher uma loja, restaurante ou destino com base na proximidade desse local com relação ao local onde você está atualmente. Embora esse tipo de filtro possa parecer com a navegação facetada, trata-se na verdade apenas de um filtro. Mencionamos isso aqui para aqueles que estão procurando especificamente conselhos de implementação para um problema de design específico.
 
@@ -299,7 +299,7 @@ Há duas funções geoespaciais na pesquisa do Azure, **geo.distance** e **geo.i
 Você pode encontrar exemplos de filtros em [Sintaxe de expressão OData (Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx). Para saber mais sobre a pesquisa geoespacial, consulte [Criar um aplicativo de pesquisa geoespacial na Pesquisa do Azure](search-create-geospatial.md).
 
 <a name="tryitout"></a>
-# Experimentar #
+##Experimentar
 
 Demonstração do Adventure Works da Pesquisa do Azure em Codeplex contém os exemplos mencionados neste artigo. Ao trabalhar com os resultados da pesquisa, monitore a URL quanto a alterações na construção de consulta. Esse aplicativo acrescenta facetas ao URI conforme você seleciona cada uma.
 
@@ -328,7 +328,7 @@ Demonstração do Adventure Works da Pesquisa do Azure em Codeplex contém os ex
 	![][10]
  
 <a name="nextstep"></a>
-# Próxima etapa #
+##Próxima etapa
 
 Para testar seu conhecimento, você pode adicionar um campo de faceta para *modelName*. O índice já está definido para esta faceta, portanto não é necessária nenhuma alteração ao índice. Mas você precisará modificar o HTML para incluir uma nova faceta para Modelos, ou adicionar o campo de faceta para o construtor de consultas.
 
@@ -371,5 +371,6 @@ Para obter mais informações sobre princípios de design para navegação facet
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

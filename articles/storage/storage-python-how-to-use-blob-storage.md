@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="huvalo"/>
 
 # Como usar o armazenamento de Blob no Python
@@ -22,32 +22,31 @@
 
 ## Visão geral
 
-Este guia mostra como executar cenários comuns usando o
-Serviço de armazenamento de Blob do Azure. Os exemplos são escritos em Python e usam o [Pacote do Python Azure][]. Os cenários abordados incluem **carregamento**, **listagem**,
-**download** e **exclusão** de blobs.
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Blob do Azure. Os exemplos são escritos em Python e usam o [Pacote do Python Azure][]. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs.
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+[AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Como: Criar um contêiner
+## Como criar um contêiner
 
-> [AZURE.NOTE] Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
-
+> [AZURE.NOTE]Se você precisar instalar o Python ou o [pacote do Python Azure][], consulte o [Guia de instalação do Python](../python-how-to-install.md).
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto **BlobService**. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
 	from azure.storage import BlobService
 
-O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta.  Substitua 'myaccount' e 'mykey' pela conta e a chave reais.
+O código a seguir cria um objeto **Serviço de blob** usando o nome da conta de armazenamento e a chave da conta. Substitua 'Minha conta' e 'mykey' com a conta real e a chave.
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-Todos os blobs de armazenamento residem em um contêiner. Você pode usar uma **BlobService** objeto para criar o contêiner, se ele não existir:
+[AZURE.INCLUDE [armazenamento-contêiner-nomeando-regras-include](../../includes/storage-container-naming-rules-include.md)]
+
+Você pode usar uma **BlobService** objeto para criar o contêiner, se ele não existir:
 
 	blob_service.create_container('mycontainer')
 
-Por padrão, o novo contêiner é particular; portanto, você deve especificar sua chave de acesso de armazenamento (como anteriormente) para baixar blobs desse contêiner. Se desejar disponibilizar os arquivos dentro do contêiner para todas as pessoas, você pode criar o contêiner e passar o nível de acesso público usando o seguinte código:
+Por padrão, o novo contêiner é particular; portanto, você deve especificar suachave de acesso de armazenamento (como anteriormente) para baixar blobs dessecontêiner. Se desejar disponibilizar os arquivos dentro do contêiner para todas as pessoas, você pode criar o contêiner e passar o nível de acesso público usando o seguinte código:
 
 	blob_service.create_container('mycontainer', x_ms_blob_public_access='container') 
 
@@ -57,11 +56,11 @@ Como alternativa, você pode modificar um contêiner após você tê-lo criado u
 
 Após essa alteração, qualquer pessoa na Internet pode ver blobs em um contêiner público, mas apenas você pode modificar ou excluí-los.
 
-## Como: Carregar um blob em um contêiner
+## Como carregar um blob em um contêiner
 
 Para carregar dados em um blob, use os métodos **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** ou **put_block_blob_from_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-**put_block_blob_from_path** carrega o conteúdo de um arquivo do caminho especificado e **put_block_blob_from_file** carrega o conteúdo de um arquivo/fluxo já aberto. **put_block_blob_from_bytes** carrega uma matriz de bytes e **put_block_blob_from_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
+**put_block_blob_from_path** carrega o conteúdo de um arquivo a partir do caminho especificado, **put_block_blob_from_file** carrega o conteúdo de um arquivo/fluxo já aberto. **put_block_blob_from_bytes** carrega uma matriz de bytes, **put_block_blob_from_text** carrega o valor de texto especificado usando a codificação especificada (UTF-8 é o padrão).
 
 O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblob**.
 
@@ -72,17 +71,16 @@ O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblo
         x_ms_blob_content_type='image/png'
     )
 
-## Como: Listar os blobs em um contêiner
+## Como listar os blobs em um contêiner
 
-Para listar os blobs em um contêiner, use o método **list_blobs** com um loop
-**for** para exibir o nome de cada blob no contêiner. O código a seguir exibe o **nome** e a **url** de cada blob em um contêiner para o console.
+Para listar os blobs em um contêiner, use o método **list_blobs** com um loop **for** para exibir o nome de cada blob no contêiner. O código a seguir exibe o **nome** e a **url** de cada blob em um contêiner para o console.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
 		print(blob.url)
 
-## Como: Baixar blobs
+## Como: baixar blobs
 
 Para baixar dados de um blob, use **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** ou **get_blob_to_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
@@ -90,7 +88,7 @@ O exemplo a seguir demonstra o uso de **get_blob_to_path** para baixar o conteú
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## Como: Excluir um blob
+## Como: excluir um blob
 
 Finalmente, para excluir um blob, chame **delete_blob**.
 
@@ -100,11 +98,12 @@ Finalmente, para excluir um blob, chame **delete_blob**.
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
--   Consulte a referência de MSDN: [Armazenando e acessando dados no Azure][]
+-   Consulte a referência do MSDN: [Armazenando e acessando dados no Azure][]
 -   Visite o [Blog da Equipe de Armazenamento do Azure][]
 
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[Pacote do Python Azure]: https://pypi.python.org/pypi/azure  
+[Blog da Equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Pacote do Python Azure]: https://pypi.python.org/pypi/azure
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

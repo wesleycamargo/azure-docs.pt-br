@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Soluções no Insights Operacionais
@@ -128,6 +128,5 @@ Os resultados da pesquisa de servidor incluem:
 - Método para habilitar a atualização automática
 - Dias desde a última atualização
 - Versão do agente do Windows Update
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

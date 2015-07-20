@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Adicionar Serviços Móveis ao aplicativo existente
@@ -22,20 +22,20 @@
 
 Neste tutorial, você baixará um aplicativo existente que armazena dados na memória e irá alterá-lo para trabalhar com um serviço móvel do Azure.
 
-Concluir o [Início Rápido] é um pré-requisito antes de iniciar este tutorial. Você usará novamente o serviço móvel criado no Início Rápido.
+Concluir o [Início Rápido] é um pré-requisito para de iniciar este tutorial. Você usará o serviço móvel criado no Início Rápido.
 
 
 ##<a name="download-app"></a>Baixar o projeto GetStartedWithData
 
-Este tutorial é baseado no [aplicativo iOS  GetStartedWithData]. O aplicativo é idêntico ao [Início Rápido], exceto que os itens são armazenados na memória.
+Este tutorial é baseado no [aplicativo iOS GetStartedWithData]. O aplicativo é idêntico ao [Início Rápido], exceto que os itens são armazenados na memória.
 
-Baixe o [aplicativo iOS GetStartedWithData]. No Xcode, abra o projeto baixado e examine o arquivo **TodoService.m**. Há oito comentários **/ / TODO** que especificam as etapas para fazer com que este aplicativo funcione.
+Baixe o [aplicativo GetStartedWithData]. No Xcode, abra o projeto e examine o **Todoservice.m**. Há oito comentários **/ / TODO** que especificam as etapas para fazer com que esse aplicativo funcione.
 
 ##<a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
 
 [AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
-##<a name="test-app"></a>Aplicativo de teste
+##<a name="test-app"></a>Testar o aplicativo
 
 1. No Xcode, clique em **Executar** para iniciar o aplicativo. Adicione itens à lista de tarefas digitando texto e clicando em **+**.
 
@@ -85,7 +85,7 @@ Baixe o [aplicativo iOS GetStartedWithData]. No Xcode, abra o projeto baixado e 
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
 [Início Rápido]: mobile-services-dotnet-backend-ios-get-started.md
-[aplicativo iOS  GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
+[aplicativo GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [aplicativo iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

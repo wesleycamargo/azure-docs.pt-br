@@ -33,10 +33,11 @@ Para acessar programaticamente filas em projetos do ASP.NET 5, você precisa adi
 
 1. Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você deseja acessar o Armazenamento do Azure por meio de programação.
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Use o seguinte código para obter a definição da configuração.
 
@@ -104,4 +105,4 @@ Este processo de duas etapas para remover uma mensagem garante que quando o cód
 [Saiba mais sobre o armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/) Confira também [Procurando recursos de armazenamento no Gerenciador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) e [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

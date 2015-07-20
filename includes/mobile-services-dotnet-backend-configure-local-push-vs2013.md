@@ -15,4 +15,4 @@ Você também pode testar notificações por push com seu serviço móvel em exe
 
 Agora, o projeto do serviço móvel é configurado para se conectar ao hub de notificação no Azure, quando a execução ocorre localmente. Observe que é importante utilizar o mesmo nome de hub de notificação e cadeia de conexão utilizados no portal, porque essas configurações do arquivo Web.config são substituídas pelas configurações do portal durante a execução no Azure.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

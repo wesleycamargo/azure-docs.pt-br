@@ -157,4 +157,4 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 <!-- URLs. -->
 [SDK dos Serviços Móveis Android]: http://aka.ms/Iajk6q
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

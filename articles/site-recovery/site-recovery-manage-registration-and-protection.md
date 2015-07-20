@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="raynew"/>
 
 # Gerenciar o registro e a proteção
@@ -22,11 +22,11 @@ Este artigo descreve como cancelar o registro de servidores no cofre de Recupera
 
 ## Cancelar o registro de um servidor VMM
 
-Cancele o registro de um servidor VMM a partir de um cofre, excluindo o servidor na guia **Servidores** no portal do Azure Site Recovery. Observe o seguinte:
+Cancele o registro de um servidor VMM a partir de um cofre, excluindo o servidor na guia **Servidores** no portal do Azure Site Recovery. Observe que:
 
--  Recomendamos o cancelamento do registro do servidor VMM quando ele estiver conectado ao Azure. Isso garante que as configurações no servidor VMM local, e os servidores VMM associados a ele (servidores VMM que contêm as nuvens mapeadas para nuvens no servidor que você deseja excluir), sejam apagadas apropriadamente. Recomendamos que você remova um servidor desconectado somente se houver um problema de conectividade permanente.
-- Se o servidor VMM não estiver conectado quando você excluí-lo, será necessário executar manualmente um script para realizar a limpeza. O script está disponível na [Galeria da Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Anote a ID do VMM do servidor para concluir o processo de limpeza manual.
-- Se você precisar cancelar o registro de um servidor VMM implantado em um cluster, faça o seguinte:
+-  **Servidor VMM conectado**: recomendamos o cancelamento do registro do servidor VMM quando ele estiver conectado ao Azure. Isso garante que as configurações no servidor VMM local, e os servidores VMM associados a ele (servidores VMM que contêm as nuvens mapeadas para nuvens no servidor que você deseja excluir), sejam apagadas apropriadamente. Recomendamos que você remova um servidor desconectado somente se houver um problema de conectividade permanente.
+- **Servidor VMM desconectado**: se o servidor VMM não estiver conectado quando você o exclui, será necessário executar manualmente um script para realizar a limpeza. O script está disponível na [Galeria da Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Anote a ID do VMM do servidor para concluir o processo de limpeza manual.
+- **Servidor VMM em cluster**: se você precisar cancelar o registro de um servidor VMM implantado em um cluster, faça o seguinte:
 
 	- Se o servidor estiver conectado, exclua o servidor VMM conectado na guia **Servidores**. Para desinstalar o Provedor no servidor, faça logon em cada nó do cluster e desinstale-o no Painel de Controle. Execute o script de limpeza mencionado na seção anterior em todos os nós passivos no cluster a fim de excluir as entradas do registro.
 	- Se o servidor não estiver conectado, será necessário executar o script de limpeza em todos os nós do cluster.
@@ -136,15 +136,17 @@ Quando o Azure Site Recovery é implantado para proteger as máquinas virtuais l
 	    popd
 
 
-## Interromper a proteção de uma máquina virtual
+## Interromper a proteção de uma máquina virtual Hyper-V
 
-Se você quiser interromper a proteção de uma máquina virtual, faça o seguinte:
+Se você quiser interromper a proteção de uma máquina virtual Hyper-V, será necessário remover a proteção dela. Dependendo de como você remove a proteção, talvez seja necessário limpar manualmente as configurações de proteção na máquina.
+
+### Remover proteção
 
 1. Na guia **Máquinas Virtuais** das propriedades da nuvem, selecione a máquina virtual > **Remover**.
 2. Na página **Confirmar a Remoção da Máquina Virtual**, há algumas opções:
 
-	- **Desativar a proteção para a máquina virtual**— Se você habilitar e salvar essa opção, a máquina virtual não estará mais protegida pelo Azure Site Recovery. As configurações de proteção para a máquina virtual serão limpas automaticamente.
-	- **Parar de gerenciar a máquina virtua**l — se você selecionar essa opção, a máquina virtual será removida somente do serviço Azure Site Recovery. As configurações de proteção local para a máquina virtual não serão afetadas e você precisará limpá-las manualmente usando as instruções abaixo.
+	- **Desativar a proteção**— Se você habilitar e salvar essa opção, a máquina virtual não estará mais protegida pela Recuperação de Site. As configurações de proteção para a máquina virtual serão limpas automaticamente.
+	- **Remover do cofre**—Se você selecionar essa opção, a máquina virtual será removida somente do cofre da Recuperação de Site. As configurações de proteção local da máquina virtual não serão afetadas. Será necessário limpar manualmente as configurações para remover as configurações de proteção e remover a máquina virtual da assinatura do Azure, e para isso use as instruções abaixo.
 
 Se você optar por excluir a máquina virtual e seus discos rígidos, eles serão removidos do local de destino.
 
@@ -183,7 +185,6 @@ Se você selecionou **Parar de gerenciar a máquina virtual**, limpe manualmente
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-
 ### Limpar as configurações de proteção manualmente (entre sites do Hyper-V e o Azure)
 
 1. No servidor de host do Hyper-V de origem, use esse script para remover a replicação para a máquina virtual. Substitua SQLVM1 pelo nome da máquina virtual.
@@ -193,23 +194,22 @@ Se você selecionou **Parar de gerenciar a máquina virtual**, limpe manualmente
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-### Limpar as configurações de proteção manualmente (entre sites do VMware e o Azure)
+## Interromper a proteção de uma máquina virtual VMware ou servidor físico
 
-No servidor de origem, desinstale o serviço de mobilidade.
+Se você quiser interromper a proteção de uma máquina virtual VMware ou de um servidor físico, será necessário remover a proteção dela. Dependendo de como você remove a proteção, talvez seja necessário limpar manualmente as configurações de proteção na máquina.
 
+### Remover proteção
 
+1. Na guia **Máquinas Virtuais** das propriedades da nuvem, selecione a máquina virtual > **Remover**.
+2. Em **Remover Máquina Virtual**, selecione uma destas opções:
 
+	- **Desabilitar a proteção (usada para a análise de recuperação e redimensionamento de volume)**—Você verá essa opção e poderá habilitá-la apenas se tiver:
+		- **Redimensionado o volume da máquina virtual**—Quando você redimensiona um volume, a máquina virtual entra em um estado crítico. Se isso ocorrer, selecione essa opção. Ele desabilita a proteção enquanto retém os pontos de recuperação no Azure. Quando você reabilita a proteção para a máquina, os dados do volume redimensionado são transferidos para o Azure.
+		- **Executar um failover**—Depois de testar seu ambiente executando um failover de máquinas virtuais VMware locais ou servidores físicos para o Azure, selecione esta opção para iniciar novamente a proteção das máquinas virtuais locais. Esta opção desabilita cada máquina virtual e, em seguida, será necessário reabilitar a proteção para elas. Observe que:
+			- Desabilitar a máquina virtual com essa configuração não afeta a máquina virtual de réplica no Azure.
+			- Você não deve desinstalar o Serviço de Mobilidade da máquina virtual.
+	
+	- **Desabilitar a proteção**—Se você habilitar e salvar essa opção, a máquina não será mais protegida pela Recuperação de Site. As configurações de proteção para a máquina serão limpas automaticamente.
+	- **Remover do cofre**—Se você selecionar essa opção, a máquina será removida somente do cofre da Recuperação de Site. As configurações de proteção local da máquina não serão afetadas. Para remover as configurações na máquina e remover a máquina virtual da assinatura do Azure, será necessário limpar as configurações desinstalando o Serviço de Mobilidade. ![Opções de remoção](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

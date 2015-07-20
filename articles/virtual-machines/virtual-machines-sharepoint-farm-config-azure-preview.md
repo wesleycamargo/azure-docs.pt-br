@@ -10,10 +10,10 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 
@@ -41,7 +41,7 @@ Aqui estão os detalhes da configuração:
 -	Conta de armazenamento: especificada durante a configuração inicial.
 -	Rede virtual 	
 	-   Tipo: somente nuvem	
-    -	Espaço de endereço: 192.168.16.0/26    
+    -	Espaço de endereço: 10.0.0.0/26    
 
 - Máquinas virtuais
 	-	*HostNamePrefix*-DC (controlador de domínio do AD DS)
@@ -62,14 +62,14 @@ Aqui estão os detalhes da configuração:
 	-	Tamanho: A5 (padrão)
 	-	Nome da conta de acesso do banco de dados: especificado durante a configuração inicial.
 	-	Senha da conta de acesso do banco de dados: especificada durante a configuração inicial.
-	-	Nome da conta de serviço do SQL Server: especificado durante a configuração inicial.
+	-	Nome da conta de serviço do SQL Server: sqlservice (padrão)
 	-	Senha da conta de serviço do SQL Server: especificada durante a configuração inicial.
 
 - SharePoint Server
 	-	Imagem da máquina virtual: versão de avaliação do SharePoint Server 2013.
 	-	Prefixo do nome do host: especificado durante a configuração inicial.
 	-	Tamanho: A2 (padrão)
-	-	Nome da conta do farm do SharePoint: especificado durante a configuração inicial.
+	-	Nome da conta do farm do SharePoint: sp_farm (padrão)
 	-	Senha da conta do farm do SharePoint: especificada durante a configuração inicial.
 	-	Senha do farm do SharePoint: especificada durante a configuração inicial.
 
@@ -87,7 +87,7 @@ Aqui estão os detalhes da configuração:
 -	Conta de armazenamento: especificada durante a configuração inicial.
 -	Rede virtual	
 	-	Tipo: somente nuvem
-	-	Espaço de endereço: 192.168.16.0/26	
+	-	Espaço de endereço: 10.0.0.0/26	
 
 -	Máquinas virtuais
 	-	*HostNamePrefix*-DC1 (controlador de domínio do AD DS)
@@ -111,21 +111,25 @@ Aqui estão os detalhes da configuração:
 -	Servidores SQL
 	-	Imagem da máquina virtual: SQL Server 2014 RTM Enterprise no Windows Server 2012 R2.
 	-	Prefixo do nome do host: especificado durante a configuração inicial.
-	-	Tamanho: A5 (padrão)
+	-	Tamanho: A5 (padrão) para servidores SQL, A0 (padrão) para a testemunha de compartilhamento de arquivo
 	-	Nome da conta de acesso do banco de dados: especificado durante a configuração inicial.
 	-	Senha da conta de acesso do banco de dados: especificada durante a configuração inicial.
-	-	Nome da conta de serviço do SQL Server: especificado durante a configuração inicial.
+	-	Nome da conta de serviço do SQL Server: sqlservice (padrão)
 	-	Senha da conta de serviço do SQL Server: especificada durante a configuração inicial.
 
 -	Servidores SharePoint
 	-	Imagem da máquina virtual: versão de avaliação do SharePoint Server 2013.
 	-	Prefixo do nome do host: especificado durante a configuração inicial.
 	-	Tamanho: A2 (padrão)
-	-	Nome da conta do farm do SharePoint: especificado durante a configuração inicial.
-	-	Senha da conta do farm do SharePoint: especificada durante a configuração inicial.		
+	-	Nome da conta do farm do SharePoint: sp_farm (padrão)
+	-	Senha da conta do farm do SharePoint: especificada durante a configuração inicial.	
 	-	Senha do farm do SharePoint: especificada durante a configuração inicial.
 
 > [AZURE.NOTE]Os servidores do SharePoint são criados a partir da imagem de trilha do SharePoint Server 2013. Para continuar usando a máquina virtual após a expiração da avaliação, é necessário converter a instalação para usar uma chave de licença de Volume ou de Varejo para as edições Standard ou Enterprise do SharePoint Server 2013.
+
+## Gerenciador de Recursos do Azure
+
+O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria máquinas virtuais no Gerenciador de Serviços. Para criar farms do SharePoint Server 2013 no Gerenciador de Recursos, consulte [Implantar farms do SharePoint com modelos de Gerenciador de Recursos do Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionais
 
@@ -136,4 +140,4 @@ Aqui estão os detalhes da configuração:
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

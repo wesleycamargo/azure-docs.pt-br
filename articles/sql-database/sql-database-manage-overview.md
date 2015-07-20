@@ -42,5 +42,6 @@ Para saber mais sobre como gerenciar seus Bancos de Dados SQL do Azure com SSMS 
 Você pode usar ferramentas de linha de comando, como o PowerShell para gerenciar Bancos de Dados SQL do Azure e automatizar implantações de recursos do Azure. A Microsoft recomenda essa ferramenta para gerenciar uma grande quantidade de Banco de Dados SQL do Azure e implantar alterações de recursos em um ambiente de produção.
 
 Para saber mais sobre como gerenciar seus Bancos de Dados SQL do Azure com ferramentas de linha de comando, [clique aqui](sql-database-command-line-tools.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

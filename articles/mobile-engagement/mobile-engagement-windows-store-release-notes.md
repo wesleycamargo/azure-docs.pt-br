@@ -18,6 +18,10 @@
 
 #Notas de versão do SDK de aplicativos do Windows Universal
 
+##3.1.0 (21/05/2015)
+
+-   A ID do dispositivo Mobile Engagement agora se baseia em um GUID gerado no momento da instalação
+
 ##3.0.1 (29/04/2015)
 
 -   Correção de um bug que afeta a inicialização do SDK em alguns aplicativos do Windows Phone WinRT.
@@ -35,5 +39,6 @@
 -   A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
 -   Aprimoramentos de segurança.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

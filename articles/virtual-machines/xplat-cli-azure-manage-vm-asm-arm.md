@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Comandos equivalentes do Gerenciador de Recursos e de Gerenciamento de Serviços para operações de VM com a CLI do Azure para Mac, Linux e Windows"
+	pageTitle="Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM com o Azure CLI para Mac, Linux e Windows."
 	description="Mostra os comandos equivalentes da CLI do Azure para criar e gerenciar VMs do Azure no Gerenciador de Recursos e os modos de Gerenciamento de Serviços"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,8 +17,8 @@
 	ms.author="danlep"/>
 
 
-# Comandos equivalentes do Gerenciador de Recursos e de Gerenciamento de Serviços para operações de VM com a CLI do Azure para Mac, Linux e Windows
-Este artigo mostra os comandos equivalentes da CLI do Azure (interface de linha de comando do Azure) para criar e gerenciar VMs do Azure nos modos de Gerenciamento de Serviços (asm) e Gerenciador de Recursos (arm). Use-o como um guia útil para migrar scripts de um modo de comando para outro.
+# Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM com o Azure CLI para Mac, Linux e Windows.
+Este artigo mostra os comandos equivalentes do Azure CLI (interface de linha de comando do Microsoft Azure) para criar e gerenciar VMs do Azure nos modos de Gerenciamento de Serviços (asm) e Gerenciador de Recursos (arm). Use-o como um guia útil para migrar scripts de um modo de comando para outro.
 
 * Se você ainda não tiver instalado a CLI do Azure e se conectado à sua assinatura, consulte [Instalar a CLI do Azure](../xplat-cli-install.md) e [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../xplat-cli-connect.md). Conecte-se com o método de logon ao usar os comandos do modo arm.
 
@@ -27,9 +27,9 @@ Este artigo mostra os comandos equivalentes da CLI do Azure (interface de linha 
 * Para obter ajuda e opções de comandos online, digite `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 ## Cenários
-A seguir estão operações comuns de VM que você pode executar com comandos da CLI do Azure nos modos asm e arm. Com muitos comandos do modo arm, você precisa passar o nome de um grupo de recursos existente.
+A tabela a seguir lista as operações comuns de VM, que você pode executar com comandos do Azure CLI no modo asm e arm. Com muitos comandos do modo arm, você precisa passar o nome de um grupo de recursos existente.
 
-> [AZURE.NOTE]Esses exemplos não incluem operações baseadas em modelo no modo arm. Para obter informações, consulte [Usando a interface de linha de comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Esses exemplos não incluem operações baseadas em modelo no modo arm. Para obter informações, consulte [Usando a Interface de linha de comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md).
 
 Cenário | modo asm | modo arm
 -------------- | ----------- | -------------------------
@@ -48,20 +48,19 @@ Criar uma VM por meio de um disco especializado | `azure  vm create [options]-d 
 Adicionar um disco de dados a uma VM | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -OU- <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Remover um disco de dados de uma VM | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Adicionar uma extensão genérica a uma VM | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
-Adicionar a extensão de acesso de VM a uma VM | não disponível | `azure vm reset-access [options] <resource-group> <name>`
+Adicionar a extensão de acesso de VM a uma VM | Não disponível | `azure vm reset-access [options] <resource-group> <name>`
 Adicionar uma extensão Docker a uma VM | `azure  vm docker create [options] <dns-name> <image> <user-name> [password]` | `azure  vm docker create [options] <resource-group> <name> <location> <os-type>`
-Adicionar uma extensão Chef a uma VM | `azure  vm extension get-chef [options] <vm-name>` | não disponível
-Desabilitar uma extensão de VM | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | não disponível
+Adicionar uma extensão Chef a uma VM | `azure  vm extension get-chef [options] <vm-name>` | Não disponível
+Desabilitar uma extensão de VM | `azure  vm extension set [options] –b <vm-name> <extension-name> <publisher-name> <version>` | Não disponível
 Remover uma extensão de VM | `azure  vm extension set [options] –u <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>`
 Listar extensões de VM | `azure vm extension list [options]` | `azure  vm extension get [options] <resource-group> <vm-name>`
 Listar imagens de VM | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]` -OU- <br/> `azure vm image list-publishers [options] <location>` -OU- <br/> `azure vm image list-offers [options] <location>` -OU- <br/> `azure vm image list-skus [options] <location>`
-Mostrar uma imagem de VM | `azure vm image show [options]` | não disponível
+Mostrar uma imagem de VM | `azure vm image show [options]` | Não disponível
 
 
 ## Próximas etapas
 
 * Para obter mais informações sobre como usar a CLI do Azure para trabalhar com recursos no modo arm, consulte [Usando a interface de linha de comando do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) e [Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure](../role-based-access-control-xplat-cli.md).
 * Para obter exemplos adicionais dos comandos da CLI, consulte [Usando a interface de linha de comando do Azure](../virtual-machines-command-line-tools.md) e [Usando a CLI do Azure com o Gerenciador de Recursos do Azure](azure-cli-arm-commands.md).
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

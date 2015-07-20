@@ -92,11 +92,11 @@ Este tutorial exige o seguinte:
 
 6. No código para o método `loginAndGetData` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal de Gerenciamento do Azure].
 
-7. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-RECURSO-AQUI** com o **URI da ID do Aplicativo** para o seu serviço móvel. Se você seguiu o tópico [Como se registrar com o Active Directory do Azure], a sua URI da ID do Aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
+7. No código para o método `loginAndGetData` acima, substitua **INSIRA-RECURSO-URI-AQUI** com o **URI do ID do aplicativo** para o seu serviço móvel. Se seguiu o tópico [Como se registrar com o Active Directory do Azure], sua URI da ID do aplicativo deverá ser semelhante a https://todolist.azure-mobile.net/login/aad.
 
-8. No código, para o método `loginAndGetData` acima, substitua **￼INSERIR-ID-DO-CLIENTE-AQUI** pela ID do cliente copiada do aplicativo do cliente nativo.
+8. No código, para o método `loginAndGetData` acima, substitua **INSIRA-ID-DO-CLIENTE-AQUI** com o ID do cliente copiado do aplicativo do cliente nativo.
 
-9. No código para o método `loginAndGetData` acima, substitua **INSERIR-URI-DE-REDIRECIONAMENTO-AQUI** pelo ponto de extremidade /login/done do seu serviço móvel. Ele deve ser semelhante a https://todolist.azure-mobile.net/login/done.
+9. No código para o método `loginAndGetData` acima, substitua **INSIRA-REDIRECIONAR-URI-AQUI** pelo ponto de extremidade/logon/conclusão de seu serviço móvel. Ele deve ser semelhante a https://todolist.azure-mobile.net/login/done.
 
 
 3. No QSTodoListViewController, modifique `ViewDidLoad` substituindo `[self refresh]` pelo seguinte:
@@ -119,5 +119,6 @@ Este tutorial exige o seguinte:
 [Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

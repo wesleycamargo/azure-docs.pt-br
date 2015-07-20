@@ -80,7 +80,7 @@ Substitua o nome da pasta local e execute os seguintes comandos:
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Etapa 1-b: Baixar os arquivos de modelo usando a CLI do Azure
+### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
 Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
 
@@ -248,7 +248,7 @@ Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precis
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, vá para o [Portal do Azure](https://portal.azure.com) e faça o seguinte:
+Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
 
 - Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
 - Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
@@ -354,7 +354,7 @@ No segundo fragmento, a variável "scripts" é uma matriz JSON em que cada eleme
 
 ### Seção "recursos"
 
-A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), é possível especificar um arquivo de modelo vinculado que será invocado passando um conjunto de parâmetros como entrada, como visto neste fragmento:
+A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), você pode especificar um arquivo de modelo vinculado que é invocado passando um conjunto de parâmetros como entrada, como visto neste fragmento:
 
 	{
 	      "name": "shared",
@@ -499,5 +499,6 @@ Essencialmente, essa abordagem sugere o seguinte:
 -	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
 
 Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

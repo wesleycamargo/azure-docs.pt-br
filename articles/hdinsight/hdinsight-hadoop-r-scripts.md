@@ -281,5 +281,6 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com R 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

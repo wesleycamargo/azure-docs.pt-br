@@ -215,30 +215,30 @@ Esse procedimento pressupõe o seguinte:
 3.	Teste sua conexão executando um dos seguintes comandos:
 
 	<table border="1">
-	<tr>
-	<th>-</th>
-	<th>Cisco ASA</th>
-	<th>Cisco ISR/ASR</th>
-	<th>Juniper SSG/ISG</th>
-	<th>Juniper SRX/J</th>
-	</tr>
-	
-	<tr>
-	<td><b>Verificar as SAs de modo principal</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-	</tr>
+<tr>
+<th>-</th>
+<th>Cisco ASA</th>
+<th>Cisco ISR/ASR</th>
+<th>Juniper SSG/ISG</th>
+<th>Juniper SRX/J</th>
+</tr>
 
-	<tr>
-	<td><b>Verificar as SAs de modo rápido</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-	</tr>
-	</table>
+<tr>
+<td><b>Verificar as SAs de modo principal</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+</tr>
+
+<tr>
+<td><b>Verificar as SAs de modo rápido</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+</tr>
+</table>
 
 
 ##  Próximas etapas
@@ -260,7 +260,7 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
 -  [Adicionar uma máquina virtual a uma rede virtual](../virtual-machines/virtual-machines-create-custom.md)
 
--  [Sobre dispositivos VPN para Rede Virtual](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
+-  [Sobre dispositivos VPN para Rede Virtual(http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Resolução de nomes de máquinas virtuais e instâncias de função](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)
@@ -271,4 +271,4 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

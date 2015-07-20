@@ -13,17 +13,17 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2015"
+   ms.date="06/30/2015"
    ms.author="cherylmc"/>
 
 # Configurar uma rede virtual com uma conexão VPN site a site
 
-Você pode conectar seu local a uma rede virtual ao criar uma conexão VPN site a site. Esse procedimento conduzirá você pela criação de uma rede virtual e pela criação de uma conexão VPN site a site entre a rede virtual recém-criada e seu local. Você pode usar este procedimento para criar configurações de rede virtual entre locais e híbridas.
+Você pode conectar seu local a uma rede virtual ao criar uma conexão VPN site a site. Esse procedimento conduzirá você pela criação de uma rede virtual e pela criação de uma conexão VPN site a site entre a rede virtual recém-criada e seu local.
 
 
 ## Antes de começar
 
-- Verifique se o dispositivo VPN que você deseja usar atende aos requisitos necessários para criar uma conexão de rede virtual entre locais. Consulte [Sobre dispositivos VPN para Conectividade de Rede Virtual](https://msdn.microsoft.com/library/azure/jj156075.aspx) para obter mais informações.
+- Verifique se o dispositivo VPN que você deseja usar atende aos requisitos necessários para criar uma conexão de rede virtual entre locais. Consulte [Sobre dispositivos VPN para Conectividade de Rede Virtual](http://go.microsoft.com/fwlink/p/?LinkId=615099) para obter mais informações.
 
 - Obter um IP IPv4 voltado para o exterior para seu dispositivo VPN. Esse endereço IP é necessário para uma configuração site a site e é usado para seu dispositivo VPN, que não pode estar localizado atrás de uma NAT.
 
@@ -39,13 +39,13 @@ Você pode conectar seu local a uma rede virtual ao criar uma conexão VPN site 
 
 ## Página Detalhes da Rede Virtual
 
-Insira as informações abaixo. Para obter mais informações sobre as configurações na página de detalhes, consulte a [página de Detalhes da Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+Insira as informações abaixo.
 
 - **Nome**: nome da sua rede virtual. Por exemplo, *EastUSVNet*. Você usará esse nome de rede virtual quando implantar suas VMs e instâncias de PaaS. Portanto, é melhor não criar um nome muito complicado.
 - **Local**: o local está diretamente relacionado ao local físico (região) onde você deseja que os recursos (VMs) residam. Por exemplo, se você desejar que as VMs implantadas nesta rede virtual estejam localizadas fisicamente no *leste dos EUA*, selecione esse local. Você não pode alterar a região associada à sua rede virtual depois de criá-la.
 
 ## Página Servidores DNS e Conectividade VPN
-Insira as informações a seguir e, em seguida, clique na seta de avanço no canto inferior direito. Para obter mais informações sobre as configurações nessa página, consulte a [página Servidores DNS e conectividade de VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+Insira as informações a seguir e, em seguida, clique na seta de avanço no canto inferior direito.
 
 - **Servidores DNS**: insira o nome do servidor DNS e o endereço IP ou selecione um servidor DNS previamente registrado no menu suspenso. Essa configuração não cria um servidor DNS. Ela permite que você especifique os servidores DNS que deseja usar para a resolução de nomes para essa rede virtual.
 - **Configurar VPN Site a Site**: marque a caixa de seleção **Configurar uma VPN site a site**.
@@ -54,7 +54,7 @@ Insira as informações a seguir e, em seguida, clique na seta de avanço no can
 ## Página Conectividade Site a Site
 Se estiver criando uma nova rede local, você verá a página **Conectividade Site a Site**. Se você quiser usar uma rede local criada anteriormente, essa página não será exibida no assistente e você poderá ir para a próxima seção.
 
-Insira as informações a seguir e, em seguida, clique na seta de avanço. Para obter mais informações sobre as configurações desta página, consulte a [página Conectividade Site a Site](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
+Insira as informações a seguir e, em seguida, clique na seta de avanço.
 
 - 	**Nome**: o nome que você deseja dar ao site de rede local.
 - 	**Endereço IP do Dispositivo VPN**: é o endereço IPv4 voltado para o público do seu dispositivo VPN local que você usará para conectar-se ao Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
@@ -62,7 +62,7 @@ Insira as informações a seguir e, em seguida, clique na seta de avanço. Para 
 - 	**Adicionar espaço de endereço**: se você tiver vários intervalos de endereços que deseja enviar pelo gateway da rede virtual, é o local onde você especifica cada intervalo de endereços adicionais. Você pode adicionar ou remover intervalos posteriormente na página Rede Local.
 
 ## Página Espaços de endereço de rede virtual
-Especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. Há muitas regras relacionadas ao espaço de endereço de rede virtual e, portanto, consulte a [página Espaços de Endereço de Rede Virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obter mais informações.
+Especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual.
 
 É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará coordenar com o administrador da rede. Talvez seu administrador da rede precise reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
 
@@ -76,17 +76,17 @@ Clique na marca de seleção na parte inferior da página e sua rede virtual com
 
 ## Configurar seu Gateway de Rede Virtual
 
-Em seguida, você configurará o **Gateway de Rede Virtual** para criar uma conexão VPN site a site segura. Veja [Configurar um Gateway de Rede Virtual no Portal de Gerenciamento](https://msdn.microsoft.com/library/azure/jj156210.aspx).
+Em seguida, você configurará o **Gateway de Rede Virtual** para criar uma conexão VPN site a site segura. Veja [Configurar um Gateway de Rede Virtual no Portal de Gerenciamento](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Próximas etapas
 
-Você pode aprender mais sobre a conectividade entre locais da Rede Virtual neste artigo: [Sobre conectividade segura entre locais da rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx)
+Você pode saber mais sobre a conectividade entre locais da Rede Virtual neste artigo: [Sobre conectividade segura entre locais da rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
-Se você quiser configurar uma conexão VPN site a site, veja [Configurar uma conexão VPN site a site](vpn-gateway-point-to-site-create.md)
+Se você quiser configurar uma conexão VPN ponto a site, veja [Configurar uma conexão VPN site a site](vpn-gateway-point-to-site-create.md)
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
+Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Para configurar uma conexão VNet usando o RRAS, confira [Configurar uma VPN site a site usando o Serviço de Roteamento e Acesso Remoto (RRAS) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
+Se desejar configurar uma conexão VNet usando o RRAS, consulte [Configurar uma VPN site a site usando o Serviço de Acesso Remoto (RRAS) do Roteamento do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

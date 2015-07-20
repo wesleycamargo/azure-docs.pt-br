@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Usar o MapReduce com Hadoop no HDInsight com SSH
@@ -22,7 +22,7 @@
 
 Nesse artigo, você aprenderá como usar o SSH (shell seguro) para se conectar a um Hadoop no cluster HDInsight e enviar trabalhos MapReduce usando comandos Hadoop.
 
-> [AZURE.NOTE]Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux</a>.
+> [AZURE.NOTE]Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte [Dicas do HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do HDInsight baseado em Linux (Hadoop no HDInsight)
 
-* Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>.
+* Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##<a id="ssh"></a>Conexão com o SSH
 
@@ -44,13 +44,13 @@ Conecte-se com o FQDN (nome de domínio totalmente qualificado) do cluster HDIns
 
 **Se você forneceu uma senha para autenticação SSH** ao criar o cluster HDInsight, você precisará fornecer a senha quando solicitado.
 
+Para obter mais informações sobre como usar o SSH com o HDInsight, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 ###PuTTY (clientes do Windows)
 
-O Windows não fornece um cliente SSH integrado. É recomendável usar **PuTTY**. O PuTTY pode ser baixado na <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Página de Download do PuTTY</a>.
+O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para obter mais informações sobre como usar PuTTY, consulte a seção **Usar PuTTY para conectar-se a um computador Linux** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
-
-> [AZURE.NOTE]Se você tiver usado um certificado para autenticação de SSH para o cluster HDInsight, também precisará ver a seção **Criar um PPK para PuTTY** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Como usar SSH com Linux no Azure</a>.
+Para obter mais informações sobre o uso de PuTTY, consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ##<a id="hadoop"></a>Usar comandos Hadoop
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre como usar PuTTY, consulte a seção **Usar P
 
 	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar**. Como entrada, ele usa o **documento wasb://example/data/gutenberg/davinci.txt**, e a saída é armazenada em: **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="hdinsight-use-mapreduce.md" target="_blank">Usar o MapReduce no Hadoop no HDInsight</a>.
+	> [AZURE.NOTE]Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 2. O trabalho emite detalhes conforme é processado, retornando informações semelhantes às seguintes quando é concluído:
 
@@ -107,4 +107,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

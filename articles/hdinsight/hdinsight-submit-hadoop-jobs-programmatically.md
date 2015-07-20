@@ -38,7 +38,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 ##Enviar trabalhos do MapReduce usando o PowerShell do Azure
 O PowerShell do Azure é um ambiente de script poderoso que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como usar o PowerShell com o HDInsight, confira [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell].
 
-O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que processam grandes quantidades de dados. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\example\jars\hadoop-examples.jar*), que contém vários exemplos de MapReduce.
+O MapReduce do Hadoop é uma estrutura de software para escrever aplicativos que processam grandes quantidades de dados. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\\example\\jars\\hadoop-examples.jar*), que contém vários exemplos de MapReduce.
 
 Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá a usar o PowerShell do Azure de uma estação de trabalho para executar um exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos do MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
 
@@ -109,9 +109,9 @@ Um dos exemplos é para a contagem de frequências de palavras em arquivos de or
 		# Get the blob content
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	A pasta *example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho de MapReduce. *part-r-00000* é o nome de arquivo padrão para a saída do trabalho de MapReduce. O arquivo será baixado na mesma estrutura de pasta na pasta local. Por exemplo, na captura de tela a seguir, a pasta atual é a pasta raiz C:. O arquivo será baixado para:
+	A pasta *example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho de MapReduce. *part-r-00000* é o nome de arquivo padrão para a saída do trabalho de MapReduce. O arquivo será baixado na mesma estrutura de pasta na pasta local. Por exemplo, na captura de tela a seguir, a pasta atual é a pasta raiz C:\. O arquivo será baixado para:
 
-*C:\example\data\WordCountOutput*.
+*C:\\example\\data\\WordCountOutput*.
 
 5. Execute o comando a seguir para imprimir a saída do trabalho de MapReduce:
 
@@ -300,7 +300,7 @@ Confira [Introdução às Ferramentas do Hadoop do HDInsight para Visual Studio]
 Consulte [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop].
 
 ##Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\example\jars\hadoop-examples.jar*), que contém vários exemplos de MapReduce. Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá como criar um aplicativo .NET para executar o exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
+O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. Os clusters HDInsight são fornecidos com um arquivo JAR (localizado em *\\example\\jars\\hadoop-examples.jar*), que contém vários exemplos de MapReduce. Um dos exemplos é para a contagem de frequências de palavras em arquivos de origem. Nesta seção, você aprenderá como criar um aplicativo .NET para executar o exemplo de contagem de palavras. Para saber mais sobre como desenvolver e executar trabalhos MapReduce, confira [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
 
 
 Os seguintes procedimentos são necessários para provisionar um cluster HDInsight usando o SDK:
@@ -729,4 +729,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

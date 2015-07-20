@@ -1,20 +1,23 @@
-<properties 
+<properties
    pageTitle="Dispositivo virtual StorSimple"
    description="Descreve como criar, configurar, implantar e gerenciar o dispositivo virtual StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> <tags 
+   editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/06/2015"
    ms.author="alkohli" />
 
 # Dispositivo virtual StorSimple
+
+[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ##Visão geral
 O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts. Os tópicos a seguir o ajudarão a conhecer, a configurar e a usar o dispositivo virtual StorSimple.
@@ -68,13 +71,13 @@ As seções a seguir ajudarão você a se preparar para usar o dispositivo virtu
 
 Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-- Para o dispositivo virtual, [configure uma rede virtual no Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- Você pode usar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. 
-- Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados. 
+- Para o dispositivo virtual, [configure uma rede virtual no Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+- Você pode usar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS.
+- Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados.
 
 >[AZURE.IMPORTANT]**Verifique se a rede virtual está na mesma região das contas de armazenamento de nuvem que você pretende usar com o dispositivo virtual.**
 
-- Crie [Máquinas Virtuais do Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores de host) na rede virtual. Esses servidores devem atender aos seguintes requisitos: 							
+- Crie [Máquinas Virtuais do Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores de host) na rede virtual. Esses servidores devem atender aos seguintes requisitos:
 	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado
 	- Estar em execução na mesma rede virtual que o dispositivo virtual
 	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual
@@ -131,7 +134,7 @@ Executar as seguintes etapas para criar o dispositivo virtual StorSimple
 	c. **Sub-rede** – a sub-rede na rede virtual para uso com o dispositivo virtual.
 
 	d. **Conta de Armazenamento para Criação de Dispositivo Virtual** – a conta de armazenamento que será usada para armazenar a imagem do dispositivo virtual durante o provisionamento. Esta conta de armazenamento deve estar na mesma região do dispositivo virtual e da rede virtual. Ela não deve ser usada para armazenamento de dados, o dispositivo físico ou o dispositivo virtual. Por padrão, uma nova conta de armazenamento será criada para essa finalidade. No entanto, se você souber que você já tem uma conta de armazenamento adequada para esse uso, poderá selecioná-la da lista.
-	
+
 - Clique na marca de seleção para indicar que você entende que os dados armazenados no dispositivo virtual serão hospedados em um datacenter da Microsoft. Quando você usa apenas um dispositivo físico, sua chave de criptografia é mantida com seu dispositivo; portanto, a Microsoft não pode descriptografá-la. Quando você usa um dispositivo virtual, a chave de criptografia e a chave de descriptografia são armazenadas no Microsoft Azure. Para saber mais, consulte [Considerações de segurança para usar um dispositivo virtual](https://msdn.microsoft.com/library/dn772561.aspx).
 
 ### Configurar e registrar o dispositivo virtual
@@ -188,16 +191,16 @@ Quando você usar a interface do Windows PowerShell para acessar o dispositivo v
 Execute as etapas a seguir para configurar a senha de administrador do serviço para o dispositivo virtual StorSimple
 
 1. Em seu dispositivo virtual, vá para **Dispositivos > Configurar**.
- 
+
 1. Role para baixo até a seção **Senha do Administrador do Dispositivo**. Forneça uma senha do administrador que contenha de 8 a 15 caracteres. A senha deve ser uma combinação de caracteres maiúsculos, minúsculos, numéricos e especiais.
 
 1. Confirme a senha.
- 
+
 1. Na parte inferior da página, clique em **Salvar**.
 
 A senha do administrador do dispositivo agora deve estar atualizada. Você usará essa senha modificada para acessar a interface do Windows PowerShell em seu dispositivo virtual.
 
-#### Configurar o gerenciamento remoto 
+#### Configurar o gerenciamento remoto
 
 O acesso remoto ao seu dispositivo virtual por meio da interface do Windows PowerShell não está habilitado por padrão. Você precisa habilitar o gerenciamento remoto primeiro no dispositivo virtual e então habilitá-lo no cliente que será usado para acessar seu dispositivo virtual.
 
@@ -307,7 +310,7 @@ Quando um dispositivo virtual estiver em execução e você quiser reiniciá-lo,
 Você também pode usar os seguintes cmdlets do Windows PowerShell para iniciar, parar e reiniciar o dispositivo virtual. Há um exemplo depois de cada cmdlet.
 
 `Start-AzureVMC:\PS>Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
+
 
 `Stop-AzureVMC:\PS>Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
@@ -364,5 +367,7 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 - Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
 
-- Clique em **Excluir** e opte por excluir todos os discos da máquina virtual. <!--HONumber=52-->
+- Clique em **Excluir** e opte por excluir todos os discos da máquina virtual.
  
+
+<!---HONumber=July15_HO2-->

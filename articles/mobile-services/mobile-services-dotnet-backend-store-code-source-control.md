@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end do .NET" class="current">Back-end do .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end do JavaScript">Back-end do JavaScript</a>
-</div>
+# Armazenar código de projeto no controle do código-fonte
 
-# Armazenar o código do projeto no controle de origem
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
 
 Este tópico mostra como usar o controle de origem fornecido pelos Serviços Móveis do Azure para armazenar o seu projeto de serviço de back-end do .NET. Seu projeto pode ser publicado simplesmente carregando do repositório Git local para o seu serviço móvel de produção.
 
-O tutorial o orientará por estas etapas:
-
-1. [Habilitar o controle do código-fonte no seu serviço móvel].
-2. [Instalar o Git e criar o repositório local].
-3. [Publicar seu projeto usando o Git].
-
 Para concluir este tutorial, você deve já ter criado um serviço móvel ao concluir a [Introdução aos Serviços Móveis] ou ao concluir o tutorial [Adicionar Serviços Móveis a um aplicativo existente].
 
-##<a name="enable-source-control"></a>Habilitar o controle do código-fonte no seu serviço móvel.
+##<a name="enable-source-control"></a>Habilitar o controle do código-fonte no seu serviço móvel
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../../includes/mobile-services-enable-source-control.md)]
 
@@ -46,7 +40,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
-3. Na linha de comando, altere para o diretório no qual você armazenará seus scripts. Por exemplo, `cd SourceControl`.
+3. Na linha de comando, altere para o diretório no qual você armazenará seus scripts. Por exemplo: `cd SourceControl`.
 
 4. Use o comando a seguir para criar uma cópia local do seu novo repositório Git, substituindo `<your_git_URL>` pela URL do repositório Git para seu serviço móvel:
 
@@ -93,18 +87,7 @@ Agora que você criou seu repositório local, você pode publicar seu projeto de
 
 Agora, seu projeto de serviço móvel é mantido no controle de origem e você pode publicar atualizações de serviço simplesmente ao enviar atualizações no seu repositório local. Para saber mais sobre como fazer alterações no modelo de dados em um serviço móvel de back-end do .NET que usa um banco de dados SQL, consulte [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET].
 
-## <a name="next-steps"> </a>Próximas etapas
-
-Agora que concluiu este tutorial, você sabe como armazenar seus scripts no controle do código-fonte. Considere aprender mais sobre os serviços móveis:
-
-+ [Como fazer alterações de modelos de dados a um serviço móvel de back-end .NET] <br/> Mostra como usar Migrações Code First do Entity Framework para fazer alterações de modelo de dados a um Banco de Dados SQL existente para evitar perder os dados existentes. 	
-
-+ [Chamar uma API personalizada a partir do cliente] <br/> Mostra como criar APIs personalizadas que podem ser chamadas  partir do cliente.
-
 <!-- Anchors. -->
-[Habilitar o controle do código-fonte no seu serviço móvel]: #enable-source-control
-[Instalar o Git e criar o repositório local]: #clone-repo
-[Publicar seu projeto usando o Git]: #deploy-scripts
 
 <!-- Images. -->
 
@@ -115,8 +98,8 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Chamar uma API personalizada a partir do cliente]: mobile-services-dotnet-backend-ios-call-custom-api.md
-[Como fazer alterações de modelos de dados a um serviço móvel de back-end .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

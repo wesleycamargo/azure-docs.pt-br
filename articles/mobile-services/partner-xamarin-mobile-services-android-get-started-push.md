@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Adicionar notificações por push ao seu aplicativo de Serviços Móveis - Serviços Móveis" 
-	description="Saiba como usar notificações por push em aplicativos Android Xamarin com serviços móveis do Azure." 
+	pageTitle="Adicionar notificações por push ao aplicativo Xamarin Android | Serviços Móveis do Azure" 
+	description="Saiba como configurar notificações por push com o Google Cloud Messaging para aplicativos Xamarin.Android usando os Serviços Móveis do Azure e os Hubs de Notificação do Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -13,29 +13,22 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/19/2015" 
 	ms.author="glenga"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações de push para um aplicativo do Xamarin.Android. Neste tutorial você adiciona notificações por push usando o serviço Google Cloud Messaging (GCM) para o projeto [Introdução aos Serviços Móveis]. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
-
-Este tutorial explica as etapas básicas para habilitar as notificações por push:
-
-1. [Habilitar o Google Cloud Messaging](#register)
-2. [Configurar os Serviços Móveis](#configure)
-4. [Configurar o projeto para notificações por push](#configure-app)
-5. [Adicionar código de notificações por push ao seu aplicativo](#add-push)
-6. [Inserir dados para receber notificações](#test)
+##Visão geral
+Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações de push para um aplicativo do Xamarin.Android. Neste tutorial, você adiciona notificações por push usando o serviço GCM (Google Cloud Messaging) para o projeto de [Introdução aos Serviços Móveis]. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
 Este tutorial exige o seguinte:
 
 + Uma conta ativa do Google.
-+ [Componente de cliente de mensagens em nuvem do Google]. Você adicionará esse componente durante o tutorial.
++ [Componente do cliente Google Cloud Messaging]. Você adicionará esse componente durante o tutorial.
 
-Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do Azure][Azure Mobile Services Component] instalados em seu projeto desde quando concluiu a [Introdução aos Serviços Móveis] ou [Adicionar os Serviços Móveis a um aplicativo existente].
+Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do Azure] instalados em seu projeto desde quando concluiu a [Introdução aos Serviços Móveis] ou [Adicionar Serviços Móveis a um aplicativo existente].
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -47,7 +40,7 @@ Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do A
 
 ##<a id="update-scripts"></a>Atualizar o script de inserção registrado para enviar notificações
 
->[AZURE.NOTE]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal de Gerenciamento do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
+>[AZURE.TIP]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal de Gerenciamento do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -86,9 +79,12 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
+[Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-android-get-started-data.md
 [Adicionar os Serviços Móveis a um aplicativo existente]: mobile-services-android-get-started-data.md
 
-[Componente de cliente de mensagens em nuvem do Google]: http://components.xamarin.com/view/GCMClient/
+[Componente do cliente Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+[Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
+ 
+
+<!---HONumber=July15_HO2-->

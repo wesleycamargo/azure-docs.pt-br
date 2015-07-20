@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure" 
-	description="Aprenda a criar um aplicativo da Windows Store usando serviços móveis do Azure com um back-end do .NET." 
+	pageTitle="Criando um aplicativo de placar de líderes da Windows Store com o back-end .NET | Serviços Móveis do Azure" 
+	description="Saiba como criar um aplicativo de placar de líderes da Windows Store usando os Serviços Móveis do Azure com um back-end .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # Criando um aplicativo de Placas de Líderes com o back-end .NET de Serviços Móveis do Azure
 
@@ -111,9 +111,9 @@ Adicione outra classe chamada `PlayerRank`.
 
 Observe que as duas classes são herdeiras da classe **EntityData**. Derivando de **EntityData** fica fácil para o aplicativo consumir os dados, usando a biblioteca cliente de várias plataformas para os Serviços Móveis do Azure. **EntityData** também facilita para que um aplicativo [manipule conflitos de gravação do banco de dados](mobile-services-windows-store-dotnet-handle-database-conflicts.md).
 
-A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.microsoft.com/data/jj713564.aspx) que aponta para a entidade `Player` relacionada. O atributo **[ForeignKey]** diz à EF que a propriedade `Player` representa uma chave estrangeira.
+A classe `PlayerRank` possui uma [propriedade de navegação](http://msdn.microsoft.com/data/jj713564.aspx) que aponta para a entidade `Player` relacionada. O atributo **[ForeignKey]** informa à EF que a propriedade `Player` representa uma chave estrangeira.
 
-# Adicionar controladores de API Web
+## Adicionar controladores de API Web
 
 Em seguida, você adicionará controladores de API Web a `Player` e a `PlayerRank`. Em vez de controladores de API Web simples, você adicionará um tipo especial de controlador chamado *controlador de tabela*, projetado especialmente para os Serviços Móveis do Azure.
 
@@ -318,7 +318,7 @@ O atributo **[Route]** define uma rota personalizada para esse método:
 
 	[Route("api/score")]
 
-Você também pode colocar o método em um controlador separado. Não há nenhuma vantagem em particular de qualquer modo, ele depende apenas de como você deseja organizar seu código. Para saber mais sobre o atributo **[Route]**, confira [Roteamento de atributos em API da Web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+Você também pode colocar o método em um controlador separado. Não há nenhuma vantagem em particular de qualquer modo, ele depende apenas de como você deseja organizar seu código. Para saber mais sobre o atributo **[Route]**, consulte [Roteamento de atributo na API Web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
 ## Criar o aplicativo da Windows Store
 
@@ -760,5 +760,6 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 [Adicionar notificações por push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

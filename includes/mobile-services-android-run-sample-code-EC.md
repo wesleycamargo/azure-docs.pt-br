@@ -16,4 +16,4 @@
 
    	Observe que o texto salvo é armazenado em uma coleção na memória e exibido na lista abaixo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

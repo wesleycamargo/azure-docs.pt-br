@@ -34,6 +34,7 @@
 | 4. Selecione o servidor que você deseja copiar para um novo servidor com a atualização do banco de dados SQL habilitada. | ![Mostra uma lista de servidores SQL][4] |
 | 5. Clique em **Configurações** ou **Versão do servidor** para atualizar o seu servidor para V12. | ![Recurso de visualização mais recente][5] |
 | 6. Clique em **UPGRADE THIS SERVER**. | ![Atualiza o SQL Server para a visualização][6] |
+| 7. Depois de clicar em **ATUALIZAR ESTE SERVIDOR**, o processo de atualização será iniciado. Em **Versão do servidor**, a notificação muda de **V2** para **Atualização agendada..**. Se você clicar na notificação **Atualização agendada..**, uma folha é aberta com o botão **Cancelar atualização** mostrado na parte superior. Clique em **Cancelar atualização** caso você decida não atualizar o servidor por algum motivo. **Observe** que o cancelamento da operação não funcionará nas últimas do processo de atualização e a atualização será concluída.|![Cancelar Atualização][9] 
 
 
 > [AZURE.NOTE]Quando você seleciona a opção de atualização, seu servidor e os bancos de dados nesse servidor serão habilitados com recursos do Banco de Dados SQL V12, e isso não poderá ser revertido. Para atualizar servidores para o Banco de Dados SQL V12, você precisa de uma camada de serviço Basic, Standard ou Premium. Para saber mais sobre as camadas de serviço, confira [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
@@ -90,6 +91,7 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+[9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

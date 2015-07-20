@@ -1,22 +1,25 @@
 <properties 
-   pageTitle="Introdução à Máscara de dados dinâmica em banco de dados SQL" 
-   description="Como começar com o mascaramento de dados dinâmicos do banco de dados SQL" 
+   pageTitle="Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal de Visualização do Azure)" 
+   description="Como começar a usar a Máscara de Dados Dinâmicos do Banco de Dados SQL no Portal de Visualização do Azure" 
    services="sql-database" 
    documentationCenter="" 
-   authors="nadavhelfman" 
+   authors="nadavhelfman"
    manager="jeffreyg" 
    editor="v-romcal"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="multiple"
+   ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="02/24/2015"
-   ms.author="nadavh; ronmat; v-romcal; v-stste"/>
+   ms.date="04/02/2015"
+   ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
-# Introdução à Máscara de dados dinâmica em banco de dados SQL 
+# Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal de Visualização do Azure)
+
+> [AZURE.SELECTOR]
+- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Visão geral
 
@@ -28,7 +31,7 @@ Por exemplo, um profissional de suporte do Centro de chamada pode identificar os
 
 ## Noções básicas sobre Máscara de dados dinâmica em banco de dados SQL
 
-Você configura a política de mascaramento de dados dinâmica no Portal de gerenciamento do Azure e conclui a configuração usando a cadeia de conexão habilitada de segurança usada pelo aplicativo ou outros clientes que acessam o banco de dados.
+Configure a política de máscara de dados dinâmicos no Portal de Visualização do Azure e conclua a configuração usando a cadeia de conexão habilitada para segurança usada pelo aplicativo ou outros clientes que acessam o banco de dados.
 
 ### Permissões de mascaramento de dados dinâmico
 
@@ -36,26 +39,26 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 
 ### Política de mascaramento de dados dinâmico
 
-* **Logons privilegiados** - um conjunto de logons que receberá os dados revelados nos resultados das consultas SQL.
+* **Logons privilegiados**: um conjunto de logons que receberá os dados desmascarados nos resultados das consultas SQL.
   
-* **Regras de mascaramento** -um conjunto de regras que definem os campos designados que serão mascarados e a função de mascaramento que será usada. Os campos correspondentes podem ser definidos usando um nome de tabela de banco de dados e o nome da coluna ou usando um nome de alias.
+* **Regras de mascaramento**: um conjunto de regras que definem os campos designados que serão mascarados e a função de mascaramento que será usada. Os campos correspondentes podem ser definidos usando um nome de tabela de banco de dados e o nome da coluna ou usando um nome de alias.
 
-* **Mascaramento por** -pode ser feito na origem ou destino. O mascaramento pode ser configurado no nível do código-fonte, identificando o nome da **tabela** e o nome da **coluna**, ou no nível dos resultados identificando o **Alias** que é usado na consulta. Se você estiver familiarizado com a arquitetura de dados do banco de dados e deseja limitar a exposição de todos os resultados da consulta, você pode preferir uma regra de máscara de origem. Você pode adicionar uma regra de máscara de resultados quando você deseja limitar a exposição aos resultados da consulta sem analisar a arquitetura de dados do banco de dados ou para um campo que pode chegar de origens diferentes.  
+* **Mascaramento por**: pode ser feito na origem ou no destino. O mascaramento pode ser configurado no nível de origem, identificando o nome da **Tabela** e o nome da **Coluna**, ou no nível dos resultados, identificando o **Alias** que é usado na consulta. Se você estiver familiarizado com a arquitetura de dados do banco de dados e deseja limitar a exposição de todos os resultados da consulta, você pode preferir uma regra de máscara de origem. Você pode adicionar uma regra de máscara de resultados quando você deseja limitar a exposição aos resultados da consulta sem analisar a arquitetura de dados do banco de dados ou para um campo que pode chegar de origens diferentes.
   
-* **Restrição estendida** - limita a exposição de dados confidenciais, mas pode afetar negativamente a funcionalidade de alguns aplicativos.
+* **Restrição estendida**: limita a exposição de dados confidenciais, mas pode afetar negativamente a funcionalidade de alguns aplicativos.
 
->[AZURE.TIP] Use a opção **restrição estendida** para restringir o acesso para os desenvolvedores que usam uma conexão direta de acesso ao banco de dados e executam consultas SQL para fins de solução de problemas.
+>[AZURE.TIP]Use a opção **Restrição estendida** para restringir o acesso aos desenvolvedores que usam uma conexão direta de acesso ao banco de dados e executam consultas SQL para fins de solução de problemas.
 
-* **Funções de mascaramento** -um conjunto de métodos que controlam a exposição de dados para cenários diferentes.
+* **Funções de mascaramento**: um conjunto de métodos que controlam a exposição de dados para cenários diferentes.
 
-|Função de mascaramento | Lógica de mascaramento|
+| Função de mascaramento | Lógica de mascaramento |
 |----------|---------------|
-|**Padrão**|**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXXXXXX ou menos Xs se o tamanho do campo tiver menos de 8 caracteres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use a hora atual para tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• Para XML o documento <masked/> é usado.<br/>• Use um valor vazio para tipos de dados especiais (tabela de carimbo de carimbo de data/hora, hierarchyid, GUID, binary, imagem, tipos espaciais varbinary).
+| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXXXXXX ou menos Xs se o tamanho do campo tiver menos de 8 caracteres para tipos de dados de cadeia de caracteres (ncharomo , ntext, nvarchar).<br/>• Use um valor de zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use o tempo atual para tipos de dados de data/hora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para variante do SQL, é usado o valor padrão do tipo atual.<br/>• Para XML, o documento <masked/> é usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
 | **Cartão de crédito** |**Método de mascaramento que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234|
-| **Número do seguro social** |**Método de mascaramento que expõe os dois últimos dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um número de seguro social americano.<br/><br/>XXX-XX-XX12 |
+| **CPF** |**Método de mascaramento que expõe os dois últimos dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo no formulário de um número de cadastro de pessoas físicas<br/><br/>XXX-XX-XX12 |
 | **Email** | **Método de mascaramento que expõe a primeira letra e o domínio** usando uma cadeia de caracteres constante como um prefixo no formulário de um endereço de email.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** | **Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Navigation pane][Image1] |
-| **Texto personalizado** | **Método de mascaramento que expõe as primeiras e últimas letras** e adiciona uma cadeia de caracteres de preenchimento personalizado no meio.<br/>prefixo[preenchimento]sufixo<br/><br/>![Navigation pane][Image2] |
+| **Número aleatório** | **Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação][Image1] |
+| **Texto personalizado** | **Método de mascaramento que expõe as primeiras e as últimas letras** e adiciona uma cadeia de caracteres de preenchimento personalizado no meio.<br/>prefixo[preenchimento]sufixo<br/><br/>![Painel de navegação][Image2] |
 
   
 <a name="Anchor1"></a>
@@ -63,88 +66,58 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 
 Ao configurar o mascaramento dos dados dinâmico, o Azure fornece uma cadeia de conexão de segurança habilitada para o banco de dados. Somente os clientes que usam essa cadeia de caracteres de conexão têm seus dados confidenciais mascarados de acordo com a política de mascaramento de dados dinâmicos. Você também precisa atualizar os clientes existentes (exemplo: aplicativos) para usar o novo formato de cadeia de caracteres de conexão.
 
-* Formato de cadeia de caracteres de conexão original: <*server name*>.database.windows.net
-* Cadeia de conexão segura: <*server name*>.database.**secure**.windows.net
+* Formato da cadeia de conexão original: <*nome do servidor*>.database.windows.net
+* Cadeia de conexão habilitada para segurança: <*nome do servidor*>.database.**secure**.windows.net
 
-Você também pode alterar a configuração **SECURITY ENABLED ACCESS** de **OPTIONAL** para **REQUIRED**, o que garante que não há nenhuma opção para acessar o banco de dados com a cadeia de conexão original e ignorar a política de mascaramento de dados dinâmicos. Enquanto você estiver experimentando o mascaramento de dados dinâmico usando clientes específicos (exemplo, um aplicativo de fase de desenvolvimento ou SSMS), escolha **OPTIONAL**. Para produção, escolha **REQUIRED**.<br/><br/>
+Você também pode alterar a configuração **ACESSO HABILITADO PARA SEGURANÇA** de **OPCIONAL** para **OBRIGATÓRIO**, o que garante que não há nenhuma opção para acessar o banco de dados com a cadeia de conexão original e ignorar a política de máscara de dados dinâmicos. Enquanto você estiver testando a máscara de dados dinâmicos usando clientes específicos (exemplo, um aplicativo de fase de desenvolvimento ou SSMS), escolha **OPCIONAL**. Para produção, escolha **OBRIGATÓRIO**.<br/><br/>
 
-![Navigation pane][Image3]<br/><br/>
+![Painel de navegação][Image3]<br/><br/>
 
-## Configurar a máscara de dados dinâmica do banco de dados usando o Portal de gerenciamento do Azure
+## Configurar a máscara de dados dinâmicos para seu banco de dados usando o Portal de Visualização do Azure
 
-1. Inicie o Portal de gerenciamento do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o Portal de Visualização do Azure em [https://portal.azure.com](https://portal.azure.com).
 	 
 2. Navegue até a lâmina de configuração do banco de dados que contém os dados confidenciais que você deseja mascarar.
 	
-3. Clique no bloco **Mascaramento de dados dinâmico** que inicia a lâmina de configuração **Mascaramento de dados dinâmico**.
+3. Clique no bloco **Máscara de Dados Dinâmicos** que inicia a folha de configuração **Máscara de Dados Dinâmicos**.
 
-	* Como alternativa, você pode rolar para baixo até a seção **Operações** seção e clicar em **Mascaramento de dados dinâmico**.
+	* Se preferir, você pode rolar para baixo até a seção **Operações** e clicar em **Máscara de Dados Dinâmicos**.
 	 
-	![Navigation pane][Image4]<br/><br/>
+	![Painel de navegação][Image4]<br/><br/>
 
-4. Na lâmina de configuração **Mascaramento de dados dinâmico**, clique em **ENABLED** para habilitar o recurso de mascaramento de dados dinâmico.
+4. Na folha de configuração **Máscara de Dados Dinâmicos**, clique em **HABILITADO** para habilitar o recurso de máscara de dados dinâmicos.
 
-	![Navigation pane][Image5]<br/><br/>
+	![Painel de navegação][Image5]<br/><br/>
 
 5. Digite os logons privilegiados que devem ter acesso aos dados confidenciais sem máscara.
  
-	![Navigation pane][Image6]
+	![Painel de navegação][Image6]
 
-	>[AZURE.TIP] Para fazer isso de forma que a camada de aplicativo possa exibir dados confidenciais para usuários com privilégios de aplicativo, adicione o logon de SQL do aplicativo que está sendo usado para consulta e o banco de dados. É altamente recomendável que essa lista deva incluir um número mínimo de logons para minimizar a exposição de dados confidenciais.
+	>[AZURE.TIP]Para fazer isso de forma que a camada de aplicativo possa exibir dados confidenciais para usuários com privilégios de aplicativo, adicione o logon de SQL do aplicativo que está sendo usado para consulta e o banco de dados. É altamente recomendável que essa lista deva incluir um número mínimo de logons para minimizar a exposição de dados confidenciais.
 
-6. Clique em **Adicionar máscara** para abrir a lâmina de configuração **Adicionar regra de mascaramento**.
+6. Clique em **Adicionar Máscara** para abrir a folha de configuração **Adicionar Regra de Mascaramento**.
 	
-7. Escolha **Mascarar por** para indicar se o mascaramento é feito na origem ou destino. O mascaramento pode ser configurado no nível do código-fonte, identificando o nome da **tabela** e o nome da **coluna**, ou no nível dos resultados identificando o **Alias** que é usado na consulta. Se você estiver familiarizado com a arquitetura de dados do banco de dados e deseja limitar a exposição de todos os resultados da consulta, você pode preferir uma regra de máscara de origem. Você pode adicionar uma regra de máscara de resultados quando você deseja limitar a exposição aos resultados da consulta sem analisar a arquitetura de dados do banco de dados ou para um campo que pode chegar de origens diferentes.
+7. Escolha **Mascarar por** para indicar se o mascaramento é feito na origem ou no destino. O mascaramento pode ser configurado no nível de origem, identificando o nome da **Tabela** e o nome da **Coluna**, ou no nível dos resultados, identificando o **Alias** que é usado na consulta. Observe que o nome da **Tabela** se refere a todos os esquemas no banco de dados e não deve incluir um prefixo de esquema. Se você estiver familiarizado com a arquitetura de dados do banco de dados e deseja limitar a exposição de todos os resultados da consulta, você pode preferir uma regra de máscara de origem. Você pode adicionar uma regra de máscara de resultados quando você deseja limitar a exposição aos resultados da consulta sem analisar a arquitetura de dados do banco de dados ou para um campo que pode chegar de origens diferentes.
 
-8. Digite o nome da **Tabela** e o nome da **Coluna**, ou o nome do **Alias**, para definir os campos designados que serão mascarados.
+8. Digite o nome da **Tabela** e o nome da **Coluna** ou o nome do **Alias** para definir os campos designados que serão mascarados.
 
-9. Escolha um **Formato de mascaramento do campo** a partir da lista de categorias de mascaramento dos dados confidenciais.
+9. Escolha um **Formato do Campo de Máscara** na lista de categorias de mascaramento dos dados confidenciais.
 
-	![Navigation pane][Image7]<br/><br/>		
+	![Painel de navegação][Image7]<br/><br/>
 
-10. Clique em **Salvar** na lâmina de regra de mascaramento de dados para atualizar o conjunto de regras de mascaramento dinâmico na política de mascaramento dinâmico.
+10. Clique em **Salvar** na folha da regra de mascaramento de dados para atualizar o conjunto de regras de mascaramento na política de mascaramento dinâmico.
 
-11. Considere selecionar **USE EXTENDED RESTRICTIONS** que limita a exposição de dados confidenciais por meio de consultas ad hoc.
+11. Considere selecionar **USAR RESTRIÇÕES ESTENDIDAS**, que limita a exposição de dados confidenciais por meio de consultas ad hoc.
 
-12. Clique em **Salvar** na lâmina de configuração de mascaramento de dados para salvar a regra de mascaramento nova ou atualizada.
+12. Clique em **Salvar** na folha de configuração de mascaramento de dados para salvar a regra de mascaramento nova ou atualizada.
 
-13. Em **Acesso habilitado para segurança**, clique em **OPTIONAL** ou **REQUIRED**. Para obter mais informações, consulte [Sequência de conexão de segurança habilitada](#Anchor1).
+13. Em **Acesso Habilitado para Segurança**, clique em **OPCIONAL** ou **OBRIGATÓRIO**. Para saber mais, confira [Cadeia de conexão habilitada para segurança](#Anchor1).
 
-	![Navigation pane][Image8]
+	![Painel de navegação][Image8]
 	
-## Configurar a máscara de dados dinâmica do banco de dados usando o Portal de gerenciamento do Azure clássico
-
-1. Inicie o Portal de gerenciamento do Azure clássico em [https://manage.windowsazure.com](https://manage.windowsazure.com).
-
-2. Clique no banco de dados que você deseja mascarar e, em seguida, clique na guia **AUDITORIA E SEGURANÇA**.
-
-3. Em **mascaramento de dados dinâmicos**, clique em **ENABLED** para habilitar o recurso de mascaramento dos dados dinâmico.  
-
-4. Digite os logons privilegiados que devem ter acesso aos dados confidenciais sem máscara.
-
-	>[AZURE.TIP] Para fazer isso de forma que a camada de aplicativo possa exibir dados confidenciais para usuários com privilégios de aplicativo, adicione o logon do aplicativo que estiver sendo usado para consulta e o banco de dados. É altamente recomendável que essa lista deva incluir um número mínimo de logons para minimizar a exposição de dados confidenciais.
-
-	![Navigation pane][Image9]
-
-5. Na parte inferior da página na barra de menus, clique em **Adicionar MÁSCARA** para abrir a janela de configuração da regra de mascaramento.
-
-6. Escolha **Mascarar por** para indicar se o mascaramento é feito na origem ou destino. O mascaramento pode ser configurado no nível do código-fonte, identificando o nome da **tabela** e o nome da **coluna**, ou no nível dos resultados identificando o **Alias** que é usado na consulta. Se você estiver familiarizado com a arquitetura de dados do banco de dados e deseja limitar a exposição de todos os resultados da consulta, você pode preferir uma regra de máscara de origem. Você pode adicionar uma regra de máscara de resultados quando você deseja limitar a exposição aos resultados da consulta sem analisar a arquitetura de dados do banco de dados ou para um campo que pode chegar de origens diferentes.
-
-7. Digite o nome da **Tabela** e o nome da **Coluna**, ou o nome do **Alias**, para definir os campos designados que serão mascarados.
-
-8. Escolha uma **FUNÇÃO DE MASCARAMENTO** a partir da lista de categorias de mascaramento dos dados confidenciais.
-
-	![Navigation pane][Image10] 
- 	
-9. Clique em **Atualizar** na janela da regra de mascaramento de dados para atualizar o conjunto de regras de mascaramento na política de mascaramento de dados dinâmicos.
-
-10. Considere selecionar **USE EXTENDED RESTRICTIONS** que limita a exposição de dados confidenciais por meio de consultas ad hoc.
-
-11. Clique em **Salvar** para salvar a regra de mascaramento nova ou atualizada.
-
 ## Configurar a máscara de dados dinâmica para o banco de dados usando a API REST
 
-Consulte [Operações para bancos de dados SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
+Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
 [Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
 [Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png
@@ -154,7 +127,6 @@ Consulte [Operações para bancos de dados SQL Azure](https://msdn.microsoft.com
 [Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
 [Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
 [Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
-[Image9]: ./media/sql-database-dynamic-data-masking-get-started/9_DMM_Policy_Classic_Portal.png
-[Image10]: ./media/sql-database-dynamic-data-masking-get-started/10_DDM_Add_Masking_Rule_Classic_Portal.png
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

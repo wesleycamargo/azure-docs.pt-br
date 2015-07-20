@@ -51,4 +51,4 @@ Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a segui
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

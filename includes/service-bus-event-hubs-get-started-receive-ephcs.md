@@ -1,6 +1,6 @@
 ## Receber mensagens com EventProcessorHost
 
-[EventProcessorHost] é uma classe .NET que simplifica o recebimento de eventos de Hubs de Eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o [EventProcessorHost], você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o [EventProcessorHost] para um único destinatário. O [exemplo de processamento de eventos de escala horizontal] mostra como usar [EventProcessorHost] com vários destinatários.
+[EventProcessorHost] é uma classe .NET que simplifica o recebimento de eventos de Hubs de Eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o [EventProcessorHost], você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o [EventProcessorHost] para um único destinatário. O exemplo de [processamento de eventos de escala horizontal] mostra como usar [EventProcessorHost] com vários destinatários.
 
 Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do Azure]:
 
@@ -8,17 +8,17 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
 2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e, em seguida, digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
 
-  ![][11]
+    ![][11]
 
 3. Clique na conta de armazenamento criada recentemente e, em seguida, clique em **Gerenciar Chaves de Acesso**:
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    Copie a chave de acesso para usar posteriormente neste tutorial.
 
 4. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Destinatário**.
 
-  ![][14]
+    ![][14]
 
 5. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, em seguida, clique em **Gerenciar Pacotes NuGet**.
 
@@ -26,9 +26,9 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 
 6. Pesquise por `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, clique em **Instalar** e aceite os termos de uso.
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	Isso faz o download, instala e adiciona uma referência ao <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Hub de Eventos do Barramento de Serviço do Azure - Pacote NuGet do EventProcessorHost</a>, com todas as suas dependências.
 
 7. Clique com o botão direito do mouse no projeto do **Receptor**, clique em **Adicionar** e, em seguida, clique em **Classe**. Nomeie a nova classe **SimpleEventProcessor**, em seguida, clique em **OK** para criar a classe.
 
@@ -114,6 +114,7 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 <!-- Links -->
 [Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [Processamento de eventos em escala]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[processamento de eventos de escala horizontal]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Conta de armazenamento do Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
@@ -129,4 +130,4 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

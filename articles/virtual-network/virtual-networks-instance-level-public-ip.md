@@ -125,4 +125,4 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

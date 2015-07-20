@@ -157,5 +157,6 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Notificações periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

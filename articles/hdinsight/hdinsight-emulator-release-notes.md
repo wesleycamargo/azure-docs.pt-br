@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jgao"/>
 
 
@@ -43,7 +43,7 @@
 
 ### O que há de novo? 
  
-* Foram adicionados scripts para simplificar as configurações de todos os serviços do Apache Hadoop para início automático ou manual. O início continua sendo automático por padrão, mas agora todos os serviços podem ser alterados por meio dos scripts set-onebox-manualstart.cmd ou set-onebox-autostart.cmd, instalados em C:\Hadoop. 
+* Foram adicionados scripts para simplificar as configurações de todos os serviços do Apache Hadoop para início automático ou manual. O início continua sendo automático por padrão, mas agora todos os serviços podem ser alterados por meio dos scripts set-onebox-manualstart.cmd ou set-onebox-autostart.cmd, instalados em C:\\Hadoop. 
 
 * O número de dependências de instalações necessárias foram reduzidas significativamente, permitindo instalações mais rápidas.
 
@@ -110,7 +110,7 @@
 
 	No painel, você verá um cluster padrão local chamado "local (hdfs)". Se quiser usar o armazenamento de Blob do Azure como o armazenamento de sua instalação local, faça o seguinte:
 
-	1. Adicione a marca da conta no core-site.xml localizado em C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf:       
+	1. Adicione a marca da conta no core-site.xml localizado em C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf:       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * Diretório temporário
 	
-	O arquivo haddop.tmp.dir aponta para o local errado. em vez de apontar para C:\hadoop\hdfs, aponta para C:\hdfs. Esse bug será corrigido na próxima atualização de bits do HDP.
+	O arquivo haddop.tmp.dir aponta para o local errado. em vez de apontar para C:\\hadoop\\hdfs, aponta para c:\\hdfs. Esse bug será corrigido na próxima atualização de bits do HDP.
 
 * Restrições do sistema operacional
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

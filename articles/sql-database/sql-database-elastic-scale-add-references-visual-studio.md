@@ -3,8 +3,8 @@
 	description="Como adicionar referências do .NET a APIs de escala elástica para projetos do Visual Studio usando o Nuget." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="stuartozer" 
-	authors="stuartozer" 
+	manager="jeffreyg" 
+	authors="sidneyh" 
 	editor=""/>
 
 <tags 
@@ -13,26 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="stuartozer@microsoft.com"/>
+	ms.date="04/16/2015" 
+	ms.author="sidneyh"/>
 
-#Como: Adicionar referências de Escala Elástica do banco de dados SQL do Azure a um projeto do Visual Studio 
+# Como adicionar referências da biblioteca de cliente do banco de dados elástico a um projeto do Visual Studio 
 
-###Pré-requisitos: 
+### Pré-requisitos: 
 
 - Instalar a [Galeria de extensões do NuGet Visual Studio](http://docs.nuget.org/docs/start-here/installing-nuget) para Visual Studio 
 
-###Para adicionar uma referência de Escala Elástica no Visual Studio 
+### Para adicionar uma referência de biblioteca de cliente do banco de dados elástico no Visual Studio 
 
-1. Abrir um projeto existente ou criar um novo projeto usando o novo projeto caixa de diálogo localizada em **Arquivo** --> **Novo** --> **Projeto** 
+1. Abra um projeto existente ou crie um novo projeto usando a caixa de diálogo Novo Projeto localizada em **Arquivo** --> **Novo** --> **Projeto** 
 2. No Gerenciador de Soluções, clique com o botão direito em **Referências** e selecione **Gerenciar Pacotes NuGet**
-3. No menu no lado esquerdo da janela Gerenciar Pacotes NuGet, selecione **Online** e depois **nuget.org** ou "Tudo" 
-4. Na caixa de diálogo de **Pesquisa Online**, digite **Escala Elástica**, selecione as **bibliotecas do cliente de Escala Elástica** e clique em **Instalar**.
+3. No menu no lado esquerdo da janela Gerenciar Pacotes NuGet, selecione **Online** e depois **nuget.org** ou “Tudo” 
+4. Na caixa de diálogo **Pesquisar Online**, digite **Banco de Dados Elástico**, selecione a **biblioteca de cliente do Banco de Dados Elástico** e clique em **Instalar**.
+
+	![Pesquisa online][1]
 4. Examine a licença e clique em **Eu Aceito**. 
 
-As referências de Escala Elástica do banco de dados SQL do Azure agora foram adicionadas ao seu projeto. 
+A referência da biblioteca de cliente será adicionada ao seu projeto.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--HONumber=47-->
- 
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
+<!--anchors-->
+
+<!---HONumber=July15_HO2-->

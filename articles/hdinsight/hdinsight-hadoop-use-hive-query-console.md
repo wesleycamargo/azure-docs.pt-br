@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Executar consultas Hive usando o Console de Consulta
@@ -34,7 +34,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 ##<a id="run"></a> Executar consultas Hive usando o Console de Consulta
 
-1. Abra o <a href="https://manage.windowsazure.com" target="_blank">Portal do Azure</a> e selecione seu cluster HDInsight. Na parte inferior da página, selecione **Console de Consulta**. Quando solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
+1. Abra o [Portal do Azure](https://manage.windowsazure.com) e selecione seu cluster HDInsight. Na parte inferior da página, selecione **Console de Consulta**. Quando solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
 
     > [AZURE.NOTE]Você também pode acessar o Console de consulta digitando **https://CLUSTERNAME.azurehdinsight.net** no seu navegador.
 
@@ -61,7 +61,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
     * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
     * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto
-    * **SELECT**: selecione uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
+    * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
 
 2. Clique em **Enviar**. A **Sessão de Trabalho** na parte inferior da página deve exibir detalhes do trabalho.
 
@@ -106,18 +106,18 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

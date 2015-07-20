@@ -6,7 +6,7 @@
 | Número máximo de volumes | 255 | |
 | Número máximo de modelos de largura de banda | 25 | |
 | Número máximo de agendas por modelo de largura de banda | 168 | Uma agenda para cada hora, cada dia da semana (24x7). |
-| Tamanho máximo de um volume | 64 TB | O tamanho recomendado para um volume NTFS é 64 TB. |
+| Tamanho máximo de um volume | 64 TB | |
 | Número máximo de conexões iSCSI | 512 | |
 | Número máximo de conexões iSCSI dos iniciadores | 512 | |
 | Número máximo de registros de controle de acesso por dispositivo | 64 | |
@@ -24,4 +24,4 @@
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

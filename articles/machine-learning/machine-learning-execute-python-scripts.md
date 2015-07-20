@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Executar scripts Python no Aprendizado de Máquina do Azure | Azure" 
-	description="Descreve os princípios de design subjacentes ao suporte para Python no Aprendizado de Máquina do Azure e seus cenários, recursos e limitações de uso." 
+	pageTitle="Executar scripts de aprendizado de máquina do Python | Microsoft Azure" 
+	description="Descreve princípios de design subjacentes ao suporte a Python no Aprendizado de Máquina do Azure e seus cenários de uso básico, recursos e limitações." 
+	keywords="python machine learning,pandas,python pandas,python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,11 +18,9 @@
 	ms.author="bradsev;garye" />
 
 
-# Executar scripts Python no Aprendizado de Máquina do Azure
+# Executar scripts Python de aprendizado de máquina no Estúdio de Aprendizado de Máquina do Azure
 
-## Introdução
-
-Este tópico descreve os princípios de design subjacentes ao suporte atual para Python no Aprendizado de Máquina do Azure. Os principais recursos também são descritos, incluindo o suporte à importação de código existente, a exportação de visualizações e, por fim, algumas das limitações e trabalhos em andamento são discutidos.
+Este tópico descreve os princípios de design subjacentes ao suporte atual para scripts Python no Aprendizado de Máquina do Azure. Os principais recursos também são descritos, incluindo o suporte à importação de código existente, a exportação de visualizações e, por fim, algumas das limitações e trabalhos em andamento são discutidos.
 
 O [Python](https://www.python.org/) é uma ferramenta indispensável no conjunto de ferramentas de muitos cientistas de dados. Ele tem uma sintaxe elegante e concisa, suporte a várias plataformas, uma ampla coleção de bibliotecas eficientes e ferramentas maduras de desenvolvimento. O Python está sendo usado em todas as fases do fluxo de trabalho que geralmente são usadas na modelagem do aprendizado de máquina, começando pela ingestão e processamento dados, passando pela construção de recursos e treinamento e chegando à validação e implantação de modelos.
 
@@ -30,12 +29,12 @@ O Estúdio de Aprendizado de Máquina do Azure dá suporte à inclusão de scrip
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## Princípios de design
+## Princípios de design de scripts Python no Aprendizado de Máquina
 A principal interface para Python no Estúdio de Aprendizado de Máquina do Azure é o módulo [Executar Script Python][execute-python-script] mostrado na Figura 1.
 
-![image1](./media/machine-learning-execute-python-scripts/figure1a.png)
+![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![image2](./media/machine-learning-execute-python-scripts/figure1b.png)
+![image2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 Figura 1. O módulo **Executar Script Python**.
 
@@ -43,21 +42,23 @@ O módulo [Executar Script Python][execute-python-script] aceita até três entr
 
 1.	*Devem ser expressões idiomáticas para usuários de Python.* A maioria dos usuários de Python fatora seu código como funções dentro de módulos, de modo que colocar muitas instruções executáveis em um módulo de nível superior é relativamente raro. Como resultado, a caixa de script também recebe uma função de Python especialmente nomeada em vez de apenas uma sequência de instruções. Os objetos expostos na função são tipos de biblioteca do Python padrão, como estruturas de dados [Panda](http://pandas.pydata.org/) e matrizes [NumPy](http://www.numpy.org/).
 2.	*Deve ter alta fidelidade entre execuções locais e na nuvem.* O back-end usado para executar o código Python se baseia no [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, uma distribuição científica multiplataforma do Python amplamente utilizada. Ele vem com quase 200 dos pacotes de Python mais comuns. Portanto, um cientista de dados pode depurar e qualificar seu código em seu ambiente Anaconda local compatível com o Aprendizado de Máquina do Azure usando ambientes de desenvolvimento existentes como [IPython](http://ipython.org/) notebook ou [Python Tools para Visual Studio](http://pytools.codeplex.com/) e executá-lo como parte de um experimento do Aprendizado de Máquina do Azure com confiança elevada. Além disso, o ponto de entrada `azureml_main` é uma função vanilla Python e pode ser criado sem um código específico ou o SDK do Aprendizado de Máquina do Azure instalado.
-3.	*Deve ser combinável de maneira integrada com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Aprendizado de Máquina do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
+3.	*Deve ser totalmente combinável com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Aprendizado de Máquina do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
   * usam Python e Pandas para pré-processando e limpeza de dados, 
   * alimentam os dados para uma transformação de SQL, unindo vários conjuntos de dados para formar recursos, 
   * treinar modelos usando o amplo conjunto de algoritmos do Aprendizado de Máquina do Azure e 
   * avaliar e pós-processar os resultados usando R.
 
 
-## Uso básico
-Nesta seção, avaliamos alguns dos usos básicos do módulo [Executar Script Python][execute-python-script]. Como mencionado anteriormente, quaisquer entradas do módulo Python são expostas como estruturas de dados Pandas. Mais informações sobre o Pandas e como ele pode ser usado para manipular dados com eficiência e eficácia podem ser encontradas em *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012), de W. McKinney. A função deve retornar uma única estrutura de dados Pandas empacotada dentro de uma [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma tupla, lista ou matriz NumPy. O primeiro elemento dessa sequência é retornado na primeira porta de saída do módulo. O esquema é mostrado na Figura 2.
+## Cenários de uso básico de Aprendizado de Máquina para scripts Python
+Nesta seção, avaliamos alguns dos usos básicos do módulo [Executar Script Python][execute-python-script]. Como mencionado anteriormente, quaisquer entradas do módulo Python são expostas como estruturas de dados Pandas. Mais informações a Pandas do Python e como ela pode ser usada para manipular dados com eficiência e eficácia podem ser encontradas em *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012), de W. McKinney. A função deve retornar uma única estrutura de dados Pandas empacotada dentro de uma [sequência](https://docs.python.org/2/c-api/sequence.html) Python, como uma tupla, lista ou matriz NumPy. O primeiro elemento dessa sequência é retornado na primeira porta de saída do módulo. O esquema é mostrado na Figura 2.
 
-![image3](./media/machine-learning-execute-python-scripts/figure2.png) Figura 2. Mapeamento de portas de entrada para parâmetros e valor retornado à porta de saída.
+![image3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+
+Figura 2. Mapeamento de portas de entrada para parâmetros e valor retornado à porta de saída.
 
 Uma semântica mais detalhada de como as portas de entrada são mapeadas para parâmetros da função `azureml_main` é mostrada na Tabela 1:
 
-![image1T](./media/machine-learning-execute-python-scripts/table-1.png)
+![image1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 Tabela 1. Mapeamento de portas de entrada para parâmetros de função.
 
@@ -75,13 +76,13 @@ Quaisquer módulos [Executar Script Python][execute-python-script] em um experim
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![image5](./media/machine-learning-execute-python-scripts/figure3b.png)
+![image5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 Figura 3. Serviço Web para avaliar uma expressão de Python.
 
 Um serviço Web criado por meio deste experimento utiliza como entrada uma expressão de Python (como uma cadeia de caracteres), a envia para o intérprete de Python e retorna uma tabela que contém a expressão e o resultado avaliado.
 
-## Importando módulos de Python existentes
+## Importando módulos de script Python existentes
 Um caso de uso comum para muitos cientistas de dados é incorporar scripts Python existentes a experimentos do Aprendizado de Máquina do Azure. Em vez de concatenar e colar todo o código em uma única caixa de script, o módulo [Executar Script Python][execute-python-script] aceita uma terceira porta de entrada à qual um arquivo zip que contém os módulos de Python pode ser conectado. O arquivo é então descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do interpretador de Python. A função do ponto de entrada `azureml_main` pode, então, importar esses módulos diretamente.
 
 Por exemplo, considere o arquivo Hello.py que contém uma função simples "Hello, World".
@@ -138,7 +139,7 @@ Observe que é possível retornar diferentes figuras salvando-as como diferentes
 
 
 ## Exemplos avançados
-O ambiente Anaconda instalado no Aprendizado de Máquina do Azure contém pacotes comuns, como NumPy, SciPy e Scikits-Learn, e eles podem ser usados efetivamente para várias tarefas de processamento de dados em um pipeline típico de aprendizado de máquina. Por exemplo, o experimento e o script a seguir ilustram o uso de mecanismos de ensemble learning em Scikits-Learn para calcular pontuações de importância de recursos para um conjunto de dados. As pontuações podem ser usadas posteriormente para executar uma seleção supervisionada de recursos antes de alimentar outro modelo de aprendizado de máquina.
+O ambiente Anaconda instalado no Aprendizado de Máquina do Azure contém pacotes comuns, como NumPy, SciPy e Scikits-Learn, que podem ser usados efetivamente para várias tarefas de processamento de dados em um pipeline típico de aprendizado de máquina. Por exemplo, o experimento e o script a seguir ilustram o uso de mecanismos de ensemble learning em Scikits-Learn para calcular pontuações de importância de recursos para um conjunto de dados. As pontuações podem ser usadas posteriormente para executar uma seleção supervisionada de recursos antes de alimentar outro modelo de aprendizado de máquina.
 
 A função de Python para calcular as pontuações de importância e ordenar os recursos com base nelas é mostrada abaixo:
 
@@ -168,5 +169,6 @@ Nos próximos meses, esperamos fornecer funcionalidades adicionais para o módul
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

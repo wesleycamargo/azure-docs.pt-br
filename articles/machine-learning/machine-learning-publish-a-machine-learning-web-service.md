@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publicar um serviço Web de Aprendizado de Máquina | Azure" 
+	pageTitle="Publicar um serviço Web de Aprendizado de Máquina | Microsoft Azure" 
 	description="Como converter um teste de treinamento em um teste de pontuação, prepará-lo para a publicação e publicá-lo como um serviço Web de Aprendizado de Máquina do Azure." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #Publicar um serviço Web de Aprendizado de Máquina do Azure
@@ -93,8 +93,7 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 
 No Portal de Gerenciamento do Azure, você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho de Aprendizado de Máquina e abrindo o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado quando você o publica.
 
-Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -107,5 +106,6 @@ Para atualizar o serviço Web, abra o teste de pontuação original usado para p
 
 > [AZURE.NOTE]Se você fez alterações na configuração do serviço Web original, por exemplo, inserindo um novo nome de exibição ou uma descrição, você precisará inserir esses valores novamente.
 
+Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

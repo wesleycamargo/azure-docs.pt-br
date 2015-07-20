@@ -1,3 +1,4 @@
+
 #Como criar uma máquina virtual personalizada
 
 Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **de Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
@@ -59,4 +60,4 @@ Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando
 - [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
-# Enviar notificações por push para usuários autenticados
+# Enviar Notificações por Push para Usuários Autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
-Neste tópico, você aprenderá como enviar notificações por push a um usuário autenticado no iOS. Antes de iniciar este tutorial, conclua [Introdução à autenticação] e [Introdução às notificações por push] primeiro.
+Neste tópico, você aprenderá como enviar notificações por push para um usuário autenticado no iOS. Antes de iniciar este tutorial, conclua primeiro [Introdução à autenticação] e [Introdução às notificações por push].
 
-Neste tutorial, você exigirá que os usuários se autentiquem primeiro, se registrará no hub de notificação para receber notificações por push e atualizará scripts de servidor para enviar essas notificações somente para usuários autenticados.
+Neste tutorial, tem que exigir que os usuários se autentiquem primeiro, registrem no hub de notificação para notificações por push e atualizar scripts de servidor para enviar essas notificações somente para os usuários autenticados.
 
 ##<a name="register"></a>Atualizar o serviço para solicitar autenticação para registro
 
@@ -50,4 +50,4 @@ Neste tutorial, você exigirá que os usuários se autentiquem primeiro, se regi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

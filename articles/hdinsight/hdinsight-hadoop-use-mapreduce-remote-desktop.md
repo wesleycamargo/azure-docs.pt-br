@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Usar o MapReduce no Hadoop no HDInsight com Remote Desktop
@@ -32,7 +32,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 ##<a id="connect"></a>Conectar com a área de trabalho remota
 
-Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 ##<a id="hadoop"></a>Usar o comando Hadoop
 
@@ -95,4 +95,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

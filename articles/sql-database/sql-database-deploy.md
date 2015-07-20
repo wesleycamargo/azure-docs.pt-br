@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Como implantar um banco de dados SQL - Azure" 
-	description="Saiba como implantar um banco de dados SQL Server no Azure. Você usará o banco de dados de implantação ao Assistente de banco de dados SQL para carregar um banco de dados de exemplo." 
+	pageTitle="Como implantar um Banco de Dados SQL no SQL Azure" 
+	description="Implante um banco de dados do SQL Server no Banco de Dados SQL do Azure usando o Assistente no SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="sidneyh" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,35 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="07/01/2015" 
+	ms.author="sidneyh"/>
 
 
+# Como implantar um banco de dados do SQL Server no Banco de Dados SQL do Azure
 
+Neste artigo, você usará o **assistente para Implantação de Banco de Dados no Banco de Dados SQL do Azure** para carregar um exemplo de banco de dados no Banco de Dados SQL do Azure. Você deve baixar o **SQL Server 2016 Management Studio (CTP 2.1)** para este tutorial.
 
+Tempo estimado para conclusão: 15 minutos (inclui o tempo de download)
 
+> [AZURE.NOTE]Este tutorial usa um banco de dados de exemplo “school”, que é muito simples; todos os seus objetos são compatíveis com o Banco de Dados SQL do Azure, o que elimina a necessidade de modificar ou preparar o banco de dados para migração. Se estiver migrando um banco de dados existente mais complexo, você também poderá considerar usar o [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/) e consultar esta [visão geral](sql-database-cloud-migrate.md).
 
-<h1><a id="howtodeploySQLdb"></a>Como implantar um banco de dados no Microsoft Azure</h1>
+## Pré-requisitos
 
-Há várias maneiras diferentes de mover um banco de dados local do SQL Server para o Azure. Nesta tarefa, você usará o assistente para Implantar Banco de Dados no Banco de dados SQL para carregar um banco de dados de exemplo.
+Uma **conta do Microsoft Azure**. Para uma avaliação gratuita, consulte esta [oferta](http://azure.microsoft.com/pricing/free-trial/).
 
-O banco de dados de exemplo School é convenientemente simples. Todos os seus objetos são compatíveis com o Banco de Dados SQL eliminando a necessidade de modificar ou preparar um banco de dados para migração. Como um novo administrador, primeiro tente implantar um banco de dados simples para aprender as etapas antes de usar seus próprios bancos de dados. 
+Baixe o [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx). (Para saber mais sobre a ferramenta, confira [SQL Server Management Studio - notas de versão de junho de 2015](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-**Observação:** examine o Guia de Migração do Banco de Dados SQL para obter instruções detalhadas sobre como preparar um banco de dados local para a migração para o Azure. Além disso, considere a possibilidade de baixar o Kit de Treinamento do Azure. Ele inclui um laboratório que mostra uma abordagem alternativa para migrar um banco de dados local.
+Um servidor existente no Banco de Dados SQL do Azure. Para obter instruções sobre como criar um novo banco de dados (em um novo servidor), confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 
+## Criar o banco de dados school em um servidor local
 
-<h2><a id="schooldb"></a>Como: Criar o banco de dados school em um servidor local</h2>
+Execute estes scripts no SQL Server Management Studio (SSMS) para criar uma versão local do banco de dados “school”.
 
-Os scripts para criar esse banco de dados podem ser encontrados em [Introdução à administração de Banco de Dados SQL][]. Nesse guia, você executará esses scripts no Management Studio para criar uma versão local do banco de dados School.
+1. No SSMS, conecte-se a um servidor local. Clique com o botão direito do mouse em **Bancos de Dados**, clique em **Novo Banco de Dados** e digite *school*.
 
-1. No Management Studio, conecte-se a um servidor local. Clique com o botão direito em **Bancos de Dados**, clique em **Novo Banco de Dados** e digite  *school*.
+2. Clique com o botão direito do mouse em *school* e clique em **Nova Consulta**.
 
-2. Clique com o botão direito em *school*, clique em **Nova consulta**. 
-
-3. Copie e, em seguida, execute o script Create Schema do tutorial. 
+3. Copie e execute este script:
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
-	-- Create the Department table.
+	-- Criar a tabela Department.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 	   	WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
 	  	AND type in (N'U'))
@@ -58,9 +61,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
     )WITH (IGNORE_DUP_KEY = OFF)
     )
     END;
-	GO
+	IR
 
-	-- Create the Person table.
+	-- Criar a tabela Person.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
 		AND type in (N'U'))
@@ -77,9 +80,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	GO
+	IR
 
-	-- Create the OnsiteCourse table.
+	-- Criar a tabela OnsiteCourse.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
 		AND type in (N'U'))
@@ -95,9 +98,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	GO
+	IR
 
-	-- Create the OnlineCourse table.
+	-- Criar a tabela OnlineCourse.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
 		AND type in (N'U'))
@@ -111,9 +114,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	GO
+	IR
 
-	--Create the StudentGrade table.
+	--Criar a tabela StudentGrade.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
 		AND type in (N'U'))
@@ -129,9 +132,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	GO
+	IR
 
-	-- Create the CourseInstructor table.
+	-- Criar uma tabela CourseInstructor.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
 		AND type in (N'U'))
@@ -146,9 +149,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	) 
 	END;
-	GO
+	IR
 
-	-- Create the Course table.
+	-- Criar uma tabela Course.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
 		AND type in (N'U'))
@@ -164,9 +167,9 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
 	END;
-	GO
+	IR
 
-	-- Create the OfficeAssignment table.
+	-- Criar uma tabela OfficeAssignment.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
 		AND type in (N'U'))
@@ -181,109 +184,109 @@ Os scripts para criar esse banco de dados podem ser encontrados em [Introdução
 	)WITH (IGNORE_DUP_KEY = OFF)
 	)
 	END;
-	GO
+	IR
 
-	-- Define the relationship between OnsiteCourse and Course.
+	-- Definir o relacionamento entre OnsiteCourse e Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
 	ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[OnsiteCourse] CHECK 
        CONSTRAINT [FK_OnsiteCourse_Course];
-	GO
+	IR
 
-	-- Define the relationship between OnlineCourse and Course.
+	-- Definir o relacionamento entre OnlineCourse e Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
 	ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
        CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
        CONSTRAINT [FK_OnlineCourse_Course];
-	GO
-	-- Define the relationship between StudentGrade and Course.
+	IR
+	-- Definir o relacionamento entre StudentGrade e Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
        CONSTRAINT [FK_StudentGrade_Course];
-	GO
+	IR
 
-	--Define the relationship between StudentGrade and Student.
+	-- Definir o relacionamento entre StudentGrade e Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
        CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
        CONSTRAINT [FK_StudentGrade_Student];
-	GO
+	IR
 
-	-- Define the relationship between CourseInstructor and Course.
+	-- Definir o relacionamento entre CourseInstructor e Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
   	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
   	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
  	  CONSTRAINT [FK_CourseInstructor_Course];
-	GO
+	IR
 
-	-- Define the relationship between CourseInstructor and Person.
+	-- Definir o relacionamento entre CourseInstructor e Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
 	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
  	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
   	 CONSTRAINT [FK_CourseInstructor_Person];
-	GO
+	IR
 
-	-- Define the relationship between Course and Department.
+	-- Definir o relacionamento entre Course e Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
 	ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
        CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	REFERENCES [dbo].[Department] ([DepartmentID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
-	GO
+	IR
 
-	--Define the relationship between OfficeAssignment and Person.
+	--Definir o relacionamento entre OfficeAssignment e Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
  	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
 	ALTER TABLE [dbo].[OfficeAssignment]  WITH CHECK ADD  
  	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
 	REFERENCES [dbo].[Person] ([PersonID]);
-	GO
+	IR
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
-	GO
+	IR
 </pre></div>
 
 Em seguida, copie e execute o script Insert Data.
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
-	-- Insert data into the Person table.
+	-- Insertar os dados na tabela Person.
 	SET IDENTITY_INSERT dbo.Person ON;
-	GO
+	IR
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (1, 'Abercrombie', 'Kim', '1995-03-11', null);
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
@@ -352,247 +355,242 @@ Em seguida, copie e execute o script Insert Data.
 	VALUES (33, 'Gao', 'Erica', null, '2003-01-30');
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (34, 'Van Houten', 'Roger', '2000-12-07', null);
-	GO
+	IR
 	SET IDENTITY_INSERT dbo.Person OFF;
-	GO
-	-- Insert data into the Department table.
-	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
-	VALUES (1, 'Engineering', 350000.00, '2007-09-01', 2);
-	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
-	VALUES (2, 'English', 120000.00, '2007-09-01', 6);
-	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
-	VALUES (4, 'Economics', 200000.00, '2007-09-01', 4);
-	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
-	VALUES (7, 'Mathematics', 250000.00, '2007-09-01', 3);
-	GO
-	-- Insert data into the Course table.
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (1050, 'Chemistry', 4, 1);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (1061, 'Physics', 4, 1);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (1045, 'Calculus', 4, 7);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (2030, 'Poetry', 2, 2);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (2021, 'Composition', 3, 2);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (2042, 'Literature', 4, 2);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (4022, 'Microeconomics', 3, 4);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (4041, 'Macroeconomics', 3, 4);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (4061, 'Quantitative', 2, 4);
-	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
-	VALUES (3141, 'Trigonometry', 4, 7);
-	GO
-	-- Insert data into the OnlineCourse table.
-	INSERT INTO dbo.OnlineCourse (CourseID, URL)
-	VALUES (2030, 'http://www.fineartschool.net/Poetry');
-	INSERT INTO dbo.OnlineCourse (CourseID, URL)
-	VALUES (2021, 'http://www.fineartschool.net/Composition');
-	INSERT INTO dbo.OnlineCourse (CourseID, URL)
-	VALUES (4041, 'http://www.fineartschool.net/Macroeconomics');
-	INSERT INTO dbo.OnlineCourse (CourseID, URL)
-	VALUES (3141, 'http://www.fineartschool.net/Trigonometry');
-	--Insert data into OnsiteCourse table.
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (1050, '123 Smith', 'MTWH', '11:30');
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (1061, '234 Smith', 'TWHF', '13:15');
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (1045, '121 Smith','MWHF', '15:30');
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (4061, '22 Williams', 'TH', '11:15');
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (2042, '225 Adams', 'MTWH', '11:00');
-	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
-	VALUES (4022, '23 Williams', 'MWF', '9:00');
-	-- Insert data into the CourseInstructor table.
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (1050, 1);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (1061, 31);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (1045, 5);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (2030, 4);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (2021, 27);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (2042, 25);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (4022, 18);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (4041, 32);
-	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
-	VALUES (4061, 34);
-	GO
-	--Insert data into the OfficeAssignment table.
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (1, '17 Smith');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (4, '29 Adams');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (5, '37 Williams');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (18, '143 Smith');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (25, '57 Adams');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (27, '271 Williams');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (31, '131 Smith');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (32, '203 Williams');
-	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
-	VALUES (34, '213 Smith');
-	-- Insert data into the StudentGrade table.
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2021, 2, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2030, 2, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2021, 3, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2030, 3, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2021, 6, 2.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2042, 6, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2021, 7, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2042, 7, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2021, 8, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (2042, 8, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 9, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 10, null);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 11, 2.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 12, null);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4061, 12, null);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 14, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 13, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4061, 13, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 14, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 15, 2.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 16, 2);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 17, null);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 19, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4061, 20, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4061, 21, 2);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 22, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4041, 22, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4061, 22, 2.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (4022, 23, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1045, 23, 1.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 24, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 25, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1050, 26, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 26, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 27, 3);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1045, 28, 2.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1050, 28, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 29, 4);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1050, 30, 3.5);
-	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-	VALUES (1061, 30, 4);
-	GO
+	IR
+	-- Insertar os dados na tabela Department.
+	INSERTAR EM dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
+	VALORES (1, 'Engineering', 350000.00, '2007-09-01', 2);
+	INSERTAR EM dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
+	VALORES (2, 'English', 120000.00, '2007-09-01', 6);
+	INSERTAR EM dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
+	VALORES (4, 'Economics', 200000,00, '2007-09-01', 4);
+	INSERTAR EM dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
+	VALORES (7, 'Mathematics', 250000,00, '2007-09-01', 3);
+	IR
+	-- Insertar os dados na tabela Course.
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (1050, 'Chemistry', 4, 1);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (1061, 'Physics', 4, 1);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (1045, 'Calculus', 4, 7);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (2030, 'Poetry', 2, 2);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (2021, 'Composition', 3, 2);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (2042, 'Literature', 4, 2);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (4022, 'Microeconomics', 3, 4);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (4041, 'Macroeconomics', 3, 4);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (4061, 'Quantitative', 2, 4);
+	INSERTAR EM dbo.Course (CourseID, Title, Credits, DepartmentID)
+	VALORES (3141, 'Trigonometry', 4, 7);
+	IR
+	-- Insertar os dados na tabela OnlineCourse.
+	INSERTAR EM dbo.OnlineCourse (CourseID, URL)
+	VALORES (2030, 'http://www.fineartschool.net/Poetry');
+	INSERTAR EM dbo.OnlineCourse (CourseID, URL)
+	VALORES (2021, 'http://www.fineartschool.net/Composition');
+	INSERTAR EM dbo.OnlineCourse (CourseID, URL)
+	VALORES (4041, 'http://www.fineartschool.net/Macroeconomics');
+	INSERTAR EM dbo.OnlineCourse (CourseID, URL)
+	VALORES (3141, 'http://www.fineartschool.net/Trigonometry');
+	-- Insertar os dados na tabela OnsiteCourse.
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (1050, '123 Smith', 'MTWH', '11:30');
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (1061, '234 Smith', 'TWHF', '13:15');
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (1045, '121 Smith', 'MWHF', '15:30');
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (4061, '22 Williams', 'TH', '11:15');
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (2042, '225 Adams', 'MTWH', '11:00');
+	INSERTAR EM dbo.OnsiteCourse (CourseID, Location, Days, [Time])
+	VALORES (4022, '23 Williams', 'MWF', '09:00');
+	-- Insertar os dados na tabela CourseInstructor.
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (1050, 1);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (1061, 31);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (1045, 5);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (2030, 4);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (2021, 27);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (2042, 25);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (4022, 18);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (4041, 32);
+	INSERTAR EM dbo.CourseInstructor(CourseID, PersonID)
+	VALORES (4061, 34);
+	IR
+	-- Insertar os dados na tabela OfficeAssignment.
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (1, '17 Smith');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (4, '29 Adams');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (5, '37 Williams');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (18, '143 Smith');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (25, '57 Adams');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (27, '271 Williams');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (31, '131 Smith');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (32, '203 Williams');
+	INSERTAR EM dbo.OfficeAssignment(InstructorID, Location)
+	VALORES (34, '213 Smith');
+	-- Insertar os dados na tabela StudentGrade.
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2021, 2, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2030, 2, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2021, 3, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2030, 3, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2021, 6, 2,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2042, 6, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2021, 7, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2042, 7, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2021, 8, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (2042, 8, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 9, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 10, nulo);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 11, 2,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 12, nulo);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4061, 12, nulo);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 14, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 13, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4061, 13, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 14, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 15, 2,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 16, 2);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 17, nulo);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 19, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4061, 20, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4061, 21, 2);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 22, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4041, 22, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4061, 22, 2,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (4022, 23, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1045, 23, 1,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 24, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 25, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1050, 26, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 26, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 27, 3);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1045, 28, 2,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1050, 28, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 29, 4);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1050, 30, 3,5);
+	INSERTAR EM dbo.StudentGrade (CourseID, StudentID, Grade)
+	VALORES (1061, 30, 4);
+	IR
 </pre></div>
+Agora você tem um banco de dados local que pode ser exportado para o Azure. Em seguida, você executará um assistente que criará um arquivo .bacpac, carregará o assistente no Azure e o importará para o Banco de Dados SQL.
 
-   Agora você tem um banco de dados local que pode ser exportado para o Azure. Em seguida, você executará um assistente que criará um arquivo .bacpac, carregará o assistente no Azure e o importará para o Banco de Dados SQL.
+	
+## Implantar o banco de dados no SQL do Azure 
+	
+1. No Management Studio, clique com o botão direito do mouse no banco de dados school que você acabou de criar, aponte para **Tarefas** e clique em **Implantar Banco de Dados no Banco de Dados SQL do Microsoft Azure**.
+2. Em **Configurações da Implantação**, digite um nome para o banco de dados, por exemplo, *school*.
+5. Clique em **Conectar**. Para solucionar problemas com conectividade, tente esta [solução de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+6. Em **Nome do servidor**, digite um nome de servidor de 10 caracteres, seguido por **.database.windows.net**
+7. Em **Autenticação**, escolha **Autenticação do SQL Server**.
+8. Digite o nome e a senha de logon do administrador que você criou no provisionamento do servidor lógico do Banco de Dados SQL.
+9. Clique em **Opções**.
+10. Em Propriedades da Conexão, em **Conectar-se ao banco de dados**, digite **mestre**.
 
+	**Observação** Você deve se conectar ao banco de dados **mestre** sempre que desejar criar um banco de dados no servidor do Banco de Dados SQL do Azure. 
+11. Clique em **Conectar**. Essa etapa conclui a especificação da conexão e leva você de volta ao assistente.
+12. Clique em **Avançar** e clique em **Concluir** para executar o assistente.
 
-<h2><a id="deploydb"></a>Como: Implantar no Banco de Dados SQL</h2>
-
-1. No Management Studio, conecte-se a uma instância do SQL Server local que tenha um banco de dados que você deseja migrar.
-
-2. Clique com o botão direito do mouse no banco de dados School que você acabou de criar, aponte para **Tarefas**e clique em **Implantar o Banco de Dados no SQL Azure**.
-
-3. Em Configurações da Implantação, digite um nome para o banco de dados, por exemplo,  *school*. 
-
-4. Clique em **Conectar**.
-
-5. Em Nome do Servidor, digite um nome de servidor de 10 caracteres, seguido por .database.windows.net.
-
-6. Em Autenticação, escolha **Autenticação do SQL Server**.
-
-7. Digite o nome de logon e a senha do administrador que você provisionou ao criar o servidor lógico do Banco de Dados SQL.
-
-8. Clique em **Opções**.
-
-9. Em Propriedades da Conexão, em **Conectar-se ao banco de dados**, digite **mestre**.
-
-10. Clique em **Conectar**. Essa etapa conclui a especificação da conexão e leva você de volta ao assistente.
-
-
-11. Clique em **Avançar** e clique em **Concluir** para executar o assistente.
-
-
-<h2><a id="verify"></a>Como: Verificar a implantação do banco de dados</h2>
-
-1. No Management Studio, no Pesquisador de Objetos, atualize os bancos de dados para exibir o novo que você acabou de criar.
-
+	
+## Como verificar a implantação do banco de dados
+	
+1. No Management Studio, em **Pesquisador de Objetos**, clique no ícone **Conectar**.
+2. Na caixa de nome **Servidor**, digite o nome do SQL Server do Azure, seguido por **database.windows.net**
+3. Em **Autenticação**, selecione **Autenticação do SQL Server**.
+4. Digite o nome e a senha de logon do administrador que você criou no provisionamento do servidor. 
+5. Clique no botão **Opções**.
+6. Clique na lista suspensa **Conectar ao banco de dados** e clique em **Procurar servidor**. Na caixa de diálogo seguinte, clique em **Sim** para permitir a navegação do servidor.
+7. Clique no banco de dados **school** para selecioná-lo e clique em **OK**. 
+8. Clique em **Conectar**. Para solucionar problemas com conectividade, tente esta [solução de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Expanda a pasta **Databases**. Você deve ver o banco de dados **school** na lista.
 
-3. Clique com o botão direito do mouse no banco de dados school e clique em **Nova Consulta**.
-
+	**Observação** Você deve se conectar ao banco de dados que deseja consultar. 
+3. Clique com o botão direito do mouse em **school** e clique em **Nova Consulta**.
 4. Execute a consulta a seguir para verificar se os dados estão acessíveis.
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
-	SELECT
-		Course.Title as "Course Title"
-  		,Department.Name as "Department"
-  		,Person.LastName as "Instructor"
-  		,OnsiteCourse.Location as "Location"
-  		,OnsiteCourse.Days as "Days"
-  		,OnsiteCourse.Time as "Time"
-	FROM
- 	 Course
- 	 INNER JOIN Department
-  	  ON Course.DepartmentID = Department.DepartmentID
- 	 INNER JOIN CourseInstructor
- 	   ON Course.CourseID = CourseInstructor.CourseID
- 	 INNER JOIN Person
- 	   ON CourseInstructor.PersonID = Person.PersonID
- 	 INNER JOIN OnsiteCourse
+		SELECT
+			Course.Title as "Course Title"
+				,Department.Name as "Department"
+				,Person.LastName as "Instructor"
+				,OnsiteCourse.Location as "Location"
+				,OnsiteCourse.Days as "Days"
+				,OnsiteCourse.Time as "Time"
+		FROM
+			 Course
+			 INNER JOIN Department
+			  ON Course.DepartmentID = Department.DepartmentID
+			 INNER JOIN CourseInstructor
+			   ON Course.CourseID = CourseInstructor.CourseID
+			 INNER JOIN Person
+			   ON CourseInstructor.PersonID = Person.PersonID
+			 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-</pre></div>
+		
+## Próximas etapas
 
-[Introdução à administração do Banco de Dados SQL]: /manage/services/sql-databases/getting-started-w-sql-databases/  
+Para ver um tutorial sobre como criar um novo banco de dados SQL do Azure, confira [Introdução à administração do Banco de Dados SQL](sql-database-get-started.md). Para ver as noções básicas de como conectar um banco de dados SQL do Azure de um aplicativo C#, confira [Conectar e consultar seu Banco de Dados SQL com C#](sql-database-connect-query.md). Para obter mais tutoriais sobre conexão de várias plataformas (como PHP), confira [Desenvolvimento do Banco de Dados SQL do Azure: Tópicos de instruções](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

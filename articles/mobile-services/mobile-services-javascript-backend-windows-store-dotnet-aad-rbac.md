@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 # Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-#Visão geral
+##Visão geral
 
 O controle de acesso baseado em funções (RBAC) é a prática de atribuir permissões a funções que seus usuários podem ter, com limites bem definidos sobre o que determinadas classes de usuários podem e não podem fazer. Este tutorial o orientará durante a adição de RBAC básica para os Serviços Móveis do Azure.
 
@@ -287,4 +287,5 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [Referência de erro de Graph API]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

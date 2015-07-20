@@ -35,7 +35,7 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 Outras considerações:
 
-Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compilar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Nome não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compilar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 ##Para anexar uma conta de armazenamento com a API REST do Gerenciamento de Serviços do Azure
 
@@ -53,7 +53,7 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 
 	usando Microsoft.WindowsAzure.MediaServices.Client; usando System; usando System.Collections.Generic; usando System.Configuration; usando System.IO; usando System.Linq; usando System.Text; usando System.Threading; usando System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { // Local do arquivo de mídia que você deseja codificar. cadeia somente leitura estática privada _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { // Local do arquivo de mídia que você deseja codificar. cadeia somente leitura estática privada _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -234,5 +234,6 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 	        }
 	    }
 	}
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

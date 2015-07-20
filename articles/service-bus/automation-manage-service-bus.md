@@ -42,5 +42,6 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 
 * Confira o [Guia de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
 * Confira o artigo sobre [Gerenciar Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

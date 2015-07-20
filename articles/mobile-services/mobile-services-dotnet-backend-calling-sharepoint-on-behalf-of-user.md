@@ -69,7 +69,7 @@ Para fazer uma chamada para o SharePoint, é necessário especificar os pontos d
 
     ![][3]
 
-4. Configure SP_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele estará no formulário https://login.windows.net/contoso.onmicrosoft.com
+4. Configure SP_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele será do formato https://login.windows.net/contoso.onmicrosoft.com
 
 5. Configure SP_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
 
@@ -217,5 +217,6 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/sharepoint/
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

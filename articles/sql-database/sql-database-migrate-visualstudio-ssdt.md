@@ -20,7 +20,7 @@
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Use essa Opção quando a migração de um banco de dados para o Banco de Dados SQL do Azure V12 exigir alterações de esquema que não podem ser realizadas usando o SQL Azure Migration Wizard (SAMW). Isso ocorrerá se o banco de dados usar recursos do SQL Server que não recebem, ou ainda não recebem, suporte no SQL do Azure. Nessa Opção, o Visual Studio é usado primeiro para criar um projeto de banco de dados do banco de dados de origem. Em seguida, a plataforma de destino do projeto é definida como o Banco de Dados SQL do Azure V12 e o projeto é criado a fim de identificar todos os problemas de compatibilidade. O SAMW pode corrigir muitos problemas de compatibilidade, mas não todos. Portanto, ele é usado para processar todos os scripts nos projetos como uma primeira passagem. O uso do SAMW é opcional, mas 
+Use essa Opção quando a migração de um banco de dados para o Banco de Dados SQL do Azure V12 exigir alterações de esquema que não podem ser realizadas usando o SQL Azure Migration Wizard (SAMW). Isso ocorrerá se o banco de dados usar recursos do SQL Server que não recebem, ou ainda não recebem, suporte no SQL do Azure. Nessa Opção, o Visual Studio é usado primeiro para criar um projeto de banco de dados do banco de dados de origem. Em seguida, a plataforma de destino do projeto é definida como o Banco de Dados SQL do Azure V12 e o projeto é criado a fim de identificar todos os problemas de compatibilidade. O SAMW pode corrigir muitos problemas de compatibilidade, mas não todos. Portanto, ele é usado para processar todos os scripts nos projetos como uma primeira passagem. O uso do SAMW é opcional, mas  
 altamente recomendado. A compilação do projeto após o processamento dos arquivos de script com o SAMW identificará quaisquer problemas restantes que, então, deverão ser resolvidos manualmente usando as ferramentas de edição de T-SQL no Visual Studio. Após a compilação do projeto, o esquema é publicado novamente em uma cópia (recomendada) do banco de dados de origem a fim de atualizar o esquema e os dados no local. Em seguida, o banco de dados atualizado é implantado no Azure, diretamente ou por exportação e importação de um arquivo BACPAC, usando as técnicas descritas na Opção nº 1.
  
 Como essa Opção envolve a atualização do esquema do banco de dados no local antes da implantação no Azure, é altamente recomendável que isso seja realizado em uma cópia do banco de dados. A ferramenta de Comparação de Esquema do Visual Studio pode ser usada para examinar o conjunto completo de alterações que serão aplicadas ao banco de dados antes de publicar o projeto.
@@ -94,4 +94,6 @@ Na comparação de esquemas abaixo, o banco de dados Adventure Works 2014 no Ban
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

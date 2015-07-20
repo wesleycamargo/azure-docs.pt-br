@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET | Microsoft Azure" 
-	description="Tutorial sobre como criar uma solução usando a biblioteca de cliente .NET no SDK .NET da Pesquisa do Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET | Microsoft Azure"
+	description="Tutorial sobre como criar uma solução usando a biblioteca de cliente .NET no SDK .NET da Pesquisa do Azure."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Introdução ao seu primeiro aplicativo de Pesquisa do Azure em .NET#
@@ -26,49 +26,49 @@ Para executar esse exemplo, você deve ter um serviço de Pesquisa do Azure, no 
 
 ##Sobre os dados##
 
-Este aplicativo de exemplo usa dados do [USGS (Serviço Geológico dos Estados Unidos)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
+Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, por exemplo, hospitais e escolas, e características geológicas, como rios, lagos e picos.
 
-Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando, por meio de um Banco de Dados SQL do Azure público, o conjunto de dados filtrado do USGS. As informações de credenciais e de conexão para a fonte de dados online são fornecidas no código do programa. Nenhuma configuração adicional é necessária.
+Neste aplicativo, o programa **DataIndexer** cria e carrega o índice usando um constructo [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS de um Banco de Dados SQL do Azure público. As informações de credenciais e de conexão para a fonte de dados online são fornecidas no código do programa. Nenhuma configuração adicional é necessária.
 
-> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplicará. Para obter detalhes sobre a capacidade de cada camada de preços, confira [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Criar o serviço##
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Na barra de navegação rápida, clique em **Novo** | **Dados + armazenamento** | **Pesquisa**.
- 
+
      ![][1]
 
 3. Configure o nome do serviço, camada de preços, grupo de recursos, assinatura e local. Essas configurações são necessárias e não podem ser alteradas após o início do fornecimento do serviço.
 
      ![][2]
 
-	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, menos de 15 caracteres e sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Consulte [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura. 
-	
-	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em níveis diferentes de recursos.
-	
+	- O **nome do serviço** deve ser exclusivo, com letras minúsculas, menos de 15 caracteres e sem espaços. Esse nome se torna parte do ponto de extremidade de seu serviço de Pesquisa do Azure. Confira [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para saber mais sobre as convenções de nomenclatura.
+
+	- A **Camada de preços** determina a capacidade e a cobrança. Ambas as camadas fornecem os mesmos recursos, mas em diferentes níveis de recursos.
+
 		- Um serviço na camada **Gratuito** é executado em clusters compartilhados com outros assinantes. Essa camada oferece capacidade suficiente para testar tutoriais e escrever código de prova de conceito, mas não deve ser utilizada para aplicativos de produção. A implantação de um serviço gratuito geralmente demora apenas alguns minutos.
 		- Um serviço na camada **Padrão** é executado em recursos dedicados e é altamente escalonável. Inicialmente, um serviço padrão é configurado com uma réplica e uma partição, mas você pode ajustar a capacidade após o serviço ser criado. A implantação de um serviço padrão demora mais tempo, normalmente cerca de quinze minutos.
-	
+
 	- **Grupos de recursos** são contêineres para serviços e contêineres usados para um fim comum. Por exemplo, se for compilar um aplicativo de pesquisa personalizado baseado na Pesquisa do Azure, Sites do Azure e armazenamento em Blob do Azure, você pode criar um grupo de recursos que mantém esses serviços juntos nas páginas de gerenciamento do portal.
-	
+
 	- **Assinatura** permite que você escolha entre várias assinaturas, se você tiver mais de uma.
-	
-	- **Local** é a região do datacenter. Atualmente, todos os recursos devem ser executados no mesmo datacenter. Não há suporte para a distribuição de recursos em vários datacenters.
+
+	- **Local** é a região do data center. Atualmente, todos os recursos devem ser executados no mesmo data center. Não há suporte para a distribuição de recursos em vários data centers.
 
 4. Clique em **Criar** para provisionar o serviço.
 
-Observe as notificações na barra de navegação rápida. Um aviso será exibido quando o serviço estiver pronto para uso.
+Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
 
 <a id="sub-2"></a>
 ##Localizar o nome do serviço e chaves de Api do serviço de Pesquisa do Azure
 
-Depois que o serviço for criado, você poderá retornar ao portal para obter a URL ou `api-key`. As conexões com seu serviço de Pesquisa requerem que você tenha tanto uma URL e um `api-key` para autenticar a chamada.
+Depois que o serviço for criado, você poderá retornar ao portal para obter a URL ou `api-key`. As conexões com o serviço de Pesquisa exigem que você tenha a URL e a `api-key` para autenticar a chamada.
 
-1. Na barra de navegação rápida, clique em **Home** e clique no Serviço de Pesquisa para abrir o painel do serviço. 
+1. Na barra de navegação rápida, clique em **Home** e clique no serviço de Pesquisa para abrir o painel do serviço.
 
-2. No painel de serviço, você verá blocos com as informações essenciais, bem como o ícone de chave para acessar as chaves de administrador.
+2. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
 
   	![][3]
 
@@ -79,15 +79,15 @@ Depois que o serviço for criado, você poderá retornar ao portal para obter a 
 Essa solução inclui dois projetos:
 
 - **DataIndexer**, um aplicativo de console Visual C#, usado para carregar dados
-- **SimpleSearchMVCApp**, um aplicativo Web MVC ASP.NET Visual C#, usado para consultar e retornar os resultados da pesquisa. 
+- **SimpleSearchMVCApp**, um aplicativo Web MVC ASP.NET Visual C#, usado para consultar e retornar os resultados da pesquisa.
 
 Nesta etapa, você criará ambos estes projetos.
 
-1. Comece em **Visual Studio** | **Novo Projeto** | **Visual C#** | **Aplicativo de Console**. 
+1. Comece em **Visual Studio** | **Novo Projeto** | **Visual C#** | **Aplicativo de Console**.
 2. Nomeie o projeto **DataIndexer** e, em seguida, nomeie a solução como **AzureSearchDotNetDemo**.
-3. No Gerenciador de Soluções, em solução, clique com o botão direito em **Adicionar** | **Novo projeto** | **Visual C#** | **Aplicativo Web ASP .NET**. 
+3. No Gerenciador de Soluções, em solução, clique com o botão direito em **Adicionar** | **Novo projeto** | **Visual C#** | **Aplicativo Web ASP .NET**.
 4. Nomeie o projeto **SimpleSearchMVCApp**.
-5. No novo projeto ASP.NET, escolha o modelo MVC e limpe as opções para evitar a criação de artefatos de programa que você não usará neste tutorial. 
+5. No novo projeto ASP.NET, escolha o modelo MVC e limpe as opções para evitar a criação de artefatos de programa que você não usará neste tutorial.
 
    Desmarque as caixas de seleção para hospedagem do Azure e testes de unidade e defina Autenticação como nenhuma.
 
@@ -99,7 +99,7 @@ Quando terminar de criar os projetos, sua solução deve ser semelhante ao exemp
 
 ##Instalar a biblioteca de cliente .NET e atualizar outros pacotes
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, então, clique em **Gerenciar Pacotes NuGet**. 
+1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, então, clique em **Gerenciar Pacotes NuGet**.
 2. Especifique **Atualizações** | **Apenas estáveis** | **Atualizar todas**.
 
    ![][11]
@@ -120,20 +120,20 @@ Uma lista parcial dos assemblies usado neste exemplo é mostrada abaixo.
 
 **DataIndexer** usa **System.Configuration** para ler as definições de configuração em app.config.
 
-1. Clique com o botão direito em **DataIndexer** | **Adicionar** | **Referência** | **Framework** | **System.Configuration**. Marque a caixa de seleção. 
+1. Clique com o botão direito em **DataIndexer** | **Adicionar** | **Referência** | **Framework** | **System.Configuration**. Marque a caixa de seleção.
 2. Clique em **OK**.
 
 ##Atualizar arquivos de configuração
 
 Cada projeto inclui os arquivos de configuração que especificam o nome do serviço e a chave de api.
 
-1. Em **DataIndexer**, substitua o App.config pelo exemplo a seguir, atualizando o [NOME DO SERVIÇO] e [CHAVE DE SERVIÇO] com valores válidos para seu serviço. 
+1. Em **DataIndexer**, substitua o App.config pelo exemplo a seguir, atualizando o [NOME DO SERVIÇO] e a [CHAVE DE SERVIÇO] com valores válidos para o seu serviço.
 
    O nome do serviço não é a URL completa. Por exemplo, se o ponto de extremidade de serviço de Pesquisa é *https://mysearchsrv.search.microsoft.net*, o nome de serviço que você inseriria em App.config é *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
-	      <startup> 
+	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	      </startup>
 	      <appSettings>
@@ -142,8 +142,8 @@ Cada projeto inclui os arquivos de configuração que especificam o nome do serv
 	      </appSettings>
 	    </configuration>
 
-2. Em **SimpleSearchMVCApp**, substitua o Web.config pelo exemplo a seguir, atualizando novamente o [NOME DO SERVIÇO] e [CHAVE DE SERVIÇO] com valores válidos para seu serviço.
-		
+2. Em **SimpleSearchMVCApp**, substitua o Web.config pelo exemplo a seguir, atualizando novamente o [NOME DO SERVIÇO] e a [CHAVE DE SERVIÇO] com valores válidos para o seu serviço.
+
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
 		  For more information on how to configure your ASP.NET application, please visit
@@ -160,7 +160,7 @@ Cada projeto inclui os arquivos de configuração que especificam o nome do serv
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
-		
+
 		    <add key="webpages:Version" value="2.0.0.0" />
 		    <add key="webpages:Enabled" value="false" />
 		    <add key="PreserveLoginUrl" value="true" />
@@ -287,34 +287,34 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 3. Substitua o código padrão pelo código a seguir.
 
 		//Copyright 2015 Microsoft
-		
+
 		//Licensed under the Apache License, Version 2.0 (the "License");
 		//you may not use this file except in compliance with the License.
 		//You may obtain a copy of the License at
-		
+
 		//       http://www.apache.org/licenses/LICENSE-2.0
-		
+
 		//Unless required by applicable law or agreed to in writing, software
 		//distributed under the License is distributed on an "AS IS" BASIS,
 		//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 		//See the License for the specific language governing permissions and
 		//limitations under the License.
-		
+
 		using System;
 		using System.Net.Http;
 		using System.Text;
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Converters;
 		using Newtonsoft.Json.Serialization;
-		
+
 		namespace DataIndexer
 		{
 		    public class AzureSearchHelper
 		    {
 		        public const string ApiVersionString = "api-version=2015-02-28";
-		
+
 		        private static readonly JsonSerializerSettings _jsonSettings;
-		
+
 		        static AzureSearchHelper()
 		        {
 		            _jsonSettings = new JsonSerializerSettings
@@ -323,36 +323,36 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                ContractResolver = new CamelCasePropertyNamesContractResolver(),
 		                DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		            };
-		
+
 		            _jsonSettings.Converters.Add(new StringEnumConverter());
 		        }
-		
+
 		        public static string SerializeJson(object value)
 		        {
 		            return JsonConvert.SerializeObject(value, _jsonSettings);
 		        }
-		
+
 		        public static T DeserializeJson<T>(string json)
 		        {
 		            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
 		        }
-		
+
 		        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
 		        {
 		            UriBuilder builder = new UriBuilder(uri);
 		            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
 		            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-		
+
 		            var request = new HttpRequestMessage(method, builder.Uri);
-		
+
 		            if (json != null)
 		            {
 		                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 		            }
-		
+
 		            return client.SendAsync(request).Result;
 		        }
-		
+
 		        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
 		        {
 		            if (!response.IsSuccessStatusCode)
@@ -386,24 +386,24 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		using System.Threading;
 		using System.Threading.Tasks;
 		using System.Timers;
-		
+
 		namespace DataIndexer
 		{
 		    class Program
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        // This Sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		            string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		            // Create an HTTP reference to the catalog index
 		            _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		            _indexClient = _searchClient.Indexes.GetClient("geonames");
-		
+
 		            Console.WriteLine("{0}", "Deleting index...\n");
 		            if (DeleteIndex())
 		            {
@@ -415,7 +415,7 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
 		            Console.ReadKey();
 		        }
-		
+
 		        private static bool DeleteIndex()
 		        {
 		            // Delete the index if it exists
@@ -429,10 +429,10 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
 		                return false;
 		            }
-		
+
 		            return true;
 		        }
-		
+
 		        private static void CreateIndex()
 		        {
 		            // Create the Azure Search index based on the included schema
@@ -441,8 +441,8 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                var definition = new Index()
 		                {
 		                    Name = "geonames",
-		                    Fields = new[] 
-		                    { 
+		                    Fields = new[]
+		                    {
 		                        new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
@@ -459,23 +459,23 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                        new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
 		                    }
 		                };
-		
+
 		                _searchClient.Indexes.Create(definition);
 		            }
 		            catch (Exception ex)
 		            {
 		                Console.WriteLine("Error creating index: {0}\r\n", ex.Message.ToString());
 		            }
-		
+
 		        }
-		
+
 		        private static void SyncDataFromAzureSQL()
 		        {
 		            // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
 		            Uri _serviceUri = new Uri("https://" + ConfigurationManager.AppSettings["SearchServiceName"] + ".search.windows.net");
 		            HttpClient _httpClient = new HttpClient();
 		            _httpClient.DefaultRequestHeaders.Add("api-key", ConfigurationManager.AppSettings["SearchServiceApiKey"]);
-		
+
 		            Console.WriteLine("{0}", "Creating Data Source...\n");
 		            Uri uri = new Uri(_serviceUri, "datasources/usgs-datasource");
 		            string json = "{ 'name' : 'usgs-datasource','description' : 'USGS Dataset','type' : 'azuresql','credentials' : { 'connectionString' : 'Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;' },'container' : { 'name' : 'GeoNamesRI' }} ";
@@ -485,7 +485,7 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                Console.WriteLine("Error creating data source: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Creating Indexer...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer");
 		            json = "{ 'name' : 'usgs-indexer','description' : 'USGS data indexer','dataSourceName' : 'usgs-datasource','targetIndexName' : 'geonames','parameters' : { 'maxFailedItems' : 10, 'maxFailedItemsPerBatch' : 5, 'base64EncodeKeys': false }}";
@@ -495,7 +495,7 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                Console.WriteLine("Error creating indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Syncing data...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer/run");
 		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Post, uri);
@@ -504,7 +504,7 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                Console.WriteLine("Error running indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            bool running = true;
 		            Console.WriteLine("{0}", "Synchronization running...\n");
 		            while (running)
@@ -516,7 +516,7 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                    Console.WriteLine("Error polling for indexer status: {0}", response.Content.ReadAsStringAsync().Result);
 		                    return;
 		                }
-		
+
 		                var result = AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
 		                if (result.lastResult != null)
 		                {
@@ -526,12 +526,12 @@ O código que chama a API REST deve incluir uma classe que lida com conexões e 
 		                            Console.WriteLine("{0}", "Synchronization running...\n");
 		                            Thread.Sleep(1000);
 		                            break;
-		
+
 		                        case "success":
 		                            running = false;
 		                            Console.WriteLine("Synchronized {0} rows...\n", result.lastResult.itemsProcessed.Value);
 		                            break;
-		
+
 		                        default:
 		                            running = false;
 		                            Console.WriteLine("Synchronization failed: {0}\n", result.lastResult.errorMessage);
@@ -581,7 +581,7 @@ Substitua o código padrão pelo código a seguir.
 	using System.Linq;
 	using System.Web;
 	using System.Web.Mvc;
-	
+
 	namespace SimpleSearchMVCApp.Controllers
 	{
 	    public class HomeController : Controller
@@ -589,26 +589,26 @@ Substitua o código padrão pelo código a seguir.
 	        //
 	        // GET: /Home/
 	        private FeaturesSearch _featuresSearch = new FeaturesSearch();
-	
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
-	
+
 	        public ActionResult Search(string q = "")
 	        {
 	            // If blank search, assume they want to search everything
 	            if (string.IsNullOrWhiteSpace(q))
 	                q = "*";
-	
+
 	            return new JsonResult
 	            {
 	                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
 	                Data = _featuresSearch.Search(q)
 	            };
 	        }
-	
-	
+
+
 	    }
 	}
 
@@ -620,10 +620,10 @@ Substitua o código padrão pelo código a seguir.
 	@{
 	    ViewBag.Title = "Azure Search - Feature Search";
 	}
-	
+
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-	
+
 	    $(function () {
 	        // Execute search if user clicks enter
 	        $("#q").keyup(function (event) {
@@ -632,12 +632,12 @@ Substitua o código padrão pelo código a seguir.
 	            }
 	        });
 	    });
-	
+
 	    function Search() {
 	        // We will post to the MVC controller and parse the full results on the client side
 	        // You may wish to do additional pre-processing on the data before sending it back to the client
 	        var q = $("#q").val();
-	
+
 	        $.post('/home/search',
 	        {
 	            q: q
@@ -661,11 +661,11 @@ Substitua o código padrão pelo código a seguir.
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_CREATED) + "</td>";
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_EDITED) + "</td></tr>";
 	            }
-	
+
 	            $("#searchResults").html(searchResultsHTML);
-	
+
 	        });
-	
+
 	        function parseJsonDate(jsonDateString) {
 	            if (jsonDateString != null)
 	                return new Date(parseInt(jsonDateString.replace('/Date(', '')));
@@ -673,10 +673,10 @@ Substitua o código padrão pelo código a seguir.
 	                return "";
 	        }
 	    };
-	
+
 	</script>
 	<h2>USGS Search for Rhode Island</h2>
-	
+
 	<div class="container">
 	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
 	</div>
@@ -703,23 +703,23 @@ Adicione uma classe que fornece a funcionalidade de pesquisa para seu aplicativo
 		using System.Configuration;
 		using System.Linq;
 		using System.Web;
-		
+
 		namespace SimpleSearchMVCApp
 		{
 		    public class FeaturesSearch
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        public static string errorMessage;
-		
+
 		        static FeaturesSearch()
 		        {
 		            try
 		            {
 		                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		                // Create an HTTP reference to the catalog index
 		                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		                _indexClient = _searchClient.Indexes.GetClient("geonames");
@@ -729,7 +729,7 @@ Adicione uma classe que fornece a funcionalidade de pesquisa para seu aplicativo
 		                errorMessage = e.Message.ToString();
 		            }
 		        }
-		
+
 		        public DocumentSearchResponse Search(string searchText)
 		        {
 		            // Execute search based on query string
@@ -744,7 +744,7 @@ Adicione uma classe que fornece a funcionalidade de pesquisa para seu aplicativo
 		            }
 		            return null;
 		        }
-		
+
 		    }
 		}
 
@@ -776,9 +776,9 @@ Você também pode tentar essas consultas, adicionando ou removendo operadores o
 
 Este é o primeiro tutorial da Pesquisa do Azure com base em .NET e no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial para demonstrar outros recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
 
-Se você já tiver alguma experiência com a Pesquisa do Azure, use este exemplo como um trampolim para tentar sugestores (consultas de preenchimento automático), filtros e navegação facetada. Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
+Se você já tiver alguma experiência com a Pesquisa do Azure, use este exemplo como um trampolim para experimentar sugestões (consultas de preenchimento automático ou de digitação antecipada), filtros e navegação facetada. Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para desenvolver uma compreensão do que você pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode ver os links em nossa [Lista de vídeos e Tutoriais](https://msdn.microsoft.com/library/azure/dn798933.aspx) para acessar mais informações.
+Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](http://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](https://msdn.microsoft.com/library/azure/dn798933.aspx) para acessar mais informações.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG
@@ -796,5 +796,6 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para de
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

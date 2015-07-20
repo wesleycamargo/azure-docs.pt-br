@@ -1,27 +1,31 @@
-<properties 
+<properties
    pageTitle="Implantação do seu dispositivo StorSimple local"
    description="Etapas e práticas recomendadas para implantar o serviço e o dispositivo StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
+
+[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
 ## Visão geral
 
 Bem-vindo à implantação do dispositivo Microsoft Azure StorSimple.
 
-Esta série de tutoriais descreve como configurar  seus dispositivos StorSimple e inclui uma lista de verificação de pré-instalação, pré-requisitos de configuração e etapas de configuração detalhadas.
+Esses tutoriais de implantação aplicam-se à versão de lançamento do StorSimple série 8000, atualização 0.1 do StorSimple série 8000, atualização 0.2 do StorSimple série 8000 e atualização 0.3 do StorSimple série 8000.
+
+Essa série de tutoriais descreve como configurar seus dispositivos StorSimple e inclui uma lista de verificação de pré-instalação, pré-requisitos de configuração e etapas de configuração detalhadas.
 
 > [AZURE.NOTE]As informações de implantação do StorSimple publicadas no site do Microsoft Azure e na Biblioteca MSDN se aplicam somente a dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, vá para: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
@@ -36,7 +40,7 @@ A lista de verificação de pré-instalação a seguir descreve as informações
 | | Requisitos | Detalhes | Valores |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | Nome amigável para o dispositivo | Um nome descritivo para o dispositivo | |
-| 2 | Configurações de rede <ol><li>Endereço IP do dispositivo</li><li>Interfaces de rede, 4 x 1 GbE, 2 x 10 GbE</li><li>Controlador IP fixo</li><li>Máscaras de sub-rede</li><li>Gateway</li></ol> | Total de IPs necessário: 8 <ol><li>Um por dispositivo</li><li>Um por interface de rede habilitada, total de 6</li><li>Um por controlador, total de 2</li><li>Um para cada endereço IP</li><li>Um por dispositivo</li></ol> | |
+| 2 | Configurações de rede <ol><li>Interfaces de rede, 4 x 1 GbE, 2 x 10 GbE</li><li>Controlador IP fixo</li><li>Máscaras de sub-rede</li><li>Gateway</li></ol> | Total de IPs necessário: 8 <ol><li>Um por interface de rede habilitada, total de 6</li><li>Um por controlador, total de 2</li><li>Um para cada endereço IP</li><li>Um por dispositivo</li></ol> | |
 | 3 | Acesso serial | Configuração inicial do dispositivo | Sim/Não |
 | 4 | Endereços IP do servidor DNS | Necessário para conectar-se ao Microsoft Azure: total de 2 necessários para alta disponibilidade | |
 | 5 | Endereços IP do servidor NTP | Necessário para sincronizar a hora com o Azure: 1 obrigatório, 1 opcional | |
@@ -75,13 +79,13 @@ Antes de configurar o dispositivo, verifique se:
 
 Siga estas etapas necessárias para configurar seu dispositivo StorSimple e conectá-lo ao serviço StorSimple Manager:
 
-- Etapa 1: Criar um novo serviço 
+- Etapa 1: Criar um novo serviço
 - Etapa 2: Obter a chave de registro do serviço
-- Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple 
+- Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple
 - Etapa 4: Concluir a instalação mínima do dispositivo
-- Etapa 5: Criar um contêiner de volume 
+- Etapa 5: Criar um contêiner de volume
 - Etapa 6: Criar um volume
-- Etapa 7: Montar, inicializar e formatar um volume 
+- Etapa 7: Montar, inicializar e formatar um volume
 - Etapa 8: Fazer um backup
 
 Além das etapas necessárias, há algumas etapas opcionais que você talvez precise concluir para implantar a sua solução. Estas etapas opcionais explicam como:
@@ -102,8 +106,8 @@ Um serviço StorSimple Manager pode gerenciar vários dispositivos StorSimple. E
 
 > [AZURE.IMPORTANT]Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
-> * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#Configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. 
-> * Se você tiver habilitado a criação automática de uma conta de armazenamento, vá para a Etapa 2: Obter a chave de registro do serviço.
+> * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#Configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
+> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
 
 ## Etapa 2: Obter a chave de registro do serviço
 
@@ -206,6 +210,6 @@ Para obter instruções de instalação de MPIO, vá para [Configurar MPIO para 
 Configurar um [dispositivo virtual](storsimple-virtual-device.md).
 
 Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -8,12 +8,12 @@
 	authors="HeidiSteen"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
+	ms.service="search" 
+	ms.workload="search" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure #
@@ -40,7 +40,6 @@ Este artigo é uma visão geral da tecnologia e quais recursos e cenários que e
 **Downloads:**
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Apresentando a Pesquisa do Azure" (em PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Apresentando a Pesquisa do Azure" (no Microsoft Word)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Apresentando a Pesquisa do Azure" (no Microsoft Word)</a> 
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

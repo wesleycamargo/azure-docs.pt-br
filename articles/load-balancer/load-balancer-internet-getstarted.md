@@ -124,4 +124,4 @@ Verifique o esquema de definição de serviço para a [investigação de integri
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

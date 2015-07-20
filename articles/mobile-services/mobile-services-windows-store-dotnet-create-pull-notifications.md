@@ -165,5 +165,6 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

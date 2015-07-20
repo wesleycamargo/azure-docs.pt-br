@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Criar um conjunto de disponibilidade usando modelos do Gerenciador de Recursos do Azure" 
-	description="Descreve como usar o modelo de conjunto de disponibilidade e inclui a sintaxe do modelo" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Criar um conjunto de disponibilidade usando modelos do Gerenciador de Recursos do Azure"
+	description="Descreve como usar o modelo de conjunto de disponibilidade e inclui a sintaxe do modelo"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/04/2015"
 	ms.author="kathydav"/>
 
 # Criar um conjunto de disponibilidade usando modelos do Gerenciador de Recursos do Azure
 
 Você pode criar facilmente um conjunto de disponibilidade para uma máquina virtual usando o PowerShell do Azure ou a CLI (Linha de Comando do Azure) e um modelo do Gerenciador de Recursos. Este modelo cria um conjunto de disponibilidade.
- 
-Antes de mergulhar de cabeça, verifique se você tem o PowerShell e a CLI do Azure configurados e prontos.
+
+Antes de começar, verifique se você tem o PowerShell do Azure e a CLI do Azure configurados e prontos.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -33,7 +33,7 @@ Siga estas etapas para criar um conjunto de disponibilidade para uma máquina vi
 
 ### Etapa 1: baixar o arquivo JSON
 
-Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\Azure\Templates\availability).
+Designe uma pasta local como a localização dos arquivos do modelo JSON e crie-a (por exemplo, C:\\Azure\\Templates\\availability).
 
 Substitua o nome de pasta e copie e execute estes comandos.
 
@@ -41,14 +41,14 @@ Substitua o nome de pasta e copie e execute estes comandos.
 	$webclient = New-Object System.Net.WebClient
 	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath) 
+	$webclient.DownloadFile($url,$filePath)
 
 ### Etapa 2: reunir os detalhes dos parâmetros necessários
 
-Quando usar um modelo, você terá que fornecer detalhes como local, nome do conjunto e assim por diante. Para descobrir quais parâmetros são necessários para um modelo, siga um destes procedimentos:
+Quando você usar um modelo, precisará fornecer detalhes como o local e nome do conjunto. Para descobrir quais parâmetros são necessários para um modelo, siga um destes procedimentos:
 
 - Examine a lista de parâmetros [aqui](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
-- Abra o arquivo JSON em uma ferramenta ou editor de texto de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual. 
+- Abra o arquivo JSON em uma ferramenta ou editor de texto de sua escolha. Procure a seção "parâmetros" na parte superior do arquivo, que lista o conjunto de parâmetros necessários ao modelo para configurar a máquina virtual.
 
 Reúna as informações necessárias para tê-las à disposição para inserção. Quando você executar o comando para implantar o modelo, receberá uma solicitação para fornecer informações.
 
@@ -63,7 +63,7 @@ Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -103,10 +103,4 @@ Siga estas etapas para criar o conjunto de disponibilidade usando um modelo do G
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

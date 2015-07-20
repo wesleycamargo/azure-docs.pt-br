@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Introdução ao Fleet no CoreOS no Azure" 
-	description="Fornece exemplos básicos do uso de fleet e Docker em uma máquina virtual de CoreOS Linux no Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="dlepow" 
+<properties
+	pageTitle="Introdução ao Fleet no CoreOS no Azure"
+	description="Fornece exemplos básicos do uso de fleet e Docker em uma máquina virtual de CoreOS Linux no Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
 	manager="timlt"
 	editor="madhana"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.workload="infrastructure-services" 
-	ms.date="03/17/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/17/2015"
 	ms.author="danlep"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # Introdução ao Fleet no CoreOS no Azure
 
 Este artigo oferece dois exemplos rápidos de uso do [fleet](https://github.com/coreos/fleet) e do [Docker](https://www.docker.com/) para executar aplicativos em um cluster de máquinas virtuais do [CoreOS].
@@ -156,7 +154,7 @@ Você pode tentar algo mais com o cluster CoreOS de três nós no Azure. Explore
 Confira também [Computação de software livre e do Linux no Azure] para saber mais sobre como usar ambientes de software livre em VMs Linux no Azure.
 
 <!--Link references-->
-[Azure Cross-Platform Interface (xplat-cli)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
 [CoreOS]: https://coreos.com/
 [Visão geral do CoreOS]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -171,4 +169,6 @@ Confira também [Computação de software livre e do Linux no Azure] para saber 
 [imagem do Docker Hub do busybox]: https://registry.hub.docker.com/_/busybox/
 [imagem do Docker Hub do CoreOS Apache]: https://registry.hub.docker.com/u/coreos/apache/
 [Computação de software livre e do Linux no Azure]: virtual-machines-linux-opensource.md
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

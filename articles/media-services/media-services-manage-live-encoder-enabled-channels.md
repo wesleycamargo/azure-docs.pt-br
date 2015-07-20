@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure (Visualização)
@@ -40,6 +40,16 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, vo
 O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que um canal recebe um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG TS); em seguida, ele codifica o fluxo em um fluxo de múltiplas taxas de bits.
 
 ![Fluxo de trabalho ao vivo][live-overview]
+
+>[AZURE.NOTE]Nem todos os data centers oferecem suporte à Codificação ao Vivo com os Serviços de Mídia do Azure.
+>
+>Se você estiver usando o Portal de gerenciamento do Azure para criar canais, terá duas opções de codificação tipo disponíveis de canal: **Nenhum** e **Padrão**. Se você vir somente a opção **Nenhum**, isso significa seu data center não oferece suporte à Codificação ao Vivo com o AMS.
+>
+>Se você estiver usando o SDK .NET ou API REST, faça o seguinte para verificar:
+>
+>1. Tente criar um Canal com o tipo de codificação definido como padrão. 
+>2. Se o resultado retornado for HTTP Error Code 412 (Falha na pré-condição) com a seguinte mensagem: *"Codificação ao vivo não tem suporte nesta região; EncodingType deve ser definido como 'Nenhum'."*, seu data center não oferece suporte para Codificação ao Vivo.
+
 
 ##Neste tópico
 
@@ -69,7 +79,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 	Ao usar o Portal de Gerenciamento do Azure, criar um programa também cria um ativo.
 
-	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
+	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa. 
 1. Publique o ativo associado ao programa.   
 
 	Certifique-se de ter pelo menos uma unidade reservada para streaming no ponto de extremidade de streaming por meio do qual você deseja transmitir o conteúdo.
@@ -107,29 +117,29 @@ Considerações:
 - A seguir, a lista dos codecs com suporte:
 	- Vídeo MPEG-2 / H.262 
 		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+		- Perfil Principal (4:2:0)
+		- Perfil Alto (4:2:0, 4:2:2)
+		- Perfil 422 (4:2:0, 4:2:2)
 
-	- Vídeo MPEG-4 AVC / H.264  
+	- Vídeo MPEG-4 AVC / H.264
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Linha de base, Principal, Perfil Alto (8 bits 4:2:0)
+		- Perfil Alto 10 (10 bits 4:2:0)
+		- Perfil Alto 422 (10 bits 4:2:2)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- Áudio MPEG-2 AAC-LC
 	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- Mono, Estéreo, Surround (5.1, 7.1)
+		- Empacotamento de ADTS estilo MPEG-2
 
-	- Dolby Digital (AC-3) Audio 
+	- Áudio Dolby Digital (AC-3)
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+		- Mono, Estéreo, Surround (5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- Áudio MPEG (camada II e III)
 			
-		- Mono, Stereo
+		- Mono, estéreo
 
 - Os codificadores para difusão recomendados incluem:
 	- Ateme AM2102
@@ -158,15 +168,15 @@ Considerações:
 
 	- Vídeo MPEG-4 AVC / H.264  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Linha de base, Principal, Perfil Alto (8 bits 4:2:0)
+		- Perfil Alto 10 (10 bits 4:2:0)
+		- Perfil Alto 422 (10 bits 4:2:2)
 
 	- Áudio MPEG-2 AAC-LC
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- Mono, Estéreo, Surround (5.1, 7.1)
+		- Taxa de amostragem de 44,1 kHz
+		- Empacotamento de ADTS estilo MPEG-2
 	
 - Os codificadores recomendados incluem:
 
@@ -304,9 +314,10 @@ Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo down
 
 ###Mostrar slate
 
-Opcional. Sinaliza o codificador ao vivo para alternar para a imagem de slate padrão durante um intervalo comercial e ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
+Opcional. Sinaliza o codificador ao vivo para alternar para a imagem de [slate padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
  
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição.
+
 
 ##Inserir imagens Slate
 
@@ -322,14 +333,17 @@ A duração do slate em segundos. Isso deve ser um valor positivo diferente de z
 
 Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true.
 
-###ID de ativo de slate padrão
+###<a id="default_slate"></a>ID de ativo de slate padrão
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo.
 
-**Observação**: antes de criar o canal, a imagem slate, com resolução máxima de 1920 x 1080, em formato JPEG e com tamanho máximo de 3 megabytes, deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). O nome do arquivo deve ter uma extensão *.jpg e esse AssetFile deve ser marcado como o arquivo principal para esse ativo. Esse ativo não pode ser armazenado criptografado.
+**Observação**: antes de criar o canal, a imagem slate, com as seguintes restrições deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
+
+- No máximo 1920x1080 na resolução.
+- No máximo 3 megabytes de tamanho.
+- O nome do arquivo deve ter uma *extensão .jpg. - A imagem deve ser carregada em um ativo como o único AssetFile que ativo e esse AssetFile deve ser marcado como o arquivo primário. Esse ativo não pode ser armazenado criptografado.
 
 Se a **ID padrão do ativo do slate** não for especificada, e **Inserir slate no marcador de anúncio** for definido como **true**, uma imagem padrão dos Serviços de Mídia do Azure será usada para ocultar o fluxo de entrada de vídeo. O áudio também é desligado durante o slate.
-
 
 
 ##Programas do canal
@@ -378,8 +392,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 </table>
 
 
->[AZURE.NOTE]Atualmente na visualização, a inicialização do canal pode levar até 30 minutos. A redefinição de canal pode levar até 5 minutos.
-
+>[AZURE.NOTE]Atualmente na visualização, a inicialização do canal pode levar até mais de 20 minutos. A redefinição de canal pode levar até 5 minutos.
 
 
 ##<a id="Considerations"></a>Considerações
@@ -390,6 +403,12 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 - Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
 - Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
+
+##Problemas conhecidos
+
+- A inicialização do canal pode levar mais de 20 minutos.
+- O suporte RTP é fornecido na para difusores profissionais. Leia as notas de RTP [nesse](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- As imagens slate devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
 
 
 ##<a id="tasks"></a>Tarefas relacionadas ao streaming ao vivo
@@ -420,10 +439,14 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###Protegendo ativos
+
+**Visão geral**:
+
+[Visão geral da proteção de conteúdo](media-services-content-protection-overview.md)
 
 Se você deseja criptografar um ativo associado um programa à criptografia AES (de padrão avançado, usando chaves de criptografia de 128 bits) ou DRM PlayReady, você precisa criar uma chave de conteúdo.
 
@@ -435,12 +458,17 @@ Depois de criar a chave de conteúdo, você pode configurar a política de autor
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-###Publicação e distribuição de ativos
+####Integração com parceiros
+
+[Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
+
+
+###Publicando e fornecendo ativos
 
 **Visão geral**:
 
 - [Visão geral do empacotamento dinâmico](../media-services-dynamic-overview.md)
-- [Visão geral da entrega de conteúdo](media-services-deliver-content-overview.md)
+
 
 Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 
@@ -450,6 +478,11 @@ Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciam
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+Fornecer Conteúdo
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Habilitando o CDN do Azure
 
@@ -467,8 +500,9 @@ Para obter informações sobre unidades de streaming de dimensionamento, consult
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
+[Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

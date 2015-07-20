@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
+	ms.date="06/24/2015"
 	ms.author="pehteh"/>
 
 
@@ -37,14 +37,27 @@ Este tópico é dividido em duas seções:
 A tabela a seguir exibe as bibliotecas lançadas pela Microsoft. A coluna **Bibliotecas** fornece links que você pode usar para baixar cada biblioteca. A coluna **Versão** lista a versão mínima recomendada para interação com o Banco de Dados SQL do Azure e com o Microsoft SQL Server.
 
 
-| Plataforma | Sistema operacional | Bibliotecas | Versão | Descrição |
-| :--- | :--- | :--- | :--- | :--- |
-| .NET | Plataforma cruzada (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5+ | Provedor do SQL Server para .NET Framework |
-| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/pt-br/download/details.aspx?id=20098) | 2.0+ | Driver PHP para SQL Server |
-| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/pt-br/download/details.aspx?id=11774) | 2.0+ | Driver JDBC tipo 4 que fornece conectividade de banco de dados por meio da API JDBC padrão |
-| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/pt-br/download/details.aspx?id=36434) | 11.0+ | Microsoft ODBC Driver para SQL Server |
-| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/pt-br/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver para SQL Server |
-| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/pt-br/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver para SQL Server |
+| Plataforma | Sistema operacional | Bibliotecas<br/>para Download | Versão<br/>do Driver | Descrição<br/>do Driver | Mais<br/>informações |
+| :--- | :--- | :--- | :--- | :--- | :-- |
+| .NET | Plataforma cruzada (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5+ | Provedor do SQL Server para .NET Framework | . |
+| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | Driver PHP para SQL Server | [Link](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ | Driver JDBC tipo 4 que fornece conectividade de banco de dados por meio da API JDBC padrão | [Link](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Microsoft ODBC Driver para SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver para SQL Server | . |
+| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver para SQL Server | . |
+
+
+### OLEDB para DB2 e SQL Server, para design DRDA
+
+
+O Microsoft OLE DB Provider for DB2 versão 5.0 (Provedor de Dados) permite criar aplicativos distribuídos destinados a bancos de dados IBM DB2. O Provedor de Dados aproveita a arquitetura de acesso aos dados do Microsoft SQL Server junto com um cliente de rede da Microsoft para DB2 que funciona como um solicitante de aplicativo DRDA (Distributed Relational Database Architecture). O Provedor de Dados converte tipos de dados e comandos OLE DB Microsoft COM (Component Object Model) em pontos de código de protocolo DRDA e formatos de dados.
+
+
+Para obter mais informações, consulte:
+
+
+- [Microsoft OLE DB Provider para DB2 versão 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
+- [Microsoft OLEDB Provider para DB2 v4.0 para Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
 
 ## Bibliotecas de terceiros
@@ -69,4 +82,4 @@ A tabela a seguir exibe as bibliotecas lançadas por terceiros, como outras empr
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

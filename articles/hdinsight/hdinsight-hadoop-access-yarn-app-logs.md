@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Acessar logs de aplicativos YARN no HDInsight programaticamente | Microsoft Azure" 
-	description="Acessar os Logs de aplicativo do HDInsight programaticamente." 
+	pageTitle="Acessar logs do aplicativo YARN no Hadoop programaticamente | Microsoft Azure" 
+	description="Acessar logs do aplicativo programaticamente em um cluster de Hadoop no HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Acessar logs de aplicativo YARN no HDInsight programaticamente
+# Acessar logs do aplicativo YARN no Hadoop no HDInsight programaticamente
 
 Este tópico explica como enumerar programaticamente os aplicativos YARN (Yet Another Resource Negotiator, ou “mais um negociador de recursos”) que acabaram em um cluster Hadoop no Azure HDInsight e como acessar programaticamente os logs dos aplicativos sem precisar se conectar aos clusters, usando o protocolo RDP. Especificamente, foram adicionados um novo componente e uma nova API:
 
@@ -163,10 +163,14 @@ Se necessário, você também pode baixar os logs de cada contêiner (ou de um c
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
 	}
+
+
+
 [YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

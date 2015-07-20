@@ -100,11 +100,9 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo A
 
 Em seguida, tente um destes outros tutoriais do Android:
 
-* [Introdução à autenticação] 
-	<br/>Saiba como autenticar usuários de seu aplicativo.
+* [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo.
 
-* [Introdução às notificações por push]
-  <br/>Saiba como enviar uma notificação por push bastante básica a seu aplicativo com os Serviços Móveis.
+* [Introdução às notificações por push] <br/>Saiba como enviar uma notificação por push bastante básica ao seu aplicativo com os Serviços Móveis.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@ Em seguida, tente um destes outros tutoriais do Android:
 [SDK de Serviços Móveis para Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

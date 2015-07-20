@@ -56,5 +56,6 @@ Experimente o exemplo a seguir: [Analisando dados do sensor usando o Hive com HD
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

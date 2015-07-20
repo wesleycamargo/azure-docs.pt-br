@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Instalar o dispositivo StorSimple 8600
@@ -41,10 +41,10 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 1. Inspecione as caixas e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. Contate o Suporte da Microsoft para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 
 2. Abra as duas caixas e desempacote os compartimentos principal e EBOD. A figura a seguir mostra o dispositivo de armazenamento desempacotado.
- 
-    **Figura 1 Exibição do dispositivo de armazenamento desempacotado**
 
     ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+ 
+    **Figura 1: Exibição do dispositivo de armazenamento desempacotado**
 
      Rótulo | Descrição 
      ----- | -------------
@@ -112,9 +112,9 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 
 2. Normalmente, esses trilhos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.
 
-    **Figura 2 Fixando as corrediças do trilho nas laterais do compartimento**
-
     ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **Figura 2: Fixando corrediças às laterais do compartimento**
 
     Rótulo | Descrição
     ----- | -----------
@@ -129,9 +129,9 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 
 6. Repita estas etapas para o outro módulo do trilho.
 
-    **Figura 3 Fixando os módulos do trilho no rack**
-
      ![Fixando as corrediças do trilho no gabinete do rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figura 3: Fixando os conjuntos de trilhos ao rack**
 
      Rótulo | Descrição
      ----- | -----------
@@ -151,17 +151,17 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
 2. Com cuidado, insira o compartimento nos trilhos e empurre-o completamente para dentro do gabinete do rack.
 
-    **Figura 4 Montando o compartimento no rack**
-
     ![Inserindo o dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figura 4: Montando o compartimento no rack**
 
 3. Prenda o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
 
 4. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.
 
-    **Figura 5 Instalando as tampas do flange**
-
      ![Instalando as tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+
+    **Figura 5: Instalando as tampas do flange**
  
      Rótulo | Descrição
      ----- | -----------
@@ -208,9 +208,9 @@ Em seguida, identifique o compartimento principal e o compartimento EBOD.
 
 1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a figura abaixo para se orientar.
 
-    **Figura 6 Parte posterior dos compartimentos principal e EBOD**
-
     ![Compartimentos principal e EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
+
+    **Figura 6: Parte posterior dos compartimentos principal e EBOD**
 
      Rótulo | Descrição
      ----- | -----------
@@ -220,9 +220,9 @@ Em seguida, identifique o compartimento principal e o compartimento EBOD.
 
 2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. Contate o Suporte da Microsoft imediatamente se os números de série não corresponderem. Consulte a figura a seguir para saber como localizar os números de série.
 
-    **Figura 7 Visão traseira do compartimento mostrando o local do número de série**
-
     ![Local do número de série](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+
+    **Figura 7: Visão traseira do compartimento mostrando o local do número de série**
 
      Rótulo | Descrição
      ----- | -----------
@@ -235,9 +235,9 @@ Use os cabos SAS fornecidos para conectar o compartimento EBOD ao compartimento 
 
 1. Identifique as quatro portas SAS (Serial Attached SCSI) no compartimento principal e no compartimento EBOD. As portas SAS são rotuladas como EBOD no compartimento principal e CTRL no compartimento EBOD, conforme mostrado na Figura 8.
 
-    **Figura 8 Local das portas SAS nos compartimentos principal e EBOD**
-
     ![Local das portas SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
+
+    **Figura 8: Local das portas SAS nos compartimentos principal e EBOD**
 
      Rótulo | Descrição
      ----- | -----------
@@ -284,9 +284,9 @@ Execute as etapas a seguir para cabear o dispositivo para recebimento de energia
 
 > [AZURE.IMPORTANT]Para garantir a alta disponibilidade do sistema, é recomendável que você siga fielmente o esquema de cabeamento de energia mostrado no diagrama que se segue.
 
-   **Figura 9 Cabeamento de energia para o dispositivo**
-
    ![Diagrama do cabeamento de energia](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
+
+   **Figura 9: Cabeamento de energia para o dispositivo**
 
      Label | Description
      ----- | -----------
@@ -311,9 +311,9 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
 1. Seu dispositivo tem seis interfaces de rede em cada controlador: quatro de 1 Gbps e duas portas Ethernet de 10 Gbps. Consulte a ilustração a seguir para identificar as portas de dados no backplane do dispositivo.
 
-    **Figura 10 Parte de trás do dispositivo mostrando as portas de dados**
-
      ![Backplane do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figura 10: Parte de trás do dispositivo mostrando as portas de dados**
  
      Rótulo | Descrição
      ------- | -----------
@@ -332,9 +332,9 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
 No mínimo, configure uma interface de rede para acesso à nuvem e uma para iSCSI. Para alta disponibilidade e desempenho, configure dois pares de interfaces de rede em cada controlador. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
 
-**Figura 11 Cabeamento de rede para o dispositivo**
-
 ![Cabear o dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+
+**Figura 11: Cabeamento de rede para o dispositivo**
 
 Rótulo | Descrição
 ----- | -----------
@@ -382,4 +382,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

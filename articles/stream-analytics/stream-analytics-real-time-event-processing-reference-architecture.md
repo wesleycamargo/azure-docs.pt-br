@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Processamento de eventos em tempo real com o Stream Analytics | Azure" 
+	pageTitle="Processamento de eventos em tempo real com o Stream Analytics | Microsoft Azure" 
 	description="Saiba como um conjunto de serviços do Azure pode interoperar para habilitar a análise e o processamento de eventos em tempo real." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
@@ -60,5 +60,6 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

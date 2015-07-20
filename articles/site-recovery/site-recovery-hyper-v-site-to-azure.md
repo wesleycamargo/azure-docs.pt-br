@@ -61,11 +61,7 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 - Você deve executar as versões mais recentes do Provedor e do agente.
 - Todos os servidores Hyper-V em um cofre devem ter as mesmas versões.
 - O Provedor precisará se conectar ao Azure Site Recovery pela Internet. Você pode fazer isso sem um proxy, usando as configurações de proxy configuradas no servidor VMM ou usando as configurações personalizadas de proxy definidas durante a instalação do Provedor. Para usar um servidor proxy existente, verifique se as URLs de conexão com o Azure têm permissão no firewall:
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
 - Para usar o proxy personalizado, configure-o antes de instalar o Provedor. Durante a instalação do Provedor, você precisará especificar o endereço do servidor proxy e a porta, além das credenciais que podem ser usadas para acesso.
 
 A figura abaixo mostra os canais de comunicação e as portas diferentes usados pelo Azure Site Recovery para coordenação e a replicação
@@ -73,7 +69,7 @@ A figura abaixo mostra os canais de comunicação e as portas diferentes usados 
 ![Topologia B2A](./media/site-recovery-hyper-v-site-to-azure/B2ATopology.png)
 
  
-## Etapa 1: Criar um cofre
+## Etapa 1: criar um cofre
 
 1. Entre no [Portal de Gerenciamento](https://portal.azure.com).
 
@@ -94,7 +90,7 @@ A figura abaixo mostra os canais de comunicação e as portas diferentes usados 
 Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
 
 
-## Etapa 2: Criar um site do Hyper-V
+## Etapa 2: criar um site do Hyper-V
 
 1. Na página Serviços de Recuperação, clique no cofre para abrir a página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
 
@@ -109,7 +105,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 	![Site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateSite2.png)
 
 
-## Etapa 3: Instalar o Provedor e o agente
+## Etapa 3: instalar o Provedor e o agente
 Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 em cada nó no cluster de failover. Após o registro de todos os nós e a habilitação da proteção, as máquinas virtuais serão protegidas mesmo se migrarem entre nós no cluster de failover.
 
 1. Em **Preparar servidores Hyper-V**, clique em **Baixar um arquivo de chave de registro**.
@@ -143,11 +139,7 @@ Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hype
 	- Se o proxy padrão no servidor Hyper-V exigir autenticação, você deverá selecionar o uso de um servidor proxy personalizado. Digite os detalhes do proxy padrão e especifique as credenciais.
 	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor. 
 	- As URLs a seguir devem estar acessíveis no host Hyper-v
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
@@ -165,15 +157,15 @@ Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hype
 
 Observe que se você quiser instalar o Provedor no Server Core do Windows Server 2012 R2 ou do Hyper-V Server 2012 R2 autônomo, faça o seguinte:
 
-1. Baixe o arquivo de instalação do Provedor e a chave de registro.
+1. Baixe o arquivo de instalação do Provedor e a chave de registro em uma pasta, por exemplo, C:\\ASR.
 2. Extraia o instalador do Provedor digitando:
 
-	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
-	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\ASR
+	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. Instale o Provedor digitando:
 
-	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+	    C:\ASR> setupdr.exe /i
 
 4. Registre o servidor digitando:
 
@@ -187,17 +179,18 @@ Observe que se você quiser instalar o Provedor no Server Core do Windows Server
 		- /proxyUsername <username>: credenciais, caso o proxy exija autenticação.
 		- proxyPassword <password>
 
-## Etapa 4: Criar recursos do Azure
+>[AZURE.NOTE]Você pode configurar cada host Hyper-V individual para usar configurações de largura de banda de rede diferentes para replicar as máquinas virtuais no Azure. Saiba mais sobre [Como gerenciar o uso de largura de banda de rede para proteção do local para o Azure](https://support.microsoft.com/pt-br/kb/3056159)
+
+
+## Etapa 4: criar recursos do Azure
 
 1. Na página **Preparar recursos**, selecione **Criar Conta de Armazenamento** para criar uma conta de armazenamento do Azure, caso você ainda não tenha uma. A conta deve ter a replicação geográfica habilitada. Ela deve estar na mesma região que o cofre do Azure Site Recovery e estar associada à mesma assinatura.
 
 	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
+## Etapa 5: criar e configurar grupos de proteção
 
-## Etapa 5: Criar e configurar grupos de proteção
-
-Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo.
-1. Em **Criar e configurar grupos de proteção**, clique em **Criar um grupo de proteção**. Se algum pré-requisito não estiver em vigor, uma mensagem será emitida e você poderá clicar em **Exibir detalhes** para saber mais.
+Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você deseja proteger usando as mesmas configurações de proteção. Aplique as configurações de proteção em um grupo de proteção e essas configurações serão aplicadas em todas as máquinas virtuais que você adicionar ao grupo. 1. Em **Criar e configurar grupos de proteção**, clique em **Criar um grupo de proteção**. Se algum pré-requisito não estiver em vigor, uma mensagem será emitida e você poderá clicar em **Exibir detalhes** para saber mais.
 
 2. Na guia **Grupos de Proteção**, adicione um grupo de proteção. Especifique um nome, o site de origem Hyper-V, o **Azure** de destino, o nome da sua assinatura do Azure Site Recovery e a conta de armazenamento do Azure.
 
@@ -212,7 +205,8 @@ Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você 
 	![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroup4.png)
 
 
-## Etapa 6: Habilitar a proteção da máquina virtual
+## Etapa 6: habilitar a proteção da máquina virtual
+
 
 Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 
@@ -251,8 +245,8 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 		- **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover. Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
 		 
 		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
-	
-## Etapa 7: Criar um plano de recuperação
+
+## Etapa 7: criar um plano de recuperação
 
 Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md)
 
@@ -302,4 +296,4 @@ Para executar o failover de teste, faça o seguinte:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

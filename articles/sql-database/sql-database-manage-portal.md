@@ -55,16 +55,19 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
 * [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico][]   
 * [Referência Transact-SQL (Banco de Dados SQL)][]
   
-[Azure Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
-[Management Portal]: https://portal.azure.com
-[Azure part monitoring]: ../documentdb-monitor-accounts.md
-[AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
-[Introdução ao Banco de Dados SQL]: http://azure.microsoft.com/services/sql-database
-[Database geo-replication]: http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/
-[Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio]: sql-database-manage-azure-ssms.md
-[Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
-[Referência Transact-SQL (Banco de Dados SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
-[AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
-[AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
+  [Azure Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
+  [Management Portal]: https://portal.azure.com
+  [Azure part monitoring]: ../documentdb-monitor-accounts.md
+  [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
+  [Introdução ao Banco de Dados SQL]: http://azure.microsoft.com/services/sql-database
+  [Database geo-replication]: http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/
+  [Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio]: sql-database-manage-azure-ssms.md
+  [Monitorando o Banco de Dados SQL Usando Exibições de Gerenciamento Dinâmico]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Referência Transact-SQL (Banco de Dados SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
+  [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
-<!---HONumber=58--> 
+ 
+ 
+
+<!---HONumber=July15_HO2-->

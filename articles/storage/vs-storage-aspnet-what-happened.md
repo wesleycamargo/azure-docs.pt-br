@@ -3,7 +3,7 @@
 	description="Descreve o que aconteceu durante a criação de um armazenamento do Azure em um projeto de Visual Studio ASP.NET" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# O que aconteceu com meu projeto?
 
 > [AZURE.SELECTOR]
-> - [Introdução](vs-storage-aspnet-getting-started-blobs.md)
-> - [O que aconteceu](vs-storage-aspnet-what-happened.md)
+> - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
-### <span id="whathappened">O que aconteceu com meu projeto?</span>
+###<span id="whathappened">O que aconteceu com meu projeto?</span>
 
 ##### Referências adicionadas
 
-O pacote do NuGet do armazenamento do Azure foi adicionado ao seu projeto do Visual Studio.  
-Esse pacote adiciona as referências de .NET a seguir:
+O pacote do NuGet do armazenamento do Azure foi adicionado ao seu projeto do Visual Studio. Esse pacote adiciona as referências de .NET a seguir:
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -36,9 +37,9 @@ Esse pacote adiciona as referências de .NET a seguir:
 - `System.Data`
 - `System.Spatial`
 
-##### Cadeia de conexão do Armazenamento do Azure adicionada 
+#####Cadeia de conexão do Armazenamento do Azure adicionada 
 No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
-<!--HONumber=47-->
- 
+
+<!---HONumber=July15_HO2-->

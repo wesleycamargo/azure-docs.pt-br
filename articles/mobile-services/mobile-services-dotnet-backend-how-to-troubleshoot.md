@@ -68,7 +68,7 @@ Um dos principais recursos de back-end .NET é a capacidade de depurar o código
 
     ![Configurar carregamento de símbolo][SymbolLoading]
 
-3. Selecione o nó **Símbolos** à esquerda e adicione uma referência para o servidor (SymbolSource)[http://symbolsource.org] usando o URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Os símbolos para o back-end .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
+3. Selecione o nó **Símbolos** à esquerda e adicione uma referência para o servidor (SymbolSource)[http://symbolsource.org] usando o URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Os símbolos para o back-end do .NET dos Serviços Móveis são disponibilizados lá com uma versão bem nova.
  
     ![Configurar servidor de símbolo][SymbolServer]
 
@@ -153,4 +153,5 @@ As migrações podem ser complexas e exigir que o estado do banco de dados seja 
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

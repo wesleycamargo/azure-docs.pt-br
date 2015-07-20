@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Acesso a conjuntos de dados do Python com a biblioteca de cliente do Python de Aprendizado de Máquina | Azure" 
+	pageTitle="Acesso a conjuntos de dados com a biblioteca de cliente do Python de Aprendizado de Máquina | Microsoft Azure" 
 	description="Instalar e usar a biblioteca de cliente do Python para acessar e gerenciar dados de Aprendizado de Máquina do Azure com segurança em um ambiente local do Python." 
 	services="machine-learning" 
 	documentationCenter="python" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/07/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -80,7 +80,10 @@ Se a sua função não estiver definida como **Proprietário**, você pode solic
 
 Para obter o token de autorização, você pode fazer o seguinte:
 
-1. Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. ![](http://i.imgur.com/h33GoZX.jpg) Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+1. Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
 
 Depois que os desenvolvedores tiverem obtido a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o trecho de código, independentemente de sua função.
@@ -362,5 +365,6 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

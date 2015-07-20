@@ -5,14 +5,14 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/06/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos" />
 
 # Solucionar problemas de implantação do dispositivo StorSimple
@@ -30,7 +30,7 @@ Este artigo também descreve as ferramentas para solucionar problemas de implant
 Se você tiver um problema ao implantar seu dispositivo pela primeira vez, considere o seguinte:
 
 - Se você estiver solucionando problemas de um dispositivo físico, verifique se o hardware foi instalado e configurado como descrito em [Instalação de hardware do dispositivo](https://msdn.microsoft.com/library/azure/dn772375.aspx).
-- Verifique os pré-requisitos da implantação. Verifique se você tem todas as informações descritas na [lista de verificação de implantação](lista de verificação storsimple-implantação-passo-a-passo.md#pré-instalação).
+- Verifique os pré-requisitos da implantação. Certifique-se de ter todas as informações descritas na [lista de verificação de implantação](storsimple-deployment-walkthrough.md#pre-installation-checklist).
 - Examine as notas de versão do StorSimple para ver se o problema é descrito. As notas de versão incluem soluções alternativas para problemas de instalação conhecidos. 
 
 Durante a implantação do dispositivo, os problemas mais comuns enfrentados pelos usuários ocorrem quando eles executam o assistente de instalação e quando registram o dispositivo via Windows PowerShell para StorSimple. (Você usa o Windows PowerShell para StorSimple para registrar e configurar seu dispositivo StorSimple. Para obter mais informações sobre o registro do dispositivo, consulte [Registrar seu dispositivo](https://msdn.microsoft.com/library/azure/dn757742.aspx)).
@@ -39,7 +39,7 @@ As seções a seguir podem ajudar você a resolver problemas encontrados ao conf
 
 ## Processo do assistente de instalação inicial
 
-As etapas a seguir resumem o processo do assistente de instalação. Para obter informações detalhadas sobre instalação, consulte o [Passo a passo da implantação do StorSimple](storsimple-deployment-walkthrough.md).
+As etapas a seguir resumem o processo do assistente de instalação. Para obter informações detalhadas sobre instalação, consulte [Implantar o dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
 1. Execute o cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) para iniciar o assistente de instalação, que orientará você pelo resto das etapas. 
 2. Configure a rede: o assistente de instalação permite definir configurações de rede para a interface de rede DADOS 0 em seu dispositivo StorSimple. Essas configurações incluem o seguinte:
@@ -47,13 +47,13 @@ As etapas a seguir resumem o processo do assistente de instalação. Para obter 
   - Servidor DNS primário – o cmdlet [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) é executado em segundo plano. Ele define as configurações de DNS para sua solução StorSimple.
   - Servidor NTP – o cmdlet [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) é executado em segundo plano. Ele define as configurações do servidor NTP para sua solução StorSimple.
   - Proxy da Web opcional – o cmdlet [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) é executado em segundo plano. Ele define e habilita a configuração do proxy da Web para sua solução StorSimple.
-3. Configure as senhas: a próxima etapa será configurar o administrador do dispositivo e as senhas do Gerenciador de Instantâneos StorSimple.
-  - A senha do administrador do dispositivo é usada para fazer logon no seu dispositivo. A senha do dispositivo padrão é *Senha1*.
+3. Configure as senhas: a próxima etapa será configurar o administrador do dispositivo e as senhas do Gerenciador de Instantâneos StorSimple. Se você estiver executando a Atualização 1, não será solicitado a configurar a senha do gerenciador de instantâneos do StorSimple.
+  - A senha do administrador do dispositivo é usada para fazer logon no seu dispositivo. A senha do dispositivo padrão é **Senha1**.
   - A senha do Gerenciador de Instantâneos StorSimple é necessária quando você configura um dispositivo para usar o Gerenciador de Instantâneos StorSimple. Primeiro você precisa definir a senha no assistente de instalação e então pode defini-la e alterá-la do serviço Gerenciador do StorSimple. Essa senha autentica o dispositivo no Gerenciador de Instantâneos StorSimple.
  
     > [AZURE.IMPORTANT]As senhas são coletadas antes do registro, mas aplicadas somente depois que você registra com êxito o dispositivo. Se houver uma falha ao aplicar uma senha, você deverá fornecer a senha novamente até que as senhas necessárias (que atendem aos requisitos de complexidade) sejam coletadas.
 
-4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) do Portal de Gerenciamento do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
+4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) no Portal de Gerenciamento do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
 
 ## Erros comuns durante a implantação de dispositivo
 
@@ -88,7 +88,7 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 
 ### Erros que ocorrem quando você configura as senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple.
 
-A senha do administrador do dispositivo padrão é *Senha1*. Essa senha expira após o primeiro logon; portanto, você precisará usar o assistente de instalação para alterá-la. Você deve fornecer uma nova senha do administrador do dispositivo ao registrar o dispositivo pela primeira vez.
+A senha do administrador do dispositivo padrão é **Senha1**. Essa senha expira após o primeiro logon; portanto, você precisará usar o assistente de instalação para alterá-la. Você deve fornecer uma nova senha do administrador do dispositivo ao registrar o dispositivo pela primeira vez.
 
 Se você usar o software Gerenciador de Instantâneos StorSimple em execução no host do Windows Server para gerenciar o dispositivo, também deverá fornecer uma senha do Gerenciador de Instantâneos StorSimple durante o registro inicial.
 
@@ -183,6 +183,16 @@ Use os seguintes cmdlets do Windows PowerShell para detectar erros de conectivid
 - Test-Connection: use esse cmdlet para verificar a conectividade de rede dentro e fora da rede.
 
 - Test-HcsmConnection: use esse cmdlet para verificar a conectividade de um dispositivo registrado com êxito.
+
+Se você estiver executando a Atualização 1 do dispositivo StorSimple, os cmdlets de diagnóstico a seguir também estão disponíveis.
+
+- Sync-HcsTime: use este cmdlet para exibir a hora do dispositivo de vídeo e forçar uma sincronização de horário com o servidor NTP.
+
+- Enable-HcsPing e Disable-HcsPing: use esses cmdlets para permitir que os hosts executem ping nas interfaces de rede de seu dispositivo StorSimple. Por padrão, as interfaces de rede do StorSimple não respondem às solicitações de ping.
+
+- Trace-HcsRoute: use este cmdlet como uma ferramenta de rastreamento de rota. Ele envia pacotes para cada roteador no caminho para um destino final durante um período e depois calcula os resultados com base nos pacotes retornados de cada salto. Como o Trace-HcsRoute indica o grau de perda de pacotes em um determinado roteador ou link, você pode identificar quais roteadores ou links podem estar provocando problemas \\na rede.
+
+- Get-HcsRoutingTable: use este cmdlet para exibir a tabela de roteamento de IP local.
 
 ## Solucionar problemas com o cmdlet Get-NetAdapter
 
@@ -299,9 +309,7 @@ Use o cmdlet Test-HcsmConnection para um dispositivo que já está conectado ao 
    - ErrorCode.CiSApplianceDNSError – indica uma exceção WebExceptionStatus.NameResolutionFailure: o serviço de resolução de nome não conseguiu resolver o nome do host. .
    - ErrorCode.CiSApplianceACSError – indica que o serviço retornou um erro de autenticação, mas há conectividade.
    
-   Se isso não lançar uma exceção da Web, verifique o seguinte:
-
-   - ErrorCode.CiSApplianceFailure – indica que o dispositivo falhou.
+    Se isso não lançar uma exceção da Web, procure um ErrorCode.CiSApplianceFailure. Isso indica que o dispositivo falhou.
 
 5. Verifique a conectividade do serviço de nuvem. Se o serviço lançar uma exceção da Web, talvez você veja os seguintes erros:
 
@@ -310,8 +318,7 @@ Use o cmdlet Test-HcsmConnection para um dispositivo que já está conectado ao 
   - ErrorCode.CiSApplianceDNSError – indica uma exceção WebExceptionStatus.NameResolutionFailure: o serviço de resolução de nome não conseguiu resolver o nome do host. .
   - ErrorCode.CiSApplianceACSError – indica que o serviço retornou um erro de autenticação, mas há conectividade.
   
-  Se ele não lançar uma exceção da Web, verifique o seguinte: 
-  - ErrorCode.CiSApplianceSaasServiceError – isso indica um problema com o serviço Gerenciador do StorSimple.
+    Se isso não lançar uma exceção da Web, procure um ErrorCode.CiSApplianceSaasServiceErro. Isso indica um problema com o serviço de gerenciador do StorSimple.
  
 6. Verifique a conectividade do Barramento de Serviço do Azure. ErrorCode.CiSApplianceServiceBusError indica que o dispositivo não pode se conectar ao Barramento de Serviço.
  
@@ -323,7 +330,7 @@ Para obter mais informações sobre como usar o cmdlet, vá até [Test-HcsmConne
  
 Consulte os exemplos de saída do cmdlet Test-HcsmConnection a seguir.
 
-**Exemplo de saída – dispositivo registrado com êxito**
+**Exemplo de saída – dispositivo registrado com êxito, executando a versão do StorSimple (julho de 2014)**
 
 O primeiro exemplo é de um dispositivo registrado com êxito no serviço Gerenciador do StorSimple e que não tem nenhum problema de conectividade.
 
@@ -337,7 +344,39 @@ O primeiro exemplo é de um dispositivo registrado com êxito no serviço Gerenc
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**Saída de exemplo – dispositivo offline**
+**Exemplo de saída – dispositivo registrado com êxito, executando a versão do StorSimple Atualização 1 (maio de 2015)**
+
+Se você estiver executando a Atualização 1 do dispositivo StorSimple, não será necessário executá-la com a opção detalhada.
+
+      Controller1>Test-HcsmConnection
+       
+      Checking device registration state  ... Success
+      Device registered successfully
+       
+      Checking primary NTP server [time.windows.com] ... Success
+       
+      Checking web proxy  ... NOT SET
+       
+      Checking primary IPv4 DNS server [10.222.118.154] ... Success
+      Checking primary IPv6 DNS server  ... NOT SET
+      Checking secondary IPv4 DNS server [10.222.120.24] ... Success
+      Checking secondary IPv6 DNS server  ... NOT SET
+       
+      Checking device online  ... Success
+ 
+      Checking device authentication  ... This will take a few minutes.
+      Checking device authentication  ... Success
+       
+      Checking connectivity from device to service  ... This will take a few minutes.
+       
+      Checking connectivity from device to service  ... Success
+       
+      Checking connectivity from service to device  ... Success
+       
+      Checking connectivity to Microsoft Update servers  ... Success
+      Controller1>
+
+**Exemplo de saída – dispositivo offline, executando a versão do StorSimple (julho de 2014)**
 
 Esse exemplo é de um dispositivo com o status **offline** no Portal de Gerenciamento.
 
@@ -347,6 +386,133 @@ Esse exemplo é de um dispositivo com o status **offline** no Portal de Gerencia
 
 O dispositivo não pôde se conectar usando a configuração de proxy da Web atual. Isso pode ser um problema com a configuração de proxy da Web ou um problema de conectividade de rede. Nesse caso, certifique-se de que as configurações de proxy da web estejam corretas e de que seus servidores de proxy da Web estão online e acessíveis.
 
+## Solucionar problemas com o cmdlet Sync-HcsTime
+
+Use este cmdlet para exibir a hora do dispositivo. Se a hora do dispositivo tiver um deslocamento com o servidor NTP, você poderá usar esse cmdlet para forçar a sincronização da hora com o servidor NTP. Se o deslocamento entre o dispositivo e o servidor NTP for maior do que 5 minutos, você verá um aviso. Se o deslocamento exceder 15 minutos, o dispositivo ficará offline. Você ainda pode usar este cmdlet para forçar uma sincronização de hora. No entanto, se o deslocamento exceder 15 horas, isso não será possível e uma mensagem de erro será exibida.
+
+**Exemplo de saída – sincronização de tempo forçada usando o Sync-HcsTime**
+ 
+     Controller0>Sync-HcsTime
+     The current device time is 4/24/2015 4:05:40 PM UTC.
+ 
+     Time difference between NTP server and appliance is 00.0824069 seconds. Do you want to resync time with NTP server?
+     [Y] Yes [N] No (Default is "Y"): Y
+     Controller0>
+
+## Solucionar problemas com os cmdlets Enable-HcsPing e Disable-HcsPing
+
+Use esses cmdlets para assegurar que as interfaces de rede em seu dispositivo respondam às solicitações de ping ICMP. Por padrão, as interfaces de rede do StorSimple não respondem a solicitações de ping. O uso desse cmdlet é a maneira mais fácil de saber se seu dispositivo está online e acessível.
+
+**Exemplo de saída – Enable-HcsPing e Disable-HcsPing**
+
+     Controller0>
+     Controller0>Enable-HcsPing
+     Successfully enabled ping.
+     Controller0>
+     Controller0>
+     Controller0>Disable-HcsPing
+     Successfully disabled ping.
+     Controller0>
+
+## Solucionar problemas com o cmdlet Trace-HcsRoute
+
+Use este cmdlet como uma ferramenta de rastreamento de rota. Ele envia pacotes para cada roteador no caminho para um destino final durante um período e depois calcula os resultados com base nos pacotes retornados de cada salto. Como o cmdlet indica o grau de perda de pacotes em determinado roteador ou link, você pode identificar quais roteadores ou links podem estar provocando problemas na rede.
+
+**Saída de exemplo mostrando como rastrear a rota de um pacote com Trace-HcsRoute**
+
+     Controller0>Trace-HcsRoute -Target 10.126.174.25
+     
+     Tracing route to contoso.com [10.126.174.25]
+     over a maximum of 30 hops:
+       0  HCSNode0 [10.126.173.90]
+       1  contoso.com [10.126.174.25]
+      
+     Computing statistics for 25 seconds...
+                 Source to Here   This Node/Link
+     Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  Address
+       0                                           HCSNode0 [10.126.173.90]
+                                     0/ 100 =  0%   |
+       1    0ms     0/ 100 =  0%     0/ 100 =  0%  contoso.com
+      [10.126.174.25]
+      
+     Trace complete.
+
+## Solucionar problemas com o cmdlet Get-HcsRoutingTable
+
+Use este cmdlet para exibir a tabela de roteamento do seu dispositivo StorSimple. Uma tabela de roteamento é um conjunto de regras que pode ajudar a determinar para onde os pacotes de dados transmitidos em uma rede IP (protocolo IP) serão direcionados.
+
+A tabela de roteamento mostra as interfaces e o gateway que roteia os dados para redes especificadas. Ela também fornece a métrica de roteamento que é o tomador de decisões para o caminho tomado para alcançar um destino específico. Quanto menor a métrica de roteamento, maior será a preferência.
+
+Por exemplo, se você tiver 2 interfaces de rede, DATA 2 e DATA 3 conectados à Internet. Se a métrica de roteamento for DATA 2 e DATA 3 for 15 e 261 respectivamente, então DATA 2 com a menor métrica de roteamento será a interface preferida usada para acessar a Internet.
+
+Se você estiver executando a Atualização 1 do dispositivo StorSimple, sua interface de rede DATA 0 terá a preferência mais alta para o tráfego de nuvem. Isso significa que mesmo se houver outras interfaces habilitadas para a nuvem, o tráfego de nuvem será encaminhado através do DATA 0.
+
+Se você executar o cmdlet Get-HcsRoutingTable sem especificar quaisquer parâmetros (como mostra o exemplo seguinte), o cmdlet produzirá tabelas de roteamento IPv4 e IPv6. Como alternativa, você pode especificar `Get-HcsRoutingTable -IPv4` ou `Get-HcsRoutingTable -IPv6` para obter uma tabela de roteamento relevante.
+
+      Controller0>
+      Controller0>Get-HcsRoutingTable
+      ===========================================================================
+      Interface List
+       14...00 50 cc 79 63 40 ......Intel(R) 82574L Gigabit Network Connection
+       12...02 9a 0a 5b 98 1f ......Microsoft Failover Cluster Virtual Adapter
+       13...28 18 78 bc 4b 85 ......HCS VNIC
+        1...........................Software Loopback Interface 1
+       21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+       22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #3
+      ===========================================================================
+       
+      IPv4 Route Table
+      ===========================================================================
+      Active Routes:
+      Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0  192.168.111.100  192.168.111.101     15
+              127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+              127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+            169.254.0.0      255.255.0.0         On-link     169.254.1.235    261
+          169.254.1.235  255.255.255.255         On-link     169.254.1.235    261
+        169.254.255.255  255.255.255.255         On-link     169.254.1.235    261
+          192.168.111.0    255.255.255.0         On-link   192.168.111.101    266
+        192.168.111.101  255.255.255.255         On-link   192.168.111.101    266
+        192.168.111.255  255.255.255.255         On-link   192.168.111.101    266
+              224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+              224.0.0.0        240.0.0.0         On-link     169.254.1.235    261
+              224.0.0.0        240.0.0.0         On-link   192.168.111.101    266
+        255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+        255.255.255.255  255.255.255.255         On-link     169.254.1.235    261
+        255.255.255.255  255.255.255.255         On-link   192.168.111.101    266
+      ===========================================================================
+      Persistent Routes:
+        Network Address          Netmask  Gateway Address  Metric
+                0.0.0.0          0.0.0.0  192.168.111.100       5
+      ===========================================================================
+       
+      IPv6 Route Table
+      ===========================================================================
+      Active Routes:
+       If Metric Network Destination      Gateway
+        1    306 ::1/128                  On-link
+       13    276 fd99:4c5b:5525:d80b::/64 On-link
+       13    276 fd99:4c5b:5525:d80b::1/128
+                                          On-link
+       13    276 fd99:4c5b:5525:d80b::3/128
+                                          On-link
+       13    276 fe80::/64                On-link
+       12    261 fe80::/64                On-link
+       13    276 fe80::17a:4eba:7c80:727f/128
+                                          On-link
+       12    261 fe80::fc97:1a53:e81a:3454/128
+                                          On-link
+        1    306 ff00::/8                 On-link
+       13    276 ff00::/8                 On-link
+       12    261 ff00::/8                 On-link
+       14    266 ff00::/8                 On-link
+      ===========================================================================
+      Persistent Routes:
+        None
+       
+      Controller0>
+ 
 ## Exemplo passo a passo de solução de problemas do StorSimple
 
 O exemplo a seguir mostra o passo a passo da solução de problemas de uma implantação do StorSimple. No cenário de exemplo, o registro de dispositivo falha com uma mensagem de erro indicando que as configurações de rede ou o nome DNS estão incorretas.
@@ -369,11 +535,11 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
 1. Verifique a configuração do dispositivo: no controlador ativo, execute **Invoke-HcsSetupWizard**.
 
-     > [AZURE.NOTE]O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx).
+     >[AZURE.NOTE]O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx).
  
 2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para obter mais informações, vá até [Cabear seu dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) ou [Cabear seu dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
 
-     > [AZURE.NOTE]Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     >[AZURE.NOTE]Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
 3. Verifique a integridade da interface de rede:
 
@@ -397,16 +563,16 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
 7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte [Requisitos de rede para o dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
 
-8. Examine os logs. Vá para [Pacotes de suporte e logs de dispositivo disponíveis para solução de problemas](#pacotes-suporte-e-logs-dispositivo-para-solução-de-problemas).
+8. Examine os logs. Vá para [Pacotes de suporte e logs de dispositivo disponíveis para solução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
 
-9. Se as etapas anteriores não resolverem o problema, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obter assistência. 
+9. Se as etapas anteriores não resolverem o problema, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obter assistência.
 
 ## Próximas etapas
-[Solucionar problemas de um dispositivo operacional](../storsimple-troubleshoot-an-operational-device.md)
+[Solucionar problemas de um dispositivo operacional](storsimple-troubleshoot-operational-device.md)
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
-<!--HONumber=52-->
- 
+
+<!---HONumber=July15_HO2-->

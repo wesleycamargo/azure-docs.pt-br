@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede
@@ -89,7 +89,7 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **Faça uma solicitação para uma chave de serviço e passe-a ao provedor do Exchange.**
+3. **Faça uma solicitação para uma chave de serviço e passe-a para seu provedor de serviços de rede.**
 
 	Você usará um cmdlet do PowerShell para fazer essa solicitação. Para este exemplo, usaremos AT&T Netbond como o provedor de serviços e especificaremos um circuito da Rota Expressa de 50 Mbps no Vale do Silício. Se você estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a sua solicitação.
 
@@ -150,4 +150,4 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

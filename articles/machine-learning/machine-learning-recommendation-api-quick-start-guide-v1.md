@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guia de início rápido para a API de recomendações de aprendizado de máquina | Azure" 
+	pageTitle="Guia de início rápido para a API de recomendações de Aprendizado de Máquina | Microsoft Azure" 
 	description="Recomendações do aprendizado de máquina do Azure - guia de início rápido" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
-	ms.author="jaymathe"/>
+	ms.date="07/06/2015" 
+	ms.author="luisca"/>
 
 # Guia de início rápido para a API de recomendações de aprendizado de máquina
 
-Versão: 1.0<br>
-A versão mais recente pode ser encontrada [aqui](machine-learning-recommendation-api-quick-start-guide.md)
+Versão: 1.0<br> A versão mais recente pode ser encontrada [aqui](machine-learning-recommendation-api-quick-start-guide.md)
 
 Este documento descreve como integrar seu serviço ou aplicativo para usar as recomendações do AM do Azure.
 
@@ -42,7 +41,7 @@ Todas as etapas acima são feitas por meio da API de Recomendações do Azure ML
 ##Limitações
 
 * Número máximo de modelos por assinatura: 10
-* Número máximo de itens que um catálogo pode conter: 100,000
+* Número máximo de itens que um catálogo pode conter: 100.000
 * A quantidade máxima de pontos de uso que são mantidos é de aprox. 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 * O tamanho máximo dos dados que podem ser enviados no POST (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB.
 * O número de transações por segundo para uma compilação de modelo de recomendação que não esteja ativa é de ~2 TPS, apenas uma compilação de modelo de recomendação ativa pode conter até 20 TPS.
@@ -53,7 +52,7 @@ Todas as etapas acima são feitas por meio da API de Recomendações do Azure ML
 Siga as diretrizes do Microsoft Azure Marketplace referentes à autenticação. O marketplace oferece suporte aos métodos de autenticação Básico e OAuth.
 
 ###URI de serviço 
-Os URIs da raiz de serviço para cada uma das APIs de Recomendações do Azure ML está [aqui.](https://api.datamarket.azure.com/amla/recommendations/v1/)
+Os URIs da raiz de serviço para cada uma das APIs de recomendações de AM do Azure estão [aqui.](https://api.datamarket.azure.com/amla/recommendations/v1/)
 
 O URI do serviço completo é expresso usando elementos da especificação de OData.
 
@@ -71,8 +70,7 @@ Criar uma solicitação "criar modelo":
 |:--------			|:--------								|
 |	modelName |	São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 20 |
 |	apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | NENHUM |
+||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -125,8 +123,7 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 |	modelId |	O identificador exclusivo do modelo. |
 | nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_) são permitidos<br>Comprimento máximo: 50 |
 |	apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | Os dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, Livro<br>552a1940-21e4-4399-82bb-594b46d7ed54, O Curral das Bestas, Livro</pre> |
+||| | Corpo da Solicitação | Os dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Resposta**:
@@ -174,8 +171,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	modelId |	O identificador exclusivo do modelo. |
 | nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_) são permitidos<br>Comprimento máximo: 50 |
 |	apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | Os dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemple :<br><pre>149452, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>6360, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>50321, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>71285, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>224450, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>236645, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>107951, 1b3d95e2 84e4 414c bb38 be9cf461c347</pre> |
+| Corpo da Solicitação | Os dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -313,8 +309,7 @@ Corpo da solicitação
   	</EventData>
 	</Event>
 
-**Response**:
-código de status HTTP: 200
+**Response**: código de status HTTP: 200
 
 ###Criar um modelo de recomendação
 
@@ -327,8 +322,7 @@ código de status HTTP: 200
 | modelId |	O identificador exclusivo do modelo. |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | NENHUM |
+||| | Corpo da Solicitação | NENHUM |
 
 **Resposta**:
 
@@ -461,7 +455,7 @@ Código de status HTTP: 200
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | modelId | O identificador exclusivo do modelo. |
-| itemIds | Lista separada por vírgulas dos itens para recomendar<br>Comprimento máximo: 200 |
+| itemIds | Lista separada por vírgulas dos itens a serem recomendados<br>Comprimento máximo: 200 |
 | numberOfResults | O número de resultados necessários. |
 | includeMetatadata | Uso futuro, sempre falso. |
 | apiVersion | 1.0 |
@@ -627,8 +621,7 @@ Código de status HTTP: 200
 	</feed>
 
 ###Atualizar modelo
-Você pode atualizar a descrição do modelo ou o id de compilação ativo. 
-*ID de Compilação Ativa*: cada compilação de cada modelo possui uma “ID de compilação”. O "id de compilação" ativo é o primeiro compilado com sucesso de cada novo modelo. Quando você tiver um Id de compilação ativo e fizer compilações adicionais para o mesmo modelo, é preciso explicitamente defini-lo como o id de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar o id de compilação que deseja usar, o padrão será usado automaticamente.
+Você pode atualizar a descrição do modelo ou o id de compilação ativo. *ID de Compilação Ativa*: cada compilação de cada modelo possui uma “ID de compilação”. O "id de compilação" ativo é o primeiro compilado com sucesso de cada novo modelo. Quando você tiver um Id de compilação ativo e fizer compilações adicionais para o mesmo modelo, é preciso explicitamente defini-lo como o id de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar o id de compilação que deseja usar, o padrão será usado automaticamente.
 
 Esse mecanismo permite que, uma vez que você tenha um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
@@ -641,8 +634,7 @@ Esse mecanismo permite que, uma vez que você tenha um modelo de recomendação 
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo. |
 | apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas xml Description e ActiveBuildId são opcionais, se você não desejar definir Description ou ActiveBuildId, remova a marca inteira. |
+||| | Corpo da Solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas xml Description e ActiveBuildId são opcionais, se você não desejar definir Description ou ActiveBuildId, remova a marca inteira. |
 
 **Resposta**:
 
@@ -659,9 +651,7 @@ Código de status HTTP: 200
 	</feed>
 
 ##Legal
-Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. 
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. 
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. 
-© 2014 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

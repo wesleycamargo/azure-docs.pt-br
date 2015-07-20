@@ -237,5 +237,6 @@ Usaremos o Ubuntu 14.04 LTS como exemplo para este artigo.
     Para definir o MySQL para iniciar quando o sistema for inicializado, execute o seguinte comando:
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

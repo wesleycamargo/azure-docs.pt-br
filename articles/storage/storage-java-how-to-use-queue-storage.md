@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como usar o Armazenamento de Fila do Java | Microsoft Azure" 
-	description="Saiba como usar o serviço de Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos escritos em Java." 
+	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Amostras escritas em Java." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Como usar o Armazenamento de Fila no Java
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [armazenamento-seletor-fila-include](../../includes/storage-selector-queue-include.md)]
 
 ## Visão geral
 
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são escritos em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários abordados incluem **inserir**, **espiar**, **obter** e **excluir** mensagens de fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#NextSteps) .
+Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][]. Os cenários abrangidos incluem **inserir**, **espiar**, **obter** e **excluir** mensagens da fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#NextSteps).
 
-Observação: Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][]. 
+Observação: um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][].
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
+[AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
@@ -46,7 +46,7 @@ Adicione as seguintes instruções de importação na parte superior do arquivo 
 
 ## Configurar uma cadeia de conexão de armazenamento do Azure
 
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no Portal de Gerenciamento para os valores  *AccountName* e  *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no Portal de Gerenciamento para os valores *AccountName* e *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -54,7 +54,7 @@ Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar p
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração de serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
+Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -62,7 +62,7 @@ Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, 
 
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
-## Como: Criar uma fila
+## Como criar uma fila
 
 Um objeto **CloudQueueClient** permite que você obtenha objetos de referência para filas. O código a seguir cria um objeto **CloudQueueClient**. (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, consulte **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure].)
 
@@ -89,9 +89,9 @@ Use o objeto **CloudQueueClient** para obter uma referência à fila que deseja 
         e.printStackTrace();
     }
 
-## Como: Adicionar uma mensagem a uma fila
+## Como adicionar uma mensagem a uma fila
 
-Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQueueMessage**. Em seguida, chame o método **AddMessage**. Um **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World'.
+Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQueueMessage**. Em seguida, chame o método **addMessage**. Um **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World'.
 
     try
     {
@@ -118,7 +118,7 @@ Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQ
         e.printStackTrace();
     }
 
-## Como: Espiar a próxima mensagem
+## Como inspecionar a próxima mensagem
 
 Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando **peekMessages**.
 
@@ -149,11 +149,11 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
         e.printStackTrace();
     }
 
-## Como: Alterar o conteúdo de uma mensagem na fila
+## Como alterar o conteúdo de uma mensagem em fila
 
 Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Isso salva o estado do trabalho associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem. Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de *n* vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
 
-O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a primeira mensagem que corresponde a "Hello, World" do conteúdo, em seguida, modifica o conteúdo da mensagem e sai. 
+O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a primeira mensagem que corresponde a "Hello, World” do conteúdo, em seguida, modifica o conteúdo da mensagem e sai.
 
     try
     {
@@ -229,7 +229,7 @@ Como alternativa, o seguinte exemplo de código atualiza apenas a primeira mensa
         e.printStackTrace();
     }
 
-## Como: Obter o tamanho da fila
+## Como obter o comprimento da fila
 
 Você pode obter uma estimativa do número de mensagens em uma fila. O método **downloadAttributes** solicita vários valores atuais ao serviço Fila, incluindo uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço Fila responde à sua solicitação. O método **getApproximateMessageCount** retorna o último valor recuperado pela chamada a **downloadAttributes** sem chamar o serviço Fila.
 
@@ -260,9 +260,9 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
         e.printStackTrace();
     }
 
-## Como: Remover a próxima mensagem da fila
+## Como remover a próxima mensagem da fila
 
-Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para terminar de remover a mensagem da fila, você também deve chamar **DeleteMessage**. Este processo de duas etapas para remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para terminar de remover a mensagem da fila, você também deve chamar **deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
 
     try
     {
@@ -323,9 +323,9 @@ O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 m
         e.printStackTrace();
     }
 
-## Como: Listar filas
+## Como: listar as filas
 
-Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()**, que retornará uma coleção de objetos **CloudQueue**. 
+Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()**, que retornará uma coleção de objetos **CloudQueue**.
 
     try
     {
@@ -350,7 +350,7 @@ Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQu
         e.printStackTrace();
     }
 
-## Como: Excluir uma fila
+## Como excluir uma fila
 
 Para excluir uma fila e todas as mensagens contidas nela, chame o método **deleteIfExists** no objeto **CloudQueue**.
 
@@ -382,13 +382,14 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 - [SDK de Armazenamento do Azure para Java]
 - [Referência de SDK do Cliente de Armazenamento do Azure]
 - [API REST de Armazenamento do Azure]
-- [Blog da equipe do Armazenamento do Azure]
+- [Blog da equipe de Armazenamento do Azure]
 
-[SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
-[Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
+[Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

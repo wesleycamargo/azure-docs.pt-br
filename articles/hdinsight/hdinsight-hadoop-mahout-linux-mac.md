@@ -50,7 +50,7 @@ Convenientemente, a [GroupLens Research][movielens] oferece dados de classifica�
 
 	Para obter mais informações sobre como usar o SSH para se conectar ao HDInsight, consulte os seguintes documentos:
 
-    * **Clientes Linux, Unix ou OS X**: consulte [Conectar-se a um cluster do HDInsight para Linux no Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+    * **Clientes Linux, Unix ou OS X**: consulte [Conectar-se a um cluster HDInsight com base no Linux do Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
     * **Clientes Windows**: consulte [Conectar-se a um cluster do HDInsight para Linux no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
 
@@ -255,4 +255,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

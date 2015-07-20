@@ -217,12 +217,7 @@ Após o Provedor ser instalado, continue com a configuração para registrar o s
 
 	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor.
 	- As URLs a seguir devem estar acessíveis no servidor VMM
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA. 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA. 
 	
 	- Se você optar por usar um proxy personalizado, uma conta RunAs do VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito.
 	- As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
@@ -310,17 +305,14 @@ Depois que um grupo de armazenamento estiver replicando, habilite a proteção p
 
 <P>Depois que as máquinas virtuais forem habilitadas para proteção, elas aparecerão no console do Azure Site Recovery. Você pode exibir propriedades da máquina virtual, acompanhar o status e o failover de grupos de replicação que contêm várias máquinas virtuais. Observe que na replicação de SAN, todas as máquinas virtuais associadas a um grupo de replicação devem fazer failover juntas. Isso ocorre porque o failover ocorre na camada de armazenamento pela primeira vez. É importante agrupar seus grupos de replicação corretamente e colocar apenas as máquinas virtuais associadas juntas.</P>
 
-Acompanhe o progresso da ação Habilitar Proteção na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual estará pronta para o failover.
-	![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
+Acompanhe o progresso da ação Habilitar Proteção na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual estará pronta para o failover.![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
 
 ## Etapa 8: testar a implantação</h3>
 
 Teste a implantação para garantir que as máquinas virtuais e os dados executem o failover conforme o esperado. Para fazer isso, você criará um plano de recuperação selecionando grupos de replicação. Em seguida, execute um failover de teste no plano.
 
 1. Na guia **Planos de Recuperação**, clique em **Criar Plano de Recuperação**.
-2. Especifique um nome para o plano de recuperação e servidores do VMM de origem e destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação. Selecione **SAN** para exibir somente as nuvens que estão configuradas para replicação de SAN.
-3.
-	![Criar plano de recuperação](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
+2. Especifique um nome para o plano de recuperação e servidores do VMM de origem e destino. O servidor de origem deve ter máquinas virtuais que são habilitadas para failover e recuperação. Selecione **SAN** para exibir somente as nuvens que estão configuradas para replicação de SAN. 3. ![Criar plano de recuperação](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
 4. Em **Selecionar Máquina Virtual**, selecione os grupos de replicação. Todas as máquinas virtuais associadas ao grupo de replicação serão selecionadas e adicionadas ao plano de recuperação. Essas máquinas virtuais são adicionadas ao grupo padrão do plano de recuperação — Grupo 1. Você pode adicionar mais grupos se necessário. Observe que, depois da replicação, as máquinas virtuais serão inicializadas de acordo com a ordem dos grupos de plano de recuperação.
 
@@ -364,4 +356,4 @@ Para saber mais sobre a interação com trabalhos e o painel, confira [Operaçõ
 	
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

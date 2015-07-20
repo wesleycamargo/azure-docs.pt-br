@@ -67,4 +67,6 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!--HONumber=54--> 
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+<!---HONumber=July15_HO2-->

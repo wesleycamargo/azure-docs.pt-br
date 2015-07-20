@@ -3,25 +3,27 @@
    description="Descreve os tipos diferentes de clone e quando usá-los, e explica como você pode usar um conjunto de backups para clonar um volume individual."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
-   ms.author="v-sharos" />
+   ms.date="05/27/2015"
+   ms.author="alkohli" />
 
 # Clonar um volume StorSimple
 
 ## Visão geral
 
-A página **Catálogo de Backup** exibe todos os conjuntos de backup criados quando são realizados backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
+A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
 
   ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+
+**Figura 1: Catálogo de backup**
 
 Este tutorial descreve como você pode usar um conjunto de backups para clonar um volume individual. Ele também explica a diferença entre os clones *transitório* e *permanente*.
 
@@ -41,9 +43,9 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
 4. No assistente Clonar Volume, em **Especificar nome e local**:
 
-  1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo.
+  1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado com outros provedores de serviços de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviços de nuvem em um dispositivo virtual.
 
-        >  [AZURE.NOTE] Certifique-se de que a capacidade exigida para o clone é inferior a capacidade disponível no dispositivo de destino.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
   3. Clique no ícone de seta ![ícone-de-seta](./media/storsimple-clone-volume/HCS_ArrowIcon.png)para prosseguir para a próxima página.
 
@@ -87,6 +89,6 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -3,16 +3,17 @@
     description="Descreve as especificações técnicas e as informações de conformidade de padrões normativos para o dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/01/2015"
-    ms.author="v-sharos" />
+    ms.date="06/15/2015"
+    ms.author="alkohli" />
 
 # Especificações técnicas e conformidade para o dispositivo StorSimple
 
@@ -27,7 +28,7 @@ Os componentes de hardware do dispositivo Microsoft Azure StorSimple aderem às 
 O dispositivo StorSimple tem dois PCMs (Módulos de Alimentação e de Refrigeração) compatíveis com SBB e com ventilador duplo de 100-240V. Isso oferece uma configuração de alimentação redundante. Se um PCM falhar, o dispositivo continuará a funcionar normalmente em outro PCM até que o módulo com falha seja substituído.
 
 O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM de 764 W. As tabelas a seguir listam as especificações técnicas associadas aos PCMs.
- 
+
 | Especificação | PCM de 580 W (EBOD) | PCM de 764 W (Primário) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Alimentação de saída máxima | 580 W | 764 |
@@ -46,16 +47,16 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
  
 ## Estatísticas de consumo de energia  
 
-A tabela a seguir lista os dados de consumo de energia para os diversos modelos do dispositivo StorSimple.
+A tabela a seguir lista os dados de consumo de energia típicos (os valores reais podem variar desde a publicação) para os diversos modelos do dispositivo StorSimple.
  
-| Condições | 240 V AC | 110 V AC |
-| ---------- | -------- | -------- |
-| Ventiladores lentos, unidades ociosas | 1,45 A 0,31 kW | 3,19 A 0,34 kW |
-| Ventiladores lentos, unidades acessando | 1,54 A 0,33 kW | 3,27 A 0,36 kW |
-| Ventiladores rápidos, unidades ociosas, dois PSUs ligados | 2,14 A 0,49 kW | 4,99 A 0,54 kW |
-| Ventiladores rápidos, unidades ociosas, um PSU ligado um ocioso | 2,05 A 0,48 kW | 4,58 A 0,5 kW |
-| Ventiladores rápidos, unidades acessando, dois PSUs ligados | 2,26 A 0,51 kW | 4,95 A 0,54 kW |
-| Ventiladores rápidos, unidades acessando, um PSU ligado um ocioso | 2,14 A 0,49 kW | 4,81 A 0,53 kW |
+ Condições | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC 
+ ---------- | -------- | -------- | -------- | -------- | -------- | -------- 
+ Ventiladores lentos, unidades ociosas | 1,45 A |0,31 kW | 1057,76 BTU/h | 3,19 A | 0,34 kW | 1160,13 BTU/h 
+ Ventiladores lentos, unidades acessando | 1,54 A | 0,33 kW | 1126,01 BTU/h | 3,27 A | 0,36 kW | 1228,37 BTU/h 
+ Ventiladores rápidos, unidades ociosas, dois PSUs ligados | 2,14 A | 0,49 kW | 1671,95 BTU/h | 4,99 A | 0,54 kW | 1842,56 BTU/h 
+ Ventiladores rápidos, unidades ociosas, um PSU ligado um ocioso | 2,05 A | 0,48 kW | 1637,83 BTU/h | 4,58 A | 0,50 kW | 1706,07 BTU/h 
+ Ventiladores rápidos, unidades acessando, dois PSUs ligados | 2,26 A | 0,51 kW | 1740,19 BTU/h | 4,95 A | 0,54 kW | 1842,56 BTU/h 
+ Ventiladores rápidos, unidades acessando, um PSU ligado um ocioso | 2,14 A |0,49 kW | 1671,95 BTU/h | 4,81 A | 0,53 kW | 1808,44 BTU/h 
 
 ## Especificações da unidade de disco  
 
@@ -104,7 +105,7 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 | Fluxo de ar | O ar do sistema flui da frente para a traseira. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. Pressão traseira criada por portas e obstáculos no rack não devem exceder 5 pascals (medidor de água de 0,5 mm). |
 | Altitude, operacional | -30 metros a 3045 metros (-100 pés a 10.000 pés) com a temperatura operacional máxima reduzida em 5°C acima dos 7000 pés. |
 | Altitude, não operacional | -305 metros a 12.192 metros (-1.000 pés a 40.000 pés) |
-| Choque, operacional | Seno de 5g 10 ms ½ | 
+| Choque, operacional | Seno de 5g 10 ms ½ |
 | Choque, não operacional | Seno de 30g 10 ms ½ |
 | Vibração, operacional | 0,21g RMS 5-500 Hz aleatório |
 | Vibração, não operacional | 1,04g RMS 2-200 Hz aleatório |
@@ -167,8 +168,8 @@ O plugue e o conjunto completo do cabo de alimentação devem atender aos padrõ
 
 ## Cabos de rede com suporte  
 
-Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, veja a lista de cabos e de módulos de rede neste link: [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](https://msdn.microsoft.com/library/dn891474.aspx).
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

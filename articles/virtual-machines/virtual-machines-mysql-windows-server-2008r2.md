@@ -83,7 +83,7 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	Você também pode configurar as definições padrão de configuração do servidor, como os diretórios e unidades básicos e de dados, com entradas no arquivo **C:\Arquivos de Programas (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Para obter mais informações, confira [5.1.2 Padrões de configuração do servidor](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	Você também pode configurar as definições padrão de configuração do servidor, como os diretórios e unidades básicos e de dados, com entradas no arquivo **C:\\Arquivos de Programas (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini**. Para obter mais informações, confira [5.1.2 Padrões de configuração do servidor](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
 Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. É a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página Tipo e Rede (etapa 10 do procedimento anterior).
@@ -127,4 +127,4 @@ Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

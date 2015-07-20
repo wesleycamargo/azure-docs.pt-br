@@ -19,7 +19,6 @@
 
 # Serializar dados no Hadoop com a Biblioteca do Microsoft Avro
 
-##Visão geral
 Este tópico mostra como usar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Biblioteca do Microsoft Avro</a> para serializar objetos e outras estruturas de dados nos fluxos de forma a conservá-los na memória, em um banco de dados ou em um arquivo. Também mostra como desserializá-los para recuperar os objetos originais.
 
 
@@ -1397,9 +1396,14 @@ Nos dois casos, todas as edições devem ser realizadas na seção de configura�
 Para limpar o cluster, execute este comando:
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

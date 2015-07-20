@@ -98,7 +98,7 @@ Este tutorial mostra como executar um exemplo de contagem de palavras MapReduce 
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	A pasta */example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho MapReduce. *part-r-00000* é o nome do arquivo padrão da saída do trabalho MapReduce. O arquivo será baixado na mesma estrutura de pastas na pasta local. Por exemplo, na seguinte captura de tela, a pasta atual é a pasta raiz de C. O arquivo será baixado na pasta *C:\example\data\WordCountOutput*.
+	A pasta */example/data/WordCountOutput* é a pasta de saída especificada quando você executa o trabalho MapReduce. *part-r-00000* é o nome do arquivo padrão da saída do trabalho MapReduce. O arquivo será baixado na mesma estrutura de pastas na pasta local. Por exemplo, na seguinte captura de tela, a pasta atual é a pasta raiz de C. O arquivo será baixado na pasta *C:\\example\\data\\WordCountOutput*.
 
 5. Execute o comando a seguir para imprimir a saída do trabalho de MapReduce:
 
@@ -218,4 +218,4 @@ Para obter tutoriais que executam outras amostras e fornecem instruções sobre 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

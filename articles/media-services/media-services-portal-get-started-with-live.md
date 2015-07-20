@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use o Portal de Gerenciamento para criar canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais" 
-	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo streaming ao vivo básico dos Serviços de Mídia, onde um Canal recebe uma transmissão ao vivo de múltiplas taxas de bits de um codificador ao vivo local." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use o Portal de Gerenciamento para criar canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais"
+	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo streaming ao vivo básico dos Serviços de Mídia, onde um Canal recebe uma transmissão ao vivo de múltiplas taxas de bits de um codificador ao vivo local."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="get-started-article" 
+	ms.date="04/16/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Neste tutorial, o Portal de Gerenciamento é usado para realizar as seguintes ta
 1.  Configurar um codificador ao vivo e receber transmissão ao vivo para o canal (Wirecast é usado nesta etapa)
 1.  Criar um programa (e um ativo)
 1.  Publicar o ativo e obter URLs de streaming  
-1.  Reproduzir o conteúdo 
+1.  Reproduzir o conteúdo
 2.  Limpando
 
 ##Pré-requisitos
@@ -41,7 +41,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de múltiplas taxas de bits.
 
-	 
+
 ##Configurar ponto de extremidade de streaming usando o Portal
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
@@ -64,7 +64,7 @@ Para alterar o número de unidades reservadas para streaming, faça o seguinte:
 
 	A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída.
 
-	 
+
 	>[AZURE.NOTE]No momento, mudar de qualquer valor positivo de unidades de streaming de volta para nenhuma unidade pode desabilitar o streaming por até uma hora.
 	>
 	> O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo. Para obter informações sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -91,7 +91,7 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](../media-services-channels-overview.md).
 
-##Configurar um codificador ao vivo e receber transmissão ao vivo 
+##Configurar um codificador ao vivo e receber transmissão ao vivo
 
 >[AZURE.NOTE]Esta etapa exige a URL de ingestão do canal que foi mencionada na etapa anterior.
 
@@ -131,11 +131,11 @@ Há duas maneiras de começar o evento:
 1. Na página **CANAL**, pressione **ADICIONAR** para adicionar um novo programa.
 
 	Especifique: nome do programa, nome do ativo, janela de arquivo e opção de criptografia.
-	
+
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
-	
+
 	Se você deixou **Publicar este programa agora** marcada, o programa PUBLICANDO URLS será criado.
-	
+
 	Você pode pressionar **INICIAR** sempre que você estiver pronto para transmitir o programa.
 
 	Depois de iniciar o programa, você pode pressionar REPRODUZIR para iniciar a reprodução do conteúdo.
@@ -210,5 +210,4 @@ Saiba mais sobre a compilação de aplicativos de transmissão ao vivo em [Compi
 
 <!-- Images -->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Soluções de Insights Operacionais
@@ -42,11 +42,15 @@ Neste momento, servidores conectados diretamente ao Insights Operacionais do Mic
 
 - [Avaliação do SQL e do Active Directory](operational-insights-assessment.md)
 
-No entanto, as soluções a seguir *não* têm suporte do Microsoft Monitoring Agent
+No entanto, as soluções a seguir *não* têm suporte com o Microsoft Monitoring Agent e exigem o SCOM (System Center Operations Manager).
 
 - [Gerenciamento de Capacidade](operational-insights-capacity.md)
 
-- [Avaliação de Configuração](../operational-insights-configuration-assessment.md)
+- [Gerenciamento de alertas](operational-insights-alerts.md)
+
+- [Avaliação de Configuração](operational-insights-solutions.md#configuration-assessment)
+
+Consulte [Considerações sobre o Operations Manager com Insights Operacionais](operational-insights-operations-manager.md) para obter diretrizes sobre como usar essas soluções com o Operations Manager.
 
 Há suporte para coleta de log do IIS em computadores com:
 
@@ -85,6 +89,5 @@ Há suporte para coleta de log do IIS em computadores com:
 
 
 3. Na página de confirmação, clique em **Sim** para remover a solução.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

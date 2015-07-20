@@ -53,5 +53,6 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementOverlayNotification.xaml.cs` : O código vinculado `EngagementOverlayNotification.xaml`.
  
 - `EngagementPageOverlay.cs` : O código de exibição de anúncio e notificação `Overlay`.
- 
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

@@ -62,7 +62,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 
 1. **Usar protocolo RDP (desktop remoto) para remoto para o cluster HDInsight com o Solr instalado**. No Portal do Azure, habilite a Área de Trabalho Remota para o cluster criado com Solr instalado e, em seguida, acesse remotamente o cluster. Para instruções, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.
 
-2. **Indexar o Solr carregando arquivos de dados**. Quando você indexa o Solr, coloque os documentos que você pode precisar pesquisar. Para indexar o Solr, acesso o cluster remotamente via RDP, navegue até a área de trabalho, abra a linha de comando do Hadoop e navegue até **C:\apps\dist\solr-4.7.2\example\exampledocs**. Execute o comando a seguir:
+2. **Indexar o Solr carregando arquivos de dados**. Quando você indexa o Solr, coloque os documentos que você pode precisar pesquisar. Para indexar o Solr, acesso o cluster remotamente via RDP, navegue até a área de trabalho, abra a linha de comando do Hadoop e navegue até **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Execute o comando a seguir:
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -154,7 +154,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
 			  <str name="status">OK</str>
 			</response>
 
-	2. Na sessão remota, navegue até {HOME_DO_SOLR}\{Coleção}\data. Para o cluster criado usando o script de exemplo, esse caminho deve ser **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Nesse local, você deve ver uma pasta de capturas de tela criando com um nome semelhante a **snapshot.*data_e_hora***.
+	2. Na sessão remota, navegue até {HOME_DO_SOLR}\\{Coleção}\\data. Para o cluster criado usando o script de exemplo, esse caminho deve ser **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. Nesse local, você deve ver uma pasta de capturas de tela criando com um nome semelhante a **snapshot.*data_e_hora***.
 	
 	3. Compacte a pasta de capturas de tela e carregue-la no armazenamento de Blob do Azure. Na linha de comando do Hadoop, navegue até o local da pasta de capturas de tela usando o seguinte comando:
 
@@ -344,7 +344,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 
 **Para executar o aplicativo**
 
-Abra um console do Azure PowerShell ou Windows PowerShell, navegue até o local onde você salvou o projeto no Visual Studio, navegue até a pasta \bin\debug do projeto e, em seguida, execute o seguinte comando:
+Abra um console do Azure PowerShell ou Windows PowerShell, navegue até o local onde você salvou o projeto no Visual Studio, navegue até a pasta \\bin\\debug do projeto e, em seguida, execute o seguinte comando:
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -365,4 +365,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

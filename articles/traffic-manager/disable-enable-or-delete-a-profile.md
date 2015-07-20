@@ -3,7 +3,7 @@
    description="Este artigo o ajudará a trabalhar com os perfis do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Desabilitar, habilitar ou excluir um perfil
 
@@ -52,5 +52,6 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 [Tarefas de Configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

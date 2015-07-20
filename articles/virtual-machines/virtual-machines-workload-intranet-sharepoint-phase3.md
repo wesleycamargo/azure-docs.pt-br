@@ -223,5 +223,7 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

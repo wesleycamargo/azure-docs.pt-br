@@ -84,4 +84,4 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 Saiba como gerenciar backups do StorSimple com o [Gerenciador de Instantâneos do StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

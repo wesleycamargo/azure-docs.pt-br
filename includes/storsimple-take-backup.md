@@ -24,4 +24,4 @@
 
 Você concluiu a configuração do dispositivo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

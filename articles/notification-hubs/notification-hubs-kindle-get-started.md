@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos Hubs de notificação do Azure" 
-	description="Saiba como usar os Hubs de notificação do Azure para enviar notificações por push." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução aos Hubs de notificação do Azure"
+	description="Saiba como usar os Hubs de notificação do Azure para enviar notificações por push."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
-	ms.devlang="Java" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-kindle"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação
@@ -89,7 +89,7 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Adicione permissões como o primeiro elemento sob o elemento manifest. Substitua **[NOME DO SEU PACOTE]** pelo pacote usado para criar seu aplicativo. 
+2. Adicione permissões como o primeiro elemento sob o elemento manifest. Substitua **YOUR PACKAGE NAME** pelo pacote usado para criar seu aplicativo.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -98,15 +98,15 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 		<uses-permission android:name="android.permission.INTERNET"/>
 
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
+
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Insira o seguinte elemento como o primeiro filho do elemento application. Lembre-se de substituir **[NOME DO SEU SERVIÇO]** pelo nome do seu manipulador de mensagens do ADM que você criará na próxima seção (incluindo o pacote) e substitua **[NOME DO SEU PACOTE]** pelo nome do pacote com o qual você criou o seu aplicativo.
+3. Insira o seguinte elemento como o primeiro filho do elemento application. Lembre-se de substituir **YOUR SERVICE NAME** pelo nome do seu manipulador de mensagens do ADM que você criará na próxima seção (incluindo o pacote) e substitua **YOUR PACKAGE NAME** pelo nome do pacote com o qual você criou o seu aplicativo.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -114,18 +114,18 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
-		 
+
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
+
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
+
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
+
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
 		    </intent-filter>
@@ -152,12 +152,19 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
 		NotificationCompat.Builder builder;
-    private static NotificationHub hub; public static NotificationHub getNotificationHub(Context context) { Log.v("com.wa.hellokindlefire", "getNotificationHub"); if (hub == null) { hub = new NotificationHub("[hub name]", "[listen connection string]", context); } return hub; }
+      	private static NotificationHub hub;
+		public static NotificationHub getNotificationHub(Context context) {
+			Log.v("com.wa.hellokindlefire", "getNotificationHub");
+			if (hub == null) {
+				hub = new NotificationHub("[hub name]", "[listen connection string]", context);
+			}
+			return hub;
+		}
 
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
 			}
-	
+
 			public static class Receiver extends ADMMessageReceiver
     		{
         		public Receiver()
@@ -165,11 +172,12 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
             		super(MyADMMessageHandler.class);
         		}
     		}
-	
+
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
-		
-	   mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+	   		 mNotificationManager = (NotificationManager)
+	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
 	    	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
 	          	new Intent(ctx, MainActivity.class), 0);
@@ -187,10 +195,10 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 		}
 
 4. Adicione o seguinte código ao método `OnMessage()`:
-	
+
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
- 
+
 5. Adicione o seguinte código ao método `OnRegistered`:
 
 			try {
@@ -209,7 +217,7 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 
 7. Em seguida, no método `MainActivity`, adicione a seguinte instrução de importação:
 
-		import com.amazon.device.messaging.ADM;				
+		import com.amazon.device.messaging.ADM;
 
 8. Agora, adicione o código a seguir no final do método `OnCreate`:
 
@@ -271,6 +279,6 @@ Para enviar uma mensagem usando o .NET:
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

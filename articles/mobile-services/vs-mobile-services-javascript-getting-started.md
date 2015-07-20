@@ -91,4 +91,5 @@ Excluir uma linha em uma tabela de dados. Chame o método [done]() em um objeto 
 
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

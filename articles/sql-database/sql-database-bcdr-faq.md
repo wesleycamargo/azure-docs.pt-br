@@ -60,4 +60,9 @@ Para replicação geográfica ativa, todos os bancos de dados secundários são 
 
 A replicação geográfica usa cópia contínua. Desse modo, use os DMVs (exibição de gerenciamento dinâmico) [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) para obter a hora da última replicação e outras informações.
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

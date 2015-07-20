@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -45,5 +46,6 @@ A tabela a seguir descreve os erros que você poderá encontrar ao executar o as
 | 4 | Invoke-HcsSetupWizard: Value não está no intervalo esperado. | Uma máscara de sub-rede incorreta gera esse erro. As possíveis causas são: <ul><li> A máscara de sub-rede está ausente ou vazia.</li><li>O formato do prefixo Ipv6 está incorreto.</li><li>A interface está habilitada para a nuvem, mas o gateway está ausente ou incorreto.</li></ul>Observe que DATA 0 será automaticamente habilitado para nuvem se configurado por meio do assistente de instalação. | Para determinar o problema, use a sub-rede 0.0.0.0 ou 256.256.256.256 e, em seguida, examine a saída. Insira os valores corretos para a máscara de sub-rede, o gateway e o prefixo Ipv6, como necessário. |
  
 ## Próximas etapas
-Se você não puder resolver o problema, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obter assistência. <!--HONumber=52-->
- 
+Se você não puder resolver o problema, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obter ajuda.
+
+<!---HONumber=July15_HO2-->

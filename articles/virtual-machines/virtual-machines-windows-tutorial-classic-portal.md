@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure"
-	description="Aprenda a criar uma VM (máquina virtual) do Windows no portal de clássico do Azure."
+	description="Aprenda a criar uma VM (máquina virtual) do Windows no Portal de Gerenciamento do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,29 +13,29 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="06/05/2015"
 	ms.author="kathydav"/>
 
-
-
-# Criar uma máquina virtual que executa o Windows
+# Criar uma Máquina Virtual executando o Windows no Portal de Gerenciamento do Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource Management](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-Este tutorial mostra como é fácil criar uma máquina virtual do Azure (VM). Este tutorial uma imagem do Windows Server, mas essa é apenas uma das muitas imagens disponíveis por meio do Azure. Isso inclui imagens de sistemas operacionais Windows, sistemas operacionais baseados em Linux e imagens com aplicativos instalados. As imagens que você pode escolher dependem do tipo de assinatura que você tem. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
-Você também pode criar VMs do Windows usando [suas próprias imagens](../virtual-machines-create-upload-vhd-windows-server-classic-portal.md). Para saber mais sobre VMs do Azure, consulte [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure no Portal de Gerenciamento do Azure. Vamos usar uma imagem do Windows Server como exemplo, mas ela é apenas uma das muitas imagens que o Azure oferece. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
+
+Você também pode criar VMs usando [suas próprias imagens](virtual-machines-create-upload-vhd-windows-server.md). Para saber mais sobre esse e outros métodos, consulte [Diferentes Maneiras de Criar uma Máquina Virtual do Windows](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## <a id="createvirtualmachine"> </a>Como criar a máquina virtual
 
-Esta seção mostra como usar a opção **Da Galeria** no portal clássico do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
+Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciamento do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE]Você também pode experimentar o [Portal do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias VMs, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.
+> [AZURE.NOTE]Você também pode experimentar o [Portal de Visualização do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -49,6 +48,6 @@ Esta seção mostra como usar a opção **Da Galeria** no portal clássico do Az
 ## Recursos adicionais
 
 Para saber mais sobre o que você pode configurar para uma VM e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

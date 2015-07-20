@@ -113,4 +113,4 @@ Saiba mais sobre [como gerenciar sua conta de armazenamento do StorSimple](../st
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

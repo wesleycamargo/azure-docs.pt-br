@@ -121,4 +121,4 @@ Uma vez configurado, você pode expandir esse farm do SharePoint com a orientaç
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

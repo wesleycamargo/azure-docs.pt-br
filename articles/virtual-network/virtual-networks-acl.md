@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -169,4 +169,6 @@ O exemplo de código nesta seção aplica a parâmetros a uma instrução SQL IN
 		connection.execSql(request);
 	}
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

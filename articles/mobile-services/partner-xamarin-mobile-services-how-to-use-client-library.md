@@ -23,7 +23,7 @@ Este guia mostra como executar cenários comuns usando um cliente Componente Xam
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-## <a name="setup"></a>Configuração e pré-requisitos
+## <a name="setup"></a>Configuração e Pré-requisitos
 
 Vamos pressupor que você criou um serviço móvel e uma tabela. Para obter mais informações, consulte [Criar uma tabela](http://go.microsoft.com/fwlink/?LinkId=298592). No código usado neste tópico, a tabela é denominada `TodoItem` e terá as seguintes colunas: `id`, `Text` e `Complete`.
 
@@ -45,7 +45,7 @@ Quando o esquema dinâmico está habilitado, os Serviços Móveis do Azure geram
 
 ## <a name="create-client"></a>Como criar o cliente dos Serviços Móveis
 
-O código a seguir cria o objeto `MobileServiceClient` que é usado para acessar o seu serviço móvel.
+O código seguinte cria o objeto `MobileServiceClient` que é usado para acessar seu serviço móvel.
 			
 	MobileServiceClient client = new MobileServiceClient( 
 		"AppUrl", 
@@ -69,7 +69,7 @@ Esta seção descreve como emitir consultas para o serviço móvel. As subseçõ
 			
 ### <a name="filtering"></a>Como filtrar dados retornados
 
-O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable` cuja propriedade `Complete` é igual a `false`. A função `Where` aplica um predicado de filtragem de linha à consulta na tabela.
+O código a seguir ilustra como filtrar dados incluindo uma cláusula `Where` em uma consulta. Ele retorna todos os itens de `todoTable`, cuja propriedade `Complete` é igual a `false`. A função `Where` aplica um predicado de filtragem de linha à consulta na tabela.
 	
 
 	// This query filters out completed TodoItems and 
@@ -113,7 +113,7 @@ Em vez disso, também poderíamos ter escrito isso em várias linhas:
 
 Os dois métodos são equivalentes e podem ser usados de maneira intercambiável. A opção anterior -- de concatenar vários predicados em uma consulta – é mais compacta e recomendada.
 
-A cláusula `where` dá suporte a operações que são convertidas para o subconjunto OData dos Serviços Móveis. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (ano, mês, dia, hora, minuto, segundo), propriedades de acesso de um objeto e expressões que combinam todos eles.
+A cláusula `where` oferece suporte a operações que são traduzidas para o subconjunto OData dos Serviços Móveis. Isso inclui os operadores relacionais (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisão de número (Math.Floor, Math.Ceiling), funções de cadeias de caracteres (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propriedades de data (Year, Month, Day, Hour, Minute, Second), propriedades de acesso de um objeto e expressões que combinam todos eles.
 
 ### <a name="sorting"></a>Como classificar dados retornados
 
@@ -150,7 +150,7 @@ A seguinte consulta revisada ignora os três primeiros resultados e retorna os t
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-Você também pode usar o método [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) para garantir que a consulta obterá a contagem total de <i>todos</i> os registros que seriam retornados, ignorando qualquer cláusula take paging/limit especificada:
+Você também pode usar o método [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) para garantir que a consulta obterá a contagem total de <i>todos</i> os registros que seriam retornados, ignorando qualquer cláusula de tomada de paginação/limite especificada:
 
 	query = query.IncludeTotalCount();
 
@@ -158,7 +158,7 @@ Esse é um cenário simplificado de passagem de valores de paginação embutidos
 
 ### <a name="selecting"></a>Como selecionar colunas específicas
 
-Você pode especificar qual conjunto de propriedades incluir nos resultados adicionando uma cláusula `Select` à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
+Você pode especificar o conjunto de propriedades para incluir nos resultados, adicionando uma cláusula `Select` à sua consulta. Por exemplo, o código a seguir mostra como selecionar apenas um campo e também como selecionar e formatar vários campos:
 
 	// Select one field -- just the Text
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -229,7 +229,7 @@ O código a seguir ilustra como excluir dados de uma instância existente. A ins
 
 	await todoTable.DeleteAsync(todoItem);
 
-Para excluir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma solicitação de exclusão, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser excluída. Uma solicitação de exclusão precisa apenas da ID. Outras propriedades não são passadas para o serviço e, se for passada alguma propriedade, ela será ignorada no serviço. O resultado de uma chamada de `DeleteAsync`, geralmente, também é `null`. A ID a ser passada pode ser obtida do resultado da chamada de `InsertAsync`.
+Para excluir dados não tipados, você pode tirar proveito do Json.NET conforme mostrado a seguir. Observe que quando você faz uma solicitação de exclusão, uma ID deve ser especificada, porque essa é a maneira como o serviço móvel identifica a instância a ser excluída. Uma solicitação de exclusão precisa apenas da ID. Outras propriedades não são passadas para o serviço e, se for passada alguma propriedade, ela será ignorada no serviço. O resultado de uma chamada de `DeleteAsync`, geralmente, também é ￼￼￼`null`. A ID a ser passada pode ser obtida do resultado da chamada de `InsertAsync`.
 
 	JObject jo = new JObject(); 
 	jo.Add("Id", 52);
@@ -470,5 +470,6 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

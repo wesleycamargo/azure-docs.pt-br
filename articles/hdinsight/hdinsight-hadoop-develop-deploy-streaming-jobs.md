@@ -149,8 +149,8 @@ A solução de contagem de palavras contém dois projetos de aplicativo de conso
 
 Os executáveis do mapeador e do redutor encontram-se em:
 
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
+- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
 ##<a name="test"></a>Testar o programa no emulador
@@ -167,7 +167,7 @@ Por padrão, o emulador do HDInsight usa o HDFS (Sistema de Arquivos Distribuíd
 
 Este tutorial usa a seguinte estrutura de pastas:
 
-<table border="1"> <tr><td>Pasta</td><td>Observação</td></tr> <tr><td>\WordCount</td><td>A pasta raiz do projeto de contagem de palavras. </td></tr> <tr><td>\WordCount\Apps</td><td>A pasta dos executáveis do mapeador e do redutor.</td></tr> <tr><td>\WordCount\Input</td><td>A pasta do arquivo de origem do MapReduce.</td></tr> <tr><td>\WordCount\Output</td><td>A pasta do arquivo de saída do MapReduce.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr> </table></br>
+<table border="1"> <tr><td>Pasta</td><td>Observação</td></tr> <tr><td>\\WordCount</td><td>A pasta raiz do projeto de contagem de palavras. </td></tr> <tr><td>\\WordCount\\Apps</td><td>A pasta dos executáveis do mapeador e do redutor.</td></tr> <tr><td>\\WordCount\\Input</td><td>A pasta do arquivo de origem do MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>A pasta do arquivo de saída do MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr> </table></br>
 
 Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home%.
 
@@ -278,7 +278,7 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home%.
 	Você pode acrescentar "|more" no final do comando para obter a exibição da página.
 
 ##<a id="upload"></a>Carregar dados no armazenamento de Blob do Azure
-O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. Você pode configurar um cluster HDInsight para usar armazenamento de Blob adicional para os arquivos de dados. Nesta seção, você criará uma conta do Armazenamento do Azure e carregará os arquivos de dados no armazenamento de Blob. Os arquivos de dados são os arquivos .txt no diretório %hadoop_home%\share\doc\hadoop\common.
+O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. Você pode configurar um cluster HDInsight para usar armazenamento de Blob adicional para os arquivos de dados. Nesta seção, você criará uma conta do Armazenamento do Azure e carregará os arquivos de dados no armazenamento de Blob. Os arquivos de dados são os arquivos .txt no diretório %hadoop_home%\\share\\doc\\hadoop\\common.
 
 
 **Para criar uma conta e um contêiner do Armazenamento**
@@ -316,7 +316,7 @@ O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivo
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Observe que a pasta do arquivo de origem local é **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common**, e que a pasta de destino é **WordCount/Input**. O local de origem é o local dos arquivos .txt no Emulador do HDInsight. O destino é a estrutura de pasta que será refletida no contêiner do Blob do Azure.
+	Observe que a pasta do arquivo de origem local é **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common**, e que a pasta de destino é **WordCount/Input**. O local de origem é o local dos arquivos .txt no Emulador do HDInsight. O destino é a estrutura de pasta que será refletida no contêiner do Blob do Azure.
 
 3. Execute os comandos a seguir para obter uma lista dos arquivos .txt na pasta do arquivo de origem:
 
@@ -551,4 +551,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

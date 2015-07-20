@@ -41,7 +41,7 @@ A seção Reach da interface do usuário é a ferramenta de gerenciamento de cam
 > Observação: Mais estatísticas detalhadas de campanha estão disponíveis nas estatísticas de API do Reach
 
 ### Consulte também
--  [Conceitos - Glossário][Link 6], [Documentação - API Reach - Estatísticas][Link 4] 
+-  [Conceitos - Glossário][Link 6], [Documentação - API Reach - Estatísticas][Link 4]
 
 
 ## Detalhes da campanha
@@ -148,5 +148,6 @@ Você pode alternar de exibição de detalhes para a de estatísticas de uma cam
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

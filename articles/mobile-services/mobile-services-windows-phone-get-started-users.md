@@ -30,7 +30,7 @@
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
+1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
@@ -41,13 +41,13 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve,
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 <ol start="3">
@@ -63,14 +63,14 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="tokens"></a>Armazenar os tokens de autorização no cliente
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
 No próximo tutorial, [Autorização do lado do serviço dos usuários dos Serviços Móveis](mobile-services-javascript-backend-service-side-authorization.md), você usará o valor da ID do usuário fornecido pelos Serviços Móveis com base em um usuário autenticado para filtrar os dados retornados pelos Serviços Móveis.
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
+[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
 [Restringir permissões de tabela para usuários autenticados]: #permissions
 [Adicionar autenticação ao aplicativo]: #add-authentication
 [Next Steps]: #next-steps
@@ -88,5 +88,6 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Logon único para aplicativos do Windows Phone usando o Live Connect]: mobile-services-windows-phone-single-sign-on.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

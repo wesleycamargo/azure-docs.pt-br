@@ -1,4 +1,5 @@
 ## Enviar mensagens ao Hub de Eventos
+
 Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
 
 1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Remetente**.
@@ -63,4 +64,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -24,22 +24,22 @@
 
 Este tutorial apresenta e explica as etapas básicas para habilitar a autenticação em seu aplicativo:
 
-1. [Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]
+1. [Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]
 2. [Restringir permissões de tabela para usuários autenticados]
 3. [Adicionar autenticação ao aplicativo]
 
-Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
+Este tutorial baseia-se no início rápido dos Serviços Móveis. Primeiramente, você também deve concluir o tutorial [Introdução aos Serviços Móveis].
 
 Para concluir este tutorial, é necessário ter Xamarin.Android e SDK do Android 4.2 ou uma versão posterior.
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>Restringir permissões aos usuários autenticados
+##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. No Eclipse, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Serviços Móveis]. 
@@ -52,11 +52,11 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-1. Adicione a seguinte propriedade à classe **TodoActivity**:
+1. Adicione a seguinte propriedade à classe **ToDoActivity**:
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. Adicione o seguinte método à classe **TodoActivity**:
+2. Adicione o método a seguir à classe **ToDoActivity**:
 
         private async Task Authenticate()
         {
@@ -85,14 +85,17 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -116,7 +119,7 @@ Baixe o [o projeto de exemplo concluído]. Lembre-se de atualizar as variáveis 
 No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis.
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis]: #register
+[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
 [Restringir permissões de tabela para usuários autenticados]: #permissions
 [Adicionar autenticação ao aplicativo]: #add-authentication
 [Next Steps]: #next-steps
@@ -133,5 +136,6 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

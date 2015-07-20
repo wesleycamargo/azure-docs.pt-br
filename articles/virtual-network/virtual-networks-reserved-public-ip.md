@@ -123,4 +123,4 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

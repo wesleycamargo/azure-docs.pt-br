@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  Configurar uma rede virtual para Rota Expressa
@@ -39,6 +39,8 @@
 	- **Nome** – o nome que você deseja dar ao site de rede local (local).
 	- **Espaço de endereço** – Incluindo o IP Inicial e o CIDR (Contagem de Endereços). Você pode especificar qualquer intervalo de endereços, desde que ele não sobreponha o intervalo de endereços para sua rede virtual.
 	- **Adicionar espaço de endereço** – Essa configuração não é relevante para a Rota Expressa.
+	- 
+**Observação:** é necessário criar um site de rede local para a Rota Expressa. Os prefixos do endereço especificados para o site de rede local serão ignorados. Prefixos de endereço anunciados à Microsoft através do circuito da Rota Expressa serão usados para fins de roteamento.
 
 6. Na página **Espaços de endereço de rede virtual**, insira as seguintes informações e clique na marca de seleção na parte inferior direita para configurar sua rede. Há muitas regras quanto ao espaço de endereço de rede virtual. Portanto, convém consultar a página [Espaços de endereço de rede virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obter mais informações.
 
@@ -72,4 +74,4 @@ Para saber mais sobre Redes Virtuais do Azure, consulte [Perguntas frequentes de
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

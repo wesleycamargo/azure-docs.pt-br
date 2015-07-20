@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # Failover e recuperação de desastres para o seu dispositivo StorSimple
@@ -57,7 +57,7 @@ Execute as seguintes etapas para restaurar seu dispositivo para um dispositivo f
 
 	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+		>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
 	1. Em **Escolher um dispositivo de destino** para os volumes nos contêineres selecionados, selecione um dispositivo de destino na lista suspensa de dispositivos disponíveis. Apenas os dispositivos que têm a capacidade disponível são exibidos na lista suspensa.
 
@@ -111,11 +111,13 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 1. No assistente que é aberto, em **Escolher contêiner de volume para failover**, faça o seguinte:
 													
-	1. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
+	a. Na lista de contêineres de volume, selecione os contêineres de volume para failover.
 
-		>[AZURE.NOTE] **São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
+	>[AZURE.NOTE]**São exibidos apenas os contêineres de volume com instantâneos de nuvem e volumes offline associados.**
 
-1. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
+	b. Em **Escolher um dispositivo de destino para os volumes nos contêineres selecionados**, selecione o dispositivo virtual StorSimple na lista suspensa de dispositivos disponíveis. Somente os dispositivos que possuem capacidade suficiente são exibidos na lista suspensa.
+	
+	>[AZURE.NOTE]**Se seu dispositivo físico estiver executando a Atualização 1, você só poderá aplicar o failover em um dispositivo virtual que esteja executando a Atualização 1. Se o dispositivo virtual de destino estiver executando uma versão anterior do software, você verá um erro informando que o software do dispositivo de destino precisa ser atualizado.**
 
 1. Finalmente, revise as configurações de failover em Confirmar failover. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -136,6 +138,6 @@ Para obter informações sobre como gerenciar seu dispositivo usando o serviço 
 
 - [Guia do Administrador](https://msdn.microsoft.com/library/dn772401.aspx)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

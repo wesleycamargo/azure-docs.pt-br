@@ -57,7 +57,7 @@ Execute estas etapas para criar o cluster Spark usando um modelo do Gerenciador 
 
 ### Etapa 1-a: baixar os arquivos de modelo usando o PowerShell
 
-Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\Azure\Templates\Spark).
+Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\\Azure\\Templates\\Spark).
 
 Substitua o nome da pasta local e execute os seguintes comandos:
 
@@ -91,7 +91,7 @@ Clone todo o repositório de modelos usando um cliente git de sua escolha, por e
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta **spark-on-ubuntu** no diretório C:\Azure\Templates.
+Quando terminar, procure a pasta **spark-on-ubuntu** no diretório C:\\Azure\\Templates.
 
 ### Etapa 2 (opcional): compreender os parâmetros do modelo
 
@@ -416,7 +416,7 @@ Este diagrama descreve as relações entre todos os arquivos baixados do GitHub 
 
 Esta seção percorre a estrutura do arquivo **azuredeploy.json** para o cluster Spark.
 
-Se você ainda não baixou uma cópia do arquivo de modelo, indique uma pasta local como o local para o arquivo e crie-o (por exemplo, C:\Azure\Templates\Spark). Preencha o nome da pasta e execute estes comandos.
+Se você ainda não baixou uma cópia do arquivo de modelo, indique uma pasta local como o local para o arquivo e crie-o (por exemplo, C:\\Azure\\Templates\\Spark). Preencha o nome da pasta e execute estes comandos.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -844,4 +844,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 [Solução de problemas de implantações de modelo](resource-group-deploy-debug.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

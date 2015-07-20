@@ -20,7 +20,7 @@
 
 Este tópico orienta você quanto à estrutura do arquivo de modelo azuredeploy.json para o farm do SharePoint de três servidores. Você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe uma pasta local para criar o arquivo (por exemplo, C:\Azure\Templates\SharePointFarm). Preencha o nome da pasta e execute esses comandos no prompt de comando do PowerShell do Azure.
+Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe uma pasta local para criar o arquivo (por exemplo, C:\\Azure\\Templates\\SharePointFarm). Preencha o nome da pasta e execute esses comandos no prompt de comando do PowerShell do Azure.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -378,4 +378,4 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

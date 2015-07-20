@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Transição da versão da api de visualização=2014* para a versão da api=2015*#
@@ -22,12 +22,12 @@ A orientação a seguir serve para clientes que criam aplicativos personalizados
 
 Como um cliente de visualização, você pode ter usado uma dessas versões mais antigas de visualização:
 
-- [2014-07-31-Preview](../search-api-2014-07-31-preview.md)
+- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
 - [2014-10-20-Preview](search-api-2014-10-20-preview.md)
 
-Agora que a Pesquisa do Azure está disponível publicamente, recomendamos fazer a transição para versões mais recentes: 2015-02-28 é a versão oficial da API da versão disponível publicamente da Pesquisa do Azure. Esta versão está documentada no [MSDN](https://msdn.microsoft.com/pt-br/library/azure/dn798933.aspx).
+Agora que a Pesquisa do Azure está disponível publicamente, recomendamos fazer a transição para versões mais recentes: 2015-02-28 é a versão oficial da API da versão disponível publicamente da Pesquisa do Azure. Esta versão está documentada no [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-Também estamos implantando a próxima versão de visualização, [2015-02-28-Preview](../search-api-2015-02-28-preview.md), apresentando recursos que ainda estão em desenvolvimento. Solicitamos seus comentários nos [Fóruns da Pesquisa do Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch) ou em nossa [página de comentários](http://feedback.azure.com/forums/263029-azure-search).
+Também estamos implantando a próxima versão de visualização, [2015-02-28-Preview](search-api-2015-02-28-preview.md), apresentando recursos que ainda estão em desenvolvimento. Você pode fornecer comentários sobre a API de visualização por meio dos [Fóruns de Pesquisa do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou da nossa [página de comentários](http://feedback.azure.com/forums/263029-azure-search).
 
 ###Lista de verificação para migração###
 
@@ -41,7 +41,7 @@ Também estamos implantando a próxima versão de visualização, [2015-02-28-Pr
 
 A versão inicial da API incluía um recurso de sugestões de preenchimento automático ou preenchimento automático. Embora fosse útil, a correspondência apenas de prefixos era limitada, pesquisando os primeiros caracteres do termo de pesquisa, sem suporte para a correspondência em outro lugar no campo. A implementação foi uma propriedade Booliana chamada `suggestions` que você definiria como `true` se quisesse habilitar a correspondência de prefixo em um determinado campo.
 
-Essa implementação original foi substituída por um novo constructo `Suggesters` definida no recurso [índice](https://msdn.microsoft.com/pt-br/library/azure/dn798941.aspx) que fornece infixos e correspondência difusa. Como os nomes sugerem, infixos e correspondência difusa proporcionam capacidade de correspondência muito mais ampla. A correspondência de infixos abrange prefixos, pois ainda faz a correspondência de caracteres iniciais, mas amplia a correspondência para incluir o restante da cadeia de caracteres.
+Essa implementação original foi substituída por um novo constructo `Suggesters` definida no recurso [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) que fornece infixos e correspondência difusa. Como os nomes sugerem, infixos e correspondência difusa proporcionam capacidade de correspondência muito mais ampla. A correspondência de infixos abrange prefixos, pois ainda faz a correspondência de caracteres iniciais, mas amplia a correspondência para incluir o restante da cadeia de caracteres.
 
 Optamos por interromper a implementação anterior (a propriedade booliana), o que significa que ela estará totalmente indisponível em qualquer uma das versões 2015 sem compatibilidade com versões anteriores, a fim de evitar sua adoção acidental por clientes que estão criando soluções mais novas. Se você usar um `2015-02-28` ou `2015-02-28-Preview` será necessário usar o novo constructo `Suggesters` para habilitar consultas de preenchimento automático.
 
@@ -135,12 +135,13 @@ Uma definição de esquema migrado omite a propriedade `Suggestions` e adiciona 
 Após a portabilidade de sua solução e a confirmação da execução conforme o esperado, você pode usar estes links para ler sobre os novos recursos.
 
 - [Pesquisa do Azure disponível (postagem de blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
-- [Novidades na atualização mais recente para a Pesquisa do Azure](../search-latest-updates/)
-- [Visão geral da Pesquisa do Azure](https://msdn.microsoft.com/pt-br/library/azure/dn798933.aspx)
+- [Novidades na atualização mais recente para a Pesquisa do Azure](search-latest-updates.md)
+- [O que é a Pesquisa do Azure?](search-what-is-azure-search.md)
 
 ##Obter ajuda##
 
-A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os links [nesta página](http://azure.microsoft.com/support/options/) para emitir um tíquete de suporte.
+A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os links [nesta página](../support/options/) para emitir um tíquete de suporte.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

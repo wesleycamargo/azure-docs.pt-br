@@ -60,16 +60,16 @@ Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
 ### Dicionário Confiável
-| Operação\função | Primário | Secundário |
+| Operação\\função | Primário | Secundário |
 | --------------------- | :--------------- | :--------------- |
 | Leitura de entidade única | Leitura repetida | Instantâneo |
-| Enumeração\contagem | Instantâneo | Instantâneo |
+| Enumeração\\contagem | Instantâneo | Instantâneo |
 
 ### Fila Confiável
-| Operação\função | Primário | Secundário |
+| Operação\\função | Primário | Secundário |
 | --------------------- | :--------------- | :--------------- |
 | Leitura de entidade única | Instantâneo | Instantâneo |
-| Enumeração\contagem | Instantâneo | Instantâneo |
+| Enumeração\\contagem | Instantâneo | Instantâneo |
 
 ## Modelo de persistência
 O Gerenciador de Estado Confiável e as Coleções Confiáveis seguem um modelo de persistência chamado Log e Ponto de Verificação. Esse é um modelo em que cada alteração de estado é registrada no disco e aplicada apenas na memória. O estado de conclusão em si é persistido apenas ocasionalmente (também conhecido como ponto de verificação). O benefício que ele oferece é:
@@ -87,7 +87,7 @@ Coleções Confiáveis sempre utilizam bloqueios exclusivos. Para leituras, o bl
 
 A matriz de compatibilidade de bloqueio pode ser encontrada abaixo:
 
-| Solicitação\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
+| Solicitação\\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
 | ----------------- | :----------- | :----------- | :---------- | :----------- |
 | Compartilhado | Sem conflito | Sem conflito | Conflito | Conflito |
 | Atualizar | Sem conflito | Sem conflito | Conflito | Conflito |
@@ -119,4 +119,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

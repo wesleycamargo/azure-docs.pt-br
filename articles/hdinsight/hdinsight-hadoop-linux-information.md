@@ -152,4 +152,4 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -30,9 +30,9 @@ Este procedimento descreve a maneira mais simples de ativar as funções de Aná
  
 As etapas a seguir são suficientes para ativar o relatório de logs necessário para calcular todas as estatísticas referentes a Usuários, Sessões, Atividades, Falhas e Suporte Técnico. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement em seu Android](mobile-engagement-android-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
-##Incorpore o SDK e o serviço do Engagement em seu projeto Android
+##Incorpore o SDK e serviço do Engagement em seu projeto Android
 
-Obtenha `mobile-engagement-VERSION.jar` e coloque-os na pasta `libs` do seu projeto Android (crie a pasta das bibliotecas se ela ainda não existir).
+Baixe o SDK do Androi de [aqui](http://go.microsoft.com/?linkid=9863935&clcid=0x409) Obtenha `mobile-engagement-VERSION.jar`e coloque-as na `libs`pasta do seu projeto Android (crie a pasta das bibliotecas se ela ainda não existir).
 
 > [AZURE.IMPORTANT]Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter algumas classes. Você pode usar o seguinte trecho de código de configuração:
 >
@@ -165,7 +165,7 @@ Este exemplo é muito semelhante à classe `EngagementActivity` e suas variantes
 
 ##Teste
 
-Agora, verifique sua integração lendo Como Testar a Integração do Engagement em Android.
+Agora, verifique se a integração ao executar seu aplicativo móvel em um dispositivo ou emulador e verifique se ele registra uma sessão na guia Monitor.
 
 As seções a seguir são opcionais.
 
@@ -309,5 +309,6 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 
 <!-- URLs. -->
 [API do dispositivo]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

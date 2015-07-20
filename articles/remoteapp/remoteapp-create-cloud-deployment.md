@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
-# Como criar uma coleção na nuvem do RemoteApp
+# Como criar uma coleção na nuvem do Azure RemoteApp
 
-Há dois tipos de coleções de RemoteApp:
+Há dois tipos de coleções do Azure RemoteApp:
 
 - Nuvem: reside completamente no Azure e é criada usando a opção **Criação rápida** no Portal de Gerenciamento do Azure.  
-- Híbrido: inclui uma rede virtual para acesso local e é criado usando a opção **Criar com VPN** no Portal de Gerenciamento.
+- Híbrido: inclui uma rede virtual para acesso local e é criado usando a opção **Criar com VNET** no Portal de Gerenciamento.
 
 Este tutorial explica o processo de criação de uma implantação de nuvem. Há quatro etapas:
 
@@ -91,5 +91,6 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
 É isso - a sua implantação na nuvem do RemoteApp foi criada e implantada com sucesso. A próxima etapa é fazer com que os seus usuários baixem e instalem o cliente da Área de Trabalho Remota. É possível encontrar a URL para o cliente na página Início Rápido do RemoteApp. Em seguida, os usuários podem fazer o logon no cliente e acessar os aplicativos que você publicou.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

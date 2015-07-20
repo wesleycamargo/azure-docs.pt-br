@@ -24,4 +24,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 * Para remover registros de armazenamento local do dispositivo quando eles tiverem sido excluídos do banco de dados do serviço móvel, você deve habilitar a [Exclusão Reversível]. Caso contrário, seu aplicativo deve chamar periodicamente `IMobileServiceSyncTable.PurgeAsync()` para limpar o armazenamento local.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

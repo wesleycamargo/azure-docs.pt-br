@@ -113,7 +113,7 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
 8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: 
-- *NomeDoComputador**NomeDaContaDeAdministradorLocal*
+- *NomeDoComputador*\\*NomeDaContaDeAdministradorLocal*
 9.	Em **Senha**, digite a senha da conta de administrador local.
 10.	Clique em **OK**.
 11.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Sim**. A área de trabalho da nova máquina é exibida em uma janela de sessão de Área de Trabalho Remota.
@@ -242,4 +242,7 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 3: conf
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

@@ -41,7 +41,7 @@ Caso ocorra uma interrupção no banco de dados primário, será possível fazer
 
 
 ###Portal do Azure
-1. Faça logon no [Portal do Azure](https://portal.Azure.com)
+1. Faça logon no [Portal do Azure](https://portal.Azure.com).
 2. No lado esquerdo da tela, selecione **PROCURAR** e selecione **Bancos de Dados SQL**
 3. Navegue até o banco de dados e selecione-o. 
 4. Na parte inferior da folha do banco de dados, selecione o **Mapa de Replicação Geográfica**.
@@ -99,5 +99,6 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 4.	Acompanhe o status da recuperação usando a operação [Status da operação de banco de dados.](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

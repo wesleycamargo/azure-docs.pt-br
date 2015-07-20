@@ -101,4 +101,4 @@ A conexão de aplicativos sempre fez parte da criação de soluções completas 
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Visão geral de Hubs de evento]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

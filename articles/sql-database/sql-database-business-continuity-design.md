@@ -96,4 +96,7 @@ Esse API é assíncrono. Depois que ele retornar, use o API [Obter cópia de ban
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](https://msdn.microsoft.com/library/azure/dn741328.aspx) para obter orientação.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

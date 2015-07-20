@@ -68,4 +68,4 @@ Você pode definir a assinatura do Azure atual ao executar estes comandos no pro
 
 Para obter mais informações sobre contas e assinaturas do Azure, consulte [How to: Connect to your subscription (Como: conectar-se à sua assinatura)](powershell-install-configure.md#Connect).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

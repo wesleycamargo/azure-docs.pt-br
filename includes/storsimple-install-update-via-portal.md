@@ -45,4 +45,4 @@
 
     ![Página de manutenção](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

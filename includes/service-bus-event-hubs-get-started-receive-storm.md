@@ -6,7 +6,7 @@ Para obter mais informações sobre os padrões de recebimento dos Hubs de Event
 
 Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout de Hubs de Eventos já disponível.
 
-1. Siga o procedimento [HDInsight Storm - Introdução](../articles/hdinsight-storm-getting-started.md) para criar um novo cluster HDInsight e conectá-lo por meio da Área de Trabalho Remota.
+1. Siga o procedimento [HDInsight Storm - Introdução](../hdinsight/hdinsight-storm-overview.md) para criar um novo cluster HDInsight e conectá-lo por meio da Área de Trabalho Remota.
 
 2. Copie o arquivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` para seu ambiente de desenvolvimento local. Ele contém o events-storm-spout.
 
@@ -220,9 +220,9 @@ Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout d
 	Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria quantas tarefas spouts quanto o número de partições no Hub de Eventos, para usar o paralelismo máximo permitido por esse Hub de Eventos.
 
 <!-- Links -->
-[Visão geral dos Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[tutorial de análise de sensor HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Visão geral dos Hubs de Eventos]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[tutorial de análise de sensor HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Este tutorial usa uma instalação do [HDInsight Storm], que acompanha o spout d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

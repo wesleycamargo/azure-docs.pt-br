@@ -40,4 +40,7 @@ As ACLs de rede possibilitam permitir ou negar seletivamente tráfego de entrada
 ##Recursos adicionais
 [Recursos](http://azure.microsoft.com/support/trust-center/resources/) no Microsoft Azure Trust Center
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

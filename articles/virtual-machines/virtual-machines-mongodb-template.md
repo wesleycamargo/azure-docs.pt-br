@@ -97,7 +97,7 @@ Substitua o nome da pasta local e execute os seguintes comandos:
     $filePath = $folderName + "\shared-resources.json"
     $webclient.DownloadFile($url,$filePath)  
 
-### Etapa 1-b: Baixar os arquivos de modelo usando a CLI do Azure
+### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
 Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
 
@@ -234,7 +234,7 @@ Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permi
 
 ### Etapa 3-a: Implantar um cluster MongoDB com um modelo usando o PowerShell
 
-Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma só entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
+Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
 
 Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.json**:
 
@@ -690,5 +690,6 @@ Essencialmente, essa abordagem sugere o seguinte:
 -	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
 
 Para saber mais, confira [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

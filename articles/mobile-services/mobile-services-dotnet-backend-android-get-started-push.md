@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -47,11 +47,11 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar es
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
 
-Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar o mínimo que pode ser definido para esse valor e defina-o de maneira apropriada.
+Se você for testar com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar o mínimo que pode ser definido para esse valor e defina-o de maneira apropriada.
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Incluir Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-Google-play-services.md)]
 
 ###Incluir código
 
@@ -73,13 +73,13 @@ Este tutorial foi concluído com êxito.
 
 Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo Android para usar Serviços Móveis e Hubs de Notificação para enviar notificações por push. Em seguida, considere concluir o tutorial seguinte, [Enviar notificações por push para usuários autenticados], que mostra como usar marcas para enviar notificações por push de um Serviço Móvel para somente um usuário autenticado.
 
-+ [Enviar notificações em push para usuários autenticados]
++ [Enviar notificações em push para usuários autenticados]  
 <br/>Saiba como usar marcas para enviar notificações por push a partir de um Serviço Móvel apenas para um usuário autenticado.
 
-+ [Enviar notificações de transmissão para assinantes]
++ [Enviar notificações de transmissão para assinantes]  
 <br/>Saiba como os usuários podem registrar e receber notificações por push para categorias de interesse.
 
-+ [Enviar notificações com base no modelo para assinantes]
++ [Enviar notificações com base no modelo para assinantes]  
 <br/>Saiba usar modelos para enviar notificações por push de um Serviço Móvel, sem precisar colocar cargas específicas de plataforma no seu back-end.
 
 Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seguir:
@@ -124,5 +124,6 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Enviar notificações de transmissão para assinantes]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Enviar notificações com base no modelo para assinantes]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

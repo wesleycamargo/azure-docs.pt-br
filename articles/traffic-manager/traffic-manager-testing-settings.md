@@ -75,4 +75,6 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 
 [Operações para Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

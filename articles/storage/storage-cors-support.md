@@ -3,8 +3,8 @@
 	description="Saiba como habilitar o suporte de CORS para os serviços de armazenamento do Microsoft Azure." 
 	services="storage" 
 	documentationCenter=".net" 
-	authors="andtyler" 
-	manager="aungoo" 
+	authors="tamram" 
+	manager="carolz" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="andtyler"/>
+	ms.date="06/18/2015" 
+	ms.author="tamram;andtyler"/>
 
 # Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
 
-Os serviços de armazenamento do Azure a partir da versão 2013-08-15, suportam a compartilhamento de recursos entre origens (CORS) para os serviços Blob, tabela e fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impede uma página da web de chamada APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
+Os serviços de armazenamento do Azure a partir da versão 2013-08-15, suportam a compartilhamento de recursos entre origens (CORS) para os serviços Blob, tabela e fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamada APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
 
-Você pode definir regras de CORS individualmente para cada um dos serviços de armazenamento, chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx), e [Definir propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, uma solicitação autenticada corretamente feita no serviço de um domínio diferente será avaliada para determinar se é permitida de acordo com as regras que você especificou.
+Você pode definir regras de CORS individualmente para cada um dos serviços de armazenamento, chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx). Depois de definir as regras CORS para o serviço, uma solicitação autenticada corretamente feita no serviço de um domínio diferente será avaliada para determinar se é permitida de acordo com as regras que você especificou.
 
->[AZURE.NOTE] Observe que CORS não é um mecanismo de autenticação. Qualquer solicitação feita em um recurso de armazenamento quando CORS estiver habilitado deve ter uma assinatura de autenticação adequada ou deverá ser feita em um recurso público.
+>[AZURE.NOTE]Observe que CORS não é um mecanismo de autenticação. Qualquer solicitação feita em um recurso de armazenamento quando CORS estiver habilitado deve ter uma assinatura de autenticação adequada ou deverá ser feita em um recurso público.
 
 ## Noções básicas sobre solicitações CORS
 
@@ -52,7 +52,7 @@ A solicitação real é tratada como uma solicitação normal no serviço de arm
 
 ## Habilitando CORS para os serviços de armazenamento do Azure
 
-As regras de CORS são definidas no nível de serviço, por isso você precisa habilitar ou desabilitar o CORS para cada serviço (Blob, fila e tabela) separadamente. Por padrão, o CORS está desabilitado para cada serviço. Para habilitar o CORS, você precisa definir as propriedades de serviço apropriadas usando a versão 2013-08-15 ou posterior e adicionar regras de CORS às propriedades do serviço. Para obter detalhes sobre como habilitar ou desabilitar o CORS para um serviço e como definir regras de CORS, consulte [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx), e [Definir propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx).
+As regras de CORS são definidas no nível de serviço, por isso você precisa habilitar ou desabilitar o CORS para cada serviço (Blob, fila e tabela) separadamente. Por padrão, o CORS está desabilitado para cada serviço. Para habilitar o CORS, você precisa definir as propriedades de serviço apropriadas usando a versão 2013-08-15 ou posterior e adicionar regras de CORS às propriedades do serviço. Para obter detalhes sobre como habilitar ou desabilitar o CORS para um serviço e como definir regras de CORS, consulte [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx).
 
 Aqui está um exemplo de uma única regra CORS, especificada por meio de uma operação de definir propriedades do serviço:
 
@@ -68,17 +68,17 @@ Aqui está um exemplo de uma única regra CORS, especificada por meio de uma ope
 
 Cada elemento incluído na regra de CORS é descrito abaixo:
 
-- **AllowedOrigins**: Os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) podem fazer solicitações no serviço usando CORS.
+- **AllowedOrigins**: os domínios de origem que têm permissão para fazer uma solicitação no serviço de armazenamento por meio de CORS. O domínio de origem é o domínio do qual se origina a solicitação. Observe que a origem deve ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Você também pode usar o caractere curinga '*' para permitir que todos os domínios de origem façam solicitações por CORS. No exemplo acima, os domínios [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) podem fazer solicitações no serviço usando CORS.
 
-- **AllowedMethods**: Os métodos (verbos de solicitação HTTP) que pode usar o domínio de origem para uma solicitação CORS. No exemplo acima, somente as solicitações PUT e GET são permitidas.
+- **AllowedMethods**: os métodos (verbos de solicitação HTTP) que podem usar o domínio de origem para uma solicitação CORS. No exemplo acima, somente as solicitações PUT e GET são permitidas.
 
-- **AllowedHeaders**: Os cabeçalhos de solicitação que o domínio de origem podem especificar na solicitação de CORS. No exemplo acima, todos os cabeçalhos de metadados, começando com x-ms-meta-datas, x-ms-meta-target e x-ms-meta-abc são permitidos. Observe que o caractere curinga '*' indica que todos os cabeçalhos que começam com o prefixo especificado são permitidos.
+- **AllowedHeaders**: os cabeçalhos de solicitação que o domínio de origem pode especificar na solicitação de CORS. No exemplo acima, todos os cabeçalhos de metadados, começando com x-ms-meta-datas, x-ms-meta-target e x-ms-meta-abc são permitidos. Observe que o caractere curinga '*' indica que todos os cabeçalhos que começam com o prefixo especificado são permitidos.
 
-- **ExposedHeaders**: Os cabeçalhos de resposta que podem ser enviados em resposta à solicitação de CORS e expostos pelo navegador para o emissor da solicitação. No exemplo acima, o navegador é instruído para expor quaisquer cabeçalhos que começam com x-ms-meta.
+- **ExposedHeaders**: os cabeçalhos de resposta que podem ser enviados em resposta à solicitação de CORS e expostos pelo navegador para o emissor da solicitação. No exemplo acima, o navegador é instruído para expor quaisquer cabeçalhos que começam com x-ms-meta.
 
-- **MaxAgeInSeconds**: O quantidade máxima de tempo que um navegador deve armazenar em cache a solicitação OPTIONS de simulação.
+- **MaxAgeInSeconds**: a quantidade máxima de tempo pela qual um navegador deve armazenar em cache a solicitação OPTIONS de simulação.
 
-Os serviços de armazenamento do Azure oferecem suporte, especificando cabeçalhos prefixados para ambos os elementos **AllowedHeaders** e **ExposedHeaders**. Para permitir uma categoria de cabeçalhos, você pode especificar um prefixo comum a essa categoria. Por exemplo, especificar **x-ms-meta** como um cabeçalho prefixado estabelece uma regra que corresponderá a todos os cabeçalhos que começam com x-ms-meta.
+Os serviços de armazenamento do Azure oferecem suporte, especificando cabeçalhos prefixados para ambos os elementos **AllowedHeaders** e **ExposedHeaders**. Para permitir uma categoria de cabeçalhos, você pode especificar um prefixo comum a essa categoria. Por exemplo, especificar *x-ms-meta** como um cabeçalho prefixado estabelece uma regra que corresponderá a todos os cabeçalhos que começam com x-ms-meta.
 
 As seguintes limitações se aplicam a regras de CORS:
 
@@ -86,9 +86,9 @@ As seguintes limitações se aplicam a regras de CORS:
 - O tamanho máximo de todas as configurações das regras de CORS na solicitação, excluindo as marcas XML, não deve exceder 2 KB.
 - O comprimento de um cabeçalho permitido, cabeçalho exposto ou origem permitida não deve exceder 256 caracteres.
 - Cabeçalhos expostos e cabeçalhos permitidos podem ser:
-  - Cabeçalhos literais, onde o nome exato do cabeçalho é fornecido, como **x-ms-meta-processed**. Um máximo de 64 cabeçalhos literais pode ser especificado na solicitação.
-  - Cabeçalhos prefixados, onde um prefixo do cabeçalho é fornecido, como **x-ms-meta-data**. Especificando um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos prefixados pode ser especificado na solicitação.
-- Os métodos (ou verbos HTTP) especificados no elemento **AllowedMethods** devem estar em conformidade com os métodos suportados pelas APIs do serviço de armazenamento do Azure. Métodos com suporte são DELETE, GET, HEAD, MERGE, POST, OPTIONS e PUT.
+  - Cabeçalhos literais, nos quais o nome exato do cabeçalho é fornecido, como **x-ms-meta-processed**. Um máximo de 64 cabeçalhos literais pode ser especificado na solicitação.
+  - Cabeçalhos prefixados, nos quais um prefixo do cabeçalho, como **x-ms-meta-data***, é fornecido. Especificando um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos prefixados pode ser especificado na solicitação.
+- Os métodos (ou verbos HTTP) especificados no elemento **AllowedMethods** devem estar em conformidade com os métodos aos quais as APIs do serviço de armazenamento do Azure oferecem suporte. Métodos com suporte são DELETE, GET, HEAD, MERGE, POST, OPTIONS e PUT.
 
 ## Noções básicas sobre a lógica de avaliação da regra de CORS
 
@@ -102,11 +102,11 @@ As regras de CORS são avaliadas da seguinte maneira:
 
 3. Se a solicitação corresponde a uma regra no seu domínio de origem e seu método, essa regra estará selecionada para processar a solicitação e nenhuma regra adicional é avaliada. Antes que a solicitação possa ser bem-sucedida, no entanto, todos os cabeçalhos especificados na solicitação são comparados aos cabeçalhos listados no elemento **AllowedHeaders**. Se os cabeçalhos enviados não corresponderem aos cabeçalhos permitidos, a solicitação falhará.
 
-As regras são processadas na ordem em que estiverem presentes no corpo da solicitação, práticas recomendadas recomendam que você especifique as regras mais restritivas em relação às primeiras origens na lista, para que elas sejam avaliadas primeiro. Especifica regras que são menos restritivas - por exemplo, uma regra para permitir todas as origens - no final da lista.
+As regras são processadas na ordem em que estiverem presentes no corpo da solicitação, práticas recomendadas recomendam que você especifique as regras mais restritivas em relação às primeiras origens na lista, para que elas sejam avaliadas primeiro. Especifica regras que são menos restritivas – por exemplo, uma regra para permitir todas as origens – no final da lista.
 
-### Exemplo - avaliação das regras de CORS
+### Exemplo – avaliação das regras de CORS
 
-O exemplo a seguir mostra um corpo de solicitação parcial para a operação para definir regras de CORS para os serviços de armazenamento. Consulte [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx), e [Definir propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx) para obter detalhes sobre como construir a solicitação.
+O exemplo a seguir mostra um corpo de solicitação parcial para a operação para definir regras de CORS para os serviços de armazenamento. Consulte [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx) para obter detalhes sobre como construir a solicitação.
 
     <Cors>
         <CorsRule>
@@ -142,9 +142,9 @@ Em seguida, considere as seguintes solicitações CORS:
 <tr>
 <td><b>Método</b></td>
 <td><b>Origem</b></td>
-<td><b>Cabeçalhos de solicitação</b></td>
+<td><b>Cabeçalhos da solicitação</b></td>
 <td><b>Correspondência de regra</b></td>
-<td><b>Result</b></td>
+<td><b>Resultado</b></td>
 </tr>
 <tr>
 <td><b>PUT</b></td>
@@ -169,21 +169,21 @@ Em seguida, considere as seguintes solicitações CORS:
 </tr>
 </table>
 
-A primeira solicitação corresponde à primeira regra - o domínio de origem corresponde às origens permitidas, o método corresponde aos métodos permitidos e o cabeçalho corresponde aos cabeçalhos permitidos - e então tem êxito.
+A primeira solicitação corresponde à primeira regra – o domínio de origem corresponde às origens permitidas, o método corresponde aos métodos permitidos e o cabeçalho corresponde aos cabeçalhos permitidos – e então tem êxito.
 
 A segunda solicitação não corresponde à primeira regra porque o método não corresponde aos métodos permitidos. No entanto, ele corresponde à segunda regra, portanto, tem êxito.
 
-A terceira solicitação corresponde à segunda regra em seu domínio de origem e método, portanto nenhuma regra adicional será avaliada. No entanto, o *x-ms-client-request-id header* não é permitido pela segunda regra, então a solicitação falha, apesar do fato de que a semântica da terceira regra teria permitido ter êxito.
+A terceira solicitação corresponde à segunda regra em seu domínio de origem e método, portanto nenhuma regra adicional será avaliada. No entanto, o *cabeçalho x-ms-client-request-id* não é permitido pela segunda regra; assim, embora a semântica da terceira não impeça seu êxito, a solicitação falha.
 
->[AZURE.NOTE] Embora esse exemplo mostra uma regra menos restritiva antes de uma mais restritiva, em geral a prática recomendada é listar as regras mais restritivas primeiro.
+>[AZURE.NOTE]Embora esse exemplo mostra uma regra menos restritiva antes de uma mais restritiva, em geral a prática recomendada é listar as regras mais restritivas primeiro.
 
 ## Noções básicas sobre como o cabeçalho Vary é definido
 
-O cabeçalho *Vary* é um cabeçalho HTTP/1.1 padrão que consiste em um conjunto de campos de cabeçalho de solicitação que recomendam o navegador ou o agente de usuário sobre os critérios selecionados pelo servidor para processar a solicitação.  O cabeçalho *Vary* é usado principalmente para armazenamento em cache por proxies, navegadores e CDNs, que usam para determinar como a resposta deve ser armazenada em cache. Para obter detalhes, consulte a especificação para o [cabeçalho Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+O cabeçalho *Vary* é um cabeçalho HTTP/1.1 padrão, que consiste em um conjunto de campos de cabeçalho de solicitação que fazem recomendações ao navegador ou ao agente do usuário sobre os critérios selecionados pelo servidor para processar a solicitação. O cabeçalho *Vary* é usado principalmente para armazenamento em cache por proxies, navegadores e CDNs, que utilizam-no para determinar como a resposta deve ser armazenada em cache. Para obter detalhes, consulte a especificação para o [cabeçalho Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Quando o navegador ou outro agente de usuário armazena em cache a resposta de uma solicitação CORS, o domínio de origem é armazenado em cache como a origem permitida. Quando um segundo domínio emite a mesma solicitação para um recurso de armazenamento enquanto o cache está ativo, o agente do usuário recupera o domínio de origem armazenado em cache. O segundo domínio corresponde ao domínio armazenado em cache, portanto, a solicitação falhará quando ele, por outro lado, tiver êxito. Em alguns casos, o armazenamento do Azure define o cabeçalho Vary como **Origin** para instruir o agente do usuário a enviar a solicitação subsequente de CORS para o serviço quando o domínio de solicitação difere da origem armazenada em cache.
 
-Armazenamento do Azure define o cabeçalho *Vary* para **Origin** para solicitações atuais de GET/HEAD nos seguintes casos:
+O Armazenamento do Azure define o cabeçalho *Vary* como **Origin** para solicitações GET/HEAD atuais nos seguintes casos:
 
 - Quando a origem da solicitação corresponde exatamente à origem permitida definida por uma regra CORS. Para ser uma correspondência exata, a regra CORS pode não incluir um caractere curinga '*'.
 
@@ -277,7 +277,7 @@ A tabela a seguir indica como o armazenamento do Azure responderá às solicita�
 
 ## Cobrança para solicitações CORS
 
-Solicitações de simulação com êxito são cobradas se você tiver CORS habilitado para qualquer um dos serviços de armazenamento para sua conta (chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx), ou [Definir propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar encargos, é recomendável configurar o elemento **MaxAgeInSeconds** em suas regras CORS para um valor grande para que o agente do usuário armazene a solicitação em cache.
+Solicitações de simulação com êxito são cobradas se você tiver CORS habilitado para qualquer um dos serviços de armazenamento para sua conta (chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) ou [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar encargos, é recomendável configurar o elemento **MaxAgeInSeconds** em suas regras CORS para um valor grande para que o agente do usuário armazene a solicitação em cache.
 
 Solicitações de simulação malsucedidas não serão cobradas.
 
@@ -285,10 +285,11 @@ Solicitações de simulação malsucedidas não serão cobradas.
 
 [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx)
 
-[Definir propriedades do serviço de fila](https://msdn.microsoft.com/library/hh452232.aspx)
+[Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx)
 
-[Definir propriedades do serviço de tabela](https://msdn.microsoft.com/library/hh452240.aspx)
+[Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

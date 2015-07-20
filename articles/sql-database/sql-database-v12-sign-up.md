@@ -65,4 +65,6 @@ Os tópicos a seguir explicam como você pode usar o Banco de Dados SQL V12.
 <!-- References, Images. -->
 [Image1]: ./media/sql-database-v12-sign-up/V12Preview-YesNo-Option-New-SQLDatabase-Server-Newserver-Screenshot-e23.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

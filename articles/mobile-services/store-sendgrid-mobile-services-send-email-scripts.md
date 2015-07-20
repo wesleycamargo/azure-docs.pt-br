@@ -135,5 +135,6 @@ Agora que você já viu como é fácil usar o serviço de emails do SendGrid com
 [serviço de e-mail baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

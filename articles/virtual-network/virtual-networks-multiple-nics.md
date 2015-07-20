@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Criar uma máquina virtual com várias NICs"
-   description="Como criar VMs com várias NICs"
+   description="Saiba como criar e configurar máquinas virtuais com várias placas de rede"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="telmos" />
 
 # Criar uma máquina virtual com várias NICs
@@ -43,11 +43,11 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 |Tamanho da VM (SKUs padrão)|NICs (máx. permitido por VM)|
 |---|---|
 |Todos os tamanhos básicos|1|
-|A0\extrapequeno|1|
-|A1\pequeno|1|
-|A2\médio|1|
-|A3\grande|2|
-|A4\extragrande|4|
+|A0\\extrapequeno|1|
+|A1\\pequeno|1|
+|A2\\médio|1|
+|A3\\grande|2|
+|A4\\extragrande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -113,15 +113,17 @@ As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 N
 	</VirtualNetworkSite>
 
 
-É necessário primeiro seguir os pré-requisitos a seguir antes de executar os comandos do PowerShell do exemplo.
+É necessário ter os pré-requisitos a seguir antes de tentar executar os comandos do PowerShell no exemplo.
 
 - Uma assinatura do Azure.
 - Uma rede virtual configurada. Confira a [Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx) para saber mais sobre VNets.
 - A versão mais recente do Azure PowerShell baixada e instalada. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell).
 
-1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. A imagem especificada no exemplo a seguir pode ser alterada ou pode não ser da sua região, portanto certifique-se de especificar a imagem correta. 
+Para criar uma máquina virtual com várias placas de rede (NICs), siga as etapas abaixo:
 
-	    $image = Get-AzureVMImage `
+1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. A imagem especificada no exemplo a seguir pode ser alterada ou pode não ser da sua região, portanto certifique-se de especificar a imagem correta. 
+	    
+		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Crie a configuração da VM.
@@ -143,21 +145,111 @@ As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 N
 
 1. Especifique a sub-rede e o endereço IP da NIC padrão.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-			-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Crie a VM na sua rede virtual.
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada "MultiNIC VNet".
+>[AZURE.NOTE]A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada **MultiNIC-VNet**.
 
-## Consulte também
+## Acesso secundário à NIC para outras sub-redes
 
-[Visão geral da Rede Virtual](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+O modelo atual no Azure é que, todas as NICs em uma máquina virtual são configuradas com um gateway padrão. Isso permite que as NICs se comuniquem com endereços IP fora de sua sub-rede. Em sistemas operacionais que usam o modelo de roteamento de host fraco, como o Linux, a conectividade da Internet será interrompida se o tráfego de entrada e saída usar NICs diferentes.
 
-[Tarefas de configuração da rede virtual](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+Para corrigir esse problema, o Azure disponibilizará uma atualização nas primeiras semanas de julho de 2015 para a plataforma que removerá o gateway padrão das placas de rede secundárias. Isso não afetará as máquinas virtuais existentes até que elas sejam reinicializadas. Após a reinicialização, as novas configurações entrarão em vigor; neste momento, o fluxo de tráfego nas NICs secundárias será limitado para dentro da mesma sub-rede. Se os usuários desejarem habilitar NICs secundárias para falar fora da sua própria sub-rede, precisarão adicionar uma entrada à tabela de roteamento para configurar o gateway, conforme descrito abaixo.
 
-[Postagem do blog - várias NICs de VM e dispositivos VNet no Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+### Configurar máquinas virtuais do Windows
 
-<!---HONumber=58--> 
+Suponha que você tenha uma VM do Windows com duas NICs da seguinte maneira:
+
+- Endereço IP primário da NIC: 192.168.1.4
+- Endereço IP secundário da NIC: 192.168.2.5
+
+A tabela de rotas do IPv4 para essa VM ficaria assim:
+
+	IPv4 Route Table
+	===========================================================================
+	Active Routes:
+	Network Destination        Netmask          Gateway       Interface  Metric
+	          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+	        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+	        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+	  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	    168.63.129.16  255.255.255.255      192.168.1.1      192.168.1.4      6
+	      192.168.1.0    255.255.255.0         On-link       192.168.1.4    261
+	      192.168.1.4  255.255.255.255         On-link       192.168.1.4    261
+	    192.168.1.255  255.255.255.255         On-link       192.168.1.4    261
+	      192.168.2.0    255.255.255.0         On-link       192.168.2.5    261
+	      192.168.2.5  255.255.255.255         On-link       192.168.2.5    261
+	    192.168.2.255  255.255.255.255         On-link       192.168.2.5    261
+	        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+	        224.0.0.0        240.0.0.0         On-link       192.168.1.4    261
+	        224.0.0.0        240.0.0.0         On-link       192.168.2.5    261
+	  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	  255.255.255.255  255.255.255.255         On-link       192.168.1.4    261
+	  255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
+	===========================================================================
+
+Observe que a rota padrão (0.0.0.0) só está disponível para a NIC primária. Você não conseguirá acessar recursos fora da sub-rede para a NIC secundária, conforme mostrado abaixo:
+
+	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+	 
+	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+
+Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
+
+1. Em um prompt de comando, execute o comando a seguir para identificar o número de índice para a NIC secundária:
+
+		C:\Users\Administrator>route print
+		===========================================================================
+		Interface List
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		  1...........................Software Loopback Interface 1
+		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		===========================================================================
+
+2. Observe a segunda entrada na tabela, com um índice de 27 (no exemplo).
+3. No prompt de comando, execute o comando **Adicionar rota** conforme mostrado abaixo. Neste exemplo, você está especificando 192.168.2.1 como o gateway padrão para a NIC secundária:
+
+		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
+
+4. Para testar a conectividade, volte ao prompt de comando e tente executar o ping em uma sub-rede diferente da NIC secundária, como int eh, mostrado no exemplo a seguir:
+
+		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+		 
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+
+5. Você também pode conferir a sua tabela de rotas para verificar a rota recém-adicionada, conforme mostrado abaixo:
+
+		C:\Users\Administrator>route print
+
+		...
+
+		IPv4 Route Table
+		===========================================================================
+		Active Routes:
+		Network Destination        Netmask          Gateway       Interface  Metric
+		          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+		          0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.5   5005
+		        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+
+### Configurar máquinas virtuais Linux
+
+Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
+
+## Próximas etapas
+
+- Saiba mais sobre o uso de [várias NICs de VM e dispositivos VNet no Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+
+<!---HONumber=July15_HO2-->

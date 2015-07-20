@@ -33,7 +33,7 @@ Para determinar qual nó principal está ativo e verificar o estado dos serviço
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Como acessar arquivos de log no nó principal secundário \
+## Como acessar arquivos de log no nó principal secundário \\
 
 Para acessar registros de trabalhos no nó principal secundário caso ele tenha se tornado o nó principal ativo, a navegação na interface do usuário do JobTracker ainda funciona como o faz no nó ativo primário. Para acessar o JobTracker, você deve se conectar ao cluster Hadoop usando o protocolo RDP, conforme descrito na seção anterior. Depois de acessar remotamente o cluster, clique duas vezes no ícone **Nó de Nome do Hadoop** localizado na área de trabalho e clique em **Logs de Nó de Nome** para obter o diretório de logs no nó principal secundário.
 
@@ -83,4 +83,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

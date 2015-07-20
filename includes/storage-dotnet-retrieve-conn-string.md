@@ -11,4 +11,4 @@ Se estiver criando um aplicativo sem nenhuma referência ao Microsoft.WindowsAzu
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

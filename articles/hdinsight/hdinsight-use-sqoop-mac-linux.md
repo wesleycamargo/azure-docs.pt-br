@@ -75,10 +75,6 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 
     Por exemplo, `azure sql server create admin password "West US"`.
 
-    > [AZURE.NOTE]Se você receber um erro indicando que não tem, talvez seja necessário adicionar o endereço IP da estação de trabalho cliente ao firewall do Banco de Dados SQL usando o seguinte comando:
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
-
     Quando o comando for concluído, você receberá uma resposta semelhante à seguinte:
 
         info:    Executing command sql server create
@@ -94,6 +90,9 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 
     Isso retornará uma mensagem "OK" quando terminar.
 
+	> [AZURE.NOTE]Se você receber um erro indicando que não tem, talvez seja necessário adicionar o endereço IP da estação de trabalho cliente ao firewall do Banco de Dados SQL usando o seguinte comando:
+	>
+	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Criar uma tabela
 
@@ -264,6 +263,5 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

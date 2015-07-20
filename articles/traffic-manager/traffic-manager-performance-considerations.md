@@ -98,4 +98,4 @@ Considerando as informações acima, sabemos que o único impacto no desempenho 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

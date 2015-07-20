@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Novidades na atualização mais recente para a Pesquisa do Azure#
@@ -86,9 +86,9 @@ Visite [Agora a Pesquisa do Azure está disponível](http://go.microsoft.com/fwl
 
 Esta versão foi a versão de visualização pública da Pesquisa do Azure, fornecendo os seguintes recursos principais:
 
-- API REST para operações de índice e de documento. Grande parte dessa versão da API está intacta na 2015-02-28. A documentação da versão `2014-07-31-Preview` pode ser encontrada em [ API REST do Serviço de Pesquisa do Azure versão 2014-07-31](../search-api-2014-07-31-preview.md).
+- API REST para operações de índice e de documento. Grande parte dessa versão da API está intacta na 2015-02-28. A documentação da versão `2014-07-31-Preview` pode ser encontrada em [ API REST do Serviço de Pesquisa do Azure versão 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Perfis de pontuação para ajuste dos resultados da pesquisa. Um perfil de pontuação adiciona critérios usados para calcular as pontuações da pesquisa. A documentação desse recurso pode ser encontrada na [API REST dos Perfis de Pontuação do Serviço de Pesquisa do Azure Versão 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md).
+- Perfis de pontuação para ajuste dos resultados da pesquisa. Um perfil de pontuação adiciona critérios usados para calcular as pontuações da pesquisa. A documentação desse recurso pode ser encontrada na [API REST dos Perfis de Pontuação do Serviço de Pesquisa do Azure Versão 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - O suporte geoespacial está disponível desde o início, fornecido por meio do tipo de dados `Edm.GeographyPoint`, que faz parte da Pesquisa do Azure desde sua criação.
 
@@ -102,8 +102,9 @@ Esta versão foi a versão de visualização pública da Pesquisa do Azure, forn
 ##Gerenciamento da versão da api 2014-07-31-Preview
 **Lançamento: outubro de 2014**
 
-A versão de visualização da [API REST de gerenciamento](../search-management-api-2014-07-31-preview.md) foi adicionada a fim de dar suporte à administração do serviço de forma programática. O controle de versão realizado nela é realizado independentemente da API REST do serviço.
+A versão de visualização da [API REST de gerenciamento](search-management-api-2014-07-31-preview.md) foi adicionada a fim de dar suporte à administração do serviço de forma programática. O controle de versão realizado nela é realizado independentemente da API REST do serviço.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

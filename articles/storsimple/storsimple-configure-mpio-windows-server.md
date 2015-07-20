@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> <tags 
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -66,7 +67,7 @@ O MPIO precisa ser configurado para identificar os volumes StorSimple. Para conf
 3. Selecione **Adicionar suporte para dispositivos iSCSI**, em seguida, clique em **Adicionar**. ![Propriedades do MPIO para Descobrir Vários Caminhos](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 
 4. Reinicialize o servidor quando solicitado.
-5. Na caixa de diálogo **Propriedades do MPIO**, clique na guia **Dispositivos do MPIO**. Clique em **Adicionar**. </br>![Propriedades do MPIO para Dispositivos do MPIO ](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+5. Na caixa de diálogo **Propriedades do MPIO**, clique na guia **Dispositivos do MPIO**. Clique em **Adicionar**. </br>![Propriedades do MPIO para Dispositivos do MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. Na caixa de diálogo **Adicionar suporte do MPIO**, em **ID de Hardware do Dispositivo**, insira o número de série do dispositivo. Você pode obter o número de série do dispositivo acessando o serviço Gerenciador StorSimple e navegando para **Dispositivos > Painel**. O número de série do dispositivo é exibido no painel **Visão Rápida** à direita do painel do dispositivo. </br>![Adicionar Suporte do MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicialize o servidor quando solicitado.
 
@@ -165,6 +166,6 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 
 12. Para exibir os dispositivos apresentados nas sessões, selecione a guia **Dispositivos**. Para configurar a política MPIO para um dispositivo selecionado, clique em **MPIO**. A caixa de diálogo **Detalhes do Dispositivo** será exibida. Na guia **MPIO**, você pode selecionar as devidas configurações da **Política de Balanceamento de Carga**. Você também pode exibir o tipo de caminho **Ativo** ou **Em Espera**.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

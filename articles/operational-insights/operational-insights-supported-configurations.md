@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Configurações com suporte do Insights Operacionais"
    description="Saiba mais sobre as configurações necessárias do Insights Operacionais"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Configurações com suporte do Insights Operacionais
@@ -38,14 +39,8 @@ Usar o Insights Operacionais como um serviço anexado tem os seguintes pré-requ
 
 Consulte [Exibir Alertas do Insights Operacionais](http://go.microsoft.com/fwlink/?LinkID=293793) para obter instruções sobre a instalação e configuração.
 
-Se você quiser exibir alertas do Insights Operacionais sobre o SharePoint Server 2010, Lync Server 2013, Lync Server 2010 ou System Center 2012 SP1 - Virtual Machine Manager, precisará configurar uma conta Executar Como para essas cargas de trabalho. Consulte as seguintes informações:
+Se você quiser exibir alertas do Insights Operacionais sobre o SharePoint Server 2010, Lync Server 2013, Lync Server 2010 ou System Center 2012 SP1 - Virtual Machine Manager, precisará configurar uma conta Executar Como para essas cargas de trabalho. Consulte [Considerações sobre o Operations Manager com Insights Operacionais](operational-insights-operations-manager.md) para obter informações sobre como definir contas Executar Como.
 
-
-- [Definir a Conta Executar Como para o SharePoint](../operational-insights-run-as.md)
-
-- [Definir a Conta Executar Como para o Lync Server](../operational-insights-run-as.md)
-
-- [Definir a Conta Executar Como para o Virtual Machine Manager (VMM)](../operational-insights-run-as.md)
 
 ### Sistemas operacionais do Operations Manager
 
@@ -55,7 +50,7 @@ Os agentes do Operations Manager têm suporte em vários computadores. Consulte 
 
 Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o VMM. Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/pt-br/library/hh882396.aspx).
 
-## Agentes conectando diretamente ao Insights  Operacionais
+## Agentes conectando diretamente ao Insights Operacionais
 
 O agente usado para se conectar diretamente ao serviço é o agente de Monitoramento da Microsoft. Seus requisitos de sistema são listados na página [Centro de Download da Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
 
@@ -105,5 +100,4 @@ Para o SQL Server, as seguintes edições de 32 e 64 bits têm suporte para a an
 
 Além disso, a edição de 32 bits do SQL Server tem suporte ao ser executada na implementação do WOW64.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -70,4 +70,4 @@ Podemos ver os parâmetros exatos escolhidos visualizando a porta de saída à d
 [sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

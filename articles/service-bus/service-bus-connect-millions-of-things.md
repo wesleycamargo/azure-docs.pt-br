@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Conecte milhões de coisas na nuvem" 
 	description="Saiba como conectar milhões de coisas na nuvem usando o Microsoft Azure." 
-	services="service-bus" 
+	services="service-bus,event-hubs" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="mattshel"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,30 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 # Conecte milhões de coisas na nuvem
  
-"Coisas" inteligentes e conectadas se proliferam cada vez mais nos ecossistemas modernos de tecnologia. Sensores em carros, casas, infraestruturas e aplicativos produzem novas oportunidades de oferecer maior qualidade de produtos, serviços estendidos e novos modelos de envolvimento de clientes. O Barramento de Serviço do Azure da Microsoft pode ajudar você a se conectar a essa crescente "Internet das coisas."
+“Coisas” inteligentes e conectadas se proliferam cada vez mais nos ecossistemas modernos de tecnologia. Sensores em carros, casas, infraestruturas e aplicativos produzem novas oportunidades de oferecer maior qualidade de produtos, serviços estendidos e novos modelos de envolvimento de clientes. O Barramento de Serviço do Azure da Microsoft pode ajudar você a se conectar a essa crescente “Internet das coisas.”
 
 ## Explorar
-- [Hubs de Evento](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Hubs de Evento](event-hubs-overview.md)
 - [Padrão de Fragmentação](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Barramento de Serviço e AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841071.aspx)
 - [Introdução ao Barramento de Serviço](http://azure.microsoft.com/documentation/services/service-bus/)
  
 ## Compilação
-- [Entidades do Sistema de Mensagens de Particionamento](http://msdn.microsoft.com/library/azure/dn520246.aspx)
-- [Tópicos de barramento de serviço](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/)
-- [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows](http://msdn.microsoft.com/library/azure/dn235560.aspx) 
+- [Particionamento de entidades de mensagens](http://msdn.microsoft.com/library/azure/dn520246.aspx)
+- [Tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Utilizando o Apache Qpid Proton C com o Barramento de Serviço do Azure no Linux e no Windows](http://msdn.microsoft.com/library/dn235560.aspx) 
  
 ## Popular
 - [Comunicação Assistida de Serviços para Dispositivos Conectados](http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx)
 
 ## Serviços relacionados
-- [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/)
+- [Internet das Coisas (Anúncio de postagem do blog da Microsoft)](http://blogs.microsoft.com/iot/2015/03/16/microsoft-announces-azure-iot-suite)
+- [Active Directory do Azure](http://azure.microsoft.com/documentation/services/active-directory/)
 - [Serviços de Nuvem](http://azure.microsoft.com/documentation/services/cloud-services/) 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

@@ -190,5 +190,6 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Como instalar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

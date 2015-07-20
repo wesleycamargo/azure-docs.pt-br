@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## O que são as filas do Barramento de Serviço?
 
 Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado**. Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento. De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
@@ -53,10 +52,9 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
+5.  Anote a chave ou copie-a na área de transferência.
 
-4.  Anote a chave ou copie-a na área de transferência.
-
-###Para obter credenciais de gerenciamento do Gerenciador de Servidores
+### Para obter credenciais de gerenciamento do Gerenciador de Servidores
 
 Para obter informações de conexão usando o Visual Studio em vez do Portal de Gerenciamento, siga o procedimento descrito [aqui](http://msdn.microsoft.com/library/ff687127.aspx), na seção intitulada **Para conectar-se ao Azure no Visual Studio**. Quando você entra no Azure, o nó **Barramento de Serviço** na árvore **Azure** no Gerenciador de Servidores é automaticamente populado com os namespaces que você criou. Clique com o botão direito do mouse em qualquer namespace e, em seguida, clique em **Propriedades** para ver a cadeia de conexão e outros metadados associados a esse namespace exibido no painel **Propriedades** do Visual Studio.
 
@@ -69,4 +67,4 @@ Anote o valor **SharedAccessKey** ou copie-o para a área de transferência:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

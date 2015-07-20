@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais do Windows
 
 Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou haver um problema com a configuração de serviços de Área de Trabalho Remota, use o Portal de Visualização do Azure ou a extensão VMAccess para redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota.
+
+> [AZURE.NOTE]Este artigo não se aplica a máquinas virtuais baseadas no Gerenciador de Recursos do Azure.
 
 ## Portal de visualização do Azure
 
@@ -88,7 +90,7 @@ A extensão VMAccess executa estes dois comandos na VM:
 
 	Este comando habilita o grupo interno do Firewall do Windows que permite o tráfego de entrada da Área de Trabalho Remota, que usa a porta TCP 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Este comando define o valor de Registro fDenyTSConnections como 0, habilitando as conexões de Área de Trabalho Remota.
 
@@ -108,4 +110,6 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

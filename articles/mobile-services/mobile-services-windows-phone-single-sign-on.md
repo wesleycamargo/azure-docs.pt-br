@@ -18,7 +18,7 @@
 
 # Autenticar seu aplicativo do Windows Phone com autenticação gerenciada do cliente usando a conta da Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 ##Visão geral
 Este tópico mostra como obter um token de autenticação para a conta da Microsoft usando o Live SDK de um aplicativo do Windows Phone 8 ou do Silverlight para Windows Phone 8.1. Você usa esse token para autenticar usuários nos Serviços Móveis do Azure. Neste tutorial, você pode adicionar autenticação da conta da Microsoft a um projeto existente usando o Live SDK. Quando autenticado com êxito, um usuário conectado é recebido pelo nome e o valor da ID do usuário é exibido.
 
@@ -32,15 +32,15 @@ Este tutorial exige o seguinte:
 
 ##Registrar seus aplicativos para usar a conta da Microsoft 
 
-Para poder autenticar usuários, você deverá registrar seu aplicativo no Centro de Desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas no tópico a seguir para criar um registro da conta da Microsoft e para conectá-lo ao seu serviço móvel.
+Para poder autenticar usuários, você deverá registrar seu aplicativo no Centro de Desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao serviço móvel. Conclua as etapas no tópico a seguir para criar um registro de conta da Microsoft e conectá-lo ao seu serviço móvel.
 
-+ [Registrar seus aplicativos para usar um logon de Conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) 
++ [Registrar seus aplicativos para usar um logon de conta da Microsoft](mobile-services-how-to-register-microsoft-authentication.md) 
 
 ##<a name="permissions"></a>Restringir permissões a usuários autenticados
 
 Em seguida, você precisará restringir o acesso a um recurso, neste caso, a tabela *TodoItems*, para certificar-se de que ele só poderá ser acessado por um usuário conectado.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
@@ -48,7 +48,7 @@ Por fim, você adiciona o Live SDK e o utiliza para autenticar usuários em seu 
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na solução e então clique em **Gerenciar pacotes NuGet**.
 
-2. No painel esquerdo, selecione a categoria **Online**, procure **LiveSDK**, clique em **Instalar** no pacote do **Live SDK** e aceite os contratos de licença.
+2. No painel esquerdo, selecione a categoria **Online**, procure **LiveSDK**, clique em **Instalar** no pacote **Live SDK**, selecione todos os projetos e aceite os contratos de licença.
 
   	Isso adiciona o Live SDK à solução.
 
@@ -117,7 +117,7 @@ Por fim, você adiciona o Live SDK e o utiliza para autenticar usuários em seu 
 
    Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-Agora, todos os usuários autenticados por um de seus provedores de identidades registrados podem acessar a tabela *TodoItem*. Para proteger melhor os dados específicos do usuário, você também deverá implementar a autorização. Para fazer isso, você obtém a ID do usuário de um determinado usuário, que poderá então ser usado para determinar o nível de acesso que o usuário deverá ter para um determinado recurso.
+Agora, todos os usuários autenticados por um de seus provedores de identidades registrados podem acessar a tabela *TodoItem*. Para proteger melhor os dados específicos do usuário, você também deverá implementar a autorização. Para fazer isso, obtenha a ID do usuário de um determinado usuário, que então poderá ser usada para determinar o nível de acesso que ele deverá ter a um determinado recurso.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -140,5 +140,6 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

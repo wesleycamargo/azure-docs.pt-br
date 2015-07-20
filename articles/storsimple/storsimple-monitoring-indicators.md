@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Solução de problemas com indicadores de monitoramento"
+    pageTitle="Indicadores de monitoramento do StorSimple"
     description="Descreve os LEDs e alarmes usados para monitorar o status do dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# Solução de problemas com indicadores de monitoramento   
+# Indicadores de monitoramento do StorSimple   
 
 ## Visão geral
 
@@ -33,6 +34,8 @@ O restante deste artigo descreve os vários LEDs indicadores de monitoramento, s
 O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no dispositivo StorSimple e o compartimento EBOD é ilustrado abaixo.
 
    ![][1]
+
+**Figura 1: Painel frontal do dispositivo**
  
 O painel frontal contém os seguintes indicadores:
 
@@ -66,11 +69,14 @@ LEDs indicadores de refrigeração do módulo de energia (PCM) podem ser encontr
 - LEDs de PCM para o compartimento EBOD
 
 ## LEDs de PCM para o compartimento principal  
+
 O dispositivo StorSimple tem um módulo PCM de 764W com uma bateria adicional. A ilustração a seguir mostra o painel de LED para o dispositivo.
 
    ![][2]
+
+**Figura 2: LEDs de PCM no compartimento principal**
  
-**Legenda do LED**
+Legenda do LED:
 
 1. Falha de energia CA
 2. Falha do ventilador
@@ -109,6 +115,8 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 O compartimento EBOD possui um PCM de 580W e nenhuma bateria adicional. O painel do PCM para o compartimento EBOD possui LEDs indicadores para as fontes de energia e para o ventilador. A ilustração a seguir mostra estes LEDs.
 
    ![][3]
+
+**Figura 3: LEDs de PCM no compartimento EBOD**
  
 Você pode usar a tabela a seguir para determinar o status do PCM.
 
@@ -132,6 +140,8 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 
    ![][4]
  
+**Figura 4: LEDs de monitoramento para o controlador primário**
+
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.
 
 ### LEDs indicadores do controlador  
@@ -148,15 +158,17 @@ Use a tabela a seguir para determinar se o módulo do controlador está operando
 >[AZURE.IMPORTANT]Se o LED de falha estiver aceso, há um problema com o módulo do controlador que pode ser resolvido através da reinicialização do controlador. Entre em contato com o Suporte da Microsoft se a reinicialização do controlador não resolver esse problema.
 
 
-###Monitorando LEDs para o EBOD (compartimento EBOD)  
+### Monitorando LEDs para o EBOD (compartimento EBOD)  
 
 Cada um dos controladores EBOD de SAS de 6 Gb/s possui LEDs que indicam o seu status conforme mostrado na ilustração a seguir.
 
   ![][5]
+
+**Figura 5: LEDs de monitoramento - compartimento EBOD**
  
 Use a tabela a seguir para determinar se o módulo do controlador EBOD está operando normalmente.
 
-###LEDs indicadores do módulo do controlador EBOD  
+### LEDs indicadores do módulo do controlador EBOD  
 
 |Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -169,8 +181,10 @@ O dispositivo StorSimple possui drives de disco localizados no compartimento pri
 Para os drives de disco, o status do drive é indicado por um LED verde e um LED vermelho-âmbar montado na parte da frente de cada módulo portador do drive. A ilustração a seguir mostra estes LEDs.
 
   ![][6]
+
+**Figura 6: LEDs de unidade de disco**
  
-Use a tabela a seguir para determinar o estado de cada drive de disco que, por sua vez, afeta o status geral do LED do painel frontal. 
+Use a tabela a seguir para determinar o estado de cada drive de disco que, por sua vez, afeta o status geral do LED do painel frontal.
 
 ### LEDs do indicador do drive de disco para o compartimento EBOD  
 
@@ -207,7 +221,7 @@ A tabela a seguir descreve os vários estados de alarme.
 | S3 | Modo mudo: silencioso | Nenhum |
 | S4 | Modo de falha crítica: alarme contínuo | Não disponível: mudo não ativo |
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 
 >  - No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.  
 >  - Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.  
@@ -240,6 +254,7 @@ A tabela a seguir descreve as várias condições de alarme.
 | Falha de controle de energia do drive | Falha – crítica; perda de energia do drive | S1 | Falha do módulo |
 | Drive removido | Aviso | Nenhum | Falha do módulo |
 | Energia insuficiente disponível | Aviso | nenhum | Falha do módulo |
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -247,6 +262,6 @@ A tabela a seguir descreve as várias condições de alarme.
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

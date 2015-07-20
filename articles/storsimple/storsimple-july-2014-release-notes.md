@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Notas de versão do StorSimple - julho de 2014"
+    pageTitle="Notas de versão de lançamento do StorSimple série 8000 - julho de 2014"
     description="Descreve os novos recursos, problemas e soluções alternativas da versão de julho de 2014 do Microsoft Azure StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/28/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notas de versão do StorSimple - julho de 2014 
+# Notas de versão de lançamento do StorSimple série 8000 - julho de 2014 
 
 ## Visão geral
 
-As notas de versão a seguir identificam as questões críticas em aberto para a versão de julho de 2014 do Microsoft Azure StorSimple. Esta versão corresponde à versão do software 6.3.9600.17215.
+As notas de versão a seguir identificam os problemas críticos abertos para o StorSimple série 8000 da GA (disponibilidade geral) de julho de 2014 do Microsoft Azure StorSimple. Esta versão corresponde à versão do software 6.3.9600.17215.
 
 Salvo indicação em contrário, estas notas de versão se aplicam a todos os modelos do dispositivo StorSimple. As notas de versão são continuamente atualizadas; à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar sua solução Microsoft Azure StorSimple, considere as seguintes informações.
 
@@ -39,6 +40,6 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 10 | Interfaces de rede | Na versão anterior, as interfaces de rede DADOS 2 e DADOS 3 foram trocadas no software. | Contate o Microsoft Support se você precisa configurar essas interfaces. | Sim | Não |
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Habilitar o registro em log de serviços Web de Aprendizado de Máquina | Azure" 
-	description="Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina." 
+	pageTitle="Registro em log de serviços Web de Aprendizado de Máquina | Microsoft Azure" 
+	description="Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/12/2015"
-	ms.author="garye"/>
-
+	ms.date="06/30/2015"
+	ms.author="raymondl;garye"/>
 
 #Habilitar o log de serviços Web de Aprendizado de Máquina  
 
@@ -37,5 +36,6 @@ Este documento fornece informações sobre o recurso de log de Serviços Web AM 
 	-	O nome de cada blob tem um prefixo no seguinte formato: {Id do Espaço de Trabalho}-{Id do serviço Web}-{Id do Ponto de Extremidade}/{Tipo de log}  
 -	O tipo de log obtém um dos seguintes valores: batch score/requests score/init  
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

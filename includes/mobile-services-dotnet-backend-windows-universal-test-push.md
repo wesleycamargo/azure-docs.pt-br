@@ -7,7 +7,7 @@
 
 	Nesse ponto, ambos os dispositivos são registrados para receber as notificações por push.
 
-3. Execute o aplicativo do Windows Store novamente, digite o texto em **Inserir um TodoItem** e clique em **Salvar**.
+3. Execute o aplicativo da Windows Store novamente, digite o texto em **Inserir um TodoItem** e clique em **Salvar**.
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
@@ -19,4 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

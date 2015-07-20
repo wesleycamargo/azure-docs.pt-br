@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Introdução à sincronização de dados offline nos Serviços Móveis
@@ -30,7 +30,7 @@ A sincronização offline oferece várias vantagens:
 * Sincroniza dados em vários dispositivos
 * Detecta os conflitos quando o mesmo registro é modificado por dois dispositivos
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, confira [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28target="_blank").
+> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
 
 Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro. Vamos primeiro examinar o código relacionado à sincronização offline já no Início Rápido.
 
@@ -226,7 +226,7 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 * [Cloud Cover: sincronização offline em serviços móveis do Azure]
 
-* [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] \(observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas\)
+* [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure] (observação: demonstrações são para Windows, mas a discussão dos recursos se aplica a todas as plataformas)
 
 <!-- URLs. -->
 
@@ -272,4 +272,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

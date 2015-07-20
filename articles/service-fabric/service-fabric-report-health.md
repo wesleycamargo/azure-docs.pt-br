@@ -274,4 +274,4 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

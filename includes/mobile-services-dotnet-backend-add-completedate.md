@@ -40,4 +40,4 @@ Nesta seção, modificaremos o modelo do nosso banco de dados, adicionando um no
 
 Em seguida, você atualizará o aplicativo cliente para exibir os novos dados de **CompleteDate**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Perguntas Frequentes sobre Rota Expressa"
    description="As Perguntas Frequentes Sobre Rota Expressa contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn"/> <tags 
+   editor="tysonn"/>
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.workload="infrastructure-services"
+   ms.date="06/26/2015"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -101,7 +102,7 @@ Sim. Você pode ter mais de um circuito de Rota Expressa em sua assinatura. O li
 ### Posso ter circuitos de Rota Expressa de diferentes provedores de serviços?
 Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços. Cada circuito de Rota Expressa será associado apenas a um provedor de serviços.
 
-### Como conectar minhas redes virtuais a um circuito de Rota Expressa
+### Como conectar minhas redes virtuais a um circuito da Rota Expressa
 As etapas básicas são descritas a seguir.
 
 - Você deve estabelecer um circuito de Rota Expressa e fazer com que o provedor de serviços o habilite.
@@ -110,8 +111,8 @@ As etapas básicas são descritas a seguir.
 
 Os tutoriais a seguir lhe ajudarão a:
 
-- [Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede](expressroute-configuring-exps.md)
-- [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-nsps.md)
+- [Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede](expressroute-configuring-nsps.md)
+- [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md)
 - [Configurar uma rede virtual e um Gateway para Rota Expressa](expressroute-configuring-vnet-gateway.md)
 
 ### Existem limites de conectividade para meu circuito de Rota Expressa?
@@ -120,7 +121,7 @@ Sim. A página [Locais e Parceiros da Rota Expressa](expressroute-locations.md) 
 ### Posso vincular mais de uma Rede Virtual a um circuito de Rota Expressa?
 Sim. Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa.
 
-### Posso conectar redes virtuais pertencentes a muitas assinaturas a um circuito de Rota Expressa?
+### Tenho várias assinaturas do Azure que contêm redes virtuais. Posso conectar redes virtuais pertencentes a assinaturas separadas a um circuito da Rota Expressa?
 Sim. Você pode autorizar até 10 outras assinaturas do Azure para usar um único circuito de Rota Expressa. Esse limite pode ser aumentado habilitando o recurso premium da Rota Expressa.
 
 Para obter mais detalhes, consulte [Compartilhando um circuito de Rota Expressa entre várias assinaturas](https://msdn.microsoft.com/library/azure/dn835110.aspx).
@@ -140,8 +141,8 @@ Sim. Você pode anunciar rotas padrão (0.0.0.0/0) para bloquear toda a conectiv
 ### As redes virtuais vinculadas ao mesmo circuito de Rota Expressa podem conversar entre si?
 Sim. Máquinas virtuais implantadas em redes virtuais conectadas ao mesmo circuito de Rota Expressa podem comunicar-se umas com as outras.
 
-### Posso usar a conectividade site a site e ponto a site para redes virtuais em conjunto com a Rota Expressa?
-Sim. A Rota Expressa pode coexistir com VPN dos tipos site a site e ponto a site. Para que isso funcione, você deve criar o gateway de Rota Expressa primeiro e, em seguida, um gateway de roteamento dinâmico para a mesma rede virtual.
+### Posso usar a conectividade site a site para redes virtuais em conjunto com a Rota Expressa?
+Sim. A Rota Expressa pode coexistir com VPN dos tipos site a site.
 
 ### Posso alterar uma rede virtual usando configuração site a site / ponto a site para que ela passe a usar Rota Expressa?
 Sim. Você terá que criar um gateway de Rota Expressa em sua rede virtual. Haverá um pequeno tempo de inatividade associado ao processo.
@@ -160,29 +161,29 @@ Filtraremos prefixos privados (RFC1918) na sessão BGP de emparelhamento públic
 ### O que acontece se eu exceder os limites de BGP?
 As sessões BGP serão interrompidas. Elas serão redefinidas quando a contagem de prefixos voltar a ficar abaixo do limite.
 
-### Após anunciar a rota padrão (0.0.0.0/0) para minhas redes virtuais, eu não posso ativar o Windows sendo executado em minhas VMs do Azure. O que posso fazer?
+### Após anunciar a rota padrão (0.0.0.0/0) para minhas redes virtuais, eu não posso ativar o Windows sendo executado em minhas VMs do Azure. Como posso corrigir isso?
 As etapas a seguir ajudarão o Azure a reconhecer a solicitação de ativação:
 
 1. Estabeleça o emparelhamento público para seu circuito de Rota Expressa.
 2. Execute uma pesquisa DNS e localize o endereço IP de **kms.core.windows.net**
 3. Então, execute um dos dois itens a seguir para que o Serviço de Gerenciamento de Chaves reconheça que a solicitação de ativação é proveniente do Azure e atenda a solicitação.
 	- Em sua rede local, faça o roteamento do tráfego destinado ao endereço IP (obtido na etapa 2) de volta para o Azure por meio de emparelhamento público.
-	- Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público. 
+	- Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público.
 
 ### Posso alterar a largura de banda de um circuito de Rota Expressa?
 Sim. Você pode aumentar a largura de banda de um circuito de Rota Expressa sem precisar subdividi-lo. Você terá de fazer o acompanhamento junto ao seu provedor de conectividade para garantir que eles atualizem os gargalos em suas redes, para dar suporte ao aumento de largura de banda. Você não poderá, todavia, reduzir a largura de banda de um circuito de Rota Expressa. Precisar reduzir a largura de banda significa uma desmontagem e recriação de um circuito de Rota Expressa.
 
-### Como posso alterar a largura de banda de um circuito de Rota Expressa? 
+### Como posso alterar a largura de banda de um circuito de Rota Expressa?
 Você pode atualizar a largura de banda do circuito de Rota Expressa usando o cmdlet do PowerShell e API de circuito dedicado de atualização.
 
 ## Rota Expressa Premium
 
 ### O que é a Rota Expressa Premium?
 Rota Expressa premium é uma coleção de recursos listados abaixo.
- 
+
  - Limite maior na tabela de roteamento, de 4.000 rotas a 10.000 rotas para emparelhamento público e emparelhamento privado.
  - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
- - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício. 
+ - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
 
 ### Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
 A tabela a seguir informa os limites aumentados para o número de VNets que você pode conectar a um circuito de Rota Expressa. O limite padrão é 10.
@@ -195,7 +196,7 @@ A tabela a seguir informa os limites aumentados para o número de VNets que voc�
 | 50 Mbps | 10 | 20 |
 | 100 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
-| 1 Gbps | 10 | 50                                                                                     
+| 1 Gbps | 10 | 50
 |
 
 
@@ -236,7 +237,7 @@ Sim. A Rota Expressa premium tem suporte por circuitos de Rota Expressa conectad
 1. Examine a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) para certificar-se de que você atende os requisitos
 2. Examine a lista de provedores de serviços e locais em [Locais e parceiros da Rota Expressa](expressroute-locations.md) para garantir que suas necessidades de conectividade são atendidas.
 3. Planeje seus requisitos de capacidade, revisando [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/)
-4. Siga as etapas listadas em fluxos de trabalho abaixo para configurar a conectividade. 
+4. Siga as etapas listadas em fluxos de trabalho abaixo para configurar a conectividade.
 
 	- [Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede](expressroute-configuring-nsps.md)
 	- [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md)
@@ -249,7 +250,7 @@ Os tutoriais a seguir lhe ajudarão a:
 - [Configurar uma conexão de Rota Expressa por meio de um provedor de serviços de rede](expressroute-configuring-nsps.md)
 - [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md)
 
-### Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa? 
+### Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa?
 
 **Há suporte para os serviços do Office 365 listados a seguir**
 
@@ -258,7 +259,6 @@ Os tutoriais a seguir lhe ajudarão a:
 - Skype for Business Online
 - Office Online
 - AD do Azure e Sincronização do AD do Azure
-- CRM Online
 - Vídeo do Office 365
 - Power BI
 - Delve
@@ -268,7 +268,7 @@ Os tutoriais a seguir lhe ajudarão a:
 
 - Yammer
 - Downloads de cliente do Office 365 ProPlus
-- Autenticação de Provedor de Identidade Local 
+- Autenticação de Provedor de Identidade Local
 - Serviço Office 365 (operado pela Vianet 21) na China
 
 Você pode se conectar a esses serviços pela Internet.
@@ -284,4 +284,6 @@ Damos suporte para conectividade com serviços do Office 365 por meio de NSPs e 
 
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

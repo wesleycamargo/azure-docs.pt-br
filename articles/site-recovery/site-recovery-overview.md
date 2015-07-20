@@ -181,4 +181,4 @@ Esta tabela resume os principais recursos da Recuperação de Site e como eles s
 Depois de concluir esta visão geral, [leia as práticas recomendadas](site-recovery-best-practices.md) para começar a planejar a implantação.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

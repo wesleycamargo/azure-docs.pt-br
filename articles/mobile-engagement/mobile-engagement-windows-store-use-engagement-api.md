@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Como usar o API do Engagement no Windows Universal
@@ -358,5 +358,6 @@ As informações do aplicativo estão limitadas a **1024** caracteres por chamad
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

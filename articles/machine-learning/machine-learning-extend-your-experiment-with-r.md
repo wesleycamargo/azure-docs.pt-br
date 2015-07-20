@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Estender seu experimento com R | Azure"
+	pageTitle="Estender seu experimento com R | Microsoft Azure"
 	description="Como estender a funcionalidade do Estúdio de Aprendizado de Máquina do Azure por meio da linguagem R usando o módulo Executar o Script R."
 	services="machine-learning"
 	documentationCenter=""
@@ -501,5 +501,6 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

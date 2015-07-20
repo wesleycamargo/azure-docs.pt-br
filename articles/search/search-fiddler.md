@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Como usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure" 
-	description="Use o Fiddler para uma abordagem sem código para verificar a disponibilidade de pesquisa do Azure e experimentar as APIs REST." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Como usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure"
+	description="Use o Fiddler para uma abordagem sem código para verificar a disponibilidade de pesquisa do Azure e experimentar as APIs REST."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Como usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 
-Este procedimento usa o Fiddler, disponível como um [download gratuito da Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e exibir as respostas usando a API REST de Pesquisa do Azure, sem precisar escrever nenhum código. As APIs REST do Serviço de Pesquisa do Azure são documentadas no [MSDN](https://msdn.microsoft.com/pt-br/library/azure/dn798935.aspx).
+Este procedimento usa o Fiddler, disponível como um [download gratuito da Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e exibir as respostas usando a API REST de Pesquisa do Azure, sem precisar escrever nenhum código. As APIs REST do Serviço de Pesquisa do Azure são documentadas no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Nas etapas abaixo, você criará um índice, carregará documentos, consultará o índice e consultará o sistema quanto a informações de serviço.
 
@@ -26,7 +26,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
 
 ## Crie um índice
 
-1. Inicie o Fiddler. No menu Arquivo, desabilite **Capturar Tráfego** para ocultar atividades HTTP externas não relacionadas à atividade atual. 
+1. Inicie o Fiddler. No menu Arquivo, desabilite **Capturar Tráfego** para ocultar atividades HTTP externas não relacionadas à atividade atual.
 
 3. Na guia Composer, você formulará uma solicitação semelhante a esta:
 
@@ -66,7 +66,7 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	Clique em **Executar**.
@@ -183,7 +183,7 @@ Agora que o índice e os documentos foram carregados, você pode consultá-los. 
         api-key: 1111222233334444
 
 O código de resposta deve ser 200, e a saída de resposta deve ser semelhante à ilustração a seguir.
- 
+
    ![][4]
 
 O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesquisa do Azure)](http://msdn.microsoft.com/library/dn798927.aspx) no MSDN. Muitos dos exemplos de consulta deste tópico incluem espaços, que não são permitidos no Fiddler. Substitua cada espaço por um caractere + antes de colar na cadeia de consulta e tentar realizar a consulta no Fiddler:
@@ -206,7 +206,7 @@ Você também pode consultar o sistema para obter informações de contagens de 
 
 2.	Insira uma URL que inclua a URL do seu serviço, seguida por "/indexes/hotels/stats?api-version=2015-02-28":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	Especifique o cabeçalho da solicitação, substituindo o host e a chave da API por valores que sejam válidos para seu serviço.
 
@@ -234,6 +234,6 @@ Os links a seguir fornecem informações adicionais para uma abordagem sem códi
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

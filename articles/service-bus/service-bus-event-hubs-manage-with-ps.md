@@ -276,4 +276,4 @@ Alguns scripts prontos também estão disponíveis para download : - [Scripts do
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [API do .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -12,18 +12,16 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/31/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # API REST do serviço Azure Search: Versão 2014-10-20-Preview #
 
-Este documento descreve a versão **2014-10-20-Preview** da API REST do Serviço Azure Search. Esta é uma versão de protótipo da API, sujeita a alterações a qualquer momento. Não adote uma dependência nessa API em código de produção.
-
-> [AZURE.NOTE]Como essa é uma versão experimental, nem todos os recursos descritos neste documento estão disponíveis na interface de usuário do Portal do Azure. Especificamente, o suporte a vários idiomas por meio da opção `analyzer` nos campos, a nova função de pontuação `tag` e o novo recurso `suggesters` só estão expostos na API por enquanto. Se usar a API para habilitar um desses recursos, você poderá exibir definições de índice no portal, mas não atualizá-las, e não verá os novos recursos visualizados.
+Este documento descreve a versão **2014-10-20-Preview** da API REST do Serviço Azure Search. Esta versão agora é obsoleta. Se você estiver usando essa API no código de produção, faça a migração para a versão disponível assim que possível. Para obter orientação, consulte [Transição de APIs anteriores na Pesquisa do Azure](search-transition-from-preview.md).
 
 Outros tipos de conteúdo de API relacionados a esta versão incluem o seguinte:
 
-- [Perfis de Pontuação (API REST do Serviço Azure Search: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)
+- [Perfis de Pontuação (API REST do Serviço Azure Search: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)
 
 A documentação da versão de lançamento da API REST do Azure Search pode ser encontrada no MSDN. Consulte [API REST do Serviço Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter mais informações.
 
@@ -122,8 +120,9 @@ A API do serviço Azure Search dá suporte a duas sintaxes para pesquisa de enti
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-________________________________________ <a name="IndexOps"></a>
-# Operações de índice #
+________________________________________
+<a name="IndexOps"></a>
+## Operações de índice
 
 Você pode criar e gerenciar índices no serviço Azure Search por meio de solicitações HTTP simples (POST, GET, PUT, DELETE) em relação a um recurso de índice específico. Para criar um índice, primeiro execute POST para um documento JSON que descreve o esquema de índice. O esquema define os campos do índice, seus tipos de dados e como eles podem ser usados (por exemplo, em pesquisas de texto completo, filtros, classificação, facetamento ou sugestões). Ele também define os perfis de pontuação, sugestores e outros atributos para configurar o comportamento do índice.
 
@@ -180,9 +179,9 @@ HTTPS é necessário para todas as solicitações de serviço. A solicitação *
 
 O nome do índice deve estar em letras minúsculas, começar com uma letra ou número, não conter barras ou pontos e ter menos de 128 caracteres. Depois de iniciar o nome do índice com uma letra ou número, o restante do nome pode incluir qualquer letra, número e traços, desde que os traços não sejam consecutivos.
 
-A `api-version` é obrigatória. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais, como suporte a analisadores de idioma expressado por meio do atributo de índice de analisador. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes sobre as versões de API. Consulte [Suporte a idiomas](#LanguageSupport) para obter detalhes sobre os analisadores de idioma.
+A `api-version` é obrigatória. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes sobre as versões de API. Consulte [Suporte a idiomas](#LanguageSupport) para obter detalhes sobre os analisadores de idioma.
 
-**Cabeçalhos de solicitação**
+**Cabeçalhos da solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
@@ -190,9 +189,9 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `api-key`: obrigatório. A `api-key` é usada para 
 - autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
-<a name="RequestData"></a> **Sintaxe do Corpo da Solicitação**
+<a name="RequestData"></a> **Sintaxe de corpo da solicitação**
 
 O corpo da solicitação contém uma definição de esquema, que inclui a lista de campos de dados em documentos que serão inseridos nesse índice, tipos de dados, atributos, bem como uma lista opcional de perfis de pontuação que são usados para pontuar documentos correspondentes no momento da consulta.
 
@@ -272,7 +271,7 @@ Observação: o tipo de dados `Edm.Int64` tem suporte a partir da versão da API
     
 **Atributos de índice**
 
-Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalhes sobre a pontuação e perfis de pontuação, consulte [Perfis de pontuação (API REST do serviço Azure Search: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/).
+Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalhes sobre a pontuação e perfis de pontuação, consulte [Perfis de pontuação (API REST do serviço Azure Search: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md).
 
 `name` ‒ define o nome do campo.
 
@@ -298,7 +297,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
 `retrievable` ‒ define se o campo pode ser retornado em um resultado de pesquisa. Isso é útil quando você quer usar um campo (por exemplo, margem) como mecanismo de filtro, classificação ou pontuação, mas não deseja que o campo seja visível ao usuário final. Esse atributo deve ser `true` para campos `key`.
 
-`scoringProfiles` ‒ define comportamentos de pontuação personalizados que permitem influenciam quais itens aparecem em posição mais elevada nos resultados de pesquisa. Perfis de pontuação são compostos de funções e campos ponderados. Consulte [Perfis de pontuação (API REST do serviço Azure Search: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/) para obter mais informações sobre os atributos usados em um perfil de pontuação.
+`scoringProfiles` ‒ define comportamentos de pontuação personalizados que permitem influenciam quais itens aparecem em posição mais elevada nos resultados de pesquisa. Perfis de pontuação são compostos de funções e campos ponderados. Consulte [Perfis de pontuação (API REST do serviço Azure Search: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md) para obter mais informações sobre os atributos usados em um perfil de pontuação.
 
 `analyzer` ‒ define o nome do analisador de texto a ser usado para o campo. Para obter o conjunto de valores permitidos, consulte [Suporte ao Idioma](#LanguageSupport). Essa opção só pode ser usada com campos `searchable`. Depois que o analisador for escolhido, ele não poderá ser alterado para o campo.
 
@@ -686,7 +685,7 @@ Por padrão, o corpo da resposta conterá o JSON para a definição de índice q
 <a name="UpdateIndex"></a>
 ## Atualizar o índice ##
 
-Você pode atualizar um índice existente no Azure Search usando uma solicitação HTTP PUT. Na Visualização Pública, as atualizações podem incluir a adição de novos campos ao esquema existente, a modificação das opções de CORS e a modificação dos perfis de pontuação (consulte [Perfis de pontuação (API REST do Serviço Azure Search: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)). Especifique o nome do índice a ser atualizado no URI da solicitação:
+Você pode atualizar um índice existente no Azure Search usando uma solicitação HTTP PUT. Na Visualização Pública, as atualizações podem incluir a adição de novos campos ao esquema existente, a modificação das opções de CORS e a modificação dos perfis de pontuação (consulte [Perfis de pontuação (API REST do Serviço Azure Search: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)). Especifique o nome do índice a ser atualizado no URI da solicitação:
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
@@ -711,7 +710,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Atualizar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Sintaxe do Corpo da Solicitação**
 
@@ -813,7 +812,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Listar Índices** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -880,7 +879,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Índice** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
 
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -908,7 +907,7 @@ O [nome do índice] no URI da solicitação especifica qual índice deve ser exc
 
 O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
 
-**Cabeçalhos de Solicitação**
+**Cabeçalhos de solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
  
@@ -922,7 +921,7 @@ Nenhum.
 
 **Resposta**
 
-Código de status: 204 sem conteúdo é retornado para uma resposta bem-sucedida.
+Código de status: 204 Sem Conteúdo é retornado para uma resposta bem-sucedida.
 
 <a name="GetIndexStats"></a>
 ## Obter estatísticas de índice ##
@@ -946,7 +945,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Estatísticas de Índice** deve incluir um `api-key` definido como uma chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -963,8 +962,9 @@ O corpo da resposta está no seguinte formato:
 	  "storageSize": number (size of the index in bytes)
     }
 
-________________________________________ <a name="DocOps"></a>
-# Operações de documento #
+________________________________________
+<a name="DocOps"></a>
+## Operações de documento
 
 No Azure Search, um índice é populado usando documentos JSON que você carrega no serviço. Todos os documentos que você carrega formam o corpus de seus dados de pesquisa. Documentos contêm campos, alguns dos quais são indexados em termos de pesquisa ao serem carregados. O segmento de URL `/docs` na API do Azure Search representa a coleção de documentos em um índice. Todas as operações executadas na coleção, como carregar, mesclar, excluir ou consultar documentos, ocorrem no contexto de um único índice. Portanto, as URLs para essas operações sempre começarão com `/indexes/[index name]/docs` para um nome de índice específico.
 
@@ -1004,7 +1004,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Adicionar Documentos** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1108,7 +1108,8 @@ O código de status: 429 indica que você excedeu sua cota no número de documen
         }
       ]
     }
-________________________________________ <a name="SearchDocs"></a>
+________________________________________
+<a name="SearchDocs"></a>
 ## Pesquisar documentos ##
 
 Uma operação **Pesquisar** é emitida como uma solicitação GET e especifica parâmetros de consulta que fornecem os critérios para a seleção de documentos correspondentes.
@@ -1180,7 +1181,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1308,13 +1309,13 @@ O URI da solicitação inclui um [nome de índice] e uma [chave], especificando 
 
 Observação: para essa operação, a `api-version` é especificada como um parâmetro de consulta.
 
-**Cabeçalhos de solicitação**
+**Cabeçalhos da solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar Documento** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1362,7 +1363,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Accept`: esse valor deve ser definido como `text/plain`.
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Contar Documentos** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1423,7 +1424,7 @@ A lista a seguir descreve os cabeçalhos de solicitação necessários e opciona
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Sugestões** pode especificar uma chave de administração ou a chave de consulta como a `api-key`.
 
-  Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+  Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1465,5 +1466,6 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

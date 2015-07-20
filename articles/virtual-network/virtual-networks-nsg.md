@@ -1,7 +1,7 @@
 <properties 
    pageTitle="O que é um NSG (grupo de segurança de rede)?"
    description="Saiba mais sobre grupos de segurança de rede"
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"
@@ -118,7 +118,7 @@ Associando um NSG a uma sub-rede: quando um NSG é associado a uma sub-rede, as 
 
 Associando um NSG a uma sub-rede e a uma VM: é possível associar um NSG a uma máquina virtual e um NSG diferente à sub-rede onde reside a VM. Há suporte para isso e, nesse caso, a VM obtém duas camadas de proteção. No tráfego de Entrada, o pacote percorre as regras de acesso especificadas na sub-rede seguidas por regras na VM e, em caso de Saída, ele percorre as regras especificadas na VM primeiro e depois passa pelas regras especificadas na sub-rede, conforme ilustrado no diagrama a seguir.
 
-![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
+![ACLs de NSG](./media/virtual-networks-nsg/figure1.png)
 
 Quando um NSG está associado uma VM ou sub-rede, as regras de controle de acesso de rede se tornam bastante explícitas. A plataforma não irá inserir regras implícitas para permitir o tráfego em uma porta específica. Nesse caso, se você criar um ponto de extremidade na VM, também precisa criar uma regra para permitir o tráfego da Internet. Se você não fizer isso, o VIP:<Port> não estará acessível de fora.
 
@@ -127,6 +127,27 @@ Por exemplo: você cria uma nova VM e também cria um novo NSG. Em seguida, asso
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 | WEB | 100 | INTERNET | * | * | 80 | TCP | PERMITIR |
+
+## Considerações sobre o design
+
+Você deve compreender como as VMs se comunicam com os serviços de infraestrutura e o serviço hospedado de PaaS, que é hospedado pelo Azure ao projetar suas NSGs. A maioria dos serviços de PaaS do Azure, como bancos de dados SQL e armazenamento, só pode ser acessada por meio de um endereço de Internet pública voltado para o público. O mesmo vale para testes de balanceamento de carga.
+
+Um cenário comum no Azure é a segregação de funções de VMs e PaaS em sub-redes com base em se esses objetos são necessários ou não para acessar a Internet. Em tal cenário, você pode ter uma sub-rede com máquinas virtuais ou instâncias de função que exigem acesso aos serviços PaaS do Azure, como bancos de dados SQL e armazenamento, mas que não exigem qualquer comunicação de entrada ou saída com a Internet pública.
+
+Imagine a seguinte regra NSG para esse cenário:
+
+| Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|NO INTERNET|100| REDE_VIRTUAL|&\#42;|INTERNET|&\#42;|TCP|NEGAR| 
+
+Como a regra está negando todos os acessos da rede virtual à Internet, as VMs não poderão acessar qualquer serviço de PaaS do Azure que requeira um ponto de extremidade de Internet público, como bancos de dados SQL.
+
+Em vez de usar uma regra de negação, considere o uso de uma regra para permitir o acesso da rede virtual à Internet, mas negue o acesso da Internet à rede virtual, conforme mostrado abaixo:
+
+| Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|TO INTERNET|100| REDE_VIRTUAL|&\#42;|INTERNET|&\#42;|TCP|PERMITIR|
+|FROM INTERNET|110| INTERNET|&\#42;|REDE_VIRTUAL|&\#42;|TCP|NEGAR| 
 
 
 ## Planejamento: fluxo de trabalho de grupo de segurança de rede
@@ -187,6 +208,11 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
+**Exibir NSGs associados a uma máquina virtual**
+
+	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
+	| Get-AzureNetworkSecurityGroupAssociation
+
 **Remover um NSG de uma VM**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
@@ -198,6 +224,11 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
+
+**Exibir NSGs associados a uma sub-rede**
+
+	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
+		-VirtualNetworkName 'VNetUSWest' 
 
 **Remover um NSG da sub-rede**
 
@@ -213,5 +244,8 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
+**Exibir todos os realted de cmdlets do Azure PowerShell para NSGs**
 
-<!---HONumber=62-->
+	Get-Command *azurenetworksecuritygroup*
+
+<!---HONumber=July15_HO2-->

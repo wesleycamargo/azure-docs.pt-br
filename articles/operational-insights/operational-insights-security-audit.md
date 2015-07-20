@@ -1,24 +1,25 @@
-<properties 
+<properties
    pageTitle="Explorar os dados de segurança e auditoria do Insights Operacionais"
-   description="Saiba mais sobre como você pode usar o pacote de inteligência de Segurança e Auditoria para obter uma visão abrangente da postura de segurança de TI de sua organização com consultas de pesquisa interna para problemas importantes que exigem atenção"
+   description="Saiba como você pode usar a solução Segurança e Auditoria para obter uma visão abrangente da postura de segurança de TI da sua organização com consultas de pesquisa interna para problemas importantes que exigem atenção"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Explorar os dados de segurança e auditoria do Insights Operacionais
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-O pacote de inteligência de Segurança e Auditoria do Insights Operacionais fornece uma visão abrangente da postura de segurança de TI de sua organização com consultas de pesquisa interna para problemas importantes que exigem atenção.
+A solução de Segurança e Auditoria do Insights Operacionais fornece uma visão abrangente da postura de segurança de TI de sua organização com consultas de pesquisa interna para problemas importantes que exigem atenção.
 
 Neste artigo, você irá:
 
@@ -32,8 +33,8 @@ Neste artigo, você irá:
 1. Entrar no Insights Operacionais.
 2. Na página **Visão geral**, examine as informações exibidas no bloco **Segurança e Auditoria** e, em seguida, clique nele. ![Imagem da página Visão geral](./media/operational-insights-security-audit/sec-audit-dash02.png)
 3. Na página **Segurança e Auditoria**, examine as informações na folha **PROBLEMAS IMPORTANTES**. Na imagem de exemplo você verá seis problemas importantes de hoje com dois de ontem. Neste exemplo, há um executável suspeito. Clique em **Executáveis Suspeitos** na folha **PROBLEMAS IMPORTANTES** . ![Imagem da página Segurança e Auditoria](./media/operational-insights-security-audit/sec-audit-dash03.png)
-4. A pesquisa exibe a consulta e os resultados para o executável suspeito que você clicou. No exemplo, há um resultado e o hash do arquivo é exibido. Clique na ID **FILEHASH** . ![Imagem do filehash dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search01.png) 
-5. A pesquisa exibe informações adicionais sobre o arquivo executável, incluindo seu nome de processo e o caminho do arquivo. Clique no **&lt;Nome do arquivo&gt; do processo**. No exemplo, isso é HEXEDIT. EXE. ![Imagem do processo dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search02.png) 
+4. A pesquisa exibe a consulta e os resultados para o executável suspeito que você clicou. No exemplo, há um resultado e o hash do arquivo é exibido. Clique na ID **FILEHASH** . ![Imagem do filehash dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search01.png)
+5. A pesquisa exibe informações adicionais sobre o arquivo executável, incluindo seu nome de processo e o caminho do arquivo. Clique no **&lt;Nome do arquivo&gt; do processo**. No exemplo, isso é HEXEDIT. EXE. ![Imagem do processo dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search02.png)
 6. A pesquisa anexará o nome do processo entre aspas na consulta. "* * HEXEDIT. EXE "* *, neste exemplo. ![Imagem da Consulta de pesquisa](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. Na caixa de Pesquisa, remova tudo menos o nome do processo e as aspas e, em seguida, clique no ícone de Pesquisa. ![Imagem das informações de pesquisa detalhada](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. A pesquisa exibe informações detalhadas sobre o processo, incluindo os computadores em que o processo é executado, a conta de usuário em que o processo é executado, e a data e hora em que um evento foi criado para o processo.
@@ -43,13 +44,13 @@ Neste artigo, você irá:
 
 **Procurar as evidências**
 
-Ao realizar uma análise forense usando o pacote de inteligência de Segurança e Auditoria, você procura a evidência que usuários mal-intencionados deixarem para trás. Independentemente do que os usuários estão fazendo em seu ambiente de TI, muitas das atividades em que participam geram artefatos de segurança. Você deve observar que logs geralmente são apagados por invasores e costuma ser a primeira etapa que eles executam ocultando seu caminho.
+Ao realizar uma análise forense usando a solução de Segurança e Auditoria, você procura a evidência que usuários mal-intencionados deixarem para trás. Independentemente do que os usuários estão fazendo em seu ambiente de TI, muitas das atividades em que participam geram artefatos de segurança. Você deve observar que logs geralmente são apagados por invasores e costuma ser a primeira etapa que eles executam ocultando seu caminho.
 
 No entanto, se os usuários estão acessando seus próprios computadores ou acessando-os remotamente, as evidências sobre seu uso são armazenadas nos logs de eventos. O Insights Operacionais coleta esses artefatos *assim que eles ocorrem*, antes de qualquer pessoa poder violá-los e permite executar diferentes tipos de análise, correlacionando os dados em vários computadores.
 
 **Saiba como configurar e coletar eventos de auditoria**
 
-Para aproveitar ao máximo o pacote de inteligência de Segurança e Auditoria, você deve configurar o nível dos eventos de auditoria coletados por seu ambiente do Windows que melhor atenda às suas necessidades, usando os recursos a seguir.
+Para aproveitar ao máximo a solução de Segurança e Auditoria, você deve configurar o nível dos eventos de auditoria coletados por seu ambiente do Windows que melhor atenda às suas necessidades, usando os recursos a seguir.
 
 - [Como Definir Configurações de Política de Segurança](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
@@ -71,7 +72,7 @@ O ambiente de computação do Windows fornece a capacidade de configurar o níve
 
 **Investigue os padrões de atividade anormal**
 
-Violações de segurança geralmente são originadas por credenciais legítimas e exigem que um usuário mal-intencionado tente obter um privilégio elevado por meio de ataques. O pacote de inteligência de Segurança e Auditoria não se concentra na detecção de intrusões mas ajuda-o a investigar e descobrir padrões de atividades anormais com Problemas Importantes. Por exemplo, você deve investigar as seguintes atividades anormais e quaisquer outras que apareçam nos **Problemas Importantes**.
+Violações de segurança geralmente são originadas por credenciais legítimas e exigem que um usuário mal-intencionado tente obter um privilégio elevado por meio de ataques. A solução de Segurança e Auditoria não se concentra na detecção de intrusões mas ajuda-o a investigar e descobrir padrões de atividades anormais com Problemas Importantes. Por exemplo, você deve investigar as seguintes atividades anormais e quaisquer outras que apareçam nos **Problemas Importantes**.
 
 - logons incomuns no computador de um usuário que normalmente não o utiliza
 
@@ -87,7 +88,7 @@ Violações de segurança geralmente são originadas por credenciais legítimas 
 
 Sua organização pode ter regulamentos e políticas de conformidade de rede e computador que você deve cumprir, exigindo registros extensos de auditoria. Por exemplo, se sua organização é uma empresa de finanças, que talvez você precise manter registros provar para qualquer ponto no tempo, qual usuário executou uma operação específica na rede. Talvez você também seja solicitado a gerar relatórios detalhando a atividade de um usuário específico ou servidor selecionado sob demanda e a voltar no tempo muitos meses, às vezes até anos atrás.
 
-Você pode usar o pacote de inteligência de Segurança e Auditoria para coletar dados de auditoria em todo o seu ambiente de TI, tanto se os computadores estiverem no local ou na nuvem. Todos os dados de auditoria são armazenados, indexados e com uma assinatura Premium para o Insights Operacionais; todos os dados são armazenados indefinidamente. Em seguida você pode exibir dados de auditoria, realizar pesquisas e correlacionar através de diferentes tipos de dados e computadores para obter resultados abrangentes para qualquer intervalo de tempo desde que os dados foram coletados.
+Você pode usar a solução de Segurança e Auditoria para coletar dados de auditoria em todo o seu ambiente de TI, tanto se os computadores estiverem no local ou na nuvem. Todos os dados de auditoria são armazenados, indexados e mantidos por sua assinatura. Com uma assinatura Premium dos Insights Operacionais, uma quantidade ilimitada de dados é armazenada por um ano. Em seguida você pode exibir dados de auditoria, realizar pesquisas e correlacionar através de diferentes tipos de dados e computadores para obter resultados abrangentes para qualquer intervalo de tempo desde que os dados foram coletados.
 
 **Use a Política de Grupo para coletar dados de auditoria**
 
@@ -97,4 +98,4 @@ Os dados de auditoria que você deseja coletar e enviar ao Insights Operacionais
 
 Além das configurações de política local, se você usar o AppLocker para coletar dados de auditoria, o Operacional Insights coletará os dados e, em seguida, você poderá exibí-los.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

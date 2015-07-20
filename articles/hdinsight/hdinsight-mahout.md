@@ -362,9 +362,9 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	Depois da conclusão da compilação, você poderá encontrar o arquivo JAR em __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] No lançamento do Mahout 1.0, você poderá usar os pacotes de pré-compilação com o HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Carregue o arquivo jar no __exemplo/jars__, no armazenamento padrão para seu cluster. O exemplo a seguir usa add-hdinsightfile de [HDInsight-Tools][tools] para carregar o arquivo:
 
@@ -410,9 +410,9 @@ Para executar trabalhos que usam essas classes, conecte-se ao cluster do HDInsig
 
 Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalhar com dados no HDInsight:
 
-* [Hive com HDInsight](../hadoop-use-hive.md)
-* [Pig com HDInsight](../hadoop-use-pig.md)
-* [MapReduce com HDInsight](../hadoop-use-mapreduce.md)
+* [Hive com o HDInsight](../hadoop-use-hive.md)
+* [Pig com o HDInsight](../hadoop-use-pig.md)
+* [MapReduce com o HDInsight](../hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -429,4 +429,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

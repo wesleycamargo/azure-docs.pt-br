@@ -27,4 +27,4 @@
 
 Em seguida, você precisará instalar o Gerenciador de Conexão Híbrida no computador local.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,24 +1,25 @@
 <properties 
 	pageTitle="Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows" 
-	description="Saiba como restaurar a conectividade de RDP (Área de Trabalho Remota ) para sua máquina virtual do Azure com o diagnóstico e as etapas para isolar a origem do problema."
+	description="Se você não conseguir conectar sua máquina virtual do Azure baseada no Windows, use esse diagnóstico e as etapas para isolar a origem do problema."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows
 
-Este tópico descreve uma abordagem metódica para a correção e a determinação da causa raiz de conexões de Área de Trabalho Remota para Máquinas Virtuais do Azure baseadas no Windows.
+Se você não conseguir se conectar a máquinas virtuais do Azure baseadas no Windows, este artigo descreve uma abordagem metódica para a correção e a determinação da causa raiz de conexões de Área de Trabalho Remota.
 
 ## Etapa 1: executar o pacote de diagnóstico do Azure IaaS
 
@@ -35,7 +36,7 @@ Se a execução do pacote de diagnóstico do Azure IaaS não corrigir o problema
 
 ## Etapa 2: determinar a mensagem de erro do cliente de Área de Trabalho Remota
 
-Use estas seções com base na mensagem de erro que você receber.
+Use estas seções com base na mensagem de erro que você receber ao tentar se conectar.
 
 ### Janela de mensagem de Conexão de Área de Trabalho Remota: a sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença.
 
@@ -60,12 +61,24 @@ Aqui está um exemplo do arquivo RDP gerado pelo Portal de Gerenciamento do Azur
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-A parte do endereço consiste no nome de domínio totalmente qualificado do serviço de nuvem que contém a máquina virtual (tailspin-azdatatier.cloudapp.net neste exemplo) e a porta TCP externa do ponto de extremidade para o tráfego de Área de Trabalho Remota (55919).
+Neste exemplo, a parte do endereço consiste no nome de domínio totalmente qualificado do serviço de nuvem que contém a máquina virtual (tailspin-azdatatier.cloudapp.net neste exemplo) e a porta TCP externa do ponto de extremidade para o tráfego de Área de Trabalho Remota (55919).
 
 Soluções possíveis para esse problema:
 
 - Se você estiver na intranet de uma organização, verifique se o computador tem acesso ao servidor proxy e pode enviar o tráfego HTTPS para ele.
-- Se você estiver usando um arquivo RDP armazenado localmente, tente usar aquele gerado pelo Portal de Gerenciamento do Azure para garantir que você tem o nome correto para o serviço de nuvem e a porta do ponto de extremidade da máquina virtual.
+- Se você estiver usando um arquivo RDP armazenado localmente, tente usar aquele gerado pelo Portal de Gerenciamento do Azure para garantir que você tem o nome DNS correto para a máquina virtual e o serviço de nuvem e a porta do ponto de extremidade da máquina virtual.
+
+### Janela de mensagem de Conexão de Área de Trabalho Remota: Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.
+
+Causa: a máquina virtual à qual você está se conectando não pode localizar a autoridade de segurança indicada na parte do nome de usuário de suas credenciais.
+
+Quando seu nome de usuário estiver no formato *AutoridadeDeSegurança*\\*NomeDeUsuário* (exemplo: CORP\\User1),a porção *AutoridadeDeSegurança* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+
+Soluções possíveis para esse problema:
+
+- Se a conta de usuário for local para a máquina virtual, verifique a ortografia do nome da máquina virtual.
+- Se a conta de usuário for uma conta de domínio do Active Directory, verifique a ortografia do nome do domínio.
+- Se a conta de usuário for uma conta de domínio do Active Directory e o nome de domínio estiver digitado corretamente, verifique se há um controlador de domínio para o domínio do Active Directory. Esse pode ser um problema comum em uma rede virtual do Azure que contém controladores de domínio e nas quais um computador do controlador de domínio não foi iniciado. Uma solução temporária é usar uma conta de administrador local em vez de uma conta de domínio.
 
 ### Janela de mensagem de segurança do Windows: suas credenciais não funcionaram.
 
@@ -73,8 +86,8 @@ Causa: o nome da conta e a senha que você enviou não podem ser validados pela 
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta baseada em domínio.
 
-- Para contas locais, use a <computer name>sintaxe <nome da conta> (exemplo: SQL1\\Admin4798). 
-- Para contas de domínio, use a <domain name>sintaxe <nome_da_conta> (exemplo: CONTOSO\\eduardogomes).
+- Para contas locais, use a sintaxe *NomeDoComputador*\\*NomeDeUsuário* (exemplo: SQL1\\Admin4798). 
+- Para contas de domínio, use a sintaxe *NomeDeDomínio*\\*NomeDeUsuário* (exemplo: CONTOSO\\johndoe).
 
 Para computadores promovidos a controladores de domínio em uma nova floresta do AD, a conta de administrador local à qual você está conectado ao realizar a promoção é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta de administrador local anterior é excluída. Por exemplo, se você estiver conectado com a conta de administrador local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio CORP\\DCAdmin será criada com a mesma senha.
 
@@ -100,7 +113,7 @@ Aqui está o conjunto de componentes envolvidos.
  
 Antes de mergulhar em um processo passo a passo de solução de problemas, é útil examinar mentalmente o que foi alterado desde que você conseguiu criar com êxito conexões de Área de Trabalho Remota e usar essa alteração como base para corrigir o problema. Por exemplo:
 
-- Se você conseguiu criar conexões de Área de Trabalho Remota e alterou o endereço IP público do serviço de nuvem que contém sua máquina virtual (também conhecido como endereço IP virtual, ou [VIP]), o cache do cliente DNS deve ter uma entrada para o nome DNS do serviço de nuvem e o *endereço IP antigo*. Libere o cache do cliente DNS e tente novamente. Como alternativa, tente estabelecer a conexão usando o novo VIP.
+- Se você conseguiu criar conexões de Área de Trabalho Remota e alterou o endereço IP público da máquina virtual ou do serviço de nuvem que contém sua máquina virtual (também conhecido como endereço IP virtual, ou [VIP]), o cache do cliente DNS deve ter uma entrada para o nome DNS e o *endereço IP antigo*. Libere o cache do cliente DNS e tente novamente. Como alternativa, tente estabelecer a conexão usando o novo VIP.
 - Se você deixou de usar o Portal de Gerenciamento do Azure ou o Portal de Visualização do Azure e passou a usar um aplicativo para gerenciar suas conexões de Área de Trabalho Remota, verifique se a configuração do aplicativo inclui a porta TCP determinada de forma aleatória para o tráfego de Área de Trabalho Remota. 
 
 As seções a seguir explicam como isolar e determinar as várias causas raiz para esse problema e fornecem soluções e soluções alternativas.
@@ -146,7 +159,7 @@ Para eliminar o dispositivo de borda de intranet de sua organização como a fon
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-Se não tiver um computador que esteja diretamente conectado à Internet, você poderá criar facilmente uma nova máquina virtual do Azure em seu próprio serviço de nuvem e usá-la. Para obter mais informações, consulte [Criar uma máquina virtual que execute o Windows no Azure](virtual-machines-windows-tutorial.md). Exclua a máquina virtual e o serviço de nuvem ao concluir o teste.
+Se não tiver um computador que esteja diretamente conectado à Internet, você poderá criar facilmente uma nova máquina virtual do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para obter mais informações, consulte [Criar uma máquina virtual que execute o Windows no Azure](virtual-machines-windows-tutorial.md). Exclua o grupo de recursos ou a máquina virtual e o serviço de nuvem ao concluir o teste.
 
 Se você puder criar uma conexão de Área de Trabalho Remota com um computador conectado diretamente à Internet, verifique se há o seguinte no dispositivo de borda de intranet da organização:
 
@@ -158,24 +171,26 @@ Trabalhe com o administrador da rede para corrigir as configurações do disposi
 
 ### Fonte 3: ponto de extremidade de serviço de nuvem e ACL
 
-Para eliminar o ponto de extremidade de serviço de nuvem e a ACL como a fonte dos problemas ou erros de configuração, verifique se outra máquina virtual do Azure que está no mesmo serviço de nuvem pode estabelecer conexões de Área de Trabalho Remota com sua máquina virtual do Azure.
+Para eliminar o ponto de extremidade de serviço de nuvem e a ACL como a fonte dos problemas ou erros de configuração para máquinas virtuais criadas no Gerenciador de Serviços, verifique se outra máquina virtual do Azure que está no mesmo serviço de nuvem ou rede virtual pode estabelecer conexões de Área de Trabalho Remota com sua máquina virtual do Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-Se não tiver outra máquina virtual no mesmo serviço de nuvem, você poderá criar facilmente uma nova. Para obter mais informações, consulte [Criar uma máquina virtual que execute o Windows no Azure](virtual-machines-windows-tutorial.md). Exclua a máquina virtual extra ao concluir o teste.
+> [AZURE.NOTE]Para máquinas virtuais criadas no Gerenciador de Recursos, vá para [Fonte 4: Grupos de segurança de rede](#nsgs).
 
-Se você puder criar uma conexão de Área de Trabalho Remota com uma máquina virtual no mesmo serviço de nuvem, verifique o seguinte:
+Se não houver outra máquina virtual no mesmo serviço de nuvem ou rede virtual, você poderá criar facilmente uma nova. Para obter mais informações, consulte [Criar uma máquina virtual que execute o Windows no Azure](virtual-machines-windows-tutorial.md). Exclua a máquina virtual extra ao concluir o teste.
+
+Se você puder criar uma Conexão de Área de Trabalho Remota com uma máquina virtual no mesmo serviço de nuvem ou rede virtual, verifique o seguinte:
 
 - A configuração de ponto de extremidade para o tráfego de Área de Trabalho Remota na máquina virtual de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP em que os Serviços de Área de Trabalho Remota na máquina virtual estão escutando, que, por padrão, é 3389. 
 - A ACL para o ponto de extremidade de tráfego de Área de Trabalho Remota na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de Área de Trabalho Remota para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [Sobre ACLs (Listas de Controle de Acesso) de rede](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Para eliminar o ponto de extremidade como a fonte do problema, remova o ponto de extremidade atual e crie um novo ponto de extremidade, escolhendo uma porta aleatória no intervalo 49152-65535 para o número da porta externa. Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](virtual-machines-set-up-endpoints.md).
 
-### Fonte 4: grupos de segurança de rede
+### <a id="nsgs"></a>Fonte 4: grupos de segurança de rede
 
 Os grupos de segurança de rede lhe proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego de Área de Trabalho Remota da Internet é permitido.
 
-Para obter mais informações, consulte [Sobre grupos de segurança de rede](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Para obter mais informações, consulte [Sobre grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
 ### Fonte 5: máquina virtual do Azure baseada no Windows
 
@@ -195,7 +210,7 @@ Tente estabelecer a conexão de seu computador novamente. Se você não tiver ê
 - O Firewall do Windows ou outro firewall local tem uma regra de saída que está impedindo o tráfego de Área de Trabalho Remota.
 - Um software de detecção de intrusão ou monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de Área de Trabalho Remota.
 
-Para corrigir esses possíveis problemas, você pode usar uma sessão remota do PowerShell para a máquina virtual do Azure. Primeiro, você deve instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Vá para [Configurar o acesso remoto seguro do PowerShell para máquinas virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para uma pasta no computador local.
+Para corrigir esses possíveis problemas para máquinas virtuais criadas no Gerenciador de Serviços, você pode usar uma sessão remota do PowerShell para a máquina virtual do Azure. Primeiro, você deve instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Vá para [Configurar o acesso remoto seguro do PowerShell para máquinas virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para uma pasta no computador local.
 
 Em seguida, instale o PowerShell do Azure, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
 
@@ -228,7 +243,7 @@ Agora você pode emitir comandos do PowerShell para investigar os problemas adic
 
 ### Para corrigir manualmente os Serviços de Área de Trabalho Remota escutando na porta TCP
 
-Se você não conseguiu executar o [Pacote de diagnóstico do Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para o  problema **Conectividade RDP a uma VM do Azure (necessário reinicializar)**, no prompt de sessão remota do PowerShell, execute este comando.
+Se você não conseguiu executar o [Pacote de diagnóstico do Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para o problema **Conectividade RDP a uma VM do Azure (necessário reinicializar)**, no prompt de sessão remota do PowerShell, execute este comando.
 
 	Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -268,9 +283,8 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-[Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada no Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Perguntas frequentes sobre máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

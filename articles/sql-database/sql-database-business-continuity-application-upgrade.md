@@ -29,5 +29,6 @@ Ao desenvolver o processo de atualização do aplicativo, a meta principal deve 
 
 Se o aplicativo puder operar temporariamente no modo somente leitura, o fluxo de trabalho de atualização poderá ser projetado para eliminar efetivamente o tempo de inatividade no geral. Para entender como implementar o fluxo de trabalho de atualização para a sua topologia de aplicativo específica, consulte [Práticas recomendadas para interrupção mínima no Banco de Dados SQL do Azure durante atualizações sem interrupção do aplicativo](https://msdn.microsoft.com/library/azure/dn790385.aspx)
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Usar o Pig com Hadoop no HDInsight
@@ -127,4 +127,4 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

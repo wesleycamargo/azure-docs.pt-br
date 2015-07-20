@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 
-#Usar funções definidas pelo usuário do C# com streaming de Hive e Pig no Hadoop no HDInsight 
+#Usar funções definidas pelo usuário do C# com streaming de Hive e Pig no Hadoop no HDInsight
 
 Hive e Pig são ótimos para trabalhar com dados no Azure HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. Hive e Pig permitem que você chame código externo por meio de UDFs (funções definidas pelo usuário) ou streaming.
 
@@ -29,15 +29,15 @@ Neste documento, Aprenda a usar C# com Hive e Pig.
 
 * O Visual Studio com as seguintes versões:
 
-	* O Visual Studio 2012 Professional/Premium/Ultimate com <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Atualização 4</a>
+	* Visual Studio 2012 Professional/Premium/Ultimate com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate com <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Atualização 4</a>
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate com [Atualização 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visualização do Visual Studio 2015
 
 * Hadoop no cluster HDInsight - consulte [Provisionar um cluster HDInsight](hdinsight-provision-clusters.md) para conhecer as etapas para criar um cluster
 
-* Ferramentas de Hadoop para Visual Studio. Consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Comece a usar as ferramentas do Hadoop do HDInsight para o Visual Studio</a> para obter as etapas para instalar e configurar as ferramentas.
+* Ferramentas de Hadoop para Visual Studio. Consulte [Comece a usar as ferramentas do Hadoop do HDInsight para o Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter as etapas para instalar e configurar as ferramentas.
 
 ##.NET no HDInsight
 
@@ -122,7 +122,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 6. Clique duas vezes no **Contêiner Padrão** para o cluster. Isso abrirá uma nova janela que exibe o conteúdo do contêiner padrão.
 
-7. Clique no ícone de carregamento e, em seguida, navegue até a pasta **bin\debug** para o projeto **HiveCSharp**. Por fim, selecione o arquivo **HiveCSharp.exe** e clique em **Ok**.
+7. Clique no ícone de carregamento e, em seguida, navegue até a pasta **bin\\debug** para o projeto **HiveCSharp**. Por fim, selecione o arquivo **HiveCSharp.exe** e clique em **Ok**.
 
 	![ícone de carregamento](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -152,7 +152,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 6. Clique em **Atualizar** para atualizar o resumo até que **Status do trabalho** mude para **Concluído**. Para exibir a saída do trabalho, clique em **Saída do trabalho**.
 
-###Pig e C&#35;
+##Pig e C&#35;
 
 ###Criar o projeto em C#
 
@@ -193,7 +193,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 ###Carregar o aplicativo
 
-1. O streaming do Pig espera que o aplicativo seja local no sistema de arquivos de cluster. Habilite a área de trabalho remota para o cluster HDInsight, então conecte-o seguindo as instruções em <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar aos clusters HDInsight usando o RDP</a>.
+1. O streaming do Pig espera que o aplicativo seja local no sistema de arquivos de cluster. Habilite a área de trabalho remota para o cluster HDInsight, então conecte-o seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. Uma vez conectado, copie **PigUDF.exe** do diretório **bin/debug** para o projeto PigUDF em seu computador local e cole-o no diretório **%PIG_HOME%** no cluster.
 
@@ -239,6 +239,5 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

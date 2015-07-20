@@ -84,4 +84,8 @@ A replicação geográfica padrão está disponível para bancos de dados Standa
 
 A replicação geográfica ativa está disponível para bancos de dados Premium. Destina-se a aplicativos com uso intensivo de gravação com os requisitos de recuperação mais agressivos. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. É possível iniciar o failover para qualquer um dos secundários da mesma maneira como para a replicação geográfica padrão. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como configurar a replicação geográfica e [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes sobre como fazer failover para o banco de dados secundário. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como implementar a atualização de aplicativo sem tempo de inatividade.
 
-<!---HONumber=58--> 
+
+
+ 
+
+<!---HONumber=July15_HO2-->

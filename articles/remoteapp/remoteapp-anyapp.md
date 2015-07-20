@@ -10,10 +10,10 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
+   ms.date="05/28/2015"
    ms.author="elizapo"/>
 
 # Execute qualquer aplicativo em qualquer dispositivo com o RemoteApp
@@ -35,7 +35,7 @@ Comece pela criação de uma coleção. A coleção serve como um contêiner par
 2. Clique em **Criar uma coleção de RemoteApp**.
 3. Clique em **Criação rápida** e digite um nome para a coleção.
 4. Selecione a região que você deseja usar para criar sua coleção. Para obter a melhor experiência, selecione a região mais próxima geograficamente do local onde os usuários acessarão o aplicativo. Por exemplo, neste tutorial, os usuários estarão localizados em Redmond, Washington. A região do Azure mais próxima é **Oeste dos EUA**.
-5. Selecione o plano de cobrança que você deseja usar. O plano de cobrança básico coloca 16 usuários em uma VM grande do Azure, enquanto o plano de cobrança padrão tem 10 usuários em uma VM grande do Azure. Como um exemplo geral, o plano básico funciona muito bem para fluxo de trabalho de tipo de entrada de dados. Para um aplicativo de produtividade, como o Office, você desejaria o plano padrão. 
+5. Selecione o plano de cobrança que você deseja usar. O plano de cobrança básico coloca 16 usuários em uma VM grande do Azure, enquanto o plano de cobrança padrão tem 10 usuários em uma VM grande do Azure. Como um exemplo geral, o plano básico funciona muito bem para fluxo de trabalho de tipo de entrada de dados. Para um aplicativo de produtividade, como o Office, você desejaria o plano padrão.
 6. Por fim, selecione a imagem do Office 2013 Professional. Esta imagem contém aplicativos do Office 2013.  
 7. Clique em **Criar coleção do RemoteApp**.
 
@@ -64,22 +64,22 @@ Se você navegou para fora do nó do Azure RemoteApp enquanto a coleção estava
 
 ## Configurar o acesso ao Access
 
-Alguns aplicativos precisam de configuração adicional após você implantá-los por meio do RemoteApp. Em particular, para o Access, vamos criar um compartilhamento de arquivo no Azure que qualquer usuário pode acessar. (Se não quiser fazer isso, você pode criar uma [coleção híbrida](remoteapp-create-hybrid-deployment.md) [em vez de nossa coleção de nuvem], que permite que os usuários acessem arquivos e suas informações em sua rede local.) Em seguida, precisaremos dizer a nossos usuários para mapear uma unidade local no seu computador para o sistema de arquivos do Azure.
+Alguns aplicativos precisam de configuração adicional após você implantá-los por meio do RemoteApp. Em particular, para o Access, vamos criar um compartilhamento de arquivo no Azure que qualquer usuário pode acessar. (Se não quiser fazer isso, você poderá criar uma [coleção híbrida](remoteapp-create-hybrid-deployment.md) [em vez de nossa coleção de nuvem], que permite que os usuários acessem arquivos e informações em sua rede local.) Em seguida, precisaremos dizer a nossos usuários para mapear uma unidade local no seu computador para o sistema de arquivos do Azure.
 
 A primeira parte você, no papel de administrador, faz. Em seguida, temos algumas etapas para seus usuários.
 
 1. Comece publicando a interface de linha de comando (cmd.exe). Na guia **Publicação**, selecione **cmd** e, em seguida, clique em **Publicar > Publicar programa usando o caminho**.
 2. Digite o nome do aplicativo e o caminho. Para nosso objetivo, use "Gerenciador de Arquivos" como o nome e "% SYSTEMDRIVE%\\windows\\explorer.exe" como o caminho. ![Publique o arquivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Agora, você precisa criar uma [conta de armazenamento](../storage-create-storage-account.md) do Azure. Nomeamos o nosso "accessstorage", então escolha um nome que seja significativo para você (pode haver apenas um "accessstorage"). ![Nossa conta de armazenamento do Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Agora volte ao seu painel para que você possa obter o caminho para o armazenamento (local de ponto de extremidade). Você usará isso daqui a pouco, portanto certifique-se de copiá-lo em algum lugar. ![A chave da conta de armazenamento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. Em seguida, quando a conta de armazenamento tiver sido criada, você precisa da chave de acesso primário. Clique em **Gerenciar chaves de acesso** e, em seguida, copie a chave de acesso primário.
-6. Agora, defina o contexto da conta de armazenamento, crie um novo compartilhamento de arquivo para o Access. Execute os seguintes cmdlets em uma janela elevada do Windows PowerShell:
-   
+4. Agora volte ao seu painel para que você possa obter o caminho para o armazenamento (local de ponto de extremidade). Você usará isso daqui a pouco. Portanto, copie-o em algum lugar.
+
+![A chave da conta de armazenamento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png) 5. Em seguida, quando a conta de armazenamento tiver sido criada, você precisa da chave de acesso primário. Clique em **Gerenciar chaves de acesso** e, em seguida, copie a chave de acesso primário. 6. Agora, defina o contexto da conta de armazenamento, crie um novo compartilhamento de arquivo para o Access. Execute os seguintes cmdlets em uma janela elevada do Windows PowerShell:
+
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	Estes são os cmdlets que executamos para nosso compartilhamento:
-    
+	So for our share, these are the cmdlets we run:
+
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
@@ -87,7 +87,11 @@ A primeira parte você, no papel de administrador, faz. Em seguida, temos alguma
 Agora, é a vez do usuário. Primeiro, faça com que os usuários instalem um [cliente RemoteApp](remoteapp-clients.md). Em seguida, os usuários precisam mapear uma unidade de sua conta para esse compartilhamento de arquivo do Azure criado por você e adicionar seus arquivos do Access. É desse jeito que eles fazem isso:
 
 1. No cliente RemoteApp, acesse os aplicativos publicados. Inicie o programa cmd.exe.
-2. Execute o comando a seguir para mapear uma unidade do computador para o compartilhamento de arquivos: net use z: <accountname>.file.core.windows.net<nome do compartilhamento> /u:<user name> <account key>
+2. Execute o seguinte comando para mapear uma unidade do computador para o compartilhamento de arquivos:
+
+		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
+
+	Se você definir o parâmetro **/persistent** como yes, a unidade mapeada persistirá nas sessões.
 1. Agora, inicie o aplicativo do Gerenciador de arquivos no RemoteApp. Copie quaisquer arquivos do Access que você deseje usar no aplicativo compartilhado para o compartilhamento de arquivos. ![Colocar arquivos do Access em um compartilhamento do Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Por fim, abra o Access e abra o banco de dados que você acabou de compartilhar. Você deve ver os dados no Access em execução na nuvem. ![Um banco de dados real em execução na nuvem](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
@@ -100,5 +104,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

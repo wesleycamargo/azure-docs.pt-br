@@ -5,9 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"
-	tags="AZURE CLASSIC PORTAL"/>
-	
+	editor=""/>
+
 
 <tags 
 	ms.service="virtual-machines" 
@@ -15,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/29/2015" 
 	ms.author="kathydav"/>
 
-# Como criar uma máquina virtual personalizada executando o Windows
+#Como criar uma máquina virtual personalizada executando o Windows
 
 Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que você cria usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 
@@ -33,6 +32,6 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

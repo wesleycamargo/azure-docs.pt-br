@@ -58,5 +58,6 @@ Exemplos:
 -   A classe `CapptainTableViewController` foi renomeada para `EngagementTableViewController`.
 -   A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
 -   A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução ao Apache Storm no HDInsight | Microsoft Azure"
-	description="Obtenha uma introdução de uso geral ao Apache Storm e saiba como usar o Apache Storm no HDInsight para criar soluções de análise de dados em tempo real na nuvem."
+	description="Obtenha uma introdução ao Apache Storm e saiba como usar o Apache Storm no HDInsight para criar soluções de análise de dados em tempo real na nuvem."
 	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
@@ -162,7 +162,7 @@ Para obter exemplos das topologias brutas Java e Trident, consulte o diretório 
 
 ###Processamento de mensagem garantido
 
-O Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o Trident pode garantir o processamento  exatamente uma vez.
+O Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o Trident pode garantir o processamento exatamente uma vez.
 
 Para obter mais informações, consulte [Garantias do processamento de dados](https://storm.apache.org/about/guarantees-data-processing.html) em apache.org.
 
@@ -209,4 +209,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

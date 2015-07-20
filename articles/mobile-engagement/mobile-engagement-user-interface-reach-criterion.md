@@ -65,7 +65,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Comentários de anúncio: anúncio, comentários
 - Comentários de pesquisa: pesquisa, comentários
 - Comentários de resposta da pesquisa: comentários de resposta da pesquisa, pergunta, opção
-- Comentários  de Envio de Dados por Push: envio de dados por push, comentários
+- Comentários de Envio de Dados por Push: envio de dados por push, comentários
 - **Instalar o Rastreamento**     
 - Loja: loja, indefinido
 - Fonte: fonte, indefinido
@@ -171,5 +171,6 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

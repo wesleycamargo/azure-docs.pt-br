@@ -836,4 +836,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

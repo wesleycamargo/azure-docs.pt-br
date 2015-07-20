@@ -87,5 +87,6 @@ A camada Premium foi desenvolvida para aplicativos críticos. Ela oferece o melh
 Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

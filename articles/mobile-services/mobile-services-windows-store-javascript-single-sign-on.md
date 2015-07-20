@@ -18,7 +18,7 @@
 
 # Autenticar seu aplicativo da Windows Store com autenticação gerenciada do cliente usando a conta da Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##Visão geral
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo da Windows Store. Neste tutorial, você adiciona autenticação ao projeto quickstart usando o Live Connect. Quando autenticado com êxito pelo Live Connect, um usuário conectado é recebido pelo nome e o valor da ID do usuário é exibido.
@@ -41,7 +41,7 @@ Para poder autenticar usuários, você deverá registrar seu aplicativo na Centr
 
 Em seguida, você precisará restringir o acesso a um recurso, neste caso, a tabela *TodoItems*, para certificar-se de que ele só poderá ser acessado por um usuário conectado.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
@@ -143,5 +143,6 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Autorizar usuários com scripts]: ../mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

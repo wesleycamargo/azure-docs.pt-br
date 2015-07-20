@@ -74,4 +74,4 @@ Se você quiser remover essa extensão de sua VM, usar o seguinte cmdlet do Powe
 ### Sintaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

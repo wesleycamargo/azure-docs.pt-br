@@ -215,4 +215,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

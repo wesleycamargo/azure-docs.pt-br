@@ -57,7 +57,7 @@ Esse script instala uma pilha LAMP no Ubuntu (incluindo a configuração de uma 
 
 	# write some PHP
 	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-	echo <\?php phpinfo()\; \?> > /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
@@ -107,4 +107,4 @@ Estes são alguns recursos adicionais para o Azure CLI, Linux e a extensão Cust
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

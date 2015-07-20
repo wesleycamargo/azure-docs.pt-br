@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Acessando informações do Azure Active Directory Graph
@@ -142,7 +142,7 @@ Se você nunca usou APIs personalizadas com Serviços Móveis, deve considerar e
 ##Atualizar o aplicativo para usar GetUserInfo
 
 
-Nesta seção, você atualizará o método `AuthenticateAsync` que implementou no tutorial [Introdução à autenticação] para chamar a API personalizada e retornar informações adicionais sobre o usuário por meio do AAD.
+Nesta seção, você atualizará o método `AuthenticateAsync` implementado no tutorial [Introdução à autenticação] para chamar a API personalizada e retornar informações adicionais sobre o usuário por meio do AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
 
@@ -181,4 +181,5 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 [Obter usuário]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Controle de acesso baseado em função com o AAD em Serviços Móveis]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Blog da equipe do Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

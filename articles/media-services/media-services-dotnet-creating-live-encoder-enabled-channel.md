@@ -13,17 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Use o SDK do .NET para criar canais que realizam codificação ao vivo de um fluxo com taxa de bits única para fluxo múltiplas taxas de bits (Visualização)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##Visão geral
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
 >[AZURE.NOTE]Para obter mais informações conceituais relacionadas aos canais habilitados para codificação ao vivo, consulte [Trabalhando com canais que executam codificação ao vivo de um fluxo de taxa de bits única para fluxo de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+
+>[AZURE.NOTE]Você deve usar o Media Services .NET SDK na versão 3.2.0.0 ou mais recente.
 
 ##Cenário comum de streaming ao vivo
 
@@ -491,5 +498,7 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 	
 ##Tópicos relacionados
 
-[Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md) <!--HONumber=52-->
+[Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

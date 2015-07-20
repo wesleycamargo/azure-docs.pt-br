@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="juliako"/>
 
 
-#Como: Obter uma instância do processador de mídia
+#Como obter uma instância do processador de mídia
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md). 
+Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
 
 ##Visão geral
@@ -40,7 +40,7 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
     <tr>
        <td>Codificador de Mídia do Azure</td>
        <td>Permite que você execute tarefas de codificação usando o Codificador de Mídia do Azure.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Cadeias de caracteres de predefinição de tarefa para o Codificador de Mídia do Azure</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Cadeias de caracteres de predefinição de tarefa para o Codificador de Mídia do Azure</a></td>
     </tr>
     <tr>
        <td>Fluxo de trabalho do Media Encoder Premium</td>
@@ -60,8 +60,13 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
     <tr>
         <td>Criptografador de Mídia do Microsoft Azure</td>
         <td>Permite criptografar ativos de mídia usando a Proteção do PlayReady.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Cadeias de caracteres de predefinição de tarefa do Empacotador de Mídia do Azure</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Cadeias de caracteres de predefinição de tarefa do Empacotador de Mídia do Azure</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (visualização)</td>
+		<td>Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo.</td>
+		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Descriptografia do armazenamento</td>
         <td>Permite descriptografar ativos de mídia que foram criptografados usando a criptografia de armazenamento.</td>
@@ -73,15 +78,15 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
 
 ##Obter MediaProcessor
 
->[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+>[AZURE.NOTE]Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Instalação para desenvolvimento de API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+>Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI conforme descrito em [Conectar aos serviços de mídia usando a API REST](media-services-rest-connect_programmatically.md). 
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
 
 
 
-A chamada REST a seguir mostra como obter uma instância do processador de mídia por nome (neste caso, **Azure Media Encoder**). 
+A chamada REST a seguir mostra como obter uma instância do processador de mídia por nome (neste caso, **Azure Media Encoder**).
 
 	
 Solicitação:
@@ -119,8 +124,7 @@ Resposta:
 Agora que você sabe como obter uma instância do processador de mídia, vá para o tópico [Como codificar um ativo][] que mostra como usar o Codificador de Mídia do Azure para codificar um ativo.
 
 [Como codificar um ativo]: media-services-rest-encode-asset.md
-[Cadeias de caracteres de predefinição de tarefa para o Codificador de Mídia do Azure]: http://msdn.microsoft.com/library/jj129582.aspx
-[Como: conectar-se aos Serviços de Mídia de modo programático]: ../media-services-rest-connect_programmatically/
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
+[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Notas de versão do StorSimple - Fevereiro de 2015"
+    pageTitle="Notas de versão da Atualização 0.3 do StorSimple série 8000 - fevereiro de 2015"
     description="Descreve os novos recursos, problemas e soluções alternativas da versão de Fevereiro de 2015 do StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notas de versão do StorSimple - Fevereiro de 2015
+# Notas de versão da Atualização 0.3 do StorSimple série 8000 - fevereiro de 2015
 
 ## Visão geral
 
-As notas de versão a seguir identificam as questões críticas em aberto para a versão de Fevereiro de 2015 do Microsoft Azure StorSimple. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a terceira versão após o lançamento da Disponibilidade Geral (GA) do Microsoft Azure StorSimple.
+As notas de versão a seguir identificam os problemas críticos abertos da Atualização 0.3 do StorSimple série 8000, lançado em fevereiro de 2015. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a terceira versão depois que a versão de lançamento do StorSimple série 8000 foi disponibilizada em julho de 2014.
   
 Esta atualização não altera a versão do software de dispositivo da atualização de Janeiro. Ela continua a ser a versão 6.3.9600.17312. Você pode confirmar que a atualização foi instalada, verificando a data da **Última Atualização**. Se a data for 10/2/2015 ou posterior, a atualização foi instalada com êxito.
 
@@ -26,7 +27,7 @@ Esta atualização não altera a versão do software de dispositivo da atualiza�
 
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
->[AZURE.IMPORTANT] 
+>[AZURE.IMPORTANT]
 >
 > - Use o serviço StorSimple Manager e não o Windows PowerShell para StorSimple para instalar as atualizações de Fevereiro.   
 > - A duração é de aproximadamente uma hora para instalar essa atualização. No entanto, se você estiver instalando atualizações cumulativas, o processo pode levar cerca de 3 horas para ser concluído.  
@@ -60,7 +61,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
  
 | Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 |-----|---------|-------|----------------------------|-----------------------------|--------------------------|
-| 1 | Redefinição de fábrica | Em alguns casos, quando você executa uma redefinição de fábrica, o dispositivo StorSimple pode estar travado e exibe esta mensagem: **A redefinição de fábrica está em andamento (fase 8)**. Isso acontece se você pressionar CTRL + C enquanto o cmdlet estiver em andamento. | Não pressione CTRL + C após iniciar uma redefinição de fábrica. Se você já estiver nesse estado, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
+| 1 | Redefinição de fábrica | Em alguns casos, quando você executa uma redefinição de fábrica, o dispositivo StorSimple pode estar travado e exibe esta mensagem: **a redefinição de fábrica está em andamento (fase 8)**. Isso acontece se você pressionar CTRL + C enquanto o cmdlet estiver em andamento. | Não pressione CTRL + C após iniciar uma redefinição de fábrica. Se você já estiver nesse estado, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 2 | Quorum de disco | Em casos raros, se a maioria dos discos no compartimento de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quorum de disco, em seguida, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. | Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. | Sim | Não |
 | 3 | Falhas de instantâneo de nuvem | Em casos raros, um instantâneo de nuvem pode falhar com o erro **Limite máximo de backup atingido**. Isso ocorre se você exceder 255 clones online no mesmo dispositivo, a partir do mesmo volume original que foi excluído. | | Sim | Sim |
 | 4 | ID de controlador incorreta | Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. | Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. | Sim | Não |
@@ -83,6 +84,6 @@ Esta versão não contém nenhuma atualização para o controlador SCSI (SAS) an
 ## Atualizações de dispositivo virtual na versão de Fevereiro
 
 Esta versão não contém nenhuma atualização para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

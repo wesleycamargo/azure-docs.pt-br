@@ -220,4 +220,4 @@ Neste tutorial, você aprendeu como configurar a resolução de nomes entre as r
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Tamanhos de máquina virtual" 
- description="Lista os diferentes tamanhos de máquinas virtuais e suas capacidades." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="KBDAzure" 
- manager="timlt" 
+<properties
+ pageTitle="Tamanhos de máquina virtual"
+ description="Lista os diferentes tamanhos de máquinas virtuais e suas capacidades."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="KBDAzure"
+ manager="timlt"
  editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<tags
+ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="05/28/2015" 
+ ms.date="07/02/2015"
  ms.author="kathydav"/>
 
 # Tamanhos das máquinas virtuais
@@ -39,9 +39,9 @@ O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capaci
 
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
-*   O tamanho A0\Basic_A0 só está disponível usando o SDK do Azure versão 1.3 ou posterior.  
+*   O tamanho A0\\Basic_A0 só está disponível usando o SDK do Azure versão 1.3 ou posterior.  
 
-*   O A1\Basic_A1 é o menor tamanho recomendado para cargas de trabalho de produção.
+*   O A1\\Basic_A1 é o menor tamanho recomendado para cargas de trabalho de produção.
 
 *   Selecione uma máquina virtual com 4 ou 8 núcleos de CPU quando usar o SQL Server Enterprise Edition.
 
@@ -49,30 +49,43 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 *   Os tamanhos de máquina virtual A8/A10 e A9/A11 têm as mesmas capacidades. As instâncias de máquina virtual A8 e A9 incluem um adaptador de rede adicional que é conectado a uma rede de Acesso Remoto Direto à Memória (RDMA) para uma comunicação rápida entre máquinas virtuais. As instâncias A8 e A9 destinam-se a aplicativos de computação de alto desempenho que exigem comunicação constante e de baixa latência entre os nós durante a execução como, por exemplo, os aplicativos que usam MPI (Message Passing Interface). As instâncias de máquina virtual A10 e A11 não incluem o adaptador de rede adicional. As instâncias A10 e A11 destinam-se a aplicativos de computação de alto desempenho que não exigem comunicação constante e de baixa latência entre os nós, também conhecidos como aplicativos paramétricos ou totalmente paralelos.
 
+## Limites gerais
+
+Esta tabela mostra limites que se aplicam independentemente do tamanho da VM, para VMs criadas com ferramentas do Gerenciador de Serviços.
+
+
+[AZURE.INCLUDE [azure-virtual-machines-limits](../../includes/azure-virtual-machines-limits.md)]
+
+Esta tabela mostra limites que se aplicam independentemente do tamanho da VM, para VMs criadas com ferramentas do Gerenciador de Recursos.
+
+[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+## Tabelas de tamanho
+
 As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 
 >[AZURE.NOTE]A capacidade de armazenamento é representada usando-se 1024^3 bytes como a unidade de medida para GB. Isso às vezes é chamado de gibibyte ou definição de base 2. Ao comparar tamanhos que usam diferentes sistemas de base, lembre-se de que os tamanhos de base 2 podem parecer menores do que os de base 10, mas para qualquer tamanho específico (por exemplo, 1 GB), um sistema de base 2 fornece mais capacidade do que um sistema de base 10, porque 1024^3 é maior que 1000^3.
 
 ## Camada básica
 
-|Tamanho – Portal de Gerenciamento\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB)|Máx. IOPS (300 por disco)|
+|Tamanho – Portal de Gerenciamento\\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB)|Máx. IOPS (300 por disco)|
 |---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 300|
-|A1\Basic_A1|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 40 GB</p>|2|2 x 300|
-|A2\Basic_A2|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 60 GB</p>|4|4 x 300|
-|A3\Basic_A3|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 120 GB</p>|8|8 x 300|
-|A4\Basic_A4|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 240 GB</p>|16|16 x 300|
+|A0\\Basic_A0|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 300|
+|A1\\Basic_A1|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 40 GB</p>|2|2 x 300|
+|A2\\Basic_A2|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 60 GB</p>|4|4 x 300|
+|A3\\Basic_A3|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 120 GB</p>|8|8 x 300|
+|A4\\Basic_A4|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 240 GB</p>|16|16 x 300|
 
 ## Camada padrão
 ### Série A e série D
 
-|Tamanho – Portal de Gerenciamento\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
+|Tamanho – Portal de Gerenciamento\\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|
-|A0\ extrapequeno|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 500|
-|A1\pequeno|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 70 GB</p>|2|2x500|
-|A2\médio|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4x500|
-|A3\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
-|A4\extragrande|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
+|A0\\ extrapequeno|1|768 MB|<p>SO = 1023 GB</p><p>Temporário = 20 GB</p>|1|1 x 500|
+|A1\\pequeno|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporário = 70 GB</p>|2|2x500|
+|A2\\médio|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4x500|
+|A3\\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
+|A4\\extragrande|8|14 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
 |A5(idem)|2|14 GB|<p>SO = 1023 GB</p><p>Temporário = 135 GB</p>|4|4X500|
 |A6(idem)|4|28 GB|<p>SO = 1023 GB</p><p>Temporário = 285 GB</p>|8|8 x 500|
 |A7(idem)|8|56 GB|<p>SO = 1023 GB</p><p>Temporário = 605 GB</p>|16|16 x 500|
@@ -92,7 +105,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 
 ### Camada padrão – série DS*
 
-|Tamanho – Portal de Gerenciamento\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Tamanho do cache (GB)|Máx. de IOPS de disco &amp; largura de banda|
+|Tamanho – Portal de Gerenciamento\\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Tamanho do cache (GB)|Máx. de IOPS de disco &amp; largura de banda|
 |---|---|---|---|---|---|---|
 |Standard_DS1(idem)|1|3,5|<p>OS = 1023 GB</p><p>Disco SSD local = 7 GB</p>|2|43|<p>3.200</p><p>32 MB por segundo</p>|
 |Standard_DS2(idem)|2|7|<p>SO = 1023 GB</p><p>Disco SSD local = 14 GB</p>|4|86|<p>6.400</p><p>64 MB por segundo</p>|
@@ -107,7 +120,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 
 ### Camada padrão – série G
 
-|Tamanho – Portal de Gerenciamento\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
+|Tamanho – Portal de Gerenciamento\\cmdlets e APIs|Núcleos de CPU|Memória|Tamanhos máx. de disco – máquina virtual|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|
 |Standard_G1(idem)|2|28 GB|<p>SO = 1023 GB</p><p>Disco SSD local = 384 GB</p>|4|4 x 500|
 |Standard_G2(idem)|4|56 GB|<p>SO = 1023 GB</p><p>Disco SSD local = 768 GB</p>|8|8 x 500|
@@ -118,8 +131,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 ### Consulte também
 
 [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
- 
-[Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](http://go.microsoft.com/fwlink/p/?linkid=328042)
- 
 
-<!---HONumber=58_postMigration-->
+[Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
+
+<!---HONumber=July15_HO2-->

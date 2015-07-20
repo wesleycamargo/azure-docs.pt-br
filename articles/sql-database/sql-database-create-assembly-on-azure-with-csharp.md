@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="CREATE ASSEMBLY no banco de dados SQL do Azure com CSharp"
-	description="Fornece código-fonte C# para emitir CREATE ASSEMBLY para o banco de dados SQL do Azure após a primeira codificação de um arquivo DLL em uma cadeia de caracteres que contém um número hexadecimal longo". 
+	description="Fornece código-fonte C# para emitir CREATE ASSEMBLY para o Banco de Dados SQL do Azure após a primeira codificação de um arquivo DLL em uma cadeia de caracteres que contém um número hexadecimal longo." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -26,7 +26,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 -->
 
 
-Este tópico fornece um exemplo de código C# que você pode usar para emitir uma instrução [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) para o banco de dados SQL do Azure.  Para o banco de dados SQL, a cláusula FROM não pode aceitar o formato simples de um caminho no computador local que hospeda o banco de dados.  Uma alternativa é primeiro codificar os bits binários da DLL do assembly em uma cadeia de caracteres longa que contém um número hexadecimal.  Em seguida, forneça a cadeia de caracteres como o valor na cláusula FROM.
+Este tópico fornece um exemplo de código C# que você pode usar para emitir uma instrução [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) para o Banco de Dados SQL do Azure. Para o banco de dados SQL, a cláusula FROM não pode aceitar o formato simples de um caminho no computador local que hospeda o banco de dados. Uma alternativa é primeiro codificar os bits binários da DLL do assembly em uma cadeia de caracteres longa que contém um número hexadecimal. Em seguida, forneça a cadeia de caracteres como o valor na cláusula FROM.
 
 
 ### Pré-requisitos
@@ -35,24 +35,22 @@ Este tópico fornece um exemplo de código C# que você pode usar para emitir um
 Para entender esse tópico, você já deve saber parcialmente o seguinte:
 
 
-- [Funções com valor de tabela CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Explica como a instrução CREATE ASSEMBLY Transact-SQL funciona com outras instruções para o Microsoft SQL Server local.
+- [Funções com valor de tabela CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Explica como a instrução Transact-SQL CREATE ASSEMBLY funciona com outras instruções para o Microsoft SQL Server local.
 
 
-## A. Técnica geral
+## R. Técnica geral
 
 
 1. DROP FUNCTION e DROP ASSEMBLY, se necessário, para limpar uma execução anterior.
-2. Lembre-se da localização do arquivo DLL assembly do Microsoft .NET Framework que você compilou por meio do seu próprio código.  Forneça a localização na próxima etapa. 
-3. Execute o EXE para o qual o código-fonte C# é fornecido neste tópico.  Informe o EXE onde está o arquivo DLL.
+2. Lembre-se da localização do arquivo DLL assembly do Microsoft .NET Framework que você compilou por meio do seu próprio código. Forneça a localização na próxima etapa. 
+3. Execute o EXE para o qual o código-fonte C# é fornecido neste tópico. Informe o EXE onde está o arquivo DLL.
  - Codifica sua DLL binária em uma cadeia de caracteres longa que contém um número hexadecimal.
  - Emite uma instrução CREATE ASSEMBLY com a cadeia de caracteres hexadecimal fornecida na cláusula FROM.
 4. [CREATE FUNCTION](http://msdn.microsoft.com/library/ms186755.aspx) para fazer referência a um método em seu assembly.
 5. Instrução T-SQL SELECT para chamar e testar sua função.
 
 
-A lista anterior não faz menção a...<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-... porque isso não é necessário para o banco de dados SQL do Azure, mesmo que seja necessário para o Microsoft SQL Server.
+A lista acima não menciona...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ...pois não é necessário para o Banco de Dados SQL do Azure, mesmo que seja necessário para o Microsoft SQL Server.
 
 
 Se for necessário para repetir a execução, o código T-SQL para descartar a função e o assembly é o seguinte:
@@ -62,13 +60,13 @@ Se for necessário para repetir a execução, o código T-SQL para descartar a f
     DROP ASSEMBLY CreateAssemblyFunctions3;
 
 
-## B. Assembly Simples de DLL para a função de T-SQL para referência
+## B. DLL de assembly simples da função T-SQL para referência
 
 
 O exemplo de código C# trivial nesta seção pode ser compilado em um arquivo de DLL do assembly.
 
 
-Esse exemplo de código contém o método **CompareCaseSensitiveNet** que é referenciado posteriormente em uma instrução T-SQL CREATE FUNCTION.  Observe que o método é decorado com um atributo .NET chamado **SqlFunction**.  Um método que é decorado com esse atributo pode ser chamado por seu T-SQL como uma função.
+Esse exemplo de código contém o método **CompareCaseSensitiveNet** que é referenciado posteriormente em uma instrução T-SQL CREATE FUNCTION. Observe que o método é decorado com um atributo .NET chamado **SqlFunction**. Um método que é decorado com esse atributo pode ser chamado por seu T-SQL como uma função.
 
 
 	using           System;   // C#
@@ -96,10 +94,10 @@ Esse exemplo de código contém o método **CompareCaseSensitiveNet** que é ref
 A seguinte sequência ocorre ao executar o EXE que é criado por meio deste exemplo C#:
 
 
-1. A execução da linha de comando das chamadas EXE do método **Principal**.
-2. O Principal chama o método **ObtainHexStringOfAssembly**.
+1. A execução da linha de comando de EXE chama o método **Main**.
+2. Main chama o método **ObtainHexStringOfAssembly**.
  - O método gera uma SqlString que armazena o assembly como um número hexadecimal.
-3. O Principal chama o método **SubmitCreateAssemblyToAzureSqlDb**.
+3. Main chama o método **SubmitCreateAssemblyToAzureSqlDb**.
  - A entrada principal é o SqlString.
  - A saída é uma chamada de CREATE ASSEMBLY enviada ao banco de dados SQL do Azure.
 
@@ -280,7 +278,7 @@ Nosso projeto do Visual Studio referenciado para compilar os assemblies a seguir
 ### C.2 Linha de comando para executar o EXE
 
 
-O bloco de código a seguir mostra um exemplo da linha de comando que você insere para executar o arquivo EXE no console.  Os parâmetros na linha de comando são artificialmente envolvidos aqui para melhor exibição.
+O bloco de código a seguir mostra um exemplo da linha de comando que você insere para executar o arquivo EXE no console. Os parâmetros na linha de comando são artificialmente envolvidos aqui para melhor exibição.
 
 
 	CreateAssemblyFromHexString6.exe
@@ -292,7 +290,7 @@ O bloco de código a seguir mostra um exemplo da linha de comando que você inse
 		Mypassword123
 
 
-Para manter a simplicidade da explicação, este exemplo passa a senha como um parâmetro de linha de comando.  Um design melhor é fazer com que o código C# obtenha a senha por meio de um arquivo CONFIG.
+Para manter a simplicidade da explicação, este exemplo passa a senha como um parâmetro de linha de comando. Um design melhor é fazer com que o código C# obtenha a senha por meio de um arquivo CONFIG.
 
 
 ## D. Executar uma instrução CREATE FUNCTION
@@ -301,7 +299,7 @@ Para manter a simplicidade da explicação, este exemplo passa a senha como um p
 Depois que o assembly é armazenado em seu servidor de banco de dados SQL Azure, você deve executar uma instrução Transact-SQL CREATE FUNCTION que faz referência ao método no assembly.
 
 
-O seguinte bloco de código Transact-SQL inclui duas instruções SELECT não essenciais para mostrar a prova de que o sistema de banco de dados tem registros para o assembly e sua função.  Por fim, existe uma SELECT que chama a função.
+O seguinte bloco de código Transact-SQL inclui duas instruções SELECT não essenciais para mostrar a prova de que o sistema de banco de dados tem registros para o assembly e sua função. Por fim, existe uma SELECT que chama a função.
 
 
 	SELECT a11.*, am2.*
@@ -325,10 +323,9 @@ O seguinte bloco de código Transact-SQL inclui duas instruções SELECT não es
 	GO
 
 
-O bloco de código Transact-SQL anterior termina com uma instrução SELECT que chama a nova função.  Você pode colocar a instrução SELECT em um procedimento armazenado.
+O bloco de código Transact-SQL anterior termina com uma instrução SELECT que chama a nova função. Você pode colocar a instrução SELECT em um procedimento armazenado.
 
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

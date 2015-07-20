@@ -16,9 +16,11 @@
 	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
-#Registrar seus aplicativos para logon no Twitter com os Serviços Móveis
+#Registrar seus aplicativos para logon do Twitter com os Serviços Móveis
 
-Este tópico mostra a você como registrar seus aplicativos para poder usar o Twitter para se autenticar com os Serviços Móveis do Azure.
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
+Este tópico mostra a você como registrar seus aplicativos para usar o Twitter e se autenticar com os Serviços Móveis do Azure.
 
 >[AZURE.NOTE]Este tutorial é sobre os [Serviços Móveis do Azure](http://azure.microsoft.com/services/mobile-services/), uma solução para ajudá-lo a criar aplicativos móveis escalonáveis para qualquer plataforma. Os Serviços Móveis facilita a sincronização de dados, autentica usuários e envia notificações por push. Esta página oferece suporte ao tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introdução à autenticação</a>, que mostra como fazer o logon de usuários no seu aplicativo. Se essa for sua primeira experiência com os Serviços Móveis, conclua o tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introdução aos Serviços Móveis</a>.
 
@@ -67,5 +69,6 @@ Agora você está pronto para usar um logon do Twitter para autenticação no se
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
