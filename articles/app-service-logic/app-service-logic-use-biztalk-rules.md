@@ -109,11 +109,19 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
   1.	Nome – apenas caracteres alfanuméricos são esperados, sem caracteres especiais. Ele deve ser exclusivo em sua lista de definições de vocabulário existente.
   2.	Descrição – campo opcional.
   3.	Tipo – dois tipos têm suporte. Neste exemplo, escolha Literal
-  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") ii. Booliano – pode ser verdadeiro ou falso iii. Número – pode ser qualquer número decimal iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM v. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
+  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: 
+    i.	Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres")  
+    ii.	Booliano – pode ser verdadeiro ou falso  
+    iii.	Número – pode ser qualquer número decimal  
+    iv.	DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM  
+    v.	Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
 
 ![Alt text][5]
 ##Definição XML
-Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas a. Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema. b. XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada. FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
+Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas  
+  a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.   
+  b.	XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada.  
+  c.	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
 
 ![Alt text][6]
 
@@ -123,17 +131,47 @@ As etapas acima capturaram a experiência para criar definições de vocabulári
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 2. Essa página mostrará a lista de políticas que esse Aplicativo de Regras específico tem. O usuário pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla tab. Várias políticas podem residir em um único Aplicativo de API de Regras. 3. Clicar na política criada levará o usuário à página de detalhes da política, em que é possível ver as regras que estão na política. ![Alt text][8] 4. Clique em "Adicionar Novo" para adicionar uma nova regra. Isso levará você a uma nova lâmina.
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
+	1.	No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
+	2.	Essa página mostrará a lista de políticas que esse Aplicativo de Regras específico tem. O usuário pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla tab. Várias políticas podem residir em um único Aplicativo de API de Regras.  
+	3.	Clicar na política criada levará o usuário à página de detalhes da política, em que é possível ver as regras que estão na política.  
+	![Alt text][8] 
+	4.	Clique em "Adicionar Novo" para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
-Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte: 1. And – operador condicional 2. Or – operador condicional 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
+Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:  
+1. 	And – operador condicional  
+2. 	Or – operador condicional  
+3. 	does_not_exist  
+4. 	exists  
+5. 	false  
+6. 	is_equal_to  
+7. 	is_greater_than  
+8. 	is_greater_than_equal_to  
+9. 	is_in  
+10. is_less_than  
+11. is_less_than_equal_to  
+12. is_not_in  
+13. is_not_equal_to  
+14. mod  
+15. true 
 
-A caixa de Ação (Then) pode conter várias instruções, um por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte: 1. igual a 2. falso 3. verdadeiro 4. interromper 5. mod 6. nulo 7. atualizar
+A caixa de Ação (Then) pode conter várias instruções, um por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:  
+1.	igual a  
+2.	falso  
+3.	verdadeiro  
+4.	interromper  
+5.	mod  
+6.	nulo  
+7.	atualizar  
 
-As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. ![Alt text][9]
+As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
+![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte: 1. atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição. 2. Halt – esta palavra-chave interrompe todas as execuções de regra
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte:  
+   1.	atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
+   2.	Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\desabilitar regras
 Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\desabilitar.

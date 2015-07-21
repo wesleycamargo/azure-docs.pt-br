@@ -30,7 +30,7 @@ Para usar o conector do Chatter, primeiro você precisa criar uma instância do 
 2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "Conector do Chatter".
 3.	Configure o Conector do Chatter da seguinte maneira:
 
-	![][1
+	![][1]
 	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
@@ -90,4 +90,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Chatter com
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->
