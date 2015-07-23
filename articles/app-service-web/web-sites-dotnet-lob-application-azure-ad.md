@@ -223,36 +223,36 @@ public class GroupClaimContext : DbContext
 
 11. Adicione as decorações [Authorize] destacadas nas respectivas ações a seguir.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
 	}</pre>
 	Como você cuida de mapeamentos de função no controlador Funções, tudo que você precisa fazer é garantir que cada ação autorize as funções certas.
 
@@ -375,4 +375,4 @@ Agora que você configurou as autorizações e a funcionalidade de linha de neg�
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
