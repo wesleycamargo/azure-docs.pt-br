@@ -44,11 +44,13 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Um cluster Azure HDInsight**. Para obter informações sobre como provisionar um cluster, consulte [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border="1">
-<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>O nome do seu cluster HDInsight.</td></tr>
-<tr><td>Nome de usuário do cluster</td><td>$clusterUsername</td><td></td><td>Nome de usuário do cluster especificado no provisionamento.</td></tr>
-<tr><td>Senha do cluster</td><td>$clusterPassword</td><td></td><td>Senha do usuário do cluster.</td></tr>
-</table>> [AZURE.NOTE]Preencha os valores na tabela. Isso poderá ser útil para percorrer este tutorial.
+	<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>O nome do seu cluster HDInsight.</td></tr>
+	<tr><td>Nome de usuário do cluster</td><td>$clusterUsername</td><td></td><td>Nome de usuário do cluster especificado no provisionamento.</td></tr>
+	<tr><td>Senha do cluster</td><td>$clusterPassword</td><td></td><td>Senha do usuário do cluster.</td></tr>
+	</table>
+
+	> [AZURE.NOTE] Preencha os valores na tabela. Isso poderá ser útil para percorrer este tutorial.
 
 
 

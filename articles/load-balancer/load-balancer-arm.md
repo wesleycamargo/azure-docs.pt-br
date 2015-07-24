@@ -35,7 +35,7 @@ Com ARM, o balanceador de carga do Azure contém os recursos filho a seguir:
 - Regras NAT de entrada – regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/pt-br/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
 
 
 
