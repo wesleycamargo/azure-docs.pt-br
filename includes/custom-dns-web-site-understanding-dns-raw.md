@@ -44,10 +44,10 @@ Você pode encontrar o endereço IP, bem como o nome **awverify** e os nomes **.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE]Se **Gerenciar domínios** não estiver habilitado, então você está usando um aplicativo Web **Gratuito**. Você não pode usar nomes de domínio personalizados com um aplicativo Web **Gratuito**, e deve atualizar o plano de Serviço de Aplicativo para o modo **Compartilhado**, **Básico** ou **Padrão**. Para obter mais informações sobre os modos de plano de Serviço de Aplicativo, inclusive sobre como alterar o modo do aplicativo Web, consulte [Como dimensionar aplicativos Web](../articles/web-sites-scale.md).
+> [AZURE.NOTE] Se **Gerenciar domínios** não estiver habilitado, então você está usando um aplicativo Web **Gratuito**. Você não pode usar nomes de domínio personalizados com um aplicativo Web **Gratuito**, e deve atualizar o plano de Serviço de Aplicativo para o modo **Compartilhado**, **Básico** ou **Padrão**. Para obter mais informações sobre os modos de plano de Serviço de Aplicativo, inclusive sobre como alterar o modo do aplicativo Web, consulte [Como dimensionar aplicativos Web](../articles/web-sites-scale.md).
 
 6. No diálogo **GERENCIAR DOMÍNIOS PERSONALIZADOS**, você verá as informações de **awverify**, o nome de domínio **.azurewebsites.net** atribuído no momento e os endereços IP virtuais. Salve essas informações, pois elas serão utilizadas na criação de registros DNS.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

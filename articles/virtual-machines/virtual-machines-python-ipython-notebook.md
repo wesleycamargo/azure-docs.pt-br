@@ -17,6 +17,9 @@
 	ms.author="huvalo"/>
 
 
+
+
+
 # IPython Notebook no Azure
 
 O [projeto IPython](http://ipython.org) fornece uma coleção de ferramentas para computação científica que incluem shells interativos avançados, bibliotecas paralelas de alto desempenho e fáceis de usar e um ambiente baseado na Web chamado IPython Notebook. O Notebook fornece um ambiente de trabalho para computação interativa, que combina a execução de códigos com a criação de um ambiente computacional dinâmico. Esses arquivos de notebook podem conter textos arbitrários, fórmulas matemáticas, códigos de entrada, resultados, gráficos, vídeos e qualquer outro tipo de mídia que um navegador da Web moderno é capaz de exibir.
@@ -85,7 +88,8 @@ Instale [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] e as outras
 
 ### Windows
 
-Para instalar o IPython e suas dependências na VM Windows, Acesse a Área de Trabalho remota para conectar-se à VM. Em seguida, siga as etapas abaixo, usando o PowerShell do Windows para executar todas as ações da linha de comando.
+Para instalar o IPython e suas dependências na VM Windows, Acesse a Área de Trabalho remota para conectar-se à VM. Em seguida, siga as etapas abaixo,
+usando o PowerShell do Windows para executar todas as ações da linha de comando.
 
 **Observação**: Para baixar qualquer coisa usando o Internet Explorer, será necessário alterar algumas configurações de segurança. No **Gerenciador de Servidores**, clique em **Servidor Local**, clique em **Configuração de Segurança Aprimorada do IE** e desative-a para administradores. Você poderá habilitá-la novamente depois que a instalação do IPython for concluída.
 
@@ -112,7 +116,7 @@ Para instalar o IPython e suas dependências na VM Windows, Acesse a Área de Tr
 
 	* Você também precisará adicionar `C:\OpenSSL-Win32\bin` à sua variável de ambiente `PATH`.
 
-	> [AZURE.NOTE]Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
+	> [AZURE.NOTE] Ao instalar o OpenSSL, use a versão 1.0.1g ou posterior, pois essas versões incluem uma correção para a vulnerabilidade de segurança Heartbleed.
 
 1.  Instale o IPython usando o comando:
 
@@ -273,4 +277,4 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

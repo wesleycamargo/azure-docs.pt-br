@@ -27,7 +27,9 @@ Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados
 
 Você pode passar de uma camada de serviço para outra com facilidade usando o Portal de Gerenciamento do Azure, o [PowerShell](https://msdn.microsoft.com/library/azure/dn546726.aspx) ou a [API REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
-Durante a movimentação entre as camadas de serviço, lembre-se do seguinte: - antes da atualização entre camadas de serviço ou níveis de desempenho, verifique se você tem cota disponível no servidor. Se precisar de mais cota, ligue para o atendimento ao cliente. -bancos de dados federados não podem ser atualizados para camadas de serviço Basic, Standard ou Premium.
+Durante a movimentação entre as camadas de serviço, lembre-se do seguinte:
+- antes da atualização entre camadas de serviço ou níveis de desempenho, verifique se você tem cota disponível no servidor. Se precisar de mais cota, ligue para o atendimento ao cliente.
+-bancos de dados federados não podem ser atualizados para camadas de serviço Basic, Standard ou Premium.
 
 - Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. Para saber mais sobre o tamanho permitido para cada camada de serviço, confira a tabela de tamanho de banco de dados e camada de serviço, mais adiante nesta seção.
 
@@ -41,9 +43,11 @@ Durante a movimentação entre as camadas de serviço, lembre-se do seguinte: - 
 
 - As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
 
-Observe o seguinte: - as camadas de serviço Web e de negócios serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
+Observe o seguinte: 
+- as camadas de serviço Web e de negócios serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-<note included> -é importante observar que a implementação atual das [Federações será descontinuada com as camadas de serviço Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). É recomendável usar [Escala elástica para Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md) para criar uma solução de expansão fragmentada no Banco de Dados SQL do Azure. Para tentar isso, confira Introdução à visualização da escala elástica do Banco de Dados SQL do Azure.
+<note included> 
+- é importante observar que a implementação atual das [Federações será descontinuada com as camadas de serviço Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). É recomendável usar [Escala elástica para Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md) para criar uma solução de expansão fragmentada no Banco de Dados SQL do Azure. Para tentar isso, confira Introdução à visualização da escala elástica do Banco de Dados SQL do Azure.
 
 ## Atualizar para uma camada de serviço superior
 Use um dos métodos a seguir para atualizar um banco de dados. As etapas são específicas para atualizar para uma camada de serviço Premium, mas se aplicam a todas as atualizações.
@@ -64,7 +68,12 @@ Use um dos métodos a seguir para atualizar um banco de dados. As etapas são es
 2. Defina o contexto do servidor com o cmdlet New-AzureSqlDatabaseServerContext. A sintaxe de exemplo é fornecida na seção Usando comandos do PowerShell do Azure.
 3. Obtenha um identificador para o banco de dados e o nível de desempenho de destino. Especifique o nível de desempenho usando Set-AzureSqlDatabase –ServiceObjective
 
-**Exemplo de uso** Neste exemplo: - este exemplo demonstra a atualização para uma camada de serviço Premium. - O identificador $db é criado e aponta para o nome do banco de dados "somedb". - O identificador $P1 é criado e aponta para o nível de desempenho Premium 1. - O nível de desempenho do banco de dados $db é definido como $P1.
+**Exemplo de uso** 
+Neste exemplo:
+- este exemplo demonstra a atualização para uma camada de serviço Premium. 
+- O identificador $db é criado e aponta para o nome do banco de dados "somedb". 
+- O identificador $P1 é criado e aponta para o nível de desempenho Premium 1. 
+- O nível de desempenho do banco de dados $db é definido como $P1.
 
 		Windows PowerShell:
 
@@ -120,7 +129,8 @@ Você pode aumentar ou diminuir os níveis de desempenho de um banco de dados St
 
 Se você estiver alterando o nível de desempenho de um banco de dados Premium que tem relacionamentos de Replicação Geográfica Ativa configurados, use a seguinte ordem para os bancos de dados primário e secundários ativos:
 
-Isso porque os bancos de dados secundários ativos devem ter o nível de desempenho igual ou maior que os primários. - Se estiver alterando de um nível de desempenho superior para um inferior, comece com o banco de dados primário seguido por um ou mais bancos de dados secundários ativos.
+Isso porque os bancos de dados secundários ativos devem ter o nível de desempenho igual ou maior que os primários. 
+- Se estiver alterando de um nível de desempenho superior para um inferior, comece com o banco de dados primário seguido por um ou mais bancos de dados secundários ativos.
 
 - Se você estiver alterando de um nível de desempenho inferior para um nível superior, comece com os bancos de dados secundários ativos e, por fim, os primários.
 
@@ -199,11 +209,13 @@ Esta seção fornece os pré-requisitos para usar os comandos do PowerShell do A
 
 **Pré-requisitos**
 
-Para usar os cmdlets do PowerShell do Azure descritos neste tópico, você deve ter o software a seguir instalado no computador onde o PowerShell é executado. 1. Baixe uma versão do Windows PowerShell que não seja inferior a 3.0 em http://www.microsoft.com/pt-br/download/details.aspx?id=34595.
+Para usar os cmdlets do PowerShell do Azure descritos neste tópico, você deve ter o software a seguir instalado no computador onde o PowerShell é executado. 
+1. Baixe uma versão do Windows PowerShell que não seja inferior a 3.0 em http://www.microsoft.com/pt-br/download/details.aspx?id=34595.
 
 2. Baixe o PowerShell do Azure na seção Ferramenta de linha de comando em [Downloads de ferramentas e SDK do Azure](http://azure.microsoft.com/downloads/).
 
-Faça o seguinte: na tela **Inicial** ou no menu **Iniciar**, navegue até o PowerShell do Azure e o inicie.
+Faça o seguinte: 
+na tela **Inicial** ou no menu **Iniciar**, navegue até o PowerShell do Azure e o inicie.
 
 Digite o nome de usuário e a senha do servidor.
 
@@ -229,4 +241,4 @@ Crie contexto do servidor usando **New-AzureSqlDatabaseServerContext**.
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
