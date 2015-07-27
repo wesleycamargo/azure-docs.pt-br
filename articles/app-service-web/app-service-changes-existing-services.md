@@ -2,7 +2,6 @@
 	pageTitle="Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure" 
 	description="Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure." 
 	authors="yochayk" 
-	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
@@ -91,4 +90,4 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

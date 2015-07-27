@@ -152,4 +152,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 Para fazer uma comparação entre as filas de Service Bus do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o serviço Fila do Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

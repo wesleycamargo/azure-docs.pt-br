@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector do SAP" 
-   description="Como usar o Conector do SAP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector do SAP"
+   description="Como usar o Conector do SAP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Conector do SAP #
 
-Conectores podem ser usados em aplicativos de lógicos para obter, processar ou enviar por push dados como parte de um fluxo. Há situações em que talvez você precise trabalhar com o SAP, que é instalado localmente e protegido pelo firewall. Utilizando o Conector do SAP em seu fluxo, você pode chegar a diversos resultados. Alguns exemplos:
+Conectores podem ser usados em aplicativos de lógicos para obter, processar ou enviar dados como parte de um fluxo. Há situações em que talvez você precise trabalhar com o SAP, que é instalado localmente e protegido pelo firewall. Utilizando o Conector do SAP em seu fluxo, você pode chegar a diversos resultados. Alguns exemplos:
 
 1.	Expor uma seção dos dados residentes no seu SAP por meio de um front-end Web ou móvel do usuário.
 2.	Publicar dados em seu SAP após a conclusão de processamento
@@ -39,7 +39,9 @@ Para usar o Conector do SQL, você precisa criar uma instância do Aplicativo de
 2. Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise por "Conector do SAP".
 3. Configure-o da seguinte maneira:
 	1. Forneça os detalhes genéricos, como nome, plano de serviço de aplicativo e assim por diante na primeira folha
-	2. Como parte das configurações do pacote, forneça as credenciais do SAP. Forneça também uma cadeia de conexão do Barramento de Serviço do Azure. Ela será usada para estabelecer a conectividade híbrida com o SAP local. 
+
+	2. Como parte das configurações do pacote, forneça as credenciais do SAP. Forneça também uma cadeia de conexão do Barramento de Serviço do Azure. Ela será usada para estabelecer a conectividade híbrida com o SAP local.
+
 	3. RFCs, TRFCs, BAPIs e IDOCs precisam ser configurados com base nas necessidades do cenário. Se for necessário fornecer vários valores, eles podem ser separados por vírgulas
 
 ![][1]
@@ -92,7 +94,4 @@ Conclua o aplicativo lógico para definir o processo comercial e execute-o para 
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -74,9 +74,9 @@ Aqui estão alguns dos motivos pelos quais você deve usar os recursos de gerenc
 * [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
 * [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
 * [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre gerenciamento de senhas](active-directory-passwords-faq.md)
+* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 * [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

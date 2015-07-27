@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/09/2015" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -217,7 +217,7 @@ Você pode usar qualquer um dos comandos listados em [Comandos do Redis](http://
 -	O documento Padrões e práticas da Microsoft oferece as instruções a seguir.
 	-	[Orientação sobre caching](https://github.com/mspnp/azure-guidance/blob/master/Caching.md).
 	-	[Orientação sobre criação e implementação de aplicativos de nuvem do Azure](https://github.com/mspnp/azure-guidance)
--	[Padrões de cache comuns com o Cache Redis do Azure](cache-howto-common-cache-patterns/)
+-	[Padrões de cache comuns com o Cache Redis do Azure](cache-howto-common-cache-patterns.md)
 
 <a name="cache-reference"></a>
 ## Por que o Cache Redis do Azure não tem uma referência da biblioteca de classes MSDN, assim como alguns dos outros serviços do Azure?
@@ -226,4 +226,4 @@ O Cache Redis do Microsoft Azure baseia-se no popular software livre Cache Redis
 
 Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN; em vez disso, cada cliente mantém sua própria documentação de referência. Além de documentação de referência, há vários tutoriais no Azure.com mostrando como começar a usar o Cache Redis do Azure usando diferentes linguagens e clientes de cache na página [Documentação do Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

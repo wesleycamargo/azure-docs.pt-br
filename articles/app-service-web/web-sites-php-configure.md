@@ -120,7 +120,7 @@ Conforme indicado na seção anterior, a melhor forma de visualizar a versão pa
 	![Configurações do aplicativo Web][settings-button]
 
 5. Na folha **Configurações**, selecione **Configurações do Aplicativo** e role até a seção **Configurações do Aplicativo**.
-6. Na seção **Configurações do aplicativo**, crie uma chave **PHP_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\seu-arquivo-de-ext**.
+6. Na seção **Configurações do aplicativo**, crie uma chave **PHP_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\\seu-arquivo-de-ext**.
 
 	![Habilitar extensões em configurações do aplicativo][php-extensions]
 
@@ -177,4 +177,4 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
@@ -31,4 +31,4 @@ Você aprendeu como criar e implantar um aplicativo Web por meio da galeria. Par
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

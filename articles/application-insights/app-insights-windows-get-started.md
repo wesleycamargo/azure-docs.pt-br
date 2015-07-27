@@ -35,7 +35,7 @@ Você precisará de:
 * Uma assinatura do [Microsoft Azure][azure].
 * Visual Studio 2013 ou posterior.
 
-## 1. Criar um recurso do Application Insights 
+## 1\. Criar um recurso do Application Insights 
 
 No [Portal do Azure][portal], crie um novo recurso do Application Insights.
 
@@ -50,7 +50,7 @@ A chave identifica o recurso. Você precisará dela em breve, para configurar o 
 ![Abrir a gaveta de lista suspensa do Essentials e selecione a chave de instrumentação](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Adicionar o SDK do Application Insights aos seus aplicativos
+## 2\. Adicionar o SDK do Application Insights aos seus aplicativos
 
 No Visual Studio, adicione o SDK adequado ao seu projeto.
 
@@ -64,13 +64,33 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Selecione **Application Insights para aplicativos .NET Windows**
+3. Escolha **Application Insights para Aplicativos do Windows**
 
-4. Edite o ApplicationInsights.config (que foi adicionado pela instalação do NuGet). Insira isto logo antes da marca de fechamento:
+4. Adicione um arquivo ApplicationInsights.config à raiz da sua solução e insira a chave de instrumentação copiada acima. Veja abaixo um exemplo de xml para esse arquivo de configuração. **Não se esqueça de marcar Ação de Compilação do arquivo ApplicationInsights.config como “Conteúdo” e Copiar no Diretório de Saída como “Copiar sempre”**.
 
-    `<InstrumentationKey>`*a chave que você copiou*`</InstrumentationKey>`
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+		</ApplicationInsights>
+	```
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-**Aplicativos Windows Universais**: repita os passos tanto para o projeto do Windows Phone quanto para o da Windows Store.
+5. Adicione o código de inicialização a seguir. É recomendável adicionar este código ao construtor `App()`. Se essa inicialização não foi feita no construtor do aplicativo, você poderá perder a coleta automática inicial das exibições de página.
+
+```C#
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
+```
+
+**Aplicativos Universais do Windows**: repita as etapas para o projeto Phone e Store. [Exemplo de um aplicativo Universal do Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Habilitar o acesso à rede para seu aplicativo
 
@@ -85,6 +105,7 @@ No Visual Studio, você verá uma contagem de eventos que foram recebidas.
 ![](./media/app-insights-windows-get-started/appinsights-09eventcount.png)
 
 No modo Depurar, a telemetria é enviada logo que é gerada. No modo Liberar, a telemetria é armazenada no dispositivo e enviada apenas quando a execução do aplicativo é retomada.
+
 
 ## <a name="monitor"></a>5. Veja os dados de monitoramento
 
@@ -105,6 +126,44 @@ Clique em qualquer gráfico para ver mais detalhes.
 ## <a name="deploy"></a>5. Publicar seu aplicativo na Store
 
 [Publique seu aplicativo](http://dev.windows.com/publish) e veja os dados se acumularem conforme os usuários o baixam e utilizam.
+
+## Personalizar sua telemetria
+
+#### Escolhendo os coletores
+
+O SDK do Application Insights inclui vários coletores, que coletam tipos diferentes de dados do seu aplicativo automaticamente. Por padrão, eles estão todos ativos. Mas você pode escolher quais coletores inicializar no construtor do aplicativo:
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### Enviar seus próprios dados de telemetria
+
+Use a [API][api] para enviar dados de eventos, métricas e diagnóstico ao Application Insights. Em resumo:
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+Para obter mais detalhes, consulte [Métricas e eventos personalizados][api].
 
 ## O que vem a seguir?
 
@@ -168,4 +227,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

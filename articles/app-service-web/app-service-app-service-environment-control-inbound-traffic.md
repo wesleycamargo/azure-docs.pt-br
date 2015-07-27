@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
@@ -41,6 +41,13 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
+
+## Requisitos de DNS e conectividade de saída ##
+Observe que, para um ambiente de Serviço de Aplicativo funcionar corretamente, ele também requer acesso de saída ao armazenamento do Azure, bem como ao banco de dados SQL na mesma região do Azure. Se o acesso de saída da Internet for bloqueado na rede virtual, os ambientes do Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+
+O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os ambientes do Serviço de Aplicativo precisam ser capazes de resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net. 
+
+Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo. Se a configuração de DNS da rede virtual for alterada durante a criação de um ambiente do Serviço de Aplicativo, isso resultará em falha no processo de criação do ambiente do Serviço de Aplicativo.
 
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
@@ -123,4 +130,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

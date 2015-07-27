@@ -1,6 +1,6 @@
 <properties pageTitle="Versão de Visualização de 31-07-2014 da API REST do Serviço Azure Search" description="API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização
 
@@ -10,7 +10,7 @@ Se você estiver usando uma versão de visualização da API no código do aplic
 
 Outros tipos de conteúdo da API relacionadas ao **2014-07-31-Visualização** incluem:
 
-- [Perfis de Pontuação (API REST do Serviço Azure Search: Visualização-31-07-2014)](../search-api-scoring-profiles-2014-07-31-preview.md)
+- [Perfis de Pontuação (API REST do Serviço Azure Search: Visualização-31-07-2014)](search-api-scoring-profiles-2014-07-31-preview.md)
 
 
 ##Sobre a API REST do Serviço
@@ -170,7 +170,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `api-key`: obrigatório. A `api-key` é usada para 
 - autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 <a name="RequestData"></a> **Sintaxe de corpo da solicitação**
 
@@ -647,7 +647,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Atualizar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Sintaxe do Corpo da Solicitação**
 
@@ -739,7 +739,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Listar Índices** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -806,7 +806,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Índice** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
 
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -840,7 +840,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Excluir Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -872,7 +872,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
  
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Estatísticas de Índice** deve incluir um `api-key` definido como uma chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -931,7 +931,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Adicionar Documentos** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1104,7 +1104,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1238,7 +1238,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar Documento** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1286,7 +1286,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Accept`: esse valor deve ser definido como `text/plain`.
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Contar Documentos** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1340,7 +1340,7 @@ A lista a seguir descreve os cabeçalhos de solicitação necessários e opciona
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Sugestões** pode especificar uma chave de administração ou a chave de consulta como a `api-key`.
 
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](../search-create-service.portal.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
 
@@ -1384,4 +1384,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -70,7 +70,7 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 ##<a name="update-app"></a>Atualizar o aplicativo para fazer logon antes do registro
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Testar o aplicativo
@@ -92,4 +92,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

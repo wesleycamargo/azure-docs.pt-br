@@ -265,4 +265,4 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

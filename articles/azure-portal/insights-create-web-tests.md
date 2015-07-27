@@ -22,4 +22,4 @@
 > [AZURE.NOTE]Este artigo foi movido. Consulte: [Monitorar a disponibilidade e a capacidade de resposta de qualquer site](../app-insights-monitor-web-app-availability.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

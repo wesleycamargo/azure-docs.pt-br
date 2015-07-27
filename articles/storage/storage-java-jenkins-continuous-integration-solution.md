@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Usando o Armazenamento do Azure com uma solução de integração contínua Jenkins | Microsoft Azure" 
-	metaKeywords="" 
 	description="Este tutorial mostra como usar o serviço Blob do Azure como um repositório para artefatos de compilação criados por uma solução de integração contínua Jenkins." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe" />
 
 <tags 
 	ms.service="storage" 
@@ -109,7 +102,7 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
         cd text
         echo Hello Azure Storage from Jenkins > hello.txt
         date /t > date.txt
-        time /t > date.txt
+        time /t >> date.txt
  
 5. Na seção **Ações Pós-compilação** da configuração do trabalho, clique em **Adicionar ação pós-compilação** e escolha **Carregar artefatos no armazenamento de Blob do Azure**.
 6. Em **Nome de conta de armazenamento**, selecione a conta de armazenamento a ser usada.
@@ -172,4 +165,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

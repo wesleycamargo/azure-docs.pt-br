@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Análise de sentimento Twitter em tempo real com a Stream Analytics | Microsoft Azure"
 	description="Saiba como usar a Stream Analytics para análise de sentimento Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +29,7 @@ Um site de mídia de notícias está interessado em obter uma vantagem sobre seu
 
 ## Pré-requisitos
 1.	É necessária uma conta do Twitter para este tutorial.  
-2.	Essa explicação passo a passo utiliza um gerador de evento localizado no GitHub. Baixe-o [aqui](https://github.com/streamanalytics/samples/tree/master/TwitterClient) e siga as etapas abaixo para configurar sua solução.
+2.	Essa explicação passo a passo usa um aplicativo de cliente do Twitter que está localizado no GitHub. Baixe-o [aqui](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) e siga as etapas abaixo para configurar sua solução.
 
 ## Criar uma entrada de Hub de Eventos e um Grupo de Consumidores
 
@@ -49,9 +48,9 @@ Siga as etapas abaixo para criar um Hub de Eventos.
 5.	Na parte inferior da página, clique em **SALVAR**.
 6.	Navegue até o **PAINEL**, clique em **INFORMAÇÕES DE CONEXÃO** na parte inferior da página e copie e salve as informações de conexão. (Use o ícone de cópia que aparece sob o ícone de pesquisa).
 
-## Configurar e iniciar o aplicativo gerador de evento
+## Configurar e iniciar o aplicativo de cliente do Twitter
 
-Fornecemos um aplicativo cliente que acessará os dados do Twitter por meio das [APIs REST do Twitter](https://dev.twitter.com/rest/public) para coletar eventos de Tweets sobre um conjunto parametrizado de tópicos. A ferramenta de software livre de terceiros [Sentiment140](http://help.sentiment140.com/) é usada para atribuir um valor de sentimento a cada tweet (0: negativo, 2: neutro, 4: positivo) e, em seguida, os eventos de Tweets são enviados ao Hub de Eventos.
+Fornecemos um aplicativo de cliente que acessará os dados do Twitter por meio das [APIs de Transmissão Contínua do Twitter](https://dev.twitter.com/streaming/overview) para coletar eventos de Tweets sobre um conjunto parametrizado de tópicos. A ferramenta de software livre de terceiros [Sentiment140](http://help.sentiment140.com/) é usada para atribuir um valor de sentimento a cada tweet (0: negativo, 2: neutro, 4: positivo) e, em seguida, os eventos de Tweets são enviados ao Hub de Eventos.
 
 Siga estas etapas para configurar o aplicativo:
 
@@ -74,7 +73,7 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 
 ### Provisionar um trabalho de análise de fluxo
 
-1.	No [portal do Azure](https://manage.windowsazure.com/), clique em **NOVO** > **SERVIÇOS DE DADOS** > **STREAM ANALYTICS** > **CRIAÇÃO RÁPIDA**.
+1.	No [Portal do Azure](https://manage.windowsazure.com/), clique em **NOVO** > **SERVIÇOS DE DADOS** > **STREAM ANALYTICS** > **CRIAÇÃO RÁPIDA**.
 2.	Especifique os seguintes valores e, em seguida, clique em **CRIAR TRABALHO DE STREAM ANALYTICS**:
 
 	* **NOME DO TRABALHO**: insira um nome de trabalho.
@@ -153,7 +152,7 @@ Para comparar o número de menções entre tópicos, vamos usar uma [TumblingWin
 
 #### Identificando os tópicos mais populares: janela deslizante
 
-Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassam um valor limite de menções em determinado período de tempo. Para os fins deste tutorial, vamos verificar tópicos mencionados mais de 20 vezes em cinco segundos usando uma [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassam um valor limite de menções em determinado período de tempo. Neste tutorial, vamos verificar tópicos mencionados mais de 20 vezes nos últimos cinco segundos usando uma [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Altere a consulta no editor de código para:
 
@@ -183,7 +182,7 @@ A consulta final que testaremos usa uma TumblingWindow para obter o número de m
 
 ## Criar coletor de saída
 
-Agora que definimos um fluxo de eventos, uma entrada de Hub de Eventos para a ingestão de eventos e uma consulta para executar uma transformação no fluxo, a última etapa é definir um coletor de saída para o trabalho. Gravaremos os eventos de tweets agregados de nossa consulta de trabalho para um Blob do Azure. Você também pode enviar o resultado para um Banco de Dados SQL, um Repositório de Tabela ou um Hub de Eventos, dependendo das necessidades do aplicativo.
+Agora que definimos um fluxo de eventos, uma entrada de Hub de Eventos para a ingestão de eventos e uma consulta para executar uma transformação no fluxo, a última etapa é definir um coletor de saída para o trabalho. Gravaremos os eventos de tweets agregados de nossa consulta de trabalho para um Blob do Azure. Você também pode enviar o resultado para um Banco de Dados SQL, um Repositório de Tabela ou um Hub de Eventos, dependendo das suas necessidades de aplicativo específicas.
 
 Siga as etapas abaixo para criar um contêiner para o armazenamento de Blob, se ainda não tiver um:
 
@@ -224,7 +223,7 @@ Depois que o trabalho estiver executando e processando, o fluxo do Twitter em te
 ![Análise de mídia social: resultado da análise de fluxo sentimento análise (mineração de opinião) em um painel do Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -236,4 +235,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

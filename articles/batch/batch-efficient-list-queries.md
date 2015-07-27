@@ -80,4 +80,4 @@ Um [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 > [AZURE.NOTE]É recomendável que você sempre use cláusulas filter e select para suas chamadas de API de lista para garantir o máximo de eficiência e o melhor desempenho para o seu aplicativo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

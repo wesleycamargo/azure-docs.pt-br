@@ -102,4 +102,4 @@ Saiba mais sobre o que o Capptain pode fazer em seu aplicativo em [http://www.ca
 [Serviços Móveis camada Padrão]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

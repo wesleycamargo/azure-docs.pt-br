@@ -28,20 +28,20 @@ Você usará `pip wheel` para compilar uma dependência:
 
     env\scripts\pip wheel azure==0.8.4
 
-Isso cria um arquivo .whl na pasta \wheelhouse. Adicione a pasta \wheelhouse e os arquivos de disco a seu repositório.
+Isso cria um arquivo .whl na pasta \\wheelhouse. Adicione a pasta \\wheelhouse e os arquivos de disco a seu repositório.
 
 Edite seu requirements.txt para acrescentar a opção `--find-links` na parte superior. Isso instrui o pip a buscar uma correspondência exata na pasta local antes de consultar o índice de pacotes do python.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Se você quiser incluir todas as suas dependências na pasta \wheelhouse e não usar o índice de pacotes do python, você pode forçar o pip a ignorar o índice de pacotes adicionando `--no-index` na parte superior do seu requirements.txt.
+Se você quiser incluir todas as suas dependências na pasta \\wheelhouse e não usar o índice de pacotes do python, você pode forçar o pip a ignorar o índice de pacotes adicionando `--no-index` na parte superior do seu requirements.txt.
 
     --no-index
 
 ### Personalizar a instalação
 
-Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy_install. Consulte deploy.cmd para obter um exemplo que é comentado. Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
+Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy\\_install. Consulte deploy.cmd para obter um exemplo que é comentado. Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
 
 Adicione isto ao script de implantação:
 
@@ -69,4 +69,4 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
 [Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

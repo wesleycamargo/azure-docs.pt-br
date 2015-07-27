@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # Criar uma rede virtual
@@ -48,15 +48,8 @@ Depois de criar sua rede virtual, você pode adicionar novas VMs e instâncias d
 
 
 ## Próximas etapas
--  [Visão geral técnica de rede virtual](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  Saiba mais sobre [redes virtuais](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) no Azure. 
 
--  [Adicionar uma máquina virtual a uma rede virtual](virtual-machines-create-custom)
+-  [Adicionar uma máquina virtual](../virtual-machines/virtual-machines-create-custom.md) a uma rede virtual.
 
--  [Perguntas frequentes sobre rede virtual](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [Configurar uma rede virtual usando arquivos de configuração de rede](virtual-networks-using-network-configuration-file)
-
--  [Visão geral da resolução de nomes do Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

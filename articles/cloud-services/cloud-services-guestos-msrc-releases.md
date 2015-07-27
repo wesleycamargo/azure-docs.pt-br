@@ -24,59 +24,59 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-056 | [3058515] | Atualização de segurança cumulativa do Internet Explorer | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
-| MS15-057 | [3033890] | Vulnerabilidade no Windows Media Player poderia permitir a execução remota de código | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
-| MS15-060 | [3059317] | Vulnerabilidade no Microsoft Common Controls poderia permitir a execução remota de código | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
-| MS15-061 | [3057839] | Vulnerabilidades nos drivers no modo kernel do Windows poderiam permitir elevação de privilégio | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
-| MS15-062 | [3062577] | Vulnerabilidade nos Serviços de Federação do Active Directory poderia permitir elevação de privilégio | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
-| MS15-063 | [3063858] | Vulnerabilidade no Kernel do Windows poderia permitir elevação de privilégio | 4.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-056 | [3058515] | Atualização de segurança cumulativa do Internet Explorer | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-057 | [3033890] | Vulnerabilidade no Windows Media Player poderia permitir a execução remota de código | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-060 | [3059317] | Vulnerabilidade no Microsoft Common Controls poderia permitir a execução remota de código | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-061 | [3057839] | Vulnerabilidades nos drivers no modo kernel do Windows poderiam permitir elevação de privilégio | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-062 | [3062577] | Vulnerabilidade nos Serviços de Federação do Active Directory poderia permitir elevação de privilégio | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
+| MS15-063 | [3063858] | Vulnerabilidade no Kernel do Windows poderia permitir elevação de privilégio | 4\.21, 3.28, 2.40 | 9 de junho de 2015 |
 
 ## SO convidado de maio
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-043 | [3049563] | Atualização de segurança cumulativa do Internet Explorer | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-044 | [3057110] | Vulnerabilidades nos drivers de fonte da Microsoft poderiam permitir a execução remota de código | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-045 | [3046002] | Vulnerabilidade no Diário do Windows poderia permitir a execução remota de código | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-048 | [3057134] | Vulnerabilidades no .NET Framework podem permitir a elevação de privilégio | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-050 | [3055642] | Vulnerabilidade no Gerenciador de Controle de Serviço podem permitir a elevação de privilégio | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-051 | [3057191] | Vulnerabilidades nos drivers no modo kernel do Windows poderiam permitir elevação de privilégio | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-052 | [3050514] | Vulnerabilidade no Kernel do Windows pode permitir ignorar recurso de segurança | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-053 | [3057263] | Vulnerabilidades no mecanismo de script JScript e VBScript podem permitir ignorar recurso de segurança | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-054 | [3051768] | Vulnerabilidade no formato de arquivo de Console de Gerenciamento da Microsoft poderia permitir negação de serviço | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-055 | [3061518] | Vulnerabilidade no Schannel pode permitir a divulgação de informações importantes sobre a não utilização de recurso de segurança | 4.20, 3.27, 2.39 | 12 de maio de 2015 |
-| MS15-032 | [3038314] | Atualização de segurança cumulativa do Internet Explorer | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-035 | [3046306] | Vulnerabilidade no componente gráfico da Microsoft poderia permitir a execução remota de código | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-037 | [3046269] | Vulnerabilidade no Agendador de Tarefas do Windows poderia permitir elevação de privilégio | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-038 | [3049576] | Vulnerabilidades no Microsoft Windows poderia permitir elevação de privilégio | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-039 | [3046482] | Vulnerabilidade no XML Core Services pode permitir a não utilização de recurso de segurança | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-040 | [3045711] | Vulnerabilidade no ADFS poderia permitir a divulgação de informações | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-041 | [3048010] | Vulnerabilidade no .NET Framework poderia permitir a divulgação de informações | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| MS15-042 | [3047234] | Vulnerabilidade no Hyper-V do Windows poderia permitir a negação de serviço | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
-| ND | [3045755] | Atualização para melhorar a autenticação PKU2U | 4.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-043 | [3049563] | Atualização de segurança cumulativa do Internet Explorer | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-044 | [3057110] | Vulnerabilidades nos drivers de fonte da Microsoft poderiam permitir a execução remota de código | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-045 | [3046002] | Vulnerabilidade no Diário do Windows poderia permitir a execução remota de código | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-048 | [3057134] | Vulnerabilidades no .NET Framework podem permitir a elevação de privilégio | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-050 | [3055642] | Vulnerabilidade no Gerenciador de Controle de Serviço podem permitir a elevação de privilégio | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-051 | [3057191] | Vulnerabilidades nos drivers no modo kernel do Windows poderiam permitir elevação de privilégio | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-052 | [3050514] | Vulnerabilidade no Kernel do Windows pode permitir ignorar recurso de segurança | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-053 | [3057263] | Vulnerabilidades no mecanismo de script JScript e VBScript podem permitir ignorar recurso de segurança | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-054 | [3051768] | Vulnerabilidade no formato de arquivo de Console de Gerenciamento da Microsoft poderia permitir negação de serviço | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-055 | [3061518] | Vulnerabilidade no Schannel pode permitir a divulgação de informações importantes sobre a não utilização de recurso de segurança | 4\.20, 3.27, 2.39 | 12 de maio de 2015 |
+| MS15-032 | [3038314] | Atualização de segurança cumulativa do Internet Explorer | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-035 | [3046306] | Vulnerabilidade no componente gráfico da Microsoft poderia permitir a execução remota de código | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-037 | [3046269] | Vulnerabilidade no Agendador de Tarefas do Windows poderia permitir elevação de privilégio | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-038 | [3049576] | Vulnerabilidades no Microsoft Windows poderia permitir elevação de privilégio | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-039 | [3046482] | Vulnerabilidade no XML Core Services pode permitir a não utilização de recurso de segurança | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-040 | [3045711] | Vulnerabilidade no ADFS poderia permitir a divulgação de informações | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-041 | [3048010] | Vulnerabilidade no .NET Framework poderia permitir a divulgação de informações | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| MS15-042 | [3047234] | Vulnerabilidade no Hyper-V do Windows poderia permitir a negação de serviço | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
+| ND | [3045755] | Atualização para melhorar a autenticação PKU2U | 4\.20, 3.27, 2.39 | 17 de abril de 2015 |
 
 ## SO convidado de abril
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| [MS15-034] | [3042553][3042553] | Vulnerabilidade no HTTP.sys poderia permitir a execução remota de código | 4.19, 3.26, 2.38 | 17 de abril de 2015 |
+| [MS15-034] | [3042553][3042553] | Vulnerabilidade no HTTP.sys poderia permitir a execução remota de código | 4\.19, 3.26, 2.38 | 17 de abril de 2015 |
 
 
 ## SO convidado de março
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-018 | [3032359][3032359] | Atualização de segurança cumulativa do Internet Explorer | 4.18, 3.25, 2.37 | N/D |
-| MS15-019 | [3040297][3040297] | Vulnerabilidade no mecanismo de script do VBScript pode permitir a execução remota de código | 4.18, 3.25, 2.37 | N/D |
-| MS15-020 | [3041836][3041836] | Vulnerabilidades no Windows poderiam permitir a execução remota de código | 4.18, 3.25, 2.37 | N/D |
-| MS15-021 | [3032323][3032323] | Vulnerabilidades no driver de fonte Adobe poderiam permitir a execução remota de código | 4.18, 3.25, 2.37 | N/D |
-| MS15-023 | [3034344][3034344] | Vulnerabilidades no driver do modo Kernel poderiam permitir elevação de privilégio | 4.18, 3.25, 2.37 | N/D |
-| MS15-024 | [3035132][3035132] | Vulnerabilidade no processamento de PNG poderia permitir a divulgação de informações | 4.18, 3.25, 2.37 | N/D |
-| MS15-025 | [3038680][3038680] | Vulnerabilidades no Kernel do Windows poderiam permitir elevação de privilégio | 4.18, 3.25, 2.37 | N/D |
-| MS15-027 | [3002657][3002657] | Vulnerabilidade no NETLOGON poderia permitir falsificação | 4.18, 3.25, 2.37 | N/D |
-| MS15-028 | [3030377] | Vulnerabilidade no Agendador de Tarefas do Windows poderia permitir a não utilização de recurso de segurança | 4.18, 3.25, 2.37 | N/D |
-| MS15-029 | [3035126][3035126] | Vulnerabilidade no componente do decodificador de fotos do Windows poderia permitir a divulgação de informações | 4.18, 3.25, 2.37 | N/D |
-| MS15-030 | [3039976] | Vulnerabilidade no protocolo RDP poderia permitir a negação de serviço | 4.18, 3.25, 2.37 | N/D |
+| MS15-018 | [3032359][3032359] | Atualização de segurança cumulativa do Internet Explorer | 4\.18, 3.25, 2.37 | N/D |
+| MS15-019 | [3040297][3040297] | Vulnerabilidade no mecanismo de script do VBScript pode permitir a execução remota de código | 4\.18, 3.25, 2.37 | N/D |
+| MS15-020 | [3041836][3041836] | Vulnerabilidades no Windows poderiam permitir a execução remota de código | 4\.18, 3.25, 2.37 | N/D |
+| MS15-021 | [3032323][3032323] | Vulnerabilidades no driver de fonte Adobe poderiam permitir a execução remota de código | 4\.18, 3.25, 2.37 | N/D |
+| MS15-023 | [3034344][3034344] | Vulnerabilidades no driver do modo Kernel poderiam permitir elevação de privilégio | 4\.18, 3.25, 2.37 | N/D |
+| MS15-024 | [3035132][3035132] | Vulnerabilidade no processamento de PNG poderia permitir a divulgação de informações | 4\.18, 3.25, 2.37 | N/D |
+| MS15-025 | [3038680][3038680] | Vulnerabilidades no Kernel do Windows poderiam permitir elevação de privilégio | 4\.18, 3.25, 2.37 | N/D |
+| MS15-027 | [3002657][3002657] | Vulnerabilidade no NETLOGON poderia permitir falsificação | 4\.18, 3.25, 2.37 | N/D |
+| MS15-028 | [3030377] | Vulnerabilidade no Agendador de Tarefas do Windows poderia permitir a não utilização de recurso de segurança | 4\.18, 3.25, 2.37 | N/D |
+| MS15-029 | [3035126][3035126] | Vulnerabilidade no componente do decodificador de fotos do Windows poderia permitir a divulgação de informações | 4\.18, 3.25, 2.37 | N/D |
+| MS15-030 | [3039976] | Vulnerabilidade no protocolo RDP poderia permitir a negação de serviço | 4\.18, 3.25, 2.37 | N/D |
 
 > [AZURE.NOTE]O boletim MS15-031 pode aparecer como desinstalado. No entanto, ele não se aplica a esta versão do SO convidado.
 
@@ -84,46 +84,46 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-009 | [3034682][3034682] | Atualização de segurança para o Internet Explorer | 4.17, 3.24, 2.36 | N/D |
-| MS15-010 | [3036220][3036220] | Vulnerabilidades nos drivers de modo de Kernel do Windows podem permitir a execução remota de código | 4.17, 3.24, 2.36 | N/D |
-| MS15-011 | [3000483][3000483] | Vulnerabilidade na política de grupo pode permitir a execução remota de código | 4.17, 3.24, 2.36 | N/D |
-| MS15-014 | [3004361][3004361] | Vulnerabilidade no SMB poderia permitir a não utilização de recurso de segurança | 4.17, 3.24, 2.36 | N/D |
-| MS15-015 | [3031432][3031432] | Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégio | 4.17, 3.24, 2.36 | N/D |
-| MS15-016 | [3029944][3029944] | Vulnerabilidade no componente gráfico da Microsoft poderia permitir a divulgação de informações | 4.17, 3.24, 2.36 | N/D |
-| N/D | [3004375][3004375] | Atualização para melhorar a auditoria de linha de comando do Windows<p/>**Observação**: ela é instalada, mas a chave do Registro para habilitá-la está desativada | 4.17, 3.24, 2.36 | N/D |
+| MS15-009 | [3034682][3034682] | Atualização de segurança para o Internet Explorer | 4\.17, 3.24, 2.36 | N/D |
+| MS15-010 | [3036220][3036220] | Vulnerabilidades nos drivers de modo de Kernel do Windows podem permitir a execução remota de código | 4\.17, 3.24, 2.36 | N/D |
+| MS15-011 | [3000483][3000483] | Vulnerabilidade na política de grupo pode permitir a execução remota de código | 4\.17, 3.24, 2.36 | N/D |
+| MS15-014 | [3004361][3004361] | Vulnerabilidade no SMB poderia permitir a não utilização de recurso de segurança | 4\.17, 3.24, 2.36 | N/D |
+| MS15-015 | [3031432][3031432] | Vulnerabilidade no Microsoft Windows poderia permitir elevação de privilégio | 4\.17, 3.24, 2.36 | N/D |
+| MS15-016 | [3029944][3029944] | Vulnerabilidade no componente gráfico da Microsoft poderia permitir a divulgação de informações | 4\.17, 3.24, 2.36 | N/D |
+| N/D | [3004375][3004375] | Atualização para melhorar a auditoria de linha de comando do Windows<p/>**Observação**: ela é instalada, mas a chave do Registro para habilitá-la está desativada | 4\.17, 3.24, 2.36 | N/D |
  
 
 ## SO convidado de janeiro
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-001 | [3023266][3023266] | Vulnerabilidade no Windows AppCompatCache poderia permitir elevação de privilégio | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-003 | [3021674][3021674] | Vulnerabilidade no serviço de perfil do usuário do Windows poderia permitir elevação de privilégio | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-004 | [3019978][3019978] | Vulnerabilidade nos componentes do Windows poderia permitir a elevação de privilégio | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-005 | [3022777][3022777] | Vulnerabilidade no NLA pode permitir a não utilização de recurso de segurança | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-006 | [3004365][3004365] | Vulnerabilidade no Relatório de erros do Windows pode permitir a não utilização de recurso de segurança | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-007 | [3014029][3014029] | Vulnerabilidade no Servidor de Políticas de Rede RADIUS poderia causar negação de serviço | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-008 | [3019215][3019215] | Vulnerabilidade no driver de modo de Kernel do Windows poderia permitir elevação de privilégio | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS14-080 | [3008923][3008923] | Atualização de segurança cumulativa do Internet Explorer | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
-| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-001 | [3023266][3023266] | Vulnerabilidade no Windows AppCompatCache poderia permitir elevação de privilégio | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-003 | [3021674][3021674] | Vulnerabilidade no serviço de perfil do usuário do Windows poderia permitir elevação de privilégio | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-004 | [3019978][3019978] | Vulnerabilidade nos componentes do Windows poderia permitir a elevação de privilégio | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-005 | [3022777][3022777] | Vulnerabilidade no NLA pode permitir a não utilização de recurso de segurança | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-006 | [3004365][3004365] | Vulnerabilidade no Relatório de erros do Windows pode permitir a não utilização de recurso de segurança | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-007 | [3014029][3014029] | Vulnerabilidade no Servidor de Políticas de Rede RADIUS poderia causar negação de serviço | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-008 | [3019215][3019215] | Vulnerabilidade no driver de modo de Kernel do Windows poderia permitir elevação de privilégio | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS14-080 | [3008923][3008923] | Atualização de segurança cumulativa do Internet Explorer | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
+| MS15-002 | [3020393][3020393] | Vulnerabilidade no Serviço de Telnet do Windows poderia causar a execução remota de código | 4\.16, 3.23, 2.35 | 19 de janeiro de 2015 |
  
 ## SO convidado de dezembro
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| N/D | [3013776][3013776] | O sistema congela quando você usa uma conta de domínio para iniciar um aplicativo | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 | 
-| N/D | [3013043][3013043] | Os dados do sistema de arquivos estão corrompidos em um computador com Windows que tenha mais de um nó NUMA | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3012712][3012712] | Novos blocos de dados inicializam incorretamente quando um VHD diferencial é expandido | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3004905][3004905] | Aprimoramento do Hyper-V do Windows para máquinas virtuais Linux com sistemas de arquivos maiores do que 2 TB | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3004394][3004394] | Atualização de dezembro de 2014 para Windows Root Certificate Program no Windows | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [2999323][2999323] | O texto para o evento com ID 17 foi alterado | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3013488][3013488] | Longa espera para reiniciar o servidor WSUS ao importar arquivos CSA no Windows Server 2012 R2 ou Windows Server 2012 | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3012325][3012325] | Atualização de entradas de banco de dados do Windows APN para operadoras de celular DIGI, Vodafone e Telekom no Windows 8.1 e Windows 8 | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [3007054][3007054] | Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
-| N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3013776][3013776] | O sistema congela quando você usa uma conta de domínio para iniciar um aplicativo | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 | 
+| N/D | [3013043][3013043] | Os dados do sistema de arquivos estão corrompidos em um computador com Windows que tenha mais de um nó NUMA | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3012712][3012712] | Novos blocos de dados inicializam incorretamente quando um VHD diferencial é expandido | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3004905][3004905] | Aprimoramento do Hyper-V do Windows para máquinas virtuais Linux com sistemas de arquivos maiores do que 2 TB | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3004394][3004394] | Atualização de dezembro de 2014 para Windows Root Certificate Program no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [2999323][2999323] | O texto para o evento com ID 17 foi alterado | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3013488][3013488] | Longa espera para reiniciar o servidor WSUS ao importar arquivos CSA no Windows Server 2012 R2 ou Windows Server 2012 | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3012325][3012325] | Atualização de entradas de banco de dados do Windows APN para operadoras de celular DIGI, Vodafone e Telekom no Windows 8.1 e Windows 8 | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [3007054][3007054] | Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
+| N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
@@ -208,4 +208,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

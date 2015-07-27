@@ -139,4 +139,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

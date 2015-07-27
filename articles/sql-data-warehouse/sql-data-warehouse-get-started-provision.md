@@ -52,33 +52,33 @@ Clicar no botão novo abriu todas as categorias de serviço no Azure. O SQL Data
 
 ### SQL Data Warehouse
 
-Como você pode ver, o Azure oferece vários mecanismos de dados e armazenamento. No entanto, este guia de introdução é para SQLDW.
+Como você pode ver, o Azure oferece vários mecanismos de dados e armazenamento. No entanto, este guia de introdução é para o SQL Data Warehouse.
 
 - Vá em frente e selecione o SQL Data Warehouse.
 
 ## Configurar o SQL Data Warehouse
 
-Para concluir o processo de provisionamento, basta configurar o SQL Data Warehouse.
+Para concluir o processo de provisionamento, simplesmente configure o SQL Data Warehouse.
 
 
 ### Nome do Banco de Dados
 
-A primeira configuração é nomear o banco de dados.
+A primeira configuração é para nomear o banco de dados.
 
 
 
-- Para esse início rápido, nomeie o banco de dados de "MySQLDW".
+- Para esse início rápido, nomeie o banco de dados como "MySQLDW".
 
 
 > [AZURE.NOTE]Quando você cria seu próprio banco de dados, certamente pode nomeá-como desejar. No entanto, ele precisa estar de acordo com os requisitos de nomenclatura básicos do Azure.
 
 ### Desempenho
 
-A opção de desempenho é um requisito **importante**. O SQL Data Warehouse fornece sua capacidade escalonável por esse controle deslizante. Você pode aumentar ou diminuir o desempenho a qualquer momento, não apenas quando configurar o cluster. Quanto mais você desliza para a direita maior os recursos à sua disposição. Se esses recursos não são mais necessários, então você pode mover o controle deslizante; assim, você poupa nos custos. O SQL Data Warehouse permite alterar o perfil de desempenho sob demanda sem a necessidade de recriar o cluster ou mover dados.
+A opção de desempenho é um requisito **importante**. O SQL Data Warehouse fornece sua capacidade escalonável por esse controle deslizante. Você pode aumentar ou diminuir o desempenho a qualquer momento, não apenas quando configurar o data warehouse. Quanto mais você desliza para a direita maior os recursos à sua disposição. Se esses recursos não são mais necessários, então você pode mover o controle deslizante; assim, você poupa nos custos. O SQL Data Warehouse permite alterar o perfil de desempenho sob demanda sem a necessidade de recriar o data warehouse ou mover dados.
 
 - Use o controle deslizante agora para ver como as unidades de data warehouse aumentam à medida que você desliza para a direita e diminuem a medida que você volta para a esquerda.
 
-- Antes de sair dessa etapa, não se esqueça de retornar o controle deslizante para a esquerda. Seu novo banco de dados é apenas um pequeno data warehouse, portanto não é necessário muito. Salve os recursos para o restante de sua avaliação!
+- Antes de sair dessa etapa, não se esqueça de retornar o controle deslizante para a esquerda. Seu novo data warehouse é, portanto não é necessário muito. Salve os recursos para o restante de sua avaliação!
 
 ### Selecionar fonte
 
@@ -88,7 +88,7 @@ Esta opção oferece a opção de inicialização com um banco de dados vazio. E
 
 ### Servidor lógico
 
-O banco de dados do SQL Data Warehouse encontra-se em um servidor lógico. O servidor lógico traz a consistência da configuração no nível de instâncias de vários bancos de dados e localiza o serviço para um data center do Azure.
+Seu novo banco de dados do SQL Data Warehouse encontra-se em um servidor lógico. O servidor lógico traz a consistência da configuração para vários bancos de dados e localiza o serviço para um data center do Azure.
 
 As opções que precisam ser definidas são: 1. Nome do servidor 2. Nome do administrador de servidor 3. Senha 4. Local do data center 5. Permissão para os serviços do Azure acessar o servidor
 
@@ -103,7 +103,7 @@ Grupos de recursos são contêineres, projetados para ajudá-lo a gerenciar uma 
 
 Para este guia rápido você pode deixar o Grupo de Recursos configurado em seus valores padrão.
 
-Saiba mais sobre [grupos de recursos]
+Saiba mais sobre [grupos de recursos](../azure-portal/resource-group-portal.md).
 
 ### Assinatura
 Um único usuário pode ter uma ou mais assinaturas do Azure. Se você tiver mais de uma assinatura associada ao seu logon, em seguida, pode escolher qual assinatura usar.
@@ -153,18 +153,17 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora, o Serviço SQLDW foi provisionado com êxito para aprendermos a usá-lo.
 
-As próximas etapas são, portanto, para saber como: 1. [Conectar e consultar] o banco de dados SQLDW 2. Exportar dados do banco de dados SQLDW para o Armazenamento de Blob do Azure 3. Carregar mais dados no banco de dados SQLDW
+As próximas etapas são, portanto, para saber como: 1. [Conectar e consultar](sql-data-warehouse-get-started-connect-query.md) o data warehouse. 2. Exporte dados do data warehouse para o armazenamento de blob do Azure. 3. Carregar mais dados no data warehouse.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Conectar e consultar]: ./sql-data-warehouse-get-started-connect-query/
-[grupos de recursos]: ./azure-preview-portal-using-resource-groups/
+
 
 <!--External links-->
 [avaliação gratuita]: https://azure.microsoft.com/pt-br/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

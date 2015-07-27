@@ -1,6 +1,6 @@
 <properties
 			pageTitle="Como usar o armazenamento de arquivo do Azure com o PowerShell e .NET | Microsoft Azure"
-            description="Saiba como utilizar o armazenamento de arquivos do Azure para criar compartilhamentos de arquivos na nuvem e gerenciar o conteúdo de arquivos. O armazenamento de arquivos permite que as empresas movam os aplicativos dependentes em compartilhamentos de arquivos SMB no Azure. As amostras são escritas em PowerShell e C#."
+            description="Saiba como utilizar o armazenamento de arquivos do Azure para criar compartilhamentos de arquivos na nuvem e gerenciar o conteúdo de arquivos. O armazenamento de arquivos permite que as empresas movam os aplicativos dependentes do compartilhamentos de arquivos SMB para o Azure. Guarde suas credenciais de conta de armazenamento para a máquina virtual para reconectar-se ao compartilhamento de arquivos após a reinicialização."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,14 +12,18 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/22/2015"
+      ms.date="07/06/2015"
       ms.author="tamram" />
 
 # Como usar o armazenamento de arquivo do Azure com o PowerShell e .NET
 
 ## Visão geral
 
-Este guia de introdução, mostra os fundamentos sobre como utilizar o armazenamento de arquivos do Microsoft Azure. Neste tutorial, nós iremos:
+O serviço de Arquivos do Azure expõe os compartilhamentos de arquivos usando o protocolo SMB 2.1 padrão. Os aplicativos executados no Azure podem utilizar esse serviço para compartilhar arquivos entre VMs utilizando APIs com um sistema de arquivos familiar padrão, como ReadFile e WriteFile. Além disso, os arquivos também podem ser acessados simultaneamente por meio de uma interface REST, que abre uma variedade de cenários híbridos. Por fim, os Arquivos do Azure baseiam-se na mesma tecnologia que Blobs, Tabelas e Serviços de Fila, o que significa que Arquivos do Azure podem aproveitar a disponibilidade, durabilidade, escalabilidade e redundância geográfica existente que incorporados na nossa plataforma.
+
+## Sobre este tutorial
+
+Este guia de introdução mostra os fundamentos sobre como utilizar o armazenamento de Arquivos do Microsoft Azure. Neste tutorial, nós iremos:
 
 - Utilizar o PowerShell para mostrar como criar um novo compartilhamento de arquivo do Azure, adicionar um diretório, fazer upload de um arquivo local no compartilhamento e listar os arquivos no diretório.
 - Montar o compartilhamento de arquivo por meio de uma máquina virtual do Azure, da mesma forma como seria feito com qualquer compartilhamento SMB.
@@ -114,17 +118,17 @@ O Windows reconectará ao compartilhamento de arquivo quando a máquina virtual 
 
 Após ter uma conexão remota com a máquina virtual, você poderá executar o comando `net use` para montar o compartilhamento de arquivos usando a sintaxe a seguir. Substitua `<storage-account-name>` pelo nome da sua conta de armazenamento e `<share-name>` pelo nome do compartilhamento de armazenamento de arquivos.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs
+	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando `net use`.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO] (http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) no .NET Framework.
 
@@ -233,4 +237,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Exemplos para usar a atividade de cópia na Azure Data Factory
@@ -144,7 +144,7 @@ Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as segui
 - A propriedade **tipo** é definida como **CopyActivity**.
 - **MyOnPremTable** é especificado como a entrada (marca de **entradas**).
 - **MyAzureBlob** é especificado como a saída (marca de **saídas**)
-- A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON][json-script-reference].
+- A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
 		{
@@ -186,8 +186,8 @@ Você pode usar a Atividade de cópia para copiar arquivos de um sistema de arqu
 ### Suposições
 Esse exemplo pressupõe o seguinte:
 
-- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\contoso**.
-- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\regionaldata\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12). 
+- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\\contoso**.
+- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\\regionaldata\\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12). 
 ### Criar um serviço vinculado de sistema de arquivos local
 O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denominado **FolderDataStore** do tipo **OnPremisesFileSystemLinkedService**.
 
@@ -195,14 +195,14 @@ O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denom
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]Lembre-se de usar o caractere de escape '' para nomes de host e pastas em arquivos JSON. Para **\Contoso**, use **\\Contoso**.
+> [AZURE.NOTE]Lembre-se de usar o caractere de escape '' para nomes de host e pastas em arquivos JSON. Para **\\Contoso**, use **\\\\Contoso**.
 
 Consulte [Serviço vinculado de sistema de arquivos local](https://msdn.microsoft.com/library/dn930836.aspx) para obter detalhes sobre os elementos JSON para definir um serviço vinculado local de sistema de arquivos.
 
@@ -228,7 +228,7 @@ O script JSON a seguir define uma tabela de entrada que se refere a um serviço 
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
+	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@ Observe que apenas **folderPath** é especificado no JSON de exemplo.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@ Observe que o **fileFilter** é definido como ***.csv**.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@ Observe que o **fileFiter** é definido como um arquivo específico: **201501.cs
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -461,7 +461,7 @@ O pipeline de exemplo a seguir tem uma atividade de cópia que copia dados de um
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -491,4 +491,4 @@ Consulte [Referência de JSON de pipeline](https://msdn.microsoft.com/library/dn
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -459,4 +459,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

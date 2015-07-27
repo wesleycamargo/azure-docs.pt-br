@@ -27,4 +27,4 @@
 
 9. Clique em **Aplicar** e em **OK**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

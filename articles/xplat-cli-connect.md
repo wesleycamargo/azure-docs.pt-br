@@ -145,4 +145,4 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

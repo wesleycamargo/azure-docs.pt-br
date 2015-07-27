@@ -350,17 +350,17 @@ Você pode ver, portanto, que a consistência de tipo e manutenção das proprie
 Consulte o MSDN para obter mais informações sobre como usar o [CTAS][]. Ela é uma das instruções mais importantes no SQL Data Warehouse do Azure. Certifique-se compreendê-la totalmente.
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[Visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CTAS]: https://msdnstage.redmond.corp.microsoft.com/pt-br/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

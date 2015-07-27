@@ -79,7 +79,7 @@ Introdução:
 
     ![Escolher os tipos de evento](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-Agora relaxe deixe as pessoas usarem seu aplicativo por algum tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas][metrics] e eventos individuais na [pesquisa de diagnóstico][diagnostic].
+Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas][metrics] e eventos individuais na [pesquisa de diagnóstico][diagnostic].
 
 E, além disso, os dados serão exportados para o armazenamento, no qual você pode inspecionar o conteúdo. Por exemplo, há um navegador de armazenamento no Visual Studio:
 
@@ -90,9 +90,9 @@ Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter
 
 ## Criar um Banco de Dados SQL do Azure
 
-Mais uma vez desde a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
+Mais uma vez, começando com a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
 
-![Novos dados, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
+![Novo, Dados, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
 
 Verifique se o servidor de banco de dados permite o acesso aos serviços do Azure:
@@ -246,13 +246,15 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
               case "PageViewPerformance":
     
               if (dict.ContainsKey("clientPerformance"))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
     	        }
     
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
     
@@ -356,7 +358,8 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
 
     public class PageViewPerformance
     {
-    	public int Id { get; set; }
+    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         public string url { get; set; }
 
@@ -527,4 +530,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

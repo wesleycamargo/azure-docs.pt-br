@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 
@@ -92,7 +93,7 @@ Para se conectar à máquina virtual, confira [Como fazer logon em uma máquina 
 Crie a VM do SQL Server usando uma das opções a seguir:
 
 - Crie uma VM do SQL Server 2012 seguindo as etapas 1 a 7 acima - com exceção da etapa 3, use a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)](virtual-machines-provision-sql-server.md).
-	- Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório C:\SQLServer_11.0_Full para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
+	- Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório C:\\SQLServer_11.0_Full para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
 
 - Use a ferramenta SQL Server System Preparation (SysPrep) para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7). Para obter mais informações, consulte [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -278,10 +279,10 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint da Intranet](virtual-machines-workload-intranet-sharepoint-farm)
+[Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

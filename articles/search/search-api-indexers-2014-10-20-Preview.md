@@ -1,10 +1,10 @@
-<properties title="" pageTitle="Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)" description="Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)" description="Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #Operações de indexador (API REST do serviço Azure Search: 2014-10-20-Preview)
 
-> [AZURE.NOTE]Este artigo descreve um protótipo da nova funcionalidade que não está na versão lançada da API. Leia mais sobre versões e a capacidade de suporte em [Controle de versão do serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) no MSDN. Para obter mais informações sobre outros recursos nesta API de visualização, consulte [Versão da API REST do serviço Azure Search: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
+> [AZURE.NOTE]Este artigo descreve um protótipo da nova funcionalidade que não está na versão lançada da API. Leia mais sobre versões e a capacidade de suporte em [Controle de versão do serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) no MSDN. Para obter mais informações sobre outros recursos nesta API de visualização, consulte [Versão da API REST do serviço Azure Search: 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 ## Visão geral
 
@@ -80,9 +80,9 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Fonte de Dados** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
  
-Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Introdução ao Azure Search](search-get-started.md) para obter ajuda sobre a navegação na página.
+Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service-portal.md) para obter ajuda sobre a navegação na página.
 
-<a name="CreateDataSourceRequestSyntax"></a> **Sintaxe de Corpo da Solicitação**
+<a name="CreateDataSourceRequestSyntax"></a> **Sintaxe de corpo da solicitação**
 
 O corpo da solicitação contém uma definição de fonte de dados, que inclui o tipo de fonte de dados, credenciais para ler os dados, bem como políticas de detecção de alterações de dados opcionais e detecção de exclusão de dados que são usadas para identificar com eficiência dados alterados ou excluídos na fonte de dados quando usadas com um indexador agendado periodicamente.
 
@@ -135,7 +135,7 @@ Essa política pode ser especificada da seguinte maneira:
 
 ***Política de Detecção de Alteração de Dados Integrada do SQL***
 
-Se o banco de dados SQL der suporte ao [Controle Integrado de Alterações do SQL(http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), recomendamos o uso da Política de Controle Integrado de Alterações do SQL. Essa política habilita o controle de alterações mais eficiente e permite que o Azure Search identifique linhas excluídas sem que seja preciso ter uma coluna explícita de "exclusão reversível" no esquema.
+Se o banco de dados SQL der suporte ao [Controle Integrado de Alterações do SQL](http://technet.microsoft.com/library/cc280462.aspx), recomendamos o uso da Política de Controle Integrado de Alterações do SQL. Essa política habilita o controle de alterações mais eficiente e permite que o Azure Search identifique linhas excluídas sem que seja preciso ter uma coluna explícita de "exclusão reversível" no esquema.
 
 Há suporte ao controle integrado de alterações do SQL a partir das seguintes versões de banco de dados SQL: ‒ SQL Server 2008 R2, se você estiver usando VMs SQL IaaS. ‒ Banco de Dados Azure SQL V12, se você estiver usando o Azure SQL.
 
@@ -657,4 +657,4 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

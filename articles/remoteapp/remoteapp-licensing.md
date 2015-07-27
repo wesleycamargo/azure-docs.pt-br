@@ -2,7 +2,7 @@
     pageTitle="Licenciamento do RemoteApp do Azure" 
     description="Saiba como funciona o licenciamento no RemoteApp do Azure." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -34,4 +34,4 @@ Isso faz sentido, certo? Você pode publicar qualquer aplicativo que você está
 Observe que você não pode usar um contrato de licença de Volume ou CAL em uma coleção na nuvem. Você *pode* usar um contrato de Licença de Volume para ativar aplicativos em sua coleção híbrida (com exceção do Office). Você precisa instalá-los em sua imagem de modelo a partir da mídia de licença de Volume. Siga as informações do fornecedor do aplicativo para instalar licenças em um ambiente de área de trabalho remota.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

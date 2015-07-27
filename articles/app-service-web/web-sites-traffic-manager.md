@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/02/2015" 
 	ms.author="cephalin"/>
 
 # Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
@@ -33,7 +32,7 @@ O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga 
 	
 * **Desempenho**: o método de desempenho distribui o tráfego com base no menor tempo de ida e volta até os clientes. O método de desempenho pode ser usado em aplicativos Web dentro da mesma região ou em regiões diferentes.
 
-Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
+Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 ##Aplicativos Web e perfis do Gerenciador de Tráfego 
 Para configurar o controle do tráfego de aplicativos Web, crie um perfil no Gerenciador de Tráfego do Azure que use um dos três métodos de balanceamento de carga descritos anteriormente e, em seguida, adicione os pontos de extremidade (neste caso, aplicativos Web) para os quais você deseja controlar o tráfego até o perfil. O status do aplicativo Web (em execução, parado ou excluído) é comunicado regularmente ao perfil, para que o Gerenciador de Tráfego do Azure possa direcionar o tráfego de acordo.
@@ -56,13 +55,13 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 
 ## Próximas etapas
 
-Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx).
+Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).
 
 Para obter informações sobre como configurar o Gerenciador de Tráfego do Azure, inclusive para usar Aplicativos Web, consulte [Tarefas de configuração do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
-Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
+Para obter informações detalhadas sobre o balanceamento de carga no Gerenciador de Tráfego do Azure, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog [Usando o Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

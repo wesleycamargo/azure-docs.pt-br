@@ -234,7 +234,7 @@ Em seguida, no aplicativo lógico filho, você usará a função [`triggerBody()
 }
 ```
 
-Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/pt-br/library/azure/dn948511.aspx).
+Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]O designer de Aplicativo lógico não oferece suporte a ações de tipo Aplicativo lógico, portanto, você precisará editar a definição manualmente.
 
@@ -688,4 +688,4 @@ Então, na verdadeira solicitação `PUT` para o Aplicativo lógico, você pode 
 
 Em cada ambiente, você pode fornecer então um valor diferente para o parâmetro `connection`. Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

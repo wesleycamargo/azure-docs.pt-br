@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Integrar com um servidor SAP local no serviço de aplicativo do Microsoft Azure"
 	description="Saiba como integrar um servidor SAP local"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Integrar com um servidor SAP local
 Usando o conector do SAP, você pode conectar aplicativos web, móveis e lógica de Serviços de Aplicativos do Azure ao servidor SAP existente. Você pode invocar RFCs, BAPIs, tRFCs, bem como enviar IDOCs para o servidor SAP.
-	
+
 O servidor SAP ainda pode estar atrás firewall local. No caso do servidor local, a conectividade é estabelecida por meio de um ouvinte híbrido, conforme mostrado:
 
 ![Fluxo de conectividade híbrida][1]
@@ -40,12 +40,12 @@ As bibliotecas de cliente específicas do SAP são necessárias no computador cl
 
 
 ## Criar um novo adaptador SAP
-1. Entre no Portal de Gerenciamento do Microsoft Azure. 
+1. Entre no Portal de Gerenciamento do Microsoft Azure.
 2. Selecione **Novo**.
 3. Na folha de criação, selecione **Computação** > **Azure Marketplace**.
 4. Na folha do Marketplace, selecione **Aplicativos de API** e procure SAP na barra de pesquisa:
-	
-	![Aplicativo de API do Conector SAP][2]	
+
+	![Aplicativo de API do Conector SAP][2]
 5. Selecione o **Conector SAP** publicado pela Microsoft.
 6. Na folha do conector SAP, selecione **Criar**.
 7. Na nova folha que se abre, insira as seguintes informações:
@@ -125,8 +125,4 @@ Para a ação selecionada, você verá os parâmetros de entrada e saída. Você
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

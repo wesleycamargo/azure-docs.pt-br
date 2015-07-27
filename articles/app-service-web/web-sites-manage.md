@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
-	writer="mwasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -94,4 +93,4 @@ Para adicionar uma regra de alerta, clique no gráfico e, depois, em **Adicionar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

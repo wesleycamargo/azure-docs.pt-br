@@ -23,7 +23,7 @@ Os blobs que mais se beneficiam do cache da CDN do Azure são aqueles que são a
 Você tem duas opções para controlar o TTL.
 
 1.	Não defina valores de cache dessa forma usando a TTL padrão de sete dias. 
-2.	Defina explicitamente a propriedade *x-ms-blob-cache-control* em uma solicitação **Blob Put**, **Put Block List** ou **Set Blob Properties** ou use a Biblioteca Gerenciada do Azure para definir a propriedade [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx). A configuração dessa propriedade define o valor do cabeçalho *Cache-Control* para o blob. O valor do cabeçalho ou da propriedade deve especificar o valor apropriado em segundos. Por exemplo, para definir o período máximo do cache como um ano, você pode especificar o cabeçalho de solicitação como `x-ms-blob-cache-control: public, max-age=31556926`. Para obter detalhes sobre como definir cabeçalhos de cache, consulte a [especificação HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Defina explicitamente a propriedade *x-ms-blob-cache-control* em uma solicitação **Blob Put**, **Put Block List** ou **Set Blob Properties** ou use a Biblioteca Gerenciada do Azure para definir a propriedade [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). A configuração dessa propriedade define o valor do cabeçalho *Cache-Control* para o blob. O valor do cabeçalho ou da propriedade deve especificar o valor apropriado em segundos. Por exemplo, para definir o período máximo do cache como um ano, você pode especificar o cabeçalho de solicitação como `x-ms-blob-cache-control: public, max-age=31556926`. Para obter detalhes sobre como definir cabeçalhos de cache, consulte a [especificação HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Qualquer conteúdo que você deseje armazenar em cache pela CDN deverá ser armazenado em sua conta de armazenamento do Azure como um blob publicamente acessível. Para obter mais detalhes sobre o serviço Blob do Azure, consulte **Conceitos do serviço Blob**.
 
@@ -96,4 +96,4 @@ Se desejar, você poderá usar uma ferramenta como **wget** ou Fiddler para exam
 
 [Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

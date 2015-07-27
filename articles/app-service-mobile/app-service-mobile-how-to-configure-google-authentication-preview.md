@@ -71,4 +71,4 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

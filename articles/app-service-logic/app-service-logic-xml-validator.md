@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # Validador de XML do BizTalk
@@ -75,4 +75,4 @@ A ação retorna a saída como um objeto. A saída contém o modelo que represen
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

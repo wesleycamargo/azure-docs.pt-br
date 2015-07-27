@@ -23,17 +23,17 @@ Instalar a CLI do Azure e ter uma assinatura do Azure impedirá você de criar u
 
 ## Como instalar a CLI do Azure
 
-Siga estas instruções para instalar a [CLI do Azure](../xplat-cli.md#install).
+Siga as instruções para [instalar a CLI do Azure](../xplat-cli.md#install).
 
-## Como conectar ao Azure com a CLI do Azure
+## Conectando ao Azure usando a CLI do Azure
 
 Você pode conectar sua instalação da CLI do Azure a uma conta pessoal, empresarial ou escolar do Azure. Para compreender as diferenças e escolher, consulte [Como se conectar à sua assinatura do Azure](../xplat-cli.md#configure).
 
-## Criando e conectando a uma VM no Azure
+## Criando uma VM no Azure e conectando-se a ela
 
 A criação de uma máquina virtual começa com a escolha (ou carregamento) de uma imagem e o uso do comando `azure vm create`.
 
-1. Para escolher uma imagem da linha de comando, você pode listar as imagens da VM disponíveis usando o comando `azure vm image list`. Como há muitas imagens, é aconselhável paginar os resultados usando `more` ou filtrá-los usando `grep` (Linux) ou `findstr` (Windows). Por exemplo, se você estiver procurando por imagens Ubuntu no Linux, use um comando como este:
+1. Para escolher uma imagem da linha de comando, você poderá listar as imagens da VM disponíveis usando o comando `azure vm image list`. Como há muitas imagens, é aconselhável paginar os resultados usando `more` ou filtrá-los usando `grep` (Linux) ou `findstr` (Windows). Por exemplo, se você estiver procurando por imagens Ubuntu no Linux, use um comando como este:
 
         azure vm image list | grep Ubuntu
 
@@ -45,15 +45,13 @@ A criação de uma máquina virtual começa com a escolha (ou carregamento) de u
 
         azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB
 
-2. Criando sua VM.
-
-    Depois de escolher uma imagem de VM, use o comando `vm create` para criar a imagem. Esse comando tem muitas opções que você pode listar com o comando de ajuda:
+2. Depois de escolher uma imagem de VM, use o comando `vm create` para criar a imagem. Este comando tem muitas opções que você pode listar com o comando `help`:
 
         vm create --help
 
-    Junto com a imagem da etapa 1, os principais argumentos que você precisa para criar uma máquina virtual são local, nome DNS e nome de usuário.
+    Junto com a imagem da etapa 1, os principais argumentos de que você precisa para criar uma máquina virtual são local, nome DNS e nome de usuário.
 
-    Para autenticação, você pode escolher especificar uma senha (na linha de comando ou interativamente) ou autenticar usando um certificado. Se você escolher uma senha, precisa ter pelo menos 8 caracteres, conter letras minúsculas e minúsculas e conter um caractere especial (por exemplo, um entre !@#$%^&+=). É uma boa idéia colocar a senha entre aspas e caracteres de escape especiais se você estiver transmitindo na linha de comando.
+    Para autenticação, você pode escolher especificar uma senha (na linha de comando ou interativamente) ou autenticar usando um certificado. Se você escolher uma senha, ela precisará ter pelo menos 8 caracteres, conter letras minúsculas e maiúsculas e conter um caractere especial (por exemplo, um entre !@#$%^&+=). É uma boa idéia colocar a senha entre aspas e caracteres de escape especiais se você estiver transmitindo na linha de comando.
 
     Para escolher um local, use o comando `vm location list` para selecionar uma região perto de você.
 
@@ -75,6 +73,5 @@ Um ótimo lugar para ver mais exemplos de como usar a CLI do Azure para gerencia
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

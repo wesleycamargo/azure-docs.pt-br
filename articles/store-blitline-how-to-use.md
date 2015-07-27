@@ -150,4 +150,4 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
   [Como criar um trabalho do Blitline]: #createjob
   [Como salvar uma imagem em seu Armazenamento do Azure]: #saveazure
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

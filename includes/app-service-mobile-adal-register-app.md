@@ -27,4 +27,4 @@ Seu aplicativo agora está configurado no AAD (Active Directory do Azure) para q
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Como configurar seu aplicativo móvel com o Active Directory do Azure]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

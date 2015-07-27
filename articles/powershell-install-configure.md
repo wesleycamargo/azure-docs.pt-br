@@ -123,7 +123,7 @@ O módulo do Azure inclui cmdlets que ajudam você a baixar e importar o certifi
 
 4. Quando solicitado, baixe e salve o perfil de publicação e anote o caminho e o nome do arquivo .publishsettings. Essas informações são necessárias quando você executa o cmdlet **Import-AzurePublishSettingsFile** para importar as configurações. O formato de local e nome de arquivo padrão é:
 
-			C:\Users<UserProfile>\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Digite um comando semelhante ao seguinte, substituindo os espaços reservados pelo nome da sua conta do Windows e o nome do arquivo para os espaços reservados:
 
@@ -260,4 +260,4 @@ Esses são alguns dos recursos disponíveis que você pode usar para aprender a 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

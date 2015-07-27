@@ -84,4 +84,4 @@ Observe que agora o método `Post` não envia uma notificação de sistema. Ele 
 
 24. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end*. Clique em **Publicar**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

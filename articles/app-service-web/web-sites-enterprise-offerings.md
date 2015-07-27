@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -154,4 +153,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

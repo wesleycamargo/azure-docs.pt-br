@@ -4,7 +4,6 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -179,4 +178,4 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

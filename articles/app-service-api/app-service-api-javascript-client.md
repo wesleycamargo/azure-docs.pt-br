@@ -312,7 +312,7 @@ Nesta seção, você vai criar um novo aplicativo Web vazio, instalar e usar nel
 
 1, No código que você acabou de adicionar a index.html, substitua o número da porta na URL base (`http://localhost:1578`) pelo número de porta real para o projeto de API.
 
-	> **Observação**: Não use o número da porta do projeto de cliente HTML. É possível clicar com o botão direito do mouse no projeto de API e clicar em Depurar > Iniciar Nova Instância para ver uma janela de navegador que mostre o número da porta
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
 1. Assegure que, quando você executar o cliente HTML, o projeto de aplicativo de API também esteja em execução; caso contrário, o HTML JavaScript não funcionará corretamente. Clique com o botão direito na solução e selecione **Propriedades**. Em seguida, defina ambos os projetos da Web como **Iniciar sem depuração**, e especifique que o projeto de API seja executado primeiro. 
 
@@ -365,9 +365,10 @@ Nesta seção você implantará o cliente HTML/JavaScript como um aplicativo Web
 
 	![apiapp.json e metadados no Gerenciador de soluções](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
-## Resumo 
+## Próximas etapas 
+
 Este exemplo demonstrou como você pode usar AngularJS como sua plataforma de JavaScript para acessar os back-ends de aplicativos de API. Você pode alterar a funcionalidade de acesso do REST para usar qualquer outra estrutura JavaScript.
 
- 
+Este exemplo mostra o acesso não autenticado a um aplicativo de API. Para obter informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

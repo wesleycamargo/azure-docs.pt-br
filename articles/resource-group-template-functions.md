@@ -1,19 +1,19 @@
 <properties
    pageTitle="Funções de modelo do Gerenciador de Recursos do Azure"
    description="Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, cadeias de caracteres de formato e recuperar informações de implantação."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
@@ -382,4 +382,4 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

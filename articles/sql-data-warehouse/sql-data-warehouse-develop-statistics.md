@@ -152,7 +152,7 @@ Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, 
 
 > [AZURE.NOTE]O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
 
-Neste exemplo, o histograma está em *product_category*. As estatísticas entre colunas são calculadas em *product_category* e *product_sub_c\ategory*:
+Neste exemplo, o histograma está em *product_category*. As estatísticas entre colunas são calculadas em *product_category* e *product_sub_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -452,4 +452,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

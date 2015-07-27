@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo Web com um banco de dados SQL
@@ -24,7 +24,7 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
-Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
+Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 ## O que você implantará
 
@@ -36,6 +36,10 @@ Neste modelo, você implantará:
 - Configurações de autoescala
 - Regras de alerta
 - Insights de aplicativo
+
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parâmetros para especificar
 
@@ -101,12 +105,16 @@ O tipo de banco de dados para criar.
 
 ### maxSizeBytes
 
+O tamanho máximo, em bytes, do banco de dados.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+O GUID correspondente ao nível de desempenho para edição. Para obter uma lista de valores disponíveis, consulte [Criar banco de dados](https://msdn.microsoft.com/library/azure/dn505701.aspx). O valor padrão corresponde ao nível de desempenho na Web.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 ### Aplicativo Web
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### CLI do Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

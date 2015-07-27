@@ -4,7 +4,6 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
-	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -260,4 +259,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

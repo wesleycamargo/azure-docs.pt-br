@@ -73,4 +73,4 @@ Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

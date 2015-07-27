@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
@@ -74,15 +74,17 @@ Você pode adicionar mais testes para quantas URLs desejar. Por exemplo, além d
 
 ### <a name="monitor"></a>3. Exibir relatórios de disponibilidade
 
-Depois de 1 a 2 minutos, clique em Atualizar na folha de disponibilidade. (Ele não atualiza automaticamente.)
+Depois de 1 ou 2 minutos, clique em Atualizar na folha de testes de disponibilidade/Web. (Ele não atualiza automaticamente.)
 
 ![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-O gráfico na folha de disponibilidade combina os resultados para todos os testes na Web desse aplicativo.
+Clique em qualquer barra no gráfico de resumo, na parte superior, para uma exibição mais detalhada do período de tempo.
 
-#### Componentes de página
+Esses gráficos combinam os resultados de todos os testes da Web desse aplicativo.
 
-Imagens, folhas de estilo e scripts, além de outros componentes estáticos, são solicitados como parte do teste.
+#### Componentes da sua página da Web
+
+Imagens, scripts e folhas de estilos, assim como outros componentes estáticos da página da Web que você está testando são solicitados como parte do teste.
 
 O tempo de resposta gravado é o tempo transcorrido até que o carregamento de todos os componentes tenha sido concluído.
 
@@ -90,7 +92,11 @@ Se algum componente não for carregado, o teste será marcado com falha.
 
 ## <a name="failures"></a>Se você encontrar falhas...
 
-Na folha de testes da Web, role para baixo e clique em um teste no qual você pode ver as falhas.
+Clique em um ponto vermelho.
+
+![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+Ou role para baixo e clique em um teste onde você pode ver menos de 100% de êxito.
 
 ![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -123,7 +129,7 @@ Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo
 
 Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduzirá o cenário em intervalos e verificará as respostas.
 
-#### 1. Registrar um cenário
+#### 1\. Registrar um cenário
 
 Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
@@ -150,7 +156,7 @@ Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
 (Não insira loops em seu código de teste na Web.)
 
-#### 2. Carregar o teste na Web para o Application Insights
+#### 2\. Carregar o teste na Web para o Application Insights
 
 1. No portal do Application Insights, crie um novo teste na Web.
 
@@ -223,4 +229,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -10,4 +10,4 @@
 
 	Para saber mais, consulte [Visão geral de conexões híbridas](../articles/integration-hybrid-connection-overview.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

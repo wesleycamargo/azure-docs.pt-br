@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@ Este tópico explica como usar o Serviço de Cache Redis do Azure para o estado 
 
 Se seu aplicativo web do ASP.NET usar o estado de sessão, você precisará configurar um provedor externo de estado de sessão (provedor de estado de sessão de Serviço de Cache Redis ou de SQL Server). Se você usar o estado de sessão, e não usar um provedor externo, você será limitado a uma instância do seu aplicativo web. O Serviço Cache Redis é o mais rápido e o mais simples de habilitar.
 
-<h2><a id="createcache"></a>Criar o cache</h2>
+##<a id="createcache"></a>Criar o cache
 Seguir [estas instruções](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) para criar o cache.
 
-<h2><a id="configureproject"></a>Adicionar o pacote NuGet RedisSessionStateProvider a seu aplicativo web.</h2>
+##<a id="configureproject"></a>Adicionar o pacote NuGet RedisSessionStateProvider a seu aplicativo Web
 Instalar o pacote `RedisSessionStateProvider` NuGet. Utilize o seguinte comando para instalar do console do gerenciador de pacotes (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@ Para instalar de **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Gerencia
 
 Para obter mais informações consulte a [Página RedisSessionStateProvider de NuGet](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) e [Configurar o cliente do cache](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modificar o arquivo .web.config</h2>
+##<a id="configurewebconfig"></a>Modificar o arquivo Web.Config
 Além de realizar referências do assembly para o Cache, o pacote NuGet adiciona entradas stub no arquivo *web.config*.
 
 1. Abra o *web.config* e localize o elemento **sessionState**.
@@ -74,8 +74,7 @@ Além de realizar referências do assembly para o Cache, o pacote NuGet adiciona
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Utilizar o objeto da sessão em código</h2>
-A etapa final é começar a usar o objeto da Sessão em seu código do ASP.NET. Você pode adicionar objetos ao estado de sessão usando o método **Session.Add**. Este método utiliza pares de chave/valor para armazenar itens no cache do estado de sessão.
+<a id="usesessionobject"></a>Usar o objeto de sessão no código A etapa final é começar a usar o objeto de sessão no seu código ASP.NET. Você pode adicionar objetos ao estado de sessão usando o método **Session.Add**. Este método utiliza pares de chave/valor para armazenar itens no cache do estado de sessão.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -109,4 +108,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

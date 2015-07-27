@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gerenciar e auditar o acesso a recursos"
    description="Use o controle de acesso baseado em função (RBAC) para gerenciar permissões de usuário para recursos implantados no Azure."
-   services="azure-portal"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="06/18/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Gerenciar e auditar o acesso a recursos
@@ -59,7 +59,7 @@ Se você ainda não tiver a versão mais recente do Azure PowerShell instalado, 
 
 1. Faça logon em sua conta do Azure com suas credenciais. O comando retorna as informações sobre sua conta.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@ Se você ainda não tiver a versão mais recente do Azure PowerShell instalado, 
 
 2. Se você tiver várias assinaturas, forneça a ID da assinatura que deseja usar para implantação.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Alterne para o módulo Gerenciador de Recursos do Azure.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 ### Exibir funções disponíveis
 Para exibir as funções disponíveis para sua assinatura, execute o comando **Get-AzureRoleDefinition**.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@ Para exibir as funções disponíveis para sua assinatura, execute o comando **G
 ### Conceda permissão de leitor a um grupo para a assinatura.
 1. Analise a definição de função do **Leitor**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@ Para exibir as funções disponíveis para sua assinatura, execute o comando **G
 
 2. Obter grupo de segurança necessário, executando o comando **Get-AzureADGroup**. Forneça o nome real do grupo em sua assinatura. ExampleAuditorGroup é mostrado abaixo.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. Crie a atribuição de função para o grupo de segurança de auditor. Quando o comando for concluído, a nova atribuição de função é retornada.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@ Para exibir as funções disponíveis para sua assinatura, execute o comando **G
 ###Conceda permissões de Colaborador para um aplicativo para um grupo de recursos.
 1. Examine a definição de função do **Colaborador**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:> Get-AzureRoleDefinition Contributor
 
 2. Obtenha o Id do objeto principal de serviço executando o comando **Get-AzureADServicePrincipal** e forneça o nome do aplicativo em sua assinatura. ExampleApplication é mostrado abaixo.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. Crie as atribuições de função para a entidade de serviço executando o comando **New-AzureRoleAssignment**.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Para obter uma explicação mais completa da configuração de um aplicativo do Active Directory do Azure e uma entidade de serviço, consulte [Autenticar uma entidade de serviço com o Gerenciador de recursos do Azure](../resource-group-authenticate-service-principal.md).
 
 ###Conceda permissões de proprietário para um usuário de um recurso.
 1. Analise a definição de função do **Proprietário**, fornecendo o nome da função ao executar o comando **Get-AzureRoleDefinition**. Certifique-se de que as ações permitidas são as que você pretende atribuir.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:> Get-AzureRoleDefinition Owner
 
 2. Crie as atribuições de função do usuário.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Lista dos logs de auditoria do grupo de recursos.
 Para obter o log de auditoria de um grupo de recursos, execute o comando **Get-AzureResourceGroupLog**.
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## Como usar a CLI do Azure para Mac, Linux e Windows
 
@@ -270,4 +270,4 @@ Crie a atribuição de função.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

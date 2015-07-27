@@ -95,12 +95,12 @@ Assim que o cmdlet do PowerShell for invocado, ele pode demorar alguns minutos p
 
 Você pode monitorar o progresso da criação na janela do Azure PowerShell. Assim que o cache estiver pronto para o uso, o cmdlet [New-AzureManagedCache][] mostrará a informação de cache, conforme mostrado no seguinte exemplo.
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Você pode monitorar o progresso da criação na janela do Azure PowerShell. Ass
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -487,4 +487,4 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

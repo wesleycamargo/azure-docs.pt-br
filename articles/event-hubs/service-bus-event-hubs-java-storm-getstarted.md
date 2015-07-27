@@ -32,11 +32,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Um ambiente de desenvolvimento Java configurado para executar [Maven](http://maven.apache.org/). Para este tutorial, vamos considerar o [Eclipse](https://www.eclipse.org/).
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, confira a <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
-1. Faça logon no [Portal de gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
 2. Clique em **Serviços de Aplicativos**, em **Barramento de Serviço**, em **Hub de Eventos** e em **Criação Rápida**.
 
@@ -73,20 +73,20 @@ Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa par
 
 Agora você está pronto para executar os aplicativos.
 
-1.	Execute a classe **LogTopology** do Eclipse e espere ela iniciar os receptores para todas as partições.
+1.	Execute a classe **LogTopology** do Eclipse, então espere para ela iniciar os receptores para todas as partições.
 
 2.	Execute o projeto **Remetente**, pressione **Enter** na janela do console e veja os eventos aparecerem na janela do receptor.
 
    	![][22]
 
-> [AZURE.NOTE]Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Veja a [Visão geral do HDInsight Storm] e a documentação oficial do [Apache Storm] para saber mais de implantações e padrões do Storm.
+> [AZURE.NOTE]Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do HDInsight Storm] e a documentação oficial do [Apache Storm] para obter mais informações de implantações e padrões do Storm.
 
 ## Próximas etapas
 
 Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos integrando Hubs e Storm.
 
 - [Analisar dados do sensor com o Storm e do HDInsight] é um tutorial de cenário integral usando Hubs de Eventos, Storm e HBase para receber dados do sensor em um cluster do Hadoop.
-- [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm e HDInsight] é um tutorial sobre como escrever tubulações do Storm usando C#.
+- [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm] e HDInsight é um tutorial sobre como escrever tubulações do Storm usando C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-java-storm-getstarted/create-event-hub1.png
@@ -100,14 +100,14 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [22]: ./media/service-bus-event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Portal de gerenciamento do Azure]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Visão geral do HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Analisar dados do sensor com o Storm e do HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm e HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

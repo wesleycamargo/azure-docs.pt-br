@@ -22,7 +22,7 @@ Um **Trabalho** contém metadados sobre o processamento a ser realizado. Cada **
 
 Um trabalho de codificação é geralmente combinado com outro processamento, por exemplo, empacotamento ou criptografia do ativo ou ativos gerados pelo codificador. Tarefas em um trabalho podem ser encadeadas, em que o ativo de saída de uma tarefa é determinado como o ativo de entrada para a próxima tarefa. Dessa forma, um trabalho pode conter todo o processamento necessário para uma apresentação de mídia.
 
-Esta seção fornece links para tarefas comuns que você executaria ao trabalhar com Jobs\Tasks.
+Esta seção fornece links para tarefas comuns que você executaria ao trabalhar com Jobs\\Tasks.
 
 >[AZURE.NOTE]Atualmente, há um limite de 30 tarefas por trabalho. Se você precisa encadear mais de 30 tarefas, crie mais de um trabalho para conter as tarefas.
 
@@ -60,4 +60,4 @@ Monitore o progresso do trabalho usando o **Portal de Gerenciamento do Azure**, 
 [Cotas e limitações](media-services-quotas-and-limitations.md)– Descreve as cotas usadas e limitações do Codificador dos Serviços de Mídia
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,9 +1,8 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico
@@ -23,19 +22,19 @@
 2. Abra um prompt de comando e navegue até o diretório onde baixou o nuget.exe.
 3. Baixe o pacote de mesclagem divisão mais recente no diretório atual com o comando abaixo:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do serviço de Divisão-Mesclagem no subdiretório **content\splitmerge\service** e os scripts de Divisão-Mesclagem do PowerShell (e as .DLLs do cliente necessárias) no subdiretório **content\splitmerge\powershell**.
+As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do serviço de Divisão-Mesclagem no subdiretório **content\\splitmerge\\service** e os scripts de Divisão-Mesclagem do PowerShell (e as .DLLs do cliente necessárias) no subdiretório **content\\splitmerge\\powershell**.
 
 ## Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de Divisão-Mesclagem. Vá para o [Portal de Visualização do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Preencha o nome do banco de dados e crie novos usuário e senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de Divisão-Mesclagem. Faça logon no [portal do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Preencha o nome do banco de dados e crie novos usuário e senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
-2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No [portal de visualização](https://ms.portal.azure.com), em **configurações de Firewall**, certifique-se de que a configuração **Permitir acesso aos serviços do Azure** esteja definida como **Ativada**. Clique no botão “Salvar”.
+2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de firewall**, certifique-se de que a configuração **Permitir acesso aos serviços do Azure** esteja definida como **Ativada**. Clique no botão “Salvar”.
 
     ![Serviços permitidos][1]
 
-3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). Na parte inferior esquerda, clique em **Novo**, **Serviços de dados**, **Armazenamento** e em **Criação rápida**.
+3. Crie uma conta de Armazenamento do Azure que será usada para a saída de diagnóstico. Vá para o Portal de Visualização do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, clique em **Dados + armazenamento** e, em seguida, em **Armazenamento**.
 
-4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem. Vá para o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com). No canto inferior esquerdo, clique em **Novo**, em **Computação**, **Serviço de nuvem** e em **Criação rápida**.
+4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem. Vá para o Portal de Visualização do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, em seguida em **Calcular**, **Serviço de Nuvem** e **Criar**.
 
 
 ## Configurando seu serviço de Divisão-Mesclagem
@@ -54,13 +53,13 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 5.    Para a função **SplitMergeWorker**, digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
 ### Configurando a segurança
-Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configuração de segurança da divisão e mesclagem](../sql-database-elastic-scale-configure-security.md).
+Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configuração de segurança da divisão e mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para fins de implementação de teste simples, é adequado para concluir este tutorial, um conjunto mínimo de etapas de configuração será executada para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
 ### Criando um certificado autoassinado
 
-Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](http://msdn.microsoft.com/pt-br/library/ms229859.aspx):
+Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx):
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -87,7 +86,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### Carregue o arquivo PFX para o serviço de nuvem
 
-Vá para o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+Vá para o [Portal de Visualização do Azure](https://portal.azure.com).
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
@@ -113,10 +112,11 @@ Para a função de trabalho:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](../sql-database-elastic-scale-configure-security.md).
+Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Implantando seu serviço de Divisão-Mesclagem
-1. Vá para o [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+
+1. Faça logon no [portal do Azure](https://manage.windowsazure.com).
 2. Clique na guia **Serviços de nuvem** à esquerda e selecione o serviço de nuvem que você criou anteriormente.
 3. Clique em **Painel**.
 4. Escolha o ambiente de preparo e clique em **Carregar uma nova implantação de preparo**.
@@ -131,6 +131,7 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 
 ## Solucionando problemas de implantação
+
 Se sua função web não ficar online, provavelmente é um problema com a configuração de segurança. Verifique se o SSL está configurado como descrito acima.
 
 Se sua função de trabalho não fica online, mas sua função web tiver êxito, provavelmente é um problema na conexão com o banco de dados de status que você criou anteriormente.
@@ -145,6 +146,7 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 * Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra https://manage.windowsazure.com, clique em “Bancos de dados SQL” à esquerda, clique em “Servidores” na parte superior e selecione seu servidor. Clique em **Configurar** na parte superior e verifique se a configuração dos **Serviços do Azure** estão definidas como “Sim”. (Consulte a seção Pré-requisitos na parte superior deste artigo).
 
 ## Testando sua implantação do serviço de Divisão-Mesclagem
+
 ### Conectar-se com um navegador da web
 
 Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal de gerenciamento do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua **http://** por **https://** desde que as configurações de segurança padrão desabilitem o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
@@ -327,4 +329,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

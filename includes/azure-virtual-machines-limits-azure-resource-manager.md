@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Limite padrão</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Máquinas virtuais por Conjunto de Disponibilidade</p></td>
+   <td valign="middle"><p>Máquinas virtuais por conjunto de disponibilidade</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
@@ -13,6 +13,6 @@
 </tr>
 </table>
 
-<sup>1</sup>Com o Gerenciador de Recursos do Azure, os certificados são armazenados no Cofre da Chave do Azure. Embora o número de certificados seja ilimitado para uma assinatura, ainda há um limite de 1 MB de certificados por implantação (que consiste em uma única VM ou então em um Conjunto de Disponibilidade).
+<sup>1</sup>Com o Gerenciador de Recursos do Azure, os certificados são armazenados no Cofre da Chave do Azure. Embora o número de certificados seja ilimitado para uma assinatura, ainda há um limite de 1 MB de certificados por implantação (que consiste em uma única VM ou em um conjunto de disponibilidade).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Crie um Aplicativo Lógico usando um modelo
@@ -24,11 +24,15 @@ Para obter mais detalhes sobre as propriedades do Aplicativo lógico, consulte [
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para o modelo completo, consulte [Modelo de Aplicativo Lógico](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicApp.json).
+Para o modelo completo, consulte [Modelo de Aplicativo Lógico](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
 ## O que você implantará
 
 Neste modelo, você implantará um aplicativo lógico.
+
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Parâmetros
 
@@ -38,7 +42,7 @@ Neste modelo, você implantará um aplicativo lógico.
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/pt-br/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/status/feed/"
       }
     
 ## Recursos a implantar
@@ -127,13 +131,13 @@ Essa definição específica será executada uma vez por hora e executará ping 
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### CLI do Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

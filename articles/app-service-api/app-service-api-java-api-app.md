@@ -270,4 +270,4 @@ Você pode experimentar esse aplicativo de API de exemplo no [Serviço TryApp](h
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

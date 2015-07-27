@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Executar tarefas em segundo plano com Trabalhos Web
@@ -166,7 +165,7 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
 
 ## <a name="WHPNotes"></a>Observações
 	
-- Desde março de 2014, os aplicativos Web no modo Gratuito podem atingir tempo limite depois de 20 minutos se não houver solicitações para o site do scm (implantação) e o portal do aplicativo Web não estiver aberto no Azure. As solicitações para o site real não redefinirão isso.
+- Os aplicativos Web no modo Gratuito podem atingir tempo limite depois de 20 minutos se não houver solicitações para o site do scm (implantação) e o portal do aplicativo Web não estiver aberto no Azure. As solicitações para o site real não redefinirão isso.
 - O código para um trabalho contínuo precisa ser escrito para ser executado em um loop infinito.
 - Trabalhos contínuos só são executados continuamente quando o aplicativo Web estiver funcionando.
 - Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
@@ -210,4 +209,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -116,4 +116,4 @@ Depois que seus clientes tiverem a oportunidade de receber essas atualizações,
 [Trabalho Web]: ../app-service-web/websites-webjobs-resources.md
 [Enviar notificações por push multiplataforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

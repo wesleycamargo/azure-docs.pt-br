@@ -69,4 +69,4 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [Introdução ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

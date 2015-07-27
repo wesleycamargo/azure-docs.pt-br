@@ -37,11 +37,11 @@ Para acompanhar este tutorial, você precisará:
 Primeiramente, você criará os objetos que o PolyBase exige para se conectar e consultar dados no armazenamento de blob do Azure.
 
 ## Criar chave mestra do banco de dados
-Conecte-se ao banco de dados mestre em seu servidor para criar uma chave mestra de banco de dados. Essa chave é usada para criptografar sua credencial na próxima etapa.
+Conecte-se ao banco de dados em seu servidor para criar uma chave mestre de banco de dados. Essa chave é usada para criptografar sua credencial na próxima etapa.
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 Tópico de referência: [CREATE MASTER KEY (Transact-SQL)][].
@@ -49,8 +49,13 @@ Tópico de referência: [CREATE MASTER KEY (Transact-SQL)][].
 ## Criar uma credencial com escopo de banco de dados
 Para acessar o armazenamento de blob do Azure, você precisa criar uma credencial com escopo de banco de dados que armazene informações de autenticação da sua conta de armazenamento do Azure. Conecte-se ao banco de dados do seu data warehouse e crie uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Especifique um nome de identidade e a chave da conta de armazenamento do Azure como o Segredo. O nome da identidade não afeta a autenticação no Armazenamento do Azure.
 
+Para ver se já existe uma credencial no escopo do banco de dados, use sys.database_credentials, e não sys.credentials, que mostra apenas as credenciais do servidor.
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```
@@ -176,7 +181,7 @@ Consulte [CREATE TABLE AS SELECT (Transact-SQL)][].
 O carregamento de dados com o PolyBase oferece suporte apenas ao estilo de codificação UTF-8. Para outros estilos de codificação, por exemplo, UTF-16, considere o uso do utilitário bcp, SSIS ou Azure Data Factory para carregar dados no banco de dados do SQL Data Warehouse.
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 
@@ -184,7 +189,7 @@ Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvime
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
 [Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -202,4 +207,4 @@ Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189450.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

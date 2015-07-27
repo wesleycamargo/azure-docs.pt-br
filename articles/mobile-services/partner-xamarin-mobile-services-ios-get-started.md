@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -98,6 +98,8 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 ## Próximas etapas
 Agora que você concluiu o início rápido, aprenda a executar tarefas adicionais importantes nos Serviços Móveis:
 
+* [Introdução aos dados]<br/>Saiba como adicionar uma nova tabela a um serviço móvel, em seguida, ler e gravar em relação a essa tabela.
+
 * [Introdução à sincronização de dados offline] <br/>Saiba como o início rápido usa dados offline para tornar o seu aplicativo responsivo e robusto.
 
 * [Introdução à autenticação] <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
@@ -122,15 +124,14 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Introdução à sincronização de dados offline]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Introdução aos dados]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Introdução à sincronização de dados offline]: mobile-services-xamarin-ios-get-started-offline-data.md
+[Introdução à autenticação]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Introdução às notificações por push]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

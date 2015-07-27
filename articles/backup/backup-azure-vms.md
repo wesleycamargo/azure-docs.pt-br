@@ -13,37 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/26/2015"
+	ms.date="07/06/2015"
 	ms.author="aashishr"/>
 
 
 # Fazer backup de máquinas virtuais do Azure
-
 Este artigo é o guia essencial para o backup de máquinas virtuais do Azure. Antes de prosseguir, verifique se todos os [pré-requisitos](backup-azure-vms-introduction.md#prerequisites) foram atendidos.
 
 Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
 ![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Descobrir máquinas virtuais do Azure
+## 1\. Descobrir máquinas virtuais do Azure
 O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região.
 
 > [AZURE.NOTE]O processo de descoberta sempre deve ser executado como a primeira etapa. Isso é para garantir que quaisquer novas máquinas virtuais adicionadas à assinatura sejam identificadas.
 
-Para disparar o processo de descoberta, execute as seguintes etapas:
+### Para disparar o processo de descoberta
 
 1. Navegue até o cofre de backup, que pode ser encontrado em **Serviços de Recuperação** no Portal do Azure, então clique na guia **Itens Registrados**.
 
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão **Selecionar**. ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique no botão **DESCOBERTA** na parte inferior da página. ![botão descobrir](./media/backup-azure-vms/discover-button.png)
+3. Clique no botão **DESCOBERTA** na parte inferior da página. ![botão descobrir](./media/backup-azure-vms/discover-button-only.png)
 
 4. O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. É exibida uma notificação do sistema na parte inferior da tela enquanto o processo de descoberta está em execução. ![descobrir vms](./media/backup-azure-vms/discovering-vms.png)
 
 5. Quando o processo de detecção for concluído, uma notificação do sistema será exibida. ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-
-## Registre as máquinas virtuais do Azure
+##  2\. Registre as máquinas virtuais do Azure
 Antes que uma máquina virtual possa ser protegida, ela precisa ser registrada com o serviço de Backup do Azure. O processo de registro tem dois objetivos principais:
 
 1. Para conectar a extensão de backup ao agente de VM na máquina virtual
@@ -58,7 +56,7 @@ Normalmente, o registro é uma atividade realizada uma única vez. O serviço de
 
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão Selecionar. ![selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique no botão **REGISTRAR** na parte inferior da página. ![botão registrar](./media/backup-azure-vms/register-button.png)
+3. Clique no botão **REGISTRAR** na parte inferior da página. ![botão registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. No pop-up **Registrar Itens**, escolha as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
@@ -72,9 +70,10 @@ Normalmente, o registro é uma atividade realizada uma única vez. O serviço de
 
 7. Quando a operação é concluída, o status no portal é alterado para refletir o estado registrado. ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## Fazer backup de máquinas virtuais do Azure
+## 3\. Proteção: Fazer backup de máquinas virtuais do Azure
 Essa etapa envolve configurar uma política de backup e de retenção para a máquina virtual. Para proteger uma máquina virtual, execute as seguintes etapas:
 
+### Para fazer backup de máquinas virtuais do Azure
 1. Navegue até o cofre de backup, que pode ser encontrado em **Serviços de Recuperação** no Portal do Azure, então clique na guia **Itens Registrados**.
 2. Escolha o tipo de carga de trabalho no menu suspenso como **Máquina Virtual do Azure** e clique no botão **Selecionar**. ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
 
@@ -143,10 +142,8 @@ Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agen
 #### Validando a instalação do Agente de VM
 Como verificar a versão do Agente de VM em VMs do Windows:
 
-- Faça logon na máquina virtual do Azure e navegue até a pasta *C:\WindowsAzure\Packages*.
-- Você deve encontrar o arquivo WaAppAgent.exe presente.
-- Clique com o botão direito do mouse no arquivo, acesse **Propriedades** e, em seguida, selecione a guia **Detalhes**.
-- O campo Versão do produto deve ser 2.6.1198.718 ou mais recente
+1. Faça logon na máquina virtual do Azure e navegue até a pasta *C:\\WindowsAzure\\Packages*. Você deve encontrar o arquivo WaAppAgent.exe presente.
+2. Clique com o botão direito do mouse no arquivo, acesse **Propriedades** e, em seguida, selecione a guia **Detalhes**. O campo Versão do produto deve ser 2.6.1198.718 ou mais recente
 
 ### Solucionando problemas de rede
 Como todas as extensões, a extensão de Backup precisa acessar a Internet pública para trabalhar. A falta de acesso à Internet pública pode se manifestar de inúmeras formas:
@@ -177,13 +174,12 @@ A tabela a seguir explica os tipos de consistência que são encontrados durante
 |-------------|-----------|---------|
 | Consistência de aplicativo | Sim | Este é o lugar ideal para estar quanto a cargas de trabalho da Microsoft, pois ele garante:<ol><li> que a VM *inicialize*, <li>que não haja *corrupção dos dados*, <li>que não ocorra *perda de dados* e que<li> os dados sejam consistentes com o aplicativo que os utiliza, engajando o aplicativo no momento do backup - usando o VSS.</ol> O VSS (Serviço de Instantâneo de Volume) garante que os dados sejam gravados corretamente para o armazenamento. A maioria das cargas de trabalho Microsoft têm gravadores VSS que executam ações específicas de carga de trabalho relacionadas a consistência dos dados. Por exemplo, o Microsoft SQL Server tem um gravador VSS que garante que as gravações no arquivo de log de transações e no banco de dados sejam realizadas corretamente.<br><br> Para backup da VM do Azure, obter um ponto de recuperação consistente no aplicativo significa que a extensão de backup foi capaz de invocar o fluxo de trabalho do VSS e ser concluída *corretamente* antes que o instantâneo da VM fosse tirado. Naturalmente, isso significa que os gravadores VSS de todos os aplicativos na VM do Azure também são chamados.<br><br>Aprenda as [noções básicas do VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) e aprofunde-se nos detalhes de [como ele funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
 | Consistência do sistema de arquivos | Sim - para computadores executando Windows | Há dois cenários em que o ponto de recuperação pode ser consistente com o sistema de arquivos:<ul><li>Backup de VMs do Linux no Azure, já que o Linux não tem uma plataforma equivalente ao VSS.<li>Falha do VSS durante o backup de máquinas virtuais do Windows no Azure.</li></ul> Em ambos estes casos, o melhor que você pode fazer é garantir que: <ol><li> a VM *inicialize*, <li>não haja *nenhum dano* e <li>não haja *perda de dados*.</ol> Os aplicativos precisam implementar seu próprio mecanismo de "correção" nos dados restaurados.|
-| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Não há nenhuma garantia de consistência dos dados na mídia de armazenamento. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <ol><li>Embora não haja nenhuma garantia, na maioria dos casos o sistema operacional será inicializado.<li>Normalmente, isso é seguido de um procedimento de verificação como chkdsk para corrigir quaisquer erros de corrupção do disco.<li> Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas.<li> O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. </ol>Para backup de VM do Azure, obter um ponto de recuperação consistente quanto a falhas significa que Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará em seguida uma reversão até que os dados sejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
+| Consistência de falhas | Não | Essa situação é equivalente a um computador tendo uma "falha" (por meio de uma reinicialização forçada ou flexível). Isso geralmente acontece quando a máquina virtual do Azure está desligada no momento do backup. Para backup da máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no meio de armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup. <br/><br/> Embora não haja nenhuma garantia, na maioria dos casos o sistema operacional será inicializado. Normalmente, isso é seguido por um procedimento de verificação de disco, como chkdsk, para corrigir qualquer erro de corrupção. Quaisquer dados na memória ou gravações que não tenham sido totalmente liberadas para o disco serão perdidas. O aplicativo geralmente segue com seu próprio mecanismo de verificação, caso seja necessário realizar reversão de dados. Para backup de máquina virtual do Azure, obter um ponto de recuperação consistente quanto a falhas significa que o Backup do Azure não dá nenhuma garantia de consistência dos dados no armazenamento - seja da perspectiva do sistema operacional ou da perspectiva do aplicativo. Isso geralmente acontece quando a VM do Azure é desligada no momento do backup.<br><br>Por exemplo, se o log de transações tiver entradas que não estão presentes no banco de dados, o software de banco de dados fará em seguida uma reversão até que os dados sejam consistentes. Ao lidar com dados distribuídos em vários discos virtuais (como volumes estendidos), um ponto de recuperação consistente quanto a falhas não garante a exatidão dos dados.|
 
 ## Próximas etapas
 Para saber mais sobre a introdução ao Backup do Azure, consulte:
 
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

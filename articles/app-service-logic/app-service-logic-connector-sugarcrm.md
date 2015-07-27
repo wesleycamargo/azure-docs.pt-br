@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector do SugarCRM" 
-   description="Como usar o Conector do SugarCRM" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector do SugarCRM"
+   description="Como usar o Conector do SugarCRM"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Usando o Conector do SugarCRM em seu aplicativo lógico#
@@ -32,7 +32,7 @@ Como parte das configurações do pacote do conector, o usuário pode especifica
 
 ##Ações do Conector do SugarCRM##
 A seguir estão as diferentes ações disponíveis no Conector do SugarCRM.
- 
+
 - Criar Módulo - use essa ação para criar um novo registro para o módulo do SugarCRM, como Contas, Clientes Potenciais e Contatos.
 
 - Atualizar Módulo - use essa ação para atualizar um registro existente para o módulo do SugarCRM.
@@ -48,7 +48,7 @@ A seguir estão as diferentes ações disponíveis no Conector do SugarCRM.
 - Verificar Módulos Duplicados - use essa ação para verificar se há registros duplicados em um módulo.
 
 *Observação*: para obter mais detalhes sobre os argumentos com suporte na consulta, consulte a documentação da API REST do SugarCRM.
-   
+
 ##Criar um aplicativo de API do Conector do SugarCRM##
 1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
 2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "SugarCRM".
@@ -154,7 +154,4 @@ Vamos criar um aplicativo lógico simples que cria uma conta no SugarCRM e atual
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

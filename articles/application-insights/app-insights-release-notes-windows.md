@@ -32,6 +32,33 @@ Consulte [Introdução aos aplicativos do Application Insights para Windows Phon
 * Compare as versões nova e antiga do ApplicationInsights.config. Mescle novamente as personalizações feitas na versão antiga.
 * Recompile sua solução.
 
+## Versão 1.0.0
+
+### SDK do Aplicativo do Windows
+
+- Nova inicialização para aplicativos do Windows. Nova classe `WindowsAppInitializer` com o método `InitializeAsync()` permite a inicialização bootstrapping da coleção do SDK. Essa alteração permite controle mais preciso e melhorias significativas de desempenho na inicialização de aplicativo pela técnica ApplicationInsights.config anterior.
+- DeveloperMode não é mais definido automaticamente. Para alterar o comportamento de DeveloperMode, você deve especificar no código.
+- O pacote NuGet não injeta mais ApplicationInsights.config. É recomendável usar o novo WindowsAppInitializer ao adicionar manualmente o pacote NuGet.
+- ApplicationInsights.config lê apenas `<InstrumentationKey>`, todas as outras configurações são ignoradas na preferência das configurações de WindowsAppInitializer.
+- Store Market será coletado automaticamente pelo SDK.
+- Muitas correções de bugs, melhorias de estabilidade e aprimoramentos de desempenho.
+
+### SDK principal
+
+- O arquivo ApplicationInsights.config não é mais obrigatório. E não é adicionado pelo pacote NuGet. A configuração pode ser totalmente especificada no código.
+- O pacote NuGet não adicionará mais um arquivo de destino à sua solução. Isso remove a configuração automática de DeveloperMode durante uma compilação de depuração. O DeveloperMode deve ser definido manualmente no código.
+
+## Versão 0.17
+
+### SDK do Aplicativo do Windows
+
+- O SDK do Aplicativo do Windows agora oferece suporte a Aplicativos Universais do Windows criados no Preview técnico do Windows 10 e com o VS 2015 RC.
+
+### SDK principal
+
+- TelemetryClient é padronizado para inicializar com o InMemoryChannel.
+- Nova API adicionada, `TelemetryClient.Flush()`. Esse método Flush acionará um carregamento de bloqueio imediato de toda a telemetria registrada no cliente. Isso permite o disparo manual do carregamento antes do desligamento do processo.
+- O pacote do NuGet adicionou um destino .Net 4.5. Esse destino não tem dependências externas (dependências de EventSource e BCL removidas).
 
 ## Versão 0.16 
 
@@ -50,4 +77,4 @@ Visualização 2015-04-28
 
 Não há notas de versão disponíveis para versões anteriores.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

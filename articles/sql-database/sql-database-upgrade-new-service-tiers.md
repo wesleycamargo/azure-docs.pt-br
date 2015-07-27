@@ -57,7 +57,7 @@ A atualização de um banco de dados Web ou Business para uma nova camada de ser
 
 
 
-## 1. Determinar a camada de serviço com base na capacidade de recurso
+## 1\. Determinar a camada de serviço com base na capacidade de recurso
 
 As camadas de serviço Basic, Standard e Premium oferecem diferentes conjuntos de recursos, portanto a primeira etapa na seleção de uma camada apropriada é determinar a camada de serviço que fornece o nível mínimo de recursos necessários para seu aplicativo e negócios.
 
@@ -86,7 +86,7 @@ Depois de selecionar uma camada de serviço apropriada que atende aos requisitos
 
 
 
-## 2. Determinar um nível aceitável de desempenho com base no histórico de uso de recursos
+## 2\. Determinar um nível aceitável de desempenho com base no histórico de uso de recursos
 
 O serviço de banco de dados SQL expõe as informações no portal de gerenciamento e nas exibições do sistema, para fornecer para você a comparação sugerida do novo serviço da camada e nível de desempenho para o seu banco de dados Web ou Business existente.
 
@@ -203,7 +203,7 @@ No gráfico, você pode ver a tendência de consumo do percentual médio de DTU 
 
 
 
-## 3. Por que o desempenho existente para meu banco de dados Web ou Business aponta para os níveis Premium mais altos?
+## 3\. Por que o desempenho existente para meu banco de dados Web ou Business aponta para os níveis Premium mais altos?
 
 Os bancos de dados Web e Business não tem nenhum valor específico de capacidade de recursos reservado para qualquer banco de dados individual. Além disso, não há nenhum mecanismo no local para os clientes dimensionarem o desempenho para cima ou para baixo para um banco de dados Web ou Business. Isso resulta na variação de um banco de dados Web e Business em qualquer lugar desde agonizantemente lento até níveis Premium. Esse intervalo variado de desempenho é *indevido* dependente do nível geral de consumo de recursos em qualquer ponto no tempo por outros bancos de dados dentro do ambiente de vários locatários que compartilham recursos.
 
@@ -216,7 +216,7 @@ Para compreender mais claramente as diferenças entre Web/Business e as camadas 
 Se o percentual DTU geral é extremamente alto, você deve começar analisando as métricas detalhadas da qual os DTUs consistem. Especificamente, detalhando pormenorizadamente o Log de E/S e uso de memória do banco de dados. Ele pode descobrir possíveis áreas onde você pode otimizar e reduzir o consumo de DTU.
 
 
-## 4. Ajuste sua carga de trabalho de banco de dados de acordo com um nível de desempenho inferior
+## 4\. Ajuste sua carga de trabalho de banco de dados de acordo com um nível de desempenho inferior
 Se a análise do histórico do uso de recursos do seu banco de dados indica que você deve atualizar para um nível de desempenho que é mais caro do que o desejado, você pode procurar em áreas em que o ajuste de desempenho adicional pode ajudar.
 
 Considerando seu conhecimento sobre os detalhes do seu aplicativo, se o uso do recurso parece muito alto em comparação com o que você espera que a carga de trabalho típica deve ser, então talvez você tenha algumas oportunidades em que o ajuste de desempenho pode trazer benefícios para seu aplicativo.
@@ -235,7 +235,7 @@ Além da manutenção de ajuste típica, como análise de índices, planos de ex
 
 
 
-## 5. Atualizar para uma nova camada de serviço/nível de desempenho
+## 5\. Atualizar para uma nova camada de serviço/nível de desempenho
 Depois de determinar a camada de serviço e nível de desempenho apropriados para seu banco de dados Web ou Business, há várias maneiras de atualizar o banco de dados para a nova camada:
 
 | Ferramenta de gerenciamento | Para alterar o nível de desempenho e da camada de serviço de um banco de dados|
@@ -248,7 +248,7 @@ Depois de determinar a camada de serviço e nível de desempenho apropriados par
 Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desempenho de banco de dados](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6. Monitoramento da atualização da nova camada de serviço e nível de desempenho
+## 6\. Monitoramento da atualização da nova camada de serviço e nível de desempenho
 O banco de dados SQL do Azure fornece informações sobre o andamento em operações de gerenciamento (como CREATE, ALTER, DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm_operation_status no banco de dados mestre do servidor lógico onde seu banco de dados atual está localizado [Consulte a documentação do sys.dm _operation _status]. (http://msdn.microsoft.com/library/azure/dn270022.aspx)Use o DMV do status da operação para determinar o progresso da operação de atualização do banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
 
     SELECT o.operation, o.state_desc, o.percent_complete
@@ -265,7 +265,7 @@ Se você usou o portal de gerenciamento para a atualização, uma notificação 
 Os níveis de desempenho são calibrados e controlados para fornecer os recursos necessários para executar sua carga de trabalho de banco de dados até os limites máximos permitidos para a sua camada de serviço e nível de desempenho selecionados (ou seja, o consumo de recursos é de 100%). Se a sua carga de trabalho está atingindo os limites em um dos limites de CPU/E/S de dados/E/S de Log, você continuará a receber os recursos no nível máximo permitido, mas provavelmente você observará latências maiores para suas consultas. O alcance de um desses limites não resultará em nenhum erro, mas apenas uma lentidão na carga de trabalho, a menos que a lentidão se torne tão grave que as consultas comecem a não serem executadas a tempo. Se você está atingindo os limites do máximo permitido de sessões/solicitações de usuários simultâneos (threads de trabalho), você verá [erro 10928 ou 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
 
-## 7. Monitoramento do banco de dados após a atualização
+## 7\. Monitoramento do banco de dados após a atualização
 Após a atualização do banco de dados Web/Business para a nova camada, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário. As seguintes etapas adicionais são recomendáveis para monitorar o banco de dados.
 
 
@@ -309,4 +309,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

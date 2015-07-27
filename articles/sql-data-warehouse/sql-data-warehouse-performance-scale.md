@@ -95,4 +95,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal do Azure]: http://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

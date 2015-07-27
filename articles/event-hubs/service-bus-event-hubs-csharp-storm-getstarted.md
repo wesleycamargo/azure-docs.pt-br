@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos Hubs de Evento" 
-	description="Siga este tutorial para começar a usar Hubs de eventos do Azure enviando eventos com C# e recebendo-os em um cluster do Apache Storm" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Introdução aos Hubs de Evento"
+	description="Siga este tutorial para começar a usar Hubs de eventos do Azure enviando eventos com C# e recebendo-os em um cluster do Apache Storm"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="article" 
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -32,15 +32,15 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio Express 2013 para Windows
 
-+ Um ambiente de desenvolvimento Java configurado para executar [Maven](http://maven.apache.org/). Para este tutorial, vamos pressupor o [Eclipse](https://www.eclipse.org/)
++ Um ambiente de desenvolvimento Java configurado para executar [Maven](http://maven.apache.org/). Para este tutorial, vamos considerar o [Eclipse](https://www.eclipse.org/)
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
 1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
-2. Clique em **Serviços de aplicativo**, em seguida, **Barramento de serviço**, em seguida, **Hub de eventos**e, em seguida, **Criação rápida**.
+2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
    	![][1]
 
@@ -48,15 +48,15 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][2]
 
-4. Clique no namespace que você acabou de criar (geralmente ***event hub name*-ns**).
+4. Clique no namespace que você acabou de criar (geralmente ***nome do hub de evento*-ns**).
 
    	![][3]
 
-5. Clique na guia **Hubs de Evento** parte superior da página e clique no Hub de Evento que acabou de criar.
+5. Clique na guia **Hubs de Eventos** no início da página e clique no Hub de Evento que acabou de criar.
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior da página, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos *Listen* e clique em **Salvar**.
+6. Clique na guia **Configurar** na parte superior, adicione uma regra chamada **SendRule** com direitos *Send*, adicione outra regra chamada **ReceiveRule** com direitos de *Listen* e clique em **Salvar**.
 
    	![][5]
 
@@ -98,8 +98,8 @@ Agora você está pronto para executar os aplicativos.
 
 <!-- Links -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Visão geral de Hubs de Eventos]: event-hubs-overview.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

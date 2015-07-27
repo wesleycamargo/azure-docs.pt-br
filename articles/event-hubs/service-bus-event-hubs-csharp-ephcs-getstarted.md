@@ -1,46 +1,46 @@
 <properties
-	pageTitle="Introdução aos Hubs de Eventos"
+	pageTitle="Introdução aos Hubs de Evento"
 	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure com o C# usando o EventProcessorHost"
-	services="service-bus"
+	services="event-hubs,service-bus"
 	documentationCenter=""
 	authors="fsautomata"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus"
+	ms.service="event-hubs"
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="hero-article"
-	ms.date="04/13/2015"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
-# Introdução aos Hubs de Eventos
+# Introdução aos Hubs de Evento
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introdução
 
-Os Hubs de Eventos são um serviço que você pode usar para processar grandes quantidades de dados de eventos de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Esse recurso de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a Internet das Coisas.
+Os Hubs de Eventos são um serviço que você pode usar para processar grandes quantidades de dados de eventos de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
 
-Este tutorial mostra como usar o portal de gerenciamento do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
+Este tutorial mostra como usar o portal de gerenciamento do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2013 ou Microsoft Visual Studio Express 2013 para Windows.
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## Criar um Hub de Evento
 
 1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
-2. Clique em **Serviços de aplicativo**, em seguida, **Barramento de serviço**, em seguida, **Hub de eventos**e, em seguida, **Criação rápida**.
+2. Clique em **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Hub de eventos** e, em seguida, **Criação rápida**.
 
    	![][1]
 
-3. Digite um nome para o Hub de Eventos, selecione a região desejada e clique em **Criar um novo Hub de Eventos**.
+3. Digite um nome para o Hub de Evento, selecione a região desejada e clique em **Criar um novo Hub de Evento**.
 
    	![][2]
 
@@ -48,11 +48,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][3]
 
-5. Clique na guia **Hubs de Eventos** parte superior da página e clique no Hub de Eventos que você acabou de criar.
+5. Clique na guia **Hubs de Eventos** no início da página e clique no Hub de Evento que acabou de criar.
 
    	![][4]
 
-6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada **SendRule** com direitos*Enviar*, adicione outra regra chamada **ReceiveRule** com direitos*Gerenciar, Enviar, Escutar* e clique em **salvar**.
+6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada **SendRule** com direitos *Enviar*, adicione outra regra chamada **ReceiveRule** com direitos *Gerenciar, Enviar, Escutar* e clique em **Salvar**.
 
    	![][5]
 
@@ -60,7 +60,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
    	![][6]
 
-Seu Hub de Eventos foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -83,8 +83,8 @@ Agora você está pronto para executar os aplicativos.
 
 Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e recebe dados, você pode passar para os seguintes cenários:
 
-- Um [aplicativo de exemplo que usa os Hubs de Eventos] completo.
-- O exemplo de [Expansão do processamento de eventos com Hubs de Eventos].
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento].
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos].
 - Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
 
 <!-- Images. -->
@@ -100,11 +100,11 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 
 <!-- Links -->
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[Host do processador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão Geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[aplicativo de exemplo que usa os Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Expansão do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

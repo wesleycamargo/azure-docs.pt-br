@@ -81,17 +81,17 @@ Eles são:
 - instrução return
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral sobre desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 
 <!--Article references-->
 [tabelas temporárias]: sql-data-warehouse-develop-temporary-tables.md
-[visão geral sobre desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/pt-br/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -20,4 +20,4 @@
 
 Agora, o seu hub de notificação está configurado para funcionar com o GCM e você tem as cadeias de conexão ao registrar seu aplicativo para receber notificações e enviar notificações por push.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -363,4 +363,4 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

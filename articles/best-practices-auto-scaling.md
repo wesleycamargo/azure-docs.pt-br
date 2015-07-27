@@ -133,4 +133,4 @@ Os padrões e diretrizes a seguir também podem ser relevantes a esse cenário a
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - A documentação [Bloco de Aplicativos de Dimensionamento Automático](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) e cenários-chave no MSDN.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

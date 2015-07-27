@@ -3,7 +3,7 @@
 	description="Saiba como aproveitar os componentes de business intelligence e usar o Power Query para Excel para acessar dados armazenados no Hadoop no HDInsight."
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 #Conectar o Excel ao Hadoop usando Power Query
@@ -86,4 +86,4 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
 	description="Saiba como usar o complemento New Relic para monitorar seu serviço móvel." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@ Em seguida, você deverá habilitar o monitoramento do New Relic de seu serviço
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

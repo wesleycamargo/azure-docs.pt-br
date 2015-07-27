@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
@@ -795,7 +795,7 @@ A seguir está a lista de analisadores com suporte, juntamente com uma breve des
 	</tr>
   	<tr>
 		<td>Coreano</td>
-		<td>ko.Microsfot</td>
+		<td>ko.Microsoft</td>
 		<td>
 		<ul>
 			<li>Lematizador expansivo (tematização)</li>
@@ -2107,4 +2107,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -20,7 +20,7 @@
 
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
-##<a id="assets"></a>Ativos\Armazenamento
+##<a id="assets"></a>Ativos\\Armazenamento
 
 ###Ativos
 
@@ -71,7 +71,7 @@ Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêiner
 
 Os [localizadores](https://msdn.microsoft.com/library/azure/hh974308.aspx) fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Uma política de acesso é usada para definir as permissões e a duração pela qual um cliente tem acesso a um determinado ativo. Os localizadores podem ter de uma a muitas relações com uma política de acesso, de modo que diferentes localizadores podem fornecer diferentes horas de início e tipos de conexão para diferentes clientes, ao mesmo tempo usando a mesma permissão e as mesmas configurações de duração; no entanto, devido a uma restrição de política de acesso compartilhado definida pelos serviços de armazenamento do Azure, você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo.
 
-Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure.
+Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\\do armazenamento do Azure.
 
 Observe que a permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador OrDemandOrigin.
 
@@ -79,13 +79,13 @@ Observe que a permissão de lista (AccessPermissions.List) não deve ser usada a
 
 Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Uma conta do Serviço de Mídia pode ser associada a uma ou mais contas de armazenamento. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total esteja abaixo de 500 TB por conta de armazenamento. Os Serviços de Mídia fornecem ferramentas de nível de SDK que permitem a você gerenciar várias contas de armazenamento e balancear a carga da distribuição de seus ativos durante o carregamento nessas contas com base em métricas ou na distribuição aleatória. Para saber mais, consulte Trabalhando com [Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-##Trabalhos \ tarefas
+##Trabalhos \\ tarefas
 
 Um [trabalho](https://msdn.microsoft.com/library/azure/hh974289.aspx) normalmente é usado para processar (por exemplo, indexar ou codificar) uma apresentação de áudio/vídeo. Se você estiver processando vários vídeos, crie um trabalho para cada vídeo a ser codificado.
 
 Um trabalho contém metadados sobre o processamento a ser realizado. Cada Trabalho contém uma ou mais [tarefas](https://msdn.microsoft.com/library/azure/hh974286.aspx) que especificam uma tarefa de processamento atômica, seus ativos de entrada e ativos de saída, um processador de mídia e suas configurações associadas. Tarefas em um trabalho podem ser encadeadas, em que o ativo de saída de uma tarefa é determinado como o ativo de entrada para a próxima tarefa. Dessa forma, um trabalho pode conter todo o processamento necessário para uma apresentação de mídia.
 
-##<a id="encoding"></a>Codificação\empacotamento
+##<a id="encoding"></a>Codificação\\empacotamento
 
 ###Codificação
 
@@ -242,4 +242,4 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

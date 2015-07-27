@@ -35,27 +35,9 @@ Este tutorial requer a versão 2.5.1 ou posterior do SDK do Azure para .NET.
 
 ## Criar um pacote de aplicativos de API
 
-1. Abra o Visual Studio 2013.
+Quando houver instruções para inserir um nome para o projeto, digite *ContactsList*.
 
-2. Selecione **Arquivo > Novo Projeto**.
-
-3. Selecione o modelo **Aplicativo Web ASP .NET**.
-
-4. Verifique se a caixa de seleção **Adicionar o Application Insights ao Projeto** está desmarcada.
-
-4. Nomeie o projeto *ContactsList*
-
-	![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
-
-5. Clique em **OK**.
-
-6. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo de projeto **Aplicativo de API do Azure**.
-
-	![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
-
-7. Clique em **OK** para criar o projeto.
-
-O Visual Studio cria um projeto de API Web configurado para implantação como um aplicativo de API.
+[AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../../includes/app-service-api-review-metadata.md)]
 
@@ -68,4 +50,4 @@ O Visual Studio cria um projeto de API Web configurado para implantação como u
 Seu aplicativo de API está pronto para ser implantado, e você pode seguir o tutorial [Implantar um Aplicativo de API](app-service-dotnet-deploy-api-app.md) para fazer isso.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

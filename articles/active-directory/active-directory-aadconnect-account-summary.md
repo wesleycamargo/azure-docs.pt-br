@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
 
@@ -27,7 +27,8 @@ O Assistente de Conexão do AD do Azure oferece dois caminhos diferentes com req
 
 * Em Configurações Personalizadas, oferecemos mais opções, mas há algumas situações em que você precisará ter as permissões corretas por conta própria.
 
-A tabela a seguir é um resumo das credenciais que são coletadas e para o que elas são usadas em uma instalação expressa.
+
+## As credenciais que são coletadas e para que são usadas em uma instalação do Express
 
 Página do assistente | Credenciais coletadas | Permissões necessárias| Usadas para 
 ------------- | ------------- |------------- |------------- |
@@ -37,16 +38,8 @@ ND|Credenciais de logon do usuário que executa o assistente| Administrador do s
 
 <br> <br>
 
-A tabela a seguir é um resumo das credenciais que são coletadas e para o que elas são usadas em uma instalação expressa.
 
-
-Página do assistente | Credenciais coletadas | Permissões necessárias| Usadas para 
-------------- | ------------- |------------- |------------- |
-Conectar-se ao AD do Azure| Credenciais de diretório do AD do Azure | Função de administrador global no AD do Azure | <li>Habilitar a sincronização no diretório do AD do Azure.</li> <li>Criação da conta do AD do Azure que será usada para operações de sincronização em andamento no AD do Azure.</li>
-Conectar-se ao AD DS | Credenciais do Active Directory local | Membro do grupo EA (Administradores de Empresa) no Active Directory| <li>Criação da conta do AD local que será usada para ler objetos e atributos do AD local para a operação de sincronização em andamento.</li> <li> Atribuir as permissões corretas e as configurações de controle de acesso para sincronização e sincronização de senha para a conta acima e o AD.</li> 
-ND|Credenciais de logon do usuário que executa o assistente| Administrador do servidor local|O assistente cria a conta do AD que será usada como a conta de logon do serviço de sincronização no computador local.
-
-<br> <br> A tabela a seguir é um resumo das credenciais que são coletadas e para o que elas são usadas em uma instalação expressa.
+## As credenciais que são coletadas e para que são usadas em uma instalação personalizada
 
 Página do assistente | Credenciais coletadas | Permissões necessárias| Usadas para 
 ------------- | ------------- |------------- |------------- |
@@ -61,7 +54,8 @@ Página da conta de serviço do AD FS, "Usar uma opção de conta de usuário de
 
 
 
-<br> <br> A tabela a seguir é um resumo das permissões que são necessárias para cenários específicos.
+<br> <br>
+## Permissões necessárias para o cenário específico
 
 Cenário |Permissão
 ------------- | ------------- |
@@ -71,7 +65,8 @@ Write-back de senha | <li>Alterar senha</li><li>Redefinir senha</li>
 Write-back de usuário, grupo e dispositivo|Permissões de gravação para os objetos de diretório e os atributos nos quais você deseja fazer "write-back"
 Logon único e AD FS| Permissões de administrador de domínio no domínio em que os servidores federados estão localizados.
 
-<br> <br> A tabela a seguir é um resumo das contas que são criados pelo Azure AD Connect.
+<br> <br>
+## Resumo das contas que são criadas pelo Azure AD Connect
 
 
 
@@ -95,4 +90,4 @@ AD FS: conta do GMSA (aadcsvc$)|Usuário de domínio|Conta de logon do serviço 
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

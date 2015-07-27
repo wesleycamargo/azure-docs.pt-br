@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE]Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](http://support.microsoft.com/kb/2990804)! Ele torna facílimas a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure ou [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Você pode proteger a comunicação entre o aplicativo Web e o navegador com HTTPS, que usa a criptografia SSL (Secure Socket Layer). Esse é o método de proteção de dados enviados pela Internet usado com maior frequência e que garante aos visitantes que as transações com o seu aplicativo são seguras. Este artigo descreve como configurar o HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure.
+Você pode proteger a comunicação entre o aplicativo Web e o navegador com HTTPS, que usa a criptografia SSL (Secure Socket Layer). Esse é o método de proteção de dados enviados pela Internet usado com maior frequência e que garante aos visitantes que as transações com o seu aplicativo são seguras. Este artigo descreve como configurar o HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure. Este artigo não aborda a autenticação de certificado de cliente. Para obter informações sobre isso, consulte [Como configurar a autenticação mútua TLS para aplicativos Web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS para o domínio *.azurewebsites.net
 
@@ -517,7 +517,7 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
@@ -541,4 +541,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

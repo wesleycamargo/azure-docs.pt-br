@@ -71,4 +71,4 @@ Observe que, neste momento, determinadas distribuições do Linux não têm supo
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho. 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

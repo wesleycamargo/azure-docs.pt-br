@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
+	ms.date="07/02/2015"
 	ms.author="banders"/>
 
 # Guia do recurso Insights Operacionais
@@ -71,6 +71,5 @@ Os dados em cada solução são analisados e apresentados no portal do Insights 
 
 ### Onde o Insights Operacionais está disponível?
 O Insights Operacionais do Microsoft Azure está hospedado nos Estados Unidos. Embora o idioma do Insights Operacionais seja o inglês, o serviço está disponível em vários outros mercados. Para saber mais, confira [Disponibilidade internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

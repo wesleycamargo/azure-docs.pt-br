@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@ O portal de visualização será executado sem problemas em PCs, Macs e tablets 
 ### Navegadores com suporte
 Há suporte para as versões mais recentes dos navegadores a seguir:
 
-- Internet Explorer (10 e superior)
+- Internet Explorer (11 e superior)
 - Safari (7 e superior)
 - Chrome (mais recente)
 - Firefox (mais recente)
 
 *Não há suporte para o Safari 6 e inferior. Se você estiver usando OS X, poderá usar o Chrome, o Firefox, ou atualizar para OS X Mavericks para obter o Safari 7.*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

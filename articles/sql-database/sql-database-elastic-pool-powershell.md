@@ -43,7 +43,7 @@ Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microso
 
 Os cmdlets para criação e gerenciamento de Bancos de Dados SQL do Azure e pools elásticos estão localizados no módulo do Gerenciador de Recursos do Azure. Quando você inicia o PowerShell do Azure, os cmdlets no módulo do Azure são importados por padrão. Para alternar para o módulo do Gerenciador de Recursos do Azure, use o cmdlet Switch-AzureMode.
 
-	PS C:\>Switch-AzureMode -Name AzureResourceManager
+	PS C:>Switch-AzureMode -Name AzureResourceManager
 
 Para obter informações detalhadas, confira [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
 
@@ -52,7 +52,7 @@ Para obter informações detalhadas, confira [Usando o Windows PowerShell com o 
 
 Agora que você está executando o módulo do Gerenciador de Recursos do Azure, terá acesso a todos os cmdlets necessários para criar e configurar um pool elástico. Primeiro você deve estabelecer o acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
-	PS C:\>Add-AzureAccount
+	PS C:>Add-AzureAccount
 
 Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
 
@@ -61,7 +61,7 @@ Após entrar, você verá algumas informações na tela, incluindo a ID usada pa
 
 Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**-SubscriptionName* *). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
-	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	PS C:>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Criar um grupo de recursos, servidor e regra de firewall
@@ -70,13 +70,13 @@ Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a p
 
 Se você já tiver um grupo de recursos, poderá ir até a próxima etapa ou executar o comando a seguir para criar um novo grupo de recursos:
 
-	PS C:\>New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
+	PS C:>New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### Criar um servidor 
 
 Os pools elásticos são criados nos servidores do Banco de Dados SQL do Azure. Se você já tiver um servidor, vá para a próxima etapa ou execute o seguinte comando para criar um novo servidor V12. Substitua ServerName pelo nome do servidor. Esse nome deve ser exclusivo para Servidores do SQL do Azure. Você poderá receber um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Os detalhes do servidor e o prompt do PowerShell serão exibidos após a criação do servidor. Você pode editar o comando a fim de usar qualquer local válido de sua escolha.
 
-	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	PS C:>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 Ao executar esse comando, uma janela é aberta solicitando um **Nome de usuário** e **Senha**. Essas não são suas credenciais do Azure, insira o nome de usuário e a senha que serão as credenciais de administrador que você deseja criar para o novo servidor.
 
@@ -87,7 +87,7 @@ Estabeleça uma regra de firewall para acessar o servidor. Execute o comando a s
 
 Se o servidor precisar permitir o acesso a outros serviços do Azure, adicione a opção **- AllowAllAzureIPs** que adicionará uma regra de firewall especial e permitirá que todo o tráfego do azure acesse o servidor.
 
-	PS C:\>New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	PS C:>New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
 Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
@@ -97,7 +97,7 @@ Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.
 Agora que você tem um grupo de recursos, um servidor e uma regra de firewall configurados, é possível acessar o servidor. O comando a seguir criará o pool elástico. Esse comando cria um pool que compartilha um total de 400 DTUs. É garantido que cada banco de dados no pool terá sempre 10 DTUs disponíveis (DatabaseDtuMin). Os bancos de dados individuais no pool podem consumir no máximo 100 DTUs (DatabaseDtuMax). Para obter explicações detalhadas sobre o parâmetro, confira [Pools elásticos do Banco de Dados SQL do Azure](sql-database-elastic-pool.md).
 
 
-	PS C:\>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+	PS C:>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ### Criar ou adicionar bancos de dados elásticos em um pool
@@ -110,7 +110,7 @@ O pool elástico criado na etapa anterior está vazio, ele não contém bancos d
 Para criar um novo banco de dados diretamente dentro de um pool elástico, use o cmdlet **New-AzureSqlDatabase** e defina o parâmetro **ElasticPoolName**.
 
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
@@ -121,11 +121,11 @@ Para mover um banco de dados existente para um pool elástico, use o cmdlet **Az
 
 Para a demonstração, crie um banco de dados que não esteja em um pool elástico.
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
+	PS C:>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Mova o banco de dados existente para o pool elástico.
 
-	PS C:\>Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Monitorando bancos de dados elásticos e pools elásticos
 
@@ -133,12 +133,12 @@ Mova o banco de dados existente para o pool elástico.
 
 Você pode acompanhar o status das operações de pool elástico, incluindo a criação e atualizações.
 
-	PS C:\> Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+	PS C:> Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ### Obter o status de movimentação de um banco de dados elástico para dentro e fora de um pool elástico
 
-	PS C:\>Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ### Obter métricas do consumo de recurso de um pool elástico
 
@@ -165,19 +165,19 @@ Esse cmdlet e a API limitam o número de linhas que podem ser recuperadas em uma
 
 Recupere as métricas:
 
-	PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+	PS C:> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Obtenha mais dias repetindo a chamada e acrescentando os dados:
 
-	PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+	PS C:> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
  
 Formate a tabela:
 
-    PS C:\> $table = Format-MetricsAsTable $metrics 
+    PS C:> $table = Format-MetricsAsTable $metrics 
 
 Exporte para um arquivo CSV:
 
-    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
+    PS C:> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
 
 ### Obter métricas do consumo de recursos de um banco de dados elástico
 
@@ -185,19 +185,19 @@ Essas APIs são as mesmas que as APIs (V12) atuais usadas para monitorar a utili
 
 * Para essa API as métricas recuperadas são expressas como uma porcentagem do databaseDtuMax (ou limite equivalente para a métrica subjacente, como CPU, ES etc) definido para esse pool elástico. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool elástico pai. 
 
-Obtenha as métricas: PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Obtenha as métricas: PS C:> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
 Obtenha mais dias se for necessário repetindo a chamada e acrescentando os dados:
 
-    PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+    PS C:> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
 
 Formate a tabela:
 
-    PS C:\> $table = Format-MetricsAsTable $metrics 
+    PS C:> $table = Format-MetricsAsTable $metrics 
 
 Exporte para um arquivo CSV:
 
-    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
+    PS C:> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
 ## Juntando as peças
@@ -234,4 +234,4 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

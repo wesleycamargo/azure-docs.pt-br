@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um novo gateway
@@ -24,7 +24,7 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Para o modelo completo, consulte [Aplicativo de API com novo modelo de gateway](../../templates/app-service-api-arm-new-gateway-provision/).
+Para o modelo completo, consulte [Aplicativo de API com novo modelo de gateway](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## O que você implantará
 
@@ -34,9 +34,28 @@ Neste modelo, você implantará:
 - novo gateway
 - novo plano de hospedagem do Serviço de Aplicativo
 
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
+
 ## Parâmetros
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+As configurações para o novo plano de hospedagem.
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
 ## Variáveis
 
@@ -72,7 +91,7 @@ Cria o plano de hospedagem de serviço para o aplicativo de API.
 
 Cria um aplicativo Web que hospeda o gateway.
 
-Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativo Web. Um link é definido entre o aplicativo responsável pela hospedagem e o gateway. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
+Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. Um link é definido entre o aplicativo Web que hospeda e o gateway. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
 
 
     {
@@ -107,7 +126,7 @@ Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notif
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -159,7 +178,7 @@ O aplicativo Web responsável pela hospedagem é definido como uma propriedade d
 
 Cria um aplicativo Web que hospeda o aplicativo de API.
 
-Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativo Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
+Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um aplicativo de API. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -272,13 +291,13 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### CLI do Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

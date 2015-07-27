@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
 # Criando e gerenciando trabalhos de banco de dados elástico
 
-O **pool de bancos de dados elásticos** fornece um modelo previsível para implantação de uma grande quantidade de bancos de dados. Você pode definir as DTUs (Unidades de Taxa de Transferência de Dados) para cada banco de dados a um custo de conjunto. O gerenciamento de objetos comuns nesses bancos de dados pode ser realizado mais facilmente usando **trabalhos de banco de dados elástico**. O serviço permite que você execute scripts T-SQL em todos os bancos de dados no pool em uma única operação. Por exemplo, você pode definir a política em cada banco de dados para permitir que somente uma pessoa com as credenciais corretas exiba os dados confidenciais.
+O **pool de bancos de dados elástico** fornece um modelo previsível para implantação de uma grande quantidade de bancos de dados. Você pode definir as DTUs (Unidades de Taxa de Transferência de Dados) para cada banco de dados a um custo de conjunto. O gerenciamento de objetos comuns nesses bancos de dados pode ser realizado mais facilmente usando **trabalhos de banco de dados elástico**. O serviço permite que você execute scripts T-SQL em todos os bancos de dados no pool em uma única operação. Por exemplo, você pode definir a política em cada banco de dados para permitir que somente uma pessoa com as credenciais corretas exiba os dados confidenciais.
 
 ## Pré-requisitos
 
@@ -29,7 +29,7 @@ O **pool de bancos de dados elásticos** fornece um modelo previsível para impl
 ## Criando trabalhos
 
 1. Na folha do pool de trabalhos de bancos de dados elásticos, clique em **Criar trabalho**.
-2. Digite o nome de usuário e a senha do administrador do banco de dados (criado na instalação dos Trabalhos) para o Banco de dados de controle de trabalhos (armazenamento de metadados para trabalhos).
+2. Digite o nome de usuário e a senha do administrador do banco de dados (criado na instalação dos Trabalhos) para o banco de dados de controle de trabalhos (armazenamento de metadados para trabalhos).
 
 	![Nomeie o trabalho, digite ou cole o código e clique em Executar][1]
 2. Na folha **Criar trabalho**, digite um nome para o trabalho.
@@ -110,4 +110,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

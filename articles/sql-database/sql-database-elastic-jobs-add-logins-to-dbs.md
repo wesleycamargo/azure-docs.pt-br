@@ -1,9 +1,8 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Como adicionar usuários a um pool de bancos de dados elásticos" 
 	description="Você deve adicionar um usuário com privilégios para cada banco de dados do pool" 
-	metaKeywords="azure sql database elastic databases credentials" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database"
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -18,7 +17,7 @@
 
 # Como adicionar usuários a um pool de bancos de dados elástico
 
-Os trabalhos de banco de dados elástico permitem que você execute o mesmo script em todos os bancos de dados de um [pool de bancos de dados elástico](sql-database-elastic-pool.md). Para executar o script, é necessário adicionar um usuário com as permissões apropriadas a cada banco de dados no pool. Para saber mais, confira [Gerenciando bancos de dados e logons no SQL do Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Adicionando usuários ao Banco de Dados SQL do Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+Os **trabalhos de banco de dados elástico** permitem que você execute o mesmo script em todos os bancos de dados de um [pool de bancos de dados elástico](sql-database-elastic-pool.md). Para executar o script, é necessário adicionar um usuário com as permissões apropriadas a cada banco de dados no pool. Para saber mais, confira [Gerenciando bancos de dados e logons no SQL do Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Adicionando usuários ao Banco de Dados SQL do Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Pré-requisitos
 * [Criar um pool de banco de dados elástico (visualização)](sql-database-elastic-pool-portal.md)
@@ -38,7 +37,7 @@ Os trabalhos de banco de dados elástico permitem que você execute o mesmo scri
 
 ## Próximas etapas
 
-Executar um trabalho no pool de banco de dados. Consulte [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
+Execute um trabalho no pool de banco de dados elástico. Consulte [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -46,4 +45,4 @@ Executar um trabalho no pool de banco de dados. Consulte [Criando e gerenciando 
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

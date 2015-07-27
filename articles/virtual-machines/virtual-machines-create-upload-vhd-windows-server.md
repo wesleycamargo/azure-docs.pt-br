@@ -53,7 +53,7 @@ Na máquina virtual na qual o sistema operacional foi instalado, conclua o proce
 
 1. Faça logon no sistema operacional.
 
-2. Abra uma janela de Prompt de comando como administrador. Altere o diretório para **%windir%\system32\sysprep** e, a seguir, execute `sysprep.exe`.
+2. Abra uma janela de Prompt de comando como administrador. Altere o diretório para **%windir%\\system32\\sysprep** e, a seguir, execute `sysprep.exe`.
 
 	![Abrir janela de Prompt de comando](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Etapa 4: carregar o arquivo .vhd]: #upload
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -47,7 +47,7 @@ O que você deseja | O que fazer | O que você ganha
 
 * Perguntas e problemas:
  * [Solucionar problemas][qna]
- * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/pt-br/home?forum=ApplicationInsights)
+ * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bugs:
  * [Conectar-se](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -73,4 +73,4 @@ O que você deseja | O que fazer | O que você ganha
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

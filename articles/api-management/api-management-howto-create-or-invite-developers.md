@@ -91,4 +91,4 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Configurar modelos de email]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

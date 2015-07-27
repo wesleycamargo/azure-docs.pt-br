@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

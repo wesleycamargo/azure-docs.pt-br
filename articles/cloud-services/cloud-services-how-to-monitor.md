@@ -80,7 +80,7 @@ Você pode receber alertas baseados nas métricas de monitoramento do serviço d
 
 1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), abra a página **Monitoramento** para o serviço de nuvem.
 
-	Por padrão, a tabela de métricas exibe um subconjunto de métricas disponíveis. A ilustração mostra as métricas detalhadas padrão para um serviço de nuvem, que estão limitadas à contador de desempenho de memória\MBytes disponíveis, com os dados agregados à nível de função. Use **Adicionar Métricas** para selecionar métricas agregadas e de nível de função adicionais para monitorar o Portal de Gerenciamento.
+	Por padrão, a tabela de métricas exibe um subconjunto de métricas disponíveis. A ilustração mostra as métricas detalhadas padrão para um serviço de nuvem, que estão limitadas à contador de desempenho de memória\\MBytes disponíveis, com os dados agregados à nível de função. Use **Adicionar Métricas** para selecionar métricas agregadas e de nível de função adicionais para monitorar o Portal de Gerenciamento.
 
 	![Exibição detalhada](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -124,7 +124,7 @@ Para exibir os contadores de desempenho personalizados no portal, você precisa 
 2. Navegue pelo caminho do blob usando o padrão **DeploymentId/RoleName/RoleInstance** para localizar a configuração para sua instância de função. 
 
 	![Gerenciador de Armazenamento do Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Baixe o arquivo de configuração em sua instância de função e atualize-o para incluir todos os contadores de desempenho personalizados. Por exemplo, para monitorar *Bytes de gravação de disco/s* para a *unidade C* adicione o seguinte sob o nó **PerformanceCounters\Subscriptions**
+3. Baixe o arquivo de configuração em sua instância de função e atualize-o para incluir todos os contadores de desempenho personalizados. Por exemplo, para monitorar *Bytes de gravação de disco/s* para a *unidade C* adicione o seguinte sob o nó **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@ Por exemplo, as tabelas a seguir armazenariam os dados agregados do monitorament
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

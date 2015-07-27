@@ -111,7 +111,7 @@ Quando cria um serviço de nuvem, um serviço de armazenamento ou um grupo de af
 - Oeste dos EUA
 - Leste dos EUA
 
-Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar locais como enumerações usando a classe <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
+Nos exemplos de código que seguem, os locais são passados para métodos como cadeias de caracteres. No entanto, você também pode passar locais como enumerações usando a classe <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Por exemplo, em vez de passar "Oeste dos EUA" para um método que aceita um local, você pode passar <code>Locations::WEST_US</code>.
 
 ## Como: criar um serviço de nuvem
 
@@ -555,4 +555,4 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 
 [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

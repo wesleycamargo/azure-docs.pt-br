@@ -61,4 +61,4 @@ Neste artigo, você aprendeu a usar io.js com Aplicativos Web do Serviço de Apl
 [Script de Implantação io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -28,4 +28,4 @@
 
 <sup>1</sup>Cada serviço de nuvem com funções de trabalho/Web pode ter duas implantações, uma para produção e uma de preparo. Observe também que esse limite se refere ao número de funções distintas (configuração) e não ao número de instâncias por função (escala).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

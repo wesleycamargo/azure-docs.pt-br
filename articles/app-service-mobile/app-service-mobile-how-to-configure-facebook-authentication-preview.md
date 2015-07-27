@@ -77,4 +77,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -90,4 +90,4 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

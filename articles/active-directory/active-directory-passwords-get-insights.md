@@ -526,7 +526,7 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 **Recursos adicionais**
 
 
-* [O que é gerenciamento de senhas](active-directory-passwords.md)
+* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
 * [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
 * [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
 * [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
@@ -543,4 +543,4 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

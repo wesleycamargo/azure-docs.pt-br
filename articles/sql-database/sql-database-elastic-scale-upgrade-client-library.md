@@ -1,8 +1,6 @@
-<properties 
-	title="Upgrade to the latest elastic database client library" 
+<properties  
 	pageTitle="Atualizar para a biblioteca de cliente de banco de dados elástico mais recente" 
 	description="Atualizar instruções usando o PowerShell e C#" 
-	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -50,7 +48,7 @@ Siga a sequência abaixo para atualizar seus aplicativos, o banco de dados do Ge
 
 4. Baixe o scriptlet da atualização de clientes de banco de dados elástico do [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9) e salve-o na mesma pasta que contém a DLL.
 
-5. Nessa pasta, execute "PowerShell .\upgrade.ps1" no prompt de comando e siga os prompts.
+5. Nessa pasta, execute "PowerShell .\\upgrade.ps1" no prompt de comando e siga os prompts.
  
 ***Opção 2: Atualizar os metadados usando C#***
 
@@ -96,4 +94,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

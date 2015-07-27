@@ -117,9 +117,7 @@ Uma conta de armazenamento pode conter qualquer número de filas. Uma fila pode 
 
 ## Armazenamento de arquivos (visualização)
 
-Muitos aplicativos herdados dependem de compartilhamentos de arquivos, e essa dependência complicou a mudança desses aplicativos para a nuvem. O armazenamento de arquivo oferece compartilhamentos de arquivo baseados em nuvem, de modo que você pode migrar aplicativos herdados para o Azure rapidamente e sem regravações caras.
-
-Aplicativos executados em máquinas virtuais do Azure ou em serviços de nuvem podem montar um compartilhamento de armazenamento de arquivo para acessar dados de arquivos, assim como um aplicativo de área de trabalho montaria um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos podem montar e acessar o compartilhamento de armazenamento de arquivo simultaneamente.
+O armazenamento de arquivos do Azure oferece compartilhamentos de arquivo SMB 2.1 baseados em nuvem, de modo que você pode migrar aplicativos herdados que recorrem aos compartilhamentos de arquivo para o Azure rapidamente e sem regravações caras. Com o armazenamento de arquivos do Azure, os aplicativos executados em máquinas virtuais do Azure ou serviços de nuvem podem montar um compartilhamento de arquivos na nuvem, exatamente como um aplicativo de desktop monta um compartilhamento SMB típico. Qualquer quantidade de componentes de aplicativos pode montar e acessar o compartilhamento de armazenamento de arquivos simultaneamente.
 
 Uma vez que um compartilhamento de armazenamento de Arquivo é um compartilhamento de arquivo SMB 2.1 padrão, aplicativos executados no Azure podem acessar dados no compartilhamento por meio de APIs E/S de sistemas de arquivos. Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Profissionais de TI podem usar cmdlets do PowerShell para criar, montar e gerenciar compartilhamentos de armazenamento de Arquivo como parte da administração de aplicativos Azure.
 
@@ -226,4 +224,4 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Fila no Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -77,4 +77,4 @@ Para adicionar os controles de SignIn/SignOut à sua visualização, use a visua
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

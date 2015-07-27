@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Detectar e diagnosticar falhas em aplicativos da Windows Store e Windows Phone com o Application Insights
@@ -21,7 +21,7 @@
 
 Se os usuários experienciam falhas em seu aplicativo, você gostaria de saber a respeito rapidamente e obter detalhes sobre o que aconteceu. Com o Application Insights, você pode monitorar a frequência com que os falhas ocorrem, obter alertas quando elas ocorrem e investigar os relatórios de incidentes individuais.
 
-"Falha" significa que o aplicativo é encerrado devido a uma exceção não detectada. Se seu aplicativo captura uma exceção, você pode relatá-la com a API TrackException() mas continuar em execução. Nesse caso, ele não será registrado como uma falha.
+"Falha" significa que o aplicativo é encerrado devido a uma exceção não detectada. Se seu aplicativo capturar uma exceção, você pode relatá-la com a [API TrackException][apiexceptions] e continuar em execução. Nesse caso, ele não será registrado como uma falha.
 
 
 ## Monitorar frequência de falha
@@ -80,6 +80,8 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 
 [Detectar, realizar triagem e diagnosticar problemas com o Application Insights][detect]
 
+[API do Application Insights][api]
+
 [Capturar logs de diagnóstico][trace]
 
 [Solucionar problemas](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@ Se você compilar na configuração Liberar, os eventos serão armazenados no di
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

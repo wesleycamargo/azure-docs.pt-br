@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Ouvinte e Conector HTTP" 
-   description="Usando o ouvinte HTTP e a ação de HTTP em seu aplicativo lógico" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Ouvinte e Conector HTTP"
+   description="Usando o ouvinte HTTP e a ação de HTTP em seu aplicativo lógico"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="prkumar"/>
 
 
@@ -88,11 +88,4 @@ A saída da ação HTTP são os cabeçalhos e o corpo, que podem ser usados down
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-
-
-
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

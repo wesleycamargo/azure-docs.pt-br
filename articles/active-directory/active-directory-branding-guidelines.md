@@ -96,4 +96,4 @@ Se seu aplicativo oferecer suporte ao Azure AD e a contas da Microsoft, você pr
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

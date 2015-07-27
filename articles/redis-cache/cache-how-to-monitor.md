@@ -221,4 +221,4 @@ Para obter mais informações sobre os alertas no Azure, consulte [Receber notif
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

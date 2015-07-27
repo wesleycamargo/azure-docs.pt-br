@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/01/2015" 
 	ms.author="garye"/>
 
 
@@ -27,7 +27,7 @@ Este guia fornece soluções para alguns desafios encontrados com frequência qu
 
 Quando você cria um novo espaço de trabalho do Aprendizado de Máquina, a ID que você insere no campo PROPRIETÁRIO DO ESPAÇO DE TRABALHO deve ser uma conta da Microsoft válida (anteriormente conhecida como Windows Live ID), por exemplo, john-contoso@live.com ou john-contoso@hotmail.com. Não pode ser uma conta que não seja da Microsoft, como seu e-mail corporativo. Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com).
 
-Observe que a conta usada para entrar no portal do Azure para criar o espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho, a menos que você especifique essa conta como proprietária. Para abrir um espaço de trabalho no Estúdio de Aprendizado de Máquina, você deve estar conectado à Conta da Microsoft que foi definida como proprietária do espaço de trabalho ou precisa receber um convite do proprietário para ingressar no espaço de trabalho. No entanto, no portal do Azure, você pode *gerenciar* o espaço de trabalho, o que inclui a capacidade de alterar o proprietário e configurar o acesso.
+Observe que a conta usada para entrar no portal do Azure para criar o espaço de trabalho não tem automaticamente permissão para *abrir* esse espaço de trabalho, a menos que você especifique essa conta como proprietária. Para abrir um espaço de trabalho no Estúdio de Aprendizado de Máquina, você deve estar conectado à Conta da Microsoft que foi definida como proprietária do espaço de trabalho ou precisa receber um convite do proprietário para ingressar no espaço de trabalho. No entanto, no portal do Azure, você pode *gerenciar* o espaço de trabalho, o que inclui a capacidade de alterar o proprietário e configurar o acesso.
 
 Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure].
 
@@ -77,4 +77,4 @@ Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simple
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

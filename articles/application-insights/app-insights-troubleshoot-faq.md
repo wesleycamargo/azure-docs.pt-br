@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # Solução de problemas e perguntas - Application Insights para ASP.NET
@@ -128,7 +128,7 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 + Na página Visão Geral, clique no bloco Pesquisa para abrir o Diagnóstico de Pesquisa. Os dados aparecem aqui pela primeira vez.
 + Clique no botão Atualizar. Na versão atual, o conteúdo de uma lâmina não é atualizado automaticamente.
 + No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
-+ Verifique também o [nosso blog de status](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Verifique também o [nosso blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
 + Em seu firewall, você terá que abrir as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
 + Se você tiver que usar um proxy para envio fora de sua rede corporativa, defina [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) em Web.config
 + Windows Server 2008: certifique-se de ter instalado as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -232,4 +232,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

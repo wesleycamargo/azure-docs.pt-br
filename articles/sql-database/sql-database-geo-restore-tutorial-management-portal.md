@@ -38,7 +38,7 @@ Este tutorial mostra como recuperar um banco de dados do SQL Azure usando a rest
 
 * As camadas de serviço da Web e Business Edition não oferecem suporte a restauração geográfica.
  
-	* Se você tiver um banco de dados Web ou Business Edition, você pode usar cópia de banco de dados para obter uma cópia transacional consistente do banco de dados e, em seguida, exportar o banco de dados copiado para uma conta de armazenamento do Microsoft Azure. Para obter mais informações, consulte [Como: Usar cópia de banco de dados (banco de dados do SQL Azure)](http://msdn.microsoft.com/library/azure/ff951631.aspx) e [Como: Usar o serviço de importação e exportação no banco de dados do SQL Azure](http://msdn.microsoft.com/library/azure/hh335292.aspx).
+	* Se você tiver um banco de dados Web ou Business Edition, você pode usar cópia de banco de dados para obter uma cópia transacional consistente do banco de dados e, em seguida, exportar o banco de dados copiado para uma conta de armazenamento do Microsoft Azure. Para obter mais informações, consulte [Como: usar cópia de banco de dados (banco de dados do SQL Azure)](http://msdn.microsoft.com/library/azure/ff951631.aspx) e [Como: usar o serviço de importação e exportação no Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/hh335292.aspx).
 
 	* A Web e Business Editions serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx).
 
@@ -80,4 +80,4 @@ Para obter mais informações, consulte o seguinte:
 
 [Restauração geográfica do banco de dados do SQL Azure (blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

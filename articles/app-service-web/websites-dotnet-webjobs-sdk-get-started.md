@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Criar um Trabalho Web do .NET no Serviço de Aplicativo do Azure
@@ -165,7 +165,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 4. Abra o arquivo *App.config* no projeto ContosoAdsWebJob.
 
-	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -238,6 +238,14 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	A URL completa será composta pelo que você inserir aqui mais .azurewebsites.net (conforme mostrado ao lado da caixa de texto **Nome do aplicativo Web**). Por exemplo, se o nome do aplicativo Web for ContosoAds, a URL será ContosoAds.azurewebsites.net.
 
+9. Na lista suspensa [Plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), escolha **Criar novo plano de Serviço de Aplicativo**.
+
+11. Insira um nome para o plano de Serviço de Aplicativo, como ContosoAdsPlan.
+
+9. Na lista suspensa [Grupo de recursos](../resource-group-overview.md), escolha **Criar novo grupo de recursos**.
+
+11. Insira um nome para o grupo de recursos, como ContosoAdsGroup.
+
 9. Na lista suspensa **Região**, escolha a mesma região selecionada para a conta de armazenamento.
 
 	Essa configuração especifica em qual datacenter do Azure seu aplicativo Web será executado. Manter o aplicativo Web e a conta de armazenamento no mesmo datacenter minimiza a latência e os encargos de saída de dados.
@@ -245,6 +253,8 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 9. Na lista suspensa **Servidor de banco de dados**, escolha **Criar novo servidor**.
 
 	Se a assinatura já tiver um servidor, você poderá selecioná-lo da lista suspensa.
+
+1. Insira um nome para o servidor de banco de dados, como ContosoAdsServer.
 
 1. Insira um **Nome de usuário do banco de dados** e uma **Senha do banco de dados**.
 
@@ -280,7 +290,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	É possível ignorar o aviso sobre a não publicação de nenhum banco de dados. O Entity Framework Code First criará o banco de dados. Ele não precisa ser publicado.
 
-	A janela de visualização mostra que os arquivos de configuração e binários do projeto Trabalho Web serão copiados para a pasta *app_data\jobs\continuous* do aplicativo Web.
+	A janela de visualização mostra que os arquivos de configuração e binários do projeto Trabalho Web serão copiados para a pasta *app_data\\jobs\\continuous* do aplicativo Web.
 
 	![Arquivos de Trabalhos Web na janela de visualização](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -308,7 +318,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 	
 9. Clique em **Salvar**.
 
-	![Cadeias de conexão no portal de gerenciamento](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Cadeias de conexão no portal do Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. No **Gerenciador de Servidores**, clique com o botão direito do mouse no aplicativo Web e, em seguida, clique em **Parar Aplicativo Web**.
 
@@ -331,7 +341,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 
 ### Veja o painel SDK de Trabalhos Web
 
-1. No Portal do Azure, selecione seu aplicativo Web.
+1. No [Portal do Azure](https://manage.windowsazure.com), selecione seu aplicativo Web.
 
 2. Clique na guia **Trabalhos Web**.
 
@@ -349,7 +359,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 
 	O botão **Função de Repetição**, nesta página, faz a estrutura do SDK de Trabalhos Web chamar a função novamente e dá uma chance de primeiro alterar os dados passados para a função.
 
->[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No Portal de Gerenciamento do Azure, acesse a guia **Painel** para seu aplicativo Web e depois clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
+>[AZURE.NOTE]Quando terminar os testes, exclua o aplicativo Web e a instância do Banco de Dados SQL. O aplicativo Web é gratuito, mas a instância do Banco de Dados SQL e a conta de armazenamento acumulam encargos (mínimos, devido ao tamanho reduzido). Além disso, se deixar o aplicativo Web em execução, qualquer pessoa que encontrar a URL poderá criar e exibir anúncios. No Portal do Azure, acesse a guia **Painel** de seu aplicativo Web e clique no botão **Excluir** na parte inferior da página. Em seguida, é possível marcar uma caixa de seleção para excluir a instância do Banco de Dados SQL ao mesmo tempo. Se apenas deseja evitar que outros acessem temporariamente o aplicativo Web, em vez disso, clique em **Parar**. Nesse caso, os encargos continuarão acumulando para o Banco de Dados SQL e a conta de armazenamento. Você pode seguir um procedimento semelhante para excluir o banco de dados SQL e a conta de armazenamento quando não precisar mais dela.
 
 ### Habilitar o AlwaysOn para processos de longa duração
 
@@ -469,9 +479,9 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs* 
-	- Na pasta *Views\Shared*: o arquivo <em>_Layout.cshtml</em>. 
-	- Na pasta *Views\Home*: *Index.cshtml*. 
-	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
+	- Na pasta *Views\\Shared*: o arquivo <em>_Layout.cshtml</em>. 
+	- Na pasta *Views\\Home*: *Index.cshtml*. 
+	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
 
@@ -483,7 +493,9 @@ Agora é possível compilar, executar e implantar o aplicativo conforme instruí
 
 ## <a id="code"></a>Examinar o código do aplicativo
 
-As seções a seguir explicam o código relacionado ao trabalho com os blobs e as filas do SDK de Trabalhos Web e do Armazenamento do Azure. Para o código específico do SDK de Trabalhos Web, consulte a seção [Program.cs](#programcs).
+As seções a seguir explicam o código relacionado ao trabalho com os blobs e as filas do SDK de Trabalhos Web e do Armazenamento do Azure.
+
+> **Observação:** para o código específico do SDK do WebJobs, consulte [Program.cs e Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -604,9 +616,9 @@ Um código semelhante obtém uma referência para a fila *blobnamerequest* e cri
 
 O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
+O arquivo *Views\\Home\\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -695,7 +707,7 @@ Este é o código que exclui os blobs quando você exclui um anúncio:
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
 
 O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio:
 
@@ -705,7 +717,7 @@ O arquivo *Details.cshtml* exibe a imagem em tamanho real:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml e Edit.cshtml
 
 Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
@@ -785,7 +797,7 @@ Na versão de Serviço de Nuvem do aplicativo, a ID de registro é a única info
 
 ### Usando o SDK de Trabalhos Web fora de Trabalhos Web
 
-Um programa que usa o SDK de Trabalhos Web não precisa ser executado no Azure em um Trabalho Web. Ele pode ser executado localmente e também pode ser executado em outros ambientes, como em uma função de trabalho do serviço de nuvem ou um serviço Windows. No entanto, só é possível acessar o painel do SDK de Trabalhos Web por meio de um aplicativo Web do Azure. Para usar o painel, é preciso conectar o aplicativo Web à conta de armazenamento que você está usando ao definir a cadeia de conexão AzureWebJobsDashboard na guia **Configurar** do portal de gerenciamento. Em seguida, você pode chegar ao Painel usando a seguinte URL:
+Um programa que usa o SDK de Trabalhos Web não precisa ser executado no Azure em um Trabalho Web. Ele pode ser executado localmente e também pode ser executado em outros ambientes, como em uma função de trabalho do serviço de nuvem ou um serviço Windows. No entanto, só é possível acessar o painel do SDK de Trabalhos Web por meio de um aplicativo Web do Azure. Para usar o painel, é preciso conectar o aplicativo Web à conta de armazenamento que você está usando definindo a cadeia de conexão AzureWebJobsDashboard na guia **Configurar** do portal do Azure. Em seguida, você pode chegar ao Painel usando a seguinte URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -799,7 +811,6 @@ Para obter mais informações, consulte [Recursos recomendados para Trabalhos We
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

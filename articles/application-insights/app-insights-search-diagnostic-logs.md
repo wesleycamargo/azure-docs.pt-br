@@ -295,4 +295,4 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

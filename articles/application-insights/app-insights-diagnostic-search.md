@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Uso de Pesquisa de diagnóstico no Application Insights
@@ -81,6 +81,12 @@ Neste exemplo, está claro que a solicitação `Reports/Employees` resulta na ma
 
 Além disso, se você quiser ver também quais outros eventos estavam acontecendo durante esse tempo, você pode verificar **Incluir eventos com propriedades indefinidas**.
 
+## Remover o tráfego de testes da Web e de bot
+
+Use o filtro **Tráfego real ou sintético** e marque **Real**.
+
+Você também pode filtrar por **Origem do tráfego sintético**.
+
 ## Inspecionar ocorrências individuais
 
 Adicione esse nome de solicitação para o conjunto de filtros e, em seguida, você poderá inspecionar ocorrências individuais daquele evento.
@@ -89,7 +95,7 @@ Adicione esse nome de solicitação para o conjunto de filtros e, em seguida, vo
 
 Para eventos de solicitação, os detalhes mostram as exceções ocorridas enquanto a solicitação estava em processamento.
 
-Clique em uma exceção para ver seus detalhes.
+Clique em uma exceção para ver seus detalhes, incluindo o rastreamento de pilha.
 
 ![Clique em uma exceção](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -192,4 +198,4 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

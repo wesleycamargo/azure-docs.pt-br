@@ -3,7 +3,7 @@
 	description="Descreve os dois tipos diferentes de balanceamento de carga com suporte do Azure: Balanceador de carga para serviços em nuvem e o Azure Traffic Manager para o tráfego do cliente." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="cherylmc" 
+	authors="joaoma" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
-	ms.author="cherylmc"/>
+	ms.date="06/16/2015" 
+	ms.author="joaoma"/>
 
 
 # Balanceamento de carga para Serviços de infraestrutura do Azure#
@@ -36,7 +36,7 @@ O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga 
 - **Desempenho**: use este método quando houver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade “mais próximo” em termos de menor latência.
 - **Round Robin:** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
 
-Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 A seguinte imagem mostra um exemplo de método de balanceamento de carga Round Robin para distribuir tráfego entre diferentes serviços de nuvem.
 
@@ -49,7 +49,7 @@ O processo básico é o seguinte:
 3.	O Gerenciador de Tráfego escolhe o próximo serviço de nuvem na lista do Round Robin e envia de volta o nome DNS. O servidor DNS do cliente da Internet soluciona o nome para um endereço IP e o envia para o cliente da Internet.
 4.	O cliente da Internet se conecta ao serviço de nuvem escolhido pelo Gerenciador de Tráfego.
 
-Para obter mais informações, consulte [Gerenciador de Tráfego](http://msdn.microsoft.com/library/azure/hh745750.aspx).
+Para obter mais informações, consulte [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).
 
 ## Balanceamento de carga do Azure para máquinas virtuais ##
 
@@ -61,7 +61,7 @@ A figura a seguir mostra um ponto de extremidade do balanceamento de carga para 
 
 ![loadbalancing](./media/virtual-machines-load-balance/LoadBalancing.png)
 
-Para obter mais informações, consulte [Balanceador de carga do Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceador de carga](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obter mais informações, consulte [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md). Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceador de carga](../load-balancer/load-balancer-internet-getstarted.md).
 
 O Azure também pode balancear a carga dentro de um serviço de nuvem ou rede virtual. Isso é conhecido como balanceamento de carga interno e pode ser usado das seguintes maneiras:
 
@@ -77,10 +77,10 @@ A seguinte imagem mostra um exemplo de um ponto de extremidade de carga balancea
 
 ## Próximas etapas
 
-Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](../load-balancer/load-balancer-internal-getstarted.md).
 
-Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx).
+Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](../load-balancer/load-balancer-internal-overview.md).
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

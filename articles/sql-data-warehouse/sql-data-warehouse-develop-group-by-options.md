@@ -174,7 +174,7 @@ Dividir o código em seções e gerar uma construção de loop, torna o código 
 Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
@@ -185,4 +185,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # Criar um novo recurso do Application Insights
@@ -55,20 +55,20 @@ Quando seu aplicativo tiver sido criado, uma nova folha será aberta. Nela você
 Para retornar a ele na próxima vez que fizer logon no Azure, procure pelo bloco de início rápido do aplicativo na Tela Inicial. Ou então, clique em Procurar para localizá-lo.
 
 
-## Copie a chave de instrumentação.
+## Copiar a chave de instrumentação
 
+A chave de instrumentação identifica o recurso que você criou. É preciso fornecê-la ao SDK.
 
-Você precisará dela em breve para direcionar os dados do SDK em seu aplicativo para o recurso que você acabou de criar.
+![Clique em Essentials, clique na Chave de Instrumentação, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
-![Clique em Propriedades, selecione a chave e pressione ctrl + C](./media/app-insights-create-new-resource/02-props.png)
+## Instalar o SDK em seu aplicativo
 
-## Configurar seu SDK
+Instale o SDK do Application Insights SDK no aplicativo. Esta etapa depende muito do tipo do seu aplicativo.
 
 Use a chave de instrumentação para configurar o [SDK instalado no seu aplicativo][start].
 
-Esta etapa depende muito do tipo de aplicativo com que você está trabalhando.
+O SDK inclui módulos padrão que enviam telemetria sem precisar escrever nenhum código. Para rastrear ações ou diagnosticar problemas mais detalhadamente, [use a API][api] para enviar sua própria telemetria.
 
-Em alguns casos, você deve instalar os módulos padrão que enviar telemetria sem precisar escrever nenhum código. Em todos os casos, você pode [usar a API][api] para enviar sua própria telemetria.
 
 ## <a name="monitor"></a>Consultar os dados de telemetria
 
@@ -92,4 +92,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

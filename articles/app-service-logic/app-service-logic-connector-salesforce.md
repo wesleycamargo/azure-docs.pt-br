@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector do Salesforce" 
-   description="Como usar o Conector do Salesforce" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector do Salesforce"
+   description="Como usar o Conector do Salesforce"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Usando o Conector do Salesforce em seu aplicativo lógico#
 
 Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de dados e oferecem conectores para obter e processar dados como uma parte do fluxo. O conector permite criar e modificar entidades diferentes, como Contas, Clientes Potenciais etc. A seguir, os cenários de integração comum que envolvem o Salesforce.
 
-- A Sincronização de Conta entre o Salesforce e sistemas de ERP, como SAP e QuickBooks	
+- A Sincronização de Conta entre o Salesforce e sistemas de ERP, como SAP e QuickBooks
 
 - Fluxo da ordem ao caixa do Salesforce para sistemas de ERP
 
 
 Como parte das configurações do pacote do conector, o usuário pode especificar entidades que o conector pode gerenciar e os parâmetros de ações, entrada e saída são preenchidos dinamicamente. A seguir estão as diferentes ações disponíveis no Salesforce.
- 
+
 - Criar Entidade - Use esta ação para criar uma nova entidade do Salesforce, como Conta, Caso ou um Objeto Personalizado.
 
 - Atualizar Entidade - Use esta ação para atualizar uma entidade existente do Salesforce
@@ -133,7 +133,4 @@ Vamos criar um aplicativo lógico simples que cria uma conta no Salesforce e atu
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

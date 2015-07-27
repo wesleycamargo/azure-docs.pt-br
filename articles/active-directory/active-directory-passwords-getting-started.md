@@ -194,7 +194,7 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
 O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior. O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Para verificar a versão do Azure AD Sync
-1.	Navegue até **%ProgramFiles%\Azure Active Directory Sync**. 2.	Encontre o executável **ConfigWizard.exe**.
+1.	Navegue até **%ProgramFiles%\\Azure Active Directory Sync**. 2.	Encontre o executável **ConfigWizard.exe**.
 3.	Clique com o botão direito no executável e selecione a opção **Propriedades** no menu de contexto.
 4.	Clique na guia **Detalhes**.
 5.	Encontre o campo **Versão do arquivo**.
@@ -299,7 +299,7 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 * [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
 * [Como funciona o Gerenciamento de Senhas](active-directory-passwords-how-it-works.md)
 * [Personalizar o Gerenciamento de Senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de Gerenciamento de Senhas](active-directory-passwords-best-practices.md)
+* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
 * [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
 * [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
@@ -342,4 +342,4 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

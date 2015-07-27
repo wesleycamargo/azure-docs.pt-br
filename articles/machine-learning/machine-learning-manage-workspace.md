@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -51,10 +51,10 @@ Clique na guia **PAINEL**.
 No painel, você pode exibir o uso geral do espaço de trabalho e ter uma visão rápida das informações do espaço de trabalho.
 
 - O gráfico **COMPUTAR** mostra os recursos de computação que estão sendo usados pelo espaço de trabalho. Você pode alterar o modo de exibição para exibir valores relativos ou absolutos e pode alterar o período de tempo exibido no gráfico.
-- **Visão geral de uso** exibe o armazenamento do Azure que está sendo usado pelo espaço de trabalho. Observação: o monitoramento de armazenamento não está disponível durante a visualização pública do Aprendizado de Máquina do Azure.
+- **Visão geral de uso** exibe o armazenamento do Azure que está sendo usado pelo espaço de trabalho.
 - **Visão rápida** fornece um resumo das informações do espaço de trabalho e links úteis.
 
-> [AZURE.NOTE]O link **ABRIR NO ESTÚDIO** abre o Estúdio de Aprendizado de Máquina usando a Conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no portal do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
+> [AZURE.NOTE]O link **Entrar no Estúdio AM** abre o Estúdio de Aprendizado de Máquina usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no portal do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
 
 
 ## Para conceder ou suspender acesso para usuários ##
@@ -66,7 +66,7 @@ Na guia Configuração, você pode
 - Suspender o acesso ao espaço de trabalho do Aprendizado de Máquina clicando em NEGAR. Os usuários não poderão mais abrir o espaço de trabalho no Estúdio de Aprendizado de Máquina. Para restaurar o acesso, clique em PERMITIR.
 - Altere o proprietário do espaço de trabalho especificando uma Conta da Microsoft diferente. 
 
-Para gerenciar a quem tem acesso ao espaço de trabalho no Estúdio de Aprendizado de Máquina, clique em **ABRIR NO ESTÚDIO** (consulte a observação acima sobre **ABRIR NO ESTÚDIO**). Isso abre o espaço de trabalho no Estúdio de Aprendizado de Máquina. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para fornecer aos usuários acesso ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
+Para gerenciar quem tem acesso ao espaço de trabalho no Estúdio de Aprendizado de Máquina, clique em **Entrar no Estúdio AM** na guia **PAINEL** (consulte a observação acima sobre **Entrar no Estúdio AM**). Isso abre o espaço de trabalho no Estúdio de Aprendizado de Máquina. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para fornecer aos usuários acesso ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
 
 
 ## Para gerenciar os serviços Web neste espaço de trabalho
@@ -94,4 +94,4 @@ Você também pode publicar o serviço Web para o mercado de dados do Azure ness
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

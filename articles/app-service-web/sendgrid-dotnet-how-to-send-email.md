@@ -240,4 +240,4 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
   [entrega de e-mail transacional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

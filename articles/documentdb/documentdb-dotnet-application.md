@@ -17,7 +17,7 @@
 	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395809351"></a>Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
+#<a name="_Toc395809351"></a>Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
 
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo Web de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
 
@@ -53,18 +53,18 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
 1. No Visual Studio, no menu **Arquivo**, aponte para **Novo** e clique em **Projeto**.
 
-   A caixa de diálogo **Novo Projeto** aparecerá.
+   	A caixa de diálogo **Novo Projeto** aparecerá.
 2. No painel **Tipos de projeto**, expanda **Modelos**, **Visual C#**, **Web** e selecione **Aplicativo Web ASP.NET**.
 
-  ![Captura de tela da caixa de diálogo Novo Projeto com o tipo de projeto Aplicativo Web ASP.NET realçado](./media/documentdb-dotnet-application/image10.png)
+  	![Captura de tela da caixa de diálogo Novo Projeto com o tipo de projeto Aplicativo Web ASP.NET realçado](./media/documentdb-dotnet-application/image10.png)
 
-3. Na caixa **Nome**, digite o nome do projeto. Este tutorial usará o nome "todo". Se você optar por usar algum outro nome, sempre que este tutorial falar do namespace todo, será preciso ajustar os exemplos de código fornecidos para usar o nome de seu aplicativo. 
+3. Na caixa **Nome**, digite o nome do projeto. Este tutorial usará o nome "todo". Se você optar por usar algum outro nome, sempre que este tutorial falar do namespace todo, será preciso ajustar os exemplos de código fornecidos para usar o nome de seu aplicativo.
 
 4. Clique em **Procurar** para navegar até a pasta na qual você deseja criar o projeto e, em seguida, clique em **OK**.
 
-  A caixa de diálogo **Novo Projeto ASP.NET** aparecerá.
+  	A caixa de diálogo **Novo Projeto ASP.NET** aparecerá.
 
-  ![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/image11.png)
+  	![Captura de tela da caixa de diálogo Novo Projeto ASP.NET com o modelo MVC realçado e a caixa Hospedar na nuvem marcada](./media/documentdb-dotnet-application/image11.png)
 
 5. No painel de modelos, selecione **MVC**.
 
@@ -72,13 +72,13 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 
 7. Clique em **OK** e deixe o Visual Studio fazer isso realizando scaffolding do modelo ASP.NET MVC vazio.
 
-8. Se você optar por hospedá-lo na nuvem, verá pelo menos uma tela adicional pedindo para você fazer logon na conta do Azure e fornecer alguns valores do novo site. Forneça todos os valores adicionais e continue.
+8. Se você optar por hospedá-lo na nuvem, verá pelo menos uma tela adicional pedindo para você fazer logon na conta do Azure e fornecer alguns valores do novo site. Forneça os valores adicionais e continue.
 
-  Não escolhi "Servidor de banco de dados" aqui porque não estamos usando o Servidor do Banco de Dados SQL do Azure; vamos criar uma nova conta do Banco de Dados de Documentos do Azure posteriormente no Portal do Microsoft Azure.
+  	Não escolhi "Servidor de banco de dados" aqui porque não estamos usando o Servidor do Banco de Dados SQL do Azure; vamos criar uma nova Conta de Banco de Dados de Documentos do Azure posteriormente no portal de Visualização do Azure.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obter mais informações sobre como escolher um **plano do Serviço de Aplicativo** e um **grupo de Recursos**, consulte [Visão geral dos planos de Serviço de Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-  ![Captura de tela da caixa de diálogo Configurar Site do Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
+  	![Captura de tela da caixa de diálogo Configurar Site do Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Depois que o Visual Studio concluir a criação do aplicativo MVC de texto clichê, você terá um aplicativo ASP.NET vazio que poderá ser executado localmente.
 
@@ -90,26 +90,26 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
 
 1. O SDK .NET do Banco de Dados de Documentos é distribuído como um pacote NuGet. Para obter o pacote NuGet no Visual Studio, use o gerenciador de pacotes NuGet no Visual Studio ao clicar com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicar em **Gerenciar Pacotes NuGet**.
 
-  ![Captura de tela das opções do botão direito do mouse para o projeto no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/documentdb-dotnet-application/image21.png)
+  	![Captura de tela das opções do botão direito do mouse para o projeto no Gerenciador de Soluções, com Gerenciar Pacotes NuGet realçado.](./media/documentdb-dotnet-application/image21.png)
 
-    The **Manage NuGet Packages** dialog box appears.
+    A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
 
-2. Na caixa **Pesquisar Online**, digite ***Banco de Dados de Documentos do Azure***. 
+2. Na caixa **Pesquisar Online**, digite ***Banco de Dados de Documentos do Azure***.
     
     Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json.
 
-  ![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure realçada](./media/documentdb-dotnet-application/nuget.png)
+  	![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure realçada](./media/documentdb-dotnet-application/nuget.png)
 
-  Como alternativa, você pode usar o Console do Gerenciador de Pacotes para instalar o pacote. Para fazer isso, no menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**. No prompt, digite o seguinte.
+  	Como alternativa, você pode usar o Console do Gerenciador de Pacotes para instalar o pacote. Para fazer isso, no menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**. No prompt, digite o seguinte.
 
     	Install-Package Microsoft.Azure.DocumentDB
 
 3. Após o pacote ser instalado, sua solução do Visual Studio deverá se parecer com a seguinte, com duas novas referências adicionadas, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
 
-  ![Captura de tela das duas referências adicionadas ao projeto no Gerenciador de Soluções](./media/documentdb-dotnet-application/image22.png)
+  	![Captura de tela das duas referências adicionadas ao projeto no Gerenciador de Soluções](./media/documentdb-dotnet-application/image22.png)
 
 
-## <a name="_Toc395637763"></a>Etapa 4: configurar o aplicativo ASP.NET MVC
+##<a name="_Toc395637763"></a>Etapa 4: configurar o aplicativo ASP.NET MVC
  
 Agora vamos adicionar os modelos, as exibições e os controladores a este aplicativo MVC:
 
@@ -124,9 +124,9 @@ Vamos começar criando o **M** no MVC, o modelo.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar** e em **Classe**.
 
-  A caixa de diálogo **Adicionar Novo Item** aparecerá.
+  	A caixa de diálogo **Adicionar Novo Item** aparecerá.
 
-2. Nomeie a nova classe **Item.cs** e clique em **Adicionar**. 
+2. Nomeie a nova classe **Item.cs** e clique em **Adicionar**.
 
 3. Nesse novo arquivo **Item.cs**, adicione o seguinte depois da última *instrução using*.
 		
@@ -394,17 +394,17 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
 
 3. Estamos lendo alguns valores da configuração, por isso, abra o arquivo **Web.config** de seu aplicativo e adicione as linhas a seguir sob a seção `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. Agora atualize os valores de *endpoint* e *authKey* usando a folha Chaves do Portal do Azure. Use o **URI** da folha Chaves como o valor da configuração endpoint e use a **CHAVE PRIMÁRIA** ou a **CHAVE SECUNDÁRIA** da folha Chaves como o valor da configuração authKey.
+4. Agora atualize os valores de *endpoint* e *authKey* usando a folha Chaves do Portal de visualização do Azure. Use o **URI** da folha Chaves como o valor da configuração endpoint e use a **CHAVE PRIMÁRIA** ou a **CHAVE SECUNDÁRIA** da folha Chaves como o valor da configuração authKey.
 
 
-    That takes care of wiring up the DocumentDB repository, now let's add our application logic.
+    Isso trata de conectar o repositório do Banco de Dados de Documentos. Agora, vamos adicionar nossa lógica do aplicativo.
 
-5. A primeira coisa que desejamos fazer com um aplicativo de lista de tarefas pendentes é exibir os itens incompletos. Copie e cole o seguinte trecho de código em qualquer lugar na classe **DocumentDBRepository**.
+5. A primeira coisa que desejamos fazer com um aplicativo de lista de tarefas é exibir os itens incompletos. Copie e cole o seguinte trecho de código em qualquer lugar na classe **DocumentDBRepository**.
 
 	    public static IEnumerable<T> GetItems(Expression<Func<T, bool>> predicate) 
 	    {
@@ -447,7 +447,7 @@ Abra ***App_Start\\RouteConfig.cs***, encontre a linha que começa com "defaults
 
 Agora isso informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento que, em vez de **Home**, usa **Item** como controlador e o usuário **Índice** como exibição.
 
-Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições****Item****Índice**.
+Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\**Item**\\**Índice**.
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 
@@ -468,7 +468,7 @@ Vamos adicionar algum código a DocumentDBRepository e a ItemController para per
 
 	Este método simplesmente pega algum objeto passado para ele e persiste-o no Banco de Dados de Documentos.
 
-2. Abra o arquivo ItemController.cs e adicione o seguinte trecho de código à classe. É assim que o ASP.NET MVC passa a saber o que fazer para a ação **Criar**. Nesse caso, apenas renderize a exibição Create.cshtml associada criada anteriormente.
+2. Abra o arquivo ItemController.cs e adicione o seguinte trecho de código à classe. É assim que o ASP.NET MVC passa a saber o que fazer para a ação **Criar**. Nesse caso, basta renderizar a exibição de Create.cshtml associada criada anteriormente.
 
     	public ActionResult Create()
     	{ 
@@ -490,11 +490,11 @@ Vamos adicionar algum código a DocumentDBRepository e a ItemController para per
 			}   
 			return View(item);   
 		}
-	Esse código chama o DocumentDBRepository e usa o método CreateItemAsync para persistir o novo item da lista de tarefas pendentes no banco de dados.
+	Esse código chama o DocumentDBRepository e usa o método CreateItemAsync para manter o novo item de todo no banco de dados.
  
-	**Observação de segurança**: O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação intersite forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, consulte [Prevenindo solicitação intersite forjada][]. O código-fonte fornecido no [GitHub][] tem a implementação completa estabelecida.
+	**Nota de segurança**: O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação entre sites forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, consulte [Prevenindo solicitação intersite forjada][]. O código-fonte fornecido no [GitHub][] tem a implementação completa estabelecida.
 
-	**Observação de segurança**: Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][].
+	**Nota de segurança**: Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][].
 
 Isso conclui o código exigido para adicionar novos itens ao nosso banco de dados.
 
@@ -555,7 +555,7 @@ Existe uma última ação para realizarmos, que é adicionar a capacidade de edi
 					 
 		    Item item = (Item)DocumentDBRepository<Item>.GetItem(d => d.Id == id);
 		 	
-		    if (item == null)t
+		    if (item == null)
 		    {
 		        return HttpNotFound();
 		    }
@@ -564,9 +564,9 @@ Existe uma última ação para realizarmos, que é adicionar a capacidade de edi
 		}
 		
 	
-	O primeiro método lida com o Http GET que ocorrerá quando o usuário clicar no link **Editar** na exibição **Índice**. Esse método busca um Documento do Banco de Dados de [**Documentos**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) e o transfere para a exibição Editar.
+	O primeiro método lida com o Http GET que ocorrerá quando o usuário clicar no link **Editar** na exibição **Índice**. Esse método busca um [**Documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) do Banco de Dados de Documentos e o transfere para a exibição **Editar**.
 
-	Em seguida, a exibição **Editar** fará um Http Post para o **IndexController**. 
+	Em seguida, a exibição **Editar** fará um Http POST para o **IndexController**.
 	
 	O segundo método que adicionamos lida com isso transferindo objeto atualizado por meio do Banco de Dados de Documentos para que seja persistido no banco de dados.
 
@@ -598,7 +598,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
 
 4. Depois de testar o aplicativo, pressione Ctrl + F5 para parar a depuração do aplicativo. Você está pronto para implantar!
 
-## <a name="_Toc395637774"></a>Etapa 7: implantar o aplicativo nos Sites do Azure
+##<a name="_Toc395637774"></a>Etapa 7: implantar o aplicativo nos Sites do Azure
 
 Agora que você tem o aplicativo completo funcionando corretamente no Banco de Dados de Documentos, vamos implantar esse aplicativo Web nos Sites do Azure. Se você selecionou **Hospedar na nuvem** ao criar o projeto ASP.NET MVC vazio, o Visual Studio tornará essa ação muito fácil e fará a maior parte do trabalho.
 
@@ -612,13 +612,13 @@ Agora que você tem o aplicativo completo funcionando corretamente no Banco de D
 
 Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e iniciará um navegador no qual você poderá ver seu trabalho sendo executado no Azure!
 
-## <a name="_Toc395637775"></a>Próximas etapas
+##<a name="_Toc395637775"></a>Próximas etapas
 
 Parabéns! Você acabou de compilar seu primeiro aplicativo ASP.NET MVC usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
 
 Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs disponíveis na [Biblioteca .NET do Banco de Dados de Documentos](http://msdn.microsoft.com/library/azure/dn783362.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][].
 
-## <a id="GetProject"></a>Obter a solução no GitHub
+##<a id="GetProject"></a>Obter a solução no GitHub
 
 Se você prefere economizar tempo e deseja apenas compilar a solução de lista de tarefas pendentes completa, e não adicionar o código por conta própria, você está com sorte. A solução completa está disponível no GitHub e você pode compilá-la e implantá-la em poucos minutos usando as instruções a seguir.
 
@@ -630,17 +630,17 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 
 3. Para restaurar as referências ao SDK .NET do Banco de Dados de Documentos no Visual Studio 2013, clique com o botão direito do mouse na solução de lista de tarefas pendentes no **Gerenciador de Soluções** e clique em **Habilitar Restauração de Pacote NuGet**, o que restaurara as referências.
 
-4. Recupere os valores de **URI** e da **CHAVE PRIMÁRIA** ou da **CHAVE SECUNDÁRIA** da folha **Chaves** de sua conta do Banco de Dados de Documentos no [Portal do Azure](https://portal.azure.com/).
+4. Recupere os valores **URI** e **CHAVE PRIMÁRIA** ou **CHAVE SECUNDÁRIOA** da folha **Chaves** da sua conta do Banco de Dados de Documentos no [portal de Visualização do Azure](https://portal.azure.com/).
 
 	
 	Se você não tiver uma conta, consulte [Criar uma conta de banco de dados](documentdb-create-account.md) para configurar uma.
 
-	![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves](media/documentdb-dotnet-application/keys.png)
+	![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves](media/documentdb-dotnet-application/keys.png)
 
 5. No arquivo Web.config, atualize os valores padrão das chaves **endpoint** e **authKey**.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure classic portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure classic portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
 
 	- Copie o valor de **URI** da folha Chaves e cole-o na valor da propriedade **endpoint**. 
 	- Copie o valor da **CHAVE PRIMÁRIA** ou da **CHAVE SECUNDÁRIA** da folha **Chaves** e cole-o no valor da propriedade **authKey**.
@@ -656,6 +656,6 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Prevenindo solicitação intersite forjada]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

@@ -188,4 +188,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

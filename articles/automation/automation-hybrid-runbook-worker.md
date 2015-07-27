@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Runbook Workers Híbridos da Automação do Azure
@@ -21,11 +21,11 @@ Os Runbooks na Automação do Azure não podem acessar recursos no seu data cent
 
 Essa funcionalidade está ilustrada na imagem a seguir.
 
-![Visão geral do Runbook Worker Híbrido](./media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
+![Visão geral do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
 Você pode designar um ou mais computadores no seu data center para atuar como um Runbook Worker Híbrido e executar runbooks da Automação do Azure. Cada trabalhador exige um Agente de Gerenciamento Microsoft com uma conexão ao Azure Operational Insights e ao ambiente de runbook da Automação do Azure. O Operational Insights é usado somente para instalar e manter o agente de gerenciamento e para monitorar a funcionalidade do trabalhador. A entrega de runbooks e as instruções para executá-los são desempenhadas pela Automação do Azure.
 
-![Componentes do Runbook Worker Híbrido](./media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
+![Componentes do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components.png)
 
 Não há nenhum requisito de firewall de entrada para dar suporte a Runbook Workers Híbridos. O agente no computador local inicia todas as comunicações com a Automação do Azure na nuvem. Quando um runbook é iniciado, a Automação do Azure cria uma instrução que é recuperada pelo agente. O agente então puxa o runbook e todos os parâmetros antes de executá-lo. Ele também vai recuperar os [ativos](http://msdn.microsoft.com/library/dn939988.aspx) usados pelo runbook da Automação do Azure.
 
@@ -41,20 +41,20 @@ Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o
 
 Conclua as etapas a seguir para preparar o ambiente de Automação do Azure para Runbook Workers Híbridos.
 
-#### 1. Criar um espaço de trabalho do Azure Operational Insights
+#### 1\. Criar um espaço de trabalho do Azure Operational Insights
 Se você não tiver um espaço de trabalho do Operational Insights em sua conta do Azure, crie um usando as instruções em [Configurar seu espaço de trabalho do Operational Insights](../operational-insights-setup-workspace). Você pode usar um espaço de trabalho existente se já tiver um.
 
-#### 2. Implantar Solução de automação
+#### 2\. Implantar Solução de automação
 A Solução de automação no Operational Insights envia os componentes necessários para configurar e dar suporte ao ambiente de runbook. Siga as instruções em [Soluções do Operational Insights](../operational-insights-add-solution) para instalar o pacote de **Automação do Azure**.
 
-### Configurar máquinas locais
+### Configurar computadores locais
 Conclua as etapas a seguir para cada uma das máquinas locais que atuarão como um Runbook Worker Híbrido.
 
 
-#### 1. Instale o Agente de Gerenciamento da Microsoft
-O Agente de Gerenciamento da Microsoft conecta o computador ao Operational Insights e permite que ele execute a lógica das soluções. Siga as instruções em [Conectar computadores diretamente ao Operational Insights](../operational-insights-direct-agent) para instalar o agente na máquina local e conectá-la ao Operational Insights.
+#### 1\. Instale o Agente de Gerenciamento da Microsoft
+O Agente de Gerenciamento da Microsoft conecta o computador ao Operational Insights e permite que ele execute a lógica das soluções. Siga as instruções em [Conectar computadores diretamente a Insights Operacionais](../operational-insights-direct-agent) para instalar o agente no computador local e conectá-lo a Insights Operacionais.
 
-#### 2. Instalar o ambiente de runbook e conectá-lo à Automação do Azure
+#### 2\. Instalar o ambiente de runbook e conectá-lo à Automação do Azure
 Quando você adiciona um computador ao Operational Insights, a Solução de automação envia o módulo do PowerShell **HybridRegistration** que contém o cmdlet **Add-HybridRunbookWorker**. Você pode usar esse cmdlet para instalar o ambiente de runbook no computador e registrá-lo na Automação do Azure.
 
 Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir para importar o módulo.
@@ -72,17 +72,17 @@ Em seguida, execute o cmdlet **Add-HybridRunbookWorker** usando a seguinte sinta
 
 - **Name** é o nome do Grupo de Runbook Worker Híbrido. Quando esse grupo já existe na conta de automação, o computador atual é adicionado a ele. Se ele não existir, será adicionado.
 - **EndPoint** é a URL do serviço do Agente. Você pode obter isso no portal de visualização do Azure na folha **Gerenciar Chaves**.  
-- **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**. Você pode abrir a folha Gerenciar Chaves clicando no ícone de chave no Painel de elementos da conta de automação.<br><br>![Visão geral do Runbook Worker Híbrido](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+- **Token** é a **Chave de Acesso Primária** na folha **Gerenciar Chaves**. Você pode abrir a folha Gerenciar Chaves clicando no ícone de chave no Painel de elementos da conta de automação.<br><br>![Visão geral do Runbook Worker Híbrido](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. Instalar módulos do PowerShell
-Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure. No entanto, esses módulos não são implantados automaticamente em máquinas locais; portanto, você deve instalá-los manualmente. A exceção é o módulo do Azure que é instalado por padrão, fornecendo acesso a cmdlets a todos os serviços e atividades do Azure da Automação do Azure.
+#### 3\. Instalar módulos do PowerShell
+Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módulos instalados em seu ambiente de Automação do Azure. No entanto, esses módulos não são implantados automaticamente em computadores locais, portanto, você deve instalá-los manualmente. A exceção é o módulo do Azure que é instalado por padrão, fornecendo acesso a cmdlets a todos os serviços e atividades do Azure da Automação do Azure.
 
 Como a principal finalidade do recurso Runbook Worker Híbrido é gerenciar recursos locais, você provavelmente precisará instalar os módulos que dão suporte a esses recursos. Veja [Instalar Módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.
 
 ## Iniciar runbooks no Runbook Worker Híbrido
 
-[Como iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook) descreve métodos diferentes para se iniciar um runbook. O Runbook Worker Híbrido adiciona uma opção **RunOn** em que você pode especificar o nome de um Grupo de Runbook Worker Híbrido. Se um grupo for especificado, o runbook é recuperado e executado pelos trabalhadores nesse grupo. Se essa opção não for especificada, ele é executado na Automação do Azure como de costume.
+[Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md) descreve métodos diferentes para se iniciar um runbook. O Runbook Worker Híbrido adiciona uma opção **RunOn** em que você pode especificar o nome de um Grupo de Runbook Worker Híbrido. Se um grupo for especificado, o runbook é recuperado e executado pelos trabalhadores nesse grupo. Se essa opção não for especificada, ele é executado na Automação do Azure como de costume.
 
 Quando você inicia um runbook no portal de visualização do Azure, a opção **Executar em** fica disponível e você pode selecionar **Azure** ou **Worker Híbrido**. Se você selecionar **Worker Híbrido**, pode selecionar o grupo de uma lista suspensa.
 
@@ -99,7 +99,7 @@ Não há nenhuma diferença na estrutura de runbooks executados na Automação d
 
 ### Permissões de runbook
 
-Os runbooks serão executados no contexto da conta de Sistema local no Runbook Worker Híbrido; portanto devem fornecer sua própria autenticação aos recursos que irão acessar. Eles não podem usar o mesmo [método que é normalmente usado para autenticar runbooks nos recursos do Azure](automation-configuring.md/#configuring-authentication-to-azure-resources), já que eles acessarão recursos fora do Azure.
+Os runbooks serão executados no contexto da conta de Sistema local no Runbook Worker Híbrido; portanto devem fornecer sua própria autenticação aos recursos que irão acessar. Eles não podem usar o mesmo [método que é normalmente usado para autenticar runbooks nos recursos do Azure](automation-configuring.md#configuring-authentication-to-azure-resources), já que eles acessarão recursos fora do Azure.
 
 Você pode usar ativos de [Credencial](http://msdn.microsoft.com/library/dn940015.aspx) e [Certificado](http://msdn.microsoft.com/library/dn940013.aspx) no runbook com cmdlets que permitem que você especifique as credenciais para autenticar com recursos diferentes. O exemplo a seguir mostra uma parte de um runbook que reinicia um computador. Ele recupera as credenciais de um ativo de credencial e o nome do computador de um ativo variável, para então usar esses valores com o cmdlet Restart-Computer.
 
@@ -108,7 +108,7 @@ Você pode usar ativos de [Credencial](http://msdn.microsoft.com/library/dn94001
 
 	Restart-Computer -ComputerName $Computer  -Credential $Cred
 
-Você também pode aproveitar o [InlineScript](automation-runbook-concepts.md/#inline-script), que permitirá a execução de blocos de código em outro computador com as credenciais especificadas pelo [parâmetro comum PSCredential](http://technet.microsoft.com/library/jj129719.aspx).
+Você também pode aproveitar o [InlineScript](automation-powershell-workflow.md#inline-script), que permitirá a execução de blocos de código em outro computador com as credenciais especificadas pelo [parâmetro comum PSCredential](http://technet.microsoft.com/library/jj129719.aspx).
 
 
 ### Criação e teste de runbooks
@@ -117,7 +117,7 @@ Você pode editar um runbook para Runbook Worker Híbrido na Automação do Azur
 
 ## Relação com o Service Management Automation
 
-O [SMA (Service Management Automation)](http://aka.ms/runbookauthor/sma) é um componente do WAP (Microsoft Azure Pack) que permite que você execute os mesmos runbooks com suporte da Automação do Azure em seu data center local. Ao contrário da Automação do Azure, o SMA exige uma instalação local que inclui o Portal de Gerenciamento do Micrososft Azure Pack e um banco de dados para manter a configuração do SMA e runbooks. A Automação do Azure fornece esses serviços na nuvem e requer apenas que você mantenha os Runbook Workers Híbridos no seu ambiente local.
+O [SMA (Service Management Automation)](https://technet.microsoft.com/library/dn469260.aspx) é um componente do WAP (Microsoft Azure Pack) que permite que você execute os mesmos runbooks com suporte da Automação do Azure em seu data center local. Ao contrário da Automação do Azure, o SMA exige uma instalação local que inclui o Portal de Gerenciamento do Micrososft Azure Pack e um banco de dados para manter a configuração do SMA e runbooks. A Automação do Azure fornece esses serviços na nuvem e requer apenas que você mantenha os Runbook Workers Híbridos no seu ambiente local.
 
 Se você for um usuário existente do SMA, pode mover seus runbooks para a Automação do Azure para serem usados com o Runbook Worker Híbrido sem alterações, supondo que eles executem sua própria autenticação aos recursos, como descrito em [Criar runbooks para Runbook Worker Híbrido](#creating-runbooks-for-hybrid-runbook-worker). Os runbooks em SMA são executados no contexto da conta de serviço no servidor trabalhador que pode fornecer a autenticação para os runbooks.
 
@@ -132,8 +132,8 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 
 ## Artigos relacionados
 
-- [Como iniciar um Runbook na Automação do Azure](../automation-starting-a-runbook)
+- [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

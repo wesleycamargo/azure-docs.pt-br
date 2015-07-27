@@ -39,7 +39,7 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 - [Versão de julho de 2014](#july_changes_14)
 - [Versão de maio de 2014](#may_changes_14)
 - [Versão de abril de 2014](#april_changes_14) 
-- [Versões de janeiro\fevereiro de 2014](#jan_feb_changes_14) 
+- [Versões de janeiro\\fevereiro de 2014](#jan_feb_changes_14) 
 - [Versão de dezembro de 2013](#december_changes_13)
 - [Versão de novembro de 2013](#november_changes_13)
 - [Versão de agosto de 2013](#august_changes_13)
@@ -212,7 +212,7 @@ SDK dos Serviços de Mídia para .NET agora está na versão 3.0.0.7
 	* Criar uma URL SAS para baixar (ou reproduzir progressivamente) o .mp4. Para obter mais informações sobre como criar um localizador SAS, consulte [Entregando Conteúdo].
 
 
-### <a id="sept_14_GA_changes"></a>Novos recursos\cenários que fazem parte da versão do GA
+### <a id="sept_14_GA_changes"></a>Novos recursos\\cenários que fazem parte da versão do GA
 
 * **Processador de Mídia do Indexador**. Para obter mais informações, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure].
 
@@ -231,7 +231,7 @@ SDK dos Serviços de Mídia para .NET agora está na versão 3.0.0.7
 
 	Para obter mais informações, consulte a propriedade **CustomHostNames** no tópico [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Novos recursos\cenários que fazem parte da versão de visualização pública
+### <a id="sept_14_preview_changes"></a>Novos recursos\\cenários que fazem parte da versão de visualização pública
 
 * Visualização de Live Streaming. Para obter mais informações, consulte [Trabalhando com Live Streaming dos Serviços de Mídia do Azure].
 
@@ -297,7 +297,7 @@ Para obter mais informações, consulte [Lógica de repetição no SDK de Servi�
 * Corrigido um erro relacionado à transcodificação de MP4s em que o áudio havia sido codificado com a camada de Áudio 3 MPEG-1 (ou seja, MP3).
 
 
-##<a id="jan_feb_changes_14"></a>Versões de janeiro\fevereiro de 2014
+##<a id="jan_feb_changes_14"></a>Versões de janeiro\\fevereiro de 2014
 
 ### <a name="jan_fab_14_donnet_changes"></a>SDK do .NET dos Serviços de Mídia do Azure 3.0.0.1, 3.0.0.2 e 3.0.0.3
 
@@ -538,4 +538,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

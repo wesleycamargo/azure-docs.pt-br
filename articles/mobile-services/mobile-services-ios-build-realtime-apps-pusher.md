@@ -444,4 +444,4 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [Referência de script do servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

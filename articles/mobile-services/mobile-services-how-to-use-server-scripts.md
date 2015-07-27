@@ -96,7 +96,7 @@ Você pode definir scripts de servidor que são registrados para uma operação 
 	
 	Para saber como fazer isso, consulte [Validar e modificar dados em Serviços Móveis usando scripts de servidor].
 
-+ Usando o controle do código-fonte. Quando o controle do código-fonte está habilitado, basta criar um arquivo chamado <em>`<table>`</em>.<em>`<operation>`</em>.js na subpasta .\service\table no repositório git, em que <em>`<table>`</em> é o nome da tabela e <em>`<operation>`</em> é a operação da tabela registrada. Para obter mais informações, consulte [Controle do código-fonte e código compartilhado][Source control, shared code, and helper functions]
++ Usando o controle do código-fonte. Quando o controle do código-fonte está habilitado, basta criar um arquivo chamado <em>`<table>`</em>.<em>`<operation>`</em>.js na subpasta .\\service\\table no repositório git, em que <em>`<table>`</em> é o nome da tabela e <em>`<operation>`</em> é a operação da tabela registrada. Para obter mais informações, consulte [Controle do código-fonte e código compartilhado][Source control, shared code, and helper functions]
 
 + No prompt de comando usando a ferramenta de linha de comando do Azure. Para obter mais informações, consulte [Usando a ferramenta de linha de comando].
 
@@ -228,7 +228,7 @@ Quando um aplicativo fornece um valor para uma ID, os Serviços Móveis armazena
 O valor da `id` deve ser exclusivo e não deve incluir caracteres dos seguintes conjuntos:
 
 + Caracteres de controle: [0x0000-0x001F] e [0x007F-0x009F]. Para obter mais informações, consulte [Códigos de controle ASCII C0 e C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caracteres imprimíveis: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
++  Caracteres imprimíveis: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Os ids "." e ".."
 
 Você também pode usar IDs de números inteiros para suas tabelas. Para usar uma ID de número inteiro, você deve criar sua tabela com o comando `mobile table create` usando a opção `--integerId`. Esse comando é usado com a CLI (interface de linha de comando) para Azure. Para obter mais informações sobre como usar a CLI, consulte [CLI para gerenciar tabelas de Serviços Móveis](../virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -343,7 +343,7 @@ Você pode definir scripts de servidor que são registrados para métodos HTTP e
 	
 	Permissões de acesso para métodos de API personalizadas são atribuídas na guia Permissões. Para ver como essa API personalizada foi criado, consulte [Chamar uma API personalizada do cliente].
 
-+ Usando o controle do código-fonte. Quando o controle do código-fonte está habilitado, basta criar um arquivo chamado <em>`<custom_api>`</em>.js na subpasta .\service\api no repositório git, em que <em>`<custom_api>`</em> é o nome da API personalizada registrada. Esse arquivo de script contém uma função _exported_ para cada método HTTP exposto pela API personalizada. Permissões são definidas em um arquivo de .json complementar. Para obter mais informações, consulte [Controle do código-fonte e código compartilhado][Source control, shared code, and helper functions]
++ Usando o controle do código-fonte. Quando o controle do código-fonte está habilitado, basta criar um arquivo chamado <em>`<custom_api>`</em>.js na subpasta .\\service\\api no repositório git, em que <em>`<custom_api>`</em> é o nome da API personalizada registrada. Esse arquivo de script contém uma função _exported_ para cada método HTTP exposto pela API personalizada. Permissões são definidas em um arquivo de .json complementar. Para obter mais informações, consulte [Controle do código-fonte e código compartilhado][Source control, shared code, and helper functions]
 
 + No prompt de comando usando a ferramenta de linha de comando do Azure. Para obter mais informações, consulte [Usando a ferramenta de linha de comando].
 
@@ -462,7 +462,7 @@ Você pode definir os trabalhos agendados das seguintes maneiras:
 
 + No prompt de comando usando a ferramenta de linha de comando do Azure. Para obter mais informações, consulte [Usando a ferramenta de linha de comando].
 
->[AZURE.NOTE]Se você tiver habilitado o controle do código-fonte, poderá editar os arquivos de script do trabalho agendados diretamente na subpasta .\service\scheduler no repositório git. Para saber mais, confira [Como compartilhar código usando o controle do código-fonte].
+>[AZURE.NOTE]Se você tiver habilitado o controle do código-fonte, poderá editar os arquivos de script do trabalho agendados diretamente na subpasta .\\service\\scheduler no repositório git. Para saber mais, confira [Como compartilhar código usando o controle do código-fonte].
 
 ##<a name="shared-code"></a>Controle do código-fonte, código compartilhado e funções auxiliares
 
@@ -1076,4 +1076,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

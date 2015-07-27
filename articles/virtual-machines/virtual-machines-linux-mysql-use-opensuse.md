@@ -36,11 +36,10 @@ O [MySQL][MySQL] é um popular banco de dados SQL de software livre. Este tutori
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##Resumo
-Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux e a se conectar remotamente usando SSH ou PuTTY. Você também aprendeu como instalar e configurar o MySQL na máquina virtual Linux. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
+Neste tutorial, você aprendeu a criar uma máquina virtual com o OpenSUSE Linux e a se conectar remotamente usando SSH ou PuTTY. Você também aprendeu a instalar e configurar o MySQL na máquina virtual Linux. Para obter mais informações sobre o MySQL, consulte [Documentação do MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/24/2015"
+   ms.date="06/29/2015"
    ms.author="juliako"/>
 
 
@@ -25,7 +25,7 @@ Este documento contém as notas de versão do SDK do Azure para a versão do .NE
 
 Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
-- Novos recursos\cenários relacionados a **Extensões de Ferramentas Web**. 
+- Novos recursos\\cenários relacionados a **Extensões de Ferramentas Web**. 
 
 	- Sites do Azure foi renomeado para Serviço de Aplicativo do Azure. Para obter mais informações, consulte [Serviço de Aplicativo do Azure e Serviços do Azure existentes](app-service-changes-existing-services.md).
 	- Suporte a Aplicativos de API do Azure (visualização) foi adicionado para que os clientes possam publicar projetos do ASP.NET como aplicativos de API e, em seguida, usar o gesto Adicionar > Cliente de Aplicativos de API do Azure em projetos C# para gerar código com base na estrutura do Aplicativo de API implantado. 
@@ -38,7 +38,7 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 	Para problemas conhecidos e limitações atuais no SDK do Azure .NET 2.5.1 [esta](app-service-release-notes.md#known_issues_2_5_1) seção abaixo.
 
 
-- Novo recursos\cenários relacionados a **Ferramentas HDInsight** no Visual Studio estão habilitados nesta versão.
+- Novo recursos\\cenários relacionados a **Ferramentas HDInsight** no Visual Studio estão habilitados nesta versão.
 	- Validação local de scripts do hive. Clique no botão de script Validar na barra de ferramentas para ver se há erros no script. 
 	- Depuração de trabalhos de Hive aprimorada. Você pode depurar trabalhos de Hive acessando os logs de Yarn no Visual Studio. Se seu aplicativo tiver problemas de desempenho, investigar os logs YARN fornecerá informações úteis.
 	- (Visualização pública) Preenchimento automático de palavra-chave e suporte IntelliSense para Hive. Para ajudar a criar scripts do Hive, as ferramentas HDInsight para Visual Studio adicionaram suporte para preenchimento automático de palavra-chave e IntelliSense para Hive.
@@ -68,4 +68,4 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

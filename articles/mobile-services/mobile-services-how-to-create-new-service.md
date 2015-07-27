@@ -41,4 +41,4 @@ Este tópico mostra como usar o [Portal de Gerenciamento do Azure][Management Po
 [.NET backend version]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

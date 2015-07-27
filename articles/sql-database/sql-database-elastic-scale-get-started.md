@@ -115,4 +115,4 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

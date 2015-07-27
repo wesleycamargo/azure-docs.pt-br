@@ -1151,4 +1151,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

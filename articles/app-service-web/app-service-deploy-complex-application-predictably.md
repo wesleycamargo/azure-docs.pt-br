@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implantar um aplicativo complexo de modo previsível no Azure"
-	description="Saiba como implantar um aplicativo complexo no Azure como uma única unidade e de maneira previsível, usando modelos de grupo de recursos JSON e script do PowerShell."
+	pageTitle="Provisionar e implantar microsserviços previsíveis no Azure"
+	description="Saiba como implantar um aplicativo composto por microsserviços no Serviço de Aplicativo do Azure como uma única unidade e de maneira previsível usando modelos de grupo de recursos JSON e scripts do PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# Implantar um aplicativo complexo de modo previsível no Azure #
+# Provisionar e implantar microsserviços previsíveis no Azure #
 
-Este tutorial mostra como implantar um aplicativo complexo no Azure como uma única unidade e de maneira previsível, usando modelos de grupo de recursos JSON e script do PowerShell.
+Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupos de recursos JSON e scripts do PowerShell.
 
-Em DevOps, repetição e previsibilidade são chaves para qualquer implantação bem-sucedida de um aplicativo complexo de grande escala. O [Serviço de Aplicativo do Azure](/services/app-service/) permite que você crie aplicativos complexos, que incluem aplicativos Web, móveis, de API e aplicativos lógicos. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite que você gerencie todos os componentes de tal aplicativo como uma unidade. Agora, você também pode implantar esse aplicativo complexo usando modelos JSON e script simples do PowerShell.
+Ao provisionar e implantar aplicativos em alta escala que são compostos por microsserviços totalmente separados, a repetitividade e a previsibilidade são essenciais para se obter êxito. O [Serviço de Aplicativo do Azure](/services/app-service/) permite criar microsserviços que incluem aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite gerenciar todos os microsserviços como uma unidade, juntamente com as dependências de recurso, como as configurações de controle do código fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell.
 
 ## O que você fará ##
 
 No tutorial, você implantará um aplicativo que inclui:
 
--	Dois aplicativos Web
+-	Dois aplicativos Web (isto é, dois microsserviços)
 -	Um banco de dados SQL de back-end
 -	Configurações do aplicativo, cadeias de conexão e controle do código-fonte
 -	Application Insights, alertas, configurações de dimensionamento automático
@@ -90,7 +90,7 @@ Agora vamos direto ao ponto.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Tudo o que você acabou de ver em poucos minutos é um aplicativo complexo totalmente implantado, com todos os componentes, dependências, configurações, banco de dados e publicação contínua, configurado por uma orquestração automatizada no Gerenciador de Recursos do Azure. Tudo isso foi feito por duas coisas:
+Tudo o que você acabou de ver em poucos minutos é um aplicativo de dois microsserviços totalmente implantado, com todos os componentes, dependências, configurações, banco de dados e publicação contínua, configurado por uma orquestração automatizada no Gerenciador de Recursos do Azure. Tudo isso foi feito por duas coisas:
 
 -	O botão Implantar no Azure
 -	O arquivo azuredeploy.json na raiz do repositório
@@ -274,7 +274,7 @@ As etapas cumpridas nesta seção realizaram principalmente o seguinte:
 2.	Criaram um arquivo de parâmetros para acompanhar o arquivo de modelo
 3.	Implantaram o arquivo de modelo juntamente com o arquivo de parâmetros
 
-A última etapa é facilmente realizada por um cmdlet do PowerShell. Para ver o que o Visual Studio fez quando implantou seu aplicativo, abra Scripts\Deploy AzureResourceGroup.ps1. Há muito código lá, mas vou destacar todo o código relevante que necessário para implantar o arquivo de modelo com o arquivo de parâmetros.
+A última etapa é facilmente realizada por um cmdlet do PowerShell. Para ver o que o Visual Studio fez quando implantou seu aplicativo, abra Scripts\\Deploy AzureResourceGroup.ps1. Há muito código lá, mas vou destacar todo o código relevante que necessário para implantar o arquivo de modelo com o arquivo de parâmetros.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -282,7 +282,11 @@ O último cmdlet, `New-AzureResourceGroup`, é o que executa efetivamente a aç�
 
 ## Resumo ##
 
-Em DevOps, repetição e previsibilidade são chaves para qualquer implantação bem-sucedida de um aplicativo complexo de grande escala. Neste tutorial, você implantou um aplicativo no Azure como um único grupo de recursos usando o modelo do Gerenciador de Recursos do Azure. Espera-se que ele tenha dado a você o conhecimento necessário para iniciar a conversão de seu aplicativo complexo do Azure em um modelo e possa implantá-lo de maneira previsível no Azure.
+No DevOps, repetitividade e previsibilidade são essenciais para qualquer implantação bem-sucedida de um aplicativo composto por microsserviços de alta escala. Neste tutorial, você implantou um aplicativo de dois microsserviços no Azure como um único grupo de recursos usando o modelo do Gerenciador de Recursos do Azure. Espera-se que ele tenha dado a você o conhecimento necessário para iniciar a conversão de seu aplicativo do Azure em um modelo e possa ser provisionado e implantado de maneira previsível.
+
+## Próximas etapas ##
+
+Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo de microsserviço com facilidade ](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## Mais recursos ##
@@ -300,4 +304,4 @@ Em DevOps, repetição e previsibilidade são chaves para qualquer implantação
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

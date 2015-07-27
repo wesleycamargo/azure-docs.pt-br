@@ -1,19 +1,19 @@
 <properties
    pageTitle="Visão Geral do Gerenciador de Recursos do Azure"
    description="Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Visão Geral do Gerenciador de Recursos do Azure
@@ -67,6 +67,8 @@ Quando você cria uma solução do Marketplace, ela inclui automaticamente um mo
 Finalmente, o modelo se torna parte do código-fonte do seu aplicativo. Você pode adicioná-lo ao repositório de código-fonte e atualizá-lo conforme a evolução de seu aplicativo. Você pode editar o modelo com o Visual Studio.
 
 Para obter mais informações sobre como definir o modelo, consulte [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
+
+Para esquemas de modelo, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 Para obter informações sobre como usar um modelo para implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md) e [Implantar um aplicativo complexo de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@ Criação e implantação de aplicativos
 - [Implantar usando o modelo e bibliotecas .NET](virtual-machines/arm-template-deployment.md)
 - [Funções de modelo](./resource-group-template-functions.md)
 - [Operações de modelo avançado](./resource-group-advanced-template.md)
+- [Esquemas de modelo](https://github.com/Azure/azure-resource-manager-schemas)
 
 Organização de recursos
 
@@ -136,4 +139,4 @@ Gerenciar e auditar o acesso
 - [Autenticar uma entidade de serviço](./resource-group-authenticate-service-principal.md)
 - [Criar uma nova entidade de serviço do Azure usando o Portal do Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

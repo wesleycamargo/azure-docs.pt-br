@@ -9,4 +9,4 @@
 
 O serviço móvel e seu aplicativo agora estão configurados para trabalhar com os GCM e os Hubs de Notificação.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -29,4 +29,4 @@ O exemplo anterior mostra uma entrada padrão, que requer que o cliente contate 
 
 				[self loadAuthInfo];
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

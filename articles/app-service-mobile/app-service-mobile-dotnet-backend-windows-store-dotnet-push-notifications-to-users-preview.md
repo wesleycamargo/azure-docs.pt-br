@@ -107,4 +107,4 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 [modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

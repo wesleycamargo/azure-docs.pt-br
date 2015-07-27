@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="White paper de Banco de Dados de Documentos por David Chappell | Azure" 
+	pageTitle="Apresentando o Banco de Dados de Documentos - Um banco de dados NoSQL para Microsoft Azure | Azure" 
 	description="Baixe um White Paper de David Chappell sobre o Banco de Dados de Documentos, um banco de dados NoSQL gerenciado no Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# Whitepaper DocumentDB por David Chappell 
+# Apresentando o DocumentDB - Um banco de dados NoSQL para Microsoft Azure 
 
-**Resumo:** conheça o Banco de Dados de Documentos, um banco de dados NoSQL gerenciado no Microsoft Azure. O Banco de Dados de Documentos é uma opção ideal de tecnologia de banco de dados quando:
+Não tem certeza se o Banco de Dados de Documentos é adequado para seu aplicativo ou seus dados? Deseja saber mais sobre como dados JSON são armazenados e acessados no Banco de Dados de Documentos? Nesse caso, este white paper introdutório de David Chappell é um bom lugar para começar. Ele aborda como você pode aproveitar a flexibilidade que dados JSON sem esquema fornecem, permitindo manipular alterações na estrutura de dados com facilidade.
 
-* Seu aplicativo se beneficia de um modelo de dados livre de esquema.
-* Se banco de dados precisa escalar muito armazenamento e taxa de transferência.
-* Você quer usar uma linguagem de consulta e plataforma de desenvolvimento familiares.
+Este white paper também explica o seguinte:
 
-Esse whitepaper também cobre os seguintes conceitos fundamentais:
+ - Usar do modelo de dados do Banco de Dados de Documentos para armazenar dados JSON em documentos e coleções em um banco de dados. 
+ - Trabalhar com seus dados usando as bibliotecas de cliente, os métodos de acesso RESTful ou o SQL do Banco de Dados de Documentos. 
+ - Executar lógica do banco de dados escrevendo procedimentos armazenados (sprocs), gatilhos ou funções definidas pelo usuário (UDFs) e armazená-los na coleção.
+ - Escolher uma opção de consistência para atender às necessidades de confiabilidade e desempenho do seu aplicativo.
+ - Selecionar uma opção de preço com base em seus requisitos de taxa de transferência.
 
-* O modelo de dados do Banco de Dados de Documentos.
-* Como aplicativos trabalham com dados.
-* Opções que os aplicativos têm para equilibrar desempenho e consistência.
+**Download do PDF**: [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
+ 
 
-
-**Publicação:** 10 de setembro de 2014
-
-**Download:** [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

@@ -30,7 +30,7 @@ Neste passo a passo, podemos coletar logs de exemplo, processar e enriquecê-los
 3.	Você deve baixar e instalar o [PowerShell do Azure][download-azure-powershell] no seu computador. 
 2.	**(recomendado)** Examine e pratique o tutorial no artigo [Introdução ao Azure Data Factory][adfgetstarted] para ver um tutorial simples e familiarizar-se com o portal e os cmdlets.
 3.	**(recomendado)** Examine e pratique o passo a passo no artigo [Usar o Pig e Hive com o Azure Data Factory][usepigandhive] para ver um passo a passo sobre como criar um pipeline para mover dados da fonte de dados local para um armazenamento de blob do Azure.
-4.	Baixe os arquivos [ADFWalkthrough][adfwalkthrough-download] na pasta **C:\ADFWalkthrough** **preservando a estrutura da pasta**:
+4.	Baixe os arquivos [ADFWalkthrough][adfwalkthrough-download] na pasta **C:\\ADFWalkthrough** **preservando a estrutura da pasta**:
 	- **Pipelines:** inclui arquivos JSON que contêm a definição dos pipelines.
 	- **Tables:** inclui arquivos JSON que contêm a definição das tabelas.
 	- **LinkedServices:** inclui arquivos JSON que contêm a definição do seu cluster de armazenamento e computação (HDInsight) 
@@ -104,7 +104,7 @@ Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs
 
 As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são usados ao mover os resultados da Eficácia de Campanha de Marketing do armazenamento de blobs do Azure para o banco de dados SQL do Azure.
 
-1. Abra **uploadSampleDataAndScripts.ps1** da pasta **C:\ADFWalkthrough** (ou a pasta que contém os arquivos extraídos) no seu editor favorito, substitua a parte destacada pelas informações do cluster e salve o arquivo.
+1. Abra **uploadSampleDataAndScripts.ps1** da pasta **C:\\ADFWalkthrough** (ou a pasta que contém os arquivos extraídos) no seu editor favorito, substitua a parte destacada pelas informações do cluster e salve o arquivo.
 
 
 		$storageAccount = <storage account name>
@@ -116,10 +116,10 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
  
 	Esse script exige que o utilitário sqlcmd esteja instalado no computador. Se você tiver o SQL Server instalado, você já o possui. Caso contrário, [baixe][sqlcmd-install] e instale o utilitário.
 	
-	Alternativamente, você pode usar os arquivos na pasta: C:\ADFWalkthrough\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
+	Alternativamente, você pode usar os arquivos na pasta: C:\\ADFWalkthrough\\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
    
 2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o **Portal de Gerenciamento do Azure** ou **sp_set_firewall_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
-4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\ADFWalkthrough**)
+4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\\ADFWalkthrough**)
 5. Execute **uploadSampleDataAndScripts.ps1** 
 6. Depois que o script for executado com êxito, você verá o seguinte:
 
@@ -246,7 +246,7 @@ Nesta etapa, você criará os seguintes serviços vinculados: StorageLinkedServi
 
 		Switch-AzureMode AzureResourceManager
 
-16. Navegue até a subpasta **LinkedServices** em **C:\ADFWalkthrough** ou na pasta do local onde você extraiu os arquivos.
+16. Navegue até a subpasta **LinkedServices** em **C:\\ADFWalkthrough** ou na pasta do local onde você extraiu os arquivos.
 17. Abra **HDInsightLinkedService.json** em seu editor favorito e observe que o tipo é definido como **HDInsightOnDemandLinkedService**.
 
 
@@ -296,7 +296,7 @@ O Portal do Azure não dá suporte à criação de conjuntos de dados e tabelas 
 
 ### Para criar as tabelas
 
-1.	No PowerShell do Azure, navegue até a pasta **Tabelas** (**C:\ADFWalkthrough\Tables**) do local onde você extraiu os exemplos. 
+1.	No PowerShell do Azure, navegue até a pasta **Tabelas** (**C:\\ADFWalkthrough\\Tables**) do local onde você extraiu os exemplos. 
 2.	Use o cmdlet **New-AzureDataFactoryTable** para criar as tabelas conforme descrito a seguir para **RawGameEventsTable**.json	
 
 
@@ -334,7 +334,7 @@ O Portal do Azure não dá suporte à criação de conjuntos de dados e tabelas 
 ## <a name="MainStep5"></a> Etapa 5: Criar e agendar pipelines
 Nesta etapa, você criará os seguintes pipelines: PartitionGameLogsPipeline, EnrichGameLogsPipeline e AnalyzeMarketingCampaignPipeline.
 
-1. No **Windows Explorer**, navegue até a subpasta **Pipelines** na pasta **C:\ADFWalkthrough** (ou do local onde você extraiu os exemplos).
+1. No **Windows Explorer**, navegue até a subpasta **Pipelines** na pasta **C:\\ADFWalkthrough** (ou do local onde você extraiu os exemplos).
 2.	Abra **PartitionGameLogsPipeline.json** no seu editor favorito, substitua a parte destacada pela sua conta de armazenamento das informações de conta de armazenamento de dados e salve o arquivo.
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
@@ -346,7 +346,7 @@ Nesta etapa, você criará os seguintes pipelines: PartitionGameLogsPipeline, En
 
 	**IMPORTANTE:** Confirme que você substituiu todas as <storageaccountname> pelo nome da sua conta de armazenamento.
  
-4.  No **PowerShell do Azure**, navegue até a subpasta **Pipelines** na pasta **C:\ADFWalkthrough** (ou do local onde você extraiu os exemplos).
+4.  No **PowerShell do Azure**, navegue até a subpasta **Pipelines** na pasta **C:\\ADFWalkthrough** (ou do local onde você extraiu os exemplos).
 5.  Use o cmdlet **New-AzureDataFactoryPipeline** para criar os Pipelines conforme descrito a seguir para **PartitionGameLogspeline**.json	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
@@ -559,4 +559,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

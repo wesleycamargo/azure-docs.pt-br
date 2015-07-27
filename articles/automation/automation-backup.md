@@ -44,4 +44,4 @@ Você não pode exportar certificados da Automação do Azure. Você deve garant
 - [Ativos de automação](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Cmdlets do Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

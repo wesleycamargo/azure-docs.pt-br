@@ -67,4 +67,4 @@ Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar servi
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

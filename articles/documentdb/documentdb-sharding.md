@@ -30,7 +30,7 @@ Antes de nos aprofundarmos mais no particionamento, vamos recapitular alguns con
 - As coleções são o limite de transações ACID, por exemplo, procedimentos armazenados e gatilhos.
 - As coleções não impõem um esquema, portanto, podem ser usadas para documentos JSON do mesmo tipo ou tipos diferentes.
 
-Começando com a versão [1.1.0 do SDK do .NET do Banco de Dados de Documentos do Azure](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), você pode executar operações de documentos diretamente em um banco de dados. Internamente, o [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa o PartitionResolver que você especificou para o banco de dados para rotear solicitações para a coleção apropriada.
+Começando com a versão [1\.1.0 do SDK do .NET do Banco de Dados de Documentos do Azure](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), você pode executar operações de documentos diretamente em um banco de dados. Internamente, o [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa o PartitionResolver que você especificou para o banco de dados para rotear solicitações para a coleção apropriada.
 
 Cada classe do PartitionResolver é uma implementação concreta de uma interface do [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) que tem três métodos - [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) e [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). Consultas LINQ e iteradores ReadFeed usam internamente o método ResolveForRead para iterar todas as coleções que correspondem à chave de partição para a solicitação. Da mesma forma, operações de criação usam o método ResolveForCreate para rotear criações à partição correta. Nenhuma alteração é necessária para Substituir, Excluir e Ler, uma vez que essas opções usam documentos que já contêm a referência à coleção correspondente.
 
@@ -167,4 +167,4 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

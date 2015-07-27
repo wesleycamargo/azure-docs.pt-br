@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Criar um aplicativo Web do PHP no Serviço de Aplicativo do Azure usando o Armazenamento do Azure
@@ -41,23 +41,24 @@ Para instalar as Bibliotecas de Clientes do PHP através do computador, siga est
 
 1. [Instalação do Git][install-git]
 
-	> [AZURE.NOTE]
-	> No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
+	> [AZURE.NOTE]No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
 2. Crie um arquivo chamado **composer.json** na raiz do seu projeto e adicione o seguinte código a ele:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+         {
+             "repositories": [
+                 {
+                     "type": "pear",
+                     "url": "http://pear.php.net"
+                 }
+             ],
+             "require": {
+                 "pear-pear.php.net/mail_mime" : "*",
+                 "pear-pear.php.net/http_request2" : "*",
+                 "pear-pear.php.net/mail_mimedecode" : "*",
+                 "microsoft/windowsazure": "*"
+             }
+         }
 
 3. Baixe o **[composer.phar][composer-phar]** na raiz do seu projeto.
 
@@ -429,4 +430,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="O que são aplicativos lógicos?" 
 	description="Saiba mais sobre os aplicativos lógicos do Serviço de Aplicativo" 
-	authors="joshtwist" 
+	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
-	ms.author="jtwist"/>
+	ms.date="07/08/2015"
+	ms.author="klam"/>
 
 #O que são aplicativos lógicos?
 
@@ -32,13 +32,13 @@ Aplicativos lógicos permitem que os desenvolvedores projetem fluxos de trabalho
 
 Se quiser automatizar qualquer processo de negócios (por exemplo, localizar tweets negativos e postar no canal de margem de atraso interna ou replicar novos registros de cliente no SQL assim que chegarem em seu sistema CRM), aplicativos lógicos tornam fácil integrar fontes de dados diferentes da nuvem para o local. Confira nosso [conectores][connectors] para mais inspiração e [comece][create] a usá-los agora para ver o que você pode fazer.
 
-Além disso, com os nossos aplicativos [API do BizTalk][biztalk], você pode dimensionar para desenvolver cenários de integração com o poder de um [mecanismo de regras][rules], [gerenciamento de parceiros comerciais][tpm] e muito mais.
+Além disso, com os nossos [aplicativos de API do BizTalk][biztalk], você pode dimensionar para desenvolver cenários de integração com o poder de um [mecanismo de regras][rules], [gerenciamento de parceiros comerciais][tpm] e muito mais.
 
 - **Ferramentas de design fáceis de usar** - aplicativos lógicos podem ser projetados de ponta a ponta no navegador. Inicie com um gatilho - de um agendamento simples a sempre que aparecer um tweet exibida sobre a sua empresa. Então orquestre qualquer número de ações usando a galeria avançada de conectores.
 
 - **Compor SaaS facilmente** - tarefas de composição uniformes fáceis de descrever são difíceis de implementar no código. Aplicativos lógicos tornam muito fácil se conectar a sistemas diferentes. Deseja criar uma tarefa no seu software CRM baseada na atividade de suas contas do Facebook ou do Twitter? Deseja conectar sua solução de marketing na nuvem ao seu sistema de cobrança local? Aplicativos lógicos são a maneira mais rápida e confiável de fornecer soluções para esses problemas.
 
-- **Começo rápido com modelos** - para ajudá-lo a começar, fornecemos uma galeria de modelos que permitem que você crie rapidamente algumas soluções comuns. De soluções avançadas do BizTalk a conectividade de SaaS simples, e até mesmo algumas que são apenas “para diversão” - a Galeria é a maneira mais rápida de compreender o poder dos aplicativos lógicos.
+- **Começo rápido com modelos** - para ajudá-lo a começar, fornecemos uma [galeria de modelos][templates] que permitem que você crie rapidamente algumas soluções comuns. De soluções avançadas do BizTalk a conectividade de SaaS simples, e até mesmo algumas que são apenas “para diversão” - a Galeria é a maneira mais rápida de compreender o poder dos aplicativos lógicos.
 
 - **Extensibilidade embutida** - não encontra o conector de que precisa? Aplicativos lógicos fazem parte do pacote do Serviço de Aplicativo e são projetados para funcionar com aplicativos de API; você pode facilmente criar seu próprio aplicativo de API a ser usado como um conector. Crie um novo aplicativo apenas para você ou compartilhe e monetize no marketplace.
 
@@ -49,7 +49,7 @@ Além disso, com os nossos aplicativos [API do BizTalk][biztalk], você pode dim
 A seguir estão algumas das principais partes que compõem a experiência de aplicativos lógicos.
 
 - **Fluxo de trabalho** - aplicativos lógicos proporcionam uma maneira gráfica de modelar seus processos de negócios como uma série de etapas ou um fluxo de trabalho.
-- **[Conectores][connectors]** - seus aplicativos lógicos precisam de acesso a dados e serviços. Um conector é um tipo especial de aplicativo de API. É criado especificamente para ajudá-lo a se conectar a trabalhar com seus dados. Consulte a lista de conectores disponíveis agora em [Usando conectores][connectors].
+- **Conectores** - seus aplicativos lógicos precisam de acesso a dados e serviços. Um conector é um tipo especial de aplicativo de API. É criado especificamente para ajudá-lo a se conectar a trabalhar com seus dados. Consulte a lista de conectores disponíveis agora em [Usando conectores][connectors].
 - **Gatilhos** - alguns conectores também podem atuar como um gatilho. Um gatilho inicia uma nova instância de um fluxo de trabalho com base em um evento específico, como a chegada de um email ou uma alteração em sua conta de Armazenamento do Azure.
 -  **Ações** - cada etapa após o gatilho em um fluxo de trabalho é chamada de uma ação. Cada ação normalmente é mapeada para uma operação em seu conector ou aplicativos de API personalizados.
 - **BizTalk** - para cenários mais avançados de integração, Serviços de Aplicativos do Azure incluem recursos do Biztalk. O BizTalk é a plataforma de integração da Microsoft líder do setor. Os aplicativos de API do BizTalk permitem que você inclua facilmente validação, transformação, regras e mais em seus fluxos de trabalho de aplicativo lógico. Saiba mais em [O que são Aplicativos de API do BizTalk][biztalk].
@@ -63,10 +63,10 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
-[tpm]: app-service-logic-create-a-trading-partner-agreement
-[rules]: app-service-logic-use-biztalk-rules
-
+[connectors]: app-service-logic-connectors-list.md
+[tpm]: app-service-logic-create-a-trading-partner-agreement.md
+[rules]: app-service-logic-use-biztalk-rules.md
+[templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

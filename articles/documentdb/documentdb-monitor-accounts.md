@@ -99,4 +99,4 @@ Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Ge
 [Next steps]: #Next-steps
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

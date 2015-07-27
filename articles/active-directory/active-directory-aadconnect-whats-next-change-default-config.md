@@ -27,4 +27,4 @@ Quando você precisar alterar a configuração padrão, faça o seguinte:
 - Exporte suas regras de sincronização personalizadas usando o Editor de regras de sincronização. Isso fornece um script do PowerShell que você pode usar para recriá-las facilmente no caso de um cenário de recuperação de desastres.
 - Se você precisar alterar o escopo ou a configuração de junção em uma regra de sincronização integrada, documente isso e reaplique a alteração após atualizar para uma versão mais recente do Azure AD Connect. 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)
@@ -83,11 +83,11 @@ Os procedimentos neste tópico mostram como:
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#Consulte também
+##Consulte também
 
 
-[como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](./cdn-create-new-endpoint.md) **Visão geral da CDN do Azure**
+[Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -143,4 +143,4 @@ Embora as ferramentas de banco de dados elástico ofereçam muitos recursos adic
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

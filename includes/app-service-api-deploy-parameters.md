@@ -4,7 +4,7 @@ Descreveremos cada parâmetro no modelo.
 
 ### gatewayName
 
-O nome do gateway que você deseja criar. O aplicativo de API é registrado para este gateway.
+O nome do gateway. O aplicativo de API é registrado para este gateway.
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@ O nome do gateway que você deseja criar. O aplicativo de API é registrado para
 
 ### apiAppName
 
-O nome do aplicativo de API a criar.
+O nome do aplicativo de API a criar. O nome deve conter entre 8 caracteres e 50 caracteres.
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ O local para o novo aplicativo de API.
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

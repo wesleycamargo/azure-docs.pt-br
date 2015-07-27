@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # Instalando os componentes do trabalho de banco de dados elástico
 
-O [pool de banco de dados elástico (visualização)](sql-database-elastic-pool-portal.md) fornece um modelo previsível para implantação de uma grande quantidade de bancos de dados. Após a criação de um pool de bancos de dados elásticos, você pode usar os **trabalhos de banco de dados elásticos** para executar tarefas administrativas em cada banco de dados no pool de bancos de dados elásticos. Por exemplo, você pode implantar um novo esquema, por exemplo, configurar uma política RLS em cada banco de dados a fim de restringir os dados apenas à pessoa com as credenciais corretas para exibir dados confidenciais. Veja como instalar os **trabalhos de banco de dados elástico**.
+O [pool de banco de dados elástico (visualização)](sql-database-elastic-pool-portal.md) fornece um modelo previsível para implantação de uma grande quantidade de bancos de dados. Após a criação de um pool de bancos de dados elástico, você pode usar os **trabalhos de banco de dados elástico** para executar tarefas administrativas em cada banco de dados no pool de bancos de dados elásticos. Por exemplo, você pode implantar um novo esquema, por exemplo, configurar uma política RLS em cada banco de dados a fim de restringir os dados apenas à pessoa com as credenciais corretas para exibir dados confidenciais. Veja como instalar os **trabalhos de banco de dados elástico**.
 
 **Tempo estimado para conclusão:** 10 minutos.
 
@@ -63,4 +63,4 @@ Se uma nova credencial tiver sido fornecida durante a instalação dos trabalhos
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

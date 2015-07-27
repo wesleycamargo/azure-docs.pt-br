@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="06/30/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
@@ -67,4 +67,4 @@ Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambiente
 Até que o recurso *Aplicativo Móvel do Serviço de Aplicativo do Azure* fique disponível, forneceremos uma experiência de migração perfeita para seus serviços móveis existentes para o serviço de aplicativo, se você optar por migrar. Enquanto isso, você pode começar a explorar o *Serviço de Aplicativo* e tirar proveito do *Serviço de Aplicativo* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

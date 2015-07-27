@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Contas de <a href="http://azure.microsoft.com/services/batch/">Visualização de Lote</a> por região por assinatura</p></td>
+   <td valign="middle"><p>Contas do <a href="http://azure.microsoft.com/services/batch/">Lote</a> por região, por assinatura</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

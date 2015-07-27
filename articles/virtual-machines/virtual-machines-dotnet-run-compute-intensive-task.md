@@ -101,11 +101,11 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 1. Na máquina de desenvolvimento (que não precisa ser a máquina virtual que você criou), baixe o [SDK do Azure para .NET](http://azure.microsoft.com/develop/net/).
 2. Crie um aplicativo de console do .NET com o projeto chamado **TSPSolver**. Verifique se a estrutura de destino está definida para .**NET Framework 4** ou posterior (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: no menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
-3. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Arquivos de Programas\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
+3. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPSolver**, clique em **Adicionar referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\\Arquivos de Programas\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
 4. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPSolver**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 5. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
 6. Modifique o espaço reservado **sua_cadeia_de_conexão** para usar o barramento de serviço **cadeia de conexão**.
-7. Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
+7. Compile o aplicativo. Isso criará **TSPSolver.exe** na pasta **bin** do projeto (**bin\\release** ou **bin\\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você copiará esse executável e Microsoft.ServiceBus.dll para a máquina virtual depois.
 
 <p/>
 
@@ -326,11 +326,11 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 ## Como criar um aplicativo do .NET que monitore o progresso da tarefa que exige muita computação
 
 1. Na máquina de desenvolvimento, crie um aplicativo de console do .NET usando **TSPClient** como o nome do projeto. Verifique se a estrutura de destino está definida para .**NET Framework 4** ou posterior (e não **Perfil de Cliente do .NET Framework 4**). A estrutura de destino poderá ser definida depois que você criar um projeto fazendo o seguinte: no menu do Visual Studio, clique em **Projetos**, em **Propriedades**, na guia **Aplicativo** e defina o valor para **Estrutura de destino**.
-2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPClient**, clique em **Adicionar Referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
+2. Adicione a biblioteca Microsoft ServiceBus. No Gerenciador de Soluções do Visual Studio, clique com o botão direito em **TSPClient**, clique em **Adicionar Referência**, clique na guia **Procurar**, procure o SDK do Azure .NET (por exemplo, no local **C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef**) e selecione **Microsoft.ServiceBus.dll** como referência.
 3. Adicione a biblioteca Serialização de Tempo de Execução do Sistema. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em **TSPClient**, clique em **Adicionar Referência**, na guia **.NET** e selecione **System.Runtime.Serialization** como uma referência.
 4. Use o código de exemplo ao final desta seção para o conteúdo de **Program.cs**.
 5. Modifique o espaço reservado **sua_cadeia_de_conexão** para usar o barramento de serviço **cadeia de conexão**.
-6. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\release** ou **bin\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código na máquina de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para uma máquina que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
+6. Compile o aplicativo. Isso criará **TSPClient.exe** na pasta **bin** do projeto (**bin\\release** ou **bin\\debug**, dependendo do destino, uma versão ou uma compilação de depuração). Você pode executar esse código na máquina de desenvolvimento ou copiar esse executável e Microsoft.ServiceBus.dll para uma máquina que executará o aplicativo cliente (ele não precisa estar na máquina virtual).
 
 <p/>
 
@@ -443,9 +443,9 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 ### Como executar o aplicativo que exige muita computação
 
 1. Faça logon na máquina virtual.
-2. Crie uma pasta chamada **c:\TSP**. É onde você executará o aplicativo.
-3. Copie TSPSolver.exe e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPSolver, para **c:\TSP**.
-4. Crie um arquivo chamado **c:\TSP\cities.txt** com o seguinte conteúdo:
+2. Crie uma pasta chamada **c:\\TSP**. É onde você executará o aplicativo.
+3. Copie TSPSolver.exe e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPSolver, para **c:\\TSP**.
+4. Crie um arquivo chamado **c:\\TSP\\cities.txt** com o seguinte conteúdo:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. Em um prompt de comando, altere os diretórios para c:\TSP.
+5. Em um prompt de comando, altere os diretórios para c:\\TSP.
 6. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço:
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@ O solver será executado até terminar de examinar todas as rotas.
 
 ### Como executar o aplicativo cliente de monitoramento
 1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
-2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\TSP**.
-3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\TSP.
-4. Em um prompt de comando, altere os diretórios para c:\TSP.
+2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\\TSP**.
+3. Copie **TSPClient.exe** e Microsoft.ServiceBus.dll, ambos disponíveis na pasta **bin** do projeto TSPClient, para a pasta c:\\TSP.
+4. Em um prompt de comando, altere os diretórios para c:\\TSP.
 5. Execute o comando a seguir:
 
         TSPClient
@@ -547,4 +547,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou exclu
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

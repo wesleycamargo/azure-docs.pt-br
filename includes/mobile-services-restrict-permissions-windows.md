@@ -9,4 +9,4 @@
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

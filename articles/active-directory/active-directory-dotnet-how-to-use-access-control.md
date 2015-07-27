@@ -116,7 +116,7 @@ Nesta etapa, você cria um aplicativo ASP.NET MVC. Em etapas posteriores, iremos
 
 1. Em **Nome**, digite **MvcACS**, e, em seguida, clique em **OK**.
 1. Na próxima caixa de diálogo, selecione **Aplicativo da Internet** e clique em **OK**.
-1. Edite o arquivo *Views\Shared_LoginPartial.cshtml* e substitua o conteúdo pelo código a seguir:
+1. Edite o arquivo *Views\\Shared_LoginPartial.cshtml* e substitua o conteúdo pelo código a seguir:
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Parabéns! Você integrou com êxito o ACS com o aplicativo da Web ASP.NET. O AC
 
 Nesta seção, vamos modificar o aplicativo para exibir as declarações enviadas pelo ACS. A ferramenta Identidades e Acesso criou um grupo de regras que passa por todas as declarações de IP para o seu aplicativo. Observe que os diferentes provedores de identidade enviam declarações diferentes.
 
-1. Abra o arquivo *Controllers\HomeController.cs*. Adicione uma declaração **usando** para **System.Threading**:
+1. Abra o arquivo *Controllers\\HomeController.cs*. Adicione uma declaração **usando** para **System.Threading**:
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ Nesta seção, vamos modificar o aplicativo para exibir as declarações enviada
 
 1. Clique em **Adicionar**.
 
-1. Substitua o conteúdo do arquivo *Views\Home\Claims.cshtml* pelo código a seguir:
+1. Substitua o conteúdo do arquivo *Views\\Home\\Claims.cshtml* pelo código a seguir:
 
         @{
             ViewBag.Title = "Claims";
@@ -403,4 +403,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

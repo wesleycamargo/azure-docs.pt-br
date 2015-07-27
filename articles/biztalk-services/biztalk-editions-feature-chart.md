@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,7 @@ Você não poderá implantar uma ponte nova ou criar novos contratos. Para impla
 
 #### Como faço para migrar de uma camada dos Serviços do BizTalk para outra?
 
-Use o fluxo de backup e restauração para migrar de uma camada para outra. Apenas alguns caminhos de migração têm suporte. Consulte [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873) para saber mais sobre os caminhos de migração com suporte.
+Use o fluxo de backup e restauração para migrar de uma camada para outra. Apenas alguns caminhos de migração têm suporte. Consulte [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md) para saber mais sobre os caminhos de migração com suporte.
 
 #### O Serviço do Adaptador do BizTalk está incluído no serviço? Como recebo o software?
 
@@ -245,16 +245,16 @@ Sim, o Serviço do Adaptador do BizTalk com o BizTalk Adapter Pack são incluíd
 
 ## Avançar
 
-Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionando com o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar os Serviços BizTalk do Azure no Portal de Gerenciamento do Azure, consulte [Serviços BizTalk: provisionando com o Portal de Gerenciamento do Azure](biztalk-provision-services.md). Para começar a criar aplicativos, visite [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Consulte também
-- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Serviços BizTalk: gráfico do status do provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [Serviços BizTalk: provisionamento usando o Portal de Gerenciamento do Azure](biztalk-provision-services.md)<br/>
+- [Serviços BizTalk: gráfico do status do provisionamento](biztalk-service-state-chart.md)<br/>
+- [Serviços BizTalk: guias Painel, Monitor e Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)<br/>
+- [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
+- [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 - [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

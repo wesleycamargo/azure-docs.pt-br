@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Copiar dados com o Azure Data Factory (atividade de cópia)
@@ -40,23 +40,15 @@ Para saber mais, você pode:
 ## Com suporte de origens e coletores
 A atividade de cópia dá suporte aos cenários da movimentação de dados a seguir:
 
-- Copie os dados de um blob do Azure para um blob do Azure, tabela do Azure, Banco de Dados SQL do Azure, SQL Server local ou SQL Server no IaaS.
-- Copie os dados de um Banco de Dados SQL do Azure para um blob do Azure, tabela do Azure, banco de dados do SQL do Azure, SQL Server local, SQL Server no IaaS
-- Copie os dados de uma tabela do Azure para um blob do Azure, tabela do Azure ou Banco de Dados SQL do Azure.
-- Copie os dados de um SQL Server local/SQL Server no IaaS para o blob do Azure ou o Banco de Dados SQL do Azure
-- Copie os dados de um banco de dados Oracle local para um blob do Azure
-- Copie os dados de um sistema de arquivos local para um blob do Azure
- 
-
 <table border="1">	
 	<tr>
 		<th><i>Fonte/coletor<i></th>
 		<th>Blob do Azure</th>
 		<th>Tabela do Azure</th>
 		<th>Banco de Dados SQL Azure</th>
-		<th>SQL Server local</th>
-		<th>SQL Server na IaaS</th>
 		<th>Banco de Dados de Documentos do Azure</th>
+		<th>SQL Server em VM do Azure</th>
+		<th>SQL Server local</th>
 	</tr>	
 
 	<tr>
@@ -74,11 +66,10 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 		<td>X</td>
 	</tr>	
-
 	<tr>
 		<td><b>Banco de Dados SQL do Azure</b></td>
 		<td>X</td>
@@ -88,108 +79,6 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td>X</td>
 		<td>X</td>
 	</tr>
-
-
-	<tr>
-		<td><b>SQL Server local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server no IaaS</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de arquivos local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Oracle local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de arquivos local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados MySQL local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados DB2 local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Teradata local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Sybase local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados PostgreSQL local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
 	<tr>
 		<td><b>Banco de Dados de Documentos do Azure</b></td>
 		<td>X</td>
@@ -198,6 +87,106 @@ A atividade de cópia dá suporte aos cenários da movimentação de dados a seg
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>SQL Server local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>SQL Server em VM do Azure</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Sistema de arquivos local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados Oracle local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Sistema de arquivos local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados MySQL local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados DB2 local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados Teradata local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados Sybase local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Banco de dados PostgreSQL local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 </table>
@@ -443,7 +432,7 @@ Para armazenamentos de dados oferecer conexão HTTPS, escolha a conexão HTTPS p
 
 Para o **Banco de Dados SQL do Azure**, solicite explicitamente uma conexão criptografada e não confie em certificados de servidor para evitar o ataque de "homem no meio". Para fazer isso, use **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para obter detalhes, consulte [Diretrizes e limitações do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para saber mais , consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) e [Sintaxe de cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
+Para os bancos de dados tradicionais como **SQL Server**, especialmente quando as instâncias estiverem em uma máquina virtual do Azure e habilite a opção de conexão criptografada ao configurar um certificado assinado, com **Encrypt = True** e **TrustServerCertificate = False** na cadeia de conexão. Para saber mais , consulte [Habilitar conexões criptografadas para o mecanismo de banco de dados](https://msdn.microsoft.com/library/ms191192(v=sql.110)) e [Sintaxe de cadeia de conexão](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Cenários avançados
 - **Filtragem de coluna usando a definição de estrutura**. Dependendo do tipo de tabela, é possível especificar um subconjunto das colunas da fonte especificando menos colunas na definição de **estrutura** da definição de tabela que existe na fonte de dados subjacente.
@@ -486,4 +475,4 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

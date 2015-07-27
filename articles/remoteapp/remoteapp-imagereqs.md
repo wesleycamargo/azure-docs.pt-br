@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Requisitos de imagem do RemoteApp"
-    description="Saiba mais sobre os requisitos para a criação de imagens a serem usados com o RemoteApp" 
+    pageTitle="Requisitos de imagem do Azure RemoteApp"
+    description="Saiba mais sobre os requisitos para a criação de imagens a serem usadas com o Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# Requisitos para imagens do RemoteApp
-O RemoteApp usa uma imagem do Windows Server 2012 R2 para hospedar todos os programas que deseja compartilhar com os seus usuários. Para criar uma imagem do RemoteApp personalizada, você pode iniciar com uma imagem existente ou [criar uma nova](remoteapp-create-custom-image.md).
+# Requisitos para as imagens do Azure RemoteApp
+O Azure RemoteApp usa uma imagem do Windows Server 2012 R2 para hospedar todos os programas que deseja compartilhar com os seus usuários. Para criar uma imagem personalizada, você pode iniciar com uma imagem existente ou [criar uma nova](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]Você sabia que a sua assinatura do RemoteApp do Azure fornece acesso a uma imagem do Windows Server 2012 R2 pré-compilação na Galeria de VM do Azure que você pode usar para criar a sua própria imagem de modelo? [Confira](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]Você sabia que a sua assinatura do RemoteApp do Azure fornece acesso a uma imagem do Windows Server 2012 R2 na galeria de VM do Azure que você pode usar para criar a sua própria imagem de modelo? [Confira](remoteapp-image-on-azurevm.md).
 
 
 Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azure são:
@@ -43,4 +43,4 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 - Não há suporte para carregar o VHD de uma cadeia de instantâneo.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

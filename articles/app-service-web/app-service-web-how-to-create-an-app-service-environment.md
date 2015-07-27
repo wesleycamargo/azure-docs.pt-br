@@ -26,6 +26,7 @@ O recurso ASE essencialmente implanta o serviço de aplicativo do Azure na VNET 
 
 - É necessária uma VNET Regional com 512 (/23) ou mais endereços
 - É necessária, nessa VNET, uma sub-rede com 256 (/24) ou mais endereços
+- A sub-rede **não deve conter nenhum outro recurso de computação**. Somente um Ambiente de Serviço de Aplicativo pode ser implantado em uma sub-rede. A tentativa de criação falhará se houver outros recursos de computação que já residam na sub-rede.
 
 Se você ainda não tiver uma VNET que deseja usar para hospedar seu ambiente de serviço de aplicativo, você pode criar uma durante a criação do ambiente de serviço de aplicativo.
 
@@ -142,4 +143,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

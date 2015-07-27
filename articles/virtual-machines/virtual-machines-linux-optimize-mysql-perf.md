@@ -305,7 +305,7 @@ Observe que o tamanho do arquivo usado para esse teste é 30GB e 1GB respectivam
 |-----------|-----------|-----------
 |**innodb_buffer_pool_size** |Nenhum |7G
 |**innodb_log_file_size** |5 M |512 M
-|**max_connections** |100 |5.000
+|**max_connections** |100 |5\.000
 |**innodb_file_per_table** |0 |1
 |**innodb_flush_log_at_trx_commit** |1 |2
 |**innodb_log_buffer_size** |8 M |128 M
@@ -345,4 +345,4 @@ Parâmetros de configuração de otimização mais detalhados, consulte as instr
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -289,4 +289,4 @@ Após carregar `index.php` e `createtable.php`, navegue para **http://[site name
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

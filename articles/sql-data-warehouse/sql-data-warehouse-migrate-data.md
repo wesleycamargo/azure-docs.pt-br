@@ -89,7 +89,7 @@ O PolyBase exige que os arquivos de dados sejam codificados em UTF-8. Isso signi
 Todos os arquivos codificados com UTF-16 precisarão ser reescritos ***antes*** da transferência de dados.
 
 ### Formatação dos arquivos de dados
-O PolyBase exige um terminador de linha fixo de \n ou uma nova linha. Os arquivos de dados devem estar de acordo com esse padrão. Não existem restrições quanto a terminadores de coluna ou de cadeia de caracteres.
+O PolyBase exige um terminador de linha fixo de \\n ou uma nova linha. Os arquivos de dados devem estar de acordo com esse padrão. Não existem restrições quanto a terminadores de coluna ou de cadeia de caracteres.
 
 Você precisará definir todas as colunas no arquivo como parte de sua tabela externa no PolyBase. Certifique-se de que todas as colunas exportadas sejam necessárias e que os tipos estejam em conformidade com os padrões exigidos.
 
@@ -172,9 +172,9 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: storage/storage-use-azcopy.md
-[Cópia do ADF]: storage/data-factory-copy-activity.md
-[exemplos de Cópia do ADF]: data-factory/data-factory-copy-activity-examples.md
+[AZCopy]: ../storage/storage-use-azcopy.md
+[Cópia do ADF]: ../data-factory/data-factory-copy-activity.md
+[exemplos de Cópia do ADF]: ../data-factory/data-factory-copy-activity-examples.md
 [Visão geral de desenvolvimento]: sql-data-warehouse-develop-overview.md
 [Migrar sua solução para o SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -193,4 +193,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [versão de visualização]: http://aka.ms/downloadazcopypr/
 [documentação do SSIS]: https://msdn.microsoft.com/pt-br/library/ms141026.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

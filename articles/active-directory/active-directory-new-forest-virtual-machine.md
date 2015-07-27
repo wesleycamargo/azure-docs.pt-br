@@ -42,7 +42,7 @@ Para configurar... | Configuração local | Rede Virtual do Azure
 ------------- | -------------  | ------------
 **Endereço IP do controlador de domínio** | Atribuir um endereço IP estático nas propriedades do adaptador de rede | Execute o cmdlet Set-AzureStaticVNetIP para atribuir um endereço IP estático
 **Resolvedor do cliente DNS** | Definir endereço de servidor DNS preferencial e alternativo nas propriedades do adaptador de rede de membros do domínio | Definir endereço de servidor DNS nas propriedades de rede virtual
-**Armazenamento de banco de dados do Active Directory** | Como opção, altere o local de armazenamento padrão de C:\ | Você precisa alterar o local de armazenamento padrão de C:\
+**Armazenamento de banco de dados do Active Directory** | Como opção, altere o local de armazenamento padrão de C:\\ | Você precisa alterar o local de armazenamento padrão de C:\\
 
 
 
@@ -139,4 +139,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

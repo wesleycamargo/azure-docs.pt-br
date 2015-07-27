@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # IPython Notebook no Azure
 
 O [projeto IPython](http://ipython.org) fornece uma coleção de ferramentas para computação científica que incluem shells interativos avançados, bibliotecas paralelas de alto desempenho e fáceis de usar e um ambiente baseado na Web chamado IPython Notebook. O Notebook fornece um ambiente de trabalho para computação interativa, que combina a execução de códigos com a criação de um ambiente computacional dinâmico. Esses arquivos de notebook podem conter textos arbitrários, fórmulas matemáticas, códigos de entrada, resultados, gráficos, vídeos e qualquer outro tipo de mídia que um navegador da Web moderno é capaz de exibir.
@@ -149,7 +146,7 @@ No Linux:
 
 No Windows:
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 Crie o certificado SSL da seguinte maneira (Linux e Windows):
 
@@ -180,7 +177,7 @@ Em seguida, editaremos o arquivo de configuração do perfil, que é o arquivo `
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -262,18 +259,18 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 
 
 [tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
+[numpy]: http://www.numpy.org/ "NumPy"
+[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [repositório]: https://github.com/ipython/ipython
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[python Tools for visual studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

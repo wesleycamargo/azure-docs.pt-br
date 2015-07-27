@@ -4,7 +4,6 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -87,12 +86,13 @@ O script a seguir demonstra a criação, a atualização e a exclusão de um cac
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## Próximas etapas
-Para saber mais sobre como usar o PowerShell do Microsoft Azure:
+
+Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os seguintes recursos:
  
-- [Cmdlets do Gerenciador de Recursos do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): saiba usar os cmdlets no módulo AzureResourceManager.
-- [Usando grupos de recursos para gerenciar os recursos do Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
+- [Cmdlets do Gerenciador de Recursos do Azure (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkID=394765): saiba usar os cmdlets no módulo AzureResourceManager.
+- [Usando grupos de recursos para gerenciar os recursos do Azure](../azure-portal/resource-group-portal): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 - [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

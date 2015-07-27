@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Introdução ao Application Insights com Java no Eclipse
@@ -100,9 +100,17 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
 ## Telemetria do lado do cliente
 
-No bloco Início Rápido da folha de visão geral, você pode obter um script para adicionar a suas páginas da Web.
+Na folha Início Rápido, clique em Obter código para monitorar as minhas páginas da Web:
 
-As métricas de sessão, usuário e exibição da página serão exibidas na folha visão geral:
+![Na folha de visão geral de seu aplicativo, escolha Início Rápido, Obter o código para monitorar minhas páginas da Web. Copie o script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Insira o trecho de código no título dos arquivos HTML.
+
+#### Exibir dados do lado do cliente
+
+Abra suas páginas da Web atualizadas e use-as. Aguarde um ou dois minutos, retorne ao Application Insights e atualize a folha de uso.
+
+As métricas de sessão, usuário e exibição de página serão exibidas na folha de uso:
 
 ![Sessões, usuários e modos de exibição de página](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ As métricas de sessão, usuário e exibição da página serão exibidas na fol
 
 ## Testes de disponibilidade via Web
 
-O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. Clique no gráfico vazio de testes via Web na folha visão geral e forneça sua URL pública.
+O Application Insights pode testar seu site em intervalos regulares para verificar ele está operante e respondendo bem. Para configurar, clique no gráfico vazio de testes da Web na folha de visão geral e forneça sua URL pública.
 
 Se seu site ficar inativo, você obterá gráficos de tempos de resposta e também notificações por email.
 
@@ -156,9 +164,9 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

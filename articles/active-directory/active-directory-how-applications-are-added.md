@@ -147,4 +147,4 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
@@ -76,8 +76,7 @@ Entre em contato conosco através do [Fórum de comentários do Active Directory
 O Azure AD provisiona usuários para aplicativos SaaS conectando-se a pontos de extremidade de provisionamento fornecidos por cada fornecedor de aplicativo. Esses pontos de extremidade permitem que o Azure AD crie, atualize e remova usuários por meio de programação. Abaixo está uma breve visão geral das diferentes etapas que o Azure AD segue para automatizar o provisionamento.
 
 1. Quando você habilita o provisionamento de um aplicativo pela primeira vez, as seguintes ações são executadas:
- - O Azure AD tentará corresponder usuários existentes no aplicativo SaaS com suas identidades correspondentes no diretório.
- - Quando um usuário for correspondido, recebe automaticamente acesso ao aplicativo, que habilita o logon único para ele.
+ - O Azure AD tentará corresponder usuários existentes no aplicativo SaaS com suas identidades correspondentes no diretório. Quando um usuário for correspondido, ele *não* será automaticamente habilitado para logon único. Para que um usuário tenha acesso ao aplicativo, ele deve ser explicitamente atribuído ao aplicativo no AD do Azure, seja diretamente ou seja por meio da associação de grupo.
  - Se você já especificou quais usuários devem ser atribuídos ao aplicativo e o Azure AD não conseguir localizar contas existentes para esses usuários, o Azure AD provisionará novas contas para eles no aplicativo.
 2. Depois que a sincronização inicial foi concluída conforme descrito acima, o Azure AD verificará as alterações abaixo a cada 10 minutos:
  - Se novos usuários tiverem sido atribuídos ao aplicativo (diretamente ou por meio de associação de grupo), eles serão provisionados com uma nova conta no aplicativo SaaS.
@@ -107,4 +106,4 @@ Para que um aplicativo dê suporte a provisionamento automatizado de usuários, 
 
 Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

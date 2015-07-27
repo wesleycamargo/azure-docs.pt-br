@@ -1,0 +1,3 @@
+>[AZURE.NOTE]Este é um tópico dos **Aplicativos Móveis do Azure**. Procurando a [documentação sobre Serviços Móveis](/documentation/services/mobile-services/)? <br/><br/>No momento, os Aplicativos Móveis estão em versão de visualização e ainda não são recomendados para uso em produção. Os contratos de SDK e API estão sujeitos a alterações mesmo em versões secundárias. Para aplicativos de produção, utilize os Serviços Móveis.
+
+<!---HONumber=July15_HO3-->

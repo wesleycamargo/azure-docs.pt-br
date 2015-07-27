@@ -88,7 +88,7 @@ Se em algum momento no passado você criou uma conta de consumidor Microsoft usa
 
 ![][3]
 
-Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, consulte [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/pt-br/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, consulte [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gerenciar o diretório para sua assinatura do Office 365 no Azure
 
@@ -126,4 +126,4 @@ Para gerenciar ambos os diretórios no Portal de Gerenciamento, execute essas et
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

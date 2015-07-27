@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -36,7 +36,7 @@ Para receber um email quando uma métrica ultrapassar um limite, inicie no Metri
 
 ![Na folha das Regras de alerta, escolha Adicionar Alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Defina o recurso antes de outras propriedades. Não escolha os recursos webtest se você quer definir alertas em métricas de desempenho ou de uso.
+Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
 
 Observe as unidades quando você for solicitado para inserir o valor de limite.
 
@@ -80,4 +80,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

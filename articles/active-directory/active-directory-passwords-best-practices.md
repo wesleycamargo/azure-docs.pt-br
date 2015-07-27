@@ -118,12 +118,12 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 **Recursos adicionais**
 
 
-* [O que é gerenciamento de senhas](active-directory-passwords.md)
+* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
 * [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
 * [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
 * [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
 * [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre gerenciamento de senhas](active-directory-passwords-faq.md)
+* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 * [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
@@ -138,4 +138,4 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

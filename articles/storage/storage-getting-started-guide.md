@@ -45,9 +45,9 @@ Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure u
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **Inícios Rápidos** > **Serviços de Dados**.
-	- 3.a. Escolha um dos seguintes modelos: Armazenamento de Blob do Azure, Armazenamento de Tabelas do Azure ou Filas de Armazenamento do Azure. 
-	- 3.b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.	
-	- 3.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
+	- 3\.a. Escolha um dos seguintes modelos: Armazenamento de Blob do Azure, Armazenamento de Tabelas do Azure ou Filas de Armazenamento do Azure. 
+	- 3\.b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.	
+	- 3\.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
 	
 	![Guias de Início Rápido do Azure][Image1]
 
@@ -71,9 +71,9 @@ Quando você tiver uma conta, você pode criar um aplicativo simples de armazena
 1. Inicie o Visual Studio.
 2. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **Inícios Rápidos** > **Serviços de Dados**.
-	- 3.a. Escolha um dos seguintes modelos: Armazenamento de Blob do Azure, Armazenamento de Tabelas do Azure ou Filas de Armazenamento do Azure.
-	- 3.b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
-	- 3.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio. 
+	- 3\.a. Escolha um dos seguintes modelos: Armazenamento de Blob do Azure, Armazenamento de Tabelas do Azure ou Filas de Armazenamento do Azure.
+	- 3\.b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
+	- 3\.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio. 
 
 Convém examinar o código-fonte antes de executar o aplicativo. Para examinar o código, selecione **Gerenciador de Soluções** no menu **Exibição** do Visual Studio. Em seguida, clique duas vezes no arquivo Program.cs.
 
@@ -107,4 +107,4 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

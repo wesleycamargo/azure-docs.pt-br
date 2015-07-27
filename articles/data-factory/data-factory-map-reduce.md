@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -123,4 +123,4 @@ Artigo | Descrição
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

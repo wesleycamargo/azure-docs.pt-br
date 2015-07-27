@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # Como obter um locatário do Active Directory do Azure
@@ -64,6 +64,5 @@ Se você já se inscreveu anteriormente para uma assinatura do Azure com sua con
 Se todos os itens acima forem sem sentido para você, não se preocupe. Basta visitar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização. Depois de concluir o processo, você terá seu próprio locatário do AD do Azure com o nome de domínio escolhido durante a inscrição. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), você pode localizar seu locatário navegando para "Active Directory" no painel de navegação à esquerda.
 
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito. Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

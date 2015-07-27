@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web
@@ -581,4 +581,4 @@ E em uma tabela do Azure, os logs `Console.Out` e `Console.Error` têm esta apar
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

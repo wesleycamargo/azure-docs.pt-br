@@ -114,7 +114,7 @@ O modo de exibição de marca do ASP.NET é ajustado à tela, o que é feito aut
 
 Uma novidade do modelo MVC 5 é o suporte interno ao Bootstrap. Você já viu como ele aprimora imediatamente os diferentes modos de exibição em seu aplicativo. Por exemplo, a barra de navegação na parte superior é recolhida automaticamente quando a largura do navegador é menor. No navegador da área de trabalho, tente redimensionar a janela e veja como a barra de navegação muda de aparência e estilo. O responsável é o design Web dinâmico interno do Bootstrap.
 
-Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App_Start\\BundleConfig.cs* e transforme em comentário as linhas que contêm *bootstrap.js* e *bootstrap.css*. O código a seguir mostra as duas últimas instruções do método `RegisterBundles` após a alteração:
+Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App\\_Start\\\\BundleConfig.cs* e transforme em comentário as linhas que contêm *bootstrap.js* e *bootstrap.css*. O código a seguir mostra as duas últimas instruções do método `RegisterBundles` após a alteração:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -140,11 +140,11 @@ Na próxima seção, você verá como fornecer modos de exibição específicos 
 
 ##<a name="bkmk_overrideviews"></a>Substituir os modos de exibição, os layouts e as exibições parciais
 
-Você pode substituir qualquer modo de exibição (inclusive layouts e modos de exibição parciais) para navegadores de dispositivos móveis em geral, para um navegador móvel individual ou para qualquer navegador específico. Para fornecer uma exibição específica para dispositivos móveis, você pode copiar um arquivo de modo de exibição e adicionar *.Mobile* ao nome do arquivo. Por exemplo, para criar uma exibição *Index* de móvel, você pode copiar *Views\Home\Index.cshtml* para *Views\Home\Index.Mobile.cshtml*.
+Você pode substituir qualquer modo de exibição (inclusive layouts e modos de exibição parciais) para navegadores de dispositivos móveis em geral, para um navegador móvel individual ou para qualquer navegador específico. Para fornecer uma exibição específica para dispositivos móveis, você pode copiar um arquivo de modo de exibição e adicionar *.Mobile* ao nome do arquivo. Por exemplo, para criar uma exibição *Index* de móvel, você pode copiar *Views\\Home\\Index.cshtml* para *Views\\Home\\Index.Mobile.cshtml*.
 
 Nesta seção, você criará um arquivo de layout específico para dispositivos móveis.
 
-Para começar, copie *Views\Shared_Layout.cshtml* para *Views\Shared_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
+Para começar, copie *Views\\Shared\\_Layout.cshtml* para *Views\\Shared\\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
 
 Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por" em cada link *ActionLink*. O código a seguir mostra a marca `<ul class="nav navbar-nav">` completa do arquivo de layout para dispositivos móveis.
 
@@ -155,11 +155,11 @@ Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por"
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie o arquivo *Views\Home\AllTags.cshtml* para *Views\Home\AllTags.Mobile.cshtml*. Abra o novo arquivo e altere o elemento `<h2>` das "Marcas" para "marcas (M)":
+Copie o arquivo *Views\\Home\\AllTags.cshtml* para *Views\\Home\\AllTags.Mobile.cshtml*. Abra o novo arquivo e altere o elemento `<h2>` das "Marcas" para "marcas (M)":
 
     <h2>Tags (M)</h2>
 
-Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
+Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *\\_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
@@ -191,9 +191,9 @@ Como alternativa, basta adicionar manualmente a seguinte linha na seção `using
 
     using System.Web.WebPages;
 
-Salve as alterações. Copie o arquivo *Views\Shared_Layout.Mobile.cshtml* para *Views\Shared_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
+Salve as alterações. Copie o arquivo *Views\\Shared\\_Layout.Mobile.cshtml* para *Views\\Shared\\_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
 
-Copie o arquivo *Views\Home\AllTags.Mobile.cshtml* para *Views\Home\AllTags.iPhone.cshtml*. Abra o novo arquivo, altere o elemento `<h2>` de "Tags (M)" para "Tags (iPhone)".
+Copie o arquivo *Views\\Home\\AllTags.Mobile.cshtml* para *Views\\Home\\AllTags.iPhone.cshtml*. Abra o novo arquivo, altere o elemento `<h2>` de "Tags (M)" para "Tags (iPhone)".
 
 Execute o aplicativo. Execute o emulador de navegador móvel com o agente do usuário definido como “iPhone” e navegue até o modo de exibição *AllTags*. Se você estiver usando o emulador nas ferramentas de desenvolvedor do Internet Explorer 11 F12, configure a emulação para fazer o seguinte:
 
@@ -209,7 +209,7 @@ No navegador móvel, selecione o link **Alto-falantes**. Porque não há um modo
 
 ![][AllSpeakers_LayoutMobile]
 
-Você pode desativar globalmente a renderização do modo de exibição padrão (não móvel) dentro de um layout móvel ao configurar `RequireConsistentDisplayMode` como `true` no arquivo *Views_ViewStart.cshtml*, desta forma:
+Você pode desativar globalmente a renderização do modo de exibição padrão (não móvel) dentro de um layout móvel ao configurar `RequireConsistentDisplayMode` como `true` no arquivo *Views\\_ViewStart.cshtml*, desta forma:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -220,7 +220,7 @@ Quando o `RequireConsistentDisplayMode` estiver definido como `true`, o layout m
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-Você pode desativar o modo de exibição consistente em um modo específico definindo o `RequireConsistentDisplayMode` como `false` no arquivo do modo de exibição. A marcação a seguir no arquivo *Views\Home\AllSpeakers.cshtml* define o `RequireConsistentDisplayMode` como `false`:
+Você pode desativar o modo de exibição consistente em um modo específico definindo o `RequireConsistentDisplayMode` como `false` no arquivo do modo de exibição. A marcação a seguir no arquivo *Views\\Home\\AllSpeakers.cshtml* define o `RequireConsistentDisplayMode` como `false`:
 
     @model IEnumerable<string>
 
@@ -235,7 +235,7 @@ Nesta seção, você viu como criar layouts e exibições móveis e como criar l
 
 Como você acabou de ver, o modo de exibição *Alto-falantes* é legível, mas os links são pequenos e difíceis de tocar em um dispositivo móvel. Nesta seção, você tornará o modo de exibição *AllSpeakers* acessível para dispositivos móveis, que exibe links grandes, fáceis de tocar e contém uma caixa de pesquisa para localizar alto-falantes rapidamente.
 
-É possível utilizar o estilo do [grupo de listas vinculadas][] do Bootstrap para aprimorar o modo de exibição de *Speakers*. Em *Views\Home\AllSpeakers.cshtml*, substitua o conteúdo do arquivo Razor com o código abaixo.
+É possível utilizar o estilo do [grupo de listas vinculadas][] do Bootstrap para aprimorar o modo de exibição de *Speakers*. Em *Views\\Home\\AllSpeakers.cshtml*, substitua o conteúdo do arquivo Razor com o código abaixo.
 
      @model IEnumerable<string>
 
@@ -262,7 +262,7 @@ O estilo do [grupo de listas vinculadas][] do Bootstrap torna clicável a caixa 
 
 ![][AllSpeakersFixedDesktop]
 
-Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\Home\AllSpeakers.cshtml*, adicione uma marca \<form\> logo após a marca \<h2\>, como mostrado abaixo:
+Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\\Home\\AllSpeakers.cshtml*, adicione uma marca <form> logo após a marca <h2>, como mostrado abaixo:
 
     @model IEnumerable<string>
 
@@ -317,7 +317,7 @@ Na pasta *Scripts*, adicione um Arquivo JavaScript chamado *filter.js*. Abra o a
         });
     });
 
-Também será preciso incluir o filter.js em seus pacotes registrados. Abra *App_Start\BundleConfig.cs* e altere os primeiros pacotes. Altere a primeira instrução `bundles.Add` (para o pacote **jquery**) para incluir *Scripts\filter.js*, da seguinte maneira:
+Também será preciso incluir o filter.js em seus pacotes registrados. Abra *App_Start\\BundleConfig.cs* e altere os primeiros pacotes. Altere a primeira instrução `bundles.Add` (para o pacote **jquery**) para incluir *Scripts\\filter.js*, da seguinte maneira:
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
@@ -331,7 +331,7 @@ Atualize o navegador móvel e vá para o modo de exibição *AllSpeakers*. Na ca
 
 ##<a name="bkmk_improvetags"></a> Melhorar a lista de marcas
 
-Como acontece com o modo de exibição *Alto-falantes*, o modo de exibição *Marcas* é legível, mas os links são pequenos e difíceis de tocar em um dispositivo móvel. É possível consertar o modo de exibição de *Marcas* da mesma forma como você consertou o modo de exibição *Alto-falantes*, basta usar as alterações de código descritas anteriormente, com a seguinte sintaxe de método `Html.ActionLink` em *Views\Home\AllTags.cshtml*:
+Como acontece com o modo de exibição *Alto-falantes*, o modo de exibição *Marcas* é legível, mas os links são pequenos e difíceis de tocar em um dispositivo móvel. É possível consertar o modo de exibição de *Marcas* da mesma forma como você consertou o modo de exibição *Alto-falantes*, basta usar as alterações de código descritas anteriormente, com a seguinte sintaxe de método `Html.ActionLink` em *Views\\Home\\AllTags.cshtml*:
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
@@ -350,7 +350,7 @@ E o navegador móvel atualizado terá a seguinte aparência:
 
 ##<a name="bkmk_improvedates"></a> Melhorar a lista de datas
 
-É possível melhorar o modo de exibição de *Datas* da mesma forma como você melhorou o modo de exibição de*Alto-falantes* e *Marcas*, basta usar as alterações de código descritas anteriormente, com a seguinte sintaxe de método `Html.ActionLink` em *Views\Home\AllDates.cshtml*:
+É possível melhorar o modo de exibição de *Datas* da mesma forma como você melhorou o modo de exibição de*Alto-falantes* e *Marcas*, basta usar as alterações de código descritas anteriormente, com a seguinte sintaxe de método `Html.ActionLink` em *Views\\Home\\AllDates.cshtml*:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
@@ -361,7 +361,7 @@ A exibição atualizada do navegador móvel será como esta:
 
 ![][AllDatesFixed]
 
-Você pode aprimorar ainda mais o modo de exibição de *Datas* organizando os valores data-hora por data. Isso pode ser feito com o estilo de [painéis][] do Bootstrap. Substitua o conteúdo do arquivo *Views\Home\AllDates.cshtml* pelo código a seguir:
+Você pode aprimorar ainda mais o modo de exibição de *Datas* organizando os valores data-hora por data. Isso pode ser feito com o estilo de [painéis][] do Bootstrap. Substitua o conteúdo do arquivo *Views\\Home\\AllDates.cshtml* pelo código a seguir:
 
     @model IEnumerable<DateTime>
 
@@ -409,7 +409,7 @@ Toque o link **ASP.NET**.
 
 ![][SessionsTableTagASP.NET]
 
-Como você pode ver, a exibição está formatada como uma tabela, que foi desenhada para ser exibida em um navegador de desktop. No entanto, é um pouco difícil de ler em um navegador móvel. Para corrigir isso, abra *Views\Home\SessionsTable.cshtml* e, em seguida, substitua o conteúdo do arquivo com o seguinte código:
+Como você pode ver, a exibição está formatada como uma tabela, que foi desenhada para ser exibida em um navegador de desktop. No entanto, é um pouco difícil de ler em um navegador móvel. Para corrigir isso, abra *Views\\Home\\SessionsTable.cshtml* e, em seguida, substitua o conteúdo do arquivo com o seguinte código:
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -476,7 +476,7 @@ Escolha o link **Construindo um aplicativo de página única com o ASP.NET e Ang
 
 A exibição padrão para navegador de desktop é boa, mas você pode aprimorar a aparência facilmente usando alguns componentes GUI do Bootstrap.
 
-Abra *Views\Home\SessionByCode.cshtml* e substitua o conteúdo com a seguinte marcação:
+Abra *Views\\Home\\SessionByCode.cshtml* e substitua o conteúdo com a seguinte marcação:
 
     @model Mvc5Mobile.Models.Session
 
@@ -616,4 +616,4 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

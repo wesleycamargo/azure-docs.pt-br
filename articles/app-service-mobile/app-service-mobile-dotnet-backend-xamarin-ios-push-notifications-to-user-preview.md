@@ -3,7 +3,7 @@
 	description="Saiba como enviar notificações por push para todos os dispositivos de um usuário" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/25/2015"
 	ms.author="yuaxu"/>
 
 # Enviar notificações entre plataformas para um usuário específico
@@ -112,4 +112,4 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 [Introdução às notificações por push]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

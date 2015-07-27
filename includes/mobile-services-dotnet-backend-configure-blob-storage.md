@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>Instalar o cliente de armazenamento do projeto de serviço móvel
+##Instalar o cliente de armazenamento no projeto de serviço móvel
 
 Para gerar uma SAS para carregar imagens no armazenamento de Blob, primeiro adicione o pacote NuGet que instala a biblioteca de cliente de armazenamento no projeto do serviço móvel.
 
@@ -11,7 +11,7 @@ Para gerar uma SAS para carregar imagens no armazenamento de Blob, primeiro adic
 
   	Isso adiciona a biblioteca de cliente para os serviços de armazenamento do Azure ao projeto do serviço móvel.
 
-##<a name="update-data-model"></a>Atualizar a definição de TodoItem no modelo de dados
+##Atualizar a definição de TodoItem no modelo de dados
 
 A classe TodoItem define o objeto de dados, e é necessário adicionar a essa classe as mesmas propriedades adicionadas ao cliente.
 
@@ -28,7 +28,7 @@ A classe TodoItem define o objeto de dados, e é necessário adicionar a essa cl
 
 	>[AZURE.NOTE]Ao usar o inicializador de banco de dados padrão, o Entity Framework irá remover e recriar o banco de dados quando detectar uma alteração no modelo de dados na definição Code First. Para fazer com que esse modelo de dados altere e mantenha os dados existentes no banco de dados, você deve usar as Migrações Code First. O inicializador padrão não pode ser usado em um Banco de Dados SQL do Azure. Para obter mais informações, consulte [Como usar as Migrações Code First para atualizar o modelo de dados](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Atualizar o controlador de TodoItem para gerar uma assinatura de acesso compartilhado 
+##Atualizar o controlador de TodoItem para gerar uma assinatura de acesso compartilhado 
 
 O **TodoItemController** existente é atualizado para que o método **PostTodoItem** gere uma SAS quando um novo TodoItem é inserido. Você também
 
@@ -132,4 +132,4 @@ Em seguida, você atualizará o aplicativo quickstart para adicionar funcionalid
 [Como criar uma conta de armazenamento]: ../articles/storage/storage-create-storage-account.md
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

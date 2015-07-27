@@ -98,4 +98,4 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

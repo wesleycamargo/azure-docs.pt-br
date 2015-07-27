@@ -30,4 +30,4 @@ Para saber mais sobre o contrato de parceiro comercial, clique [aqui][1]
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

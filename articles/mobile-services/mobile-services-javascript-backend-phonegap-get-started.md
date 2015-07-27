@@ -76,7 +76,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8: abra o arquivo .sln na pasta **platforms\wp8** no Visual Studio 2012 Express para Windows Phone.
+		1. Windows Phone 8: abra o arquivo .sln na pasta **platforms\\wp8** no Visual Studio 2012 Express para Windows Phone.
 
 		2. Pressione a tecla **F5** para recompilar o projeto e iniciar o aplicativo.
 
@@ -171,4 +171,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

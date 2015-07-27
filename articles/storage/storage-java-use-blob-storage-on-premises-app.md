@@ -28,7 +28,7 @@ O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarma
 2.  O SDK do Azure deve estar instalado.
 3.  O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para obter informações sobre como instalar as bibliotecas do Azure para Java, confira [Baixar o SDK do Azure para Java].
 4.  Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código a seguir. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento] para obter informações sobre como recuperar a chave da conta.
-5.  Você criou um arquivo de imagem local armazenado no caminho c:\minhasimagens\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
+5.  Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@ Obtenha uma referência para o blob de blocos, que representará o blob no armaz
 
 Use o construtor **File** para obter uma referência para o arquivo criado localmente que será carregado. (Certifique-se de criar esse arquivo antes de executar o código.)
 
-    File fileReference = new File ("c:\myimages\image1.jpg");
+    File fileReference = new File ("c:\\myimages\\image1.jpg");
 
 Carregue o arquivo local por meio de uma chamada para o método **CloudBlockBlob.upload**. O primeiro parâmetro para o método **CloudBlockBlob.upload** é um objeto **FileInputStream** que representa o arquivo local que será carregado para o armazenamento do Azure. O segundo parâmetro é o tamanho, em bytes, do arquivo.
 
@@ -237,7 +237,7 @@ A seguir está o código completo deste exemplo. Lembre-se de modificar os valor
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\myimages\image1.jpg");
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
@@ -41,28 +41,21 @@ Você pode usar a classe [CloudConfigurationManager](https://msdn.microsoft.com/
 
 ## Criar uma cadeia de conexão para o emulador de armazenamento
 
-O emulador de armazenamento é uma conta local com um nome conhecido e uma chave. Você pode usar um formato de cadeia de caracteres de atalho, `UseDevelopmentStorage=true`, para se referir ao emulador de armazenamento de dentro de uma cadeia de conexão. Por exemplo, uma cadeia de conexão para o emulador de armazenamento em um app.config ficará parecido a:
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-Você também pode especificar um proxy HTTP para usar quando estiver testando seu serviço no emulador de armazenamento. Isso pode ser útil para observar solicitações e respostas HTTP enquanto você estiver depurando operações nos serviços de armazenamento. Para especificar um proxy, adicione a opção `DevelopmentStorageProxyUri` à cadeia de conexão e defina seu valor para o URI de proxy. Por exemplo, aqui está uma cadeia de conexão que aponta para o emulador de armazenamento e configura um proxy HTTP:
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
-
-Consulte [Usar o Emulador de Armazenamento do Azure para Desenvolvimento e Teste](storage-use-emulator.md) para obter mais informações sobre o emulador de armazenamento.
+Consulte [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) para obter mais informações sobre o emulador de armazenamento.
 
 ## Criar uma cadeia de conexão para uma conta de armazenamento do Azure
 
-Para criar uma cadeia de conexão para sua conta de armazenamento do Azure, use o formato de cadeia de caracteres de conexão abaixo. Indique se você deseja se conectar à conta de armazenamento por meio de HTTP ou HTTPS (recomendado), substitua `myAccountName` pelo nome da sua conta de armazenamento, substitua `myAccountKey` pela sua chave de acesso da conta:
+Para criar uma cadeia de conexão para sua conta de armazenamento do Azure, use o formato de cadeia de caracteres de conexão abaixo. Indique se você deseja se conectar à conta de armazenamento por meio de HTTP ou HTTPS (recomendado), substitua `myAccountName` pelo nome da sua conta de armazenamento e substitua `myAccountKey` pela chave de acesso da sua conta:
 
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Por exemplo, a cadeia de conexão será semelhante à seguinte cadeia de conexão de amostra:
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]O Armazenamento do Azure dá suporte a HTTP e HTTPS em uma cadeia de conexão; no entanto, usar HTTPS é altamente recomendável.
     
@@ -75,13 +68,16 @@ Você pode para especificar explicitamente os pontos de extremidade do serviço 
 
 Para criar uma cadeia de conexão que especifique um pontos de extremidade de Blob explícito, especifique o ponto de extremidade de serviço completo para cada serviço, incluindo a especificação do protocolo (HTTP ou HTTPS) usando o seguinte formato:
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 Você deve especificar pelo menos um ponto de extremidade de serviço, mas não é necessário especificar todos os três. Por exemplo, se você estiver criando uma cadeia de conexão para uso com um ponto de extremidade de blob personalizado, especificar os pontos de extremidade de fila e tabela é opcional. Observe que se você optar por omitir os pontos de extremidade de fila e tabela da cadeia de conexão, então você não poderá acessar os serviços de fila e tabela no seu código usando essa cadeia de conexão.
 
-Quando você especifica explicitamente pontos de extremidade de serviço na cadeia de conexão, há duas opções para especificar `credentials` na sequência de caracteres acima:
+Quando você especifica explicitamente pontos de extremidade de serviço na cadeia de conexão, há duas opções para especificar `credentials` na cadeia de caracteres acima:
 
 - Você pode especificar o nome da conta e a chave: `AccountName=myAccountName;AccountKey=myAccountKey` 
 - Você pode especificar uma assinatura de acesso compartilhado: `SharedAccessSignature=base64Signature`
@@ -92,9 +88,11 @@ Se você registrou o nome de domínio personalizado para uso com o serviço Blob
 
 Por exemplo, uma cadeia de conexão para um ponto de extremidade de Blob em um domínio personalizado pode ser semelhante a:
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### Especificando um ponto de extremidade de Blob com uma assinatura de acesso compartilhado 
 
@@ -108,7 +106,7 @@ O ponto de extremidade pode ser um ponto de extremidade de serviço padrão ou u
 
 ### Criando uma cadeia de conexão com um sufixo de ponto de extremidade
 
-Para criar uma cadeia de conexão para o serviço de armazenamento em regiões ou instâncias com sufixos de ponto de extremidade diferente, como para o Azure China ou governança do Azure, use o seguinte formato de cadeia de caracteres de conexão. Indique se deseja conectar-se à conta de armazenamento por meio de HTTP ou HTTPS, substitua `myAccountName` pelo nome da conta de armazenamento, substitua `myAccountKey` pela sua chave de acesso da conta e substitua `mySuffix` pelo sufixo do URI:
+Para criar uma cadeia de conexão para o serviço de armazenamento em regiões ou instâncias com sufixos de ponto de extremidade diferente, como para o Azure China ou governança do Azure, use o seguinte formato de cadeia de caracteres de conexão. Indique se deseja se conectar à conta de armazenamento por meio de HTTP ou HTTPS, substitua `myAccountName` pelo nome da sua conta de armazenamento, substitua `myAccountKey` pela chave de acesso da sua conta e substitua `mySuffix` pelo sufixo do URI:
 
 
 	DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
@@ -116,8 +114,12 @@ Para criar uma cadeia de conexão para o serviço de armazenamento em regiões o
 
 Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cadeia de conexão:
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

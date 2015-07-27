@@ -63,8 +63,8 @@ Cada plataforma de destino tem pré-requisitos diferentes.
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim) – permite que você inicie aplicativos iOS no Simulador iOS por meio da linha de comando (pode ser facilmente instalado por meio do terminal: `npm install -g ios-sim`)
 
 - Para compilar e executar o aplicativo para Android
-	- Instale [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior. Certifique-se de que `JAVA_HOME` (variável de ambiente) está configurado corretamente de acordo com o caminho de instalação do JDK (por exemplo C:\Program Files\Java\jdk1.7.0_75).
-	- Instale o [SDK do Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) e adicione o local `<android-sdk-location>\tools` (por exemplo, C:\tools\Android\android-sdk\tools) em sua variável de ambiente `PATH`.
+	- Instale [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior. Certifique-se de que `JAVA_HOME` (variável de ambiente) está configurado corretamente de acordo com o caminho de instalação do JDK (por exemplo C:\\Program Files\\Java\\jdk1.7.0_75).
+	- Instale o [SDK do Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) e adicione o local `<android-sdk-location>\tools` (por exemplo, C:\\tools\\Android\\android-sdk\\tools) em sua variável de ambiente `PATH`.
 	- Abra o Gerenciador de SDK do Android (por exemplo, por meio do terminal: `android`) e instale
     - *Android 5.0.1 (API 21)* SDK de plataforma
     - *Android SDK Build-tools* versão 19.1.0 ou superior
@@ -255,4 +255,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure em [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

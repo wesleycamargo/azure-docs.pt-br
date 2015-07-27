@@ -367,4 +367,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

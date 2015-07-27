@@ -69,7 +69,7 @@ Nesta seção você criará um novo aplicativo Android que está conectado ao se
 5. Baixe agora o seu aplicativo:
 	- A versão mais recente do aplicativo usa o SDK de Serviços Móveis para Android 2.0. Você pode baixar essa versão <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">aqui</a>. Clique em **Baixar Zip**, descompacte-o e o projeto estará em GettingStarted, na pasta Android.
 
-	- Uma versão mais antiga usa a versão anterior do SDK. Para usá-la, em **Baixe e execute seu aplicativo**, clique em **Baixar**. Isso baixa o projeto para o aplicativo de exemplo _Lista de pendências_ que está conectado ao seu serviço móvel. Os arquivos de projeto estão compactados, então navegue até sua localização e descompacte os arquivos em seu computador.
+	- Uma versão mais antiga usa a versão anterior do SDK. Para usá-la, em **Baixe e execute seu aplicativo**, clique em **Baixar**. Isso baixa o projeto para o aplicativo de exemplo _To do list_ que está conectado ao seu serviço móvel. Os arquivos de projeto estão compactados, então navegue até sua localização e descompacte os arquivos em seu computador.
 
 
 ## Executar seu aplicativo Android
@@ -124,4 +124,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

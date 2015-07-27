@@ -3,7 +3,7 @@
 	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
 
@@ -140,6 +140,5 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

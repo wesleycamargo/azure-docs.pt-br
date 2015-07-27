@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transformar documentos XML" 
+	pageTitle="Transformação do BizTalk" 
 	description="Aprenda a transformar documentos XML de um esquema para outro." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformar documentos XML
+#Transformação do BizTalk
 
 
-## Visão geral do Aplicativos de API de Transformação do BizTalk
+## Visão geral
 O Aplicativo de API de Transformação do BizTalk converte dados de um formato para outro. Por exemplo, você pode usar endereços de cobrança e remessas de ordens de compra e inseri-los em um documento de nota fiscal. Ou talvez você tenha uma mensagem de entrada contendo a data atual no formato *YearMonthDay*. Você deseja reformatar a data para que fique no formato *MonthDayYear*.
 
 Você pode fazer isso usando o Aplicativo de API de Transformação no Serviço de Aplicativo do Microsoft Azure. Uma transformação ou mapa consiste em um esquema XML de origem (a entrada) e um esquema XML de destino (a saída). Você pode usar funções internas diferentes para ajudar a manipular e controlar os dados, incluindo manipulações de cadeia de caracteres, atribuições condicionais, expressões aritméticas, formatadores do tempo de data e até mesmo construções em loop.
@@ -34,46 +34,12 @@ Recursos adicionais incluem:
 - Ao criar um mapa, você pode exibir uma representação gráfica do mapa, incluindo ver todas as relações e os links que você criar.
 - Use o recurso **Testar Mapa** para adicionar uma mensagem XML de exemplo. Com um simples clique, você pode testar o mapa que você criou e ver a saída gerada.
 - Carregue os mapas de Serviço BizTalk do Azure existentes (.trfm) e use todos os benefícios do Aplicativo de API de Transformação.
+- Ao criar o mapa, você não precisa adicionar um esquema. Quando o mapa estiver pronto, adicione-o ao aplicativo de API de transformação e você estará pronto para começar. 
 - Inclui suporte para o formato XML.
-
-
-## Criar um novo aplicativo de API de Transformação do BizTalk
-
-1.	Entre no Portal do Azure e vá para o quadro inicial (página inicial).
-
-2.	Selecione **Novo** > **Web + móvel** > **Azure Marketplace** > **Aplicativos de API**:
-
-	   ![][1]
- 
-	Ou você pode selecionar **Marketplace** no quadro inicial e selecionar **Aplicativos de API** na lista disponível:
-
-	   ![][2]
- 
-3.	Navegue para a Transformação do BizTalk digitando **Transformação** e selecionando **Serviço de Transformação do BizTalk**:
-
-	   ![][4]
- 
-4.	Na folha **Serviço de Transformação do BizTalk**, selecione **Criar**:
-
-       ![][5]
- 
-5.	Na folha **Novo Aplicativo de API**, insira as seguintes informações e selecione **Criar**:
-
-	- Nome – dê um nome para seu Aplicativo de API de Transformação 
-	- Plano de Serviço de Aplicativo – selecione ou crie um novo plano de serviço do aplicativo 
-	- Camada de preços – escolha a camada de preço na qual deseja posicionar esse aplicativo 
-	- Grupo de Recursos - selecione ou crie um grupo de recursos em que o aplicativo deve residir 
-	- Local - escolha a região geográfica onde você quer que o aplicativo seja implantado.
-	
-	   ![][6]
-
-6.	Selecione **Criar**. Em alguns minutos, seu Aplicativo de API de Transformação do BizTalk é criado.
 
 
 ## Baixar esquemas de Aplicativos da API de conector
 Você pode baixar os esquemas XML para conectores, como SQL, SAP e SharePoint, da página de resumo do Aplicativo de API. Por exemplo, se você quiser baixar esquemas XML para um Aplicativo de API do Conector do SAP específico, procure o Aplicativo de API e abra a página de resumo. Selecione **Baixar Esquemas** e um arquivo zip com todos os esquemas correspondentes às ações SAP é baixado para seu computador. Você pode usar os esquemas para criar um mapa (.trfm) no Visual Studio.
-
-   ![][14]
 
 
 ## Criar e adicionar o mapa
@@ -109,7 +75,7 @@ Se o mapa mudar ou for modificado depois de ser carregado, você pode carregar o
 
 
 ## Usar um Aplicativo de API de Transformação do BizTalk em um aplicativo lógico
-Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo. Os usuários podem criar um novo aplicativo lógico (**NOVO** > **Aplicativos Lógicos**).
+Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
 1. No aplicativo lógico, a Transformação do BizTalk está disponível na galeria à direita. Selecione **Serviço de Transformação do BizTalk** da galeria. A Transformação é adicionada ao fluxo:
 
@@ -150,4 +116,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo. 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

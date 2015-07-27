@@ -497,4 +497,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Componente de mensagens do Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

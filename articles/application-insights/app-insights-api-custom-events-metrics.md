@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -35,6 +35,7 @@ Método | Usado para
 [`TrackException`](#track-exception)|Registrar em log exceções para diagnóstico. Rastrear onde elas ocorrem em relação a outros eventos e examinar os rastreamentos de pilha.
 [`TrackRequest`](#track-request)| Registrar em log a frequência e a duração das solicitações do servidor para análise de desempenho.
 [`TrackTrace`](#track-trace)|Mensagens de log de diagnóstico. Você também pode capturar logs de terceiros.
+[`TrackDependency`](#track-dependency)|Registre em log a duração e a frequência das chamadas para componentes externos dos quais seu aplicativo depende.
 
 Você pode [anexar propriedades e métricas](#properties) à maioria dessas chamadas de telemetria.
 
@@ -231,6 +232,7 @@ Se for mais conveniente, você poderá coletar os parâmetros de um evento em um
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> Eventos de tempo
 
 Às vezes, você deseja registrar quanto tempo leva para realizar alguma ação. Por exemplo, talvez você queira saber quanto tempo os usuários levam para considerar as opções de um jogo. Este é um exemplo útil de usos do parâmetro de medição.
@@ -367,7 +369,7 @@ Você mesmo também poderá chamá-la se desejar simular solicitações em um co
 
 ## Acompanhar exceção
 
-Envie exceções ao Application Insights: para [contá-las][metrics], como uma indicação da frequência de um problema; e para [examinar ocorrências individuais][diagnostic].
+Envie exceções ao Application Insights: para [contá-las][metrics], como uma indicação da frequência de um problema; e para [examinar ocorrências individuais][diagnostic]. Os relatórios incluem os rastreamentos de pilha.
 
 *C#*
 
@@ -397,6 +399,30 @@ Use-o para ajudar a diagnosticar problemas enviando uma 'trilha de navegação e
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 O limite de tamanho para `message` é muito maior do que o limite para propriedades. Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
+
+## Rastrear dependência
+
+O módulo de rastreamento de dependência padrão usa essa API para registrar em log chamadas para dependências externas, como bancos de dados ou APIs REST. O módulo descobre automaticamente algumas dependências externas, mas convém que alguns componentes adicionais sejam tratados da mesma forma.
+
+Por exemplo, se você criar seu código com um assembly que não escreveu, será possível determinar o tempo de todas as chamadas nele, a fim de descobrir qual sua contribuição para seus tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Para desativar o módulo de rastreamento de dependência padrão, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Definir padrões para telemetria personalizada selecionada
 
@@ -432,6 +458,7 @@ Se quiser definir valores de propriedade padrão para alguns dos eventos persona
     gameTelemetry.TrackEvent("WinGame");
     
 Chamadas de telemetria individuais podem substituir os valores padrão em seus dicionários de propriedades.
+
 
 
 
@@ -692,6 +719,9 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
 * **Usuário** permite que os usuários sejam contados. Em um aplicativo da web, se houver um cookie, a ID de usuário será removido dele. Se não houver, será gerado um novo. Se os usuários tiverem que fazer logon em seu aplicativo, você pode definir a ID de sua identificação autenticada, para fornecer uma contagem mais confiável e correta, mesmo que o usuário faça logon em uma máquina diferente. 
 
+
+
+
 ## Limites
 
 Há alguns limites no número de métricas você pode usar.
@@ -704,6 +734,7 @@ Há alguns limites no número de métricas você pode usar.
 * *P: Por quanto tempo são mantidos os dados?*
 
     Consulte [Privacidade e retenção de dados][data].
+
 
 ## Documentos de Referência
 
@@ -747,4 +778,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

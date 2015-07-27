@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Depurar um aplicativo de API no Serviço de Aplicativo do Azure
@@ -68,7 +68,7 @@ Pode haver ocasiões em que você deseja depurar seu aplicativo API localmente; 
 
 1. No Visual Studio, abra o arquivo *web.config* do projeto de aplicativo de API. 
  
-2. No navegador, vá para o [Portal de visualização do Azure](http://portal.azure.com).
+2. No navegador, vá para o [Portal de visualização do Azure](https://portal.azure.com).
 
 3. Clique no botão **Procurar** na barra lateral e selecione **Aplicativos de API**.
 
@@ -109,11 +109,26 @@ Pode haver ocasiões em que você deseja depurar seu aplicativo API localmente; 
 
 	![Definição de pontos de interrupção](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Clique em &lt;F5> para iniciar uma sessão de depuração do Visual Studio. Quando o navegador carregar a página, você deverá ver uma mensagem de erro. No final da URL na barra de endereços do navegador, adicione */swagger* e pressione &lt;Enter>.
+11. Pressione F5 para iniciar uma sessão de depuração do Visual Studio.
+ 
+13.  Se o nível de acesso do aplicativo de API for definido como**Público (anônimo)**, você poderá usar a página da interface do usuário do Swagger para realizar testes.
 
-12. Após a IU do Swagger ter carregado, clique no verbo **Obter** para exibir o esquema para o objeto Contato e, em seguida, clique em **Experimentar**. O Visual Studio agora interromperá a execução do programa nos pontos de interrupção que você definiu anteriormente, e você pode depurar a lógica do controlador.
+	* Quando o navegador carregar a página, você verá uma mensagem de erro. No final da URL na barra de endereços do navegador, adicione */swagger* e pressione Enter.
 
-	![Experimentar](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	* Após a IU do Swagger ter carregado, clique no verbo **Obter** para exibir o esquema para o objeto Contato e, em seguida, clique em **Experimentar**.
+
+		O Visual Studio agora interromperá a execução do programa nos pontos de interrupção que você definiu anteriormente, e você pode depurar a lógica do controlador.
+
+		![Experimentar](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+
+14.	Se o nível de acesso do aplicativo de API for definido como **Público (autenticado)**, será necessário autenticar e usar uma ferramenta de navegação seguindo os procedimentos mostrados em [Proteger um aplicativo de API](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) para uma solicitação Post, que são:
+
+	* Vá para a URL de logon do gateway e insira as credenciais para fazer logon.
+	* Obtenha o valor do token Zumo do cookie x-zumo-auth.
+	* Adicione um cabeçalho x-zumo-auth à sua solicitação e defina o valor dele como o valor do cookie x-zumo-auth.
+	* Envie a solicitação.
+
+	**Observação:** em uma execução local, o Azure não pode controlar o acesso ao aplicativo de API para garantir que somente usuários autenticados possam executar seus métodos. Em uma execução no Azure, todo o tráfego destinado para o aplicativo de API é roteado por meio do gateway, que não aprova solicitações não autenticadas. Não há redirecionamento na execução local, o que significa que as solicitações não autenticadas não são impedidas de acessar o aplicativo de API. Conforme descrito acima, a importância da autenticação é que você pode executar código de autenticação com êxito no aplicativo de API, como o código que recupera informações sobre o usuário conectado. Para obter mais informações sobre como o gateway controla a autenticação para aplicativos de API, consulte [Autenticação para aplicativos da API e aplicativos móveis](../app-service/app-service-authentication-overview.md#azure-app-service-gateway).
 
 ## Próximas etapas
 
@@ -121,7 +136,7 @@ Depuração remota para aplicativos de API torna mais fácil ver como o código 
 
 Aplicativos de API do Serviço de Aplicativo são aplicativos Web do Serviço de Aplicativo com recursos adicionais para hospedagem de serviços Web, para que você possa usar as mesmas ferramentas de depuração e solução de problemas para aplicativos de API que você usa em aplicativos Web. Para obter mais informações, consulte [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-O aplicativo de API que você criou nesta série está disponível publicamente para qualquer pessoa que chamar. Para obter informações sobre como proteger o aplicativo de API para que somente usuários autenticados possam chamá-lo, consulte [Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social](app-service-api-dotnet-add-authentication.md).
+O aplicativo de API que você criou nesta série está disponível publicamente para qualquer pessoa que chamar. Para obter informações sobre como proteger aplicativos de API de modo que somente usuários autenticados possam chamá-los, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

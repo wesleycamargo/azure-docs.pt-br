@@ -214,7 +214,7 @@ Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carre
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('');
+	        string[] splitfilename = filename.Split('\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -306,4 +306,4 @@ Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [C
 [Como obter um processador de mídia]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

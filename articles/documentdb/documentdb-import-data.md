@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Importar dados no Banco de Dados de Documentos | Azure" 
-	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e do Banco de Dados de Documentos." 
+	description="Saiba como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de tabelas do Azure e coleções de Bancos de Dados de Documentos." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
 
 # Importar dados no Banco de Dados de Documentos #
 
-Este artigo mostra como usar a ferramenta de migração de dados de software livre do Banco de Dados de Documentos para importar dados no [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e do Banco de Dados de Documentos.
+Este artigo mostra como usar a ferramenta de migração de dados do Banco de Dados de Documentos de software livre para importar dados no [Banco de Dados de Documentos do Microsoft Azure](http://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções de SQL, MongoDB, Armazenamento da Tabela do Azure e coleções de Banco de Dados de Documentos.
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
 
@@ -27,6 +27,8 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 -	Como importar dados do SQL Server para o Banco de Dados de Documentos?
 -	Como importar dados do MongoDB para o Banco de Dados de Documentos?
 -	Como importar dados do armazenamento de tabela do Azure para o Banco de Dados de Documentos?
+-	Como importar dados do Amazon DynamoDB para o Banco de Dados de Documentos?
+-	Como importar dados do HBase para o Banco de Dados de Documentos?
 -	Como migrar dados entre coleções do Banco de Dados de Documentos?
 
 ##<a id="Prerequisites"></a>Pré-requisitos ##
@@ -44,6 +46,8 @@ A ferramenta de migração de dados do Banco de Dados de Documentos é uma solu�
 - SQL Server
 - Arquivos CSV
 - Armazenamento da tabela do Azure
+- Amazon DynamoDB
+- HBase
 - Coleções do Banco de Dados de Documentos
 
 Embora a ferramenta de importação inclua uma interface gráfica do usuário (dtui.exe), ela também pode ser controlada pela linha de comando (dt.exe). Na verdade, há uma opção de extrair o comando associado depois de configurar uma importação por meio da interface do usuário. Dados de origem em tabela (por exemplo, arquivos do SQL Server ou CSV) podem ser transformados, de forma que relações hierárquicas (subdocumentos) podem ser criadas durante a importação. Continue lendo para saber mais sobre as opções de origem, linhas de comando de exemplo para importar de cada origem, opções de destino e resultados de importação de visualização.
@@ -77,7 +81,7 @@ Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Importar do MongoDB ##
 
@@ -197,6 +201,34 @@ Aqui está um exemplo de linha de comando para importar por meio do armazenament
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
+##<a id="DynamoDBSource"></a>Importar do Amazon DynamoDB ##
+
+A opção de importação de fonte do Amazon DynamoDB permite importar de uma tabela individual do Amazon DynamoDB e, opcionalmente, filtrar as entidades a serem importadas. Vários modelos são fornecidos para que a configuração de uma importação seja tão fácil quanto possível.
+
+![Captura de tela das opções de origem do Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource1.png)
+
+![Captura de tela das opções de origem do Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource2.png)
+
+O formato da cadeia de conexão do Amazon DynamoDB é:
+
+	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+
+> [AZURE.NOTE]Use o comando Verify para garantir que a instância do Amazon DynamoDB especificada no campo de cadeia de conexão possa ser acessada.
+
+Aqui está um exemplo de linha de comando para importar do Amazon DynamoDB:
+
+	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+
+##<a id="BlobImport"></a>Importar arquivos do armazenamento de blobs do Azure##
+
+O arquivo JSON, arquivo de exportação do MongoDB e opções de importador de origem do arquivo CSV permitem que você importe um ou mais arquivos de Armazenamento de Blob do Azure. Depois de especificar uma URL do contêiner de Blob e a chave de conta, basta fornece uma expressão regular para selecionar os arquivos a serem importados.
+
+![Captura de tela das opções de origem de arquivo de blob](./media/documentdb-import-data/blobsource.png)
+
+Eis um exemplo de linha de comando para importar arquivos JSON do Armazenamento de Blob do Azure:
+
+	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+
 ##<a id="DocumentDBSource"></a>Importar por meio do Banco de Dados de Documentos ##
 
 A opção de importador de origem do Banco de Dados de Documentos permite importar dados de uma ou mais coleções do Banco de Dados de Documentos e, opcionalmente, filtrar documentos usando uma consulta.
@@ -233,7 +265,25 @@ Aqui estão alguns exemplos de linha de comando para importar por meio do Banco 
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
 	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+
+##<a id="HBaseSource"></a>Importar do HBase ##
+
+A opção de importador de origem do HBase permite importar dados de uma tabela do HBase e, opcionalmente, filtrar os dados. Vários modelos são fornecidos para que a configuração de uma importação seja tão fácil quanto possível.
+
+![Captura de tela das opções de origem do HBase](./media/documentdb-import-data/hbasesource1.png)
+
+![Captura de tela das opções de origem do HBase](./media/documentdb-import-data/hbasesource2.png)
+
+O formato da cadeia de conexão HBase Stargate é:
+
+	ServiceURL=<server-address>;Username=<username>;Password=<password>
+
+> [AZURE.NOTE]Use o comando Verify para garantir que a instância do HBase especificada no campo de cadeia de conexão possa ser acessada.
+
+Aqui está um exemplo de linha de comando para importar do HBase:
+
+	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>Importar para o Banco de Dados de Documentos (importação em massa) ##
 
@@ -333,11 +383,33 @@ O importador de registros sequenciais do Banco de Dados de Documentos tem as seg
 
 > [AZURE.TIP]A ferramenta de importação usa como padrão o modo de conexão DirectTcp. Se você enfrentar problemas de firewall, alterne para o modo de conexão Gateway, uma vez que ele só requer a porta 443.
 
+##<a id="IndexingPolicy"></a>Especifique uma política de indexação ao criar coleções de Banco de Dados de Documentos ##
+
+Quando você permite que a ferramenta de migração crie coleções durante a importação, pode especificar a política de indexação das coleções. Na seção de opções avançadas das opções de importação em massa e registro sequencial do Banco de Dados de Documentos, navegue até a seção Política de indexação.
+
+![Captura de tela das opções avançadas de Política de indexação do Banco de Dados de Documentos](./media/documentdb-import-data/indexingpolicy1.png)
+
+Usando a opção avançada de política de indexação, você pode selecionar um arquivo de política de indexação, inserir manualmente uma política de indexação ou selecionar a partir um conjunto de modelos padrão (clicando com o botão direito na caixa de texto da política indexação).
+
+Os modelos de política que a ferramenta fornece são:
+
+- Padrão. Essa política é mais útil quando você está executando consultas de igualdade em cadeias de caracteres e usando as consultas ORDER BY, intervalo e igualdade para números. Essa política tem uma sobrecarga de armazenamento de índice menor que Intervalo.
+- Hash. Essa política é mais útil quando você está executando consultas de igualdade para números e cadeias de caracteres. Essa política tem a menor sobrecarga de armazenamento do índice.
+- Intervalo. Essa política é mais útil quando você está usando consultas ORDER BY, intervalo e igualdade em números e cadeias de caracteres. Essa política tem uma sobrecarga de armazenamento de índice maior do que Padrão ou Hash.
+
+
+![Captura de tela das opções avançadas de Política de indexação do Banco de Dados de Documentos](./media/documentdb-import-data/indexingpolicy2.png)
+
+> [AZURE.NOTE]Se você não especificar uma política de indexação, a política padrão será aplicada. Saiba mais sobre políticas de indexação de Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md).
+
+
 ## Exportar para arquivo JSON
 
-O exportador de JSON do Banco de Dados de Documentos permite exportar qualquer uma das opções de origem disponíveis para um arquivo JSON que contém uma matriz de documentos JSON. A ferramenta manipulará a exportação por você, ou você pode optar por exibir o comando de migração resultante e executar o comando por conta própria.
+O exportador de JSON do Banco de Dados de Documentos permite exportar qualquer uma das opções de origem disponíveis para um arquivo JSON que contém uma matriz de documentos JSON. A ferramenta manipulará a exportação por você, ou você pode optar por exibir o comando de migração resultante e executar o comando por conta própria. O arquivo JSON resultante pode ser armazenado localmente ou no Armazenamento de Blob do Azure.
 
-![Captura de tela da opção de exportação de JSON no Banco de Dados de Documentos](./media/documentdb-import-data/jsontarget.png)
+![Captura de tela da opção de exportação de arquivo local do JSON do Banco de Dados de Documentos](./media/documentdb-import-data/jsontarget.png)
+
+![Captura de tela da opção de exportação de Armazenamento de Blobs do Azure do JSON do Banco de Dados de Documentos](./media/documentdb-import-data/jsontarget2.png)
 
 Você pode optar por melhorar a aparência do JSON resultante, o que aumentará o tamanho do documento resultante, tornando o conteúdo mais legível.
 
@@ -404,4 +476,4 @@ Na tela de Configuração avançada, especifique a localização do arquivo de l
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

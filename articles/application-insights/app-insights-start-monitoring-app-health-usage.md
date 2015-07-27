@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 Consulte [este item de solução de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Adicionar rastreamento de dependência
+
+O SDK precisa de um pouco de ajuda para obter acesso a alguns dados. Especificamente, você precisará dessa etapa adicional para avaliar automaticamente as chamadas do seu aplicativo para bancos de dados, APIs REST e outros componentes externos. Essas métricas de dependência podem ser inestimáveis no diagnóstico de problemas de desempenho.
+
+#### Se seu aplicativo for executado em seu servidor IIS
+
+Faça logon no servidor com direitos de administrador e instale o [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+
+(Você também pode usar o Status Monitor para [instrumentar um aplicativo que já esteja em execução](app-insights-monitor-performance-live-website-now.md), mesmo que não tenha sido criado com o SDK.)
+
+#### Se seu aplicativo for um Aplicativo Web do Azure
+
+No painel de controle do seu Aplicativo Web do Azure, adicione a extensão do Application Insights.
+
+![Em seu aplicativo Web, Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(A extensão apenas ajuda um aplicativo que foi criado com o SDK. Ao contrário do Status Monitor, ela não pode instrumentar um aplicativo existente.)
+
+## Adicionar monitoramento do lado do cliente
+
+Você instalou o SDK que envia dados de telemetria da extremidade do servidor do seu aplicativo. Agora, você pode adicionar o monitoramento do lado do cliente. Isso fornece dados sobre usuários, sessões, exibições de página e qualquer exceção ou falha que ocorre no cliente.
+
+Você também poderá escrever seu próprio código para rastrear como os usuários trabalham com seu aplicativo, até o nível detalhado de cliques e pressionamentos de teclas.
+
+#### Se seus clientes forem navegadores da Web
+
+Se seu aplicativo exibir páginas da Web, adicione um trecho de JavaScript a cada página. Obtenha o código do recurso Application Insights:
+
+![Em seu aplicativo Web, abra Início Rápido e clique em 'Obter código para monitorar as minhas páginas da web'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+Observe que o código contém a chave de instrumentação que identifica o recurso de aplicativo.
+
+[Saiba mais sobre rastreamento de página da Web.](app-insights-web-track-usage.md)
+
+#### Se seus clientes forem aplicativos de dispositivo
+
+Se seu aplicativo estiver atendendo a clientes, como telefones ou outros dispositivos, adicione o [SDK apropriado](app-insights-platforms.md) ao aplicativo de dispositivo.
+
+Se você configurar o SDK do cliente com a mesma chave de instrumentação do SDK do servidor, os dois fluxos serão integrados para que seja possível vê-los juntos.
+
 
 ## Conclua a instalação.
 
-Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas coisas a fazer:
+Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas tarefas que você pode realizar:
 
-
-* [Adicione o SDK do JavaScript a suas páginas da Web][client] para obter a telemetria baseada em navegador, como usuário, contagens de exibição de página e sessão, tempos de carregamento de página, exceções de script e para permitir que você escreva telemetria personalizada em seus scripts de página.
-* Adicione o acompanhamento de dependência para diagnosticar problemas causados por bancos de dados ou outros componentes usados por seu aplicativo:
- * [em seu aplicativo Web ou VM do Azure][azure]
- * [em seu servidor IIS local][redfield]
+* [Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
 * [Capturar rastreamentos de log][netlogs] da sua estrutura de registros favorita
 * [Acompanhe métricas e eventos personalizados][api] no cliente, no servidor ou em ambos, para saber mais sobre como seu aplicativo é usado.
-* [Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
 
 ## <a name="ide"></a> A maneira automatizada
 
@@ -196,4 +231,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

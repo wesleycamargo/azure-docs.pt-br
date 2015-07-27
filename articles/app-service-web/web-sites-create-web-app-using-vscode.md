@@ -220,9 +220,13 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 
 		git remote add azure [URL for remote repository]
 
-7. Envie as alterações por push ao Azure usando o comando a seguir.
+7. Configure o Git para salvar suas credenciais localmente para que elas possam ser acrescentadas automaticamente aos seus comandos por push gerados no VS Code.
 
-		git push azure master
+		git config credential.helper store
+
+8. Envie as alterações por push ao Azure usando o comando a seguir. Depois desse push inicial no Azure, você poderá executar todos os comandos por push no VS Code.
+
+		git push -u azure master
 
 	Será solicitada a senha que você criou anteriormente. **Observação: a senha não será visível.**
 
@@ -232,7 +236,9 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se fizer alterações no aplicativo, você poderá republicá-lo selecionando a opção **Confirmar Tudo** no código do VS e, em seguida, inserindo o comando **git push azure master** no prompt de comando.
+> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicar diretamente no VS Code usando a funcionalidade Git interna selecionando a opção **Confirmar Tudo** seguida pela opção **Envio por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
+
+Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
 ## Executar o aplicativo no Azure
 Agora que você implantou seu aplicativo Web, vamos executar o aplicativo enquanto ele está hospedado no Azure.
@@ -250,4 +256,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o código do VS, consulte o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/). Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

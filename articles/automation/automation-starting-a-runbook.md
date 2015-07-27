@@ -232,4 +232,4 @@ Supondo que o nome de usu√°rio nas credenciais foi *vmonte*, isso resulta na sa√
 
 - [Iniciando um runbook de outro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

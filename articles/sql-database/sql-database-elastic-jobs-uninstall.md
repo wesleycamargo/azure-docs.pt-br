@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # Como desinstalar os componentes de trabalho do banco de dados elástico
@@ -52,10 +52,10 @@ Como alternativa, use este script do PowerShell:
 
 Para reinstalar os trabalhos do banco de dados elástico, confira [Instalando o serviço de trabalho do banco de dados elástico](sql-database-elastic-jobs-service-installation.md)
 
-Para uma visão geral do serviço de trabalho elástico, confira [Visão geral dos trabalhos elásticos](sql-database-elastic-jobs-overview.md).
+Para uma visão geral do serviço de trabalho do banco de dados elástico, confira [Visão geral dos trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

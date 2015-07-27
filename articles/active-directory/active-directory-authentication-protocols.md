@@ -56,4 +56,4 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como gerenciar um serviço de nuvem - Azure" 
-	description="Saiba como gerenciar serviços de nuvem no Portal de Gerenciamento do Azure." 
+	description="Saiba como gerenciar serviços de nuvem no Portal do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # Como gerenciar serviços de nuvem
 
-Na área **Serviços de Nuvem** do Portal de Gerenciamento do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+Na área **Serviços de Nuvem** do Portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
 
 ## Como atualizar uma função ou implantação de Serviço de Nuvem
 
 Se você precisar atualizar o código do aplicativo para o seu Serviço de Nuvem, use **Atualizar** no painel, página **Serviços de Nuvem** ou página **Instâncias**. Você pode atualizar única função ou todas as funções. Você precisará carregar um novo pacote de serviços e o arquivo de configuração do serviço.
 
-1. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), no painel, na página **Serviços de Nuvem** ou na página **Instâncias**, clique em **Atualizar**.
+1. No [Portal do Azure](https://manage.windowsazure.com/), no painel, na página **Serviços de Nuvem** ou na página **Instâncias**, clique em **Atualizar**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -154,4 +158,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

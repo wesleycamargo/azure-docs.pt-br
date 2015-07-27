@@ -317,4 +317,4 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

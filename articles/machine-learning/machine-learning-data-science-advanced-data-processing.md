@@ -2,7 +2,6 @@
 	pageTitle="Guia de aprendizagem: Processamento de dados avançado no Azure | Microsoft Azure" 
 	description="Prepare dados para uso no Processo de Análise Avançada e Tecnologia (ADAPT) para o Aprendizado de Máquina do Azure." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"  
 	manager="paulettm" />
@@ -25,4 +24,4 @@ Este mapa percorre o processo de preparação de dados a serem usados em um expe
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

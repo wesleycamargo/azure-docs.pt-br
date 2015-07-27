@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Importar dados no Estúdio de Aprendizado de Máquina | Microsoft Azure"
 	description="Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados. Saiba quais tipos e formatos de dados têm suporte."
-	keywords="import data,data format,data types,data sources,training data"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -144,4 +143,4 @@ Quando o salvamento for concluído, o conjunto de dados ficará disponível para
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

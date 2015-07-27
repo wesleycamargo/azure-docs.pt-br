@@ -218,7 +218,7 @@ Nessa etapa, você edita a cadeia de conexão que diz a seu aplicativo onde enco
 	
 	Ao compor a cadeia de conexão, mantenha em mente o seguinte:
 	
-	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas. 
+	- Se você está se conectando a uma instância nomeada em vez de conectar-se a uma instância padrão (por exemplo, YourServer\\SQLEXPRESS), você precisa configurar seu SQL Server para utilizar portas estáticas. Para obter informações sobre configuração de portas estáticas, consulte [Como configurar um SQL Server para escutar em uma porta específica](http://support.microsoft.com/kb/823938). Por padrão, instâncias nomeadas utilizam UDP e portas dinâmicas, que não têm suporte em Conexões Híbridas. 
 	
 	- É recomendável que você especifique a porta (1433 por padrão, conforme mostrado no exemplo) na cadeia de conexão, de modo que você possa ter certeza de que seu SQL Server local tem TCP habilitado e utiliza a porta correta.
 	
@@ -378,4 +378,4 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

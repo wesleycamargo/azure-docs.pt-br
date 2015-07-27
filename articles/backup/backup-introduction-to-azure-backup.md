@@ -66,4 +66,4 @@ Combinado com o SCDPM, o Backup do Azure pode fazer backup de:
 + Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

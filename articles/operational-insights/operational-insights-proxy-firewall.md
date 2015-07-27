@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/04/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Definir as configurações de proxy e de firewall para Insights Operacionais
@@ -27,8 +27,7 @@ Para o Microsoft Monitoring Agent se conectar e se registrar no serviço de Insi
 
 |**Recurso de agente**|**Portas**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|*.oms.opinsights.azure.com|Porta 443|
+|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/*|Porta 443|
 
@@ -86,11 +85,7 @@ Para um grupo de gerenciamento do Operations Manager se conectar e se registrar 
 
 |**Recurso do servidor de gerenciamento**|**Portas**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|service.systemcenteradvisor.com|Port 443|
-|scadvisor.accesscontrol.windows.net|Port 443|
-|scadvisorservice.accesscontrol.windows.net|Port 443|
-|*.blob.core.windows.net/*|Porta 443|
+|*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.systemcenteradvisor.com|Port 443|
@@ -98,10 +93,8 @@ Para um grupo de gerenciamento do Operations Manager se conectar e se registrar 
 
 |**Recurso do console do Insights Operacionais e do Operations Manager**|**Portas**|
 |---|---|
-|*.systemcenteradvisor.com|Port 80 and 443|
-|*.live.com|Porta 80 e 443|
-|*.microsoftonline.com|Port 80 and 443|
-|login.windows.net|Port 80 and 443|
+|*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|Porta 80 e 443|
+|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
 
 
 Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Operations Manager com o serviço Insights Operacionais. Se você estiver tendo problemas de comunicação entre o grupo de gerenciamento e o serviço Insights Operacionais, use os procedimentos de validação para solucionar problemas de transmissão de dados para o serviço de informações operacionais.
@@ -175,7 +168,5 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 
 3. Adicione todos os contadores que começam com **HTTP**. ![adicionar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se a sua configuração do Operations Manager for boa, você verá a atividade dos contadores do Gerenciamento do Serviço de Integridade para eventos e outros itens de dados, com base nos pacotes de gerenciamento adicionados no Insights Operacionais e a política de coleta de logs configurada. ![Atividade de exibição de Monitor de desempenho](./media/operational-insights-proxy-firewall/sendingdata2.png)
- 
-<!--BugFixing Comment-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

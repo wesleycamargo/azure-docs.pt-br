@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Conectores entre empresas e aplicativos de API no Serviço de Aplicativo do Microsoft Azure
@@ -202,6 +202,7 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 
 ## Mais conectores
-[Conectores de integração do BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores empresariais](app-service-logic-enterprise-connectors.md)<br/> [Conectores sociais](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicativo + Serviços de Dados](app-service-logic-data-connectors.md)<br/> [Lista de Aplicativos de API e conectores](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

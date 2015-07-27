@@ -81,4 +81,4 @@ Em seguida, você atualizará o aplicativo quickstart para capturar e carregar i
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

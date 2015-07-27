@@ -477,4 +477,4 @@ Os seguintes padrões também podem ser relevantes para o seu cenário ao consid
 - A página [Executando o Redis em uma VM com CentOS Linux no Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) no site da Microsoft explica um exemplo que mostra como criar e configurar um nó do Redis executado como uma VM do Azure.
 - A página [Tipos de dados](http://redis.io/topics/data-types) no site do Redis descreve os tipos de dados disponíveis com o Redis e o Cache Redis do Azure.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

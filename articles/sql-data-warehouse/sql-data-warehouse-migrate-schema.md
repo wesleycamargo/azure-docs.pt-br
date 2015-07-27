@@ -100,7 +100,7 @@ OR  y.[is_user_defined] = 1
 
 A consulta inclui todos os tipos de dados definidos pelo usuário que também não têm suporte.
 
-Não se preocupe, caso tenha tipos sem suporte no seu banco de dados. Em vez disso, você pode usar algumas das alternativas propostas abaixo.
+Caso você tenha tipos sem suporte no seu banco de dados, não se preocupe. Veja abaixo algumas alternativas propostas.
 
 Em vez de:
 
@@ -109,8 +109,8 @@ Em vez de:
 - **hierarchyid**, esse tipo de CLR não tem suporte
 - **image**, **text**, **ntext**, use varchar/nvarchar (quanto menor, melhor)
 - **nvarchar(max)**, use varchar(4000) ou menor para melhor desempenho
-- **numeric**, use decimal
-- **sql_variant**, coluna dividida em várias colunas fortemente tipadas
+- **numeric**, use decimais
+- **sql_variant**, divida a coluna em várias colunas fortemente tipadas
 - **sysname**, use nvarchar(128)
 - **table**, converta em tabelas temporárias
 - **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que você não pode ter current_timestamp como uma restrição padrão e o valor não será atualizado automaticamente. Se precisar migrar valores de versão de linha de uma coluna tipada timestamp, use binary(8) ou varbinary(8) para valores de versão de linha NOT NULL ou NULL.
@@ -121,9 +121,9 @@ Em vez de:
 
 Suporte parcial:
 
-- Restrições padrão oferecem suporte apenas a literais e constantes. As expressões ou funções não determinísticas, como `GETDATE()` ou `CURRENT_TIMESTAMP`, não têm suporte.
+- As restrições padrão oferecem suporte apenas a literais e constantes. Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE]Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento todo das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possa exceder esse número, você não poderá inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
+> [AZURE.NOTE]Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
 
 ## Próximas etapas
 Depois de migrar com êxito o esquema do seu banco de dados para o SQLDW, você poderá passar para um dos artigos a seguir:
@@ -145,4 +145,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

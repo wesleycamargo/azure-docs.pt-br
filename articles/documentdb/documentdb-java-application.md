@@ -45,7 +45,7 @@ Para provisionar uma conta de banco de dados do Banco de Dados de Documentos no 
 1. Se você ainda não tiver uma conta de banco de dados, crie uma seguindo as instruções em [Criar uma conta de banco de dados](documentdb-create-account.md). Se você já tiver uma conta, vá para a etapa 2.
 2. Usando a lâmina **Chaves** mostrada na ilustração a seguir, copie o seu ponto de extremidade **URI** e **CHAVE PRIMÁRIA** para a sua área de transferência e as mantenha à mão, pois usaremos esses valores no aplicativo Web que criaremos em seguida.
 
-![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
+![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão Chaves realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][1]
 
 
 ##<a id="CreateJSP"></a>Etapa 2: Criar o aplicativo JSP ##
@@ -118,7 +118,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 
 	Neste projeto, estamos usando [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um builder. Como alternativa, você pode escrever esse código manualmente ou o IDE pode gerá-lo.
 
-2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [YOUR_ENDPOINT_HERE] pela sua URI e substitua [YOUR_KEY_HERE] pela sua CHAVE PRIMÁRIA.
+2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [SEU_PONTO_EXTREMIDADE_AQUI] pelo seu URI e substitua [SUA_CHAVE_AQUI] pela sua chave primária.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -777,6 +777,6 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 22. Para implantar o projeto em um site do Azure, consulte a [Etapa 6. Implante o aplicativo nos Sites do Azures](#Deploy). 
 
 [1]: media/documentdb-java-application/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

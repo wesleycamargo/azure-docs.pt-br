@@ -131,7 +131,7 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 
 5. Na caixa de diálogo **Novo Arquivo PHP**, nomeie o arquivo **secureResource.php** e, em seguida, clique em **Concluir**.
 
-6. No novo arquivo **secureResource.php**, digite o seguinte código, substituindo o caminho **c:\phpLibraries** pelo local da raiz onde você baixou o código de exemplo. O local da raiz deve incluir o arquivo **simpleSAML.php** e a pasta **federation**:
+6. No novo arquivo **secureResource.php**, digite o seguinte código, substituindo o caminho **c:\\phpLibraries** pelo local da raiz onde você baixou o código de exemplo. O local da raiz deve incluir o arquivo **simpleSAML.php** e a pasta **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@ Um exemplo que mostra como usar o Active Directory do Azure e o logon único par
 [Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,13 +1,10 @@
 <properties 
-	pageTitle="Guia:  Processo de ciência de dados de nuvem para o aprendizado de máquina | Azure" 
+	pageTitle="Criar soluções de análises avançada no Azure | Microsoft Azure" 
 	description="Use este guia para entender as etapas para usar o Azure para ciência de dados e aprendizado de máquina na nuvem." 
-	services="machine-learning" 
-	solutions="" 
+	services="machine-learning,hdinsight" 
 	documentationCenter="" 
-	authors="sidneyh;sachouks" 
-	videoId="" 
-	scriptId="" 
-	manager="jhubbard" />
+	authors="bradsev" 
+	manager="paulettm" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,15 +12,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
-	ms.date="02/18/2015" 
-	ms.author="sidneyh" />
-# Processo de ciência de dados de nuvem para Aprendizado de Máquina
+	ms.date="06/03/2015" 
+	ms.author="bradsev;sachouks" />
 
-Este guia de processo de ciência de dados de nuvem demonstra o uso da plataforma Microsoft Azure para ciência de dados e como criar modelos operacionalizados usando o Aprendizado de Máquina do Azure.  O mapa orienta o usuário nas etapas de ciência dados típicos, como a inclusão de dados de várias fontes, preparação para uso no Aprendizado de Máquina do Azure e como usar o Aprendizado de Máquina do Azure para criar modelos operacionalizados que podem ser consumidos por aplicativos de usuário final (programaticamente ou não).  Embora o mapa mostre as principais etapas envolvidas em um exercício de ciência de dados típicos de ponta a ponta, nem todas as etapas são necessárias e sua sequência pode variar dependendo do local, o tamanho e a complexidade dos dados.
+# Criar soluções de análises avançada no Azure
 
-A etapa intitulada **Processamento de dados avançado no Azure** leva a um segundo mapa.  Se você estiver retornando deste mapa, continue deste ponto para ingerir os dados processados no Aprendizado de Máquina do Azure e para criar e implantar modelos.
+Este guia do ADAPT (Processo e Tecnologia de Análise Avançada) descreve as tarefas de ciência de dados normalmente envolvidas na criação e implantação de modelos de previsão com o Aprendizado de Máquina do Azure. Ele mostra como a plataforma Azure habilita tarefas como ingerir dados de várias fontes, preparando-os para uso no Aprendizado de Máquina do Azure e, em seguida, criando modelos operacionalizados com um experimento do Aprendizado de Máquina do Azure que podem ser consumidos por aplicativos de usuário final por meio de programação ou de outra forma. Embora o mapa mostre as principais etapas de série envolvidas em um exercício de ciência de dados típicos de ponta a ponta, nem todas as etapas são necessárias, e sua sequência exata pode variar dependendo do local, do tamanho e da complexidade dos dados.
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%">
-</object>
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!--HONumber=49--> 
+A etapa intitulada **Processamento de dados avançado no Azure** vincula a um segundo guia que o orienta durante o processo de preparação de dados a serem usados em um experimento do Aprendizado de Máquina do Azure. Se você estiver retornando desse guia, continue na etapa subsequente neste guia sobre a ingestão dos dados processados no Estúdio de Aprendizado de Máquina do Azure até a etapa final sobre o consumo do modelo.
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
+ 
+
+<!---HONumber=July15_HO3-->

@@ -46,4 +46,4 @@ Este documento descreve um padrão central para usar a Pesquisa do Azure com dua
 
 [Camada de Processamento em Lote](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

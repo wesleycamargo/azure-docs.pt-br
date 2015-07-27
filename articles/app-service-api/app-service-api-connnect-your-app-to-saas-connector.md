@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tdykstra"/>
 
 # Implantar e configurar um aplicativo de API de conector SaaS em um Serviço de Aplicativo do Azure
 
 ## Visão geral
 
-Este tutorial mostra como instalar, configurar e testar um [conector de SaaS (Software como Serviço )](../app-service-logic-what-are-bizTalk-api-apps.md) no [Serviço de Aplicativo do Azure](/documentation/services/app-service/) para chamá-lo programaticamente, por exemplo, de um aplicativo móvel. Um conector de SaaS é um [aplicativo de API](app-service-api-apps-why-best-platform.md) que simplifica a interação com uma plataforma SaaS, como o Office 365, Salesforces, Facebook e Dropbox.
+Este tutorial mostra como instalar, configurar e testar um [conector de SaaS (Software como Serviço )](../app-service-logic-what-are-bizTalk-api-apps.md) no [Serviço de Aplicativo do Azure](/documentation/services/app-service/) para chamá-lo programaticamente, por exemplo, de um aplicativo móvel. Um conector de SaaS é um [aplicativo de API](app-service-api-apps-why-best-platform.md) que simplifica a interação com uma plataforma SaaS, como o Office 365, Salesforces, Facebook e Dropbox. Se, em vez de usar um conector predefinido, você quiser criar um aplicativo de API .NET personalizado, consulte [Conectar-se a uma plataforma SaaS a partir de um aplicativo de API ASP.NET](app-service-api-dotnet-connect-to-saas.md).
 
 Por exemplo, para codificar solicitações de HTTP com a finalidade de ler e gravar arquivos em sua conta do Dropbox, o processo de autenticação para trabalhar diretamente com Dropbox é complicado. Um conector de Dropbox cuida da complexidade da autenticação para que você possa se concentrar em escrever seu código específico ao negócio.
 
@@ -32,6 +32,8 @@ Este tutorial usa um conector de DropBox como um exemplo e orienta você durante
 * Configure o conector do Dropbox para que ele possa se conectar ao serviço Dropbox. (Para concluir esta etapa será necessário uma conta do Dropbox.)
 * Configure o grupo de recursos para que somente usuários autenticados possam acessar aplicativos de API incluídos no grupo de recursos.
 * Teste para verificar se autenticação do de usuário e do Dropbox funciona.
+
+Para obter mais informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 ## Instalar o conector do Dropbox
 
@@ -81,57 +83,11 @@ Para habilitar o acesso da API à sua conta do Dropbox, você precisa criar um a
 
 ### <a id="createdbapp"></a>Criar um aplicativo do Dropbox
 
-As etapas a seguir mostram o processo de criação de um aplicativo Dropbox usando o site Dropbox.com. Como o site Dropbox.com pode ser alterado sem aviso, você poderá ver diferenças entre a interface do usuário e o que é exibido.
-
-1. Vá para o [Portal do desenvolvedor do Dropbox](https://www.dropbox.com/developers/apps), clique em **Console do Aplicativo**, e, em seguida, clique em **Criar Aplicativo**.
-
-	![Criar aplicativo Dropbox](./media/app-service-api-connnect-your-app-to-saas-connector/dbappcreate.png)
-
-2. Escolha **Aplicativo de API do Dropbox** e defina outras configurações.
- 
-	As opções de acesso do arquivo mostradas na captura de tela abaixo permitem testar o acesso à sua conta do Dropbox com uma simples solicitação Get de HTTP, se você tiver arquivos em sua conta.
-
-	O nome do aplicativo de API do Dropbox pode ser qualquer um e o site do Dropbox aceitará.
-
-3. Clique em **Criar aplicativo**.
-
-	![Criar aplicativo Dropbox](./media/app-service-api-connnect-your-app-to-saas-connector/dbapiapp.png)
-
-	A próxima página mostra a chave do aplicativo e configurações confidenciais do aplicativo (ou seja, ID do cliente e o segredo do cliente no Azure) que você usará para configurar o conector de Dropbox do Azure.
-
-	Essa página também tem um campo onde você pode inserir um URI de redirecionamento, o valor que você obterá na próxima seção.
-
-	![Criar aplicativo Dropbox](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
+[AZURE.INCLUDE [app-service-api-create-dropbox-app](../../includes/app-service-api-create-dropbox-app.md)]
 
 ### <a id="copysettings"></a>Copiar as configurações de aplicativo do Dropbox no conector de Dropbox do Azure e vice-versa 
 
-4. Em outra janela ou guia do navegador, vá para o [Portal de visualização do Azure].
-
-3. Vá para a folha **Aplicativo de API** do seu conector de Dropbox. (Se você ainda estiver na folha **Grupo de Recursos**, basta clicar no conector no Dropbox no diagrama.)
-
-4. Clique em **Configurações**, e na folha **Configurações** clique em **Autenticação**.
-
-	![Clique em Configurações](./media/app-service-api-connnect-your-app-to-saas-connector/clicksettings.png)
-
-	![Clique em Autenticação](./media/app-service-api-connnect-your-app-to-saas-connector/clickauth.png)
-
-5. Na folha Autenticação, insira a ID do cliente e o segredo do cliente do site do Dropbox e, em seguida, clique em **Salvar**.
-
-	![Insira as configurações e clique em Salvar](./media/app-service-api-connnect-your-app-to-saas-connector/authblade.png)
-
-3. Copie o **URI de Redirecionamento** (a caixa cinza acima da ID do cliente e do segredo do cliente) e adicione o valor à página deixada aberta na etapa anterior.
-
-	O URI de redirecionamento segue este padrão:
-
-		[gatewayurl]/api/consent/redirect/[connectorname]
-
-	Por exemplo:
-
-		https://dropboxrgaeb4ae60b7.azurewebsites.net/api/consent/redirect/DropboxConnector
-
-	![Obter URI de redirecionamento](./media/app-service-api-connnect-your-app-to-saas-connector/redirecturi.png)
-
-	![Criar aplicativo Dropbox](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings2.png)
+[AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
 ### Definir o conector do Dropbox para exigir acesso autenticado
 
@@ -157,7 +113,7 @@ Depois de configurar o gateway em seu grupo de recursos DropboxRG para usar um p
 
 Na maioria das vezes você usará um conector chamando-o do código; além disso, estamos escrevendo tutoriais que lhe mostrará como fazer isso. Mas, às vezes, você quer confirmar se o conector está funcionando antes de conectar outras partes de um aplicativo. Este tutorial mostra como usar um navegador e uma ferramenta de cliente REST simples para verificar se você pode interagir com o serviço Dropbox por meio do conector de Dropbox que você acabou de instalar e configurar.
 
-As instruções a seguir mostram como executar essas etapas usando as ferramentas de desenvolvimento do navegador Chrome e a ferramenta de cliente Postman REST. Isso é apenas um exemplo, e você pode fazer os mesmos procedimentos com outros navegadores e ferramentas.
+As instruções a seguir mostram como executar essas etapas usando as ferramentas de desenvolvimento do navegador Chrome e a ferramenta de cliente Postman REST. Isso é apenas um exemplo, e você pode fazer os mesmos procedimentos com outros navegadores e ferramentas. "Cliente REST Avançado" é outro complemento do Chrome que você pode usar.
 
 ### Fazer logon como um usuário final
 
@@ -187,7 +143,7 @@ Siga as etapas a seguir em uma nova janela do navegador. Dependendo do provedor 
 
 ### Fornecer a identidade do usuário para Dropbox
 
-Para obter autorização do Dropbox para usar a API do Dropbox, você precisa fornecer a ele as credenciais do usuário. O Azure fará isso por você, mas para disparar o processo que você precisa ir para uma URL especial no navegador. Para obter essa URL você faz uma solicitação HTTP Post para o gateway.
+Para obter autorização do Dropbox para usar a API do Dropbox, você precisa fornecer a ele as credenciais do usuário. O Azure iniciará o processo para você, mas, para disparar o processo, você precisa acessar uma URL especial de gateway no navegador. Para obter essa URL você faz uma solicitação HTTP Post para o gateway.
 
 A solicitação HTTP Post para o gateway deve incluir o token de autenticação que o Azure forneceu quando você fez o logon. Para solicitações do navegador, a inclusão do token é automático porque ele é armazenado em um cookie, mas para uma solicitação HTTP Post usando uma ferramenta de cliente REST você precisa obter o token do cookie e colocá-lo no cabeçalho da solicitação HTTP Post.
 
@@ -223,15 +179,15 @@ A solicitação HTTP Post para o gateway deve incluir o token de autenticação 
 
 	![Enviar para a URL de autorização](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	A resposta inclui uma URL a ser usada para autenticar o usuário com Dropbox. (Se você receber uma resposta de erro indicando que o método Get não tem suporte, embora a lista suspensa de métodos esteja definida como **Post**, talvez seja necessário usar outra ferramenta cliente REST. "Cliente REST Avançado" é outro complemento do Chrome que você pode usar.)
+	A resposta inclui uma URL a ser usada para iniciar o processo de logon do usuário no Dropbox (se você receber uma resposta de erro que indica que não há suporte ao método Get, embora o menu suspenso do método esteja definido como **Post**, verifique se a URL do gateway é HTTPS, não HTTP).
 
 	![URL de autorização](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
 2. Vá para a URL que você recebeu em resposta à solicitação HTTP Post.
 
-	O Dropbox associa sua identidade de usuário com seu aplicativo de API do Dropbox e, em seguida, redireciona o navegador para a URL de redirecionamento especificada (por exemplo, o portal de visualização do Azure se você seguiu o exemplo e usou https://portal.azure.com).
-
-	Como seu aplicativo Dropbox está no modo de desenvolvedor, você pode receber uma página de logon do Dropbox antes que o navegador vá para a URL de redirecionamento. Depois de fazer logon usando suas credenciais do Dropbox, a identidade do usuário usada para efetuar logon no gateway é associada ao aplicativo Dropbox e futuramente essa etapa de logon do Dropbox não será mais necessária para a identidade do usuário.
+	A resposta para essa URL redireciona o navegador para o site do Dropbox, onde o usuário faz logon e concede permissão para o aplicativo acessar a conta do usuário.
+	
+	Quando o processo de logon e consentimento for concluído, o Dropbox redirecionará o navegador para a URL de redirecionamento especificada (por exemplo, o Portal de Visualização do Azure se você tiver seguido o exemplo e usado https://portal.azure.com)). Se a chamada fosse realizada de um aplicativo Web, seria a próxima página a ser exibida nesse aplicativo. O aplicativo deve verificar a URL, porque, se ocorrer um erro no processo de logon ou de consentimento, a URL de redirecionamento poderá incluir uma variável de cadeia de consulta `error`.
 
 3. Mantenha esta janela do navegador aberta, já que você o usará na seção a seguir.
 
@@ -271,10 +227,13 @@ Nas etapas a seguir você pode fazer uma solicitação Get ao conector do Dropbo
 
 ## Próximas etapas
 
-Você viu como instalar, configurar e testar um conector de SaaS. Para obter mais informações, consulte [Usando conectores](../app-service-logic/app-service-logic-use-biztalk-connectors.md).
+Você viu como instalar, configurar e testar um conector de SaaS. Para obter mais informações, consulte estes recursos:
+
+* [Usando conectores](../app-service-logic/app-service-logic-connectors-list.md)
+* [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md)  
 
 [Portal de visualização do Azure]: https://portal.azure.com/
 [Portal Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

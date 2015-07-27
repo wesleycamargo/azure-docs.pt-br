@@ -32,9 +32,25 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 * Compare o ApplicationInsights.config com a cópia antiga. A maioria das alterações que você ocorreu porque removemos alguns módulos e tornamos outros parametrizáveis. Reaplique as personalizações feitas no arquivo antigo.
 * Recompile sua solução.
 
+## Versão 1.1
+
+- O novo tipo de telemetria `DependencyTelemetry` foi adicionado, que pode ser usado para enviar informações sobre chamadas de dependência do aplicativo (como chamadas SQL, HTTP, etc.).
+- O novo método de sobrecarga `TelemetryClient.TrackDependency` foi adicionado, que permite enviar informações sobre chamadas de dependência.
+- NullReferenceException fixo lançado pelo módulo de diagnóstico quando TelemetryConfiguration.CreateDefault é usado.
+
+## Versão 1.0
+
+- Os módulos e inicializadores de telemetria movidos dos subnamespaces separados para o namespace `Microsoft.ApplicationInsights.Extensibility.Web` da raiz.
+- O prefixo “Web” removido de nomes dos inicializadores e módulos de telemetria porque ele já está incluído no nome do namespace `Microsoft.ApplicationInsights.Extensibility.Web`.
+- `DeviceContextInitializer` movido do assembly `Microsoft.ApplicationInsights` para o assembly `Microsoft.ApplicationInsights.Extensibility.Web` e convertido em um `ITelemetryInitializer`.
+- Altere os nomes do namespace e do assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` para `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` para consistência com o nome do pacote NuGet.
+- Renomeie `RemoteDependencyModule` para `DependencyTrackingTelemetryModule`.
+- Renomeie `CustomPerformanceCounterCollectionRequest` para `PerformanceCounterCollectionRequest`.
+
 ## Versão 0.17
 - Dependência removida do NuGet EventSource para os aplicativos do framework 4.5.
-- Cookies de sessão e do usuário anônimos não serão gerados no lado do servidor. Os módulos de telemetria ```WebSessionTrackingTelemetryModule``` e ```WebUserTrackingTelemetryModule``` não têm mais suporte e foram removidos do arquivo ApplicationInsights.config. Os cookies do SDK do JavaScript serão respeitados.
+- Cookies de sessão e do usuário anônimos não serão gerados no lado do servidor. Para implementar o rastreamento de usuário e sessão para aplicativos Web, a instrumentação com o SDK do JS agora é obrigatória — cookies do SDK do JavaScript ainda são respeitados. Os módulos de telemetria ```WebSessionTrackingTelemetryModule``` e ```WebUserTrackingTelemetryModule``` não têm mais suporte e foram removidos do arquivo ApplicationInsights.config. Observe que essa alteração pode causar uma reformulação significativa das contagens de usuário e sessão, pois apenas sessões originadas pelo usuário estão sendo contadas agora.
+- O OSVersion não é mais populado pelo SDK por padrão. Quando estiver vazio, o SO e o OSVersion são calculados pelo pipeline do Application Insights, com base no agente de usuário. 
 - O canal de persistência otimizado para cenários de carga alta é usado para o SDK web. Corrigido problema "Espiral morte". Espiral da morte é uma condição que ocorre quando o pico da contagem de itens de telemetria excede bastante o limite de limitação no ponto de extremidade, o que levará a uma repetição depois de determinado tempo e será limitado durante a repetição novamente.
 - O modo de desenvolvedor é otimizado para produção. Se deixado por engano, ele não ocasionará em uma sobrecarga grande como antes da tentativa de obter informações adicionais de saída.
 - O modo de desenvolvedor, por padrão, será habilitado somente quando o aplicativo estiver sob o depurador. Você pode substituí-lo usando a propriedade ```DeveloperMode``` da interface ```ITelemetryChannel```.
@@ -58,4 +74,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

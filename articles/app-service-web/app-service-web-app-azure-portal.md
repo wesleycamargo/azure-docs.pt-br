@@ -86,4 +86,4 @@ Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrup
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no novo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

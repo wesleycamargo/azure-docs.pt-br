@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -74,7 +74,7 @@ A data e hora são em formato UTC, e referentes a quando a telemetria foi deposi
 
 ## <a name="format"></a> Formato dos dados
 
-* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \n”.
+* Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar sentado e olhando para ele, tente usar um visualizador como o Bloco de notas++ com o plug-in JSON:
 
 ![Veja a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
@@ -160,6 +160,12 @@ A exportação contínua será reiniciada.
 
     Não. Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.
 
+* *Quantos blobs devo ver no armazenamento?*
+
+ * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).
+ * Além disso, para aplicativos com tráfego intenso, são alocadas unidades de partição adicionais. Nesse caso, cada unidade cria um blob a cada minuto.
+
+
 * *Eu regenerei a chave para o meu armazenamento ou alterei o nome do contêiner, e agora a exportação não funciona.*
 
     Edite a exportação e abra a folha Destino de exportação. Deixe o mesmo armazenamento de antes selecionado e clique em OK para confirmar. A exportação será reiniciada. Se a alteração foi realizada nos últimos dias, você não perderá dados.
@@ -177,4 +183,4 @@ A exportação contínua será reiniciada.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

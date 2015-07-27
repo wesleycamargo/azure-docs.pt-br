@@ -71,7 +71,7 @@ Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo.
 20150101,1,3
 ```
 
-Salve-o no diretório temporário local, C:\Temp\DimDate2.txt.
+Salve-o no diretório temporário local, C:\\Temp\\DimDate2.txt.
 
 ### Etapa 3: Conectar e importar os dados
 Usando o bcp, você pode conectar e importar os dados usando o comando a seguir, substituindo os valores conforme apropriado:
@@ -150,4 +150,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # Conexão segura a recursos de back-end a partir de um ambiente de Serviço de Aplicativo #
@@ -27,6 +27,12 @@ Como outro exemplo, pontos de extremidade confidenciais podem ser executados loc
 
 Para todos esses cenários, aplicativos em execução em um ambiente de serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos. Tráfego de saída de aplicativos que são executados em um ambiente de serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual. O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
 
+## Requisitos de DNS e conectividade de saída ##
+Observe que para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
+
+O cliente também pode ter servidores DNS configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net. 
+
+Também é recomendável que todos os servidores DNS personalizados em uma rede virtual sejam configurados antes da criação de um Ambiente de Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo.
 
 ## Conectando-se a um SQL Server
 Uma configuração comum do SQL Server tem um ponto de extremidade escutando na porta 1433:
@@ -104,4 +110,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

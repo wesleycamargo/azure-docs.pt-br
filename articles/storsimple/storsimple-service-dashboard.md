@@ -76,4 +76,4 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 Saiba como [solucionar problemas de um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

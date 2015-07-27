@@ -106,7 +106,7 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 * [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
 * [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
 * [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre gerenciamento de senhas](active-directory-passwords-faq.md)
+* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
 * [Gerenciamento de senhas no MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
@@ -122,4 +122,4 @@ Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: 
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

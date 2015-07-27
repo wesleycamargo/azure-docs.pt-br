@@ -228,4 +228,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 - Documentação do Azure AD no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # Integração de aplicativos de API do BizTalk no Serviço de Aplicativo do Microsoft Azure
+
+> [AZURE.NOTE]Este tópico está sendo desativado. Consulte a [lista de conectores e aplicativos de API](app-service-logic-connectors-list.md) para ver todos os aplicativos de API e conectores internos disponíveis.
+
+
 O Serviço de Aplicativo do Microsoft Azure (ou Serviço de Aplicativo, para abreviar) inclui muitos aplicativos de API do BizTalk que são vitais para ambientes de integração. Esses Aplicativos de API são baseados nos conceitos e ferramentas usados no BizTalk Server, mas agora estão disponíveis como parte do Serviço de Aplicativo do Azure.
 
 Uma categoria desses Aplicativos de API é composta pelos Aplicativos de API de Integração do BizTalk. Usando esses aplicativos de API do BizTalk, você pode facilmente adicionar regras de negócio, transformar e validar mensagens XML, codificar arquivos simples e dados JSON e muito mais; exatamente como faria localmente com o BizTalk Server.
@@ -100,7 +104,7 @@ No Portal de Gerenciamento do Azure, abra seu aplicativo de API do BizTalk. Na s
 
 - Exibir eventos de informações e erro
 - Exibir a contagem de threads e uso de memória do processo de trabalho (w3wp)
-- Exibir logs\ de servidor Web e do Aplicativo
+- Exibir logs\\ de servidor Web e do Aplicativo
 
 Mais em [Monitorar seus Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md).
 
@@ -132,6 +136,7 @@ As etapas a seguir adicionam Aplicativos de API do BizTalk a aplicativos Web, m�
 
 
 ## Mais conectores
-[Conectores empresariais](app-service-logic-enterprise-connectors.md)<br/> [Conectores entre empresas](app-service-logic-b2b-connectors.md)<br/> [Conectores sociais](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicativo + Serviços de Dados](app-service-logic-data-connectors.md)<br/> [Lista de Aplicativos de API e conectores](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

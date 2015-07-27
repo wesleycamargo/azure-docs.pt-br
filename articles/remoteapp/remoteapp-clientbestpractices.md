@@ -3,7 +3,7 @@
     pageTitle="Práticas recomendadas para clientes do RemoteApp do Azure"
     description="Saiba mais sobre práticas recomendadas para usar os clientes do RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@ As informações a seguir podem ajudá-lo a usar clientes do RemoteApp:
 - O RemoteApp desconectará automaticamente se você estiver inativo por um determinado período de tempo. Para evitar a perda de dados, é recomendável fechar os aplicativos quando você terminar de usar o serviço.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

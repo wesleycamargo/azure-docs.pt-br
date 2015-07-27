@@ -255,4 +255,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

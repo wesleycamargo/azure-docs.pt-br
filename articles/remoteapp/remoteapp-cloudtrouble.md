@@ -3,7 +3,7 @@
     pageTitle="Solucionar problemas de coleções na nuvem do RemoteApp - criação"
     description="Saiba como solucionar problemas de falhas de criação de coleção de nuvem do RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -38,4 +38,4 @@ Se você estiver usando uma das imagens Microsoft incluídas em sua assinatura, 
 Se você receber esse erro, isso geralmente significa que você atualizou para uma conta paga, mas está tentando usar uma imagem fornecido pela Microsoft que é válida somente durante o modo de avaliação do serviço. Nesse caso, tente criar novamente sua coleção de nuvem, mas não se esqueça de especificar a imagem correta.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

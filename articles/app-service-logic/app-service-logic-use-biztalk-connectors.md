@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Conectores#
+
+> [AZURE.NOTE]Este tópico está sendo desativado. Consulte a [lista de conectores e aplicativos de API](app-service-logic-connectors-list.md) para ver todos os aplicativos de API e conectores internos disponíveis.
+
+
 Os conectores são aplicativos de API que permitem que você se conecte a dados e serviços em execução na nuvem ou localmente. Conectores facilitam o acesso a dados com uma variedade de gatilhos internos e as ações que podem ser acessadas facilmente em aplicativos lógicos e muito mais.
 
 Os Serviços de Aplicativos do Azure oferecem uma série de conectores prontos para uso:
@@ -46,14 +50,16 @@ Os Serviços de Aplicativos do Azure oferecem uma série de conectores prontos p
 * [Conector do SugarCRM]
 * [Conector do Twilio]
 * [Conector do Twitter]
-* Aguarde o conector
+* [Aguarde o conector]
 * [Conector do Yammer]
+
 
 ##Conectores Premium e aplicativos deAPI##
 * [Conector AS2]
 * [BizTalk EDIFACT]
 * [Codificador de Arquivo Simples do BizTalk]
-* Serviço de Transformação do BizTalk
+* [Codificador JSON do BizTalk]
+* [Serviço de Transformação do BizTalk]
 * [Regras do BizTalk]
 * [BizTalk X12]
 * [Extrator de XPath do BizTalk]
@@ -112,7 +118,10 @@ Os conectores também podem ser usados como ações como parte do aplicativo ló
 [Validador de XML do BizTalk]: app-service-logic-xml-validator.md
 [Regras do BizTalk]: app-service-logic-use-biztalk-rules.md
 [Conector AS2]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[Serviço de Transformação do BizTalk]: app-service-logic-transform-xml-documents.md
+[Aguarde o conector]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

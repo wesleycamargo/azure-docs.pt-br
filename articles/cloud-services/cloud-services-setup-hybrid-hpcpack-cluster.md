@@ -106,7 +106,7 @@ O HPC Pack instala um certificado autoassinado no nó de cabeça, chamado de Cer
 
 	![Configurações de certificado][upload_cert1]
 
-4. Procure no nó de cabeçalho pelo arquivo C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Em seguida, clique no botão **Verificar**.
+4. Procure no nó de cabeçalho pelo arquivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Em seguida, clique no botão **Verificar**.
 
 	![Carregar um certificado][install_hpc10]
 
@@ -347,4 +347,4 @@ Depois de testar o cluster, você pode usar o Gerenciador de Cluster de HPC para
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

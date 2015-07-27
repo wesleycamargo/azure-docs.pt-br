@@ -1,4 +1,3 @@
-
 Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
 > [AZURE.NOTE]Uma máquina virtual no Azure usa diferentes tipos de discos -- um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Discos de dados são a forma recomendada de armazenar dados para uma máquina virtual. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](../../virtual-machines-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
@@ -31,4 +30,4 @@ Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

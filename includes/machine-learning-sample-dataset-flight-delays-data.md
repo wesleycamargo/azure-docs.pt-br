@@ -1,3 +1,3 @@
 Dados de desempenho pontual do voo do passageiro obtidos da coleção de dados TranStats do Departamento de Transporte dos EUA (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>O conjunto de dados abrange o período de abril a outubro de 2013. Antes de ser carregado no Estúdio de AM do Azure, o conjunto de dados foi processado da seguinte maneira:<ul><li>O conjunto de dados foi filtrado para abranger somente os 70 aeroportos mais ocupados na área continental dos Estados Unidos</li><li>Voos cancelados foram rotulados como atrasados por mais de 15 minutos</li><li>Voos desviados foram filtrados</li><li>Foram selecionadas as seguintes colunas: Ano, Mês, DayofMonth, DayOfWeek, Transporte, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15 , Cancelado</li></ul>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

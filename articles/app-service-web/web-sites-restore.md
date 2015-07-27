@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Restaurar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -23,7 +22,7 @@ Este artigo mostra como restaurar um aplicativo Web do qual você fez backup ant
 
 O recurso de restauração de aplicativos Web permite restaurar seu aplicativo Web sob demanda para um estado anterior, ou então criar um novo aplicativo Web com base em um dos backups do seu aplicativo Web original. A criação de um novo aplicativo Web que é executado em paralelo à versão mais recente pode ser útil para testes de A/B.
 
-O recurso de Restauração de Aplicativos Web, disponível na folha **Backups** do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), está disponível somente nos modos Padrão e Premium. Para obter informações sobre como dimensionar seu aplicativo usando modo Padrão ou Premium, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que o modo Premium permite a realização de um número maior de backups diários do que o modo Padrão.
+O recurso Restauração de Aplicativos Web, disponível na folha **Backups** do [portal de visualização do Azure](http://portal.azure.com), está disponível somente nos modos Standard e Premium. Para obter informações sobre como escalar seu aplicativo usando o modo Standard ou Premium, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que o modo Premium permite a realização de um número maior de backups diários do que o modo Padrão.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar um aplicativo Web por meio de um backup feito anteriormente
@@ -97,4 +96,4 @@ A folha de detalhes exibirá as informações disponíveis relacionadas à opera
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

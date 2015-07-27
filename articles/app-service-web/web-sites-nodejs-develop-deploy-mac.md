@@ -32,7 +32,7 @@ Siga estas etapas para criar um aplicativo Web e habilitar a publicação Git.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
-2. Clique no ícone **+ NOVO** na parte inferior esquerda do portal.
+2. Clique no ícone **+ NOVO** na parte superior esquerda do portal
 
 3. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web**.
 
@@ -134,7 +134,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 ##Publicar alterações em seu aplicativo
 
-1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\n' para 'Hello Azure\n'. Salve o arquivo.
+1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\\n' para 'Hello Azure\\n'. Salve o arquivo.
 2. Na linha de comando, altere para o diretório **helloworld** e execute os seguintes comandos:
 
 		git add .
@@ -196,4 +196,4 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

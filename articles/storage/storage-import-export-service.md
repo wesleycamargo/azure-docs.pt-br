@@ -324,4 +324,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

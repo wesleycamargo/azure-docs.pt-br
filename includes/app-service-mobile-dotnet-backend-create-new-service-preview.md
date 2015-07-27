@@ -41,4 +41,4 @@ Você criou um novo back-end de aplicativo móvel que pode ser usado por seus ap
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

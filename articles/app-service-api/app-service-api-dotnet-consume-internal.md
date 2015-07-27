@@ -261,6 +261,8 @@ O SDK do Serviço de Aplicativo depende de definições da API do Swagger para g
 Este artigo mostrou como consumir um aplicativo de API interno de um cliente .NET. Para obter informações sobre como consumir aplicativos de API definidos com níveis de acesso **Público (autenticado)** e **Público (anônimo)**, confira [Consumir um aplicativo de API de um cliente .NET no Serviço de Aplicativo do Azure](app-service-api-dotnet-consume.md).
 
 Para obter exemplos adicionais de um código que chame um aplicativo de API de clientes .NET, baixe o aplicativo de exemplo [Azure cartões](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+
+Para obter informações sobre a autenticação no Serviço de Aplicativo, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

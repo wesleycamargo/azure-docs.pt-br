@@ -3,7 +3,7 @@
 	description="Saiba como capturar imagens de máquina virtual do Azure que executam Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015" 
-	ms.author="kathydav"/>
+	ms.date="06/11/2015"
+	ms.author="dkshir"/>
 
 
 # Como capturar uma máquina virtual Linux para ser usada como um modelo##
@@ -88,6 +88,4 @@ A imagem está pronta para ser usada como modelo para criar uma nova máquina vi
 [Como criar uma máquina virtual personalizada]: virtual-machines-create-custom.md
 [Como anexar um disco de dados à máquina virtual]: storage-windows-attach-disk.md
 
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

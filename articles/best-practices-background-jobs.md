@@ -317,4 +317,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Como habilitar o diagnóstico em um serviço de nuvem](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

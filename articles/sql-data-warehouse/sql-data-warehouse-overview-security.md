@@ -59,12 +59,12 @@ O gerenciamento de bancos de dados e servidores lógicos pelo Portal de Gerencia
 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@ Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvime
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

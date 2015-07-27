@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="07/05/2015"
    ms.author="bwren" />
 
 # Webhooks da Automação do Azure
@@ -92,6 +92,7 @@ O cliente receberá um dos seguintes códigos de retorno da solicitação POST.
 |:---|:----|:---|
 | 202 | Aceita | A solicitação foi aceita e o runbook foi enfileirado com êxito. |
 | 400 | Solicitação incorreta | A solicitação não foi aceita por um dos motivos a seguir. <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li> </ul>|
+| 404 | Não encontrado | A solicitação não foi aceita por um dos motivos a seguir. <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li> </ul> |
 | 500 | Erro interno do servidor | A URL era válida, mas ocorreu um erro. Envie a solicitação novamente. |
 
 Supondo que a solicitação seja bem-sucedida, a resposta webhook contém a ID de trabalho no formato JSON da seguinte maneira. Ela conterá uma ID de trabalho única, mas o formato JSON permite possíveis aprimoramentos futuros.
@@ -173,4 +174,4 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 - [Iniciando um runbook](automation-starting-a-runbook.md)
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

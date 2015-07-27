@@ -1,19 +1,19 @@
 <properties
    pageTitle="Criar uma nova entidade de serviço do Azure usando o portal do Azure"
    description="Descreve como criar uma nova entidade de serviço do Azure que possa ser usada com o controle de acesso baseado em função no Gerenciador de Recursos do Azure, para gerenciar o acesso aos recursos."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Criar uma nova entidade de serviço do Azure usando o portal do Azure
@@ -134,4 +134,4 @@ Gerenciar e auditar o acesso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

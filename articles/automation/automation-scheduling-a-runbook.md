@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2015"
+   ms.date="06/30/2015"
    ms.author="bwren" />
 
 # Agendando um runbook na Automação do Azure
@@ -96,4 +96,4 @@ Os comandos de exemplo a seguir mostram como desabilitar uma agenda.
 - [Agendar Ativos na Automação do Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - [Como iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

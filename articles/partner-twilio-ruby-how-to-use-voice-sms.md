@@ -195,4 +195,4 @@ Agora que você já conhece os princípios do serviço Twilio, acesse estes link
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

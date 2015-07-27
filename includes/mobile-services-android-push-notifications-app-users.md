@@ -26,4 +26,4 @@ Em seguida, você precisa fazer alterações ao se registrar para notificações
             refreshItemsFromTable();
         }	
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -61,4 +61,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

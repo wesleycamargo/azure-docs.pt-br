@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Girar credenciais de entrada/saída
@@ -56,7 +56,8 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 11. Prossiga para a Parte 2.  
 
 ###Banco de dados SQL
-[AZURE.NOTE]Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Gerenciamento do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
+
+>[AZURE.NOTE]Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Gerenciamento do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
 
 1.  Vá para a extensão Bancos de Dados SQL no Portal de Gerenciamento do Azure: ![elementográfico14][graphic14]
 2.  Localize o Banco de Dados SQL usado por seu trabalho e **clique no link do servidor** na mesma linha: ![elementográfico15][graphic15]
@@ -136,7 +137,7 @@ Você deverá obter a seguinte confirmação:
 	Command(s) completed successfully.
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
@@ -192,4 +193,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

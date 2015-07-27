@@ -295,15 +295,15 @@ O SQL Data Warehouse não usa ou oferece suporte a estes recursos:
 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral sobre desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral sobre desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

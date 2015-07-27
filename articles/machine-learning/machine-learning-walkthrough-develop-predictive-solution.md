@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Uma solução preditiva para o risco de crédito com o Aprendizado de Máquina | Microsoft Azure"
 	description="Um passo a passo detalhado mostrando como criar uma solução de análise preditiva para avaliação de risco de crédito no Estúdio de Aprendizado de Máquina do Azure."
-	keywords="credit risk, predictive analytics solution,risk assessment"	
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/22/2015"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -42,4 +41,4 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 Este passo a passo é baseado em uma versão simplificada do [Teste de exemplo de previsão de risco de crédito](../machine-learning-sample-credit-risk-prediction.md) incluído no Estúdio de Aprendizado de Máquina.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

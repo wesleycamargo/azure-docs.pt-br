@@ -103,4 +103,4 @@ Para tutoriais de ponta a ponta, visite o [PHP Developer Center - tutoriais](/de
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: web-sites-scale.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

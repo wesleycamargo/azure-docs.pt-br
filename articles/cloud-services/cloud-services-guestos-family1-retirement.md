@@ -78,4 +78,4 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 ## O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -387,4 +387,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

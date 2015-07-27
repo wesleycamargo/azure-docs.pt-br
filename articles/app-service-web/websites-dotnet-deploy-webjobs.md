@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Implantar Trabalhos Web usando o Visual Studio
@@ -193,11 +193,11 @@ Para um Trabalho Web independente, o mesmo assistente **Publicar Web** usado em 
 
 ## <a id="nextsteps"></a>Próximas etapas
 
-Para obter mais informações sobre como implantar Trabalhos Web do Azure a partir do Visual Studio e utilizando um processo de entrega contínua, consulte [Trabalhos Web do Azure - Recursos Recomendados - Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter informações sobre como implantar Azure WebJobs do Visual Studio usando um processo de entrega contínuo, consulte [Azure WebJobs — Recursos recomendados — Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

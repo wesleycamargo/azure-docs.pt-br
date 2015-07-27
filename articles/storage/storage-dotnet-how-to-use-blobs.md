@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar o Armazenamento de Blob do .NET | Microsoft Azure&quot;"
-	description="Saiba como usar o armazenamento de blob do Microsoft Azure para carregar, baixar, listar e excluir conteúdo de blob. As amostras são escritas em C#."
+	pageTitle="Como usar o Armazenamento de Blob do .NET | Microsoft Azure";"
+	description="Saiba mais sobre o armazenamento de Blob do Azure e como criar um contêiner e carregar, baixar, listar e excluir conteúdo blob."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

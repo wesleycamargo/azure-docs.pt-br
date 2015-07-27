@@ -222,7 +222,7 @@ Se você alternar para a página **CONTEÚDO**, você verá os ativos que foram 
 
 Para fornecer a seu usuário uma URL que possa ser usada para transmitir seu conteúdo, você precisa primeiro "publicar" seu ativo (conforme descrito na seção anterior), criando um localizador (quando você publica um ativo usando o Portal, os localizadores são criados para você). Os localizadores fornecem acesso aos arquivos contidos no ativo.
 
-Dependendo de qual protocolo de transmissão você deseja usar para reproduzir o conteúdo, talvez seja necessário modificar a URL obtida pelo link **PUBLICAR URL** do canal\programa.
+Dependendo de qual protocolo de transmissão você deseja usar para reproduzir o conteúdo, talvez seja necessário modificar a URL obtida pelo link **PUBLICAR URL** do canal\\programa.
 
 O empacotamento dinâmico se encarregará do empacotamento do fluxo ao vivo para o protocolo especificado.
 
@@ -259,4 +259,4 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

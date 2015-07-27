@@ -67,4 +67,4 @@ Agora você está pronto para usar o Twitter para autenticação em seu aplicati
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

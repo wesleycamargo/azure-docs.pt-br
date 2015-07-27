@@ -94,4 +94,4 @@ Há duas maneiras de disponibilizar o iKey para o SDK:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

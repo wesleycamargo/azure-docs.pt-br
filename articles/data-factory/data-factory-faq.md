@@ -107,16 +107,14 @@ A configuração **disponibilidade** na tabela de dados de saída determina quan
 ## Atividade de Cópia - Perguntas frequentes
 ### P: Quais as regiões têm suporte pela Atividade de Cópia?
 
-A Atividade de Cópia dá suporte à cópia de dados nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Centro dos EUA, Norte dos EUA, Centro-Sul dos EUA, Norte da Europa, Europa Ocidental e Sudeste da Ásia.
+A Atividade de Cópia dá suporte a cópia de dados nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Região Central dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Europa do Norte, Europa Ocidental, Sudeste Asiático, Leste do Japão e Sul do Brasil.
 
 Também há suporte para a cópia de dados para outras regiões, utilizando uma das regiões acima para rotear os dados. A operação de cópia é medida com base na região de onde os dados são roteados.
 
 Região de destino da cópia | Região usada para roteamento
 -------------------------- | -----------------------
 Ásia Oriental | Sudeste da Ásia
-Leste do Japão | Oeste dos EUA
-Oeste do Japão | Oeste dos EUA
-Sul do Brasil | Leste dos EUA 2
+Oeste do Japão | Leste do Japão
 
 ### Como posso fazer cópia para múltiplas tabelas de saída?
 Você pode ter várias tabelas de saída em um pipeline, como mostrado no exemplo a seguir:
@@ -217,4 +215,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

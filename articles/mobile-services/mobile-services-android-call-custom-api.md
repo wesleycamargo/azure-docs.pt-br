@@ -1,5 +1,4 @@
 <properties 
-	writer="ricksal" 
 	pageTitle="Chamar uma API personalizada de um cliente Android | Centro de Desenvolvimento dos Serviços Móveis" 
 	description="Saiba como definir uma API personalizada e chamá-la em um aplicativo Android que usa os serviços móveis do Azure." 
 	services="mobile-services" 
@@ -70,4 +69,4 @@ Além disso, considere a possibilidade de obter mais informações sobre os segu
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

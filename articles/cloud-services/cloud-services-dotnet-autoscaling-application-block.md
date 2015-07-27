@@ -236,7 +236,7 @@ O exemplo de código a seguir mostra uma regra de exemplo definida em um arquivo
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -382,4 +382,4 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

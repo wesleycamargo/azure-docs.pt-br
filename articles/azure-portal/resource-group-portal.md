@@ -4,7 +4,6 @@
 	services="azure-portal" 
 	documentationCenter="" 
 	authors="" 
-	writer="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -95,4 +94,4 @@ Gerenciar e auditar o acesso
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

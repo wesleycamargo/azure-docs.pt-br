@@ -42,7 +42,7 @@ Para criar o certificado `.cer`, execute isto:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal], e anotar o local onde você salvou o arquivo `.pem`.
 
@@ -64,7 +64,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/pt-br/library/windowsazure/gg551722.aspx).
+O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
 
 Depois que você tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal].
 
@@ -74,7 +74,7 @@ Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregad
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\my\AzureCertificate'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -112,7 +112,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local 
 
 ## <a name="CreateCloudService"> </a>Como criar um serviço de nuvem
 
-Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\hosted\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local.
+Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\\hosted\\service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e um local.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -445,4 +445,4 @@ Agora que você aprendeu os fundamentos do gerenciamento de serviços, você pod
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

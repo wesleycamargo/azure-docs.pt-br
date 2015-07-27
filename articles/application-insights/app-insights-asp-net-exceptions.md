@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights  
@@ -31,9 +31,8 @@ Clique em um dos tipos de solicitação com falha na lista para obter a ocorrên
 
 ![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
-Como alternativa, você pode iniciar na lista de exceções que você encontrará mais adiante na folha de falhas. Continue clicando até finalmente chegar às exceções individuais.
+**Como alternativa**, você pode iniciar na lista de exceções que você encontrará mais adiante na folha de falhas. Continue clicando até finalmente chegar às exceções individuais.
 
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -57,7 +56,25 @@ As falhas de chamadas para as dependências são listadas na folha de Falhas, po
 
 *Não há falhas de dependência? Isso é ótimo! Mas para verificar se você está obtendo os dados de dependência, abra a folha de desempenho e examine o gráfico de Duração da Dependência.*
 
-## Como ver a solicitação POST e outros dados de log
+ 
+
+## Dados personalizados de rastreamento e log
+
+Para obter dados de diagnóstico específicos do aplicativo, você pode inserir código para enviar seus próprios dados de telemetria. Eles são exibidos na pesquisa de diagnóstico ao longo da solicitação, exibição de página e outros dados coletados automaticamente.
+
+Você tem várias opções:
+
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas diagnóstico][diagnostic].
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações POST.
+* [TrackException()](#exceptions) envia rastreamentos de pilha. [Mais sobre exceções](#exceptions).
+* Se você já usa uma estrutura de registros, como Log4Net ou NLog, será possível [capturar esses logs][netlogs]e vê-los na pesquisa de diagnóstico ao longo dos dados de solicitação e exceção.
+
+Para ver esses eventos, abra [Pesquisa][diagnostic], abra o Filtro e escolha Evento, Rastreamento ou Exceção Personalizado.
+
+
+![Drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+### Como consultar dados POST de solicitação
 
 Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em uma chamada POST. Para que esses dados sejam relatados:
 
@@ -67,12 +84,8 @@ Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-Se você já estiver usando uma estrutura de registro em log como Log4Net ou NLog, poderá [capturar esses logs][netlogs] e vê-los da mesma maneira.
 
-Os [Eventos personalizados][api] são normalmente usados para controle de uso, mas também pode ser encontrado em "Toda a telemetria para esta solicitação".
-
-
-## <a name="exceptions"></a> Capturando as exceções e dados de diagnóstico relacionados
+## <a name="exceptions"></a> Capturando exceções e dados de diagnóstico relacionados
 
 Em princípio, você não verá no portal de todas as exceções que causam falhas em seu aplicativo. Você verá quaisquer exceções do navegador (se você estiver usando o [SDK do JavaScript][client] nas páginas da web). Mas a maioria das exceções de servidor são capturados pelo IIS e é preciso escrever um pouco de código para vê-los.
 
@@ -428,4 +441,4 @@ Adicione o atributo para as implementações de serviço:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

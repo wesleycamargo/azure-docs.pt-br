@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure
@@ -94,17 +94,17 @@ Em outros cenários, o fluxo de servidor pode ser uma opção melhor:
 
 Você pode escrever código para fazer chamadas de saída para plataformas de Software-como um serviço (SaaS) em nome de um usuário conectado ou você pode usar um [aplicativo de API do conector](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md). Por exemplo, para publicar uma tweet usando a conta do Twitter do usuário, você pode usar [um SDK do Twitter](https://dev.twitter.com/overview/api/twitter-libraries) ou provisionar um [Conector do Twitter](../app-service-mobile/app-service-logic-connector-twitter.md) na sua assinatura do Azure e chamá-lo. Esta seção é sobre como acessar uma plataforma SaaS por meio do código que é executado em um aplicativo de API ou aplicativo móvel.
 
-### Usando o token do provedor de identidade 
+### <a id="obotoidprovider"></a> Uso do token do provedor de identidade 
 
 O gateway mantém um *repositório de token* no qual associa um token Zumo a um ou mais tokens de acesso do provedor de identidade e tokens de atualização. Quando uma solicitação HTTP com um token válido do Zumo é recebida, o gateway sabe qual tokens do provedor de identidade se referem a esse usuário.
   
-Quando o código em execução em seu aplicativo de API ou aplicativo móvel precisar fazer uma chamada para um recurso protegido em nome do usuário conectado, ele pode recuperar e usar o token do provedor de identidade do repositório de token do gateway, conforme mostrado no diagrama a seguir.
+Quando o código em execução em seu aplicativo de API ou aplicativo móvel precisar fazer uma chamada para um recurso protegido em nome do usuário conectado, ele pode recuperar e usar o token do provedor de identidade do repositório de token do gateway, conforme mostrado no diagrama a seguir. O diagrama supõe que o cliente já tenha sido autenticado com o gateway e tenha o token Zumo.
 
 ![](./media/app-service-authentication-overview/idprovidertoken.png)
 
 Por exemplo, suponha que o provedor de identidade seja o AAD (Active Directory do Azure) e seu aplicativo de API deseje usar o token de acesso do AAD para chamar a Graph API do AAD ou solicitar acesso a um site do SharePoint para o qual o usuário tenha permissões. Você pode enviar uma solicitação para o gateway para recuperar o token AAD e usar o token AAD para chamar a Graph API ou obter um token de acesso para o site do SharePoint.
 
-### Obtendo o consentimento do usuário para acessar outros recursos
+### <a id="obotosaas"></a>Obtenção do consentimento do usuário para acessar outros recursos
 
 O gateway também tem recursos internos para obter o consentimento do usuário para acessar recursos protegidos por um provedor diferente do provedor de identidade original. Por exemplo, para um usuário que fez logon usando o Active Directory do Azure, você talvez queira acessar arquivos na conta do Dropbox do usuário.
 
@@ -121,8 +121,10 @@ O gateway do serviço de aplicativo inclui suporte interno para obter o consenti
 * SharePointOnline
 * Twitter
 * Yammer
+* Active Directory do Azure
+* Conta da Microsoft
 
-Para esses fornecedores, o gateway mantém tokens de acesso e os associa o token Zumo, como o faz para o token de acesso do provedor de identidade. O processo de obter consentimento do usuário e chamar uma plataforma SaaS é ilustrado no diagrama a seguir.
+Para esses fornecedores, o gateway mantém tokens de acesso e os associa o token Zumo, como o faz para o token de acesso do provedor de identidade. O processo de obter consentimento do usuário e chamar uma plataforma SaaS é ilustrado no diagrama a seguir. O diagrama supõe que o cliente já tenha sido autenticado com o gateway e tenha o token Zumo.
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 
@@ -185,16 +187,17 @@ Este artigo explicou os serviços de autenticação fornecidos pelo Serviço de 
 ### <a id="apiaclient"></a>Fluxo de cliente de Aplicativos de API
 
 * [Proteger um aplicativo de API](../app-service-api/app-service-api-dotnet-add-authentication.md) - A parte de configuração do aplicativo a API se aplica ao fluxo de cliente e servidor, mas a parte de teste no navegador ilustra o fluxo de servidor.
+* [Consumir um aplicativo de API no Serviço de Aplicativo do Azure de um cliente .NET](../app-service-api/app-service-api-dotnet-consume.md) - O aplicativo de exemplo para uma chamada autenticada ilustra o fluxo de servidor, mas ele é seguido por uma seção de [fluxo de cliente](../app-service-api/app-service-api-dotnet-consume.md#client-flow) com o código de exemplo.
 
 ### <a id="apiaserver"></a>Fluxo de servidor de Aplicativos de API
 
-* [Proteger um aplicativo de API](../app-service-api/app-service-api-dotnet-add-authentication.md) - A parte de configuração do aplicativo a API se aplica ao fluxo de cliente e servidor, mas a parte de teste no navegador ilustra o fluxo de servidor.
+* [Proteger um aplicativo de API](../app-service-api/app-service-api-dotnet-add-authentication.md) - A parte de configuração do aplicativo de API se aplica ao fluxo de cliente e de servidor, mas a parte de teste no navegador ilustra o fluxo de servidor.
 * [Consumir um aplicativo de API no Serviço de Aplicativo do Azure por meio de um cliente .NET](../app-service-api/app-service-api-dotnet-consume.md) - o código de exemplo de uma chamada autenticada ilustra o fluxo de servidor. 
 
-### <a id="apiaobo"></a>Chamadas “em nome de” para Aplicativos de API para recursos protegidos
+### <a id="apiaobo"></a>Chamadas em nome de Aplicativos de API
 
 * [Implantar e configurar um aplicativo de API do conector de SaaS no Serviço de Aplicativo do Azure](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md) - ilustra como provisionar um aplicativo de API do conector pré-empacotados, configurá-lo e chamá-la usando ferramentas do navegador.
-* Um tutorial que mostra como escrever seu próprio conector – ou seja, provisionar e configurar um aplicativo de API personalizado que faça chamadas “em nome de” a recursos protegidos – está em desenvolvimento.
+* [Conectar-se a uma plataforma SaaS a partir de um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md) - ilustra como escrever seu próprios conector – ou seja, provisionar, configurar e escrever código para um aplicativo de API personalizado que faz chamadas em nome dele para um provedor SaaS.
 
 ### <a id="maclient"></a>Fluxo de cliente de Aplicativos Móveis
 
@@ -211,4 +214,4 @@ Este artigo explicou os serviços de autenticação fornecidos pelo Serviço de 
 
 * [Obter um token de acesso e chamar a API do SharePoint em um aplicativo móvel](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Criar uma experiência simples no Studio de Aprendizado de Máquina | Microsoft Azure"
 	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure
@@ -23,9 +22,9 @@ Neste primeiro tutorial de Aprendizado de Máquina, vamos criar um modelo de reg
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Um experimento do Studio de Aprendizado de Máquina consiste em componentes do tipo "arrastar e soltar" para *criar o modelo*, *treinar o modelo* e *pontuar e testar o modelo*. O experimento usa técnicas de modelagem de previsão na forma de módulos do Studio de Aprendizado de Máquina que incluem dados, treinam um modelo em relação a ele e aplicam o modelo a novos dados. Também é possível adicionar módulos para pré-processar dados e selecionar recursos, dividir dados em conjuntos de treinamento e teste e avaliar ou cruzar a validade da qualidade de seu modelo.
+Um experimento de Estúdio de Aprendizado de Máquina consiste em arrastar e soltar componentes em uma tela e conectá-los para *criar um modelo de*, *treinar o modelo* e *pontuar e testar o modelo*. O experimento usa técnicas de modelagem de previsão na forma de módulos do Studio de Aprendizado de Máquina que incluem dados, treinam um modelo em relação a ele e aplicam o modelo a novos dados. Também é possível adicionar módulos para pré-processar dados e selecionar recursos, dividir dados em conjuntos de treinamento e teste e avaliar ou cruzar a validade da qualidade de seu modelo.
 
-Abra o Estúdio de Aprendizado de Máquina: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para saber mais sobre os primeiros passos no Estúdio de Aprendizado de Máquina, consulte a [Página Inicial do Estúdio de Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net/).
+Digite Estúdio de Aprendizado de Máquina: [https://studio.azureml.net](https://studio.azureml.net) e clique no botão "Iniciar". Você pode escolher o acesso de convidado ou entrar com sua conta da Microsoft.
 
 E para obter mais informações gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
 
@@ -233,4 +232,4 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

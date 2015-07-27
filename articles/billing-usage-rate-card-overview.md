@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="07/7/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Obtenha informações sobre o consumo de recursos do Microsoft Azure 
@@ -29,7 +29,7 @@ O uso de recursos do Azure e APIs RateCard são implementados como um provedor d
 ### API de uso de recursos do Azure (visualização)
 Os clientes e parceiros podem usar a API de uso de recursos do Azure para obter seus dados de consumo previstos do Azure. Os recursos incluem:
 	
-- **Controle de acesso baseado em função do Azure** - Clientes e parceiros podem configurar suas políticas de acesso ao [Portal de Visualização do Azure](https://portal.azure.com) ou através dos [cmdlets do PowerShell do Azure](https://azure.microsoft.com/pt-br/documentation/articles/powershell-install-configure/) para especificar quais usuários ou aplicativos podem obter acesso a dados de uso da assinatura. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
+- **Controle de acesso baseado em função do Azure** - Clientes e parceiros podem configurar suas políticas de acesso ao [Portal de Visualização do Azure](https://portal.azure.com) ou através dos [cmdlets do PowerShell do Azure](powershell-install-configure.md) para especificar quais usuários ou aplicativos podem obter acesso a dados de uso da assinatura. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
 
 - **Agregações diárias ou por hora** - os chamadores podem especificar se eles desejam seus dados de uso do Azure em buckets por hora ou buckets diários. O padrão é diário.
 
@@ -42,7 +42,7 @@ Os clientes e parceiros podem usar a API de uso de recursos do Azure para obter 
 ### API RateCard de Recursos do Azure (visualização)
 Clientes e parceiros podem usar a API RateCard de Recursos do Azure para obter a lista de recursos do Azure disponíveis, juntamente com as informações estimadas de preço para cada. Os recursos incluem:
 
-- **Controle de Acesso baseado em função do Azure** - Clientes e parceiros podem configurar suas políticas de acesso no [Portal de Visualização do Azure](https://portal.azure.com) ou através dos [cmdlets do PowerShell do Azure](https://azure.microsoft.com/pt-br/documentation/articles/powershell-install-configure/) para especificar quais usuários ou aplicativos podem obter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
+- **Controle de Acesso baseado em função do Azure** - Clientes e parceiros podem configurar suas políticas de acesso no [Portal de Visualização do Azure](https://portal.azure.com) ou através dos [cmdlets do PowerShell do Azure](powershell-install-configure.md) para especificar quais usuários ou aplicativos podem obter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
 	
 - **Suporte para pré-pago, MSDN, ofertas de investimento e crédito monetário (EA não possui suporte)** - Esta API fornece informações de taxa de nível de oferta do Azure, versus nível de assinatura. O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso. Como as ofertas de EA possuem taxas personalizadas por registro, seremos capazes de fornecer as taxas EA neste momento.
 
@@ -78,4 +78,4 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 + Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
 + Para obter informações adicionais sobre o pacote de ferramentas necessárias para ajudá-lo a compreender os gastos de nuvem, consulte o artigo da Gartner [Guia de mercado para as ferramentas de gestão financeira de TI (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

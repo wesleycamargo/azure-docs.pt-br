@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/19/2015" 
+    ms.date="06/16/2015" 
     ms.author="andrl"/>
 
 #Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores
@@ -28,9 +28,9 @@ A Pesquisa do Azure dá suporte à criação e ao gerenciamento de fontes de dad
 
 Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenciais para acessar os dados e as políticas para habilitar a Pesquisa do Azure a identificar com eficiência as alterações nos dados (como documentos modificados ou excluídos dentro da coleção). A fonte de dados é definida como um recurso independente para que possa ser usada por vários indexadores.
 
-Um **indexador** descreve como os dados vão da fonte de dados para o índice de pesquisa de destino. Você deve planejar a criação de um indexador para cada combinação de índice de destino e fonte de dados. Embora você possa ter vários indexadores gravando em um mesmo índice, um indexador pode gravar em apenas um índice. Um indexador é usado para: 
+Um **indexador** descreve como os dados vão da fonte de dados para o índice de pesquisa de destino. Você deve planejar a criação de um indexador para cada combinação de índice de destino e fonte de dados. Embora você possa ter vários indexadores gravando em um mesmo índice, um indexador pode gravar em apenas um índice. Um indexador é usado para:
 
-- Fazer uma cópia única dos dados para preencher um índice.
+- Executar uma cópia única dos dados para preenchimento de um índice.
 - Sincronizar um índice com as alterações da fonte de dados segundo uma agenda. A agenda faz parte da definição do indexador.
 - Invocar atualizações sob demanda para um índice, conforme necessário. 
 
@@ -42,38 +42,38 @@ Emita uma solicitação HTTP POST para criar uma nova fonte de dados no serviço
     Content-Type: application/json
     api-key: [Search service admin key]
 
-A `api-version` é obrigatória. Valores válidos incluem `2015-28-02` ou uma versão posterior.
+A `api-version` é obrigatória. Os valores válidos incluem `2015-02-28` ou uma versão posterior.
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-- **name**: o nome da fonte de dados.
+- **name**: O nome da fonte de dados.
 
 - **type**: Use `documentdb`.
 
 - **credentials**:
 
-    - **connectionString**: Obrigatório. Especifique as informações de conexão ao banco de dados do Azure DocumentDB no seguinte formato: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: obrigatório. Especifique as informações de conexão ao banco de dados do Banco de Dados de Documentos do Azure no seguinte formato: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
 - **container**:
 
-    - **name**: Obrigatório. Especifique a coleção do Banco de Dados de Documentos a ser indexada. 
+    - **name**: obrigatório. Especifique a coleção do Banco de Dados de Documentos a ser indexada. 
 
-    - **query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
+    - **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que a Pesquisa do Azure pode indexar.
 
-- **dataChangeDetectionPolicy**: Opcional. Consulte a [Política de Detecção de Alteração de Dados](#DataChangeDetectionPolicy) abaixo.
+- **dataChangeDetectionPolicy**: opcional. Consulte a [Política de Detecção de Alteração de Dados](#DataChangeDetectionPolicy) abaixo.
 
-- **dataDeletionDetectionPolicy**: Opcional. Consulte a [Política de Detecção de Exclusão de Dados](#DataDeletionDetectionPolicy) abaixo.
+- **dataDeletionDetectionPolicy**: opcional. Consulte a [Política de Detecção de Exclusão de Dados](#DataDeletionDetectionPolicy) abaixo.
 
 ###<a id="DataChangeDetectionPolicy"></a>Capturando documentos alterados
 
-A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. Atualmente, a única política com suporte é a política `High Water Mark` que usa a propriedade `_ts`, que indica o carimbo de data/hora da última alteração, fornecida pelo Banco de Dados de Documentos e especificada da seguinte maneira:
+A finalidade de uma política de detecção de alteração de dados é identificar de maneira eficaz dados alterados. Atualmente, a única política com suporte é a política `High Water Mark` que usa a propriedade, que indica o `_ts` carimbo de data/hora da última alteração, fornecida pelo Banco de Dados de Documentos e especificada da seguinte maneira:
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts" 
     } 
 
-Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE` à sua consulta. Por exemplo:
+Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE` da sua consulta. Por exemplo:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
 
@@ -88,7 +88,7 @@ Quando linhas são excluídas da tabela de origem, você deve excluí-las també
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE] Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
+> [AZURE.NOTE]Você precisará incluir a propriedade em sua cláusula SELECT se estiver usando uma projeção personalizada.
 
 ###<a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
 
@@ -119,7 +119,7 @@ O exemplo a seguir cria uma fonte de dados com uma consulta personalizada e dica
 
 Se a fonte de dados for criada com êxito, você receberá uma resposta de HTTP 201 Criado.
 
-##<a id="CreateIndex"></a>Etapa 2: Crie um índice
+##<a id="CreateIndex"></a>Etapa 2: Criar um índice
 
 Se ainda não tiver um, crie um índice de destino da Pesquisa do Azure. Você pode fazer isso na [Interface do Portal do Azure](../search-get-started.md#test-service-operations) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
@@ -154,7 +154,10 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
         <td>Edm.String</td>
     </tr>
     <tr>
-        <td>Matrizes de tipos primitivos, como [ "a", "b", "c" ]</td>
+        <td>
+            Matrizes de tipos primitivos<br/>
+            como ["a", "b", "c"]
+        </td>
         <td>Collection(Edm.String)</td>
     </tr>
     <tr>
@@ -162,7 +165,14 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
         <td>Edm.DateTimeOffset, Edm.String</td>
     </tr>
     <tr>
-        <td>Objetos JSON</td>
+        <td>
+            Objetos GeoJSON<br/>
+            como {"type": "Point", "coordenadas": [long, lat]}
+        </td>
+        <td>Edm.GeographyPoint</td>
+    </tr>
+    <tr>
+        <td>Outros objetos JSON</td>
         <td>N/D</td>
     </tr>
 </table>
@@ -202,25 +212,25 @@ Você pode criar um novo indexador em um serviço da Pesquisa do Azure usando um
 
 O corpo da solicitação contém a definição do indexador, que deve incluir os seguintes campos:
 
-- **name**: Obrigatório. o nome do indexador.
+- **name**: obrigatório. o nome do indexador.
 
-- **dataSourceName**: Obrigatório. O nome de uma fonte de dados existente.
+- **dataSourceName**: obrigatório. O nome de uma fonte de dados existente.
 
-- **targetIndexName**: Obrigatório. O nome de um índice existente.
+- **targetIndexName**: obrigatório. O nome de um índice existente.
 
-- **schedule**: Opcional. Consulte [Agenda de indexação](#IndexingSchedule) abaixo.
+- **schedule**: opcional. Consulte [Agenda de indexação](#IndexingSchedule) abaixo.
 
 ###<a id="IndexingSchedule"></a>Executando indexadores de acordo com uma agenda
 
 Um indexador pode, também, especificar uma agenda. Se houver uma agenda, o indexador será executado periodicamente segundo a agenda. A agenda tem os seguintes atributos:
 
-- **interval**: Obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um sobconjunto restrito de um valor de [duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P[nD][T[nH][nM]]`. Examples: `PT15M` para cada 15 minutos, `PT2H` para cada duas horas. 
+- **interval**: obrigatório. Um valor de duração que especifica o intervalo ou período de execução do indexador. O menor intervalo permitido é de cinco minutos, e o maior é de um dia. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
-- **startTime**: Obrigatório. Uma data/hora, no horário UTC, que especifica quando o indexador deve começar a ser executado. 
+- **startTime**: obrigatório. Uma data/hora, no horário UTC, que especifica quando o indexador deve começar a ser executado.
 
 ###<a id="CreateIndexerExample"></a>Exemplo de corpo de solicitação
 
-O exemplo a seguir cria um indexador que copia dados da coleção referenciada pela fonte de dados  `myDocDbDataSource` para o índice `mySearchIndex` em uma agenda que inicia em 1º de janeiro de 2015 UTC e é executado de hora em hora.
+O exemplo a seguir cria um indexador que copia dados da coleção referenciada pela fonte de dados `myDocDbDataSource` para o índice `mySearchIndex` em uma agenda que inicia em 1º de janeiro de 2015 UTC e é executado de hora em hora.
 
     {
         "name" : "mysearchindexer",
@@ -235,7 +245,7 @@ Se o indexador for criado com êxito, você receberá uma resposta de HTTP 201 C
 
 ##<a id="RunIndexer"></a>Etapa 4: Executar um indexador
 
-Além de ser executado periodicamente segundo uma agenda, o indexador também pode ser invocado sob demanda emitindo a seguinte solicitação HTTP POST: 
+Além de ser executado periodicamente segundo uma agenda, o indexador também pode ser invocado sob demanda emitindo a seguinte solicitação HTTP POST:
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [Search service admin key]
@@ -244,16 +254,16 @@ Além de ser executado periodicamente segundo uma agenda, o indexador também po
 
 Se o indexador for invocado com êxito, você receberá uma resposta de HTTP 202 Aceito.
 
-##<a name="GetIndexerStatus"></a>Etapa 5: Obter o status do indexador
+##<a name="GetIndexerStatus"></a>Etapa 5: Obter status do indexador
 
-Você pode emitir uma solicitação HTTP GET para recuperar o status atual e o histórico de execução de um indexador: 
+Você pode emitir uma solicitação HTTP GET para recuperar o status atual e o histórico de execução de um indexador:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [Search service admin key]
 
 ###Resposta
 
-Você verá uma resposta HTTP 200 OK e um corpo de resposta que contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador (se houver). 
+Você verá uma resposta HTTP 200 OK e um corpo de resposta que contém informações sobre o status geral de integridade, a última invocação e o histórico de invocações recentes do indexador (se houver).
 
 A resposta deve ser semelhante ao seguinte:
 
@@ -292,5 +302,6 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre o Banco de Dados de Documentos do Azure, clique [aqui](/services/documentdb/).
 
  - Para saber mais sobre a Pesquisa do Azure, clique [aqui](/services/search/).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

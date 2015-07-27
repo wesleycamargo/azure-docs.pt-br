@@ -72,8 +72,8 @@ Para configurar a delegação, você precisa saber os nomes de servidor de nomes
 
 Usando o PowerShell do Azure, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona):
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ Após concluir a delegação, você pode verificar se a resolução de nomes est
 
 Observe que você não precisa especificar os servidores de nomes DNS do Azure, pois o processo normal de resolução DNS localizará os servidores de nomes automaticamente se a delegação tiver sido configurada corretamente.
 
-	PS C:\> nslookup –type=SOA contoso.com
+	PS C:> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ A única diferença é que, na etapa 3, os registros NS devem ser criados na zon
 
 O exemplo do PowerShell a seguir demonstra isso. Primeiro, criamos as zonas pai e filho — elas podem estar no mesmo grupo de recursos ou em grupos de recursos diferentes:
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Em seguida, recuperamos os registros NS autoritativos da zona filho:
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Finalmente, criamos um conjunto de registros NS correspondente na zona pai para concluir a delegação (Observe que o nome do conjunto de registros na zona pai coincide com o nome da zona filho, neste caso "parceiros"):
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Da mesma forma que é feito ao delegar usando um registrador, podemos verificar que tudo está configurado corretamente examinando o registro SOA da zona filho:
 
-	PS C:\> nslookup –type=SOA partners.contoso.com
+	PS C:> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

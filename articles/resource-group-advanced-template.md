@@ -143,4 +143,4 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

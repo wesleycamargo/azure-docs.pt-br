@@ -64,4 +64,4 @@ Para a maioria das organizações que desejam apenas habilitar o usuário a faze
 	- Acesso condicional para recursos locais e de nuvem usando o registro de dispositivos, a associação de AD do Azure ou políticas do Intune MDM
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

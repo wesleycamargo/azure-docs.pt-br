@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # O que é o Serviço de Aplicativo do Azure?
-O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Projetado para desenvolvedores, o Serviço de Aplicativo é uma PaaS (plataforma como serviço) totalmente gerenciada com recursos avançados, como DevOps internos, integração contínua com Visual Studio Online e GitHub, suporte a preparação e produção e aplicação de patch automática.
+O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Projetado para desenvolvedores, o Serviço de Aplicativo é uma plataforma totalmente gerenciada com recursos avançados, como DevOps internos, integração contínua com Visual Studio Online e GitHub, suporte a preparação e produção e aplicação de patch automática.
 
 O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos existentes de sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure durante a adição de novos recursos. [Saiba mais](http://azure.microsoft.com/documentation/services/app-service/) sobre como o Serviço de Aplicativo se relaciona com esses serviços existentes.
 
@@ -59,4 +59,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

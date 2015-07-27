@@ -183,7 +183,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 **Recursos adicionais**
 
 
-* [O que é gerenciamento de senhas](active-directory-passwords.md)
+* [O que é o Gerenciamento de Senhas](active-directory-passwords.md)
 * [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
 * [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
 * [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
@@ -198,4 +198,4 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

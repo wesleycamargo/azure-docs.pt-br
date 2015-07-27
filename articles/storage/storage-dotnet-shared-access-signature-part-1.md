@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Assinaturas de acesso compartilhado: Noções básicas sobre o Modelo SAS | Microsoft Azure" 
-	description="Saiba como delegar acesso a recursos de blob, fila e tabela com assinaturas de acesso compartilhado" 
+	pageTitle="Assinaturas de acesso compartilhado: noções básicas sobre o Modelo SAS | Microsoft Azure" 
+	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas e tabelas, usando SAS (assinaturas de acesso compartilhado). Com as assinaturas de acesso compartilhado, você pode proteger sua chave de conta de armazenamento enquanto concede acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tamram"/>
 
 
@@ -35,11 +35,11 @@ Você pode usar uma SAS quando desejar fornecer acesso aos recursos de sua conta
 Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem e gravam seus próprios dados na sua conta de armazenamento. Em um cenário em que uma conta de armazenamento armazena dados do usuário, há dois padrões de design comuns:
 
 
-1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, a criação de um serviço que possa ser dimensionado de acordo com a demanda pode ser difícil ou dispendiosa.
+1\. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, a criação de um serviço que possa ser dimensionado de acordo com a demanda pode ser difícil ou dispendiosa.
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
+2\. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -231,11 +231,9 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 [Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-[Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

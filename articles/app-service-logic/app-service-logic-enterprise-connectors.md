@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Conectores empresariais no Serviço de Aplicativo do Microsoft Azure
+
+> [AZURE.NOTE]Este tópico está sendo desativado. Consulte a [lista de conectores e aplicativos de API](app-service-logic-connectors-list.md) para ver todos os aplicativos de API e conectores internos disponíveis.
+
 O Serviço de Aplicativo do Microsoft Azure (ou Serviço de Aplicativo, para abreviar) inclui vários conectores que podem ser usados com sistemas corporativos, como SAP e Marketo. Usando esses conectores, você pode facilmente se conectar a um sistema empresarial e concluir tarefas diferentes.
 
 Esses conectores empresariais oferecem recursos de "Gatilho" ou "Ação". Um gatilho inicia uma nova instância com base em um evento específico, como atualizar uma entrada no MongoDb. Uma Ação é o resultado, como após a atualização de uma entrada no MongoDB, então obter uma entrada do MongoDB.
@@ -113,7 +116,7 @@ No Portal de Gerenciamento do Azure, abra seu aplicativo de API empresarial. Na 
 
 - Exibir eventos de informações e erro
 - Exibir a contagem de threads e uso de memória do processo de trabalho (w3wp)
-- Exibir logs\ de servidor Web e do Aplicativo
+- Exibir logs\\ de servidor Web e do Aplicativo
 
 Mais em [Monitorar seus Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md).
 
@@ -152,6 +155,7 @@ Alguns dos conectores empresariais fornecem segurança OAuth. Quando você adici
 
 
 ## Mais conectores
-[Conectores de integração do BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores entre empresas](app-service-logic-b2b-connectors.md)<br/> [Conectores sociais](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicativos + Serviços de Dados](app-service-logic-data-connectors.md)<br/> [Conectores e lista de aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Crie uma conta de banco de dados | Azure" 
-	description="Saiba como criar uma conta de Banco de Dados de Documentos do NoSQL e escolha as configurações de conta no portal de visualização do Azure."
+	pageTitle="Criar uma conta de banco de dados - versão de avaliação gratuita | Microsoft Azure" 
+	description="Saiba como criar contas de bancos de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados de documentos NoSQL gerenciado para JSON. Obtenha hoje mesmo uma avaliação gratuita."
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -12,24 +12,37 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.topic="get-started-article" 
+	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
-#Crie uma conta de banco de dados
-Para usar o Banco de Dados de Documentos, você precisa criar uma conta do Banco de Dados de Documentos.  Este tópico descreve como criar uma conta do Banco de Dados de Documentos no Portal de Visualização do Azure.  
+# Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal de visualização do Azure
+
+Para usar o Banco de Dados de Documentos do Microsoft Azure, você precisa criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal de visualização do Azure.
+
+Você é novo no Banco de Dados de Documentos? Assista a [este](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vídeo de Scott Hanselman com duração de quatro minutos para saber como concluir as tarefas mais comuns no portal online.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="NextSteps"></a>Próximas etapas
-Para começar a usar o Banco de Dados de Documentos do Azure, explore estes recursos:
+## Próximas etapas
 
--	[Guia de aprendizagem para o Banco de Dados de Documentos](documentdb-learning-map.md)
+Agora que você tem uma conta do Banco de Dados de Documentos, a próxima etapa é criar um banco de dados do Banco de Dados de Documentos. Você pode criar um banco de dados usando:
+
+- As amostras de C# .NET no projeto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) do repositório [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) no GitHub.
+- O portal de visualização, conforme descrito em [Criar um banco de dados do Banco de Dados de Documentos usando o portal de visualização do Azure](documentdb-create-database.md).
+- Os tutoriais completos: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node. js](documentdb-nodejs-application.md) ou [Python](documentdb-python-application.md).
+- As [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. 
+
+
+Depois de criar seu banco de dados, você precisa [adicionar uma ou mais coleções](documentdb-create-collection.md) ao banco de dados e [adicionar documentos](documentdb-view-json-document-explorer.md) às coleções.
+
+Depois de ter documentos em uma coleção, você pode usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal de visualização, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+
+Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
+
+-	[Mapa de Aprendizagem para o Banco de Dados de Documentos](documentdb-learning-map.md)
 -	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
--	[Interações RESTful com recursos do Banco de Dados de Documentos](documentdb-interactions-with-resources.md)
--	[Introdução ao SDK do .NET do Banco de Dados de Documentos](documentdb-get-started.md)
 
-Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação do Banco de Dados de Documentos do Azure em [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+ 
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

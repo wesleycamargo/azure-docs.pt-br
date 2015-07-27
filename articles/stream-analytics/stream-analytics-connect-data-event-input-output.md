@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Conectar a entradas e saídas
@@ -90,8 +90,7 @@ Há alguns parâmetros que os clientes precisam configurar para fluxos de dados 
 3. Nome da Política de Hub de Eventos: o nome da política de acesso compartilhado para acessar o Hub de Eventos. As políticas de acesso compartilhado podem ser configuradas para um Hub de Eventos na guia Configurar. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso.
 4. Chave da Política do Hub de Eventos: a chave primária ou secundária da política de acesso compartilhado para acessar o Hub de Eventos.  
 5. Grupo de Consumidores do Hub de Eventos: parâmetro opcional para entradas do Hub de Eventos. O Grupo de Consumidores para ingerir dados do Hub de Eventos. Se não for especificado, os trabalhos do Stream Analytics usarão o Grupo de Consumidores Padrão para ingerir dados do Hub de Eventos. É recomendável usar um Grupo de consumidores distinto para cada trabalho do Stream Analytics.
-
-Coluna Chave de Partição: parâmetro opcional para as saídas do Hub de Eventos. A coluna de atributo de dados usada como a chave de partição para saída do Hub de Eventos.
+6. Coluna Chave de Partição: parâmetro opcional para as saídas do Hub de Eventos. A coluna de atributo de dados usada como a chave de partição para saída do Hub de Eventos. 
 
 ##Usando a saída de tabela do Azure
 
@@ -126,8 +125,7 @@ Escolha "Armazenamento de tabela" como sua saída.
 Insira as informações da Tabela do Azure na próxima página. O alias de saída é o nome que você pode usar em sua consulta para direcionar a saída da consulta para essa tabela.
 
 
-![elementográfico14][graphic14]
-![elementográfico15][graphic15]
+![elementográfico14][graphic14] ![elementográfico15][graphic15]
 
 Tamanho do Lote é o número de registros para uma operação em lote, deixe-o como padrão se não estiver familiarizado com ele ou consulte [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes
 
@@ -151,7 +149,7 @@ Neste exemplo, as credenciais fornecidas estavam incorretas. Você pode corrigir
 ![elementográfico19][graphic19]
 
 ## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
 
@@ -185,4 +183,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

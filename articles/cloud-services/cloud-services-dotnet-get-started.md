@@ -467,10 +467,10 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 	- *Global.asax.cs*  
-	- Na pasta *Views\Shared*: <em>_Layout.cshtml</em>.
-	- Na pasta *Views\Home*: *Index.cshtml*.
+	- Na pasta *Views\\Shared*: <em>_Layout.cshtml</em>.
+	- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Controllers*: *AdController.cs*.
-	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
+	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
 
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto baixado.
 
@@ -575,9 +575,9 @@ Um código similar obtém uma referência para a fila de *imagens* e cria uma no
 
 O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
+O arquivo *Views\\Home\\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -666,7 +666,7 @@ Este é o código que exclui os blobs quando você exclui um anúncio:
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
 
 O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio:
 
@@ -676,7 +676,7 @@ O arquivo *Details.cshtml* exibe a imagem em tamanho real:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml e Edit.cshtml
 
 Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
@@ -812,4 +812,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Armazenamento do Azure](/documentation/services/storage/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

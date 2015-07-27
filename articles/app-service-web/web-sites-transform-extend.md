@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/06/2015"
 	ms.author="cephalin"/>
 
 # Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure
@@ -42,7 +42,7 @@ O exemplo applicationHost.xdt a seguir mostra como adicionar uma nova variável 
 	</configuration>
 
 
-Um arquivo de log com status e detalhes de transformação está disponível na raiz FTP em LogFiles\Transform.
+Um arquivo de log com status e detalhes de transformação está disponível na raiz FTP em LogFiles\\Transform.
 
 Para ver exemplos adicionais, consulte [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -81,7 +81,7 @@ A extensão Gerenciador de PHP foi criada usando-se o modelo de aplicativo Web M
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-A única lógica especial necessária para E/S de arquivo é indicar onde o diretório wwwroot do aplicativo Web está localizado. Como mostra o seguinte exemplo de código, a variável de ambiente "HOME" indica o caminho da raiz do aplicativo Web, e o caminho wwwroot pode ser construído acrescentando-se "site\wwwroot":
+A única lógica especial necessária para E/S de arquivo é indicar onde o diretório wwwroot do aplicativo Web está localizado. Como mostra o seguinte exemplo de código, a variável de ambiente "HOME" indica o caminho da raiz do aplicativo Web, e o caminho wwwroot pode ser construído acrescentando-se "site\\wwwroot":
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +93,7 @@ A única lógica especial necessária para E/S de arquivo é indicar onde o dire
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +112,7 @@ Você pode contornar esse requisito usando apenas caminhos relativos no aplicati
 
 ####<a id="XDT"></a> O arquivo applicationHost.xdt
 
-O código da extensão de aplicativo Web fica em %HOME%\SiteExtensions[nome-da-extensão]. Chamaremos ele de a raiz da extensão.
+O código da extensão de aplicativo Web fica em %HOME%\\SiteExtensions[nome-da-extensão]. Chamaremos ele de a raiz da extensão.
 
 Para registrar a extensão do aplicativo Web com o arquivo applicationHost.config, você precisa colocar um arquivo chamado ApplicationHost.xdt na raiz da extensão. O conteúdo do arquivo ApplicationHost.xdt deve ser conforme demonstrado a seguir:
 
@@ -180,4 +180,4 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -423,7 +423,7 @@ A coleta de arquivos estáticos é feita automaticamente como parte do script de
 
 Se você quiser ignorar a coleção de arquivos estáticos para seu aplicativo Django:
 
-    .skipDjango
+    \.skipDjango
 
 Em seguida, você precisará fazer a coleta manualmente no computador local:
 
@@ -515,4 +515,4 @@ Para obter informações sobre como usar o MySQL e banco de dados SQL:
 [Documentação do Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

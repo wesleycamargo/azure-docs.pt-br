@@ -4,7 +4,6 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="glenga" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -171,4 +170,4 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

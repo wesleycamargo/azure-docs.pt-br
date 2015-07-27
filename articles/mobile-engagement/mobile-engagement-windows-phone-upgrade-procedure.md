@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -142,4 +142,4 @@ Observe que renomear também afeta métodos substituídos.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

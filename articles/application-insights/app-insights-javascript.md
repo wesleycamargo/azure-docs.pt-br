@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights para aplicativos Web JavaScript
@@ -44,7 +44,7 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo:
 
-* Em um projeto ASP.NET MVC, você deve colocá-la em View\Shared_Layout.cshtml
+* Em um projeto MVC ASP.NET, você deve colocá-lo em View\\Shared\\_Layout.cshtml
 * Em um site do SharePoint, no painel de controle, abra [Configurações do Site/Página Mestra](app-insights-sharepoint.md).
 
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights.
@@ -135,11 +135,15 @@ Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Selecione qualquer evento para ver mais detalhes.
+Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "..." para ver mais detalhes.
 
 > [AZURE.NOTE]Se você usar [Pesquisar][diagnostic], observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
 
 > [Saiba mais sobre pesquisa de diagnóstico][diagnostic]
+
+### Propriedades de exibição de página
+
+* **Duração da exibição de página** O tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente. 
 
 ## Rastreamento de uso personalizado
 
@@ -177,4 +181,4 @@ Se ainda não tiver feito isso, você poderá obter percepções de seu servidor
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

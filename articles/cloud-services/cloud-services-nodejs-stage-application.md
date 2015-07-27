@@ -90,4 +90,4 @@ Você preparou uma implantação e atualizou uma implantação em produção com
   [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

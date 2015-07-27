@@ -19,13 +19,13 @@
 
 
 
-<h1>Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure</h1>
+# Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure
 
 Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicita valores de chamada telefônica ao usuário, conforme mostrado na seguinte captura de tela.
 
-![Formulário de chamada do Azure usando a Twilio e o ASP.NET][twilio_dotnet_basic_form]
+![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_f
 
-<h2><a name="twilio-prereqs"></a>Pré-requisitos</h2>
+## <a name="twilio-prereqs"></a>Pré-requisitos
 
 Você precisará fazer o seguinte para usar o código deste tópico:
 
@@ -34,9 +34,9 @@ Você precisará fazer o seguinte para usar o código deste tópico:
 
 Você deve estar familiarizado com a criação de uma função web básica no Azure.
 
-<h2><a name="howtocreateform"></a>Como criar um formulário da web para fazer uma chamada</h2>
+## <a name="howtocreateform"></a>Como criar um formulário Web para fazer uma chamada
 
-<h3><a id="use_nuget"></a>Para adicionar as bibliotecas da Twilio ao seu projeto de função web:</h3>
+<a id="use_nuget"></a>Para adicionar as bibliotecas Twilio ao seu projeto de função Web:
 
 1.  Abra sua solução no Visual Studio.
 2.  Clique com o botão direito do mouse em **Referências**.
@@ -69,7 +69,7 @@ O código a seguir mostra como criar um formulário da web para recuperar dados 
         </div>
     </asp:Content>
 
-<h2><a id="howtocreatecode"></a>Como criar o código para fazer a chamada</h2>
+## <a id="howtocreatecode"></a>Como criar o código para fazer a chamada
 O código a seguir, que é chamado quando o usuário preenche o formulário, cria a mensagem de chamada e gera a chamada. Neste exemplo, o código é executado no manipulador de eventos onclick do botão no formulário. (Use sua conta e o token de autenticação da Twilio em vez dos valores de espaço reservado atribuídos a **accountSID** e **authToken** no código a seguir.)
 
     using System;
@@ -155,7 +155,7 @@ A chamada é feita, e o ponto de extremidade da Twilio, a versão da API e o sta
 
 Mais informações sobre TwiML podem ser localizadas em [http://www.twilio.com/docs/api/twiml][twiml]. Mais informações sobre <Say> e outros verbos da Twilio podem ser localizadas em [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
-<h2><a id="nextsteps"></a>Próximas etapas</h2>
+## <a id="nextsteps"></a>Próximas etapas
 Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio em uma função web do ASP.NET no Azure. Antes de implantar o Azure na produção, convém adicionar mais tratamento de erros ou outros recursos. Por exemplo:
 
 * Em vez de usar um formulário da web, você pode usar o armazenamento de Blob do Azure ou uma instância do Banco de Dados SQL do Azure para armazenar números de telefone e texto de chamada. Para obter mais informações sobre como usar blobs no Azure, consulte [Como usar o serviço de armazenamento de Blob do Azure][howto_blob_storage_dotnet]. Para obter informações sobre como usar o Banco de Dados SQL, consulte [Como usar o Banco de Dados SQL do Azure em aplicativos .NET][howto_sql_azure_dotnet].
@@ -192,4 +192,4 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

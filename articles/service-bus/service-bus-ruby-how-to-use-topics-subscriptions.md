@@ -218,4 +218,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -	Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

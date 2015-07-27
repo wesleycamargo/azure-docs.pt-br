@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 
@@ -72,14 +72,14 @@ Nesta etapa, você primeiro cria o banco de dados e a tabela necessários no com
 
 Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tipos definidos pelo usuário e procedimentos armazenados. Esses serão usados para mover os resultados **MarketingCampaignEffectiveness** do blob do Azure para o banco de dados SQL Server.
 
-1.	No **Windows Explorer**, navegue até a subpasta **OnPremises** na pasta **C:\ADFWalkthrough** (ou o local no qual você extraiu os exemplos).
+1.	No **Windows Explorer**, navegue até a subpasta **OnPremises** na pasta **C:\\ADFWalkthrough** (ou o local no qual você extraiu os exemplos).
 2.	Abra **prepareOnPremDatabase&Table.ps1** em seu editor favorito, substitua a parte destacada pelas informações do SQL Server e salve o arquivo (forneça os detalhes de **autenticação do SQL**). Para o tutorial, habilite a autenticação do SQL para o banco de dados. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. No **Azure PowerShell**, navegue até a pasta **C:\ADFWalkthrough\OnPremises**.
+3. No **Azure PowerShell**, navegue até a pasta **C:\\ADFWalkthrough\\OnPremises**.
 4.	Execute **prepareOnPremDatabase&Table.ps1** **(entre aspas duplas ou conforme mostrado abaixo)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 ### Criar a tabela lógica local
 
-1.	No **PowerShell do Azure**, alterne para a pasta **C:\ADFWalkthrough\OnPremises**. 
+1.	No **PowerShell do Azure**, alterne para a pasta **C:\\ADFWalkthrough\\OnPremises**. 
 2.	Use o cmdlet **New-AzureDataFactoryTable** para criar as Tabelas da seguinte maneira para **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
@@ -170,4 +170,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

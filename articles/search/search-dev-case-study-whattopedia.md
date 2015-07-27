@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="04/13/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Estudo de caso do desenvolvedor de Pesquisa do Azure
@@ -421,4 +421,4 @@ O código a seguir cria o indexador mencionado na seção sobre a criação do p
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

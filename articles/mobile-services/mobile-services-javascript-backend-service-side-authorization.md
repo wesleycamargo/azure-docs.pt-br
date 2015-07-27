@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorização de serviços de usuários nos Serviços Móveis com Back-end JavaScript | Centro de Desenvolvimento Móvel"
+	pageTitle="Autorização no lado do serviço de usuários em um serviço móvel de back-end do JavaScript | Serviços Móveis do Azure"
 	description="Saiba como autorizar usuários no back-end JavaScript dos Serviços Móveis do Azure"
 	services="mobile-services"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/20/2015"
 	ms.author="krisragh"/>
 
-# Autorização de serviço de usuários nos serviços móveis
+# Autorização de serviço de usuários nos Serviços Móveis
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
@@ -70,4 +70,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

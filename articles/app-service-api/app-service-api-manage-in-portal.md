@@ -43,8 +43,8 @@ Você usa a folha **aplicativo API** para as seguintes tarefas:
 - Configurar a política de atualização - Clique em **Configurações > Configurações do aplicativo**. O valor padrão é **Ativado**. Isso significa que, quando uma nova versão do aplicativo de API é publicada no mercado, seu aplicativo de API será automaticamente atualizado para a nova versão se a alteração não for interruptiva.  
 - Configurar a autenticação para chamadas de saída do aplicativo de API - clique em **Configurações > Autenticação**. Se o aplicativo de API faz chamadas para um serviço externo que requer autenticação, os valores de configuração necessários são inseridos aqui. Por exemplo, um conector Dropbox requer uma ID de cliente e um segredo do cliente para acessar o serviço de Dropbox.
 - Configurar [RBAC](../role-based-access-control-configure.md) - clique em **Configurações > Usuários**. Acesso de usuário que você configura aqui determina apenas quem pode acessar os recursos específicos do aplicativo de API. Para configurar o RBAC para os recursos de aplicativo Web, use a folha **Host de aplicativo de API**. Normalmente, você desejaria manter as configurações de RBAC para o aplicativo de API e para o host do aplicativo de API em sincronia. Se você fornecer a outra pessoa acesso ao aplicativo de API, mas não ao host do aplicativo de API, essa pessoa não poderá usar os recursos na folha **Aplicativo de API** que realmente pertencem ao host do aplicativo de API.
-- Visualizar definição de API - clique em **Definição de API** na seção **Resumo** para ver uma lista dos métodos expostos pelo **aplicativo de API**.
-- [Instalar o Gerenciador de Conexão Híbrida](](../app-service-logic/app-service-logic-hybrid-connection-manager.md). (Aplica-se a aplicativos de API com conector interno). O Gerenciador de Conexão Híbrida lhe oferece a capacidade de conectar-se a um sistema local, como SQL Server ou SAP. Essa conectividade híbrida usa o Barramento de Serviço do Azure para conectar e controlar a segurança entre os recursos do Azure e seus recursos locais.
+- Visualizar definição de API - clique em **Definição de API** na seção **Resumo** para ver uma lista dos métodos expostos pelo aplicativo de API.
+- [Instalar o Gerenciador de Conexão Híbrida](../app-service-logic/app-service-logic-hybrid-connection-manager.md). O Gerenciador de Conexão Híbrida lhe oferece a capacidade de conectar-se a um sistema local, como SQL Server ou SAP. Essa conectividade híbrida usa o Barramento de Serviço do Azure para conectar e controlar a segurança entre os recursos do Azure e seus recursos locais.
 
 ### Tarefas que podem ser realizadas tanto na folha de aplicativo de API quanto na folha de host de aplicativo de API 
 
@@ -130,8 +130,8 @@ Para chegar a um aplicativo de API no Gerenciador de Servidores, clique em **Azu
 
 ## Próximas etapas
 
-Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativo de API.
+Este artigo mostra como usar o portal do Azure para executar tarefas de gerenciamento de aplicativos de API. Para aplicativos de API instalados a partir de galeria de aplicativos de API, consulte também [Gerenciar e monitorar aplicativos de API e conectores internos](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

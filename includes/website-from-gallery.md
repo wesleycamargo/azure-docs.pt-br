@@ -17,25 +17,33 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 
 1. Faça logon no Portal de Visualização do Azure.
 
-2. Abra o Azure Marketplace clicando no ícone **Marketplace** ou então clicando no ícone **Novo** no canto inferior esquerdo do painel, selecionando **Web + Celular** e **Azure Marketplace** na parte inferior.
+2. Abra o Azure Marketplace clicando no ícone do **Marketplace**:
+
+    ![Ícone do Marketplace][marketplace]
+
+    Ou clicando no ícone **Novo** na parte superior direita do painel de controle e selecionando **Marketplace** na parte inferior da lista.
 	
-	![Criar Novo][5]
+    ![Criar Novo][5]
 	
-3. Selecione **Aplicativos Web**. Procure **WordPress** e clique no ícone **WordPress**.
+3. Selecione **Web + Celular**. Procure **WordPress** e clique no ícone **WordPress**.
 
 	![WordPress da lista][7]
 	
 5. Depois de ler a descrição do aplicativo WordPress, selecione **Criar**.
 
-6. Clique em **APLICATIVO WEB** e forneça os valores necessários para configurar seu aplicativo Web.
+6. Clique em **Aplicativo Web** e forneça os valores necessários para configurar seu aplicativo Web.
 	
-   ![configurar o aplicativo][8]
+    ![configurar o aplicativo][8]
 
-7. Clique em **BANCO DE DADOS** e forneça os valores necessários para configurar seu banco de dados MySQL. 
+7. Clique em **Banco de Dados** e forneça os valores necessários para configurar seu banco de dados MySQL.
 
-   ![configurar o banco de dados][database]
+    ![configurar o banco de dados][database]
 
-8. Se necessário, clique em **ASSINATURA** e especifique a assinatura a ser usada. 
+8. Forneça um nome para um novo grupo de recursos.
+
+    ![Definir grupo de recursos][groupname]
+
+8. Se necessário, clique em **ASSINATURA** e especifique a assinatura a ser usada.
 
 7. Quando terminar de definir o aplicativo Web, clique em **Criar** e aguarde até que o novo aplicativo Web seja criado.
 
@@ -47,11 +55,11 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 	
 1. Clique no seu novo aplicativo Web para ver detalhes sobre ele.
 
-   ![iniciar painel][10]
+    ![iniciar painel][10]
 
 2. Na página **Informações Gerais**, clique em **Procurar** no link em **Url** para abrir a página de boas-vindas do aplicativo Web.
 
-   ![URL do site][browse]
+    ![URL do site][browse]
 
 3. Se você não tiver instalado o WordPress, insira as informações de configuração apropriadas exigidas pelo WordPress e clique em **Instalar WordPress** para finalizar a configuração e abra a página de logon do aplicativo Web.
 
@@ -66,16 +74,18 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 
 
 
-[5]: ./media/website-from-gallery/startmarketplace.png
+[5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/selectwordpress.png
-[8]: ./media/website-from-gallery/configureweb.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/seewebapp.png
+[10]: ./media/website-from-gallery/select-web.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 [webapps]: ./media/website-from-gallery/selectwebapps.png
-[database]: ./media/website-from-gallery/configuredb.png
-[resourcegroup]: ./media/website-from-gallery/showgroup.png
-[browse]: ./media/website-from-gallery/browse.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

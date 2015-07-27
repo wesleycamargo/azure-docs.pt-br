@@ -122,4 +122,4 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 - [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

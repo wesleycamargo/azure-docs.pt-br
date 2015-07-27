@@ -20,4 +20,4 @@ Se um deles for exibido, a versão do SDK do Android instalado no Android Studio
 
 4. No Android Studio, o arquivo de manifesto não é usado para especificar o SDK de destino e a versão mínima do SDK, ao contrário do que ocorre com o Eclipse.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -242,4 +242,4 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

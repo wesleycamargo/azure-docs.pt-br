@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Configurar seu espaço de trabalho e gerenciar as configurações
@@ -34,7 +34,7 @@ Cada espaço de trabalho pode ter várias contas de usuário associadas e cada c
 
 ## Vincular um espaço de trabalho existente a uma assinatura do Azure
 
-É possível criar um espaço de trabalho a partir do [opinsights.azure.com](http://opinsights.azure.com). No entanto, existem certos limites para esses espaços de trabalho, o mais notável sendo um limite de 500 MB/dia dos carregamentos de dados se você estiver usando uma conta gratuita. Para fazer alterações nesse espaço de trabalho, você precisará **vincular seu espaço de trabalho existente a uma assinatura do Azure**.
+É possível criar um espaço de trabalho em [microsoft.com/oms](https://microsoft.com/oms). No entanto, existem certos limites para esses espaços de trabalho, o mais notável sendo um limite de 500 MB/dia dos carregamentos de dados se você estiver usando uma conta gratuita. Para fazer alterações nesse espaço de trabalho, você precisará **vincular seu espaço de trabalho existente a uma assinatura do Azure**.
 
 >[AZURE.IMPORTANT]Para vincular um espaço de trabalho, sua conta do Azure já deve ter acesso ao espaço de trabalho que você deseja vincular. Em outras palavras, a conta usada para acessar o portal do Azure deve ser **igual** à conta usada para acessar seu espaço de trabalho Informações Operacionais. Se este não for o caso, consulte [Adicionar um usuário a um espaço de trabalho existente](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
@@ -179,6 +179,5 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 2. Selecione um dos motivos para fechar seu espaço de trabalho ou insira um motivo diferente na caixa de texto.
 
 3. Clique em **Fechar espaço de trabalho**.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

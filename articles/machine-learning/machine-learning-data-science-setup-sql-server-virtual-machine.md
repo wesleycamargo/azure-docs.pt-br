@@ -2,7 +2,7 @@
 	pageTitle="Configurar uma máquina virtual SQL Server como um servidor do IPython Notebook | Microsoft Azure"
 	description="Configurar uma Máquina Virtual de Ciência de Dados com o SQL Server e o IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
+	documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
@@ -137,7 +137,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
     Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
 
-2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe ***your_VM_name*\your_local_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
+2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe ***your_VM_name*\\your_local_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
 
     ![Conectar-se ao servidor][6]
 
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

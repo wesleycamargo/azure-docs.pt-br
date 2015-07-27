@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux" 
-	description="Aprenda a usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais do Azure baseadas em Linux." 
+	pageTitle="Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux" 
+	description="Aprenda a usar o Azure PowerShell para criar e pré-configurar máquinas virtuais do Azure baseadas em Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,28 +14,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Linux
+# Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-machines-linux-tutorial.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-Estas etapas mostram como personalizar um conjunto de comandos do PowerShell do Azure que criam e pré-configuram uma máquina virtual do Azure baseada em Linux usando uma abordagem de bloco de construção. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Linux e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
+Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShell que criam e pré-configuram uma máquina virtual do Azure baseada em Linux no Gerenciamento de Serviços usando uma abordagem de bloco de construção. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Linux e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
 
-Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
+Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você for novo no Azure PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do Azure PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
-Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Windows, confira [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Windows, confira [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
-## Etapa 1: instalar o PowerShell do Azure
+## Etapa 1: instalar o Azure PowerShell
 
-Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
+Se você ainda não fez isso, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Em seguida, abra um prompt de comando do Azure PowerShell.
 
 ## Etapa 2: definir a assinatura e a conta de armazenamento
 
-Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do PowerShell do Azure. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Azure PowerShell. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -146,9 +147,9 @@ Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtua
 
 ## Etapa 5: executar o conjunto de comandos
 
-Examine o conjunto de comandos do PowerShell do Azure criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
+Examine o conjunto de comandos do Azure PowerShell criado em seu editor de texto ou o ISE do PowerShell, formado por vários blocos de comandos, da Etapa 4. Certifique-se de que você especificou todas as variáveis necessárias e que elas tenham os valores corretos. Verifique também se você removeu todos os caracteres < and >.
 
-Se você estiver usando um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o comando definido no ISE do PowerShell.
+Se você estiver usando um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito no prompt de comando aberto do Azure PowerShell. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o comando definido no ISE do PowerShell.
 
 Se você criar a máquina virtual na assinatura, conta de armazenamento, serviço de nuvem, conjunto de disponibilidade, rede virtual ou sub-rede incorreta, exclua a máquina virtual, corrija a sintaxe do bloco de comandos e, em seguida, execute o conjunto de comandos corrigido.
 
@@ -161,7 +162,7 @@ Se pretender criar novamente essa máquina virtual ou uma semelhante, você pode
 
 ## <a id="examples"></a>Exemplos
 
-Aqui estão dois exemplos de como usar as etapas acima para criar conjuntos de comandos do PowerShell do Azure que criam máquinas virtuais do Azure baseadas em Linux.
+Aqui estão dois exemplos de como usar as etapas acima para criar conjuntos de comandos do Azure PowerShell que criam máquinas virtuais do Azure baseadas em Linux.
 
 ### Exemplo 1
 
@@ -174,7 +175,7 @@ Preciso de um conjunto de comandos do PowerShell para criar a máquina virtual L
 - Está na sub-rede de Back-end da rede virtual AZDatacenter
 - Está no serviço de nuvem Azure-TailspinToys
 
-Aqui está o conjunto de comandos do PowerShell do Azure correspondente para criar essa máquina virtual, com linhas em branco entre cada bloco para facilitar a leitura.
+Aqui está o conjunto de comandos do Azure PowerShell correspondente para criar essa máquina virtual, com linhas em branco entre cada bloco para facilitar a leitura.
 
 	$family="Ubuntu Server 12.10"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -211,7 +212,7 @@ Preciso de um conjunto de comandos do PowerShell para criar uma máquina virtual
 - Está na sub-rede de Front-end da rede virtual AZDatacenter
 - Está no serviço de nuvem Azure-TailspinToys
 
-Aqui está o conjunto de comandos do PowerShell do Azure correspondente para criar essa máquina virtual.
+Aqui está o conjunto de comandos do Azure PowerShell correspondente para criar essa máquina virtual.
 
 	$family="SUSE Linux Enterprise Server 12"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -253,12 +254,12 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
 [Como fazer logon em uma máquina virtual executando o Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

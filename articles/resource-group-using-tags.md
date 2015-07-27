@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Usando marcas para organizar os recursos do Azure" 
-	description="" 
-	services="" 
+	description="Mostra como aplicar marcas para organizar os recursos para cobrança e gerenciamento." 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -121,4 +121,4 @@ Gerenciar e auditar o acesso
 - [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,6 @@
 	pageTitle="Mover dados para o SQL Server no Azure| Microsoft Azure" 
 	description="Mover dados para o SQL Server no Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -233,4 +232,4 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

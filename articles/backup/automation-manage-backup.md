@@ -42,4 +42,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 * Confira o [Guia de Introdução](http://go.microsoft.com/fwlink/?LinkId=390560) da Automação do Azure
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

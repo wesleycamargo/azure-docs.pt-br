@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web
@@ -157,4 +157,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

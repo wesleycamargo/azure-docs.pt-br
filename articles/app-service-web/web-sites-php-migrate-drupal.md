@@ -101,4 +101,4 @@ Para obter mais informações, consulte as postagens e os tópicos a seguir:
   [Azure Integration Module]: http://drupal.org/project/azure
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

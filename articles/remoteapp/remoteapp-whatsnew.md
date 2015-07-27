@@ -3,7 +3,7 @@
     pageTitle="O que há de novo no Azure RemoteApp?"
     description="Saiba mais sobre alterações e aprimoramentos feitos ao Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@ Precisa ver o Azure RemoteApp no mundo real? Confira o tutorial [Executar qualqu
 
 Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

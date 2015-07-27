@@ -1,24 +1,26 @@
 <properties
    pageTitle="Criando modelos do Gerenciador de Recursos do Azure"
    description="Crie modelos do Gerenciador de Recursos do Azure usando sintaxe JSON declarativa para implantar aplicativos no Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
 
 Normalmente, os aplicativos do Azure exigem uma combinação de recursos (como servidor de banco de dados, banco de dados ou site) para cumprir as metas desejadas. Em vez de implantar e gerenciar cada recurso separadamente, você pode criar um modelo do Gerenciador de Recursos do Azure que implanta e provisiona todos os recursos para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
+
+Este tópico descreve as seções do modelo. Para os esquemas reais, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Formato de modelo
 
@@ -401,5 +403,6 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 - [Operações avançadas de modelo](./resource-group-advanced-template.md)
 - [Implantar um aplicativo complexo de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
+- [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

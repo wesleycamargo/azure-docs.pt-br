@@ -78,7 +78,7 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 ##Atualizar o aplicativo para fazer logon antes do registro
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../../includes/mobile-services-android-push-notifications-app-users.md)]
 
 ##Testar o aplicativo
 
@@ -98,4 +98,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

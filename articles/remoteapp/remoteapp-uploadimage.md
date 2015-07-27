@@ -3,7 +3,7 @@
     pageTitle="Carregar uma imagem personalizada para o RemoteApp do Azure"
     description="Saiba como criar uma imagem personalizada para o RemoteApp do Azure." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -52,4 +52,4 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 - Se o arquivo vhd for bloqueado durante o carregamento, copie o arquivo ou mova-o para um novo local e tente novamente. Pode haver algum processo do Windows impedindo o carregamento.  
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

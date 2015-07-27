@@ -41,11 +41,7 @@ O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows pa
 
 1.  Abra o Gerenciador de Armazenamento do Azure 
 2.  Se a conta de armazenamento que você deseja acessar não tiver sido adicionada ao Gerenciador de Armazenamento do Azure, clique no botão "Adicionar Conta" para adicionar a conta. Se já tiver sido adicionada, selecione a conta na lista suspensa “--Selecione uma conta de armazenamento.” ![Criar espaço de trabalho][1] <br>
-3. Digite o nome e a chave de conta de armazenamento e clique em Adicionar Conta de Armazenamento. Você pode adicionar várias contas de armazenamento e cada conta será exibidas em uma guia. Os contêineres nesta conta de armazenamento são mostrados no painel à esquerda. Selecione um contêiner para ver os blobs no contêiner no painel à direita.
-![Criar espaço de trabalho][2]
-<br>
-![Criar espaço de trabalho][3]
-<br>
+3. Digite o nome e a chave de conta de armazenamento e clique em Adicionar Conta de Armazenamento. Você pode adicionar várias contas de armazenamento e cada conta será exibidas em uma guia. Os contêineres nesta conta de armazenamento são mostrados no painel à esquerda. Selecione um contêiner para ver os blobs no contêiner no painel à direita. ![Criar espaço de trabalho][2] <br> ![Criar espaço de trabalho][3] <br>
 4. Carregue os dados clicando no botão "Carregar". Selecione um ou vários arquivos para carregar do sistema de arquivos e clique em "Abrir" para começar a carregar os arquivos.
 5. Baixe os dados selecionando o blob no contêiner correspondente e clicando no botão “Baixar".
 
@@ -179,4 +175,4 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

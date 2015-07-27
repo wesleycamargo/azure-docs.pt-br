@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Criação gráfica na Automação do Azure
@@ -115,11 +115,11 @@ Ao especificar um valor para um parâmetro, você seleciona uma fonte de dados p
 |:---|:---|
 |Valor Constante|Digite um valor válido para o parâmetro. Só está disponível para os seguintes tipos de dados: Int32,Int64,String,Boolean,DateTime,Switch. |
 |Saída de Atividade|Saída de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas serão listadas. Selecione apenas a atividade para usar sua saída para o valor do parâmetro. Se a atividade produzir um objeto com várias propriedades, você poderá digitar o nome da propriedade depois de selecioná-la.|
-|Parâmetro de Entrada de Runbook<br>*(Em breve) *|Selecione um parâmetro de entrada de runbook como entrada para o parâmetro de atividade.|  
-|Ativo de Variável de Automação<br>*(Em breve) *|Selecione uma Variável de Automação como entrada.|  
-|Ativo de Credencial de Automação<br>*(Em breve) *|Selecione uma Credencial de Automação como entrada.|  
-|Ativo de Certificado de Automação<br>*(Em breve) *|Selecione um Certificado de Automação como entrada.|  
-|Ativo de Conexão de Automação<br>*(Em breve) *|Selecione uma Conexão de Automação como entrada.| 
+|Parâmetro de entrada de runbook|Selecione um parâmetro de entrada de runbook como entrada para o parâmetro de atividade.|  
+|Ativo de variável de automação|Selecione uma Variável de Automação como entrada.|  
+|Ativo de credencial de automação|Selecione uma Credencial de Automação como entrada.|  
+|Ativo de certificado de automação|Selecione um Certificado de Automação como entrada.|  
+|Ativo de conexão de automação|Selecione uma Conexão de Automação como entrada.| 
 |Expressão do PowerShell|Especifique a expressão simples do PowerShell. A expressão será avaliada antes da atividade, e o resultado será usado para o valor do parâmetro. Você pode usar variáveis para referir-se à saída de uma atividade ou um parâmetro de entrada de runbook.|
 |Cadeia de Caracteres Vazia|Um valor de cadeia de caracteres vazia.|
 |Nulo|Um valor Nulo.|
@@ -228,7 +228,7 @@ Você também pode recuperar a saída de uma atividade em uma fonte de dados de 
 
 ### Pontos de verificação
 
-A mesma diretriz para definir [pontos de verificação](automation-runbook-concepts/#checkpoints) em seu runbook se aplica a runbooks gráficos. Você pode adicionar uma atividade ao cmdlet Checkpoint-Workflow onde você precisa definir um ponto de verificação. Você deve então incluir um Add-AzureAccount após essa atividade, caso o runbook se inicie desse ponto de verificação em um trabalhador diferente.
+A mesma diretriz para definir [pontos de verificação](automation-powershell-workflow/#checkpoints) em seu runbook se aplica a runbooks gráficos. Você pode adicionar uma atividade ao cmdlet Checkpoint-Workflow onde você precisa definir um ponto de verificação. Você deve então incluir um Add-AzureAccount após essa atividade, caso o runbook se inicie desse ponto de verificação em um trabalhador diferente.
 
 ## Autenticação para recursos do Azure
 
@@ -276,8 +276,8 @@ Os dados criados por qualquer atividade que não tenha um link de saída serão 
 
 ## Artigos relacionados
 
-- [Conceitos de runbook da Automação do Azure](automation-runbook-concepts.md)
+- [Aprendendo sobre o fluxo de trabalho do Windows PowerShell](automation-powershell-workflow.md)
 - [Ativos de automação](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -25,6 +25,7 @@
 
 A documentação a seguir o ajudará a começar com o Azure Active Directory Connect. Essa documentação lida com o uso da instalação expressa para o Azure AD Connect. Para obter informações sobre uma instalação personalizada, consulte [Instalação personalizada para o Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Para obter informações sobre como atualizar do DirSync para o Azure AD Connect, consulte [Atualizando o DirSync para o Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
+
 ## Baixar o Azure AD Connect
 
 
@@ -41,6 +42,21 @@ Antes de instalar o Azure AD Connect com configurações expressas, há algumas 
 - Um controlador de domínio ou servidor membro do AD com o Windows Server 2008 ou posterior
 - Uma conta de administrador corporativo para o Active Directory local
 - Opcional: uma conta de usuário de teste para verificar a sincronização. 
+
+### Requisitos de hardware para o Azure AD Connect
+A tabela a seguir mostra os requisitos mínimos para o computador do Azure AD Connect.
+
+| Número de objetos no Active Directory | CPU | Memória | Tamanho do disco rígido |
+| ------------------------------------- | --- | ------ | --------------- |
+| Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
+| 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
+| Para 100.000 ou mais objetos, é necessária a versão completa do SQL Server| | | |
+| 100\.000–300.000 | 1,6 GHz | 32 GB | 300 GB |
+| 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
+| Mais de 600.000 | 1,6 GHz | 32 GB | 500 GB |
+
+
 
 
 Para opções personalizadas, como várias florestas ou logon federado, saiba mais sobre os requisitos adicionais [aqui.](active-directory-aadconnect-get-started-custom.md)
@@ -92,6 +108,10 @@ Depois de instalar com êxito o Azure Connect AD Connect, você pode verificar s
 ## O que fazer em seguida?
 Agora que você tem o Azure AD Connect instalado, você pode usar o link [aqui](active-directory-aadconnect-whats-next.md) para continuar com as tarefas de pós-instalação, como atribuir aos usuários licenças do Azure AD Premium ou Enterprise Mobility ou configurar opções adicionais.
 
+**Recursos adicionais**
+
+[Comparação de ferramentas de integração de diretório](active-directory-aadconnect-get-started-tools-comparison.md)
+
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

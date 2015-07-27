@@ -453,4 +453,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
   [How to: Programmatically access Table Storage]: #tablestorage
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

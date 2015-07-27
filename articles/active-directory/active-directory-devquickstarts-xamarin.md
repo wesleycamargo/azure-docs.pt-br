@@ -201,4 +201,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 Para obter recursos adicionais, confira: - [AzureADSamples no GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentação do AD do Azure no [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

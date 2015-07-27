@@ -351,4 +351,4 @@ Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notif
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

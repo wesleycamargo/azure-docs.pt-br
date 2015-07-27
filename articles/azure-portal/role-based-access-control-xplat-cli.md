@@ -118,7 +118,7 @@ Em seguida, use `azure role assignment create` para criar uma atribuição de fu
 
 - Isso criará uma atribuição de função em um nível de grupo de recursos:
 
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - Isso criará uma atribuição de função em um nível de recursos:
 
@@ -128,8 +128,8 @@ Em seguida, use `azure role assignment create` para criar uma atribuição de fu
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando:
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
@@ -148,4 +148,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -207,4 +207,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

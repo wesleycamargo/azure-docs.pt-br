@@ -125,4 +125,4 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

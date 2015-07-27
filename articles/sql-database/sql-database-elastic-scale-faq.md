@@ -48,4 +48,4 @@ Não. Para operações de **divisão**, o banco de dados de destino deve existir
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

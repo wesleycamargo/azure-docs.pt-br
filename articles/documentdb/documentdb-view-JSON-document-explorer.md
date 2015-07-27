@@ -140,4 +140,4 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

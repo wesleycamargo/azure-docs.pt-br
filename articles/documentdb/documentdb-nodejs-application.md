@@ -93,7 +93,7 @@ O arquivo **package.json** é um dos arquivos criados na raiz do projeto. Esse a
 
 	![Captura de tela da guia package.json](./media/documentdb-nodejs-application/image17.png)
 
-Isso informa ao Nó (e ao Azure mais tarde) que seu aplicativo depende desses módulos adicionais.
+       Isso informa ao Nó (e ao Azure mais tarde) que seu aplicativo depende desses módulos adicionais.
 
 ## <a name="_Toc395783180"></a>Etapa 4: Usando o serviço do Banco de Dados de Documento em um aplicativo de nó
 
@@ -378,7 +378,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 ### Adicionar config.js
 
 1. No diretório do projeto, crie um novo arquivo chamado **config.js**.
-2. Adicione o seguinte ao **config.js**. Isso define as configurações e valores necessários para o nosso aplicativo.
+2. Adicione o seguinte ao **config.js**. Isso define as configurações e valores necessários para nosso aplicativo.
 
 		var config = {}
 		
@@ -389,7 +389,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = config;
 
-3. No arquivo **config.js**, atualize os valores de HOST e AUTH_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal do Microsoft Azure](http://portal.azure.com):
+3. No arquivo **config.js**, atualize os valores de HOST e AUTH_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal de visualização do Microsoft Azure](http://portal.azure.com):
 
 4. Salve e feche o arquivo **config.js**.
  
@@ -423,7 +423,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao Banco de Dados de Documentos (usando os valores lidos a partir de **config.js**), inicialize o objeto de tarefa e, em seguida, associe ações do formulário aos métodos no nosso controlador **TaskList**. 
+6. Essas linhas definem uma nova instância do nosso objeto **TaskDao**, com uma nova conexão ao Banco de Dados de Documentos (usando os valores lidos a partir de **config.js**), inicialize o objeto de tarefa e, em seguida, associe ações do formulário aos métodos no nosso controlador **TaskList**.
 
 7. Por fim, salve e feche o arquivo **app.js**; está praticamente pronto.
  
@@ -450,8 +450,7 @@ Agora vamos voltar a atenção para criar a interface do usuário, desse modo, u
 
 
 
-	Isso informa efetivamente ao mecanismo Jade para renderizar algum HTML para nosso aplicativo e criar um “bloco” chamado “conteúdo”, onde podemos fornecer o layout para nossas páginas de conteúdo.
-	Salve e feche o arquivo **layout.jade**. 
+	Isso instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content**, em que podemos fornecer o layout para nossas páginas de conteúdo. Salve e feche o arquivo **layout.jade**.
 
 4. Agora, abra o arquivo **index.jade**, o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte:
 
@@ -556,8 +555,8 @@ Parabéns! Você acabou de criar seu primeiro Aplicativo Web Express do Node.js 
 
 O código-fonte para o aplicativo de referência completo pode ser baixado [aqui](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
-
-<!--HONumber=52-->
+  [Node.js]: http://nodejs.org/
+  [Git]: http://git-scm.com/
  
+
+<!---HONumber=July15_HO3-->

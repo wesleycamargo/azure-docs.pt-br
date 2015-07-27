@@ -36,8 +36,7 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 **Versão do Framework**. Configurar essas opções se seu aplicativo usa qualquer um desses frameworks:
 
 - **.NET Framework**: configure a versão do .NET framework. 
-- **PHP**: configure a versão PHP, ou **DESATIVADO **para desabilitar o PHP.
-- **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
+- **PHP**: configure a versão PHP, ou **DESATIVADO **para desabilitar o PHP. - **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
 - **Python**: selecione a versão do Python ou **DESATIVADO** para desabilitar o Python.
 
 Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as opções .NET, PHP e Python.
@@ -129,7 +128,7 @@ Para exibir os arquivos de log, você deve criar credenciais FTP da seguinte man
 ![](./media/web-sites-configure/configure03.png)
 
 
-O nome de usuário complete do FTP é “app\nomedousuário” onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
+O nome de usuário complete do FTP é “app\\nomedousuário” onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,4 +174,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

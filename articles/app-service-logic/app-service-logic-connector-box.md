@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # Usando o Conector do Box em seu aplicativo lógico
 
@@ -160,4 +160,4 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Box como um
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

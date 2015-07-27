@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector do Office 365" 
-   description="Como usar o Conector do Office 365" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector do Office 365"
+   description="Como usar o Conector do Office 365"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Usando o Conector do Office 365 em seu aplicativo lógico#
@@ -80,7 +80,7 @@ Vamos criar um aplicativo lógico simples que é disparado quando um email é re
 	![][9]
 
 11. O gatilho “Novo Email” do Office 365 é configurado e você pode ver que os parâmetros de saída também são exibidos.
-	
+
 	![][10]
 
 12.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
@@ -157,7 +157,4 @@ Vamos criar um aplicativo lógico simples que é disparado quando um email é re
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

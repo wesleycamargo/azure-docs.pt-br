@@ -165,7 +165,7 @@ Se quiser carregar de maneira simples todo o conteúdo de seu aplicativo Web ASP
 		cd <ProjectFolder>
 		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<yourStorageAccountName>" -StorageContainer "<yourContainerName>"
 
-Este script carrega todos os arquivos de suas pastas *\Content* e *\Scripts* na conta de armazenamento e contêiner especificados. Ele tem as seguintes vantagens:
+Este script carrega todos os arquivos de suas pastas *\\Content* e *\\Scripts* na conta de armazenamento e contêiner especificados. Ele tem as seguintes vantagens:
 
 -	Replicar automaticamente a estrutura de arquivo de seu projeto do Visual Studio
 -	Criar automaticamente contêineres de blob conforme necessário
@@ -174,7 +174,7 @@ Este script carrega todos os arquivos de suas pastas *\Content* e *\Scripts* na 
 
 Para o parâmetro `-StorageContainer`, faz sentido usar o nome de seu aplicativo Web ou o nome do projeto do Visual Studio. Embora eu tenha usado o nome de contêiner genérico "cdn" anteriormente, usar o nome do aplicativo Web permite que o conteúdo relacionado seja organizado no mesmo contêiner facilmente identificável.
 
-Após a conclusão do carregamento do conteúdo, você pode vincular a qualquer item em suas pastas *\Content* e *\Scripts* no código HTML, como nos arquivos .cshtml, usando `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Aqui está um exemplo de algo que posso usar em uma exibição de Razor:
+Após a conclusão do carregamento do conteúdo, você pode vincular a qualquer item em suas pastas *\\Content* e *\\Scripts* no código HTML, como nos arquivos .cshtml, usando `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Aqui está um exemplo de algo que posso usar em uma exibição de Razor:
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
@@ -218,9 +218,9 @@ Há, é claro, hora e lugar para o cache. Por exemplo, você pode ter conteúdo 
 <a name="query"></a>
 ## Fornecer conteúdo novo logo após usar cadeias de consulta ##
 
-Na CDN do Azure, você pode habilitar cadeias de consulta para que o conteúdo de URLs com cadeias de consulta específicas seja armazenado em cache separadamente. É um ótimo recurso para ser usado se você quiser enviar por push determinados conteúdos para os navegadores cliente imediatamente, em vez de esperar que o conteúdo em cache da CDN expire. Suponhamos que eu publique minha página da Web com um número de versão na URL. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+Na CDN do Azure, você pode habilitar cadeias de consulta para que o conteúdo de URLs com cadeias de consulta específicas seja armazenado em cache separadamente. É um ótimo recurso para ser usado se você quiser enviar por push determinados conteúdos para os navegadores cliente imediatamente, em vez de esperar que o conteúdo em cache da CDN expire. Suponhamos que eu publique minha página da Web com um número de versão na URL. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>"; rel=";stylesheet";/&gt; </pre>
 
-Quando eu publico uma atualização de CSS e uso um número de versão diferente em minha URL CSS: <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+Quando eu publico uma atualização de CSS e uso um número de versão diferente em minha URL CSS: <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>"; rel=";stylesheet";/&gt; </pre>
 
 Para um ponto de extremidade da CDN que tenha cadeias de consulta habilitadas, os dois URLs são únicos um para o outro, e será feita uma nova solicitação para meu servidor Web para recuperar o novo *bootstrap.css*. Para um ponto de extremidade da CDN que não tem cadeias de consulta habilitadas, no entanto, se trata do mesmo URL, e ele simplesmente fornecerá o *bootstrap.css* armazenado em cache.
 
@@ -228,9 +228,9 @@ O truque, então, é atualizar o número de versão automaticamente. No Visual S
 
 ...
 
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>"; rel=";stylesheet";/&gt; </pre>
 
-Se você alterar o número de assembly como parte de cada ciclo de publicação você poderá, do mesmo modo, certificar-se de obter um número de versão único sempre que publicar seu aplicativo Web, que permanecerá o mesmo até o próximo ciclo de publicação. Ou você pode fazer com que o Visual Studio incremente automaticamente o número de versão de assembly sempre que o aplicativo Web for compilado abrindo *Properties\AssemblyInfo.cs* no projeto do Visual Studio e usar `*` em `AssemblyVersion`. Por exemplo:
+Se você alterar o número de assembly como parte de cada ciclo de publicação você poderá, do mesmo modo, certificar-se de obter um número de versão único sempre que publicar seu aplicativo Web, que permanecerá o mesmo até o próximo ciclo de publicação. Ou você pode fazer com que o Visual Studio incremente automaticamente o número de versão de assembly sempre que o aplicativo Web for compilado abrindo *Properties\\AssemblyInfo.cs* no projeto do Visual Studio e usar `*` em `AssemblyVersion`. Por exemplo:
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -261,4 +261,4 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 - [Usando a CDN para Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução ao SDK do .NET do Banco de Dados de Documentos | Azure" 
-	description="Aprenda a criar e configurar uma conta do Banco de Dados de Documentos Azure, criar bancos de dados, criar coleções e armazenar documentos JSON em uma conta do banco de dados de documentos NoSQL." 
-	services="documentdb" 
-	documentationCenter=".net" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Introdução ao SDK do .NET do Banco de Dados de Documentos | Azure"
+	description="Aprenda a criar e configurar uma conta do Banco de Dados de Documentos Azure, criar bancos de dados, criar coleções e armazenar documentos JSON em uma conta do banco de dados de documentos NoSQL."
+	services="documentdb"
+	documentationCenter=".net"
+	authors="AndrewHoh"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
 #Introdução ao SDK do .NET do Banco de Dados de Documentos  
@@ -29,8 +29,8 @@ Os cenários a seguir são abordados neste artigo:
 - Criando bancos de dados
 - Criando coleções
 - Criando documentos JSON
-- Consultando recursos 
-- Excluindo bancos de dados 
+- Consultando recursos
+- Excluindo bancos de dados
 
 Não há tempo para concluir o tutorial e deseja apenas a solução de trabalho? Não se preocupe. A solução completa está disponível em [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Consulte [Obter a solução completa](#GetSolution) para as instruções rápidas.
 
@@ -56,7 +56,7 @@ Vamos iniciar pela criação de uma conta de Banco de Dados de Documentos. Se vo
 5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...**
 6. No canto esquerdo do painel, na janela **Gerenciar Pacotes NuGet**, clique em **Online** / **nuget.org**.
 7. Na caixa de entrada **Pesquisar Online**, procure a **Biblioteca do cliente do Banco de Dados de Documentos**.
-8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**.
+8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**. A ID do pacote da Biblioteca de cliente do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
 Ótimo! Agora você está pronto para começar a trabalhar com o Banco de Dados de Documentos.
 
@@ -68,7 +68,7 @@ Começaremos criando uma nova instância da classe [DocumentClient](https://msdn
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
- 
+
 Em seguida, uma instância do **DocumentClient** pode ser criada usando o ponto de extremidade da conta do Banco de Dados de Documentos e a chave de acesso primária ou secundária associada à conta. Adicione essas propriedades à sua classe.
 
     private static string EndpointUrl = "<your endpoint URI>";
@@ -79,7 +79,7 @@ Agora, vamos criar uma nova tarefa assíncrona chamada **GetStartedDemo** em sua
 	private static async Task GetStartedDemo()
     {
 		// Create a new instance of the DocumentClient.
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey); 
+    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
 Chame a tarefa assíncrona do seu método Main semelhante ao código a seguir.
@@ -101,8 +101,8 @@ Chame a tarefa assíncrona do seu método Main semelhante ao código a seguir.
 
 Os valores de EndpointUrl e AuthorizationKey são o URI e a PRIMARY KEY para sua conta do Banco de Dados de Documentos, que pode ser obtida na folha [Chaves](https://portal.azure.com) para a sua conta do Banco de Dados de Documentos.
 
-![Captura de tela do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
- 
+![Captura de tela da visualização do Portal do Azure mostrando uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
+
 Essas chaves concedem acesso administrativo à sua conta do Banco de Dados de Documentos e aos recursos presentes nela. O Banco de Dados de Documentos tem suporte também para o uso de chaves de recursos que permitem aos clientes ler, gravar e excluir recursos da conta do Banco de Dados de Documentos, de acordo com as permissões que você tiver concedido, sem a necessidade de uma chave de conta. Para obter mais informações sobre as chaves de recurso, consulte [Permissões](documentdb-resources.md#permissions) e [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
 
 Agora que você sabe como conectar uma conta do Banco de Dados de Documentos e criar uma instância da classe **DocumentClient**, vejamos como trabalhar com os recursos do Banco de Dados de Documentos.
@@ -123,15 +123,15 @@ Um [banco de dados](documentdb-resources.md#databases) pode ser criado usando o 
 
 É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. A coleção recém-criada será mapeada para um [nível de desempenho S1](documentdb-performance-levels.md). O banco de dados criado na etapa anterior possui uma série de propriedades, entre elas, a propriedade [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Com essas informações, podemos criar uma coleção após a nossa criação de banco de dados.
 
-  	// Criar um conjunto de documentos.
+  	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
   		new DocumentCollection
   		    {
   			    Id = "FamilyCollection"
   		    });
-    
+
 ##<a id="CreateDoc"></a>Etapa 6: Criar documentos
-Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Com essas informações, agora podemos inserir um ou mais documentos.
+Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. A coleção criada na etapa anterior tem uma série de propriedades, entre elas a propriedade [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Com essas informações, agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos.
 
 Primeiro, precisamos criar uma classe **Pai**, **Filho**, **Pet**, **Endereço** e **Família**. Crie essas classes, adicionando as seguintes subclasses internas.
 
@@ -185,21 +185,21 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
             new Parent { FirstName = "Mary Kay"}
         },
         Children = new Child[] {
-            new Child { 
-                FirstName = "Henriette Thaulow", 
-                Gender = "female", 
-                Grade = 5, 
+            new Child {
+                FirstName = "Henriette Thaulow",
+                Gender = "female",
+                Grade = 5,
                 Pets = new Pet[] {
-                    new Pet { GivenName = "Fluffy" } 
+                    new Pet { GivenName = "Fluffy" }
                 }
-            } 
+            }
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = true
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersenFamily);
-    
+
     // Create the WakeField family document.
     Family WakefieldFamily = new Family
     {
@@ -210,9 +210,9 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
         },
         Children = new Child[] {
             new Child {
-                FamilyName= "Merriam", 
-                FirstName= "Jesse", 
-                Gender= "female", 
+                FamilyName= "Merriam",
+                FirstName= "Jesse",
+                Gender= "female",
                 Grade= 8,
                 Pets= new Pet[] {
                     new Pet { GivenName= "Goofy" },
@@ -220,9 +220,9 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
                 }
             },
             new Child {
-                FamilyName= "Miller", 
-                FirstName= "Lisa", 
-                Gender= "female", 
+                FamilyName= "Miller",
+                FirstName= "Lisa",
+                Gender= "female",
                 Grade= 1
             }
         },
@@ -231,7 +231,7 @@ Em seguida, crie os documentos dentro de seu método assíncrono **GetStartedDem
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
- 
+
 Agora, você criou o seguinte banco de dados, a coleta e os documentos em sua conta do Banco de Dados de Documentos.
 
 ![Diagrama que ilustra a relação hierárquica entre a conta, o banco de dados, a coleção e os documentos](./media/documentdb-get-started/account-database.png)
@@ -453,12 +453,12 @@ Agora você verá a saída do aplicativo iniciado. A saída mostrará os resulta
 
 
 > [AZURE.NOTE]Se executar o aplicativo várias vezes sem remover o banco de dados, você poderá executar o problema da criação de um novo banco de dados com uma ID que já está em uso. Para evitar isso, é possível verificar se já existe um banco de dados, a coleção ou o documento com a mesma ID. Para obter uma referência sobre como isso pode ser obtido, visite a nossa [página GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
-	
+
 ##<a id="GetSolution"></a> Obter a solução completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
 -   [Conta de Banco de Dados de Documentos][documentdb-create-account].
--   A solução [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) disponível no GitHub. 
+-   A solução [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) disponível no GitHub.
 
 Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio 2013, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar pacote de restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
 
@@ -473,6 +473,6 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 
 [keys]: media/documentdb-get-started/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

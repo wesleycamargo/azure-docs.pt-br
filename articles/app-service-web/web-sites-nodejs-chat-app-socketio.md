@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IOGitHub].
 1.  Baixar uma [versão arquivada ZIP ou GZ][release] do projeto Socket.IO (a versão 1.3.5 foi usada para este documento)
 
 
-3.  Extrair o arquivo e copiar o diretório **examples\chat** para um novo local. Por exemplo, **\node\chat**.
+3.  Extrair o arquivo e copiar o diretório **examples\\chat** para um novo local. Por exemplo, **\\node\\chat**.
 
 ## Modificar o app.js e instalar os módulos
 
@@ -57,7 +57,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IOGitHub].
 		  "socket.io": "1.3.5"
 		}
 
-4. Na linha de comando, altere para o diretório **\node\chat** e use npm para instalar os módulos necessários para esse aplicativo:
+4. Na linha de comando, altere para o diretório **\\node\\chat** e use npm para instalar os módulos necessários para esse aplicativo:
 
         npm install
 
@@ -76,7 +76,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 		azure site deployment user set [username] [password]
 
 
-3. Alterne para o diretório **\node\chat** e use o comando a seguir para criar um novo aplicativo Web do Azure e um repositório Git local. Esse comando também cria um repositório remoto do Git chamado 'azure'.
+3. Alterne para o diretório **\\node\\chat** e use o comando a seguir para criar um novo aplicativo Web do Azure e um repositório Git local. Esse comando também cria um repositório remoto do Git chamado 'azure'.
 
 		azure site create mysitename --git
 
@@ -91,7 +91,7 @@ Siga estas etapas para criar um aplicativo Web do Azure e habilitar a publicaç�
 
 		git push azure master
 
-	Você receberá mensagens de status que módulos são importados no servidor. Quando esse processo for concluído, o aplicativo será hospedado em seu aplicativo Web do Azure.
+	Quando solicitado, insira suas credenciais da etapa 2. Você receberá mensagens de status que módulos são importados no servidor. Quando esse processo for concluído, o aplicativo será hospedado em seu aplicativo Web do Azure.
 
  	> [AZURE.NOTE]Durante a instalação do módulo, você poderá observar erros que '... O projeto importado não foi encontrado '. Isso podem ser ignorados.
 
@@ -125,7 +125,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microso
 
 ###Adicionar os módulos redis e socket.io-redis
 
-1. Na linha de comando, altere para o diretório __\node\chat__ e use o seguinte comando:
+1. Na linha de comando, altere para o diretório __\\node\\chat__ e use o seguinte comando:
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Executar as etapas no [Criar um cache no Cache Redis do Azure](http://go.microso
 
 ###Confirme as alterações e implantar novamente
 
-Da linha de comando no diretório __\node\chat__, use os seguintes comandos para confirmar as alterações e implantar novamente o aplicativo.
+Da linha de comando no diretório __\\node\\chat__, use os seguintes comandos para confirmar as alterações e implantar novamente o aplicativo.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -260,7 +260,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 		  </system.webServer>
 		</configuration>
 
-	> [AZURE.NOTE]Se seu aplicativo usar um ponto de entrada diferente de **app.js**, você deve substituir todas as ocorrências do **app.js** pelo ponto de entrada correto. Por exemplo, substituir o **app.js** com **server.js**.
+	Se seu aplicativo usar um ponto de entrada diferente de **app.js**, você deve substituir todas as ocorrências do **app.js** pelo ponto de entrada correto. Por exemplo, substituir o **app.js** com **server.js**.
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
@@ -283,4 +283,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

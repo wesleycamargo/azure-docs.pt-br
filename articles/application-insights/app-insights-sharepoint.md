@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # Monitorar um site do SharePoint com o Application Insights
@@ -41,7 +41,7 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared_Layout.cshtml
+Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\\Shared_Layout.cshtml
 
 O script contém a chave de instrumentação que direciona a telemetria para o recurso do Application Insights.
 
@@ -73,6 +73,8 @@ Insira uma web part e insira o trecho de código nela.
 
 ## Exibir dados sobre seu aplicativo
 
+Reimplante o aplicativo.
+
 Retorne à folha de seu aplicativo no [portal do Azure](http://portal.azure.com).
 
 Os primeiros eventos aparecerão na Pesquisa de Diagnóstico.
@@ -81,11 +83,11 @@ Os primeiros eventos aparecerão na Pesquisa de Diagnóstico.
 
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
 
-A **análise de uso** fornece um instantâneo rápido dos usuários, sessões e exibições de página:
+Link de **análises de uso** para gráficos de usuários, sessões e exibições de página:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Clique em Exibições de Página para ver mais detalhes.
+Por exemplo, clique em Exibições de Página para ver mais detalhes:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -106,4 +108,4 @@ Clique em Usuários para ver detalhes sobre novos usuários e suas localizaçõe
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

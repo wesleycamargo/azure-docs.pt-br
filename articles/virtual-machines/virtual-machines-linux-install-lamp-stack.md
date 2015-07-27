@@ -125,4 +125,4 @@ Há muitos outros recursos para configurar uma pilha LAMP no Ubuntu.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

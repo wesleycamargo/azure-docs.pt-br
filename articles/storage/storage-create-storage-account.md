@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,17 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. Em **URL**, insira um nome para a conta de armazenamento. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas. Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) abaixo para obter detalhes sobre como esse nome será usado nos seus objetos no Armazenamento do Azure.
+3. Em **URL**, insira um nome para a conta de armazenamento.
+	
+	> [AZURE.NOTE]Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter números e apenas letras minúsculas.
+	>  
+	> O nome da sua conta de armazenamento deve ser exclusivo dentro do Azure. O portal indicará se o nome de conta de armazenamento que você selecionar já é usado.
+
+	Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) abaixo para obter detalhes sobre como o nome da conta de armazenamento será usado nos seus objetos no Armazenamento do Azure.
 
 4. Em **Local/Grupo de afinidade**, selecione um local para a conta de armazenamento que esteja perto de você ou seus clientes. Se os dados na conta de armazenamento forem ser acessados de outro serviço do Azure, como uma máquina virtual ou serviço de nuvem do Azure, você pode desejar selecionar um grupo de afinidade na lista para agrupar sua conta no mesmo data center que outros serviços do Azure que você está usando para melhorar o desempenho e reduzir os custos.
 
-	> [AZURE.NOTE]Observe que você deve selecionar um grupo de afinidades quando sua conta de armazenamento for criada; se não puder, mova uma conta existente para um grupo de afinidade.
-
-	Para saber mais sobre grupos de afinidade, confira [Colocalização de serviços com um grupo de afinidade](#service-co-location-with-an-affinity-group) abaixo.
+	Observe que você deve selecionar um grupo de afinidades quando sua conta de armazenamento for criada; se não puder, mova uma conta existente para um grupo de afinidade. Para saber mais sobre grupos de afinidade, confira [Colocalização de serviços com um grupo de afinidade](#service-co-location-with-an-affinity-group) abaixo.
 
 5. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Em **Assinatura**, digite a assinatura do Azure com a qual você deseja usar a conta de armazenamento. Você pode criar até cinco contas de armazenamento para uma assinatura.
 
@@ -163,4 +167,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
-   ms.date="03/31/2015"
+   ms.date="06/30/2015"
    ms.author="cfowler"/>
 
 # Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache
@@ -83,7 +83,7 @@ Baixe o link x86 NTS (Non-Thread Safe) para a versão do PHP habilitada nos apli
 
 ### Habilitar a extensão php_memcache
 
-Após baixar o arquivo, descompacte e carregue **php_memcache.dll** no diretório **d:\home\site\wwwroot\bin\ext**. Depois que php_memcache.dll for carregado no aplicativo web, a extensão precisará ser habilitada para o Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP_EXTENSIONS** e o valor **bin\ext\php_memcache.dll**.
+Após baixar o arquivo, descompacte e carregue **php_memcache.dll** no diretório **d:\\home\\site\\wwwroot\\bin\\ext\**. Depois que php_memcache.dll for carregado no aplicativo web, a extensão precisará ser habilitada para o Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP_EXTENSIONS** e o valor **bin\\ext\\php_memcache.dll**.
 
 
 > Se o aplicativo Web precisar carregar várias extensões PHP, o valor de PHP_EXTENSIONS deverá ser uma lista delimitada por vírgulas de caminhos relativos para arquivos DLL.
@@ -93,6 +93,8 @@ Após baixar o arquivo, descompacte e carregue **php_memcache.dll** no diretóri
 Ao terminar, clique em **Salvar**.
 
 ## Instalar o plug-in do WordPress do Memcache
+
+> Você também pode baixar o [plug-in de cache do objeto Memcached](https://wordpress.org/plugins/memcached/) em WordPress.org.
 
 Na página de plug-ins do WordPress, clique no botão **Adicionar Novo**.
 
@@ -195,4 +197,4 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [13]: http://memcached.org
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

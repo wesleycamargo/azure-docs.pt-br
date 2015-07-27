@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social
@@ -30,6 +30,8 @@ Você executará as seguintes etapas:
 - Fazer logon no provedor configurado.
 - Chamar o aplicativo de API novamente para verificar se o acesso autenticado funciona.
 - Escrever e testar o código que recupera as declarações para o usuário conectado.
+
+Para obter mais informações sobre a autenticação no Serviço de Aplicativo do Azure, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 ## Pré-requisitos
 
@@ -85,61 +87,13 @@ Quando vai até a folha do grupo de recursos no [Portal de visualização do Azu
 
 Para configurar seu aplicativo de API para aceitar somente solicitações autenticadas, você definirá o acesso como **Público (autenticado)** e configurará o gateway para exigir a autenticação de um provedor, como o Active Directory do Azure, Google ou Facebook.
 
-1. Volte para a folha **Aplicativo de API** do aplicativo de API que você quer proteger.
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-2. Na folha **Aplicativo de API**, clique em **Configurações** e em **Configurações do aplicativo**.
-
-	![Clique em Configurações](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
-
-	![Clique em Configurações do aplicativo](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
-
-3. Na folha **Configurações do aplicativo**, altere o **Nível de Acesso** para **Público (autenticado)** e clique em **Salvar**.
-
-	![Clique em Configurações básicas](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
-
-	Você protegeu o aplicativo de API de acessos não autenticados. Em seguida, você precisa configurar o gateway para especificar o provedor de autenticação a ser usado.
+Você protegeu o aplicativo de API de acessos não autenticados. Em seguida, você precisa configurar o gateway para especificar o provedor de autenticação a ser usado.
 
 ### <a id="gateway"></a>Configurar o gateway para usar um provedor de autenticação
 
-4. Role à esquerda de volta para a folha **Aplicativo de API** e clique no link para o gateway.
-
-	![Clique em gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
-
-7. Na folha **Gateway**, clique em **Configurações** e em **Identidade**.
-
-	![Clique em Configurações](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
-
-	![Clique em Identidade](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
-
-	Da folha **Identidade**, você pode navegar para diferentes folhas para configurar a autenticação usando o Active Directory do Azure e vários outros provedores.
-
-	![Folha de identidade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
-  
-3. Escolha o provedor de identidade que você quer usar e siga as etapas no artigo correspondente para configurar seu aplicativo de API com esse provedor. Esses artigos foram escritos para aplicativos móveis, mas os procedimentos são os mesmos para os aplicativos de API. Alguns dos procedimentos requerem que você use o [portal do Azure].
-
- - [Conta da Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Logon no Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Logon no Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Logon no Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
-
-Por exemplo, as capturas de tela a seguir mostram o que você verá nas páginas do [portal do Azure] e nas folhas do [portal de visualização do Azure] depois de ativar a autenticação do Active Directory do Azure.
-
-No Portal do Azure, a folha **Active Directory do Azure** tem uma **ID de Cliente** do aplicativo que você criou na guia Active Directory do Azure do portal do Azure, e a função **Locatários Permitidos** tem seu locatário do Active Directory do Azure (por exemplo, "contoso.onmicrosoft.com").
-
-![Folha do Active Directory do Azure](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
-
-No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Active Directory do Azure** tem a **URL de Logon**, o **URI de ID do Aplicativo** e a **URL de Resposta** da folha **Active Directory do Azure** no portal de visualização do Azure.
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
-
-(A URL de resposta na imagem mostra a mesma URL duas vezes, uma vez com `http:` e uma vez com `https:`.)
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## Verificar se a autenticação funciona
 
@@ -188,6 +142,8 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 	![Logon concluído](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Resposta Get do Chrome](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	Se você tiver habilitado a interface do usuário do Swagger, também poderá ir para a página dessa interface do usuário. No entanto, você verá um ícone vermelho de **ERRO** no canto inferior direito da página e, se clicar no ícone, você verá uma mensagem informando que o arquivo JSON Swagger está inacessível. Isso ocorre porque o Swagger faz uma chamada ao AJAX sem incluir o token Zumo para tentar recuperar o arquivo JSON. Isso não impede o funcionamento da página de interface do usuário do Swagger.
 
 ## Usar o Postman para enviar uma solicitação Post
 
@@ -307,13 +263,9 @@ Nesta seção, você altera o código no aplicativo de API ContactsList para que
 
 ## Próximas etapas
 
-Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para obter mais informações, consulte [O que são aplicativos de API?](app-service-api-apps-why-best-platform.md).
+Você viu como proteger um aplicativo de API do Azure exigindo autenticação do Active Directory do Azure ou do provedor social. Para obter mais informações, consulte [Autenticação para aplicativos de API e aplicativos móveis](../app-service/app-service-authentication-overview.md).
 
 [Portal Azure]: https://manage.windowsazure.com/
-[portal do Azure]: https://manage.windowsazure.com/
 [Portal de visualização do Azure]: https://portal.azure.com/
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

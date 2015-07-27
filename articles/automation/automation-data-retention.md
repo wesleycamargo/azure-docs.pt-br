@@ -36,4 +36,4 @@ A política de retenção se aplica a todos os usuários e, atualmente não, pod
 ## Artigos relacionados
 - [Fazendo backup da Automação do Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Criar e carregar um VHD Linux no Azure" 
-	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Criar e carregar um VHD Linux no Azure"
+	description="Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ Se você não estiver executando em um ambiente Windows, então é recomendável
 		echo "Rounded Size = $rounded_size"
 
  3. Redimensione o disco bruto usando $rounded_size conforme definido no script acima:
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. Agora, converta o disco bruto em um VHD de tamanho fixo:
@@ -189,7 +189,4 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

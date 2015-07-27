@@ -174,4 +174,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

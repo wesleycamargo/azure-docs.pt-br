@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/08/2015" 
 	ms.author="cephalin"/>
 
 # Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure #
@@ -28,8 +28,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 
 > [AZURE.NOTE]Antes de alternar de um aplicativo Web do modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, primeiro você deve remover os limites de gastos em vigor para sua assinatura de Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Dimensionando para o modo Compartilhado ou Básico
 <!-- ===================================== -->
 
@@ -49,8 +48,7 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Dimensionando para o modo Standard ou Premium
 <!-- ================================= -->
 
@@ -199,4 +197,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!-----HONumber=62-->
+<!---HONumber=July15_HO3-->

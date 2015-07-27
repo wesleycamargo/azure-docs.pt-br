@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Fazer logon em uma máquina virtual executando o Linux no Azure" 
-	description="Saiba como fazer logon em uma máquina virtual do Azure que executa Linux usando um cliente SSH (Secure Shell)." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Fazer logon em uma máquina virtual executando o Linux no Azure"
+	description="Saiba como fazer logon em uma máquina virtual do Azure que executa Linux usando um cliente SSH (Secure Shell)."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@ Este procedimento mostra como usar o programa PuTTY para acessar a máquina virt
 	![Faça logon na máquina virtual](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]A extensão VMAccess pode ajudá-lo a redefinir a chave SSH ou a senha, caso a esqueça. Se você esquecer o nome de usuário, você pode usar a extensão para criar um novo com a autoridade sudo. Para instruções, confira [Como redefinir uma senha ou SSH para máquinas virtuais Linux].
-	
+
 Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro servidor.
 
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

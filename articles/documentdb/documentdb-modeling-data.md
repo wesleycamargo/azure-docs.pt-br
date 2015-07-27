@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="05/21/2015" 
 	ms.author="ryancraw"/>
 
 #Modelando dados no Banco de Dados de Documentos#
-Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável você dedicar algum tempo a pensar nos seus dados. 
+Embora bancos de dados sem esquemas, como o Banco de Dados de Documentos, facilitem muito a adoção de mudanças no seu modelo de dados, ainda é recomendável você dedicar algum tempo a pensar nos seus dados.
 
 Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? O aplicativo realizará grandes volumes de leitura e gravação?
 
@@ -32,13 +32,13 @@ Depois de ler este artigo, você poderá responder as seguintes perguntas:
 ##Inserindo dados##
 Quando começar a modelar dados em um repositório de documentos, como o Banco de Dados de Documentos, tente tratar suas entidades como **documentos autossuficientes** representados em JSON.
 
-Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamos algo num banco de dados relacional, que é um processo que muitos de nós já conhecemos. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional. 
+Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamos algo num banco de dados relacional, que é um processo que muitos de nós já conhecemos. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional.
 
-![Relational database model](./media/documentdb-modeling-data/relational-data-model.png)
+![Modelo de banco de dados relacional](./media/documentdb-modeling-data/relational-data-model.png)
 
 Durante anos trabalhando com bancos de dados relacionais, aprendemos a normalizar, normalizar e normalizar.
 
-Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa, e dividi-la em dados separados. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Nós ainda vamos além e dividimos os detalhes de contato extraindo campos comuns, como tipo. O mesmo vale para o endereço, cada registro tem um tipo, como *Residencial* ou *Comercial* 
+Normalizar os dados geralmente envolve pegar uma entidade, como uma pessoa, e dividi-la em dados separados. No exemplo acima, uma pessoa pode ter vários registros de detalhes de contato, bem como vários registros de endereço. Nós ainda vamos além e dividimos os detalhes de contato extraindo campos comuns, como tipo. O mesmo vale para o endereço, cada registro tem um tipo, como *Residencial* ou *Comercial*
 
 A premissa que orienta a normalização de dados é **evitar armazenar dados redundantes** em cada registro e, em vez disso, referir-se a eles. Neste exemplo, para ler uma pessoa, com todos os endereços e detalhes de contato, você precisa usar junções para agregar os dados de modo eficaz em tempo de execução.
 
@@ -48,7 +48,7 @@ A premissa que orienta a normalização de dados é **evitar armazenar dados red
     JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
-Atualizar uma pessoa, com seus detalhes de contato e endereço, demanda várias operações de gravação em várias tabelas individuais. 
+Atualizar uma pessoa, com seus detalhes de contato e endereço, demanda várias operações de gravação em várias tabelas individuais.
 
 Agora, vejamos como nós modelaríamos os mesmos dados como uma entidade autossuficiente em um banco de dados de documentos.
 		
@@ -71,24 +71,23 @@ Agora, vejamos como nós modelaríamos os mesmos dados como uma entidade autossu
 	    ] 
 	}
 
-Usando a abordagem acima, nós **desnormalizamos** o registro da pessoa, no qual **inserimos** todas as informações relacionadas à pessoa, como seus detalhes de contato e endereços, criando um único documento JSON.
-Além disso, como não estamos restritos a um esquema fixo, nós temos a flexibilidade de, por exemplo, ter detalhes de contato com formas totalmente diferentes. 
+Usando a abordagem acima, nós **desnormalizamos** o registro da pessoa, no qual **inserimos** todas as informações relacionadas à pessoa, como seus detalhes de contato e endereços, criando um único documento JSON. Além disso, como não estamos restritos a um esquema fixo, nós temos a flexibilidade de, por exemplo, ter detalhes de contato com formas totalmente diferentes.
 
 Agora, a recuperação do registro completo de uma pessoa do banco de dados é feita em somente uma operação de leitura, de uma única coleção e para um único documento. A atualização do registro de uma pessoa, com seus detalhes de contato e endereços, também é feita em uma única operação de gravação, de um único documento.
 
-Com a desnormalização dos dados, seu aplicativo possivelmente precisará emitir menos consultas e atualizações para concluir operações comuns. 
+Com a desnormalização dos dados, seu aplicativo possivelmente precisará emitir menos consultas e atualizações para concluir operações comuns.
 
 ###Quando inserir
 
 De modo geral, use modelos de dados inseridos quando:
 
 - Houver relações de **contém** entre entidades.
-- Houver relações de **um para poucos** entre entidades.
+- Houver relações **de um para poucos** entre entidades.
 - Houver dados inseridos que são **alterados com pouca frequência**.
 - Houver dados inseridos que não crescerão **sem limite**.
 - Houver dados inseridos que são **integrais** aos dados de um documento.
 
-> [AZURE.NOTE] De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura**.
+> [AZURE.NOTE]De modo geral, modelos de dados desnormalizados oferecem melhor desempenho de **leitura**.
 
 ###Quando não inserir
 
@@ -103,18 +102,18 @@ Veja este trecho de JSON.
 		"comments": [
 			{"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
 			{"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
-			...
+			…
 			{"id": 100001, "author": "jane", "comment": "and on we go ..."},
-			...
+			…
 			{"id": 1000000001, "author": "angry", "comment": "blah angry blah angry"},
-			...
+			…
 			{"id": ∞ + 1, "author": "bored", "comment": "oh man, will this ever end?"},
 		]
 	}
 
 Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso se tornará um problema, pois o tamanho do documento poderá aumentar significativamente.
 
-> [AZURE.TIP] Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](documentdb-limits.md).
+> [AZURE.TIP]Documentos no Banco de Dados de Documentos têm um tamanho máximo. Para saber mais, consulte [limites do Banco de Dados de Documentos](documentdb-limits.md).
 
 Conforme o tamanho do documento aumenta, a capacidade de transmitir dados eletronicamente, bem como de ler e atualizar o documento, em escala, será afetada.
 
@@ -151,9 +150,9 @@ Nesse caso, seria melhor considerar o modelo a seguir.
 		]
 	}
 
-Este modelo tem os três comentários mais recentes inseridos na postagem em si, que é uma matriz com limite fixo. Os outros comentários são agrupados em lotes de 100 e armazenados em documentos separados. O tamanho de 100 foi escolhido para o lote porque nosso aplicativo fictício permite ao usuário carregar 100 comentários por vez.  
+Este modelo tem os três comentários mais recentes inseridos na postagem em si, que é uma matriz com limite fixo. Os outros comentários são agrupados em lotes de 100 e armazenados em documentos separados. O tamanho de 100 foi escolhido para o lote porque nosso aplicativo fictício permite ao usuário carregar 100 comentários por vez.
 
-Inserir dados também não é recomendado em casos em que os dados inseridos são usados em diferentes documentos e são alterados com frequência. 
+Inserir dados também não é recomendado em casos em que os dados inseridos são usados em diferentes documentos e são alterados com frequência.
 
 Veja este trecho de JSON.
 
@@ -175,17 +174,17 @@ Veja este trecho de JSON.
 
 Isto pode representar o portfólio de ações de alguém. Nós optamos por inserir as informações das ações em cada documento do portfólio. Em um ambiente onde dados relacionados mudam com frequência, como um aplicativo de corretagem de ações, inserir dados que mudam frequentemente significa que você atualiza constantemente cada documento do portfólio, sempre que uma ação for negociada.
 
-A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado. 
+A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado.
 
 ##<a id="Refer"></a>Fazendo referência a dados##
 
-Inserir dados funciona bem em muitos casos, mas claramente há situações em que desnormalizar seus dados trará mais problemas do que soluções. E o que podemos fazer? 
+Inserir dados funciona bem em muitos casos, mas claramente há situações em que desnormalizar seus dados trará mais problemas do que soluções. E o que podemos fazer?
 
-Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a compilação de sistemas que se adequariam melhor a um banco de dados relacional no Banco de Dados de Documentos, ou em qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis. 
+Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a compilação de sistemas que se adequariam melhor a um banco de dados relacional no Banco de Dados de Documentos, ou em qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis.
 
-No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque. 
+No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque.
 
-    Documento de pessoa:
+    Person document:
     {
         "id": "1",
         "firstName": "Thomas",
@@ -221,7 +220,7 @@ No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa 
 
 Uma desvantagem imediata dessa abordagem é se o aplicativo precisar mostrar informações sobre cada ação contida no portfólio de uma pessoa ao mostrar o portfólio. Nesse caso, você precisaria ir várias vezes ao banco de dados para carregar as informações de cada documento de ação. Aqui, nós decidimos aumentar a eficiência das operações de gravação, que acontecem com frequência ao longo do dia. Por outro lado, comprometemos as operações de leitura, que têm menor potencial de afetar o desempenho deste sistema em particular.
 
-> [AZURE.NOTE] Modelos de dados normalizados **podem demandar mais viagens de ida e volta** ao servidor.
+> [AZURE.NOTE]Modelos de dados normalizados **podem demandar mais viagens de ida e volta ao servidor**.
 
 ### E as chaves estrangeiras?
 Como no momento não há o conceito de restrição e chave estrangeira, entre outros, qualquer relação interna que houver nos documentos será um "elo fraco" e não será verificada pelo banco de dados. Se quiser garantir que os dados a que um documento está se referindo realmente existem, você precisa fazer isso no aplicativo, por meio de gatilhos por parte do servidor ou de procedimentos armazenados no Banco de Dados de Documentos.
@@ -234,7 +233,7 @@ De modo geral, use modelos de dados normalizados quando:
 - Dados relacionados **mudarem com frequência**.
 - Dados referenciados podem ser **ilimitados**.
 
-> [AZURE.NOTE] De moro geral, normalizar traz melhor desempenho de **gravação**.
+> [AZURE.NOTE]De moro geral, normalizar traz melhor desempenho de **gravação**.
 
 ###Onde eu coloco a relação?
 O crescimento da relação ajuda a determinar em qual documento armazenar a referência.
@@ -257,7 +256,7 @@ Observemos o JSON abaixo que modela editoras e livros.
 	...
 	{"id": 1000, "name": "Deep Dive in to DocumentDB" }
 
-Se o número de livros por editora for pequeno, com crescimento limitado, armazenar a referência do livro no documento da editora pode ser útil. No entanto, se o número de livros por editora for ilimitado, esse modelo de dados levaria a matrizes crescentes e mutáveis, como no exemplo de documento de editora abaixo. 
+Se o número de livros por editora for pequeno, com crescimento limitado, armazenar a referência do livro no documento da editora pode ser útil. No entanto, se o número de livros por editora for ilimitado, esse modelo de dados levaria a matrizes crescentes e mutáveis, como no exemplo de documento de editora abaixo.
 
 Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos dados, mas que agora evita essas grandes coleções mutáveis.
 
@@ -279,9 +278,9 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
 No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora no documento de cada livro.
 
 ###Como eu modelo relações de muitos para muitos?
-Em um banco de dados relacional, relações *many:many* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 
+Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas.
 
-![Join tables](./media/documentdb-modeling-data/join-table.png)
+![Associar tabelas](./media/documentdb-modeling-data/join-table.png)
 
 Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
@@ -302,10 +301,9 @@ Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um m
 	{"authorId": 1, "bookId": 2 }
 	{"authorId": 1, "bookId": 3 }
 
-Isso funcionaria. No entanto, carregar um autor com seus livros ou carregar um livro com o autor iria sempre demandar pelo menos duas consultas adicionais no banco de dados. Uma consulta do documento de junção e outra consulta para obter o documento real que sofreu a junção. 
+Isso funcionaria. No entanto, carregar um autor com seus livros ou carregar um livro com o autor iria sempre demandar pelo menos duas consultas adicionais no banco de dados. Uma consulta do documento de junção e outra consulta para obter o documento real que sofreu a junção.
 
-Se tudo o que a tabela de junção está fazendo é unir dois dados, por que não simplesmente removê-la?
-Considere o seguinte.
+Se tudo o que a tabela de junção está fazendo é unir dois dados, por que não simplesmente removê-la? Considere o seguinte.
 
 	Author documents:
 	{"id": 1, "name": "Thomas Andersen", "books": [1, 2, 3]}
@@ -317,16 +315,16 @@ Considere o seguinte.
 	{"id": 3, "name": "Learn about Azure DocumentDB", "authors": [1]}
 	{"id": 4, "name": "Deep Dive in to DocumentDB", "authors": [2]}
 
-Agora, se eu tivesse um autor, eu saberia imediatamente quais livros ele escreveu e, da mesma forma, se carregasse o documento de um livro, saberia quem é o autor. Isso anula a consulta intermediária, da tabela de junção, reduzindo o número de viagens de ida e volta ao servidor que o aplicativo precisa fazer. 
+Agora, se eu tivesse um autor, eu saberia imediatamente quais livros ele escreveu e, da mesma forma, se carregasse o documento de um livro, saberia quem é o autor. Isso anula a consulta intermediária, da tabela de junção, reduzindo o número de viagens de ida e volta ao servidor que o aplicativo precisa fazer.
 
 ##<a id="WrapUp"></a>Modelos de dados híbridos##
-Nós vimos que inserir (ou desnormalizar) e referenciar (ou normalizar) dados têm suas vantagens e desvantagens. 
+Nós vimos que inserir (ou desnormalizar) e referenciar (ou normalizar) dados têm suas vantagens e desvantagens.
 
-Nem sempre é necessário escolher um dos dois. Não tenha medo de misturar um pouco as coisas. 
+Nem sempre é necessário escolher um dos dois. Não tenha medo de misturar um pouco as coisas.
 
 Com base nas cargas de trabalho e nos padrões de uso específicos do aplicativo, pode haver casos em que misturar dados inseridos e referenciados faz sentido, levando a uma lógica mais simples do aplicativo, com menos viagens de ia e volta ao servidor e mantendo um bom nível de desempenho.
 
-Considere o JSON a seguir. 
+Considere o JSON a seguir.
 
 	Author documents: 
 	{
@@ -369,11 +367,11 @@ Considere o JSON a seguir.
 		]
 	}
 
-Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados. 
+Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados.
 
-Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo de *id* que é o campo que usamos para fazer referência a um documento de autor, o que é a prática padrão em um modelo normalizado, mas também temos *name* e *thumbnailUrl*. Nós poderíamos ter ficado somente com a *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
+Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo de *id* que é o campo que usamos para fazer referência a um documento de autor, o que é o padrão em um modelo normalizado, mas também temos *nome* e *thumbnailUrl*. Nós poderíamos ter ficado somente com a *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
 
-Claro, se o nome do autor mudasse ou se ele quisesse altera sua foto, teríamos que atualizar cada livro publicado. Mas para nosso aplicativo, com base no fato de que autores não mudam de nome com frequência, essa é uma decisão de design aceitável.  
+Claro, se o nome do autor mudasse ou se ele quisesse altera sua foto, teríamos que atualizar cada livro publicado. Mas para nosso aplicativo, com base no fato de que autores não mudam de nome com frequência, essa é uma decisão de design aceitável.
 
 No exemplo, há valores **agregados pré-calculados** para reduzir o processamento extensivo das operações de leitura. No exemplo, alguns dos dados inseridos no documento do autor são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks, relativo à contagem de livros, é definido como um valor calculado com base no número de documentos de livros que existem para um dado autor. Essa otimização seria útil em sistemas com grandes volumes de leitura nos quais podemos computar as gravações para otimizar as leituras.
 
@@ -381,16 +379,17 @@ O recurso de ter um modelo com campos pré-calculados é possível porque o Banc
 
 ##<a name="NextSteps"></a>Próximas etapas
 
-O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante quanto sempre foi. 
+O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante quanto sempre foi.
 
-Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente. 
+Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente.
 
-Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação]( ../../services/documentdb/) do serviço 
+Para saber mais sobre o Banco de Dados de Documentos, consulte a página de [documentação](../../services/documentdb/) do serviço.
 
 Para saber mais sobre o ajuste de índices no Banco de Dados de Documentos do Azure, consulte o artigo sobre as [políticas de indexação](documentdb-indexing-policies.md).
 
-Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md). 
+Para saber como fragmentar seus dados em diversas partições, consulte [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md).
 
-Por fim, para obter orientações sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+Por fim, para obter diretrizes sobre fragmentação e modelagem de dados para aplicativos multilocatários, consulte [Dimensionando um aplicativo multilocatário com o Banco de Dados de Documentos do Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

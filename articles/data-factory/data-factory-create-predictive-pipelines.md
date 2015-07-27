@@ -159,10 +159,14 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 		               "timeout":"02:00:00"
 		            }
 		         }
-		        ]
+		        ],
+
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z"
 		    }
 		}
 
+	Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 ## Parâmetros de serviço Web
 Você pode usar parâmetros de serviço Web que são expostos por um serviço Web de aprendizado de máquina do Azure publicado em pipelines de ADF (Azure Data Factory). Você pode criar uma experiência de aprendizado de máquina do Azure e publicá-la como um serviço Web, então usar esse serviço Web em várias atividades ou pipelines ADF, passando entradas diferentes via parâmetros de serviço Web.
@@ -182,7 +186,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -298,7 +302,7 @@ No exemplo JSON acima:
 - Os parâmetros para o gravador (aqueles com sufixo “1”) não são preenchidos automaticamente pelo serviço Data Factory. Portanto, você precisa especificar valores para esses parâmetros na seção **webServiceParameters** da atividade JSON.  
 - **ID do cliente**, **rótulos contabilizados** e **probabilidades contabilizadas** são salvos como colunas separadas por vírgulas. 
 - O **Nome de tabela de dados** neste exemplo corresponde a uma tabela no banco de dados de saída.
-- Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
+- Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
 
 
 
@@ -324,4 +328,4 @@ Artigo | Descrição
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

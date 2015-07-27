@@ -180,4 +180,4 @@ Aqui estão alguns recursos adicionais para ajudá-lo a usar o AD do Azure para 
 + [Cenários de autenticação do Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

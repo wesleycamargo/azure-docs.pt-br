@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- O recurso local é configurado automaticamente para utilizar a cadeia de conexão primária local.
 
 - O Gerenciador de Conexões Híbridas precisa utilizar uma cadeia de conexão local válida para autorização. Os Aplicativos Web ou Aplicativos Móveis do Azure precisam utilizar uma cadeia de conexão ao aplicativo válida para autorização.
+- Você pode dimensionar conexões híbridas instalando outra instância do Gerenciador de conexões híbridas em outro servidor. Configure o ouvinte local para usar o mesmo endereço como o primeiro ouvinte local. Nessa situação, o tráfego é distribuído aleatoriamente (round robin) entre os ouvintes ativos locais. 
 
 
 ## <a name="ManageHybridConnection"></a>Gerenciar Conexões Híbridas
@@ -123,8 +124,8 @@ Para gerenciar suas Conexões Híbridas, você pode:
 2. Extraia os arquivos.
 3. No computador que modifica a política de grupo, faça o seguinte: 
 
-	- Copie os arquivos .ADMX para a pasta *%WINROOT%\PolicyDefinitions*.
-	- Copie os arquivos .ADML para a pasta *%WINROOT%\PolicyDefinitions\pt-br*.
+	- Copie os arquivos .ADMX para a pasta *%WINROOT%\\PolicyDefinitions*.
+	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-br*.
 
 Após tê-los copiado, você pode usar o Editor de políticas de grupo para mudar a política.
 
@@ -145,4 +146,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
 
 # Introdução ao Backup do DPM do Azure
 
@@ -51,65 +44,12 @@ Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira
 2. **Baixe credenciais do cofre** — No Backup do Azure, carregue o certificado de gerenciamento que você criou para o cofre.
 3. **Instale o agente de Backup do Azure e registre o servidor** — No Backup do Azure, instale o agente em cada servidor DPM e registre o servidor DPM no cofre de backup.
 
-### Criar um cofre de backup
-Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeiro criar um cofre de backup. O cofre é uma entidade que armazena todos os backups e pontos de recuperação que foram criados ao longo do tempo. O cofre também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão por backup.
+[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
-1. Entre no [Portal de Gerenciamento](http://manage.windowsazure.com/).
-2. Clique em **Novo** -> **Serviços de Dados** -> **Serviços de Recuperação** -> **Cofre de Backup** > **Criação Rápida**. Se você tem várias assinaturas associadas à sua conta organizacional, escolha a assinatura correta a ser associada ao cofre de backup. Em cada assinatura do Azure, é possível ter vários cofres de backup para organizar os dados que estão sendo protegidos.
-3. Em **Nome**, digite um nome amigável para identificar o cofre. Ele precisa ser exclusivo para cada assinatura.
-4. Em **Região**, selecione a região geográfica para o cofre. Observe que o cofre deve estar na mesma região que as máquinas virtuais que você deseja proteger. Se você tiver máquinas virtuais em diferentes regiões, crie um cofre em cada uma delas. Não é necessário especificar contas de armazenamento para armazenar os dados de backup – o cofre de backup e o serviço de Backup do Azure cuidarão disso automaticamente.
-    > [AZURE.NOTE] O backup da máquina virtual com o serviço Backup do Azure tem suporte apenas em determinadas regiões. Verifique a lista de [regiões com suporte](http://azure.microsoft.com/regions/#services). Se a região que você estiver procurando não tiver suporte atualmente, ela não aparecerá na lista suspensa durante a criação do cofre.
+[AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
-5. Em **Assinatura**, digite a assinatura do Azure que você deseja usar com o cofre de backup.
-6. Clique em **Criar cofre**. ![Criar cofre de backup](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
+[AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
-    Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal. ![Criar notificação de cofre](./media/backup-azure-dpm-introduction/creating-vault.png)
-
-    Uma mensagem confirmará que o cofre foi criado com êxito e ele será listado na página de Serviços de Recuperação como **Ativo**.
-
-    ![Lista de cofres de backup](./media/backup-azure-dpm-introduction/backup_vaultslist.png)
-
-7. Clique no cofre de backup para ir até a página **Início Rápido**, em que são mostradas as instruções para backup de servidores DPM. ![Instruções de backup de máquina virtual na página Painel](./media/backup-azure-dpm-introduction/vmbackup-instructions.png)
-
-    > [AZURE.NOTE]Certifique-se de que a opção de redundância de armazenamento apropriada esteja selecionada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options).
-
-### Baixar as credenciais do cofre
-1. Clique em **Serviços de Recuperação** e clique em cofre de backup. Na página **Início rápido**, clique em **Baixar as credenciais do cofre** para baixar o arquivo de credenciais e salve em um local seguro. Não é possível editar as credenciais, então não é necessário abrir o local. Por motivos de segurança, a chave no arquivo expira após 48 horas.
-
-2. Copie o arquivo para um local seguro e que possa ser acessado facilmente pelos servidores DPM que você deseja registrar no cofre de Backup do Azure. Você precisará selecionar o arquivo ao instalar o agente de Backup do Azure.
-
-### Instale o agente de Backup do Azure e registre o servidor
-É necessário baixar o arquivo de instalação do agente e executá-lo em cada servidor DPM que contenha os dados que você deseja fazer backup. Os agentes são armazenados no **Centro de Download do Azure** e têm o seu próprio processo de instalação. Quando você executa a instalação, o Agente é instalado e o servidor DPM é registrado com o cofre. Observe que:
-
-- Você precisará de permissões administrativas no servidor DPM para instalar o Agente.
-- Para instalar em vários servidores DPM, você pode colocar o arquivo do instalador em um recurso de rede compartilhada ou usar a Política de Grupo ou produtos de gerenciamento, tais como o System Center Configuration Manager para instalar o agente.
-- Não é necessário reiniciar o servidor DPM após a instalação.
-
-#### Para instalar o agente de backup e registrar o servidor
-
-1. Na página **Início Rápido** do cofre do Backup do Azure em **Baixar o Agente do Backup do Azure**, selecione clique em **Para Windows Server, System Center Data Protection Manager ou cliente Windows**. Baixe o aplicativo no servidor DPM em que você deseja executá-lo.
-2. Execute o arquivo de instalação **MARSAgentInstaller.exe**. Aceite os termos de serviço e selecione para instalar qualquer software de pré-requisito ausente.
-3. Na página **Configurações de instalação**, selecione a **Pasta de instalação** e **Local do cache**.
-
-    A pasta do local de cache padrão é <system drive>:\Program Files\Azure Backup Agent. No local do cache, o processo de instalação cria uma pasta chamada de **Scratch** na pasta **Azure Backup Agent**. O local do cache deve ter pelo menos 2,5 gigabytes (GB) (ou 10% do tamanho dos dados dos quais será feito backup no Azure) de espaço livre. Somente os administradores e membros do sistema local do grupo Administradores têm acesso ao diretório de cache para evitar ataques de negação de serviço.
-
-4. Na página **Configuração de Proxy**, defina as configurações personalizadas de proxy para a conexão entre o Agente e o Azure. Se você não configurar todas as configurações, as configurações padrão de acesso de Internet no servidor DPM serão usadas. Observe que, se você estiver usando um servidor proxy que requeira autenticação, é necessário inserir os detalhes nesta página.
-5. Na página **Opt-In de atualizações da Microsoft**, é recomendável habilitar atualizações. Se o servidor já estiver habilitado para atualizações automáticas, essa etapa será ignorada. Observe que as configurações do Microsoft Update são para todas as atualizações de produtos da Microsoft e não são exclusivas do Agente de Backup do Azure.
-6. A página de **Instalação** é exibida. A instalação verifica se o software necessário está instalado e conclui a configuração. Quando estiver pronta, você receberá uma mensagem informando que o Agente de Backup do Azure foi instalado com êxito. Neste momento, você poderá verificar se há atualizações. É recomendável que você permita que a verificação de atualizações seja realizada.
-7. Clique em **Prosseguir para o registro** para registrar o servidor no cofre.
-8. Na página **Identificação de cofre**, selecione o arquivo de registro do cofre gerado no cofre de Backup do Azure.
-9. Na página **Configuração de criptografia**, especifique os detalhes de senha ou gere automaticamente uma senha.
-10. Clique em Gerar senha seguido de Copiar para a área de transferência. Você receberá uma mensagem de que sua senha foi copiada para a área de transferência. Agora é uma boa hora para abrir o bloco de notas e colar a senha da área de transferência e salvar o arquivo, e também imprimir o arquivo e guardá-lo. Clique em Registro para registrar o servidor DPM com o Cofre de Backup.
-
-    > [AZURE.TIP] Na etapa Configuração da Criptografia, lembre-se de copiar a senha na área de transferência.
-11. Clique em **Registrar**.
-
-    Após a conclusão do registro, o console do DPM mostra a disponibilidade do Backup do Azure.
-
-    O Backup do Azure sempre criptografará os dados na origem com a senha (cadeia de caracteres alfanuméricos) especificada por você ou gerada automaticamente.
-    >[AZURE.NOTE]O Backup do Azure nunca mantém a senha e, se você perdê-la, os dados não poderão ser restaurados ou recuperados. É altamente recomendável salvar a chave em um local externo.
-
-Quando você especificar uma senha e clicar em **Concluir**, demora alguns segundos para que o agente registre o servidor de produção no cofre de backup. Assim que o registro com o cofre termina um resumo, a página **Registro de servidor** é exibida.
 
 ## Requisitos (e limitações)
 
@@ -141,4 +81,4 @@ E os seguintes não têm suporte:
 
 >[AZURE.NOTE]No System Center 2012 DPM com SP1 em diante, é possível fazer backup de cargas de trabalho protegidas por DPM para o Azure usando o Backup do Microsoft Azure.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

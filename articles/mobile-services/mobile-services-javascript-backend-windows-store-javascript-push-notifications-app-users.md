@@ -28,7 +28,7 @@ Este tutorial é compatível com aplicativos da Windows Store e da Loja do Windo
 
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
-+ [Adicionar autenticação ao seu aplicativo]<br/>Adiciona um requisito de logon ao aplicativo de exemplo TodoList.
++ [Adicionar Autenticação ao seu aplicativo]<br/>Adiciona um requisito de logon ao aplicativo de exemplo TodoList.
 
 + [Adicionar notificações por push ao seu aplicativo]<br/>Configura o aplicativo de amostra TodoList para notificações por push usando Hubs de Notificação.
 
@@ -84,11 +84,11 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
 
 <!-- URLs. -->
-[Adicionar autenticação ao seu aplicativo]: mobile-services-windows-store-javascript-get-started-users.md
+[Adicionar Autenticação ao seu aplicativo]: mobile-services-windows-store-javascript-get-started-users.md
 [Adicionar notificação por push ao seu aplicativo]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Adicionar notificações por push ao seu aplicativo]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

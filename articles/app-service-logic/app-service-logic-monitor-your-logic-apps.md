@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="07/01/2015"
 	ms.author="stepsic"/>
 
 #Monitorar seus aplicativos lógicos
@@ -37,17 +37,23 @@ A folha de detalhes mostra um gráfico com o tempo de execução e a sequência 
 
 ![Execução e ações](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
-Finalmente, em uma ação específica, você pode obter todos os dados que foram enviados à ação e que foram recebidos da ação nas seções **Entradas** e **Saídas**.
+Finalmente, em uma ação específica, você pode obter todos os dados que foram enviados à ação e que foram recebidos da ação nas seções **Entradas** e **Saídas**. Clique nos links para ver todo o conteúdo (você também pode copiar os links para baixar o conteúdo).
 
 Outra informação importante é a **ID de Acompanhamento**. Esse identificador é transmitido nos cabeçalhos de todas as chamadas de ação. Se você tiver o registro em log dentro do seu próprio serviço, fazer registrar a ID de Acompanhamento e então fazer referência cruzada de seus próprios logs com esse identificador.
 
-##Histórico de gatilho e controle de versão
+##Histórico de gatilho 
 
-Há dois recursos adicionais que não são possíveis no momento na interface do usuário (em breve), mas estão disponíveis por meio da [API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+Gatilhos de sondagem verificam uma API em um intervalo de sondagem, mas não necessariamente iniciam uma execução, dependendo da resposta (por exemplo um `200` significa executar e um `202` significa que não executar). O histórico de gatilho fornece uma maneira de ver todas as chamadas aconteceram, mas que não executam o aplicativo lógico (a respostas `202`).
 
-1. **Histórico de gatilho** - gatilhos de sondagem verificam a API em um intervalo de sondagem, mas não necessariamente iniciam uma execução, dependendo da resposta (por exemplo um `200` significa executar e um `202` significa que não executar). O histórico de gatilho fornece uma maneira de ver todas as chamadas aconteceram, mas que não executam o aplicativo lógico (a respostas `202`).
+![Histórico de gatilho](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
-2. **Versões anteriores** - quando você atualizar a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, essa execução fará referência à versão do aplicativo lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST fornece acesso a essas informações.
+Para cada gatilho, você pode ver se ele foi **disparado**se não foi disparado ou se houve algum tipo de erro (**Falha**). Para inspecionar o motivo da falha do gatilho, você pode clicar no link **Saídas**. Se ele disparou, clique no link **Executar** para ver o que aconteceu após o disparo.
+
+Observe que, no caso de gatilhos *Push*, você *não* verá os horários de início das execuções; em vez disso, você verá as chamadas de *registro de retorno de chamada*, que ocorrem quando o aplicativo lógico registra um retorno de chamada. Se o gatilho de push não estiver funcionando, pode ser que haja um problema com o registro (que você poderá ver nas saídas), mas, caso contrário, talvez seja necessário investigar especificamente essa API.
+
+##Controle de versão
+
+Há um recurso adicional que, atualmente, não está disponível na interface do usuário (em breve), mas está disponível via [API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, essa execução fará referência à versão do aplicativo lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST fornece acesso a essas informações.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

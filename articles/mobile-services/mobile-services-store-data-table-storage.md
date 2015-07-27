@@ -3,7 +3,6 @@
 	description="Saiba como usar os Serviços Móveis para armazenar dados no Armazenamento de Tabela." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@ Saiba como trabalhar com Armazenamento de Tabela usando os Serviços Móveis com
 [Serviços Móveis e Armazenamento do Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

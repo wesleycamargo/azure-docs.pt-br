@@ -191,4 +191,4 @@ Seu aplicativo agora está pronto para receber notificações do sistema.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

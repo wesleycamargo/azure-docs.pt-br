@@ -114,23 +114,19 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 		<td>Selecione <b>Datacenter do Windows Server 2012 R2</b> para provisionar um cluster do Windows. Para provisionar um cluster do Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provisionar clusters Hadoop em Linux no HDInsight</a>.</td></tr>
 	<tr><td>Versão do HDInsight</td>
 		<td>Escolha a versão. Para o Hadoop, o padrão é o HDInsight versão 3.1, que usa o Hadoop 2.4.</td></tr>
-	</table>
-
-	Insira ou selecione os valores, conforme mostrado na tabela, e clique na seta para a direita.
+	</table>Insira ou selecione os valores, conforme mostrado na tabela, e clique na seta para a direita.
 
 4. Na página **Configurar Cluster**, digite ou selecione os valores a seguir:
 
 	![Fornecer detalhes do cluster HDInsight do Hadoop](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nome</th><th>Valor</th></tr>
-	<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
-	<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou no último procedimento. O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região que a especificada aqui.</p><p>As regiões disponíveis são: <strong>Ásia Oriental</strong>, <strong>Sudeste da Ásia</strong>, <strong>Norte da Europa</strong>, <strong>Oeste da Europa</strong>, <strong>Leste dos EUA</strong>, <strong>Oeste dos EUA</strong>, <strong>Centro-Norte dos EUA</strong>e <strong>Centro-Sul dos EUA</strong>.<br/>Se você tiver criado uma Rede Virtual do Azure, poderá selecionar a rede que o cluster HDInsight será configurado para usar.</p><p>Para obter informações sobre como criar uma Rede Virtual do Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tarefas de configuração de Rede Virtual</a>.</p></td></tr>
-	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
-	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+<tr><th>Nome</th><th>Valor</th></tr>
+<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
+<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou no último procedimento. O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região que a especificada aqui.</p><p>As regiões disponíveis são: <strong>Ásia Oriental</strong>, <strong>Sudeste da Ásia</strong>, <strong>Norte da Europa</strong>, <strong>Oeste da Europa</strong>, <strong>Leste dos EUA</strong>, <strong>Oeste dos EUA</strong>, <strong>Centro-Norte dos EUA</strong>e <strong>Centro-Sul dos EUA</strong>.<br/>Se você tiver criado uma Rede Virtual do Azure, poderá selecionar a rede que o cluster HDInsight será configurado para usar.</p><p>Para obter informações sobre como criar uma Rede Virtual do Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tarefas de configuração de Rede Virtual</a>.</p></td></tr>
+<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
+<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
+</table>>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
@@ -138,19 +134,17 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
     ![Fornecer detalhes de usuário e metastore do cluster do Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nome de usuário HTTP</td>
-			<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
-		<tr><td>Senha/Confirmar senha HTTP</td>
-			<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
-		<tr><td>Habilitar área de trabalho remota para o cluster</td>
-			<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
-		<tr><td>Inserir como metastore do Hive/Oozie</td>
-			<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído.</td></tr>
-		</td></tr>
-	</table>
-
-	Clique na seta à direita.
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Nome de usuário HTTP</td>
+		<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
+	<tr><td>Senha/Confirmar senha HTTP</td>
+		<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
+	<tr><td>Habilitar área de trabalho remota para o cluster</td>
+		<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
+	<tr><td>Inserir como metastore do Hive/Oozie</td>
+		<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído.</td></tr>
+	</td></tr>
+</table>Clique na seta à direita.
 
 6. Na página **Configurar Metastore do Hive/Oozie**, forneça os seguintes valores:
 
@@ -190,9 +184,7 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
     </td></tr>
 	<tr><td>Contas de armazenamento adicionais</td>
 		<td>O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas, devido a restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de **Conta de Armazenamento** ao assistente, onde você pode especificar as informações da conta. Por exemplo, na captura de tela acima, uma conta do Armazenamento adicional está selecionada e, portanto, a página 5 é adicionada à caixa de diálogo.</td></tr>
-	</table>
-
-	Clique na seta à direita.
+</table>Clique na seta à direita.
 
 7. Se você optar por configurar armazenamento adicional para o cluster, na página **Conta de Armazenamento**, insira as informações da conta de armazenamento adicional:
 
@@ -216,9 +208,7 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 		<td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente headnodes</b> ou <b>Somente nós de dados</b>.
 	<tr><td>Parâmetros</td>
 		<td>Especifique os parâmetros, se exigido pelo script.</td></tr>
-	</table>
-
-	Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para iniciar o provisionamento do cluster.
+</table>Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para iniciar o provisionamento do cluster.
 
 ##<a id="powershell"></a> Usando o PowerShell do Azure
 O PowerShell do Azure é um ambiente de script poderoso que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Esta seção fornece instruções sobre como provisionar um cluster HDInsight usando o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do Windows PowerShell do HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). Para obter mais informações sobre como usar o PowerShell do Azure com o HDInsight, consulte [Administrar o HDInsight usando o PowerShell](hdinsight-administer-use-powershell.md). Para obter a lista de cmdlets do Windows PowerShell do HDInsight, consulte [Referência de cmdlets do HDInsight][hdinsight-powershell-reference].
@@ -447,7 +437,7 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Se você receber um erro informando que o comando NPM não foi encontrado, verifique se os caminhos a seguir estão na variável de ambiente PATH: <i>C:\Arquivos de Programas (x86)\nodejs;C:\Usuários[nomedeusuário]\AppData\Roaming\npm</i> ou <i>C:\Arquivos de Programas\nodejs;C:\Usuários[nomedeusuário]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE]Se você receber um erro informando que o comando NPM não foi encontrado, verifique se os caminhos a seguir estão na variável de ambiente PATH: <i>C:\\Arquivos de Programas (x86)\\nodejs;C:\\Usuários[nomedeusuário]\\AppData\\Roaming\\npm</i> ou <i>C:\\Arquivos de Programas\\nodejs;C:\\Usuários[nomedeusuário]\\AppData\\Roaming\\npm</i>
 
 5.	Execute o comando a seguir para verificar a instalação:
 
@@ -462,8 +452,7 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para instalar a CLI do Azure usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**.
-2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
+1.	Navegue até **http://azure.microsoft.com/downloads/**. 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
 
@@ -614,19 +603,19 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriedade</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valor</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Categoria</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelos/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modelo</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Aplicativo de console</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriedade</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valor</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Categoria</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modelos/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modelo</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Aplicativo de console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+</table>
 
 4. Clique em **OK** para criar o projeto.
 
@@ -765,4 +754,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
   [89e2276a]: hdinsight-use-sqoop.md "Use o Sqoop com o HDInsight"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

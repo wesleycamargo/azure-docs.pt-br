@@ -28,4 +28,4 @@ Uma parte essencial de Provisionamento declarativo é a linguagem de expressão 
 
 Para obter mais informações sobre linguagem, consulte [Noções básicas sobre expressões de provisionamento declarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

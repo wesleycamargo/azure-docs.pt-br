@@ -37,4 +37,4 @@ Consulte [Introdução aos aplicativos do Application Insights para Windows Phon
 Primeira versão
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

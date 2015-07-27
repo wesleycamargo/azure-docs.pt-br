@@ -89,4 +89,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

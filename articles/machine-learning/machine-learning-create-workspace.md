@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/01/2015" 
 	ms.author="garye"/>
 
 
@@ -63,4 +63,4 @@ Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerencia
 
 <!--Link references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

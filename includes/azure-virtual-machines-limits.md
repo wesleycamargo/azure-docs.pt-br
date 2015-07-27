@@ -10,14 +10,14 @@
    <td valign="middle"><p>50</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Pontos de extremidade por serviço de nuvem<sup>2</sup></p></td>
+   <td valign="middle"><p>Pontos de extremidade de entrada por serviço de nuvem<sup>2</sup></p></td>
    <td valign="middle"><p>150</p></td>
    <td valign="middle"><p>150</p></td>
 </tr>
 </table>
 
-<sup>1</sup>Quando você cria uma máquina virtual fora de um Grupo de Recursos do Azure, um serviço de nuvem é criado automaticamente para conter a máquina. Então, é possível adicionar várias máquinas virtuais no mesmo serviço de nuvem.
+<sup>1</sup>Máquinas virtuais criadas no Gerenciamento de Serviços (e não no Gerenciador de Recursos) são armazenadas automaticamente em um serviço de nuvem. Você pode adicionar mais máquinas virtuais a esse serviço de nuvem para disponibilidade e balanceamento de carga. Consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../virtual-machines/cloud-services-connect-virtual-machine.md).
 
-<sup>2</sup>Os pontos de extremidade são utilizados para permitir a comunicação com as máquinas virtuais externas que contêm o serviço de nuvem. As máquinas virtuais dentro do mesmo serviço de nuvem permitem automaticamente a comunicação entre todas as portas TCP e UDP para comunicação interna.
+<sup>2</sup>Pontos de extremidade de entrada permitem comunicações com uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente umas com as outras. Consulte [Como instalar pontos de extremidade em uma máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

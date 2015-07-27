@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
+   ms.date="07/08/2015"
    ms.author="yossib"/>
 
 
@@ -76,7 +76,7 @@ As etapas a seguir guiarão você para obter a ID do cliente do aplicativo e o s
 Para editar o script do PowerShell abaixo para funcionar com seu diretório, substitua $ClientID, $ClientSecret e $tenantdomain pelos valores corretos de "Delegando acesso no AD do Azure".
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ Para editar o script do PowerShell abaixo para funcionar com seu diretório, sub
 
 
 ## Execute o script
-Quando você terminar de editar o script, execute-o e verifique se os dados esperados são retornados.
+Quando você terminar de editar o script, execute-o e verifique se os dados esperados do relatório AuditEvents são retornados.
 
 O script retorna listas de todos os relatórios disponíveis e retorna a saída do relatório AccountProvisioningEvents na janela do PowerShell, no formato JSON. Ele também cria arquivos com a mesma saída em XML, JSON e texto. Você pode comentar experimentos de modificação do script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
 
@@ -136,6 +136,5 @@ O script retorna listas de todos os relatórios disponíveis e retorna a saída 
 - Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
 - Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

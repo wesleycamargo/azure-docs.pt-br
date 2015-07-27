@@ -283,4 +283,4 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

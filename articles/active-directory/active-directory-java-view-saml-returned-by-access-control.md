@@ -195,4 +195,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofis
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -39,7 +39,7 @@ Para usar esse perfil de pontuação, sua consulta é formulada para especificar
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)]().
+Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Clique em [Exemplo](#bkmk_ex) para examinar um exemplo mais detalhado de um perfil de pontuação.
 
@@ -62,8 +62,6 @@ A ordenação com base em relevância também é implementada por meio de perfis
 Como observado, a pontuação personalizada é implementada por meio de perfis de pontuação definidos em um esquema de índice.
 
 Este exemplo mostra o esquema de um índice com dois perfis de pontuação (`boostGenre`, `newAndHighlyRated`). Qualquer consulta em relação a esse índice que inclua um dos perfis como um parâmetro de consulta usará o perfil para pontuar o conjunto de resultados.
-
-[Experimente este exemplo]().
 
     {
       "name": "musicstoreindex",
@@ -132,42 +130,9 @@ Forneça um nome. Os perfis de pontuação são opcionais, mas se você adiciona
 
 O corpo do perfil de pontuação é criado com campos ponderados e funções.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>Elemento</td><td>Descrição</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Pesos</b></td>
-<td>
-Especificar pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo ](#bkmk_ex), os campos Título do álbum, gênero e Nome do artista são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de 'gênero' em `musicstoreindex`), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto.
-</td>
-</tr>
-<tr>
-<td><b>Funções</b></td><td>Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos incluem `freshness`, `magnitude` ou `distance`. Cada função tem parâmetros exclusivos para ela.
-<br>
-- `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe o atributo `boostingDuration` é usado apenas com a função de atualização.
-<br>
-- `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.
-<br>
-- `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `geo.distance`.
-<br>
-<b>Regras para usar funções</b>
-<br>
-O tipo de função (atualização, magnitude, distância) deve estar em minúsculas.
-<br>
-As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.
-<br>
-As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice (API do Azure Search)]() para obter mais informações sobre campos filtráveis.
-<br>
-As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.
+<font> <table style="font-size:12"> <thead> <tr><td>Elemento</td><td>Descrição</td></tr></thead> < tbody <tr> <td><b>Pesos</b></td> <td> Especificar pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo ](#bkmk_ex), os campos Título do álbum, gênero e Nome do artista são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de 'gênero' em `musicstoreindex`), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em `musicstoreindex`, 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto. </td> </tr> <tr> <td><b>Funções</b></td><td>Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos incluem `freshness`, `magnitude` ou `distance`. Cada função tem parâmetros exclusivos para ela. <br> - `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe o atributo `boostingDuration` é usado apenas com a função de atualização. <br> - `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro. <br> - `distance` devem ser usados quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `geo.distance`. <br> <b>Regras para usar funções</b> <br> O tipo de função (atualização, magnitude, distância) deve estar em minúsculas. <br> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo. <br> As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice (API do Azure Search)]() para obter mais informações sobre campos filtráveis. <br> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice. <td> </tr> </tbody> </table> </font>
 
-</tr>
-</tbody>
-</table>
-</font>
-
-Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice (API do Azure Search)]() e [Adicionar ou atualizar documentos (API do Azure Search)]() para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
+Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice (API do Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx) e [Adicionar ou atualizar documentos (API do Azure Search)](https://msdn.microsoft.com/library/azure/dn798930.aspx) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
 
 ##Modelo
 Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [Referência de atributos de índice](#bkmk_indexref) na próxima seção para obter descrições dos atributos.
@@ -265,7 +230,7 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 </tr><tr>
 <td>distância</td>	<td>A função de pontuação distância é usada para afetar a pontuação de documentos com base em sua distância ou proximidade em relação a um local geográfico de referência. O local de referência é fornecido como parte da consulta em um parâmetro (usando a opção de cadeia de caracteres 'scoringParameterquery') como um argumento lon,lat.</td>
 </tr><tr>
-<td>distância | referencePointParameter</td>	<td>Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos (API do (Azure Search)]() para obter descrições dos parâmetros de consulta.</td>
+<td>distância | referencePointParameter</td>	<td>Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [pesquisa de documentos (API de pesquisa do Azure)] (https://msdn.microsoft.com/library/azure/dn798927.aspx) para obter descrições dos parâmetros de consulta.</td>
 </tr><tr>
 <td>distância | boostingDistance</td>	<td>Um número que indica a distância em quilômetros do local de referência em que o intervalo de aumento termina.</td>
 </tr><tr>
@@ -318,14 +283,10 @@ A tabela a seguir fornece vários exemplos.
 </tbody>
 </table>
 
-Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)]().
-
 **Consulte também**
 
-Criação de Índice da API de REST do Serviço de
-Pesquisa do Azure (API de Pesquisa do Azure)
-________________________________________
+Criação de Índice da API de REST do Serviço de Pesquisa do Azure (API de Pesquisa do Azure) ________________________________________
 
  
 
-<!----HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -37,16 +37,21 @@ Após a atualização, você precisará mesclar de novo todas as personalizaçõ
  
 Compare o ApplicationInsights.xml antigo e novo. Muitas das alterações que você vê são porque nós adicionamos e removemos módulos. Reaplique todas as personalizações que você fez.
 
+## Versão 1.0.0
+- Adicionando suporte para o plug-in de gravador do Application Insights para CollectD.
+- Adicionando suporte para o agente Java do Application Insights.
+- Correção para um problema de compatibilidade com suporte ao HttpClient versões 4.2 e posterior.
+
 ## Versão 0.9.6
 - Tornar o SDK do Java compatível com o servlet v2.5 e HttpClient pre-v4.3
-- Adicionando suporte a interceptores de Java EE
-- Removendo dependências redundantes do appender Logback
+- Adicionando suporte para interceptores do Java EE.
+- Removendo dependências redundantes do appender Logback.
 
 ## Versão 0.9.5  
 
 - Correção para um problema no qual eventos personalizados não estão correlacionados com usuários/sessões devido a erros de análise de cookie.  
 - Lógica aperfeiçoada para resolver o local do arquivo de configuração ApplicationInsights.xml.
-- Removido o acompanhamento de sessões e usuários (isso será apenas feito pelos SDKs do cliente).
+- Cookies de sessão e de usuário anônimos não serão gerados no lado do servidor. Para implementar o rastreamento de usuário e sessão para aplicativos Web, a instrumentação com o SDK do JavaScript agora é obrigatória — cookies do SDK do JavaScript ainda são respeitados. Observe que essa alteração pode causar uma reformulação significativa das contagens de usuário e sessão, pois apenas sessões originadas pelo usuário estão sendo contadas agora.
 
 ## Versão 0.9.4
 
@@ -55,4 +60,4 @@ Compare o ApplicationInsights.xml antigo e novo. Muitas das alterações que voc
 - Capacidade de marcar um item de telemetria como sintético adicionando uma propriedade ```SyntheticSource``` ao item relatado.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

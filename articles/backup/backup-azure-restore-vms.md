@@ -4,7 +4,7 @@
 	description="Aprenda a restaurar uma máquina virtual do Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="aashishr"/>
+	ms.author="trinadhk"/>
 
 # Restaurar uma máquina virtual
 Você pode restaurar uma máquina virtual em uma nova VM por meio de backups armazenados no cofre de backup do Azure usando a ação de restauração.
@@ -90,7 +90,7 @@ Quando a operação de restauração for concluída, ela será marcada como conc
 
 ![Trabalho de restauração concluído](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [recriar os pontos de extremidade](virtual-machines-set-up-endpoints) para a máquina virtual no Portal do Azure.
+Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](virtual-machines-set-up-endpoints) para a máquina virtual no Portal do Azure.
 
 ## Solucionar erros
 Para a maioria dos erros, siga a ação recomendada sugerida nos detalhes do erro. Aqui estão alguns pontos adicionais para ajudar com a solução de problemas:
@@ -104,4 +104,4 @@ Para a maioria dos erros, siga a ação recomendada sugerida nos detalhes do err
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -314,7 +314,7 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 5. Na folha **Conjuntos de dados**, clique em **EmpTableFromBlob**. Esta é a tabela de entrada de **ADFTutorialPipeline**.
 
 	![Conjuntos de dados com EmpTableFromBlob selecionado][image-data-factory-get-started-datasets-emptable-selected]   
-5. Observe que as fatias de dados até o momento atual já foram produzidas e estão **prontas**, pois o arquivo **emp.txt** sempre existe no contêiner de blob: **adftutorial\input**. Confirme que nenhuma fatia apareça na seção **Fatias com falha recente**, na parte inferior.
+5. Observe que as fatias de dados até o momento atual já foram produzidas e estão **prontas**, pois o arquivo **emp.txt** sempre existe no contêiner de blob: **adftutorial\\input**. Confirme que nenhuma fatia apareça na seção **Fatias com falha recente**, na parte inferior.
 
 	Ambas as listas, **Fatias atualizadas recentemente** e **Fatias com falha recente**, são classificadas pela **HORA DA ÚLTIMA ATUALIZAÇÃO**. A hora de atualização de uma fatia é alterada nas situações a seguir.
     
@@ -506,4 +506,4 @@ Artigo | Descrição
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

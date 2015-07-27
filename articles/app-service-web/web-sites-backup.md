@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure
@@ -40,7 +40,7 @@ O backup dessas informações é feito no contêiner e na conta de armazenamento
 
 * O recurso de Backup e Restauração requer que o site esteja em um modo Padrão. Para saber mais sobre como dimensionar seu aplicativo Web para usar o modo Padrão, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md). Observe que o modo Premium permite a realização de um número maior de backups diários que o modo Padrão.
 
-* O recurso de Backup e Restauração requer um contêiner e uma conta de armazenamento do Azure, que devem pertencer à mesma assinatura que o aplicativo Web cujo backup você realizará. Se ainda não tiver uma conta de armazenamento, você pode criar uma clicando em **Conta de Armazenamento** na folha **Backups** do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) e, em seguida, escolhendo **Conta de Armazenamento** e o **Contêiner** na folha **Destino**. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
+* O recurso de Backup e Restauração requer um contêiner e uma conta de armazenamento do Azure, que devem pertencer à mesma assinatura que o aplicativo Web cujo backup você realizará. Se ainda não tiver uma conta de armazenamento, você poderá criar uma clicando em **Conta de Armazenamento** na folha **Backups** do [portal de visualização do Azure](http://portal.azure.com) e, em seguida, escolhendo **Conta de Armazenamento** e o **Contêiner** na folha **Destino**. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
 
 * O recurso de Backup e Restauração oferece suporte para até 10 GB de conteúdo de site e banco de dados. Um erro será indicado nos Logs de Operação se a operação do recurso de backup for interrompida porque a carga excede esse limite.
 
@@ -107,131 +107,83 @@ Você pode fazer um backup manual a qualquer momento.
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <a name="partialbackups"></a>
-## Fazer backup de apenas uma parte do seu site
+## Fazer backup de apenas parte do aplicativo Web
 
-Às vezes, você não quer fazer backup de tudo em seu site, especialmente se fizer backup do site regularmente ou se o site tiver mais de 10 GB de conteúdo (ou seja, a quantidade máxima que pode ser incluída no backup de cada vez).
+Às vezes, você não quer fazer backup de tudo em seu aplicativo Web. Veja alguns exemplos:
 
-Por exemplo, provavelmente você não deseja fazer backup dos arquivos de log. Ou se você [configurar backups semanais](https://azure.microsoft.com/pt-br/documentation/articles/web-sites-backup/#configure-automated-backups), não desejará preencher sua conta de armazenamento com conteúdo estático que nunca muda, como postagens de blog e imagens antigas.
+-	Você [configura backups semanais](web-sites-backup.md#configure-automated-backups) do aplicativo Web que inclui conteúdo estático que nunca muda, como postagens ou imagens antigas de blog.
+-	O aplicativo Web tem mais de 10 GB de conteúdo (que é o volume máximo de backup por vez).
+-	Você não deseja fazer backup dos arquivos de log.
 
 Os backups parciais permitirão que você escolha exatamente quais arquivos deseja incluir no backup.
 
-###Especifique os arquivos que você não deseja incluir no backup
-Você pode criar uma lista de arquivos e de pastas a serem excluídas do backup.
+### Excluir arquivos do backup
 
-A lista é salva como um arquivo de texto chamado _backup.filter na pasta wwwroot do seu site. É uma maneira fácil de acessá-lo por meio do [Console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) em `http://{yoursite}.scm.azurewebsites.net/DebugConsole`. 
+Para excluir arquivos e pastas dos backups, crie um arquivo `_backup.filter` na pasta wwwroot do aplicativo Web e especifique a lista de arquivos e pastas que deseja excluir. Um modo fácil de acessá-la é pelo [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 
-As instruções a seguir usarão o Console Kudu para criar o arquivo _backup.filter, mas você pode usar seu método de implantação favorito para colocar o arquivo ali.
-
-###O que fazer
-Tenho um site que contém os arquivos de log e imagens estáticas dos últimos anos que nunca serão alteradas.
-
-Eu já tenho um backup completo do site que inclui as imagens antigas. Agora, desejo fazer um backup diário do site, mas não quero pagar pelo armazenamento de arquivos de log ou de arquivos de imagem estática que nunca mudam.
+Suponha que você tenha um aplicativo Web que contenha arquivos de log e imagens estáticas de anos anteriores que nunca vão mudar. Você já tem um backup completo do aplicativo Web que inclui as imagens antigas. Agora, você quer fazer backup do aplicativo Web todos os dias, mas não quer pagar para armazenar arquivos de log ou de imagens estáticas que nunca mudam.
 
 ![Pasta Logs][LogsFolder] ![Pasta Imagens][ImagesFolder]
 	
-As etapas a seguir mostram como eu poderia excluir esses arquivos do backup.
+As etapas abaixo mostram como você pode excluir esses arquivos do backup.
 
-####Identificar os arquivos e as pastas que você não deseja incluir no backup
-Isso é fácil. Já sei que eu não quero fazer backup de arquivos de log e, portanto quero excluir `D:\home\site\wwwroot\Logs`.
+1. Acesse `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e identifique as pastas que deseja excluir dos backups. Neste exemplo, você quer excluir os seguintes arquivos e pastas, mostrados nesta interface de usuário:
 
-Há outra pasta de arquivos de log com todos os aplicativos Web do Azure em `D:\home\LogFiles`. Vamos excluí-los também.
+		D:\home\site\wwwroot\Logs
+		D:\home\LogFiles
+		D:\home\site\wwwroot\Images\2013
+		D:\home\site\wwwroot\Images\2014
+		D:\home\site\wwwroot\Images\brand.png
 
-Também não quero fazer backup das imagens de anos anteriores repetidamente. E, portanto, vamos adicionar `D:\home\site\wwwroot\Images\2013` e `D:\home\site\wwwroot\Images\2014` à lista também.
+	[AZURE.NOTE]A última linha ilustra que você pode excluir os arquivos individualmente, assim como as pastas.
 
-Por fim, não vamos fazer backup do arquivo brand.png na pasta Imagens, somente para mostrarmos que também podemos incluir arquivos individuais na lista negra. Ele está localizado no `D:\home\site\wwwroot\Images\brand.png`
+2. Crie um arquivo chamado `_backup.filter` e coloque a lista acima no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
 
-Isso nos dará as pastas a seguir, que não queremos incluir no backup:
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
-* D:\home\site\wwwroot\Logs
-* D:\home\LogFiles
-* D:\home\site\wwwroot\Images\2013
-* D:\home\site\wwwroot\Images\2014
-* D:\home\site\wwwroot\Images\brand.png
+3. Carregue esse arquivo no diretório `D:\home\site\wwwroot` do seu site usando [ftp](web-sites-deploy.md#ftp) ou qualquer outro método. Se desejar, você pode criar o arquivo diretamente em `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e inserir o conteúdo lá mesmo.
 
-#### Criar a lista de exclusões
-Salvar a lista negra de arquivos e de pastas que você não deseja incluir no backup em um arquivo especial chamado _backup.filter. Crie o arquivo e o coloque em `D:\home\site\wwwroot_backup.filter`.
+4. Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manual-backup) ou [automaticamente](#configure-automated-backups).
 
-Liste todos os arquivos e as pastas que você não deseja incluir no backup no arquivo _backup.filter. Adicione o caminho completo relativo a D:\home da pasta ou do arquivo que você deseja excluir do backup, um caminho por linha.
+Agora, todos os arquivo e pastas especificados em `_backup.filter` serão excluídos do backup. Nesse exemplo, os arquivos de log e os arquivos de imagem 2013 e 2014 não entrarão mais no backup, bem como brand.png.
 
-Então, para o meu site, `D:\home\site\wwwroot\Logs` se torna `\site\wwwroot\Logs`, `D:\home\LogFiles` se torna `\LogFiles` e assim por diante, resultando no seguinte conteúdo para meu _backup.filter:
-
-    \site\wwwroot\Logs
-    \LogFiles
-    \site\wwwroot\Images\2013
-    \site\wwwroot\Images\2014
-    \site\wwwroot\Images\brand.png
-
-Observe o `` inicial no começo de cada linha. Isso é importante.
-
-###Executar um backup
-Agora você pode executar backups da mesma forma como faria normalmente. [Manualmente](https://azure.microsoft.com/pt-br/documentation/articles/web-sites-backup/#create-a-manual-backup), [automaticamente](https://azure.microsoft.com/pt-br/documentation/articles/web-sites-backup/#configure-automated-backups), qualquer uma das duas opções funciona bem.
-
-Os arquivos e as pastas que recaírem nos filtros listados no _backup.filter serão excluídos do backup. Isso significa que agora os arquivos de log e os arquivos de imagem de 2013 e de 2014 não serão incluídos no backup.
-
-###Restaurando o site incluído no backup
-Você restaura backups parciais de seu site da mesma maneira como [restauraria um backup regular](https://azure.microsoft.com/pt-br/documentation/articles/web-sites-restore/). Isso funcionará bem.
-
-####Os detalhes técnicos
-Com backups completos (não parciais), normalmente todo o conteúdo do site será substituído pelo que estiver no backup. Se um arquivo estiver no site mas não no backup, será excluído.
-
-Mas ao restaurar backups parciais, qualquer conteúdo localizado em uma das pastas da lista negra (como `D:\home\site\wwwroot\images\2014` para o meu site) será deixado como está. E se os arquivos individuais estiverem na lista negra, também serão deixados como estão durante a restauração.
+>[AZURE.NOTE]Você restaura backups parciais de seu site da mesma maneira como [restauraria um backup regular](web-sites-restore.md). O processo de restauração fará a coisa certa.
+>
+>Quando um backup completo é restaurado, todo o conteúdo do site é substituído por tudo o que está no backup. Se um arquivo estiver no site mas não no backup, será excluído. Mas, quando um backup parcial é restaurado, qualquer conteúdo que esteja localizado em um dos diretórios não autorizados ou qualquer arquivo não autorizado, é deixado como está.
 
 <a name="aboutbackups"></a>
+
 ## Como os backups são armazenados
 
-Depois de ter feito um ou mais backups, os backups ficarão visíveis na folha **Contêineres** de sua **Conta de Armazenamento**, bem como em seu aplicativo Web. Na **Conta de Armazenamento**, cada backup consiste em um arquivo .zip que contém os dados armazenados em backup e um arquivo .xml que contém um manifesto do conteúdo do arquivo .zip.
+Depois de ter feito um ou mais backups do seu aplicativo Web, os backups ficarão visíveis na folha **Contêineres** de sua conta de armazenamento, bem como em seu aplicativo Web. Na conta de armazenamento, cada backup consiste em um arquivo .zip que contém os dados de backup e um arquivo .xml que contém um manifesto do conteúdo do arquivo .zip. Você pode descompactar e procurar esses arquivos se quiser acessar seus backups sem realmente executar uma restauração do aplicativo Web.
 
-Os nomes dos arquivos .zip e .xml do backup consistem no nome do aplicativo Web seguido de um sublinhado e um carimbo de data/hora de quando o backup foi feito. O carimbo de data/hora contém a data no formato AAAAMMDD (em dígitos sem espaços) mais a hora no formato UTC de 24 horas (por exemplo, fabrikam_201402152300.zip). O conteúdo desses arquivos pode ser descompactado e apresentado, caso você deseje acessar os backups sem realmente executar uma restauração do aplicativo Web.
+O backup do banco de dados para o aplicativo Web é armazenado na raiz do arquivo. zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL com base na exportação do BACPAC, consulte [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
 
-O arquivo que é armazenado com o arquivo zip indica o nome do arquivo do banco de dados em *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
-
-O mesmo arquivo de backup do banco de dados é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um novo banco de dados SQL baseado na exportação do BACPAC, você pode seguir as etapas no artigo [Importar um arquivo BACPAC para criar um novo banco de dados do usuário](http://technet.microsoft.com/library/hh710052.aspx).
-
-Para saber como restaurar um aplicativo Web (incluindo bancos de dados) usando o Portal do Azure, consulte [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
-
-> [AZURE.NOTE]A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
+> [AZURE.WARNING]A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
 
 <a name="bestpractices"></a>
 ##Práticas Recomendadas
-O que fazer quando houver um desastre e você tiver de restaurar seu site? Verifique se você está preparado com antecedência.
 
-Sim, você pode ter backups parciais, mas faça pelo menos um backup completo do site primeiro para ter todo o conteúdo do site inserido no backup (esse é o pior cenário de planejamento). Em seguida, quando estiver restaurando seus backups, poderá restaurar primeiro o backup completo do site e então restaurar o backup parcial mais recente em cima dele.
+Em caso de falha ou desastre natural, convém ter a certeza de que você se preparou antecipadamente tendo uma estratégia de backup e restauração.
 
-Eis o porquê: ele permite que você use [Slots de implantação](https://azure.microsoft.com/pt-br/documentation/articles/web-sites-staged-publishing/) para testar seu site restaurado. Você pode até mesmo testar o processo de restauração sem usar o site de produção. E testar seu processo de restauração é [uma ótima ideia](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Você nunca vai saber quando poderá encontrar algum problema sutil, como quando tentei restaurar meu blog e terminei perdendo metade do conteúdo.
+A estratégia de backup deve ser semelhante à seguinte:
 
-###Uma história de horror
+-	Faça pelo menos um backup completo do seu aplicativo Web.
+-	Faça backups parciais do seu aplicativo Web depois de ter um backup completo.
 
-Meu blog usa a plataforma de blogs [Ghost](https://ghost.org/). Como um desenvolvedor responsável, criei um backup do meu site e tudo estava ótimo. Então, um dia recebi uma mensagem dizendo que havia uma nova versão do Ghost disponível e que eu poderia atualizar meu blog para ela. Ótimo!
+A estratégia de restauração deve ser semelhante à seguinte:
+ 
+-	Crie um [slot de preparo](web-sites-staged-publishing.md) para seu aplicativo Web.
+-	Restaure o backup completo do aplicativo Web no slot de preparo.
+-	Restaure o último backup parcial sobre a restauração do backup completo, também no slot de preparo.
+-	Teste a restauração para ver se o aplicativo preparado está funcionando corretamente.
+-	[Troque](web-sites-staged-publishing.md#Swap) o aplicativo Web preparado no slot de produção.
 
-Criei mais um backup do meu site para incluir minhas postagens de blog mais recentes e comecei a atualizar o Ghost.
-
-No meu site de produção.
-
-Tremendo erro.
-
-Algo deu errado com a atualização, minha tela inicial mostrava apenas uma tela em branco. “Sem problemas”, pensei, “Vou restaurar o backup que acabei de fazer”.
-
-Eu restaurei a atualização, vi que tudo tinha voltado... Exceto as postagens do blog.
-
-O QUÊ????
-
-Acontece que, nas [notas de atualização do Ghost](http://support.ghost.org/how-to-upgrade/) há este aviso:
-
-![Você pode fazer uma cópia do banco de dados de conteúdo/dados, mas não deverá fazer isso enquanto o Ghost estiver em execução. Pare-o primeiro][GhostUpgradeWarning]
-
-Se você tentar fazer backup dos dados enquanto o Ghost estiver em execução... Na verdade, os dados não são incluídos no backup.
-
-Deprimente.
-
-Se eu tivesse tentado restaurar em um slot de teste primeiro, teria visto esse problema e não teria perdido todas as minhas postagens.
-
-A vida é assim. Pode acontecer [aos melhores de nós](http://blog.codinghorror.com/international-backup-awareness-day/).
-
-Teste seus backups.
+>[AZURE.NOTE]Sempre teste o processo de restauração. Para obter mais informações, consulte [Very Good Thing](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Por exemplo, determinadas plataformas de blog, como [Ghost](https://ghost.org/), têm avisos explícitos sobre como elas se comportam durante um backup. Ao testar o processo de restauração, você pode capturar esses avisos quando ainda não tiver sido atingido por uma falha ou um desastre.
 
 <a name="nextsteps"></a>
 ## Próximas etapas
-Para saber como restaurar um aplicativo Web do Azure pelo backup, consulte [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
+Para saber como restaurar o aplicativo Web do Azure do backup, consulte [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-restore.md).
 
 Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 
@@ -267,4 +219,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

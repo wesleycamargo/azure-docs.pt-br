@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@ Além disso, você deve se certificar de que as credenciais importadas sejam seg
 
 O Serviço de Aplicativo do Azure permite que você armazene informações de configuração como parte do ambiente de tempo de execução de aplicativos Web, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução.
 
-As **Configurações do aplicativo** e **cadeias de conexão** são configuráveis usando-se o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ou os utilitários como o PowerShell ou a CLI do Azure.
+As **Configurações do aplicativo** e **cadeias de conexão** podem ser definidas usando o [portal de visualização do Azure](http://portal.azure.com) ou os utilitários, como o PowerShell ou a CLI do Azure.
 
 Para obter mais informações sobre configurações do aplicativo e cadeias de conexão, consulte [Configurando aplicativos Web](web-sites-configure.md).
 
 ### Protocolo FTPS
 
-O Azure oferece acesso FTP seguro ao sistema de arquivos para o aplicativo Web por meio do protocolo **FTPS**. Isso permite acessar com segurança o código do aplicativo no aplicativo Web, bem como os logs de diagnóstico. O link FTPS para seu aplicativo Web pode ser encontrado na página **Painel** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+O Azure oferece acesso FTP seguro ao sistema de arquivos para o aplicativo Web por meio do protocolo **FTPS**. Isso permite acessar com segurança o código do aplicativo no aplicativo Web, bem como os logs de diagnóstico. O link FTPS para seu aplicativo Web pode ser encontrado seguindo estas etapas:
+
+1. Abra o [portal de visualização do Azure](http://portal.azure.com).
+2. Selecione **Procurar Tudo**.
+3. Na folha **Procurar**, selecione **Aplicativos Web**.
+4. Na folha **Aplicativos Web**, selecione o aplicativo Web desejado.
+5. Na folha do aplicativo Web, selecione **Todas as configurações**.
+6. Na folha **Configurações**, selecione **Propriedades**.
+7. Os links FTP e FTPS são fornecidos na folha **Configurações**. 
 
 Para obter mais informações sobre o protocolo FTPS, consulte [Protocolo FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
@@ -78,4 +86,4 @@ Para obter informações sobre como registrar em log informações de aplicativo
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

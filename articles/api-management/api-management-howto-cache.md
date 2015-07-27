@@ -161,4 +161,4 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

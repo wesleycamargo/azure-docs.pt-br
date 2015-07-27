@@ -1,6 +1,6 @@
 <properties pageTitle="Visualização da versão da API REST de Gerenciamento da Pesquisa do Azure de 31-07-2014" description="API REST do Gerenciamento da Pesquisa do Azure: versão 2014-07-31-Visualização" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # Gerenciamento de API: versão 2014-07-31-Visualização
 
@@ -815,4 +815,4 @@ Nenhum.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

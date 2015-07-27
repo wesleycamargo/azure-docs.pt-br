@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -47,4 +46,4 @@ Conta corporativa ou de estudante | Uma conta de usuário atribuída por uma org
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

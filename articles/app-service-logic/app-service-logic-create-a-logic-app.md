@@ -172,4 +172,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

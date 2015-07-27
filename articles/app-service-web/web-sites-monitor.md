@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
-
-
 
 #<a name="howtomonitor"></a>Monitorar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -24,7 +22,7 @@
 
 ##<a name="websitemetrics"></a>Como: adicionar métricas de aplicativo Web
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), nas páginas de gerenciamento do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitoramento**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
+1. No [portal do Azure](https://manage.windowsazure.com), na página do aplicativo Web, clique na guia **Monitoramento** para exibir a página de gerenciamento **Monitoramento**. Por padrão, o gráfico na página **Monitoramento** exibe as mesmas métricas do gráfico na página **Painel**.
 
 2. Para exibir as métricas adicionais para o aplicativo Web, clique em **Adicionar métricas** na parte inferior da página para exibir a caixa de diálogo **Escolher métricas**.
 
@@ -37,25 +35,25 @@
 6. Para remover as métricas da página **Monitor**, selecione a métrica que você deseja remover e, em seguida, clique no ícone **Excluir métrica** na parte inferior da página.
 
 ##<a name="howtoreceivealerts"></a>Como: receber alertas de métricas de aplicativo Web
-No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas métricas de monitoramento de seu aplicativo Web. O recurso de alerta requer que você primeiro configure um ponto de extremidade da web para monitoramento, que você pode fazer na seção **Monitoramento** da página **Configurar**. Na página **Configurações** do Portal de Gerenciamento do Azure, você pode criar uma regra para acionar um alerta quando a métrica escolhida atingir um valor especificado. Você também pode escolher que um email seja enviado quando o alerta é disparado. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+
+No modo de aplicativo Web **Padrão**, você pode receber alertas com base nas métricas de monitoramento de seu aplicativo Web. O recurso de alerta requer que você primeiro configure um ponto de extremidade da web para monitoramento, que você pode fazer na seção **Monitoramento** da página **Configurar**. Também é possível optar por ter o email enviado quando uma métrica escolhida atingir um valor especificado. Para obter mais informações, consulte [Como: receber notificações de alerta e gerenciar regras de alerta no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Como: exibir cotas de uso de um site
 
-Os aplicativos Web podem ser configurados para serem executados em modo **Compartilhado** ou **Padrão** por meio da página de gerenciamento **Escala** do aplicativo Web. Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
+Os aplicativos Web podem ser configurados para serem executados em modo **Compartilhado** ou **Padrão** por meio da página de gerenciamento **Escala** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Cada assinatura do Azure tem acesso a um pool de recursos fornecidos com a finalidade de execução de até 100 aplicativos Web por região em modo **Compartilhado**. O pool de recursos disponíveis para cada assinatura de aplicativo Web para essa finalidade é compartilhado por outros aplicativos Web na mesma localização geográfica configurados para serem executados em modo **Compartilhado**. Como esses recursos são compartilhados para uso por outros aplicativos Web, todas as assinaturas são limitadas em termos de uso desses recursos. Limites aplicados ao uso da assinatura desses recursos são expressos como cotas de uso listadas na seção de visão geral sobre o uso da página de gerenciamento **Painel** de cada aplicativo Web.
 
 >[AZURE.NOTE]Quando um aplicativo Web está configurado para executar no modo **Padrão**, são alocados recursos dedicados equivalentes aos tamanhos das máquinas virtuais **Pequeno** (padrão), **Médio** ou **Grande** na tabela em [Tamanhos de máquinas virtuais e do Serviço de Nuvem do Azure][vmsizes]. Não há limites para os recursos usados por uma assinatura para a execução de aplicativos Web no modo **Padrão**. No entanto, o número de aplicativos Web no modo **Padrão** que podem ser criados por região é 500.
 
 ### Como: exibir cotas de uso para aplicativos Web configurados para modo Compartilhado ###
 Para determinar a extensão do impacto de um aplicativo Web sobre cotas de uso de recursos, siga estas etapas:
 
-1. Abra a página de gerenciamento **Painel** do aplicativo Web.
+1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com).
 2. Na seção **visão geral de uso**, as cotas de uso para seu respectivo plano de [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) são exibidas, as quais são um subconjunto dos seguintes itens:
 	-	**Saída de dados**, **Tempo de CPU** e **Memória** - quando a cota é excedida, o Azure interrompe o aplicativo Web para o restante do intervalo de cota atual. O Azure iniciará o aplicativo Web no início do próximo intervalo da cota.
 	-	**Armazenamento do sistema de arquivos** - quando essa cota é atingida o armazenamento do sistema de arquivos permanece acessível para operações de leitura, mas todas as operações de gravação, incluindo aquelas requeridas para atividade normal do aplicativo Web, são bloqueadas. As operações de gravação serão retomadas quando você reduzir o uso de arquivo ou mover o aplicativo Web para um Plano de Serviço de Aplicativo com uma cota mais alta.
 	-	**Recursos vinculados** - cotas para quaisquer recursos vinculados do aplicativo Web, como banco de dados ou armazenamento, são exibidas aqui também.
 
 	Algumas cotas podem ser aplicadas por plano de hospedagem da web, enquanto outas podem ser aplicadas por site. Para informações detalhadas sobre cotas de uso para cada plano de hospedagem da web, consulte [Limites de sites](azure-subscription-service-limits.md#websiteslimits).
-
 
 ##<a name="resourceusage"></a> Como: evitar exceder suas cotas
 
@@ -64,10 +62,9 @@ As cotas não são uma questão de desempenho ou custo, mas a maneira como o Azu
 - Mova seus aplicativos Web para um Plano de Serviço de Aplicativo de nível mais alto, para tirar proveito de uma cota maior. Por exemplo, a única cota para os planos **Básico** e **Padrão** é o Armazenamento de sistema de arquivos.
 - Conforme o número de instâncias de um aplicativo Web aumenta, o mesmo ocorre com a probabilidade de exceder as cotas de recursos compartilhados. Se adequado, considere redimensionar instâncias adicionais de um aplicativo Web quando as cotas de recursos compartilhados estiverem sendo excedidas.
 
-
 ##<a name="howtoconfigdiagnostics"></a>Como: configurar o diagnóstico e baixar para um aplicativo Web
 
-O diagnóstico está habilitado na página de gerenciamento **Configurar** do aplicativo Web. Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
+Os diagnósticos são habilitados na guia **Configurar** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com). Há dois tipos de diagnóstico: um **diagnóstico dos aplicativos** e **diagnósticos do site**.
 
 #### Diagnóstico de Aplicativo ####
 
@@ -95,16 +92,14 @@ Para obter mais informações sobre Contas de Armazenamento do Azure, consulte [
 
 Como o log do aplicativo no armazenamento requer o uso de um cliente de armazenamento para exibir os dados do log, ele será mais útil quando você planejar usar um serviço ou aplicativo que saiba como ler e processar os dados diretamente no Armazenamento de Tabela ou de Blob do Azure. O log do sistema de arquivos produz arquivos que podem ser baixados no computador local usando FTP ou outros utilitários conforme descrito mais adiante nesta seção.
 
-> [AZURE.NOTE]**Diagnóstico de Aplicativo (sistema de arquivos)**, **Diagnóstico de Aplicativo (armazenamento de tabela)**, e **Diagnóstico de Aplicativo (armazenamento de blob)** podem ser ativados ao mesmo tempo e ter configurações de nível de log individuais. Por exemplo, você poderá registrar erros e avisos no armazenamento como uma solução a longo prazo do log, ao mesmo tempo em que habilita o log de sistema de arquivos com um nível de detalhe após instrumentar o código do aplicativo para solucionar um problema.
+**Diagnóstico de Aplicativo (sistema de arquivos)**, **Diagnóstico de Aplicativo (armazenamento de tabela)**, e **Diagnóstico de Aplicativo (armazenamento de blob)** podem ser ativados ao mesmo tempo e ter configurações de nível de log individuais. Por exemplo, você poderá registrar erros e avisos no armazenamento como uma solução a longo prazo do log, ao mesmo tempo em que habilita o log de sistema de arquivos com um nível de detalhe após instrumentar o código do aplicativo para solucionar um problema.
 
-> [AZURE.NOTE]O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**.
->
-> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite**. Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE]O log de aplicativo se baseia em informações de log geradas pelo seu aplicativo. O método usado para gerar informações de log, bem como o formato das informações, é específico para o idioma em que seu aplicativo é gravado. Para obter informações específicas de idioma sobre o uso do log de aplicativo, consulte os seguintes artigos:
 >
-> - **.NET** [Habilitar o registro em log de diagnóstico para Sites do Azure](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
-> - **Node.js** - [Como depurar um aplicativo Node.js nos Sites do Azure](/develop/nodejs/how-to-guides/Debug-Website/).
+> - **.NET** — [Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **Node.js** - [Como depurar um aplicativo Node.js nos Sites do Azure](web-sites-nodejs-debug.md).
 >
 > Log de aplicativo para o armazenamento de tabela ou blob só é suportado para aplicativos .NET.
 
@@ -137,7 +132,7 @@ Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à 
 
 - O local no qual os logs do aplicativo serão salvos em relação à raiz da web.
 
-- Valor padrão: ..\..\LogFiles\Application
+- Valor padrão: ..\\..\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -157,7 +152,7 @@ Os arquivos de log podem ser baixados usando FTP, PowerShell do Azure ou a CLI d
 
 **FTP**
 
-1. Abra a página de gerenciamento **Painel** do aplicativo Web e anote o site FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
+1. Abra a página de gerenciamento **Painel** do aplicativo Web no [portal do Azure](https://manage.windowsazure.com) e anote o site FTP listado em **Logs de Diagnóstico** e a conta listada em **Usuário da Implantação**. O site FTP é onde os arquivos de log estão localizados e a conta listada no Usuário de Implantação é usada para autenticar o site FTP.
 2. Se você ainda não tiver criado credenciais de implantação, a conta listada em **Usuário de implantação** é listada como **Não definida**. Nesse caso, você deve criar credenciais de implantação conforme descrito na seção Redefinir credenciais de implantação do painel, pois essas credenciais devem ser usadas para autenticar o site FTP onde os arquivos de log são armazenados. O Azure não oferece suporte à autenticação para este site FTP usando credenciais do Live ID.
 3. Considere o uso de um cliente FTP como [FileZilla][fzilla] para se conectar ao site FTP. Um cliente de FTP oferece maior facilidade de uso para especificar as credenciais e exibir pastas em um site FTP, que é normalmente possível com um navegador.
 4. Copie os arquivos de log do site FTP no computador local.
@@ -266,7 +261,6 @@ Depois de configurar o monitoramento de ponto de extremidade, você pode analisa
 
 	O Azure agora monitorará ativamente o ponto de extremidade e enviará um alerta por email quando levar mais de 3 segundos para responder.
 
-
 Para obter mais informações sobre o monitoramento de pontos de extremidade do aplicativo Web, consulte os seguintes vídeos:
 
 - [Scott Guthrie apresenta os Sites do Azure e configura o Monitoramento do Ponto de Extremidade](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
@@ -277,10 +271,10 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

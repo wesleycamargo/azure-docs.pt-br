@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Usando o Conector do Oracle no Serviço de Aplicativo do Microsoft Azure" 
-   description="Como usar o conector do Oracle" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Usando o Conector do Oracle no Serviço de Aplicativo do Microsoft Azure"
+   description="Como usar o conector do Oracle"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Conector do Banco de Dados Oracle
@@ -23,7 +23,7 @@ Conecte-se a um servidor local de Banco de Dados Oracle para criar e alterar sua
 
 - Expor uma seção dos dados residentes no seu banco de dados Oracle usando um aplicativo Web ou móvel.
 - Inserir dados na tabela do banco de dados Oracle para armazenamento. Por exemplo, você pode inserir registros de funcionários, atualizar ordens de venda e assim por diante.
-- Obter dados do Oracle para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce. 
+- Obter dados do Oracle para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce.
 
 
 ## Gatilhos e Ações
@@ -69,7 +69,7 @@ Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executad
 Vamos examinar um aplicativo lógico simples que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
 
 ### Adicionar o Gatilho
-1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5] 
+1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5]
 
 2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: <br/> ![][6]
 
@@ -80,7 +80,7 @@ Uso de nosso aplicativo lógico simples, que sonda os dados de uma tabela Oracle
 
 Para usar o Conector do Oracle como uma ação, insira o nome de tabelas e/ou procedimentos armazenados que você inseriu quando criou o Conector do Oracle:
 
-1. Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8] 
+1. Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8]
 
 2. Especifique os valores de entrada do registro a ser inserido e clique em ✓: <br/> ![][9]
 
@@ -115,8 +115,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

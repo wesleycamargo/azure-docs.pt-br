@@ -51,7 +51,7 @@ Este tutorial é um passo a passo de como o [Exemplo de serviços móveis offlin
 
 2. Se você ainda não tiver instalado SQLite para Windows 8.1 e Windows Phone 8.1 como mencionado em [Introdução aos dados offline] instale ambos os tempos de execução.
 
-3. No Visual Studio 2013, abra o arquivo de solução *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Pressione a tecla **F5** para recompilar e executar o projeto. Verifique se os pacotes NuGet estão restaurados e se as referências estão definidas corretamente.
+3. No Visual Studio 2013, abra o arquivo de solução *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Pressione a tecla **F5** para recompilar e executar o projeto. Verifique se os pacotes NuGet estão restaurados e se as referências estão definidas corretamente.
 
     >[AZURE.NOTE]Talvez seja necessário excluir todas as referências antigas no tempo de execução do SQLite e substituí-los por uma referência atualizada conforme mencionado no tutorial [Introdução aos dados offline].
 
@@ -166,4 +166,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Exemplo de serviços móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

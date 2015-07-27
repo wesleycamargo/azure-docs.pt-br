@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # Configurando SSL para um aplicativo no Azure
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
 > [AZURE.NOTE]Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para Sites, consulte [Configurando um certificado SSL para um site do Azure](../web-sites-configure-ssl-certificate.md).
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
+
+Leia [isso](cloud-services-how-to-create-deploy.md) primeiro se você ainda não tiver criado um serviço de nuvem.
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
 
 ## Etapa 1: Obter um certificado SSL
 
@@ -105,27 +112,22 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
 
 Agora que os arquivos de definição e configuração do serviço foram atualizados, empacote a implantação para carregamento no Azure. Se você está usando **cspack**, certifique-se de que você não use o sinalizador **/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
 
-## Etapa 3: Carregar o pacote de implantação e certificado
+## Etapa 3: Carregar um certificado
 
 O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o Portal de Gerenciamento.
 
 1. Faça logon no [Portal de Gerenciamento do Azure][]. 
-2. Clique em **Novo**, em **Serviço de Nuvem** e em **Criação Personalizada**.
-3. Na caixa de diálogo **Criar um serviço de nuvem**, insira valores para o URL, grupo de região/afinidade e assinatura. Verifique se **Implantar um pacote de serviço de nuvem agora** está marcado e clique no botão **Avançar**.
-3. Na caixa de diálogo **Publicar o serviço de nuvem**, insira as informações obrigatórias do serviço de nuvem, selecione **Produção** para o ambiente e verifique se **Adicionar certificados agora** está marcado. (Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.) 
+2. Clique em **Serviços de nuvem** no painel de navegação à esquerda.
+3. Clique no serviço de nuvem desejado.
+4. Clique na guia **Certificados**.
 
-    ![Publicar o serviço de nuvem][0]
+    ![Clique na guia Certificados](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  Clique no botão **Avançar**.
-5.  Na caixa de diálogo **Adicionar certificado**, insira o local do arquivo do certificado SSL .pfx, a senha do certificado e clique em **anexar certificado**.  
+5. Clique no botão **Carregar**.
 
-    ![Adicionar certificado][1]
-
-6.  Verifique se o certificado está listado na seção **Certificados anexados**.
-
-    ![Certificados anexados][4]
-
-7.  Clique no botão **Concluir para criar o serviço de nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
+    ![Carregar](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. Forneça o **Arquivo** e a **Senha** e depois clique em **Concluir**(a marca de seleção).
 
 ## Etapa 4: Conectar-se à instância da função usando HTTPS
 
@@ -160,4 +162,4 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

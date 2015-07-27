@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Saiba como usar o SDK .NET do Stream Analytics Management | Microsoft Azure" 
 	description="Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise: criar um projeto, entradas, saídas e transformações." 
-	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -58,7 +57,7 @@ Para criar um trabalho de análise, primeiro configure seu projeto.
 1. Crie um aplicativo de console do Visual Studio C# .NET.
 2. No Console do Gerenciador de pacotes, execute os seguintes comandos para instalar os pacotes do NuGet. O primeiro é o SDK .NET do Azure Stream Analytics Management. O segundo é o cliente do Active Directory do Azure que será usado para autenticação.
 
-		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
+		Install-Package Microsoft.Azure.Management.StreamAnalytics
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 4. Adicione a seguinte seção **appSettings** ao arquivo App.config.
@@ -70,8 +69,8 @@ Para criar um trabalho de análise, primeiro configure seu projeto.
 		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
-		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
+		  <add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION" />
+		  <add key="ActiveDirectoryTenantId" value="YOU TENANT ID" />
 		</appSettings>
 
 
@@ -326,7 +325,7 @@ O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes
 
 
 ## Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-br/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
 ## Próximas etapas
@@ -365,4 +364,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

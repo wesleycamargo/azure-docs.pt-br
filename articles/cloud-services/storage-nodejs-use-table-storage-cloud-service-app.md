@@ -50,7 +50,7 @@ Execute as etapas a seguir para recuperar as credenciais da conta de armazenamen
 
 1.  Se ainda não estiver aberto, inicie o PowerShell do Azure no menu **Iniciar** expandindo **Todos os Programas, Azure** e clicando com o botão direito do mouse em **PowerShell do Azure** e, em seguida, selecione **Executar como Administrador**.
 
-2.  Altere os diretórios para a pasta que contém o aplicativo. Por exemplo, C:\node\tasklist\WebRole1.
+2.  Altere os diretórios para a pasta que contém o aplicativo. Por exemplo, C:\\node\\tasklist\\WebRole1.
 
 3.  Na janela do PowerShell do Azure, insira o seguinte cmdlet para recuperar as informações da conta de armazenamento:
 
@@ -321,7 +321,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
 
 O arquivo **layout.jade** no diretório **views** é usado como um modelo global para outros arquivos **.jade**. Nesta etapa, você o modificará para usar a [Twitter Bootstrap](https://github.com/twbs/bootstrap), que é um kit de ferramentas que facilita a criação de um site com uma aparência interessante.
 
-1. Baixe e extraia os arquivos para a [Twitter Bootstrap](http://getbootstrap.com/). Copie o arquivo **bootstrap.min.css** da pasta **bootstrap\dist\css** para o diretório **public\stylesheets** de seu aplicativo de lista de tarefas.
+1. Baixe e extraia os arquivos para a [Twitter Bootstrap](http://getbootstrap.com/). Copie o arquivo **bootstrap.min.css** da pasta **bootstrap\\dist\\css** para o diretório **public\\stylesheets** de seu aplicativo de lista de tarefas.
 
 2. Na pasta **views**, abra o **layout.jade** em seu editor de texto e substitua o conteúdo pelo seguinte:
 
@@ -408,4 +408,4 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

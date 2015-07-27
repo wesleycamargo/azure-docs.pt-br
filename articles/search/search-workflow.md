@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/23/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Fluxo de trabalho típico para o desenvolvimento da Pesquisa do Azure
@@ -22,7 +22,7 @@ Este artigo é um roteiro para a inclusão da Pesquisa do Azure como um componen
 
 Nas seções a seguir, vamos separar um fluxo de trabalho típico para um protótipo inicial que ajudarão você a avaliar como o Azure pesquisa atende aos requisitos de pesquisa do seu aplicativo. A parte dois deste artigo aborda as decisões de design importantes que levam a um esforço de desenvolvimento de aplicativo mais intenso.
 
-Antes de começar a criação de protótipos, recomendamos aprimorar-se com um dos nossos tutoriais de Introdução ou esta [apresentação de aprofundamento de vídeo de uma hora](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Os tutoriais de introdução são oferecidos nestas linguagens: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/) e [Node.JS](../search-get-started-nodejs/).
+Antes de começar a criação de protótipos, recomendamos aprimorar-se com um dos nossos tutoriais de Introdução ou esta [apresentação de aprofundamento de vídeo de uma hora](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Os tutoriais de introdução são oferecidos nestas linguagens: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md) e [Node.JS](search-get-started-nodejs.md).
 
 ##Desenvolvimento de protótipo
 
@@ -34,7 +34,7 @@ Para aplicativos com dados voláteis (por exemplo, se o caso comum inclui altera
 
 ###Etapa 1: provisionar o serviço
 
-A Pesquisa do Azure é um serviço online totalmente gerenciado disponível por meio de uma assinatura do Azure. [Depois que você se inscrever no Azure](http://azure.microsoft.com/pricing/free-trial/), é muito rápido adicionar o serviço de Pesquisa. Visite [Criar um serviço de Pesquisa no portal](../search-create-service-portal/) para obter instruções sobre como adicionar um serviço de pesquisa à sua assinatura.
+A Pesquisa do Azure é um serviço online totalmente gerenciado disponível por meio de uma assinatura do Azure. [Depois que você se inscrever no Azure](http://azure.microsoft.com/pricing/free-trial/), é muito rápido adicionar o serviço de Pesquisa. Visite [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter instruções sobre como adicionar um serviço de pesquisa à sua assinatura.
 
 Há duas camada de preços à sua escolha. Recomendamos o serviço compartilhado (gratuito) para criação de protótipos, com a limitação de que você terá de trabalhar com um pequeno subconjunto dos dados. O serviço compartilhado é gratuito para os assinantes já existentes (com assinaturas de avaliação ou regular) e de rápida instalação, mas restringe o número de índices e documentos que você pode usar a até três índices, até 10 mil documentos por índice ou 50 MB de armazenamento no total, o que ocorrer primeiro.
 
@@ -42,7 +42,7 @@ Há duas camada de preços à sua escolha. Recomendamos o serviço compartilhado
 
 Depois de criar o serviço, você está pronto para criar um índice, começando com a definição de esquema.
 
-A maneira mais rápida e fácil de criar um índice é por meio do portal. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](../search-create-index-portal/).
+A maneira mais rápida e fácil de criar um índice é por meio do portal. No mínimo, cada documento deve ter uma chave exclusiva e pelo menos um campo contendo dados pesquisáveis. Para começar, consulte [Criar um índice no portal](search-create-index-portal.md).
 
 > [AZURE.NOTE]**Dentro de um índice da Pesquisa do Azure**
 >
@@ -66,14 +66,14 @@ Há várias maneiras de carregar documentos, porém até o presente momento toda
 
 ####Como carregar dados para um índice
 
-Nossa abordagem é usar um indexador. Para fontes de dados relacionais do Banco de Dados de Documentos ou o SQL Server no Azure (especificamente o Banco de Dados SQL do Azure ou o SQL Server em uma VM do Azure), você pode usar [indexadores](https://msdn.microsoft.com/library/dn946891.aspx) para recuperar documentos de uma fonte de dados com suporte. Exemplos de código que usam indexadores para carregar documentos podem ser encontrados em qualquer um desses Tutoriais de Introdução: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/) e [Node.JS](../search-get-started-nodejs/).
+Nossa abordagem é usar um indexador. Para fontes de dados relacionais do Banco de Dados de Documentos ou o SQL Server no Azure (especificamente o Banco de Dados SQL do Azure ou o SQL Server em uma VM do Azure), você pode usar [indexadores](https://msdn.microsoft.com/library/dn946891.aspx) para recuperar documentos de uma fonte de dados com suporte. Exemplos de código que usam indexadores para carregar documentos podem ser encontrados em qualquer um desses Tutoriais de Introdução: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md) e [Node.JS](search-get-started-nodejs.md).
 
 Uma segunda opção é escrever um programa simples usando a API REST ou a biblioteca .NET para carregar os documentos:
 
 - [Adicionar, atualizar ou excluir documentos (API REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [Classe DocumentOperationsExtensions](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Uma terceira opção que funciona para pequenos conjuntos de dados é usar o [Fiddler](../search-fiddler/) ou o [Chrome Postman](../search-chrome-postman/) para carregar documentos.
+Uma terceira opção que funciona para pequenos conjuntos de dados é usar o [Fiddler](search-fiddler.md) ou o [Chrome Postman](search-chrome-postman.md) para carregar documentos.
 
 Uma quarta opção, talvez a mais fácil delas, é obter código do [Exemplo de API REST do Adventure Works C#](https://azuresearchadventureworksdemo.codeplex.com/) que carrega os documentos de um banco de dados incorporado (.mdf) na solução ou do [Exemplo de API REST de Perfis de Pontuação C#](https://azuresearchscoringprofiles.codeplex.com/) que carrega dados de arquivos de dados JSON incluídos na solução.
 
@@ -83,7 +83,7 @@ Uma quarta opção, talvez a mais fácil delas, é obter código do [Exemplo de 
 
 Depois que os documentos forem carregados no índice, você poderá escrever sua primeira consulta.
 
-A maneira mais rápida de obter resultados da pesquisa iniciais de seu serviço de Pesquisa é usar o [Fiddler](../search-fiddler/) ou o [Chrome Postman](../search-chrome-postman/) para exibir uma resposta, mas na verdade, é mais útil escrever um código simples da interface de usuário para exibir os resultados em um formato legível.
+A maneira mais rápida de obter resultados da pesquisa iniciais de seu serviço de Pesquisa é usar o [Fiddler](search-fiddler.md) ou o [Chrome Postman](search-chrome-postman.md) para exibir uma resposta, mas na verdade, é mais útil escrever um código simples da interface de usuário para exibir os resultados em um formato legível.
 
 APIs para operações de pesquisa incluem:
 
@@ -100,19 +100,19 @@ O padrão é de 50 documentos. Você pode alterar o número de itens retornados 
 
 Agora que você já tem um serviço e um índice, poderá explorar recursos para desenvolver ainda mais a experiência de pesquisa. Uma pequena lista de recursos a investigar é listada a seguir.
 
-**Páginas de pesquisa** geralmente incluem contagens de documentos em um conjunto de resultados ou use paginação para subdividir os resultados em números mais fáceis de administrar. Consulte [Paginação](../search-pagination-page-layout/) para obter detalhes.
+**Páginas de pesquisa** geralmente incluem contagens de documentos em um conjunto de resultados ou use paginação para subdividir os resultados em números mais fáceis de administrar. Consulte [Paginação](search-pagination-page-layout.md) para obter detalhes.
 
 **searchMode=all** é um parâmetro de consulta que altera como a Pesquisa do Azure avalia o operador NOT. Por padrão, consultas que incluem NOT (-) expandem os resultados em vez de limitá-los. Você pode definir esse parâmetro para alterar a maneira como o operador é avaliado. Ele está documentado em [Pesquisar documentos](https://msdn.microsoft.com/library/dn798927.aspx) ou [Enumeração SearchMode](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx).
 
-**Perfis de pontuação** são usados para melhorar os resultados de pesquisa, fazendo com que os itens que atendem a critérios predefinidos apareçam nos resultados da pesquisa. Consulte [Introdução aos perfis de pontuação](../search-get-started-scoring-profiles/) para repassar esse recurso.
+**Perfis de pontuação** são usados para melhorar os resultados de pesquisa, fazendo com que os itens que atendem a critérios predefinidos apareçam nos resultados da pesquisa. Consulte [Introdução aos perfis de pontuação](search-get-started-scoring-profiles.md) para repassar esse recurso.
 
 **Filtros** são usados para restringir os resultados da pesquisa, fornecendo critérios adicionais na seleção. Expressões de filtro são colocadas dentro da consulta. Consulte [Pesquisar documentos](https://msdn.microsoft.com/library/dn798927.aspx) para obter mais detalhes.
 
-A **Navegação facetada** é usada para filtragem autodirigida. A Pesquisa do Azure cria e retorna a estrutura e seu código processa a estrutura de navegação facetada em uma página de resultados da pesquisa. Consulte [Navegação facetada](../search-faceted-navigation/) para obter detalhes.
+A **Navegação facetada** é usada para filtragem autodirigida. A Pesquisa do Azure cria e retorna a estrutura e seu código processa a estrutura de navegação facetada em uma página de resultados da pesquisa. Consulte [Navegação facetada](search-faceted-navigation.md) para obter detalhes.
 
 **Sugestores** refere-se a consultas de preenchimento preditivo ou automático que retornam termos de pesquisa sugeridos conforme o usuário digita os primeiros caracteres de uma frase de pesquisa. Consulte [Operação de sugestões](https://msdn.microsoft.com/library/dn798936.aspx) ou [Classe Suggesters](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obter mais informações.
 
-**Analisadores de idioma** fornecem as regras linguísticas usadas durante a análise de texto. O analisador de idioma padrão para a pesquisa do Azure é Lucene inglês, mas você pode usar outros, ou até mesmo vários analisadores especificando-os em seu índice. Analisadores Lucene estão disponíveis em todas as APIs. Os processadores de idioma natural da Microsoft só estão disponíveis na [API REST 2015-02-28-Visualização](../search-api-2015-02-28-preview/). Consulte [Suporte a idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obter mais informações.
+**Analisadores de idioma** fornecem as regras linguísticas usadas durante a análise de texto. O analisador de idioma padrão para a pesquisa do Azure é Lucene inglês, mas você pode usar outros, ou até mesmo vários analisadores especificando-os em seu índice. Analisadores Lucene estão disponíveis em todas as APIs. Os processadores de idioma natural da Microsoft só estão disponíveis na [API REST 2015-02-28-Visualização](search-api-2015-02-28-preview.md). Consulte [Suporte a idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obter mais informações.
 
 ###Etapa 6: Atualizar índices e documentos
 
@@ -144,7 +144,7 @@ Atualmente, um pequeno subconjunto de recursos ainda não estão presentes na bi
 - [Recurso moreLikeThis - somente visualização](../search-api-2015-02-28-preview/)
 - [API de Gerenciamento](https://msdn.microsoft.com/library/dn832684.aspx)
 
-Você pode verificar periodicamente a artigo de [Novidades](../search-latest-updates/) para monitorar as alterações no status do recurso.
+Você pode verificar periodicamente a artigo de [Novidades](search-latest-updates.md) para monitorar as alterações no status do recurso.
 
 ###Determinar métodos de sincronização de dados: Push ou Pull
 
@@ -191,4 +191,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

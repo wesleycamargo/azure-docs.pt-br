@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Implantar um aplicativo Web vinculado a um repositório GitHub
@@ -22,15 +22,37 @@ Neste tópico, você aprenderá a criar um modelo do Gerenciador de Recursos do 
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Para obter o modelo completo, consulte [Modelo de aplicativo Web vinculado ao GitHub](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
+Para obter o modelo completo, consulte [Modelo de aplicativo Web vinculado ao GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 ## O que você implantará
 
 Com esse modelo, você implantará um aplicativo Web que contém o código de um projeto no GitHub.
 
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+
 ## Parâmetros
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+
+### repoURL
+
+A URL para o repositório GitHub que contém o projeto a ser implantado. Esse parâmetro contém um valor padrão, mas esse valor é destinado apenas a mostrar como fornecer a URL para o repositório. Você pode usar esse valor ao testar o modelo, mas será conveniente fornecer a URL de seu próprio repositório ao trabalhar com o modelo.
+
+    "repoURL": {
+        "type": "string",
+        "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
+    }
+
+### branch
+
+A ramificação do repositório a ser usada ao implantar o aplicativo. O valor padrão é o mestre, mas você pode fornecer o nome de qualquer ramificação no repositório que deseja implantar.
+
+    "branch": {
+        "type": "string",
+        "defaultValue": "master"
+    }
     
 ## Recursos a implantar
 
@@ -77,13 +99,13 @@ O aplicativo Web também tem um recurso filho que é definido na seção de **re
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### CLI do Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

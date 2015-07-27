@@ -1,8 +1,6 @@
 <properties 
-	title="" 
 	pageTitle="Como escolher algoritmos de Aprendizado de Máquina | Microsoft Azure" 
 	description="Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão." 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -264,4 +262,4 @@ Veja também:
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

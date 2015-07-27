@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -29,9 +29,7 @@ A Microsoft criou os Pools de Banco de Dados Elástico especificamente para ajud
 
 Um pool de bancos de dados elástico é um conjunto de recursos disponíveis compartilhados pelos bancos de dados elásticos no pool. Você pode adicionar bancos de dados ao pool ou removê-los a qualquer momento. Esses bancos de dados no pool compartilham os recursos (expressados em unidades de taxa de transferência de banco de dados elásticos ou eDTUs) e a capacidade de armazenamento do pool, mas cada banco de dados usa apenas os recursos necessários em um determinado momento, deixando recursos livres para outros bancos de dados quando eles forem necessários. Em vez de provisionar bancos de dados demais e pagar por recursos que não são utilizados, você aloca e paga um preço previsível pelos recursos agregados do pool. Isso estende o custo para que você adquira um modelo de negócios competitivo e cada banco de dados obtenha adaptabilidade de desempenho.
 
-Os bancos de dados que são bons candidatos para pools de bancos de dados elásticos normalmente estão ativos menos de 50% do tempo. Um padrão típico de atividade é que os bancos de dados passem algum tempo inativos, ativos com baixa demanda de recursos e ativo com alta demanda de recursos.
-
-Nem todos os bancos de dados se encaixam nesse padrão. Há bancos de dados com uma demanda de recursos mais constante e esses bancos de dados são mais adequados para as camadas de serviço Basic, Standard e Premium, nas quais os recursos são atribuídos individualmente.
+Os bancos de dados que são bons candidatos para pools de bancos de dados elásticos normalmente estão ativos menos de 50% do tempo. Um padrão típico de atividade é que os bancos de dados passem algum tempo inativos, ativos com baixa demanda de recursos e ativo com alta demanda de recursos. Nem todos os bancos de dados se encaixam nesse padrão. Há bancos de dados com uma demanda de recursos mais constante e esses bancos de dados são mais adequados para as camadas de serviço Basic, Standard e Premium, nas quais os recursos são atribuídos individualmente. Para obter assistência na determinação de se seus bancos de dados se beneficiariam em um pool de banco de dados elástico, consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
 Você pode criar um Pool de Banco de Dados Elástico em minutos usando o portal do Microsoft Azure ou o PowerShell. Para obter detalhes, confira [Criar e gerenciar um pool elástico](sql-database-elastic-pool-portal.md). Para saber mais sobre pools de banco de dados flexível, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
@@ -65,4 +63,4 @@ Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilit
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

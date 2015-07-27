@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/10/2015" 
 	ms.author="spelluru"/>
 
 # Habilitar seus pipelines para trabalhar com dados locais
@@ -62,8 +62,8 @@ O Gateway de Gerenciamento de Dados tem uma gama completa de recursos de conexã
 2.	A **configuração** recomendada para o computador do gateway é no mínimo 2 GHz, 4 núcleos, 8 GB de RAM e 80 GB de disco.
 3.	Se o computador host hibernar, o gateway não poderá responder a solicitações de dados. Portanto, configure um **plano de energia** adequado no computador antes de instalar o gateway. A instalação do gateway exibe uma mensagem se o computador estiver configurado para hibernar.  
 
+O Gateway de Gerenciamento de Dados serializa e desserializa dados de origem e do coletor no computador em que está hospedado. Ele também executa conversões de tipo nos dados enquanto estão sendo copiados. Durante a operação de cópia, o gateway lê dados da origem para um buffer de memória e ao mesmo tempo outro thread grava o buffer no coletor. Uma vez que vários trabalhos de atividade de cópia podem estar em execução ao mesmo tempo no computador host do gateway durante horários de pico, o consumo de memória e os recursos de CPU são muito maiores do que no tempo ocioso. Portanto, o computador host que executa um gateway de gerenciamento de dados pode precisar de mais recursos do que os descritos na configuração mínima de computador sugerida acima ou menos recursos durante o tempo ocioso.
 
- 
 
 ## Passo a passo
 
@@ -117,7 +117,7 @@ Nesta etapa, você pode usar o Portal de Gerenciamento do Azure para criar uma i
 
 	![Folha Gateway - Configurar][image-data-factory-gateway-configure-blade]
 
-	Essa é a maneira mais fácil (um clique) de baixar, instalar, configurar e registrar o gateway em uma única etapa. Você pode ver que o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados da Microsoft** está instalado no computador. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\Arquivos de Programas\Microsoft Data Management Gateway\1.0\Shared**.
+	Essa é a maneira mais fácil (um clique) de baixar, instalar, configurar e registrar o gateway em uma única etapa. Você pode ver que o aplicativo **Gerenciador de Configuração de Gateway de gerenciamento de dados da Microsoft** está instalado no computador. Você também pode encontrar o executável **ConfigManager.exe** na pasta: **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	Você também pode baixar e instalar o gateway manualmente usando os links nessa folha e registrá-lo usando a chave mostrada na caixa de texto **REGISTRAR COM CHAVE**.
 	
@@ -166,7 +166,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 4.	No painel JSON, faça o seguinte:
 	1.	Para a propriedade **gatewayName**, digite **adftutorialgateway** para substituir todo o texto dentro das aspas duplas.  
 	2.	Se você estiver usando **autenticação SQL**: 
-		1.	Para a propriedade **connectionString**, substitua **<servername>**, **<databasename>**, **<username>**, e **<password>** por nomes de seu SQL Server, banco de dados, conta de usuário e senha locais.	
+		1.	Para a propriedade **connectionString**, substitua **<servername>**, **<databasename>**, **<username>**, e **<password>** por nomes de seu SQL Server, banco de dados, conta de usuário e senha locais. Para especificar um nome de instância, use o caractere de escape:. Por exemplo:**server\\instancename**. 	
 		2.	Remova as duas últimas propriedades (**username** e **password**) do arquivo JSON e remova o caractere de **vírgula (,)** ao final da última linha do script JSON restante.
 		
 				{
@@ -487,7 +487,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de comando e saída**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de saída de comando:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. No PowerShell do Azure, alterne para a pasta **C:\Arquivos de Programas\Microsoft Data Management Gateway\1.0\PowerShellScript\ e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
+4. No PowerShell do Azure, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\ e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

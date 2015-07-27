@@ -72,4 +72,4 @@ Depois de escolher o que você deseja ver, clique no botão **Atualizar** na par
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

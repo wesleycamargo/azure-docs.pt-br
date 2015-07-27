@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -29,18 +29,7 @@ Alguns gráficos são segmentados: a altura total do gráfico em qualquer ponto 
 
 Linhas pontilhadas mostram o valor da métrica de uma semana atrás.
 
-## Valores de um ponto
 
-Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
-
-
-![Passar o ponteiro do mouse sobre um gráfico](./media/app-insights-metrics-explorer/02-focus.png)
-
-O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior. Isso pode variar dependendo do intervalo de tempo do gráfico inteiro.
-
-O intervalo de amostragem ou "intervalo" é mostrado na parte superior da folha.
-
-![O cabeçalho de uma folha.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Intervalo de tempo
 
@@ -56,6 +45,23 @@ Na folha visão geral, arraste uma parte do gráfico para ampliá-la em um novo 
 
 ![Arraste por parte de um gráfico.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## Valores de intervalo e ponto
+
+Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
+
+![Passar o ponteiro do mouse sobre um gráfico](./media/app-insights-metrics-explorer/02-focus.png)
+
+O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior.
+
+O intervalo de amostragem ou "intervalo" é mostrado na parte superior da folha.
+
+![O cabeçalho de uma folha.](./media/app-insights-metrics-explorer/11-grain.png)
+
+Você pode ajustar o intervalo na folha Intervalo de tempo:
+
+![O cabeçalho de uma folha.](./media/app-insights-metrics-explorer/grain.png)
+
+Os intervalos disponíveis depende do intervalo de tempo selecionado. Os intervalos explícitos são alternativas ao intervalo “automático” para o intervalo de tempo.
 
 ## Metrics Explorer
 
@@ -190,4 +196,4 @@ Se desejar que os dados sejam exportados continuamente para que você possa proc
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

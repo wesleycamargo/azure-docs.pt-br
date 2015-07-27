@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um gateway existente
@@ -24,11 +24,15 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Para o modelo completo, consulte [Aplicativo de API com modelo de gateway existente](../../templates/app-service-api-arm-existing-gateway-provision/).
+Para o modelo completo, consulte [Aplicativo de API com modelo de gateway existente](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-existing/azuredeploy.json).
 
 ## O que você implantará
 
 Neste modelo, você implantará um aplicativo de API que é associado a um plano de hospedagem de Serviço de Aplicativo e um gateway existentes.
+
+Para executar a implantação automaticamente, clique no seguinte botão:
+
+[![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
 
 ## Parâmetros
 
@@ -178,13 +182,13 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 ### CLI do Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

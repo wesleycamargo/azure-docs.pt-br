@@ -155,4 +155,4 @@ PHP | [Aplicativo de exemplo PHP para Graph API do Azure AD](http://code.msdn.mi
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

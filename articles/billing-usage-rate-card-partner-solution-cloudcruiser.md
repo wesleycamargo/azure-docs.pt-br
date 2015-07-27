@@ -116,8 +116,8 @@ O gráfico inferior mostra os mesmos dados, mas dividido por departamento, demon
 
 + Para obter instruções detalhadas sobre como criar relatórios e pastas de trabalho do Cloud Cruiser, consulte a [documentação](http://docs.cloudcruiser.com/) online do Cloud Cruiser (logon válido necessário). Para obter mais informações sobre o Cloud Cruiser, entre em contato com [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 + Consulte [Obter informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma visão geral das APIs RateCard e de Uso dos recursos do Azure. 
-+ Confira a [Referência da API REST de Cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de APIs fornecidas pelo Gerenciador de Recursos do Azure.
-+ Se você gostaria de mergulhar no código de exemplo, confira nossos [exemplos de código de API de cobrança do Microsoft Azure no Github](https://github.com/Azure/BillingCodeSamples).
++ Confira a [referência da API REST de Cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de APIs fornecidas pelo Gerenciador de Recursos do Azure.
++ Se você gostaria de mergulhar no código de exemplo, confira nossos [exemplos de código da API do Microsoft Azure no Github](https://github.com/Azure/BillingCodeSamples).
 
 ## Saiba mais
 + Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
@@ -133,4 +133,4 @@ O gráfico inferior mostra os mesmos dados, mas dividido por departamento, demon
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 - Planejamento de pasta de trabalho"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Relatório de exemplo para o cenário de comparação de custo de carga de trabalho"
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

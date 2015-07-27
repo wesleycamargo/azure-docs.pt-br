@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,9 +21,13 @@
 
 # Como criar e implantar um serviço de nuvem.
 
-O Portal de Gerenciamento do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-create-deploy.md)
+- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao você usar esse método, o Portal de Gerenciamento do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
+O Portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
+
+Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
 
 > [AZURE.NOTE]Se você planeja publicar o serviço de nuvem do VSO (Visual Studio Online), use a criação rápida e configure a publicação do VSO em **Inicialização Rápida** ou no painel. Para obter mais informações, consulte [Fornecimento contínuo para o Azure usando a visualização do Visual Studio Online][TFSTutorialForCloudService], ou consulte a ajuda para a página **Início Rápido**.
 
@@ -117,7 +121,7 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 5. Se o serviço de nuvem incluir funções com apenas uma instância, marque a caixa de seleção **Implantar mesmo se uma ou mais funções contiverem uma única instância** para continuar a implantação.
 
- O Azure só pode garantir 99,95 por cento de acesso ao serviço de nuvem durante a manutenção e atualizações do serviço se cada função tiver pelo menos duas instâncias. Se necessário, você pode adicionar instâncias de função adicionais na página **Escala** após implantar o serviço de nuvem. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
+    O Azure só pode garantir 99,95 por cento de acesso ao serviço de nuvem durante a manutenção e atualizações do serviço se cada função tiver pelo menos duas instâncias. Se necessário, você pode adicionar instâncias de função adicionais na página **Escala** após implantar o serviço de nuvem. Para obter mais informações, consulte [Contratos de Nível de Serviço](http://azure.microsoft.com/support/legal/sla/).
 
 6. Clique em **OK** (marca de seleção) para iniciar a implantação do serviço de nuvem.
 
@@ -135,9 +139,10 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 2. Em **visão rápida**, clique na URL do site para abrir o serviço de nuvem em um navegador.
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

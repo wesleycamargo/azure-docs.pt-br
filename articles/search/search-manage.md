@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
@@ -210,4 +210,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

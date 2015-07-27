@@ -1,45 +1,95 @@
 <properties 
-	pageTitle="Gerenciar grupos no AD do Azure" 
-	description="Um tópico que explica como gerenciar grupos no AD do Azure." 
+	pageTitle="Gerenciamento de acesso a recursos com grupos do Active Directory do Azure | Microsoft Azure" 
+	description="Um tópico que explica como usar grupos para gerenciar o acesso no AD do Azure." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+	authors="femila" 
+	manager="swadhwa" 
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/13/2015" 
+	ms.author="femila"/>
 
-# Gerenciar grupos no AD do Azure
 
-Um grupo é uma coleção de usuários e grupos que podem ser gerenciados como uma única unidade. Usuários e grupos que pertencem a um determinado grupo são denominados membros do grupo. Usar grupos pode simplificar a administração atribuindo um conjunto comum de permissões e direitos a várias contas simultaneamente, em vez de atribuir permissões e direitos individualmente a cada conta.
+# Gerenciamento de acesso a recursos com grupos do Active Directory do Azure
 
-Agora no AD do Azure, você pode criar grupos de segurança.
+O Active Directory do Azure é uma solução abrangente de gerenciamento de acesso e identidade que oferece um conjunto robusto de recursos para gerenciar o acesso a recursos e aplicativos na nuvem e locais, incluindo Microsoft Online Services como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft.
 
-Você pode usar grupos como uma maneira conveniente de atribuir acesso a aplicativos para usuários em casos nos quais você precise atribuir vários usuários ao mesmo aplicativo. Você também pode usar grupos quando configurar o gerenciamento de acesso de outros serviços online que controlem o acesso aos recursos, como por exemplo o SharePoint Online.
 
-Se você tiver configurado a sincronização de diretórios, você pode ver os grupos que foram sincronizados por meio do seu Windows Server Active Directory local, que tem o valor “Active Directory Local” na propriedade “Originado de”. Você deve continuar a gerenciar esses grupos no Active Directory local; esses grupos não podem ser gerenciados nem excluídos no Portal de Gerenciamento do Azure.
+> [AZURE.NOTE]Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Se você tem o Office 365, você pode ver os grupos de distribuição e grupos de segurança habilitados para email que foram criados e gerenciados no Centro de administração do Exchange no Office 365. Esses grupos têm o valor "Office 365" na propriedade "Originado de", e devem continuar sendo gerenciados no Centro de Administração do Exchange.
 
-Você também pode criar grupos unificados por meio do Painel de acesso. Na guia Configuração, em Gerenciamento de grupos, defina a widget **Os usuários podem criar grupos de O365** como **Sim**. Se você tiver grupos unificados do Office 365 que forem criados no Painel de acesso ou no Office 365, esses grupos terão a propriedade "Originado de" definida como “Active Directory do Azure” e poderão ser gerenciados por meio do Painel de acesso.
+No Active Directory do Azure, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório, ou recursos que são externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
 
-Se você habilitou o gerenciamento de grupos por autoatendimento para seus usuários (para obter mais informações, consulte Gerenciamento de grupos por autoatendimento para usuários no AD do Azure, como um administrador de locatários você também pode gerenciar esses grupos por meio do Portal de Gerenciamento do Azure. Você pode adicionar e remover membros do grupo, adicionar e remover proprietários do grupo, editar propriedades do grupo e exibir o relatório de atividade de histórico dos grupos, que exibe a ação que foi executada dentro do grupo, quem executou a ação e o horário.
 
-> [AZURE.NOTE]Para poder atribuir um grupo a um aplicativo, você deve estar usando o AD Premium do Azure. Se você tiver o AD Premium do Azure, você também poderá usar grupos para atribuir acesso a aplicativos SaaS que estão integrados ao AD do Azure. Para obter mais informações, consulte Atribuir acesso a um aplicativo SaaS no AD do Azure para um grupo.
+1\. Atribuição direta
 
-## O que vem a seguir
+Os usuários podem ser atribuídos diretamente a um recurso pelo proprietário do recurso.
 
-- [Administrando o AD do Azure](active-directory-administer.md)
-- [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
-- [Gerenciar senhas no AD do Azure](active-directory-manage-passwords.md)
- 
+2\. Associação de grupo
 
-<!---HONumber=62-->
+Um grupo pode ser atribuído a um recurso pelo proprietário do recurso e, dessa forma, os membros desse grupo recebem o acesso ao recurso. A associação do grupo pode então ser gerenciada pelo proprietário do grupo. O proprietário do recurso delega efetivamente ao proprietário do grupo a permissão para atribuir usuários a seus recursos.
+
+3\. Com base em regra
+
+O proprietário do recurso pode usar uma regra para expressar quais usuários devem receber acesso a um recurso. O resultado da regra depende dos atributos usados na regra e seus valores para usuários específicos e, dessa forma, o proprietário do recurso delega efetivamente o direito de gerenciar o acesso aos seus recursos à fonte autoritativa para os atributos que são usados na regra. Observe que o proprietário do recurso ainda gerencia a regra e determina quais atributos e valores fornecem acesso aos seus recursos.
+
+4\. Autoridade externa
+
+O acesso a um recurso é derivado de uma fonte externa; por exemplo, um grupo que é sincronizado a partir de uma fonte autoritativa, como um diretório local, ou um aplicativo SaaS, como o WorkDay. O proprietário do recurso atribui o grupo para fornecer acesso ao recurso, e a fonte externa gerencia os membros do grupo.
+
+  ![](./media/active-directory-access-management-groups/access-management-overview.png)
+
+
+###Assista a um vídeo que explica o Gerenciamento de Acesso
+
+Você pode assistir a um breve vídeo que explica mais sobre isso [aqui](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups).
+
+##Como funciona o Gerenciamento de Acesso no Active Directory do Azure?
+No centro da solução de gerenciamento de acesso do Active Directory do Azure está o grupo de segurança. Usar um grupo de segurança para gerenciar o acesso aos recursos é um paradigma conhecido, que possibilita uma maneira fácil de entender e flexível de fornecer acesso a um recurso para o grupo de usuários em questão. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso, e o proprietário do recurso pode delegar o direito de gerenciar a lista de membros de um grupo a outra pessoa, como um gerente de departamento ou um administrador de assistência técnica.
+
+![](./media/active-directory-access-management-groups/active-directory-access-management-works.png) O proprietário de um grupo também pode disponibilizar esse grupo para solicitações de autoatendimento. Dessa forma, um usuário final pode pesquisar e localizar o grupo e fazer uma solicitação para ingressar nele, buscando efetivamente permissão para acessar os recursos que são gerenciados por meio do grupo. O proprietário do grupo pode configurar o grupo para que as solicitações de ingresso sejam aprovadas automaticamente ou exijam a aprovação do proprietário do grupo. Quando um usuário faz uma solicitação para ingressar em um grupo, ela é encaminhada aos proprietários do grupo. Se um dos proprietários aprovar a solicitação, o usuário solicitante será notificado e o usuário será ingressado ao grupo. Se um dos proprietários recusar a solicitação, o usuário solicitante será notificado, mas não será ingressado ao grupo.
+
+
+## Introdução ao gerenciamento de acesso
+Pronto para começar? Você deve experimentar algumas das tarefas básicas que pode fazer com grupos do AD do Azure. Use esses recursos para fornecer acesso especializado a diferentes grupos de pessoas para recursos diferentes em sua organização. Uma lista das primeiras etapas básicas é exibida abaixo.
+
+
+* [Criação de uma regra simples para configurar associações dinâmicas para um grupo](active-directory-accessmanagement-simplerulegroup.md)
+
+* [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
+
+* [Disponibilização de um grupo para autoatendimento do usuário final](active-directory-accessmanagement-self-service-group-management.md)
+
+* [Sincronização de um grupo local para o Azure usando o Azure AD Connect](active-directory-aadconnect.md)
+
+* [Gerenciamento de proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md)
+
+
+## Próximas etapas para o gerenciamento de acesso
+Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqui estão alguns recursos avançados adicionais disponíveis no Active Directory do Azure para gerenciar o acesso aos seus aplicativos e recursos.
+
+* [Uso de uma regra simples para criar um grupo](active-directory-accessmanagement-simplerulegroup.md) 
+
+* [Uso de atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md)
+
+* [Gerenciamento de grupos de segurança no Active Directory do Azure](active-directory-accessmanagement-manage-groups.md)
+
+* [Configuração de grupos dedicados no Active Directory do Azure](active-directory-accessmanagement-dedicated-groups.md)
+
+
+## Saiba mais
+Estes são alguns tópicos que fornecerão informações adicionais sobre o Active Directory do Azure
+
+* [O que é o Active Directory do Azure?](active-directory-whatis.md)
+
+* [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+
+<!---HONumber=July15_HO3-->
