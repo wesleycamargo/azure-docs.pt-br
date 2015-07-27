@@ -1,8 +1,6 @@
 <properties 
-	title="Elastic database jobs overview" 
 	pageTitle="Visão geral sobre trabalhos de bancos de dados elásticos" 
 	description="Ilustra o serviço do trabalho de banco de dados elástico" 
-	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -13,12 +11,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
-# Visão geral sobre trabalhos de bancos de dados elásticos
+# Visão geral de trabalhos de bancos de dados elásticos
 
-**Trabalhos de banco de dados elásticos** (visualização) permitem que você execute scripts T-SQL (trabalhos) em todos os bancos de dados em um [pool de bancos de dados elásticos (visualização)](sql-database-elastic-pool.md). Por exemplo, você pode atualizar com facilidade o esquema em cada banco de dados a fim de incluir uma nova tabela. Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções T-SQL ou realizar outras tarefas administrativas. **Trabalhos de banco de dados elástico** lida com a tarefa de logon e execução confiável do script, enquanto registra o status da execução de cada banco de dados. Para obter instruções sobre como instalar a visualização, vá para [Instalando os componentes do Trabalho de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md).
+**Trabalhos de banco de dados elásticos** (visualização) permitem que você execute scripts T-SQL (trabalhos) em todos os bancos de dados em um [pool de bancos de dados elásticos (visualização)](sql-database-elastic-pool.md). Por exemplo, você pode atualizar com facilidade o esquema em cada banco de dados a fim de incluir uma nova tabela. Normalmente, você deve se conectar a cada banco de dados de forma independente a fim de executar instruções T-SQL ou realizar outras tarefas administrativas. Um **trabalho de banco de dados elástico** lida com a tarefa de logon e execução confiável do script, enquanto registra o status da execução de cada banco de dados. Para obter instruções sobre como instalar a visualização, vá para [Instalando os componentes do Trabalho de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md).
 
 ![Serviço do trabalho de banco de dados elástico][1]
 
@@ -36,15 +34,10 @@
 
 ## Como funciona o trabalho
 
-1.	Instale os serviços usados pelos trabalhos de banco de dados elástico. Consulte [Instalando trabalhos de banco de dados elástico](sql-database-elastic-jobs-service-installation.md). Se a instalação falhar, confira [como desinstalar](sql-database-elastic-jobs-uninstall.md).
+1.	Instale os serviços usados pelos trabalhos de banco de dados elástico. Consulte [Instalando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md). Se a instalação falhar, confira [como desinstalar](sql-database-elastic-jobs-uninstall.md).
 2.	Configure o pool de bancos de dados elásticos para execução do trabalho [adicionando um usuário a cada banco de dados](sql-database-elastic-jobs-add-logins-to-dbs.md).
-3.	No modo de exibição de pool de bancos de dados elásticos, clique em **Criar trabalho**.
-4.	Digite o nome de usuário e senha para o banco de dados de controle de trabalhos (armazenamento de metadados para trabalhos). (Você cria o nome de usuário e a senha ao instalar os trabalhos de banco de dados elástico).
-5.	Na folha **Criar trabalho**, digite o nome do trabalho, o nome de usuário e a senha para os bancos de dados de destino (com permissões suficientes para que a execução de script tenha êxito) e cole ou digite o script T-SQL.
-6.	Clique em **Executar** e o trabalho executa o script em cada banco de dados.
-7.	O modo de exibição **Gerenciar trabalhos** permite que você veja todos os trabalhos em execução, ou que foram executados, e o status da execução mais recente.
-8.	Clique em qualquer trabalho para ver os detalhes de execução do trabalho e o estado da execução do trabalho de cada banco de dados.
-9.	Se um trabalho falhar, clique em seu nome para ver o log de erros.
+3.	Criar um script T-SQL itempotent que pode ser executado em cada banco de dados no pool.
+4.	Siga estas etapas para executar o script: [Criando e gerenciando trabalhos de banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md) 
 
 ## Componentes e preços 
 
@@ -64,4 +57,4 @@ Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azu
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -72,4 +72,4 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

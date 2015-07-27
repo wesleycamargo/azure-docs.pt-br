@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o Chrome Postman com a Pesquisa do Azure" 
-	description="Como usar o Chrome Postman com a Pesquisa do Azure" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Como usar o Chrome Postman com a Pesquisa do Azure"
+	description="Como usar o Chrome Postman com a Pesquisa do Azure"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Como usar o Chrome Postman com a Pesquisa do Azure #
@@ -22,7 +22,7 @@
 O [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") é uma ferramenta fornecida como parte do Google Chrome e que permite aos desenvolvedores trabalhar eficientemente com a API baseada em REST de serviços, como a Pesquisa do Azure. Você pode usar o carteiro para criar rapidamente e consultar seus índices de pesquisa enviando chamadas de API por meio do Postman, sem precisar escrever nenhum código. Essa abordagem é uma maneira eficiente para aprender sobre a API e experimentar os novos recursos.
 
 ![][1]
- 
+
 ## Requisitos ##
 
 Você deve ter um serviço de Pesquisa do Azure. Como com qualquer aplicativo personalizado que usa a pesquisa do Azure, você precisará da URL para o serviço, além de um administrador `api-key` para que você possa criar o índice. Para obter instruções sobre como obter os valores para o serviço de Pesquisa, consulte [Criar um serviço no portal](search-create-service-portal.md).
@@ -31,7 +31,7 @@ Você deve ter um serviço de Pesquisa do Azure. Como com qualquer aplicativo pe
 Para baixar o Postman, visite o [Repositório do Google Chrome](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). O link nesta página permite que você baixe e instale o cliente REST para Postman. Uma vez instalado, você pode iniciar o Postman no Inicializador do Aplicativo Chrome.
 
 ![][2]
- 
+
 ## Configurando o Postman para a Consulta de Pesquisa do Azure ##
 Para configurar o Postman, siga as etapas a seguir:
 
@@ -40,7 +40,7 @@ Para configurar o Postman, siga as etapas a seguir:
 3. Certifique-se de que `GET` seja escolhido.
 4. Clique no botão **Cabeçalhos**.
 5. Insira um valor para:
-	- `api-key`: [Chave de Administrador]
+	- `api-key`: [Chave Admin]
 	- `Content-Type`: `application/json; charset=utf-8`
 6. Clique em **Enviar** para emitir a chamada REST para Pesquisa do Azure e visualize a resposta JSON.
 
@@ -55,19 +55,19 @@ A seguir falaremos mais do que concluímos na última etapa, emitindo uma chamad
 3. No conteúdo do corpo BRUTO, insira o JSON a seguir:
 
 	    {
-	    "name": "trails", 
+	    "name": "trails",
 	    "fields": [
-	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false}, 
-	    {"name": "name", "type": "Edm.String"}, 
-	    {"name": "county", "type": "Edm.String"}, 
-	    {"name": "elevation", "type": "Edm.Int32"}, 
+	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+	    {"name": "name", "type": "Edm.String"},
+	    {"name": "county", "type": "Edm.String"},
+	    {"name": "elevation", "type": "Edm.Int32"},
 	    {"name": "location", "type": "Edm.GeographyPoint"} ]
 	    }
 
 4. Clique em **Enviar**.
 
 ![][4]
- 
+
 ## Publicação de documentos para um índice de Pesquisa do Azure com o Postman ##
 Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso, publicaremos um grupo de documentos em um lote, usando dados para cinco trilhas do conjunto de dados do USGS (United States Geological Survey - pesquisa geológica dos Estados Unidos):
 
@@ -84,7 +84,7 @@ Agora que o índice é criado, podemos carregar documentos nele. Para fazer isso
 		    {"@search.action": "upload", "id": "1517508", "name": "Cavanaugh-Oso Truck Trail", "county": "Skagit", "elevation":339, "location": { "type": "Point", "coordinates": [-121.9470829,48.2981608] }}
 	      ]
 	    }
-    
+
 4. Clique em **Enviar**.
 
 ![][5]
@@ -95,7 +95,7 @@ A etapa final é consultar o índice e emitir uma solicitação de pesquisa de t
 1. Digite o seguinte na URL: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` usando seu nome de Serviço de Pesquisa. Observe que a URL inclui o parâmetro de consulta `search` e um termo de pesquisa *trilha*.
 2. Altere o tipo de solicitação HTTP para `GET`.
 3. Clique em **Enviar**.
- 
+
 Em Resposta, você deve ver os resultados da pesquisa JSON que retornam da Pesquisa do Azure.
 
 ![][6]
@@ -117,5 +117,6 @@ Você também pode visitar a [Lista de tutoriais e vídeos](https://msdn.microso
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

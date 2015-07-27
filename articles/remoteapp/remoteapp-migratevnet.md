@@ -2,7 +2,6 @@
     pageTitle="Como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure"
     description="Aprenda como migrar de uma coleção híbrida de uma VNET RemoteApp para uma VNET do Azure" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@ Digamos que você já criou uma coleção híbrida de RemoteApp chamada *Coleç�
 
 1.	Na guia **Redes** do [Portal de Gerenciamento](http://manage.windowsazure.com/), criar um VNET chamado *AzureVNET*, usando o mesmo local, a configuração do DNS e espaço de endereço (para pelo menos uma das sub-redes do *AzureVNET*) que você usou para a *RemoteAppVNET*.
 2.	Configure *AzureVNET* para hospedar ou ter conectividade de rede para a implantação do Active Directory ao qual o domínio *ColeçãoOriginal* é integrado.
-3.	Na guia **RemoteApps**, crie uma nova coleção de RemoteApp chamada *NovaColeção*. (Use a opção **Criar com VPN**, e não **Criação rápida**.)
+3.	Na guia **RemoteApps**, crie uma nova coleção de RemoteApp chamada *NovaColeção*. (Use a opção **Criar com VNET**, e não **Criação rápida**.)
 3.	Configure *NovaColeção* para ser implantada em uma sub-rede em *AzureVNET*.
 4.	Configure *NovaColeção* para usar as mesmas informações de imagem e ingresso no domínio que as usadas para *ColeçãoOriginal*.
 5.	Após algumas horas, *NovaColeção* aparecerá na sua lista de coleções com um estado Ativo.
@@ -49,6 +48,6 @@ Alternativamente, se você PRECISA migrar informações do usuário da coleção
 E pronto!
 
 Se você tiver dúvidas ou precisar de ajuda especial, envie um email para [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

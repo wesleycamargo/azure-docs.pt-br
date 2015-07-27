@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Usando a Regressão Linear no Aprendizado de Máquina | Microsoft Azure" 
 	description="Uma comparação dos modelos de regressão linear no Excel e no Estúdio de Aprendizado de Máquina do Azure " 
-	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -57,9 +55,9 @@ Seguimos estas etapas para criar nosso experimento no Azure ML:
 ### Examinar os resultados iniciais
 Inicialmente, o modelo do Excel superou claramente o modelo do Azure ML:
 
-|   |Excel|Azure ML|
+| |Excel|Azure ML|
 |---|:---:|:---:|
-|Desempenho|	|  |
+|Desempenho| | |
 |<ul style="list-style-type: none;"><li>Quadrado R Ajustado</li></ul>| 0,96 |N/D|
 |<ul style="list-style-type: none;"><li>Coeficiente de <br />Determinação</li></ul>|N/D|	0,78<br />(baixa precisão)|
 |Erro Absoluto Médio |	US$ 9,5 milhões|	US$ 19,4 milhões|
@@ -73,30 +71,13 @@ Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientis
 *  Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho.    
 
 ### Mistério resolvido!
-Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Azure ML que obtivemos no Excel:   
+Quando aplicamos as recomendações, atingimos o mesmo desempenho de linha de base no Azure ML que obtivemos no Excel:
 
-|| Excel|Azure ML (Inicial) | Azure ML com Quadrados Mínimos|
-|---|:---: |:---: |:---:|
-| Valor rotulado | Dados Reais (numéricos) |mesmos|mesmos|
-| Aprendiz | Excel -> Análise de Dados -> Regressão| Regressão Linear. | Regressão Linear|
-| Opções de aprendiz|N/D|Padrões|Quadrados Mínimos Comuns<br />L2 = 0,005|
-| Conjunto de Dados|26 linhas, 3 recursos, 1 rótulo. Todos numéricos. |mesmos|mesmos|
-| Divisão: Treinamento| Excel treinado nas primeiras 18 linhas, testado nas últimos 8 linhas. |mesmos|mesmos|
-| Divisão: Teste|Fórmula de regressão do Excel aplicada às últimas 8 linhas|mesmo|mesmo|
-|**Desempenho**||||
-|Quadrado R Ajustado|0,96| N/D||
-|Coeficiente de Determinação|N/A|0,78|0,952049|
-|Erro de Média Absoluta | US$ 9,5 milhões|US$ 19,4 milhões|US$ 9,5 milhões|
-|Erro de Média Absoluta (%)|<span style="background-color: 00FF00;"> 6,03%</span>% |12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
+|| Excel|Azure ML (Inicial) | Azure ML com Quadrados Mínimos| |---|:---: |:---: |:---:| | Valor rotulado | Dados Reais (numéricos) |mesmos|mesmos| | Aprendiz | Excel -> Análise de Dados -> Regressão| Regressão Linear. | Regressão Linear| | Opções de aprendiz|N/D|Padrões|Quadrados Mínimos Comuns<br />L2 = 0,005| | Conjunto de Dados|26 linhas, 3 recursos, 1 rótulo. Todos numéricos. |mesmos|mesmos| | Divisão: Treinamento| Excel treinado nas primeiras 18 linhas, testado nas últimos 8 linhas. |mesmos|mesmos| | Divisão: Teste|Fórmula de regressão do Excel aplicada às últimas 8 linhas|mesmo|mesmo||**Desempenho**|||| |Quadrado R Ajustado|0,96| N/D|| |Coeficiente de Determinação|N/A|0,78|0,952049| |Erro de Média Absoluta | US$ 9,5 milhões|US$ 19,4 milhões|US$ 9,5 milhões| |Erro de Média Absoluta (%)|<span style="background-color: 00FF00;"> 6,03%</span>% |12,2%|<span style="background-color: 00FF00;"> 6,03%</span>|
 
 Além disso, os coeficientes do Excel saíram-se bem em comparação com os pesos de recurso no modelo de treinamento do Azure:
 
-||Coeficientes do Excel|Pesos de Recurso do Azure|
-|---|:---: |:---:|
-| Interceptação/Tendência|19470209,88|19328500|
-|Recurso A|0,832653063|0,834156|
-|Recurso B|11071967,08|11007300|
-|Recurso C|25383318,09|25140800|
+||Coeficientes do Excel|Pesos de Recurso do Azure| |---|:---: |:---:| | Interceptação/Tendência|19470209,88|19328500| |Recurso A|0,832653063|0,834156| |Recurso B|11071967,08|11007300| |Recurso C|25383318,09|25140800|
 
 ## Próximas etapas
 
@@ -158,4 +139,4 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

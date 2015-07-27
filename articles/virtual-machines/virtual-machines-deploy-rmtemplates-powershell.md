@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@ Antes de começar, verifique se que você tem o PowerShell do Azure pronto para 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
+## Noções básicas sobre os Grupos de Recursos e os Modelos do Gerenciador de Recursos do Azure
 
 A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recursos de nuvem (como uma ou mais VMs e contas do armazenamento, um banco de dados SQL ou uma Rede Virtual). Com os Modelos do Gerenciador de Recursos do Azure, é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros de configuração e implantação associados.
 
@@ -1126,4 +1127,4 @@ Você verá informações como estas:
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Processo e Tecnologia de Análises Avançadas em Ação: usando clusters Hadoop em um conjunto de dados da Criteo de 1 TB | Microsoft Azure" 
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um grande conjunto de dados (1 TB) disponível publicamente" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -648,4 +646,4 @@ Isso conclui nossa discussão sobre como lidar com conjuntos de dados em grande 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

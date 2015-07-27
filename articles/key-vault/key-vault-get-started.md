@@ -4,7 +4,8 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
-	manager="mbaldwin"/>
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/04/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
+O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](../../../../pricing/details/key-vault/).
 
 ## Introdução  
-Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure — atualmente na versão de visualização — para criar um contêiner de proteção avançado (um cofre) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele percorre o processo de uso do Windows PowerShell para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
+Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure para criar um contêiner de proteção avançado (um cofre) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele percorre o processo de uso do Windows PowerShell para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
 
 **Tempo estimado para conclusão:** 20 minutos
 
 >[AZURE.NOTE]Este tutorial não inclui instruções de como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre de chave.
 >
->Durante o período de visualização, não é possível configurar A Chave do Cofre do Azure no Portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure.
+>No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure. Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
@@ -32,7 +34,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../pricing/free-trial).
+- Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../../pricing/free-trial).
 - PowerShell do Azure, versão 0.9.1 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 - Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-br/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
@@ -117,7 +119,7 @@ Depois, digite o seguinte para importar a chave do arquivo .PFX, que protege a c
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Por exemplo: **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 
+Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica. 
 
 Para exibir o URI dessa chave, digite:
 
@@ -131,7 +133,7 @@ Em seguida, digite o seguinte:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Por exemplo: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
 
 Para exibir o URI do segredo, digite:
 
@@ -188,7 +190,7 @@ Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você que
 
 ## <a id="HSM"></a>Se quiser usar um HSM (módulo de segurança de hardware) ##
 
-Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs são certificados para o FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
+Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
 Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](../../../pricing/free-trial).
 
@@ -239,11 +241,11 @@ Outros comandos que podem ser úteis para gerenciar o Cofre da Chave do Azure:
 
 ## <a id="next"></a>Próximas etapas ##
 
-Para obter um tutorial sobre como usar o cofre de chave do Azure em um aplicativo Web, consulte [Usar cofre de chave do Azure em um aplicativo Web](key-vault-use-from-web-application.md)
+Para um tutorial de acompanhamento que usa o Cofre da Chave do Azure em um aplicativo Web, consulte [Usar o Cofre da Chave do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
 Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do Azure, consulte [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Para referências de programação, consulte [Referência da API REST do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Referência da API Cliente C# do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para referências de programação, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

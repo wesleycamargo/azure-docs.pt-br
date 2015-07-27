@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,7 +19,7 @@
 
 # Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure
 
-A inclusão de recursos de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure simplificará  fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução no IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O Gerenciador de Recursos do Azure oferece a capacidade de criar um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
+A inclusão de recursos de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução no IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O Gerenciador de Recursos do Azure oferece a capacidade de criar um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
 ## Vantagens da integração de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure
 
@@ -107,6 +108,6 @@ Todos os scripts e a automação que você criou continuarão a funcionar para a
 **As Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure podem ser conectadas a meu circuito do Express Route?**
 
 Não há suporte para isso no momento. Você não pode conectar as Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure a um circuito do Express Route. Haverá suporte para isso no futuro.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

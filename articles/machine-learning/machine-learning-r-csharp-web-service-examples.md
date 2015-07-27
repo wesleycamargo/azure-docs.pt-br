@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace | Azure" 
-	description="Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace" 
+	pageTitle="Exemplos de serviços Web de Aprendizado de Máquina criados com R | Microsoft Azure" 
+	description="Encontre um conjunto útil de exemplos de serviços Web criados com código R e Aprendizado de Máquina e publicado no Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -13,55 +13,64 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="jaymathe"/> 
+	ms.date="06/24/2015" 
+	ms.author="jaymathe"/>
 
 
-#Exemplo de serviços Web criados com R no AM do Azure e publicados no Marketplace
+#Exemplos de serviços Web usando código R no Aprendizado de Máquina do Azure e publicados no Microsoft Azure Marketplace
+
+Neste artigo, os serviços Web de exemplo são criados usando o Aprendizado de Máquina do Azure e publicados no Azure Marketplace. Cada exemplo de serviço Web tem um documento abrangente anexado, incorporando exemplos de conjuntos de dados para testar os serviços e explicando como o usuário pode criar seu próprio serviço semelhante.
+
+No Estúdio de Aprendizado de Máquina do Azure, os usuários podem escrever código R e, com alguns cliques, publicá-lo como um serviço Web para aplicativos e dispositivos o consumirem em todo o mundo.
 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-Com o Studio de aprendizado de máquina do Azure, os usuários podem escrever código R e, com alguns cliques de botão, publicá-lo como um serviço Web para outras pessoas e dispositivos o consumirem em todo o mundo. De produzir calculadoras simples que fornecem funcionalidade de estatística até a criação de um preditor de análise de sentimento de mineração de texto personalizado, por exemplo, usuários do R novos e experientes podem aproveitar a facilidade com que o AM do Azure pode operacionalizar código R. Embora esses serviços Web possam ser consumidos por usuários, potencialmente por meio de um aplicativo móvel ou um site, a finalidade desses serviços Web também é servir como exemplo de como o AM do Azure pode operacionalizar scripts R para fins analíticos e a criação de serviços Web sobre código R.
+Desde produzir calculadoras simples que fornecem funcionalidade de estatística até a criação de um preditor personalizado de análise de sentimento de mineração de texto, por exemplo, os usuários novos e experientes do R podem aproveitar a facilidade com que os usuários de Aprendizado de Máquina do Azure podem operacionalizar o código R. Embora esses serviços Web possam ser consumidos por usuários, potencialmente por meio de um aplicativo móvel ou de um site, a finalidade desses exemplos de serviços Web é mostrar como o Aprendizado de Máquina pode colocar em operação Scripts R para fins analíticos e ser usado para criar serviços Web sobre o código R.
 
-Nesta página, você encontrará um amplo conjunto de exemplo de serviços Web criados usando o AM do Azure e publicados no Microsoft Azure Marketplace. Cada serviço Web tem um documento abrangente anexado, incorporando exemplos de conjuntos de dados para testar os serviços e explicando como o usuário pode criar seu próprio serviço semelhante. 
+Cada exemplo inclui um exemplo de C# para consumo do serviço Web.
 
-![Workflow][1]
 
-Considere os seguintes cenários:
+![Diagrama de código R no Aprendizado de Máquina do Azure: soluções R para os proprietários usarem ou publicarem no Azure Marketplace.][1]
 
-####Cenário 1: Modelo genérico 
+Considere os seguintes cenários.
+
+##Cenário 1: Modelo genérico 
 Um usuário trabalha com um modelo genérico que pode ser aplicado a dados de um novo usuário, como uma previsão básica de dados de série temporal ou um método de R personalizado com análises avançadas. Esse usuário publica o modelo como um serviço Web para que outros possam consumi-lo com seus dados.
 
-* [Classificador binário](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-binary-classifier/)
-* [Modelo de cluster](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-cluster-model/)
-* [Regressão linear multivariada](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-multivariate-linear-regression/)
-* [Ajuste exponencial de previsão](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-forecasting-exponential-smoothing/)
-* [Previsão ETS + STL](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-retail-demand-forecasting/)
-* [ARIMA (Forecasting-AutoRegressive Integrated Moving Average, média móvel integrada de previsão-autorregressão)](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-arima/)
-* [Análise de sobrevivência](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-survival-analysis/)
 
-####Cenário 2: Modelo treinado - dados específicos 
-Um usuário tem dados que fornecem previsões úteis por meio de código R, como uma grande amostra de questionários personalidade agrupados por meio de um algoritmo de médias k para prever os dados da pesquisa de saúde ou tipo de personalidade do usuário que podem ser usados para prever o risco de uma pessoa para câncer pulmão com um pacote R de análise de sobrevivência. O usuário publica os dados por meio de um serviço Web que prevê o resultado de um novo usuário.
 
-####Cenário 3: Modelo treinado - dados genéricos 
-Um usuário possui dados genéricos (por exemplo, um corpus de texto) que permitem desenvolver um serviço Web que pode ser aplicado genericamente a diferentes tipos de cenários e casos de uso.
+* [Classificador binário](machine-learning-r-csharp-binary-classifier.md)
+* [Modelo de cluster](machine-learning-r-csharp-cluster-model.md)
+* [Regressão linear multivariada](machine-learning-r-csharp-multivariate-linear-regression.md)
+* [Previsão - Ajuste exponencial](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+* [Previsão ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+* [ARIMA (Forecasting-AutoRegressive Integrated Moving Average, média móvel integrada de previsão-autorregressão)](machine-learning-r-csharp-arima.md)
+* [Análise de sobrevivência](machine-learning-r-csharp-survival-analysis.md)
 
-* [Análise de sentimento baseada em léxico](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-lexicon-based-sentiment-analysis/)
 
-####Cenário 4: Calculadora avançada 
+##Cenário 2: Modelo treinado – dados específicos 
+Um usuário tem dados que fornecem previsões úteis por meio de código R, como uma grande amostra de questionários de personalidade agrupados por meio de um algoritmo k-means, para prever os dados da pesquisa de saúde ou tipo de personalidade do usuário que podem ser usados para prever o risco de uma pessoa ter câncer de pulmão com um pacote R de análise de sobrevivência. O usuário publica os dados por meio de um serviço Web que prevê o resultado de um novo usuário.
+
+##Cenário 3: Modelo treinado – dados genéricos 
+Um usuário tem dados genéricos (por exemplo, um corpus de texto) que permitem desenvolver um serviço Web e aplicá-lo genericamente a diferentes tipos de cenários e casos de uso.
+
+* [Análise de sentimento baseada em léxico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+
+##Cenário 4: Calculadora avançada 
 Um usuário fornece cálculos avançados ou simulações, que não requerem qualquer modelo treinado ou ajuste de um modelo aos dados do usuário.
 
-* [Diferença no teste de proporções](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-difference-in-two-proportions/)
-* [Pacote de distribuição normal](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-normal-distribution/)
-* [Pacote de distribuição binomial](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-binomial-distribution/)
+* [Diferença no teste de proporções](machine-learning-r-csharp-difference-in-two-proportions.md)
+* [Pacote de distribuição normal](machine-learning-r-csharp-normal-distribution.md)
+* [Pacote de distribuição binomial](machine-learning-r-csharp-binomial-distribution.md)
 
 ##Perguntas frequentes
-Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no marketplace, consulte [aqui](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
-[1]: ./media/machine-learning-r-csharp-web-service-examples/base1.png
+[1]: ./media/machine-learning-r-csharp-web-service-examples/machine-learning-r-code-options-for-using-and-sharing-cloud.png
 
 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=July15_HO2-->

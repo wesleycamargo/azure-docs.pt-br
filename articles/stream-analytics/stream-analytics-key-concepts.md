@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Saiba mais sobre conceitos principais do Stream Analytics | Microsoft Azure" 
 	description="Conheça os conceitos principais do Azure Stream Analytics: os componentes de um trabalho do Stream Analytics, inclusive com entradas e saídas com suporte, configuração do trabalho e métricas." 
-	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok" />
 
 
@@ -32,7 +31,7 @@ Com o Stream Analytics, você pode:
 
 Para obter mais informações, consulte [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md).
 
-Um trabalho do Stream Analytics inclui o seguinte: * uma ou mais fontes de entrada * Uma consulta sobre um fluxo de dados de entrada * Um destino de saída.
+Um trabalho do Stream Analytics inclui o seguinte: - uma ou mais fontes de entrada - uma consulta em um fluxo de dados de entrada - um destino de saída.
 
 
 ## Entradas
@@ -139,10 +138,14 @@ O destino de saída é onde os resultados do trabalho de Stream Analytics serão
 - Armazenamento de tabela do Azure - o armazenamento de tabela do Azure é um repositório de dados estruturado com menos restrições no esquema. Entidades com esquemas diferentes e diferentes tipos podem ser armazenadas na mesma tabela do Azure. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente. Para obter mais informações, consulte [Introdução ao Armazenamento do Azure](../storage/storage-introduction.md) e [Criando uma estratégia de particionamento escalonável para o Armazenamento de tabela do Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Banco de dados SQL do Azure - Esse destino de saída é apropriado para dados relacionais por natureza ou para aplicativos que dependem do conteúdo que está sendo hospedado em um banco de dados.
 
+## Unidades de streaming ##
+Como parte do processo de oferecer uma experiência de desempenho mais previsível aos clientes, o Stream Analytics do Azure usa SUs (Unidades de Streaming) para representar os recursos e a capacidade de executar um trabalho. As SUs fornecem uma maneira de descrever a capacidade de processamento de evento relativa, com base em uma medida combinada de CPU, memória e taxas de leitura e gravação. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência. Cada trabalho do Stream Analytics do Azure requer um mínimo de uma unidade de streaming, o que é o padrão para todos os trabalhos. Para saber mais sobre como selecionar o número correto de SUs para um trabalho, consulte [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 
 ## Trabalhos de escala
 
-Um trabalho do Stream Analytics pode ser dimensionado na configuração de unidades de streaming, que definem a quantidade de poder de processamento de dados recebida por um trabalho. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência. Cada assinatura tem uma cota de 12 unidades de streaming por região a ser alocada em trabalhos nessa região.
+A métrica de utilização de % de SU definida abaixo, é um indicador da necessidade de dimensionar um trabalho do Stream Analytics do Azure. A alta utilização de % de SU pode ser o resultado de uma grande janela em uma consulta, grandes eventos de entrada, grande janela de tolerância inoperante, ou uma combinação dos itens acima. O particionamento da consulta, ou o detalhamento da consulta em mais etapas e o acréscimo de mais SUs na guia de dimensionamento são estratégias para evitar tal condição.
+
+Você pode observar uma utilização de recursos de linha de base mesmo sem eventos de entrada, porque o sistema consome determinada quantidade de recursos. A quantidade de recursos consumidos pelo sistema também pode flutuar ao longo do tempo.
 
 Para obter detalhes, consulte [Trabalhos de Análise de fluxo de escala do Azure](stream-analytics-scale-jobs.md).
 
@@ -156,9 +159,9 @@ Para habilitar o monitoramento de trabalho, o Stream Analytics requer que você 
 ### Métricas
 As métricas a seguir estão disponíveis para monitorar o uso e o desempenho dos trabalhos de Análise de fluxo:
 
+- Utilização % de SU - Um indicador da capacidade de processamento de evento para uma ou mais etapas da consulta. Se esse indicador alcançar 80% ou acima, há grande probabilidade de que o processamento de eventos se atrase ou pare.
 - Erros - O número de mensagens de erro geradas por um trabalho de Stream Analytics.
-- Eventos de entrada - a quantidade de dados recebidos pelo trabalho de Stream Analytics, em termos de 
-- contagem de eventos.
+- Eventos de entrada - A quantidade de dados recebidos pelo trabalho de Stream Analytics, em termos de contagem de eventos de entrada.
 - Eventos de saída - A quantidade de dados enviados pelo trabalho de Stream Analytics para o destino de saída, em termos de contagem de evento.
 - Eventos fora de ordem - O número de eventos recebidos fora de ordem que foram descartados ou que receberam um carimbo de data/hora ajustado, com base na política de fora de ordem.
 - Erros de conversão de dados - O número de erros de conversão de dados gerado por um trabalho de Stream Analytics.
@@ -203,4 +206,4 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

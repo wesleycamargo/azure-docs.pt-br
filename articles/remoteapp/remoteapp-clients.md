@@ -1,9 +1,8 @@
-
 <properties
     pageTitle="Acessando seus aplicativos"
-    description="Saiba quais clientes têm suporte para o RemoteApp e como acessar seus aplicativos."
+    description="Saiba quais clientes têm suporte para o Azure RemoteApp e como acessar seus aplicativos."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2015"
+    ms.date="06/30/2015"
     ms.author="elizapo" />
 
 
 
-# Acessando seus aplicativos
+# Acessando seus aplicativos no Azure RemoteApp
 
-Um a vantagem do RemoteApp é que você pode acessar os aplicativos publicados em qualquer um dos seus dispositivos. Melhor ainda, você pode começar a trabalhar em um dispositivo e transitar sem problemas para um segundo dispositivo e selecioná-lo bem onde parou. Para começar você precisa baixar o cliente apropriado para seu dispositivo e entrar no serviço.
+Uma das vantagens do Azure RemoteApp é que você pode acessar os aplicativos publicados em qualquer um dos seus dispositivos. Melhor ainda, você pode começar a trabalhar em um dispositivo e transitar sem problemas para um segundo dispositivo e selecioná-lo bem onde parou. Para começar você precisa baixar o cliente apropriado para seu dispositivo e entrar no serviço.
 
 Neste tópico, vamos analisar a lista de clientes com suporte atualmente e como baixá-los antes de mostrar como entrar no RemoteApp a partir de cada um dos clientes.
 
@@ -205,5 +204,6 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 8. Isso lhe dará acesso a um conjunto básico de aplicativos para começar com o RemoteApp.
 
 ![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

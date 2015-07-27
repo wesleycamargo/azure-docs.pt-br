@@ -1,4 +1,11 @@
-<properties pageTitle="Use o cofre da chave do Azure em um aplicativo Web | Visão geral" description="Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
+<properties 
+	pageTitle="Use o cofre da chave do Azure em um aplicativo Web | Visão geral" 
+	description="Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web." 
+	services="key-vault" 
+	documentationCenter="" 
+	authors="adamhurwitz" 
+	manager=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="key-vault" 
@@ -125,4 +132,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

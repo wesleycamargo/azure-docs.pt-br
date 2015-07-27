@@ -1,21 +1,21 @@
-<properties title="Deploying Your Own Private Docker Registry on Azure"
-  pageTitle="Implantando seu próprio Registro do Docker privado no Azure"
-  description="Descreve como você pode usar o Registro do Docker para hospedar suas imagens de contêiner no serviço de Armazenamento de Blob do Azure."
-  services="virtual-machines"
-  documentationCenter="virtual-machines"
-  authors="ahmetalpbalkan"
-  editor="squillace"
-  manager="" 
-  tags="" />
+<properties 
+    pageTitle="Implantando seu próprio Registro do Docker privado no Azure"
+    description="Descreve como você pode usar o Registro do Docker para hospedar suas imagens de contêiner no serviço de Armazenamento de Blob do Azure."
+    services="virtual-machines"
+    documentationCenter="virtual-machines"
+    authors="ahmetalpbalkan"
+    editor="squillace"
+    manager=""
+	tags=""/>
 
 <tags
-  ms.service="virtual-machines"
-  ms.devlang="multiple"
-  ms.topic="article"
-  ms.tgt_pltfrm="vm-linux"
-  ms.workload="infrastructure-services"
-  ms.date="06/17/2015" 
-  ms.author="ahmetb" />
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="06/17/2015" 
+    ms.author="ahmetb" />
 
 # Implantando seu próprio Registro do Docker privado no Azure
 
@@ -92,4 +92,4 @@ Depois de configurar o Registro, você o usará novamente. Comece com o [registr
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

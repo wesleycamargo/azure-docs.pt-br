@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Escalonar trabalhos de Análise de fluxo | Azure"
-	description="Saiba como dimensionar trabalhos de análise de fluxo"
+	pageTitle="Dimensionar trabalhos do Stream Analytics para aumentar a produtividade | Microsoft Azure"
+	description="Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho."
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,29 +13,36 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
-# Escalonar trabalhos de Análise de fluxo do Azure
+# Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade #
 
-Aprenda a calcular *Unidades de Streaming* para um trabalho de Análise de fluxo e como escalonar trabalhos de Análise de fluxo configurando partições de entrada, ajustando a definição de consulta e definindo unidades de fluxo de trabalho.
+Aprenda a calcular *unidades de Streaming* para trabalhos do Stream Analytics e como escalonar esses trabalhos configurando partições de entrada, ajustando a definição de consulta e definindo unidades de streaming de trabalho.
 
-Uma definição de trabalho de Análise de fluxo do Azure inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados, a consulta é usada para transformar o fluxo de entrada e a saída é para onde o trabalho envia os resultados do trabalho.
+## Quais são as partes de um trabalho do Stream Analytics? ##
+Uma definição de trabalho de Análise de fluxo do Azure inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados, a consulta é usada para transformar o fluxo de entrada e a saída é para onde são enviados os resultados do trabalho.
 
-Um trabalho requer pelo menos uma fonte de entrada de fluxo de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um Hub de eventos do Barramento de Serviço do Azure ou um armazenamento de Blob do Azure. Para saber mais, consulte [Introdução à análise de fluxo do Azure](stream-analytics-introduction.md), [Introdução ao uso da Análise de fluxo do Azure](stream-analytics-get-started.md) e [Guia do desenvolvedor da Análise de fluxo do Azure](../stream-analytics-developer-guide.md).
+Um trabalho requer pelo menos uma fonte de entrada para streaming de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um Hub de eventos do Barramento de Serviço do Azure ou um armazenamento de Blob do Azure. Para saber mais, consulte [Introdução à análise de fluxo do Azure](stream-analytics-introduction.md), [Introdução ao uso da Análise de fluxo do Azure](stream-analytics-get-started.md) e [Guia do desenvolvedor da Análise de fluxo do Azure](../stream-analytics-developer-guide.md).
 
-O recurso disponível para processar trabalhos de análise de fluxo é medido por uma unidade de transmissão. Cada unidade de transmissão pode fornecer até a taxa de transferência de 1 MB por segundo. Cada trabalho requer um mínimo de uma unidade de transmissão, o que é o padrão para todos os trabalhos. Você pode definir até 50 unidades de streaming para um trabalho de Análise de fluxo usando o Portal do Azure. Cada assinatura do Azure pode ter até 50 unidades de streaming para todos os trabalhos em uma região específica. Para aumentar a unidades de streaming para sua assinatura (até 100 unidades), contate o [Suporte da Microsoft](http://support.microsoft.com).
+## Configurando unidades streaming ##
+Unidades de streaming (SUs) representam os recursos e a capacidade de executar um trabalho no Stream Analytics do Azure. As SUs fornecem uma maneira de descrever a capacidade de processamento de evento relativa, com base em uma medida combinada de CPU, memória e taxas de leitura e gravação. Cada unidade de streaming corresponde a aproximadamente 1MB/segundo de transferência.
 
-O número de unidades de streaming que um trabalho pode utilizar depende da configuração de partição de entradas e da consulta definida para o trabalho. O artigo mostra como calcular e ajustar a consulta para aumentar a taxa de transferência.
+A escolha de quantas SUs são necessárias para um trabalho específico depende da configuração de partição das entradas e a consulta definida para o trabalho. Você pode selecionar até sua cota em unidades de streaming para um trabalho, usando o Portal do Azure. Cada assinatura do Azure por padrão tem uma cota de até 50 unidades de streaming para todos os trabalhos de análise em uma região específica. Para aumentar a unidades de streaming para suas assinaturas, entre em contato com o [Suporte da Microsoft](http://support.microsoft.com).
 
+O número de unidades de streaming que um trabalho pode utilizar depende da configuração de partição de entradas e da consulta definida para o trabalho. Observe também que um valor válido para as unidades de fluxo deve ser usado. Os valores válidos começam em 1, 3, 6 e, em seguida, para cima em incrementos de 6, conforme mostrado abaixo.
 
-## Calcule o máximo de unidades de um trabalho de streaming
+![Dimensionamento de unidade de fluxo do Stream Analytics do Azure][img.stream.analytics.streaming.units.scale]
+
+O artigo mostra como calcular e ajustar a consulta para aumentar a taxa de transferência dos trabalhos de análise.
+
+## Calcule o máximo de unidades de um trabalho de streaming ##
 O número total de unidades de streaming que pode ser usado por um trabalho de Análise de fluxo depende do número de etapas da consulta definida para o trabalho e o número de partições para cada etapa.
 
-### Etapas de uma consulta
+### Etapas de uma consulta ###
 Uma consulta pode ter uma ou mais etapas. Cada etapa é uma subconsulta definida usando a palavra-chave WITH. A única consulta que está fora da palavra-chave WITH também é contada como uma etapa. Por exemplo, a instrução SELECT na consulta a seguir:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -43,13 +50,13 @@ Uma consulta pode ter uma ou mais etapas. Cada etapa é uma subconsulta definida
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 A consulta anterior tem duas etapas.
 
 > [AZURE.NOTE]Este exemplo de consulta será explicado posteriormente neste artigo.
 
-### Uma etapa de partição
+### Uma etapa de partição ###
 
 Particionamento de uma etapa exige as seguintes condições:
 
@@ -59,7 +66,7 @@ Particionamento de uma etapa exige as seguintes condições:
 
 Quando uma consulta for particionada, os eventos de entrada será processado e agregados na partição separada grupos e saídas de eventos são gerados para cada um dos grupos. Se uma agregação combinada é desejável, crie uma segunda etapa não particionado para agregação.
 
-### Calcule o máximo de unidades de um trabalho de streaming
+### Calcule o máximo de unidades de um trabalho de streaming ###
 
 Todas as etapas não particionadas juntas podem escalar verticalmente até seis unidades de streaming de um trabalho de Análise de fluxo. Para adicionar adicionais de streaming de unidades, uma etapa deve ser particionada. Cada partição pode ter seis unidades de streaming.
 
@@ -103,7 +110,7 @@ Todas as etapas não particionadas juntas podem escalar verticalmente até seis 
 <td>24 (18 para as etapas particionadas + 6 para as etapas não particionadas)</td></tr>
 </table>
 
-### Exemplo de escala
+### Exemplo de escala ###
 A consulta a seguir calcula o número de carros passando por uma estação de ligação com três pedágios dentro de uma janela de três minutos. Essa consulta pode ser ampliada para até seis unidades de streaming.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -120,7 +127,7 @@ Quando uma consulta é particionada, os eventos de entrada são processados e ag
 
 Cada uma das partições de Input1 será processada separadamente pela Análise de fluxo e vários registros da contagem de passagem de carros do mesmo pedágio na mesma janela em cascata serão criados. Se a chave de partição de entrada não puder ser alterada, esse problema poderá ser corrigido pela adição de uma etapa adicional sem partição, por exemplo:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -128,14 +135,14 @@ Cada uma das partições de Input1 será processada separadamente pela Análise 
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 Essa consulta pode ser dimensionada até 24 unidades de streaming.
 
->[AZURE.NOTE]Se você estiver associando dois fluxos, certifique-se de que os fluxos são particionados por chave de partição da coluna que você faz as junções e têm o mesmo número de partições em ambos os fluxos.
+>[AZURE.NOTE]Se você estiver unindo dois fluxos, certifique-se de eles sejam particionados por chave de partição da coluna em que você faz as junções e existe o mesmo número de partições em ambos os fluxos.
 
 
-## Configurar a partição do trabalho da Análise de fluxo
+## Configurar a partição do trabalho da Análise de fluxo ##
 
 **Para ajustar a unidade de streaming de um trabalho**
 
@@ -147,7 +154,7 @@ Essa consulta pode ser dimensionada até 24 unidades de streaming.
 ![Análise de fluxo do Azure, configurar a escala do trabalho][img.stream.analytics.configure.scale]
 
 
-## Monitorar o desempenho do trabalho
+## Monitorar o desempenho do trabalho ##
 
 Usando o portal de gerenciamento, você pode acompanhar a taxa de transferência de um trabalho de eventos por segundo:
 
@@ -155,7 +162,7 @@ Usando o portal de gerenciamento, você pode acompanhar a taxa de transferência
 
 Calcule a taxa de transferência esperada da carga de trabalho de eventos por segundo. Caso a taxa de transferência seja menor do que o esperado, ajuste a partição de entrada e a consulta e adicione unidades de streaming ao seu trabalho.
 
-##Taxa de transferência ASA em escala - cenário no Raspberry Pi
+## Taxa de transferência ASA em escala - cenário no Raspberry Pi ##
 
 
 Para entender como o ASA é dimensionado em um cenário típico em termos da taxa de transferência de processamento em várias unidades de streaming, este é um experimento em que dados de sensor (clientes) são enviados para o Hub de eventos, o ASA os processa e envia alertas ou estatísticas como uma saída para outro Hub de eventos.
@@ -220,11 +227,11 @@ Abaixo estão os resultados com o aumento do número de unidades de streaming e 
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## Obter ajuda
+## Obter ajuda ##
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
-## Próximas etapas
+## Próximas etapas ##
 
 - [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 - [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
@@ -238,6 +245,7 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
+[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 
 <!--Link references-->
 
@@ -246,10 +254,10 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

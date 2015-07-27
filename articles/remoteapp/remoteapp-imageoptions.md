@@ -1,8 +1,7 @@
 <properties 
-    pageTitle="Criar uma imagem do RemoteApp"
+    pageTitle="Criar uma imagem de RemoteApp do Azure"
     description="Saiba mais sobre as opções disponíveis para a criação de imagens para RemoteApp" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,12 +12,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/08/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
 
-# Criar uma imagem do RemoteApp
+# Criar uma imagem de RemoteApp do Azure
 
 O Azure RemoteApp usa imagens para manter os aplicativos que você compartilha com seus usuários. Para criar uma coleção do RemoteApp com sua escolha de aplicativos, seja ela de nuvem ou híbrida, você começa criando uma imagem com os aplicativos instalados. Em seguida, crie uma coleção que usa essa imagem, atribua usuários à coleção e publique aplicativos aos usuários.
 
@@ -31,6 +30,6 @@ Você tem as seguintes opções quando se trata de imagens:
 - Você pode usar uma das [imagens de modelo](remoteapp-images.md) incluídas na sua assinatura do RemoteApp. Essas imagens são criadas e mantidas pela equipe do RemoteApp e contêm alguns aplicativos padrão (como o pacote do Office) que você pode disponibilizar para os usuários. Observe que apenas a imagem do Office 365 Pro Plus pode ser usada em um ambiente de produção.
 
 Independentemente de onde obter sua imagem ou como criá-la, convém certificar-se de que você entende os [requisitos de aplicativo](remoteapp-appreqs.md) para garantir que seu aplicativo funcione bem no RemoteApp. Em seguida, a próxima etapa é criar uma coleção de [nuvem](remoteapp-create-cloud-deployment.md) ou [híbrida](remoteapp-create-hybrid-deployment.md).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

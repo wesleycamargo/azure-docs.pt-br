@@ -5,8 +5,7 @@
    documentationCenter="" 
    authors="HeidiSteen" 
    manager="mblythe" 
-   editor=""
-   tags="azure-portal"/>
+   editor=""/>
 
 <tags
    ms.service="search"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="04/27/2015"
+   ms.date="07/08/2015"
    ms.author="heidist"/>
 
 # Monitorar o uso e as estatísticas em um serviço de Pesquisa do Azure
@@ -55,5 +54,6 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
