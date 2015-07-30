@@ -3,7 +3,9 @@
 
 	![Captura de tela do Portal de Visualização do Azure, destacando o botão Novo, Dados + Armazenamento na folha Criar e o Banco de Dados de Documentos do Azure na folha Dados + Armazenamento][1]
 
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
+	
+	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. Na folha **Nova conta do Banco de Dados de Documentos**, especifique a configuração desejada para a conta do Banco de Dados de Documentos.
@@ -21,17 +23,18 @@
  
 	- Use **Local** para especificar a localização geográfica na qual hospedar a sua conta do Banco de Dados de Documentos.
 
-4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para que a conta do Banco de Dados de Documentos seja criada. Para verificar o status, você pode monitorar o progresso no quadro inicial. ![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online][4]
+4.	Após as opções da nova conta do Banco de Dados de Documentos serem configuradas, clique em **Criar**. Pode levar alguns minutos para que a conta do Banco de Dados de Documentos seja criada. Para verificar o status, você pode monitorar o progresso no quadro inicial.  
+	![Captura de tela do bloco Criando no quadro inicial - criador de banco de dados online][4]  
   
 	Ou então, você pode monitorar o progresso do hub de notificações.
 
-	![Criar bancos de dados rapidamente - Captura de tela do hub Notificações, mostrando que a conta do Banco de Dados de Documentos está sendo criada - Notificação do criador de banco de dados online][5]
+	![Criar bancos de dados rapidamente - Captura de tela do hub Notificações, mostrando que a conta do Banco de Dados de Documentos está sendo criada - Notificação do criador de banco de dados online][5]  
 
 	![Captura de tela do hub de notificações, mostrando que a conta do Banco de Dados de Documentos foi criada com êxito e implantada em um grupo de recursos][6]
 
 5.	Após criar a conta do Banco de Dados de Documentos, ele está pronto para uso com as configurações padrão no portal online. Observe que a consistência padrão da conta do Banco de Dados de Documentos será definida como **Sessão**. Você pode ajustar a configuração de consistência padrão clicando no bloco **Consistência padrão** na folha da **Conta do Banco de Dados de Documentos**.
 
-    ![Captura de tela da lâmina Grupo de recursos][7]
+    ![Captura de tela da lâmina Grupo de recursos][7]  
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -46,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
