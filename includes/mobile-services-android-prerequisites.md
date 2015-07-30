@@ -4,8 +4,8 @@ Este tutorial se baseia no código que você baixa no Guia de início rápido do
 
 
 <!-- URLs. 
-[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[Introdução aos Serviços Móveis]: ../articles/mobile-services-android-get-started.md
+[Adicionar Serviços Móveis a um aplicativo existente]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!---HONumber=July15_HO3-->
+<!-----HONumber=July15_HO3-->

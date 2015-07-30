@@ -127,7 +127,8 @@ O projeto **AdventureWorksWebGeo** nos mostra como o ASP.NET MVC 4 pode ser usad
 
 +	A função **Pesquisa** recupera os locais de lojas que são então recebidos como PushPins para o mapa do Bing.
 
-4.	Abra o HomeController.cs em **Controladores** e examine a função **Pesquisa**. Observe como a chamada é feita para __storeSearch.Search(lat, lon, 10000). Isso fará que uma consulta seja executada para encontrar todas as lojas a uma distância de 10.000 Km da latitude (lat) e longitude (lon) especificadas. Os resultados dessa consulta são processados e depois enviados de volta para a exibição Index para serem processados como PushPins sobrepostos ao Bing Mapas. 
+4.	Abra o HomeController.cs em **Controladores** e examine a função **Pesquisa**. Observe como a chamada é feita para __storeSearch.Search(lat, lon, 10000). Isso fará que uma consulta seja executada para encontrar todas as lojas a uma distância de 10.000 Km da latitude (lat) e longitude (lon) especificadas. Os resultados dessa consulta são processados e depois enviados de volta para a exibição Index para serem processados como PushPins sobrepostos ao Bing Mapas.
+
 Isso conclui a demonstração. Você percorreu agora as operações principais que precisará conhecer antes desenvolver um mapa baseado no aplicativo ASP.NET MVC4 usando a Pesquisa do Azure.
 
 

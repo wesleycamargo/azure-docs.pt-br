@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET" 
-	description="Saiba como usar alguns dos clientes disponíveis nas bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure." 
+	description="Saiba como usar alguns dos clientes disponíveis nas bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure" 
 	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 

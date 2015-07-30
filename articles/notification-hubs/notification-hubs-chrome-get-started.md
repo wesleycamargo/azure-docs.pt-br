@@ -369,7 +369,16 @@ O aplicativo Chrome é criado usando JavaScript e você pode usar qualquer de se
 		  }
 		}
 
-	O script a seguir tem as seguintes observações: - *window.onload* define os eventos de clique de botão dos dois botões na interface do usuário - um registra com GCM e o outro usa a ID de registro retornada após o registro com o GCM para se registrar com os Hubs de Notificação do Azure. - A função *updateLog* define uma função simples de log. - *registerWithGCM* é o primeiro manipulador de clique de botão que faz *chrome.gcm.register* chamar GCM para regisrar essa instância do aplicativo do Chrome App. - *registerCallback* é a função de retorno de chamada que é chamada quando a chamada de registro GCM acima retorna. - *registerWithNH* é o segundo manipulador de cliques botão que registra com Hubs de Notificação. Obtém o *hubName* e *connectionString* que o usuário especificou e monta a chamada de API de REST do registro de Hubs de notificação. - *splitConnectionString* e *generateSaSToken* são a implementação de Javascript da criação de um token SaS que deve ser enviado em todas as chamadas da API REST. Mais sobre isso aqui - http://msdn.microsoft.com/library/dn495627.aspx - *sendNHRegistrationRequest* é a função que faz a chamada HTTP REST. - *registrationPayload* define a carga xml de registro. Mais informações sobre isso aqui - [Criar o registro da API REST NH]. Nós atualizamos a ID do registro nelae com o que recebemos do GCM. - *client* é uma instância de *XMLHttpRequest* que usamos para fazer a solicitação HTTP POST. Observe que podemos atualizar o cabeçalho *Authorization* com o sasToken. A conclusão bem-sucedida dessa chamada registrará essa instância do aplicativo Chrome com os Hubs de notificação do Azure.
+	O script a seguir tem as seguintes observações:
+	- *window.onload* define os eventos de clique de botão dos dois botões na interface do usuário - um registra com GCM e o outro usa a ID de registro retornada após o registro com o GCM para se registrar com os Hubs de Notificação do Azure.
+	- A função *updateLog* define uma função simples de log.
+	- *registerWithGCM* é o primeiro manipulador de clique de botão que faz *chrome.gcm.register* chamar GCM para regisrar essa instância do aplicativo do Chrome App.
+	- *registerCallback* é a função de retorno de chamada que é chamada quando a chamada de registro GCM acima retorna.
+	- *registerWithNH* é o segundo manipulador de cliques botão que registra com Hubs de Notificação. Obtém o *hubName* e *connectionString* que o usuário especificou e monta a chamada de API de REST do registro de Hubs de notificação.
+	- *splitConnectionString* e *generateSaSToken* são a implementação de Javascript da criação de um token SaS que deve ser enviado em todas as chamadas da API REST. Mais sobre isso aqui - http://msdn.microsoft.com/library/dn495627.aspx
+	- *sendNHRegistrationRequest* é a função que faz a chamada HTTP REST.
+	- *registrationPayload* define a carga xml de registro. Mais informações sobre isso aqui - [Criar o registro da API REST NH]. Nós atualizamos a ID do registro nelae com o que recebemos do GCM.
+	- *client* é uma instância de *XMLHttpRequest* que usamos para fazer a solicitação HTTP POST. Observe que podemos atualizar o cabeçalho *Authorization* com o sasToken. A conclusão bem-sucedida dessa chamada registrará essa instância do aplicativo Chrome com os Hubs de notificação do Azure.
 
 
 8. Você verá o seguinte modo de exibição para a pasta no final deste: ![][21]

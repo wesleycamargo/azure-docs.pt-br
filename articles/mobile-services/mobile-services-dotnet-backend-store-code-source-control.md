@@ -98,9 +98,9 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-ios-get-started.md
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!----HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->
