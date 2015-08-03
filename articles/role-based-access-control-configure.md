@@ -140,7 +140,7 @@ Você pode também remover um convidado de qualquer função, simplesmente como 
 
 ## Como controlar alterações nas atribuições de função
 
-Alterações de atribuições de função são registrados nos [logs de auditoria](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) de forma semelhante a outros eventos. O log de alterações de atribuição de função pode ser recuperado usando o [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) ou a [API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx).
+As alterações de atribuições de função são registradas nos [Logs de auditoria](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) de forma semelhante a outros eventos. O log de alterações de atribuição de função pode ser recuperado usando o [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) ou a [API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx).
 
 Por exemplo, para recuperar a lista de alterações de atribuição de função de uma assinatura inteira, execute os dois cmdlets a seguir com o Azure PowerShell. O primeiro alterna para o modo do Gerenciador de Recursos do Azure.
 
@@ -148,7 +148,7 @@ Por exemplo, para recuperar a lista de alterações de atribuição de função 
 
 `Get-AzureSubscriptionIdLog –DetailedOutput -StartTime '06-15-15' -EndTime '06-29-15'`
 
-Alterações de atribuição de função são capturadas em eventos nos quais ResourceProviderName é `Microsoft.Authorization`. Os detalhes reais da atribuição são capturados nos detalhes do evento: qual entidade de segurança foi atribuída, a qual função, para qual escopo. As alterações de atribuição de função são visíveis ao navegar pelos logs de auditoria no portal, mas o portal não mostra os detalhes do evento. Para exibir detalhes do evento, você deve usar o Azure PowerShell.
+As alterações de atribuição de função são capturadas em eventos nos quais ResourceProviderName é `Microsoft.Authorization`. Os detalhes reais da atribuição são capturados nos detalhes do evento: qual entidade de segurança foi atribuída, a qual função, para qual escopo. As alterações de atribuição de função são visíveis ao navegar pelos logs de auditoria no portal, mas o portal não mostra os detalhes do evento. Para exibir detalhes do evento, você deve usar o Azure PowerShell.
 
 ###Detalhes do evento
 
@@ -231,7 +231,7 @@ As informações do evento são interpretadas da seguinte maneira:
 | Campo | Valor | Detalhes |
 | --- | --- | --- |
 | Chamador |	`William.Hennum@contoso.com` | A entidade de segurança que fez a atribuição de função. A entidade de segurança pode ser um usuário, um grupo ou uma entidade de serviço.
-| Método HttpRequest: | `PUT` | A ação executada. PUT concede uma atribuição e DLETE remove uma atribuição. |
+| Método HttpRequest: | `PUT` | A ação executada. PUT concede uma atribuição e DELETE remove uma atribuição. |
 | Propriedades: PrincipalId | `dda50086-5e3d-4a4b-b8bc-f54771104d89` | 	A ID de objeto da entidade de segurança que foi atribuída à função. A entidade de segurança pode ser um usuário, um grupo ou uma entidade de serviço. Você pode determinar o nome e o tipo da entidade de segurança pesquisando no Active Directory do Azure usando o Azure PowerShell. |
 | Propriedades: RoleDefinitionId |	`/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7	` | A função que foi atribuída. Você pode determinar o nome de exibição da função usando o Azure PowerShell. |
 | Propriedades: Scope | `/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes` |	O recurso no qual foi feita a atribuição de função. Pode ser um recurso, um grupo de recursos ou uma assinatura. |
@@ -1293,4 +1293,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

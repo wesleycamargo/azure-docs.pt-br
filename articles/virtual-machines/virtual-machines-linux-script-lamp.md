@@ -107,4 +107,4 @@ Estes são alguns recursos adicionais para o Azure CLI, Linux e a extensão Cust
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -36,6 +36,10 @@ Este tutorial exige o seguinte:
 * Visual Studio 2013
 * [Extensão Xamarin] do Visual Studio **ou** [Xamarin Studio em OS X]
 
+##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## Examinar o código de sincronização do aplicativo móvel
 
 A sincronização offline do aplicativo móvel permite aos usuários finais interagirem com um banco de dados local quando a rede não está acessível. Para usar esses recursos em seu aplicativo, você deve inicializar `MobileServiceClient.SyncContext` para um repositório local. Em seguida, faça referência à sua tabela por meio da interface da `IMobileServiceSyncTable`. Esta seção orienta você quanto ao código relacionado à sincronização offline em `QSTodoService.cs`.
@@ -166,4 +170,4 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [Extensão Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

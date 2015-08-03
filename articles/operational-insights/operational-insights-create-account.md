@@ -40,4 +40,4 @@ Para saber mais sobre a introdução ao Insights Operacionais, consulte:
 
 - [Instalar e configurar o seu espaço de trabalho](operational-insights-setup-workspace.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

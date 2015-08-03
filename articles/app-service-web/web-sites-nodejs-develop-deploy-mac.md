@@ -28,8 +28,7 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 Siga estas etapas para criar um aplicativo Web e habilitar a publicação Git.
 
-> [AZURE.NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/pt-br/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
@@ -98,8 +97,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 		git init
 
-	> [AZURE.NOTE]**Comando Git indisponível?**
-	[O Git](http://git-scm.com/%20target="_blank) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Para obter instruções de instalação para sua plataforma, consulte [a página de download do Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**Comando Git indisponível?** [O Git](http://git-scm.com/%20target="_blank) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Para obter instruções de instalação para sua plataforma, consulte [a página de download do Git](http://git-scm.com/download%20target="_blank").
 
 2. Use os comandos a seguir para adicionar arquivos ao repositório:
 
@@ -151,7 +149,7 @@ Nesta seção, você criará um arquivo **server.js** contendo o exemplo 'hello 
 
 4. Você pode reverter para a implantação anterior selecionando-a em **Implantações**.
 
->[AZURE.NOTE] Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ##Próximas etapas
 
@@ -198,4 +196,4 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

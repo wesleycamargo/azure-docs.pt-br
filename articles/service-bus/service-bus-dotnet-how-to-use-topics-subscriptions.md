@@ -43,7 +43,7 @@ Agora você está pronto para escrever código para o Barramento de Serviço.
 
 ## Como configurar uma cadeia de conexão do Barramento de Serviço
 
-O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração em vez de embuti-la no código:
+O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração, em vez de embuti-la no código:
 
 - Ao usar os Serviços de Nuvem do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos ***.csdef** e ***.cscfg**).
 - Ao usar Sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, arquivo **Web.config**).
@@ -77,7 +77,7 @@ Em seguida, especifique valores no arquivo de configuração do serviço (***.cs
     ...
     </ServiceConfiguration>
 
-Use o nome da chave da Assinatura de Acesso Compartilhado (SAS) e os valores de chave recuperados do Portal de Gerenciamento, conforme descrito na seção anterior.
+Use o nome da chave da Assinatura de Acesso Compartilhado (SAS) e os valores de chave recuperados do portal de gerenciamento, conforme descrito na seção anterior.
 
 ### Configurando a cadeia de conexão ao usar Sites ou Máquinas Virtuais
 
@@ -238,7 +238,7 @@ O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {
@@ -301,4 +301,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

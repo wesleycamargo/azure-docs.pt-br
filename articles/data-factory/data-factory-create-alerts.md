@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Criação de alertas em eventos do Azure
@@ -109,62 +109,16 @@ Para recuperar a lista de implantações do grupo de recursos do Azure já impla
 
 ## <a name="AvailableOperationsStatuses"></a>Valores de status e nomes de operação disponíveis
 
-<table>
-<th align="left">Nome de operação</th>
-<th align="left">Status</th>
-<th align="left">Sub Status</th>
+| Nome de operação | Status | Sub Status |
+| -------------- | ------ | ---------- |
+| RunStarted | Iniciado | Iniciando |
+| RunFinished | Êxito/falha |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
+| SliceOnTime | Em Andamento | OnTime |
+| SliceDelayed | Em Andamento | Atrasado |
+| OnDemandClusterCreateStarted | Iniciado | |
+| OnDemandClusterCreateSuccessful | Bem-sucedido | | 
+| OnDemandClusterDeleted | Bem-sucedido | |
 
-<tr>
-<td>RunStarted</td>
-<td>Iniciado</td>
-<td>Iniciando</td>
-</tr>
-
-<tr>
-<td>RunFinished</td>
-<td>Falhou / Bem-sucedido</td>
-<td>
-	<p>FailedResourceAllocation </p>
-	<p>Bem-sucedido</p>
-	<p>FailedExecution</p>
-	<p>TimedOut</p>
-	<p>Cancelado</p>
-	<p>FailedValidation</p>
-	<p>Abandonado</p>
-</td>
-</tr>
-
-<tr>
-<td>SliceOnTime</td>
-<td>Em Andamento</td>
-<td>OnTime</td>
-</tr>
-
-<tr>
-<td>SliceDelayed</td>
-<td>Em Andamento</td>
-<td>Atrasado</td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateStarted</td>
-<td>Iniciado</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateSuccessful</td>
-<td>Bem-sucedido</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterDeleted</td>
-<td>Bem-sucedido</td>
-<td></td>
-</tr>
-
-</table>
 
 ## Solucionando problemas de eventos de usuário
 Execute o comando a seguir para ver os eventos gerados:
@@ -172,4 +126,4 @@ Execute o comando a seguir para ver os eventos gerados:
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

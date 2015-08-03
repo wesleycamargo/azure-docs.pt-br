@@ -230,4 +230,4 @@ A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em disposit
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

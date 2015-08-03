@@ -12,7 +12,7 @@ O restante deste documento fornece detalhes sobre como habilitar HTTPS para dom�
 
 ##<a name="bkmk_domainname"></a>Habilitar SSL para seu domínio personalizado
 
-Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve primeiro registrar um nome de domínio personalizado com um registrador de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de um aplicativo Web, consulte [Configurando um nome de domínio personalizado para um site do Azure](/pt-br/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu aplicativo Web para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio.
+Para habilitar HTTPS para um nome de domínio personalizado, como **contoso.com**, você deve primeiro registrar um nome de domínio personalizado com um registrador de nomes de domínio. Para obter mais informações sobre como configurar o nome de domínio de um aplicativo Web, consulte [Configurando um nome de domínio personalizado para um site do Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/). Depois de registrar o nome de domínio personalizado e configurar seu aplicativo Web para responder ao nome personalizado, você deve solicitar um certificado SSL para o domínio.
 
 > [AZURE.NOTE]Para habilitar HTTPS para nomes de domínio personalizados, você deve configurar seu aplicativo Web em modo **Padrão**. Isso pode resultar em custos adicionais se você estiver usando modo Gratuito ou Compartilhado. Para obter mais informações sobre preços dos modos Compartilhado e **Padrão**, consulte [Detalhes de Preços][pricing].
 
@@ -164,7 +164,7 @@ Agora você pode carregar o arquivo PFX exportado aplicativo Web do Azure.
 
 5. Na sessão de linha de comando, Bash ou terminal, use o seguinte comando para converter o **myserver.key** e **myserver.crt** em **myserver.pfx**, que é o formato exigido pelo Serviço de Aplicativo do Azure:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Quando solicitado, digite uma senha para proteger o arquivo.pfx.
 
@@ -541,4 +541,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

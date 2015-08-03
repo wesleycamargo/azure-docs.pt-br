@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Solucionar problemas de configuração do cluster de desenvolvimento local
@@ -85,6 +85,5 @@ Verifique se você não possui um projeto de serviço definido como projeto de i
 
 - [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizando o cluster com o Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

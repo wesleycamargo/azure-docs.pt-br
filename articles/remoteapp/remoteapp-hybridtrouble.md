@@ -3,7 +3,7 @@
     pageTitle="Solucionar problemas na criação de coleções híbridas do RemoteApp"
     description="Saiba como solucionar problemas de falhas de criação de coleção híbrida do RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Ainda não criou sua coleção? Confira [Criar uma coleção híbrida](remoteapp
 Se estiver enfrentando problemas para criar sua coleção, ou se a coleção não está funcionando como você acha que deveria, verifique as informações a seguir.
 
 ## A sua VNET usa túnel forçado? ##
-O RemoteApp atualmente não dá suporte ao uso de VNETs que tem habilitada a opção de túnel forçado. Se você precisar dessa função, contate a equipe do RemoteApp para solicitar ajuda.
+O RemoteApp atualmente não dá suporte ao uso de VNETs que tem habilitada a opção de túnel forçado. Se você precisar dessa função, contate a [equipe do RemoteApp](mailto:remoteappforum@microsoft.com) para solicitar ajuda.
 
 Depois que a solicitação for aprovada, verifique se as portas a seguir estão abertas na sub-rede que você escolheu para o RemoteApp do Azure e para as VMs na sub-rede. As VMs em suas sub-redes também devem ser capazes de acessar as URLs mencionadas na seção sobre grupos de segurança de rede.
 
@@ -70,8 +70,6 @@ Por exemplo:
 
 ![Definir o DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-Para saber mais, confira [Resolução de nome usando seu próprio servidor DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## Você está usando um controlador de domínio do Active Directory em sua coleção? ##
 No momento, somente um domínio do Active Directory pode ser associado ao RemoteApp do Azure. A coleção híbrida dá suporte somente às contas do Active Directory do Azure que foram sincronizadas usando a ferramenta DirSync de uma implantação do Active Directory do Windows Server. Mais especificamente, sincronizado com a opção de Sincronização de Senha ou com federação dos Serviços de Federação do Active Directory (AD FS) configurada. Você precisa criar um domínio personalizado que coincide com o sufixo de domínio para seu domínio local e configurar a integração de diretório.
 
@@ -83,4 +81,4 @@ Verifique se os detalhes do domínio fornecidos são válidos e se o controlador
 
 O nome de domínio criado ou adicionado deve ser um nome de domínio interno (não o seu nome de domínio do Azure AD) e deve estar no formato DNS resolvível (contoso. local). Por exemplo, você tem um nome interno do Active Directory (Contoso) e um UPN do Active Directory (contoso.com): deve, então, usar o nome interno ao criar sua coleção.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

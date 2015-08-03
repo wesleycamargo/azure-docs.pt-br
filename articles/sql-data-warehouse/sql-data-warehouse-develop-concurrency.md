@@ -60,7 +60,7 @@ As funções são:
 - largerc
 - xlargerc
 
-Por padrão, cada usuário é um membro da classe de recurso pequena - smallrc. No entanto, qualquer usuário pode ser adicionado a uma ou mais das classes com mais recursos. O SQL Data Warehouse considerará a associação de função mais alta para a execução da consulta. Adicionar um usuário a uma classe de recurso maior aumentará os recursos para o usuário, mas também consumirá mais slots de simultaneidade, potencialmente limitando a simultaneidade. Isso é devido ao fato de que, à medida que mais recursos são alocados para uma consulta, o sistema precisa para limitar os recursos consumidos por outros usuários. Não há nenhum bônus.
+Por padrão, cada usuário é um membro da pequena classe de recurso - smallrc. No entanto, qualquer usuário pode ser adicionado a uma ou mais das classes com mais recursos. O SQL Data Warehouse considerará a associação de função mais alta para a execução da consulta. Adicionar um usuário a uma classe de recurso maior aumentará os recursos para o usuário, mas também consumirá mais slots de simultaneidade, potencialmente limitando a simultaneidade. Isso é devido ao fato de que, à medida que mais recursos são alocados para uma consulta, o sistema precisa para limitar os recursos consumidos por outros usuários. Não há nenhum bônus.
 
 O recurso mais importante regido pela classe de recurso maior é a memória. A maioria das tabelas do data warehouse de qualquer tamanho significativo usam índices columnstore clusterizados. Embora isso geralmente forneça o melhor desempenho para cargas de trabalho de data warehouse, mantê-los é uma operação que demanda uso intensivo de memória. Geralmente é muito útil usar as classes de recursos mais elevadas para operações de gerenciamento de dados, como a recriação de índice.
 
@@ -145,16 +145,16 @@ Esses 8 grupos mapeiam entre o consumo de slot de simultaneidade
 | SloDWGroupC06 | 64 | Alto |
 | SloDWGroupC07 | 128 | Alto |
 
-Assim, por exemplo, se DW500 é a configuração atual de DWU para o SQL Data Warehouse, em seguida, os grupos de cargas de trabalho ativos são mapeados para as classes do recurso da seguinte maneira:
+Assim, por exemplo, se DW500 é a configuração atual de DWU para o SQL Data Warehouse, os grupos de cargas de trabalho ativos são mapeados para as classes do recurso da seguinte maneira:
 
-| Classe de recurso | Grupo de carga de trabalho | Máximo de slots simultâneos | Importância |
+| Classe de recurso | Grupo de carga de trabalho | Slots simultâneos usados | Importância |
 | :------------- | :------------- | :---------------------   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | Média |
 | mediumrc | SloDWGroupC02 | 4 | Média |
 | largerc | SloDWGroupC03 | 8 | Média |
 | xlargerc | SloDWGroupC04 | 16 | Alto |
 
-Para examinar as diferenças na alocação de recurso de memória em detalhes da perspectiva do administrador de recursos, use a seguinte consulta:
+Para examinar as diferenças na alocação de recursos de memória em detalhes da perspectiva do administrador de recursos, use a seguinte consulta:
 
 ```
 WITH rg
@@ -199,7 +199,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]A consulta acima também pode ser usada para analisar o uso ativo e histórico dos grupos de carga de trabalho na solução de problemas
+> [AZURE.NOTE]A consulta acima também pode ser usada para analisar o uso ativo e histórico dos grupos de carga de trabalho na solução de problemas.
 
 ## Exemplos de gerenciamento de carga de trabalho
 
@@ -213,9 +213,9 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]é uma boa ideia criar usuários para seus logons no banco de dados mestre ao trabalhar com o banco de dados SQL do Azure e SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em mestre para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No banco de dados SQL do Azure e SQL Data Warehouse essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente para o SQL Server. Para obter mais detalhes, consulte o artigo [Gerenciando bancos de dados e logons no banco de dados SQL do Azure] para obter mais detalhes.
+[AZURE.NOTE]é recomendável criar usuários para seus logons no banco de dados mestre ao trabalhar com o Banco de Dados SQL do Azure e SQL Data Warehouse. Há duas funções de servidor disponíveis nesse nível que exigem que o logon tenha um usuário em mestre para conceder a associação. As funções são `Loginmanager` e `dbmanager`. No Banco de Dados SQL do Azure e SQL Data Warehouse, essas funções concedem direitos para gerenciar logons e criar bancos de dados. Isso é diferente para o SQL Server. Para obter mais detalhes, consulte o artigo [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure] para obter mais detalhes.
  
-Depois que o logon foi criado, conta de usuário deve ser adicionada.
+Depois que o logon for criado, a conta de usuário deve ser adicionada.
 
 Abra uma conexão com o banco de dados do SQL Data Warehouse e execute o seguinte comando:
 
@@ -252,7 +252,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 > [AZURE.NOTE]Não é possível remover um usuário de smallrc.
 
-Para ver quais usuários são membros de uma determinada função, use a seguinte consulta:```
+Para ver quais usuários são membros de uma determinada função, use a seguinte consulta: ```
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -373,8 +373,8 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gerenciando bancos de dados e logons no banco de dados SQL do Azure]: https://msdn.microsoft.com/pt-br/library/azure/ee336235.aspx
+[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

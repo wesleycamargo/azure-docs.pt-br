@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # Sobre gateways de VPN
@@ -51,7 +51,7 @@ A seguir, os dois tipos de gateways:
 A tabela a seguir lista os requisitos para os gateways de VPN estáticos e dinâmicos.
 
 
-| **Propriedade** | **Gateway de VPN de roteamento estático** | **Gateway de VPN de roteamento dinâmico** | **Gateway de VPN padrão** | **Gateway VPN de alto desempenho** |
+| **Propriedade** | **Gateway de VPN de roteamento estático** | **Gateway de VPN de roteamento dinâmico** | **Gateway de VPN padrão** | **Gateway de VPN de alto desempenho** |
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
 | Conectividade site a site (S2S) | Configuração de VPN baseada em política | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota | Configuração de VPN baseada em rota |
 | Conectividade ponto a site (P2S) | Sem suporte | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) | Com suporte (pode coexistir com S2S) |
@@ -71,12 +71,12 @@ Configure sua rede virtual. Para conexões entre locais, consulte os seguintes a
 - [Configurar uma conexão VPN ponto a site para a Rede Virtual do Azure](vpn-gateway-point-to-site-create.md)
 - [Configurar uma VPN site a site usando o Serviço de Roteamento e Acesso Remoto (RRAS) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
-Se você desejar configurar um gateway de VPN, veja [Configure um gateway de VPN](http://go.microsoft.com/fwlink/p/?LinkId=615106).
+Se você desejar configurar um gateway de VPN, veja [Configure um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md).
 
-Se você quiser alterar o tipo de gateway de VPN, veja [Alterar um tipo de gateway de VPN de rede virtual](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+Se você quiser alterar o tipo de gateway de VPN, consulte [Alterar um tipo de roteamento de gateway de VPN de rede virtual](vpn-gateway-configure-vpn-gateway-mp.md).
 
 Se você quiser conectar vários sites a uma rede virtual, veja [Conectar vários sites locais a uma rede virtual](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

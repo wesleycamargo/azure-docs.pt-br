@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #Atualizar o banco de dados no local e implantar o Banco de Dados SQL do Azure
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Use essa Opção quando a migração de um banco de dados para o Banco de Dados SQL do Azure V12 exigir alterações de esquema que não podem ser realizadas usando o SQL Azure Migration Wizard (SAMW). Isso ocorrerá se o banco de dados usar recursos do SQL Server que não recebem, ou ainda não recebem, suporte no SQL do Azure. Nessa Opção, o Visual Studio é usado primeiro para criar um projeto de banco de dados do banco de dados de origem. Em seguida, a plataforma de destino do projeto é definida como o Banco de Dados SQL do Azure V12 e o projeto é criado a fim de identificar todos os problemas de compatibilidade. O SAMW pode corrigir muitos problemas de compatibilidade, mas não todos. Portanto, ele é usado para processar todos os scripts nos projetos como uma primeira passagem. O uso do SAMW é opcional, mas  
-altamente recomendado. A compilação do projeto após o processamento dos arquivos de script com o SAMW identificará quaisquer problemas restantes que, então, deverão ser resolvidos manualmente usando as ferramentas de edição de T-SQL no Visual Studio. Após a compilação do projeto, o esquema é publicado novamente em uma cópia (recomendada) do banco de dados de origem a fim de atualizar o esquema e os dados no local. Em seguida, o banco de dados atualizado é implantado no Azure, diretamente ou por exportação e importação de um arquivo BACPAC, usando as técnicas descritas na Opção nº 1.
+Use esta opção quando a migração de um banco de dados para o Banco de Dados SQL do Azure V12 requer alterações de esquema que não podem ser solucionadas usando o Assistente de Migração do SQL Azure (SAMW) porque o banco de dados usa recursos do SQL Server que não têm suporte no Banco de Dados SQL do Azure. Nessa opção, o Visual Studio é usado primeiro para criar um projeto de banco de dados do banco de dados de origem. Em seguida, a plataforma de destino do projeto é definida como o Banco de Dados SQL do Azure V12 e o projeto é criado a fim de identificar todos os problemas de compatibilidade. O SAMW pode corrigir muitos problemas de compatibilidade, mas não todos. Portanto, ele é usado para processar todos os scripts nos projetos como uma primeira passagem. O uso do SAMW é opcional, mas  
+altamente recomendado. A compilação do projeto após o processamento dos arquivos de script com o SAMW identificará problemas restantes que deverão ser solucionados manualmente usando as ferramentas de edição de Transact-SQL no Visual Studio. Após a compilação do projeto, o esquema é publicado novamente em uma cópia (recomendada) do banco de dados de origem a fim de atualizar o esquema e os dados no local. Em seguida, o banco de dados atualizado é implantado no Azure, diretamente ou por exportação e importação de um arquivo BACPAC, usando as técnicas descritas na Opção nº 1.
  
-Como essa Opção envolve a atualização do esquema do banco de dados no local antes da implantação no Azure, é altamente recomendável que isso seja realizado em uma cópia do banco de dados. A ferramenta de Comparação de Esquema do Visual Studio pode ser usada para examinar o conjunto completo de alterações que serão aplicadas ao banco de dados antes de publicar o projeto.
+Como essa opção envolve a atualização do esquema do banco de dados no local antes da implantação no Azure, é altamente recomendável que isso seja realizado em uma cópia do banco de dados. A ferramenta de Comparação de Esquema do Visual Studio pode ser usada para examinar o conjunto completo de alterações que serão aplicadas ao banco de dados antes de publicar o projeto.
 
-O uso do SQL Azure Migration Wizard (SAMW) é opcional, mas recomendado. O SAMW detectará problemas de compatibilidade dentro do corpo de funções, procedimentos armazenados e disparadores que de outra forma não serão detectados até a implantação. Caso seja necessária uma implantação somente de esquema, o esquema atualizado poderá ser publicado diretamente do Visual Studio para o Banco de Dados SQL do Azure.
+O uso do SQL Azure Migration Wizard (SAMW) é opcional, mas recomendado. O SAMW detectará problemas de compatibilidade dentro do corpo de funções, procedimentos armazenados e disparadores que de outra forma não serão detectados até a implantação.
+
+Caso seja necessária uma implantação somente de esquema, o esquema atualizado poderá ser publicado diretamente do Visual Studio para o Banco de Dados SQL do Azure.
 
 ## Etapas da migração
 
@@ -60,9 +62,9 @@ O uso do SQL Azure Migration Wizard (SAMW) é opcional, mas recomendado. O SAMW 
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->Observe que foram feitas cópias temporárias dos arquivos originais antes do processamento e dos arquivos afetados após processamento nos locais indicados na parte superior da página.
+> [AZURE.NOTE]Observe que foram feitas cópias temporárias dos arquivos originais antes do processamento e dos arquivos afetados após processamento nos locais indicados na parte superior da página.
 
-10.	Clique em Substituir e em OK na caixa de diálogo de confirmação e os arquivos originais serão substituídos pelos arquivos alterados. Observe que apenas os arquivos realmente alterados serão substituídos.
+10.	Clique em **Substituir ** e em **OK** na caixa de diálogo de confirmação e os arquivos originais serão substituídos pelos arquivos alterados. Apenas os arquivos realmente alterados serão substituídos.
 11.	Opcional. Use a Comparação de Esquemas para comparar o projeto com um instantâneo anterior ou com o banco de dados original, a fim de entender quais alterações foram feitas pelo assistente. Convém também obter outro instantâneo agora. 
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
@@ -94,6 +96,4 @@ Na comparação de esquemas abaixo, o banco de dados Adventure Works 2014 no Ban
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

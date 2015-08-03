@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="Anexar um disco a uma máquina virtual | Azure" 
-	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Anexar um disco a uma máquina virtual | Azure"
+	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # Como anexar um disco de dados a uma máquina virtual Windows
 
-Você pode anexar discos vazios e discos contendo dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
+É possível anexar discos vazios e discos com dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
 > [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
 
@@ -42,8 +43,14 @@ Você pode anexar discos vazios e discos contendo dados. Em ambos os casos, os d
 
 	![Volume inicializado com êxito](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]O tamanho da máquina virtual determina quantos discos você pode anexar a ela. Para obter detalhes, consulte [Tamanhos de máquinas virtuais e serviços de nuvem](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+> [AZURE.NOTE]O tamanho da máquina virtual determina quantos discos você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
+
+## Recursos adicionais
+
+[Como desanexar um disco de uma máquina virtual Windows](storage-windows-detach-disk.md)
+
+[Sobre discos e VHDs para Máquinas Virtuais](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

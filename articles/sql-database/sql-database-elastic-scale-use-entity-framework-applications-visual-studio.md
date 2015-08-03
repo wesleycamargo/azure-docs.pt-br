@@ -281,4 +281,4 @@ Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de ba
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

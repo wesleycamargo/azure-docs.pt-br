@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 # Atualização de aplicativo a Malha do Serviço: tópicos avançados
@@ -51,4 +51,4 @@ Hipóteses em que usar um pacote diff seria uma boa opção:
 [Solucionar problemas de atualização de aplicativo](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

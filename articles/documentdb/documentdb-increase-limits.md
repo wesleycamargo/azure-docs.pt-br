@@ -91,4 +91,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

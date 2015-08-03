@@ -156,4 +156,4 @@ Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 * [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficientes](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

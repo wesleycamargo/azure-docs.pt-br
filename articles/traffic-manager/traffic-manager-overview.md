@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# Visão geral do Gerenciador de Tráfego
+# O que é o Gerenciador de Tráfego?
 
 O Gerenciador de Tráfego do Microsoft Azure permite controlar a distribuição do tráfego do usuário para seus pontos de extremidade especificados, o que pode incluir serviços de nuvem do Azure, sites e outros pontos de extremidade. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domúnio de seus recursos da Internet. Seus serviços de nuvem ou sites do Azure podem ser executados em datacenters diferentes em todo o mundo.
 
@@ -160,7 +160,7 @@ Para adicionar um perfil do Gerenciador de Tráfego como um ponto de extremidade
 
 Se você quiser obter as figuras deste tópico como slides do PowerPoint para sua própria apresentação sobre o Gerenciador de Tráfego ou para modificá-las para suas próprias finalidades, consulte [Figuras do Gerenciador de Tráfego na documentação do MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Consulte também
+## Próximas etapas
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

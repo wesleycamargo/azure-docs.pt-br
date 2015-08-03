@@ -368,4 +368,4 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

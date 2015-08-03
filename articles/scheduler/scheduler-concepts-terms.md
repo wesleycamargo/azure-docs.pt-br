@@ -208,4 +208,4 @@ Intervalo de repetição, especificado com o objeto **retryInterval**, que é o 
  [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

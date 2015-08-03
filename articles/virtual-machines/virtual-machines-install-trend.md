@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure" 
-	description="Descreve como instalar e configurar o Trend Micro Security em máquinas virtuais no Azure" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure"
+	description="Descreve como instalar e configurar o Trend Micro Security em máquinas virtuais no Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/17/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/15/2015"
+	ms.author="dkshir"/>
 
 
 # Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Azure
@@ -43,7 +44,7 @@ Essa opção **Da Galeria** abre um assistente que ajuda você a configurar a m�
 
 Para isso, você precisará do seguinte:
 
-- O módulo Azure PowerShell, versão 0.8.2 ou mais recente instalado no computador local. Você pode verificar a versão do PowerShell do Azure instalado com o comando **Get-Module azure | format-table version**. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md). 
+- O módulo Azure PowerShell, versão 0.8.2 ou mais recente instalado no computador local. Você pode verificar a versão do PowerShell do Azure instalado com o comando **Get-Module azure | format-table version**. Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
 
 - O agente de VM instalado na máquina virtual de destino.
 
@@ -51,7 +52,7 @@ Primeiramente, verifique se que o agente de VM já está instalado. Preencha o n
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
 Se você não souber o nome da máquina virtual e serviço de nuvem, execute **Get-AzureVM** para exibir essas informações para todas as máquinas virtuais em sua assinatura atual.
@@ -61,6 +62,7 @@ Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se 
 Se o Agente de VM estiver instalado, execute estes comandos.
 
 	$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+
 	Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## Próximas etapas
@@ -82,6 +84,4 @@ Leva alguns minutos para o agente abrir quando ele está instalado. Depois disso
 [Como fazer logon em uma máquina virtual executando o Windows Server]: virtual-machines-log-on-windows-server.md
 [Recursos e extensões de VM do Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

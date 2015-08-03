@@ -186,9 +186,8 @@ Você pode usar a Atividade de cópia para copiar arquivos de um sistema de arqu
 ### Suposições
 Esse exemplo pressupõe o seguinte:
 
-- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\contoso**.
-- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\regionaldata\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12).
-
+- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\\contoso**.
+- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\\regionaldata\\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12). 
 ### Criar um serviço vinculado de sistema de arquivos local
 O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denominado **FolderDataStore** do tipo **OnPremisesFileSystemLinkedService**.
 
@@ -203,7 +202,7 @@ O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denom
 	    }
 	}
 
-> [AZURE.NOTE] Lembre-se de usar o caractere de escape '' para nomes de host e pastas em arquivos JSON. Para **\\Contoso**, use **\\\\Contoso**.
+> [AZURE.NOTE]Lembre-se de usar o caractere de escape '' para nomes de host e pastas em arquivos JSON. Para **\\Contoso**, use **\\\\Contoso**.
 
 Consulte [Serviço vinculado de sistema de arquivos local](https://msdn.microsoft.com/library/dn930836.aspx) para obter detalhes sobre os elementos JSON para definir um serviço vinculado local de sistema de arquivos.
 
@@ -229,7 +228,7 @@ O script JSON a seguir define uma tabela de entrada que se refere a um serviço 
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
+	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -308,7 +307,7 @@ O pipeline JSON a seguir define um pipeline com uma atividade de cópia que copi
 
 O pipeline neste exemplo copia o conteúdo como binário, sem nenhuma análise e sem realização de nenhuma transformação. Observe que você pode aproveitar a **simultaneidade** para copiar fatias de arquivos em paralelo. Isso será útil quando você deseja mover as fatias que já aconteceram no passado.
 
-> [AZURE.NOTE] Atividades simultâneas de cópia com o mesmo host por meio do caminho UNC com diferentes contas de usuário podem levar a erros como "várias conexões a um servidor ou recurso compartilhado pelo mesmo usuário, usando mais de um nome de usuário, não são permitidas". Essa é a restrição do sistema operacional, por motivos de segurança. Agende as atividades de cópia com gateways diferentes, ou instale o gateway dentro do host e use "localhost" ou "local" em vez do caminho UNC.
+> [AZURE.NOTE]Atividades simultâneas de cópia com o mesmo host por meio do caminho UNC com diferentes contas de usuário podem levar a erros como "várias conexões a um servidor ou recurso compartilhado pelo mesmo usuário, usando mais de um nome de usuário, não são permitidas". Essa é a restrição do sistema operacional, por motivos de segurança. Agende as atividades de cópia com gateways diferentes, ou instale o gateway dentro do host e use "localhost" ou "local" em vez do caminho UNC.
 
 Consulte [Referência de JSON de pipeline](https://msdn.microsoft.com/library/dn834988.aspx) para obter detalhes sobre os elementos JSON para definir um pipeline de Data Factory e [Origens e coletores com suporte](https://msdn.microsoft.com/library/dn894007.aspx) para propriedades de FileSystemSource e BlobSink.
 
@@ -462,7 +461,7 @@ O pipeline de exemplo a seguir tem uma atividade de cópia que copia dados de um
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -492,4 +491,4 @@ Consulte [Referência de JSON de pipeline](https://msdn.microsoft.com/library/dn
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

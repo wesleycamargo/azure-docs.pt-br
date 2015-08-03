@@ -272,4 +272,4 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

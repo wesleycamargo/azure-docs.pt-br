@@ -604,4 +604,4 @@ Após a conclusão do failback, convém proteger mais uma vez as máquinas virtu
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

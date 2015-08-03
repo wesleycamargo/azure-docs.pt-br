@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # Criar um aplicativo Web Java usando o Banco de Dados de Documentos #
@@ -88,7 +88,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 4. Na janela **Selecionar dependência**, faça o seguinte:
  - Na caixa **GroupId**, insira com.microsoft.azure.
  - Na caixa **Id de artefato**, insira azure-documentdb.
- - Na caixa **Versão**, insira 1.0.0.
+ - Na caixa **Versão**, insira 1.1.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. Clique em **Ok** e o Maven instalará o SDK do Java do Banco de Dados de Documentos.
@@ -662,7 +662,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
-		      // Togle table row color
+		      // Toggle table row color
 		      if (isComplete) {
 		        rowElement.addClass("active");
 		        rowElement.removeClass("warning");
@@ -732,7 +732,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
 
 5. Incrível! Agora tudo o que resta é testar o aplicativo. Executar o aplicativo localmente e adicionar alguns itens de tarefas, preenchendo o nome do item e a categoria e clicando em **Adicionar tarefa**.
 
-6. Quando o item for exibido, você poderá atualizar se concluído, alternar a caixa de seleção e clicar em **Atualizar tarefas**.
+6. Quando o item for exibido, você poderá atualizar se ele está concluído alternando a caixa de seleção e clicando em **Atualizar tarefas**.
 
 ##<a id="Deploy"></a>Etapa 6: Implantar seu aplicativo em sites do Azure ##
 
@@ -779,4 +779,4 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

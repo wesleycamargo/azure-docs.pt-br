@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Azure" 
-	description="Backup do SQL Server e banco de dados SQL no armazenamento do Azure. Explica os benefícios do backup de bancos de dados SQL para o armazenamento do Azure, no qual os componentes do SQL Server e do armazenamento do Azure são necessários" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Azure"
+	description="Backup do SQL Server e banco de dados SQL no armazenamento do Azure. Explica os benefícios do backup de bancos de dados SQL para o armazenamento do Azure, no qual os componentes do SQL Server e do armazenamento do Azure são necessários"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@ Criar uma conta do Azure é a primeira etapa para esse processo. SQL Server usa 
 
 Para uma explicação completa da criação de uma conta de armazenamento e realizar uma restauração simples, consulte [Introdução ao Serviço de Armazenamento do Azure para Backup e restauração do SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615)
 
-## Componentes do serviço de armazenamento de blobs do Azure 
+## Componentes do serviço de armazenamento de blobs do Azure
 
 * Conta de armazenamento: A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para acessar um serviço de armazenamento de BLOBs do Azure, primeiro crie uma conta de armazenamento do Azure. SQL Server usa o nome da conta de armazenamento do Azure e seus valores de chave de acesso para autenticar e gravar e ler blobs para o serviço de armazenamento. Para obter mais informações sobre os serviços de armazenamento de blobs do Azure, consulte [Como usar o serviço de armazenamento de blobs do Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
@@ -69,17 +69,7 @@ Para uma explicação completa da criação de uma conta de armazenamento e real
 [Introdução ao backup e à restauração do SQL Server no Serviço de armazenamento de blob do Azure](http://go.microsoft.com/fwlink/?LinkID=271615 "Tutorial")
 
 **Práticas recomendadas, Solução de problemas:**
-	
+
 [Práticas recomendadas de backup e restauração (Serviço de armazenamento de blob do Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

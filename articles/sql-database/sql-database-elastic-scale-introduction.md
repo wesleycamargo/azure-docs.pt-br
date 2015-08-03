@@ -96,4 +96,4 @@ Outros cenários de vários locatários pack juntos em bancos de dados, em vez d
 [4]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -98,4 +98,4 @@ Para usar um cmdlet do PowerShell do Azure para configurar isso, confira [Gerenc
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

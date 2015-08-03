@@ -25,6 +25,10 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 
 > [AZURE.NOTE]O [simulador de iOS não dá suporte a notificações de push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html); portanto, você deve usar um dispositivo físico com iOS. Você também precisará de uma [assinatura paga do programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
+##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 [AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## Configurar o Azure para enviar notificações por push
@@ -123,4 +127,4 @@ Este tópico mostra como adicionar notificações por push ao [projeto de iníci
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -92,4 +92,4 @@ Você criará um aplicativo Web Orchard CMS que usa um modelo padrão. O [Orchar
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

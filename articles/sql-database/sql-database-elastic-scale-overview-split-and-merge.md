@@ -252,4 +252,4 @@ Além disso, uma propriedade de exclusividade com a chave de fragmentação como
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

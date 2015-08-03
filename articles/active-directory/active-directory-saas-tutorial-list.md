@@ -20,7 +20,7 @@
 
 Para ajudá-lo a integrar todos os seus aplicativos de nuvem (SaaS) com o Active Directory do Azure, desenvolvemos um conjunto de tutoriais que mostram cada uma das etapas de configuração necessárias.
 
-Para obter uma lista abrangente de aplicativos SaaS que foram previamente integrados ao AD do Azure, consulte o [Marketplace do Active Directory](https://azure.microsoft.com/pt-br/marketplace/active-directory/).
+Para obter uma lista abrangente de aplicativos SaaS que foram previamente integrados ao AD do Azure, consulte o [Marketplace do Active Directory](https://azure.microsoft.com/en-us/marketplace/active-directory/).
 
 ##Lista de tutoriais
 
@@ -155,4 +155,4 @@ Logotipo | Nome do aplicativo
 
 - [Acesso de aplicativo](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

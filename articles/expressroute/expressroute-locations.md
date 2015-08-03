@@ -115,4 +115,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Se você deseja configurar uma conexão site a site VPN e uma Rota Expressa para a mesma rede virtual, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](expressroute-coexist.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

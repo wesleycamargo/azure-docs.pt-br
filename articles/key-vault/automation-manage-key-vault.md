@@ -46,4 +46,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

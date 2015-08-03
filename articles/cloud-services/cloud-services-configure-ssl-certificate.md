@@ -31,7 +31,7 @@ A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger d
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 
-Leia [isso](cloud-services-how-to-create-deploy.md) primeiro se você ainda não tiver criado um serviço de nuvem.
+Leia [isto](cloud-services-how-to-create-deploy.md) primeiro se você ainda não tiver criado um serviço de nuvem.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -47,7 +47,7 @@ O certificado deve atender aos seguintes requisitos para certificados SSL no Azu
 -   O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ***.contoso.com** ou **www.contoso.com**.
 -   O certificado deve usar, no mínimo, uma criptografia de 2048 bits.
 
-Para finalidades de teste, você pode criar e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**. Para obter detalhes sobre como criar um certificado autoassinado usando o Gerenciador do IIS, consulte [Como criar um certificado para uma função][].
+Para finalidades de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**. Para obter detalhes sobre como criar um certificado autoassinado usando o Gerenciador do IIS, consulte [Como criar um certificado para uma função][].
 
 Em seguida, você deve incluir informações sobre o certificado nos arquivos de definição e configuração do serviço.
 
@@ -145,21 +145,11 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 
 Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Implante o serviço de nuvem no ambiente de preparação sem incluir um certificado ou qualquer informação de certificado. Depois de implantado, você poderá determinar a URL baseada em GUID, listada no campo **URL do Site** do portal de gerenciamento. Crie um certificado com o nome comum (CN) igual a URL baseada em GUID (por exemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use o portal de gerenciamento para adicionar o certificado ao serviço de nuvem de preparação, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote o aplicativo e atualize a implantação de preparação para usar o novo pacote e o arquivo CSCFG.
 
-## Recursos adicionais
-
-* [Como associar um certificado a um serviço][]
-
-* [Como configurar um certificado SSL em um ponto de extremidade HTTPS][]
-
-  [Como criar um certificado para uma função]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-  [Como associar um certificado a um serviço]: http://msdn.microsoft.com/library/azure/gg465718.aspx
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-  [Como configurar um certificado SSL em um ponto de extremidade HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

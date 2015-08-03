@@ -153,4 +153,4 @@ Depois que a conta é criada, você pode achá-la no portal para gerenciar chave
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

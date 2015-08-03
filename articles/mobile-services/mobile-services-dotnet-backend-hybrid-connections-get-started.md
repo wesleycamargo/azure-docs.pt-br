@@ -133,4 +133,4 @@ Agora que você verificou a conexão de banco de dados, é necessário adicionar
 [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

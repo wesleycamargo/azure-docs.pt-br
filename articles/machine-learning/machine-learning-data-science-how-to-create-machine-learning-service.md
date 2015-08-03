@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Criar soluções de análises avançada no Azure | Microsoft Azure" 
 	description="Use este guia para entender as etapas para usar o Azure para ciência de dados e aprendizado de máquina na nuvem." 
-	services="machine-learning,hdinsight" 
+	services="machine-learning,hdinsight"  
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" />
@@ -26,4 +26,4 @@ A etapa intitulada **Processamento de dados avançado no Azure** vincula a um se
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

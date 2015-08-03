@@ -104,4 +104,4 @@ Para começar a usar o Banco de Dados de Documentos do Azure, explore estes recu
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

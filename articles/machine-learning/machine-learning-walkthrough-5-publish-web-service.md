@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,7 +40,9 @@ Para fazer isso, você precisa:
 - Converter o *teste de treinamento* que criamos em um *teste de pontuação*
 - Publicar o experimento de pontuação como um serviço Web
 
-Mas, primeiro, precisamos reduzir esse teste um pouco. No momento, temos dois modelos diferentes de experimento, mas agora precisamos selecionar um modelo para publicar. Digamos que decidimos que o modelo de árvore aumentada foi o melhor modelo a usar. Portanto, a primeira coisa a fazer é remover o módulo [Computador de vetor de suporte de duas classes][two-class-support-vector-machine] e os módulos que foram usados para treiná-lo. Talvez você queira fazer uma cópia do teste clicando primeiro em **Salvar como** na parte inferior da tela do teste.
+Mas, primeiro, precisamos reduzir esse teste um pouco. No momento, temos dois modelos diferentes de experimento, mas agora precisamos selecionar um modelo para publicar.
+
+Digamos que decidimos que o modelo de árvore aumentada foi o melhor modelo a usar. Portanto, a primeira coisa a fazer é remover o módulo [Computador de vetor de suporte de duas classes][two-class-support-vector-machine] e os módulos que foram usados para treiná-lo. Talvez você queira fazer uma cópia do teste clicando primeiro em **Salvar como** na parte inferior da tela do teste.
 
 É preciso excluir os seguintes módulos:
 
@@ -85,13 +87,13 @@ Você pode estar se perguntando por que deixamos o conjunto de dados de Dados de
 
 É verdade que o serviço não precisa dos dados de cartão de crédito originais. Mas ele precisa do esquema para esses dados, que inclui informações como quantas colunas existem e quais colunas são numéricas. Essas informações de esquema são necessárias para interpretar os dados do usuário. Deixamos esses componentes conectados para que o módulo de pontuação tenha o esquema de conjunto de dados quando o serviço estiver sendo executado. Os dados não são usados, somente o esquema.
 
-Execute o teste uma última vez (clique em **EXECUTAR**). Se você deseja verificar se o modelo ainda está funcionando, clique com o botão direito do mouse na saída do módulo [Modelo de Pontuação][score-model] e selecione **Visualizar**. Você verá os dados originais exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidades de pontuação ("Probabilidades de pontuação").
+Execute o teste uma última vez (clique em **EXECUTAR**). Se você deseja verificar se o modelo ainda está funcionando, clique na saída do módulo [Modelo de Pontuação][score-model] e selecione **Exibir Resultados**. Você verá os dados originais exibidos, juntamente com o valor de risco de crédito ("Rótulos de pontuação") e o valor de probabilidades de pontuação ("Probabilidades de pontuação").
 
 ##Publicar o serviço Web
 
-Para publicar um serviço Web derivado de nosso teste, clique em **PUBLICAR SERVIÇO WEB** abaixo das telas e clique em **SIM** quando solicitado. O Estúdio Aprendizado de Máquina publica o teste como um serviço Web no servidor de preparo de Aprendizado de Máquina, e o leva ao painel de serviço.
+Para publicar um serviço Web derivado de nosso teste, clique em **PUBLICAR SERVIÇO WEB** abaixo das telas. O Estúdio AM publica a experiência como um serviço Web e leva você até o painel de serviço.
 
-> [AZURE.TIP]Você pode atualizar o serviço Web após tê-lo publicado. Por exemplo, se você quiser alterar o seu modelo, basta editar o teste de treinamento, ajustar os parâmetros de modelo e clicar em **ATUALIZAR TESTE DE PONTUAÇÃO**. Quando você publicar o teste novamente, então, ele substituirá o serviço Web, agora usando seu modelo atualizado.
+> [AZURE.TIP]Você pode atualizar o serviço Web após tê-lo publicado. Por exemplo, se você quiser alterar o seu modelo, basta editar o teste de treinamento, ajustar os parâmetros de modelo e clicar em **PUBLICAR SERVIÇO WEB**. Quando você publicar o teste novamente, então, ele substituirá o serviço Web, agora usando seu modelo atualizado.
 
 Você pode configurar o serviço clicando na guia **CONFIGURAÇÃO**. Assim, você pode modificar o nome do serviço (é dado o nome do teste por padrão) e fornecer uma descrição para ele. Também pode adicionar rótulos mais simpáticos para as colunas de entrada e saída.
 
@@ -125,4 +127,4 @@ Os resultados gerados pelo serviço Web são exibidos na parte inferior do paine
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

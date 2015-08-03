@@ -165,4 +165,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -729,4 +729,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

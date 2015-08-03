@@ -173,4 +173,4 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

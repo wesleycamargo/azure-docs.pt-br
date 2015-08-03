@@ -77,4 +77,4 @@ Para usar o módulo Gerenciador de Recursos do Azure, você precisa alternar do 
 
 > [AZURE.NOTE]Você pode alternar de volta para o conjunto de comandos padrão com o comando **Switch-AzureMode AzureServiceManagement**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

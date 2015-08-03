@@ -299,17 +299,6 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 
 [Preparando-se para migrar para o SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
-- Como migrar os arquivos e o esquema do Banco de dados do SQL Server entre máquinas virtuais no Azure usando discos de dados
-
-[Implantação do SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- Como copiar arquivos de dados e de configuração do SQL Server em um disco de dados local para o Azure usando CSUpload
-- Como criar uma máquina virtual básica local usando o Hyper-V
-- Como criar uma máquina virtual do SQL Server no Azure usando um disco do SQL Server local existente
-- Como criar uma máquina virtual SQL Server no Azure usando uma máquina virtual local existente do SQL Server 
-- Como usar o PowerShell para configurar uma máquina virtual do SQL Server no Azure 
-- Como usar um disco de dados anexado para arquivos de banco de dados do armazenamento
-
 [Considerações sobre conectividade para o SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 [Considerações sobre desempenho para o SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
@@ -330,21 +319,13 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 
 [Business Intelligence do SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Use o PowerShell para criar uma VM do Azure com o SQL Server BI e o SharePoint 2010
-- Use o PowerShell para criar uma VM do Azure com o SQL Server BI e o SharePoint 2013
-- Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
-
-[Data warehouse do SQL Server em Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[Armazenamento de dados do SQL Server e cargas de trabalho transacionais em máquinas virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Artigos técnicos sobre o SQL Server em Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
 - [White paper: compreender o banco de dados SQL Azure e o SQL Server em máquinas virtuais do Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [White paper: estratégias de desenvolvimento e padrões de aplicativo para o SQL Server em Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [White paper: implantar um Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Windows Azure](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [White paper: controle de visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
@@ -381,4 +362,4 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

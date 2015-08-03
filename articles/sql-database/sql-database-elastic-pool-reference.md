@@ -102,11 +102,11 @@ O número máximo de trabalhados simultâneos e sessões simultâneas permitido 
 
 | DTUs | Máximo de trabalhos simultâneos | Máximo de sessões simultâneas |
 | :-- | :-- | :-- |
-| 100 | 200 | 2\.400 |
-| 200 | 400 | 4\.800 |
-| 400 | 800 | 9\.600 |
-| 800 | 1\.600 | 19\.200 |
-| 1\.200 | 2\.400 | 28\.800 |
+| 100 | 200 | 2.400 |
+| 200 | 400 | 4.800 |
+| 400 | 800 | 9.600 |
+| 800 | 1.600 | 19.200 |
+| 1.200 | 2.400 | 28.800 |
 
 
 ## Limitações do Gerenciador de Recursos do Azure
@@ -191,4 +191,4 @@ O preço unitário por DTU de um pool elástico é maior que o preço unitário 
 | 40891 | EX_USER | O mínimo de DTUs por banco de dados (%d) não pode ser superior ao máximo de DTUs por banco de dados (%d). | Mínimo de DTUs por banco de dados; máximo de DTUs por banco de dados. | Tentando definir o mínimo de DTUs por banco de dados acima do máximo de DTUs por banco de dados. | Certifique-se de que o mínimo de DTUs por bancos de dados não seja superior ao máximo de DTUs por banco de dados. |
 | TBD | EX_USER | O tamanho do armazenamento para um banco de dados individual em um pool elástico não pode exceder o tamanho máximo permitido pelo pool elástico da camada de serviço '%.*ls'. | camada de serviço do pool elástico | O tamanho máximo do banco de dados excede o tamanho máximo permitido pela camada de serviço do pool elástico. | Defina o tamanho máximo do banco de dados dentro dos limites do tamanho máximo permitido pela camada de serviço do pool elástico. |
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

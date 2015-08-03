@@ -84,4 +84,4 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 
 [Codificando conteúdo sob demanda com os Serviços de Mídia do Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

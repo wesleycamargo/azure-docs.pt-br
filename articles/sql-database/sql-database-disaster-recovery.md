@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Recuperar um Banco de Dados SQL do Azure de uma interrupção
@@ -101,4 +101,4 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

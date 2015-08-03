@@ -140,4 +140,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os tópicos a seguir:
 [solução de mensagens enfileiradas]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

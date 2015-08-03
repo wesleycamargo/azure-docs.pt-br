@@ -5,7 +5,8 @@
    documentationCenter="" 
    authors="HeidiSteen" 
    manager="mblythe" 
-   editor=""/>
+   editor=""
+   tags="azure-portal"/>
 
 <tags
    ms.service="search"
@@ -56,4 +57,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

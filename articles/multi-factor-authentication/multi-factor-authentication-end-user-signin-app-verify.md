@@ -39,4 +39,4 @@ As informações a seguir descrevem a experiência de usar a autenticação mult
 
 <li>Agora você deve estar conectado.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

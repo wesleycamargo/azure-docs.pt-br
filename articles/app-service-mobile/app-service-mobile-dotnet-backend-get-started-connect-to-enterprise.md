@@ -182,10 +182,10 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/pt-br/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
 [Autenticar seu Aplicativo com o Logon Único da Biblioteca do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

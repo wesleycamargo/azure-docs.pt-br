@@ -161,4 +161,4 @@ O disco de dados que acabou de anexar à máquina virtual estará offline e não
 
 	>[AZURE.NOTE]Remover subsequentemente um disco de dados sem editar fstab pode fazer com que a VM falhe ao ser inicializada. Se essa for uma ocorrência comum, a maioria das distribuições fornecerá as opções fstab `nofail` e/ou `nobootwait`, que permitirão que o sistema seja inicializado mesmo que o disco não esteja presente. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

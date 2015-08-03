@@ -71,7 +71,7 @@ As etapas a seguir criam um conector empresarial usando a folha de conector:
 2. Selecione o conector. Na folha nova, selecione **Criar**. 
 3. Insira as propriedades: 
 
-	Propriedade | Descrição
+Propriedade | Descrição
 --- | ---
 Nome | Digite um nome para o conector. Por exemplo, você pode chamá-lo de *SAPConnector*, *SalesForceGetAccounts*, ou *QuickBooksGetItems*.
 Configurações do pacote | Insira as configurações do sistema empresarial, como *Nome de Usuário SAP* ou *URL do Servidor SugarCRM*. Consulte [Propriedades específicas do sistema empresarial](#AddProperties) neste tópico. 
@@ -87,7 +87,7 @@ Adicionar ao quadro inicial | Selecione essa opção para adicionar o conector a
 
 > [AZURE.IMPORTANT]Cada conector tem propriedades específicas para esse sistema empresarial. Ao conectar-se ao SAP, você insere as propriedades específicas do SAP. Ao conectar-se ao Salesforce, você insere as propriedades específicas do Salesforce, e assim por diante. A tabela a seguir lista as propriedades de sistema empresarial necessárias.
 	
-	Enterprise System | Required Properties
+Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>Ponto de extremidade</li><li>Nome do provedor</li></ul>
 MongoDB| <ul><li>Cadeia de conexão</li><li>Host</li><li>Porta</li><li>Nome de usuário</li><li>Senha</li><li>Banco de dados</li><li>Usar criptografia SSL</li><li>Local: insira Falso se for baseado em nuvem. Se o sistema MongoDb for local, insira Verdadeiro e insira também as seguintes propriedades:<ul><li>Nome de chave de acesso compartilhado</li><li>Namespace do Barramento de Serviço</li><li>Caminho de retransmissão</li><li>Enviar chave</li></ul></li></ul>
@@ -158,4 +158,4 @@ Alguns dos conectores empresariais fornecem segurança OAuth. Quando você adici
 
 [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

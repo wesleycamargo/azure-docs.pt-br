@@ -48,4 +48,4 @@ As regras de negócios encapsulam as políticas e as decisões que controlam pro
 Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

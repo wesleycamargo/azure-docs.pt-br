@@ -221,4 +221,4 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

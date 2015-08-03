@@ -5,9 +5,7 @@
 	documentationCenter=""
 	authors="karthmut"
 	manager="timlt"
-	editor="tysonn"/>
-
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -24,7 +22,7 @@ O DataStax é um dos líderes reconhecidos do setor para o desenvolvimento e for
 
 Além do que já está disponível no Azure Marketplace, agora você também pode implantar facilmente um novo cluster do DataStax Enterprise em VMs do Ubuntu usando um modelo do Gerenciador de Recursos por meio do [PowerShell do Azure](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
 
-Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas personalizando-se o modelo apresentado neste artigo:
+Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas por meio da personalização do modelo apresentado neste artigo.
 
 ![cluster-architecture](media/virtual-machines-datastax-enterprise-template/cluster-architecture.png)
 
@@ -48,7 +46,7 @@ Siga estas etapas para criar um cluster do Apache Cassandra, com base no DataSta
 
 Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\\Azure\\Templates\\DataStax).
 
-Substitua o nome da pasta local e execute os seguintes comandos:
+Substitua o nome da pasta local e execute o seguinte conjunto de comandos.
 
 	$folderName="C:\Azure\Templates\DataStax"
 	$webclient = New-Object System.Net.WebClient
@@ -82,17 +80,16 @@ Substitua o nome da pasta local e execute os seguintes comandos:
 
 ### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
-Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
+Clone todo o repositório de modelos usando um cliente git de sua escolha, como mostrado no exemplo a seguir.
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta **datastax-enterprise** no diretório C:\\Azure\\Templates.
+Quando terminar, procure a pasta datastax-enterprise no diretório C:\\Azure\\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
+### Etapa 2 (opcional): compreender os parâmetros do modelo
 
-### Etapa 2 (opcional): Compreender os parâmetros do modelo
+Ao implantar soluções não triviais, como um cluster do Apache Cassandra com base no DataStax, você deve especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, você pode especificar valores durante a implantação por meio de um arquivo externo ou na linha de comando.
 
-Ao implantar soluções não triviais, como um cluster do Apache Cassandra com base no DataStax, você deve especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, é possível especificar valores durante a implantação por meio de um arquivo externo ou na linha de comando.
-
-Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encontrará o conjunto de parâmetros necessários ao modelo para configurar um cluster do Datastax Enterprise. Veja um exemplo da seção de parâmetros desse arquivo de modelo azuredeploy.json:
+Na seção "parâmetros" no início do arquivo azuredeploy.json, você encontrará o conjunto de parâmetros necessários ao modelo para configurar um cluster do Datastax Enterprise. Veja um exemplo da seção de parâmetros desse arquivo de modelo azuredeploy.json.
 
 	"parameters": {
 		"region": {
@@ -186,9 +183,9 @@ Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permi
 
 ### Etapa 3-a: Implantar um cluster do DataStax Enterprise com um modelo usando o PowerShell
 
-Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contenha os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
+Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
 
-Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.json**:
+O próximo exemplo é um conjunto de parâmetros do arquivo azuredeploy parameters.json.
 
 	{
 		"storageAccountPrefix": {
@@ -229,7 +226,7 @@ Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.j
 		}
 	}
 
-Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta em que você salvou os arquivos de implantação JSON. Em seguida, execute estes comandos:
+Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta em que você salvou os arquivos de implantação JSON. Em seguida, execute o próximo conjunto de comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -242,7 +239,7 @@ Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local 
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, Teste, Produção etc.) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
+Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, Teste ou Produção) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
 
 Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precisará ser criada. Portanto, o nome fornecido como o parâmetro de conta de armazenamento precisa ser exclusivo e atender a todos os requisitos para uma Conta de Armazenamento do Azure (somente letras minúsculas e números).
 
@@ -253,43 +250,41 @@ Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga est
 - Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
 - Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
 - Clicando no gráfico de barras "Eventos" na parte "Monitoramento" da folha "Grupo de Recursos", você poderá ver os eventos de sua implantação:
-- Se clicar em eventos individuais, você poderá fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo
+- Se clicar em eventos individuais, você poderá fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo.
 
-Depois dos testes, se você precisar remover esse grupo de recursos e todos os seus recursos (a conta de armazenamento, a máquina virtual e a rede virtual), use este comando:
+Depois dos testes, se você precisar remover esse grupo de recursos e todos os seus recursos (a conta de armazenamento, a máquina virtual e a rede virtual), use o próximo comando.
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### Etapa 3-b: Implantar um cluster do DataStax Enterprise com um modelo usando a CLI do Azure
 
-Para implantar um cluster do Datastax Enterprise pela CLI do Azure, primeiro crie um Grupo de Recursos, especificando um nome e um local:
+Para implantar um cluster do Datastax Enterprise pela CLI do Azure, primeiro crie um Grupo de Recursos, especificando um nome e um local com o próximo comando.
 
 	azure group create dsc "West US"
 
-Passe o nome desse Grupo de Recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell para saber mais) no comando a seguir:
+Passe o nome desse Grupo de Recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell para saber mais) no comando a seguir.
 
 	azure group deployment create dsc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-Você pode verificar o status das implantações de recursos individuais com o seguinte comando:
+Você pode verificar o status das implantações de recursos individuais com o seguinte comando.
 
 	azure group deployment list dsc
 
 ## Um tour da estrutura do modelo do Datastax Enterprise e da organização de arquivos
 
-Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o DataStax Enterprise. Aproveitando a **vinculação de modelos** e os **loops de recursos** do ARM além da execução de scripts por meio de extensões relacionadas, é possível implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
-
-Este diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação:
+Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o DataStax Enterprise. Aproveitando a **vinculação de modelos** e os **loops de recursos** do AR,M além da execução de scripts por meio de extensões relacionadas, você pode implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> O próximo diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação.
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
-Esta seção percorre a estrutura do arquivo **azuredeploy.json** para o cluster do Datastax Enterprise.
+Esta seção percorre a estrutura do arquivo azuredeploy.json para o cluster do Datastax Enterprise.
 
 ### Seção "parâmetros"
 
-A seção "parâmetros" do arquivo **azuredeploy.json** especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo **azuredeploy-parameters.json** mencionado anteriormente é usado para passar valores para a seção "parâmetros" de azuredeploy.json durante a execução do modelo.
+A seção "parâmetros" do arquivo azuredeploy.json especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo azuredeploy-parameters.json mencionado anteriormente é usado para passar valores para a seção "parâmetros" de azuredeploy.json durante a execução do modelo.
 
 ### Seção "variáveis"
 
-A seção "variáveis" especifica variáveis que podem ser usadas em todo esse modelo. Ela contém vários campos (fragmentos ou tipos de dados JSON) que serão definidos como constantes ou valores calculados em tempo de execução. Aqui está a seção "variáveis" desse modelo do Datastax Enterprise:
+A seção "variáveis" especifica variáveis que podem ser usadas em todo esse modelo. Ela contém vários campos (fragmentos ou tipos de dados JSON) que serão definidos como constantes ou valores calculados em tempo de execução. O próximo exemplo mostra a seção "variáveis" desse modelo do Datastax.
 
 	"variables": {
 	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-enterprise/",
@@ -333,7 +328,7 @@ A seção "variáveis" especifica variáveis que podem ser usadas em todo esse m
 	"nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
 	},
 
-Fazendo uma busca detalhada neste exemplo, você pode ver as duas abordagens diferentes. No primeiro fragmento, a variável "osSettings" é um elemento JSON aninhado que contém 4 pares de chave-valor:
+No exemplo anterior, você pode ver as duas abordagens diferentes. No primeiro fragmento, a variável "osSettings" é um elemento JSON aninhado que contém quatro pares de chave-valor.
 
 	"osSettings": {
 	      "imageReference": {
@@ -344,7 +339,7 @@ Fazendo uma busca detalhada neste exemplo, você pode ver as duas abordagens dif
 	      },
 
 	 
-No segundo fragmento, a variável "scripts" é uma matriz JSON em que cada elemento será calculado em tempo de execução usando uma função de linguagem de modelo (concat) e o valor de outra variável mais constantes de cadeia de caracteres:
+No segundo fragmento, a variável "scripts" é uma matriz JSON em que cada elemento será calculado em tempo de execução usando uma função de linguagem de modelo (concat) e o valor de outra variável mais constantes de cadeia de caracteres.
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -354,7 +349,7 @@ No segundo fragmento, a variável "scripts" é uma matriz JSON em que cada eleme
 
 ### Seção "recursos"
 
-A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), você pode especificar um arquivo de modelo vinculado que é invocado passando um conjunto de parâmetros como entrada, como visto neste fragmento:
+A seção "recursos" é onde acontece a maior parte da ação. Analisando essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), você pode especificar um arquivo de modelo vinculado que será invocado passando um conjunto de parâmetros como entrada, como mostrado no próximo exemplo.
 
 	{
 	      "name": "shared",
@@ -380,18 +375,13 @@ A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cu
 	      }
 	    },
 
-Neste primeiro exemplo, fica claro como **azuredeploy.json** nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
+Neste primeiro exemplo, fica claro como azuredeploy.json nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
 
-Em particular, os seguintes modelos vinculados serão usados para essa implantação:
+Em particular, os seguintes modelos vinculados serão usados para essa implantação: <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: Contém a definição de todos os recursos que serão compartilhados através da implantação. Exemplos são contas de armazenamento usadas para armazenar redes virtuais e discos do sistema operacional da VM. - **opscenter-resources.json**: Implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e um endereço IP público. - **opscenter-install-resources.json**: Implanta a extensão OpsCenter VM (script personalizado para Linux), que invocará o arquivo de script bash específico (opscenter.sh) necessário para configurar o serviço OpsCenter dentro dessa VM. - **ephemeral-nodes-resources.json**: Implanta todas as VMs do nó de cluster e recursos conectados (por exemplo, placas de rede e IPs privados). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (dsenode.sh) para instalar fisicamente partes do Apache Cassandra em cada nó.
 
--	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do sistema operacional da VM e redes virtuais.
--	**opscenter-resources.json**: implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e endereço IP público.
--	**opscenter-install-resources.json**: implanta a extensão de VM OpsCenter (script personalizado para Linux) que invocará o arquivo de script bash específico (**opscenter.sh**) necessário para configurar o serviço OpsCenter na VM.
--	**ephemeral-nodes-resources.json**: implanta todas as VMs de nó de cluster e recursos conectados (placas de rede, IPs privados etc.). Esse modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash (**dsenode.sh**) para instalar fisicamente partes do Apache Cassandra em cada nó.
+Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como Loop de Recursos.
 
-Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **Loop de Recursos**.
-
-Quando **ephemeral-nodes-resources.json** é invocado no arquivo principal **azuredeploy.json**, um parâmetro chamado **nodeCount** é fornecido como parte da lista de parâmetros. No modelo filho, nodeCount (o número de nós a serem implantados no cluster) será usado no elemento **"copy"** de cada recurso que precisa ser implantado em várias cópias, como realçado no fragmento a seguir. Para todas as configurações em que é necessário especificar valores exclusivos para diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No seguinte fragmento, você pode ver esse conceito aplicado a várias VMs que estão sendo criadas para nós do cluster do Datastax Enterprise:
+Quando ephemeral-nodes-resources.json é invocado no arquivo principal azuredeploy.json, um parâmetro chamado nodeCount é fornecido como parte da lista de parâmetros. No modelo filho, nodeCount (o número de nós a serem implantados no cluster) será usado no elemento **"copy”** de cada recurso que precisa ser implantado em várias cópias, como realçado no próximo exemplo. Para todas as configurações em que é necessário especificar valores exclusivos para diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No próximo exemplo, você pode ver esse conceito aplicado a várias VMs que estão sendo criadas para nós do cluster do Datastax Enterprise.
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -454,13 +444,13 @@ Quando **ephemeral-nodes-resources.json** é invocado no arquivo principal **azu
 
 Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode ver na matriz JSON **dependsOn**. Nesse modelo específico, cada nó também terá um disco de 1 TB anexado (consulte “dataDisks”) que pode ser usado para hospedar backups e instantâneos da instância do Apache Cassandra.
 
-Os discos anexados são formatados como parte das atividades de preparação do nó disparadas pela execução do arquivo de script **dsenode.sh**. A primeira linha desse script invoca outro script:
+Os discos anexados são formatados como parte das atividades de preparação do nó disparadas pela execução do arquivo de script dsenode.sh. No próximo exemplo, a primeira linha desse script invoca outro script.
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh faz parte da pasta **shared_scripts\\ubuntu**, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
+vm-disk-utils-0.1.sh faz parte da pasta shared_scripts\\ubuntu, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
 
-Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais:
+Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais.
 
 	{
 	"type": "Microsoft.Compute/virtualMachines/extensions",
@@ -486,19 +476,18 @@ Outro fragmento interessante para explorar é aquele relacionado às extensões 
 	}
 	}
 
-Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme realçado pelo seguinte diagrama:
+Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme mostrado no diagrama a seguir.
 
 ![datastax-enterprise-template-structure](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-template-structure.png)
 
-Essencialmente, essa abordagem sugere o seguinte:
+Essa abordagem sugere que você:
 
--	Definir o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de modelos de sub-rotina
--	Criar arquivos de modelos específicos que implantarão todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (por exemplo, contas de armazenamento, configuração de vnet etc.). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
--	Incluir modelos de recursos opcionais para requisitos de spot específicos de determinado recurso
--	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas
--	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
+-	Defina o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de submodelos.
+-	Crie um arquivo de modelo específico que implantará todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (por exemplo, contas de armazenamento e configuração de vnet). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
+-	Inclua modelos de recursos opcionais para requisitos de spot específicos de determinado recurso.
+-	Para membros idênticos de um grupo de recursos (por exemplo, nós em um cluster), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
+-	Para todas as tarefas de pós-implantação (por exemplo, instalação de produtos e configurações), aproveite extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
- 
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

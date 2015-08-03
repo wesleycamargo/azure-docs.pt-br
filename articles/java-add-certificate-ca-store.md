@@ -52,4 +52,4 @@ Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de s
 
 Para obter mais informações sobre os certificados raiz usados pelo Azure, consulte [Migração de Certificados raiz do Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -31,4 +31,4 @@
 
 Após a criação da máquina virtual e do serviço de nuvem, o Portal de Gerenciamento lista a nova máquina virtual em **Máquinas Virtuais** e lista o serviço de nuvem em **Serviços de Nuvem**. A máquina virtual e o serviço de nuvem são iniciados automaticamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Pesquisa de dados no Insights Operacionais
@@ -50,9 +50,9 @@ Os filtros mais básicos que você pode usar são *palavras-chave*, como 'erro',
 
 ### Para realizar uma pesquisa simples
 1. No portal de informações operacionais, clique **Pesquisar no Explorador de Dados**. ![pesquisar bloco](./media/operational-insights-search/overview-search.png)
-2. No campo de consulta, digite `error` e clique em **Pesquisar**. ![pesquisar erro](./media/operational-insights-search/search-error.png) Por exemplo, a consulta de `error` na imagem a seguir retornou 100.000 registros de **Event** (coletados pelo Gerenciamento de registros), 18 registros de **Alert** (gerados pela Avaliação de configuração) e 12 registros **ConfigurationChange** registros (capturados pelo Controle de alterações). ![pesquisar resultados](./media/operational-insights-search/results01.png)
+2. No campo de consulta, digite `error` e clique em **Pesquisar**. ![pesquisar erro](./media/operational-insights-search/search-error.png) Por exemplo, a consulta de `error` na imagem a seguir retornou 100.000 registros de **Event** (coletados pelo Gerenciamento de Logs), 18 registros de **ConfigurationAlert** (gerados pela Avaliação de Configuração) e 12 registros **ConfigurationChange** (capturados pelo Controle de Alterações). ![pesquisar resultados](./media/operational-insights-search/results01.png)
 
-Esses filtros não são realmente tipos/classes de objeto. *Type* é uma marca, uma propriedade ou uma cadeia de caracteres/nome/categoria, que é anexada a uma porção dos dados. Alguns documentos no sistema são marcados como **Type:Alert**, alguns são marcados como **Type:PerfHourly** ou **Type:Event** e assim por diante. Cada resultado da pesquisa, documento, registro ou entrada exibe todas as propriedades brutas e seus valores para cada porção de dados, e você pode usar esses nomes de campo para especificar o filtro quando desejar recuperar somente os registros onde o campo tiver aquele valor.
+Esses filtros não são realmente tipos/classes de objeto. *Type* é uma marca, uma propriedade ou uma cadeia de caracteres/nome/categoria, que é anexada a uma porção dos dados. Alguns documentos no sistema são marcados como **Type:ConfigurationAlert**, alguns são marcados como **Type:PerfHourly** ou **Type:Event** e assim por diante. Cada resultado da pesquisa, documento, registro ou entrada exibe todas as propriedades brutas e seus valores para cada porção de dados, e você pode usar esses nomes de campo para especificar o filtro quando desejar recuperar somente os registros onde o campo tiver aquele valor.
 
 *Type* é realmente apenas um campo que existe em todos os registros; ele não é diferente de qualquer outro campo. Isso foi estabelecido com base no valor do campo Type. Esse registro terá uma forma diferente. Por acaso, **Type=PerfHourly** ou **Type=Event** também é a sintaxe que você precisa saber para consultar eventos ou agregações de dados de desempenho por hora.
 
@@ -251,36 +251,38 @@ O comando SELECIONAR se comporta como Select-Object no PowerShell. Ele retorna r
 
 Esse comando é particularmente útil quando você deseja controlar a saída de pesquisa e escolher apenas as partes de dados que realmente importam para exploração, o que geralmente não é o registro completo. Isso também é útil quando os registros de tipos diferentes têm *algumas* propriedades em comum, mas não *todas*. Você pode gerar uma saída mais naturalmente parecida com uma tabela ou que funciona bem quando exportada para um arquivo CSV e processada no Excel.
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## Usar o comando medir
 
 MEDIDA é um dos comandos mais versáteis em pesquisas do Insights Operacionais. Ele permite que você aplique *funções* estatísticas aos seus dados e agregue os resultados agrupados por um determinado campo. Há várias funções estatísticas que têm suporte de Medida.
 
 ### Contagem de medida()
 
-A primeira função estatística para se trabalhar, e uma das mais simples de entender, é a função *Contagem ()*.
+A primeira função estatística com a qual trabalhar e uma das mais simples de entender é a função *count()*.
 
-Resultados de qualquer consulta de pesquisa, como `Type=Event`, mostram filtros também chamados de facetas à esquerda dos resultados da pesquisa. Os filtros mostram uma distribuição de valores por um determinado campo para os resultados da pesquisa executada.
+Os resultados de qualquer consulta de pesquisa, como `Type=Event`, mostram filtros também chamados de facetas à esquerda dos resultados da pesquisa. Os filtros mostram uma distribuição de valores por um determinado campo para os resultados da pesquisa executada.
 
 ![pesquisar contagem de medida](./media/operational-insights-search/search-measure-count01.png)
 
-Por exemplo, na imagem acima você verá o campo **Computer** e ele mostra que em quase três milhões de eventos nos resultados, há 20 valores exclusivos e distintos para o campo **Computer** nesses registros. O bloco mostra somente os cinco principais, que são os cinco valores mais comuns gravados nos campos **Computer**, classificados pelo número de documentos que contêm esse valor específico naquele campo. Na imagem, você pode ver que, dentre os quase três milhões de eventos, 880 mil vêm do computador DM, 602 mil vêm do computador DE e assim por diante.
+Por exemplo, na imagem acima, você verá o campo **Computer**, e ele mostra que em quase 3 milhões de eventos nos resultados, há 20 valores exclusivos e distintos para o campo **Computer** nesses registros. O bloco mostra somente os 5 principais, que são os 5 valores mais comuns gravados nos campos **Computer**, classificados pelo número de documentos que contêm esse valor específico nesse campo. Na imagem, você pode ver que, dentre os quase três milhões de eventos, 880 mil vêm do computador DM, 602 mil vêm do computador DE e assim por diante.
 
 
 E se você quiser ver todos os valores, já que o bloco mostra somente os primeiros cinco?
 
-Isso é que o comando de medida pode fazer com a função contagem(). Essa função não usa nenhum parâmetro. Você simplesmente especifica o campo pelo qual deseja agrupar – o campo **Computer** nesse caso:
+Isso é que o comando de medida pode fazer com a função contagem(). Essa função não usa nenhum parâmetro. Você simplesmente especifica o campo pelo qual deseja agrupar — o campo **Computer** nesse caso:
 
 `Type=Event | Measure count() by Computer`
 
 ![pesquisar contagem de medida](./media/operational-insights-search/search-measure-count-computer.png)
 
-No entanto, **Computer** é somente um campo usado *em* cada porção de dados; nenhum banco de dados relacional está envolvido e não há nenhum objeto **Computer** separado em nenhum lugar. Apenas os valores *nos* dados podem descrever quais entidades os gerou, além de várias outras características e aspectos dos dados; por isso, o termo *faceta*. No entanto, você pode também agrupar por outros campos. Como os resultados originais de quase três milhões de eventos que foram canalizados para o comando de medidas também têm um campo chamado **EventID**, você pode aplicar a mesma técnica para agrupar por aquele campo e obter uma contagem de eventos por EventID:
+No entanto, **Computer** é somente um campo usado *em* cada porção de dados — nenhum banco de dados relacional está envolvido e não há nenhum objeto **Computer** separado em lugar algum. Apenas os valores *nos* dados podem descrever qual entidade os gerou, além de várias outras características e aspectos dos dados; por isso, o termo *faceta*. No entanto, você pode também agrupar por outros campos. Como os resultados originais de quase 3 milhões de eventos que foram canalizados para o comando de medidas também têm um campo chamado **EventID**, você pode aplicar a mesma técnica para agrupar por esse campo e obter uma contagem de eventos por EventID:
 
 ```
 Type=Event | Measure count() by EventID
 ```
 
-Se você não está interessado na contagem de registro real que contém um valor específico, mas apenas numa lista dos próprios valores, pode adicionar um comando *Selecionar* no final dele e selecionar somente a primeira coluna:
+Se não estiver interessado na contagem de registro real que contém um valor específico, mas apenas em uma lista dos próprios valores, você poderá adicionar um comando *Select* no final dela e selecionar somente a primeira coluna:
 
 ```
 Type=Event | Measure count() by EventID | Select EventID
@@ -294,25 +296,25 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 
 #### Para pesquisar usando contagem de medida
 
-- No campo pesquisar consulta, digite `Type=Event | Measure count() by EventID`
-- Acrescente `| Select EventID` ao final da consulta.
-- Por fim, acrescente `| Sort EventID asc` ao final da consulta.
+- No campo de consulta da pesquisa, digite `Type=Event | Measure count() by EventID`
+- Acrescente `| Select EventID` ao fim da consulta.
+- Por fim, acrescente `| Sort EventID asc` ao fim da consulta.
 
 
 Há alguns pontos importantes a observar e a enfatizar:
 
 Primeiro, os resultados que você vê não são mais os resultados brutos originais. Em vez disso, eles são resultados agregados: essencialmente, grupos de resultados. Isso não é um problema, mas você deve entender que você está interagindo com uma forma muito diferente de dados que não é igual à forma bruta original que é criada espontaneamente como resultado da função de agregação/estatística.
 
-Segundo, a **contagem de medidas** atualmente retorna somente os cem resultados distintos principais. Esse limite não se aplica às outras funções estatísticas. Portanto, você geralmente precisará usar um filtro mais preciso primeiro para procurar itens específicos antes de aplicar contagem de medida().
+Segundo, atualmente, a **Contagem de medidas** retorna somente os 100 resultados distintos principais. Esse limite não se aplica às outras funções estatísticas. Portanto, você geralmente precisará usar um filtro mais preciso primeiro para procurar itens específicos antes de aplicar contagem de medida().
 
 ## Usar as funções máx e mín com o comando de medida
 
-Há várias situações em que **Medir Máx()** e **Medir Mín ()** são úteis. No entanto, já que elas são opostas, vamos exemplificar Máx() e você pode testar Mín() por conta própria.
+Há várias situações em que **Measure Max()** e **Measure Min()** são úteis. No entanto, já que elas são opostas, vamos exemplificar Máx() e você pode testar Mín() por conta própria.
 
-Se você fizer consulta para alertas de Avaliação de Configuração, eles têm uma propriedade **Severity** que pode ser 0, 1 ou 2 e representa informação, aviso e crítica. Por exemplo:
+Se você consultar alertas de Avaliação de Configuração, eles terão uma propriedade **Severity** que pode ser 0, 1 ou 2, representando informações, aviso e crítico. Por exemplo:
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![pesquisar início da contagem de medida](./media/operational-insights-search/search-measure-max01.png)
@@ -320,15 +322,15 @@ Type=Alert
 Se você deseja exibir o valor mais alto para todos os alertas de um mesmo computador, o agrupar por campo, pode usar
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![pesquisar medir máxima computador](./media/operational-insights-search/search-measure-max02.png)
 
-Ela exibirá isso para os computadores que têm registros de **Alerta**; a maioria tem pelo menos um alerta crítico e o computador Bacc tem em aviso a sua pior severidade.
+Ela exibirá isso para os computadores que têm registros de **Alerta**; a maioria tem pelo menos um alerta crítico e o computador Bacc tem um aviso como sua pior severidade.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![pesquisar tempo máximo gerado computador](./media/operational-insights-search/search-measure-max03.png)
@@ -364,8 +366,8 @@ Na imagem acima, há dois conjuntos de campos marcados que indicam o seguinte:
 - na consulta, **Type=PerfHourly** é uma agregação por hora
 - **TimeGenerated** é 21:00, no formato de 24 horas. É a agregação para aquele período por hora das 20:00 às 21:00.
 - **SampleCount** é a agregação, calculada usando 12 amostras (uma a cada 5 minutos)
-- o **mín**, **máx** e **Percentile95** para o período de hora em hora foi, nesse exemplo de memória em uma máquina virtual, 6144 (megabytes)
-- **SampleValue** é uma agregação por hora e é preenchida com a *média* para o período de hora em hora; isso é usado para plotar os gráficos de desempenho
+- **min**, **max** e **Percentile95** para o período de hora em hora foi, nesse exemplo de memória em uma máquina virtual, 6144 (megabytes)
+- **SampleValue** é uma agregação por hora e é populada com a *média* para o período de hora em hora; isso é usado para plotar os gráficos de desempenho
 
 Depois de ler sobre a forma de registro PerfHourly e de ler sobre outras técnicas de pesquisa, você pode usar medir Méd() para agregar este tipo de dados numéricos.
 
@@ -377,7 +379,7 @@ Type=PerfHourly  ObjectName:Processor  InstanceName:_Total  CounterName:"% Proce
 
 ![pesquisar média valordeexemplo](./media/operational-insights-search/search-avg03.png)
 
-Neste exemplo, você deve selecionar o contador de desempenho de Tempo Total de CPU e média por Computador Como **SampleValue** já é uma média, você na verdade consulta uma média de uma média. Esse é o caso com Type=PerfHourly neste momento. Você sempre deve usar um filtro em TimeGenerated para restringir a operação a um dataset pequeno ou recente, como as últimas 4 horas, e não 7 dias.
+Neste exemplo, você deve selecionar o contador de desempenho de Tempo Total de CPU e média por Computador Como **SampleValue** já é uma média, você, na verdade, consulta uma média de uma média. Esse é o caso com Type=PerfHourly neste momento. Você sempre deve usar um filtro em TimeGenerated para restringir a operação a um dataset pequeno ou recente, como as últimas 4 horas, e não 7 dias.
 
 Assim, a consulta acima se torna:
 
@@ -408,7 +410,7 @@ Agora você pode adicionar computadores e contadores com o exemplo abaixo:
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”)
 ```
 
-Porque você tem uma seleção muito específica, o comando **medir Méd()** pode retornar a média não por computador, mas pelo farm, simplesmente agrupando por CounterName. Por exemplo:
+Como você tem uma seleção muito específica, o comando **measure Avg()** pode retornar a média não por computador, mas pelo farm, simplesmente agrupando por CounterName. Por exemplo:
 
 ```
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”) | Measure Avg(SampleValue) by CounterName
@@ -419,13 +421,13 @@ Isso dá a você uma visualização compacta útil de alguns dos KPIs do seu amb
 ![pesquisar média agrupamento](./media/operational-insights-search/search-avg04.png)
 
 
-Você pode usar isso facilmente em um painel. Para saber mais sobre como usar os painéis, confira [Painéis do Insights Operacionais](operational-insights-use-dashboards).
+Você pode usar isso facilmente em um painel. Para saber mais sobre como usar os painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards).
 
 ![pesquisar média painel](./media/operational-insights-search/search-avg05.png)
 
 ### Usar a função soma com o comando de medida
 
-A função soma é semelhante a outras funções do comando de medida. Você pode ver um exemplo de como usar a função soma em [Pesquisa de Logs IIS W3C no Insights Operacionais do Microsoft Azure](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
+A função soma é semelhante a outras funções do comando de medida. Você pode ver um exemplo de como usar a função de soma em [Pesquisa de Logs IIS W3C no Insights Operacionais do Microsoft Azure](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 Você pode usar Máx() e Mín() com cadeias de caracteres numéricos, datetimes e texto. Com cadeias de caracteres de texto, eles são classificados em ordem alfabética e você obtém a primeira e a última.
 
@@ -449,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Se você estiver familiarizado com o Microsoft System Center - Operations Manager, pode pensar no comando where em termos de pacote de gerenciamento de comando. Se o exemplo fosse uma regra, a primeira parte da consulta seria a fonte de dados e o comando where seria a detecção de condição.
 
-Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor, para ver quando as CPUs de computador são utilizadas em excesso. Para saber mais sobre os painéis, confira [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para saber mais, confira [Aplicativo móvel Insights Operacionais do Azure ](http://www.windowsphone.com/pt-br/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
+Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor de classificações, para ver quando as CPUs do computador são utilizadas em excesso. Para saber mais sobre painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para obter mais informações, consulte [Aplicativo móvel do Insights Operacionais do Azure ](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
 
 ![painel móvel](./media/operational-insights-search/search-mobile.png)
 
@@ -457,7 +459,7 @@ Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor, par
 
 A seção de referência sobre a linguagem de pesquisa a seguir descreve as opções de sintaxe de consulta geral que você pode usar ao pesquisar expressões de dados e de filtragem para ajudar a restringir a sua pesquisa. Ele também descreve os comandos que você pode usar para atuar sobre os dados recuperados.
 
-Você pode ler sobre os campos retornados nas pesquisas e facetas que o ajudarão a analisar com detalhes categorias semelhantes de dados nas [Campo de pesquisa e referência da faceta ](#Search-field-and-facet-reference).
+Você pode ler sobre os campos retornados nas pesquisas e as facetas que o ajudarão a analisar detalhadamente categorias semelhantes de dados em [Campo de pesquisa e referência de faceta](#Search-field-and-facet-reference).
 
 ### Sintaxe de consulta geral
 
@@ -521,7 +523,7 @@ Exemplos:
 
 Cada porção dos dados do sistema tem uma propriedade **TimeGenerated** que representa a data e hora original do registro. Alguns tipos de dados podem ter mais campos de data/hora (por exemplo, **LastModified**).
 
-O seletor de tempo/gráfico de linha do tempo no Insights Operacionais mostra uma distribuição de resultados ao longo do tempo (de acordo com a consulta atual sendo executada) baseada no campo **TimeGenerated**. Os campos de data/hora têm um formato de cadeia de caracteres específico que pode ser usado em consultas para restringi-la a um determinado período. Você também pode usar a sintaxe para se referir a intervalos de tempo relativo (por exemplo, "entre 3 dias atrás e 2 horas atrás").
+O seletor Gráfico/Tempo da linha do tempo no Insights Operacionais mostra uma distribuição de resultados ao longo do tempo (de acordo com a consulta atual que está sendo executada) baseada no campo **TimeGenerated**. Os campos de data/hora têm um formato de cadeia de caracteres específico que pode ser usado em consultas para restringi-la a um determinado período. Você também pode usar a sintaxe para se referir a intervalos de tempo relativo (por exemplo, "entre 3 dias atrás e 2 horas atrás").
 
 Sintaxe:
 
@@ -548,7 +550,7 @@ Exemplo:
 
 	TimeGenerated:2013-10-01T12:20
 
-O comando anterior retorna somente os registros com um valor **TimeGenerated** exato de 12:20 em 1º de outubro de 2013. É improvável que ele venha a fornecer qualquer resultado, mas você pegou a ideia.
+O comando anterior retorna somente os registros com um valor **TimeGenerated** de exatamente 12:20 em 1º de outubro de 2013. É improvável que ele venha a fornecer qualquer resultado, mas você pegou a ideia.
 
 O analisador também dá suporte ao valor de data/hora mnemônico AGORA.
 
@@ -612,7 +614,7 @@ Você pode encadear os operadores de cálculo de data/hora, por exemplo:
 
 A tabela a seguir lista as unidades com suporte de data/hora.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unidade de data/hora </th> <th>Descrição </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arredonda para o ano atual ou desloca o número especificado de anos.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arredonda para o mês atual ou desloca o número especificado de meses.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p>Arredonda para o dia do mês atual ou desloca o número especificado de dias.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arredonda para a hora atual ou desloca o número especificado de horas.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arredonda para o minuto atual ou desloca o número especificado de minutos.</p> </td> </tr> <tr> <td> <p>SEGUNDO, SEGUNDOS</p> </td> <td> <p>Arredonda para o segundo atual ou desloca o número especificado de segundos.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Arredonda para o milissegundo atual ou desloca o número especificado de milissegundos.</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unidade de data/hora </th> <th>Descrição </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arredonda para o ano atual ou desloca pelo número especificado de anos.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arredonda para o mês atual ou desloca pelo número especificado de meses.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p>Arredonda para o dia do mês atual ou desloca pelo número especificado de dias.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arredonda para a hora atual ou desloca pelo número especificado de horas.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arredonda para o minuto atual ou desloca pelo número especificado de minutos.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Arredonda para o segundo atual ou desloca pelo número especificado de segundos.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Arredonda para o milissegundo atual ou desloca pelo número especificado de milissegundos.</p> </td> </tr> </table>
 
 
 #### Facetas de campo
@@ -688,7 +690,7 @@ Exemplos:
 Você pode omitir o operador lógico para os argumentos de filtro de nível superior. Nesse caso, o operador AND será assumido.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expressão de filtro</th> <th>equivalente a</th> </tr> <tr> <td> <p>erro de sistema</p> </td> <td> <p>erro AND sistema</p> </td> </tr> <tr> <td> <p>sistema &quot; Windows Server&quot; OR Severity:1</p> </td> <td> <p>sistema AND (&quot;Windows Server&quot; OU Severity:1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expressão de filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>erro de sistema</p> </td> <td> <p>erro AND sistema</p> </td> </tr> <tr> <td> <p>sistema "; Windows Server"; OR Severity:1</p> </td> <td> <p>sistema AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -704,7 +706,7 @@ Sintaxe:
 
 	sort field1 asc|desc, field2 asc|desc, …
 
-Classifica os resultados por campos específicos. O prefixo crescente/decrescente é opcional. Se eles forem omitidos, presume-se a ordem de classificação “crescente”. Se uma consulta não usar o comando **Classificar** explicitamente, Classificar **TimeGenerated** decrescente é o comportamento padrão e sempre retornará os resultados mais recentes primeiro.
+Classifica os resultados por campos específicos. O prefixo crescente/decrescente é opcional. Se eles forem omitidos, presume-se a ordem de classificação “crescente”. Se uma consulta não usar o comando **Sort** explicitamente, Sort **TimeGenerated** desc será o comportamento padrão e sempre retornará os resultados mais recentes primeiro.
 
 #### Superior/limite
 
@@ -748,11 +750,11 @@ Exemplo:
 
 	Type:Alert errors detected | select Name, Severity
 
-Limita os campos de resultados retornados para **Name** e **Severity**.
+Limita os campos de resultados retornados a **Name** e **Severity**.
 
 #### Medida
 
-O comando **medir** é usado para aplicar funções estatísticas aos resultados da pesquisa brutos. Isso é muito útil para obter a visualização *agrupar-por* dos dados. Quando você usa o comando **medir**, o Insights Operacionais exibe uma tabela com resultados agregados.
+O comando **measure** é usado para aplicar funções estatísticas aos resultados brutos da pesquisa. Isso é muito útil para obter as exibições *agrupar por* dos dados. Quando você usa o comando **measure**, o Insights Operacionais exibe uma tabela com resultados agregados.
 
 Sintaxe:
 
@@ -764,11 +766,11 @@ Sintaxe:
 Agrega os resultados por **groupField** e calcula os valores agregados de medida usando **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Medir a função estatística</th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções agregadas:</p> <ul> <li class="unordered">CONTAGEM<br><br></li> <li class="unordered">MÁX<br><br></li> <li class="unordered">MÍN<br><br></li> <li class="unordered">SOMA<br><br></li> <li class="unordered">MÉD<br><br></li> <li class="unordered">DESVPA<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação CONTAGEM, mas deve ser um campo numérico existente para SOMA, MÁX, MÍN, MÉD ou DESVPA.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Intervalo</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNOME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NOME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Função estatística de measure</th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções de agregação:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NAME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-A opção de intervalo só pode ser usada em campos de grupo data/hora (como **TimeGenerated** e **TimeCreated**). Atualmente, isso não é imposto pelo serviço, mas um campo sem data/hora que é passado para o back-end causará um erro de tempo de execução. Quando a validação do esquema é implementada, a API do serviço rejeita as consultas que usam campos sem data/hora para agregação de intervalo. A implementação atual de **Medir** dá suporte somente ao agrupamento de intervalo para a função de agregação **Contagem**.
+A opção de intervalo só pode ser usada em campos de grupo de data/hora (como **TimeGenerated** e **TimeCreated**). Atualmente, isso não é imposto pelo serviço, mas um campo sem data/hora que é passado para o back-end causará um erro de tempo de execução. Quando a validação do esquema é implementada, a API do serviço rejeita as consultas que usam campos sem data/hora para agregação de intervalo. A implementação atual de **Measure** oferece suporte somente ao agrupamento de intervalo para a função de agregação **Count**.
 
 Se a cláusula BY for omitida, mas um intervalo for especificado (como uma segunda sintaxe), o campo **TimeGenerated** será considerado por padrão.
 
@@ -804,7 +806,7 @@ Mesma coisa que o exemplo anterior, mas com um alias de campo agregado (**Alerts
 
 *Explicação*
 
-Agrupa os resultados por intervalos de cinco dias usando o campo **TimeCreated** e retorna o número de resultados em cada intervalo.
+Agrupa os resultados por intervalos de 5 dias usando o campo **TimeCreated** e retorna o número de resultados em cada intervalo.
 
 **Exemplo 5**
 
@@ -820,7 +822,7 @@ Agrupa os alertas por cargas de trabalho e retorna o valor máximo de severidade
 
 *Explicação*
 
-Mesmo coisa que o exemplo anterior, mas com a função agregada **Mín**.
+Igual ao exemplo anterior, mas com a função de agregação **Min**.
 
 **Exemplo 7**
 
@@ -836,7 +838,7 @@ Agrupa PerfHourly por ObjectId e calcula a média (méd).
 
 *Explicação*
 
-Mesma coisa que o exemplo anterior, mas usa **Soma**.
+Igual ao exemplo anterior, mas usa **Sum**.
 
 **Exemplo 9**
 
@@ -844,7 +846,7 @@ Mesma coisa que o exemplo anterior, mas usa **Soma**.
 
 *Explicação*
 
-Mesma coisa que o exemplo anterior, mas usa **DESVPA**.
+Igual ao exemplo anterior, mas usa **STDDEV**.
 
 **Exemplo 10**
 
@@ -860,7 +862,7 @@ Sintaxe:
 
 **where** AggregatedValue>20
 
-Somente pode ser usado após um comando **medir** para filtrar ainda mais os resultados agregados que a função agregada **Medir** produziu.
+Pode ser usado somente depois de um comando **Measure** para filtrar ainda mais os resultados agregados que a função de agregação **Measure** produziu.
 
 Exemplos:
 
@@ -2034,6 +2036,6 @@ Quando você usar Pesquisar para localizar dados, os resultados exibem vários c
 - [Coleção de consultas de pesquisa úteis do Insights Operacionais](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
 ## Outros recursos
-Stefan Roth criou uma cola muito prática. Verifique seu [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar suas colas.
+Stefan Roth criou uma cola muito prática. Configura seu [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar seu roteiro.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

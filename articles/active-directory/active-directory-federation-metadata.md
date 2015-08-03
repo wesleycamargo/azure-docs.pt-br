@@ -149,4 +149,4 @@ Da mesma forma, os pontos de extremidade para os pontos de extremidade de protoc
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

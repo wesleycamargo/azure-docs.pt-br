@@ -19,7 +19,7 @@
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
 
-Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/pt-br/download/details.aspx?id=44233) também está disponível.
+Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/en-us/download/details.aspx?id=44233) também está disponível.
 
 ## Convenções de ícones de segurança
 
@@ -179,4 +179,4 @@ Depois de revisar esses avisos de segurança, as próximas etapas serão desemba
 
 - Para um dispositivo 8600, vá para [Desempacotar, montar no rack e cabear o dispositivo 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

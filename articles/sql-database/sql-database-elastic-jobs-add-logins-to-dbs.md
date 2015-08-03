@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Como adicionar usuários a um pool de bancos de dados elásticos" 
 	description="Você deve adicionar um usuário com privilégios para cada banco de dados do pool" 
-	services="sql-database"
-	documentationCenter="" 
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -45,4 +45,4 @@ Execute um trabalho no pool de banco de dados elástico. Consulte [Criando e ger
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Explorar os dados de segurança e auditoria do Insights Operacionais
@@ -40,6 +40,8 @@ Neste artigo, você irá:
 8. A pesquisa exibe informações detalhadas sobre o processo, incluindo os computadores em que o processo é executado, a conta de usuário em que o processo é executado, e a data e hora em que um evento foi criado para o processo.
 9. Usando as informações que encontrar, você pode tomar uma ação corretiva conforme necessário. Por exemplo, se determinar que o executável é malware, em seguida, você deve agir para removê-lo de todos os sistemas de computador que ele afeta. Depois que o executável é removido e o Insights Operacionais recebe eventos de auditoria e log atualizados para os sistemas de computador, os valores na folha PROBLEMAS IMPORTANTES são alterados no dia seguinte.
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## Práticas recomendadas para análise forense
 
 **Procurar as evidências**
@@ -52,9 +54,9 @@ No entanto, se os usuários estão acessando seus próprios computadores ou aces
 
 Para aproveitar ao máximo a solução de Segurança e Auditoria, você deve configurar o nível dos eventos de auditoria coletados por seu ambiente do Windows que melhor atenda às suas necessidades, usando os recursos a seguir.
 
-- [Como Definir Configurações de Política de Segurança](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
+- [Como definir configurações de política de segurança](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
-- [Configurações Avançadas de Política de Auditoria](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
+- [Configuração avançada da política de auditoria](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
 - [Recomendações de Política de Auditoria](https://technet.microsoft.com/library/dn487457.aspx)
 
@@ -98,4 +100,4 @@ Os dados de auditoria que você deseja coletar e enviar ao Insights Operacionais
 
 Além das configurações de política local, se você usar o AppLocker para coletar dados de auditoria, o Operacional Insights coletará os dados e, em seguida, você poderá exibí-los.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,4 @@
+
 <properties
     pageTitle="Acessando seus aplicativos"
     description="Saiba quais clientes têm suporte para o Azure RemoteApp e como acessar seus aplicativos."
@@ -206,4 +207,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 ![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

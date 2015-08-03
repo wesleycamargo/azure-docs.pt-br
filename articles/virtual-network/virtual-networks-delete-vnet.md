@@ -32,4 +32,4 @@ Se você deseja excluir uma VNet, não pode simplesmente clicar em **Excluir**. 
 1. **Adicionalmente:** você também pode optar por excluir as configurações de rede local, os servidores DNS e o grupo de afinidades depois de excluir a sua rede virtual.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

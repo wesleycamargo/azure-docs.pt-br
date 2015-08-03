@@ -529,4 +529,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

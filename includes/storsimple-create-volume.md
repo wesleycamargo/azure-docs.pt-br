@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Criar um volume"
-   description="Explica como adicionar um volume em um dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/15"
-   ms.author="v-sharos" />
 
 #### Para criar um volume
 
@@ -38,4 +22,4 @@
 
 4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Será criado um volume com as configurações especificadas.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

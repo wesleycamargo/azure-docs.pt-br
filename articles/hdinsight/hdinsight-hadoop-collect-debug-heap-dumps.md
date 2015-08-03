@@ -3,7 +3,7 @@
 	description="Colete despejos de heap automaticamente para serviços do Hadoop e coloque dentro a conta de armazenamento de Blobs do Azure para depuração e análise."
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 # Coletar despejos de heap no armazenamento de Blob para depurar e analisar serviços do Hadoop
@@ -62,4 +62,4 @@ Por exemplo, para habilitar despejos de heap para jobhistoryserver usando o Azur
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

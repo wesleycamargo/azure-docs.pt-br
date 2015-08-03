@@ -139,4 +139,4 @@ Gerenciar e auditar o acesso
 - [Autenticar uma entidade de serviço](./resource-group-authenticate-service-principal.md)
 - [Criar uma nova entidade de serviço do Azure usando o Portal do Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

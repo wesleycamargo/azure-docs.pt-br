@@ -179,7 +179,7 @@ Observe que se você quiser instalar o Provedor no Server Core do Windows Server
 		- /proxyUsername <username>: credenciais, caso o proxy exija autenticação.
 		- proxyPassword <password>
 
->[AZURE.NOTE]Você pode configurar cada host Hyper-V individual para usar configurações de largura de banda de rede diferentes para replicar as máquinas virtuais no Azure. Saiba mais sobre [Como gerenciar o uso de largura de banda de rede para proteção do local para o Azure](https://support.microsoft.com/pt-br/kb/3056159)
+>[AZURE.NOTE]Você pode configurar cada host Hyper-V individual para usar configurações de largura de banda de rede diferentes para replicar as máquinas virtuais no Azure. Saiba mais sobre [Como gerenciar o uso de largura de banda de rede para proteção do local para o Azure](https://support.microsoft.com/en-us/kb/3056159)
 
 
 ## Etapa 4: criar recursos do Azure
@@ -296,4 +296,4 @@ Para executar o failover de teste, faça o seguinte:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

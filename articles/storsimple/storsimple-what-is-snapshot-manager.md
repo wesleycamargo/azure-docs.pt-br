@@ -31,7 +31,7 @@ O StorSimple Snapshot Manager fornece um console de gerenciamento central que vo
 
 - Configurar, fazer backup e excluir volumes.
 - Configurar grupos de volumes para garantir que o backup dos dados seja consistente com o aplicativo.
-- Gerenciar políticas de backup para que se faça backup dos dados em um agendamento predeterminado.
+- Gerencie políticas de backup para que os dados sejam copiados em um agendamento predeterminado.
 - Crie cópias de dados independentes, as quais podem ser armazenadas na nuvem e usadas para a recuperação de desastres.
 
 Com o StorSimple Snapshot Manager, você monta volumes e em seguida os configura em grupos de volumes, normalmente por aplicativo. O StorSimple Snapshot Manager usa esses grupos de volumes para gerar cópias de backup consistentes com o aplicativo. (A consistência do aplicativo existe quando todos os arquivos relacionados e bancos de dados são sincronizados e representam o verdadeiro estado do aplicativo em um momento específico).
@@ -148,4 +148,4 @@ Para saber mais sobre como monitorar trabalhos de backup, vá para [Usar o StorS
 
 [Fazer download do StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

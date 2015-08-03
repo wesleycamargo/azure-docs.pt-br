@@ -42,7 +42,7 @@ Os registros CNAME (ou registros de alias) e A permitem que você associe um nom
 
 ### Registro CNAME ou de alias
 
-Um registro CNAME mapeia um domínio *específico*, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o nome de domínio **[myapp].cloudapp.net** do seu aplicativo hospedado no Azure. Uma vez criado, o CNAME cria um alias para o **[myapp].cloudapp.net**. A entrada CNAME resolverá o endereço IP do seu serviço **[myapp].cloudapp.net** automaticamente; portanto, se o endereço IP do serviço de nuvem for alterado, nenhuma ação será necessária.
+Um registro CNAME mapeia um domínio *específico*, como **contoso.com** ou **www.contoso.com**, para um nome de domínio canônico. Nesse caso, o nome de domínio canônico é o nome de domínio **[myapp].cloudapp.net** do seu aplicativo hospedado no Azure. Uma vez criado, o CNAME cria um alias para o **[myapp].cloudapp.net**. A entrada CNAME resolverá o endereço IP do seu serviço **[myapp].cloudapp.net** automaticamente. Portanto, se o endereço IP do serviço de nuvem for alterado, nenhuma ação será necessária.
 
 > [AZURE.NOTE]Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como www.contoso.com, e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida pelo seu registrador, [a entrada da Wikipédia sobre o registro CNAME](http://en.wikipedia.org/wiki/CNAME_record), ou do documento de implementação e especificação [IETF Domain Names](http://tools.ietf.org/html/rfc1035).
 
@@ -130,7 +130,7 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 
 | Nome do host/Subdomínio | Endereço IP |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
@@ -153,4 +153,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

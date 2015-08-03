@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Introdução à API da Web para nó
@@ -848,7 +848,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1030,7 +1030,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2\. Informar o nosso servidor que estamos usando autenticação
+### 2. Informar o nosso servidor que estamos usando autenticação
 
 Abra seu arquivo `server.js` no nosso editor favorito e adicione as seguintes informações **abaixo de server.get()**, onde você definiu suas rotas, mas acima do método **server.listen()**.
 
@@ -1044,7 +1044,7 @@ Precisamos dizer ao Restify para começar a usar seu `authorizationParser()` e e
 ```
 
 
-### 3\. Adicionar o módulo Passport OAuth2 ao nosso código
+### 3. Adicionar o módulo Passport OAuth2 ao nosso código
 
 Aqui usamos os parâmetros específicos de OAuth2 que adicionamos ao arquivo config.js. Se nosso arquivo `aadutils.js` fez seu trabalho analisando nosso documento de metadados de federação, todos esses valores devem estar preenchidos para nós mesmo que estejam em branco no arquivo config.js.
 
@@ -1177,6 +1177,8 @@ Simplesmente faça a clonagem para sua máquina de desenvolvedor e configure con
 [ADAL para Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL para .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

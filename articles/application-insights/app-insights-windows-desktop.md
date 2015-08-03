@@ -173,4 +173,4 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

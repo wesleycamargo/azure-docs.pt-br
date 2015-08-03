@@ -31,6 +31,10 @@ A sincronização offline possui diversos usos possíveis:
 
 Se essa for sua primeira experiência com aplicativos móveis, primeiro conclua o tutorial [Criar um aplicativo iOS].
 
+##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>Obter o aplicativo de exemplo ToDo offline
 
 No [repositório de exemplo de aplicativos móveis no GitHub], clone o repositório e abra o projeto [Exemplo de iOS Offline] no Xcode.
@@ -275,7 +279,7 @@ Quando desejamos sincronizar o repositório local com o servidor, usamos os mét
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: sincronização offline em serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

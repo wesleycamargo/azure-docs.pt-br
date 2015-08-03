@@ -70,4 +70,4 @@ Bancos de dados SQL do Azure também podem ser configurados para mascarar dados 
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

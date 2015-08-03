@@ -153,17 +153,17 @@ Agora que você configurou o firewall poderá fazer conexões da área de trabal
 
 Agora, o Serviço SQLDW foi provisionado com êxito para aprendermos a usá-lo.
 
-As próximas etapas são, portanto, para saber como: 1. [Conectar e consultar](sql-data-warehouse-get-started-connect-query.md) o data warehouse. 2. Exporte dados do data warehouse para o armazenamento de blob do Azure. 3. Carregar mais dados no data warehouse.
+As próximas etapas são, portanto, para saber como: 1. [Conectar e consultar][] o data warehouse. 2. Exporte dados do data warehouse para o armazenamento de blob do Azure. 3. Carregar mais dados no data warehouse.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-
+[Conectar e consultar]: sql-data-warehouse-get-started-connect-query.md
 
 <!--External links-->
-[avaliação gratuita]: https://azure.microsoft.com/pt-br/pricing/free-trial/
+[avaliação gratuita]: https://azure.microsoft.com/en-us/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -590,4 +590,4 @@ Este procedimento cria um aplicativo Web do Serviço de Aplicativo. Você será 
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

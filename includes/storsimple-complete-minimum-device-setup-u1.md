@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Instalação mínima do dispositivo concluída"
-   description="Descreve como concluir a configuração mínima do dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/21/2015"
-   ms.author="v-sharos" />
 
 #### Para concluir a configuração mínima do dispositivo StorSimple
 
@@ -45,4 +29,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

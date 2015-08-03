@@ -115,4 +115,4 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
 * [Padrão de transação de compensação](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Padrões de idempotência](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

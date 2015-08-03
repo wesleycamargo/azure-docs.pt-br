@@ -65,4 +65,4 @@ Os Atores da Malha do Azure constituem uma implementação do modelo de ator que
 * *Assincronismo explícito.* O modelo de programação de Atores de Malha do Azure torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

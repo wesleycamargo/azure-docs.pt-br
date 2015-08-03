@@ -3,7 +3,7 @@
 	description="Acessar logs do aplicativo programaticamente em um cluster de Hadoop no HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Acessar logs do aplicativo YARN no Hadoop no HDInsight programaticamente
 
@@ -173,4 +173,4 @@ Se necessário, você também pode baixar os logs de cada contêiner (ou de um c
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

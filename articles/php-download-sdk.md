@@ -136,4 +136,4 @@ Para informações sobre como usar o CLI do Azure, confira [Como Usar a Interfac
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

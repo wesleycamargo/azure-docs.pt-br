@@ -401,4 +401,4 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

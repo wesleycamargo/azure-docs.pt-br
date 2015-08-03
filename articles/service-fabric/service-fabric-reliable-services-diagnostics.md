@@ -46,4 +46,4 @@ StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço la
 
 StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de 4 segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó e pode afetar a disponibilidade geral do serviço.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

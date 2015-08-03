@@ -505,4 +505,4 @@ Para obter informações sobre unidades de streaming de dimensionamento, consult
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

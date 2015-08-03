@@ -58,7 +58,7 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 3. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
 
-4.  O [Application Insights](app-insights-overview.md) monitora seu aplicativo web para disponibilidade, desempenho e uso. Desmarque a caixa de seleção **Adicionar Application Insights ao Projeto** se não deseja testá-lo.
+4.  O [Application Insights](app-insights-overview.md) monitora seu aplicativo Web quanto à sua disponibilidade, desempenho e utilização. Desmarque a caixa de seleção **Adicionar Application Insights ao projeto** se você não quiser experimentá-lo.
 
 4. Nomeie o aplicativo **MyExample** e clique em **OK**.
 
@@ -295,7 +295,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como evitar tempo de espera para voltar ao funcionamento após intervalos em ociosidade
 
-	Por padrão, os aplicativos Web serão descarregados se estiverem ociosos durante determinado período de tempo. A primeira solicitação após isso ocorrer precisa aguardar até que o aplicativo Web seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar aplicativos Web](web-sites-configure.md).
+	Por padrão, os aplicativos Web serão descarregados se estiverem ociosos durante determinado período de tempo. A primeira solicitação após isso ocorrer precisa aguardar até que o aplicativo Web seja carregado novamente. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar o aplicativos Web](web-sites-configure.md).
 
 * Como adicionar recursos em tempo real como chat
 
@@ -316,4 +316,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

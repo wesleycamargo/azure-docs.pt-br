@@ -85,4 +85,4 @@ Detalhes das APIs podem ser encontrados em [Definição da API do Conector de Ar
 [Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

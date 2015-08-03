@@ -487,4 +487,4 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -42,7 +42,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
     
 ## Recursos a implantar
@@ -140,4 +140,4 @@ Essa definição específica será executada uma vez por hora e executará ping 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

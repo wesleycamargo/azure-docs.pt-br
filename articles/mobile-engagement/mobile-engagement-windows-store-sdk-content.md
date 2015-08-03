@@ -55,4 +55,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementPageOverlay.cs` : O código de exibição de anúncio e notificação `Overlay`.
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

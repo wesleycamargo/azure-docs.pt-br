@@ -147,4 +147,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 - Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

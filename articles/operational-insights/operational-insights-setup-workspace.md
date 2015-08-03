@@ -180,4 +180,4 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 
 3. Clique em **Fechar espaço de trabalho**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

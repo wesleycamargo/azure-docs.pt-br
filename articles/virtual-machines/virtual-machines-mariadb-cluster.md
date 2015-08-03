@@ -370,4 +370,4 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 [outra maneira de clusterizar o MySQL no Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

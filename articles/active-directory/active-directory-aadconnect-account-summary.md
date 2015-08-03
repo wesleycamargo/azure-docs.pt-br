@@ -28,12 +28,12 @@ O Assistente de Conexão do AD do Azure oferece dois caminhos diferentes com req
 * Em Configurações Personalizadas, oferecemos mais opções, mas há algumas situações em que você precisará ter as permissões corretas por conta própria.
 
 
-## As credenciais que são coletadas e para que são usadas em uma instalação do Express
+## As credenciais que são coletadas e para que são usadas em uma instalação expressa
 
 Página do assistente | Credenciais coletadas | Permissões necessárias| Usadas para 
 ------------- | ------------- |------------- |------------- |
 Conectar-se ao AD do Azure| Credenciais de diretório do AD do Azure | Função de administrador global no AD do Azure | <li>Habilitar a sincronização no diretório do AD do Azure.</li> <li>Criação da conta do AD do Azure que será usada para operações de sincronização em andamento no AD do Azure.</li>
-Conectar-se ao AD DS | Credenciais do Active Directory local | Membro do grupo EA (Administradores de Empresa) no Active Directory| <li>Criação da conta do AD local que será usada para ler objetos e atributos do AD local para a operação de sincronização em andamento.</li> <li> Atribuir as permissões corretas e as configurações de controle de acesso para sincronização e sincronização de senha para a conta acima e o AD.</li> 
+Conectar-se ao AD DS | Credenciais do Active Directory local | Membro do grupo EA (Administradores de Empresa) no Active Directory| Usadas como a conta do Conector do AD local, ou seja, é a conta que lê e grava as informações do diretório para sincronização.
 ND|Credenciais de logon do usuário que executa o assistente| Administrador do servidor local|O assistente cria a conta do AD que será usada como a conta de logon do serviço de sincronização no computador local.
 
 <br> <br>
@@ -90,4 +90,4 @@ AD FS: conta do GMSA (aadcsvc$)|Usuário de domínio|Conta de logon do serviço 
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

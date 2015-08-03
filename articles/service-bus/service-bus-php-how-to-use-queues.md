@@ -213,4 +213,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

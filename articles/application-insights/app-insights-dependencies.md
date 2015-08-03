@@ -25,30 +25,35 @@ Um *dependência* é um componente externo que é chamado por seu aplicativo. No
 O monitoramento de dependência pronto para uso está disponível atualmente para:
 
 * Aplicativos Web em ASP.NET e serviços em execução em um servidor IIS ou no Azure
+* [Aplicativos Web em Java](app-insights-java-agent.md)
 
-Para outros tipos, como aplicativos Web de Java ou de dispositivo, você pode escrever seu próprio monitor usando a API TrackDependency.
+Para outros tipos, como aplicativos de dispositivo, você pode escrever seu próprio monitor usando a API TrackDependency.
 
 O monitor de dependência pronto para uso atualmente relata chamadas para esses tipos de dependências:
 
-* Bancos de dados SQL
-* Web ASP.NET e serviços WCF que usam associações baseadas em HTTP
-* Chamadas HTTP locais ou remotas
-* Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
+* ASP.NET
+ * Bancos de dados SQL
+ * Serviços Web ASP.NET e WCF que usam associações baseadas em HTTP
+ * Chamadas HTTP locais ou remotas
+ * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
+* Java
+ * Chamadas para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
 
 Novamente, você pode escrever suas próprias chamadas de SDK para monitorar outras dependências.
 
-## Configurar o monitoramento de dependência
+## Configurar monitoramento de dependência
 
-Para obter monitoramento de dependência, você deve:
+Instale o agente apropriado para o servidor host.
 
-* Usar o [Monitor de Status](app-insights-monitor-performance-live-website-now.md) no servidor IIS e usá-lo para habilitar o monitoramento
-* Adicionar a [Extensão do Application Insights](../insights-perf-analytics.md) para seu aplicativo Web ou VM do Azure.
+Plataforma | Instalar
+---|---
+Servidor IIS | [Monitor de status](app-insights-monitor-performance-live-website-now.md)
+Aplicativo Web do Azure | [Extensão do Application Insights](../insights-perf-analytics.md)
+Servidor Web em Java | [Aplicativos Web em Java](app-insights-java-agent.md)
 
-(Para uma VM do Azure, você pode usar a instalação da extensão do painel de controle do Azure ou instalar o Monitor de Status, como você faria em qualquer computador.)
+O Monitor de status para servidores IIS não necessita que você recompile o projeto de origem com o SDK do Application Insights.
 
-Você pode executar as etapas acima em um aplicativo Web já implantado. Para obter o monitoramento de dependência padrão, você não precisa adicioná-lo ao seu projeto de origem.
-
-## Diagnosticar problemas de desempenho de dependência
+## <a name="diagnosis"></a> Diagnosticar problemas de desempenho de dependência
 
 Para avaliar o desempenho de solicitações no seu servidor:
 
@@ -96,13 +101,13 @@ Clique em um tipo de solicitação e a instância de solicitação para encontra
 ![Clique em um tipo de solicitação e na instância para obter uma exibição diferente da mesma instância, clique nele para obter detalhes da exceção.](./media/app-insights-dependencies/07-faildetail.png)
 
 
-## Rastreamento de dependência personalizado
+## Acompanhamento de dependência personalizado
 
-O módulo padrão de rastreamento de dependência descobre automaticamente dependências externas, como bancos de dados e APIs REST. Mas, talvez você queira que alguns componentes adicionais sejam tratados da mesma forma.
+O módulo padrão de acompanhamento de dependência descobre automaticamente dependências externas, como bancos de dados e APIs REST. Mas, talvez você queira que alguns componentes adicionais sejam tratados da mesma forma.
 
-Você pode escrever código que envia informações de dependência usando a mesma[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency), que é usada pelos módulos padrão.
+Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
 
-Por exemplo, se você criar seu código com um assembly que não escreveu, será possível determinar o tempo de todas as chamadas nele, a fim de descobrir qual sua contribuição para seus tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
+Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
 
 ```C#
 
@@ -120,8 +125,8 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, será
             }
 ```
 
-Se deseja desativar o módulo padrão de rastreamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Se quiser desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

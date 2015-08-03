@@ -136,4 +136,4 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

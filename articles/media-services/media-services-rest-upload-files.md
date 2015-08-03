@@ -367,4 +367,4 @@ Se for bem-sucedido, será retornado o seguinte:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

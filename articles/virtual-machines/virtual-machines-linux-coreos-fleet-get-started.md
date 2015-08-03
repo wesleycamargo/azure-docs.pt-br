@@ -171,4 +171,4 @@ Confira também [Computação de software livre e do Linux no Azure] para saber 
 [Computação de software livre e do Linux no Azure]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

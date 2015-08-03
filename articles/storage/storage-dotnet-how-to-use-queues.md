@@ -272,4 +272,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

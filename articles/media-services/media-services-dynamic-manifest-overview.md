@@ -209,4 +209,4 @@ O tópico a seguir discute entidades de serviços de mídia relacionadas a filtr
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ A configuração do balanceador de carga do Azure dá suporte para NAT de cone c
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Observe que para cada nova conexão de saída iniciada por uma VM, uma porta de saída também é alocada pelo balanceador de carga do Azure. O host externo verá o tráfego direcionado como VIP: porta alocada. Se os cenários exigirem um grande número de conexões de saída, é recomendável que as VMs usem IPs Públicos em Nível de Instância para que exista um IP de saída dedicado a SNAT (Conversão de Endereço de Rede de Origem). Isso reduzirá o risco de esgotamento de porta.
+
+>[AZURE.NOTE]Observe que para cada nova conexão de saída iniciada por uma VM, uma porta de saída também é alocada pelo balanceador de carga do Azure. O host externo verá o tráfego direcionado como VIP: porta alocada. Se os cenários exigirem um grande número de conexões de saída, é recomendável que as VMs usem IPs Públicos em Nível de Instância para que exista um IP de saída dedicado a SNAT (Conversão de Endereço de Rede de Origem). Isso reduzirá o risco de esgotamento de porta.
+>
+>O número máximo de portas que podem ser usadas por VIP ou ILPIP é 64 mil. Essa é uma limitação de padrão de TCP.
+
 
 **Suporte para vários IPs de balanceamento de carga para máquinas virtuais**
 
@@ -95,4 +99,4 @@ Você pode obter mais de um endereço IP público de balanceamento de carga atri
 [Introdução - Balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

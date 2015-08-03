@@ -93,4 +93,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente
 - Um endereço IP estático
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

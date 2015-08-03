@@ -58,4 +58,4 @@ Todas as APIs de comunicação do ServiceFabric estão atualmente disponíveis s
 * [WCF com base em pilha de comunicação para serviços confiáveis](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

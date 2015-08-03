@@ -104,4 +104,4 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

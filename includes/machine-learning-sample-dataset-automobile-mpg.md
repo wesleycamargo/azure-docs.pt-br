@@ -1,3 +1,3 @@
 Esse conjunto de dados é uma versão um pouco modificada do conjunto de dados fornecido pela Biblioteca StatLib da Universidade de Carnegie Mellon. O conjunto de dados foi usado na exposição da Associação Estatística Americana de 1983.<p> </p>Os dados listam o consumo de combustível de vários automóveis em milhas por galão, juntamente com informações como o número de cilindros, cilindradas do motor, cavalos de potência, peso total e aceleração.<p> </p><b>Uso:</b> prever a economia de combustível com base em 3 atributos discretos de multivalores e 5 atributos contínuos. <p> </p><b>Pesquisa relacionada:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

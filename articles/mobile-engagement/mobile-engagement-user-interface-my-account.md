@@ -145,4 +145,4 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

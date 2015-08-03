@@ -462,4 +462,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
   [Portal de Gerenciamento]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

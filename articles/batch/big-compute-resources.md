@@ -1,6 +1,6 @@
 <properties
    pageTitle="Big Compute: recursos técnicos para Lote e HPC (Computação de Alto Desempenho) | Microsoft Azure"
-   description="Lista os recursos técnicos para ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure."
+   description="Lista os recursos técnicos que podem ajudá-lo a executar suas cargas de trabalho paralelas de grande escala, de lote e de HPC no Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute no Azure: recursos técnicos para Lote e HPC (Computação de Alto Desempenho).
@@ -23,7 +23,7 @@ Este é um guia para recursos técnicos para ajudá-lo a executar suas cargas de
 
 Saiba mais sobre as opções do Big Compute no Azure e escolha a abordagem certa para suas necessidades de negócios e cargas de trabalho.
 
-* [Soluções do Lote e de HPC](batch-hpc-solutions.md)
+* [Soluções de HPC e Lote](batch-hpc-solutions.md)
 
 * [Vídeo: Big Compute na nuvem com o Azure e HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
@@ -79,7 +79,9 @@ Use esses modelos do Gerenciador de Recursos do Azure para implantar clusters HP
 
 ## Instâncias de computação intensiva
 
-O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md), incluindo [instâncias A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação para executar as cargas de trabalho de HPC para Linux e Windows.
+O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines-size-specs.md), incluindo [instâncias A8, A9, A10 e A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) com uso intensivo de computação para executar cargas de trabalho de HPC para Linux e Windows.
+
+* [Configurar um cluster RDMA do Linux para executar aplicativos MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
 * [Instâncias A8 e A9: Início Rápido com HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -116,4 +118,4 @@ O Azure oferece uma [variedade de tamanhos](../virtual-machines/virtual-machines
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](http://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

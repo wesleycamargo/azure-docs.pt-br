@@ -54,4 +54,4 @@ Observe que agora você também pode criar uma origem personalizada, e não prec
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

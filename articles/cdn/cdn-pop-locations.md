@@ -71,4 +71,4 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 - Melbourne
 - Sydney 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

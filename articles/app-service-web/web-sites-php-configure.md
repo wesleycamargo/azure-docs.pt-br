@@ -177,4 +177,4 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -50,4 +50,4 @@ Para cada nova versão do SDK, você deve primeiro substituir (remover e importa
 Nenhum.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

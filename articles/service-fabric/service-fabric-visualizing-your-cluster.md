@@ -76,4 +76,4 @@ Para exibir um cluster de Malha do Serviço remoto, clique em **Conectar** para 
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

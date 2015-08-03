@@ -79,4 +79,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Chatter com
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

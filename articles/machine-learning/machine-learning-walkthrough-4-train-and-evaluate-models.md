@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,12 +40,12 @@ Primeiro, vamos configurar o modelo de árvore de decisão aumentada:
 
 1.	Localize o módulo [Árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree] na paleta do módulo e arraste-o para as telas.
 2.	Localize o módulo [Treinar modelo][train-model], arraste-o para as telas e depois conecte a saída do módulo da árvore de decisão aumentada à porta de entrada esquerda ("Modelo sem treinamento") do módulo [Treinar modelo][train-model].
-3.	Conecte a saída do módulo [Executar script R][execute-r-script] esquerdo à porta de entrada direita ("Conjunto de dados") do módulo [Treinar modelo][train-model].
+3.	Conecte a saída esquerda do módulo [Executar script R][execute-r-script] à porta de entrada direita ("Conjunto de Dados") do módulo [Treinar Modelo][train-model].
 
 	> [AZURE.TIP]Não precisamos de duas das entradas e uma das saídas do módulo [Executar Script R][execute-r-script] para este teste; portanto, apenas as deixaremos desconectadas. Isso é comum para alguns módulos.
 
 
-4.	Selecione o módulo [Treinar modelo][train-model]. No painel **Propriedades**, clique em **Iniciar seletor de colunas**, selecione **Incluir** na primeira lista suspensa, selecione **índices de colunas** na segunda lista suspensa e insira "21" no campo de texto (você também pode selecionar **Nome da coluna** e inserir "Risco de crédito"). Isso identifica a coluna 21, o valor do risco de crédito, como a coluna para o modelo prever.
+4.	Selecione o módulo [Treinar modelo][train-model]. No painel **Propriedades**, clique em **Iniciar seletor de colunas**, selecione **Incluir** na primeira lista suspensa, selecione **índices de colunas** na segunda lista suspensa e insira "21" no campo de texto (você também pode selecionar **nomes da coluna** e inserir "Risco de crédito"). Isso identifica a coluna 21, o valor do risco de crédito, como a coluna para o modelo prever.
 
 
 Esta parte do teste se parece um pouco com o seguinte:
@@ -63,7 +63,7 @@ Em seguida, configuramos o modelo SVM.
 5.	Conecte a entrada desse módulo de transformação à saída do módulo [Executar script R][execute-r-script] esquerdo.
 6.	Conecte a porta de saída esquerda ("Conjunto de dados transformado") do módulo de transformação à porta de entrada direita ("Conjunto de dados") do módulo [Treinar modelo][train-model].
 7.	No painel **Propriedades** do módulo de transformação, selecione **Tanh** para o parâmetro **Método de transformação**.
-8.	Clique no **Seletor de coluna de inicialização**, selecione **Incluir** na primeira lista suspensa, selecione **tipo de coluna** na segunda lista suspensa e selecione **Numérico** no menu suspenso de terceiro. Isso especifica que todas as colunas numéricas (e somente as numéricas) serão transformadas.
+8.	Clique no **Seletor de coluna de inicialização**, selecione “Sem colunas” para **Começar Com**, selecione **Incluir** na primeira lista suspensa, selecione **tipo de coluna** na segunda lista suspensa e selecione **Numérico** na terceira lista suspensa. Isso especifica que todas as colunas numéricas (e somente as numéricas) serão transformadas.
 9.	Clique no sinal de mais (+), que cria uma nova linha de listas suspensas. Selecione **Excluir** na primeira lista suspensa, selecione **índices de colunas** na segunda lista suspensa e insira "21" no campo de texto. Isso especifica que a coluna 21 (a coluna de Risco de crédito) será ignorada.
 10.	Clique em **OK**.  
 
@@ -79,7 +79,7 @@ Usaremos os dados de pontuação que foram separados pelo módulo **Divisão** p
 
 1.	Localize o módulo [Modelo de pontuação][score-model] e arraste-o para as telas.
 2.	Conecte a porta de entrada esquerda desse módulo ao modelo de árvore de decisão aumentada (ou seja, conecte-a à porta de saída do módulo [Treinar modelo][train-model] que está conectado ao módulo [Árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree]).
-3.	Conecte a porta de entrada direita do módulo [Modelo de pontuação][score-model] à saída do módulo [Executar script R][execute-r-script] direito. Observe que não há problema nenhum em ter a saída de um módulo indo para diversos lugares.
+3.	Conecte a porta de entrada direita do módulo [Modelo de pontuação][score-model] à saída do módulo [Executar script R][execute-r-script] direito. 
 4.	Copie e cole o módulo [Modelo de pontuação][score-model] para criar uma segunda cópia ou arraste um novo módulo para as telas.
 5.	Conecte a porta de entrada esquerda desse módulo ao modelo SVM (ou seja, conecte à porta de saída do módulo [Treinar modelo][train-model] que está conectado ao módulo [Máquina vetor de suporte de duas classes][two-class-support-vector-machine]).
 6.	Para o modelo SVM, precisamos fazer a mesma transformação nos dados do teste que fizemos nos dados de treinamento. Portanto, copie e cole o módulo [Normalizar dados][normalize-data] para criar uma segunda cópia e conectá-la à saída do módulo [Executar Script R][execute-r-script] direito.
@@ -97,7 +97,7 @@ O teste deve se parecer como o seguinte:
  
 Clique no botão **EXECUTAR** abaixo das telas para executar o teste. Isso pode levar alguns minutos. Você verá um indicador girando em cada módulo para indicar que está em execução e, depois, uma marca de seleção verde quando o módulo for concluído.
 
-Quando todos os modelos tiverem uma marca de seleção, a execução do teste estará concluída. Para verificar os resultados, clique com o botão direito do mouse na porta de saída do módulo [Avaliar modelo][evaluate-model] e selecione **Visualizar**.
+Quando todos os modelos tiverem uma marca de seleção, a execução do teste estará concluída. Para verificar os resultados, clique na porta de saída do módulo [Avaliar Modelo][evaluate-model] e selecione **Exibir Resultados**.
 
 O módulo [Avaliar modelo][evaluate-model] produz um par de curvas e métricas que lhe permitem comparar os resultados dos dois modelos pontuados. Você pode exibir os resultados como curvas ROC (Receiver Operator Characteristic), curvas de Precisão/Repetição, ou curvas de Elevação. Os dados adicionais exibidos incluem uma matriz de confusão, valores cumulativos para a área sob a curva (AUC) e outras métricas. Você pode alterar o valor de limite movendo o controle deslizante para esquerda ou direita e vendo como isso afeta o conjunto de métricas.
 
@@ -134,4 +134,4 @@ Como uma ajuda adicional para acompanhar as mudanças que você faz nos parâmet
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

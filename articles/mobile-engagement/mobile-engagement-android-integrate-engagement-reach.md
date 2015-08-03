@@ -647,4 +647,4 @@ Agora, verifique sua integração lendo Como testar a integração do Engagement
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -479,4 +479,4 @@ Agora que você aprendeu os conceitos básicos do Serviço de Tabela do Azure, s
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

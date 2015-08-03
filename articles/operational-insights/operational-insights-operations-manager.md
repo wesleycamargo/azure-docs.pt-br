@@ -228,4 +228,4 @@ Use as etapas a seguir para definir a conta ao conectar o Insights Operacionais 
 
 Se você deseja analisar os dados dos servidores em diferentes localizações geográficas, considere ter um grupo de gerenciamento por local. Isso pode melhorar o desempenho de transferência de dados do agente para o grupo de gerenciamento.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

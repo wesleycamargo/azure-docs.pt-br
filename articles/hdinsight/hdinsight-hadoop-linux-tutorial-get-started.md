@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/13/2015"
+   ms.date="07/11/2015"
    ms.author="nitinme"/>
 
 # Tutorial do Hadoop: Introdução ao uso do Hadoop com o Hive no HDInsight no Linux (visualização)
@@ -22,13 +22,13 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Este tutorial do Hadoop faz uma rápida apresentação do Azure HDInsight no Linux, mostrando como provisionar um cluster do Hadoop no Linux e como executar uma consulta do Hive para extrair informações úteis de dados não estruturados.
+Este tutorial de Hadoop apresenta rapidamente o Azure HDInsight em Linux, mostrando como provisionar um cluster do Hadoop no Linux e executar uma consulta de Hive.
 
 
 > [AZURE.NOTE]Se for iniciante em Hadoop e Big Data, você pode ler mais sobre os termos <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS (Sistema de Arquivos Distribuído do Hadoop)</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Para entender como o HDInsight habilita o Hadoop no Azure, consulte [Introdução ao Hadoop no HDInsight](hdinsight-hadoop-introduction.md).
 
 
-## O que este tutorial faz? ##
+## O que este tutorial faz? 
 
 Suponha que você tenha um grande conjunto de dados não estruturado e deseje executar consultas nele para extrair algumas informações importantes. Veja como fazer isso:
 
@@ -67,9 +67,9 @@ Para simplificar este tutorial, vamos usar apenas o contêiner de Blob padrão e
 
 	![Portal do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de Armazenamento.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
 
-3. Insira as informações de **URL**, **LOCAL** e **REPLICAÇÃO** e clique em **CRIAR CONTA DE ARMAZENAMENTO**. Não há suporte para grupos de afinidade. Você verá a nova conta do Armazenamento na lista de armazenamento.
+3. Insira as informações de **URL**, **LOCAL** e **REPLICAÇÃO** e clique em **CRIAR CONTA DE ARMAZENAMENTO**. Não há suporte para grupos de afinidade. Você verá a nova conta de armazenamento na lista de armazenamento.
 
-	>[AZURE.NOTE]A opção Criação Rápida para provisionar um cluster HDInsight em Linux, como a que usamos neste tutorial, não solicitará um local ao provisionar o cluster. Por padrão, ela coloca o cluster no mesmo datacenter da conta do Armazenamento. Portanto, lembre-se de criar sua conta do Armazenamento nos locais compatíveis com o cluster, que são: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA**, **Oeste dos EUA**, **Centro-Norte dos EUA**, **Centro-Sul dos EUA**.
+	>[AZURE.NOTE]A opção Criação Rápida para provisionar um cluster HDInsight em Linux, como a que usamos neste tutorial, não solicitará um local ao provisionar o cluster. Por padrão, ela coloca o cluster no mesmo datacenter da conta do Armazenamento.
 
 4. Aguarde até que o **STATUS** da nova conta do Armazenamento mude para **Online**.
 5. Selecione a nova conta do Armazenamento na lista e clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior da página.
@@ -271,4 +271,4 @@ Neste tutorial do Linux, você aprendeu a provisionar um cluster do Hadoop no Li
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

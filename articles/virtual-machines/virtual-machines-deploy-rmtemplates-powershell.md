@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Implantar e gerenciar máquinas virtuais do Azure usando modelos de Gerenciador de Recursos e o PowerShell" 
-	description="Implante facilmente o conjunto mais comum de configurações para máquinas virtuais do Azure e gerencie-as usando modelos do Gerenciador de Recursos e o PowerShell." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+<properties
+	pageTitle="Implantar e gerenciar máquinas virtuais do Azure usando modelos de Gerenciador de Recursos e o PowerShell"
+	description="Implante facilmente o conjunto mais comum de configurações para máquinas virtuais do Azure e gerencie-as usando modelos do Gerenciador de Recursos e o PowerShell."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Implantar e gerenciar máquinas virtuais usando modelos de Gerenciador de Recursos e o PowerShell do Azure
 
@@ -24,7 +23,6 @@ Este artigo mostra como usar modelos do Gerenciador de Recursos e o PowerShell d
 - [Implantar uma VM do Windows](#windowsvm)
 - [Criar uma imagem de VM personalizada](#customvm)
 - [Implantar um aplicativo com várias VMs que usa uma rede virtual e um balanceador externo](#multivm)
-- [Atualizar uma máquina virtual implantada com um modelo do Gerenciador de Recursos](#updatevm)
 - [Remover um grupo de recursos](#removerg)
 - [Fazer logon em uma máquina virtual](#logon)
 - [Exibir informações sobre uma máquina virtual](#displayvm)
@@ -37,7 +35,7 @@ Antes de começar, verifique se que você tem o PowerShell do Azure pronto para 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Noções básicas sobre os Grupos de Recursos e os Modelos do Gerenciador de Recursos do Azure
+## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
 
 A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recursos de nuvem (como uma ou mais VMs e contas do armazenamento, um banco de dados SQL ou uma Rede Virtual). Com os Modelos do Gerenciador de Recursos do Azure, é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros de configuração e implantação associados.
 
@@ -45,19 +43,19 @@ Depois de definir um modelo de recurso com base em JSON, você poderá executá-
 
 Os recursos que você criar usando Modelos de Gerenciador de Recursos do Azure serão implantados em um Grupo de Recursos novo ou existente do Azure. Um *Grupo de Recursos do Azure* permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso permite que você gerencie o ciclo de vida total do grupo/aplicativo e fornece APIs de gerenciamento que lhe permitem:
 
-- Parar, iniciar ou excluir todos os recursos do grupo de uma só vez. 
-- Aplicar regras de RBAC (Controle de Acesso Baseado em Função) para bloquear permissões de segurança em relação a eles. 
-- Auditar operações. 
-- Marcar recursos com metadados adicionais para obter melhor acompanhamento. 
+- Parar, iniciar ou excluir todos os recursos do grupo de uma só vez.
+- Aplicar regras de RBAC (Controle de Acesso Baseado em Função) para bloquear permissões de segurança em relação a eles.
+- Auditar operações.
+- Marcar recursos com metadados adicionais para obter melhor acompanhamento.
 
-Você pode saber mais sobre o Gerenciador de Recursos do Azure [aqui](virtual-machines-azurerm-versus-azuresm.md). Se estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Você pode saber mais sobre o Gerenciador de Recursos do Azure [aqui](virtual-machines-azurerm-versus-azuresm.md). Se estiver interessado na criação de modelos, consulte [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
 ## <a id="windowsvm"></a>TAREFA: Implantar uma VM do Windows
 
 Use as instruções nesta seção para implantar uma nova VM do Azure usando um Modelo do Gerenciador de Recursos e o PowerShell do Azure. Este modelo cria uma única máquina virtual em uma nova rede virtual com uma única sub-rede.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
- 
+
 Siga estas etapas para criar uma VM do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com o PowerShell do Azure.
 
 ### Etapa 1: examine o arquivo JSON do modelo.
@@ -96,9 +94,9 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -108,11 +106,11 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -121,10 +119,10 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -238,7 +236,7 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
             }
         }
     ]
-	} 
+	}
 
 
 ### Etapa 2: crie a máquina virtual com o modelo.
@@ -282,8 +280,8 @@ Você verá algo semelhante a:
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -298,7 +296,7 @@ Você verá algo semelhante a:
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 Agora você tem uma nova máquina virtual do Windows chamada MyWindowsVM em seu novo grupo de recursos.
@@ -784,171 +782,6 @@ Você verá algo semelhante ao item a seguir.
 	vmNamePrefix: WEBFARM
 	...
 
-## <a id="updatevm"></a>TAREFA: Atualizar uma máquina virtual implantada com um modelo do Gerenciador de Recursos
-
-Aqui está um exemplo de como modificar um arquivo de modelo JSON para atualizar a configuração de uma máquina virtual implantada com um modelo do Gerenciador de Recursos. Neste exemplo, você cria uma máquina virtual do Windows e então o atualiza para instalar a extensão Symantec Endpoint Protection.
-
-### Etapa 1: criar a máquina virtual com um modelo
-
-Se necessário, crie uma pasta no computador para armazenar os arquivos de modelo. Preencha o nome da pasta e execute estes comandos do PowerShell do Azure.
-
-	$myFolder="<your folder path, such as C:\azure\templates\CreateVM>"
-	$webClient=New-Object System.Net.WebClient
-	$url="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	$filePath=$myFolder + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.parameters.json"
-	$filePath = $myFolder + "\azuredeploy.parameters.json"
-	$webclient.DownloadFile($url,$filePath)
-
-Na pasta, abra o arquivo azuredeploy.parameters.json em um editor de texto, especifique valores para os quatro parâmetros e, em seguida, salve o arquivo.
-
-Preencher um novo nome de implantação, um novo nome de grupo de recursos e um local do Azure e, em seguida, execute estes comandos.
-
-	$deployName="<name for the new deployment>"
-	$RGName="<name for the new Resource Group>"
-	$locName="<an Azure location, such as West US>"
-	cd $myFolder
-	Switch-AzureMode AzureResourceManager
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-Você deverá ver algo assim.
-
-	PS C:\azure\templates\windowsvm> $deployName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $RGName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $locname="West US"
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroup -Name $RGName -Location $locName
-	VERBOSE: 11:22:02 AM - Created resource group 'winvmexttest' in location 'westus'
-	
-	
-	ResourceGroupName : winvmexttest
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
-	
-	ResourceId        : /subscriptions/a58ce54a-c262-460f-b8ef-fe36e6d5f5ec/resourceGroups/winvmexttest
-
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -Template
-	File azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 11:22:05 AM - Template is valid.
-	VERBOSE: 11:22:05 AM - Create template deployment 'winvmexttest'.
-	VERBOSE: 11:22:14 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is running
-	VERBOSE: 11:22:37 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 11:22:39 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 11:22:41 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 11:22:43 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:22:52 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 11:26:36 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 6:26:38 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-Em seguida, conecte-se à máquina virtual do Portal de Visualização do Azure (**Procurar > Máquinas Virtuais (v2) >** *Nome da VM* **> Conectar**).
-
-Na tela Inicial, digite **Symantec**. Observe que os componentes da Symantec Endpoint Protection não estão instalados (não há nenhum resultado da pesquisa com "Symantec" no título).
-
-Feche a conexão de área de trabalho remota.
-
-### Etapa 2: Modificar o arquivo azuredeploy.json para adicionar a extensão Symantec Endpoint Protection
-
-Na sua pasta, abra o arquivo azuredeploy.json com um editor de texto de sua escolha. Na seção **variáveis**, adicione a seguinte linha logo após a linha que define a variável publicIPAddressType:
-
-	"vmExtensionName" : "SymantecExtension",
-
-Na seção **recursos**, adicione a seguinte nova seção logo antes da linha com o último colchete esquerdo "]":
-
-	       {
-	         "type": "Microsoft.Compute/virtualMachines/extensions",
-	        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
-	        "apiVersion": "2014-12-01-preview",
-	        "location": "[variables('location')]",
-	        "dependsOn": [
-	            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	        ],
-	        "properties": {
-	            "publisher": "Symantec",
-	            "type": "SymantecEndpointProtection",
-	            "typeHandlerVersion": "12.1",
-	            "settings": null,
-	            "protectedSettings": null
-	        }
-	    }
-
-Salve o arquivo azuredeploy.json com essas novas alterações. Verifique se as alterações foram feitas corretamente, use este comando.
-
-	Test-AzureResourceGroupTemplate -ResourceGroupName $RGName -TemplateFile azuredeploy.json
-
-Se você tiver feito as alterações corretamente, deverá verá isto.
-
-	Template is valid.
-
-Se você não vir essa mensagem, analise a mensagem de erro para localizar a origem do erro.
-
-### Etapa 3: Executar o modelo modificado para adicionar a extensão Symantec Endpoint Protection
-
-Execute este comando no prompt do PowerShell do Azure.
-
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-Você deverá ver algo assim.
-
-	PS C:\azure\templates\winvmext> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateF	ile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 12:49:42 PM - Template is valid.
-	VERBOSE: 12:49:42 PM - Create template deployment 'winvmexttest'.
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 12:49:47 PM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 12:49:49 PM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 12:49:51 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 12:50:08 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	VERBOSE: 12:50:15 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension'	provisioning status is running
-	VERBOSE: 12:53:07 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension' provisioning status is succeeded
-	
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 7:53:07 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-Conecte-se à máquina virtual do Portal de Visualização do Azure (**Procurar > Máquinas Virtuais (v2) >** *Nome da VM* **> Conectar**).
-
-Na tela Inicial, digite **Symantec**. Você deve ver algo assim, indicando que a extensão Symantec Endpoint Protection agora está instalada.
-
-![](./media/virtual-machines-deploy-rmtemplates-powershell/SymantecExt.png)
-
 ## <a id="removerg"></a>TAREFA: Remover um grupo de recursos
 
 Você pode remover qualquer grupo de recursos que criou com o comando **Remove-AzureResourceGroup**. Substitua tudo entre aspas, inclusive os caracteres < and >, pelo nome correto.
@@ -963,11 +796,7 @@ Você verá informações como estas:
 
 ## <a id="logon"></a>TAREFA: Fazer logon em uma máquina virtual do Windows
 
-No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar tudo > Máquinas Virtuais (v2) >** *Nome da VM* **> Conectar**.
-
-Quando solicitado a abrir ou salvar um arquivo RDP, clique em **Abrir** e, em seguida, clique em **Conectar**. Digite as credenciais de uma conta válida e então clique em **OK**.
-
-Quando solicitado a se conectar apesar de erros de certificado, clique em **Sim**.
+Para obter as etapas detalhadas, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](virtual-machines-log-on-windows-server.md).
 
 ## <a id="displayvm"></a>TAREFA: Exibir informações sobre uma máquina virtual
 
@@ -1065,8 +894,8 @@ Você verá informações como estas:
 	Virtual machine stopping operation
 	This cmdlet will stop the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:09:08 AM -07:00
 	Error               :
 	Output              :
@@ -1104,8 +933,8 @@ Você verá informações como estas:
 	Virtual machine removal operation
 	This cmdlet will remove the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:21:55 AM -07:00
 	Error               :
 	Output              :
@@ -1119,12 +948,12 @@ Você verá informações como estas:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
 [Implantar e gerenciar Máquinas Virtuais usando modelos de Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

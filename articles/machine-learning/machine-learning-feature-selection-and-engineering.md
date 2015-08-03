@@ -3,7 +3,7 @@
 	description="Explica a finalidade da seleção de recursos e da engenharia de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="YanZhangADS"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2015"
+	ms.date="07/14/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -37,7 +37,7 @@ A engenharia e a seleção de recursos é parte de um processo maior, que geralm
 A engenharia e a seleção são a etapa de **aperfeiçoamento de dados** do aprendizado de máquina. Três aspectos desse processo podem ser diferenciados para nossos propósitos:
 
 * **pré-processando dados**: este processo tenta assegurar que os dados coletados estejam limpos e consistentes. Ele inclui tarefas como a integração de vários conjuntos de dados, manipulação de dados que estão faltando, manipulação de dados inconsistentes e conversão de tipos de dados.
-* **engenharia de recursos**: este processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
 * **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
 Este tópico abrange os aspectos de engenharia de recursos e seleção de recursos do processo de aperfeiçoamento de dados. Para saber mais sobre a etapa de pré-processamento de dados, consulte o vídeo [Pré-processamento de Dados no Estúdio AM do Azure](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
@@ -135,4 +135,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

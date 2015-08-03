@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 	![Página Processadores](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note]Os datacenters a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Pequim, Xangai.
+	>[AZURE.NOTE]Os datacenters a seguir não oferecem o tipo de unidade reservada Premium: Singapura, Hong Kong, Osaka, Pequim, Xangai.
 
 3. Pressione o botão SALVAR para salvar as alterações.
 
 	As novas unidades reservadas para codificação são alocadas assim que você pressiona SALVAR.
 
-	>[Azure.Note]O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
+	>[AZURE.NOTE]O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
 
 ##Cotas e limitações
 
@@ -58,4 +58,4 @@ Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

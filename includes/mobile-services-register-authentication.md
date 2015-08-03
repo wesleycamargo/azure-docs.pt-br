@@ -19,4 +19,4 @@ Agora que você configurou o aplicativo e o serviço móvel para oferecer suport
 
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

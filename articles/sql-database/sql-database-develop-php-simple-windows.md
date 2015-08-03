@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 Este tópico ilustra como você pode se conectar ao Banco de Dados SQL do Azure de um aplicativo cliente escrito em PHP executado no Windows.
 
 
-## Pré-requisitos
-
-
-Para executar o exemplo de código PHP fornecido neste tópico, o computador cliente deverá ter os seguintes softwares instalados:
-
-
-- [Drivers da Microsoft para PHP para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contém os bits mais recentes)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Driver ODBC do Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=36434)
-- IIS Express
-- [5.6 PHP para o IIS Express](http://www.microsoft.com/web/downloads/platform.aspx): baixar usando o instalador de plataforma. Certifique-se de usar o Internet Explorer para baixar o instalador de plataforma
-
-Confira nosso [blog da equipe](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) e o [vídeo](https://www.youtube.com/watch?v=0oCjiRK_tUk) para aprender a instalar e configurar os requisitos mencionados anteriormente.
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Criar um banco de dados e recuperar a cadeia de conexão
@@ -105,7 +93,7 @@ A função [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) 
 ## Inserir uma linha, passar parâmetros e recuperar a chave primária gerada
 
 
-No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
+No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente [valores de chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -192,4 +180,4 @@ Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Banco
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

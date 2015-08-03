@@ -46,14 +46,14 @@ Geralmente, há uma grande sobreposição quando ambos os portais estão ativos.
 
 ## Computação
 
-Uma das tarefas mais básicas da plataforma na nuvem é executar aplicativos. Cada um dos modelos de execução do Azure possui sua própria função.
+Uma das tarefas mais básicas da plataforma na nuvem é executar aplicativos. Cada um dos modelos de computação do Azure tem sua própria função a ser desempenhada.
 
 Essas tecnologias podem ser usadas separadamente ou combinadas, conforme a necessidade, para criar a base certa para o seu aplicativo. A abordagem escolhida depende de quais problemas você está tentando resolver.
 
 
 ### Máquinas Virtuais do Azure
 
-![Máquinas Virtuais do Azure](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
+![Máquinas Virtuais do Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
 
 A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço (IaaS), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
 
@@ -75,18 +75,18 @@ Essa abordagem geral para computação em nuvem pode ser usada para solucionar m
 
 ### Aplicativos Web
 
-![Aplicativos Web do Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: os Aplicativos Web do Azure executam um aplicativo de site na nuvem, sem precisar gerenciar o servidor Web subjacente.*
+![Aplicativos Web do Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: os Aplicativos Web do Azure executam um aplicativo de site na nuvem sem precisar gerenciar o servidor Web subjacente.*
 
 Uma das tarefas mais comuns que as pessoas fazem em nuvem é executar sites e aplicativos web. As Máquinas Virtuais do Azure permitem isso, porém, ainda deixam você com a responsabilidade de administrar uma ou mais VMs e os sistemas operacionais subjacentes. As funções web dos serviços de nuvem podem fazer isso, mas implantá-las e mantê-las ainda exige trabalho administrativo. E se você apenas quisesse um site no qual alguma outra pessoa cuidasse do trabalho administrativo para você?
 
-Isso é exatamente o que fornecem os aplicativos Web. Esse modelo de computação oferece um ambiente de web gerenciado usando o Portal de Gerenciamento do Azure, bem como as APIs. Você pode mover um aplicativo de site existente para os Aplicativos Web não alterados ou pode criar um novo diretamente na nuvem. Assim que um site estiver em execução, será possível adicionar ou remover instâncias dinamicamente, dependendo dos Aplicativos Web do Azure para balancear a carga de solicitações entre elas. Os Aplicativos do Azure oferecem uma opção compartilhada, onde o site é executado em uma máquina virtual com outros sites, e uma opção padrão que permite que um site seja executado em sua própria VM. A opção padrão também permite que você aumente o tamanho (computação energia) das ocorrências, se necessário.
+Isso é exatamente o que fornecem os aplicativos Web. Esse modelo de computação oferece um ambiente de web gerenciado usando o Portal de Gerenciamento do Azure, bem como as APIs. Você pode mover um aplicativo de site existente para os Aplicativos Web não alterados ou pode criar um novo diretamente na nuvem. Assim que um site estiver em execução, será possível adicionar ou remover instâncias dinamicamente, dependendo dos Aplicativos Web do Azure para balancear a carga de solicitações entre elas. Os Aplicativos do Azure oferecem uma opção compartilhada, na qual o site é executado em uma máquina virtual com outros sites, além de uma opção padrão que permite que um site seja executado em sua própria VM. A opção padrão também permite que você aumente o tamanho (computação energia) das ocorrências, se necessário.
 
-Para desenvolvimento, os Aplicativos Web oferecem suporte ao .NET, PHP, Node.js, Java e Python, juntamente com o Banco de Dados SQL e o MySQL (da ClearDB, uma parceira da Microsoft) para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
+Para desenvolvimento, os Aplicativos Web dão suporte para .NET, PHP, Node.js, Java e Python, juntamente com o Banco de Dados SQL e o MySQL (da ClearDB, uma parceira da Microsoft) para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
 
 
 **Cenários de Aplicativos Web**
 
-Os Aplicativos Web são destinados a ser úteis para empresas, desenvolvedores e agências de webdesign. Para empresas, é uma solução fácil de gerenciar, flexível, altamente segura e altamente disponível para a execução de sites da web de presença. Quando você precisa configurar um site, é melhor começar com os Aplicativos Web do Azure e continuar para os Serviços de Nuvem quando você precisar de um recurso que não está disponível. Veja o final da seção “Computação" para mais links que possam ajudá-lo a escolher entre as opções.
+Os Aplicativos Web são destinados a ser úteis para empresas, desenvolvedores e agências de design da Web. Para empresas, é uma solução fácil de gerenciar, flexível, altamente segura e altamente disponível para a execução de sites da web de presença. Quando você precisa configurar um site, é melhor começar com os Aplicativos Web do Azure e continuar nos Serviços de Nuvem quando precisar de um recurso que não está disponível. Veja o final da seção “Computação" para mais links que possam ajudá-lo a escolher entre as opções.
 
 ### Serviços de Nuvem
 ![Serviço de Nuvem do Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) *Figura: os serviços de nuvem do Azure fornecem um local para executar código personalizado altamente dimensionável em um ambiente PaaS (Plataforma como Serviço)*
@@ -110,7 +110,7 @@ A página [Comparação de Aplicativos Web, Serviços de Nuvem e Máquinas Virtu
 
 
 
-## Gerenciamento de dados
+## Gerenciamento de Dados
 
 Os aplicativos precisam de dados, e diferentes tipos de aplicativos precisam de diferentes tipos de dados. Por esse motivo, o Azure oferece várias maneiras diferentes de armazenar e gerenciar dados. O Azure oferece muitas opções de armazenamento, mas todas são projetadas para serem armazenamento muito durável. Com todas essas opções, há sempre três cópias de seus dados mantidas sincronizadas por um datacenter do Azure -- ou seis, se você permitir que o Azure utilize redundância geográfica para dar suporte a outro datacenter a pelo menos 482,8 Km de distância.
 
@@ -121,7 +121,7 @@ A capacidade de executar o SQL Server ou outro DBMS, em uma VM criada com as Má
 Outra vez, o estado da Máquina Virtual e quaisquer discos de dados adicionais que você crie ou carregue recebem o suporte do armazenamento blob (sobre o qual falaremos mais tarde).
 
 
-### Banco de Dados SQL Azure
+### Banco de Dados SQL do Azure
 ![Banco de dados SQL de armazenamento do Azure](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
 
 *Figura: o Banco de Dados SQL do Azure oferece um serviço de banco de dados relacional gerenciado na nuvem.*
@@ -218,7 +218,7 @@ Para obter mais informações sobre planejamento e criação de uma rede virtual
 
 ![Rota Expressa](./media/fundamentals-introduction-to-azure/ExpressRouteIntroNew.png)
 
-*Figura: o Rota Expressa utiliza uma Rede Virtual do Azure, mas roteia as conexões por linhas dedicadas mais rápidas, em vez da Internet pública.*
+*Figura: a Rota Expressa usa uma Rede Virtual do Azure, mas roteia as conexões por linhas dedicadas mais rápidas, em vez da Internet pública.*
 
 Se você precisa de mais largura de banda ou segurança do que a oferecida por uma conexão de Rede Virtual do Azure, considere o Rota Expressa. Em alguns casos, o Rota Expressa também pode economizar o seu dinheiro. Você ainda precisará de uma rede virtual no Azure, mas a conexão entre o Azure e seu site utiliza uma conexão dedicada que não passa pela Internet pública. Para utilizar esse serviço, você precisará de um contrato com um provedor de serviços de rede, ou então um provedor de troca.
 
@@ -294,7 +294,7 @@ Digamos que sua empresa tenha um conjunto de dispositivos que todos precisam cha
 Um cliente da empresa de transporte provavelmente também se beneficiaria de receber esses dados de localização. O cliente poderia utilizá-los para saber até que distância os produtos precisam ser levados, onde esses produtos ficam presos e quanto se gasta pelo tráfego por determinadas rotas (se combinado com o valor-base pago pelo transporte). Se a empresa de transporte já agrega esses dados, muitos clientes podem pagar por eles. Mas se esse é o caso, a empresa de transporte precisa fornecer um meio para fornecer os dados aos clientes. Após oferecerem acesso aos clientes, eles podem não ter controle sobre a frequência com que os dados são consultados. Eles precisarão estabelecer regras sobre quem pode acessar quais dados. Todas essas regras precisariam ser criadas em sua API externa. É aqui que o Gerenciamento da API pode ajudar.
  
 
-## Identidade e acesso
+## Identidade e Acesso
  
 Trabalhar com identidade faz parte da maioria dos aplicativos. Saber quem um usuário é permite que um aplicativo decida como deve interagir com ele. O Azure fornece serviços para ajudar a acompanhar a identidade, assim como integrá-la a locais de armazenamento de identidade que você já pode estar usando.
 
@@ -314,7 +314,7 @@ Os serviços de diretório são um suporte importante de uma computação local.
 ### Multi-Factor Authentication
 ![Autenticação Multifator do Azure](./media/fundamentals-introduction-to-azure/MFAIntroNew.png)
 
-*Figura: o Multi-Factor Authentication permite que seu aplicativo verifique mais de uma forma de autenticação*
+*Figura: o Multi-Factor Authentication fornece a funcionalidade para seu aplicativo verificar mais de uma forma de identificação*
  
 A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a garantir que somente os próprios usuários acessem suas contas. A MFA (também conhecida como autenticação em dois fatores ou "2FA") exige que os usuários forneçam dois desses três métodos de verificação de identidade, para logons e transações realizados por clientes.
 
@@ -337,7 +337,7 @@ A proteção para logon em contas confidenciais, como logons bancários e acesso
 
 Se você estiver criando um aplicativo para um dispositivo móvel, o Azure pode ajudar a armazenar dados na nuvem, autenticar usuários e enviar notificações por push sem precisar que você precise escrever uma grande quantidade de código personalizado.
 
-Embora certamente seja possível criar back-end de um aplicativo móvel usando Máquinas Virtuais, Serviços de Nuvem ou Aplicativos Web, você pode gastar muito menos tempo escrevendo os componentes subjacentes do serviço ao utilizar serviços do Azure.
+Embora certamente seja possível criar back-end de um aplicativo móvel usando Máquinas Virtuais, Serviços de Nuvem ou Aplicativos Web, você pode gastar muito menos tempo gravando os componentes subjacentes do serviço ao usar os serviços do Azure.
 
 
 ### Aplicativos Móveis
@@ -346,7 +346,7 @@ Embora certamente seja possível criar back-end de um aplicativo móvel usando M
   
 *Figura: os Aplicativos Móveis oferecem funcionalidades normalmente exigidas por aplicativos que fazem interface com dispositivos móveis.*
 
-Os Aplicativos Móveis do Azure fornecem muitas funções úteis, que podem poupar seu tempo ao criar um a back-end para um aplicativo de Serviço Móvel. Isso permite que você faça um provisionamento simples e gerenciamento dos dados armazenados em um Banco de Dados SQL. Com o código do servidor, você pode facilmente usar opções de armazenamento de dados como armazenamento de blob ou MongoDB. Os Aplicativos Móveis oferecem suporte a notificações, apesar de, em determinados casos, você poder em vez disso utilizar os Hubs de Notificação conforme descrito a seguir. O serviço também conta com uma API REST para o qual o seu aplicativo móvel pode ligar, para realizar o trabalho necessário. Os Aplicativos Móveis também oferecem a capacidade de autenticar usuários por meio do Microsoft e Active Directory, assim como outros provedores de identidade como Facebook, Twitter e Google.
+Os Aplicativos Móveis do Azure fornecem muitas funções úteis que podem poupar tempo ao criar um back-end para um aplicativo Móvel. Isso permite que você faça um provisionamento simples e gerenciamento dos dados armazenados em um Banco de Dados SQL. Com o código do servidor, você pode facilmente usar opções de armazenamento de dados como armazenamento de blob ou MongoDB. Os Aplicativos Móveis dão suporte a notificações, apesar de, em determinados casos, ser possível usar também os Hubs de Notificação conforme descrito a seguir. O serviço também conta com uma API REST para o qual o seu aplicativo móvel pode ligar, para realizar o trabalho necessário. Os Aplicativos Móveis também oferecem a capacidade de autenticar usuários por meio da Microsoft e do Active Directory, bem como por meio de outros provedores de identidade, como Facebook, Twitter e Google.
 
 
 Você pode utilizar outros Serviços do Azure, como Barramento de Serviço e funções de trabalho, além de conectar-se a sistemas locais. Você pode até mesmo utilizar Add-Ons terceirizados da Azure Store (como SendGrid para email) para oferecer funcionalidades adicionais.
@@ -361,13 +361,13 @@ Como o Azure já dá suporte a transmissão de dados em massa, você pode gerenc
 
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
 
-*Figura: hubs de notificação oferecem funcionalidades normalmente exigidas por aplicativos que fazem interface com dispositivos móveis.*
+*Figura: os Hubs de Notificação oferecem funcionalidades normalmente exigidas por aplicativos que fazem interface com dispositivos móveis.*
 
-Embora você possa programar código para realizar notificações em Aplicativos Móveis do Azure, os Hubs de Notificação são otimizados para difundir milhões de notificações por push em questão de minutos. Você não precisa se preocupar com detalhes como operadora móvel ou fabricante de aparelhos. Você pode visar indivíduos ou milhões de usuários com uma única chamada à API.
+Embora você possa gravar um código para realizar notificações nos Aplicativos Móveis do Azure, os Hubs de Notificação são otimizados para difundir milhões de notificações por push em questão de minutos. Você não precisa se preocupar com detalhes como operadora móvel ou fabricante de aparelhos. Você pode visar indivíduos ou milhões de usuários com uma única chamada à API.
 
-Os Hubs de Notificação são projetados para funcionar com qualquer back-end. Você pode utilizar os Aplicativos Móveis do Azure, um back-end personalizado na nuvem sendo executado em qualquer provedor ou em um back-end local.
+Os Hubs de Notificação são projetados para funcionar com qualquer back-end. Você pode utilizar os Aplicativos Móveis do Azure, um back-end personalizado na nuvem executado em qualquer provedor ou em um back-end local.
 
-**Cenários para hubs de notificação** Se você estava programando um jogo para dispositivo móvel em que os jogadores se alternam em turnos, pode ser necessário notificar o jogador 2 que o jogador 1 terminou seu turno. Se isso é tudo o que você precisa fazer, você pode apenas utilizar os Aplicativos Móveis. Mas se você tem 100.000 usuários utilizando seu jogo e quer enviar uma oferta gratuita sensível ao tempo para todos, os hubs de notificação são a melhor escolha.
+**Cenários para hubs de notificação** Se você estava programando um jogo para dispositivo móvel em que os jogadores se alternam em turnos, pode ser necessário notificar o jogador 2 que o jogador 1 terminou seu turno. Se isso é tudo o que precisa fazer, basta usar os Aplicativos Móveis. Mas se você tem 100.000 usuários utilizando seu jogo e quer enviar uma oferta gratuita sensível ao tempo para todos, os hubs de notificação são a melhor escolha.
 
 Você pode enviar notícias recentes, eventos esportivos e notificações de anúncio de produtos para milhões de usuários com baixa latência. As empresas podem notificar seus funcionários sobre novas comunicações sensíveis ao tempo, como clientes potenciais de vendas, de modo que os funcionários não precisarão verificar constantemente seu email nem outras aplicações para permanecer informados. Você também pode enviar senhas de uso único exigidas para Multi-Factor Authentication.
    
@@ -388,7 +388,7 @@ A Recuperação de Site utiliza tecnologias existentes como Réplica do Hyper-V,
 ### Serviço de Backup do Azure
 ![Serviço de Backup do Azure](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
 
-*Figura: o backup do Azure realiza o backup dos dados de Windows Servers locais para a nuvem.*
+*Figura: o Backup do Azure realiza o backup dos dados de Windows Servers locais para a nuvem.*
 
 O Backup do Azure realiza o backup dos dados em servidores locais que executam o Windows Server na nuvem. Você pode gerenciar seus backups diretamente a partir das ferramentas de backup no Windows Server 2012, Windows Server 2012 Essentials ou System Center 2012 - Data Protection Manager. Alternativamente, você pode utilizar um agente de backup especializado.
 
@@ -400,14 +400,14 @@ Se você já utiliza o Windows Server ou System Center, o Serviço de Backup do 
 
 
 
-## Mensagens e Integração
+## Mensagens e integração
 
 Não importa o que esteja fazendo, o código frequentemente precisa interagir com outro código. Em algumas situações, tudo o que é necessário é uma mensagem básica enfileirada. Em outros casos, são necessárias interações mais complexas. O Azure tem algumas maneiras diferentes de resolver esses problemas. A Figura 5 ilustra as opções.
 
 ### Filas
 ![Retransmissão do Barramento de Serviço do Azure](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
 
-*Figura: as filas permitem o acoplamento solto entre peças de um aplicativo e facilitam o dimensionamento.*
+*Figura: as filas permitem o acoplamento solto entre peças de um aplicativo e facilitam a colocação em escala.*
 
 O enfileiramento é uma ideia simples: um aplicativo coloca uma mensagem na fila e essa mensagem, por fim, é lida por outro aplicativo. Se seu aplicativo precisar apenas desse serviço direto, as Filas do Azure podem ser a melhor opção.
 
@@ -431,10 +431,10 @@ Estejam eles em execução na nuvem, no data center, em um dispositivo móvel ou
 
 Além das filas (um a um) descritas anteriormente, o Barramento de Serviço também oferece outros métodos de comunicação.
 
-#### Retransmissão do Barramento de Serviço
+#### Retransmissão do Service Bus
 ![Retransmissão do Barramento de Serviço do Azure](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
-*Figura: a retransmissão do Barramento de Serviço permite a comunicação entre os aplicativos em diferentes lados de um firewall.*
+*Figura: a Retransmissão do Barramento de Serviço permite a comunicação entre os aplicativos em diferentes lados de um firewall.*
 
 O Barramento de Serviço permite a comunicação direta por meio de seu serviço de retransmissão, fornecendo um meio seguro de interagir por meio de firewalls. As retransmissões do Barramento de Serviço permitem que os aplicativos se comuniquem trocando mensagens por meio de um ponto de extremidade hospedado na nuvem, em vez de localmente.
 
@@ -592,4 +592,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

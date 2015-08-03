@@ -175,7 +175,7 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes da so
 Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira o tópico do MSDN [Filas, tópicos e assinaturas][] para saber mais.
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/pt-br/library/azure/hh694271.aspx
+  [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -189,4 +189,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
   [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

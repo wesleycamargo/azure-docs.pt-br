@@ -370,4 +370,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 - Clique em **Excluir** e opte por excluir todos os discos da máquina virtual.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

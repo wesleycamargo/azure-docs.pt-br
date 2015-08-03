@@ -14,15 +14,15 @@ Você pode controlar determinados aspectos das etapas de implantação padrão s
 
 Se você quiser ignorar todas as etapas de implantação específica de Python, você pode criar esse arquivo vazio:
 
-    \.skipPythonDeployment
+    .skipPythonDeployment
 
 Se você quiser ignorar a coleção de arquivos estáticos para seu aplicativo Django:
 
-    \.skipDjango 
+    .skipDjango 
 
 Para obter mais controle sobre a implantação, você pode substituir o script de implantação padrão ao criar os seguintes arquivos:
 
-    \.deployment
+    .deployment
     \deploy.cmd
 
 Você pode usar a [interface de linha de comando do Azure][] para criar os arquivos. Use este comando da pasta do projeto:
@@ -33,4 +33,4 @@ Quando esses arquivos não existem, o Azure cria um script de implantação temp
 
 [interface de linha de comando do Azure]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

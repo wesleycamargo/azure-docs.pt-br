@@ -60,4 +60,4 @@ A atualização do PhoneFactorAgent v5.x ou mais antigo para o Servidor Azure Mu
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

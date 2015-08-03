@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Executar um trabalho do Hadoop usando o Banco de Dados de Documentos e o HDInsight
@@ -40,17 +40,20 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
 
 <table border='1'>
 	<tr><th>Versão do Conector para Hadoop</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>URI do script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Data da Modificação</th>
-		<td>11/06/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>Versões do HDInsight para as quais há suporte</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Log de alterações</th>
-		<td>Corrigida a compatibilidade do conector com o <a href="https://www.microsoft.com/download/details.aspx?id=40886">driver ODBC do Microsoft Hive</a></br>
+		<td>SDK Java do Banco de Dados de Documentos atualizado para 1.1.0</br>
+			Removido o parâmetro de saída adicional para caminhos de indexação personalizados</br>
+			Adicionado parâmetro opcional para precisão de cadeia de caracteres personalizada (-1 por padrão)</br>
+			6/11/2015</br>
+			Corrigida a compatibilidade do conector com o <a href="https://www.microsoft.com/download/details.aspx?id=40886">driver ODBC do Microsoft Hive</a></br>
 			Adicionada a capacidade de alterar o tipo de oferta de coleção de saída (por padrão, oferta S3)</br>
-			Correções de bug secundárias</br>
 		</td></tr>
 </table>
 
@@ -467,4 +470,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

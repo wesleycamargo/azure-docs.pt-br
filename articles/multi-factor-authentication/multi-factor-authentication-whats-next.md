@@ -358,4 +358,4 @@ Para garantir que as contas de usuário sejam protegidas, você deve restaurar a
 <li>Na página Configurações de serviço, em Gerenciar configurações de usuário do dispositivo, marque/desmarque elar seleção de **Permite aos usuários suspender o Multi-Factor Authentication, fazendo com que um dispositivo seja lembrado**.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.</li> <li>Clique em Salvar.</li> <li>clique em Fechar.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

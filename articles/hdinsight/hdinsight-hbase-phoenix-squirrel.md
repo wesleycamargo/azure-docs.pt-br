@@ -108,7 +108,7 @@ Há três etapas envolvidas na configuração de uma conexão VPN ponto a site:
 2. [Criar seus certificados](#Create-your-certificates)
 3. [Configurar o seu cliente VPN](#Configure-your-VPN-client)
 
-Consulte [Configurar uma conexão VPN site a ponto para uma Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/dn133792.aspx) para obter mais informações.
+Consulte [Configurar uma conexão VPN site a ponto para uma Rede Virtual do Azure](../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
 
 #### Configurar uma rede virtual e um gateway de roteamento dinâmico
 
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

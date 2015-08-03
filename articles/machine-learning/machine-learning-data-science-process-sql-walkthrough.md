@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Processo e Tecnologia de Análise Avançada em ação: usando o SQL Server | Microsoft Azure" 
-	description="Processo e Tecnologia de Análise Avançada em ação"  
+	description="Processo e Tecnologia de Análise Avançada em ação" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="msolhab" 
@@ -715,4 +715,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

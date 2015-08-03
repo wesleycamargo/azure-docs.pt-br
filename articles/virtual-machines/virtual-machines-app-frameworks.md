@@ -50,4 +50,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 Saiba mais sobre o Gerenciamento de Recursos do Azure [aqui](../resource-group-template-deploy.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

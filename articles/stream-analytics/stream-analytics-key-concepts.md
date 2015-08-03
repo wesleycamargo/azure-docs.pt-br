@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Saiba mais sobre conceitos principais do Stream Analytics | Microsoft Azure" 
-	description="Conheça os conceitos principais do Azure Stream Analytics: os componentes de um trabalho do Stream Analytics, inclusive com entradas e saídas com suporte, configuração do trabalho e métricas." 
+	description="Conheça os conceitos principais do Azure Stream Analytics: os componentes de um trabalho do Stream Analytics, inclusive com entradas e saídas com suporte, configuração do trabalho e métricas." 	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -206,4 +206,4 @@ Agora que você está familiarizado com os principais conceitos do Stream Analyt
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

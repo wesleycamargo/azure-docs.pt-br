@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #Como criar uma pilha LAMP com o Microsoft Azure
@@ -32,9 +32,7 @@ Supõe-se que o leitor já tenha uma assinatura do Azure. Caso contrário, você
 
 Além deste tópico, se você já tiver uma máquina virtual e estiver apenas procurando as Noções básicas de instalação de uma pilha LAMP em diferentes distribuições do Linux, consulte [Instalar a pilha LAMP em uma máquina virtual Linux no Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Você também pode implantar imagens da LAMP pré-configuradas do Azure Marketplace. O vídeo de 10 minutos a seguir apresenta a implantação de imagens da LAMP pré-configuradas do Azure Marketplace:
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+Você também pode implantar imagens da LAMP pré-configuradas do Azure Marketplace. O vídeo de 10 minutos a seguir apresenta a implantação de imagens da LAMP pré-configuradas do Azure Marketplace: (pilha da LAMP em VMs do Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Fase 1: Criar uma imagem
 Nesta fase, você criará a máquina virtual usando uma imagem do Linux no Azure.
@@ -44,15 +42,15 @@ O SSH é uma ferramenta importante para os administradores do sistema. No entant
 
 Siga estas etapas para gerar a chave de autenticação SSH.
 
--	Baixe e instale o Puttygen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/)
+-	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Execute puttygen.exe.
 -	Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela. ![][1]
 -	Após o processo de geração, Puttygen.exe mostrará a chave gerada. Por exemplo: ![][2]
 -	Selecione e copie a chave pública em **Chave** e salve-a em um arquivo chamado **publicKey.pem**. Não clique em **Salvar chave pública**, porque o formato de arquivo da chave pública salva é diferente da chave pública que queremos.
 -	Clique em **Salvar chave privada** e salve-a em um arquivo chamado **privateKey.ppk**.
 
-###Etapa 2: Criar a imagem no Portal de Visualização do Azure.
-No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Novo** na barra de tarefas e crie uma imagem seguindo estas instruções, escolhendo a imagem do Linux com base nas suas necessidades. Este exemplo usa a imagem do Ubuntu 14.04.
+###Etapa 2: Criar a imagem no Portal do Azure.
+No [Portal do Azure](https://portal.azure.com/), clique em **Novo** na barra de tarefas e crie uma imagem seguindo estas instruções, escolhendo a imagem do Linux com base nas suas necessidades. Este exemplo usa a imagem do Ubuntu 14.04.
 
 ![][3]
 
@@ -74,7 +72,7 @@ Os pontos de extremidade no Azure são compostos por um protocolo (TCP ou UDP) j
 
 A porta TCP 80 é o número da porta padrão no qual o Apache escuta. Abrir essa porta com um ponto de extremidade do Azure permitirá que você e outros clientes da Internet acessem o servidor Web Apache.
 
-No Portal de Visualização do Azure, clique em **Procurar -> Máquina Virtual** e clique na máquina virtual que você criou.
+No Portal do Azure, clique em **Procurar -> Máquina Virtual** e clique na máquina virtual que você criou.
 
 ![][5]
 
@@ -100,7 +98,7 @@ Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.
 ###Etapa 2: Conectar-se à imagem criada
 Você pode escolher qualquer ferramenta SSH para se conectar à nova máquina virtual. Neste exemplo, usamos Putty.
 
-Primeiro, obtenha o nome DNS da máquina virtual no Portal de Visualização do Azure. Clique em **Procurar -> Máquinas virtuais** -> o nome de sua máquina virtual -> **Propriedades** e, em seguida, verifique o campo **Nome do domínio** do bloco **Propriedades**.
+Primeiro, obtenha o nome DNS da máquina virtual no Portal do Azure. Clique em **Procurar -> Máquinas virtuais ->** o nome de sua máquina virtual **-> Propriedades** e, em seguida, verifique o campo **Nome do domínio** do bloco **Propriedades**.
 
 Obtenha o número da porta para conexões SSH no campo **SSH**. Aqui está um exemplo.
 
@@ -348,7 +346,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE]
--	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /www/var/html para publicar seu site. ![][18]
+-	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
 
 
 
@@ -358,9 +356,9 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 -	**Sintoma** O Apache está sendo executado, mas você não consegue ver a página padrão do Apache com o seu navegador.
 -	**Possível causa raiz**
-	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade da sua máquina virtual para o tráfego da Web. </br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Consulte a Fase 1: Crie uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual. </br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
+	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade da sua máquina virtual para o tráfego da Web.</br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Consulte a Fase 1: Criar uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.</br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
 
-	2.	O firewall desabilitou a porta de escuta do Apache. </br> Se você pode ver a página padrão do Apache no host local, então, o problema pode ser que a porta que está sendo escutada pelo Apache esteja bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalam o w3m e navegam até a página padrão do Apache:
+	2.	O firewall desabilitou a porta de escuta do Apache.</br> Se você pode ver a página padrão do Apache no host local, então, o problema pode ser que a porta que está sendo escutada pelo Apache esteja bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalam o w3m e navegam até a página padrão do Apache:
 
 			sudo yum  install w3m w3m-img
 			w3m http://localhost
@@ -387,14 +385,14 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 ###Permissão negada ao carregar seus arquivos de projeto para /var/www/html/  
 
--	**Sintoma** Quando você usar qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/www/html para publicar seu site, você receberá uma mensagem de erro semelhante à seguinte:  
+-	**Sintoma** Quando você usa qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar à sua máquina virtual e navegar até /var/www/html para publicar seu site, recebe uma mensagem de erro semelhante à seguinte:  
 
 		status:	Listing directory /var/www/html
 		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
 		Error:	/var/www/html/info.php: open for write: permission denied
 		Error:	File transfer failed
 
--	**Possível causa raiz** Você não têm permissões para acessar a pasta /var/www/html.
+-	**Possível causa raiz** Você não tem permissões para acessar a pasta /var/www/html.
 -	**Solução** Você precisa obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar o computador. Aqui está um exemplo com o nome de conta azureuser:  
 
 		sudo chown azureuser -R /var/www/html  
@@ -454,4 +452,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

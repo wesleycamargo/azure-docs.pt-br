@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/17/2015" 
 	ms.author="sidneyh"/>
 
 
@@ -31,7 +31,7 @@ Uma **conta do Microsoft Azure**. Para uma avaliação gratuita, consulte esta [
 
 Baixe o [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx). (Para saber mais sobre a ferramenta, confira [SQL Server Management Studio - notas de versão de junho de 2015](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-Um servidor existente no Banco de Dados SQL do Azure. Para obter instruções sobre como criar um novo banco de dados (em um novo servidor), confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+Um **servidor de Banco de Dados SQL do Azure**. Para criar um servidor, você deve criar pelo menos um banco de dados primeiro. Quando cria um banco de dados, você tem a opção de criá-lo em um servidor novo ou existente. Para obter instruções sobre como criar um novo banco de dados (em um novo servidor), confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 
 ## Criar o banco de dados school em um servidor local
 
@@ -548,7 +548,7 @@ Agora você tem um banco de dados local que pode ser exportado para o Azure. Em 
 9. Clique em **Opções**.
 10. Em Propriedades da Conexão, em **Conectar-se ao banco de dados**, digite **mestre**.
 
-	**Observação** Você deve se conectar ao banco de dados **mestre** sempre que desejar criar um banco de dados no servidor do Banco de Dados SQL do Azure. 
+	**Observação**: você deve se conectar ao banco de dados **mestre** sempre que quiser criar um banco de dados no servidor do Banco de Dados SQL do Azure. 
 11. Clique em **Conectar**. Essa etapa conclui a especificação da conexão e leva você de volta ao assistente.
 12. Clique em **Avançar** e clique em **Concluir** para executar o assistente.
 
@@ -562,10 +562,10 @@ Agora você tem um banco de dados local que pode ser exportado para o Azure. Em 
 5. Clique no botão **Opções**.
 6. Clique na lista suspensa **Conectar ao banco de dados** e clique em **Procurar servidor**. Na caixa de diálogo seguinte, clique em **Sim** para permitir a navegação do servidor.
 7. Clique no banco de dados **school** para selecioná-lo e clique em **OK**. 
-8. Clique em **Conectar**. Para solucionar problemas com conectividade, tente esta [solução de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
-2. Expanda a pasta **Databases**. Você deve ver o banco de dados **school** na lista.
+8. E clique em **Conectar**. Para solucionar problemas com conectividade, tente esta [solução de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+2. Expanda a pasta **Bancos de dados**. Você deve ver o banco de dados **school** na lista.
 
-	**Observação** Você deve se conectar ao banco de dados que deseja consultar. 
+	**Observação**: você deve se conectar ao banco de dados que deseja consultar. 
 3. Clique com o botão direito do mouse em **school** e clique em **Nova Consulta**.
 4. Execute a consulta a seguir para verificar se os dados estão acessíveis.
 
@@ -593,4 +593,4 @@ Para ver um tutorial sobre como criar um novo banco de dados SQL do Azure, confi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

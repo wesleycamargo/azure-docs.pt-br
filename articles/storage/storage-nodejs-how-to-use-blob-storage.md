@@ -376,4 +376,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [Referência do SDK de Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

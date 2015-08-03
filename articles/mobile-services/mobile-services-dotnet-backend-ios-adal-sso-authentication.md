@@ -121,4 +121,4 @@ Este tutorial exige o seguinte:
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

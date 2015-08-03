@@ -283,4 +283,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

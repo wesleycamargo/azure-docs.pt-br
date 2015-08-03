@@ -118,4 +118,4 @@ Possivelmente, agora existe uma tela de carregamento quando você clica em um an
 
 Insira o novo arquivo `res/layout/engagement_loading.xml` em seu projeto.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

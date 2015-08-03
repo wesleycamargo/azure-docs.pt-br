@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Perguntas frequentes sobre o Gateway VPN de rede virtual | Microsoft Azure"
+   pageTitle="Perguntas frequentes sobre o Gateway de VPN de rede virtual | Microsoft Azure"
    description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
    services="vpn-gateway"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # Perguntas frequentes de gateway de VPN
@@ -27,7 +27,7 @@ Sim. Na verdade, não há nenhuma restrição de região. Uma rede virtual pode 
 Sim.
 ### Posso me conectar vários sites de uma única rede virtual?
 
-Você pode se conectar a vários sites usando o Windows PowerShell e as APIs REST do Azure. Consulte a seção [Conectividade multissite e de VNet para VNet](#Multi-Site-and-VNet-to-VNet-Connectivity) das perguntas frequentes.
+Você pode se conectar a vários sites usando o Windows PowerShell e as APIs REST do Azure. Consulte a seção [Conectividade multissite e de VNet para VNet](#multi-site-and-vnet-to-vnet-connectivity) das perguntas frequentes.
 ## Quais são minhas opções de conexão entre locais?
 
 A Rede Virtual dá suporte às seguintes conexões entre locais:
@@ -44,7 +44,7 @@ A Rede Virtual dá suporte às seguintes conexões entre locais:
 
 ### Qual é a diferença entre uma conexão site a site e ponto a site?
 
-As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo de VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você precisará ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
+As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você precisará ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
 
 As conexões de **ponto a site** permitem que você se conecte de um único computador em qualquer lugar para qualquer item localizado em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
 
@@ -60,13 +60,13 @@ Consulte as [Perguntas Frequentes sobre Rota Expressa](../expressroute-faqs.md) 
 
 ## Dispositivos de VPN e conexões de site a site
 
-### O que devo considerar ao escolher um dispositivo de VPN?
+### O que devo considerar ao escolher um dispositivo VPN?
 
-Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com fornecedores de dispositivos. Uma lista de dispositivos de VPN compatíveis conhecidos, as instruções de configuração correspondentes ou exemplos e especificações de dispositivo pode ser encontrados [aqui](http://go.microsoft.com/fwlink/p/?LinkID=248098). Todos os dispositivos das famílias de dispositivos listadas como compatíveis e conhecidas devem funcionar com a Rede Virtual. Para ajudar a configurar seu dispositivo de VPN, consulte o exemplo de configuração do dispositivo ou o link que corresponde à família de dispositivos apropriada.
+Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com fornecedores de dispositivos. Uma lista de dispositivos de VPN compatíveis conhecidos, as instruções de configuração correspondentes ou exemplos e especificações de dispositivo pode ser encontrados [aqui](http://go.microsoft.com/fwlink/p/?LinkID=248098). Todos os dispositivos das famílias de dispositivos listadas como compatíveis e conhecidas devem funcionar com a Rede Virtual. Para ajudar a configurar seu dispositivo VPN, consulte o exemplo de configuração do dispositivo ou o link que corresponde à família de dispositivos apropriada.
 
-### O que devo fazer se tiver um dispositivo de VPN que não esteja na lista de dispositivos compatíveis conhecidos?
+### O que devo fazer se tiver um dispositivo VPN que não esteja na lista de dispositivos compatíveis conhecidos?
 
-Se não encontrar seu dispositivo listado como um dispositivo de VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](http://go.microsoft.com/fwlink/p/?LinkID=615099). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com a Rede Virtual. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+Se não encontrar seu dispositivo listado como um dispositivo VPN compatível conhecido e desejar usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](http://go.microsoft.com/fwlink/p/?LinkID=615099). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com a Rede Virtual. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
 
 ### Posso usar VPNs de software para me conectar ao Azure?
 
@@ -162,7 +162,7 @@ Adicione cada intervalo que você deseja enviar pelo gateway para sua rede virtu
 
 ### Posso configurar o Túnel Forçado?
 
-Sim. Consulte [Sobre Túnel Forçado](http://go.microsoft.com/fwlink/p/?LinkId=615153).
+Sim. Consulte [Sobre Túnel Forçado](vpn-gateway-about-forced-tunneling.md).
 
 ### Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 
@@ -170,7 +170,7 @@ Sim, você pode implantar seus próprios gateways de VPN ou servidores no Azure,
 
 ### Mais informações sobre tipos de gateway, requisitos e taxa de transferência
 
-Para obter mais informações, consulte [Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Para saber mais, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Conectividade multissite e de VNet para VNet
 
@@ -208,7 +208,7 @@ Não, todos os túneis de VPN, incluindo VPNs site a ponto, compartilham o mesmo
 
 ### Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
 
-O tráfego de trânsito via gateway VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração NETCFG. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito em NETCFG é muito propensa a erros e não é recomendada.
+O tráfego de trânsito via gateway de VPN do Azure é possível, mas conta com espaços de endereço estaticamente definidos no arquivo de configuração NETCFG. Ainda não há suporte a BGP com Redes Virtuais do Azure e gateways de VPN. Sem BGP, a definição manual de espaços de endereço de trânsito em NETCFG é muito propensa a erros e não é recomendada.
 
 ### O Azure gera a mesma chave pré-compartilhada IPsec/IKE para todas as minhas conexões VPN para a mesma rede virtual?
 
@@ -244,4 +244,4 @@ Exibir mais perguntas frequentes sobre redes para obter detalhes adicionais:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

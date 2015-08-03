@@ -196,4 +196,4 @@ Para obter mais detalhes sobre os limites do Banco de Dados SQL, consulte os seg
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

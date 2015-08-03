@@ -110,4 +110,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

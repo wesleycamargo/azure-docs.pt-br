@@ -700,4 +700,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

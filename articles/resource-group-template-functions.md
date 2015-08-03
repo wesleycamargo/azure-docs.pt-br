@@ -382,4 +382,4 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

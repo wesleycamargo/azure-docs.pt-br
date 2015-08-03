@@ -1,3 +1,4 @@
+
 ### Etapa 1: Autorizar um dispositivo para alterar a chave de criptografia de dados de serviço no Portal de Gerenciamento
 
 Normalmente, o administrador do dispositivo solicita que o administrador do serviço autorize um dispositivo a alterar as chaves de criptografia de dados de serviço. O administrador do serviço então autoriza o dispositivo a alterar a chave.
@@ -72,4 +73,4 @@ Execute as etapas a seguir para atualizar a criptografia de dados de serviço no
 
 3. Forneça a chave de criptografia de dados de serviço que você obteve na [Etapa 2: Usar o Windows PowerShell para StorSimple para iniciar a alteração da chave de criptografia de dados de serviço](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

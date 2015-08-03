@@ -239,4 +239,4 @@ Usaremos o Ubuntu 14.04 LTS como exemplo para este artigo.
            #mysql-test:~ # insserv mysql
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

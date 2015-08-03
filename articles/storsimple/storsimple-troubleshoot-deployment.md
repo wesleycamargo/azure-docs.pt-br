@@ -3,7 +3,7 @@
    description="Descreve como diagnosticar e corrigir os erros que ocorrem quando você implanta o StorSimple pela primeira vez."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Solucionar problemas de implantação do dispositivo StorSimple
 
@@ -64,7 +64,7 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 - Configure o administrador do dispositivo e as senhas do Gerenciador de Instantâneos StorSimple. 
 - Registre o dispositivo. 
 
-### Erros que ocorrem quando você define as configurações de rede necessárias
+## Erros durante as configurações de rede necessárias
 
 | Nº| Mensagem de erro | Possíveis causas | Ação recomendada |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 | 6 | Invoke-HcsSetupWizard: endereço IPv6 inválido. | O endereço IP foi fornecido em um formato incorreto.| Verifique o formato e forneça seu endereço IP novamente. Para saber mais, consulte [Endereçamento Ipv6][2].|
 | 7 | Invoke-HcsSetupWizard: há mais pontos de extremidade disponíveis no mapeador de pontos de extremidade (exceção de HRESULT: 0x800706D9) | A funcionalidade de cluster não está funcionando. | [Contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para as próximas etapas.
 
-### Erros que ocorrem quando você define as configurações opcionais do proxy da Web
+## Erros durante as configurações de proxy da Web opcional
 
 | Nº| Mensagem de erro | Possíveis causas | Ação recomendada |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 | 4 | Invoke-HcsSetupWizard: recurso de cluster não encontrado (exceção de HRESULT: 0x8007138f) | O recurso de cluster não foi encontrado. Isso poderá acontecer quando a instalação não tiver sido correta. | Talvez seja necessário redefinir o dispositivo para as configurações padrão de fábrica. [Contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para criar um recurso de cluster.|
 | 5 | Invoke-HcsSetupWizard: Cluster recurso não online (exceção de HRESULT: 0x8007138c)| Os recursos de cluster não estão online. | [Contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para as próximas etapas.|
 
-### Erros que ocorrem quando você configura as senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple.
+## Erros relacionados ao administrador do dispositivo e às senhas do StorSimple Snapshot Manager
 
 A senha do administrador do dispositivo padrão é **Senha1**. Essa senha expira após o primeiro logon; portanto, você precisará usar o assistente de instalação para alterá-la. Você deve fornecer uma nova senha do administrador do dispositivo ao registrar o dispositivo pela primeira vez.
 
@@ -124,7 +124,7 @@ Você pode redefinir as senhas no Portal de Gerenciamento do serviço Gerenciado
 - [Configurar a senha do administrador do dispositivo](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configurar a senha do Gerenciador de Instantâneos StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Erros que ocorrem quando você registra o dispositivo
+## Erros durante o registro de dispositivo
 
 Use o serviço Gerenciador do StorSimple em execução no Microsoft Azure para registrar o dispositivo. Você pode encontrar um ou mais dos problemas a seguir durante o registro do dispositivo.
 
@@ -575,4 +575,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

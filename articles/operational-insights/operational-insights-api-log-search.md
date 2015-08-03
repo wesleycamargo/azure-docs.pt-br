@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -346,4 +346,4 @@ You may specify the start and end markers that will be used by search to wrap th
 
 Observe que o resultado acima contém uma mensagem de erro que foi acrescida de um prefixo e anexada.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

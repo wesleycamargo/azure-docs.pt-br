@@ -2,6 +2,7 @@
 	pageTitle="Criar e carregar dados nas tabelas Hive do armazenamento de blobs | Microsoft Azure" 
 	description="Criar tabelas Hive e carregar dados em blobs para tabelas hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -145,4 +146,4 @@ Os usuários não podem carregar dados diretamente no blob para tabelas Hive no 
 Agora temos uma tabela com dados no formato ORC pronta para usar.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

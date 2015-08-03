@@ -6,7 +6,7 @@ Ao desenvolver aplicativos para o Azure, identidade e acesso são as principais 
 
 ##Visão geral
 
-A segurança do aplicativo é uma função de sua superfície. Quanto mais superfície o aplicativo expõe, maiores as preocupações com a segurança. Por exemplo, um aplicativo que é executado como um processo em lote autônomo expõe menos, de uma perspectiva de segurança, do que um site disponível publicamente.
+A segurança do aplicativo é uma função de sua superfície. Quanto mais superfície o aplicativo expõe, maiores as preocupações com a segurança. Por exemplo, um aplicativo executado como um processo em lote autônomo fica menos exposto, de uma perspectiva de segurança, do que um site disponível publicamente.
 
 Quando você vai para a nuvem, você ganha uma determinada tranquilidade sobre a infraestrutura e a rede, já que esses itens são gerenciados em datacenters com práticas de segurança de classe mundial, ferramentas e tecnologia. Por outro lado, a nuvem intrinsecamente expõe mais área de superfície para o seu aplicativo, que pode ser potencialmente explorado por usuários mal-intencionados. Isso ocorre porque muitas tecnologias em nuvem e os serviços são expostos como pontos de extremidade versus componentes de memória. O armazenamento do Azure, o Barramento de Serviço, o Banco de Dados SQL (antigo SQL Azure) e muitos outros serviços podem ser acessados por meio de seus pontos de extremidade durante a transmissão.
 
@@ -279,22 +279,29 @@ Consulte os recursos a seguir para resolver este cenário
 -   [Assinaturas de Acesso Compartilhado são fáceis hoje em dia](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Cenários de acesso e identidade do Banco de Dados SQL do Azure
+## Cenários de acesso e identidade do Banco de Dados SQL do Azure
+
 
 O Banco de dados SQL somente dá suporte para a autenticação do SQL Server. Não há suporte para a autenticação do Windows (segurança integrada). Os usuários devem fornecer credenciais (login e senha) toda vez que se conectarem ao Banco de Dados SQL. Preste atenção especial ao gerenciar seu nome de usuário e senha para evitar a divulgação de informações.
 
+
 ![][15]
 
-Consulte os recursos a seguir para resolver este cenário:
 
--   [Diretrizes e limitações de segurança (Banco de dados SQL do Azure)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [Como: Conectar-se ao Banco de Dados SQL do Windows Azure usando o sqlcmd](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [Como: Conectar-se ao Banco de Dados SQL do Windows Azure usando o ADO.NET](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [Como: Conectar-se ao Banco de dados SQL do Windows Azure através do ASP.NET](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [Como: Conectar-se ao Banco de dados SQL do Windows Azure através dos Serviços de Dados do WCF Data Services](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [Como: Conectar-se ao Banco de Dados SQL do Windows Azure usando o PHP](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [Como: Conectar-se ao Banco de dados SQL do Windows Azure usando o JDBC](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [Como: Conectar-se ao Banco de dados SQL do Windows Azure usando o ADO.NET Entity Framework](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+Para resolver esse cenário, consulte o seguinte tópico da Ajuda:<br/>[Desenvolvimento de Banco de Dados SQL do Azure: tópicos de instrução](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+Ou consulte um dos seus diversos tópicos secundários, entre eles:
+
+
+- [Como: Conectar-se ao Banco de Dados SQL do Windows Azure usando o sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [Exemplo de código: repetir a lógica para se conectar ao Banco de Dados SQL do Azure com o ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Como conectar-se ao Banco de Dados SQL usando PHP](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [Como: Conectar-se ao Banco de dados SQL do Windows Azure usando o JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+Ou consulte:<br/> [Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
+
 
 ##Identidade do Serviço de Barramento do Azure e cenários de acesso
 
@@ -444,4 +451,4 @@ Todos os cenários e as soluções descritos neste tópico são válidos quando 
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

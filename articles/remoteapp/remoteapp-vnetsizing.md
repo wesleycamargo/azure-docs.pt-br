@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="Dimensionamento de informações de um VNET no RemoteApp"
     description="Saiba mais sobre os requisitos de endereço IP para o RemoteApp em execução com uma VNET" 
@@ -24,4 +25,4 @@ Quando você usa o RemoteApp com uma rede virtual (VNET), o RemoteApp usa endere
 Para cada coleção de RemoteApp que você deseja executar em capacidade máxima você deve ter 100 endereços IP disponíveis. Por exemplo, se você tiver uma coleção do RemoteApp no plano Padrão desejar ter no máximo 500 usuários, você deve ter 100 endereços IP para essa coleção. Do mesmo modo, você precisa de 100 endereços IP para uma coleção de RemoteApp no plano Básico com 800 usuários. Se você planeja ter menos usuários (menos que o máximo), você pode reduzir os endereços IP necessários por coleção. O requisito de tamanho mínimo de sub-rede é 30 endereços IP (/27).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

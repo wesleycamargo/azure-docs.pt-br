@@ -104,4 +104,4 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 >_Data Mining: Concepts and Techniques_, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

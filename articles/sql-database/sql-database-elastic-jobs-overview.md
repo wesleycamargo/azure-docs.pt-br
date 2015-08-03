@@ -1,7 +1,8 @@
-<properties 
+<properties  
 	pageTitle="Visão geral sobre trabalhos de bancos de dados elásticos" 
 	description="Ilustra o serviço do trabalho de banco de dados elástico" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -57,4 +58,4 @@ Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azu
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

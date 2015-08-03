@@ -115,6 +115,17 @@ A definição da investigação também controla a frequência da investigação
 
 Verifique o esquema de definição de serviço para a [investigação de integridade](https://msdn.microsoft.com/library/azure/jj151530.aspx) para obter mais informações.
 
+## Configurando o balanceador de carga usando o PowerShell
+
+Depois de criar uma máquina virtual, você pode usar os cmdlets do PowerShell para adicionar um balanceador de carga a uma máquina virtual no mesmo serviço de nuvem.
+
+No exemplo a seguir, você irá adicionar um balanceador de carga chamado "webfarm" para o ponto de extremidade de serviço de nuvem "mycloudservice" (ou mycloudservice.cloudapp.net) e nome de máquina virtual myVM. O balanceador de carga receberá tráfego na porta 80 e irá equilibrar a carga do tráfego de rede entre as máquinas virtuais na porta 8080 usando HTTP"
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## Próximas etapas
 
 [Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Verifique o esquema de definição de serviço para a [investigação de integri
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

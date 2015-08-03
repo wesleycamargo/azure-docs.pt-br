@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/15/2015"
    ms.author="mihaelab"/>
 
 #Executar análise de recuperação de desastres
@@ -81,6 +81,4 @@ A análise de recuperação de desastres será realizada usando um servidor de d
 
 - Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -372,4 +372,4 @@ Agora que você aprendeu o básico de cache Redis do Azure,siga os links para sa
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

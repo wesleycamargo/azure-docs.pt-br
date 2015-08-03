@@ -49,4 +49,4 @@
 
 <sup>2</sup>Se a transação bloquear um recurso exigido por uma tarefa de sistema subjacente, a duração máxima será de 20 segundos.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -97,4 +97,4 @@ Com o Operations Management Suite, você pode rapidamente pesquisar eventos e lo
 - Familiarize-se com a [pesquisa](operational-insights-search.md)
 - Use [painéis](operational-insights-use-dashboards.md) para salvar e exibir suas pesquisas personalizadas
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

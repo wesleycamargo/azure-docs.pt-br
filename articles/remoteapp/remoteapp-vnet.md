@@ -1,3 +1,4 @@
+
 <properties
     pageTitle="Validar o VNET do Azure para usar com o RemoteApp do Azure"
     description="Saiba como verificar se o VNET do Azure está pronto para uso com o RemoteApp do Azure"
@@ -36,4 +37,4 @@ Para obter mais informações sobre o fluxo de trabalho de coleção híbrido de
 - [Implantar a coleção do RemoteApp do Azure à sua Rede Virtual do Azure (com suporte para Rota Expressa)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

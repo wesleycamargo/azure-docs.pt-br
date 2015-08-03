@@ -88,4 +88,4 @@ Os Serviços Confiáveis emitem eventos e contadores de desempenho, que podem se
 - [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

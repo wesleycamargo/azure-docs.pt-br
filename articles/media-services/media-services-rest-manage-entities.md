@@ -144,4 +144,4 @@ O exemplo a seguir mostra como excluir um localizador que foi usado para carrega
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

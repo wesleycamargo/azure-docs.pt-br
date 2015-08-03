@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/06/2015"
    ms.author="claudioc"/>
 
 # Padrão de design de Atores da Malha do Serviço: cache inteligente
@@ -303,4 +303,4 @@ Basicamente, o Cache Inteligente fornece:
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

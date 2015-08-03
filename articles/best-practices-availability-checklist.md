@@ -68,4 +68,4 @@
 - **Acompanhe o progresso de fluxos de trabalho de longa execução** e tente novamente em caso de falha. Fluxos de trabalho de longa execução geralmente são compostos de várias etapas. Ao criar esses tipos de fluxos de trabalho, certifique-se de que cada etapa é independente e pode ser repetida para minimizar a chance de que o todo o fluxo de trabalho precise ser revertido ou que várias transações de compensação precisem ser executadas. Monitore e gerencie o progresso de fluxos de trabalho de longa duração, Implementando um padrão como o Supervisor do Agente Agendador. Para obter mais informações, consulte a página [Padrão do Supervisor do Agente Agendador](https://msdn.microsoft.com/library/dn589780.aspx) no site da Microsoft.
 - **Planeje-se para a eventualidade de uma recuperação de desastre.** Certifique-se de que há um plano documentado, acordado e totalmente testado para a recuperação de qualquer tipo de falha que possa tornar todo o sistema principal ou parte dele indisponível. Teste os procedimentos regularmente e certifique-se de que toda a equipe de operações está familiarizada com o processo.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

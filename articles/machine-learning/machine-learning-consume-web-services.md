@@ -2,6 +2,7 @@
 	pageTitle="Consumir um serviço Web de Aprendizado de Máquina | Microsoft Azure" 
 	description="Depois que um serviço de aprendizado de máquina é publicado, o serviço Web RESTFul disponibilizado pode ser consumido como serviço de solicitação-resposta ou como um serviço de execução de lote." 
 	services="machine-learning" 
+	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -433,4 +434,4 @@ O exemplo de código abaixo demonstra como você pode enviar e monitorar um trab
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

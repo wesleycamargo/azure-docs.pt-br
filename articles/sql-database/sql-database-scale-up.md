@@ -29,7 +29,7 @@ Você pode passar de uma camada de serviço para outra com facilidade usando o P
 
 Durante a movimentação entre as camadas de serviço, lembre-se do seguinte:
 - antes da atualização entre camadas de serviço ou níveis de desempenho, verifique se você tem cota disponível no servidor. Se precisar de mais cota, ligue para o atendimento ao cliente.
--bancos de dados federados não podem ser atualizados para camadas de serviço Basic, Standard ou Premium.
+- bancos de dados federados não podem ser atualizados para camadas de serviço Basic, Standard ou Premium.
 
 - Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. Para saber mais sobre o tamanho permitido para cada camada de serviço, confira a tabela de tamanho de banco de dados e camada de serviço, mais adiante nesta seção.
 
@@ -232,7 +232,8 @@ Crie contexto do servidor usando **New-AzureSqlDatabaseServerContext**.
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Referência do PowerShell do Azure** Para ver informações detalhadas sobre os cmdlets do PowerShell do Azure usados neste tópico, confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx).
+**Referência do PowerShell do Azure**
+Para ver informações detalhadas sobre os cmdlets do PowerShell do Azure usados neste tópico, confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx).
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -241,4 +242,4 @@ Crie contexto do servidor usando **New-AzureSqlDatabaseServerContext**.
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

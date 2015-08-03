@@ -31,4 +31,4 @@ Identificamos as seguintes armadilhas possíveis para clientes que estão aprend
 * Mapear modelos de entidade cegamente. Isso acontece com desenvolvedores que estão vindo de um universo relacional, onde os problemas são modelados usando entidades e seus relacionamentos. Embora essa abordagem ainda seja útil para entender o domínio do assunto, ela deve ser unida ao pensamento orientado ao serviço e combinada com o comportamento.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -96,4 +96,4 @@ Após criar uma API e definir as configurações, as próximas etapas são adici
 [Como garantir serviços de back-end usando autenticação de certificados mútuos no Gerenciamento de API do Azure]: api-management-howto-mutual-certificates.md
 [Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

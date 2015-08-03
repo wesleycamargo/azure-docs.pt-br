@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Dimensionar trabalhos do Stream Analytics do Azure para aumentar a produtividade #
@@ -151,7 +151,7 @@ Essa consulta pode ser dimensionada até 24 unidades de streaming.
 3. Clique no trabalho de Análise de fluxo que deseja dimensionar.
 4. Clique em **ESCALA** na parte superior da página.
 
-![Análise de fluxo do Azure, configurar a escala do trabalho][img.stream.analytics.configure.scale]
+![Dimensionamento de unidade de fluxo do Stream Analytics do Azure][img.stream.analytics.streaming.units.scale]
 
 
 ## Monitorar o desempenho do trabalho ##
@@ -260,4 +260,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

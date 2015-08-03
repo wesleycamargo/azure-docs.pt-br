@@ -152,7 +152,7 @@ Use o procedimento a seguir para exibir os detalhes de um dispositivo StorSimple
 
 3. No painel **Resultados**, clique com o botão direito no nome do dispositivo e clique em **Detalhes**.
 
-4\. A caixa de diálogo **Detalhes do Dispositivo** é exibida. Esta caixa mostra o nome, modelo, versão, número de série, status, IQN (nome iSCSI qualificado) de destino e data e hora da última sincronização.
+4. A caixa de diálogo **Detalhes do Dispositivo** é exibida. Esta caixa mostra o nome, modelo, versão, número de série, status, IQN (nome iSCSI qualificado) de destino e data e hora da última sincronização.
 
    - Clique em **Ressincronizar** para sincronizar o dispositivo.
 
@@ -262,4 +262,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

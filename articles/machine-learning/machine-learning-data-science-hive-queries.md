@@ -2,6 +2,7 @@
 	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo de análise avançada | Microsoft Azure" 
 	description="Processar dados de tabelas Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo de análise avançada
 
-Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço HDInsight no Azure. Consultas de Hive podem ser enviadas usando:
+Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Consultas de Hive podem ser enviadas usando:
 
 * a Linha de Comando do Hadoop no nó principal do cluster
 * o IPython Notebook 
@@ -27,40 +28,44 @@ Este documento descreve várias maneiras de enviar consultas de Hive para cluste
 
 Consultas de Hive genéricas que podem usadas para explorar os dados ou gerar recursos que usam UDFs (Funções Definidas pelo Usuário) Hive são fornecidas.
 
-Exemplos de consultas específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
+Exemplos de consultas específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já têm o esquema de dados especificado e estão prontas para serem enviadas para execução nesse cenário.
 
-Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
+Na seção final são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
 ## Pré-requisitos
 Este artigo supõe que você:
  
-* criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
+* criou uma conta de armazenamento do Azure. Se precisar de instruções para esta tarefa, confira [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
 * provisionou um cluster do Hadoop com o serviço HDInsight. Se precisar de instruções, consulte [Provisionar um cluster HDInsight](../hdinsight-get-started.md#provision).
-* Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
+* Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções fornecidas em [Criar e carregar dados para tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados para tabelas Hive primeiro.
 * habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
-- [Como enviar consultas de Hive](#submit)
-- [Exploração de dados e engenharia de recursos](#explore)
-- [Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta](#tuning)
-
 ## <a name="submit"></a>Como enviar consultas de Hive
 
-###1. Por meio da Linha de Comando do Hadoop no nó principal do Cluster do Hadoop
+1. [Enviar consultas de Hive por meio de Linha de comando do Hadoop no nó principal do cluster Hadoop](#headnode)
+2. [Enviar consultas de Hive com o Editor de Hive](#hive-editor)
+3. [Enviar consultas de Hive com comandos do PowerShell do Azure](#ps)
+ 
+###<a name="headnode"></a> 1. Enviar consultas de Hive por meio de Linha de comando do Hadoop no nó principal do cluster Hadoop
 
-Se a consulta é complexa, enviar consultas de Hive diretamente no nó principal do cluster do Hadoop normalmente leva a um resultado mais rápido do que enviá-la com scripts do Editor de Hive ou do PowerShell do Azure.
+Se a consulta é complexa, o envio de consultas de Hive diretamente ao nó principal do cluster Hadoop normalmente leva a um resultado mais rápido do que enviá-la com scripts do Editor de Hive ou do PowerShell do Azure.
 
 Faça logon no nó principal do cluster do Hadoop, abra a Linha de Comando do Hadoop na área de trabalho do nó principal e digite o comando `cd %hive_home%\bin`.
 
-Os usuários têm três maneiras de enviar consultas de Hive na Linha de Comando do Hadoop.
+Os usuários têm três maneiras de enviar consultas de Hive na Linha de Comando do Hadoop:
 
-####Enviar consultas de Hive diretamente na Linha de Comando do Hadoop. 
+* diretamente
+* usando arquivos .hql
+* com o console de comando do Hive
+
+#### Enviar consultas de Hive diretamente na Linha de Comando do Hadoop. 
 
 Os usuários podem executar o comando como `hive -e "<your hive query>;` para enviar consultas de Hive simples diretamente na Linha de Comando do Hadoop. Veja um exemplo, no qual a caixa vermelha descreve o comando que envia a consulta Hive e a caixa verde descreve a saída da consulta Hive.
 
 ![Criar espaço de trabalho][10]
 
-####Enviar consultas de Hive em arquivos de .hql
+#### Enviar consultas de Hive em arquivos de .hql
 
 Quando a consulta Hive é mais complicada e tem várias linhas, não é prático editar consultas na linha de comando ou no console de comando de Hive. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop para salvar as consultas de Hive em um arquivo .hql em um diretório local do nó principal. Em seguida, a consulta de Hive no arquivo HQL pode ser enviada usando o argumento `-f` da seguinte maneira:
 	
@@ -69,14 +74,14 @@ Quando a consulta Hive é mais complicada e tem várias linhas, não é prático
 ![Criar espaço de trabalho][15]
 
 
-####Suprimir a impressão da tela de status de progresso de consultas de Hive
+**Suprimir a impressão da tela de status de progresso de consultas de Hive**
 
 Por padrão, após a consulta Hive ser enviada na Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será ser impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar um argumento `-S` ("S" em letra maiúscula) na linha de comando da seguinte maneira:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Enviar consultas de Hive no console de comando de Hive.
+#### Enviar consultas de Hive no console de comando de Hive.
 
 Os usuários também podem entrar primeiro no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Aqui está um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
 
@@ -84,7 +89,7 @@ Os usuários também podem entrar primeiro no console de comando de Hive executa
 
 Os exemplos anteriores mostram os resultados da consulta de Hive diretamente na tela. Os usuários também podem gravar a saída em um arquivo local no nó principal ou em um blob do Azure. Em seguida, os usuários podem usar outras ferramentas para analisar com mais detalhes a saída das consultas de Hive.
 
-####Resultados da consulta de Hive em um arquivo local de saída. 
+**Resultados da consulta de Hive em um arquivo local de saída.**
 
 Para exibir os resultados da consulta de Hive em um diretório local no nó principal, os usuários precisam enviar a consulta de Hive na Linha de Comando do Hadoop da seguinte maneira:
 
@@ -94,7 +99,7 @@ No exemplo a seguir, a saída da consulta de Hive é gravada em um arquivo `hive
 
 ![Criar espaço de trabalho][12]
 
-####Exportar a saída de consulta de Hive para um blob do Azure
+**Exportar a saída de consulta de Hive para um blob do Azure**
 
 Os usuários também podem exportar a saída da consulta de Hive para um blob do Azure dentro do contêiner padrão do cluster do Hadoop. A consulta de Hive deve ficar assim:
 
@@ -108,17 +113,20 @@ Se você abrir o contêiner padrão do cluster do Hadoop usando ferramentas como
 
 ![Criar espaço de trabalho][14]
 
-###2. Por meio do Editor de Hive ou de comandos do PowerShell do Azure
+###<a name="hive-editor"></a> 2. Enviar consultas de Hive com o Editor de Hive
 
-Os usuários também podem usar o Console de Consultas (Editor de Hive) digitando a URL em um navegador da Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (as credenciais do cluster do Hadoop serão solicitadas para fazer logon) ou podem [Enviar trabalhos Hive usando o PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Os usuários também podem usar o Console de Consultas (Editor de Hive) digitando a URL em um navegador da Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (as credenciais do cluster do Hadoop serão solicitadas para fazer logon),
+
+###<a name="ps"></a> 3. Enviar consultas de Hive com comandos do PowerShell do Azure
+
+Os usuários também podem usar o PowerShell para enviar consultas de Hive. Para obter instruções, confira [Enviar trabalhos do Hive usando o PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 ## <a name="explore"></a>Exploração de dados, engenharia de recurso e ajuste de parâmetros de Hive
 
-Descrevemos as seguintes tarefas de disputa de dados nesta seção usando o Hive em clusters do Hadoop do Azure HDInsight e um tópico mais avançado de ajuste de alguns parâmetros de Hive para melhorar o desempenho das consultas de Hive:
+Descrevemos as seguintes tarefas de disputa de dados nesta seção usando o Hive em clusters Hadoop do HDInsight do Azure:
 
 1. [Exploração de dados](#hive-dataexploration)
 2. [Geração de recursos](#hive-featureengineering)
-3. [Tópico avançado: ajustar parâmetros de Hive para melhorar a velocidade de consulta](#tune-parameters)
 
 > [AZURE.NOTE]As consultas de Hive de exemplo pressupõem que os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 
@@ -165,16 +173,16 @@ Aqui estão alguns scripts de Hive de exemplo que podem ser usados para explorar
 ###<a name="hive-featureengineering"></a>Geração de recursos
 
 Nesta seção, descrevemos maneiras de gerar recursos usando consultas de Hive:
+  
+1. [Geração de recursos baseada em frequência](#hive-frequencyfeature)
+2. [Riscos de variáveis categóricas na classificação binária](#hive-riskfeature)
+3. [Extrair recursos do campo Datetime](#hive-datefeature)
+4. [Extrair recursos de campo de texto](#hive-textfeature)
+5. [Calcular a distância entre coordenadas de GPS](#hive-gpsdistance)
 
 > [AZURE.NOTE]Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
 
-1. [Geração de recursos baseada em frequência](#hive-frequencyfeature)
-2. [Riscos de variáveis categóricas na classificação binária](#hive-riskfeature)
-3. [Extrair recursos do campo Datetime](#hive-datefeatures)
-4. [Extrair recursos de campo de texto](#hive-textfeatures)
-5. [Calcular a distância entre coordenadas de GPS](#hive-gpsdistance)
-
-####<a name="hive-frequencyfeature"></a>Geração de recursos baseada em frequência
+####<a name="hive-frequencyfeature"></a> Geração de recursos baseada na frequência
 
 Às vezes, é importante calcular as frequências dos níveis de uma variável categórica ou as frequências de combinações de nível de diversas variáveis categóricas. Os usuários podem usar o script a seguir para calcular as frequências:
 
@@ -189,7 +197,7 @@ Nesta seção, descrevemos maneiras de gerar recursos usando consultas de Hive:
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>Riscos de variáveis categóricas na classificação binária
+####<a name="hive-riskfeature"></a> Riscos de variáveis categóricas na classificação binária
 
 Na classificação binária, por vezes é necessário converter variáveis categóricas não numéricas em recursos numéricos substituindo os níveis não numéricos por riscos numéricos, já que alguns modelos aceitam apenas recursos numéricos. Nesta seção, mostraremos algumas consultas de Hive genéricas para calcular os valores de risco (probabilidade de log) de uma variável categórica.
 
@@ -216,7 +224,7 @@ Neste exemplo, as variáveis `smooth_param1` e `smooth_param2` são definidas pa
 
 Depois da tabela de risco ser calculada, os usuários podem atribuir valores de risco a uma tabela associando-a à tabela de risco. A consulta de junção de Hive foi indicada na seção anterior.
 
-####<a name="hive-datefeature"></a>Extrair recursos de campos Datetime
+####<a name="hive-datefeature"></a> Extrair recursos de campos de data e hora
 
 O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o formato de datetime padrão é “aaaa-MM-dd 00:00:00” (como “1970-01-01 12:21:32”). Nesta seção, vamos mostrar exemplos de como extrair o dia do mês e o mês de um campo datetime e exemplos de conversão de uma cadeia de caracteres de datetime em um formato diferente do formato padrão para uma cadeia de caracteres de datetime no formato padrão.
 
@@ -238,14 +246,14 @@ Nesta consulta, se `<datetime field>` tem o padrão `03/26/2015 12:04:39`, o `'<
 Nesta consulta, `hivesampletable` vem com todos os clusters do Hadoop do Azure HDInsight por padrão quando os clusters são provisionados.
 
 
-####<a name="hive-textfeature"></a>Extrair recursos de campos de Texto
+####<a name="hive-textfeature"></a> Extrair recursos de campos de texto
 
 Suponha que a tabela Hive tem um campo de texto, que é uma cadeia de caracteres de palavras separadas por espaços, a consulta a seguir extrai o comprimento da cadeia de caracteres e o número de palavras na cadeia de caracteres.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>Calcular a distância entre coordenadas de GPS
+####<a name="hive-gpsdistance"></a> Calcular a distância entre coordenadas de GPS
 
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC. A finalidade dessa consulta é mostrar como aplicar as funções matemáticas incorporadas no Hive para gerar recursos.
 
@@ -318,4 +326,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

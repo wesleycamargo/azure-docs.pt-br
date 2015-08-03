@@ -93,4 +93,4 @@ Isso pode ser configurado no Portal de Gerenciamento do Azure, não no portal do
 - [Requisitos de formato de Log do IIS no Insights Operacionais do Azure](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Veja que outras fontes de dados e tipos de logs a comunidade está nos pedindo para implementar no [Fórum de comentários](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

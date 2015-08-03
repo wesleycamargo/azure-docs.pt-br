@@ -52,4 +52,4 @@ Depois de criar sua rede virtual, você pode adicionar novas VMs e instâncias d
 
 -  [Adicionar uma máquina virtual](../virtual-machines/virtual-machines-create-custom.md) a uma rede virtual.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

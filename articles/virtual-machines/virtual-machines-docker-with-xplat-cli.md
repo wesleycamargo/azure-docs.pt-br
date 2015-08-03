@@ -63,10 +63,10 @@ Em uma sessão bash ou de terminal, use o comando da CLI do Azure a seguir para 
 
 `azure vm image list | grep Ubuntu-14_04`
 
-e selecione um dos nomes da imagens, como `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-pt-br-30GB`, e use o comando a seguir para criar uma nova máquina virtual usando essa imagem.
+e selecione um dos nomes da imagens, como `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB`, e use o comando a seguir para criar uma nova máquina virtual usando essa imagem.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-pt-br-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-en-us-30GB" <username> <password>
 ```
 
 onde:
@@ -139,4 +139,4 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Saiba como instalar e usar R para personalizar os clusters do Hadoop." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
 
@@ -283,4 +283,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com R 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -692,4 +692,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 Para saber mais, confira [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

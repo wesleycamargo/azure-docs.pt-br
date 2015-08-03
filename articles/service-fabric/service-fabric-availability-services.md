@@ -51,4 +51,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Definir e gerenciar o estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

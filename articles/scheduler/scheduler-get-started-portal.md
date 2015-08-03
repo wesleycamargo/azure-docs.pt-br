@@ -264,4 +264,4 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

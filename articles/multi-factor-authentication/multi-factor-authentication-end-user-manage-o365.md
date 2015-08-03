@@ -41,4 +41,4 @@ Se você usar a autenticação multifator com o Office 365, será conveniente ge
 
 <center>![Nuvem](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

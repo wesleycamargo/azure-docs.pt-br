@@ -44,7 +44,7 @@ A instalação do Portal do Usuário em um servidor diferente do Servidor Azure 
 
 ## Instalar o SDK de Serviço Web
 
-Se o SDK de Serviço Web do Azure Multi-Factor Authentication já não estiver instalado no Servidor Azure Multi-Factor Authentication, vá até esse servidor e abra o Servidor Azure Multi-Factor Authentication. Clique no ícone do SDK de Serviço Web, clique no botão Instalar SDK de Serviço Web... e siga as instruções apresentadas. O SDK de Serviço Web deve ser protegido com um certificado SSL. Um certificado autoassinado funciona para essa finalidade, mas ele deve ser importado para o repositório de "Autoridades de Certificação Confiáveis" da conta do Computador Local no servidor web do Portal do Usuário, para que ele confie no certificado quando iniciar a conexão SSL.
+Se o SDK de Serviço Web do Azure Multi-Factor Authentication já não estiver instalado no Servidor do Azure Multi-Factor Authentication, vá até esse servidor e abra o Servidor Azure Multi-Factor Authentication. Clique no ícone do SDK de Serviço Web, clique no botão Instalar SDK de Serviço Web... e siga as instruções apresentadas. O SDK de Serviço Web deve ser protegido com um certificado SSL. Um certificado autoassinado funciona para essa finalidade, mas ele deve ser importado para o repositório de "Autoridades de Certificação Confiáveis" da conta do Computador Local no servidor web do Portal do Usuário, para que ele confie no certificado quando iniciar a conexão SSL.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
@@ -89,4 +89,4 @@ Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa c
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

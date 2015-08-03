@@ -12,7 +12,7 @@ Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada
 
     ![Salvar agente](./media/backup-install-agent/agent.png)
 
-4. Depois que o agente estiver instalado, clique duas vezes em MARSAgentInstaller.exe para iniciar a instalação do agente de Backup do Azure. Escolha a pasta de instalação e a pasta de rascunho necessárias para o agente. O local do cache especificado deve ter espaço livre, que é pelo menos 5% dos dados de backup.
+4. Depois que o agente for instalado, clique duas vezes em MARSAgentInstaller.exe para iniciar a instalação do agente de Backup do Azure. Escolha a pasta de instalação e a pasta de rascunho necessárias para o agente. O local do cache especificado deve ter espaço livre, que é pelo menos 5% dos dados de backup.
 
 5.	Se você usar um servidor proxy para se conectar à Internet, na tela **Configuração de Proxy**, insira os detalhes do servidor proxy. Se você usar um proxy autenticado, insira os detalhes de nome de usuário e senha nessa tela.
 
@@ -48,4 +48,4 @@ Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada
 
     ![Configurar o Backup do Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

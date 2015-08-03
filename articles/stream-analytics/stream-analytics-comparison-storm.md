@@ -123,7 +123,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
                     O preço do Stream Analytics é calculado pelo volume de dados processados e o número de unidades de streaming (por hora de execução do trabalho) necessário.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +131,7 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
                     Para Apache Storm no HDInsight, a unidade de compra é baseada em cluster e é cobrada com base no tempo de execução do cluster, independentemente dos trabalhos implantados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Mais informações sobre preços podem ser encontradas aqui.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +589,4 @@ Embora ambos forneçam benefícios de uma solução PaaS, há alguns recursos im
     </tbody>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

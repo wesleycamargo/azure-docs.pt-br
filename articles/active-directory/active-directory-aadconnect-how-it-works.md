@@ -48,4 +48,4 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

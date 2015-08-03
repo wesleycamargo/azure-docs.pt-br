@@ -51,4 +51,4 @@ Há alguns intervalos de endereços IP que não são permitidos:
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

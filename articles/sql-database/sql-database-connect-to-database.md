@@ -12,41 +12,56 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
-# Como se conectar a um banco de dados SQL do Azure com o SQL Server Management Studio
+# Conecte-se com o SQL Server Management Studio
 
-Estas são as etapas para se conectar ao Banco de Dados SQL do Microsoft Azure usando o SQL Server Management Studio (SSMS).
+Estas são as etapas para instalar o SQL Server Management Studio (SSMS) e usar o SSMS para conectar e consultar o Banco de Dados SQL.
 
 ## Pré-requisitos
-* Um Banco de Dados SQL do Azure provisionado e em execução. Para criar um novo Banco de Dados SQL, consulte [Introdução ao banco de dados SQL do Microsoft Azure](sql-database-get-started.md).
-* O nome do administrador e a senha do Banco de Dados SQL.
-* SQL Server Management Studio 2014. Para obter a ferramenta, consulte [Baixar o SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
-* Defina as configurações de firewall para o banco de dados. Confira [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md)
+* Um banco de dados de exemplo de AdventureWorks do Banco de Dados SQL conforme descrito em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md).
 
-## Para se conectar a uma instância do Banco de Dados SQL
-1. Faça logon no [Portal de Gerenciamento do Azure](https://portal.azure.com).
-2. Clique no botão **Procurar** e, em seguida, clique em **Banco de Dados SQL** (b).
+## Instalar e iniciar o SQL Server Management Studio (SSMS)
+1. Vá para a página de download para [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299), clique em **Baixar** e escolha a versão de 32 bits (x86) ou a versão de 64 bits (x64) do download do MgmtStudio.
 
-	![Clique em Procurar e em Banco de Dados SQL][1]
-3. Com **Bancos de Dados SQL** selecionado (a), clique no nome de um banco de dados no servidor do qual você deseja se conectar (b).
+	![MgtmtStudio32BIT ou MgmtStudio64BIT][1]
+2.	Siga os prompts de instalação do SSMS com as configurações padrão.
+3.	Após o download, pesquise pelo SQL Server 2014 Management Studio no seu computador e inicie o SSMS.
 
-	![Clique no nome de um banco de dados][2]
-4. Com o nome selecionado (a), clique em Propriedades (b). Copie o nome do servidor (c) e o nome do administrador (d). O nome do administrador e a senha são criados com a criação do Banco de Dados SQL. Você deve possuir a senha para prosseguir para a próxima etapa.
 
-	![Clique no SQL Server, Configurações e Propriedades][3]
-5. Abra o SQL Server Management Studio 2014.
-6. Na caixa de diálogo Conectar ao Servidor, cole o nome do servidor na caixa **Nome do Servidor**. Defina a Autenticação para **Autenticação do SQL Server** (b). Cole o nome do administrador do servidor na caixa **Login** (c), em seguida, digite a senha (d). Depois disso, clique em **Opções** (e).
+## Conectar-se ao seu Banco de Dados SQL
+1. Abra o SSMS.
+2. Na janela **Conectar ao servidor**, na caixa **Nome do servidor**, digite o nome do servidor no formato *&lt;nomedoservidor >*.**database.windows.net**
+3. Na caixa suspensa **Autenticação**, selecione **Autenticação do SQL Server**.
+4. Insira o **Login** e a **Senha** que você especificou quando criou seu servidor do Banco de Dados SQL.
 
-	![Caixa de diálogo de logon do SSMS][4]
-7. Na guia Propriedades da Conexão, defina a caixa **Conectar ao Banco de Dados** para **mestre** (ou qualquer outro banco de dados ao qual você deseja se conectar). Em seguida, clique em **Conectar**.
+	![Conectar-se à caixa de diálogo do servidor][2]
+5. Clique no botão **Opções**.
+6. Na caixa **Conectar ao banco de dados**, digite **AdventureWorks** e clique em **Conectar**.
 
-	![Defina como mestre e clique em Conectar][5]
+	![Conectar-se ao banco de dados][3]
 
-## Solucionar problemas de conexão
+### Se a conexão falhar
+Certifique-se de que o firewall do servidor lógico que você criou permite conexões do computador local. Consulte [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx)
 
-Em caso de problemas, consulte [Solucionar problemas de conexão ao banco de dados SQL do Azure](https://support.microsoft.com/kb/2980233/). Para obter uma lista de possíveis problemas e respostas, consulte [Solucionar problemas de conectividade com o Banco de Dados SQL do Microsoft Azure](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+## Executar consultas de exemplo
+
+1. No **Pesquisador de Objetos**, navegue até o banco de dados **AdventureWorks**.
+2. Clique com o botão direito no banco de dados e clique em Selecionar no**Nova Consulta**.
+
+	![Nova consulta][4]
+3. Na janela de consulta recém-aberta, copie e cole o seguinte código:
+
+		SELECT 
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. E clique no botão **Executar**. O sucesso é semelhante ao seguinte: ![Sucesso][5]
 
 
 ## Próximas etapas
@@ -54,11 +69,11 @@ Você pode usar instruções do Transact-SQL para criar ou gerenciar bancos de d
 
 <!--Image references-->
 
-[1]: ./media/sql-database-connect-to-database/browse-vms.png
-[2]: ./media/sql-database-connect-to-database/sql-databases.png
-[3]: ./media/sql-database-connect-to-database/blades.png
-[4]: ./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]: ./media/sql-database-connect-to-database/ssms-master.png
+[1]: ./media/sql-database-connect-to-database/1-download.png
+[2]: ./media/sql-database-connect-to-database/2-connect.png
+[3]: ./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]: ./media/sql-database-connect-to-database/4-run-query.png
+[5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

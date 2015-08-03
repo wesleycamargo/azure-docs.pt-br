@@ -46,4 +46,4 @@ Logon único e AD FS| Permissões de administrador de domínio no domínio em qu
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

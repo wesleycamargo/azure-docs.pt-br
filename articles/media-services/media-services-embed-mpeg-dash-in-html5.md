@@ -106,4 +106,4 @@ Para reproduzir um vídeo, aponte o navegador no arquivo basicPlayback.html e cl
 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

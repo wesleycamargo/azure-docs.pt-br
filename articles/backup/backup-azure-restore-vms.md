@@ -8,14 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/27/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Restaurar uma máquina virtual
 Você pode restaurar uma máquina virtual em uma nova VM por meio de backups armazenados no cofre de backup do Azure usando a ação de restauração.
@@ -34,15 +27,15 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
 ## Selecione um ponto de recuperação
 
-1. Na tela **Selecionar um ponto de recuperação**, você pode restaurar do ponto de recuperação mais recente ou de um ponto anterior no tempo. A opção padrão selecionada quando o assistente é aberto é o ponto de recuperação mais recente.
+1. Na tela **Selecionar um ponto de recuperação**, você pode restaurar do ponto de recuperação mais recente ou de um ponto anterior no tempo. A opção padrão selecionada quando o assistente é aberto é *Ponto de Recuperação Mais Recente*.
 
     ![Selecione um ponto de recuperação](./media/backup-azure-restore-vms/select-recovery-point.png)
 
-2. Para selecionar um ponto anterior no tempo, escolha a opção **Selecionar Data** na lista suspensa e selecione uma data no controle de calendário, clicando no ícone do calendário. No controle, todas as datas que têm pontos de recuperação são preenchidas com um tom cinza claro e podem ser selecionadas pelo usuário.
+2. Para selecionar um ponto anterior no tempo, escolha a opção **Selecionar Data** na lista suspensa e selecione uma data no controle de calendário, clicando no **ícone de calendário**. No controle, todas as datas que têm pontos de recuperação são preenchidas com um tom cinza claro e podem ser selecionadas pelo usuário.
 
     ![Selecione uma data](./media/backup-azure-restore-vms/select-date.png)
 
-    Quando você clicar em uma data no controle de calendário, os pontos de recuperação disponíveis nessa data serão mostrados na tabela de pontos de recuperação abaixo. A coluna **Tempo** indica a hora em que o instantâneo foi criado. A coluna **Tipo** exibe a [consistência](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) do ponto de recuperação. O cabeçalho da tabela mostra o número de pontos de recuperação disponíveis nesse dia entre parênteses.
+    Quando você clica em uma data no controle de calendário, os pontos de recuperação disponíveis nessa data serão mostrados na tabela de pontos de recuperação abaixo. A coluna **Tempo** indica a hora em que o instantâneo foi criado. A coluna **Tipo** exibe a [consistência](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) do ponto de recuperação. O cabeçalho da tabela mostra o número de pontos de recuperação disponíveis nesse dia entre parênteses.
 
     ![Pontos de recuperação](./media/backup-azure-restore-vms/recovery-points.png)
 
@@ -57,7 +50,7 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
         Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/pt-br/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
 
 2. Selecione uma conta de armazenamento para a VM: isso é obrigatório para a criação de uma VM. Você pode selecionar entre contas de armazenamento existentes na mesma região que o cofre de backup do Azure. Não há suporte para contas de armazenamento com redundância de zona ou do tipo de armazenamento Premium.
 
@@ -71,7 +64,7 @@ Você pode restaurar uma máquina virtual em uma nova VM por meio de backups arm
 
     ![Selecione uma rede virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Selecione uma sub-rede: no caso de a VNET ter sub-redes, por padrão, a primeira sub-rede será selecionada. Selecione a sub-rede de sua escolha entre as opções do menu suspenso. Para obter detalhes de sub-rede, acesse a extensão de redes na [home page do portal](https://manage.windowsazure.com/), vá para Redes virtuais e selecione a rede virtual e detalhe em Configurar para ver os detalhes de sub-rede.
+4. Selecione uma sub-rede: no caso de a VNET ter sub-redes, por padrão, a primeira sub-rede será selecionada. Selecione a sub-rede de sua escolha entre as opções do menu suspenso. Para obter detalhes de sub-rede, acesse a extensão Redes na [home page do portal](https://manage.windowsazure.com/), vá para **Redes Virtuais**, selecione a rede virtual e detalhe em Configurar para ver os detalhes de sub-rede.
 
     ![Selecione uma sub-rede](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -102,6 +95,4 @@ Para a maioria dos erros, siga a ação recomendada sugerida nos detalhes do err
 ## Próximas etapas
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -25,13 +25,13 @@ Determinados aplicativos que não usam navegador, como o cliente de email nativo
 
 >[AZURE.NOTE]Autenticação moderna para os clientes do Office 2013
 >
-> Os clientes do Office 2013 (incluindo o Outlook) agora oferecem suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que uma vez habilitado, as senhas de aplicativo não são necessárias para usar os clientes do Office 2013. Para obter mais informações, consulte [Anúncio do preview público da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para obter mais informações, consulte [Anúncio do preview público da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
  
 ## Como usar senhas de aplicativo
 
 Veja a seguir do que se lembrar sobre como usar senhas de aplicativo.
 
-- A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso ocorre porque a senha gerada automaticamente é mais difícil para um invasor adivinhar, sendo assim, é mais segura.
+- A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso ocorre porque a senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
 - Atualmente, há um limite de 40 senhas por usuário. Se você tentar criar uma depois de ter atingido o limite, será solicitado que você exclua uma de suas senhas de aplicativo existentes para criar uma nova.
 - É recomendável que as senhas de aplicativo sejam criadas por dispositivo, e não por aplicativo. Por exemplo, você pode criar uma senha de aplicativo para seu laptop e usá-la para todos os aplicativos nesse laptop.
 - Você recebe uma senha de aplicativo na primeira vez que se conecta. Se precisar de mais, é possível criá-las.
@@ -54,4 +54,4 @@ Como você usa a autenticação multifator|Descrição
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

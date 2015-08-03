@@ -236,4 +236,4 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 	}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

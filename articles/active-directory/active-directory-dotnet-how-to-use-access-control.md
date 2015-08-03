@@ -403,4 +403,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

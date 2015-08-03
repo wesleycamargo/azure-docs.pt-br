@@ -152,4 +152,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 	Console.WriteLine(mpegDashUri);
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -192,4 +192,4 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 - [Implantar sua solução de StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

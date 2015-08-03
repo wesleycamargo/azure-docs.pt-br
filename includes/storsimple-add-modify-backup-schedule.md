@@ -28,4 +28,4 @@
 A página **Políticas de Backup** será atualizada para salvar as alterações na política.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

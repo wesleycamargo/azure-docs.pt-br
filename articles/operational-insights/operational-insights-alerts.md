@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@ No painel **Gerenciamento de Alertas**, você pode exibir todos os alertas que o
 3. Clique em um bloco ou qualquer item para exibir informações detalhadas sobre ele na página de **Pesquisa**.
 4. Usando as informações encontradas, você pode investigar o alerta e determinar as ações adicionais que talvez você precise executar para resolvê-lo.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,3 @@
 Um subconjunto de dados do Instituto Nacional de Diabetes e o banco de dados de Doenças Digestivas e Renais. O conjunto de dados foi filtrado para se concentrar nas pacientes mulheres com hereditariedade indiana de Pima. Os dados incluem registros médicos como níveis de glicose e insulina, bem como fatores do estilo de vida.<p> </p><b>Uso:</b> prever se o indivíduo tem diabetes (classificação binária). <p> </p><b>Pesquisa relacionada:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

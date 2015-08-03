@@ -1737,4 +1737,4 @@ Opções de parâmetro:
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

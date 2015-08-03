@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../../pricing/free-trial).
 - PowerShell do Azure, versão 0.9.1 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-- Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-br/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
+- Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 
 Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](https://technet.microsoft.com/library/hh857337.aspx).
@@ -110,7 +110,7 @@ Se você quiser que o Cofre da Chave do Azure crie uma chave protegida por softw
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-No entanto, se você tiver uma chave protegida por software em um arquivo .PFX salvo em sua unidade C:\, em um arquivo chamado softkey.pfx, que você deseja carregar no Cofre da Chave do Azure, digite o seguinte para definir a variável **securepfxpwd** como a senha **123** para o arquivo .PFX:
+No entanto, se você tiver uma chave protegida por software em um arquivo .PFX salvo em sua unidade C:\\, em um arquivo chamado softkey.pfx, que você deseja carregar no Cofre da Chave do Azure, digite o seguinte para definir a variável **securepfxpwd** como a senha **123** para o arquivo .PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -211,7 +211,7 @@ O próximo comando importa um pacote de BYOK ("traga sua própria chave"). Isso 
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Para obter instruções mais detalhadas sobre como gerar esse pacote de BYOK, consulte [Como usar Chaves Protegidas por HSM com o Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Para obter instruções detalhadas sobre como gerar esse pacote BYOK, consulte [Como gerar e transferir chaves protegidas por HSM para o Cofre da Chave do Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Excluir o cofre de chave e as chaves e segredos associados ##
 
@@ -248,4 +248,4 @@ Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do 
 Para referências de programação, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

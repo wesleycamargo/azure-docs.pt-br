@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Como automatizar com o Gerenciador de Recursos do Azure" 
-	description="Obtenha links para tópicos sobre como automatizar as máquinas virtuais com o Gerenciador de Recursos do Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Como automatizar com o Gerenciador de Recursos do Azure"
+	description="Obtenha links para tópicos sobre como automatizar a criação e o gerenciamento de máquinas virtuais do Azure com o Gerenciador de Recursos."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # Como automatizar com o Gerenciador de Recursos do Azure
 
@@ -59,7 +59,7 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 ## Automatizar com o .NET
 
 [Implantar recursos do Azure usando a biblioteca do .NET](virtual-machines-arm-deployment.md)
-   
+
 ## Automatizar com a automação do Azure
 
 [Usar a automação do Azure para gerenciar tarefas de VM](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

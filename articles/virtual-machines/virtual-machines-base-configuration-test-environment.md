@@ -129,7 +129,7 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1**[nome da conta do administrador local]
+- Nome: **DC1\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -158,7 +158,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP**[nome da conta do administrador local]
+- Nome: **CORP\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -169,7 +169,7 @@ Em seguida, crie uma conta de usuário no Active Directory que será usada ao fa
 
 Observe que o primeiro comando resulta em um prompt para fornecer a senha da conta User1. Como essa conta será usada para conexões de área de trabalho remota para todos os computadores membros do domínio CORP, escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre a senha da conta User1 e armazene-a em um local seguro.
 
-Reconecte-se à máquina virtual DC1 usando a conta CORP\User1.
+Reconecte-se à máquina virtual DC1 usando a conta CORP\\User1.
 
 Em seguida, para permitir o tráfego para a ferramenta Ping, execute este comando em um prompt de comando do Windows PowerShell com nível de administrador.
 
@@ -194,7 +194,7 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Em seguida, conecte-se à máquina virtual APP1 usando as credenciais de CORP\User1 e abra um prompt de comando do Windows PowerShell com nível de administrador.
+Em seguida, conecte-se à máquina virtual APP1 usando as credenciais de CORP\\User1 e abra um prompt de comando do Windows PowerShell com nível de administrador.
 
 Para verificar a comunicação de rede e a resolução de nomes entre APP1 e DC1, execute o comando **ping dc1.corp.contoso.com** e verifique se há quatro respostas.
 
@@ -227,7 +227,7 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Depois, conecte-se à máquina virtual CLIENT1 com as credenciais de CORP\User1.
+Depois, conecte-se à máquina virtual CLIENT1 com as credenciais de CORP\\User1.
 
 Para verificar a comunicação de rede e a resolução de nomes entre CLIENT1 e DC1, execute o comando **ping dc1.corp.contoso.com** em um prompt de comando do Windows PowerShell e verifique se há quatro respostas.
 
@@ -238,7 +238,7 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
 5.	Na barra de endereços, digite **http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1. 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
-7.	Na barra de endereços, digite **\app1\Files** e pressione ENTER.
+7.	Na barra de endereços, digite **\\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
 9.	Na janela de pasta compartilhada **Arquivos**, clique duas vezes no arquivo **Example.txt**. Você deverá ver o conteúdo do arquivo Example.txt.
 10.	Feche as janelas de **example.txt - Bloco de Notas** e da pasta compartilhada **Arquivos**.
@@ -283,4 +283,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

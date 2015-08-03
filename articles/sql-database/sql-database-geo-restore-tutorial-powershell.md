@@ -82,4 +82,4 @@ Para obter mais informações, consulte o seguinte:
 [PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

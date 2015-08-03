@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Configurar e registrar o dispositivo"
-   description="Explica como usar o Windows PowerShell para StorSimple para configurar e registrar seu dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="v-sharos" />
-
 
 #### Para configurar e registrar o dispositivo
 
@@ -79,4 +62,4 @@
   
       >[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -812,4 +812,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Armazenamento do Azure](/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

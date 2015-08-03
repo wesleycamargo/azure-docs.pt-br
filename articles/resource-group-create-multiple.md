@@ -1,7 +1,7 @@
 <properties
    pageTitle="Criar várias instâncias de recursos"
    description="Descreve como usar a operação de cópia em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -35,7 +35,7 @@ Você pode acessar o valor de iteração atual com a função **copyIndex()**, c
 
 ## Use o valor de índice no nome
 
-Você pode usar a operação de cópia para criar várias instâncias de um recurso nomeadas exclusivamente com base no índice de incremento. Por exemplo, pode ser útil adicionar um número exclusivo no final de cada nome de recurso que é implantado. Você pode implantar os três sites da Web nomeados:
+Você pode usar a operação de cópia para criar várias instâncias de um recurso nomeadas exclusivamente com base no índice de incremento. Por exemplo, pode ser útil adicionar um número exclusivo no final de cada nome de recurso que é implantado. Para implantar três sites da Web nomeados:
 
 - examplecopy-0
 - examplecopy-1
@@ -73,7 +73,7 @@ Você pode observar no exemplo anterior que o valor de índice vai de zero a 2. 
 
 ## Use com matriz
    
-A operação de cópia é especialmente útil ao trabalhar com matrizes porque você pode percorrer cada elemento da matriz. Você pode implantar os três sites da Web nomeados:
+A operação de cópia é especialmente útil ao trabalhar com matrizes porque você pode percorrer cada elemento da matriz. Para implantar três sites da Web nomeados:
 
 - examplecopy-Contoso
 - examplecopy-Fabrikam
@@ -114,4 +114,4 @@ Use o modelo a seguir:
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

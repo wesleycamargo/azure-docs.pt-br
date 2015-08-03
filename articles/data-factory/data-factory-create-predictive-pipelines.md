@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Criar pipelines de previsão usando o Data Factory e o Aprendizado de Máquina do Azure 
@@ -186,7 +186,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -213,39 +213,11 @@ Para usar um leitor do SQL do Azure por meio de um pipeline da Azure Data Factor
 #### Gravador do SQL do Azure
 Assim como com o leitor do SQL Azure, um gravador do SQL Azure também pode ter suas propriedades expostas como parâmetros de serviço Web. Um gravador do SQL do Azure usa as configurações do serviço vinculado associado à tabela de entrada ou tabela de saída. A tabela a seguir descreve quando o serviço vinculado de entrada é utilizado versus o serviço vinculado de saída.
 
-<table>
-<tr>
-<td>Entrada/Saída</td>
-<td><b>A entrada é SQL do Azure</b></td>
-<td><b>A entrada é Blob do Azure</b></td>
-</tr>
-<tr>
-<td><b>A saída é SQL do Azure</b></td>
-<td><p>O serviço Data Factory usa as informações da cadeia de conexão do serviço de entrada vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p>
-<p>Se o leitor do SQL do Azure e o gravador do SQL Azure em seu modelo de aprendizado de máquina do Azure compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Nome de servidor de banco de dados1, Nome de banco de dados1, Nome de conta de usuário do servidor1, Senha de conta de usuário do servidor1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web de saída na seção webServiceParameters da atividade JSON.</p>
-<p>
-Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON.  
-</p>
-
-</td>
-<td>
-<p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado de SAÍDA para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p>
-<p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p>
-</td>
-</tr>
-<tr>
-<td><b>A saída é o Blob do Azure</b></td>
-<td>O serviço Data Factory usa as informações da cadeia de conexão do serviço de entrada vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.
-</td>
-<td>
-<p>Você precisa passar valores para quaisquer parâmetros de serviço Web usando a seção WebServiceParameters da atividade JSON.</p> 
-
-<p>Blobs serão usados como locais de entrada e saída.</p>
-
-</td>
-<tr>
-
-</table>
+| Entrada/Saída | A entrada é SQL do Azure | A entrada é Blob do Azure |
+| ------------ | ------------------ | ------------------- |
+| A saída é SQL do Azure | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço INPUT vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Se o leitor do SQL Azure e o gravador do SQL Azure em seu modelo Azure ML compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Database server name1, Database name1, Server user account name1, Server user account password1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web OUTPUT na seção webServiceParameters da atividade JSON.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço da Web usando a seção webServiceParameters da atividade JSON.</p> | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado OUTPUT para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p> |
+|A saída é o Blob do Azure | O serviço Data Factory usa as informações da cadeia de conexão do serviço de entrada vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure. | <p>Você deve passar valores para qualquer parâmetro de serviço Web usando a seção WebServiceParameters da atividade JSON.</p><p>Os blobs serão usados como locais de entrada e saída.</p> |
+    
 
 > [AZURE.NOTE]O Gravador do SQL Azure poderá encontrar violações de chave, se estiver substituindo uma coluna de identidade. Certifique-se de estruturar sua tabela de saída para evitar essa situação.
 > 
@@ -328,4 +300,4 @@ Artigo | Descrição
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

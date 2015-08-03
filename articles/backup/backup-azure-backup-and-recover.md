@@ -114,4 +114,4 @@ A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o co
 ## Próximas etapas
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

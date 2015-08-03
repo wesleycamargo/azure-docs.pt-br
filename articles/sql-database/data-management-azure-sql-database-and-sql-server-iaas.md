@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # Noções básicas sobre o Banco de Dados SQL do Azure e SQL Server em máquinas virtuais do Azure
@@ -186,9 +186,9 @@ Para **máquinas virtuais hospedadas no Azure**, a Microsoft fornece um SLA de d
 
 ###<a name="market"></a>Tempo para colocação no mercado
 
-O **Banco de Dados SQL do Azure** é a solução ideal para aplicativos baseados em nuvem quando a produtividade do desenvolvedor e o tempo de colocação no mercado rápido são essenciais. Com a funcionalidade de programação como DBA, ele é perfeito para desenvolvedores e arquitetos de nuvem, pois reduz a necessidade de gerenciamento do sistema operacional e do banco de dados subjacentes. Ele ajuda os desenvolvedores a compreender e configurar tarefas relacionadas ao banco de dados. Por exemplo, você pode usar a [API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e os [cmdlets do PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) para automatizar e gerenciar operações administrativas para milhares de bancos de dados. Com a escala elástica na nuvem, você pode facilmente se concentrar na camada de aplicativo e colocar seu aplicativo no mercado mais rapidamente.
+O **Banco de Dados SQL do Azure** é a solução ideal para aplicativos baseados em nuvem quando a produtividade do desenvolvedor e o tempo de colocação no mercado rápido são essenciais. Com a funcionalidade de programação como DBA, ele é perfeito para desenvolvedores e arquitetos de nuvem, pois reduz a necessidade de gerenciamento do sistema operacional e do banco de dados subjacentes. Ele ajuda os desenvolvedores a compreender e configurar tarefas relacionadas ao banco de dados. Por exemplo, você pode usar a [API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e os [cmdlets do PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) para automatizar e gerenciar operações administrativas para milhares de bancos de dados. Com a [escala elástica](sql-database-elastic-pool.md) na nuvem, você pode facilmente se concentrar na camada de aplicativos e colocar seu aplicativo no mercado mais rapidamente.
 
-O **SQL Server em execução na VM do Azure** será perfeito se os aplicativos novos e existentes exigirem acesso e controle para todos os recursos de uma instância do SQL Server, e também para quando você desejar migrar aplicativos locais e bancos de dados existentes para a nuvem no estado em que se encontram. Já que você não precisa alterar a apresentação, o aplicativo e as camadas de dados, você economiza tempo e orçamento em rearquitetura da solução existente. Em vez disso, você pode se concentrar na migração de todos os pacotes de solução para as VMs e fazer algumas otimizações de desempenho exigidas pela plataforma do Azure. Para obter informações, confira [Práticas recomendadas para o desempenho do SQL Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
+O **SQL Server em execução na VM do Azure** é perfeito se os aplicativos novos e existentes exigirem acesso e controle para todos os recursos de uma instância do SQL Server, e também para quando você desejar migrar aplicativos locais e bancos de dados existentes para a nuvem no estado em que se encontram. Já que você não precisa alterar a apresentação, o aplicativo e as camadas de dados, você economiza tempo e orçamento em rearquitetura da solução existente. Em vez disso, você pode se concentrar na migração de todos os pacotes de solução para as VMs e fazer algumas otimizações de desempenho exigidas pela plataforma do Azure. Para obter informações, consulte [Práticas recomendadas para o desempenho do SQL Server em máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
 
 ##<a name="summary"></a>Resumo
 
@@ -198,7 +198,7 @@ Este é um resumo de sugestões a serem consideradas quando usar um ou outro:
 
 Escolha **Banco de Dados SQL do Azure** se:
 
-- Você estiver criando aplicativos totalmente novos baseados em nuvem; ou você desejar migrar seu banco de dados existente do SQL Server para o Azure e seu banco de dados não estiver usando uma das funcionalidades sem suporte no Banco de Dados SQL do Azure. Para saber mais, confira [Referência de Transact-SQL do Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336281.aspx). Essa abordagem oferece os benefícios de um serviço de nuvem totalmente gerenciado e garante que o tempo de colocação no mercado seja rápido.
+- Você estiver criando aplicativos totalmente novos baseados em nuvem; ou você desejar migrar seu banco de dados existente do SQL Server para o Azure e seu banco de dados não estiver usando uma das funcionalidades sem suporte no Banco de Dados SQL do Azure. Para saber mais, consulte [Referência de Transact-SQL do Banco de dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336281.aspx). Essa abordagem oferece os benefícios de um serviço de nuvem totalmente gerenciado e garante que o tempo de colocação no mercado seja rápido.
 
 - Você deseja que a Microsoft execute operações de gerenciamento comuns em seus bancos de dados e exija SLAs de maior disponibilidade para bancos de dados. Essa abordagem pode minimizar os custos de administração e ao mesmo tempo fornece uma disponibilidade garantida do banco de dados.
 
@@ -207,6 +207,9 @@ Escolha **SQL Server na VM do Azure** se:
 - Você tiver aplicativos locais existentes e desejar manter seu próprio hardware ou considerar soluções híbridas. Essa abordagem permite que você obtenha acesso a alta capacidade de banco de dados mais rapidamente e também conecta seus aplicativos locais à nuvem por meio de um túnel seguro.
 
 - Você tiver recursos de TI existentes, precisar de plenos direitos administrativos sobre o SQL Server e exigir a compatibilidade total com o SQL Server local (por exemplo, alguns recursos não existem no Banco de Dados SQL do Azure). Essa abordagem permite minimizar os custos de desenvolvimento ou modificações de aplicativos existentes com a flexibilidade para executar a maioria dos aplicativos. Além disso, ela fornece controle total sobre a VM, o sistema operacional e a configuração de banco de dados.
+
+> [AZURE.NOTE]- Você deseja experimentar o SQL Server 2016 CTP2? Inscreva-se no Microsoft Azure e vá até [aqui](http://aka.ms/sql2016vm "aqui") para criar uma Máquina Virtual com o SQL Server 2016 CTP2 já instalado.
+
 
 ##<a name="ack"></a>Confirmações
 
@@ -250,4 +253,4 @@ Obrigado a todos por dar vida a este artigo!
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -100,4 +100,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

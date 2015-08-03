@@ -447,4 +447,4 @@ Você aprender a codificar e configurar um aplicativo de API que se conecta a um
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

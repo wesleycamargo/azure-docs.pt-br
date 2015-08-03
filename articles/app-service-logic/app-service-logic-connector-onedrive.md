@@ -82,6 +82,6 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
-[Definição da API do OneDrive]: https://msdn.microsoft.com/pt-br/library/dn974227.aspx
+[Definição da API do OneDrive]: https://msdn.microsoft.com/en-us/library/dn974227.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

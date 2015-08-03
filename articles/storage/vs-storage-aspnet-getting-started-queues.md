@@ -275,4 +275,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

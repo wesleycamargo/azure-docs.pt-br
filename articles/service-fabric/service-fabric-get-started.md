@@ -87,10 +87,10 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 - [Confira os exemplos da Malha do Serviço no GitHub](https://github.com/azure/servicefabric-samples)
 - [Visualizar o cluster usando o Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md)
 
-[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página de campanha da Malha do Serviço"
+[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Página de campanha da Malha do Serviço"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "VM do Azure"
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

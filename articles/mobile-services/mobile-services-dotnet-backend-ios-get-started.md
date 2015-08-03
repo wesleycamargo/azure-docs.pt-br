@@ -101,4 +101,4 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [versão de back-end do JavaScript]: mobile-services-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

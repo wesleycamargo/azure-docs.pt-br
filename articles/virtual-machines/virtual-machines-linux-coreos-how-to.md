@@ -205,4 +205,4 @@ Agora você deve ter um cluster CoreOS com três nós no Azure. Aqui, você pode
 [Introdução ao Fleet no CoreOS no Azure]: virtual-machines-linux-coreos-fleet-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

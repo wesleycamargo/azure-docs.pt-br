@@ -150,4 +150,4 @@ Você pode alternar de exibição de detalhes para a de estatísticas de uma cam
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

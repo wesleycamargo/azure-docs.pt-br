@@ -18,13 +18,13 @@
 
 # Spark no Ubuntu com um modelo do Gerenciador de Recursos
 
-Apache Spark é um mecanismo rápido para processamento de dados em grande escala. O Spark tem um mecanismo de execução DAG avançado que oferece suporte ao fluxo de dados cíclicos computação na memória, e pode acessar várias fontes de dados incluindo HDFS, Spark, HBase e S3.
+Apache Spark é um mecanismo rápido para processamento de dados em grande escala. O Spark tem um mecanismo de execução DAG avançado que oferece suporte ao fluxo de dados cíclicos e computação na memória, e pode acessar várias fontes de dados, incluindo HDFS, Spark, HBase e S3.
 
-Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark também fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure (ARM) para implantar um Cluster Spark em VMs Ubuntu por meio do [PowerShell do Azure](../powershell-install-configure.md) ou do [CLI do Azure](../xplat-cli.md).
+Além de executar nos gerenciadores de cluster Mesos ou YARN, o Spark fornece um modo simples de implantação autônoma. Este tutorial mostrará como usar um exemplo de modelo do Gerenciador de Recursos do Azure para implantar um cluster Spark em VMs Ubuntu por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
 
-Esse modelo implanta um cluster Spark em máquinas virtuais Ubuntu. Também fornece uma conta de armazenamento, rede virtual, conjuntos de disponibilidade, endereços IP públicos e interfaces de rede necessários para a instalação. O Cluster Spark é criado por trás de uma sub-rede e, portanto, não há acesso de IP público ao cluster. Como parte da implantação, uma "jump box" opcional pode ser implantada. Essa “jump box” é uma VM Ubuntu implantada na sub-rede, mas que *expõe* um endereço IP público com uma porta SSH aberta com qual você pode se conectar. Em seguida, da “jump box”, é possível executar SSH em todas as VMs Spark na sub-rede.
+Esse modelo implanta um cluster Spark em máquinas virtuais Ubuntu. Também fornece uma conta de armazenamento, rede virtual, conjuntos de disponibilidade, endereços IP públicos e interfaces de rede necessários para a instalação. O cluster Spark é criado por trás de uma sub-rede e, portanto, não há acesso de IP público ao cluster. Como parte da implantação, uma "jump box" opcional pode ser implantada. Essa “jump box” é uma VM Ubuntu implantada na sub-rede, mas que *expõe* um endereço IP público com uma porta SSH aberta com qual você pode se conectar. Em seguida, da “jump box”, é possível executar SSH em todas as VMs Spark na sub-rede.
 
-Este modelo utiliza um conceito de "tamanho de camiseta" para especificar uma configuração de Cluster Spark "pequena", "média" ou "grande". Quando o idioma do modelo oferece suporte a um dimensionamento de modelo mais dinâmico, é possível fazer alterações para especificar o número de nós mestres do Cluster Spark, além dos nós subordinados, tamanho da VM etc. Por enquanto, você pode ver o tamanho da VM e o número de mestres e subordinados definidos no arquivo azuredeploy.json nas variáveis tshirtSizeS, tshirtSizeM, and tshirtSizeL:
+Este modelo utiliza um conceito de "tamanho de camiseta" para especificar uma configuração de cluster Spark "pequena", "média" ou "grande". Quando o idioma do modelo oferece suporte a um dimensionamento de modelo mais dinâmico, é possível fazer alterações para especificar o número de nós mestres do cluster Spark, além dos nós subordinados, tamanho da VM, etc. Por enquanto, você pode ver o tamanho da VM e o número de mestres e subordinados definidos no arquivo azuredeploy.json nas variáveis **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL**:
 
 - P: 1 mestre, 1 subordinado
 - M: 1 mestre, 4 subordinados
@@ -43,7 +43,7 @@ Conforme mostra a imagem acima, a topologia de implantação é composta pelos e
 -	Quatro nós subordinados em execução na mesma sub-rede virtual, e conjunto de disponibilidade como o nó mestre.
 -	Uma VM jump box localizada na mesma rede virtual e sub-rede que pode ser usada para acessar o cluster.
 
-O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário predefinidos disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark 10.0.0.10. Um endereço IP estático será atribuído a cada nó subordinado do Spark para contornar a limitação atual de não ser capaz de compor dinamicamente uma lista de endereços IP de dentro do modelo (por padrão, o primeiro nó receberá o IP privado 10.0.0.30, o segundo nó - 10.0.0.31 e assim por diante). Para verificar se houver erros de implantação, acesse o novo Portal do Azure e procure **Grupo de Recursos** > **Última implantação** > **Verificar Detalhes da Operação**.
+O Spark versão 3.0.0 é a versão padrão e pode ser alterada para qualquer binário pré-criado disponível no repositório do Spark. Há também uma cláusula no script para remover os comentários da compilação do código-fonte. Um endereço IP estático será atribuído a cada nó mestre do Spark: 10.0.0.10. Um endereço IP estático será atribuído a cada nó escravo do Spark para contornar a limitação atual de não ser possível criar dinamicamente uma lista de endereços IP de dentro do modelo. (Por padrão, o primeiro nó será atribuído ao endereço IP privado 10.0.0.30, o segundo nó será atribuído ao 10.0.0.31 e assim por diante.) Para verificar erros de implantação, acesse o novo portal do Azure e procure **Grupo de Recursos** > **Última Implantação** > **Verificar Detalhes da Operação**.
 
 Antes de lidar com mais detalhes relacionados ao Gerenciador de Recursos do Azure e ao modelo usado para essa implantação, verifique se você tem o PowerShell ou a CLI do Azure configurados corretamente.
 
@@ -51,11 +51,11 @@ Antes de lidar com mais detalhes relacionados ao Gerenciador de Recursos do Azur
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Criar um cluster Spark com um modelo do Gerenciador de Recursos
+## Criar um cluster Spark usando um modelo do Gerenciador de Recursos
 
-Execute estas etapas para criar o cluster Spark usando um modelo do Gerenciador de Recursos do repositório de modelos do Github, usando o PowerShell do Azure ou o CLI do Azure.
+Execute estas etapas para criar um cluster Spark usando um modelo do Gerenciador de Recursos do repositório de modelos do GitHub, usando o Azure PowerShell ou a CLI do Azure.
 
-### Etapa 1-a: baixar os arquivos de modelo usando o PowerShell
+### Etapa 1-a: baixar os arquivos de modelo usando o PowerShell do Azure
 
 Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\\Azure\\Templates\\Spark).
 
@@ -87,17 +87,17 @@ foreach ($file in $files)
 
 ### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
-Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
+Clone todo o repositório de modelos usando um cliente Git de sua escolha, por exemplo:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta **spark-on-ubuntu** no diretório C:\\Azure\\Templates.
+Quando a clonagem for concluída, procure a pasta **spark-on-ubuntu** no diretório C:\\Azure\\Templates.
 
 ### Etapa 2 (opcional): compreender os parâmetros do modelo
 
-Ao criar um cluster Spark com um modelo, você deve especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, é possível especificar valores durante a execução da implantação por meio de um arquivo externo ou na linha de comando.
+Ao criar um cluster Spark usando um modelo, é preciso especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, é possível especificar valores durante a execução da implantação por meio de um arquivo externo ou em uma linha de comando.
 
-Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encontrará o conjunto de parâmetros necessários ao modelo para configurar um cluster Spark. Veja um exemplo da seção de parâmetros desse arquivo de modelo azuredeploy.json:
+Na seção "parâmetros" no início do arquivo azuredeploy.json, você encontrará o conjunto de parâmetros necessários ao modelo para configurar um cluster Spark. Veja um exemplo da seção "parâmetros" desse arquivo de modelo azuredeploy.json:
 
 ```json
 "parameters": {
@@ -117,14 +117,14 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
 		"type": "string",
 		"defaultValue": "Canonical",
 		"metadata": {
-			"Description": "Image Publisher"
+			"Description": "Image publisher"
 		}
 	},
 	"imageOffer": {
 		"type": "string",
 		"defaultValue": "UbuntuServer",
 		"metadata": {
-			"Description": "Image Offer"
+			"Description": "Image offer"
 		}
 	},
 	"imageSKU": {
@@ -138,7 +138,7 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
 		"type": "string",
 		"defaultValue": "uniquesparkstoragev12",
 		"metadata": {
-			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
 		}
 	},
 	"region": {
@@ -173,7 +173,7 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
 		"type": "string",
 		"defaultValue": "Subnet-1",
 		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+			"Description": "Subnet name for the virtual network that resources will be provisioned into"
 		}
 	},
 	"subnetPrefix": {
@@ -218,7 +218,7 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
 		"disabled"
 		],
 		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Spark nodes"
+			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Spark nodes"
 		}
 	},
 	"tshirtSize": {
@@ -236,13 +236,13 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
 }
 ```
 
-Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permite a validação dos parâmetros passados durante a execução do modelo em um modo interativo (por exemplo, PowerShell ou CLI do Azure), bem como uma interface de usuário de autodescoberta que pode ser criada dinamicamente ao analisar a lista de parâmetros necessários e suas descrições.
+Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permite a validação dos parâmetros passados durante a execução do modelo em um modo interativo (por exemplo, PowerShell do Azure ou CLI do Azure), bem como uma interface de usuário de autodescoberta que pode ser criada dinamicamente ao analisar a lista de parâmetros necessários e suas descrições.
 
-### Etapa 3-a: implantar um cluster Spark com um modelo usando o PowerShell
+### Etapa 3-a: Implantar um cluster Spark usando um modelo por meio do Azure PowerShell
 
-Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
+Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell do Azure usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
 
-Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.json**. Observe que você precisa fornecer valores válidos para os parâmetros storageAccountName, adminUsername e adminPassword, além de qualquer personalização para os outros parâmetros:
+Veja um exemplo de conjunto de parâmetros do arquivo azuredeploy-parameters.json. Observe que você precisa fornecer valores válidos para os parâmetros **storageAccountName**, **adminUsername** e **adminPassword**, além de qualquer personalização para os outros parâmetros:
 
 ```json
 {
@@ -302,11 +302,11 @@ $templateParameterFile= $folderName + "\azuredeploy-parameters.json"
 New-AzureResourceGroup -Name $RGName -Location $locName
 New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParamterFile $templateParameterFile -TemplateFile $templateFile
 ```
-> [AZURE.NOTE]$RGName deve ser exclusivo dentro de sua assinatura.
+> [AZURE.NOTE]**$RGName** deve ser exclusivo dentro de sua assinatura.
 
-Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, Teste, Produção etc.) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
+Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, teste, produção etc.) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
 
-Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precisará ser criada. Portanto, o nome fornecido como o parâmetro de conta de armazenamento precisa ser exclusivo e atender a todos os requisitos para uma Conta de Armazenamento do Azure (somente letras minúsculas e números).
+Ao implantar, tenha em mente que uma nova conta de Armazenamento do Azure precisará ser criada. Portanto, o nome fornecido como o parâmetro de conta de Armazenamento precisa ser exclusivo e atender a todos os requisitos para uma conta de Armazenamento do Azure (somente letras minúsculas e números).
 
 Durante a implantação, você verá algo assim:
 
@@ -377,12 +377,12 @@ Parameters        :
 
 Durante e após a implantação, você pode verificar todas as solicitações feitas durante o provisionamento, incluindo quaisquer erros ocorridos.
 
-Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
+Para fazer isso, acesse o [portal do Azure](https://portal.azure.com) e siga este procedimento:
 
-- Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
-- Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
-- Clicando no gráfico de barras "Eventos" na parte "Monitoramento" da folha "Grupo de Recursos", você poderá ver os eventos de sua implantação:
-- Se clicar em eventos individuais, você poderá fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo
+- Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
+- Clique no grupo de recursos que você acabou de criar, o que exibirá a folha "Grupo de Recursos".
+- Clicando no gráfico de barras **Eventos** na parte **Monitoramento** da folha "Grupo de Recursos", será possível ver os eventos de sua implantação.
+- Ao clicar em eventos individuais, será possível fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo.
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
 
@@ -392,31 +392,31 @@ Depois dos testes, se você precisar remover esse grupo de recursos e todos os s
 Remove-AzureResourceGroup -Name "<resource group name>" -Force
 ```
 
-### Etapa 3-b: implantar um cluster Spark com um modelo usando a CLI do Azure
+### Etapa 3-b: Implantar um cluster Spark usando um modelo por meio da CLI do Azure
 
-Para implantar um cluster Spark pela CLI do Azure, crie um Grupo de Recursos, especificando um nome e um local:
+Para implantar um cluster Spark pela CLI do Azure, primeiro crie um grupo de recursos especificando um nome e um local:
 
 	azure group create SparkResourceGroup "West US"
 
-Passe o nome desse Grupo de Recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell para saber mais) no comando abaixo:
+Passe o nome desse grupo de recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell do Azure para saber mais) no comando abaixo:
 
 	azure group deployment create SparkResourceGroup -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-Você pode verificar o status das implantações de recursos individuais com o seguinte comando:
+É possível verificar o status das implantações de recursos individuais usando o seguinte comando:
 
 	azure group deployment list SparkResourceGroup
 
 ## Um tour pela estrutura do modelo do Spark e da organização de arquivos
 
-Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o Spark. Aproveitando a **vinculação de modelos** e os **loops de recursos** do ARM, além da execução de scripts por meio de extensões relacionadas, você pode implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
+Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o Spark. Aproveitando os loops de recursos e a vinculação de modelos do Gerenciador de Recursos, além da execução de scripts por meio de extensões relacionadas, é possível implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
 
 Este diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação:
 
 ![spark-files](media/virtual-machines-spark-template/spark-files.png)
 
-Esta seção percorre a estrutura do arquivo **azuredeploy.json** para o cluster Spark.
+Esta seção percorre a estrutura do arquivo azuredeploy.json para o cluster Spark.
 
-Se você ainda não baixou uma cópia do arquivo de modelo, indique uma pasta local como o local para o arquivo e crie-o (por exemplo, C:\\Azure\\Templates\\Spark). Preencha o nome da pasta e execute estes comandos.
+Se você ainda não baixou uma cópia do arquivo de modelo, indique uma pasta local como o local para o arquivo e crie-o (por exemplo, C:\\Azure\\Templates\\Spark). Preencha o nome da pasta e execute estes comandos:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -426,11 +426,11 @@ $filePath = $folderName + "\azuredeploy.json"
 $webclient.DownloadFile($url,$filePath)
 ```
 
-Abra o modelo azuredeploy.json em um editor de texto ou na ferramenta de sua escolha. O exemplo a seguir descreve a estrutura do arquivo de modelo e a finalidade de cada seção. Como alternativa, você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/azuredeploy.json).
+Abra o modelo azuredeploy.json em um editor de texto ou na ferramenta de sua escolha. As informações a seguir descrevem a estrutura do arquivo de modelo e a finalidade de cada seção. Como alternativa, você pode ver o conteúdo do modelo em seu navegador clicando [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/azuredeploy.json).
 
 ### Seção "parâmetros"
 
-A seção "parâmetros" do arquivo **azuredeploy.json** especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo **azuredeploy-parameters.json** mencionado anteriormente é usado para passar valores para a seção "parâmetros" de azuredeploy.json durante a execução do modelo.
+A seção "parâmetros" do arquivo azuredeploy.json especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo azuredeploy-parameters.json mencionado anteriormente é usado para passar valores para a seção "parâmetros" de azuredeploy.json durante a execução do modelo.
 
 Veja a seguir um exemplo de um parâmetro para “tamanho de camiseta”:
 
@@ -449,7 +449,7 @@ Veja a seguir um exemplo de um parâmetro para “tamanho de camiseta”:
 },
 ```
 
->.[AZURE.NOTE]Observe que "defaultValue" pode ser especificado, bem como "allowedValues".
+> [AZURE.NOTE]Observe que **defaultValue** pode ser especificado, bem como **allowedValues**.
 
 ### Seção "variáveis"
 
@@ -486,16 +486,16 @@ A seção "variáveis" especifica variáveis que podem ser usadas em todo esse m
 },
 ```
 
-"**vmStorageAccountContainerName**" é um exemplo de uma variável simples de nome/valor. "**vnetID**" é um exemplo de uma variável calculada durante a execução usando as funções "**resourceId**" e "**parameters**". O valor das variáveis "**numberOfMasterInstances**" e "**vmSize**" são calculados durante a execução usando as funções "**concat**", "**variables**" e "**parameters**".
+A variável **vmStorageAccountContainerName** é um exemplo de uma variável simples de nome/valor. **vnetID** é um exemplo de uma variável calculada durante a execução usando as funções **resourceId** e **parameters**. O valor das variáveis **numberOfMasterInstances** e **vmSize** é calculado durante a execução usando as funções **concat**, **variables** e **parameters**.
 
-Se você quiser personalizar o tamanho da implantação do Cluster Spark, altere as propriedades das variáveis tshirtSizeS, tshirtSizeM e tshirtSizeL no modelo azuredeploy.json.
+Se você quiser personalizar o tamanho da implantação do cluster Spark, altere as propriedades das variáveis **tshirtSizeS**, **tshirtSizeM** e **tshirtSizeL** no modelo azuredeploy.json.
 
 Para saber mais sobre o idioma do modelo, consulte a MSDN em [Idioma do modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
 ### Seção "recursos"
 
-A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "**templateLink**" (e da propriedade de versão relacionada), você pode especificar um arquivo de modelo vinculado que é invocado passando um conjunto de parâmetros como entrada, como visto neste fragmento:
+A seção "recursos" é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes. O primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que essencialmente invoca uma implantação aninhada dentro do elemento principal. O segundo é a propriedade **templateLink** (e a propriedade **contentVersion** relacionada), que torna possível a especificação de um arquivo de modelo vinculado que será invocado, passando um conjunto de parâmetros como entrada. Eles podem ser vistos neste fragmento do modelo:
 
 ```json
 "resources": [
@@ -533,18 +533,18 @@ A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cu
 },
 ```
 
-Neste primeiro exemplo, fica claro como **azuredeploy.json** nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
+Neste primeiro exemplo, fica claro como azuredeploy.json nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo. Cada arquivo é responsável por parte das atividades de implantação necessárias.
 
 Em particular, os seguintes modelos vinculados serão usados para essa implantação:
 
--	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do SO da VM e redes virtuais.
+-	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de Armazenamento usadas para armazenar as redes virtuais e os discos do SO da VM.
 -	**jumpbox-resources-enabled.json**: implanta a VM "jump box" e todos os recursos relacionados, como a interface de rede, o endereço IP público e o ponto de extremidade de entrada usados para executar SSH no ambiente.
 
-Depois de invocar esses dois modelos, o **azuredeploy.json** provisiona todas as VMs de nó do Cluster Spark e os recursos conectados (por exemplo, placas de rede, IPs privados etc.). Este modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash (**spark-cluster-install.sh**) para instalar fisicamente e configurar o Spark em cada nó.
+Depois de invocar esses dois modelos, o azuredeploy.json provisiona todas as VMs de nó do cluster Spark e os recursos conectados (adaptadores de rede, IPs privados etc.). Este modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash (spark-cluster-install.sh) para instalar fisicamente e configurar o Spark em cada nó.
 
-Vamos detalhar *como* esse último modelo, o **azuredeploy.json** é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como **Loop de Recursos**.
+Vamos detalhar *como* esse último modelo, azuredeploy.json, é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Este conceito é conhecido como **loop de recursos**.
 
-Um recurso que usa o elemento "copy" criará cópias de si mesmo de acordo com o número de vezes especificado no parâmetro "count" do elemento "copy". Para todas as configurações em que é necessário especificar valores exclusivos entre diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No fragmento a seguir do **azuredeploy.json**, você pode ver esse conceito aplicado a várias placas de rede, VMs e extensões de VM que estão sendo criadas para o cluster Spark:
+Um recurso que usa o elemento **copy** criará cópias de si mesmo de acordo com o número de vezes especificado no parâmetro **count** do elemento **copy**. Para todas as configurações em que é necessário especificar valores exclusivos entre diferentes instâncias do recurso implantado, a função **copyindex()** pode ser usada para obter um valor numérico que indica o índice atual nessa criação de loop de recursos específica. No fragmento a seguir do azuredeploy.json, é possível ver esse conceito aplicado a várias adaptadores de rede, VMs e extensões de VM que estão sendo criadas para o cluster Spark:
 
 ```json
 {
@@ -760,9 +760,9 @@ Um recurso que usa o elemento "copy" criará cópias de si mesmo de acordo com o
 	}
 ```
 
-Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode ver na matriz JSON **dependsOn**. Neste modelo específico, você pode ver que os nós do cluster Spark dependem dos recursos compartilhados e do recursos de Interface de rede que estão sendo criados primeiro.
+Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode ver na matriz JSON **dependsOn**. Neste modelo específico, é possível ver que os nós do cluster Spark dependem dos recursos compartilhados e do recursos **networkInterfaces** que estão sendo criados primeiro.
 
-Outro fragmento interessante a ser explorado é aquele relacionado às extensões de VM **CustomScriptForLinux**. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó do cluster. Neste caso, isso é usado para instalar e configurar o Spark em cada nó de VM. Vamos examinar um trecho do modelo **azuredeploy.json** que usa esses recursos:
+Outro fragmento interessante a ser explorado é aquele relacionado às extensões de VM **CustomScriptForLinux**. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó do cluster. Neste caso, isso é usado para instalar e configurar o Spark em cada nó de VM. Vamos examinar um trecho do modelo azuredeploy.json que usa esses recursos:
 
 ```json
 {
@@ -817,9 +817,9 @@ Outro fragmento interessante a ser explorado é aquele relacionado às extensõe
 }
 ```
 
-Observe que a extensão dos recursos de nó mestre e subordinado executa comandos diferentes, definidos na **propriedade commandToExecute** como parte do processo de provisionamento.
+Observe que a extensão dos recursos de nó mestre e subordinado executa comandos diferentes, definidos na propriedade **commandToExecute** como parte do processo de provisionamento.
 
-Você pode ver que esse recurso depende da VM de recurso que já está sendo implantada **Microsoft.Compute/virtualMachines/vmMember<X>**, no qual **<X>** é o parâmetro "**machineSettings.machineIndex**", que é o índice da VM que foi passado para esse script usando a função "**copyindex()**".
+Se você examinar o trecho JSON da extensão mais recente de máquina virtual, poderá ver que esse recurso depende do recurso da máquina virtual e sua interface de rede. Isso indica que esses dois recursos já precisam ser implantados antes de provisionar e executar essa extensão de VM. Observe também o uso da função **copyindex()** para repetir esta etapa para cada máquina virtual escrava.
 
 Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme realçado pelo seguinte diagrama:
 
@@ -827,11 +827,11 @@ Familiarizando-se com os outros arquivos incluídos nessa implantação, você p
 
 Essencialmente, essa abordagem sugere o seguinte:
 
--	Definir o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de modelos de sub-rotina
--	Criar arquivos de modelos específicos que implantarão todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (por exemplo, contas de armazenamento, configuração de vnet etc.). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
--	Incluir modelos de recursos opcionais para requisitos de spot específicos de determinado recurso
--	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas
--	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
+-	Definir o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de modelos de sub-rotina.
+-	Crie um arquivo de modelo específico que implantará todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (contas de armazenamento, configuração de rede virtual, etc.). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
+-	Inclua modelos de recursos opcionais para requisitos de spot específicos de determinado recurso.
+-	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
+-	Para todas as tarefas pós-implantação (instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
@@ -841,7 +841,6 @@ Leia mais detalhes em [implantando um modelo](../resource-group-template-deploy.
 
 Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
-[Solução de problemas de implantações de modelo](resource-group-deploy-debug.md).
- 
+[Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

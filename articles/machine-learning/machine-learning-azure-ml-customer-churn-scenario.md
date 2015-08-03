@@ -239,4 +239,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# O que é a Azure Multi-Factor Authentication?
+# O que é o Azure Multi-Factor Authentication?
 O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários. Ela funciona, exigindo dois ou mais dos métodos de verificação a seguir:
 
 - Algo que você sabe (normalmente, uma senha)
@@ -57,8 +57,8 @@ Para obter informações adicionais sobre por que usar o Azure Multi-Factor Auth
 
 **Recursos adicionais**
 
+* [Configuração da autenticação multifator para Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [O que o Multi-Factor Authentication significa para mim?](multi-factor-authentication-end-user.md)
-* [Configuração do Multi-Factor Authentication para Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

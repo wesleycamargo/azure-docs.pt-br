@@ -1,3 +1,4 @@
+
 | Identificador de limite | Limite | Comentários |
 |----------------- | ------|--------- |
 | Número máximo de credenciais de conta de armazenamento | 64 | |
@@ -13,7 +14,7 @@
 | Número máximo de backups retidos por política de backup | 64 | |
 | Número máximo de agendas por política de backup | 10 | |
 | Número máximo de instantâneos de qualquer tipo que podem ser retidos por volume | 256 | Isso inclui instantâneos locais e instantâneos de nuvem. |
-| Número máximo de instantâneos que podem estar presentes em qualquer dispositivo | 10\.000 | |
+| Número máximo de instantâneos que podem estar presentes em qualquer dispositivo | 10.000 | |
 | Número máximo de volumes que podem ser processados paralelamente para backup, restauração e clonagem | 16 |<ul><li>Se houver mais de 16 volumes, eles serão processados sequencialmente à medida que os slots de processamento se tornarem disponíveis.</li><li>Novos backups de um volume clonado ou restaurado não poderão ocorrer até que a operação seja finalizada.</li></ul>|
 | Tempo de recuperação de clonagem e restauração | Menos de 2 minutos | <ul><li>O volume é disponibilizado em até 2 minutos depois da operação de restauração ou clonagem, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. O desempenho pode aumentar à medida que os dados fluem da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda da Internet para a nuvem.</li><li>A operação de restauração ou clonagem será concluída quando todos os metadados estiverem no dispositivo.</li><li>As operações de backup não podem ser executadas até que a operação de restauração ou clonagem seja totalmente concluída.|
 | Disponibilidade de restauração fina | Último failover | |
@@ -23,4 +24,4 @@
 
 &#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

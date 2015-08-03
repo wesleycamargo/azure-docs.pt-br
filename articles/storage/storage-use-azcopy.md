@@ -895,8 +895,8 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 
 ### Documentação do Armazenamento do Azure:
 
-- [Introdução ao armazenamento do Azure](storage-introduction.md)
-- [Armazenar arquivos no armazenamento de Blob](storage-dotnet-how-to-use-blobs.md)
+- [Introdução ao Armazenamento do Azure](storage-introduction.md)
+- [Armazenar arquivos no armazenamento de blob](storage-dotnet-how-to-use-blobs.md)
 - [Cria um compartilhamento de arquivos SMB no Azure e no armazenamento de arquivo](storage-dotnet-how-to-use-files.md)
 
 ### Postagens de blog de armazenamento do Azure:
@@ -911,4 +911,4 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

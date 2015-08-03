@@ -1,4 +1,4 @@
-<properties title="List of Oracle Virtual Machine Images" pageTitle="Lista de imagens de Máquina Virtual Oracle" description="Obtenha a lista de imagens da Oracle na galeria do Azure e aprenda a criar uma máquina virtual do Oracle com base em uma delas." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Lista de imagens de Máquina Virtual Oracle" description="Obtenha a lista de imagens da Oracle na galeria do Azure e aprenda a criar uma máquina virtual do Oracle com base em uma delas." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Lista de imagens de Máquina Virtual Oracle
 Para criar Máquinas Virtuais baseadas em imagens da Oracle, faça logon no [Portal Azure](https://ms.portal.azure.com/), clique no **Marketplace**, clique em **Computação** e digite **Oracle** na caixa de pesquisa. Escolha uma imagem e siga as instruções para configurar a imagem no Microsoft Azure. Observe que as imagens do Oracle da Microsoft no [Portal Azure](https://ms.portal.azure.com/) são executadas no Windows e imagens do Oracle da Oracle são executadas no Oracle Linux.
@@ -50,4 +50,4 @@ A seguir, há uma lista das imagens pré-configuradas de Máquina Virtual do Ora
 
 [Imagens de Máquinas Virtuais Oracle – diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

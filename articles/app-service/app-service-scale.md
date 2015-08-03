@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Dimensionar a camada de preços no Serviço de Aplicativo do Azure" 
-	description="Saiba como ajustar a escala de aplicativos Web, móveis, de api e lógicos no Serviço de Aplicativo do Azure, incluindo dimensionamento automático." 
+	description="Saiba como dimensionar aplicativos Web, móveis, de API e lógicos no Serviço de Aplicativo do Azure, incluindo dimensionamento automático." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # Dimensionar a camada de preços no Serviço de Aplicativo do Azure
@@ -25,6 +25,8 @@ O nível de serviço que seu plano de Serviço de Aplicativo tem se baseia na [*
 Além de realizar a escala vertical da camada de preços, você pode aumentar o número de instâncias que o seu serviço tem. Isso é conhecido como *escala horizontal* ou *redução vertical*. Consulte o artigo sobre [Ajustar escala da contagem de instância manual ou automaticamente](../insights-how-to-scale.md) para saber mais sobre *Escala horizontal* e *Redução horizontal*.
 
 Para obter informações sobre planos de serviço de aplicativo, consulte [O que é um plano de Serviço de Aplicativo?](../web-sites-web-hosting-plan-overview.md) e [Visão geral aprofundada de planos de Serviço Aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obter informações sobre os preços e recursos de planos individuais de Serviço de Aplicativo, consulte [Detalhes de Preços de Serviços de Aplicativo](/pricing/details/app-service/).
+
+Por fim, a colocação em escala funciona de maneira diferente se você quiser usar um [Ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md) dedicado. Consulte [Colocando em escala aplicativos Web em um Ambiente de Serviço de Aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md) para obter mais detalhes.
 
 > [AZURE.NOTE]Antes de alternar de um modo **Gratuito** para o modo **Básico**, **Padrão** ou **Premium**, você deve primeiro remover os limites de gastos em vigor para sua assinatura de Serviço de Aplicativo do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 
@@ -43,7 +45,9 @@ Para obter informações sobre planos de serviço de aplicativo, consulte [O que
 4. Depois de escolher sua camada, clique em **Selecionar**.
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
-		
+ 
+Você também pode aprender sobre as diferentes camadas de computação no Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=309169).
+	
 <a name="ScalingSQLServer"></a>
 ##Dimensionando recursos relacionados
 Se seu aplicativo depender de outros serviços, como SQL ou armazenamento, você também poderá ajustar a escala com base em suas necessidades.
@@ -127,4 +131,4 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,19 +3,19 @@
    description="Saiba mais sobre a arquitetura do Gerenciador de Recursos e as relações entre provedores de recursos de computação, rede e armazenamento."
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
-	tags="azure-resource-manager"/>
+   tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Arquitetura do Gerenciador de Recursos do Azure
 
@@ -32,8 +32,8 @@ Antes de discutir a arquitetura do Gerenciador de Recursos do Azure e os vários
 Aqui estão os componentes e suas relações para o Gerenciamento de Serviços do Azure.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## Arquitetura para o Gerenciador de Recursos 
+
+## Arquitetura para o Gerenciador de Recursos
 
 Para o Gerenciador de Recursos do Azure, os provedores de recursos oferecem suporte a recursos individuais para criar as máquinas virtuais funcionando na configuração de que você precisa. Para máquinas virtuais, há três provedores de recursos principais:
 
@@ -50,13 +50,13 @@ Além disso, há relações entre os recursos dentro de provedores de recursos:
 - Uma instância do balanceador de carga faz referência ao pool de back-end dos endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência a um endereço IP público ou privado de um balanceador de carga (opcional).
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 A componentização de recursos permite mais flexibilidade ao configurar a infraestrutura para uma carga de trabalho de TI hospedada no Azure. Modelos do Gerenciador de Recursos do Azure aproveitam essa flexibilidade para criar o conjunto de recursos dependentes necessários para uma configuração específica. Ao executar um modelo, o Gerenciador de Recursos garante que os recursos para uma configuração sejam criados na ordem correta para preservar as dependências e referências. Por exemplo, o Gerenciador de Recursos não criará a NIC para uma máquina virtual até que crie a rede virtual em uma sub-rede e um endereço IP (um grupo de segurança de rede é opcional).
 
 Um grupo de recursos é um contêiner lógico que contém recursos relacionados para um aplicativo, que pode consistir em várias máquinas virtuais, NICs, endereços IP, balanceadores de carga, sub-redes e grupos de segurança de rede. Por exemplo, você pode gerenciar todos os recursos do aplicativo como uma unidade única de gerenciamento. Você pode criar, atualizar e excluir todos eles juntos. Aqui está um exemplo de aplicativo implantado em um grupo de recursos único.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 Esse aplicativo consiste em:
 
 - Duas máquinas virtuais que usam a mesma conta de armazenamento estão no mesmo conjunto de disponibilidade e na mesma sub-rede de uma rede virtual.
@@ -79,4 +79,4 @@ Você também pode ver a componentização e os relacionamentos dependentes entr
 
 [Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

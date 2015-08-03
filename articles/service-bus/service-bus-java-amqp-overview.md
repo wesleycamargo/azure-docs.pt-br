@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ O diagrama a seguir ilustra um exemplo de implantação no qual clientes Java em
 
 Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalhar com o Barramento de Serviço:
 
-<table>
-  <tr>
-    <th>Linguagem</th>
-    <th>Biblioteca</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Cliente do Apache Qpid Java Message Service (JMS)<br/>
-        Cliente Java IIT Software SwiftMQ</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Linguagem | Biblioteca |
+|----------|-------------------------------------------------------------------------------|
+| Java | Cliente de Serviço de Mensagem Java (JMS, Java Message Service)<br/>cliente Java IIT Software SwiftMQ |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **Figura 2: Tabela de bibliotecas de cliente do AMQP 1.0**
@@ -117,4 +99,4 @@ Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Se
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

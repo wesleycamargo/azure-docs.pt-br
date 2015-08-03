@@ -133,4 +133,4 @@ O gráfico inferior mostra os mesmos dados, mas dividido por departamento, demon
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 - Planejamento de pasta de trabalho"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - Relatório de exemplo para o cenário de comparação de custo de carga de trabalho"
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

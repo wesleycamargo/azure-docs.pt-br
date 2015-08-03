@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 #Ciclo de vida do ator e coleta de lixo
-Um ator é ativado quando a primeira chamada é feita e é desativado (lixo coletado pelo tempo de execução dos atores) se ele não for usado por algum tempo. Para configurar esse período de tempo, consulte a seção na Coleta de Lixo de Ator abaixo.
+Um Ator é ativado quando a primeira chamada é feita a ele e ele é desativado (coletado como lixo pelo tempo de execução dos atores) se ele não for usado por algum tempo. Para configurar esse período de tempo, consulte a seção na Coleta de Lixo de Ator abaixo.
 
 O que acontece na ativação do ator?
 
@@ -91,4 +91,4 @@ Observe que um ator nunca será coletado como lixo durante a execução um de se
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

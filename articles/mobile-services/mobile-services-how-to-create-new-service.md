@@ -20,7 +20,7 @@
 
 Este tópico mostra como usar o [Portal de Gerenciamento do Azure][Management Portal] para criar um novo back-end do JavaScript nos Serviços Móveis do Azure que usa JavaScript para lógica de negócios do lado do servidor. Para criar tanto o back-end de serviço móvel quanto um aplicativo de serviço móvel que consome o novo serviço móvel, consulte [Introdução aos Serviços Móveis].
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Serviços Móveis habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFpt-br%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Avaliação Gratuita do Azure</a>.
+>[AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure com o recurso Serviços Móveis habilitado. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
@@ -41,4 +41,4 @@ Este tópico mostra como usar o [Portal de Gerenciamento do Azure][Management Po
 [.NET backend version]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

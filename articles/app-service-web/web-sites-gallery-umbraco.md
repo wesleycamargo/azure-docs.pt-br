@@ -135,4 +135,4 @@ Após a implantação, o portal exibirá a folha do grupo de recursos do aplicat
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

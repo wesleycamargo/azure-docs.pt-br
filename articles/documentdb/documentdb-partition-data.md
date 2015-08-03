@@ -113,4 +113,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

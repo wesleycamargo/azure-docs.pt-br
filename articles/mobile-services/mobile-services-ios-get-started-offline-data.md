@@ -124,8 +124,8 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     #### MS_TableOperations
 
     | Atributo | Tipo |
-    |----------- |   ------    |
-    | ID | Número Inteiro 64 |
+    |-------------- |   ------    |
+    | ID (obrigatório) | Número Inteiro 64 |
     | itemId | Cadeia de caracteres |
     | propriedades | Dados binários |
     | tabela | Cadeia de caracteres |
@@ -134,8 +134,8 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     #### MS_TableOperationErrors
 
     | Atributo | Tipo |
-    |------------ | ----------  |
-    | ID | Cadeia de caracteres |
+    |-------------- | ----------  |
+    | ID (obrigatório) | Cadeia de caracteres |
     | operationId | Número Inteiro 64 |
     | propriedades | Dados binários |
     | tableKind | Número inteiro 16 |
@@ -144,8 +144,8 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
 
     | Atributo | Tipo |
-    |----------- | ----------  |
-    | ID | Cadeia de caracteres |
+    |-------------- | ----------  |
+    | ID (obrigatório) | Cadeia de caracteres |
     | chave | Cadeia de caracteres |
     | keyType | Número Inteiro 64 |
     | tabela | Cadeia de caracteres |
@@ -155,14 +155,13 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     #### TodoItem
 
-    | Atributo | Tipo |
-    |-----------   |  ------ |
-    | ID | Cadeia de caracteres |
-    | concluído | Booliano |
-    | texto | Cadeia de caracteres |
-    | ms_createdAt | Data |
-    | ms_updatedAt | Data |
-    | ms_version | Cadeia de caracteres |
+    | Atributo | Tipo | Observação | 
+    |-------------- |  ------ | -------------------------------------------------------|
+    | ID (obrigatório) | Cadeia de caracteres | chave primária no repositório remoto (obrigatório) |
+    | concluído | Booliano | campo de item de tarefa |
+    | texto | Cadeia de caracteres | campo de item de tarefa |
+    | ms_createdAt | Data | (opcional) é mapeado para __createdAt propriedade do sistema | | ms_updatedAt | Data | (opcional) é mapeado para __updatedAt propriedade do sistema | | ms_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para __versão |
+
 
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
@@ -191,7 +190,7 @@ Nesta seção, você modificará o aplicativo para que ele não sincronize ao in
 
 Nesta seção, você desligará o Wi-Fi no simulador para criar um cenário offline. Quando você adicionar itens de dados, eles serão mantidos no armazenamento local de dados principais, mas não sincronizados com o serviço móvel.
 
-1. Desligue o Wi-Fi no simulador de iOS. Isso simula um cenário offline.
+1. Desabilitar a conexão com a internet em seu Mac. A desativação do WiFi somente no simulador de iOS pode não ter efeito, pois o simulador ainda pode usar a conexão com a internet do Mac host; assim, desabilite a internet do computador em si. Isso simula um cenário offline.
 
 2. Adicione alguns itens ToDo ou complete alguns itens. Feche o simulador (ou feche forçadamente o aplicativo) e reinicie. Verifique se suas mudanças foram mantidas. Observe que os itens de dados ainda são exibidos porque eles são mantidos no repositório de dados principais local.
 
@@ -272,4 +271,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

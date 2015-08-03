@@ -80,4 +80,4 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

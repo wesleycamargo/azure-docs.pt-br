@@ -108,16 +108,16 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: sql-database/sql-database-business-continuity/,d
-[Finalizar um banco de dados recuperado]: sql-database/sql-database-recovered-finalize/
+[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: sql-database/sql-database-business-continuity.md
+[Finalizar um banco de dados recuperado]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Criar solicitação de restauração do banco de dados]: http://msdn.microsoft.com/library/azure/dn509571.aspx
 [Status de operações do banco de dados]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obter banco de dados descartados restauráveis]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Listar bancos de dados descartados restauráveis]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/pt-br/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

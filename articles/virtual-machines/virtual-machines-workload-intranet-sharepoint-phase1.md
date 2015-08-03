@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="Fase 1 da carga de trabalho do farm da intranet do SharePoint: Configurar o Azure" 
-	description="Na primeira fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar a rede virtual do Azure e outros elementos da infraestrutura do Azure." 
+<properties
+	pageTitle="Fase 1 da carga de trabalho do farm da intranet do SharePoint: Configurar o Azure"
+	description="Na primeira fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar a rede virtual do Azure e outros elementos da infraestrutura do Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 1 da carga de trabalho do farm da intranet do SharePoint: Configurar o Azure
 
-Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve criar a infraestrutura de rede e de armazenamento do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para conhecer todas as fases.
+Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, crie a infraestrutura de rede e de armazenamento do Azure no Gerenciamento de Serviços do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para conhecer todas as fases.
 
 O Azure deve ser provisionado com os seguintes componentes básicos de rede:
 
 - Uma rede virtual entre locais com uma sub-rede
-- Três serviços de nuvem do Azure
-- Uma conta de armazenamento do Azure para armazenar imagens de disco VHD e discos de dados adicionais
+- Três serviços de nuvem do Azure.
+- Uma conta de armazenamento do Azure para armazenar imagens de disco VHD e discos de dados adicionais.
 
 ## Antes de começar
 
@@ -32,12 +33,12 @@ Antes de começar a configurar os componentes do Azure, preencha as tabelas a se
 
 Para as configurações da rede virtual (VNet), preencha a Tabela V.
 
-Item | Elemento de configuração | Descrição | Valor 
---- | --- | --- | --- 
+Item | Elemento de configuração | Descrição | Valor
+--- | --- | --- | ---
 1. | Nome da VNet | Um nome a ser atribuído à Rede Virtual do Azure (exemplo: SPFarmNet). | __________________
 2. | Local da VNet | O data center do Azure que conterá a rede virtual. | __________________
 3. | Nome da rede local | Um nome a ser atribuído à rede da organização. | __________________
-4. | Endereço IP do dispositivo de VPN | O endereço IPv4 público da interface do seu dispositivo VPN na Internet. Trabalhe com o departamento de TI para determinar esse endereço. | __________________
+4. | Endereço IP do dispositivo VPN | O endereço IPv4 público da interface do seu dispositivo VPN na Internet. Trabalhe com o departamento de TI para determinar esse endereço. | __________________
 5. | Espaço de endereço da VNet | O espaço de endereço (definido em um prefixo de endereço privado) da rede virtual. Trabalhe com o departamento de TI para determinar esse espaço de endereço. | __________________
 6. | Primeiro servidor DNS final | O quarto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | __________________
 7. | Segundo servidor DNS final | O quinto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | __________________
@@ -46,8 +47,8 @@ Item | Elemento de configuração | Descrição | Valor
 
 Preencha a tabela S para a sub-rede dessa solução. Dê à sub-rede um nome amigável, um único espaço de endereço IP com base no espaço de endereço da Rede Virtual e uma finalidade descritiva. O espaço de endereço deve estar no formato de Roteamento entre Domínios sem Classificação (CIDR), também conhecido como formato de prefixo de rede. Um exemplo é 10.24.64.0/20. Trabalhe com o departamento de TI para determinar esse espaço de endereço pelo espaço de endereço da rede virtual.
 
-Item | Nome da sub-rede | Espaço de endereço da sub-rede | Finalidade 
---- | --- | --- | --- 
+Item | Nome da sub-rede | Espaço de endereço da sub-rede | Finalidade
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **Tabela S: Sub-redes na rede virtual**
@@ -56,10 +57,10 @@ Item | Nome da sub-rede | Espaço de endereço da sub-rede | Finalidade
 
 Para os dois servidores DNS locais que você deseja usar ao configurar os controladores de domínio em sua rede virtual inicialmente, preencha a Tabela D. Dê a cada servidor DNS um nome amigável e um só endereço IP. Esse nome amigável não precisa coincidir com o nome do host ou o nome do computador do servidor DNS. Observe que duas entradas em branco são listadas, mas é possível adicionar outras. Trabalhe com o departamento de TI para determinar essa lista.
 
-Item | Nome amigável do servidor DNS | Endereço IP do servidor DNS 
+Item | Nome amigável do servidor DNS | Endereço IP do servidor DNS
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **Tabela D: Servidores DNS locais**
 
@@ -67,7 +68,7 @@ Para rotear pacotes da rede entre os locais de rede da sua organização na cone
 
 Para o conjunto de espaços de endereço da rede local, preencha a Tabela L. Observe que três entradas em branco são listadas, mas normalmente é necessário adicionar mais entradas. Trabalhe com o departamento de TI para determinar esse lista de espaços de endereço.
 
-Item | Espaço de endereço da rede local 
+Item | Espaço de endereço da rede local
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -77,12 +78,12 @@ Item | Espaço de endereço da rede local
 
 Para criar a rede virtual com as configurações das Tabelas V, S, D e L, use as instruções em [Criar uma rede virtual entre locais usando tabelas de configuração](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](http://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](http://msdn.microsoft.com/en-us/library/dn606309.aspx).
 
 Depois de criar a rede virtual do Azure, o Portal de Gerenciamento do Azure determinará:
 
-- O endereço IPv4 público do gateway da VPN do Azure para a sua rede virtual
-- A chave pré-compartilhada do protocolo IPsec da conexão VPN site a site
+- O endereço IPv4 público do gateway da VPN do Azure para a sua rede virtual.
+- A chave pré-compartilhada do protocolo IPsec da conexão VPN site a site.
 
 Para ver esses itens no Portal de Gerenciamento do Azure depois de criar a rede virtual, clique em **Redes**, no nome da rede virtual e, em seguida, clique na opção de menu **Painel**.
 
@@ -92,7 +93,7 @@ Em seguida, crie a conexão VPN site a site entre a nova rede virtual e um dispo
 
 Em seguida, certifique-se de que o espaço de endereço da rede virtual possa ser acessado pela sua rede local. Geralmente, isso é feito adicionando uma rota correspondente ao espaço de endereço da rede virtual ao seu dispositivo VPN e, em seguida, anunciando essa rota para o restante da infraestrutura de roteamento da rede da sua organização. Trabalhe com o departamento de TI para determinar como fazer isso.
 
-Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Abra um prompt de comando do PowerShell do Azure.
+Em seguida, use as instruções em [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md) para instalar o Azure PowerShell no computador local. Abra um prompt de comando do Azure PowerShell.
 
 Primeiro, selecione a assinatura correta do Azure com estes comandos. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
@@ -103,7 +104,7 @@ Você pode obter o nome da assinatura na propriedade **SubscriptionName** na sa�
 
 Em seguida, crie os três serviços de nuvem necessários para esse farm do SharePoint. Preencha a Tabela C.
 
-Item | Finalidade | Nome do serviço de nuvem 
+Item | Finalidade | Nome do serviço de nuvem
 --- | --- | ---
 1. | Controladores de domínio | ___________________________
 2. | Servidores SQL | ___________________________
@@ -115,7 +116,7 @@ Você deve escolher um nome exclusivo para cada serviço de nuvem. *O nome do se
 
 Por exemplo, você poderia nomear o primeiro serviço de nuvem como DCs-*UniqueSequence*, onde *UniqueSequence* é uma abreviação da sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de DCs-Tailspin.
 
-Você pode testar a exclusividade do nome com o comando a seguir do PowerShell do Azure em seu computador local.
+Você pode testar a exclusividade do nome com o comando a seguir do Azure PowerShell em seu computador local.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
@@ -125,7 +126,7 @@ Se este comando retornar "False", o nome proposto é exclusivo. Em seguida, crie
 
 Registre o nome real de cada serviço de nuvem recém-criado na Tabela C.
 
-Em seguida, crie uma conta de armazenamento para o farm do SharePoint. *Você deve escolher um nome exclusivo que contenha apenas letras minúsculas e números.* Você pode testar a exclusividade do nome da conta de armazenamento com os seguintes comandos do PowerShell do Azure.
+Em seguida, crie uma conta de armazenamento para o farm do SharePoint. *Você deve escolher um nome exclusivo que contenha apenas letras minúsculas e números.* Você pode testar a exclusividade do nome da conta de armazenamento com os seguintes comandos do Azure PowerShell.
 
 	Test-AzureName -Storage <Proposed storage account name>
 
@@ -137,8 +138,8 @@ Se este comando retornar "False", o nome proposto é exclusivo. Crie a conta de 
 
 Em seguida, defina os nomes dos quatro conjuntos de disponibilidade. Preencha a Tabela A.
 
-Item | Finalidade | Nome do conjunto de disponibilidade 
---- | --- | --- 
+Item | Finalidade | Nome do conjunto de disponibilidade
+--- | --- | ---
 1. | Controladores de domínio | ___________________________
 2. | Servidores SQL | ___________________________
 3. | Servidores de aplicativos do SharePoint | ___________________________
@@ -167,6 +168,5 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

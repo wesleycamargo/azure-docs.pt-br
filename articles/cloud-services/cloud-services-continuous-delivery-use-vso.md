@@ -239,4 +239,4 @@ Para saber mais, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

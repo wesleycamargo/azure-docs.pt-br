@@ -50,4 +50,4 @@ Esta seção mostra como usar a opção **Da galeria** no Portal de Gerenciament
 Para saber mais sobre o que você pode configurar para uma VM e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

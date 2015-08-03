@@ -97,4 +97,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

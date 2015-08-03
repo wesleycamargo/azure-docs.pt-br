@@ -118,4 +118,4 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

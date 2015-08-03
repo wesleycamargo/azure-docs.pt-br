@@ -243,4 +243,4 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

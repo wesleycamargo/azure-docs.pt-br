@@ -127,4 +127,4 @@ Você pode usar o menu **Ajuda** para exibir a ajuda online disponível para o M
 
 [Saiba mais sobre a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

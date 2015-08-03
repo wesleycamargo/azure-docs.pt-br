@@ -82,4 +82,4 @@ O Gerenciador de Script permite que você exiba facilmente os artefatos de progr
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

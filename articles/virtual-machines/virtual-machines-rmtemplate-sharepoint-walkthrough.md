@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores" 
-	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de três servidores." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores"
+	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de três servidores."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # O modelo do Gerenciador de Recursos de farm do SharePoint de três servidores
 
@@ -24,7 +24,7 @@ Se preferir, para examinar uma cópia local do arquivo azuredeploy.json, designe
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -370,12 +370,10 @@ Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de R
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
-[Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
+[Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -49,7 +49,7 @@ O diagrama a seguir mostra o fluxo de informações de sua empresa e como elas s
 
 ![Imagem da coleta de dados e da segurança do Insights Operacionais](./media/operational-insights-security/security.png)
 
-### 1\. Inscreva-se no Insights Operacionais e colete dados
+### 1. Inscreva-se no Insights Operacionais e colete dados
 
 Para sua organização enviar dados para o serviço Insights Operacionais, você deverá configurar agentes do Microsoft Monitoring conectando-se diretamente ao serviço Web ou usando um assistente de configuração no console Operações no Operations Manager. Os usuários (que podem ser você, outros usuários individuais ou um grupo de pessoas) devem criar uma ou mais contas do Insights Operacionais e registrar cada agente conectado diretamente ou seu ambiente do Operations Manager, usando uma das seguintes contas:
 
@@ -140,20 +140,20 @@ A tabela a seguir mostra exemplos de tipos de dados:
     </table>
 
 
-### 2\. Enviar dados de agentes
+### 2. Enviar dados de agentes
 
 Com agentes que se conectam diretamente ao serviço Web, registre-os com uma chave e uma conexão segura é estabelecida entre o agente e o serviço Insights Operacionais usando a porta 443.
 
 Com o Operations Manager, registre uma conta com o serviço Insights Operacionais e uma conexão HTTPS segura será estabelecida entre o servidor de gerenciamento do Operations Manager e o serviço Insights Operacionais usando a porta 443. Se o Operations Manager não conseguir se comunicar com o serviço por algum motivo, os dados coletados serão armazenados em um cache temporário e o servidor de gerenciamento tentará reenviar os dados a cada oito minutos por duas horas. Os dados coletados são compactados e enviados para o serviço Insights Operacionais, ignorando os bancos de dados no local, para que ele não adicione qualquer carga a eles. Depois que os dados coletados forem enviados, eles serão removidos do cache.
 
-### 3\. O serviço Insights Operacionais recebe e processa os dados
+### 3. O serviço Insights Operacionais recebe e processa os dados
 
 O serviço Insights Operacionais garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados. Os dados brutos não processados, em seguida, são armazenados como um blob no [Armazenamento do Microsoft Azure](http://azure.microsoft.com/documentation/services/storage/). Cada usuário do Insights Operacionais tem um blob do Azure dedicado, que só pode ser acessado por esse usuário. Os tipos de dados armazenados dependerão dos tipos de soluções importados e usados para coletar dados.
 
 O serviço Insights Operacionais processa os dados brutos e os dados processados agregados são armazenados em um banco de dados SQL. A comunicação entre o serviço Insights Operacionais e o banco de dados SQL se baseia na autenticação do banco de dados SQL.
 
-### 4\. Use o Insights Operacionais para acessar os dados
+### 4. Use o Insights Operacionais para acessar os dados
 
 Você pode entrar no Insights Operacionais usando a conta configurada anteriormente. Todo o tráfego entre o Insights Operacionais e o serviço Insights Operacionais é enviado por um canal HTTPS seguro.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

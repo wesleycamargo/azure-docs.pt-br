@@ -1,6 +1,7 @@
 <properties
     pageTitle="O que é o Aprendizado de Máquina no Azure? | Microsoft Azure"
     description="Explica conceitos básicos do serviço de Aprendizado de Máquina totalmente gerenciado, uma tecnologia de nuvem que você pode usar para criar, operacionalizar e lucrar com soluções."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -115,4 +116,4 @@ Você pode aprender os fundamentos da análise de previsão e do aprendizado da 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

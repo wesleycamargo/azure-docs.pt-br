@@ -124,7 +124,7 @@ Os seguintes contadores são coletados por padrão:
 
     * \Process(??APP_WIN32_PROC??)% Processor Time
 	* \Memory\Available Bytes
-	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 	* \Processor(_Total)% Processor Time
@@ -196,4 +196,4 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas co
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

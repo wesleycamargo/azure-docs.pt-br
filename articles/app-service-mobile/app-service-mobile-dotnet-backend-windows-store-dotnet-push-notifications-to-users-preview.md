@@ -104,7 +104,7 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 <!-- URLs. -->
 [Introdução à autenticação]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Introdução às notificações por push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
-[modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
+[modelos]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

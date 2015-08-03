@@ -87,4 +87,4 @@ Ao excluir uma instância de serviço, esteja ciente do seguinte:
 1. Confirme o nome do serviço digitando-o na caixa de confirmação. (por exemplo: sts.contoso.com) 
 1. Clique no botão "Excluir".
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

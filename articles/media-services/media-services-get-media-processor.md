@@ -97,4 +97,4 @@ Agora que você sabe como obter uma instância do processador de mídia, vá par
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Como conectar-se aos Serviços de Mídia de forma programática]: ../media-services-set-up-computer/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

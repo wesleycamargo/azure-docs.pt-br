@@ -111,8 +111,8 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/pt-br/download/details.aspx?id=41653
+[AzureDownloads]: http://azure.microsoft.com/en-us/downloads/
+[DownloadCenterAddressRanges]: http://www.microsoft.com/en-us/download/details.aspx?id=41653
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -120,4 +120,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

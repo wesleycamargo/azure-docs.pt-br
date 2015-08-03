@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # Introdução à configuração de um balanceador de carga interno
@@ -102,7 +102,7 @@ Para usar esses comandos, preencha os valores e remova o < and >. Veja um exempl
 
 Na exibição do comando Get-AzureInternalLoadBalancer, anote o endereço IP e faça as alterações necessárias em seus servidores ou registros DNS para garantir que o tráfego seja enviado para o VIP.
 
->[AZURE.IMPORTANT]A plataforma Microsoft Azure usa um endereço IPv4 estático e publicamente roteável para uma variedade de cenários administrativos. O endereço IP é 168.63.129.16. Esse endereço IP não deve ser bloqueado por nenhum firewall, já que ele pode causar um comportamento inesperado. Em relação ao ILB do Azure, esse endereço IP é usado por testes de monitoramento do balanceador de carga para determinar o estado de integridade para VMs em um conjunto com balanceamento de carga. Se um grupo de segurança de rede é usado para restringir o tráfego para máquinas virtuais do Azure em um conjunto com balanceamento de carga interno, ou então é aplicado a uma sub-rede de Rede Virtual, certifique-se de que uma regra de segurança de rede seja adicionada para permitir o tráfego em 168.63.129.16.
+>[AZURE.NOTE]A plataforma Microsoft Azure usa um endereço IPv4 estático e publicamente roteável para uma variedade de cenários administrativos. O endereço IP é 168.63.129.16. Esse endereço IP não deve ser bloqueado por nenhum firewall, já que ele pode causar um comportamento inesperado. Em relação ao ILB do Azure, esse endereço IP é usado por testes de monitoramento do balanceador de carga para determinar o estado de integridade para VMs em um conjunto com balanceamento de carga. Se um grupo de segurança de rede é usado para restringir o tráfego para máquinas virtuais do Azure em um conjunto com balanceamento de carga interno, ou então é aplicado a uma sub-rede de Rede Virtual, certifique-se de que uma regra de segurança de rede seja adicionada para permitir o tráfego em 168.63.129.16.
 
 
 
@@ -224,15 +224,59 @@ Veja um exemplo:
 
 O ILB dá suporte para Máquinas Virtuais e Serviços de Nuvem. Um ponto de extremidade ILB criado no Serviço de Nuvem fora de uma Rede Virtual Regional só estará acessível dentro do Serviço de Nuvem.
 
-A configuração ILB deve ser definida durante a criação da primeira implantação no serviço de nuvem, conforme mostrado no exemplo de cmdlet abaixo.
+A configuração ILB deve ser definida durante a criação da primeira implantação no Serviço de Nuvem, conforme mostrado no exemplo abaixo.
 
-### Criar um objeto de ILB local
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+>[AZURE.IMPORTANT]o pré-requisito para executar as etapas a seguir é ter uma rede virtual já criada para a implantação em nuvem. Será necessário o nome de rede virtual e de sub-redes para criar o ILB.
 
-### Adicionar um balanceador de carga interno para um novo serviço
+### Etapa 1
 
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
+Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de nuvem no visual studio e adicione a seção a seguir para criar o ILB no último item "</Role>" para a configuração de rede.
 
+
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+
+Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma sub-rede chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
+Para saber mais sobre o esquema do balanceador de carga, confira [Adicionar balanceador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+
+### Etapa 2
+
+
+Altere o arquivo de definição de serviço (.csdef) para adicionar pontos de extremidade ao ILB. No momento em que uma instância de função é criada, o arquivo de definição de serviço adiciona as instâncias de função ao ILB.
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
+Seguindo os mesmos valores do exemplo acima, vamos adicionar os valores ao arquivo de definição de serviço
+
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+O tráfego de rede terá a carga equilibrada usando o balanceador de carga testLB com a porta 80 para solicitações de entrada, enviando a instâncias de função de trabalho também na porta 80.
 
 
 ## Remover configuração ILB
@@ -266,6 +310,7 @@ Veja um exemplo:
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
+
 ## Informações adicionais sobre cmdlets ILB
 
 
@@ -286,4 +331,4 @@ Para obter informações adicionais sobre cmdlets ILB, execute os comandos a seg
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

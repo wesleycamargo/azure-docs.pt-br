@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Mover recursos para um novo grupo de recursos" 
 	description="Use o Azure PowerShell ou a API REST para mover recursos para um novo grupo de recursos do Gerenciador de Recursos do Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -21,7 +21,7 @@
 Este tópico mostra como mover os recursos de um grupo de recursos para outro. Você também pode mover os recursos para uma nova assinatura. Você talvez precise mover recursos ao decidir que:
 
 1. Para fins de cobrança, um recurso precisa residir em uma assinatura diferente.
-2. Um recurso já não compartilha o mesmo ciclo de vida que os recursos com que estava agrupado anteriormente. Você deseja movê-lo para um novo grupo de recursos para gerenciar esse recurso separadamente dos outros.
+2. Um recurso já não compartilha o mesmo ciclo de vida que os recursos com os quais estava agrupado anteriormente. Você deseja movê-lo para um novo grupo de recursos para gerenciar esse recurso separadamente dos outros.
 3. Um recurso compartilha o mesmo ciclo de vida como outros recursos em um grupo de recursos diferente. Deseja movê-lo para o grupo de recursos com os outros recursos para gerenciá-los juntos.
 
 Há algumas considerações importantes ao mover um recurso:
@@ -33,9 +33,9 @@ Há algumas considerações importantes ao mover um recurso:
 
 ## Serviços com suporte
 
-Nem todos os serviços atualmente permitem mover recursos.
+Nem todos os serviços atualmente dão suporte à capacidade de mover recursos.
 
-Por enquanto, os serviços que permitem mover para um novo grupo de recursos e uma nova assinatura são:
+Por enquanto, os serviços que dão suporte à transferência para um novo grupo de recursos e uma nova assinatura são:
 
 - Gerenciamento da API
 - Pesquisa do Azure
@@ -76,7 +76,7 @@ Para mover recursos existentes para outro grupo de recursos ou outra assinatura,
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Substitua **{source-subscription-id}** e **{source-resource-group-name}** pela assinatura e pelo grupo de recursos que atualmente contém os recursos que você deseja mover. Use **2015-01-01** para {api-version}.
+Substitua **{source-subscription-id}** e **{source-resource-group-name}** pela assinatura e pelo grupo de recursos que atualmente contêm os recursos que você deseja mover. Use **2015-01-01** para {api-version}.
 
 Na solicitação, inclua um objeto JSON que define o grupo de recursos de destino e os recursos que você deseja mover.
 
@@ -95,4 +95,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -264,4 +264,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

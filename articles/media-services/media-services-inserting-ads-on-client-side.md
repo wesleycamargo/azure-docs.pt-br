@@ -804,4 +804,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md) [Introdução ao Media Player Framework do Azure para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

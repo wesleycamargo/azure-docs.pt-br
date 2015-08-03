@@ -237,4 +237,4 @@ Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -41,4 +41,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Particionamento dos serviços da malha de serviço](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -118,4 +118,4 @@ Trabalhar com identidade é importante em praticamente todos os aplicativos. O o
 
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em São Francisco, Califórnia.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

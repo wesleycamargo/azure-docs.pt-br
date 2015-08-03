@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Atualizar servidores com atualizações do sistema
@@ -34,4 +34,6 @@ Para poder usar as atualizações do sistema no Insights Operacionais do Microso
 5. Seu navegador da Web abre o artigo da Base de Dados de Conhecimento que descreve a atualização. ![imagem da página Atualizações](./media/operational-insights-updates/updates05.png)
 6. Usando as informações que você encontrou, crie um plano para aplicar atualizações ausentes.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

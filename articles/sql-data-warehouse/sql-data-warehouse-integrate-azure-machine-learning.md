@@ -104,4 +104,4 @@ Para obter uma visão geral da integração, consulte [Visão geral de integraç
 <!--Other Web references-->
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

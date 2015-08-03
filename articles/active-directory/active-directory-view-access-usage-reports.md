@@ -254,7 +254,7 @@ Somente determinados tipos de eventos de entrada serão exibidos no relatório d
 | Realiza a entrada em um aplicativo de negócios personalizado que foi adicionado ao diretório | Não (em breve) |
 | Conexões em um aplicativo de proxy de aplicativo do Azure AD que foi adicionado ao diretório | Não (em breve) |
 
-> Observação: Para reduzir a quantidade de ruído no relatório, as entradas no aplicativo nativo [Lync/Skype for Business](http://products.office.com/pt-br/skype-for-business/online-meetings) e o [Assistente de Conexão do Microsoft Online Services](http://community.office365.com/pt-br/w/sso/534.aspx) não são mostradas.
+> Observação: Para reduzir a quantidade de ruído no relatório, as entradas no aplicativo nativo [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) e o [Assistente de Conexão do Microsoft Online Services](http://community.office365.com/en-us/w/sso/534.aspx) não são mostradas.
 
 
 
@@ -297,9 +297,9 @@ Se você estiver exibindo os relatórios de anomalias, perceba que você pode ig
 
 Para obter mais informações sobre as notificações de relatórios do AD do Azure, verifique [Notificações de relatórios do Active Directory do Azure](active-directory-reporting-notifications.md).
 
-## O que vem a seguir?
+## O que vem a seguir
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

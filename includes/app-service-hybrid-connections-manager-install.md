@@ -25,4 +25,4 @@
 	
 	![Status Conectado](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -18,6 +18,8 @@
 
 # Como configurar seu aplicativo para usar o logon do Google
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Este tópico mostra como configurar Serviços de Aplicativos do Azure para usar o Google como um provedor de autenticação.
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
@@ -71,4 +73,4 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

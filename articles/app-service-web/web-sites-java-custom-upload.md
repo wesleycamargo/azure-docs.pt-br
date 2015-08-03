@@ -236,4 +236,4 @@ Para obter mais informações sobre o Liferay, consulte [http://www.liferay.com]
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

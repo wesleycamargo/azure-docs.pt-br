@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -73,11 +73,13 @@ Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo.
 
 Salve-o no diretório temporário local, C:\\Temp\\DimDate2.txt.
 
+> [AZURE.NOTE]É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos codificados ASCII ou a codificação UTF-16 para os seus arquivos ao usar o bcp.exe.
+
 ### Etapa 3: Conectar e importar os dados
 Usando o bcp, você pode conectar e importar os dados usando o comando a seguir, substituindo os valores conforme apropriado:
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Você pode verificar se os dados foram carregados conectando-se ao sqlcmd como antes e executando o seguinte comando TSQL:
@@ -112,7 +114,7 @@ Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Ware
 Usando o utilitário bcp, você pode conectar e exportar dados usando o comando a seguir, substituindo os valores conforme apropriado:
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Você pode verificar se os dados foram exportados corretamente abrindo o novo arquivo. Os dados no arquivo devem corresponder ao texto abaixo:
 
@@ -150,4 +152,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

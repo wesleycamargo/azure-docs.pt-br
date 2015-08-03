@@ -76,6 +76,6 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
 
 <!--Other Web references-->
-[Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

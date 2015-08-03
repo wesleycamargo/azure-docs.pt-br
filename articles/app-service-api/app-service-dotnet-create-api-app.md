@@ -50,4 +50,4 @@ Quando houver instruções para inserir um nome para o projeto, digite *Contacts
 Seu aplicativo de API está pronto para ser implantado, e você pode seguir o tutorial [Implantar um Aplicativo de API](app-service-dotnet-deploy-api-app.md) para fazer isso.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

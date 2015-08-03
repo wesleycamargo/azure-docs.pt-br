@@ -138,4 +138,4 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

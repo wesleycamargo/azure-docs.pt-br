@@ -94,4 +94,4 @@ Conclua o aplicativo lógico para definir o processo comercial e execute-o para 
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

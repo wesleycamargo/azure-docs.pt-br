@@ -68,4 +68,4 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

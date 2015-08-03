@@ -66,4 +66,4 @@
 - **Considere minimizar o número de contas de serviço**. Por exemplo, usar uma conta específica para acessar recursos ou serviços que impõem um limite de conexões ou têm desempenho melhor quando menos conexões são mantidas. Essa abordagem é comum para serviços como bancos de dados, mas ela pode afetar a capacidade de auditar operações com precisão devido à representação do usuário original.
 - **Execute testes de perfil e carga de desempenho** durante o desenvolvimento, como parte das rotinas de teste, e antes da liberação o final para assegurar o desempenho e o dimensionamento necessários para o aplicativo. Esse teste deve ocorrer no mesmo tipo de hardware da plataforma de produção e com os mesmos tipos e quantidades de dados e carga de usuário que serão encontrados em produção. Para saber mais, consulte a página [Testando o desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx) no site da Microsoft.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

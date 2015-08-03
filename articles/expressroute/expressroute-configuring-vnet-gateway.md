@@ -74,4 +74,4 @@ Para saber mais sobre Redes Virtuais do Azure, consulte [Perguntas frequentes de
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

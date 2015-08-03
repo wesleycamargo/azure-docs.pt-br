@@ -99,4 +99,4 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -52,7 +52,7 @@ Os valores para o nome chave e valor da SAS podem ser encontrados na informaçã
 
 ## Como enviar mensagens para uma fila
 
-Para enviar uma mensagem para uma fila de Barramento de Serviço, seu aplicativo chama o método **send\\_queue\\_message** no objeto **ServiceBusService**.
+Para enviar uma mensagem para uma fila de Barramento de Serviço, seu aplicativo chama o método **send\_queue\_message** no objeto **ServiceBusService**.
 
 O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada *taskqueue* usando **send_queue_message**:
 
@@ -63,12 +63,12 @@ As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem
 
 ## Como receber mensagens de uma fila
 
-As mensagens são recebidas de uma fila usando o método **receive\\_queue\\_message** no objeto **ServiceBusService**:
+As mensagens são recebidas de uma fila usando o método **receive\_queue\_message** no objeto **ServiceBusService**:
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-As mensagens são excluídas da fila conforme elas são lidas quando o parâmetro **peek\\_lock** é definido como **False**. Você pode ler (peek) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\\_lock** como **True**.
+As mensagens são excluídas da fila conforme elas são lidas quando o parâmetro **peek\_lock** é definido como **False**. Você pode ler (peek) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro **peek\_lock** como **True**.
 
 O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
@@ -98,4 +98,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

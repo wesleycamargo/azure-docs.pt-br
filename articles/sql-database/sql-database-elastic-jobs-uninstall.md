@@ -58,4 +58,4 @@ Para uma visão geral do serviço de trabalho do banco de dados elástico, confi
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -18,17 +18,17 @@
 
 #Notas de versão do SDK do Windows Phone Silverlight
 
-##3\.0.0 (03/04/2015)
+##3.0.0 (03/04/2015)
 
 -   Ícone de notificação padrão atualizado.
 -   Envia comentários de ação de notificação do sistema quando uma notificação é clicada.
 -   Correção de uma condição de corrida no sistema de notificação.
 
-##2\.0.0 (17/02/2015)
+##2.0.0 (17/02/2015)
 
 -   Versão Inicial do Mobile Engagement do Azure.
 -   A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
 -   Aprimoramentos de segurança.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

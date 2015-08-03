@@ -142,4 +142,4 @@ Use o procedimento a seguir para excluir um grupo de volumes.
 
 [Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

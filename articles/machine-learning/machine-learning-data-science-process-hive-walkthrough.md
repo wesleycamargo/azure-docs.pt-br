@@ -2,6 +2,7 @@
 	pageTitle="Tecnologia e processo de análise avançada em ação: usar clusters do Hadoop | Microsoft Azure" 
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados disponível publicamente."  
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -23,7 +24,7 @@ Neste passo a passo, você usar o processo de análise avançada e tecnologia (A
 
 Para um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) para um cenário semelhante usando clusters Hadoop do HDInsight para o processamento de dados, consulte [Processo e tecnologia de análise avançada e a tecnologia em ação - Usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
-Também é possível usar um bloco de notas do iPython para executar as tarefas apresentadas passo a passo usando o conjunto de dados de 1 TB. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Também é possível usar um bloco de anotações iPython para executar as tarefas apresentadas passo a passo usando o conjunto de dados de 1 TB. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
@@ -136,13 +137,13 @@ Para acessar o nó principal do cluster para análise exploratória de dados e r
 
 Neste passo a passo, podemos usar principalmente consultas escritas em [Hive](https://hive.apache.org/), uma linguagem de consulta do tipo SQL, para realizar explorações de dados preliminares. As consultas de Hive são armazenadas em arquivos .hql. Podemos então reduzir esses dados a serem usados no Aprendizado de Máquina do Azure para criar modelos.
 
-Para preparar o cluster para análise exploratória de dados, podemos baixar os arquivos de .hql que contêm os scripts de Hive relevantes de [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) para um diretório local (C:\temp) no nó principal. Para fazer isso, abra o **Prompt de Comando** de dentro do nó principal do cluster e emita os comandos a seguir:
+Para preparar o cluster para análise exploratória de dados, podemos baixar os arquivos de .hql que contêm os scripts de Hive relevantes de [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) para um diretório local (C:\\temp) no nó principal. Para fazer isso, abra o **Prompt de Comando** de dentro do nó principal do cluster e emita os comandos a seguir:
 
 	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\temp & #92;*** no nó principal.
+Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\\temp & #92;*** no nó principal.
 
 ## <a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 
@@ -158,7 +159,7 @@ No prompt do diretório Hive, digite o seguinte comando na linha de comando do H
 	
 	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Aqui está o conteúdo do arquivo ***C:\temp\sample_hive_create_db_and_tables.hql*** que cria o banco de dados de Hive ***nyctaxidb*** e tabelas ***trip*** e ***fare***.
+Aqui está o conteúdo do arquivo ***C:\\temp\\sample_hive_create_db_and_tables.hql*** que cria o banco de dados de Hive ***nyctaxidb*** e tabelas ***trip*** e ***fare***.
 
 	create database if not exists nyctaxidb;
 
@@ -388,7 +389,7 @@ Aqui está o conteúdo do arquivo *sample_hive_trip_count_by_medallion.hql* para
 	HAVING med_count > 100 
 	ORDER BY med_count desc;
 
-O Medallion no conjunto de dados de táxi de NYC identifica um táxi exclusivo. Podemos identificar quais táxis estão "ocupados" perguntando quais fizeram mais do que um determinado número de corridas em um determinado período de tempo. O exemplo a seguir identifica táxis que fizeram mais de cem corridas nos primeiros três meses e salva os resultados da consulta em um arquivo local, C:\temp\queryoutput.tsv.
+O Medallion no conjunto de dados de táxi de NYC identifica um táxi exclusivo. Podemos identificar quais táxis estão "ocupados" perguntando quais fizeram mais do que um determinado número de corridas em um determinado período de tempo. O exemplo a seguir identifica táxis que fizeram mais de cem corridas nos primeiros três meses e salva os resultados da consulta em um arquivo local, C:\\temp\\queryoutput.tsv.
 
 Aqui está o conteúdo do arquivo *sample_hive_trip_count_by_medallion.hql* para inspeção.
 
@@ -424,7 +425,7 @@ No prompt do diretório do Hive, execute:
 
 	hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
-Os resultados da consulta são gravados em um arquivo local C:\temp\queryoutput.tsv.
+Os resultados da consulta são gravados em um arquivo local C:\\temp\\queryoutput.tsv.
 
 ### Exploração: avaliar a qualidade dos dados através da verificação de registros de latitude/longitude inválidos
 
@@ -809,4 +810,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

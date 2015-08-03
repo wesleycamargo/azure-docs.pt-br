@@ -67,4 +67,4 @@ Repita essas linhas após qualquer [ponto de verificação](automation-runbook-e
 - [Autenticação do Azure: autenticando no Azure usando o Active Directory do Azure](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

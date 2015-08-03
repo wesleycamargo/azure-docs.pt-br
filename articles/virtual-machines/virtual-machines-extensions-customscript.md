@@ -80,4 +80,4 @@ Em breve incluiremos uso de script personalizado para Linux e exemplos, fique at
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

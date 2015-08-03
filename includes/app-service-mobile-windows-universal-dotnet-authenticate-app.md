@@ -94,4 +94,4 @@
 
 10. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

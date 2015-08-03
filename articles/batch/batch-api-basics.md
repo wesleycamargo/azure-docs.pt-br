@@ -238,17 +238,17 @@ Uma tarefa de gerenciador de trabalho, parte de um determinado trabalho, não te
 
 Você precisa de uma conta de Batch para usar esse serviço, e você usa vários recursos do serviço para agendar a computação. Você usa o seguinte fluxo de trabalho básico ao criar um cenário de computação distribuído com o serviço Batch:
 
-1\. Carregue os arquivos que você deseja usar em seu cenário de computação distribuído para uma conta de armazenamento do Azure. Esses arquivos devem estar na conta de armazenamento para que o serviço Batch possa acessá-los. O serviço Batch carrega-os em uma TVM quando a tarefa é executada.
+1. Carregue os arquivos que você deseja usar em seu cenário de computação distribuído para uma conta de armazenamento do Azure. Esses arquivos devem estar na conta de armazenamento para que o serviço Batch possa acessá-los. O serviço Batch carrega-os em uma TVM quando a tarefa é executada.
 
-2\. Carregue os arquivos binários dependentes para a conta de armazenamento. Os arquivos binários incluem o programa executado pela tarefa e os assemblies dependentes. Esses arquivos também devem ser acessados no armazenamento e são carregados na TVM.
+2. Carregue os arquivos binários dependentes para a conta de armazenamento. Os arquivos binários incluem o programa executado pela tarefa e os assemblies dependentes. Esses arquivos também devem ser acessados no armazenamento e são carregados na TVM.
 
-3\. Crie um pool de TVMs. Você pode, quando o pool é criado, atribuir o tamanho da máquina virtual de tarefa a utilizar. Quando uma tarefa é executada, uma TVM desse pool é atribuída a ela.
+3. Crie um pool de TVMs. Você pode, quando o pool é criado, atribuir o tamanho da máquina virtual de tarefa a utilizar. Quando uma tarefa é executada, uma TVM desse pool é atribuída a ela.
 
-4\. Crie um item de trabalho. Um trabalho é criado automaticamente quando você cria um item de trabalho. Um item de trabalho permite que você gerencie um trabalho de tarefas.
+4. Crie um item de trabalho. Um trabalho é criado automaticamente quando você cria um item de trabalho. Um item de trabalho permite que você gerencie um trabalho de tarefas.
 
-5\. Adicione tarefas ao item de trabalho. Cada tarefa usa o programa que você carregou para processar informações de um arquivo que você carregou.
+5. Adicione tarefas ao item de trabalho. Cada tarefa usa o programa que você carregou para processar informações de um arquivo que você carregou.
 
-6\. Monitore os resultados da saída.
+6. Monitore os resultados da saída.
 
 ## <a name="files"></a>Arquivos e diretórios
 
@@ -430,4 +430,4 @@ Cada máquina virtual em um pool tem um nome exclusivo e a VM na qual uma tarefa
 
 [Visão geral do Lote do Azure]: batch-technical-overview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

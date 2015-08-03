@@ -132,7 +132,7 @@ Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à 
 
 - O local no qual os logs do aplicativo serão salvos em relação à raiz da web.
 
-- Valor padrão: ..\\..\\LogFiles\\Application
+- Valor padrão: ..\..\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -277,4 +277,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

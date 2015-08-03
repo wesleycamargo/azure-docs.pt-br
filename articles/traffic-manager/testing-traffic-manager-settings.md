@@ -57,4 +57,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 [Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Tarefas de configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -134,4 +134,4 @@ Este artigo mostra como usar o portal do Azure para executar tarefas de gerencia
 
 Para obter informações sobre como gerenciar aplicativos de API usando a linha de comando, consulte os artigos na seção **Automatizar** do menu que aparece no lado esquerdo do artigo (em janelas de navegador largas) ou na parte superior do artigo (em janelas de navegador estreitas).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

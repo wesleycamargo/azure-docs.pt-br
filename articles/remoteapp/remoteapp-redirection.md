@@ -83,7 +83,7 @@ Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível de cole
 Para definir as configurações de redirecionamento de USB em seu computador:
 
 1. Abra o Editor de Política de Grupo Local (GPEDIT.MSC). (Execute gpedit.msc no prompt de comando).
-2. Abra **Configuração do Computador\Políticas\Modelos Administrativos\Componentes do Windows\Serviços da Área de Trabalho Remota\Cliente de Conexão da Área de Trabalho Remota\Redirecionamento de Dispositivo USB RemoteFX**.
+2. Abra **Configuração do Computador\\Políticas\\Modelos Administrativos\\Componentes do Windows\\Serviços da Área de Trabalho Remota\\Cliente de Conexão da Área de Trabalho Remota\\Redirecionamento de Dispositivo USB RemoteFX**.
 3. Clique duas vezes em **Permitir redirecionamento de RDP de outros dispositivos USB RemoteFX com suporte deste computador**.
 4. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 5. Abra um prompt de comando com permissões administrativas e execute o seguinte comando: 
@@ -97,9 +97,9 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 2. Abra o Console de Gerenciamento de Política de Grupo. (Clique em **Iniciar > Ferramentas Administrativas > Gerenciamento de Política de Grupo**).
 3. Navegue até o domínio ou a unidade organizacional para o qual você deseja criar a política.
 4. Clique com o botão da direita do mouse em **Política de Domínio Padrão** e, em seguida, clique em **Editar**.
-5. Abra **Configuração do Computador\Políticas\Modelos Administrativos\Componentes do Windows\Serviços da Área de Trabalho Remota\Cliente de Conexão da Área de Trabalho Remota\Redirecionamento de Dispositivo USB RemoteFX**.
+5. Abra **Configuração do Computador\\Políticas\\Modelos Administrativos\\Componentes do Windows\\Serviços da Área de Trabalho Remota\\Cliente de Conexão da Área de Trabalho Remota\\Redirecionamento de Dispositivo USB RemoteFX**.
 6. Clique duas vezes em **Permitir redirecionamento de RDP de outros dispositivos USB RemoteFX com suporte deste computador**.
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**.  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -48,4 +48,4 @@ Para usar o balanceamento de carga para serviços em nuvem e sites (pontos de ex
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

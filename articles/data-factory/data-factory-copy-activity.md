@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copiar dados com o Azure Data Factory (atividade de cópia)
@@ -40,156 +40,22 @@ Para saber mais, você pode:
 ## Com suporte de origens e coletores
 A atividade de cópia dá suporte aos cenários da movimentação de dados a seguir:
 
-<table border="1">	
-	<tr>
-		<th><i>Fonte/coletor<i></th>
-		<th>Blob do Azure</th>
-		<th>Tabela do Azure</th>
-		<th>Banco de Dados SQL Azure</th>
-		<th>Banco de Dados de Documentos do Azure</th>
-		<th>SQL Server em VM do Azure</th>
-		<th>SQL Server local</th>
-	</tr>	
+| *Fonte/coletor* | Blob do Azure | Tabela do Azure | Banco de Dados SQL do Azure | Banco de Dados de Documentos do Azure | SQL Server em VM do Azure | SQL Server local |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Blob do Azure | X | X | X | X | X | X |
+| Tabela do Azure | X | X | X | X | X | X |
+| Banco de Dados SQL Azure | X | X | X | X | X | X |
+| Banco de Dados de Documentos do Azure | X | X | X | | | |  
+| SQL Server local | X | X | X | | X | X |
+| SQL Server em VM do Azure | X | X | X | | X | X |
+| Sistema de arquivos local | X | X | X | | X | X |
+| Banco de dados Oracle local | X | X | X | | X | X |
+| Banco de dados MySQL local| X | X | X | | X | X |
+| Banco de dados DB2 local | X | X | X | | X | X |
+| Banco de dados Teradata local | X | X | X | | X | X |
+| Banco de dados Sybase local | X | X | X | | X | X |
+| Banco de dados PostgreSQL local | X | X | X | | X | X |
 
-	<tr>
-		<td><b>Blob do Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Tabela do Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Banco de Dados SQL do Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>Banco de Dados de Documentos do Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server em VM do Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de arquivos local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Oracle local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de arquivos local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados MySQL local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados DB2 local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Teradata local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados Sybase local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Banco de dados PostgreSQL local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 Consulte o tópico [Origens e coletores com suporte](https://msdn.microsoft.com/library/dn894007.aspx) na biblioteca MSDN para obter mais detalhes.
 
@@ -249,57 +115,15 @@ Cada atividade na seção de **atividades** tem a seguinte estrutura de nível s
 
 A tabela a seguir descreve as marcas utilizadas com uma seção de atividade.
 
-<table border="1">	
-	<tr>
-		<th align="left">Marca</th>
-		<th align="left">Descrição</th>
-		<th align="left">Obrigatório</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Nome da atividade.</td>
-		<td>S</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Texto que descreve qual a utilidade da atividade.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Especifica o tipo da atividade. <br/><br/>O <b>tipo</b> deve ser configurado como <b>CopyActivity</b>.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Tabelas de entrada usadas pela atividade. Especifique uma única tabela de entrada para a Atividade de Cópia.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Tabelas de saída usadas pela atividade. Especifique uma única tabela de saída para a Atividade de Cópia.</td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Propriedades da transformação depende do tipo. A <b>atividade cópia</b> exige que você especifique uma seção de <b>fonte</b> e <b>coletor</b> na seção de <b>transformação</b>. Mais detalhes serão fornecidos posteriormente neste artigo. </td>
-		<td>S</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Diretivas que afetam o comportamento de tempo de execução da atividade. Se não for especificado, os valores padrão serão utilizados.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Marca | Descrição | Obrigatório |
+|-----|-------------|----------|
+|name|Nome da atividade.|S|
+|description|Texto que descreve qual a utilidade da atividade|S|
+|type|Especifica o tipo da atividade. O tipo deve ser configurado como **Cópia** |S|
+|inputs|Tabelas de entrada usadas pela atividade. Especifique uma única tabela de entrada para a Atividade de Cópia | S
+|outputs|Tabelas de saída usadas pela atividade. Especifique uma única tabela de saída para a Atividade de Cópia | S
+|transformation|Propriedades da transformação depende do tipo. A Atividade de Cópia exige que você especifique uma seção de fonte e coletor na seção de transformação. Mais detalhes serão fornecidos posteriormente neste artigo.|S
+|policy| Diretivas que afetam o comportamento de tempo de execução da atividade. Se não for especificado, os valores padrão serão utilizados. | N
 
 Consulte [Referência de Script JSON][json-script-reference] para obter informações detalhadas sobre propriedades/marcas JSON.
 
@@ -475,4 +299,4 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

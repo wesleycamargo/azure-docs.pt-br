@@ -125,4 +125,4 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 Você precisará ter as portas TCP/UDP 80 e 443 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do AD do Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

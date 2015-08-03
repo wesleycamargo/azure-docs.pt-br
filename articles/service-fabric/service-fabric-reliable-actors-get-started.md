@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Atores Confiáveis: o cenário canônico HelloWorld passo a passo
@@ -36,14 +36,17 @@ Para começar a usar os Atores Confiáveis, você só precisa entender quatro co
 Depois de instalar as Ferramentas para Visual Studio da Malha do Serviço, você pode criar novos tipos de projeto. Os novos tipos de projeto estão na categoria ‘Nuvem’ da caixa de diálogo Novo Projeto
 
 
-![][1]
+![Ferramentas de Malha de Serviço para VS - Novo projeto][1]
 
+Na próxima caixa de diálogo, você pode escolher o tipo de projeto que deseja criar.
+
+![Modelos de projeto de Malha de Serviço][5]
 
 Para o projeto HelloWorld, vamos usar o Serviço do Ator da Malha do Serviço.
 
 Depois que a solução é criada, você deve ver a seguinte estrutura:
 
-![][2]
+![Estrutura de projeto de Malha de Serviço][2]
 
 ## Blocos de construção básicos de Atores Confiáveis
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depuração no computador local. Você pode iniciar uma sessão de depuração pressionando F5. O Visual Studio cria (se necessário), empacota e implanta o aplicativo no cluster local da Malha do Serviço e anexa o depurador. A experiência é semelhante à depuração de um aplicativo ASP.NET. Durante o processo de implantação, você pode ver o andamento na janela Saída.
 
-![][3]
+![Janela de saída de Depuração de Malha de Serviço][3]
 
 ## Implantação do aplicativo
 No Visual Studio, você também pode empacotar e implantar o aplicativo no cluster local sem precisar iniciar o depurador, bastando selecionar o projeto Aplicativo da Malha do Serviço e clicar nele com o botão direito do mouse.
 
-![][4]
+![Malha de Serviço - projetar menu para a implantação e empacotamento de aplicativos][4]
 
 * **Implantar**: empacota o aplicativo e inicia o processo de implantação
 * **Remover Implantação**: pode ser usada para remover um aplicativo do cluster local
@@ -151,8 +154,7 @@ No Visual Studio, você também pode empacotar e implantar o aplicativo no clust
 
 ## Próximas etapas
 
-[Introdução aos Atores da Malha do Serviço](service-fabric-reliable-actors-introduction.md)
-
+[Introdução aos atores de Malha de Serviço](service-fabric-reliable-actors-introduction.md)[Documentação de referência de APIs de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)[Código de exemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ No Visual Studio, você também pode empacotar e implantar o aplicativo no clust
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

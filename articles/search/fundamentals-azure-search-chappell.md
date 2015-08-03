@@ -42,4 +42,4 @@ Este artigo é uma visão geral da tecnologia e quais recursos e cenários que e
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Apresentando a Pesquisa do Azure" (em PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Apresentando a Pesquisa do Azure" (no Microsoft Word)</a> 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -32,7 +32,7 @@ Reduza o custo operacional e libere a equipe de TI/ DevOps para se concentrar no
 
 ## Como a Automação do Azure ajuda a gerenciar o Backup do Azure?
 
-O Backup pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis no [módulo Windows MSOnlineBackup](https://technet.microsoft.com/pt-br/library/hh770400.aspx). A Automação do Azure pode chamar esses cmdlets do PowerShell para que você possa executar todas as tarefas de gerenciamento de Backup no serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+O Backup pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis no [módulo Windows MSOnlineBackup](https://technet.microsoft.com/en-us/library/hh770400.aspx). A Automação do Azure pode chamar esses cmdlets do PowerShell para que você possa executar todas as tarefas de gerenciamento de Backup no serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 
 ## Próximas etapas
@@ -42,4 +42,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 * Confira o [Guia de Introdução](http://go.microsoft.com/fwlink/?LinkId=390560) da Automação do Azure
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

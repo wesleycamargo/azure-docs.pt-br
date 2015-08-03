@@ -61,11 +61,11 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
 
 	> [AZURE.NOTE]As instruções em [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) mostram como configurar o aplicativo com o Active Directory do Azure, mas neste tutorial você vai configurá-lo com o AD FS, portanto, siga as etapas aqui em vez disso.
 
-3.	Abra a solução e abra Controllers\AccountController.cs no **Solution Explorer**.
+3.	Abra a solução e abra Controllers\\AccountController.cs no **Solution Explorer**.
 
-	Você verá que o código simplesmente emite um desafio de autenticação para autenticar o usuário usando o WS-Federation. Todas as autenticações são configuradas em App_Start\Startup.Auth.cs.
+	Você verá que o código simplesmente emite um desafio de autenticação para autenticar o usuário usando o WS-Federation. Todas as autenticações são configuradas em App_Start\\Startup.Auth.cs.
 
-4.  Abra App_Start\Startup.Auth.cs. No método `ConfigureAuth`, observe a linha:
+4.  Abra App_Start\\Startup.Auth.cs. No método `ConfigureAuth`, observe a linha:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,32 +79,32 @@ O aplicativo de exemplo neste tutorial, [WebApp-WSFederation-DotNet)](https://gi
 	-	Identificador RP: `https://contoso.com/MyLOBApp`
 	-	Endereço de metadados: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	No App_Start\Startup.Auth.cs, altere as definições de cadeia de caracteres estática como destacado abaixo:
+5.	No App_Start\\Startup.Auth.cs, altere as definições de cadeia de caracteres estática como destacado abaixo:
 	<pre class="prettyprint">
-	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+</pre>
+
 6.	Agora, você fará as alterações correspondentes no Web.config. Abra o Web.config e modifique as configurações do aplicativo como destacado abaixo:
 	<pre class="prettyprint">
-	&lt;appSettings&gt;
-	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-	  &lt;add key="webpages:Enabled" value="false" /&gt;
-	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+&lt;appSettings>
+  &lt;add key="webpages:Version" value="3.0.0.0" />
+  &lt;add key="webpages:Enabled" value="false" />
+  &lt;add key="ClientValidationEnabled" value="true" />
+  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-	&lt;/appSettings&gt;
-	</pre>
-	Preencha os valores de chave com base em seu respectivo ambiente.
+&lt;/appSettings>
+</pre>Preencha os valores de chave com base em seu respectivo ambiente.
 
 7.	Compile o aplicativo para verificar se não existem erros.
 
@@ -149,7 +149,7 @@ Agora você precisa configurar uma relação de confiança RP no gerenciamento d
 > [AZURE.NOTE]Certifique-se de que você repita as etapas abaixo para ambos os ambientes.
 
 4.	No servidor do AD FS, faça logon com credenciais que tenham direitos de gerenciamento para o AD FS.
-5.	Abra o gerenciamento do AD FS. Clique com o botão direito em **AD FS\Relacionamentos confiáveis\Objetos de confiança de terceira parte confiável** e selecione **Adicionar objeto de confiança de terceira parte confiável**.
+5.	Abra o gerenciamento do AD FS. Clique com o botão direito em **AD FS\\Relacionamentos confiáveis\\Objetos de confiança de terceira parte confiável** e selecione **Adicionar objeto de confiança de terceira parte confiável**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
@@ -175,7 +175,7 @@ Agora você precisa configurar uma relação de confiança RP no gerenciamento d
 
 7.	Na página **Configurar identificadores**, verifique se o seu projeto de URL de SSL já está listado e clique em **Avançar**. Clique em **Avançar** até o final do assistente com as seleções padrão.
 
-	> [AZURE.NOTE]No App_Start\Startup.Auth.cs do projeto do Visual Studio, esse identificador é comparado ao valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante a autenticação federada. Por padrão, a URL do aplicativo da etapa anterior é adicionada como um identificador RP.
+	> [AZURE.NOTE]No App_Start\\Startup.Auth.cs do projeto do Visual Studio, esse identificador é comparado ao valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante a autenticação federada. Por padrão, a URL do aplicativo da etapa anterior é adicionada como um identificador RP.
 
 8.	Agora você concluiu a configuração do aplicativo de RP para seu projeto no AD FS. Em seguida, você vai configurar esse aplicativo para enviar as declarações necessitadas para seu aplicativo. A caixa de diálogo **Editar regras de declaração** é aberta por padrão para você no final do assistente para que você possa começar imediatamente. Vamos configurar pelo menos as seguintes declarações (com esquemas entre parênteses):
 
@@ -208,8 +208,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-	</pre>
-	A regra personalizada deve ter esta aparência:
+</pre>A regra personalizada deve ter esta aparência:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -250,7 +249,7 @@ Até agora, você já teve êxito das seguintes maneiras:
 - O AD FS foi autenticou com êxito um usuário do AD e redirecionou você de que volta à página inicial do aplicativo
 - O AD FS enviou com êxito a declaração de nome (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) ao seu aplicativo, conforme indicado pelo fato de que o nome de usuário é exibido no canto. 
 
-Se a declaração de nome estiver ausente, você teria visto **Olá, !**. Se você verificar Views\Shared_LoginPartial.cshtml, descobrirá que ele usa `User.Identity.Name` para exibir o nome de usuário. Conforme mencionado anteriormente, o ASP.NET alimenta essa propriedade com a declaração de nome de usuário autenticado, se ele estiver disponível no token SAML. Para ver todas as declarações enviadas pelo AD FS, coloque um ponto de interrupção em Controllers\HomeController.cs, no método de ação de Índice. Depois que o usuário for autenticado, inspecione a coleção `System.Security.Claims.Current.Claims`.
+Se a declaração de nome estiver ausente, você teria visto **Olá, !**. Se você verificar Views\\Shared\_LoginPartial.cshtml, descobrirá que ele usa `User.Identity.Name` para exibir o nome de usuário. Conforme mencionado anteriormente, o ASP.NET alimenta essa propriedade com a declaração de nome de usuário autenticado, se ele estiver disponível no token SAML. Para ver todas as declarações enviadas pelo AD FS, coloque um ponto de interrupção em Controllers\\HomeController.cs, no método de ação de Índice. Depois que o usuário for autenticado, inspecione a coleção `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -259,40 +258,32 @@ Se a declaração de nome estiver ausente, você teria visto **Olá, !**. Se voc
 
 Como incluiu associações de grupo como declarações de função em sua configuração de confiança RP, agora você pode usá-las diretamente na decoração `[Authorize(Roles="...")]` para controladores e ações. Em um aplicativo de linha de negócios com o padrão Criar-Ler-Atualizar-Excluir (CRUD), é possível autorizar funções específicas para acessar cada ação. Por enquanto, você simplesmente testará esse recurso no controlador Início existente.
 
-1. Abra Controllers\HomeController.cs.
+1. Abra Controllers\\HomeController.cs.
 2. Decore os métodos de ação `About` e `Contact` e similares aos abaixo, usando as associações de grupo de segurança que seu usuário autenticado tem.  
 	<pre class="prettyprint">
-    <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About()
-    {
-        ViewBag.Message = "A sua página de descrição do aplicativo.";
+<mark>[Authorize(Roles="Test Group")]</mark>
+public ActionResult About()
+{
+    ViewBag.Message = "A sua página de descrição do aplicativo.";
 
-        return View();
-    }
+    return View();
+}
 
-    <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()
-    {
-        ViewBag.Message = "Your contact page.";
+<mark>[Authorize(Roles="Domain Admins")]</mark>
+public ActionResult Contact()
+{
+    ViewBag.Message = "Your contact page.";
 
-        return View();
-    }
-	</pre>
-	Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
+    return View();
+}
+</pre>Como adicionei **Usuário de Teste** ao **Grupo de Teste em meu ambiente de laboratório** do AD FS, usarei o Grupo de Teste para testar a autorização em `About`. Para `Contact`, testarei o caso negativo de **Admins. do domínio**, ao qual o **Usuário de Teste** não pertence.
 
 3. Inicie o depurador digitando `F5`, entre e, depois, clique em **Sobre**. Você deverá ver agora a página `~/About/Index` com êxito, se o usuário autenticado for autorizado para essa ação.
 4. Agora clique em **Contato**, que, em meu caso, não deve autorizar **Usuário de Teste** para a ação. No entanto, o navegador é redirecionado para o AD FS, que, por fim, mostra esta mensagem:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção:  
-	<pre class="prettyprint"> 
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes. 
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
-	</pre>
+	Se você investigar esse erro no Visualizador de Eventos no servidor do AD FS, verá esta mensagem de exceção: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>a mesma sessão do navegador cliente fez '6' solicitações nos últimos '11' segundos.</mark> Contate o administrador para obter detalhes. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
 	O motivo pelo qual isso acontece é que, por padrão, o MVC retorna um 401 Não autorizado quando uma função do usuário não está autorizada. Isso dispara uma solicitação de nova tentativa de autenticação para seu provedor de identidade (AD FS). Uma vez que o usuário já está autenticado, o AD FS retorna para a mesma página, o que, em seguida, emite outro 401, criando um loop de redirecionamento. Você substituirá o método `HandleUnauthorizedRequest` de AuthorizeAttribute por lógica simples para mostrar algo que faça sentido, em vez de dar continuidade ao loop de redirecionamento.
 
@@ -352,4 +343,4 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure dão suporte ao acesso a b
  
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

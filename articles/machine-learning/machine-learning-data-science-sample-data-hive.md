@@ -2,6 +2,7 @@
 	pageTitle="Dados de exemplo nas tabelas Hive do Azure HDInsight | Microsoft Azure"
 	description="Reduzir os dados de amostragem em Tabelas Hive do Azure HDInsight"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -95,4 +96,4 @@ Veja um exemplo de consulta:
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

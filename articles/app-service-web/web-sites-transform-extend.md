@@ -2,7 +2,6 @@
 	pageTitle="Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure"
 	description="Use as declarações de XDT (Transformação de documento XML) para transformar o arquivo ApplicationHost.config em seu aplicativo Web do Serviço de Aplicativo do Azure e adicionar extensões privadas para habilitar ações de administração personalizadas."
 	authors="cephalin"
-	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
@@ -93,7 +92,7 @@ A única lógica especial necessária para E/S de arquivo é indicar onde o dire
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
     		return userSettingsFile;
 	}
 
@@ -180,4 +179,4 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

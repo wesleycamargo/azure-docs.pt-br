@@ -84,7 +84,7 @@ Atualizar uma linha em uma tabela de dados. Neste exemplo, o todoItem é o item 
 
 Excluir uma linha em uma tabela de dados. Chame o método [done]() em um objeto [Promise]() retornado para obter uma cópia do objeto inserido e tratar quaisquer erros existentes.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@ Excluir uma linha em uma tabela de dados. Chame o método [done]() em um objeto 
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

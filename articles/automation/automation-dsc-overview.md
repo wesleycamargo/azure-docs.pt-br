@@ -226,4 +226,4 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - Os nós DSC integrados à DSC da Automação do Azure, inicialmente, mostrarão um status de conformidade, mesmo que eles não estejam de fato em conformidade com a configuração do nó DSC para o qual foram mapeados. Depois que um nó efetua seu primeiro pull e envia seu primeiro relatório DSC à DSC da Automação do Azure, o status do nó deve ser corrigido.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

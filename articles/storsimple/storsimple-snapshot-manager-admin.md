@@ -19,7 +19,7 @@
 
 ## Visão geral
 
-O StorSimple Snapshot Manager é um snap-in do MMC (Console de Gerenciamento Microsoft) que simplifica a proteção de dados e gerenciamento de backup em um ambiente do Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, você pode gerenciar dados do Microsoft Azure StorSimple no data center e na nuvem como uma solução única de armazenamento integrado, simplificando os processos de backup e reduzindo os custos.
+O StorSimple Snapshot Manager é um snap-in do Microsoft Management Console (MMC) que simplifica a proteção de dados e o gerenciamento de backup em um ambiente Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, você pode gerenciar dados do Microsoft Azure StorSimple no data center e na nuvem como uma solução única de armazenamento integrado, simplificando os processos de backup e reduzindo os custos.
 
 O console de gerenciamento central do StorSimple Snapshot Manager permite criar cópias de backup consistentes e pontuais de local e dados na nuvem. Por exemplo, você pode usar o console para:
 
@@ -60,4 +60,4 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 [Baixar o StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

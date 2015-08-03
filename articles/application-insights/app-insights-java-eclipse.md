@@ -39,7 +39,7 @@ Você só precisa fazer isso uma vez por computador. Esta etapa instala um kit d
 
     ![Ajuda, Instalar Novo Software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. O SDK está em http://dl.msopentech.com/eclipse, sob Kit de ferramentas do Azure.
+2. O SDK está em http://dl.windowsazure.com/eclipse, sob Kit de ferramentas do Azure.
 3. Desmarque **Contatar todos os sites de atualização...**
 
     ![Para o SDK do Application Insights, limpe a opção Contatar todos os sites de atualização](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

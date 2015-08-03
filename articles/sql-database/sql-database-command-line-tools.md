@@ -137,4 +137,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 - [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

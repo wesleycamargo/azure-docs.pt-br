@@ -201,4 +201,4 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
 As Ids inseridas no sistema são as Ids retornadas pelo sistema. O serviço Web não verifica se as Ids são exclusivas. É responsabilidade do chamador verificar a exclusividade.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

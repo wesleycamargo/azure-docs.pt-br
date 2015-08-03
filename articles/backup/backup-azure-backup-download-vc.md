@@ -40,4 +40,4 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 ## Próximas etapas
 [Baixar, registrar e instalar o Agente de Backup do Azure](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

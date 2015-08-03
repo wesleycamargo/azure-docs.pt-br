@@ -5,20 +5,23 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Ambientes de teste de nuvem híbrida do Azure
 
 Para desenvolvimento/teste ou uma prova de conceito, os ambientes de teste de nuvem híbrida usam sua conexão de Internet local e um de seus endereços IP públicos e o orientam durante a configuração de uma VNet (Rede Virtual) do Azure entre locais funcional. Ao concluir, você pode realizar o desenvolvimento e teste de aplicativos, fazer experiências com cargas de trabalho de TI simplificadas e medir o desempenho de uma conexão VPN (rede privada virtual) de site a site em relação a seu local na Internet.
+
+> [AZURE.NOTE]Estes artigos atualmente criam máquinas virtuais, redes virtuais e outros recursos no Gerenciamento de Serviços.
 
 ## Configuração de base de nuvem híbrida
 
@@ -47,15 +50,15 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 ## Recursos adicionais
 
-[Farms do SharePoint hospedados nos Serviços de Infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
+[Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [PDF do plano gráfico da arquitetura de aplicativos de linha de negócios 3-D](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
 [Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -228,4 +228,4 @@ Agora, o usuário está conectado no portal do desenvolvedor para a instância d
 
 [Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

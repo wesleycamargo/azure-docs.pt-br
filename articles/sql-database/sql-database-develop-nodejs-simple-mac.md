@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -125,7 +125,7 @@ Todas as instruções SQL são executadas usando a função [new Request()](http
 ## Inserir uma linha, aplicar parâmetros e recuperar a chave primária gerada
 
 
-No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx). Nesse exemplo, você verá como executar uma instrução insert, passar parâmetros com segurança que protegem contra injeção de SQL e recuperar o valor da chave primária gerada automaticamente.
+No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente [valores de chave primária](https://msdn.microsoft.com/library/ms179610.aspx). Nesse exemplo, você verá como executar uma instrução insert, passar parâmetros com segurança que protegem contra injeção de SQL e recuperar o valor da chave primária gerada automaticamente.
 
 
 O exemplo de código nesta seção aplica a parâmetros a uma instrução SQL INSERT. O valor da chave primária gerada é recuperado pelo programa.
@@ -170,4 +170,4 @@ O exemplo de código nesta seção aplica a parâmetros a uma instrução SQL IN
 		connection.execSql(request);
 	}
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

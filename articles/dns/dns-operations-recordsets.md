@@ -265,4 +265,4 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 [Introdução à criação de conjuntos de registros e registros](../dns-getstarted-create-recordset)<BR> [Executar operações em zonas DNS](../dns-operations-dnszones)<BR> [Automatizar operações usando o SDK do .NET](../dns-sdk)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

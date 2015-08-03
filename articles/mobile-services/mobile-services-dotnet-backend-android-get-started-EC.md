@@ -151,4 +151,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

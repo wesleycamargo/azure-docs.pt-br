@@ -321,4 +321,4 @@ Para executar um failover de teste, faça o seguinte:
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

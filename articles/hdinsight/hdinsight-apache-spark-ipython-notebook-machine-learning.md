@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
 # Crie aplicativos de aprendizado de máquina usando o Apache Spark no Azure HDInsight
 
-Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o notebook Jupyter Python disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
+Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
 
 **Pré-requisitos:**
 
@@ -44,13 +44,13 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 1. Inicie o bloco de anotações do [Jupyter](https://jupyter.org). Selecione o cluster do Spark no portal do Azure e, na barra de tarefas do portal na parte inferior, clique em **Bloco de notas Jupyter**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python2**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python 2**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "Criar um novo bloco de anotações do Jupyter")
 
 3. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Clique no nome do bloco de anotações na parte superior e digite um nome amigável.
 
-	![Forneça um nome para o bloco de anotações](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "Forneça um nome para o bloco de anotações")
+	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "Fornecer um nome para o bloco de anotações")
 
 3. Comece a criar seu aplicativo de aprendizado de máquina. Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificação de documento. No pipeline, vamos dividir o documento em palavras, converter as palavras em um vetor de recurso numérico e, finalmente, criar um modelo de previsão usando as etiquetas e vetores de recurso.
 
@@ -85,7 +85,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 	Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** junto com o título do bloco de anotações. Você também verá um círculo preenchido ao lado do texto **Python 2** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
-	 ![Status de um trabalho de bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Status de um trabalho de bloco de anotações do Jupyter")
+	 ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Job.Status.png "Status de um trabalho do bloco de anotações do Jupyter")
  
 4. Agora você deve carregar os dados (hvac.csv), analisá-los e usá-los para treinar o modelo. Para isso, você define uma função que verifica se a temperatura real do prédio é maior que a temperatura de destino. Se a temperatura real for maior, o prédio está quente, indicado pelo valor **1,0**. Se a temperatura real é menor, o prédio está frio, indicado pelo valor **0,0**.
 
@@ -206,9 +206,9 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 	Na primeira linha na previsão, você pode ver que para um sistema de HVAC com ID 20 e sistema de 25 anos, o prédio será quente (** previsão = 1,0 **). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
 
-11. Agora você pode sair do bloco de anotações, reiniciando o kernel. Na barra de menus superior, clique em **Kernel**, clique em **Reiniciar** e, em seguida, clique em **Reiniciar** novamente no prompt.
+11. Agora você pode sair do bloco de anotações reiniciando o kernel. Na barra de menus superior, clique em **Kernel**, clique em **Reiniciar** e, em seguida, clique em **Reiniciar** novamente no prompt.
 
-	![Reinicie o Kernel Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Reinicie o Kernel Jupyter")
+	![Reiniciar o kernel do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Reiniciar o kernel do Jupyter")
 	  	   
 
 ##<a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para Aprendizado de Máquina
@@ -240,4 +240,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

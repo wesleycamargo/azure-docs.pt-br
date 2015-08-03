@@ -96,4 +96,4 @@ Se desejar, você poderá usar uma ferramenta como **wget** ou Fiddler para exam
 
 [Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

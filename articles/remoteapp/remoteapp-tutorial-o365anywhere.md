@@ -64,4 +64,4 @@ Quando você clica em qualquer um desses, o aplicativo deve ser iniciado na máq
 ![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

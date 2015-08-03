@@ -555,4 +555,4 @@ Você pode excluir um grupo de afinidade passando o nome do grupo para o método
 
 [Esquema de configuração de serviço do Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

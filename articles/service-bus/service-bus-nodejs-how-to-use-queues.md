@@ -190,4 +190,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Aplicativo Node.js na Web com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

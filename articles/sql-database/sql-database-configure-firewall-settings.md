@@ -144,4 +144,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,4 @@
 
-
 1. Se você ainda não fez isso, entre no [Portal de Gerenciamento do Azure](http://manage.windowsazure.com).
 
 2. Clique em **Máquinas Virtuais**e, em seguida, selecione a máquina virtual apropriada.
@@ -28,4 +27,4 @@ Clique em **Sim** para verificar a identidade da máquina virtual.
 
 Agora você pode trabalhar remotamente com a máquina virtual.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

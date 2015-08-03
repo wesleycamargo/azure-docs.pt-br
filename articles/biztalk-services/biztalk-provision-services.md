@@ -238,4 +238,4 @@ Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Servi
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

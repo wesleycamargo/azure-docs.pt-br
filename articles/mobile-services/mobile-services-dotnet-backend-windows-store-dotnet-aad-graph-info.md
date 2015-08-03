@@ -255,4 +255,4 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 [Controle de acesso baseado em função com o AAD em Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

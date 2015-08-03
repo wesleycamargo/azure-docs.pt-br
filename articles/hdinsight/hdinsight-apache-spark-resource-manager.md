@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -36,13 +36,13 @@ Aqui estão alguns cenários comuns que você pode executar com o cluster do Spa
 O cluster do Apache Spark no HDInsight foi projetado para multilocação, para que os recursos fossem divididos em vários componentes (blocos de anotações, servidor de trabalho, etc.). Isso permite que você use todos os componentes do Spark simultaneamente sem se preocupar sobre qualquer componente que não consegue fazer os recursos executarem, mas cada componente poderá ser mais lento, já que os recursos são fragmentados. Isso pode ser ajustado com base em suas necessidades.
 
 
-### Posso usar o IPython apenas com o cluster do Spark. Como posso alocar todos os recursos a ele?
+### Apenas uso o bloco de anotações do Jupyter com o cluster do Spark. Como posso alocar todos os recursos a ele?
 
 1. No **Painel do Spark**, clique na guia **IU do Spark** para descobrir o número máximo de núcleos e o máximo de RAM que você pode alocar para os aplicativos.
 
 	![Alocação de recurso](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Encontre os recursos alocados para um cluster do Spark")
 
-	Seguindo a captura de tela acima, o máximo de núcleos que você pode alocar é 7 (total de 8 núcleos dos quias 1 está em uso) e o máximo de RAM que você pode alocar é 9 GB (total de 12 GB de RAM, dos quais 2 GB devem ser definidos reservados para uso do sistema e 1 GB que está em uso por outros aplicativos).
+	Seguindo a captura de tela acima, o máximo de núcleos que você pode alocar é de 7 (total de 8 núcleos, dos quais 1 está em uso) e o máximo de RAM que você pode alocar é 9 GB (total de 12 GB de RAM, dos quais 2 GB devem ser definidos reservados para uso do sistema e 1 GB que está em uso por outros aplicativos).
 
 	Você também deve incluir todos os aplicativos que estão executando. Você pode examinar os aplicativos em execução na guia **IU do Spark**.
 
@@ -79,4 +79,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

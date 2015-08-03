@@ -400,4 +400,4 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

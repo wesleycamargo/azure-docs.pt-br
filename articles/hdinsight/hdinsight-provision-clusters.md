@@ -754,4 +754,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
   [89e2276a]: hdinsight-use-sqoop.md "Use o Sqoop com o HDInsight"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

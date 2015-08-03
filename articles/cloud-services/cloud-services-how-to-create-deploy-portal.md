@@ -34,11 +34,13 @@ Este tópico explica como usar o método Criação Rápida para criar um novo se
 ## Conceitos
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
-- **Definição de serviço**<br/> O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
+- **Definição de serviço** O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 
-- **Configuração de serviço**<br/> O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+- **Configuração de serviço** O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 
-- **Pacote de serviço**<br/> O pacote de serviço (arquivo .cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+- **Pacote de serviço** O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+
+Você pode aprender mais sobre eles e como criar um pacote [aqui](cloud-services-model-and-package.md).
 
 ## Preparação do aplicativo
 Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
@@ -70,7 +72,7 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
 3. Na nova folha **Serviço de Nuvem**, insira um valor para o **Nome DNS**
-4. Criar um novo **Grupo de Recursos** ou selecione um existente.
+4. Crie um novo **Grupo de Recursos** ou selecione um existente.
 5. Selecione um **Local**.
 6. Selecione **Pacote** na folha **Carregar um pacote** e preencha os campos obrigatórios.  
       
@@ -85,8 +87,8 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 Se o pacote de implantação foi [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você pode carregar o certificado agora.
 
-9. Selecione **certificados** e na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e forneça a **Senha** do certificado, 
-10. Clique em **Anexar certificado**e clique em **OK** na folha **Adicionar certificados**.
+9. Selecione **Certificados** e na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e forneça a **Senha** do certificado, 
+10. Clique em **Anexar certificado** e clique em **OK** na folha **Adicionar certificados**.
 11. Clique em **Criar** na folha **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
@@ -98,7 +100,7 @@ Se o pacote de implantação foi [configurado para usar certificados](cloud-serv
 
 	O status deve mostrar que o serviço está **Executando**.
 
-2. Em **Essentials** e clique na **URL do site** para abrir o serviço de nuvem em um navegador da Web.
+2. Em **Essentials**, clique na **URL do site** para abrir o serviço de nuvem em um navegador da Web.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
@@ -106,4 +108,4 @@ Se o pacote de implantação foi [configurado para usar certificados](cloud-serv
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure" 
-	description="Use o modo de Gerenciamento de Recursos do PowerShell do Azure para criar facilmente uma nova máquina virtual do Windows." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Criar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure"
+	description="Use o modo de Gerenciamento de Recursos do PowerShell do Azure para criar facilmente uma nova máquina virtual do Windows."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Criar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure
 
@@ -30,7 +30,7 @@ Se já instalou o PowerShell do Azure, você deve ter o PowerShell do Azure vers
 
 	Get-Module azure | format-table version
 
-Se você ainda não fez isso ou se precisa atualizar a versão instalada do PowerShell do Azure, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
+Se você ainda não fez isso ou se precisa atualizar a versão instalada do PowerShell do Azure, use as instruções em [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
 
 Primeiro, você deve fazer logon no Azure com este comando.
 
@@ -63,7 +63,7 @@ A seguir, você precisa alternar o modo do PowerShell do Azure para o Gerenciado
 
 Agora, copie o seguinte bloco de comandos do PowerShell para um editor de texto. Preencha a conta de armazenamento e o local escolhidos, substituindo tudo entre aspas, inclusive os caracteres < and >.
 
-	$stName="<chosen storage account name>"	
+	$stName="<chosen storage account name>"
 	$locName="<chosen Azure location name>"
 	$rgName="TestRG"
 	New-AzureResourceGroup -Name $rgName -Location $locName
@@ -79,7 +79,7 @@ Agora, copie o seguinte bloco de comandos do PowerShell para um editor de texto.
 	$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
 	$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Por fim, copie o conjunto de comandos acima para a área de transferência e clique com o botão direito do mouse no prompt de comando aberto do PowerShell do Azure. Isso emitirá o conjunto de comandos como uma série de comandos do PowerShell, solicitará o nome e a senha da conta de administrador local e criará sua máquina virtual do Azure.
 
@@ -90,8 +90,8 @@ Aqui está um exemplo do que você pode ver:
 	PS C:> $rgName="TestRG"
 	PS C:> New-AzureResourceGroup -Name $rgName -Location $locName
 	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
-	
-	
+
+
 	ResourceGroupName : TestRG
 	Location          : westus
 	ProvisioningState : Succeeded
@@ -100,10 +100,10 @@ Aqui está um exemplo do que você pode ver:
 	                    Actions  NotActions
 	                    =======  ==========
 	                    *
-	
+
 	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
-	
-	
+
+
 	PS C:> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
 	PS C:> $singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
 	PS C:> $vnet=New-AzurevirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -117,8 +117,8 @@ Aqui está um exemplo do que você pode ver:
 	PS C:> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
 	PS C:> $vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
 	PS C:> New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
-	
-	
+
+
 	EndTime             : 4/28/2015 1:00:05 PM -07:00
 	Error               :
 	Output              :
@@ -132,7 +132,7 @@ Aqui está um exemplo do que você pode ver:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
 [Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
@@ -140,9 +140,6 @@ Aqui está um exemplo do que você pode ver:
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

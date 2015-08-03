@@ -94,4 +94,4 @@ Leia mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

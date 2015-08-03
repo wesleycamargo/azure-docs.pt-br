@@ -48,4 +48,4 @@ A tabela a seguir descreve os erros que você poderá encontrar ao executar o as
 ## Próximas etapas
 Se você não puder resolver o problema, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obter ajuda.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

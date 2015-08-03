@@ -33,4 +33,4 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
 <li>Escolha um método alternativo e conecte-se.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

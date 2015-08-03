@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/20/2015"
    ms.author="mattrow"/>
 
 # Configurando o Application Insights para seu aplicativo da Malha do Serviço
@@ -89,4 +89,4 @@ Saiba mais sobre como usar o Application Insights para instrumentar seus aplicat
 - [Aprenda a criar seus próprios eventos e métricas personalizados](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -332,4 +332,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

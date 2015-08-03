@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 # Temporizadores de ator
-Os temporizadores de ator oferece um wrapper simples para o temporizador do .NET, de forma que os métodos de retorno de chamada respeitam as garantias de simultaneidade com base em rotação proporcionadas pelo tempo de execução dos atores.
+Os temporizadores de ator oferecem um wrapper simples em torno de temporizadores .NET, de forma que os métodos de retorno de chamada respeitam as garantias de simultaneidade com base em rotação proporcionadas pelo tempo de execução dos Atores.
 
 Os atores podem usar os métodos `RegisterTimer` e `UnregisterTimer` em sua classe de base para registrar e cancelar o registro em seus temporizadores. O exemplo a seguir mostra o uso de APIs de temorizador. Os APIs são muito semelhantes ao temporizador do .NET. No exemplo abaixo, quando o temporizador é devido, o método `MoveObject` será chamado pelo tempo de execução de atores e fica garantido que ele respeitará a simultaneidade com base em rotação, o que significa que nenhum outro método de ator ou retornos de chamada do temporizador/lembrete estará em andamento até que esse retorno de chamada conclua a execução.
 
@@ -113,6 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActorReminder`. A classe base de ator oferece suporte a um método `GetReminder`, que pode ser usado para recuperar a interface `IActorReminder` passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder` que foi retornada com a chamada do método `RegisterReminder`.
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

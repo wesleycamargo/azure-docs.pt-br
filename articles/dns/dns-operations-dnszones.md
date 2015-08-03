@@ -103,4 +103,4 @@ O objeto de zona também pode ser redirecionado em vez de ser passado como um pa
 
 [Automatizar operações usando o SDK do .NET](../dns-sdk)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

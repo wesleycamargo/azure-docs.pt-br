@@ -138,4 +138,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

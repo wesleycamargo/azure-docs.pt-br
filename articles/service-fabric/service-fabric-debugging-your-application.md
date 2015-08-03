@@ -66,4 +66,4 @@ Você economizar tempo e dinheiro implantando e depurando seu aplicativo da Malh
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -112,7 +112,7 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [Como Criar um Grupo de Afinidade no Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[Como gerenciar contas de armazenamento para uma assinatura do Azure]: https://msdn.microsoft.com/pt-br/library/azure/hh531793.aspx
+[Como gerenciar contas de armazenamento para uma assinatura do Azure]: https://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
 [Como mapear o conteúdo da CDN para um domínio personalizado]: cdn-map-content-to-custom-domain.md
 
 
@@ -120,4 +120,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

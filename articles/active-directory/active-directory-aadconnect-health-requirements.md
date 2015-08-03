@@ -155,4 +155,4 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
  
 ![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

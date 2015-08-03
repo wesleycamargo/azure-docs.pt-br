@@ -228,4 +228,4 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

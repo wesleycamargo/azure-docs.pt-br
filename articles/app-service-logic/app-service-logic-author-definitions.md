@@ -99,7 +99,7 @@ Em seguida, digamos que desejamos obter conteúdo completamente diferente depend
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/pt-br/default.aspx",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -250,7 +250,7 @@ Normalmente você deseja ser capaz de gravar uma *etapa de correção* – algum
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/pt-br/default.aspx",
+                "https://www.microsoft.com/en-us/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@ Para ter a execução de várias ações em paralelo e não em sequência, você
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/pt-br/default.aspx",
+                "https://www.microsoft.com/en-us/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Então, na verdadeira solicitação `PUT` para o Aplicativo lógico, você pode 
 
 Em cada ambiente, você pode fornecer então um valor diferente para o parâmetro `connection`. Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

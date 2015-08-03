@@ -95,4 +95,4 @@ O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

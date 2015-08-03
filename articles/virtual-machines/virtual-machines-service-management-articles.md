@@ -136,4 +136,4 @@ Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciame
 
 [Comandos CLI do Azure para o Gerenciamento de Serviços](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

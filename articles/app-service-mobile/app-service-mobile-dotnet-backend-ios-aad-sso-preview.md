@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Neste tutorial, adicione a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do diretório ativo.
 
 Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com seu locatário do AAD (Active Directory do Azure). Isso é feito em duas etapas. Primeiro, você deve registrar seu serviço de aplicativo e expor permissões nele. Em segundo lugar, você deve registrar seu aplicativo iOS e conceder acesso com essas permissões.
@@ -28,6 +30,10 @@ Este tutorial exige o seguinte:
 * Conclusão do tutorial de [Introdução a Aplicativos Móveis].
 * SDK de Serviços Móveis do Microsoft Azure
 * A [Biblioteca de Autenticação do Active Directory para iOS]
+
+##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Registrar seu aplicativo com o Active Directory do Azure
 
@@ -117,4 +123,4 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
  [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

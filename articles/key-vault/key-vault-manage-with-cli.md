@@ -4,8 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Referência da API REST do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Referência da API Cliente C# do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

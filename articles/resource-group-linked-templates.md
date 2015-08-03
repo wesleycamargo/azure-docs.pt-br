@@ -1,7 +1,7 @@
 <properties
    pageTitle="Usando modelos vinculados com o Gerenciador de Recursos do Azure"
    description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -100,4 +100,4 @@ Se você precisar passar um valor de modelo vinculado ao modelo principal, poder
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

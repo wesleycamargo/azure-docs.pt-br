@@ -221,4 +221,4 @@ Uma referência à linguagem de expressão do modelo por ser encontrada em [Inst
 [Instruções sobre Hubs de Notificação para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

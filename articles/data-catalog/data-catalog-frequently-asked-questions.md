@@ -157,4 +157,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

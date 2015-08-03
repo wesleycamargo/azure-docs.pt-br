@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Criando um cluster do Oracle WebLogic Server 12c no Azure" description="Percorrer um exemplo de como criar um cluster do Oracle WebLogic Server 12c no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Criando um cluster do Oracle WebLogic Server 12c no Azure" description="Percorrer um exemplo de como criar um cluster do Oracle WebLogic Server 12c no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando um cluster do Oracle WebLogic Server 12c no Azure
 O exemplo a seguir mostra como você pode criar um cluster do Oracle WebLogic Server no Azure, com base em uma imagem fornecida pelo Microsoft Oracle WebLogic Server 12c em execução no Windows Server 2012.
@@ -305,4 +305,4 @@ Agora que você configurou o cluster executando o Oracle WebLogic Server, consul
 
 - [Oracle WebLogic Server 12c usando o Linux no Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

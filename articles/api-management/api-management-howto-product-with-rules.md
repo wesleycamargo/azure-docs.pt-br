@@ -292,4 +292,4 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

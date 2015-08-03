@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos"
     description="Faça um test drive da funcionalidade do RemoteApp do Azure sem instalar o serviço." 
@@ -36,4 +37,4 @@ Sua opinião é importante. No final de cada sessão, você verá uma caixa de d
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

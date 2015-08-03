@@ -251,4 +251,4 @@ Use o seguinte comando para atualizar dados em uma tabela. Para este, Brenda con
 ##Mais sobre PostgreSQL
 Você concluiu a instalação do PostgreSQL na VM Linux do Microsoft Azure. Agora, aproveite sua jornada para usá-lo no Microsoft Azure. Mais sobre o PostgreSQL, clique [aqui](http://www.postgresql.org/).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

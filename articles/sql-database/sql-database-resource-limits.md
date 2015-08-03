@@ -152,4 +152,4 @@ Em determinados cenários, como o uso do recurso de banco de dados agrupado, é 
 
 [Práticas recomendadas do banco de dados SQL do Azure para evitar negações de solicitação ou encerramento da conexão](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

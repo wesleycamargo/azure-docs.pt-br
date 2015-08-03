@@ -4,4 +4,4 @@
 >
 > **Nomes de domínio personalizado não podem ser usados com o aplicativo Web gratuito**. É preciso que você configure seu aplicativo Web para o modo **Compartilhado**, **Básico** ou **Padrão**, o que pode alterar o quanto você é cobrado por sua assinatura. Consulte <a href=/pricing/details/web-sites/">Detalhes de preços de aplicativos Web</a> para obter mais informações.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

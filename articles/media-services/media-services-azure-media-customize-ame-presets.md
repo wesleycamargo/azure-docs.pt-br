@@ -482,4 +482,4 @@ Para evitar a amplificação dos ruídos de fundo, faça o seguinte:
 
 [Esquema XML do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

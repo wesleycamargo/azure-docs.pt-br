@@ -75,4 +75,4 @@ Um pacote de aplicativo precisa ser criado para implantação do aplicativo e se
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -143,7 +143,7 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 
 O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage).
 
 Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
@@ -674,7 +674,7 @@ Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a
 
     Set-ClusterQuorum -NodeMajority  
 
-Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/pt-br/library/jj612870.aspx).
+Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/en-us/library/jj612870.aspx).
 
 #### Etapa 6: extrair ACLs e pontos de extremidade existentes
     #GET Endpoint info
@@ -868,7 +868,7 @@ O código a seguir também usa a opção adicional em que é possível importar 
     
     #SET Azure ACLs or Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
     
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
@@ -1081,7 +1081,7 @@ Para obter informações de blobs individuais: #Check induvidual blob status Get
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
 
 #### Etapa 23: failover de teste
 
@@ -1143,4 +1143,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

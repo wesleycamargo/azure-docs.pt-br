@@ -47,4 +47,4 @@ A interface de usuário de gerenciamento permite alternar o nível de limitaçã
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

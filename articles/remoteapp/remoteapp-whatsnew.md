@@ -51,4 +51,4 @@ Precisa ver o Azure RemoteApp no mundo real? Confira o tutorial [Executar qualqu
 
 Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais do Windows" 
-	description="Rapidamente redefina uma senha de administrador local ou o Serviço de Área de Trabalho Remota para máquinas virtuais do Windows usando o Portal de Visualização do Azure ou os comandos do PowerShell." 
+	pageTitle="Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows" 
+	description="Redefina rapidamente uma senha de administrador local ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows usando o Portal de Visualização do Azure ou os comandos do PowerShell." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais do Windows
+# Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows
 
 Se você não conseguir se conectar a uma máquina virtual do Windows por ter esquecido a senha ou haver um problema com a configuração de serviços de Área de Trabalho Remota, use o Portal de Visualização do Azure ou a extensão VMAccess para redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota.
 
-> [AZURE.NOTE]Este artigo não se aplica a máquinas virtuais baseadas no Gerenciador de Recursos do Azure.
+> [AZURE.NOTE]Este artigo não se aplica às máquinas virtuais criadas no Gerenciador de Recursos.
 
 ## Portal de visualização do Azure
 
-Para redefinir a configuração do serviço de Área de Trabalho Remota no [Portal de Visualização do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual do Windows* > **Redefinir Acesso Remoto**. Aqui está um exemplo.
+Para redefinir a configuração do serviço de Área de Trabalho Remota no [Portal de Visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual do Windows* > **Redefinir Acesso Remoto**. Aqui está um exemplo.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para redefinir o nome e a senha da conta de administrador local no [Portal de Visualização do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. Aqui está um exemplo.
+Para redefinir o nome e a senha da conta de administrador local no [Portal de Visualização do Azure](https://portal.azure.com), clique em **Procurar tudo** > **Máquinas virtuais (clássico)** > *sua máquina virtual Windows* > **Todas as configurações** > **Redefinição de senha**. Aqui está um exemplo.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@ A extensão VMAccess não precisa ser instalada para que você possa usá-la. Um
  
 Primeiramente, verifique se que o agente de VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos em um prompt de comando do PowerShell do Azure com nível de administrador. Substitua tudo entre aspas, incluindo os caracteres < and >.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 Se você não souber o nome da máquina virtual e serviço de nuvem, execute **Get-AzureVM** para exibir essas informações para todas as máquinas virtuais em sua assinatura atual.
@@ -101,7 +102,7 @@ Se isso não resolver o problema de acesso à Área de Trabalho Remota, execute 
 
 Para obter mais informações, consulte o artigo da Base de Conhecimento do [pacote de diagnóstico do Microsoft Azure IaaS (Windows)](http://support.microsoft.com/kb/2976864).
 
-Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows) ou se executá-lo não resolver o problema, confira [Solucionar problemas de conexões da Área de Trabalho Remota a uma máquina virtual do Azure](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows) ou se executá-lo não resolver o problema, consulte [Solucionar problemas de conexões da Área de Trabalho Remota a uma máquina virtual do Azure](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 
 ## Recursos adicionais
@@ -110,6 +111,7 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

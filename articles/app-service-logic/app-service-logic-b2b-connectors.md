@@ -205,4 +205,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -350,4 +350,4 @@ Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs dis
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

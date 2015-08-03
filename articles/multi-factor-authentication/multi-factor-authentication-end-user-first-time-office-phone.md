@@ -40,4 +40,4 @@ Se desejar usar seu telefone comercial como o método de contato principal, voc�
 
 <center>![Configuração](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

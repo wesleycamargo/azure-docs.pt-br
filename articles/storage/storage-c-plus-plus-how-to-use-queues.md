@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/22/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Como usar o armazenamento de filas do C++  
@@ -232,10 +232,11 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
 
 -	[Como usar o Armazenamento de Blobs do C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
+-	[Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
 -	[Biblioteca do Cliente de Armazenamento para C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Referência do MSDN de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

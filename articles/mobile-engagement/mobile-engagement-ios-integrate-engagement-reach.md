@@ -324,7 +324,7 @@ Para criar uma categoria para um anúncio, você deve estender **AEAnnouncementV
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]Cada vez que um usuário for clicar em uma notificação para um anúncio com a categoria “my\\_category”, o controlador de exibição registrado (nesse caso `MyCustomAnnouncementViewController`) será inicializado chamando o método `initWithAnnouncement:` e a exibição será adicionada à janela do aplicativo atual.
+> [AZURE.NOTE]Cada vez que um usuário for clicar em uma notificação para um anúncio com a categoria “my\_category”, o controlador de exibição registrado (nesse caso `MyCustomAnnouncementViewController`) será inicializado chamando o método `initWithAnnouncement:` e a exibição será adicionada à janela do aplicativo atual.
 
 Na implementação da classe `AEAnnouncementViewController` você terá que ler a propriedade `announcement` para inicializar as subexibições. Considere o exemplo a seguir, onde dois rótulos são inicializados usando as propriedades `title` e `body` da classe `AEReachAnnouncement`:
 
@@ -458,4 +458,4 @@ Como para personalização da notificação avançada, é recomendável examinar
 			@end
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -34,37 +34,29 @@ Há três motivos principais para usar as Regras de Negócio do BizTalk no proce
 
 ##Vocabulário
 
-Os termos usados para definir as ações e condições das regras normalmente são expressas por nomenclaturas específicas ao domínio ou setor. Por exemplo, um usuário de email escreve regras em termos de mensagens “recebidas de" e mensagens "recebidas após”, enquanto um analista de seguros escreve regras em termos de "fatores de risco" e "valor de cobertura".
-Subjacente a essa terminologia específica ao domínio estão os artefatos de tecnologia (objetos, tabelas de banco de dados e documentos XML) que implementam as ações e as condições das regras. Os vocabulários são projetados para preencher a lacuna entre a semântica e a implementação de negócios.
+Os termos usados para definir as ações e condições das regras normalmente são expressas por nomenclaturas específicas ao domínio ou setor. Por exemplo, um usuário de email escreve regras em termos de mensagens “recebidas de" e mensagens "recebidas após”, enquanto um analista de seguros escreve regras em termos de "fatores de risco" e "valor de cobertura". Subjacente a essa terminologia específica ao domínio estão os artefatos de tecnologia (objetos, tabelas de banco de dados e documentos XML) que implementam as ações e as condições das regras. Os vocabulários são projetados para preencher a lacuna entre a semântica e a implementação de negócios.
 
-Por exemplo, uma vinculação de dados para um status de aprovação pode apontar para uma certa coluna de uma certa linha de um determinado banco de dados, representado como uma consulta SQL. Em vez de inserir esse tipo de representação complexa em uma regra, você pode criar uma definição de vocabulário, associada à vinculação de dados, com o nome amigável de "Status". Posteriormente, você pode incluir "Status" em qualquer regra, e o mecanismo de regra pode recuperar os dados correspondentes da tabela.
-Um _vocabulário_ é uma coleção de definições que consiste de nomes amigáveis para os objetos de computação usados em ações e condições de regra. Definições de vocabulário facilitam a leitura, compreensão e compartilhamento das regras pelas pessoas em um domínio de negócios específico.
+Por exemplo, uma vinculação de dados para um status de aprovação pode apontar para uma certa coluna de uma certa linha de um determinado banco de dados, representado como uma consulta SQL. Em vez de inserir esse tipo de representação complexa em uma regra, você pode criar uma definição de vocabulário, associada à vinculação de dados, com o nome amigável de "Status". Posteriormente, você pode incluir "Status" em qualquer regra, e o mecanismo de regra pode recuperar os dados correspondentes da tabela. Um _vocabulário_ é uma coleção de definições que consiste de nomes amigáveis para os objetos de computação usados em ações e condições de regra. Definições de vocabulário facilitam a leitura, compreensão e compartilhamento das regras pelas pessoas em um domínio de negócios específico.
 
 ##Regra
 
-Regras de negócio são instruções declarativas que governam a realização dos processos de negócios. Uma regra consiste de uma condição e de ações. A condição é avaliada e, se for avaliada como verdadeira, o mecanismo da regra dá início a uma ou mais ações.
-As regras da Estrutura de Regras de Negócios são definidas usando o formato a seguir:
+Regras de negócio são instruções declarativas que governam a realização dos processos de negócios. Uma regra consiste de uma condição e de ações. A condição é avaliada e, se for avaliada como verdadeira, o mecanismo da regra dá início a uma ou mais ações. As regras da Estrutura de Regras de Negócios são definidas usando o formato a seguir:
 
 _IF_ _condição_ _THEN_ _ação_
 
 Considere o exemplo a seguir:
 
-*IF (Se) a quantidade for menor ou igual aos fundos disponíveis*  
-*THEN (Então) realize as transações e imprima o recibo*
+*IF (Se) a quantidade for menor ou igual aos fundos disponíveis* *THEN (Então) realize as transações e imprima o recibo*
 
-Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis.
-Você pode usar a Regra de Negócio para criar, modificar e implantar regras de negócio. Ou você pode realizar as tarefas anteriores de forma programática.
+Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis. Você pode usar a Regra de Negócio para criar, modificar e implantar regras de negócio. Ou você pode realizar as tarefas anteriores de forma programática.
 
 ###Condições
 
-Uma condição é uma expressão (booliana) verdadeira/falsa que consiste em um ou mais predicados. Em nosso exemplo, o predicado “menor ou igual a” é aplicado ao valor e aos fundos disponíveis. Essa condição será sempre avaliada como verdadeira ou falsa.
-Os predicados podem ser combinados com os operadores lógicos AND, OR e NOT para formar uma expressão lógica, que pode ser bastante grande, mas sempre será avaliada como verdadeira ou falsa.
+Uma condição é uma expressão (booliana) verdadeira/falsa que consiste em um ou mais predicados. Em nosso exemplo, o predicado “menor ou igual a” é aplicado ao valor e aos fundos disponíveis. Essa condição será sempre avaliada como verdadeira ou falsa. Os predicados podem ser combinados com os operadores lógicos AND, OR e NOT para formar uma expressão lógica, que pode ser bastante grande, mas sempre será avaliada como verdadeira ou falsa.
 
 ###Ações
 
-As ações são consequências funcionais da avaliação da condição. Se a condição de uma regra for atendida, uma ou mais ações correspondentes serão iniciadas.
-Em nosso exemplo, "realizar transação" e “imprimir recibo" são ações executadas quando, e somente quando, a condição (nesse caso, “SE o valor for menor que ou igual aos fundos disponíveis") for verdadeira.
-As ações são representadas na Estrutura de Regras de Negócios, executando operações de conjunto em documentos XML.
+As ações são consequências funcionais da avaliação da condição. Se a condição de uma regra for atendida, uma ou mais ações correspondentes serão iniciadas. Em nosso exemplo, "realizar transação" e “imprimir recibo" são ações executadas quando, e somente quando, a condição (nesse caso, “SE o valor for menor que ou igual aos fundos disponíveis") for verdadeira. As ações são representadas na Estrutura de Regras de Negócios, executando operações de conjunto em documentos XML.
 
 ##Política
 
@@ -82,18 +74,17 @@ Vamos selecionar um cenário de exemplo e percorrê-lo enquanto compomos sua ló
 
 ![Alt text][1]
 
-Em um cenário de Solicitação de Resgate de Seguro bastante simples, o solicitante envia sua solicitação de resgate (por meio de qualquer cliente, como site, aplicativo para telefone etc). A Solicitação de Resgate de Seguro é encaminhada para a Unidade de Processamento de Solicitações e, com base no resultado do processamento, ela pode ser aprovada, rejeitada ou encaminhada para processamento manual.
-Em nosso cenário, a Unidade de Processamento de Solicitação seria a que contém a lógica de negócios do sistema. Examinando esta mais de perto, podemos ver o seguinte:
+Em um cenário de Solicitação de Resgate de Seguro bastante simples, o solicitante envia sua solicitação de resgate (por meio de qualquer cliente, como site, aplicativo para telefone etc). A Solicitação de Resgate de Seguro é encaminhada para a Unidade de Processamento de Solicitações e, com base no resultado do processamento, ela pode ser aprovada, rejeitada ou encaminhada para processamento manual. Em nosso cenário, a Unidade de Processamento de Solicitação seria a que contém a lógica de negócios do sistema. Examinando esta mais de perto, podemos ver o seguinte:
 
 ![Alt text][2]
- 
+
 Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios.
 
 
 ##Criação de Aplicativo de API de Regras
 
 
-1. Faça logon no Portal do Azure e vá para a home page. 
+1. Faça logon no Portal do Azure e vá para a home page.
 1. Clique em Novo -> Azure Marketplace -> Aplicativos de API - > Regras do BizTalk -> Criar ![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:  
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
@@ -108,84 +99,44 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 
 
 1. Navegue até o Aplicativo de API criado em Procurar -> Aplicativo de API -><Your Rules API App>. Isso deve levar você a um Painel do Aplicativo de API de Regras semelhante a este:
- 
+
    ![Alt text][4]
 
-2.Em seguida, clique em "Definições de vocabulário". Isso exibe a tela de Criação de Vocabulário. Clique em "Adicionar" para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
+2. Em seguida, clique em "Definições de vocabulário". Isso exibe a tela de Criação de Vocabulário. Clique em "Adicionar" para começar a adicionar novas definições de vocabulário. Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
 1.	Após você clicar em "Adicionar", uma nova lâmina "Adicionar Definição" abrirá. Insira os valores a seguir
   1.	Nome – apenas caracteres alfanuméricos são esperados, sem caracteres especiais. Ele deve ser exclusivo em sua lista de definições de vocabulário existente.
   2.	Descrição – campo opcional.
   3.	Tipo – dois tipos têm suporte. Neste exemplo, escolha Literal
-  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: 
-    i.	Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres")  
-    ii.	Booliano – pode ser verdadeiro ou falso  
-    iii.	Número – pode ser qualquer número decimal  
-    iv.	DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\PM  
-    v.	Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
+  4.	Tipo de entrada – permite aos usuários selecionarem o tipo de dados da definição. Atualmente, você pode selecionar quatro tipos de dados: i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") ii. Booliano – pode ser verdadeiro ou falso iii. Número – pode ser qualquer número decimal iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM v. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. O usuário pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave “to” (“a”). Por exemplo, o usuário pode inserir um valor exclusivo 1; um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. Observe que o intervalo tem suporte somente para números.
 
 ![Alt text][5]
 ##Definição XML
-Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas  
-  a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.   
-  b.	XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada.  
-  c.	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
+Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas a. Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema. b. XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada. FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
 
 ![Alt text][6]
 
 ### Adicionar em massa
-As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil.
-Clicar em "Adicionar em massa" levará você para uma nova lâmina. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema. Agora, a propriedade XPATHS é desbloqueada. Clicar nessa opção abrirá o Visualizador de esquema, em que vários nós podem ser selecionados.
-Os nomes de várias definições criadas assumirão como padrão o nome do nó selecionado. Eles podem ser modificados após a criação.
+As etapas acima capturaram a experiência para criar definições de vocabulário. Após serem criadas, as definições de vocabulário aparecerão em formato de lista. Há requisitos para poder gerar várias definições por meio do mesmo esquema em vez de repetir as etapas acima toda vez. E é aqui que a funcionalidade Adicionar em massa se torna muito útil. Clicar em "Adicionar em massa" levará você para uma nova lâmina. A primeira etapa é selecionar o esquema para o qual as definições serão criados. Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema. Agora, a propriedade XPATHS é desbloqueada. Clicar nessa opção abrirá o Visualizador de esquema, em que vários nós podem ser selecionados. Os nomes de várias definições criadas assumirão como padrão o nome do nó selecionado. Eles podem ser modificados após a criação.
 
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
-	1.	No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
-	2.	Essa página mostrará a lista de políticas que esse Aplicativo de Regras específico tem. O usuário pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla tab. Várias políticas podem residir em um único Aplicativo de API de Regras.  
-	3.	Clicar na política criada levará o usuário à página de detalhes da política, em que é possível ver as regras que estão na política.  
-	![Alt text][8] 
-	4.	Clique em "Adicionar Novo" para adicionar uma nova regra. Isso levará você a uma nova lâmina.
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 2. Essa página mostrará a lista de políticas que esse Aplicativo de Regras específico tem. O usuário pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla tab. Várias políticas podem residir em um único Aplicativo de API de Regras. 3. Clicar na política criada levará o usuário à página de detalhes da política, em que é possível ver as regras que estão na política. ![Alt text][8] 4. Clique em "Adicionar Novo" para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
-Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:  
-1. 	And – operador condicional  
-2. 	Or – operador condicional  
-3. 	does_not_exist  
-4. 	exists  
-5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
-14. mod  
-15. true 
+Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte: 1. And – operador condicional 2. Or – operador condicional 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
 
-A caixa de Ação (Then) pode conter várias instruções, um por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:  
-1.	igual a  
-2.	falso  
-3.	verdadeiro  
-4.	interromper  
-5.	mod  
-6.	nulo  
-7.	atualizar  
+A caixa de Ação (Then) pode conter várias instruções, um por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte: 1. igual a 2. falso 3. verdadeiro 4. interromper 5. mod 6. nulo 7. atualizar
 
-As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
-![Alt text][9]
+As caixas de condição e ação fornecem IntelliSense para ajudar o usuário a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte:  
-   1.	atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
-   2.	Halt – esta palavra-chave interrompe todas as execuções de regra
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito. Isso significa que, se os usuários quiserem reavaliar as regras em resposta a determinadas ações, eles podem fazer isso usando palavras-chave. A seguir estão as palavras-chave com suporte: 1. atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição. 2. Halt – esta palavra-chave interrompe todas as execuções de regra
 
-##Habilitar\desabilitar regras
-Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\desabilitar.
+##Habilitar\\desabilitar regras
+Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\\desabilitar.
 
 ##Prioridade da regra
 Todas as regras da política são executadas em ordem. A prioridade de execução é determinada pela ordem em que elas ocorrem na política. Essa prioridade pode ser alterada simplesmente arrastando e soltando a regra.
@@ -210,20 +161,20 @@ A seguir, há um exemplo de como se pode usar essa API em C#
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -248,7 +199,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-
- 
-
-<!-----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

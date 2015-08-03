@@ -164,7 +164,7 @@ Nesse ponto, você tem todo o necessário para começar a criar contas do usuár
 
 ## Criar o LoginProvider
 
-Uma das construções fundamentais no pipeline de autenticação dos Serviços Móveis é o **LoginProvider**. Nesta seção, você criará seu próprio `CustomLoginProvider`. Ele não será conectado ao pipeline como os provedores integrados, mas fornecerá a você uma funcionalidade conveniente.
+Uma das construções fundamentais no pipeline de autenticação dos Serviços Móveis é o **LoginProvider**. Nesta seção, você criará seu próprio `CustomLoginProvider`. Ele não será conectado ao pipeline como os provedores integrados, mas fornecerá a você uma funcionalidade conveniente. Se você usar o visual studio 2013, talvez precise instalar o `WindowsAzure.MobileServices.Backend.Security`pacote nuget para adicionar referências à `LoginProvider`classe.
 
 1. Crie uma nova classe, `CustomLoginProvider`, que é derivada de **LoginProvider**, e adicione as seguintes instruções `using`:
 
@@ -420,4 +420,4 @@ Assim, concluímos este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -176,4 +176,4 @@ Há vários utilitários que incluem um `openssl` para Windows. Alguns exemplos 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

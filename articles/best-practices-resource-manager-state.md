@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Práticas recomendadas para manipulação de estado nos modelos do Gerenciador de Recursos do Azure"
 	description="Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Gerenciador de Recursos do Azure"
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -22,7 +22,7 @@ Este tópico descreve como gerenciar e compartilhar estado em um modelo do Geren
 
 ## Usando objetos complexos para compartilhar o estado
 
-Além dos parâmetros de valor único, você pode usar objetos complexos como parâmetros em um modelo do Gerenciador de Recursos do Azure. Com objetos complexos, você pode implementar e fazer referência a coleções de dados para uma área específica, como o tamanho de camiseta (para descrever uma máquina virtual), configurações de rede, configurações de sistema operacional (SO) e configurações de disponibilidade.
+Além dos parâmetros de valor único, você pode usar objetos complexos como parâmetros em um modelo do Gerenciador de Recursos do Azure. Com objetos complexos, você pode implementar e fazer referência a coleções de dados para uma área específica, como o tamanho de camiseta (para descrever uma máquina virtual), as configurações de rede, as configurações de sistema operacional e as configurações de disponibilidade.
 
 O exemplo a seguir mostra como definir variáveis que contêm objetos complexos para representar coleções de dados. As coleções definem os valores que são usados para o tamanho da máquina virtual, as configurações de rede, as configurações de sistema operacional e as configurações de disponibilidade.
 
@@ -74,7 +74,7 @@ O exemplo a seguir mostra como definir variáveis que contêm objetos complexos 
       "udCount": 5
     }
 
-Você pode fazer referência a essas variáveis posteriormente no modelo. A capacidade de fazer referência a variáveis nomeadas e suas propriedades simplifica a sintaxe de modelo e torna mais fácil entender o contexto. O exemplo a seguir define um recurso para implantar usando os objetos mostrados acima para definir valores. Por exemplo, observe que o tamanho da VM é definido pela recuperação do valor de `variables('tshirtSize').vmSize`, enquanto o valor para o tamanho do disco é recuperado de `variables('tshirtSize').diskSize`. Além disso, o URI de um modelo vinculado é definido com o valor de `variables('tshirtSize').vmTemplate`.
+Você pode fazer referência a essas variáveis posteriormente no modelo. A capacidade de fazer referência a variáveis nomeadas e às suas propriedades simplifica a sintaxe de modelo e facilita o entendimento do contexto. O exemplo a seguir define um recurso para implantar usando os objetos mostrados acima para definir valores. Por exemplo, observe que o tamanho da VM é definido pela recuperação do valor de `variables('tshirtSize').vmSize`, enquanto o valor para o tamanho do disco é recuperado de `variables('tshirtSize').diskSize`. Além disso, o URI de um modelo vinculado é definido com o valor de `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -131,23 +131,23 @@ Você pode fazer referência a essas variáveis posteriormente no modelo. A capa
 
 ## Passando estado para um modelo e seus modelos vinculados
 
-Você pode compartilhar informações de estado em um modelo e seus modelos vinculados por meio de:
+Você pode compartilhar informações de estado em um modelo e em seus modelos vinculados por meio de:
 
 - parâmetros fornecidos diretamente para o modelo principal durante a implantação
 - parâmetros, variáveis estáticas e variáveis geradas que o modelo principal compartilha com seus modelos vinculados
 
 ### Parâmetros comuns fornecidos ao modelo principal
 
-A tabela a seguir lista parâmetros usados com frequência em modelos.
+A tabela a seguir lista os parâmetros normalmente usados em modelos.
 
-**Parâmetros comuns passados para o modelo principal**
+**Parâmetros normalmente passados para o modelo principal**
 
 Nome | Valor | Descrição
 ---- | ----- | -----------
 location | Cadeia de caracteres de uma lista restrita de regiões do Azure | O local onde os recursos serão implantados.
-storageAccountNamePrefix | Cadeia de caracteres | Nome DNS exclusivo da conta de armazenamento onde serão colocados os discos da VM
+storageAccountNamePrefix | Cadeia de caracteres | Nome DNS exclusivo da conta de armazenamento na qual serão colocados os discos da VM
 domainName | Cadeia de caracteres | Nome de domínio da VM Jumpbox publicamente acessível no formato:**{domainName}.{local}.cloudapp.com** Por exemplo: **mydomainname.westus.cloudapp.azure.com**
-adminUsername | Cadeia de caracteres | Nome de usuário das máquinas virtuais
+adminUsername | Cadeia de caracteres | Nome de usuário das VMs
 adminPassword | Cadeia de caracteres | A senha das VMs
 tshirtSize | Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos | O tamanho da unidade de escala nomeada para provisionamento. Por exemplo, "Pequeno", "Médio", "Grande"
 virtualNetworkName | Cadeia de caracteres | Nome da rede virtual que o consumidor deseja usar.
@@ -161,9 +161,9 @@ Ao conectar-se aos modelos vinculados, geralmente você utilizará uma combinaç
 
 Variáveis estáticas geralmente são usadas para fornecer valores de base, como URLs, que são usados em um modelo ou como valores que são usados para compor valores para variáveis dinâmicas.
 
-No trecho de modelo abaixo, *templateBaseUrl* especifica o local raiz do modelo no GitHub. A próxima linha cria uma nova variável *sharedTemplateUrl*que concatena o valor de *templateBaseUrl* com o nome conhecido do modelo de recursos compartilhados. Abaixo, uma variável de objeto complexo é usada para armazenar um tamanho de camiseta, onde *templateBaseUrl* é concatenado para especificar o local do modelo de configuração conhecido armazenado na propriedade *vmTemplate*.
+No trecho de modelo abaixo, *templateBaseUrl* especifica o local raiz do modelo no GitHub. A próxima linha cria uma nova variável *sharedTemplateUrl* que concatena o valor de *templateBaseUrl* com o nome conhecido do modelo de recursos compartilhados. Abaixo, uma variável de objeto complexo é usada para armazenar um tamanho de camiseta, em que *templateBaseUrl* é concatenado para especificar o local do modelo de configuração conhecido armazenado na propriedade *vmTemplate*.
 
-O benefício dessa abordagem é que você pode facilmente mover bifurcar ou usar o modelo como base para um novo. Se o local do modelo for alterado, você só precisa alterar a variável estática em um único lugar — o modelo principal — que o passa para os modelos.
+O benefício dessa abordagem é que você pode facilmente mover, bifurcar ou usar o modelo como base para um novo. Se o local do modelo for alterado, você só precisa alterar a variável estática em um único lugar — o modelo principal — que o passa para os modelos.
 
     "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
@@ -188,9 +188,9 @@ Além de variáveis estáticas, diversas variáveis são geradas dinamicamente. 
 
 ##### tshirtSize
 
-Ao chamar o modelo principal, você pode selecionar um tamanho de camiseta entre um número fixo de opções, que geralmente incluem valores como*Pequeno*, *Médio* e *Grande*.
+Ao chamar o modelo principal, você pode selecionar um tamanho de camiseta entre um número fixo de opções, que geralmente incluem valores como *Pequeno*, *Médio* e *Grande*.
 
-No modelo principal, essa opção será exibida como um parâmetro, como *tshirtSize*:
+No modelo principal, essa opção aparece como um parâmetro, como *tshirtSize*:
 
     "tshirtSize": {
       "type": "string",
@@ -205,11 +205,11 @@ No modelo principal, essa opção será exibida como um parâmetro, como *tshirt
       }
     }
 
-No modelo principal, variáveis correspondem a cada um dos tamanhos. Por exemplo, se os tamanhos disponíveis são “pequeno”, “médio” e “grande”, a seção de variáveis incluiria variáveis chamadas *tshirtSizeSmall*, *tshirtSizeMedium* e *tshirtSizeLarge*.
+No modelo principal, as variáveis correspondem a cada um dos tamanhos. Por exemplo, se os tamanhos disponíveis são pequeno, médio e grande, a seção de variáveis incluiria variáveis chamadas *tshirtSizeSmall*, *tshirtSizeMedium* e *tshirtSizeLarge*.
 
-Como mostra o exemplo a seguir, essas variáveis definem as propriedades de um determinado tamanho de camiseta. Cada uma identifica o tipo de VM, o tamanho do disco, o modelo de recursos de unidade de escala associado ao qual vincular, o número de instâncias, detalhes da conta de armazenamento e o status de Jumpbox.
+Como mostra o exemplo a seguir, essas variáveis definem as propriedades de um determinado tamanho de camiseta. Cada uma identifica o tipo de VM, o tamanho do disco, o modelo de recursos de unidade de escala associado ao qual vincular, o número de instâncias, os detalhes da conta de armazenamento e o status de Jumpbox.
 
-O prefixo de nome de conta de armazenamento é extraído de um parâmetro fornecido por um usuário, e o modelo vinculado é a concatenação da URL base do modelo e do nome do arquivo de um modelo de recursos de unidade de escala específico.
+O prefixo de nome de conta de armazenamento é extraído de um parâmetro fornecido por um usuário e o modelo vinculado é a concatenação da URL base do modelo e do nome do arquivo de um modelo de recursos de unidade de escala específico.
 
     "tshirtSizeSmall": {
       "vmSize": "Standard_A1",
@@ -251,7 +251,7 @@ O prefixo de nome de conta de armazenamento é extraído de um parâmetro fornec
       }
     }
 
-A variável *tshirtSize* aparece mais adiante na seção das variáveis. O final do tamanho de camiseta fornecido (*Pequeno*, *Médio*, *Grande*) é concatenado com o texto *tshirtSize* para recuperar a variável de objeto complexo associada desse tamanho de camiseta:
+A variável *tshirtSize* aparece mais adiante na seção das variáveis. O final do tamanho de camiseta fornecido (*Pequeno*, *Médio*, *Grande*) é concatenado com o texto *tshirtSize* para recuperar a variável de objeto complexo associada ao tamanho de camiseta:
 
     "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
 
@@ -259,7 +259,7 @@ Essa variável é passada para o modelo de recursos de unidade de escala vincula
 
 ##### networkSettings
 
-Em um modelo de capacidade, recurso ou solução de escopo completa, modelos vinculados normalmente criam recursos que existem em uma rede. Uma abordagem simples é usar um objeto complexo para armazenar as configurações de rede e passá-las para modelos vinculados.
+Em um modelo de capacidade, recurso ou solução de escopo completa, os modelos vinculados normalmente criam recursos que existem em uma rede. Uma abordagem simples é usar um objeto complexo para armazenar as configurações de rede e passá-las para modelos vinculados.
 
 Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
 
@@ -294,7 +294,7 @@ Se precisar de vários conjuntos de disponibilidade (por exemplo, um para nós m
 
 ##### storageSettings
 
-Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo a seguir, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e conta de armazenamento.
+Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo a seguir, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -304,7 +304,7 @@ Detalhes de armazenamento geralmente são compartilhados com modelos vinculados.
 
 ##### osSettings
 
-Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil oferecer suporte a várias opções de sistema operacional para implantação.
+Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil dar suporte a várias opções de sistema operacional para implantação.
 
 O exemplo a seguir mostra um objeto de *osSettings*:
 
@@ -337,7 +337,7 @@ Observe que *osImageReference* recupera os valores da variável *osSettings* def
 
 ##### vmScripts
 
-O objeto *vmScripts*contém detalhes sobre os scripts a serem baixados e executados em uma instância de VM, incluindo referências externas e internas. Referências externas incluem a infraestrutura. Referências internas incluem o software instalado e a configuração.
+O objeto *vmScripts* contém detalhes sobre os scripts a serem baixados e executados em uma instância VM, incluindo referências externas e internas. Referências externas incluem a infraestrutura. Referências internas incluem o software instalado e a configuração.
 
 Você usa a propriedade *scriptsToDownload* para listar os scripts a serem baixados na VM.
 
@@ -360,7 +360,7 @@ A seção de variáveis é onde você encontrará as variáveis que definem o te
 
 ## Retornando o estado de um modelo
 
-Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção de **saídas** de um modelo vinculado, você pode fornecer os pares chave/valor que podem ser consumidos pelo modelo de origem.
+Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção de **saídas** de um modelo vinculado, você pode fornecer os pares chave-valor que podem ser consumidos pelo modelo de origem.
 
 O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo vinculado.
 
@@ -381,4 +381,4 @@ No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 - [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

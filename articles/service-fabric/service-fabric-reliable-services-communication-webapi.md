@@ -613,4 +613,4 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 [Depurando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

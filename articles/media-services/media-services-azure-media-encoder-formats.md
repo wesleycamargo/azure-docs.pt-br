@@ -27,12 +27,12 @@ Codecs têm dois componentes: um para compactar arquivos de mídia digital para 
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia do Azure.
 
 
-Formatos de [Importação do Codificador de Mídia](#import_formats)
+[Formatos de Importação do Codificador de Mídia do Azure](#import_formats)
 
-[Formatos de Exportação do Codificador de Mídia](#export_formats)
+[Formatos de Exportação do Codificador de Mídia do Azure](#export_formats)
 
 
-##<a id="import_formats"></a>Formatos de Importação do Codificador de Mídia 
+##<a id="import_formats"></a>Formatos de Importação do Codificador de Mídia do Azure 
 
 A seção a seguir lista os codecs e formatos de arquivo com suporte para importação.
 
@@ -102,7 +102,7 @@ Há suporte para alguns formatos descompactados. Para obter mais informações, 
 </table>
 
 
-##<a id="export_formats"></a>Formatos de Exportação do Codificador de Mídia
+##<a id="export_formats"></a>Formatos de Exportação do Codificador de Mídia do Azure
 
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
 
@@ -137,4 +137,4 @@ Esta é uma lista parcial de formatos descompactados com suporte.
 <tr><td>Formato YVU9 produzido em Indeo</td><td>Formato YVU9 produzido em Indeo com informações adicionais sobre as diferenças do último quadro. 9,5 bits por pixel, mas relatado como 9.</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

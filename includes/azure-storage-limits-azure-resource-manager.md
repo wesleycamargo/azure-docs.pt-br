@@ -15,4 +15,4 @@ Os limites a seguir se aplicam somente ao usar o Gerenciador de Recursos do Azur
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

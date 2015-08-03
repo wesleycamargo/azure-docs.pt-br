@@ -86,4 +86,4 @@ Esta versão não contém nenhuma atualização para o controlador SCSI (SAS) an
 Esta versão não contém nenhuma atualização para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

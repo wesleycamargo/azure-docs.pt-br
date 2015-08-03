@@ -20,7 +20,7 @@
 
 Se desejar usar o aplicativo móvel como o método de contato principal, você poderá usar este artigo. Ele vai ajudar a configurar a autenticação multifator para usar o aplicativo móvel como o método de contato principal.
 
-O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/pt-br/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+O aplicativo Azure Authenticator está disponível para [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## Para usar um aplicativo móvel como método de contato
 <ol>
@@ -51,4 +51,4 @@ O aplicativo Azure Authenticator está disponível para [Windows Phone](http://w
 <li>Se estiver usando esses aplicativos, copie a senha de aplicativo fornecida e cole-a no aplicativo que não usa navegador. Para ver as etapas de aplicativos individuais, como Outlook e Lync, consulte Como alterar a senha no seu email para a senha de aplicativo e Como alterar a senha no seu aplicativo para a senha de aplicativo.</li>
 <li>Clique em Concluído.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

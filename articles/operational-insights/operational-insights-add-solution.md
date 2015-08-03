@@ -90,4 +90,4 @@ Há suporte para coleta de log do IIS em computadores com:
 
 3. Na página de confirmação, clique em **Sim** para remover a solução.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

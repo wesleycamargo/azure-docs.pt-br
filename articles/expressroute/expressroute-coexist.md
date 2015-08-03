@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam
@@ -45,10 +45,11 @@ Há dois procedimentos de configuração distintos dentre os quais escolher. O p
 
 ### Observações e limitações
 
+- Você não conseguirá fazer o roteamento (por meio do Azure) entre sua rede local conectada via VPN Site a Site e sua rede local conectada via Rota Expressa.
+- Não é possível habilitar conexões VPN de ponto ao local para a mesma VNet que está conectada à Rota Expressa. A VPN de ponto ao local e a Rota Expressa não podem coexistir para a mesma VNet.
 - O gateway de Rota Expressa e o gateway de VPN Site a Site devem ser um SKU de gateway Standard ou HighPerformance. Para obter informações sobre os SKUs de gateway, consulte [SKUs de Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Se sua rede local está conectada tanto a um gateway de VPN Site a Site quanto a um de Rota Expressa (cenário 1), você deve ter uma rota estática configurada em sua rede local para rotear a conexão VPN Site a Site para a Internet pública. 
 - Você deve criar o gateway de Rota Expressa primeiro, antes de adicionar o gateway de VPN Site a Site.
-- Você não conseguirá fazer o roteamento (por meio do Azure) entre sua rede local conectada via VPN Site a Site e sua rede local conectada via Rota Expressa.
 - Ambos os procedimentos supõem que você já tem um circuito de Rota Expressa configurado. Se este não é o caso, consulte os seguintes artigos: 
 
 	- [Configurar uma conexão de Rota Expressa por meio de um NSP (provedor de serviços de rede)](expressroute-configuring-nsps.md) 
@@ -151,7 +152,7 @@ Há dois procedimentos de configuração distintos dentre os quais escolher. O p
 		OperationStatus      : Succeeded
 
 	
-8. Configure seu dispositivo VPN local para conectar-se ao novo gateway. Ao configurar seu dispositivo VPN, use as informações que você recuperou na etapa 6. Para obter mais informações sobre a configuração de dispositivo VPN, consulte [Configuração do Dispositivo VPN](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Configure seu dispositivo VPN local para conectar-se ao novo gateway. Ao configurar seu dispositivo VPN, use as informações que você recuperou na etapa 6. Para obter mais informações sobre a configuração de dispositivo VPN, consulte [Configuração do Dispositivo VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 	
 
 9. Vincule o gateway de VPN Site a Site no Azure ao gateway local.
@@ -203,4 +204,4 @@ Saiba mais sobre Rota Expressa. Consulte [Visão geral de Rota Expressa](express
 
 Saiba mais sobre gateways de VPN. Consulte [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

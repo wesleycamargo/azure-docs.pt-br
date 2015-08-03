@@ -364,4 +364,4 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

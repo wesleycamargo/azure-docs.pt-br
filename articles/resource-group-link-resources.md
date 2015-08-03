@@ -146,4 +146,4 @@ Para obter mais exemplos, incluindo como recuperar informações sobre vínculos
 - Você também pode organizar seus recursos com marcas. Para saber mais sobre marcação de recursos, consulte [Usando marcas para organizar os recursos](resource-group-using-tags.md).
 - Para obter uma descrição de como criar modelos e definir os recursos a serem implantados, consulte [Criando modelos](resource-group-authoring-templates.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

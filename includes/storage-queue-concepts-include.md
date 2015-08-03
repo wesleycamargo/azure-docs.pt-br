@@ -24,4 +24,4 @@ A URL a seguir endereça uma das filas no diagrama:http://myaccount.queue.core.w
 
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

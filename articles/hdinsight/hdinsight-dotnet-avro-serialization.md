@@ -3,7 +3,7 @@
 	description="Saiba como o Azure HDInsight usa o Avro para serializar big data." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 
 # Serializar dados no Hadoop com a Biblioteca do Microsoft Avro
@@ -1406,4 +1406,4 @@ Para limpar o cluster, execute este comando:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

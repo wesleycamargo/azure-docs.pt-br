@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/09/2015"
+	ms.date="07/16/2015"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Visão geral
 
-Uma conta de armazenamento do Azure é uma conta segura que fornece acesso a serviços no Armazenamento do Azure. Sua conta de armazenamento fornece um namespace exclusivo para os objetos de dados de Armazenamento do Azure. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta.
+Uma conta de armazenamento do Azure é uma conta de segurança que dá acesso aos serviços de Blob, Fila, Tabela e Arquivo no Armazenamento do Azure. Sua conta de armazenamento fornece um namespace exclusivo para os objetos de dados de Armazenamento do Azure. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta.
 
 Existem dois tipos de contas de armazenamento:
 
@@ -53,9 +53,9 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 
 3. Em **URL**, insira um nome para a conta de armazenamento.
 	
-	> [AZURE.NOTE]Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter números e apenas letras minúsculas.
+	> [AZURE.NOTE]Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 	>  
-	> O nome da sua conta de armazenamento deve ser exclusivo dentro do Azure. O portal indicará se o nome de conta de armazenamento que você selecionar já é usado.
+	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal indicará se o nome de conta de armazenamento que você selecionar já é usado.
 
 	Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) abaixo para obter detalhes sobre como o nome da conta de armazenamento será usado nos seus objetos no Armazenamento do Azure.
 
@@ -63,7 +63,7 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 
 	Observe que você deve selecionar um grupo de afinidades quando sua conta de armazenamento for criada; se não puder, mova uma conta existente para um grupo de afinidade. Para saber mais sobre grupos de afinidade, confira [Colocalização de serviços com um grupo de afinidade](#service-co-location-with-an-affinity-group) abaixo.
 
-5. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Em **Assinatura**, digite a assinatura do Azure com a qual você deseja usar a conta de armazenamento. Você pode criar até cinco contas de armazenamento para uma assinatura.
+5. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Em **Assinatura**, digite a assinatura do Azure com a qual você deseja usar a conta de armazenamento.
 
 6. Em **Replicação**, selecione o nível desejado de replicação para sua conta de armazenamento. A opção de replicação recomendada é a replicação georredundante, que fornece a máxima durabilidade para seus dados. Para obter mais detalhes sobre as opções de replicação de Armazenamento do Azure, confira [Replicação de armazenamento do Azure](storage-redundancy.md).
 
@@ -167,4 +167,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

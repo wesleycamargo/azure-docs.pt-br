@@ -185,4 +185,4 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 - [Exemplos de código de Hubs de Eventos](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

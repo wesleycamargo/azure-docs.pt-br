@@ -141,4 +141,4 @@ Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

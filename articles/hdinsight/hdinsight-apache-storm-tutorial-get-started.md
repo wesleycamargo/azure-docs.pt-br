@@ -217,4 +217,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

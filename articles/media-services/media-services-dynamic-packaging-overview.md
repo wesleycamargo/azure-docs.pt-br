@@ -97,4 +97,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 - Arquivos mp4 Dolby digital plus.
 - Dolby digital mais arquivos smooth. 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

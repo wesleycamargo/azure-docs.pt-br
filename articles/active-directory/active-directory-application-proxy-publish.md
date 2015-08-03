@@ -79,4 +79,4 @@ Depois de publicar aplicativos usando o Proxy de Aplicativo do Active Directory 
 
 * [Sobre a delegação restrita de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -105,4 +105,4 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 - [Exibindo o status de um trabalho de runbook na Automação do Azure](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

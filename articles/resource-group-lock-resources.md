@@ -22,13 +22,13 @@ Como administrador, há situações em que você deseja colocar um bloqueio em u
 
 O Gerenciador de Recursos do Azure permite restringir operações nos recursos por meio de bloqueios de gerenciamento de recursos. Bloqueios de recursos são políticas que impõem um nível de bloqueio em um escopo específico. O nível de bloqueio identifica o tipo de imposição da política, que atualmente tem dois valores –**CanNotDelete** e **ReadOnly**. O escopo é expresso como um URI e pode ser um recurso ou um grupo de recursos.
 
-Os bloqueios são diferentes de atribuir permissões de usuário para executar determinadas ações. Para obter informações sobre como configurar permissões para usuários e funções, consulte [Controle de acesso baseado em função no portal de visualização](role-based-access-control-configure.md) e [Gerenciando e auditando o acesso a recursos](resource-group-rbac.md).
+Usar bloqueios é diferente de atribuir permissões de usuário para executar determinadas ações. Para obter informações sobre como configurar permissões para usuários e funções, consulte [Controle de acesso baseado em função no portal de visualização](role-based-access-control-configure.md) e [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md).
 
 ## Cenários comuns
 
-Um cenário comum é quando você tem um grupo de recursos com alguns recursos que são usados esporadicamente. Recursos de VM são habilitados periodicamente para processar dados por um determinado intervalo de tempo e, em seguida, desabilitados. Nesse cenário, convém habilitar o desligamento das VMs, mas é fundamental que uma conta de armazenamento não seja excluída. Nesse cenário, você usaria um bloqueio de recurso com um nível de bloqueio de **CanNotDelete** na conta de armazenamento.
+Um cenário comum é quando você tem um grupo de recursos com alguns recursos que são usados esporadicamente. Os recursos de VM são ligados periodicamente para processar dados por um determinado intervalo de tempo e, em seguida, desligados. Nesse cenário, convém habilitar o desligamento das VMs, mas é fundamental que uma conta de armazenamento não seja excluída. Nesse cenário, você usaria um bloqueio de recurso com um nível de bloqueio de **CanNotDelete** na conta de armazenamento.
 
-Em outro cenário, sua empresa pode ter períodos em que não deseja que as atualizações entrem em produção. O nível de bloqueio **ReadOnly** impede criação ou atualizações. Se você é uma empresa de varejo, talvez não queira permitir atualizações durante períodos de compras em feriados. Se você é uma empresa de serviços financeiros, você pode ter restrições relacionadas às implantações durante determinadas horas do mercado. Um bloqueio de recurso pode fornecer uma política para bloquear os recursos conforme apropriado. Isso pode ser aplicado a apenas determinados recursos ou para todo o grupo de recursos.
+Em outro cenário, sua empresa pode ter períodos em que não deseja que as atualizações entrem em produção. O nível de bloqueio **ReadOnly** impede criação ou atualizações. Se você é uma empresa de varejo, talvez não queira permitir atualizações durante períodos de compras em feriados. Se você é uma empresa de serviços financeiros, você pode ter restrições relacionadas às implantações durante determinadas horas do mercado. Um bloqueio de recurso pode fornecer uma política para bloquear os recursos conforme apropriado. Isso pode ser aplicado a apenas determinados recursos ou a todo o grupo de recursos.
 
 ## Criando um bloqueio em um modelo
 
@@ -92,6 +92,6 @@ O PowerShell fornece outros comandos para bloqueios de trabalho, tais como **Set
 ## Próximas etapas
 
 - [Usando marcas para organizar os recursos](resource-group-using-tags.md)
-- [Mover recursos para o novo grupo de recursos](resource-group-move-resources.md)
+- [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

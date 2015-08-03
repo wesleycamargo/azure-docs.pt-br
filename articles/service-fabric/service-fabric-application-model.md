@@ -234,4 +234,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

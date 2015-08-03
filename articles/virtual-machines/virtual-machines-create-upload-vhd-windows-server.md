@@ -211,4 +211,4 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Etapa 4: carregar o arquivo .vhd]: #upload
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

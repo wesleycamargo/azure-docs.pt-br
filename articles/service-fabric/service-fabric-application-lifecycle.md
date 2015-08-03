@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/17/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
 # Ciclo de vida de aplicativos da Malha do Serviço
-Semelhante a outras plataformas, um aplicativo na Malha do Serviço geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. A Malha do Serviço dá suporte de primeira classe ao ciclo de vida completo dos aplicativos em nuvem: desenvolvimento, implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. Este artigo fornece uma visão geral das APIs usadas pelas diferentes funções em todas as fases do ciclo de vida de um aplicativo da Malha do Serviço.
+Semelhante a outras plataformas, um aplicativo na Malha do Serviço geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. A Malha do Serviço dá suporte de primeira classe ao ciclo de vida completo dos aplicativos em nuvem: desenvolvimento, implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. Este artigo fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de um aplicativo da Malha do Serviço.
 
 ## Funções do modelo de serviço
 As funções do modelo de serviço são:
@@ -118,4 +118,4 @@ Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativo
 - [Exemplo de ciclo de vida de um aplicativo baseado em REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

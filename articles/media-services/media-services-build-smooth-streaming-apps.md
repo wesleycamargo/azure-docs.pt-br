@@ -1004,4 +1004,4 @@ Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

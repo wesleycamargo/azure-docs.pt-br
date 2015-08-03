@@ -1,9 +1,7 @@
 <properties 
-	title="Virtual Machines and Containers in Azure" 
 	pageTitle="Máquinas virtuais e contêineres no Azure" 
 	description="Descreve as Máquinas virtuais, contêineres do Docker e Linux e seu uso em grupos no Azure, incluindo os benefícios de cada um e cenários em que cada abordagem funciona muito bem." 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
 	manager="timlt" 
@@ -238,4 +236,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows Server]
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

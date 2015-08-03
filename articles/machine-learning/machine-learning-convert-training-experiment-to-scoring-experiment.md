@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Converter um experimento de treinamento do Aprendizado de Máquina em um experimento de pontuação
@@ -54,7 +54,7 @@ Ao converter esse experimento de treinamento em um experimento pontuação, algu
 
 - **Preparação** – Dependendo dos dados que serão enviados para pontuação, esses módulos podem ou não ser necessários para processar os dados de entrada.
 
-	Por exemplo, neste exemplo, o conjunto de dados de exemplo pode ter valores ausentes e incluir colunas que não são necessárias para treinar o modelo. Por isso, um módulo **Limpar Dados Ausentes** foi incluído para lidar com valores ausentes e um módulo [Colunas do Projeto][project-columns] foi incluído para excluir essas colunas extras do fluxo de dados. Se você souber que os dados que serão enviados para pontuação por meio do serviço Web não terão valores ausentes, poderá remover o módulo **Limpar Dados Ausentes**. No entanto, como o módulo [Colunas do Projeto][project-columns] ajuda a definir o conjunto de recursos sendo pontuados, aquele módulo deve permanecer.
+	Por exemplo, neste exemplo, o conjunto de dados de exemplo pode ter valores ausentes e incluir colunas que não são necessárias para treinar o modelo. Por isso, um módulo [Limpar Dados Ausentes][clean-missing-data] foi incluído para lidar com valores ausentes e um módulo [Colunas do Projeto][project-columns] foi incluído para excluir essas colunas extras do fluxo de dados. Se você souber que os dados que serão enviados para pontuação por meio do serviço Web não terão valores ausentes, poderá remover o módulo [Limpar Dados Ausentes][clean-missing-data]. No entanto, como o módulo [Colunas do Projeto][project-columns] ajuda a definir o conjunto de recursos sendo pontuados, aquele módulo deve permanecer.
 
 - **Treinar** – Após o modelo ser treinado com êxito, você pode salvá-lo como um módulo de modelo único treinado. Substitua esses módulos individuais pelo modelo treinado salvo.
 
@@ -132,4 +132,4 @@ Para obter mais informações sobre o processo completo de publicação, consult
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

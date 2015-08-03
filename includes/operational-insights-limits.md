@@ -1,3 +1,4 @@
+
 Os seguintes limites se aplicam às assinaturas de Insights Operacionais.
 
 
@@ -10,4 +11,4 @@ Os seguintes limites se aplicam às assinaturas de Insights Operacionais.
 
 <sup>1</sup>Quando os clientes atingirem os seus limites diários de transferência de dados (500MB), a análise de dados será interrompida e reiniciada no início do dia seguinte. Um dia é baseado em UTC.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

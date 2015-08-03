@@ -103,4 +103,4 @@ Siga estas etapas para criar o conjunto de disponibilidade usando um modelo do G
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

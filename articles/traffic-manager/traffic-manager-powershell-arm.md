@@ -212,4 +212,4 @@ Essa sequência também pode ser transferida:
 [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

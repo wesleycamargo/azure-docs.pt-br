@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -109,6 +109,17 @@ Existem vários bons motivos pelos quais os clientes devem atualizar agora da V1
 - A maioria dos novos recursos é lançada na V12 do Banco de dados SQL antes de eles serem lançados para o Microsoft SQL Server.
 
 
+## O gateway não fornece mais lógica de repetição na V12
+
+
+Antes da versão V12, o Banco de Dados SQL do Azure tinha um gateway que atuava como um proxy para armazenar em buffer todas as interações entre o banco de dados e o programa cliente. O gateway fornecia *lógica de repetição* automatizada para alguns*erros transitórios*.
+
+ A V12 eliminou o gateway. Agora, o seu programa deve tratar erros transitórios de maneira mais completa. Para obter mais informações, consulte:
+
+
+- [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+
 ## Você já está usando a V12?
 
 
@@ -145,11 +156,11 @@ A V12 foi lançada em dezembro de 2014, mas apenas com o status de [Visualizaç�
 A V12 está disponível como visualização nas seguintes regiões:
 
 
-| Região do Azure | Status<br/>da versão atual da V12 | Data da promoção<br/>para GA |
+| Região do Azure | Status<br/>da versão atual da V12 | Data da promoção<br/>para disponibilidade geral, estimativa |
 | :--- | :--- | :--- |
-| Leste da Austrália | **Visualização** | Estimado para os segundo trimestre de 2015 |
-| Sudeste da Austrália | **Visualização** | Estimado para os segundo trimestre de 2015 |
+| Leste da Austrália | **Visualização** | Terceiro trimestre de 2015, estimativa |
+| Sudeste da Austrália | **Visualização** | Terceiro trimestre de 2015, estimativa |
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

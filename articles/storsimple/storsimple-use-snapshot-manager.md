@@ -78,7 +78,7 @@ A tabela a seguir descreve os itens que aparecem no menu Arquivo.
 | Item de menu | Descrição |
 |:----------|:-------------|
 | Novo | Clique em **Novo** para criar um novo console baseado no StorSimple Snapshot Manager. |
-| Abra | Clique em **Abrir** para abrir um console existente. |
+| Aberto | Clique em **Abrir** para abrir um console existente. |
 | Salvar | Clique em **Salvar** para salvar o console atual. |
 | Salvar como | Clique em **Salvar como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
 | Adicionar/Remover Snap-in | Clique em **Adicionar/Remover Snap-in** para adicionar ou remover snap-ins e organizar nós no painel **Escopo**. Para obter mais informações, vá para [Adicionar, Remover e Organizar Snap-ins e Extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
@@ -540,4 +540,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 
 Saiba como [Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

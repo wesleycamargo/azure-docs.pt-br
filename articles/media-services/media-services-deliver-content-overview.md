@@ -205,4 +205,4 @@ Publicar ativos (pela criação de localizadores) usando o **Portal de Gerenciam
 [Atualizar localizadores dos Serviços de Mídia depois de implantar chaves de armazenamento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

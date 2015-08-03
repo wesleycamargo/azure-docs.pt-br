@@ -53,4 +53,4 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
 
 [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

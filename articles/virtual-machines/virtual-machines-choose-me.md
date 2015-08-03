@@ -5,7 +5,7 @@
 	authors="KBDAzure" 
 	documentationCenter=""
 	manager="timlt"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags=azure-resource-manager, azure-service-management/>
 
 <tags 
 	ms.service="multiple" 
@@ -29,4 +29,4 @@ Saiba mais sobre [máquinas virtuais](https://msdn.microsoft.com/library/azure/j
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

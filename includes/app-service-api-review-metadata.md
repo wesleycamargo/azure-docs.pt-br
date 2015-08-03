@@ -25,4 +25,4 @@ Observe o ponto de extremidade `apiDefinition` `/swagger/docs/v1`: por padrão, 
 
 Para este tutorial, você pode aceitar os padrões. A seção [Metadados de aplicativo de API](#api-app-metadata) posteriormente no tutorial explica como personalizar esses metadados.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

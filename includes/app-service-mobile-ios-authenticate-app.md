@@ -25,4 +25,4 @@
 
 3. Pressione **Executar** para iniciar o aplicativo e, em seguida, faça logon com o provedor de identidade escolhido por você. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

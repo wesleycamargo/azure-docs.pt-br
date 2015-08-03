@@ -114,4 +114,4 @@ Faça logon na máquina virtual para completar a instalação do disco e poder u
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

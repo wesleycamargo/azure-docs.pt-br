@@ -178,4 +178,4 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

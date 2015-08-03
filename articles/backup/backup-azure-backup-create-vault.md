@@ -64,4 +64,4 @@ Se você estiver usando o Azure como um ponto de extremidade de armazenamento de
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

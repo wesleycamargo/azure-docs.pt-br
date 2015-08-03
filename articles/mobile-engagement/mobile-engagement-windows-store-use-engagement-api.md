@@ -360,4 +360,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -22,7 +22,7 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 
 ## Para criar senhas de aplicativo no portal do Azure
 
-1. Entre no Portal de Gerenciamento do Azure.
+1. Entre no Portal de Gerenciamento do Azure
 3. Na parte superior, clique com o botão direito do mouse no nome do usuário e selecione Verificação de Segurança Adicional.
 5. Na parte superior da página de prova, selecione as senhas de aplicativo
 6. Clique em **Criar**
@@ -32,4 +32,4 @@ Se você usar uma autenticação multifator com o Azure, talvez seja conveniente
 
 <center>![Nuvem](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

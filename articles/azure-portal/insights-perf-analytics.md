@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 # Monitorar o desempenho do aplicativo Web do Azure
@@ -27,7 +27,9 @@ O Application Insights e New Relic são duas das extensões de monitoramento de 
 
 1. Clique em **Procurar** e selecione o aplicativo Web ou a máquina virtual que você deseja instrumentar.
 
-2. Adicione o Application Insights ou a extensão do New Relic. Se você estiver gerenciando um aplicativo da Web:
+2. Adicione o Application Insights ou a extensão do New Relic.
+
+    Se você estiver gerenciando um aplicativo da Web:
 
 ![Configurações, extensões, adicionar, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
@@ -81,4 +83,4 @@ Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -108,4 +108,4 @@
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -305,4 +305,4 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

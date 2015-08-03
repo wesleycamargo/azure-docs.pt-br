@@ -38,7 +38,7 @@ Há um número limitado de cmdlets do PowerShell para gerenciar o Barramento de 
 
 Em primeiro lugar, verifique se o script pode localizar o assembly **Microsoft.ServiceBus.dll**, que é instalado com o pacote NuGet. Para que seja flexível, o script executa estas etapas:
 
-1. Determina o caminho no qual ele foi chamado.
+1. Determina o caminho no qual ele foi invocado.
 2. Percorre o caminho até encontrar uma pasta denominada `packages`. Essa pasta é criada quando você instala pacotes NuGet.
 3. Pesquisa recursivamente a pasta `packages` para um assembly denominado **Microsoft.ServiceBus.dll**.
 4. Faz referência ao assembly para que os tipos estejam disponíveis para uso posterior.
@@ -184,4 +184,4 @@ Alguns scripts prontos também estão disponíveis para download: [Scripts do Po
 [API .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

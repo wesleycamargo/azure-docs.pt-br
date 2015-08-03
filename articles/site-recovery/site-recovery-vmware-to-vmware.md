@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Implantar entre sites locais do VMWare" 
-	description="O InMage Scout no Azure Site Recovery lida com replicação, failover e recuperação entre sites locais do VMWare." 
+	pageTitle="Configurar a proteção entre sites locais VMWare" 
+	description="Use este artigo para configurar a proteção entre dois locais VMware usando o Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="raynew"/>
 
 
-# Implantar entre sites locais do VMWare
+# Configurar a proteção entre sites locais VMWare
 
 
-##Visão geral
+## Visão geral
 
-InMage Scout na Recuperação de Site do Azure fornece replicação em tempo real entre os sites do VMWare no local. O InMage Scout está incluído nas assinaturas para o serviço de recuperação de Site do Azure.
+O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre os sites do VMWare no local. O InMage Scout está incluído nas assinaturas para o serviço Azure Site Recovery.
 
 
 ## Pré-requisitos
@@ -30,7 +30,7 @@ InMage Scout na Recuperação de Site do Azure fornece replicação em tempo rea
 - **Conta do Azure**: você precisará de uma conta do [Microsoft Azure](http://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
 
 
-##Etapa 1: criar um cofre e baixar o InMage Scout
+## Etapa 1: criar um cofre
 
 1. Entre no [Portal de Gerenciamento](https://portal.azure.com).
 2. Clique em **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Recuperação de Site**.
@@ -38,19 +38,83 @@ InMage Scout na Recuperação de Site do Azure fornece replicação em tempo rea
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
 5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços do Azure Site Recovery](pricing/details/site-recovery/).
 
-<P>Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como <b>Ativo</b> na página principal de Serviços de Recuperação.</P>
+Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
 
-##Etapa 2: configurar o cofre
+## Etapa 2: Configurar o cofre e baixar componentes InMage Scout
 
 1. Clique em **Criar cofre**.
 2. Na página **Serviços de Recuperação**, clique no cofre para abrir na página de Início Rápido.
 3. Na lista suspensa, selecione **Entre dois sites do VMWare no local**.
-4. Baixe InMage Scout.
-5. Configure a replicação entre dois sites VMWare usando a documentação InMage Scout que é baixada com o produto.
+4. Baixe InMage Scout. Os arquivos de instalação para todos os componentes necessários estão no arquivo zip baixado.
 
 
-##Próximas etapas
+## Etapa 3: Instalar atualizações de componentes
+
+Leia sobre as últimas[atualizações](#updates). Você instalará os arquivos de atualização na seguinte ordem:
+
+1. Servidor RX se houver um
+2. Servidores de configuração
+3. Servidores de processo
+3. Servidores de destino mestre.
+4. Servidores vContinuum.
+
+Instale da seguinte maneira:
+
+1. Baixe o arquivo zip [atualização](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip). Este arquivo zip contém os seguintes arquivos:
+
+	-  RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz
+	-  CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe
+	-  UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe
+	-  UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz
+	-  vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe
+2. Extraia o arquivo zip.
+2. **Servidor RX**: copie **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz**para o servidor RX e extraia. Na pasta extraída, execute **/Install**.
+2. **Servidor de configuração/servidor de processo**: copie **CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe** para o servidor de configuração e servidor de processo. Clique duas vezes para executá-lo.
+3. **Servidor de destino mestre Windows**: para atualizar a cópia de agente unificado, copie **UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe** para o servidor mestre de destino. Clique duas vezes nele para executá-lo. Observe que o agente unificado para Windows não é aplicável no servidor de origem. Ele deve ser instalado somente no servidor de destino mestre do Windows.
+4. **Servidor de destino mestre Linux**: para atualizar o agente unificado, copie **UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz** para o servidor mestre de destino e extraí-lo. Na pasta extraída, execute **/Install**.
+5. **vContinuum server**: copie **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe** para o servidor vContinuum. Verifique se que você fechou o assistente vContinuum. Clique duas vezes no arquivo para executá-lo.
+
+## Etapa 4: Configurar a replicação
+5. Configure a replicação entre os sites do VMware de origem e de destino.
+6. Para obter orientação, use a documentação do InMage Scout baixada com o produto. Como alternativa, você pode acessar a documentação da seguinte maneira:
+
+	- [Notas de versão](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage_Scout_Standard_Release_Notes.pdf)
+	- [Matriz de compatibilidade](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage_Scout_Standard_Compatibility_Matrix.pdf)
+	- [Guia do usuário](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+	- [Guia do usuário do RX](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage_ScoutCloud_RX_User_Guide_8.0.1.pdf)
+	- [Guia de instalação rápida](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage_Scout_Standard_Quick_Install_Guide.pdf)
+
+
+## Atualizações
+
+### ASR Scout 8.0.1 Update 1
+
+Essa última atualização inclui correções de bugs e novos recursos:
+
+- 31 dias de proteção gratuita por instâncias de servidor. Isso lhe permite testar a funcionalidade ou configurar uma verificação de conceito.
+	- Todas as operações no servidor, incluindo failover e failback, são gratuitas pelos primeiros 31 dias a partir da hora em que um servidor é protegido pela primeira vez usando o ASR Scout.
+	- A partir do dia 32, todos os servidores protegidos pagarão a taxa padrão de instância pela proteção do Azure Site Recovery de um site de propriedade do cliente.
+	- A qualquer momento, todos os servidores protegidos que atualmente estão sendo cobrados estão disponíveis na página Painel do cofre do Azure Site Recovery.
+- Suporte adicionado para vCLI 5.5 Update 2.
+- Suporte adicionado para sistemas operacionais Linux no servidor de origem:
+	- RHEL 6 Update 6
+	- RHEL 5 Update 11
+	- CentOS 6 Update 6
+	- CentOS 5 Update 11
+- Correções de bugs para resolver estes problemas:
+	- Falha de registro do cofre para o servidor de configuração ou RX.
+	- Os volumes de cluster não aparecem conforme o esperado quando máquinas virtuais clusterizadas são protegidas durante a retomada.
+	- O failback falha quando o servidor de destino mestre é hospedado em outro servidor ESXi das máquinas virtuais locais de produção.
+	- As permissões de arquivo de configuração são alteradas durante a atualização para 8.0.1, afetando a proteção e as operações.
+	- O limite de ressincronização não é imposto conforme o esperado, resultando em um comportamento de replicação inconsistente.
+	- As configurações de RPO não aparecem corretamente na interface de configuração do servidor. O valor de dados não compactados mostra incorretamente o valor compactado.
+	-  A operação Remover não exclui conforme o esperado no assistente vContinuum e replicação não é excluída da interface do servidor de configuração.
+	-  No assistente vContinuum, o disco é desmarcado automaticamente ao clicar em **Detalhes** na exibição do disco durante a proteção de máquinas virtuais MSCS.
+	- Durante o cenário de P2V, alguns serviços necessário da HP, como CIMnotify e CqMgHost não são movidos para Manual na máquina virtual de recuperação, resultando em mais tempo de inicialização.
+	- A máquina virtual Linux protegida falha quando há mais de 26 discos no servidor de destino mestre.
+	
+## Próximas etapas
 
 Publique qualquer pergunta no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

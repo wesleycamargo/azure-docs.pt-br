@@ -92,4 +92,4 @@ Para obter mais informações sobre a Malha de Serviços, consulte:
 [Configuração de Serviços Confiáveis](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

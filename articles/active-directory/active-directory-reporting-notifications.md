@@ -62,9 +62,9 @@ Quando você clica no link, será redirecionado à página do relatório no Port
 
 Sim, para desativar as notificações relacionadas a entradas anômalas no Portal de Gerenciamento do Azure, clique em **Configurar**, e, em seguida, selecione **Desabilitado** sob a seção **Notificações**.
 
-## O que vem a seguir?
+## O que vem a seguir
 - Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

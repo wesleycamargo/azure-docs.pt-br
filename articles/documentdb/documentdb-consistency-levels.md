@@ -89,4 +89,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

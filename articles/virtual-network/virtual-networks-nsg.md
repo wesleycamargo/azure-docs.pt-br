@@ -138,7 +138,7 @@ Imagine a seguinte regra NSG para esse cenário:
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|NO INTERNET|100| REDE_VIRTUAL|&\#42;|INTERNET|&\#42;|TCP|NEGAR| 
+|NO INTERNET|100| REDE_VIRTUAL|&#42;|INTERNET|&#42;|TCP|NEGAR| 
 
 Como a regra está negando todos os acessos da rede virtual à Internet, as VMs não poderão acessar qualquer serviço de PaaS do Azure que requeira um ponto de extremidade de Internet público, como bancos de dados SQL.
 
@@ -146,8 +146,8 @@ Em vez de usar uma regra de negação, considere o uso de uma regra para permiti
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|TO INTERNET|100| REDE_VIRTUAL|&\#42;|INTERNET|&\#42;|TCP|PERMITIR|
-|FROM INTERNET|110| INTERNET|&\#42;|REDE_VIRTUAL|&\#42;|TCP|NEGAR| 
+|TO INTERNET|100| REDE_VIRTUAL|&#42;|INTERNET|&#42;|TCP|PERMITIR|
+|FROM INTERNET|110| INTERNET|&#42;|REDE_VIRTUAL|&#42;|TCP|NEGAR| 
 
 
 ## Planejamento: fluxo de trabalho de grupo de segurança de rede
@@ -248,4 +248,4 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

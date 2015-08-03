@@ -129,7 +129,7 @@ Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo
 
 Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduzirá o cenário em intervalos e verificará as respostas.
 
-#### 1\. Registrar um cenário
+#### 1. Registrar um cenário
 
 Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
@@ -156,7 +156,7 @@ Use o Visual Studio Ultimate para registrar uma sessão da Web.
 
 (Não insira loops em seu código de teste na Web.)
 
-#### 2\. Carregar o teste na Web para o Application Insights
+#### 2. Carregar o teste na Web para o Application Insights
 
 1. No portal do Application Insights, crie um novo teste na Web.
 
@@ -229,4 +229,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

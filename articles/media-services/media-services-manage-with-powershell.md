@@ -110,4 +110,4 @@ Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

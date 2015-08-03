@@ -232,4 +232,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

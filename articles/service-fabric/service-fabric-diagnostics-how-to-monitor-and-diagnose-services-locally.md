@@ -72,4 +72,4 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

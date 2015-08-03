@@ -245,4 +245,4 @@ Você implantou um aplicativo Web Node.js que usa um back-end do aplicativo de A
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

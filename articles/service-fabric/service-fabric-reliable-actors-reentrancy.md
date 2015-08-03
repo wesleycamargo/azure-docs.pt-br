@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 # Reentrância de Ator
-Por padrão, os Atores de Malha permitem reentrância baseada no contexto de chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um ator A envia a mensagem para o ator B, que envia a mensagem para o ator C. Como parte do processamento da mensagem no caso de o ator C chamar o ator A, a mensagem é reentrante e será permitida. Todas as outras mensagens que fazem parte do contexto de chamada diferente serão bloqueadas em no ator A até a conclusão do processamento.
+Por padrão, os Atores de Malha permitem reentrância baseada no contexto de chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um ator A envia a mensagem para o ator B, que envia a mensagem para o ator C. Como parte do processamento da mensagem no caso de o ator C chamar o ator A, a mensagem é reentrante e será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
 
-Os atores que não desejam permitir a reentrância baseada no contexto de chamada lógica podem desabilitá-la decorando ator com `ReentrantAttribute(ReentrancyMode.Disallowed)`.
+Os atores que não querem permitir a reentrância baseada no contexto de chamada lógica podem desabilitá-la decorando a classe do ator com `ReentrantAttribute(ReentrancyMode.Disallowed)`.
 
 ```csharp
 public enum ReentrancyMode
@@ -41,4 +41,4 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 ```
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

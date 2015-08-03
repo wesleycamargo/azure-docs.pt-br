@@ -37,4 +37,4 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 - `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Engagement (cadeia de conexão do Engagement, relatar falhas, etc.).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

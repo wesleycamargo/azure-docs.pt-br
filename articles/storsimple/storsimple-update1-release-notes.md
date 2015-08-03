@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/29/2015"
+    ms.date="07/15/2015"
     ms.author="v-sharos" />
 
 # Notas de versão da Atualização 1 do StorSimple série 8000  
@@ -28,6 +28,7 @@ Examine as informações contidas nas notas de versão antes de implantar as atu
 >[AZURE.IMPORTANT]
 > 
 - Um patch crítico, Atualização 1.1, foi lançada em 23 de junho. Esse patch resolve um problema no mecanismo de backup. Se você aplicou a Atualização 1 antes de 23 de junho e estiver usando software versão **6.3.9600.17491**, certifique-se de aplicar essa atualização crítica para evitar problemas com backups. Depois de instalar a atualização, a versão do software será alterada para **6.3.9600.17521**.
+- Se você criou um dispositivo virtual entre 27 de maio e 10 de julho que está na versão de software 6.3.9600.17481, crie um novo dispositivo virtual e o faça failover de todos os volumes do dispositivo virtual antigo para o novo. (Isso ocorre porque o dispositivo virtual mais antigo não pode ser atualizado.) Se você não criar um novo dispositivo virtual, poderá ver os backups começarem a falhar. Para procedimentos de recuperação de desastres e failover, vá até [Failover e recuperação de desastres para seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 - Use o serviço StorSimple Manager, e não o Windows PowerShell para StorSimple, para instalar a Atualização 1.
 - Esta versão também contém as atualizações de firmware de disco que só podem ser aplicadas quando o dispositivo está no modo de Manutenção. Essas são as atualizações com interrupção que podem resultar em tempo de inatividade para seu dispositivo. Você pode aplicar essas atualizações durante a manutenção planejada.
 - São necessárias cerca de 5 a 10 horas para instalar essa atualização (incluindo as atualizações do Windows). 
@@ -84,7 +85,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 6 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sim | Não |
 | 7 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
 | 8 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
-| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Sim | Sim |
+| 9 | PowerShell do Azure | Quando você usa o cmdlet StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** para selecionar o primeiro objeto para que possa criar um novo objeto **VolumeContainer**, o cmdlet retorna todos os objetos. | Coloque o cmdlet entre parênteses da seguinte maneira: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Sim | Sim |
 | 10| Migração | Quando contêineres de vários volumes forem passados para a migração, o ETA do backup mais recente será preciso apenas para o contêiner do primeiro volume. Além disso, a migração paralela será iniciada depois que os primeiros 4 backups no primeiro contêiner de volume forem migrados. | É recomendável que você migre um contêiner de volume por vez. | Sim | Não |
 | 11| Migração | Após a restauração, os volumes não são adicionados à política de backup ou ao grupo de discos virtuais. | Você terá que adicionar esses volumes a uma política de backup para criar backups. | Sim | Sim |
 | 12| Migração | Depois que a migração for concluída, o dispositivo série 5000/7000 não deverá acessar os contêineres de dados migrados. | É recomendável que você exclua os contêineres de dados migrados quando a migração estiver concluída e confirmada. | Sim | Não |
@@ -103,15 +104,15 @@ Esta versão atualiza o driver e o firmware no controlador SAS de seu dispositiv
 
 - Para saber mais sobre a atualização de firmware, confira [Atualização 1 de firmware para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063414).
 
-- Para saber mais sobre a atualização de firmware de disco, confira [Atualização 1 de firmware de disco para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/pt-br/kb/3063416).
+- Para saber mais sobre a atualização de firmware de disco, confira [Atualização 1 de firmware de disco para o dispositivo do Microsoft Azure StorSimple](https://support.microsoft.com/kb/3063416).
  
 ## Atualizações de dispositivo virtual na Atualização 1
 
-Esta versão não contém nenhuma atualização para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
+Esta atualização não pode ser aplicada ao dispositivo virtual. No entanto, os dispositivos virtuais criados após 10 de julho estarão automaticamente nesta versão.
 
 ## Próximas etapas
 
 - [Instalar a Atualização 1 no dispositivo](storsimple-install-update-1.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

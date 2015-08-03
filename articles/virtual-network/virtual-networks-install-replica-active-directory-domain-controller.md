@@ -78,7 +78,7 @@ Repita as etapas a seguir para criar VMs para hospedar a função de controlador
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Instale o AD DS em máquinas virtuais do Azure
 
@@ -123,4 +123,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,3 @@
 Resenhas de livros na Amazon, obtidas do website amazon.com pelos pesquisadores da University of Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). Consulte o documento de pesquisa "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.<p> </p>O conjunto de dados original tem 975 mil resenhas com classificações 1, 2, 3, 4 ou 5. As resenhas foram escritas em inglês e são do período de 1997 a 2007. Esse conjunto de dados foi reduzido para 10 mil resenhas.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jgao"/>
 
 
@@ -551,4 +551,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

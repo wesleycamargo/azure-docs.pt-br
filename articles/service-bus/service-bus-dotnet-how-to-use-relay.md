@@ -265,7 +265,7 @@ Agora que você já aprendeu os conceitos básicos do serviço de **retransmiss�
   [Compilando um serviço para o Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173564.aspx
   [Compilando um aplicativo cliente do Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173543.aspx
   [Exemplos do Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/pt-br/library/azure/dn194201.aspx
+  [MSDN]: https://msdn.microsoft.com/en-us/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -17,7 +17,7 @@
 
 # Configurar um gateway de VPN no Portal de Gerenciamento
 
-Se você quiser criar uma conexão segura entre locais entre o Azure e sua rede local, será necessário configurar um gateway de VPN. Existem diferentes tipos de gateways e o tipo de gateway que você criará dependerá do seu plano de design de rede e o dispositivo VPN local que deseja usar. Por exemplo, algumas opções de conectividade, como uma conexão ponto a site, exigem um gateway de roteamento dinâmico. Se você quiser configurar seu gateway para oferecer suporte a conexões ponto a site (P2S) e uma conexão de site a site (S2S), precisará configurar um gateway de roteamento dinâmico, embora a site a site possa ser configurada com qualquer tipo de roteamento de gateway. Além disso, você precisará certificar-se de que o dispositivo que deseja usar para sua conexão site a site oferecerá suporte ao tipo de gateway que deseja criar. Veja [Sobre gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Se você quiser criar uma conexão segura entre locais entre o Azure e sua rede local, será necessário configurar um gateway de VPN. Existem diferentes tipos de gateways e o tipo de gateway que você criará dependerá do seu plano de design de rede e o dispositivo VPN local que deseja usar. Por exemplo, algumas opções de conectividade, como uma conexão ponto a site, exigem um gateway de roteamento dinâmico. Se você quiser configurar seu gateway para oferecer suporte a conexões ponto a site (P2S) e uma conexão de site a site (S2S), precisará configurar um gateway de roteamento dinâmico, embora a site a site possa ser configurada com qualquer tipo de roteamento de gateway. Além disso, você precisará certificar-se de que o dispositivo que deseja usar para sua conexão site a site oferecerá suporte ao tipo de gateway que deseja criar. Consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Visão geral de configuração
 
@@ -149,4 +149,4 @@ Se você quiser configurar uma conexão VPN ponto a site, veja [Configurar uma c
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

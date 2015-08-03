@@ -79,7 +79,7 @@ Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Instale o Windows Server Active Directory
 
@@ -139,4 +139,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

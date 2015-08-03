@@ -23,7 +23,7 @@ Este artigo descreve como instalar o .NET Framework em funções de trabalho ou 
 O processo de instalação do .NET em suas funções de trabalho e web envolve incluir o pacote do instalador do .NET como parte do seu projeto de nuvem e iniciar o instalador como parte das tarefas de inicialização da função.
 
 ## Adicione o instalador do .NET ao seu projeto
-1. Baixe o [instalador da Web do .NET 4.5.2](http://www.microsoft.com/pt-br/download/details.aspx?id=42643)
+1. Baixe o [instalador da Web do .NET 4.5.2](http://www.microsoft.com/en-us/download/details.aspx?id=42643)
 2. Para uma função Web
   1. Em **Gerenciador de Soluções**, em **Funções** no projeto de serviço de nuvem, clique com o botão direito do mouse na sua função e selecione **Adicionar>Nova Pasta**. Crie uma pasta chamada *bin*
   2. Clique com o botão direito na pasta **bin** e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
@@ -117,4 +117,4 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

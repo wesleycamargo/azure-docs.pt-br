@@ -121,7 +121,7 @@ O gateway do serviço de aplicativo inclui suporte interno para obter o consenti
 * SharePointOnline
 * Twitter
 * Yammer
-* Active Directory do Azure
+* Azure Active Directory
 * Conta da Microsoft
 
 Para esses fornecedores, o gateway mantém tokens de acesso e os associa o token Zumo, como o faz para o token de acesso do provedor de identidade. O processo de obter consentimento do usuário e chamar uma plataforma SaaS é ilustrado no diagrama a seguir. O diagrama supõe que o cliente já tenha sido autenticado com o gateway e tenha o token Zumo.
@@ -214,4 +214,4 @@ Este artigo explicou os serviços de autenticação fornecidos pelo Serviço de 
 
 * [Obter um token de acesso e chamar a API do SharePoint em um aplicativo móvel](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

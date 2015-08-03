@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Identificar diferenças com o controle de alterações
@@ -51,6 +51,7 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 3. Em qualquer uma das páginas de pesquisa de log, você pode exibir os resultados por tempo, resultados detalhados e o histórico de pesquisa de log. Você também pode filtrar por facetas para restringir os resultados.
 
-4. Em qualquer página em Pesquisa de Log, você pode **Exportar** os detalhes de resultados em um arquivo CSV que você pode abrir com o Excel ou outro aplicativo que você então você pode exibir ou modificar.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

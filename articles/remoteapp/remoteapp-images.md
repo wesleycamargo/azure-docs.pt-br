@@ -101,4 +101,4 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 > [AZURE.IMPORTANT]**Importantes informações legais:** Esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](remoteapp-licensing.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,3 @@
 Uma coleção de perfis de energia simulados, com base em 12 formatos de construções diferentes. As construções diferem com relação a 8 recursos, como área envidraçada, distribuição da área envidraçada e orientação.<p> </p><b>Uso:</b> usar a regressão ou a classificação para prever a taxa de eficiência energética com base em uma das duas respostas de valor real. Para classificação de multiclasse, a variável da resposta é arredondada para o número inteiro mais próximo. <p> </p><b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

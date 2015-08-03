@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Gerenciar um serviço da Malha do Serviço
@@ -30,6 +30,7 @@ Os tópicos a seguir abordam o modelo de aplicativo da Malha do Serviço, e como
 - [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md)
 - [Empacotar um aplicativo](service-fabric-application-model.md)
 - [Implantar e remover um aplicativo](service-fabric-deploy-remove-applications.md)
+- [Implantar um aplicativo existente](service-fabric-deploy-existing-app.md)
 - [Gerenciando aplicativos da Malha do Serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Atualizar um aplicativo
@@ -49,4 +50,4 @@ Os seguintes artigos descrevem o dimensionamento e o particionamento:
 - [Dimensionando aplicativos da Malha do Serviço](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

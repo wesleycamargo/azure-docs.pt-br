@@ -76,4 +76,4 @@ Se você tiver servidores proxy ou firewalls em seu ambiente que restrinjam o ac
 
 - [Definir as configurações de proxy e firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

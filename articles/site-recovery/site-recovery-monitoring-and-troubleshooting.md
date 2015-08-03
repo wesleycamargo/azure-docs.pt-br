@@ -13,26 +13,31 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/03/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anbacker"/>
 	
-# Monitorar e solucionar problemas de proteção para VMM e sites do Hyper-V
+# Monitorar e solucionar problemas de proteção para VMware, VMM, Hyper-V e sites físicos
 
 Este guia de solução de problemas e monitoramento permite que você aprenda sobre o acompanhamento da integridade da replicação e sobre técnicas de solução de problemas do Azure Site Recovery.
 
 ## Noções básicas sobre os componentes
 
+### Implantação de site físico/VMware para replicação entre locais e o Azure.
+Para configurar a recuperação de desastres entre a máquina física/VMware, o Servidor de configuração, Destino Mestre e o Servidor em Processo precisam configurados. Ao habilitar a proteção para o servidor de origem, o Azure Site Recovery instala o Serviço de Mobilidade. Após a interrupção local, quando o servidor de origem faz failover para o Azure, o cliente precisa configurar um Servidor de Processo no Azure e um servidor de Destino Mestre local para proteger o servidor de origem de volta para o local recriado.
+
+![Implantação do VMware/Site Físico para replicação entre o local e o Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
+
 ### Implantação de Site do VMM para replicação no site local.
 
 Como parte da configuração de recuperação de desastres entre dois espaços locais, o Provedor do Azure Site Recovery precisa ser baixado e instalado no servidor do VMM. O provedor precisa de conectividade com a internet para garantir que todas as operações acionadas no Portal do Azure sejam traduzidas por operações locais como habilitar a proteção, desligamento das máquinas virtuais do lado primário como parte de failovers etc.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image1.png)
+![Implantação de Site do VMM para replicação no site local](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### Implantação de Site do VMM para replicação entre o local e o Azure.
 
 Como parte da configuração de recuperação de desastres entre o local e o Azure, o Provedor do Azure Site Recovery precisa ser baixado e instalado no servidor do VMM junto com o Agente de Serviços de Recuperação do Azure que precisa ser instalado em cada host Hyper-V.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image2.png)
+![Implantação de Site do VMM para replicação entre o local e o Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Implantação de Site do Hyper-V para replicação entre o local e o Azure.
 
@@ -42,79 +47,80 @@ Como parte da configuração de recuperação de desastres entre o local e o Azu
 
 Todas as operações do Azure Site Recovery (ASR) são auditadas e podem ser controladas na guia "TRABALHOS". No caso de qualquer erro de configuração, proteção ou recuperação, acesse a guia TRABALHOS e veja se há falhas.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image3.png)
+![Monitorar as operações de configuração, proteção e recuperação](media/site-recovery-monitoring-and-troubleshooting/image3.png)
 
 Caso você encontre falhas na exibição dos TRABALHOS, selecione o TRABALHO e clique em DETALHES DO ERRO desse trabalho.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image4.png)
+![Monitorar as operações de configuração, proteção e recuperação](media/site-recovery-monitoring-and-troubleshooting/image4.png)
 
 Os detalhes do erro ajudarão você a identificar a possível causa e a recomendação para o problema.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image5.png)
+![Monitorar as operações de configuração, proteção e recuperação](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
 No caso acima, parece haver outra operação em andamento que está causando a falha na configuração da Proteção. Resolva o problema de acordo com a recomendação e, em seguida, clique em REINICIAR para iniciar novamente a operação.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image6.png)
+![Monitorar as operações de configuração, proteção e recuperação](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
 A opção de REINICIAR não está disponível para todas as operações. Para aquelas que não tenham a opção de reinicialização, retorne ao objeto e repita a operação. Todos os TRABALHOS podem ser cancelados a qualquer momento durante o processamento por meio do botão CANCELAR.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image7.png)
+![Monitorar as operações de configuração, proteção e recuperação](media/site-recovery-monitoring-and-troubleshooting/image7.png)
 
 ## Monitorar a integridade de replicação da máquina virtual
 
 Monitoramento central e remoto do provedor ASR por meio do portal do Azure para cada uma das entidades protegidas. Navegue até os ITENS PROTEGIDOS e selecione NUVENS DO VMM ou GRUPOS DE PROTEÇÃO. A guia NUVENS DO VMM é usada somente para implantações do VMM e todos os outros cenários têm as entidades protegidas na guia GRUPOS DE PROTEÇÃO.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image8.png)
+![Monitorar a integridade de replicação da máquina virtual](media/site-recovery-monitoring-and-troubleshooting/image8.png)
 
 Em seguida, selecione a entidade protegida na nuvem correspondente ou no grupo de proteção. Depois de selecionar a entidade protegida, todas as operações permitidas são mostradas no painel inferior.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image9.png)
+![Monitorar a integridade de replicação da máquina virtual](media/site-recovery-monitoring-and-troubleshooting/image9.png)
 
 Como mostrado acima, caso a INTEGRIDADE da máquina virtual seja crítica, você poderá clicar no botão DETALHES DO ERRO na parte inferior para ver o erro. Com base nas "Possíveis causas" e na "Recomendação" mencionadas, resolva o problema. Neste caso, a máquina virtual precisa ser novamente sincronizada, o que pode ser feito no próprio portal clicando no botão RESSINCRONIZAR.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image10.png)
+![Monitorar a integridade de replicação da máquina virtual](media/site-recovery-monitoring-and-troubleshooting/image10.png)
 
-![](media/site-recovery-monitoring-and-troubleshooting/image11.png)
+![Monitorar a integridade de replicação da máquina virtual](media/site-recovery-monitoring-and-troubleshooting/image11.png)
 
 Observação: se houver quaisquer operações ativas que estejam em andamento ou tenham falhado, navegue até o modo de exibição de TRABALHOS como mencionado anteriormente para exibir o erro específico do TRABALHO.
 
-## Solucionar problemas locais
-
-Conecte-se ao console do gerenciador local do Hyper-V, selecione a máquina virtual e verifique a integridade da replicação.
-
-![](media/site-recovery-monitoring-and-troubleshooting/image12.png)
-
-Nesse caso, a *Integridade da Replicação* está indicada como crítica; clique em *Exibir Integridade da Replicação* para ver os detalhes.
-
-![](media/site-recovery-monitoring-and-troubleshooting/image13.png)
-
-#### Visualizador de Eventos
+## Visualizador de Eventos
 
 | Cenários | Origens de eventos |
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | Proteção de site do VMM | Servidor VMM<ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Host Hyper-V <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Para Azure como Destino)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
 | Proteção de sites do Hyper-V | <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
 
-#### Opções de log de replicação do Hyper-V
+
+## Solucionar problemas do Hyper-V no local
+
+Conecte-se ao console do gerenciador local do Hyper-V, selecione a máquina virtual e verifique a integridade da replicação.
+
+![Solucionar problemas do Hyper-V no local](media/site-recovery-monitoring-and-troubleshooting/image12.png)
+
+Nesse caso, a *Integridade da Replicação* está indicada como crítica; clique em *Exibir Integridade da Replicação* para ver os detalhes.
+
+![Solucionar problemas do Hyper-V no local](media/site-recovery-monitoring-and-troubleshooting/image13.png)
+
+### Opções de log de replicação do Hyper-V
 
 Todos os eventos relativos ao Hyper-V Replica são registrados no log do Hyper-V-VMMS\\Admin localizado em **Applications and Service Logs\\Microsoft\\Windows**. Além disso, um log analítico pode ser habilitado para o VMMS do Hyper-V. Para habilitar esse log, primeiro exiba os logs analíticos e de depuração no Visualizador de Eventos. Abra o Visualizador de Eventos e, em seguida, no **menu Exibir**, clique em **Mostrar Logs Analíticos e de Depuração**.
 
-![](media/site-recovery-monitoring-and-troubleshooting/image14.png)
+![Solucionar problemas do Hyper-V no local](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
 Um log Analítico pode ser visto no VMMS do Hyper-V
 
-![](media/site-recovery-monitoring-and-troubleshooting/image15.png)
+![Solucionar problemas do Hyper-V no local](media/site-recovery-monitoring-and-troubleshooting/image15.png)
 
 Em seguida, no painel **Ações**, clique em **Habilitar Log**. Uma vez habilitado, ele é exibido no **Monitor de Desempenho** como uma Sessão de Rastreamento de Evento localizado em **Conjuntos de Coletores de Dados.**
 
-![](media/site-recovery-monitoring-and-troubleshooting/image16.png)
+![Solucionar problemas do Hyper-V no local](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
 Para exibir as informações coletadas, primeiro interrompa a sessão de rastreamento desabilitando o log; em seguida, salve o log e abra-o novamente no Visualizador de Eventos ou use outras ferramentas para convertê-lo conforme desejado.
 
 
-## Noções básicas sobre o ciclo de vida da máquina virtual
+## Noções básicas sobre o ciclo de vida de recuperação e a proteção da máquina virtual do Hyper-V
 
-![](media/site-recovery-monitoring-and-troubleshooting/image17.png)
+![Noções básicas sobre o ciclo de vida de recuperação e a proteção da máquina virtual do Hyper-V](media/site-recovery-monitoring-and-troubleshooting/image17.png)
 
 
 ## Contatando o Suporte da Microsoft
@@ -170,7 +176,7 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 
 -   [O perfil do Hyper-V não está habilitado nos Perfis de Funcionalidade da nuvem](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
 
--   [Não foi possível aplicar a configuração de proteção para '% CloudName;'. Não foi possível configurar um host Hyper-V ou cluster adicionado recentemente, pois a proteção da nuvem não está configurada.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
+-   [Não foi possível aplicar a configuração de proteção a “%CloudName;”. Não foi possível configurar um host Hyper-V ou cluster adicionado recentemente, pois a proteção da nuvem não está configurada.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
 
 -   [O VMM não tem permissões para completar uma ação](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
@@ -180,11 +186,11 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 
 -   [Falha na habilitação da proteção, pois o Agente não está instalado na máquina host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
--   [Não é possível encontrar um host adequado para a máquina virtual de réplica - Há poucos recursos de computação](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
+-   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois há poucos recursos de computação](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 
--   [Não é possível encontrar um host adequado para a máquina virtual de réplica - Não há uma rede lógica anexada](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
+-   [Não é possível encontrar um host adequado para a máquina virtual de réplica, pois não há uma rede lógica anexada](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
 
--   [Não é possível conectar-se à máquina host de réplica - Não foi possível estabelecer a conexão](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+-   [Não é possível conectar-se à máquina host de réplica, pois não foi possível estabelecer conexão](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
 ### Recuperação
 
@@ -192,7 +198,7 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 
     -   [Failover para o ponto de recuperação selecionado para a máquina virtual: erro geral de acesso negado.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [Hyper-V não conseguiu fazer failover para o ponto de recuperação selecionado para a máquina virtual: operação anulada, tente um ponto de recuperação mais recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [O Hyper-V não conseguiu fazer failover para o ponto de recuperação selecionado para a máquina virtual: operação anulada. Tente um ponto de recuperação mais recente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   Não foi possível estabelecer uma conexão com o servidor (0x00002EFD)
 
@@ -216,7 +222,7 @@ Veja abaixo os erros comuns que você pode encontrar e suas resoluções. Cada e
 
 -   Específico da recuperação para o Azure
 
-    -   [Não foi possível iniciar o failover devido a caracteres sem suporte no nome da VM](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
+    -   [Não foi possível iniciar o failover devido a caracteres incompatíveis no nome da VM](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Servidor de Configuração, Servidor de Processo, Destino Mestre
 
@@ -224,4 +230,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 
 -   [O host ESXi no qual o PS/CS está hospedado como uma VM falha com uma tela roxa.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

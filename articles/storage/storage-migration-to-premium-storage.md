@@ -63,7 +63,7 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 |:--|:---|
 |Capacidade de disco: 35 TB<br />Capacidade do instantâneo: 10 TB|Até 50 gigabits para Entrada + Saída|
 
-Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
+Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage).
 
 #### Discos de Dados Adicionais 
 Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines-linux-configure-raid.md) para obter detalhes.
@@ -179,13 +179,13 @@ Usando o AzCopy, é possível carregar o VHD facilmente na Internet. Dependendo 
 2. Abra o PowerShell do Azure e vá para a pasta onde o AzCopy está instalado.  
 3. Use o comando a seguir para copiar o arquivo VHD de "Origem" para "Destino". 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	Aqui estão as descrições dos parâmetros usados no comando AzCopy:
 
  - **/Source: *<origem>:*** Local da pasta ou URL do contêiner de armazenamento que contém o VHD.    
  - **/SourceKey: *<chave_da_conta_de_origem>:*** Chave da conta de armazenamento de origem.  
- - **/Destination: *<destino>:*** A URL do contêiner de armazenamento para a qual copiar o VHD.
+ - **/Dest: *&lt;destination&gt;:*** A URL do contêiner de armazenamento para a qual copiar o VHD.
  - **/DestKey: *<chave_da_conta_de_destino>:*** Chave da conta de armazenamento de destino.
  - **/BlobType: page:** Especifica que o destino é um blob de páginas.
  - **/Pattern: *<nome_do_arquivo>:*** Especifica o nome de arquivo do VHD que você está copiando.
@@ -315,4 +315,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

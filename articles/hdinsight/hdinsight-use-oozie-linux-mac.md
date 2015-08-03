@@ -360,10 +360,8 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 		  </property>
 		</configuration>
 
-	* Substitua todas as instâncias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente.
-
-
-	> [AZURE.WARNING] Você deve usar o caminho completo do WASB, com a conta de armazenamento e contêiner como parte do caminho. Usar o formato curto (wasb:///) fará com que a ação de RunHiveScript falhe quando o trabalho for iniciado.
+	* Substitua todas as instâncias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente. 
+	> [AZURE.WARNING]Você deve usar o caminho completo do WASB, com a conta de armazenamento e contêiner como parte do caminho. Usar o formato curto (wasb:///) fará com que a ação de RunHiveScript falhe quando o trabalho for iniciado.
 
 	* Substitua **JOBTRACKERADDRESS** pelo endereço de JobTracker/ResourceManager recebido anteriormente.
 
@@ -717,7 +715,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/pt-br/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -727,4 +725,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

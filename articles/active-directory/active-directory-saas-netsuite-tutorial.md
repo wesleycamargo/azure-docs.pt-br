@@ -258,4 +258,4 @@ Este tutorial mostrará como conectar o ambiente NetSuite ao Active Directory do
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

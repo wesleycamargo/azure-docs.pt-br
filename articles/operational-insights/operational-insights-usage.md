@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Gerenciar servidores e dados de uso
@@ -57,4 +57,6 @@ O painel **Uso** exibe as seguintes informações:
 
 3. Se houver um grupo de gerenciamento que não esteja enviando dados, clique em **Solucionar Problemas** para obter informações detalhadas para a solução de problemas. Se não desejar manter um grupo de gerenciamento e todos os agentes que se reportam a ele, clique em **Remover**.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

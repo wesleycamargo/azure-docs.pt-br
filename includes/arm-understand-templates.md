@@ -8,4 +8,4 @@ Os recursos que você criar usando modelos do Gerenciador de Recursos do Azure s
 
 Os exemplos de automação a seguir demonstram como usar os Modelos do Gerenciador de Recursos do Azure e implantar Grupos de Recursos usando o PowerShell ou a CLI.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

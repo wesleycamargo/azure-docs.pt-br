@@ -73,4 +73,4 @@ Para obter mais informações, consulte o seguinte:
 
 [Restauração e Backup de banco de dados do SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

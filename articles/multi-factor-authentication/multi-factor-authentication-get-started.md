@@ -87,4 +87,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 * [Para usuários](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

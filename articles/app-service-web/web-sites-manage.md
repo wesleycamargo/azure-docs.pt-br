@@ -93,4 +93,4 @@ Para adicionar uma regra de alerta, clique no gráfico e, depois, em **Adicionar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

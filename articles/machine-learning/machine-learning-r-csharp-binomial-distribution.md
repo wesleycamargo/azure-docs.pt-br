@@ -290,4 +290,4 @@ Para obter as perguntas frequentes sobre o consumo do servi√ßo Web ou a publica√
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

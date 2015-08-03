@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="07/15/2015"
 	ms.author="genemi"/>
 
 
@@ -138,7 +138,7 @@ Incentivamos você a se conectar aos bancos de dados SQL do Azure com o Visual S
 - Para desenvolver um banco de dados online ou offline.
 
 
-Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/pt-br/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
+Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
 
 
 No antigo portal do Azure, na página de banco de dados, você pode clicar em **Abrir no Visual Studio** para iniciar o VS2013 no seu computador para conexão com o Banco de Dados SQL do Azure.
@@ -244,4 +244,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

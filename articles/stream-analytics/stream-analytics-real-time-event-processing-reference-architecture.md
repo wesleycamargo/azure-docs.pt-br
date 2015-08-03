@@ -62,4 +62,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -45,4 +45,4 @@
 		
 	Agora, quando você insere uma nova TodoItem, uma notificação de envio é enviada para todos os dispositivos registrados.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

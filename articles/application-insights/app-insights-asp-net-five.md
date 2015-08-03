@@ -171,4 +171,4 @@ Volte para o [Portal do Azure][portal] e navegue até o seu recurso do Applicati
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

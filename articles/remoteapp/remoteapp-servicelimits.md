@@ -22,4 +22,4 @@ Informações sobre limites de serviço e os valores padrão do RemoteApp do Azu
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

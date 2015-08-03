@@ -234,4 +234,4 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

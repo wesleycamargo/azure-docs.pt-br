@@ -46,4 +46,4 @@ Se você usar o Operations Manager para monitorar qualquer uma das seguintes car
 
 [Definir as configurações de Proxy e Firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

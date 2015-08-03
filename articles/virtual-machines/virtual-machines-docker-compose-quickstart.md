@@ -114,4 +114,4 @@ Agora você deve ver a tela inicial do WordPress, onde pode concluir a instalaç
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -17,4 +17,4 @@
 
 6. Após a aplicação dos hotfixes, saia do modo de Manutenção. Confira [Sair do modo de manutenção](#exit-maintenance-mode) para obter instruções.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -34,4 +34,4 @@ A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada
 [Máquinas virtuais]: ../virtual-machines-choose-me.md
 [Serviços de Nuvem]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

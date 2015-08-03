@@ -1,4 +1,3 @@
-
 #### Para instalar a Atualização 1 do Windows PowerShell para StorSimple
 
 1. Execute as etapas a seguir para baixar a atualização do software.
@@ -97,4 +96,4 @@
 
     O status do firmware deve ser **UpToDate**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

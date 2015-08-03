@@ -245,4 +245,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

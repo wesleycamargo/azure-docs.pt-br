@@ -152,4 +152,4 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 
 Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

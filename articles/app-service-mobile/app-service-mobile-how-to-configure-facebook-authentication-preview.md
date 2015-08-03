@@ -18,6 +18,8 @@
 
 # Como configurar seu aplicativo para usar o logon do Facebook
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Facebook como um provedor de autenticação.
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook com um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para [facebook.com].
@@ -73,8 +75,8 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 <!-- URLs. -->
 [Desenvolvedores do Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /pt-br/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

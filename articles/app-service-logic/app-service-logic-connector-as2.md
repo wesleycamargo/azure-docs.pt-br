@@ -17,12 +17,12 @@
    ms.author="rajram"/>
 
 # Conector do Microsoft AS2
-O conector do Microsoft Azure AS2 permite receber e enviar mensagens pelo protocolo de transporte AS2 (Applicability Statement 2) em comunicações business-to-business. Os dados são transportados de maneira segura e confiável pela Internet. A segurança é obtida usando criptografia e certificados digitais.
+O Conector do Microsoft Azure AS2 permite receber e enviar mensagens pelo protocolo de transporte AS2 (Applicability Statement 2) em comunicações business-to-business. Os dados são transportados de maneira segura e confiável pela Internet. A segurança é obtida usando criptografia e certificados digitais.
 
 ## Gatilhos e Ações
-Um gatilho inicia uma nova instância com base em um evento específico, como a chegada de uma mensagem AS2 de um parceiro. Uma ação é o resultado, como após receber uma mensagem AS2 e depois enviar a mensagem usando AS2.
+Um Gatilho inicia uma nova instância com base em um evento específico, como a chegada de uma mensagem AS2 de um parceiro. Uma Ação é o resultado, como após receber uma mensagem AS2 e depois enviar a mensagem usando AS2.
 
-O conector do AS2 pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. O conector do AS2 tem os seguintes gatilhos e ações disponíveis:
+O Conector do AS2 pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. O Conector do AS2 tem os seguintes gatilhos e ações disponíveis:
 
 Gatilhos | Ações
 --- | ---
@@ -33,9 +33,9 @@ Os seguintes itens devem ser criados por você antes que possam ser usados pelo 
 
 Requisito | Descrição
 --- | ---
-Aplicativo de API do TPM | Antes de criar um conector do AS2, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1]. <br/><br/>**Observação** Saiba o nome do seu aplicativo de API do TPM. 
-Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-create-configure.md)
-Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md).
+Aplicativo de API do TPM | Antes de criar um conector do AS2, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1]. <br/><br/>**Observação** Saiba o nome do Aplicativo de API de TPM. 
+Banco de Dados SQL do Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-create-configure.md)
+Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando o arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md).
 
 ## Criar o conector do AS2
 
@@ -61,41 +61,43 @@ As etapas envolvidas na criação de um contrato de parceiro comercial são docu
 
 ## Usar o Conector como um Gatilho
 
-1. Ao criar ou editar um aplicativo lógico, selecione o conector do AS2 criado no painel à direita: <br/> ![Configurações do gatilho][3]
+1. Ao criar ou editar um aplicativo de lógica, selecione o Conector do AS2 criado no painel à direita: <br/>![Configurações do gatilho][3]
 
-2. Clique na seta para a direita →: <br/> ![Opções do gatilho][4]
+2. Clique na seta à direita →: <br/> ![Opções do gatilho][4]
 
-3. O Conector do AS2 expõe um único gatilho. Selecione *Receber e decodificar*: <br/> ![Receber e decodificar dados][5]
+3. O Conector do AS2 expõe um único gatilho. Selecione *Receber e Decodificar*: <br/> ![Receber e decodificar dados][5]
 
-4. Esse gatilho não tem entradas. Clique na seta para a direita →: <br/> ![Receber e decodificar configurados][6]
+4. Esse gatilho não tem entradas. Clique na seta à direita →: <br/> ![Receber e decodificar configurados][6]
 
-Como parte da saída, o conector retorna a carga útil do AS2, bem como os metadados específicos do AS2.
+Como parte da saída, o conector retorna a carga do AS2, bem como os metadados específicos do AS2.
+
+O gatilho é acionado quando uma carga do AS2 é como uma POSTAGEM para https://{Host URL}/decode. Você pode encontrar a URL do Host nas configurações do Aplicativo de API. Talvez você precise alterar o nível de acesso do Aplicativo de API nas configurações do aplicativo para Público (autenticado ou anônimo).
 
 ## Usar o Conector como uma Ação
-1. Após o gatilho (ou escolha 'executar esta lógica manualmente'), adicione o conector do AS2 criado no painel à direita: <br/> ![Configurações de ação][7]
+1. Após o gatilho (ou escolha “executar esta lógica manualmente”), adicione o conector do AS2 criado no painel à direita: <br/> ![Configurações de ação][7]
 
-2. Clique na seta para a direita →: <br/> ![Lista de ações][8]
+2. Clique na seta à direita →: <br/> ![Lista de ações][8]
 
-3. O conector do AS2 tem suporte para apenas uma ação. Selecione *Codificar e enviar*: <br/> ![Codificar e enviar entrada][9]
+3. O conector do AS2 dá suporte a apenas uma ação. Selecione *Codificar e Enviar*: <br/> ![Codificar e enviar entrada][9]
 
-4. Especifique as entradas para a ação e configure-a: <br/> ![Codificar e enviar configurado][10]
+4. Forneça as entradas para a ação e configure-a: <br/> ![Codificar e enviar configurado][10]
 
 Os parâmetros incluem:
 
 Parâmetro | Tipo | Descrição
 --- | --- | ---
 Carga útil | objeto| O conteúdo da carga para codificar e enviar para o ponto de extremidade configurado. A carga deve ser fornecida como um objeto JSON.
-AS2 de | string | A identidade de AS2 do remetente da mensagem do AS2. Esse parâmetro é usado para pesquisar o contrato adequado para envio da mensagem.
-AS2 para | string | A identidade de AS2 do destinatário da mensagem do AS2. Esse parâmetro é usado para pesquisar o contrato adequado para envio da mensagem.
+AS2 de | string | A identidade AS2 do remetente da mensagem AS2. Esse parâmetro é usado para pesquisar o contrato adequado para enviar a mensagem.
+AS2 para | string | A identidade AS2 do receptor da mensagem AS2. Esse parâmetro é usado para pesquisar o contrato adequado para enviar a mensagem.
 URL do parceiro | string | O ponto de extremidade do parceiro para o qual a mensagem precisa ser enviada.
-Habilitar arquivamento | Booleano | Determina se a mensagem de saída deve ser arquivada.
+Habilitar arquivamento | boolean | Determina se a mensagem de saída deve ser arquivada.
 
 A ação retorna um código de resposta HTTP 200 à conclusão bem-sucedida.
 
 ## Faça mais com seu Conector
-Mais informações sobre aplicativos lógicos em [O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
+Mais informações sobre aplicativos lógicos em [O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md)
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Criar os aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -111,4 +113,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

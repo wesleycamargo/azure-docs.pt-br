@@ -143,4 +143,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Usando a CLI do Azure com o Gerenciamento de Recursos](xplat-cli-azure-resource-manager.md)
 - [Usando grupos de recursos para gerenciar os recursos do Azure](resource-groups-overview.md): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

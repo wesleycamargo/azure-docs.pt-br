@@ -141,4 +141,4 @@ Para obter mais informações, consulte [Add-AzureVhd]((https://msdn.microsoft.c
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

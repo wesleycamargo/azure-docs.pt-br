@@ -233,4 +233,4 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

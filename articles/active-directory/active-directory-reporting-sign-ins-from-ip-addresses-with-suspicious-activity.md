@@ -24,4 +24,4 @@
 
 ![Entradas de endereços IP com atividade suspeita](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

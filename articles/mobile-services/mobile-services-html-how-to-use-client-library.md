@@ -608,4 +608,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [Chamar uma API personalizada do cliente]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

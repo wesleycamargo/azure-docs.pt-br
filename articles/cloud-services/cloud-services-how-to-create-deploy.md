@@ -34,11 +34,13 @@ Este tópico explica como usar o método Criação Rápida para criar um novo se
 ## Conceitos
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
-- **Definição de serviço**<br/> O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
+- **Definição de serviço** O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 
-- **Configuração de serviço**<br/> O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+- **Configuração de serviço** O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 
-- **Pacote de serviço**<br/> O pacote de serviço (arquivo .cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+- **Pacote de serviço** O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+  
+Você pode aprender mais sobre eles e como criar um pacote [aqui](cloud-services-model-and-package.md).
 
 ## Preparação do aplicativo
 Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](http://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
@@ -145,4 +147,4 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

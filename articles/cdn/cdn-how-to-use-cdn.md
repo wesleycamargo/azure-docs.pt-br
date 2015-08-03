@@ -54,4 +54,4 @@ Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornec
 [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

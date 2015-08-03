@@ -449,4 +449,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

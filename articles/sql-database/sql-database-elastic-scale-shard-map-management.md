@@ -234,4 +234,4 @@ Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

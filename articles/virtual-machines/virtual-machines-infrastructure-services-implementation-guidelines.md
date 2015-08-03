@@ -3,7 +3,7 @@
 	description="Saiba mais sobre as principais diretrizes de design e implementação para a implantação de uma carga de trabalho de TI em serviços de infraestrutura do Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
 # Diretrizes de implementação dos Serviços de Infraestrutura do Azure
  
@@ -76,7 +76,7 @@ Você deve definir cada tipo de recurso na convenção de nomenclatura, que deve
 - Conjuntos de Disponibilidade
 - Grupos de recursos
 - Serviços de Nuvem
-- Máquinas Virtuais
+- Máquinas virtuais
 - Pontos de extremidade
 - Grupos de segurança de rede
 - Funções
@@ -101,7 +101,7 @@ As contas de armazenamento têm regras especiais para os nomes. Você só pode u
 
 Além disso, as contas de armazenamento podem aproveitar os contêineres. Elas devem seguir as convenções de nomenclatura, conforme descrito em [Nomenclatura e referência de contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
-### Nomes de Blocos de Construção do Azure
+### Nomes de blocos de construção do Azure
 
 Os Blocos de Construção do Azure são serviços de nível de aplicativo oferecidos pelo Azure, normalmente aos aplicativos que utilizam os recursos de PaaS, embora os recursos de IaaS possam aproveitar alguns deles, como o SQL do Azure, o Gerenciador de Tráfego e outros.
 
@@ -168,7 +168,7 @@ Os discos do sistema operacional e os discos de dados têm um tamanho máximo de
 ### Discos distribuídos
 Além de fornecer a capacidade de criar discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados poderá melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com isso é feita a paralelização da E/S necessária para gravar e ler dados de um único disco.
 
-O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, confira [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-size-specs.md).
 
 Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
 
@@ -232,7 +232,7 @@ Tarefa:
 
 - Crie o conjunto de serviços de nuvem usando a sua convenção de nomenclatura. Você pode usar o Portal de Gerenciamento do Azure ou o cmdlet do PowerShell **New-AzureService**.
 
-## 5. Redes Virtuais
+## 5. Redes virtuais
 
 A próxima etapa lógica é criar as redes virtuais necessárias para dar suporte às comunicações entre as máquinas virtuais na solução. Embora seja possível hospedar várias máquinas virtuais de uma carga de trabalho de TI apenas em um serviço de nuvem, as redes virtuais são recomendadas.
 
@@ -288,9 +288,9 @@ Tarefas:
 - Defina o espaço de endereço da rede virtual.
 - Defina o conjunto de sub-redes e o espaço de endereço para cada uma.
 - Para redes virtuais entre instalações, defina o conjunto de espaços de endereços de redes locais para as instalações que as máquinas virtuais da rede virtual precisam acessar.
-- Crie a rede virtual usando a sua convenção de nomenclatura. Você pode usar o Portal de Visualização do Azure ou o Portal de Gerenciamento do Azure.
+- Crie a rede virtual usando a sua convenção de nomenclatura. Você pode usar o portal de Visualização do Azure ou o portal do Azure.
 
-## 6. Conjuntos de Disponibilidade
+## 6. Conjuntos de disponibilidade
 
 No Azure PaaS, os serviços de nuvem contêm uma ou mais funções que executam o código do aplicativo. As funções podem ter uma ou mais instâncias de máquinas virtuais que a malha provisiona automaticamente. A qualquer momento, o Azure pode atualizar as instâncias nessas funções, mas como elas fazem parte da mesma função, o Azure sabe que não deve atualizar todas ao mesmo tempo para impedir uma interrupção de serviço para a função.
 
@@ -308,11 +308,11 @@ Tarefa:
 
 - Defina o conjunto de conjuntos de disponibilidade usando a sua convenção de nomenclatura. Você pode associar uma máquina virtual a um conjunto quando criar as máquinas virtuais ou associar uma máquina virtual a um conjunto de disponibilidade depois que a máquina virtual tiver sido criada.
 
-## 7. Máquinas Virtuais
+## 7. Máquinas virtuais
 
 No Azure PaaS, o Azure gerencia as máquinas virtuais e seus discos associados. Você deve criar e nomear os serviços de nuvem e as funções e, em seguida, o Azure criará instâncias associadas a essas funções. No caso do Azure IaaS, cabe a você fornecer nomes para os serviços de nuvem, máquinas virtuais e discos associados.
 
-Para reduzir a carga administrativa, o Portal de Gerenciamento do Azure usará o nome do computador como uma sugestão para o nome padrão do serviço de nuvem associado (caso o cliente opte por criar um novo serviço de nuvem como parte do assistente de criação de máquinas virtuais).
+Para reduzir a carga administrativa, o portal do Azure usará o nome do computador como uma sugestão para o nome padrão do serviço de nuvem associado (caso o cliente opte por criar um novo serviço de nuvem como parte do assistente de criação de máquinas virtuais).
 
 Além disso, o Azure nomeia os discos e seus blobs VHD de apoio usando uma combinação do nome do serviço de nuvem, do nome do computador e da data de criação.
 
@@ -387,7 +387,7 @@ Criaram uma rede virtual somente em nuvem com as seguintes configurações usand
 	- Nome: BackEnd
 	- Espaço de endereço: 10.0.2.0/24
 
-### Conjuntos de Disponibilidade
+### Conjuntos de disponibilidade
 
 Para manter a alta disponibilidade de todos os quatro níveis de seu mecanismo de análise financeira, a Contoso decidiu por quatro conjuntos de disponibilidade:
 
@@ -430,7 +430,7 @@ Essa configuração inclui:
 
 [Assinatura e limites de serviços, cotas e restrições do Microsoft Azure](../azure-subscription-service-limits.md#storage-limits)
 
-[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Tamanhos das máquinas virtuais](virtual-machines-size-specs.md)
 
 [Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Essa configuração inclui:
 
 [Diagrama da arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Provedores de Computação, Rede e Armazenamento do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

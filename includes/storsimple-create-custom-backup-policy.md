@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Criar uma política de backup personalizada do StorSimple"
-   description="Explica como é possível usar o serviço Gerenciador do StorSimple para criar uma política de backup personalizada."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Para criar uma política de backup personalizada
 
@@ -55,4 +39,4 @@
 
     ![Política de backup personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

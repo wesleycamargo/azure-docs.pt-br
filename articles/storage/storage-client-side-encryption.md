@@ -234,4 +234,4 @@ Conforme mencionado acima, se a entidade implementar TableEntity, as propriedade
 
 [Criptografia do lado do cliente do Armazenamento do Microsoft Azure – Visualização](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Baixar a [biblioteca de cliente do Armazenamento do Azure para pacote .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Baixar a [biblioteca de cliente do Armazenamento do Azure para código-fonte .NET](https://github.com/Azure/azure-storage-net/tree/preview) do GitHub Baixar os pacotes NuGet de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre da Chave Visite a [Documentação do Cofre da Chave do Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

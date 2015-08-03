@@ -547,4 +547,4 @@ Em vez de usar TSPSolver para criar ou excluir a fila, você pode criar ou exclu
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

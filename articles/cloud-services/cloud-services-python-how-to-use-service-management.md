@@ -42,7 +42,7 @@ Para criar o certificado `.cer`, execute isto:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal], e anotar o local onde você salvou o arquivo `.pem`.
 
@@ -64,7 +64,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
 Depois que você tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal].
 
@@ -303,7 +303,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-pt-br-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -445,4 +445,4 @@ Agora que você aprendeu os fundamentos do gerenciamento de serviços, você pod
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

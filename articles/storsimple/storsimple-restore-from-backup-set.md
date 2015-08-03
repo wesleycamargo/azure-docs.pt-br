@@ -33,9 +33,9 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 - **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
 - **Iniciada por** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda, ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup interativo).
 
-## Como restaurar seu dispositivo do backup
+## Como restaurar o volume StorSimple de um backup
 
-Você pode usar a página **Catálogo de Backup** para restaurar seu dispositivo de um conjunto de backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
+É possível usar a página **Catálogo de Backup** para restaurar o volume StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
 
 > [AZURE.WARNING]A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
 
@@ -56,7 +56,7 @@ Você pode usar a página **Catálogo de Backup** para restaurar seu dispositivo
 
 3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na página **Contêineres de Volume** e, em seguida, siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline) para colocá-los offline.
 
-    >  [AZURE.IMPORTANT]Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, o serviço Gerenciador do StorSimple os colocará offline automaticamente no host. Potencialmente, isso poderia causar corrupção de dados.
+    >  [AZURE.IMPORTANT]Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
 
 4. Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup.
 
@@ -74,4 +74,4 @@ Você pode usar a página **Catálogo de Backup** para restaurar seu dispositivo
 
 Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

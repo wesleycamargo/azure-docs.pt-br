@@ -67,4 +67,4 @@ Consultas de vários fragmentos não verificam se shardlets do banco de dados co
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -40,4 +40,4 @@ O serviço se baseia no ARM (Azure Resource Manager, Gerenciador de Recursos do 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

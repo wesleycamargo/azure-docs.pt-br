@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET" 
-	description="Saiba como usar alguns dos clientes disponíveis nas bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure" 
-	services="virtual-machines,virtual-network,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Implante recursos do Azure usando as bibliotecas .NET de computação, rede e armazenamento" description="Aprenda a usar alguns dos clientes disponíveis nas bibliotecas .NET de computação, armazenamento e rede para criar e excluir recursos no Microsoft Azure" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines" 
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET
@@ -26,7 +19,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
 - [PowerShell do Azure](../install-configure-powershell.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
@@ -55,7 +48,7 @@ Para usar o AD do Azure para autenticar solicitações ao Gerenciador de Recurso
 
 5. Substitua {id-aplicativo} pelo identificador que acabou de registrar e, em seguida, crie a entidade de serviço para o aplicativo:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Defina a permissão para usar o aplicativo:
 
@@ -108,7 +101,7 @@ Agora que o aplicativo Active Directory do Azure foi criado e a biblioteca de au
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -141,7 +134,7 @@ Os recursos sempre são implantados em um grupo de recursos. Você usa o [Resour
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -169,7 +162,7 @@ Uma conta de armazenamento é necessária para armazenar o arquivo de disco ríg
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -182,7 +175,7 @@ Uma conta de armazenamento é necessária para armazenar o arquivo de disco ríg
         }
 
 3.	Adicione o seguinte código ao método Main para chamar o método que você acabou de adicionar:
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -285,7 +278,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -334,7 +327,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -387,4 +380,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

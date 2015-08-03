@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mebha"/>
 
 
@@ -47,7 +47,7 @@ Abra o seu terminal e instale
 
     brew install FreeTDS
   
-**3) Pymmsql**: execute o comando a seguir no seu terminal. Ele será instalado no seu computador
+**3) Pymmsql**: execute o comando a seguir no seu terminal. Ele instalará pymmsql no seu computador
 
     sudo -H pip install pymssql
 
@@ -83,7 +83,7 @@ A função [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssq
 
 ## Inserir uma linha, passar parâmetros e recuperar a chave primária gerada
 
-No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
+No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente [valores de chave primária](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql
@@ -102,11 +102,11 @@ No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/libra
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
--Inicia uma transação
+- Inicia uma transação
 
--Insere uma linha de dados
+- Insere uma linha de dados
 
--Reverte a transação para desfazer a inserção
+- Reverte a transação para desfazer a inserção
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

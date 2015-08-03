@@ -48,4 +48,4 @@ Neste tutorial você aprendeu a criar uma Máquina Virtual do Windows Server e a
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,9 @@
 <properties 
-	pageTitle="Processo e Tecnologia de Análises Avançadas em Ação: usando clusters Hadoop em um conjunto de dados da Criteo de 1 TB | Microsoft Azure" 
+	pageTitle="Processo e Tecnologia de Análises Avançadas em Ação: usando clusters Hadoop do Azure HDInsight em um conjunto de dados da Criteo de 1 TB | Azure" 
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um grande conjunto de dados (1 TB) disponível publicamente" 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -13,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" />
 
 # Processo e Tecnologia de Análises Avançadas em Ação - Usando Clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
-Neste passo a passo, nós demonstramos o uso do ADAPT (Processo e Tecnologia de Análises Avançadas) ponta a ponta com um [cluster Hadoop do Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar recursos e reduzir a resolução de dados de exemplo de um dos conjuntos de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponíveis publicamente. Nós usamos o Aprendizado de Máquina do Azure para criar modelos de regressão e classificação binária utilizando esses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
+Neste passo a passo, nós demonstramos o uso do ADAPT (Processo e Tecnologia de Análises Avançadas) ponta a ponta com um [cluster Hadoop do Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar recursos e reduzir a resolução de dados de exemplo de um dos conjuntos de dados da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponíveis publicamente. Usamos o Aprendizado de Máquina do Azure para criar um modelo de classificação binária nesses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
 
-Também é possível usar um bloco de anotações do iPython para executar as tarefas apresentadas neste passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Também é possível usar um bloco de anotações do IPython para executar as tarefas apresentadas nesse passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descrição do conjunto de dados da Criteo
@@ -62,7 +64,7 @@ Dois exemplos de problemas de previsão são abordados neste passo a passo:
 
 Configure seu ambiente de Ciência de dados do Azure para a criação de soluções analíticas de previsão com clusters do HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../storage-whatis-account.md): esta conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
+1. [Criar uma conta de armazenamento](storage-whatis-account.md): esta conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
 
 2. [Personalizar clusters Hadoop do Azure HDInsight para ciência de dados](machine-learning-data-science-customize-hadoop-cluster.md): esta etapa cria um cluster Hadoop do Azure HDInsight com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes (descritas neste tópico) a serem executadas para personalizar o cluster do HDInsight.
 
@@ -80,7 +82,7 @@ O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-teraby
 
 Clique em **Continuar a Baixar** para saber mais sobre o conjunto de dados e sua disponibilidade.
 
-Os dados residem em um local público do [armazenamento de blob do Azure](../storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. O "wasb" refere-se ao local do Armazenamento de Blob do Azure.
+Os dados residem em um local público do [armazenamento de blob do Azure](storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. O "wasb" refere-se ao local do Armazenamento de Blob do Azure.
 
 1. Os dados desse armazenamento de blob público consistem de três subpastas de dados descompactados.
 		
@@ -112,16 +114,16 @@ Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Lin
 
 **OBSERVAÇÃO IMPORTANTE**: **execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/ do Hive acima. Isso solucionará automaticamente quaisquer problemas de caminho. Nós usaremos os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" alternadamente.**
 
-**OBSERVAÇÃO IMPORTANTE 2**: **para executar qualquer consulta de Hive, sempre é possível fazer o seguinte** cd %hive_home%\bin hive
+**OBSERVAÇÃO IMPORTANTE 2**: **para executar qualquer consulta de Hive, sempre é possível fazer o seguinte** cd %hive_home%\\bin hive
 
 Após a REPL do Hive aparecer com um sinal "hive>", basta recortar e colar a consulta para executá-la.
 
 O código abaixo cria um banco de dados "criteo" e gera quatro tabelas:
 
 
-* uma *tabela de contagem* baseada nos dias day_00 a day_20, 
-* uma *tabela de treinamento* baseada no dia day_21 e 
-* duas *tabelas de teste* baseadas nos dias day_22 e day_23, respectivamente. 
+* uma *tabela para gerar contagens* criada nos dias dia_00 a dia_20, 
+* uma *tabela para ser usada como o conjunto de dados de treinamento* criada no dia_21 e 
+* duas *tabelas para serem usadas como os conjuntos de dados de teste* criadas nos dias dia_22 e dia_23, respectivamente. 
 
 Nós dividimos nosso conjunto de dados de teste em duas tabelas diferentes porque um dos dias é feriado, e queremos determinar se o modelo é capaz de detectar diferenças entre dias que são feriado e dias que não são, com base na taxa de clickthrough.
 
@@ -437,25 +439,28 @@ Nosso processo de criação de modelo no Aprendizado de Máquina do Azure seguir
 5. [Avaliar o modelo](#step5)
 6. [Publicar o modelo como um serviço Web a ser consumido](#step6)
 
-Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo de Leitor do Aprendizado de Máquina do Azure para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
+Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo de **Leitor** do Aprendizado de Máquina do Azure para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
 
 ### <a name="step1"></a> Etapa 1: passar dados de tabelas do Hive para o Aprendizado de Máquina do Azure usando o módulo de Leitor e selecioná-los para um experimento de aprendizado de máquina
 
-Para o módulo de **Leitor**, os valores dos parâmetros definidos no gráfico são apenas exemplos. Aqui estão orientações gerais para “preencher” os parâmetros definidos para o módulo de **Leitor**.
-
-1. Escolha "Hive query" como Fonte de dados
-2. Em "Hive query", um simples SELECT * FROM <nome_banco_dados.nome_tabela> - é suficiente.
-3. URI do servidor Hcatalog: se seu cluster for "abc", ele é: https://abc.azurehdinsight.net
-4. Nome da conta de usuário do Hadoop: nome de usuário escolhido no momento da preparação do cluster (NÃO é o nome de usuário do Acesso Remoto)
-5. Senha da conta de usuário do Hadoop: senha do nome de usuário acima, escolhida no momento da preparação do cluster (NÃO é a senha do Acesso Remoto)
-6. Local dos dados de saída: escolha "Azure"
-7. Nome da conta de armazenamento do Azure: a conta de armazenamento associada ao cluster
-8. Chave da conta de armazenamento do Azure: chave da conta de armazenamento associada ao cluster
-9. Nome do contêiner do Azure: se o nome do cluster for "abc", normalmente costuma ser apenas "abc" 
+Comece selecionando **+NOVO**->**EXPERIMENTO**->**Experimento em branco**. Depois, na caixa **Pesquisar** na parte superior esquerda, procure "Leitor". Arraste e solte o módulo **Leitor** na tela do experimento (a parte central da tela) para usar o módulo para acesso a dados.
 
 Esta é a aparência do **Leitor** ao obter dados da tabela do Hive:
 
 ![Leitor obtém dados](http://i.imgur.com/i3zRaoj.png)
+
+Para o módulo **Leitor**, os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Leitor**.
+
+1. Escolha "Consulta de Hive" para **Fonte de dados**
+2. Na caixa **Consulta ao banco de dados Hive**, um simples SELECT * FROM <nome_banco_dados.nome_tabela> - é suficiente.
+3. **URI do servidor Hcatalog**: se seu cluster for "abc", ele será somente: https://abc.azurehdinsight.net
+4. **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido no momento da programação do cluster. (NÃO o nome de usuário do Acesso Remoto!)
+5. **Senha da conta de usuário do Hadoop**: a senha para o nome de usuário acima escolhido no momento da programação do cluster. (NÃO a senha de Acesso Remoto!)
+6. **Local dos dados de saída**: escolha "Azure"
+7. **Nome da conta de armazenamento do Azure**: a conta de armazenamento associada ao cluster
+8. **Chave da conta de armazenamento do Azure**: a chave da conta de armazenamento associada ao cluster.
+9. **Nome do contêiner do Azure**: se o nome do cluster for "abc", normalmente costuma ser apenas "abc". 
+
 
 Após o **Leitor** terminar de obter os dados (você vê a marca de seleção verde no Módulo), salve-os dados como um Conjunto de dados (com um nome de sua escolha). A aparência é a seguinte:
 
@@ -464,19 +469,21 @@ Após o **Leitor** terminar de obter os dados (você vê a marca de seleção ve
 
 Clique com o botão direito do mouse na porta de saída do módulo de **Leitor**. Isso revela uma opção **Salvar como conjunto de dados** e uma opção **Visualizar**. A opção **Visualizar**, se clicada, exibe 100 linhas de dados, juntamente com um painel à direita que é útil para ver algumas estatísticas resumidas. Para salvar os dados, basta selecionar **Salvar como conjunto de dados** e seguir as instruções.
 
-Para selecionar o conjunto de dados salvo para uso em um experimento de aprendizado de máquina, localize os conjuntos de dados usando a **Pesquisa** mostrada abaixo. Em seguida, basta digitar o nome do conjunto de dados parcialmente para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltá-lo no painel principal o seleciona para uso na modelagem do aprendizado de máquina.
+Para selecionar o conjunto de dados salvo para uso em um experimento de aprendizado de máquina, localize os conjuntos de dados usando a caixa **Pesquisa** mostrada abaixo. Em seguida, basta digitar parcialmente o nome do conjunto de dados para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltá-lo no painel principal o seleciona para uso na modelagem do aprendizado de máquina.
 
-![Localizar conjunto de dados](http://i.imgur.com/rx4nnUH.png)
+![](http://i.imgur.com/cl5tpGw.png)
 
-Faça isso para os conjuntos de dados de treinamento e de teste.
-
+***OBSERVAÇÃO IMPORTANTE:*** **faça isso para os conjuntos de dados de treinamento e de teste. Além disso, lembre-se de usar o nome do banco de dados e das tabelas que você atribuiu para essa finalidade. Os valores usados na figura são somente para fins de ilustração.**
+ 
 ### <a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure para predizer cliques/nenhum clique
 
-Primeiro, nós mostramos uma arquitetura de experimento simples e depois detalhamos um pouco alguns aspectos específicos. Primeiro, limpamos os dados, depois escolhemos um aprendiz e, por fim, mostramos como criar recursos com tabelas de contagem criadas previamente ou construídas do zero pelo usuário.
+Nosso experimento do AM do Azure se parece com o seguinte:
 
-![Arquitetura do experimento](http://i.imgur.com/R4iTLYi.png)
+![](http://i.imgur.com/xRpVfrY.png)
 
-Para fazer uma busca detalhada, começamos com nossos conjuntos de dados salvos, conforme mostrado.
+Agora, vamos examinar os principais componentes nesse experimento. Como lembrete, primeiro precisamos arrastar nosso treinamento salvo e os conjuntos de dados de teste para a nossa tela de experimento.
+
+#### Limpar dados ausentes
 
 O módulo **Limpar dados ausentes** faz o que seu nome diz: limpa dados ausentes de maneiras que podem ser especificadas pelo usuário. Examinando este módulo, vemos isso:
 
@@ -484,138 +491,145 @@ O módulo **Limpar dados ausentes** faz o que seu nome diz: limpa dados ausentes
 
 Aqui, optamos por substituir todos os valores ausentes por um 0. Existem outras opções que podem ser vistas examinando os menus suspensos no módulo.
 
-Em seguida, escolhemos um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classe, como nosso aprendiz. Em particular, nós mostraremos como usar recursos de contagem em recursos categóricos alta dimensionais para criar representações compactas do nosso modelo e também para fazer testes e treinamentos eficientes.
+#### Engenharia de recurso nos dados
 
-Um parênteses aqui para discutir o que as tabelas de contagem realmente são: elas são contagens condicionais de classe (às vezes, nós as chamamos apenas de "contagens condicionais"). Essencialmente, elas são uma forma de contar os valores de um recurso para cada classe e usar essas contagens para calcular probabilidades de logs.
+Pode haver milhões de valores exclusivos para alguns recursos categóricos de grandes conjuntos de dados. Usar métodos simples como codificação one-hot para representar recursos categóricos altamente dimensionais é totalmente impraticável. Neste passo a passo, demonstramos como usar recursos de contagem usando módulos internos de Aprendizado de Máquina do Azure para gerar representações compactas dessas variáveis categóricas de grande dimensão. O resultado final é um tamanho de modelo menor, tempos de treinamento mais rápidos e métricas de desempenho que são muito semelhantes a outras técnicas.
 
+##### Criando transformações de contagem
 
-#### Obter acesso às tabelas de contagem criadas previamente para modelagem
+Para criar recursos de contagem, usamos o módulo **Criar transformação de contagem** que está disponível no Aprendizado de Máquina do Azure. O módulo tem esta aparência:
 
-Para obter acesso a nossas tabelas de contagem criadas previamente, clique em **Galeria**, conforme mostrado abaixo:
+![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
 
-![Galeria](http://i.imgur.com/TsWkig3.png)
+**Observação importante**: na caixa **Contar colunas**, inserimos as colunas nas quais desejamos realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. No início, mencionamos que o conjunto de dados Criteo tem 26 colunas categóricas: de Col15 para Col40. Aqui, podemos contar todas elas e dar a elas seus índices (de 15 a 40 separados por vírgulas, como mostrado).
 
-Clicar em **Galeria** leva o usuário a uma página semelhante à seguinte:
+Para usar o módulo no modo MapReduce (apropriado para grandes conjuntos de dados), precisamos de acesso a um cluster HDInsight Hadoop (aquele usado para a exploração de recurso acima também pode ser reutilizado para essa finalidade) e suas credenciais. Os valores acima ilustram como os valores preenchidos aparentam (substitua os valores fornecidos como ilustração com aqueles relevantes para seu próprio uso e caso).
 
-![Página principal da Galeria](http://i.imgur.com/dmXo0KR.png)
+![](http://i.imgur.com/05IqySf.png)
 
-Aqui, pesquise pela expressão "criteo counts" e role para baixo na lista de resultados. Você deverá ver:
-
-![Contagens da Criteo](http://i.imgur.com/JZ119Jf.png)
-
-Clicar neste experimento leva a uma página semelhante à seguinte:
-
-![Contagens](http://i.imgur.com/dxdjMjh.png)
-
-Aqui, clique em **Abrir no estúdio** para copiar o experimento para seu espaço de trabalho. Isso também copia automaticamente os conjuntos de dados – nesse caso, os dois conjuntos de dados principais são a tabela de contagem e os metadados de contagem, que descrevemos com mais detalhes.
-
-#### Recursos de contagem no conjunto de dados
-
-Os módulos seguintes de nosso experimento envolvem o uso de tabelas de contagem criadas previamente. Para usar as tabelas de contagem criadas previamente, pesquise por "cr_count_" na guia de Pesquisa de um novo experimento e você verá dois conjuntos de dados: "cr_count_cleanednulls_metadata" e "cr_count_table_cleanednulls". Arraste e solte ambos no painel do experimento à direita. Clicar com o botão direito nas portas de saída, como sempre, nos permite visualizar sua aparência.
-
-A visualização dos metadados da tabela de contagem é semelhante à seguinte:
-
-![Metadados da tabela de contagem](http://i.imgur.com/A39PIe7.png)
-
-Observe que os metadados contêm informações sobre em quais colunas baseamos as contagens condicionais, se usamos um dicionário para compilá-la (uma alternativa é o esboço de contagem mínima), a propagação de hash usada, o número de bits de hash usados para fazer o hash dos recursos, o número de classes e assim por diante.
-
-A visualização da tabela de contagem é semelhante à seguinte:
-
-![Tabela de contagem](http://i.imgur.com/NJn1EQO.png)
-
-Podemos ver que a tabela de contagem contém informações sobre as contagens condicionais de classe. O valor dos recursos categóricos está em "Valor de Hash", de modo que os recursos são transformados em hash.
-
-Como os recursos de contagem são incorporados aos conjuntos de dados? Para isso, nós usamos o módulo de **Recursos** de contagem, como mostrado abaixo:
-
-![Módulo Recursos de contagem](http://i.imgur.com/dnMdrR1.png)
-
-Após a tabela de contagem ser criada (lembre-se de que estamos produzindo contagens condicionais de classe de recursos categóricos aqui), usamos o módulo **Recursos de contagem** mostrado acima para incorporar esses recursos de contagem ao nosso conjunto de dados. Como podemos ver, o módulo **Recursos** permite escolher quais recursos contar, se precisamos apenas das probabilidades de log ou também das contagens e outras opções avançadas.
-
-#### Criar uma tabela de contagem do zero
-
-Lembre-se de que mencionamos em "Uma breve discussão sobre a tabela de contagem" que, além de usar tabelas de contagem criadas previamente (o que discutimos detalhadamente em seções anteriores), os usuários também podem criar suas próprias tabelas de contagem do zero.
-
-Nesta seção, demonstramos como criar uma tabela de contagem do zero. Para isso, usamos o módulo **Criar tabela de contagem** mostrado abaixo com suas configurações:
-
-![Módulo Criar tabela de contagem](http://i.imgur.com/r7pP8Qq.png)
-
-A última parte das configurações para este módulo estão a seguir:
-
-![Configurações do módulo Criar tabela de contagem](http://i.imgur.com/PvmSh3C.png)
+Na figura acima, vamos mostrar como inserir o local do blob de entrada. Esse local tem os dados reservados para a criação de tabelas de contagem.
 
 
-**Observação importante:** para as configurações de conta de armazenamento e de cluster, use os SEUS valores relevantes!
+Após a execução desse módulo, podemos salvar a transformação para mais tarde clicando com botão direito do mouse no módulo e selecionando a opção **Salvar como Transformação**:
 
-Clicar em **Executar** nos permite criar as tabelas de contagem no cluster escolhido. A saída é, como mostrado anteriormente, a tabela de contagem e seus metadados associados. Com essas tabelas prontas, agora podemos criar o experimento.
+![](http://i.imgur.com/IcVgvHR.png)
 
+Em nossa arquitetura de experimento mostrada acima, o conjunto de dados "ytransform2" corresponde exatamente a uma transformação de contagem salva. Para o restante desse experimento, assumimos que o leitor usou um módulo **Compilar transformação de contagem** em alguns dados para gerar contagens e usá-las para gerar recursos de contagem em conjuntos de dados de treinamento e de teste.
 
-### <a name="step3"></a> Etapa 3: Treinar o modelo
+##### Escolhendo quais recursos de contagem incluir como parte dos conjuntos de dados de treinamento e de teste
 
-Para selecionar esta opção, basta digitar "two class boosted" na caixa de Pesquisa e arrastar o módulo. Usamos os valores padrão para o aprendiz de árvore de decisão aumentada, mostrados abaixo:
+Assim que tivermos uma transformação de contagem pronta, o usuário pode escolher quais recursos incluir nos seus conjuntos de dados de treinamento e de teste usando o módulo **Modificar parâmetros da tabela de contagem**. Vamos mostrar esse módulo abaixo para fins de conclusão, mas, para manter a simplicidade, não use de fato no nosso experimento.
 
-![Aprendiz BDT](http://i.imgur.com/dDk0Jtv.png)
+![](http://i.imgur.com/PfCHkVg.png)
 
-Precisamos de três componentes finais antes de executar o experimento de AM.
+Nesse caso, como se vê, optamos por usar somente os log-possibilidades e ignorar a coluna de retirada. Também podemos definir parâmetros, como o limite da lixeira, quantos exemplos pseudo anteriores adicionar para suavização e se o ruído Laplaciano deve ser usado ou não. Todos esses são recursos avançados e deve-se observar que os valores padrão são um bom ponto de partida para usuários não familiarizados com esse tipo de geração de recurso.
 
-O primeiro é um módulo de Treinamento de Modelo. Enquanto sua primeira porta usa o aprendiz como entrada, a segunda usa o conjunto de dados de treinamento para aprendizado. Mostramos abaixo sua aparência e depois mostramos quais parâmetros precisam ser definidos no módulo.
+##### Transformação de dados antes de gerar os recursos de contagem
 
-![Conexões do módulo Modelo de treinamento de BDT](http://i.imgur.com/szS2xBb.png)
+Agora vamos nos concentrar em um ponto importante sobre como transformar nossos dados de treinamento e de teste antes de realmente gerar recursos de contagem. Observe que há dois módulos **Executar Script R** usados antes de podermos aplicar a transformação de contagem aos nossos dados.
 
-![Configurações do módulo Modelo de treinamento de BDT](http://i.imgur.com/nd7lHBL.png)
+![](http://i.imgur.com/aF59wbc.png)
 
-### <a name="step4"></a> Etapa 4: Pontuação do modelo em um conjunto de dados de teste
+Veja o primeiro script R:
 
-O segundo componente é uma maneira de pontuar o conjunto de dados de teste. Isso é feito de maneira conveniente usando o módulo **Modelo de classificação** - ele usa como entrada o modelo aprendido com os dados de treinamento, bem como o conjunto de dados de teste para basear as previsões. Abaixo, mostramos sua aparência.
+![](http://i.imgur.com/3hkIoMx.png)
 
-![Conexões do modelo BDT de classificação](http://i.imgur.com/AwIH1rH.png)
+Nesse script R, renomeamos nossas colunas para nomes "Col1" a "Col40". Isso ocorre porque a transformação de contagem espera nomes nesse formato.
+
+No segundo script R, podemos equilibrar a distribuição entre classes positivas e negativas (classes 1 e 0, respectivamente) reduzindo a classe negativa. O script R abaixo mostra como fazer isso:
+
+![](http://i.imgur.com/91wvcwN.png)
+
+Nesse script R simples, usamos "pos_neg_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. Isso é importante, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que em nosso caso, temos classes positivo 3,3% e 96,7% negativo).
+
+##### Aplicando a transformação de contagem aos nossos dados
+
+Por fim, podemos usar o módulo **Aplicar transformação** para aplicar as transformações de contagem aos nossos conjuntos de dados de treino e de teste. Este módulo usa a transformação da contagem salva como uma entrada e os conjuntos de dados de treinamento ou de teste como outra entrada e retorna dados com recursos de contagem. Isso é mostrado abaixo:
+
+![](http://i.imgur.com/xnQvsYf.png)
+
+##### Um trecho de como os recursos de contagem se parecem
+
+É instrutivo observar a aparência dos recursos de contagem em nosso caso. A seguir, mostramos um trecho disso:
+
+![](http://i.imgur.com/FO1nNfw.png)
+
+Nesse trecho, mostramos que para as colunas que pudemos contar, obtivemos as contagens e possibilidades de log além de qualquer retirada relevante.
+
+Agora estamos prontos para criar um modelo de Aprendizado de Máquina do Azure usando esses conjuntos de dados transformados. Na próxima seção, vamos mostrar como isso pode ser feito.
+
+#### Criação de modelo de Aprendizado de Máquina do Azure
+
+##### Opção do aprendiz
+
+Primeiro precisamos escolher um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classes, como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
+
+![](http://i.imgur.com/bH3ST2z.png)
+
+Para nosso experimento, vamos simplesmente escolher os valores padrão. Podemos observar que os padrões são geralmente significativos e uma boa maneira de se obter linhas de base rápidas sobre o desempenho. Se desejar, depois de ter uma linha de base, você pode melhorar o desempenho varrendo parâmetros.
+
+#### Treinar o modelo
+
+Para obter treinamento, podemos simplesmente invocar um módulo **Modelo de treinamento**. As duas entradas para ele são o aprendiz Árvore de Decisão Aumentada de Duas Classes e nosso conjunto de dados de treinamento. Isso é mostrado abaixo:
+
+![](http://i.imgur.com/2bZDZTy.png)
+
+#### Pontuar o modelo
+
+Assim que tivermos um modelo treinado, estamos prontos para avaliar o conjunto de dados de teste e seu desempenho. Podemos fazer isso usando o módulo **Modelo de pontuação** mostrado abaixo, junto com um módulo **Avaliar modelo**:
+
+![](http://i.imgur.com/fydcv6u.png)
 
 ### <a name="step5"></a> Etapa 5: Avaliar o modelo
 
-Por fim, gostaríamos de ver o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, nós vinculamos o módulo " Modelo de classificação" a um módulo "Modelo de avaliação". Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao abaixo:
+Por fim, gostaríamos de analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, nós vinculamos o módulo **Modelo de classificação** a um módulo **Modelo de avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao abaixo:
 
 ![Avaliar o modelo de BDT do módulo](http://i.imgur.com/0Tl0cdg.png)
 
-Em problemas de classificação binária (ou de duas classes), uma boa medida da precisão de previsão é o AUC. Abaixo, mostramos nossos resultados usando esse modelo em nosso conjunto de dados de teste. Para obtê-los, clique com o botão direito do mouse na porta de saída do módulo **Modelo de avaliação** e selecione **Visualizar**.
+Em problemas de classificação binária (ou de duas classes), uma boa medida da precisão de previsão é o AUC (área abaixo da curva). Abaixo, mostramos nossos resultados usando esse modelo em nosso conjunto de dados de teste. Para obtê-los, clique com o botão direito do mouse na porta de saída do módulo **Modelo de avaliação** e selecione **Visualizar**.
 
 ![Módulo Visualizar modelo de avaliação](http://i.imgur.com/IRfc7fH.png)
 
 ### <a name="step6"></a> Etapa 6: Publicar o modelo como um serviço Web a ser consumido
-É de grande interesse a capacidade de poder publicar modelos do aprendizado de máquina serviços Web. Depois de fazer isso, podemos fazer chamadas para o serviço Web usando dados para os quais precisamos de previsões e o modelo idealmente retornaria uma previsão de algum tipo.
+A capacidade de publicar um modelo de Aprendizado de Máquina do Azure como serviços Web com um nível mínimo de confusão é um recurso valioso para torná-lo amplamente disponível. Depois disso, qualquer pessoa pode fazer chamadas para o serviço Web com dados de entrada para os quais precisem de previsões, e o serviço Web usa o modelo para retornar as previsões.
 
-Para fazer isso, primeiro salvamos nosso modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** usando a opção "Salvar como um Modelo Treinado”.
+Para fazer isso, primeiro salvamos nosso modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.
 
-Em seguida, queremos criar uma porta de entrada e saída para nosso serviço Web – uma porta de entrada que recebe dados na mesma forma dos dados para os quais precisamos de previsões e uma porta de saída que retorna os Rótulos de pontuação e as probabilidades associadas.
+Em seguida, precisamos criar portas de entrada e saída para nosso serviço Web:
+
+* uma porta de entrada usa dados da mesma forma como os dados para os quais precisamos de previsões 
+* uma porta de saída retorna os Rótulos Pontuados e as probabilidades associadas.
 
 #### Selecionar algumas linhas de dados para a porta de entrada
 
-Agora, mostramos como selecionar apenas algumas linhas de dados para nossa porta de entrada.
+Podemos, de maneira conveniente, usar uma **Transformação do tipo Apply SQL** para selecionar apenas 10 linhas para servirem como dados de porta de entrada. Selecione somente essas linhas de dados para a nossa porta de entrada usando a consulta SQL mostrada abaixo.
 
 ![Dados na porta de entrada](http://i.imgur.com/XqVtSxu.png)
-
-Podemos, de maneira conveniente, usar uma transformação do tipo Apply SQL para selecionar apenas 10 linhas para servirem como dados de porta de entrada.
 
 #### Serviço Web
 Agora estamos prontos para executar um experimento pequeno que pode ser usado para publicar nosso serviço Web.
 
 #### Gerar dados de entrada para o serviço Web
 
-Como etapa inicial, como a tabela de contagem é grande, pegamos algumas linhas de dados de teste e geramos dados de saída por meio delas com recursos de contagem. Isso serve como o formato de dados de entrada para nosso serviço Web. Isso é mostrado abaixo:
+Como etapa inicial, como a tabela de contagem é grande, pegamos algumas linhas de dados de teste e geramos dados de saída por meio delas com recursos de contagem. Isso pode servir como o formato de dados de entrada para nosso serviço Web. Isso é mostrado abaixo:
 
 ![Criar dados de entrada de BDT](http://i.imgur.com/OEJMmst.png)
 
-Observação: para o formato de dados de entrada, usaremos a SAÍDA do módulo **Recursos de contagem**. Após o fim da execução do experimento, nós salvamos a saída do módulo **Recursos de contagem** como um conjunto de dados. **Observação importante:** este Conjunto de dados será usado para os dados de entrada do serviço Web.
+Observação: para o formato de dados de entrada, usaremos a SAÍDA do módulo **Recursos de contagem**. Após o fim da execução do experimento, nós salvamos a saída do módulo **Recursos de contagem** como um conjunto de dados.
+
+**Observação importante:** este Conjunto de dados será usado para os dados de entrada do serviço Web.
 
 #### Experimento de pontuação publicação do serviço Web
 
-Primeiro, mostramos sua aparência. A estrutura essencial é um módulo do modelo de Pontuação que aceita o nosso objeto de modelo treinado e algumas linhas de dados de entrada que geramos nas etapas anteriores usando o módulo **Recursos de contagem**. Usamos "Colunas do Projeto" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
+Primeiro, mostramos sua aparência. A estrutura essencial é um módulo do **Modelo de Pontuação** que aceita o nosso objeto de modelo treinado e algumas linhas de dados de entrada que geramos nas etapas anteriores usando o módulo **Recursos de contagem**. Usamos "Colunas do Projeto" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
 
 ![Colunas do projeto](http://i.imgur.com/kRHrIbe.png)
 
-É instrutivo observar como o módulo Colunas do Projeto pode ser usado para “filtrar” os dados de um conjunto de dados. Nós mostramos o conteúdo abaixo:
+Observe como o módulo **Projetar colunas** pode ser usado para 'filtrar' dados de um conjunto de dados. Nós mostramos o conteúdo abaixo:
 
 ![Filtrando com o módulo Colunas do projeto](http://i.imgur.com/oVUJC9K.png)
 
-Para obter as portas de entrada e saída azuis, simplesmente clicamos em "prepare webservice" no canto inferior direito. Executar esse experimento também nos permite publicar o serviço Web clicando no ícone **PUBLICAR SERVIÇO WEB** no canto inferior direito, mostrado abaixo.
+Para obter as portas de entrada e de saída azuis, basta clicar em **preparar serviço Web** no canto inferior direito. Executar esse experimento também nos permite publicar o serviço Web clicando no ícone **PUBLICAR SERVIÇO WEB** no canto inferior direito, mostrado abaixo.
 
 ![Publicar serviço Web](http://i.imgur.com/WO0nens.png)
 
@@ -626,24 +640,22 @@ Após o serviço Web ser publicado, somos redirecionados para uma página pareci
 Vemos dois links para serviços Web no lado esquerdo:
 
 * O **REQUEST/RESPONSE** Service (ou RRS) é destinado a previsões únicas e é o que utilizaremos neste workshop. 
-* O **BATCH EXECUTION** Service (BES), como o nome indica, é usado para previsões em lote e requer que os dados com base nos quais a previsão será feita residam em um blob do Azure.
+* O serviço **EXECUÇÃO EM LOTES** (BES) é usado para previsões em lotes e exige que os dados de entrada usados para fazer previsões residam no Armazenamento de Blob do Azure.
 
 Clicar no link **SOLICITAÇÃO/RESPOSTA** nos leva a uma página que nos fornece um código gravado previamente em C#, Python e R. Esse código pode ser usado de modo conveniente para fazer chamadas para o serviço Web. Observe que a chave da API nesta página deve ser usada para autenticação.
 
-É conveniente copiar esse código python para uma nova célula no iPython Notebook.
+É conveniente copiar esse código python para uma nova célula no bloco de anotações IPython.
 
 Abaixo, mostramos um segmento de código Python com a chave de API correta.
 
 ![Código Python](http://i.imgur.com/f8N4L4g.png)
 
-Observe que substituímos a chave de API padrão pela chave de API de nossos Web. Clicar em "Run" nessa célula em um iPython Notebook gera a seguinte resposta:
+Observe que substituímos a chave de API padrão com a chave de API de nossos serviços Web. Clicar em**Executar** nessa célula em um bloco de anotações IPython produz a seguinte resposta:
 
-![Resposta de iPython](http://i.imgur.com/KSxmia2.png)
+![Resposta do IPython](http://i.imgur.com/KSxmia2.png)
 
-Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), recebemos respostas no formulário "Scored Labels, Scored Probabilities". Observe que, neste caso, escolhemos os valores padrão que o código predefinido fornece (0s para todas as colunas numéricas, a cadeia de caracteres "value" para todas as colunas categóricas).
+Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), recebemos respostas no formulário "Scored Labels, Scored Probabilities". Observe que, neste caso, escolhemos os valores padrão que o código predefinido fornece (0 para todas as colunas numéricas e a cadeia de caracteres "value" para todas as colunas categóricas).
 
-Isso conclui nossa discussão sobre como lidar com conjuntos de dados em grande escala de ponta a ponta usando o AM do Azure - fomos de um terabyte de dados até um modelo de previsão implantado como um serviço Web na nuvem.
+Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

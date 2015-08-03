@@ -21,4 +21,4 @@ Este artigo foi movido. Consulte [app-insights-windows-crashes](app-insights-win
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

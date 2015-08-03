@@ -1,71 +1,72 @@
-<properties 
-	pageTitle="Criar e gerenciar uma máquina virtual do Windows com o PowerShell e o Gerenciador de Serviços do Azure" 
-	description="Use o PowerShell do Azure para criar rapidamente uma nova máquina virtual do Microsoft Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Criar e gerenciar uma máquina virtual Windows no Gerenciamento de Serviços com o Azure PowerShell."
+	description="Use o Azure PowerShell para criar rapidamente uma nova máquina virtual baseada em Windows no Gerenciamento de Serviços e realizar funções de gerenciamento."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
-# Criar e gerenciar uma máquina virtual do Windows com o PowerShell e o Gerenciador de Serviços do Azure
+# Criar e gerenciar uma máquina virtual baseada em Windows no Gerenciamento de Serviços usando o Azure PowerShell
 
-Este artigo descreve como criar e gerenciar uma máquina virtual Azure baseada no Windows usando o Gerenciamento de Serviço do Azure e o PowerShell.
+Este artigo descreve como criar e gerenciar máquinas virtuais do Azure baseadas em Windows no Gerenciamento de Serviços usando o Azure PowerShell.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
-- [Implantar e gerenciar máquinas virtuais usando modelos de Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Implantar e gerenciar máquinas virtuais usando modelos do PowerShell e do Gerenciador de Recursos do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 
 ## Configurar o PowerShell do Azure
 
-Se já instalou o PowerShell do Azure, você deve ter o PowerShell do Azure versão 0.8.0 ou posterior. Você pode verificar a versão do PowerShell do Azure instalada com este comando no prompt de comando do PowerShell do Azure.
+Se já instalou o PowerShell do Azure, você deve ter o PowerShell do Azure versão 0.8.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com este comando no prompt de comando do Azure PowerShell:
 
 	Get-Module azure | format-table version
 
 Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do PowerShell do Azure.
 
-Primeiro, você deve fazer logon no Azure com este comando.
+Primeiro, você deve entrar no Azure usando este comando:
 
 	Add-AzureAccount
 
 Especifique o endereço de email de sua conta do Azure e sua senha na caixa de diálogo de entrada do Microsoft Azure.
 
-A seguir, se tiver várias assinaturas do Azure, você precisará definir sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando.
+Em seguida, se tiver várias assinaturas do Azure, você precisará definir sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando:
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-Agora, substitua tudo entre aspas, inclusive os caracteres < and >, pelo nome da assinatura correta e execute estes comandos.
+Agora, substitua tudo entre aspas, inclusive os caracteres < and >, pelo nome da assinatura correta e execute estes comandos:
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
 
 ## Criar uma máquina virtual
 
-Primeiro, você precisa de uma conta de armazenamento. Você pode exibir sua lista atual de contas de armazenamento com este comando.
+Primeiro, você precisa de uma conta de Armazenamento. Você pode exibir sua lista atual de contas de Armazenamento usando este comando:
 
 	Get-AzureStorageAccount | sort Label | Select Label
 
-Se ainda não tiver uma, crie uma nova conta de armazenamento. Você deve escolher um nome exclusivo que contenha apenas letras minúsculas e números. Você pode testar a exclusividade do nome da conta de armazenamento com este comando.
+Se ainda não tiver uma, crie uma nova conta de Armazenamento. Você deve escolher um nome exclusivo que contenha apenas letras minúsculas e números. Você pode testar a exclusividade do nome da conta de Armazenamento usando este comando:
 
-	Test-AzureName -Storage <Proposed storage account name>
+	Test-AzureName -Storage <Proposed Storage account name>
 
 Se este comando retornar "False", o nome proposto é exclusivo.
 
-Você precisará especificar o local de um data center do Azure ao criar uma conta de armazenamento. Para obter uma lista de data centers do Azure, execute este comando.
+Você precisará especificar o local de um datacenter do Azure ao criar uma conta de Armazenamento. Para obter uma lista de datacenters do Azure, execute este comando:
 
 	Get-AzureLocation | sort Name | Select Name
 
-Agora, crie e configure a conta de armazenamento com estes comandos. Preencha os nomes da conta de armazenamento e substitua tudo entre aspas, inclusive os caracteres < and >.
+Agora, crie e defina a conta de Armazenamento usando os comandos a seguir. Preencha os nomes da conta de armazenamento e substitua tudo entre aspas, inclusive os caracteres < and >.
 
-	$stAccount="<chosen storage account name>"
+	$stAccount="<chosen Storage account name>"
 	$locName="<Azure location>"
 	New-AzureStorageAccount -StorageAccountName $stAccount -Location $locName
 	Set-AzureStorageAccount -StorageAccountName $stAccount
@@ -75,39 +76,45 @@ Em seguida, você precisa de um serviço de nuvem. Se não tiver um serviço de 
 
 Por exemplo, você poderia nomeá-lo como -TestCS-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestCS-Tailspin.
 
-Você pode testar a exclusividade do nome com o comando a seguir do PowerShell do Azure.
+Você pode testar a exclusividade do nome usando este comando do Azure PowerShell:
 
 	Test-AzureName -Service <Proposed cloud service name>
 
-Se este comando retornar "False", o nome proposto é exclusivo. Crie o serviço de nuvem com estes comandos.
+Se este comando retornar "False", o nome proposto é exclusivo. Crie o serviço de nuvem usando estes comandos:
 
 	$csName="<cloud service name>"
 	$locName="<Azure location>"
 	New-AzureService -Service $csName -Location $locName
 
-Depois, copie o conjunto de comandos do PowerShell a seguir para um editor de texto, como o Bloco de Notas.
+Depois, copie este conjunto de comandos do Azure PowerShell para um editor de texto, como o Bloco de Notas:
 
 	$vmName="<machine name>"
 	$csName="<cloud service name>"
 	$locName="<Azure location>"
-	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	New-AzureVM –ServiceName $csName –Location $locName -VMs $vm
 
 No editor de texto, preencha o nome da máquina virtual, o nome do serviço de nuvem e o local.
 
-Por fim, copie o conjunto de comandos para a área de transferência e clique com o botão direito do mouse no prompt de comando aberto do PowerShell do Azure. Isso emitirá o conjunto de comandos como uma série de comandos do PowerShell, solicitará o nome e a senha da conta de administrador local e criará sua máquina virtual do Azure. Aqui está um exemplo de como executar o conjunto de comandos.
+Por fim, copie o conjunto de comandos para a Área de Transferência e clique com o botão direito do mouse no prompt de comando aberto do Azure PowerShell. Isso emitirá o conjunto de comandos como uma série de comandos do Azure PowerShell, solicitará o nome e a senha da conta de administrador local e criará sua máquina virtual do Azure. Aqui está um exemplo de como executar o conjunto de comandos:
 
 	PS C:> $vmName="PSTest"
 	PS C:> $csName=" TestCS-Tailspin"
 	PS C:> $locName="West US"
-	PS C:> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
+	PS C:> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	VERBOSE: 3:01:17 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Completed Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:23 PM - Completed Operation: Get-AzureVMImage
+	PS C:> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
 	PS C:> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	PS C:> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
 	GetNetworkCredential().Password
 
-	
+
 	AvailabilitySetName               :
 	ConfigurationSets                 : PSTest,Microsoft.WindowsAzure.Commands.ServiceManagement.Model.NetworkConfigurationSet}
 	DataVirtualHardDisks              : {}
@@ -126,15 +133,15 @@ Por fim, copie o conjunto de comandos para a área de transferência e clique co
 	ResourceExtensionReferences       : {BGInfo}
 	DataVirtualHardDisksToBeDeleted   :
 	VMImageInput                      :
-	
+
 	PS C:> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
 	VERBOSE: 3:01:46 PM - Begin Operation: New-AzureVM - Create Deployment with VM PSTest
 	VERBOSE: 3:02:49 PM - Completed Operation: New-AzureVM - Create Deployment with VM PSTest
-	
+
 	OperationDescription                    OperationId                            OperationStatus
 	--------------------                    -----------                            --------------
 	New-AzureVM                             8072cbd1-4abe-9278-9de2-8826b56e9221   Succeeded
-	
+
 ## Exibir informações sobre uma máquina virtual
 Essa é uma tarefa básica que você usará com frequência. Use-a para obter informações sobre uma VM, executar tarefas em uma VM ou obter a saída para armazenar em uma variável.
 
@@ -172,35 +179,34 @@ Execute este comando:
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Anexar um Disco de Dados
+## Anexar um disco de dados
 Essa tarefa requer algumas etapas. Primeiro, use o cmdlet **Add-AzureDataDisk** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet Update-AzureVM para atualizar a configuração da VM.
 
 Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e anexa-o no mesmo comando.
 
 Para anexar um novo disco, execute este comando:
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB <disk size> -DiskLabel "<label name>" -LUN <LUN number> -VM $vm | Update-AzureVM
 
-Para anexar discos de dados existentes, execute este comando:
+Para anexar um disco de dados existente, execute este comando:
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<existing disk name>" -LUN <LUN number> | Update-AzureVM
 
 Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blob, execute este comando:
 
-    Add-AzureDataDisk -ImportFrom -MediaLocation  "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" -DiskLabel "<main>" -LUN <0> | Update-AzureVM
+    $diskLoc="https://mystorage.blob.core.windows.net/mycontainer/" + "<existing disk name>" + ".vhd"
+	Add-AzureDataDisk -ImportFrom -MediaLocation  $diskLoc -DiskLabel "<label name>" -LUN <LUN number> | Update-AzureVM
 
 ## Recursos adicionais
 
-[Criar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-create-windows-powershell-resource-manager.md)
+[Criar uma máquina virtual Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos e o PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
+[Criar uma máquina virtual Windows com um modelo do Gerenciador de Recursos e o Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-[Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

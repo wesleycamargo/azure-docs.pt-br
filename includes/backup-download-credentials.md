@@ -29,4 +29,4 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 - O arquivo de credenciais do cofre expira após 48 horas e pode ser baixado no portal.
 - Consulte as [Perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure em caso de dúvidas sobre o fluxo de trabalho.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

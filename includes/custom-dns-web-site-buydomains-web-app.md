@@ -32,4 +32,4 @@ Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Ge
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

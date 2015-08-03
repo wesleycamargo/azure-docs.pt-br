@@ -55,4 +55,4 @@ Depois de criar o cofre de Backup do Azure, um agente deve ser instalado em cada
 ## Próximas etapas
 - Consulte [Agendar backups](backup-azure-backup-and-recover.md) para obter informações sobre como fazer backup de dados e aplicativos no Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

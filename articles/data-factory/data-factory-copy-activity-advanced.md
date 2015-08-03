@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Cenários avançados para usar a atividade de cópia no Azure Data Factory 
@@ -24,34 +24,11 @@ Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de u
 ## Filtragem de coluna utilizando a definição de estrutura
 Dependendo do tipo de tabela, é possível especificar um subconjunto das colunas da fonte especificando menos colunas na definição de **estrutura** da definição de tabela do que as existentes na fonte de dados subjacente. A tabela a seguir fornece informações sobre a lógica de filtragem de coluna para diferentes tipos de tabela.
 
-<table>
-
-	<tr>
-		<th align="left">Tipo da tabela</th>
-		<th align="left">Lógica de filtragem de coluna</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>A definição <b>Estrutura</b> na tabela JSON deve corresponder à estrutura do blob. Para selecionar um subconjunto das colunas, use o recurso de mapeamento de coluna descrito na próxima seção: Regras de transformação – mapeamento de coluna.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation e OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			Se a propriedade <b>SqlReaderQuery</b> for especificada como parte da definição da Atividade de Cópia, a definição de <b>Estrutura</b> da tabela deve ser alinhada com as colunas selecionadas na consulta.<br/><br/>
-			Se a propriedade <b>SqlReaderQuery</b> não for especificada, a Atividade de cópia automaticamente construirá uma consulta SELECT, com base nas colunas especificadas na definição de <b>Estrutura</b> da definição de tabela.
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			A seção <b>Estrutura</b> na definição da tabela pode conter o conjunto completo ou um subconjunto das colunas na tabela subjacente do Azure.
-		</td>
-	<tr>
-
-</table>
+| Tipo da tabela | Lógica de filtragem de coluna |
+|-------------------|----------------------- |
+| AzureBlobLocation |A definição Estrutura na tabela JSON deve corresponder à estrutura do blob. Para selecionar um subconjunto das colunas, use o recurso de mapeamento de coluna descrito na próxima seção: Regras de transformação – mapeamento de coluna. | 
+| AzureSqlTableLocation e OnPremisesSqlServerTableLocation | Se a propriedade SqlReaderQuery for especificada como parte da definição de Atividade de Cópia, a definição da estrutura da tabela deve ser alinhada com as colunas selecionadas na consulta. Se a propriedade SqlReaderQuery não for especificada, a Atividade de Cópia vai construir automaticamente uma consulta SELECT, com base nas colunas especificadas na definição de estrutura da definição de tabela |
+| AzureTableLocation | A seção Estrutura na definição da tabela pode conter o conjunto completo ou um subconjunto das colunas na tabela subjacente do Azure
 
 ## Regras de transformação - mapeamento de coluna
 O mapeamento de coluna pode ser utilizado para especificar como colunas na tabela de fonte são mapeados para colunas na tabela de coletor. Ele oferece suporte para os seguintes cenários:
@@ -193,7 +170,7 @@ Neste exemplo, uma consulta SQL (em vez de tabela no exemplo anterior) é utiliz
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -213,49 +190,14 @@ Neste exemplo, uma consulta SQL (em vez de tabela no exemplo anterior) é utiliz
 
 Os tipos de dados especificados na seção Estrutura da definição de tabela será considerado somente para **BlobSource**. A tabela a seguir descreve como os tipos de dados são tratados para outros tipos de fonte e coletor.
 
-<table>	
-	<tr>
-		<th align="left">Fonte/coletor</th>
-		<th align="left">Lógica de manipulação de tipo de dados</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>Os tipos de dados definidos na seção <b>Estrutura</b> da definição da tabela são ignorados. Os tipos de dados definidos no banco de dados SQL subjacente serão usados para a extração de dados durante a atividade da cópia.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>Os tipos de dados definidos na seção <b>Estrutura</b> da definição da tabela são ignorados. Os tipos de dados na origem e destino subjacente serão comparados e conversão implícita de tipo será feito quando há incompatibilidades de tipo.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td>Ao realizar uma transferência de <b>BlobSource</b> para <b>BlobSink</b>, não há nenhuma transformação de tipo; tipos de dados definidos na seção <b>Estrutura</b> da definição da tabela são ignorados. Para destinos diferentes de <b>BlobSink</b>, os tipos de dados definidos na seção <b>Estrutura</b> da definição de tabela serão respeitados.<br/><br/>
-		Se a <b>Estrutura</b> não é especificada na definição de tabela, a manipulação de tipo depende da propriedade <b>formato</b> da tabela <b>BlobSource</b>:
-		<ul>
-			<li> <b>TextFormat:</b> todos os tipos de coluna são tratados como cadeia de caracteres e todos os nomes de coluna são definidos como "Prop_&lt;0-N>"</li> 
-			<li><b>AvroFormat:</b> utilize os nomes e tipos de coluna internos no arquivo Avro.</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>Os tipos de dados definidos na seção <b>Estrutura</b> da definição da Tabela são ignorados. Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados. As colunas serão especificadas como anulável para a serialização de Avro.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>Os tipos de dados definidos na seção <b>Estrutura</b> da definição da Tabela são ignorados. Os tipos de dados definidos na tabela subjacente do Azure serão usados.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>Os tipos de dados definidos na seção <b>Estrutura</b> da definição da Tabela são ignorados. Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados.</td>
-	</tr>
-
-</table>
+| Fonte/coletor | Lógica de manipulação de tipo de dados |
+| ----------- | ------------------------ |
+| SqlSource | Os tipos de dados definidos na seção Estrutura da definição da tabela são ignorados. Os tipos de dados definidos no banco de dados SQL subjacente serão usados para a extração de dados durante a atividade da cópia. |
+| SqlSink | Os tipos de dados definidos na seção Estrutura da definição da tabela são ignorados. Os tipos de dados na origem e destino subjacente serão comparados e conversão implícita de tipo será feito quando há incompatibilidades de tipo. |
+| BlobSource | Ao realizar uma transferência de BlobSource para BlobSink, não há nenhuma transformação de tipo. Tipos de dados definidos na seção Estrutura da definição da tabela são ignorados. Para destinos diferentes de BlobSink, os tipos de dados definidos na seção Estrutura da definição de tabela serão respeitados. Se a estrutura não é especificada na definição de tabela, a manipulação do tipo depende da propriedade de formato da tabela BlobSource: TextFormat: todos os tipos de coluna são tratados como cadeia de caracteres, e todos os nomes de coluna são definidos como "Prop_<0-N>". AvroFormat: utilize os nomes e tipos de coluna internos no arquivo Avro.
+| BlobSink | Os tipos de dados definidos na seção Estrutura da definição da Tabela são ignorados. Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados. As colunas serão especificadas como anuláveis para a serialização de Avro |
+| AzureTableSource | Os tipos de dados definidos na seção Estrutura da definição da Tabela são ignorados. Os tipos de dados definidos na tabela subjacente do Azure serão usados. |
+| AzureTableSink | Os tipos de dados definidos na seção Estrutura da definição da Tabela são ignorados. Os tipos de dados definidos no repositório de dados de entrada subjacente serão usados. |
 
 **Observação:** a tabela do Azure dá suporte apenas a um conjunto limitado de tipos de dados; consulte [Noções básicas sobre o modelo de dados do serviço Tabela][azure-table-data-type].
 
@@ -340,11 +282,11 @@ Embora a codificação UTF-8 seja muito popular, geralmente arquivos de texto de
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/pt-br/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

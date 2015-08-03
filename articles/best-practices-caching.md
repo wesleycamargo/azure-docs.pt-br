@@ -777,4 +777,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para obter mais informações, consulte a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório Stackexchange.Redis.
 - O [Guia de Particionamento de Dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

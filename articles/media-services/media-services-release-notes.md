@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 - [Problemas conhecidos no momento](#issues)
 - [Histórico de versão da API REST](#rest_version_history)
+- [Versão de julho de 2015](#july_changes_15)
 - [Versão de junho de 2015](#june_changes_15)
 - [Versão de maio de 2015](#may_changes_15)
 - [Versão de abril de 2015](#april_changes_15)
@@ -62,6 +63,23 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 ##<a id="rest_version_history"></a>Histórico de versão da API REST
 
 Para obter informações sobre o histórico de versões da API REST dos Serviços de Mídia, consulte [Referência da API REST dos Serviços de Mídia do Azure].
+
+##<a id="july_changes_15"></a>Versão de julho de 2015
+
+Anunciando a disponibilidade geral do Media Encoder Standard. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+
+O Media Encoder Standard usa predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Observe que ao usar uma predefinição de codificações 4K, você deve adquirir o tipo de unidade reservada **Premium **. Para saber mais, confira [Como dimensionar codificação](media-services-portal-encoding-units) 
+
+
+###Atualizações do SDK do .NET dos Serviços de Mídia
+
+O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.4.0.0. A seguinte funcionalidade foi adicionada nessa versão:
+
+- Suporte implementado para arquivo morto dinâmico. Observe que você não pode baixar um ativo que contenha um arquivo morto dinâmico.
+- Suporte implementado para filtros dinâmicos
+- Funcionalidade implementada que permite aos usuários manter o contêiner de armazenamento ao excluir ativos
+- Correções de bugs relacionados a políticas de repetição nos canais
+- Fluxo de trabalho do Media Encoder Premium **habilitado**
 
 ##<a id="june_changes_15"></a>Versão de junho de 2015
 
@@ -538,4 +556,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

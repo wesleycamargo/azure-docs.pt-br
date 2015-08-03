@@ -278,4 +278,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -53,4 +53,4 @@ Para obter mais informações, consulte o seguinte:
 [Referência de API REST de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

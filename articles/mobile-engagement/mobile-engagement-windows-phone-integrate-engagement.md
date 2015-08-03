@@ -247,4 +247,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > [AZURE.WARNING]O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

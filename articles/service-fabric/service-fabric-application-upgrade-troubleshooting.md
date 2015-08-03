@@ -225,4 +225,4 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

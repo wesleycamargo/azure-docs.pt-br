@@ -62,4 +62,4 @@ Para tópicos mais avançados relacionados à Malha de Serviço, consulte os art
 - [Tráfego de replicação seguro dos serviços com estado da Malha de Serviço do Azure](../service-fabric/service-fabric-replication-security.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

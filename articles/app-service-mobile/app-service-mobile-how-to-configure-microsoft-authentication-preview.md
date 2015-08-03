@@ -18,6 +18,8 @@
 
 # Como configurar seu aplicativo para usar o logon da conta da Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar a conta da Microsoft como um provedor de autenticação.
 
 ## <a name="register"> </a>Registrar seu aplicativo com a conta da Microsoft
@@ -66,4 +68,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

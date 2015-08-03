@@ -206,4 +206,4 @@ A seguir, uma lista de pré-requisitos e componentes de suporte que o Azure AD C
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

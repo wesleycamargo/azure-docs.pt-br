@@ -1,3 +1,3 @@
-*Este artigo faz parte do [Guia de desenvolvedores do Active Directory do Azure](../articles/active-directory/active-directory-developers-guide.md).*
+> Este artigo faz parte do [Guia de Desenvolvedores do Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -41,4 +41,4 @@ Isso permite que os usuários do Aprendizado de Máquina do Azure criem serviço
 Quando o ponto de extremidade é criado, você pode consumi-lo por meio de APIs síncronas, APIs de lote e planilhas do Excel. Para obter mais informações sobre como utilizar serviços Web de Aprendizado de Máquina, consulte [Como consumir um serviço Web de Aprendizado de Máquina do Azure publicado](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

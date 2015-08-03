@@ -123,4 +123,4 @@ Mesmo se você optar por tolerar algumas falhas, as informações sobre quais do
 E isso é tudo por enquanto. Caso você tenha pensamentos ou sugestões para futuras ideias de conteúdo, envie um tweet para nós usando a hashtag #AzureSearch ou envie suas ideias pela nossa [página UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

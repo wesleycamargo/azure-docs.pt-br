@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Usando o [Portal de Gerenciamento Azure](http://manage.windowsazure.com), você pode criar uma máquina virtual que execute o Windows Server 2012 R2 da galeria de imagens. Em seguida, você pode instalá-la e configurá-la como um servidor MySQL.
 
+Para obter instruções sobre como instalar o MySQL no Linux, consulte: [Como instalar o MySQL no Azure](virtual-machines-linux-install-mysql.md).
 
 Este tutorial mostra como:
 
@@ -127,4 +128,4 @@ Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

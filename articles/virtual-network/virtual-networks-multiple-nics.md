@@ -252,4 +252,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 
 - Saiba mais sobre o uso de [várias NICs de VM e dispositivos VNet no Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

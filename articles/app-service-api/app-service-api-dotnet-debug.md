@@ -139,4 +139,4 @@ Aplicativos de API do Serviço de Aplicativo são aplicativos Web do Serviço de
 O aplicativo de API que você criou nesta série está disponível publicamente para qualquer pessoa que chamar. Para obter informações sobre como proteger aplicativos de API de modo que somente usuários autenticados possam chamá-los, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

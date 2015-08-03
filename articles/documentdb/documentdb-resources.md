@@ -105,16 +105,7 @@ O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para 
 ###Endereçamento de um recurso
 Todos os recursos são endereçáveis pelo URI. O valor da propriedade **_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{_rid}: 
 
-|Valor da _self |Descrição 
-|-------------------|----------- 
-|/dbs |Feed de banco de dados em uma conta de banco de dados 
-|/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db} 
-|/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados 
-|/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}
-|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados 
-|/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user} 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}. 
+|Valor da _self |Descrição |-------------------|----------- |/dbs |Feed de banco de dados em uma conta de banco de dados |/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db} |/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user} |/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}. 
   
 Um recurso também possui um nome exclusivo definido pelo usuário exposto pela propriedade de ID do recurso. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade _rid é usada para construir o _link endereçável _self de um recurso. 
 
@@ -468,4 +459,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

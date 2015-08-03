@@ -33,18 +33,20 @@ Uma consulta de banco de dados elástico também facilita o acesso a um conjunto
 
 A camada de dados é escalada horizontalmente em vários bancos de dados usando um esquema comum. Essa abordagem também é conhecido como particionamento ou fragmentação horizontal. O particionamento pode ser executado e gerenciado usando (1) a [biblioteca de cliente do banco de dados elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou (2) usando um modelo específico de aplicativo para distribuição de dados entre vários bancos de dados. Com essa topologia, os relatórios geralmente abrangem vários bancos de dados. Com uma consulta de banco de dados elástico, você pode conectar a um Banco de Dados SQL individual e resultados de consulta de bancos de dados remotos são exibidos como se fossem gerados por meio de um banco de dados virtual individual.
 
+> [AZURE.NOTE]A consulta de banco de dados elástica funciona melhor em cenários de relatórios ocasionais em que a maior parte do processamento pode ser executada na camada de dados. Para cenários de cargas de trabalho pesadas de relatórios ou data warehouse com consultas mais complexas, considere também usar[Data Warehouse SQL do Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Topologia de consulta de Banco de Dados Elástico
 
 Usar uma consulta de banco de dados elástico para executar tarefas de relatórios em uma camada de dados particionados horizontalmente requer um mapa de fragmentos de escala elástica para representar os bancos de dados da camada de dados. Normalmente, um mapa de fragmento único é usado neste cenário e um banco de dados dedicado com recursos de consulta de banco de dados elástico serve como ponto de entrada para consultas de relatórios. Apenas este banco de dados dedicado precisa ser configurado com objetos de consulta de banco de dados elástico, conforme descrito abaixo. A Figura 2 ilustra essa topologia e sua configuração com a consulta de banco de dados elástico e o mapa de fragmentos.
 
-**Observação** A consulta de banco de dados elástico dedicado deve ser um banco de dados do Banco de Dados SQL v12, inicialmente com suporte apenas na camada Premium. Não há nenhuma restrição sobre os próprios fragmentos.
+> [AZURE.NOTE]A consulta de banco de dados elástico dedicado deve ser um banco de dados do Banco de Dados SQL v12, inicialmente com suporte apenas na camada Premium. Não há nenhuma restrição sobre os próprios fragmentos.
 
 **Figura 2**
 
 ![Usar consultas de Banco de Dados elástico para geração de relatórios em camadas fragmentadas][2]
 
-( Um **shardlet** são todos os dados associados a um único valor de uma chave de fragmentação em um fragmento. Um **chave de fragmentação** é um valor de coluna que determina como os dados são distribuídos nos fragmentos. Por exemplo, dados distribuídos por região podem ter IDs de região como chave de fragmentação. Para obter mais detalhes, consulte o [Glossário de escala elástica](sql-database-elastic-scale-glossary.md).)
+Um **shardlet** são todos os dados associados a um único valor de uma chave de fragmentação em um fragmento. Um **chave de fragmentação** é um valor de coluna que determina como os dados são distribuídos nos fragmentos. Por exemplo, dados distribuídos por região podem ter IDs de região como chave de fragmentação. Para obter mais detalhes, consulte o [Glossário de escala elástica](sql-database-elastic-scale-glossary.md).
 
 
 Ao longo do tempo, topologias adicionais serão compatíveis com o recurso de consulta de banco de dados elástico. Este artigo será atualizado para refletir os novos recursos assim que forem disponibilizados.
@@ -185,7 +187,7 @@ O exemplo a seguir mostra como recuperar a lista de tabelas externas do banco de
 ### Consultas
 Depois de definir a fonte de dados externa e suas tabelas externas, você pode usar cadeias de conexão do Banco de Dados SQL familiares para se conectar ao banco de dados que tem o recurso de consulta de Banco de Dados Elástico habilitado. Agora você poderá executar consultas somente leitura completas nas suas tabelas externas, com certas limitações explicadas na [seção limitações](#preview-limitations) abaixo.
 
-**Exemplo**: a consulta a seguir executa uma junção de três vias entre as warehouses, pedidos e linhas da pedido e usa várias agregações e um filtro seletivo. Supondo que os warehouses, pedidos e linhas de pedido sejam particionadas pela coluna de ID do warehouse, uma consulta de banco de dados elástico pode colocar as junções nos bancos de dados remotos e expandir o processamento da parte cara da consulta.
+**Exemplo**: a consulta a seguir executa uma junção de três vias entre depósitos, pedidos e linhas da pedido e usa várias agregações e um filtro seletivo. Supondo que os warehouses, pedidos e linhas de pedido sejam particionadas pela coluna de ID do warehouse, uma consulta de banco de dados elástico pode colocar as junções nos bancos de dados remotos e expandir o processamento da parte cara da consulta.
 
     select
         w_id as warehouse,
@@ -261,4 +263,4 @@ Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tuto
 
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

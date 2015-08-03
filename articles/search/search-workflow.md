@@ -191,4 +191,4 @@ Lembre-se de que somente a camada de preços Standard pode ser escalada ou reduz
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

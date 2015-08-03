@@ -23,4 +23,4 @@ Este tópico foi preterido. Em vez disso, siga as orientações atualizadas nest
 + [Adicionar notificações por push ao aplicativo de Serviços Móveis](mobile-services-javascript-backend-android-get-started-push.md)<br/>Atualize seu serviço móvel TodoList para usar Hubs de Notificação do Azure a fim de enviar notificações aos usuários do aplicativo de exemplo TodoList.
 + [Enviar notificações por push para usuários autenticados](mobile-services-javascript-backend-android-push-notifications-app-users.md)<br/>Estende o tutorial anterior para permitir que somente usuários autenticados se registrem para receber notificações. 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

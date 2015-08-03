@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Criar uma rede virtual entre locais usando tabelas de configuração
@@ -27,7 +28,7 @@ Este tópico explica o processo de criação de uma rede virtual entre locais us
 
 Estas tabelas geralmente são preenchidas em um tópico que descreve a configuração de uma carga de trabalho de TI no Azure e inclui uma rede virtual entre locais. Consulte [Fase 1: Configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) para obter um exemplo.
 
-O procedimento a seguir faz referência às informações dessas tabelas para orientar você durante o processo de configuração da rede virtual. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar a configurar uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+O procedimento a seguir faz referência às informações nessas tabelas a fim de orientar você durante o processo de configuração da rede virtual no Gerenciamento de Serviço. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar a configurar uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx).
 
 > [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa do Azure para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -66,4 +67,4 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

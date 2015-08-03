@@ -71,7 +71,7 @@ Ignore este passo se você estiver criando um registro CNAME. Para criar um regi
 4.	Clique no nome do seu aplicativo Web.
 5.	Na página **Informações Gerais**, clique em **Todas as Configurações**.
 6.	Clique em **Domínios personalizados e SSL**. 
-7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer Domínios Externos**. O endereço IP está localizado na parte inferior dessa parte.
+7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos**. O endereço IP está localizado na parte inferior dessa parte.
 
 ## Criar os registros DNS
 
@@ -147,4 +147,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

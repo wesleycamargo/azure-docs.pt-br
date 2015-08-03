@@ -40,4 +40,4 @@ A Malha do Serviço apresenta um modelo de integridade que fornece uma funcional
 - [Adicionando relatórios de integridade personalizados da Malha do Serviço](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

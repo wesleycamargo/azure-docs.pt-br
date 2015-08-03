@@ -279,4 +279,4 @@ Para obter informações adicionais sobre como usar Twilio no Azure com o ASP.NE
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

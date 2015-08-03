@@ -76,7 +76,7 @@ O método **OpenConnectionForKeyAsync** também está disponível se seu aplicat
 
 ## Integrando a manipulação de falhas transitórias 
 
-É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutida em [Tratamento de Falhas Transitórias](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
+É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutida em [Tratamento de Falhas Transitórias](http://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx).
  
 A manipulação de falhas transitórias pode coexistir naturalmente com o padrão de Roteamento dependente de dados. O principal requisito é repetir a solicitação de acesso de dados inteira incluindo o **uso** do bloco que obteve a conexão de roteamento dependente de dados. O exemplo anterior poderia ser reescrito da seguinte maneira (alteração de anotação realçada).
 
@@ -117,4 +117,4 @@ Propriedades transacionais são garantidas para todas as operações locais para
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -175,4 +175,4 @@ Para obter informações detalhadas sobre o planejamento desses componentes leia
 
 Comece a configurar os componentes para seu cenário de implantação. [Saiba mais](site-recovery-overview.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

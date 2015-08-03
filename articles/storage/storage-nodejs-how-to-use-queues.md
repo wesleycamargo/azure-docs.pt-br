@@ -332,4 +332,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
  [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

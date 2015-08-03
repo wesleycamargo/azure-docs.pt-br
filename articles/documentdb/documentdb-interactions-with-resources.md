@@ -262,4 +262,4 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

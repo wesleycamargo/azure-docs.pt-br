@@ -285,4 +285,4 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

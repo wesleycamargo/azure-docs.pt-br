@@ -125,7 +125,7 @@ Para gerenciar suas Conexões Híbridas, você pode:
 3. No computador que modifica a política de grupo, faça o seguinte: 
 
 	- Copie os arquivos .ADMX para a pasta *%WINROOT%\\PolicyDefinitions*.
-	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-br*.
+	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\en-us*.
 
 Após tê-los copiado, você pode usar o Editor de políticas de grupo para mudar a política.
 
@@ -146,4 +146,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

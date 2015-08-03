@@ -137,7 +137,7 @@ A etapa final é adicionar uma ação que carrega um tweet em um arquivo do Drop
 
 	Isso insere o valor `@first(body('twitterconnector')).TweetText` na caixa de texto. Esse valor gerado contém as seguintes partes:
 
-	Parte de conteúdo | Descrição
+Parte de conteúdo | Descrição
 	------------------------------------------ | ------------
 	 `@` | Indica que você está inserindo uma função, e não um valor real.
 	`actions('twitterconnector').outputs.body` | Obtém os tweets retornados pela consulta do Conector do Twitter.
@@ -172,4 +172,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

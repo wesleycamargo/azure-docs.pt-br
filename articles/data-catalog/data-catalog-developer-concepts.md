@@ -238,4 +238,4 @@ Solicitações de exibição de item **PUT** e **POST** podem ser usadas para co
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

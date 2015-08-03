@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/25/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc" />
 
 # Compartilhando um circuito de Rota Expressa entre várias assinaturas
@@ -33,7 +33,7 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 
 ## Fluxo de trabalho
 
-1. O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) permite que o administrador de outra assinatura (Vendas da Contoso), ao especificar sua ID da Microsoft (Live), a vincular até 2 VNETs ao circuito. O cmdlet não envia um email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização for concluída.
+1. O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) permite que o administrador de outra assinatura (Vendas da Contoso), ao especificar sua ID da Microsoft (Live), vincule até 2 VNETs ao circuito. O cmdlet não envia um email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização for concluída.
 
 		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
@@ -102,4 +102,4 @@ O diagrama a seguir mostra o Fluxo de trabalho de autorização:
 
 Para obter mais informações sobre a Rota Expressa, consulte [Visão geral da Rota Expressa](expressroute-introduction.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

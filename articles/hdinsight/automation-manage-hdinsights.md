@@ -43,4 +43,4 @@ Agora que você aprendeu as noções básicas da Automação do Azure e como ela
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

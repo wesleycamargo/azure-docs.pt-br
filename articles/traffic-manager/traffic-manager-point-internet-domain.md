@@ -36,4 +36,4 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

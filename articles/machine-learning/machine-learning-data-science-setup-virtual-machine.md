@@ -1,7 +1,9 @@
 <properties
 	pageTitle="Configurar uma máquina virtual como um servidor do IPython Notebook | Microsoft Azure"
 	description="Configure uma Máquina Virtual do Azure para uso em um ambiente de ciência de dados com o IPython Server para análise avançada."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -74,7 +76,7 @@ Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Quando a instalação for concluída, o servidor do IPython Notebook será iniciado automaticamente no diretório *C:\Users&#60;nome de usuário>\Documents\IPython Notebooks*.
+Quando a instalação for concluída, o servidor do IPython Notebook será iniciado automaticamente no diretório *C:\\Users&#60;nome de usuário>\\Documents\\IPython Notebooks*.
 
 Quando solicitado, digite uma senha para o IPython Notebook e a senha de administrador do computador. Isso permite que o IPython Notebook seja executado como um serviço no computador.
 
@@ -145,4 +147,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

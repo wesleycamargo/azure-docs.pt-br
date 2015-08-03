@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -175,7 +175,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 
 Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
 
-Quando você usa o Portal de Gerenciamento para publicar seus ativos, os localizadores são criados para você e há uma URL com base em OnDemantOrigin (caso seu ativo contém um arquivo .ism) ou uma URL SAS.
+Quando você usa o Portal de Gerenciamento do Azure para publicar seus ativos, os localizadores são criados para você e há uma URL baseada em OnDemantOrigin (caso seu ativo contenha um arquivo .ism) ou uma URL SAS.
 
 Uma URL SAS tem o seguinte formato:
 
@@ -255,4 +255,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

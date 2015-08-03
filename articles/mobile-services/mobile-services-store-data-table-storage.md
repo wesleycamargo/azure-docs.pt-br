@@ -23,4 +23,4 @@ Saiba como trabalhar com Armazenamento de Tabela usando os Serviços Móveis com
 [Serviços Móveis e Armazenamento do Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

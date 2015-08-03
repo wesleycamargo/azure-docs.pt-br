@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurar o balanceamento de carga round robin do Gerenciador de Tráfego&quot;"
+   pageTitle="Configurar o balanceamento de carga round robin do Gerenciador de Tráfego";"
    description="Este artigo o ajudará a configurar o balanceamento de carga round robin para os pontos de extremidade do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter=""
@@ -50,4 +50,4 @@ Um padrão comum de balanceamento de carga é fornecer um conjunto de pontos de 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/08/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # Sobre as instâncias de computação intensiva A8, A9, A10 e A11
@@ -87,11 +87,11 @@ Para obter mais informações e listas de verificação para implantar e usar in
 
 ### Acesso por meio de VMs Linux A8 e A9
 
-Dentro de um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizem os drivers de RDMA Linux para comunicação entre instâncias. No momento do RDMA Linux do Azure tem suporte apenas com [Intel MPI Library 5.0](https://software.intel.com/pt-br/intel-mpi-library/).
+Dentro de um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizem os drivers de RDMA Linux para comunicação entre instâncias. No momento do RDMA Linux do Azure tem suporte apenas com [Intel MPI Library 5.0](https://software.intel.com/en-us/intel-mpi-library/).
 
 >[AZURE.NOTE]Atualmente drivers RDMA Linux do Azure não estão disponíveis para instalação por meio de extensões do driver. Só estão disponíveis usando a imagem compatível com RDMA SLES 12 do Azure Marketplace.
 
-Consulte a tabela a seguir para obter os pré-requisitos para aplicativos MPI Linux acessarem a rede RDMA em clusters de nós de computação (IaaS).
+Consulte a tabela a seguir para obter os pré-requisitos para aplicativos MPI Linux acessarem a rede RDMA em clusters de nós de computação (IaaS). Consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md) para ver opções de implantação e etapas de configuração.
 
 Pré-requisito | Máquinas virtuais (IaaS)
 ------------ | -------------
@@ -100,7 +100,7 @@ MPI | Intel MPI Library 5.0
 
 ### Acesso de instâncias do Windows A8 e A9
 
-Em um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizam a interface direta da rede da Microsoft para comunicação entre instâncias. No momento, a rede direta só recebe suporte do MS-MPI da Microsoft para Windows. As instâncias A10 e A11 não incluem acesso à rede RDMA.
+Em um único serviço de nuvem ou conjunto de disponibilidade, as instâncias A8 e A9 podem acessar a rede RDMA no Azure ao executar aplicativos MPI que utilizam a interface direta da rede da Microsoft para comunicação entre instâncias. As instâncias A10 e A11 não incluem acesso à rede RDMA.
 
 Consulte a tabela a seguir a fim de obter os pré-requisitos para que os aplicativos MPI acessem a rede RDMA em implantações de máquina virtual (IaaS) e de serviço de nuvem (PaaS) das instâncias A8 ou A9. Para consultar os cenários de implantação, consulte [Instâncias A8 e A9 com uso intensivo de computação: Início Rápido com o HPC Pack.](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -108,7 +108,7 @@ Consulte a tabela a seguir a fim de obter os pré-requisitos para que os aplicat
 Pré-requisito | Máquinas virtuais (IaaS) | Serviços de nuvem (PaaS)
 ---------- | ------------ | -------------
 Sistema operacional | VMs do Windows Server 2012 R2 ou Windows Server 2012 | Família de SO convidado Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2
-MPI | MS-MPI 2012 R2 ou posterior, autônomo ou instalado por meio do HPC Pack 2012 R2 ou posterior | MS-MPI 2012 R2 ou posterior, instalado por meio do HPC Pack 2012 R2 ou posterior
+MPI | MS-MPI 2012 R2 ou posterior, autônomo ou instalado por meio do HPC Pack 2012 R2 ou posterior<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 ou posterior, instalado por meio do HPC Pack 2012 R2 ou posterior<br/><br/>Intel MPI Library 5.0
 
 
 >[AZURE.NOTE]Para cenários de IaaS, a [extensão HpcVmDrivers](https://msdn.microsoft.com/library/azure/dn690126.aspx) deve ser adicionada às VMs a fim de instalar os drivers do Windows necessários para a conectividade RDMA.
@@ -122,10 +122,12 @@ MPI | MS-MPI 2012 R2 ou posterior, autônomo ou instalado por meio do HPC Pack 2
 
 * As instâncias A8, A9, A10 e A11 não podem ser implantadas atualmente por meio de um serviço de nuvem que faça parte de um grupo de afinidades existente. Da mesma forma, um grupo de afinidades com um serviço de nuvem que contém as instâncias A8, A9, A10 e A11 não pode ser usado para implantações de outros tamanhos de instância. Se você tentar fazer essas implantações, verá uma mensagem de erro semelhante a `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`
 
+* A rede RDMA no Azure reserva o espaço de endereço 172.16.0.0/12. Se você planeja executar aplicativos MPI em instâncias A8 e A9 implantadas em uma rede virtual do Azure, verifique se o espaço do endereço de rede virtual não se sobrepõe à rede RDMA.
 
 ## Próximas etapas
 
 * Para obter detalhes sobre a disponibilidade e preços das instâncias A8, A9, A10 e A11, consulte [Preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Preços de serviços de nuvem](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Para implantar e configurar um cluster do Linux com instâncias A8 e A9 para acessar a rede RDMA do Azure, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md).
 * Para começar a implantar e usar as instâncias A8 e A9 com o HPC Pack em Windows, consulte [Instâncias de computação intensiva A8 e A9: início rápido com HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) e [Executar aplicativos MPI em instâncias A8 e A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

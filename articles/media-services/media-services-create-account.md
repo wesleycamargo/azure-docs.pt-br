@@ -81,4 +81,4 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
   [Portal de Gerenciamento]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

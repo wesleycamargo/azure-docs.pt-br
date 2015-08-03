@@ -208,4 +208,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article" 
-   ms.date="03/31/2015"
+   ms.date="07/09/2015"
    ms.author="jgao"/>
 
 # Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight
@@ -64,4 +64,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

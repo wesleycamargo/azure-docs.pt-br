@@ -77,4 +77,4 @@ Basicamente, você pode calcular o número de discos altamente utilizados com su
 
 <sup>3</sup>GRS refere-se a um armazenamento com redundância geográfica, enquanto LRS refere-se ao armazenamento com redundância local.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

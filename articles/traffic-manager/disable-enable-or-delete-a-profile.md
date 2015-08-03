@@ -12,23 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="07/09/2015"
+   ms.author="joaoma" />
 
 # Desabilitar, habilitar ou excluir um perfil
 
-## Desabilitar ou habilitar um perfil
 
 Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que ele não referencie solicitações de usuários para seus pontos de extremidade configurados. Quando você desabilita um perfil do Gerenciador de Tráfego, o próprio perfil e as informações contidas nele permanecem intactos e podem ser editados na interface do Gerenciador de Tráfego. Quando quiser reabilitar o perfil, você poderá fazer isso facilmente no Portal de Gerenciamento, e as referências serão retomadas. Quando você cria um perfil do Gerenciador de Tráfego no Portal de Gerenciamento, ele é automaticamente habilitado.
 
-### Para desabilitar um perfil
+## Para desabilitar um perfil
 
 1. Modifique o registro de recurso DNS no servidor DNS da Internet para usar o tipo de registro e ponteiro apropriados para outro nome ou o endereço IP de um local específico na Internet. Em outras palavras, altere o registro de recurso DNS no servidor DNS da Internet para que ele não use um registro de recurso CNAME que aponte para o nome de domínio de seu perfil do Gerenciador de Tráfego.
 1. O tráfego deixará de ser direcionado para os pontos de extremidade por meio das configurações de perfil do Gerenciador de Tráfego.
 1. Selecione o perfil que você deseja desabilitar. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil clicando na coluna ao lado do nome do perfil. Não clique no nome do perfil ou na seta ao lado do nome, pois você será levado para a página de configurações do perfil.
 1. Depois de selecionar o perfil, clique em Desabilitar na parte inferior da página.
 
-### Para habilitar um perfil
+## Para habilitar um perfil
 
 1. Selecione o perfil que você deseja habilitar. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil clicando na coluna ao lado do nome do perfil. Não clique no nome do perfil ou na seta ao lado do nome, pois você será levado para a página de configurações do perfil.
 1. Depois de selecionar o perfil, clique em Habilitar na parte inferior da página.
@@ -38,14 +37,12 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 ## Excluir um perfil
 
 
-### Para excluir um perfil
-
 1. Verifique se o registro de recurso DNS no servidor DNS da Internet não usa mais um registro de recurso CNAME que aponta para o nome de domínio de seu perfil do Gerenciador de Tráfego.
 1. Selecione o perfil que você deseja excluir. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil 
 1. clicando na coluna ao lado do perfil. Não clique no nome do perfil ou na seta ao lado do nome, pois você será levado para a página de configurações do perfil.
 1. Depois de selecionar o perfil, clique em Excluir na parte inferior da página.
 
-## Consulte também
+## Próximas etapas
 
 [Gerenciador de Tráfego](../traffic-manager.md)
 
@@ -54,4 +51,4 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

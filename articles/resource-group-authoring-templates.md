@@ -405,4 +405,4 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
 - [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
 - [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

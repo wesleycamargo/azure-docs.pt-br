@@ -18,14 +18,6 @@
 
 # Finalizar seu Banco de Dados SQL do Azure recuperado
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Visão geral
 
 Este artigo fornece uma lista de verificação das tarefas que precisam ser realizadas antes de colocar um Banco de Dados SQL do Azure recentemente recuperado de volta em produção. Esta lista de verificação se aplica aos bancos de dados recuperados do failover de Replicação Geográfica, Restauração do Banco de Dados Excluído, Restauração Pontual ou Restauração Geográfica.
@@ -64,4 +56,4 @@ Para saber mais sobre regras de alerta do banco de dados, confira [Como receber 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à auditoria do banco de dados SQL](sql-database-auditing-get-started.md). 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

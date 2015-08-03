@@ -37,4 +37,4 @@
 
 <sup>3</sup>Há suporte para ACL nos Pontos de Extremidade de Entrada para Máquinas Virtuais. Para funções de trabalho/Web, ACL tem suporte nos pontos de extremidade de entrada de instância e na entrada.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

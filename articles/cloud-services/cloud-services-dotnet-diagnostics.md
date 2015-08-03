@@ -778,4 +778,4 @@ A tabela a seguir compara os recursos com suporte pelas versões de Diagnóstico
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

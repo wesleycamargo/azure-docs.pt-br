@@ -87,4 +87,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

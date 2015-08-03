@@ -84,4 +84,4 @@ As configurações de armazenamento servem para configurar o armazenamento local
 BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -348,4 +348,4 @@ As seguintes limitações se aplicam:
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -74,7 +74,7 @@ As seguintes etapas criam Aplicativos de API usando a folha de Aplicativos de AP
 2. Selecione o Aplicativo de API. Na folha nova, selecione **Criar**. 
 3. Insira as propriedades: 
 
-	Propriedade | Descrição
+Propriedade | Descrição
 --- | ---
 Nome | Digite um nome para seu Aplicativo de API. Por exemplo, você pode chamá-lo de *RulesDiscountTaxCode* ou *APIAppValidateXML*.
 Plano do Serviço de Aplicativo | Lista seu plano de pagamento. Você pode alterá-lo se precisar de mais ou menos recursos.
@@ -88,7 +88,7 @@ Adicionar ao quadro inicial | Selecione essa opção para adicionar a os Aplicat
 ## Configurar os aplicativos de API do BizTalk
 No Portal de Gerenciamento do Azure, abra seu aplicativo de API do BizTalk. Na seção **Componentes**, você pode adicionar os componentes extras necessários para concluir o Aplicativo de API:
 
-	API App | Tasks
+API App | Tasks
 --- | ---
 Codificador de arquivo simples do BizTalk | Insira um arquivo simples, como Excel ou csv, você deseje converter para XML. Ou insira um arquivo XML que deseje converter para um arquivo simples.
 Codificador JSON do BizTalk | Insira um arquivo JSON que deseje converter para XML. Ou insira um arquivo XML que deseje converter para JSON. 
@@ -139,4 +139,4 @@ As etapas a seguir adicionam Aplicativos de API do BizTalk a aplicativos Web, m�
 
 [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

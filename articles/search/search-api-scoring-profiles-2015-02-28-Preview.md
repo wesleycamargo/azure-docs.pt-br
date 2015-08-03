@@ -333,4 +333,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

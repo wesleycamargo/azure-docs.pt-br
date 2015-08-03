@@ -37,4 +37,4 @@ As novas APIs do Twitter v1.1 exigem que o aplicativo seja autenticado para aces
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configurações do aplicativo]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

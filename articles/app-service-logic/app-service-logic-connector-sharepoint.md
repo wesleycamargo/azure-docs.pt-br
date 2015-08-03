@@ -33,7 +33,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*.
+Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 
 5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
@@ -86,7 +87,7 @@ Use gatilhos se quiser iniciar um aplicativo lógico.
 
 > [AZURE.NOTE]Os gatilhos excluem os arquivos depois de lê-los. Para preservar esses arquivos, forneça um valor para o local de arquivamento.
 
-### 1\. Novo documento nos documentos compartilhados (JSON)
+### 1. Novo documento nos documentos compartilhados (JSON)
 Este gatilho é acionado quando um novo documento está disponível em “Documentos compartilhados”.
 
 #### Entrada
@@ -109,7 +110,7 @@ ContentTransferEncoding | Codificação de Transferência de Conteúdo da Mensag
 **Observação**: todas as colunas do item de documento são mostradas nas propriedades de saída em “Avançado”.
 
 
-### 2\. Novo Item de Tarefas (JSON)
+### 2. Novo Item de Tarefas (JSON)
 O gatilho é acionado quando um novo item é adicionado à lista “Tarefas”.
 
 #### Entrada
@@ -127,7 +128,7 @@ Nome | Descrição
 As colunas da lista são preenchidas dinamicamente e mostradas nos parâmetros de saída. | &nbsp;
 
 
-### 3\. Novo documento em documentos compartilhados (XML)
+### 3. Novo documento em documentos compartilhados (XML)
 
 Este gatilho é acionado quando um novo documento está disponível em “Documentos compartilhados”. O novo documento é retornado como uma mensagem XML.
 
@@ -148,7 +149,7 @@ Conteúdo | Conteúdo do documento.
 ContentTransferEncoding | Codificação de Transferência de Conteúdo da Mensagem. (“nenhuma” ou ”base64”)
 
 
-### 4\. Novo item em Tarefas (XML)
+### 4. Novo item em Tarefas (XML)
 
 O gatilho é acionado quando um novo item é adicionado à lista “Tarefas”. O novo item de lista é retornado como uma mensagem XML.
 
@@ -171,7 +172,7 @@ ContentTransferEncoding | Codificação de Transferência de Conteúdo da Mensag
 ##  Ações
 Para as ações a seguir, supõe-se que você especificou “Documentos compartilhados, Listas/Tarefa” nas configurações de Pacote do Conector, em que “Documentos Compartilhados” é uma biblioteca de documentos e “Listas/Tarefa” é uma Lista.
 
-### 1\. Carregar em Documentos Compartilhados (JSON)
+### 1. Carregar em Documentos Compartilhados (JSON)
 
 Esta ação carrega o novo documento em “Documentos Compartilhados”. A entrada é um objeto JSON fortemente tipado com todos os campos de coluna da biblioteca de documentos.
 
@@ -200,7 +201,7 @@ Status | O carregamento bem-sucedido do documento retornará o código de status
 
  
 
-### 2\. Obter dos Documentos Compartilhados (JSON)
+### 2. Obter dos Documentos Compartilhados (JSON)
 Esta ação obtém o documento da biblioteca de documentos com base na URL relativa (estrutura de pastas) do documento.
 
 #### Entrada
@@ -223,7 +224,7 @@ Param2* | Este é um dos parâmetros de um documento na biblioteca de documentos
 
  
 
-### 3\. Excluir dos Documentos Compartilhados
+### 3. Excluir dos Documentos Compartilhados
 
 Esta ação exclui o documento da biblioteca de documentos com base na URL relativa (estrutura de pastas) do documento.
 
@@ -240,7 +241,7 @@ Nome | Descrição
 Status | Uma execução bem-sucedida da ação retorna o código de status 200 (OK).
 
 
-### 4\. Inserir em Tarefas (JSON)
+### 4. Inserir em Tarefas (JSON)
 
 Esta ação adiciona um item à lista de itens.
 
@@ -263,7 +264,7 @@ ItemId | O ItemId do item de lista adicionado.
 Status | Uma inserção bem-sucedida de item de lista retorna o código de status 200 (OK).
 
 
-### 5\. Atualizar Tarefas (JSON)
+### 5. Atualizar Tarefas (JSON)
 
 Esta ação atualiza um item na lista de itens.
 
@@ -286,7 +287,7 @@ Nome | Descrição
 Status | Uma atualização bem-sucedida do item de lista retornará o código de status 200 (OK).
 
 
-### 6\. Obter Item das Tarefas (JSON)
+### 6. Obter Item das Tarefas (JSON)
 
 Esta ação obtém um item da lista de itens.
 
@@ -307,7 +308,7 @@ Status | Uma execução bem-sucedida da ação retorna o código de status 200 (
 **Observação**: As colunas da lista são preenchidas dinamicamente e mostradas nos parâmetros de saída.
 
 
-### 7\. Excluir Item das Tarefas
+### 7. Excluir Item das Tarefas
 
 Esta ação exclui um item da lista de itens.
 
@@ -324,7 +325,7 @@ Nome | Descrição
 Status | Uma exclusão bem-sucedida do item de lista retornará o código de status 200 (OK).
 
 
-### 8\. Listar Documentos Compartilhados (JSON)
+### 8. Listar Documentos Compartilhados (JSON)
 
 Esta ação lista todos os documentos de uma biblioteca de documentos. Você pode usar uma Exibição ou uma consulta CAML para filtrar os documentos.
 
@@ -343,7 +344,7 @@ Documentos | Matriz de todos os documentos. Cada documento tem os seguintes camp
 Status | Uma inserção bem-sucedida de item de lista retorna o código de status 200 (OK).
 
 
-### 9\. Carregar em Documentos Compartilhados (XML)
+### 9. Carregar em Documentos Compartilhados (XML)
 
 Esta ação carrega o novo documento em “Documentos Compartilhados”. O documento de entrada deve ser uma carga XML. A resposta da ação será uma carga XML.
  
@@ -363,7 +364,7 @@ Nome | Descrição
 XML de Saída | Resposta da ação de carregamento em formato XML.
 Status | O carregamento bem-sucedido do documento retornará o código de status 200 (OK).
 
-### 10\. Obter dos Documentos Compartilhados (XML)
+### 10. Obter dos Documentos Compartilhados (XML)
 
 Esta ação obtém o documento da biblioteca de documentos com base na URL relativa (estrutura de pastas) do documento.
 
@@ -382,7 +383,7 @@ XML de Saída | Conteúdo do documento
 ContentTransferEncoding | Codificação de transferência de conteúdo da mensagem. (“nenhuma”|”base64”)
 Status | Uma execução bem-sucedida da ação retorna o código de status 200 (OK).
 
-### 11\. Inserir nas Tarefas (XML)
+### 11. Inserir nas Tarefas (XML)
 
 Esta ação adiciona um item à lista de itens. A entrada deve ser uma carga XML.
 
@@ -402,7 +403,7 @@ ItemId | O ItemId do item de lista adicionado.
 Status | Uma inserção bem-sucedida de item de lista retorna o código de status 200 (OK).
 
 
-### 12\. Atualizar Tarefas (XML)
+### 12. Atualizar Tarefas (XML)
 
 Esta ação atualiza um item na lista de itens. A entrada deve ser uma carga XML.
 
@@ -422,7 +423,7 @@ Nome | Descrição
 Status | Uma atualização bem-sucedida do item de lista retornará o código de status 200 (OK).
 
 
-### 13\. Obter Item das Tarefas (XML)
+### 13. Obter Item das Tarefas (XML)
 
 Esta ação obtém um item da lista de itens.
 
@@ -462,4 +463,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

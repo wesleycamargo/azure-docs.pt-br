@@ -117,4 +117,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
  
 > [AZURE.NOTE]Para o modo de visualização particular do Catálogo de Dados do Azure, apenas o Microsoft Excel terá suporte direto e disponível no menu **Conectar**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

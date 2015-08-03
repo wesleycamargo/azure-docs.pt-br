@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha" 
 	description="Saiba como usar as ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável no Banco de Dados SQL que dá suporte a fragmentos multilocatários." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -339,4 +340,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

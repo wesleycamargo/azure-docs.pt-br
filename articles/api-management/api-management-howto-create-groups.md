@@ -106,4 +106,4 @@ Após um desenvolvedor ser associado a um grupo, ele poderá ver e assinar produ
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

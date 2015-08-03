@@ -110,4 +110,4 @@ Por exemplo, durante uma manutenção planejada, o Azure não distribuirá uma a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Compreender manutenção planejada X manutenção não planejada]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

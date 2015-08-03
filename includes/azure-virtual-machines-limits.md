@@ -20,4 +20,4 @@
 
 <sup>2</sup>Pontos de extremidade de entrada permitem comunicações com uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente umas com as outras. Consulte [Como instalar pontos de extremidade em uma máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

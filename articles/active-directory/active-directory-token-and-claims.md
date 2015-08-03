@@ -413,4 +413,4 @@ Este é um exemplo de um típico JWT (JSON Web token) usado em um fluxo de Web d
 [Protocolos de autenticação do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

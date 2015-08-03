@@ -145,4 +145,4 @@ Aqui está alguns exemplos de código que mostra como usar a versão síncrona d
 Consulte o tópico [Provisionar clusters Hadoop no HDInsight usando opções personalizadas](hdinsight-provision-clusters.md) para obter mais informações sobre como usar o HDInsight .NET SDK.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

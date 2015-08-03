@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Perguntas frequentes sobre continuidade dos negócios
@@ -65,4 +65,4 @@ A replicação geográfica usa cópia contínua. Desse modo, use os DMVs (exibi�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

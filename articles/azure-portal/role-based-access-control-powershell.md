@@ -165,4 +165,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

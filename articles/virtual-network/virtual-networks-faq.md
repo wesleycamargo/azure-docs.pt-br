@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/08/2015"
+   ms.date="07/20/2015"
    ms.author="telmos" />
 
 # Perguntas frequentes sobre rede virtual
@@ -23,4 +23,4 @@
 
 Para ver as perguntas frequentes mais recentes sobre VPNs de rede virtual, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

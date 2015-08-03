@@ -58,7 +58,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 
 **Para criar uma tabela de partição, você precisa:**
 
-- [Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\\_datetime\\_field) no ano de 2013:
+- [Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\_datetime\_field) no ano de 2013:
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -184,4 +184,4 @@ ou
 Para obter um exemplo passo a passo de ponta a ponta usando o ADAPT (Processo e Tecnologia de Análise Avançada) com um conjunto de dados público, confira [Processo e Tecnologia de Análise Avançada em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

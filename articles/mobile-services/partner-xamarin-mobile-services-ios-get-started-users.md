@@ -151,4 +151,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

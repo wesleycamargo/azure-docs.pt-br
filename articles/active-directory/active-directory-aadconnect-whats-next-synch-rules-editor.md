@@ -74,4 +74,4 @@ Para colocar isso em contexto, em uma implantação de floresta de Recurso de Co
 O tópico de transformação é vasto e fornece uma grande parte da configuração personalizada possível com o Azure AD Connect. A configuração personalizada não será abordada neste documento de visão geral, mas vamos examinar alguns fluxos de atributos adicionais neste documento.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

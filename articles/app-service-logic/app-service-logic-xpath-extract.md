@@ -63,4 +63,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Resultado. O Resulta
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

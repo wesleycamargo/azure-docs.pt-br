@@ -292,4 +292,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mimig"/>
 
 #Consulta ao Banco de Dados de Documentos
@@ -615,6 +615,14 @@ O operador de União (??) pode ser usado para verificar de modo eficaz a presen�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
+###Acessador de propriedade entre aspas
+Você também pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisa substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
+
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+
+
 ##Cláusula SELECT
 A cláusula SELECT (**`SELECT <select_list>`**) é obrigatória e especifica quais valores serão recuperados da consulta, exatamente como ocorre em ANSI-SQL. O subconjunto que foi filtrado sobre os documentos fonte é passado à fase de projeção, em que os valores JSON especificados são recuperados e um novo objeto JSON é construído, para cada entrada passada a ele.
 
@@ -873,7 +881,7 @@ O operador especial (*) é suportado para projetar o documento da forma que ele 
 	}]
 
 ##Cláusula ORDER BY
-Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados. Para obter uma visão mais detalhada de Order By, consulte [Passo a passo de Order By no Banco de Dados de Documentos](documentdb-orderby.md).
+Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados. Para obter uma visão mais detalhada de Ordenar por, consulte [Passo a passo de Ordenar por no Banco de Dados de Documentos](documentdb-orderby.md).
 
 Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome da cidade do residente.
 
@@ -2269,4 +2277,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

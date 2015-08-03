@@ -273,4 +273,4 @@ Em seguida, configure a chave pré-compartilhada para que ambos os gateways usem
 Em seguida, na página Rede do Portal de Gerenciamento do Azure, clique na rede virtual **TestLab** e, em seguida, clique em **Conectar** na barra de tarefas. Aguarde até que a rede virtual TestLab mostre um estado conectado à rede local TestVNET.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

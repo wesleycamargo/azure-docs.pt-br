@@ -18,6 +18,8 @@
 
 # Como configurar seu aplicativo para usar o logon do Active Directory do Azure
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Este tópico mostra como configurar os Serviços de Aplicativos do Azure para usar o Active Directory do Azure como um provedor de autenticação.
 
 ## <a name="register"> </a>Registrar seu aplicativo com o Active Directory do Azure
@@ -73,4 +75,4 @@ Autentique os usuários do aplicativo móvel com o logon único do Active Direct
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

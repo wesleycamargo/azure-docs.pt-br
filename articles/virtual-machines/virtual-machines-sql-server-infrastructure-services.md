@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="04/17/2015"
+	ms.date="07/17/2015"
 	ms.author="jroth"/>
 
 # SQL Server nas Máquinas Virtuais do Azure
@@ -26,7 +26,9 @@ Você pode hospedar o [SQL Server em Máquinas Virtuais do Azure][sqlvmlanding] 
 ## Implantar uma instância do SQL Server em uma única VM
 Após [criar uma máquina virtual do Azure usando o Portal do Azure][createvmportal] ou a automação, você pode instalar qualquer instância do SQL Server para a qual tenha uma licença. No entanto, você deve executar etapas adicionais para [configurar a conectividade][setupconnectivity] entre o computador do SQL Server e outros computadores cliente.
  
-Você também pode instalar uma das muitas diferentes imagens de máquina virtual do SQL Server da galeria. Essas imagens incluem o licenciamento do SQL Server nos preços para a VM. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure][provisionsqlvm].
+Você também pode instalar uma das muitas diferentes imagens de máquina virtual do SQL Server da galeria. Essas imagens incluem o licenciamento do SQL Server nos preços para a VM. Para obter mais informações e uma conectividade passo a passo, consulte [Provisionamento de uma máquina Virtual do SQL Server no Azure][provisionsqlvm].
+
+Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Para obter mais informações sobre a migração de banco de dados, consulte [Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Implantar uma configuração altamente disponível com várias VMs
 Você pode obter alta disponibilidade para o SQL Server usando Grupos de Disponibilidade do AlwaysOn do SQL Server. Isso envolve várias VMs do Azure em uma rede virtual. O Portal de Visualização do Azure tem um modelo que define essa configuração para você. Para obter mais informações, consulte [Oferta do AlwaysOn do SQL Server na Galeria do Portal do Microsoft Azure][sqlalwaysonportal]. Ou então, você pode [configurar manualmente um Grupo de Disponibilidade do AlwaysOn][sqlalwaysonmanual]. Para outras considerações sobre alta disponibilidade, consulte [alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure][sqlhadr].
@@ -35,21 +37,23 @@ Você pode obter alta disponibilidade para o SQL Server usando Grupos de Disponi
 Você pode executar cargas de trabalho comuns do SQL Server em Máquinas Virtuais do Azure. O SQL Server tem várias imagens de máquinas virtuais otimizadas disponíveis na galeria. Elas incluem imagens para [Business Intelligence][sqlbi], [Data Warehouse][sqldw] e [OLTP][sqloltp].
 
 ## Migrar seus dados
-Há várias maneiras possíveis de migrar seus dados para VMs do Azure executando o SQL Server. Primeiro, provisione uma máquina virtual do SQL Server usando o Portal do Azure, a automação do PowerShell ou o assistente de implantação no SQL Server Management Studio. As imagens otimizadas do SQL Server incluem o licenciamento em seu modelo de preços, mas você também pode instalar o SQL Server usando sua própria licença. Para migrar seus dados, existem várias opções, como usar o assistente de implantação ou migrar um disco de dados para a máquina virtual de destino. Para obter mais informações, consulte [Preparando-se para migrar para o SQL Server em Máquinas Virtuais do Azure][migratesql].
+Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Há várias técnicas, mas o assistente de implantação no SQL Server Management Studio funciona bem para a maioria dos cenários. Para uma discussão sobre os cenários e um tutorial do assistente, consulte [Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Backup e restauração
 Para bancos de dados locais, o Azure pode agir como um data center secundário para armazenar arquivos de backup do SQL Server. O [Backup do SQL Server para URL][backupurl] armazena arquivos de backup do Azure no armazenamento de blob do Azure. O [Backup Gerenciado do SQL Server][managedbackup] permite agendar o backup e a retenção no Azure. Esses serviços podem ser usados com instâncias locais do SQL Server ou com o SQL Server em execução em VMs do Azure. As VMs do Azure também podem tirar proveito do [Backup Automatizado][autobackup] e de [Patches Automatizados][autopatching] para o SQL Server. Para obter mais informações, consulte [Tarefas de gerenciamento para o SQL Server em Máquinas Virtuais do Azure][managementtasks].
 
-## Recursos adicionais:
+## Recursos:
 [SQL Server em VMs do Azure][sqlmsdnlanding]
 
+[Provisionando uma máquina virtual do SQL Server no Azure][provisionsqlvm]
+
 [Introdução ao SQL Server em Máquinas Virtuais do Azure][sqlvmgetstarted]
+
+[Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md)
 
 [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure][sqlperf]
 
 [Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure][sqlsecurity]
-
-[Artigos técnicos sobre o SQL Server em Máquinas Virtuais do Azure][technicalarticles]
 
   [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
   [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
@@ -74,4 +78,4 @@ Para bancos de dados locais, o Azure pode agir como um data center secundário p
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

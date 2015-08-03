@@ -31,7 +31,7 @@ Abaixo está uma exibição resumida da infraestrutura, malha, serviços e estru
 
 ![][2]
 
-O Governo do Azure inclui os principais componentes da Infraestrutura Como Serviço (IaaS) e Plataforma como Serviço (PaaS). Isso inclui a infraestrutura, rede, armazenamento, gerenciamento de dados, gerenciamento de identidades e muitos outros serviços. O Governo do Azure oferece suporte a excelentes recursos que os clientes do Azure público utilizaram como replicação de dados de sincronização geográfica e dimensionamento automático. A Microsoft foi identificada como líder em <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> por analistas líderes do setor.
+O Governo do Azure inclui os principais componentes da Infraestrutura Como Serviço (IaaS) e Plataforma como Serviço (PaaS). Isso inclui a infraestrutura, rede, armazenamento, gerenciamento de dados, gerenciamento de identidades e muitos outros serviços. O Governo do Azure oferece suporte a excelentes recursos que os clientes do Azure público utilizaram como replicação de dados de sincronização geográfica e dimensionamento automático. A Microsoft foi identificada como líder em <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> por analistas líderes do setor.
 
 Além de fornecer os serviços robustos e recursos do Azure público, o Governo do Azure fornece uma série de recursos para garantir para as entidades governamentais dos EUA que seus dados sejam protegidos, fornecendo:
 
@@ -103,4 +103,4 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitorar dependências, exceções e tempos de execução em aplicativos Web Java" 
+	pageTitle="Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java" 
 	description="Monitoramento estendido do seu site Java com o Application Insights" 
 	services="application-insights" 
     documentationCenter="java"
@@ -15,17 +15,17 @@
 	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
-# Monitorar dependências, exceções e tempos de execução em aplicativos Web Java
+# Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 *O Application Insights está em modo de visualização.*
 
-Se você [instrumentou seu aplicativo Web Java com o Application Insights][java], será possível usar o Agente Java para obter percepções mais aprofundadas, sem nenhuma mudança de código:
+Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter insights mais aprofundados, sem nenhuma alteração de código:
 
 * **Dependências remotas:** dados sobre chamadas que seu aplicativo faz por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
 * **Exceções capturadas:** dados sobre exceções que são tratadas pelo seu código.
 * **Tempo de execução do método:** dados sobre o tempo necessário para executar métodos específicos.
 
-Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java].
+Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK de Java do Application Insights][java].
 
 ## Instalar o agente do Application Insights para Java
 
@@ -79,13 +79,15 @@ Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omit
 
 Você precisa habilitar a exceção de relatórios e o tempo de método para métodos individuais.
 
-Por padrão, `reportExecutionTime` é true, `reportCaughtExceptions` é false.
+Por padrão, `reportExecutionTime` é verdadeiro, `reportCaughtExceptions` é falso.
 
 ## Exibir os dados
 
 No recurso Application Insights, a dependência remota e os tempos de execução do método agregados aparecerão [no bloco Desempenho][metrics].
 
-Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisa][diagnostic].
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
+
+[Diagnosticando problemas de dependência - Saiba mais](app-insights-dependencies.md#diagnosis).
 
 ## Perguntas? Problemas?
 
@@ -107,4 +109,4 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

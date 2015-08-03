@@ -271,4 +271,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para DPM, consulte [Introdução ao Backup de DPM do Azure](backup-azure-dpm-introduction.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->
