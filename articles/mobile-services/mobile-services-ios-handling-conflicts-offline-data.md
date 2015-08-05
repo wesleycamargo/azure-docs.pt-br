@@ -171,7 +171,8 @@ Os recursos de sincronização offline no SDK permitem tratar de tais conflitos 
 
 7. Verifique se o aplicativo funciona com todas as mudanças feitas até o momento. Execute o aplicativo agora no simulador. Adicione itens à lista ToDo e então clique neles. Você verá o controlador de visualização do item (atualmente vazio).
 
-      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4]
+      ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Adicionar detalhes do item ao Controlador de Visualização de Item ToDo
 
@@ -471,4 +472,4 @@ Ao longo do caminho, adicionou uma classe auxiliar **QSUIAlertViewWithBlock** pa
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

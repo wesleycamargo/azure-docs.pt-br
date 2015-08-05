@@ -1,4 +1,12 @@
-< propriedades pageTitle = "Configurando o AD do Azure para management| de acesso do aplicativo de autoatendimento Descrição do Microsoft Azure"="um tópico que explica como gerenciar grupos no AD do Azure."serviços ="active directory"documentationCenter =" "autores ="femila"manager ="swadhwa"" editor = "" tags = "portal de clássico do azure" / >
+<properties 
+	pageTitle="Configurando o AD do Azure para management| de acesso do aplicativo de autoatendimento Descrição do Microsoft Azure" 
+	description="um tópico que explica como gerenciar grupos no AD do Azure." 
+	services="active-directory" 
+	documentationCenter="" 
+    authors="femila"
+	manager="swadhwa"" 
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
