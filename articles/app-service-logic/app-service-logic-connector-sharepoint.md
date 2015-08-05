@@ -51,7 +51,8 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
 Nome de usuário | Não | Especifique um nome de usuário válido para se conectar ao site do SharePoint, se o modo de autenticação não for Padrão.
 Senha | Não | Especifique uma senha válida para se conectar ao site do SharePoint, se o modo de Autenticação não for Padrão.
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
@@ -463,4 +464,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

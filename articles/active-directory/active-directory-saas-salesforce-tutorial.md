@@ -26,7 +26,7 @@ Este tutorial mostrará como conectar o ambiente Salesforce ao Active Directory 
 
 2. Você deve ter um locatário válido em [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Se você estiver usando uma conta Salesforce.com de **avaliação **, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
+> [AZURE.IMPORTANT]Se você estiver usando uma conta Salesforce.com de **avaliação**, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
 > 
 > Você pode contornar essa limitação usando uma [conta de desenvolvedor gratuita](https://developer.salesforce.com/signup) para concluir este tutorial.
 
@@ -257,4 +257,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

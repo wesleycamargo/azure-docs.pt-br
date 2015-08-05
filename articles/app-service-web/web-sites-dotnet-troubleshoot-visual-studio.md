@@ -565,7 +565,8 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 1. Na janela **Aplicativo Web do Azure** do Visual Studio, clique na guia **Logs** e depois em **Configurar registro em log no portal de gerenciamento**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Isso abre a guia **Configurar** no portal de gerenciamento do seu aplicativo Web. Outra maneira de fazer isso é clicar na guia **Aplicativos Web**, clicar em seu aplicativo Web e, em seguida, clicar na guia **Configurar**.
 
@@ -763,4 +764,4 @@ Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo We
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

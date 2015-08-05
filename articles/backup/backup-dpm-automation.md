@@ -58,7 +58,16 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | | /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Inscreva no Microsoft Update | - | | /nu | Não verificar se há atualizações após a conclusão da instalação | - | | /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | | /Ph | Endereço de Host do Proxy | - | | /po | Número da porta do Host do Proxy | - | | /pu | Nome de usuário do Host do Host | - | | /pw | Senha do Proxy | - |
+| /q | Instalação silenciosa | - |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | Inscreva no Microsoft Update | - |
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
+| /Ph | Endereço de Host do Proxy | - |
+| /po | Número da porta do Host do Proxy | - |
+| /pu | Nome de usuário do Host do Host | - |
+| /pw | Senha do Proxy | - |
 
 ### Registrando-se no serviço de Backup do Azure
 Antes de poder se registrar no serviço de Backup do Azure, você precisa garantir que os [pré-requisitos](backup-azure-dpm-introduction.md) sejam atendidos. Você deve:
@@ -271,4 +280,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para DPM, consulte [Introdução ao Backup de DPM do Azure](backup-azure-dpm-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

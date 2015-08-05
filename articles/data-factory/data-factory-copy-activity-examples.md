@@ -186,8 +186,9 @@ Você pode usar a Atividade de cópia para copiar arquivos de um sistema de arqu
 ### Suposições
 Esse exemplo pressupõe o seguinte:
 
-- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\\contoso**.
-- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\\regionaldata\\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12). 
+- **Host** - o nome do servidor que hospeda o sistema de arquivos é: **\contoso**.
+- **Pasta** - o nome da pasta que contém os arquivos de entrada é: **marketingcampaign\regionaldata\{fatia}, onde os arquivos são particionados em uma pasta chamada {fatia} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12).
+
 ### Criar um serviço vinculado de sistema de arquivos local
 O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denominado **FolderDataStore** do tipo **OnPremisesFileSystemLinkedService**.
 
@@ -491,4 +492,4 @@ Consulte [Referência de JSON de pipeline](https://msdn.microsoft.com/library/dn
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

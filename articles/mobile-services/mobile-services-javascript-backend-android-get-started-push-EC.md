@@ -190,7 +190,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
 [Introdução aos dados]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
@@ -212,4 +212,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

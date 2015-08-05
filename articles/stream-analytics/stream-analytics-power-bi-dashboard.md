@@ -165,7 +165,8 @@ O Power BI emprega restrições de simultaneidade e de taxa de transferência co
 
 Por causa dessas restrições, o Power BI se ajusta bem mais naturalmente nos casos em que a Stream Analytics do Azure faz uma significativa redução de carga de dados. É recomendável usar a TumblingWindow ou a HoppingWindow para garantir que o push de dados seja no máximo 1 push por segundo e que sua consulta esteja dentro dos requisitos de taxa de transferência – você pode usar a seguinte equação para calcular o valor em segundos a dar para a sua janela: ![equação1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Por exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, está na Pro SKU do Power BI que oferece suporte a 1.000.000 linhas por hora e se você desejar obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo): ![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Por exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, está na Pro SKU do Power BI que oferece suporte a 1.000.000 linhas por hora e se você desejar obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo):
+![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Isso significa que mudaríamos a consulta original para:
 
@@ -208,4 +209,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

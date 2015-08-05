@@ -165,7 +165,17 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 4. Abra o arquivo *App.config* no projeto ContosoAdsWebJob.
 
-	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Esse arquivo tem duas cadeias de conexão de armazenamento: uma para dados do aplicativo e outra para registro em log. Para este tutorial você vai usar a mesma conta em ambas. As cadeias de conexão têm espaços reservados para as chaves de conta de armazenamento. 
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt; 
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	Por padrão, o SDK de Trabalhos Web procura cadeias de conexão chamadas AzureWebJobsStorage e AzureWebJobsDashboard. Como alternativa, é possível [armazenar a cadeia de conexão, por mais que você queira passá-la explicitamente para o `JobHost` objeto](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -290,7 +300,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
 
 	É possível ignorar o aviso sobre a não publicação de nenhum banco de dados. O Entity Framework Code First criará o banco de dados. Ele não precisa ser publicado.
 
-	A janela de visualização mostra que os arquivos de configuração e binários do projeto Trabalho Web serão copiados para a pasta *app_data\\jobs\\continuous* do aplicativo Web.
+	A janela de visualização mostra que os arquivos de configuração e binários do projeto Trabalho Web serão copiados para a pasta *app_data\jobs\continuous* do aplicativo Web.
 
 	![Arquivos de Trabalhos Web na janela de visualização](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -479,9 +489,9 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs* 
-	- Na pasta *Views\\Shared*: o arquivo <em>_Layout.cshtml</em>. 
-	- Na pasta *Views\\Home*: *Index.cshtml*. 
-	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
+	- Na pasta *Views\Shared*: o arquivo <em>_Layout.cshtml</em>. 
+	- Na pasta *Views\Home*: *Index.cshtml*. 
+	- Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
 
@@ -616,9 +626,9 @@ Um código semelhante obtém uma referência para a fila *blobnamerequest* e cri
 
 O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-O arquivo *Views\\Home\\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
+O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -707,7 +717,7 @@ Este é o código que exclui os blobs quando você exclui um anúncio:
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml e Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
 
 O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio:
 
@@ -717,7 +727,7 @@ O arquivo *Details.cshtml* exibe a imagem em tamanho real:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml e Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
 
 Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
@@ -787,7 +797,10 @@ Para saber mais sobre como escrever funções que usam atributos SDK de Trabalho
 * [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Como usar o barramento de serviço do Azure com o SDK WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]* Se o seu aplicativo Web for executado em várias VMs, esse programa será executado em todos os computadores; cada computador aguardará os gatilhos e tentará executar as funções. Em alguns cenários, isso pode fazer com que algumas funções processem os mesmos dados duas vezes. Assim, as funções devem ser idempotentes (escritas de forma que chamá-las repetidamente com os mesmos dados de entrada não produza resultados duplicados). * Para saber mais sobre como implantar o desligamento normal, confira [Desligamento Normal](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * O código no método `ConvertImageToThumbnailJPG` (não exibido) utiliza classes no namespace `System.Drawing` para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para obter mais informações sobre opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE]
+>* Se o seu aplicativo Web for executado em várias VMs, esse programa será executado em todos os computadores; cada computador aguardará os gatilhos e tentará executar as funções. Em alguns cenários, isso pode fazer com que algumas funções processem os mesmos dados duas vezes. Assim, as funções devem ser idempotentes (escritas de forma que chamá-las repetidamente com os mesmos dados de entrada não produza resultados duplicados). 
+>* Para saber mais sobre como implantar o desligamento normal, confira [Desligamento Normal](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
+>* O código no método `ConvertImageToThumbnailJPG` (não exibido) utiliza classes no namespace `System.Drawing` para simplificar. Entretanto, as classes nesse namespace foram projetadas para uso nos formulários do Windows. Elas não têm suporte para uso em um serviço Windows ou ASP.NET. Para obter mais informações sobre opções de processamento de imagem, consulte [Geração dinâmica de imagem](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Visão aprofundada de redimensionamento de imagens](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### SDK de Trabalhos Web versus a função de trabalho de Serviço de Nuvem sem o SDK de Trabalhos Web
 
@@ -812,5 +825,6 @@ Para obter mais informações, consulte [Recursos recomendados para Trabalhos We
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -249,7 +249,7 @@ Para obter detalhes, consulte [Alterando camadas de serviço e níveis de desemp
 
 
 ## 6. Monitoramento da atualização da nova camada de serviço e nível de desempenho
-O banco de dados SQL do Azure fornece informações sobre o andamento em operações de gerenciamento (como CREATE, ALTER, DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm_operation_status no banco de dados mestre do servidor lógico onde seu banco de dados atual está localizado [Consulte a documentação do sys.dm _operation _status]. (http://msdn.microsoft.com/library/azure/dn270022.aspx)Use o DMV do status da operação para determinar o progresso da operação de atualização do banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
+O banco de dados SQL do Azure fornece informações sobre o andamento em operações de gerenciamento (como CREATE, ALTER, DROP) executadas em um banco de dados na exibição de gerenciamento dinâmico sys.dm_operation_status no banco de dados mestre do servidor lógico onde seu banco de dados atual está localizado [Consulte a documentação do sys.dm _operation _status](http://msdn.microsoft.com/library/azure/dn270022.aspx)Use o DMV do status da operação para determinar o progresso da operação de atualização do banco de dados. Este exemplo de consulta mostra todas as operações de gerenciamento executadas em um banco de dados:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -309,4 +309,4 @@ O serviço de banco de dados SQL do Azure fornece os dados e ferramentas de tele
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

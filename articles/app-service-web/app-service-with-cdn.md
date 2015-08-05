@@ -39,7 +39,9 @@ Este tutorial tem os seguintes pré-requisitos:
 -	Uma [conta do Microsoft Azure](http://azure.microsoft.com/account/) ativa
 -	Visual Studio 2013 com o [SDK do Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: +, você pode [Abrir uma conta do Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como aplicativos Web. + Você pode [ativar os benefícios de assinante MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
+> [AZURE.NOTE]Você precisa de uma conta do Azure para concluir este tutorial: 
+> + você pode [Abrir uma conta do Azure gratuitamente](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - Você recebe créditos que podem ser usados para experimentar os serviços do Azure pagos e, mesmo depois que tiverem se esgotado, você pode manter a conta e usar serviços do Azure gratuitos, como aplicativos Web. 
+> + Você pode [ativar os benefícios de assinante MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Sua assinatura do MSDN fornece você créditos a cada mês que podem ser usados para serviços do Azure pagos.
 
 <a name="deploy"></a>
 ## Implantar um aplicativo Web do Azure com um ponto de extremidade integrado da CDN ##
@@ -125,9 +127,17 @@ A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso
 <a name="caching"></a>
 ## Configurar opções de cache para arquivos estáticos em seu aplicativo Web ##
 
-Com a integração da CDN do Azure a seu aplicativo Web, você pode especificar como quer que o conteúdo estático seja armazenado em cache no ponto de extremidade da CDN. Para fazer isso, abra *Web.config* por meio do projeto ASP.NET (por exemplo, **cdnwebapp**) e adicione um elemento `<staticContent>` a `<system.webServer>`. O XML a seguir configura o cache para expirar em 3 dias. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Com a integração da CDN do Azure a seu aplicativo Web, você pode especificar como quer que o conteúdo estático seja armazenado em cache no ponto de extremidade da CDN. Para fazer isso, abra *Web.config* por meio do projeto ASP.NET (por exemplo, **cdnwebapp**) e adicione um elemento `<staticContent>` a `<system.webServer>`. O XML a seguir configura o cache para expirar em 3 dias.
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
-Após você ter feito isso, todos os arquivos estáticos do aplicativo Web obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\\Content* e substitua o conteúdo pelo seguinte XML:
+Após você ter feito isso, todos os arquivos estáticos do aplicativo Web obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\Content* e substitua o conteúdo pelo seguinte XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -138,7 +148,7 @@ Após você ter feito isso, todos os arquivos estáticos do aplicativo Web obede
 	  </system.webServer>
 	</configuration>
 
-Esta configuração faz com que todos os arquivos estáticos da pasta *\\Content* sejam armazenados em cache por 15 dias.
+Esta configuração faz com que todos os arquivos estáticos da pasta *\Content* sejam armazenados em cache por 15 dias.
 
 Para obter mais informações sobre como configurar o elemento `<clientCache>`, consulte [Cache do Cliente <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -157,7 +167,7 @@ Você tem uma ação `Index` simples que permite que os clientes especifiquem os
 
 Siga as etapas acima para configurar esta ação do controlador:
 
-1. Na pasta *\\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN e caminho do arquivo.
+1. Na pasta *\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Certifique-se de substituir a porção destacada pelo nome de sua CDN e caminho do arquivo.
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -264,7 +274,7 @@ namespace cdnwebapp.Controllers
 
 	![](media/app-service-with-cdn/cdn-7-configureview.PNG)
 
-4. Abra o novo *Views\\MemeGenerator\\Index.cshtml* e substitua o conteúdo pelo HTML simples a seguir para enviar os superlativos:
+4. Abra o novo *Views\MemeGenerator\Index.cshtml* e substitua o conteúdo pelo HTML simples a seguir para enviar os superlativos:
 
 		<h2>Meme Generator</h2>
 		
@@ -278,7 +288,16 @@ namespace cdnwebapp.Controllers
 
 5. Publique o aplicativo Web do Azure novamente e navegue até **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** em seu navegador.
 
-Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Ao clicar no link, você é levado ao código a seguir: <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Ao clicar no link, você é levado ao código a seguir:  
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -288,7 +307,8 @@ Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método
     {
         return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no aplicativo Web, será redirecionado para:
 
@@ -321,7 +341,7 @@ Scripts e folhas de estilo CSS são alterados com pouca frequência e são candi
 -	Mecanismo de fallback quando ocorre falha em seu ponto de extremidade CDN
 -	Minimizar modificações de código
 
-No projeto ASP.NET que você criou em [Integrar um ponto de extremidade da CDN do Azure a seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy), abra *App_Start\\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
+No projeto ASP.NET que você criou em [Integrar um ponto de extremidade da CDN do Azure a seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy), abra *App_Start\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -330,7 +350,7 @@ No projeto ASP.NET que você criou em [Integrar um ponto de extremidade da CDN d
 		...
     }
 
-A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
+A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\Shared_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -346,7 +366,7 @@ Isso permite que você depure o código JavaScript em seu ambiente de desenvolvi
 
 Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto de extremidade CDN.
 
-1. Em *App_Start\\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:  
+1. Em *App_Start\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -374,7 +394,8 @@ public static void RegisterBundles(BundleCollection bundles)
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 }
-</pre>Substitua `<yourCDNName>` pelo nome da sua CDN do Azure.
+	</pre>
+	Substitua `<yourCDNName>` pelo nome da sua CDN do Azure.
 
 	De maneira simples, você está definindo `bundles.UseCdn = true` e adicionou uma URL da CDN criada cuidadosamente a cada grupo. Por exemplo, o primeiro construtor do código:
 
@@ -388,7 +409,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	A origem do URL da CDN é `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, que, na verdade, é o diretório virtual do grupo de scripts em seu aplicativo Web.
 	-	Como você está usando um construtor CDN, a marcação do script CDN para o grupo não contém mais a cadeia da versão gerada automaticamente na URL renderizada. Você deve gerar manualmente uma cadeia de versão única sempre que o grupo de scripts for modificado para gerar uma perda de cache em sua CDN do Azure. Ao mesmo tempo, essa cadeia de versão única deve permanecer constante ao longo da vida útil da implantação para maximizar as ocorrências no cache na CDN do Azure após a implantação do grupo.
-	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\\AssemblyInfo.cs* no seu projeto ASP.NET. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
+	-	A cadeia de consulta v=<W.X.Y.Z> efetua pull de *Properties\AssemblyInfo.cs* no seu projeto ASP.NET. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -472,7 +493,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}</pre>Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
+	}</pre>
+	Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
 	
 	-	`window.jquery` é definido em jquery-{version}.js
 	-	`$.validator` é definido em jquery.validate.js
@@ -485,7 +507,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App_Start* de seu projeto ASP.NET, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub￼￼￼￼￼￼￼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. Em *App_Start\\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
+4. Em *App_Start\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
 
 3. Volte para e `App_Start\BundleConfig.cs` modifique a última `bundles.Add` instrução com o seguinte código em destaque:
 	<pre class="prettyprint">
@@ -494,7 +516,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
-</pre>Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
+	</pre>
+	Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
 
 4. Republique seu aplicativo Web do Azure e acesse a página inicial.
 5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:    
@@ -532,7 +555,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 <mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
 
 ...
-</pre>Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
+	</pre>
+	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -552,4 +576,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Usando a CDN para Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

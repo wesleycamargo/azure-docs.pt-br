@@ -130,7 +130,7 @@ Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armaz
 </tbody>
 </table>
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
+	Para obter as informações mais atualizadas, consulte [Tamanhos de Serviço de Nuvem e Máquina Virtual do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para saber mais sobre os discos de armazenamento Premium e seus IOPs e limites de produtividade, consulte a tabela na seção [Metas de desempenho e escalabilidade ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-bring-premium-storage) neste artigo.
 
 > [AZURE.NOTE]Os acertos de cache não são limitados pelo IOPS/Taxa de transferência alocada do disco. Ou seja, quando você usa um disco de dados com a configuração de cache ReadOnly em uma VM da série DS, as Leituras realizadas a partir do cache não estão sujeitas aos limites de disco do Armazenamento Premium. Assim, você pode obter uma taxa de transferência muito alta de um disco se a carga de trabalho for composta predominantemente de Leituras. Observe que o cache está sujeito a limites separados de IOPS/Taxa de transferência no nível da VM, com base no tamanho da VM. As VMs da Série DS têm aproximadamente 4000 IOPS e 33 MB/s por núcleo para IOs SSD em cache e local.
 
@@ -262,7 +262,57 @@ Consulte instruções importantes abaixo para configurar suas VMs do Linux no Ar
 
 - Para discos de Armazenamento Premium com a configuração de cache "ReadWrite", as barreiras devem ser habilitadas para durabilidade de gravações.
 
-A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribuição</strong></td> <td><strong>Versão</strong></td> <td><strong>Kernel com suporte</strong></td> <td><strong>Imagem com suporte</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15_04-amd64-server-20150422-en-us-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a></td> </tr>
+A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho. 
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>Distribuição</strong></td>
+	<td><strong>Versão</strong></td>
+	<td><strong>Kernel com suporte</strong></td>
+	<td><strong>Imagem com suporte</strong></td>
+</tr>
+<tr>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td>12.04</td> <td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-pt-br-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-pt-br-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-pt-br-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-pt-br-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS 584.0.0</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 7.0</td>
+	<td></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 obrigatório </a></td>
+</tr>
+<tr>
+	<td>7.1</td> <td>3.10.0-229.1.2.el7</td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a></td>
+</tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -391,4 +441,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

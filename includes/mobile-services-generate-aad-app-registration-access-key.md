@@ -15,10 +15,19 @@
 
 7. No [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/), navegue até seu serviço móvel e clique na guia **Configurar**. Role até a seção **configurações do aplicativo**, adicione as seguintes configurações do aplicativo e clique em **Salvar**.
 
-    <table border="1"> <tr> <th>Nome de Configuração do Aplicativo</th><th>Descrição</th> </tr> <tr> <td>AAD_CLIENT_ID</td><td>A id do cliente que copiou do seu aplicativo integrado nas etapas acima.</td> </tr> <tr> <td>AAD_CLIENT_KEY</td><td>A chave do aplicativo gerada no aplicativo integrado do AAD nas etapas acima.</td> </tr> <tr> <td>AAD_TENANT_DOMAIN</td><td>O seu nome de domínio do AAD. Deve ser semelhante a “meudominio.onmicrosoft.com"</td> </tr> </table><br/>
+    <table border="1">
+    <tr> <th>Nome de Configuração do Aplicativo</th><th>Descrição</th>
+    </tr>
+    <tr> <td>AAD_CLIENT_ID</td><td>A id do cliente que copiou do seu aplicativo integrado nas etapas acima.</td>
+    </tr>
+    <tr> <td>AAD_CLIENT_KEY</td><td>A chave do aplicativo gerada no aplicativo integrado do AAD nas etapas acima.</td>
+    </tr>
+    <tr> <td>AAD_TENANT_DOMAIN</td><td>O seu nome de domínio do AAD. Deve ser semelhante a “meudominio.onmicrosoft.com"</td>
+    </tr>
+    </table><br/>
 
  
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
   
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

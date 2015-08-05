@@ -75,11 +75,11 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 
 	<table border="1">
-<tr><th>Propriedade do cluster</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster do HBase</td><td>O nome do cluster HBase HDInsight. Por exemplo: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Nome de usuário do cluster</td><td>O nome da conta do usuário Hadoop. O nome de usuário Hadoop padrão é <strong>admin</strong>.</td></tr>
-<tr><td>Senha de usuário do cluster</td><td>A senha de usuário do cluster Hadoop.</td></tr>
-</table>
+	<tr><th>Propriedade do cluster</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster do HBase</td><td>O nome do cluster HBase HDInsight. Por exemplo: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nome de usuário do cluster</td><td>O nome da conta do usuário Hadoop. O nome de usuário Hadoop padrão é <strong>admin</strong>.</td></tr>
+	<tr><td>Senha de usuário do cluster</td><td>A senha de usuário do cluster Hadoop.</td></tr>
+	</table>
 
 - **Uma estação de trabalho** com Visual Studio 2013 instalado. Para obter instruções, consulte [Instalação do Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,11 +98,13 @@ As API de streaming do Twitter usam [OAuth](http://oauth.net/) para autorizar so
 3. Insira um **Nome**, **Descrição** e **Site**. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida. A tabela a seguir mostra alguns valores de exemplo para usar:
 
 	<table border="1">
-<tr><th>Campo</th><th>Valor</th></tr>
-<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Descrição</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Site</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]O nome do aplicativo Twitter deve ser um nome exclusivo.
+	<tr><th>Campo</th><th>Valor</th></tr>
+	<tr><td>Nome</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Descrição</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Site</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]O nome do aplicativo Twitter deve ser um nome exclusivo.
 
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
 5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial. 
@@ -1175,7 +1177,8 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.2. Substitua o conteúdo com o seguinte:
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
+2. Substitua o conteúdo com o seguinte:
 
 		<!DOCTYPE html>
 		<html>
@@ -1352,6 +1355,7 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
+
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

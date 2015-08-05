@@ -231,9 +231,11 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 [Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-[Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
