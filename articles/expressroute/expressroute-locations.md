@@ -74,7 +74,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 | **[Orange](http://www.orange-business.com/)** | Suportado | Sem suporte | Amsterdã, Londres, Vale do Silício, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Sem suporte | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Em breve | Amsterdã, Madras +, Hong Kong, Londres, Mumbai +, Cingapura |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Em breve | Amsterdã, Chennai (Madras), Hong Kong, Londres, Mumbai +, Cingapura |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne+, Sydney |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
 
