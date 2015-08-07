@@ -345,7 +345,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
 -	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
 
 
@@ -452,4 +452,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

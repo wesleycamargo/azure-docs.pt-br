@@ -32,7 +32,7 @@ Nós recomendamos que você comece assistindo ao vídeo a seguir, no qual execut
 
 Depois, volte a este artigo, no qual você verá todos os detalhes de como executar trabalhos analíticos nos seus dados do Banco de Dados de Documentos.
 
-> [AZURE.TIP]Este tutorial presume que você tenha experiência anterior com o uso do Apache Hadoop, Hive e/ou Pig. Se você for iniciante no Apache Hadoop, Hive e Pig, recomendamos visitar a [documentação do Apache Hadoop][apache-hadoop-doc]. Este tutorial também pressupõe que você não tenha experiência anterior com o Banco de Dados de Documentos e tenha uma conta do Banco de Dados de Documentos. Se você for iniciante ou não tiver uma conta do Banco de Dados de Documentos, veja nossa página do [Guia de Introdução][getting-started].
+> [AZURE.TIP] Este tutorial presume que você tenha experiência anterior com o uso do Apache Hadoop, Hive e/ou Pig. Se você for iniciante no Apache Hadoop, Hive e Pig, recomendamos visitar a [documentação do Apache Hadoop][apache-hadoop-doc]. Este tutorial também pressupõe que você não tenha experiência anterior com o Banco de Dados de Documentos e tenha uma conta do Banco de Dados de Documentos. Se você for iniciante ou não tiver uma conta do Banco de Dados de Documentos, veja nossa página do [Guia de Introdução][getting-started].
 
 Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts do PowerShell para Hive, Pig e MapReduce? Sem problemas, elas estão [aqui][documentdb-hdinsight-samples]. O download contém também arquivos hql, pig e java para essas amostras.
 
@@ -66,11 +66,11 @@ Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 - Capacidade para os documentos resultantes dos trabalhos de Hive, Pig ou MapReduce. Para saber mais, consulte [Gerenciar a capacidade e o desempenho do Banco de Dados de Documentos][documentdb-manage-collections].
 - [*Opcional*] Capacidade para uma coleção adicional. Para saber mais, consulte [Armazenamento de documentos provisionado e sobrecarga de índice][documentdb-manage-document-storage].
 	
-> [AZURE.WARNING]Para evitar a criação de uma nova coleção durante um dos trabalhos, você pode imprimir os resultados no StdOut, salvar a saída no seu contêiner WASB ou especificar um coleção que já existe. Caso você especifique uma coleção existente, novos documentos serão criados dentro da coleção e os documentos existentes serão afetados somente se houver conflitos entre as *IDs*. **O conector substitui automaticamente documentos existentes com conflitos de ID**. Você pode desativar esse recurso definindo a opção de upsert como falsa. Se upsert estiver definido como falso e houver um conflito, o trabalho do Hadoop falhará, retornando um erro de conflito de ID.
+> [AZURE.WARNING] Para evitar a criação de uma nova coleção durante um dos trabalhos, você pode imprimir os resultados no StdOut, salvar a saída no seu contêiner WASB ou especificar um coleção que já existe. Caso você especifique uma coleção existente, novos documentos serão criados dentro da coleção e os documentos existentes serão afetados somente se houver conflitos entre as *IDs*. **O conector substitui automaticamente documentos existentes com conflitos de ID**. Você pode desativar esse recurso definindo a opção de upsert como falsa. Se upsert estiver definido como falso e houver um conflito, o trabalho do Hadoop falhará, retornando um erro de conflito de ID.
 
 ## <a name="CreateStorage"></a>Etapa 1: Criar uma conta de Armazenamento do Azure
 
-> [AZURE.IMPORTANT]Se você **já** tiver uma Conta de Armazenamento do Azure e quiser criar um novo contêiner de blob dentro dessa conta, passe para a [Etapa 2: Criar um cluster HDInsight personalizado](#ProvisionHDInsight).
+> [AZURE.IMPORTANT] Se você **já** tiver uma Conta de Armazenamento do Azure e quiser criar um novo contêiner de blob dentro dessa conta, passe para a [Etapa 2: Criar um cluster HDInsight personalizado](#ProvisionHDInsight).
 
 O Azure HDInsight usa o Armazenamento de Blob do Azure para armazenar dados. Ele é chamado *WASB* ou *Armazenamento do Azure - Blob*. O WASB é a implementação do HDFS da Microsoft no Armazenamento de Blob do Azure. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight][hdinsight-storage].
 
@@ -80,7 +80,7 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 
 1. Entre no [portal de gerenciamento do Azure][azure-classic-portal].
 	
-	> [AZURE.NOTE]Atualmente, o Azure HDInsight tem suporte do portal de gerenciamento do Azure, enquanto o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
+	> [AZURE.NOTE] Atualmente, o Azure HDInsight tem suporte do portal de gerenciamento do Azure, enquanto o Banco de Dados de Documentos do Azure existe somente no Portal do Microsoft Azure.
 
 2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**.
 	![Portal do Azure, em que você pode usar a criação rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
@@ -89,7 +89,7 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 	
 	Você verá a nova conta de armazenamento na lista de armazenamento.
 
-	> [AZURE.IMPORTANT]Para obter o melhor desempenho, certifique-se de que a conta de armazenamento, o cluster HDInsight e a conta do Banco de Dados de Documentos estão na mesma região do Azure. As regiões do Azure que oferecem suporte a todos os três serviços são: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA** e **Oeste dos EUA**.
+	> [AZURE.IMPORTANT] Para obter o melhor desempenho, certifique-se de que a conta de armazenamento, o cluster HDInsight e a conta do Banco de Dados de Documentos estão na mesma região do Azure. As regiões do Azure que oferecem suporte a todos os três serviços são: **Ásia Oriental**, **Sudeste da Ásia**, **Norte da Europa**, **Europa Ocidental**, **Leste dos EUA** e **Oeste dos EUA**.
 
 4. Aguarde até que o **STATUS** da nova conta de armazenamento seja alterado para **Online**.
 
@@ -192,7 +192,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 1. Instale o PowerShell do Azure. As instruções podem ser encontradas [aqui][powershell-install-configure].
 
-	> [AZURE.NOTE]Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [portal de gerenciamento do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
+	> [AZURE.NOTE] Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [portal de gerenciamento do Azure][azure-classic-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
 
 2. Abra o Ambiente de Script Integrado do PowerShell do Azure:
 	- Em um computador com Windows 8 ou Windows Server 2012 ou posterior, você pode usar a Pesquisa interna. Na tela Inicial, digite **powershell ise** e clique em **Inserir**. 
@@ -210,7 +210,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 ## <a name="RunHive"></a>Etapa 4: Executar um trabalho Hive usando o Banco de Dados de Documentos e o HDInsight
 
-> [AZURE.IMPORTANT]Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
+> [AZURE.IMPORTANT] Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
 
 1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
 
@@ -227,7 +227,8 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
     <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
 
-    > [AZURE.NOTE]**Ter nomeado DocumentDB.inputCollections não foi um erro**. Sim, podemos permitir a adição de várias coleções como uma entrada: </br> '*DocumentDB.inputCollections*' = '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
+    > [AZURE.NOTE] **Ter nomeado DocumentDB.inputCollections não foi um erro**. Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
+    '*DocumentDB.inputCollections*' = '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -243,7 +244,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
  
 3.  Em seguida, vamos criar uma tabela Hive para a coleção de saída. As propriedades do documento de saída serão o mês, dia, hora, minuto e o número total de ocorrências.
 
-	> [AZURE.NOTE]**Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br>
+	> [AZURE.NOTE] **Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br>
     '*DocumentDB.outputCollections*' = '*<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br>
     Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
@@ -310,7 +311,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 ## <a name="RunPig"></a>Etapa 5: Executar um trabalho Pig usando o Banco de Dados de Documentos e o HDInsight
 
-> [AZURE.IMPORTANT]Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
+> [AZURE.IMPORTANT] Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
 
 1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
 
@@ -323,7 +324,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta Pig que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Banco de Dados de Documentos, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Banco de Dados de Documentos.</p>
     <p>Primeiro, carregue documentos do Banco de Dados de Documentos no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Adicione uma consulta do Banco de Dados de Documentos ao parâmetro de consulta opcional do Banco de Dados de Documentos para limitar os documentos a somente _ts e _rid.</p>
 
-    > [AZURE.NOTE]Sim, podemos permitir a adição de várias coleções como uma entrada: </br> '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
+    > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br> '*<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
 
 	OS documentos são distribuídos em round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
@@ -343,7 +344,9 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 
 4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
 
-    > [AZURE.NOTE]Sim, podemos permitir a adição de várias coleções como uma entrada: </br> '<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br> Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+    > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
+    '<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
+    Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -404,7 +407,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 		# Define the MapReduce job.
 		$TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
-	> [AZURE.NOTE]TallyProperties-v01.jar vem com a instalação personalizada do Conector para Hadoop do Banco de Dados de Documentos.
+	> [AZURE.NOTE] TallyProperties-v01.jar vem com a instalação personalizada do Conector para Hadoop do Banco de Dados de Documentos.
 
 3. Adicione o comando a seguir para enviar o trabalho MapReduce.
 
@@ -489,4 +492,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->
