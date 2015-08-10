@@ -25,7 +25,9 @@ Assim como uma fábrica que usa equipamentos para pegar matérias-primas e trans
 
 O Data Factory funciona com fontes de dados e SaaS locais e na nuvem para ingerir, preparar, transformar, analisar e publicar seus dados. Use o Data Factory para transformar serviços em pipelines de fluxo de dados gerenciados e para transformar seus dados, usando serviços como [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) e [Lote do Azure](http://azure.microsoft.com/documentation/services/batch/) para suas necessidades de computação de big data, e com o [Aprendizado de Máquina do Azure](http://azure.microsoft.com/documentation/services/machine-learning/) para operacionalizar suas soluções de análise. Vá além de uma simples exibição de monitoramento tabular e use as visualizações de dados avançadas do Data Factory para exibir rapidamente a linhagem e as dependências entre os pipelines de dados. Monitore todos os seus pipelines de fluxo de dados, de uma única exibição unificada para identificar facilmente os problemas e configurar alertas de monitoramento.
 
-![Visão geral](./media/data-factory-introduction/overview.png)**Figura 1.** Você pode coletar dados de várias fontes de dados de diferentes locais, ingerir e prepará-los, organizar e analisá-los com uma variedade de transformações e publicar dados prontos para uso para consumo.
+![Visão geral](./media/data-factory-introduction/data-factory-overview.png)
+
+**Figura 1.** Você pode coletar dados de várias fontes de dados de diferentes locais, ingerir e prepará-los, organizar e analisá-los com uma variedade de transformações e publicar dados prontos para uso para consumo.
 
 Você pode usar o Data Factory sempre que precisar coletar dados de diferentes formas e tamanhos, transformá-los e publicá-los para extrair informações aprofundadas – tudo em um cronograma confiável. O Data Factory pode ser usado para criar pipelines de fluxo de dados altamente disponíveis para cenários como permitir que lojas online gerem recomendações de produtos personalizadas com base no comportamento de navegação de cliente.:
 
@@ -34,7 +36,9 @@ Você pode usar o Data Factory sempre que precisar coletar dados de diferentes f
 
 O Azure Data Factory tem algumas entidades principais que trabalham juntas para definir os dados de entrada e saída, eventos de processamento e o cronograma e os recursos necessários para executar o fluxo de dados desejado.
 
-![Principais Conceitos](./media/data-factory-introduction/key-concepts.png) **Figura 2.** Relações entre o Conjunto de dados, Atividade, Pipeline e Serviço vinculado
+![Principais Conceitos](./media/data-factory-introduction/key-concepts.png)
+
+**Figura 2.** Relações entre o Conjunto de dados, Atividade, Pipeline e Serviço vinculado
 
 
 ### Atividades
@@ -54,4 +58,4 @@ Serviços vinculados definem as informações necessárias para o Data Factory s
 
 Com os quatro conceitos simples de conjuntos de dados, atividades, pipelines e serviços vinculados, você está pronto para começar! Você pode [criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) desde o início ou implantar uma amostra pronta seguindo as instruções em nossa [postagem de blog](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

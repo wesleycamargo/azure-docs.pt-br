@@ -7,7 +7,14 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt\_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Usar a CLI do Azure para MAC, Linux e Windows com o Gerenciador de Recursos do Azure
 
@@ -339,4 +346,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
