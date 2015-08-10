@@ -82,7 +82,7 @@ Qualquer cenário de VMM que você queira implantar com a Recuperação de Site 
 - [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 e as nuvens](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [Configurando a malha de nuvem do VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Criando uma nuvem privada no VMM](https://technet.microsoft.com/en-us/library/jj860425.aspx)
+- [Criando uma nuvem privada no VMM](https://technet.microsoft.com/pt-br/library/jj860425.aspx)
 - [Passo a passo: criando nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -147,11 +147,11 @@ Provedores e agentes são instalados em servidores locais para que possam se con
 	- Configurar corretamente as redes lógicas e de VM no VMM. Leia sobre [redes lógicas](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) e [redes de VM](https://technet.microsoft.com/library/jj721575.aspx).
 	- Certifique-se de que todas as máquinas virtuais no servidor VMM de origem estejam conectadas a uma rede de VM.
 	- Verifique se essas redes de VM estão vinculadas a uma rede lógica associada à nuvem.
-	- Se você estiver replicando para o Azure, crie redes virtuais no Azure. Observe que várias redes VM podem ser mapeadas para uma única rede do Azure. Leia [Tarefas de configuração da rede virtual](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- Se você estiver replicando para o Azure, crie redes virtuais no Azure. Observe que várias redes VM podem ser mapeadas para uma única rede do Azure. Leia [Tarefas de configuração da rede virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Otimizando o desempenho
 
-- **Tamanho do volume do sistema operacional**: quando você replicar uma máquina virtual para o Azure, o volume do sistema operacional deverá ter menos de 127 GB. Se você tiver mais volumes do que isso, poderá movê-los manualmente para um disco diferente antes de iniciar a implantação.
+- **Tamanho do volume do sistema operacional**: quando você replicar uma máquina virtual para o Azure, o volume do sistema operacional deverá ter menos de 1 TB. Se você tiver mais volumes do que isso, poderá movê-los manualmente para um disco diferente antes de iniciar a implantação.
 - **Tamanho do disco de dados**: se você estiver replicando para o Azure, poderá ter até 32 discos de dados em uma máquina virtual, cada uma com um máximo de 1 TB. Você pode replicar e realizar de forma efetiva o failover de uma máquina virtual de aproximadamente 32 TB.
 - **Limites de plano de recuperação**: a Recuperação de Site pode ser ampliada para milhares de máquinas virtuais. Os planos de recuperação são projetados como um modelo para aplicativos que devem sofrer o failover juntos. Por isso, limitamos para 50 o número de máquinas em um plano de recuperação.
 - **Limites de serviço do Azure**: toda assinatura do Azure vem com um conjunto de limites padrão de núcleos, serviços em nuvem etc. Recomendamos a execução de um failover de teste para validar a disponibilidade de recursos em sua assinatura. Você pode modificar esses limites por meio do suporte do Azure.
@@ -189,4 +189,4 @@ Depois de revisar essas práticas recomendadas, inicie a implantação da Recupe
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -18,7 +18,7 @@
 # Visão geral técnica do Application Gateway 
 
 
-O Microsoft Azure Application Gateway é um serviço gerenciado pelo Azure semelhante ao Gateway de VPN do Azure. O Application Gateway fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no ARR (Roteamento de Solicitação de Aplicativo) do IIS. O serviço de gateway de aplicativo é altamente disponível e medido. Para ver o SLA e o preço, consulte as página [SLA](http://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
+O Microsoft Azure Application Gateway fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga do aplicativo permite que os desenvolvedores e administradores de TI criem regras de roteamento de tráfego de rede com base em HTTP. O serviço de gateway de aplicativo é altamente disponível e medido. Para ver o SLA e o preço, consulte as página [SLA](http://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Atualmente, o Application Gateway oferece suporte à entrega de aplicativo de camada 7 para:
 
@@ -29,8 +29,12 @@ Atualmente, o Application Gateway oferece suporte à entrega de aplicativo de ca
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
 ## Balanceamento de carga de camada 7 HTTP
-O Azure fornece balanceamento de carga de camada 4 por meio do balanceador de carga de software. Isso acontece implicitamente para cada serviço de nuvem que tem um VIP (público ou interno) balanceado por carga. No entanto, há muitos aplicativos que podem usar o balanceamento de carga com base na camada 7 (HTTP).
 
+O Azure fornece o balanceamento de carga de camada 4 por meio do balanceador de carga do Azure funcionando no nível de transporte (TCP/UDP) e tendo todo o tráfego de rede de entrada sendo balanceado quanto à carga para o serviço App Gateway. O Application Gateway, em seguida, aplicará as regras de roteamento ao tráfego HTTP, fornecendo o balanceamento de carga de nível 7 (HTTP). Quando você cria um Application Gateway, um ponto de extremidade (VIP) será associado e usado como o IP público para o tráfego de rede de entrada.
+
+O Application Gateway roteará o tráfego HTTP com base em sua configuração seja uma máquina virtual, serviço de nuvem, aplicativo Web ou um endereço IP externo.
+
+O diagrama abaixo explica como o tráfego flui para o Application Gateway: ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 O balanceamento de carga de camada 7 HTTP é útil para:
 
@@ -53,6 +57,6 @@ Você pode criar até 10 gateways de aplicativo por assinatura e cada um deles p
 
 Criar um Application Gateway. Consulte [Criar um Application Gateway](application-gateway-create-gateway.md).
 
-Configurar o descarregamento SSL. Consulte [Configurar descarregamento SSL com o Application Gateway](application-gateway-ssl.md).
+Configurar o descarregamento SSL. Consulte [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

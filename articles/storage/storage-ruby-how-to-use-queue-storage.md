@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@ Use seu editor de texto favorito e adicione o seguinte na parte superior do arqu
 
 ## Configurar uma conexão de armazenamento do Azure
 
-O módulo do Azure lerá as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
+O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -69,7 +69,7 @@ O código a seguir cria o objeto **Azure::QueueService**, permitindo que você t
 
 	azure_queue_service = Azure::QueueService.new
 
-Use o método **create_queue()** para criar uma fila com o nome especificado.
+Use o método **create\_queue()** para criar uma fila com o nome especificado.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,13 +79,13 @@ Use o método **create_queue()** para criar uma fila com o nome especificado.
 
 ## Como inserir uma mensagem em uma fila
 
-Para inserir uma mensagem em uma fila, use o método **create_message()** para criar uma nova mensagem e adicione-a à fila.
+Para inserir uma mensagem em uma fila, use o método **create\_message()** para criar uma nova mensagem e adicione-a à fila.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
 ## Como: espiar a próxima mensagem
 
-Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek_messages()**. Por padrão, **peek_messages()** exibe uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
+Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **peek\_messages()** exibe uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -94,11 +94,11 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chaman
 
 É possível remover uma mensagem da fila em duas etapas.
 
-1. Quando você chamar **list_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
+1. Quando você chamar **list\_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
 
-2. Para concluir a remoção da mensagem da fila, chame também **delete_message()**.
+2. Para concluir a remoção da mensagem da fila, chame também **delete\_message()**.
 
-Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete_message()** logo depois que a mensagem é processada.
+Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete\_message()** logo depois que a mensagem é processada.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -106,7 +106,7 @@ Este processo de duas etapas de remover uma mensagem garante que quando o códig
 
 ## Como: alterar o conteúdo de uma mensagem em fila
 
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. O código a seguir usa o método **update_message()** para atualizar uma mensagem. O método retornará uma tupla que contém o recebimento pop da mensagem da fila e um valor de data/hora UTC que representa quando a mensagem estará visível na fila.
+Você pode alterar o conteúdo de uma mensagem in-loco na fila. O código a seguir usa o método **update\_message()** para atualizar uma mensagem. O método retornará uma tupla que contém o recebimento pop da mensagem da fila e um valor de data/hora UTC que representa quando a mensagem estará visível na fila.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -121,7 +121,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 
 2. Você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem.
 
-O exemplo de código a seguir usa o método **list_messages()** para receber 15 mensagens em uma chamada. Em seguida, ele lê e exclui cada mensagem. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+O exemplo de código a seguir usa o método **list\_messages()** para receber 15 mensagens em uma chamada. Em seguida, ele lê e exclui cada mensagem. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -131,14 +131,14 @@ O exemplo de código a seguir usa o método **list_messages()** para receber 15 
 
 ## Como obter o comprimento da fila
 
-Você pode obter uma estimativa do número de mensagens na fila. O método **get_queue_metadata()** solicita que o serviço Fila retorne os metadados e a contagem de mensagens aproximados sobre a fila.
+Você pode obter uma estimativa do número de mensagens na fila. O método **get\_queue\_metadata()** solicita que o serviço Fila retorne os metadados e a contagem de mensagens aproximados sobre a fila.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## Como excluir uma fila
 
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete_queue()** no objeto de fila.
+Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete\_queue()** no objeto de fila.
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -153,4 +153,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas de Service Bus do Azure discutidas no artigo [Como usar as filas de Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e filas de Service Bus do Azure - semelhanças e diferenças](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux (visualização)
@@ -84,9 +84,7 @@ O HDInsight também permite que você associe várias contas de armazenamento de
 
 ### Que armazenamento de Blob o cluster está usando?
 
-Durante a criação do cluster, você optou por usar uma conta e um contêiner existentes do Armazenamento do Azure ou por criar uma nova conta. Em seguida, você provavelmente esquece dela. Você pode usar os métodos a seguir para localizar a conta e o contêiner do Armazenamento.
-
-**API do Ambari**
+Durante a criação do cluster, você optou por usar uma conta e um contêiner existentes do Armazenamento do Azure ou por criar uma nova conta. Em seguida, você provavelmente esquece dela. Você pode a API REST do Ambari para localizar a conta e o contêiner de armazenamento padrão.
 
 1. Use o comando a seguir para recuperar informações de configuração do HDFS:
 
@@ -110,16 +108,6 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Portal do Azure**
-
-1. No [portal do Azure](https://manage.windowsazure.com/), selecione o cluster HDInsight.
-
-2. Selecione **Painel** na parte superior da página.
-
-3. As contas do Armazenamento e os contêineres são listados na seção **recursos vinculados** da página.
-
-	![recursos vinculados](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### Como acessar o armazenamento de Blob?
 
@@ -150,6 +138,5 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

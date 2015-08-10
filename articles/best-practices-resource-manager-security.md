@@ -3,7 +3,7 @@
 	description="Mostra abordagens recomendadas no Gerenciador de Recursos do Azure para proteger recursos com chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
+	authors="george-moore"
 	manager="georgem"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
-	ms.author="mmercuri"/>
+	ms.date="07/24/2015"
+	ms.author="georgem"/>
 
 
 # Considerações de segurança do Gerenciador de Recursos do Azure
@@ -147,7 +147,7 @@ O fragmento do modelo abaixo deveria ser composto em construções de implantaç
 
 ## Entidades de serviço para interações entre assinaturas
 
-As identidades de serviço são representadas por entidades de serviço no Active Directory. As entidades de serviço estarão no centro de cenários de habilitação de chave para organizações de TI corporativas, integradores de sistemas e fornecedores de serviços de nuvem. Especificamente, haverá casos de uso em que uma dessas organizações precisará interagir com a assinatura de um de seus clientes.
+As identidades de serviço são representadas por entidades de serviço no Active Directory. As entidades de serviço estarão no centro de cenários de habilitação de chave para organizações de TI corporativas, SI (integradores de sistemas) e CSV (fornecedores de serviços de nuvem). Especificamente, haverá casos de uso em que uma dessas organizações precisará interagir com a assinatura de um de seus clientes.
 
 Sua organização pode fornecer uma oferta que monitorará uma solução implantada no ambiente e na assinatura de seus clientes. Nesse caso, você precisará obter acesso aos logs e a outros dados em uma conta de clientes para que você possa usá-la em sua solução de monitoramento. Se você for uma organização de TI corporativa ou um integrador de sistemas, poderá fornecer uma oferta a um cliente na qual implantará e gerenciará uma funcionalidade, como uma plataforma de análise de dados, com a oferta residindo na própria assinatura dos clientes.
 
@@ -186,19 +186,19 @@ Uma regra especifica o seguinte:
 
 -	Nome: um identificador exclusivo da regra
 -	Tipo: Entrada/Saída
--	Prioridade: um inteiro entre 100 e 4096
+-	Prioridade: Um inteiro entre 100 e 4096 (regras processadas do mais baixo para o mais alto)
 -	Endereço IP de origem: CIDR do intervalo de IP de origem
 -	Intervalo de porta de origem: um inteiro ou um intervalo entre 0 e 65536
 -	Intervalo de IP de destino: CIDR do intervalo de IP de destino
 -	Intervalo de porta de destino: um inteiro ou um intervalo entre 0 e 65536
--	Protocolo: TCP, UDP ou ‘*’
+-	Protocolo: TCP, UDP ou ‘\*’
 -	Acesso: Permitir/Negar
 
 ### Regras padrão
 
 Um NSG contém regras padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. As regras padrão descrevem as configurações padrão recomendadas pela plataforma. Como ilustrado pelas regras padrão abaixo, o tráfego que começa e termina em uma rede virtual é permitido tanto na Entrada quanto na Saída.
 
-Enquanto a conectividade com a Internet é permitida na Saída, ela é por padrão bloqueada na Entrada. Uma regra padrão permite que o balanceador de carga do Azure investigue a integridade de uma VM. Você pode substituir essa regra se a VM ou o conjunto de VMs no NSG não participar do conjunto de balanceamento de carga.
+Enquanto a conectividade com a Internet é permitida na saída, ela é por padrão bloqueada na entrada. Uma regra padrão permite que o balanceador de carga do Azure investigue a integridade de uma VM. Você pode substituir essa regra se a VM ou o conjunto de VMs no NSG não participar do conjunto de balanceamento de carga.
 
 As regras padrão são mostradas nas tabelas abaixo.
 
@@ -206,17 +206,17 @@ As regras padrão são mostradas nas tabelas abaixo.
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR A ENTRADA DA VNET | 65000 | REDE_VIRTUAL |	* |	REDE_VIRTUAL | * |	* | PERMITIR
-PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA_AZURE | * | * | * | * | PERMITIR
-NEGAR TODAS AS ENTRADAS | 65500 | * | * | * | * | * | NEGAR
+PERMITIR A ENTRADA DA VNET | 65000 | REDE\_VIRTUAL |	\* |	REDE\_VIRTUAL | \* |	\* | PERMITIR
+PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA\_AZURE | \* | \* | \* | \* | PERMITIR
+NEGAR TODAS AS ENTRADAS | 65500 | \* | \* | \* | \* | \* | NEGAR
 
 **Regras de saída padrão**
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR SAÍDA DA VNET | 65000 | REDE_VIRTUAL | * | REDE_VIRTUAL | * | * | PERMITIR
-PERMITIR SAÍDA DA INTERNET | 65001 | * | * | INTERNET | * | * | PERMITIR
-NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR
+PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | \* | REDE\_VIRTUAL | \* | \* | PERMITIR
+PERMITIR SAÍDA DA INTERNET | 65001 | \* | \* | INTERNET | \* | \* | PERMITIR
+NEGAR TODAS AS SAÍDAS | 65500 | \* | \* | \* | \* | \* | NEGAR
 
 ### Regras especiais de infraestrutura
 
@@ -233,17 +233,17 @@ Marcas padrão são identificadores fornecidos pelo sistema para atender a uma c
 
 Marca |	Descrição
 --- | ---
-REDE_VIRTUAL |	Indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço de rede virtual a rede virtual.
-BALANCEADORDECARGA_AZURE | Indica o balanceador de carga da infraestrutura do Azure e será convertido em um IP de datacenter do Azure do qual se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
+REDE\_VIRTUAL |	Indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço de rede virtual a rede virtual.
+BALANCEADORDECARGA\_AZURE | Indica o balanceador de carga da infraestrutura do Azure e será convertido em um IP de datacenter do Azure do qual se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
 INTERNET | Indica o espaço de endereço IP que está fora da rede virtual e que pode ser acessado por Internet pública. Esse intervalo também inclui o espaço de IP público de propriedade do Azure.
 
 ### Portas e intervalos de portas
 
-As regras de NSG podem ser especificadas em uma porta de origem ou de destino única ou em um intervalo de portas. Essa abordagem é especialmente útil quando você deseja abrir uma grande variedade de portas para um aplicativo, como FTP. O intervalo deve ser sequencial e não pode ser combinado com especificações de portas individuais. Para especificar um intervalo de portas, use o caractere hífen (\\ –). Por exemplo, **100-500**.
+As regras de NSG podem ser especificadas em uma porta de origem ou de destino única ou em um intervalo de portas. Essa abordagem é especialmente útil quando você deseja abrir uma grande variedade de portas para um aplicativo, como FTP. O intervalo deve ser sequencial e não pode ser combinado com especificações de portas individuais. Para especificar um intervalo de portas, use o caractere hífen (–). Por exemplo, **100-500**.
 
 ### Tráfego ICMP
 
-Com as regras NSG atuais, você pode especificar TCP ou UDP como protocolos, mas não o ICMP. No entanto, o tráfego com ICMP é permitido em uma rede virtual por padrão por meio das regras de entrada que dão suporte ao tráfego de e para qualquer porta e protocolo (*) na rede virtual.
+Com as regras NSG atuais, você pode especificar TCP ou UDP como protocolos, mas não o ICMP. No entanto, o tráfego com ICMP é permitido em uma rede virtual por padrão por meio das regras de entrada que dão suporte ao tráfego de e para qualquer porta e protocolo (\*) na rede virtual.
 
 ### Associando um NSG a uma VM
 
@@ -267,7 +267,7 @@ Por exemplo, você cria uma nova VM e um novo NSG. Você associa o NSG à VM. A 
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | * | * | 80 | TCP | PERMITIR
+WEB | 100 | INTERNET | \* | \* | 80 | TCP | PERMITIR
 
 ## Rotas definidas pelo usuário
 
@@ -281,9 +281,14 @@ O mesmo ocorreria se você implementasse um dispositivo NAT virtual para control
 
 Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
 
--	Prefixo de endereço. O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.
--	Tipo do próximo salto. O tipo de salto do Azure ao qual o pacote deve ser enviado. Os valores possíveis são: - Local. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de Local. - Gateway de VPN. Representa um Gateway de VPN S2S do Azure. - Internet. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. - Dispositivo virtual. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. - NULO. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.
--	Valor de próximo salto. O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*.
+- Prefixo de endereço. O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.
+- Tipo do próximo salto. O tipo de salto do Azure ao qual o pacote deve ser enviado. Os valores possíveis são:
+  - Local. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de Local.
+  - Gateway de VPN. Representa um Gateway de VPN S2S do Azure.
+  - Internet. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure
+  - Dispositivo virtual. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure.
+  - NULO. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.
+-	Valor de próximo salto. O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*. O próximo salto deve estar na sub-rede (a interface local do dispositivo virtual de acordo com a identificação de rede), não em uma sub-rede remota. 
 
 ![Roteamento](./media/best-practices-resource-manager-security/routing.png)
 
@@ -291,15 +296,15 @@ Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de r
 
 Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota padrão:
 
-- Regra VNet local: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
+- Regra VNet local: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário. Isso permite que as VMs na mesma sub-rede, independentemente da identificação de rede na qual as máquinas virtuais existem, se comuniquem umas com as outras sem a necessidade de um endereço de gateway padrão.
 - Regra local: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços local e usa o gateway de VPN como o destino do próximo salto.
 - Regra de Internet: essa regra processa todo o tráfego destinado à Internet pública e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
 
 ### Rotas BGP
 
-No momento da redação deste artigo, o Provedor de Recursos de Rede do ARM ainda não dava suporte para Rota Expressa. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](expressroute-information.md).
+No momento da redação deste artigo, a [Rota Expressa](expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Quando o provedor de recursos de rede der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
+>[AZURE.NOTE]Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 
 ### Rotas definidas pelo usuário
 
@@ -310,7 +315,7 @@ Não é possível exibir as rotas padrão especificadas acima em seu ambiente do
 
 Nos cenários acima, você precisará criar uma tabela de rotas e adicionar rotas definidas pelo usuário a ela. Você pode ter várias tabelas de rotas, e a mesma tabela de rotas pode ser associada a uma ou mais sub-redes. Cada sub-rede só pode ser associada a uma única tabela de rotas. Todas as VMs e serviços em nuvem em uma sub-rede usam a tabela de rotas associada a essa sub-rede.
 
-As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em LPM (Correspondência de Prefixo mais Longo) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em [LPM (Correspondência de Prefixo mais Longo)](https://en.wikipedia.org/wiki/Longest_prefix_match) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
 1.	Rota definida pelo usuário
 2.	Rota BGP (quando o ExpressRoute é usado)
@@ -327,5 +332,7 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 ## Próximas etapas
 - Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
 - Se precisar bloquear o acesso a um recurso, você pode usar bloqueios de gerenciamento. Consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md)
+- Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Para uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

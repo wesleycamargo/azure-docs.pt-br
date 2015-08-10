@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # O que aconteceu com meu projeto?
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">O que aconteceu com meu projeto?</span>
+###O que aconteceu com meu projeto?</span>
 
 ##### Referências adicionadas
 
@@ -42,4 +42,4 @@ No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de con
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

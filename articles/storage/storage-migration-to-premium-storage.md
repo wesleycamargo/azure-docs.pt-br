@@ -37,14 +37,14 @@ Resumidos abaixo estão os tamanhos de VM da série DS e suas características. 
 
 |Tamanho da VM|Núcleos de CPU|Máx. IOPS|Máx. Largura de Banda do Disco|
 |:---:|:---:|:---:|:---:|
-|**STANDARD_DS1**|1|3.200|32 MB por segundo|
-|**STANDARD_DS2**|2|6.400|64 MB por segundo|
-|**STANDARD_DS3**|4|12.800|128 MB por segundo|
-|**STANDARD_DS4**|8|25.600|256 MB por segundo|
-|**STANDARD_DS11**|2|6.400|64 MB por segundo|
-|**STANDARD_DS12**|4|12.800|128 MB por segundo|
-|**STANDARD_DS13**|8|25.600|256 MB por segundo|
-|**STANDARD_DS14**|16|50.000|512 MB por segundo|
+|**STANDARD\_DS1**|1|3\.200|32 MB por segundo|
+|**STANDARD\_DS2**|2|6\.400|64 MB por segundo|
+|**STANDARD\_DS3**|4|12\.800|128 MB por segundo|
+|**STANDARD\_DS4**|8|25\.600|256 MB por segundo|
+|**STANDARD\_DS11**|2|6\.400|64 MB por segundo|
+|**STANDARD\_DS12**|4|12\.800|128 MB por segundo|
+|**STANDARD\_DS13**|8|25\.600|256 MB por segundo|
+|**STANDARD\_DS14**|16|50\.000|512 MB por segundo|
 
 #### Tamanhos do disco 
 Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs específicos e limites completos. Leve em consideração esses limites ao escolher o tipo de disco para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
@@ -52,7 +52,7 @@ Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs espec
 |Tipo de disco de armazenamento Premium|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
 |Tamanho do disco|128 GB|512 GB|1024 GB (1 TB)|
-|IOPS por disco|500|2.300|5.000|
+|IOPS por disco|500|2\.300|5\.000|
 |Taxa de transferência por disco|100 MB por segundo|150 MB por segundo|200 MB por segundo|
 
 #### Metas de Escalabilidade da Conta de Armazenamento
@@ -63,7 +63,7 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 |:--|:---|
 |Capacidade de disco: 35 TB<br />Capacidade do instantâneo: 10 TB|Até 50 gigabits para Entrada + Saída|
 
-Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage).
+Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
 
 #### Discos de Dados Adicionais 
 Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines-linux-configure-raid.md) para obter detalhes.
@@ -159,7 +159,7 @@ Se você estiver migrando o VHD do Armazenamento em Nuvem não do Azure, primeir
 
 1. Se você estiver usando o AWS, exporte a instância do EC2 para um VHD em um depósito do Amazon S3. Siga as etapas descritas na documentação do Amazon para [Exportando instâncias do Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html) para instalar a ferramenta de interface de linha de comando (CLI) do Amazon EC2, então execute o comando para exportar a instância do EC2 para um arquivo VHD. 
 	
-	Use **VHD** para a variável DISK_IMAGE_FORMAT ao executar o comando. O arquivo VHD exportado é salvo no depósito do Amazon S3 designado durante esse processo.
+	Use **VHD** para a variável DISK\_IMAGE\_FORMAT ao executar o comando. O arquivo VHD exportado é salvo no depósito do Amazon S3 designado durante esse processo.
 
 	![][2]
 
@@ -184,11 +184,11 @@ Usando o AzCopy, é possível carregar o VHD facilmente na Internet. Dependendo 
 	Aqui estão as descrições dos parâmetros usados no comando AzCopy:
 
  - **/Source: *<origem>:*** Local da pasta ou URL do contêiner de armazenamento que contém o VHD.    
- - **/SourceKey: *<chave_da_conta_de_origem>:*** Chave da conta de armazenamento de origem.  
+ - **/SourceKey: *<chave\_da\_conta\_de\_origem>:*** Chave da conta de armazenamento de origem.  
  - **/Dest: *&lt;destination&gt;:*** A URL do contêiner de armazenamento para a qual copiar o VHD.
- - **/DestKey: *<chave_da_conta_de_destino>:*** Chave da conta de armazenamento de destino.
+ - **/DestKey: *<chave\_da\_conta\_de\_destino>:*** Chave da conta de armazenamento de destino.
  - **/BlobType: page:** Especifica que o destino é um blob de páginas.
- - **/Pattern: *<nome_do_arquivo>:*** Especifica o nome de arquivo do VHD que você está copiando.
+ - **/Pattern: *<nome\_do\_arquivo>:*** Especifica o nome de arquivo do VHD que você está copiando.
    
 Para obter detalhes sobre como usar a ferramenta AzCopy, consulte [Introdução ao Utilitário da Linha de Comando do AzCopy](storage-use-azcopy.md).
 
@@ -237,7 +237,7 @@ Copie e salve o nome desse novo Disco de Dados do Azure. No exemplo acima, é *D
 
 ### Criar uma VM do Azure da série DS  
 
-Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova instância VM do Azure da série DS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard_DS2*.
+Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova instância VM do Azure da série DS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard\_DS2*.
 
 >[AZURE.NOTE]Atualize o tamanho do disco para assegurar que ele corresponda à sua capacidade, requisitos de desempenho e aos tamanhos de disco do Azure disponíveis.
 
@@ -315,4 +315,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configurar modo de distribuição do Balanceador de Carga | Microsoft Azure"
-   description="Como configurar o modo de distribuição do balanceador de carga do Azure para dar suporte à afinidade de IP de origem, também conhecida como sessões temporárias"
+   description="Como configurar o modo de distribuição do balanceador de carga do Azure para dar suporte à afinidade de IP de origem"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -149,4 +149,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

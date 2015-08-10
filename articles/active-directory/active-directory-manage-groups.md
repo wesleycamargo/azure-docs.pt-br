@@ -29,19 +29,19 @@ O Active Directory do Azure é uma solução abrangente de gerenciamento de aces
 No Active Directory do Azure, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório, ou recursos que são externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
 
 
-1. Atribuição direta
+1\. Atribuição direta
 
 Os usuários podem ser atribuídos diretamente a um recurso pelo proprietário do recurso.
 
-2. Associação de grupo
+2\. Associação de grupo
 
 Um grupo pode ser atribuído a um recurso pelo proprietário do recurso e, dessa forma, os membros desse grupo recebem o acesso ao recurso. A associação do grupo pode então ser gerenciada pelo proprietário do grupo. O proprietário do recurso delega efetivamente ao proprietário do grupo a permissão para atribuir usuários a seus recursos.
 
-3. Com base em regra
+3\. Com base em regra
 
 O proprietário do recurso pode usar uma regra para expressar quais usuários devem receber acesso a um recurso. O resultado da regra depende dos atributos usados na regra e seus valores para usuários específicos e, dessa forma, o proprietário do recurso delega efetivamente o direito de gerenciar o acesso aos seus recursos à fonte autoritativa para os atributos que são usados na regra. Observe que o proprietário do recurso ainda gerencia a regra e determina quais atributos e valores fornecem acesso aos seus recursos.
 
-4. Autoridade externa
+4\. Autoridade externa
 
 O acesso a um recurso é derivado de uma fonte externa; por exemplo, um grupo que é sincronizado a partir de uma fonte autoritativa, como um diretório local, ou um aplicativo SaaS, como o WorkDay. O proprietário do recurso atribui o grupo para fornecer acesso ao recurso, e a fonte externa gerencia os membros do grupo.
 
@@ -92,4 +92,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Cenários para o Processo e Tecnologia de Análise Avançada no Aprendizado de Máquina do Azure
+# Cenários para análises avançadas no Aprendizado de Máquina do Azure
 
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados com o processo ADAPT (Processo e Tecnologia de Análise Avançada) no Aprendizado de Máquina do Azure. Ele ilustra as opções disponíveis no processamento de sequências que dependem de características de dados, locais de origem e repositórios de destino no Azure.
 
@@ -316,4 +316,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

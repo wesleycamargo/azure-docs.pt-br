@@ -228,7 +228,7 @@ Agora, temos as informações de que precisamos para criar o grupo de recursos.
 
 ### Etapa 5: Criar um grupo de recursos
  
-Nesta etapa, vamos usar o modelo de grupo de recursos para criar o grupo de recursos. Para referência, abra o arquivo New_WebSite_And_Database.json no disco e siga-o. O arquivo de modelo pode ser muito útil para determinar os valores de parâmetro para passar, como o ApiVersion correto para um recurso.
+Nesta etapa, vamos usar o modelo de grupo de recursos para criar o grupo de recursos. Para referência, abra o arquivo New\_WebSite\_And\_Database.json no disco e siga-o. O arquivo de modelo pode ser muito útil para determinar os valores de parâmetro para passar, como o ApiVersion correto para um recurso.
 
 Para criar um grupo de recursos, use o cmdlet **New-AzureResourceGroup**.
 
@@ -397,4 +397,4 @@ Gerenciar e auditar o acesso
 - [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md)
 - [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

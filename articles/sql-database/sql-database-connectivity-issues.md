@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="07/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,12 +64,12 @@ O artigo de suporte acima fornece ajuda para os seguintes problemas de conectivi
 
 - Para obter informações adicionais sobre a conexão ao Banco de Dados SQL, consulte [Diretrizes de conexão com o Banco de Dados SQL do Azure de forma programática](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
 
-- É possível encontrar detalhes sobre erros de conexão específicos na seção **Erros de perda de conexão** em [Mensagens de erro (banco de dados SQL do Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors).
+- É possível encontrar detalhes sobre erros de conexão específicos na seção **Erros temporários, Erros de perda de conexão** em [Mensagens de erro de programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md#bkmk_connection_errors).
 
-- O acesso aos dados de eventos de conexão pode ser feito por meio de consulta a eventos de conectividade usando-se a exibição [**Sys. event_log (banco de dados do SQL Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
+- O acesso aos dados de eventos de conexão pode ser feito por meio de consulta a eventos de conectividade usando-se a exibição [**Sys. event\_log (banco de dados do SQL Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
 
-- O acesso às métricas de eventos de conectividade de banco de dados pode ser feito por meio de consulta à exibição [**Sys. database_connection_stats (banco de dados do SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
+- O acesso às métricas de eventos de conectividade de banco de dados pode ser feito por meio de consulta à exibição [**Sys. database\_connection\_stats (banco de dados do SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

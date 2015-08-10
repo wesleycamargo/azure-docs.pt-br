@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/13/2015"
+	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"></a>Introdução aos Serviços Móveis
@@ -99,6 +99,5 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão de back-end do JavaScript]: mobile-services-ios-get-started.md
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

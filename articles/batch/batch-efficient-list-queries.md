@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Consultas de lista eficientes" 
-	description="Saiba como reduzir o número de itens retornados em uma lista, bem como reduzir a quantidade de informações retornadas para cada item" 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Consultas de lista eficientes"
+	description="Saiba como reduzir o número de itens retornados em uma lista, bem como reduzir a quantidade de informações retornadas para cada item"
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Consultas de lista eficientes
@@ -80,4 +81,4 @@ Um [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 > [AZURE.NOTE]É recomendável que você sempre use cláusulas filter e select para suas chamadas de API de lista para garantir o máximo de eficiência e o melhor desempenho para o seu aplicativo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

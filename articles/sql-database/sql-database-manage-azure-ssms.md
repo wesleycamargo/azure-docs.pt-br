@@ -121,7 +121,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use o procedimento **sp_addrolemember** armazenado para oferecer à conta do usuário o nível apropriado de permissões no banco de dados. Para saber mais, consulte [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). A declaração a seguir dá ao **login1User** permissões de apenas leitura ao banco de dados adicionando **login1User** à regra **db_datareader**.
+-   Use o procedimento **sp\_addrolemember** armazenado para oferecer à conta do usuário o nível apropriado de permissões no banco de dados. Para saber mais, consulte [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). A declaração a seguir dá ao **login1User** permissões de apenas leitura ao banco de dados adicionando **login1User** à regra **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -137,7 +137,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
         DROP LOGIN login1;
 
--   O banco de dados mestre tem a visualização de **sys.sql_logins** que você pode usar para visualizar logons. Para exibir todos os logons existentes, execute a seguinte instrução:
+-   O banco de dados mestre tem a visualização de **sys.sql\_logins** que você pode usar para visualizar logons. Para exibir todos os logons existentes, execute a seguinte instrução:
 
         SELECT * FROM sys.sql_logins;
 
@@ -149,12 +149,12 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calcular banco de dados usando a exibição **sys.dm_db_partition_stats**. A exibição **sys.dm_db_partition_stats** retorna informações da página e sobre a contagem de linhas para cada partição do banco de dados, que você pode usar para calcular o tamanho do banco de dados. A consulta a seguir retorna o tamanho do seu banco de dados em megabytes:
+-   Calcular banco de dados usando a exibição **sys.dm\_db\_partition\_stats**. A exibição **sys.dm\_db\_partition\_stats** retorna informações da página e sobre a contagem de linhas para cada partição do banco de dados, que você pode usar para calcular o tamanho do banco de dados. A consulta a seguir retorna o tamanho do seu banco de dados em megabytes:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Use as exibições **sys.dm_exec_connections** e **sys.dm_exec_sessions** para recuperar informações sobre as conexões do usuário atual e tarefas internas associadas ao banco de dados. A consulta a seguir retorna informações sobre a conexão atual:
+-   Use as exibições **sys.dm\_exec\_connections** e **sys.dm\_exec\_sessions** para recuperar informações sobre as conexões do usuário atual e tarefas internas associadas ao banco de dados. A consulta a seguir retorna informações sobre a conexão atual:
 
         SELECT
             e.connection_id,
@@ -167,7 +167,7 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use a exibição **sys.dm_exec_query_stats** para recuperar estatísticas de desempenho agregado para planos de consulta em cache. A consulta a seguir retorna informações sobre as consultas de cinco principais classificados por tempo médio de CPU.
+-   Use a exibição **sys.dm\_exec\_query\_stats** para recuperar estatísticas de desempenho agregado para planos de consulta em cache. A consulta a seguir retorna informações sobre as consultas de cinco principais classificados por tempo médio de CPU.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -186,4 +186,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

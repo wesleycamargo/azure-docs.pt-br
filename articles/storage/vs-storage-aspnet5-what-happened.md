@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # O que aconteceu com meu projeto?
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###<span id="whathappened">O que aconteceu com meu projeto?</span>
+###O que aconteceu com meu projeto?</span>
 
 ##### Referências adicionadas
 
@@ -50,4 +50,4 @@ No arquivo config.json do seu projeto, foi criado um elemento com a cadeia de co
 Para obter mais informações, consulte [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

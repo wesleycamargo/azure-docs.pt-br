@@ -87,7 +87,7 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
 
 ### Modos de Indexação
 
-Escolha entre atualizações de índice síncronas (**Consistentes**), assíncronas (**Lentas**) e ausentes (**Nenhuma**). Por padrão, o índice é atualizado sincronamente em cada ação de inserção, substituição ou exclusão realizada em um documento na coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos sem demora para o índice atualizado.
+Escolha entre atualizações de índice síncronas (\*\*Consistentes\*\*), assíncronas (\*\*Lentas\*\*) e ausentes (\*\*Nenhuma\*\*). Por padrão, o índice é atualizado sincronamente em cada ação de inserção, substituição ou exclusão realizada em um documento na coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos sem demora para o índice atualizado.
 
 Embora o Banco de Dados de Documentos seja otimizado para gravação e dê suporte a volumes constantes de gravações de documentos junto com a manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta é excelente para situações em que dados são gravados em picos e deseja amortizar o trabalho necessário para indexar o conteúdo em um período mais longo de tempo. Isso permite que você use a taxa de transferência provisionada com eficiência e atenda solicitações de gravação em horários de pico com latência mínima. Com a indexação lenta ativada, os resultados de consultas serão acabarão sendo consistentes, não importa o nível de consistência configurado para a conta de banco de dados.
 
@@ -113,9 +113,9 @@ O exemplo a seguir mostra como criar uma coleção do Banco de Dados de Document
 
 Nos documentos, você pode escolher quais caminhos devem ser incluídos ou excluídos da indexação. Isso pode oferecer um melhor desempenho de gravação e menor armazenamento de índice para situações onde os padrões de consulta são previamente conhecidos.
 
-Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir SELECT * FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção.
+Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir SELECT \* FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção.
 
-Caminhos de índice também podem usar o * operador curinga para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo sob a propriedade de carga da indexação.
+Caminhos de índice também podem usar o \* operador curinga para especificar o comportamento de caminhos recursivamente sob o prefixo. Por exemplo, /payload/\* pode ser usado para excluir tudo sob a propriedade de carga da indexação.
 
 Estes são os padrões comuns para especificar caminhos de índice:
 
@@ -250,7 +250,7 @@ Estes são os padrões comuns para especificar caminhos de índice:
     </tbody>
 </table>
 
->[AZURE.NOTE]Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/*".
+>[AZURE.NOTE]Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/\*".
 
 O exemplo a seguir configura um caminho específico com a indexação de intervalo e um valor personalizado de precisão de 20 bytes:
 
@@ -296,7 +296,7 @@ A precisão de índice permite definir um equilíbrio entre a sobrecarga de arma
 
 A configuração de precisão do índice é praticamente mais útil com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou o valor de precisão máxima (-1). Se você precisar de Ordenar por em cadeias de caracteres, deve definir sobre o caminho especificado (-1).
 
-O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. Observe que isso usa o caminho padrão "/*".
+O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. Observe que isso usa o caminho padrão "/\*".
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
@@ -318,7 +318,7 @@ O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em 
 > 
 > Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scans na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET.
 
-Da mesma forma, caminhos podem ser excluídos completamente da indexação. O exemplo a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
+Da mesma forma, caminhos podem ser excluídos completamente da indexação. O exemplo a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "\*".
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -381,7 +381,7 @@ As seguintes alterações foram implementadas na especificação JSON:
 - Cada caminho pode ter várias definições de índice, um para cada tipo de dados
 - A indexação de precisão dá suporte a 1-8 para números de 1-100 para cadeias de caracteres e -1 (precisão máxima)
 - Segmentos de caminhos não exigem aspas duplas para cada caminho de escape. Por exemplo, você pode adicionar um caminho /title/? em vez de /"title"/?
-- O caminho raiz representando "todos os caminhos" pode ser representado como /* (além de /)
+- O caminho raiz representando "todos os caminhos" pode ser representado como /\* (além de /)
 
 Se você tiver o código que provisiona coleções com uma política de indexação personalizada gravada com versão 1.1.0 do SDK do .NET ou anterior, precisará alterar o código do aplicativo para lidar com essas alterações e mover para a versão 1.2.0 do SDK. Se você não tiver um código que configura a política de indexação ou planeja continuar usando uma versão anterior do SDK, nenhuma alteração será necessária.
 
@@ -444,4 +444,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

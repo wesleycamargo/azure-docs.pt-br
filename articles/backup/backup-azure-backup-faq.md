@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/23/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -75,13 +75,22 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P15. Posso "migrar" meus dados de backup entre assinaturas?** <br/> R15: Não
 
-**P16: Posso "migrar" meu cofre de backup entre assinaturas?** <br/> R16: Não. O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
+**P16. Posso "migrar" meu cofre de backup entre assinaturas?** <br/> R16: Não. O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
 
-**P17: O agente de Backup do Azure funciona em um servidor que usa a eliminação de duplicação do Windows Server 2012?** <br/> R17: Sim. O serviço do agente converte os dados com eliminação de duplicação para dados normais quando prepara a operação de backup. Ele então otimiza os dados para backup, criptografa os dados e envia os dados criptografados para o serviço de backup online.
+**P17. O Agente de Backup do Azure funciona em um servidor que usa a eliminação de duplicação do Windows Server 2012?** <br/> R17: Sim. O serviço do agente converte os dados com eliminação de duplicação para dados normais quando prepara a operação de backup. Ele então otimiza os dados para backup, criptografa os dados e envia os dados criptografados para o serviço de backup online.
 
-**P18: Os dados de backup serão excluídos se eu cancelar um backup depois de ter começado?** <br/> R18: Não. O cofre de backup armazena o backup dos dados que foram transferidos até o ponto do cancelamento. O Backup do Azure usa um mecanismo de ponto de verificação para que os dados de backup sejam verificados ocasionalmente durante o backup e o próximo processo de backup possa validar a integridade dos arquivos. O próximo backup acionado seria incremental em relação os dados cujo backup foi realizado anteriormente. Isso fornece uma melhor utilização da largura de banda, para que você não precise transferir os mesmos dados repetidamente.
+**P18. Os dados de backup serão excluídos se eu cancelar um backup depois de ter começado?** <br/> R18: Não. O cofre de backup armazena o backup dos dados que foram transferidos até o ponto do cancelamento. O Backup do Azure usa um mecanismo de ponto de verificação para que os dados de backup sejam verificados ocasionalmente durante o backup e o próximo processo de backup possa validar a integridade dos arquivos. O próximo backup acionado seria incremental em relação os dados cujo backup foi realizado anteriormente. Isso fornece uma melhor utilização da largura de banda, para que você não precise transferir os mesmos dados repetidamente.
 
-**P19: Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: Isso pode ocorrer quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se isso aconteceu, você deve reconfigurar a política de backup e, em seguida, **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
+**P19. Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: Isso pode ocorrer quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se isso aconteceu, você deve reconfigurar a política de backup e, em seguida, **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
+
+**P20. Quais regras de firewall devem ser configuradas para o backup do Backup do Azure?** <br/> R20. Certifique-se de que as regras de firewall permitem a comunicação com as URLs abaixo para o backup contínuo do local para a proteção do Azure e da carga de trabalho no Azure:
+
+- www.msftncsi.com
+- \*.Microsoft.com
+- \*.WindowsAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
+
 
 ## Backup e retenção
 **P1. Há um limite para o tamanho de cada fonte de dados submetida a backup?** <br/> R1. Desde julho de 2015, cada fonte de dados deve ser menor ou igual a 1,7 TB. Uma fonte de dados é:
@@ -132,4 +141,4 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P4. O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados ou a Microsoft pode recuperar os dados?** <br/> R4. A chave usada para criptografar os dados de backup está presente apenas nas instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente inserir a chave incorretamente, a Microsoft não poderá recuperar os dados de backup.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -44,6 +44,7 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Mobile Engagement
 - Insights Operacionais
 - Cache Redis
+- Aplicativos Web do Azure (algumas [limitações](app-service-web/app-service-move-resources.md) se aplicam)
 
 Os serviços que dão suporte à transferência para um novo grupo de recursos, mas não para uma nova assinatura são:
 
@@ -95,4 +96,4 @@ Na solicitação, inclua um objeto JSON que define o grupo de recursos de destin
 - [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
 - [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

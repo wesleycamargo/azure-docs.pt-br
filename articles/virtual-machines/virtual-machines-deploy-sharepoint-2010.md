@@ -93,7 +93,7 @@ Para se conectar à máquina virtual, confira [Como fazer logon em uma máquina 
 Crie a VM do SQL Server usando uma das opções a seguir:
 
 - Crie uma VM do SQL Server 2012 seguindo as etapas 1 a 7 acima - com exceção da etapa 3, use a imagem do SQL Server 2012 em vez da imagem do Windows Server 2008 R2 SP1. Para obter mais informações, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure (a página pode estar em inglês)](virtual-machines-provision-sql-server.md).
-	- Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório C:\\SQLServer_11.0_Full para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
+	- Quando você escolher essa opção, o processo de provisionamento manterá uma cópia dos arquivos de instalação do SQL Server 2012 no caminho de diretório C:\\SQLServer\_11.0\_Full para que você possa personalizar a instalação. Por exemplo, é possível converter a instalação de avaliação do SQL Server 2012 a uma versão licenciada usando sua chave de licença.
 
 - Use a ferramenta SQL Server System Preparation (SysPrep) para instalar o SQL Server na VM com o sistema operacional base (conforme exibido acima nas etapas 1 a 7). Para obter mais informações, consulte [Instalar o SQL Server 2012 usando SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -285,4 +285,4 @@ Uma implantação bem-sucedida do SharePoint Server nas Máquinas Virtuais do Az
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -71,10 +71,10 @@ Você pode usar o Java para [criar um certificado](../app-service-web/java-creat
 
 ## Próximas etapas
 
-[Carregar seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e configurá-lo para o serviço de nuvem.
- 
-Carregar seu [certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal do Azure.
+[Carregar seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e [configurá-lo](cloud-services-xml-certs.md) para o serviço de nuvem.
+
+Carregar um [certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal do Azure.
 
 >[AZURE.NOTE]O Portal de Visualização do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

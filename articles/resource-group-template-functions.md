@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/27/2015"
    ms.author="tomfitz"/>
 
 # Funções de modelo do Gerenciador de Recursos do Azure
@@ -51,6 +51,12 @@ O exemplo a seguir mostra como combinar diversos valores para retornar um valor.
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+## copyIndex
+
+**copyIndex(offset)**
+
+Retorna o índice atual de um loop de iteração. Para ver exemplos do uso desta função, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 ## implantação
 
@@ -188,7 +194,7 @@ Habilita uma expressão a derivar seu valor do estado de tempo de execução do 
 
 A função **referência** deriva seu valor de um estado de tempo de execução e, portanto, não pode ser usada na seção de variáveis. Ela pode ser usada na seção de saídas de um modelo.
 
-Usando a expressão de referência, você declara que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo.
+Usando a expressão de referência, você declara implicitamente que um recurso depende de outro recurso se o recurso referenciado é provisionado no mesmo modelo. Você não precisa usar a propriedade **dependsOn** também. A expressão não é avaliada até que o recurso referenciado conclua a implantação.
 
     "outputs": {
       "siteUri": {
@@ -265,7 +271,7 @@ O exemplo a seguir mostra como recuperar as IDs de recurso para um site Web e um
 Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. A conta de armazenamento ou a rede virtual pode ser usada em vários grupos de recursos; portanto, você não deve excluí-los ao excluir um único grupo de recursos. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -377,9 +383,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 
 ## Próximas etapas
-- [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)
-- [Operações avançadas de modelo](./resource-group-advanced-template.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
-- [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
+- Para ver uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, consulte [Modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+- Para mesclar diversos modelos, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

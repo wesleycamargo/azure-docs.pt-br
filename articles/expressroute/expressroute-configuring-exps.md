@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange
@@ -216,9 +216,9 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 		State               : Enabled
 		VlanId              : 101
 
-8. **Configure sua rede virtual e o Gateway.**
+8. **Configure sua rede virtual e o gateway.**
 
-	Consulte [Configurar uma rede virtual e um Gateway para Rota Expressa](https://msdn.microsoft.com/library/azure/dn643737.aspx). Observe que a sub-rede de gateway deve ser/28 para trabalhar com uma conexão de Rota Expressa.
+	Consulte [Configurar uma rede virtual e um Gateway para Rota Expressa](expressroute-configuring-vnet-gateway.md). Observe que a sub-rede de gateway deve ser/28 para trabalhar com uma conexão de Rota Expressa.
 
 9. **Vincule sua rede a um circuito.** Prossiga com as instruções a seguir somente depois de confirmar que o circuito passou para o seguinte estado e status:
 	- ServiceProviderProvisioningState: Provisionado
@@ -227,5 +227,8 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Próximas etapas
 
-<!---HONumber=July15_HO4-->
+- Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
+
+<!---HONumber=July15_HO5-->

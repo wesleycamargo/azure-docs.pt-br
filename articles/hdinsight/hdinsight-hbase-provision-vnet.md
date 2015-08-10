@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Provisionar clusters do HBase em uma Rede Virtual | Microsoft Azure" 
 	description="Introdução ao uso do HBase no Azure HDInsight. Saiba como criar clusters HBase do HDInsight na rede virtual do Azure." 
-	keywords=""	
 	services="hdinsight,virtual-network" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -26,6 +25,13 @@ Com a integração da rede virtual, os clusters do HBase podem ser implantados n
 - Conectividade direta do aplicativo Web com os nós do cluster do HBase, que permite a comunicação usando APIs RPC (chamada de procedimento remoto) Java do HBase.
 - Desempenho aprimorado, evitando que o tráfego percorra diversos gateways e balanceadores de carga.
 - Capacidade de processar informações confidenciais de maneira mais segura, sem expor um ponto de extremidade público.
+
+>[AZURE.NOTE]O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade. Use o cmdlet Get-AzureVNetConfig do Azure PowerShell para verificar se uma rede virtual do Azure existente é baseada no local. Se sua rede virtual não for baseada no local, você tem as seguintes opções:
+>
+> - Exportar a configuração de rede virtual existente e criar uma nova rede virtual. Todas as novas redes virtuais são baseadas em local por padrão.
+> - Migrar para uma rede virtual baseada em local. Consulte [Migrar serviços existentes para o escopo regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+
+
 
 ##Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -194,7 +200,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		Nos dados JSON (notação de objeto JavaScript) retornados, localize a entrada "host_name". Ela conterá o FQDN (nome de domínio totalmente qualificado) para os nós no cluster. Por exemplo:
+		Nos dados JSON (notação de objeto JavaScript) retornados, localize a entrada "host\_name". Ela conterá o FQDN (nome de domínio totalmente qualificado) para os nós no cluster. Por exemplo:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -427,4 +433,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

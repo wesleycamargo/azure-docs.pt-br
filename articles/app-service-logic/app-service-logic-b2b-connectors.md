@@ -49,10 +49,10 @@ Quando você cria aplicativos de API B2B, há alguns recursos necessários. Esse
 
 Requisito | Descrição
 --- | ---
-Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>* * Observação * * Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-create-configure.md)
-Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>* * Observação * * Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md)
-Namespace do Barramento de Serviço e seus valores de chave | Armazena dados de envio em lote de X12 e EDIFACT. Se você não precisar de envio em lote, não será necessário um namespace de Barramento de Serviço.<br/><br/>** Observação ** Se você estiver habilitando o processamento em lote, copie esses valores.<br/><br/>[Criar um Namespace de barramento de serviço](http://msdn.microsoft.com/library/azure/hh690931.aspx)
-Instância do TPM | Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM. <br/><br/>**Observação** Saiba o nome do seu Aplicativo de API do TPM. 
+Banco de Dados SQL Azure | Armazena itens B2B incluindo esquemas, parceiros, certificados e contratos. Cada um dos aplicativos de API B2B requer seu próprio banco de dados SQL do Azure. <br/><br/>\* \* Observação \* \* Copie a cadeia de conexão para esse banco de dados.<br/><br/>[Criar um banco de dados SQL do Azure](../sql-database-create-configure.md)
+Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensagens quando o arquivamento AS2 está habilitado. Se você não precisar de arquivamento de mensagens AS2, não será necessário um contêiner de armazenamento. <br/><br/>\* \* Observação \* \* Se você estiver habilitando arquivamento, copie a cadeia de conexão para o armazenamento de Blob.<br/><br/>[Sobre contas de armazenamento do Azure](../storage-create-storage-account.md)
+Namespace do Barramento de Serviço e seus valores de chave | Armazena dados de envio em lote de X12 e EDIFACT. Se você não precisar de envio em lote, não será necessário um namespace de Barramento de Serviço.<br/><br/>\*\* Observação \*\* Se você estiver habilitando o processamento em lote, copie esses valores.<br/><br/>[Criar um Namespace de barramento de serviço](http://msdn.microsoft.com/library/azure/hh690931.aspx)
+Instância do TPM | Uma instância do TPM (Gerenciamento de Parceiros Comerciais) do BizTalk é necessária para criar um conector AS2 e um aplicativo de API X12 ou EDIFACT. Quando cria o aplicativo de API do TPM, você está criando a instância do TPM. <br/><br/>\*\*Observação\*\* Saiba o nome do seu Aplicativo de API do TPM. 
 
 
 ## Criar os aplicativos de API
@@ -205,4 +205,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

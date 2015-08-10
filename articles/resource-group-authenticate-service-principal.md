@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
@@ -149,35 +149,13 @@ Se você não tiver CLI do Azure para Mac, Linux e Windows instalada, consulte [
     Agora, você deve ser autenticado como a entidade de serviço para o aplicativo AAD que você criou.
 
 ## Próximas etapas
-Introdução
-
-- [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)  
-- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md)
-
   
-Criação e implantação de aplicativos
-  
-- [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)  
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)  
-- [Solucionando problemas de implantações de grupos de recursos no Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)  
-- [Operações avançadas de modelo](./resource-group-advanced-template.md)  
-- [Implantar recursos do Azure usando bibliotecas .NET e um modelo](virtual-machines/arm-template-deployment.md)
-  
-Organização de recursos
-  
-- [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md)  
-  
-Gerenciar e auditar o acesso
-  
-- [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md)  
-- [Criar uma nova entidade de serviço do Azure usando o portal do Azure](./resource-group-create-service-principal-portal.md)  
-  
+- Para obter uma visão geral sobre o controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](azure-portal/resource-group-rbac.md)  
+- Para obter informações sobre como usar o portal com entidades de serviço, consulte [Criar uma nova entidade de serviço do Azure usando o Portal do Azure](./resource-group-create-service-principal-portal.md)  
+- Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

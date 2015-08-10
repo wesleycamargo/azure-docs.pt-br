@@ -39,20 +39,23 @@ Os dados de telemetria coletados do aplicativo são armazenados e analisados no 
 
 ![Disponha em gráficos as estatísticas de atividade do usuário ou analise detalhadamente eventos específicos.](./media/app-insights-overview/00-sample.png)
 
+Deseja uma análise ainda mais profunda? [Exporte](app-insights-export-telemetry.md) seus dados [para o SQL](app-insights-code-sample-export-telemetry-sql-database.md), [para o Power BI](app-insights-export-power-bi.md) ou para suas próprias ferramentas.
+
+![Exibindo dados no Power BI](./media/app-insights-overview/210.png)
 
 ## Plataformas e idiomas
 
 Há SDKs para uma variedade cada vez maior de plataformas. Atualmente, a lista inclui:
 
- * [Servidores ASP.NET][greenbrown] no Azure ou o servidor IIS
+ * [Servidores ASP.NET][greenbrown] no Azure ou servidor IIS
  * [Serviços de nuvem do Azure](app-insights-cloudservices.md)
  * [Servidores J2EE][java]
- * [Páginas da Web][client]: HTML+JavaScript
+ * [Páginas da Web][client]\: HTML+JavaScript
  * [Windows Phone, Windows Store, aplicativos universais do Windows 10 e integração direta com o portal do desenvolvedor do Windows 10][windows]
  * [Área de trabalho do Windows][desktop]
  * [iOS][ios]
  * [Android][android]
- * [Outras plataformas][platforms] — Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [Outras plataformas][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
 O Application Insights também pode obter telemetria de aplicativos Web existentes do ASP.NET no IIS sem recriá-los.
 
@@ -72,14 +75,17 @@ Para servidores ASP.NET e aplicativos Web do Azure, você também pode instalar 
 * Monitore um aplicativo Web sem recriá-lo ou reinstalá-lo.
 * Acompanhe chamadas para módulos dependentes.
 
+
+
 ### Qual é a sobrecarga?
 
 O impacto sobre o desempenho é muito pequeno. As chamadas de rastreamento não são bloqueadas, além de serem colocadas em lote e enviadas em um thread separado.
 
 
+
 ## Introdução
 
-1. Você precisará de uma assinatura no [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pela [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) gratuita do Application Insights.
+1. Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). A inscrição é gratuita e você pode optar pela [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) gratuita do Application Insights.
 
 2. Entre no [Portal de Visualização do Azure](http://portal.azure.com)
 3. Crie um recurso Application Insights. É onde você verá dados do seu aplicativo.
@@ -139,4 +145,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

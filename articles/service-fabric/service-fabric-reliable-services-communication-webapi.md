@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Introdução aos serviços de API Web da malha de serviço do Microsoft Azure com auto-hospedagem do OWIN
@@ -35,9 +35,11 @@ O próprio aplicativo API Web não muda aqui - não é diferente de aplicativos 
 
 ## Configuração de um aplicativo de API Web
 
-Comece criando um novo serviço sem estado no Visual Studio 2015:
+Comece criando um novo aplicativo, com um único serviço sem estado no Visual Studio 2015:
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![Criar um novo aplicativo da Malha de Serviço](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![Criar um único serviço sem estado](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 Isso nos dá um serviço sem estado vazio que hospedará o aplicativo API Web. Vamos configurar o aplicativo do zero para ver como juntar tudo isso.
 
@@ -47,11 +49,11 @@ A primeira etapa é obter alguns pacotes NuGet para o API Web. O pacote que quer
 
 Com os pacotes instalados, podemos começar a criar a estrutura de projeto básico de API Web. Se você usou o API Web, a estrutura do projeto deve ser bastante familiar. Comece criando os diretórios de API Web básicos:
 
- + App_Start
+ + App\_Start
  + Controladores
  + Modelos
 
-Adicione as classes de configuração básicas do API Web no diretório App_Start:
+Adicione as classes de configuração básicas do API Web no diretório App\_Start:
 
  + FormatterConfig.cs
 
@@ -447,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-É aí que o *aplicativo* do API Web e o *host* OWIN finalmente se encontram: o *host* (**OwinCommunicationListener**) recebe uma instância do *aplicativo* (API Web por meio de **Startup**), e a Malha de Serviços gerencia o ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
+É aí que o *aplicativo* do API Web e o *host* OWIN finalmente se encontram: o *host* (\*\*OwinCommunicationListener\*\*) recebe uma instância do *aplicativo* (API Web por meio de **Startup**), e a Malha de Serviços gerencia o ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
 
 ## Juntando as peças
 
@@ -611,6 +613,5 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 ## Próximas etapas
 
 [Depurando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

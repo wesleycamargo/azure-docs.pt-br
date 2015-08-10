@@ -67,7 +67,7 @@ Para ver a aparência dos dados, clique na porta de saída na parte inferior do 
 
 ![Visualização de conjunto de dados][screen1b]
 
-Feche a janela de visualização clicando no “**x**” no canto superior direito.
+Feche a janela de visualização clicando no “\*\*x\*\*” no canto superior direito.
 
 ## Etapa 2: Pré-processar dados
 
@@ -232,4 +232,4 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

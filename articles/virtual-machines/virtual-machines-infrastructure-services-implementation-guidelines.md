@@ -19,7 +19,7 @@
 
 # Diretrizes de implementação dos Serviços de Infraestrutura do Azure
  
-O Azure é uma excelente plataforma para implementar configurações de desenvolvimento/teste ou de verificação de conceito, pois requer muito pouco investimento para testar uma abordagem específica para a implementação das soluções. No entanto, você deve ser capaz de distinguir entre as práticas fáceis de um ambiente de desenvolvimento/teste e as práticas mais difíceis e detalhadas para uma implementação totalmente funcional e pronta para a produção de uma carga de trabalho de TI.
+O Azure é uma excelente plataforma para implementar configurações de desenvolvimento/teste ou de verificação de conceito, pois requer muito pouco investimento para testar uma abordagem específica para uma implementação das soluções. No entanto, você deve ser capaz de distinguir entre as práticas fáceis de um ambiente de desenvolvimento/teste e as práticas mais difíceis e detalhadas para uma implementação totalmente funcional e pronta para a produção de uma carga de trabalho de TI.
 
 Esta diretriz identifica muitas áreas para as quais o planejamento é essencial para o sucesso de uma carga de trabalho de TI no Azure. Também fornece uma ordem para a criação dos recursos necessários. Embora haja alguma flexibilidade, a Microsoft recomenda que você aplique a ordem deste artigo ao seu planejamento e à sua tomada de decisões.
 
@@ -27,9 +27,9 @@ Este artigo foi adaptado do conteúdo na postagem de blog [Diretrizes de impleme
 
 > [AZURE.NOTE]Grupos de afinidade foram preteridos e seu uso não está descrito aqui. Para saber mais, confira [Sobre VNets regionais e grupos de afinidade](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
-## 1. Convenções de nomenclatura
+## 1\. Convenções de nomenclatura
 
-Antes de criar qualquer coisa no Azure, deve haver uma boa convenção de nomenclatura. Uma convenção de nomenclatura garante que todos os recursos tenham um nome previsível, o que ajuda a reduzir a carga administrativa associada com o gerenciamento desses recursos.
+Você deve ter uma boa convenção de nomenclatura definida para criar qualquer coisa no Azure. Uma convenção de nomenclatura garante que todos os recursos tenham um nome previsível, o que ajuda a reduzir a carga administrativa associada com o gerenciamento desses recursos.
 
 Você pode optar por seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para os indivíduos das organizações estabelecerem regras implícitas ao trabalharem com os recursos do Azure, quando uma equipe precisa trabalhar em um projeto no Azure, esse modelo não se adapta bem.
 
@@ -63,9 +63,10 @@ Ao estabelecer as convenções de nomenclatura, verifique se elas determinam cla
 
 ### Datas
 
-Muitas vezes, é importante determinar a data de criação do nome de um recurso. A Microsoft recomenda o formato de data AAAAMMDD. Esse formato garante não apenas que a data completa seja registrada, mas também que dois recursos cujos nomes diferem apenas na data sejam classificados em ordem alfabética e em ordem cronológica ao mesmo tempo.
+Muitas vezes é importante determinar a data da criação do nome de um recurso. A Microsoft recomenda o formato de data AAAAMMDD. Esse formato garante não apenas que a data completa seja registrada, mas também que dois recursos cujos nomes diferem apenas na data sejam classificados em ordem alfabética e em ordem cronológica ao mesmo tempo.
 
 ### Recursos de nomenclatura
+
 Você deve definir cada tipo de recurso na convenção de nomenclatura, que deve ter regras para definir como atribuir nomes a cada recurso criado. Essas regras devem se aplicar a todos os tipos de recursos, por exemplo:
 
 - Assinaturas
@@ -81,25 +82,24 @@ Você deve definir cada tipo de recurso na convenção de nomenclatura, que deve
 - Grupos de segurança de rede
 - Funções
 
-Os nomes devem ser os mais descritivos possíveis para garantir que o nome forneça informações suficientes para determinar a qual recurso se refere.
+Para garantir que o nome possa fornecer informações suficientes para determinar a qual recurso ele se refere, você deve usar nomes descritivos.
 
 ### Nomes de computadores
 
 Quando os administradores criam uma máquina virtual, o Microsoft Azure exige que eles forneçam um nome de máquina virtual com até 15 caracteres. O Microsoft Azure usará o nome da máquina virtual como o nome do recurso da máquina virtual do Azure. O Azure usará o mesmo nome do computador para o sistema operacional instalado na máquina virtual. No entanto, esses nomes nem sempre serão os mesmos.
 
-Nos casos em que uma máquina virtual é criada a partir de um arquivo .VHD que já contém um sistema operacional, o nome da máquina virtual no Microsoft Azure pode ser diferente do nome do computador do SO da máquina virtual. Essa situação pode acrescentar um grau de dificuldade ao gerenciamento de máquinas virtuais, o que não é recomendável. Verifique sempre se o nome do recurso de máquina virtual do Azure é igual ao nome do computador atribuído ao sistema operacional daquela máquina virtual.
+Nos casos em que uma máquina virtual é criada de um arquivo de imagem .VHD que já contenha um sistema operacional, o nome da máquina virtual no Microsoft Azure pode ser diferente do nome do computador do sistema operacional da máquina virtual. Essa situação pode adicionar um grau de dificuldade para o gerenciamento da máquina virtual, o que não é recomendável. Dê ao recurso da máquina virtual do Azure o mesmo nome do computador que você atribui ao sistema operacional dessa máquina virtual.
 
 Recomendamos que o nome da Máquina Virtual do Azure seja igual ao nome do computador do sistema operacional subjacente. Por isso, siga as regras de nomenclatura do NetBIOS, descritas em [Convenções de nomenclatura de computadores do Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
 
 ### Nomes de contas de armazenamento
 
-As contas de armazenamento têm regras especiais para os nomes. Você só pode usar letras minúsculas e números e o nome atribuído, concatenado ao serviço (blob, tabela ou fila) e o domínio padrão (core.windows.net) deve processar um nome DNS exclusivo e globalmente válido. Por exemplo, quando a conta de armazenamento é chamada de minhacontadearmazenamento, as URLs resultantes abaixo devem ser nomes DNS válidos e exclusivos:
+As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para obter mais informações. Além disso, o nome da conta de armazenamento, em combinação com core.windows.net, deve ser um nome DNS exclusivo globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 - minhacontadearmazenamento.blob.core.windows.net
 - minhacontadearmazenamento.table.core.windows.net
 - minhacontadearmazenamento.queue.core.windows.net
 
-Além disso, as contas de armazenamento podem aproveitar os contêineres. Elas devem seguir as convenções de nomenclatura, conforme descrito em [Nomenclatura e referência de contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Nomes de blocos de construção do Azure
 
@@ -117,7 +117,7 @@ Tarefa:
 
 - Defina as convenções de nomenclatura em termos de afixos, hierarquia, valores de cadeia de caracteres e outras políticas para recursos do Azure.
 
-## 2. Assinaturas e contas
+## 2\. Assinaturas e contas
 
 Para trabalhar com o Azure, você precisa de uma ou mais assinaturas do Azure. Os recursos, como serviços de nuvem ou máquinas virtuais, existem no contexto dessas assinaturas.
 
@@ -153,17 +153,17 @@ Tarefa:
 
 - Crie o conjunto de assinaturas e contas usando a sua convenção de nomenclatura.
 
-## 3. Armazenamento
+## 3\. Armazenamento
 
-O armazenamento é uma parte integrante de todas as soluções do Azure, uma vez que não apenas fornece serviços no nível de aplicativo, mas também é parte da infraestrutura de suporte a máquinas virtuais.
- 
-Há dois tipos de armazenamento disponíveis no Azure: O armazenamento padrão dá acesso a armazenamento de Blob, Tabela, Fila e Arquivo. O armazenamento Premium é projetado para aplicativos de alto desempenho, como SQL Servers em um cluster AlwaysOn, e atualmente oferece suporte somente para discos de Máquina Virtual do Azure.
+O Armazenamento do Azure é parte integrante de muitas soluções do Azure. O Armazenamento do Azure fornece serviços para armazenar dados de arquivo, dados não estruturados e mensagens, além de fazer parte da infraestrutura que oferece suporte às máquinas virtuais.
+
+Há dois tipos de conta de armazenamento disponíveis no Azure: Uma conta de armazenamento padrão fornece acesso ao armazenamento Blob (usado para armazenar discos da Máquina Virtual do Azure), armazenamento de Tabela, armazenamento de Fila e armazenamento de Arquivo. O armazenamento Premium é projetado para aplicativos de alto desempenho, como SQL Servers em um cluster AlwaysOn, e atualmente oferece suporte somente para discos de Máquina Virtual do Azure.
 
 As contas de armazenamento são vinculadas às metas de escalabilidade. Confira [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Veja também [Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md).
 
-O Azure cria máquinas virtuais com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs do Azure, enquanto o disco temporário é apoiado pelo serviço de armazenamento local referente ao nó onde o computador reside. Isso torna o disco temporário impróprio para dados que devam persistir durante uma reciclagem de sistema, uma vez que a máquina pode migrar silenciosamente de um nó para outro, perdendo os dados desse disco. Não armazene nada na unidade temporária.
+O Azure cria máquinas virtuais com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Isso torna o disco temporário impróprio para dados que devam persistir durante uma reciclagem de sistema, pois a máquina pode migrar silenciosamente de um nó para outro, perdendo os dados desse disco. Não armazene nada na unidade temporária.
 
-Os discos do sistema operacional e os discos de dados têm um tamanho máximo de 1023 GB, já que o tamanho máximo de um blob é de 1024 GB e deve conter os metadados (rodapé) do arquivo VHD (um GB tem 1024<sup>3</sup> bytes). Você pode implementar a distribuição de discos no Windows para ultrapassar esse limite.
+Os discos do sistema operacional e os discos de dados têm um tamanho máximo de 1023 GB, pois o tamanho máximo de um blob é de 1024 GB e deve conter os metadados (rodapé) do arquivo VHD (um GB tem 1024<sup>3</sup> bytes). Você pode implementar a distribuição de discos no Windows para ultrapassar esse limite.
 
 ### Discos distribuídos
 Além de fornecer a capacidade de criar discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados poderá melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com isso é feita a paralelização da E/S necessária para gravar e ler dados de um único disco.
@@ -204,17 +204,17 @@ Tarefa:
 
 - Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar o Portal de Visualização do Azure, o Portal de Gerenciamento do Azure ou o cmdlet do PowerShell **New-AzureStorageAccount**.
 
-## 4. Serviços de Nuvem
+## 4\. Serviços de Nuvem
 
 Os serviços de nuvem são um componente fundamental no Gerenciador de Serviços Azure, tanto para os serviços de PaaS como de IaaS. Para PaaS, os serviços de nuvem representam uma associação de funções cujas instâncias podem se comunicar entre si. Os serviços de nuvem estão associados a um endereço IP virtual público (VIP) e um balanceador de carga, que usa o tráfego de entrada da Internet e faz o balanceamento da carga para as funções configuradas para receber esse tráfego.
 
 No caso de IaaS, os serviços de nuvem oferecem uma funcionalidade semelhante, embora, na maioria dos casos, a funcionalidade do balanceador de carga seja usada para encaminhar o tráfego para determinadas portas TCP ou UDP da Internet para as várias máquinas virtuais desse serviço de nuvem.
 
-> [AZURE.NOTE]Serviços de nuvem não existem no Gerenciador de Recursos do Azure. Para obter uma introdução sobre as vantagens do Gerenciador de Recursos, consulte [Computação do Azure, rede e provedores de armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE]Serviços de nuvem não existem no Gerenciador de Recursos do Azure. Para obter uma introdução sobre as vantagens do Gerenciador de Recursos, consulte [Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Os nomes dos serviços de nuvem são especialmente importantes em IaaS porque o Azure os usa como parte da convenção de nomenclatura padrão para discos. O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.
 
-O Microsoft Azure expõe os nomes dos serviços de nuvem, já que eles são associados ao VIP, no domínio "cloudapp.net". Para uma melhor experiência do usuário do aplicativo, deve ser configurado um nome intuitivo conforme necessário para substituir o nome totalmente qualificado do serviço de nuvem. Isso normalmente é feito com um registro CNAME no seu DNS público que mapeia o nome DNS público do recurso (por exemplo, www.contoso.com) para o nome DNS do serviço de nuvem que hospeda o recurso (por exemplo, o serviço de nuvem que hospeda os servidores Web de www.contoso.com).
+O Microsoft Azure expõe os nomes do serviço de nuvem, pois eles são associados ao VIP, no domínio "cloudapp.net". Para uma melhor experiência do usuário do aplicativo, deve ser configurado um nome intuitivo conforme necessário para substituir o nome totalmente qualificado do serviço de nuvem. Isso normalmente é feito com um registro CNAME no seu DNS público que mapeia o nome DNS público do recurso (por exemplo, www.contoso.com) para o nome DNS do serviço de nuvem que hospeda o recurso (por exemplo, o serviço de nuvem que hospeda os servidores Web de www.contoso.com).
 
 Além disso, a convenção de nomenclatura usada para os serviços de nuvem pode precisar tolerar exceções porque os nomes de serviços de nuvem devem ser exclusivos entre todos os outros serviços de nuvem do Microsoft Azure, independentemente do locatário do Microsoft Azure.
 
@@ -232,7 +232,7 @@ Tarefa:
 
 - Crie o conjunto de serviços de nuvem usando a sua convenção de nomenclatura. Você pode usar o Portal de Gerenciamento do Azure ou o cmdlet do PowerShell **New-AzureService**.
 
-## 5. Redes virtuais
+## 5\. Redes virtuais
 
 A próxima etapa lógica é criar as redes virtuais necessárias para dar suporte às comunicações entre as máquinas virtuais na solução. Embora seja possível hospedar várias máquinas virtuais de uma carga de trabalho de TI apenas em um serviço de nuvem, as redes virtuais são recomendadas.
 
@@ -290,11 +290,11 @@ Tarefas:
 - Para redes virtuais entre instalações, defina o conjunto de espaços de endereços de redes locais para as instalações que as máquinas virtuais da rede virtual precisam acessar.
 - Crie a rede virtual usando a sua convenção de nomenclatura. Você pode usar o portal de Visualização do Azure ou o portal do Azure.
 
-## 6. Conjuntos de disponibilidade
+## 6\. Conjuntos de disponibilidade
 
 No Azure PaaS, os serviços de nuvem contêm uma ou mais funções que executam o código do aplicativo. As funções podem ter uma ou mais instâncias de máquinas virtuais que a malha provisiona automaticamente. A qualquer momento, o Azure pode atualizar as instâncias nessas funções, mas como elas fazem parte da mesma função, o Azure sabe que não deve atualizar todas ao mesmo tempo para impedir uma interrupção de serviço para a função.
 
-No Azure IaaS, o conceito de função não é importante, já que cada máquina virtual de IaaS representa uma função com uma única instância. Para indicar ao Azure para não desativar dois ou mais computadores associados ao mesmo tempo (por exemplo, para atualizações do sistema operacional do nó onde eles residem), foi introduzido o conceito de conjuntos de disponibilidade. O conjunto de disponibilidade informa ao Azure para não desativar todos os computadores do mesmo conjunto de disponibilidade ao mesmo tempo para impedir uma interrupção de serviço. Os membros de máquina virtual de um conjunto de disponibilidade têm um contrato de nível de serviço com tempo de atividade de 99,95%.
+No Azure IaaS, o conceito de função não é importante, pois cada máquina virtual de IaaS representa uma função com uma única instância. Para indicar ao Azure para não desativar dois ou mais computadores associados ao mesmo tempo (por exemplo, para atualizações do sistema operacional do nó onde eles residem), foi introduzido o conceito de conjuntos de disponibilidade. O conjunto de disponibilidade informa ao Azure para não desativar todos os computadores do mesmo conjunto de disponibilidade ao mesmo tempo para impedir uma interrupção de serviço. Os membros de máquina virtual de um conjunto de disponibilidade têm um contrato de nível de serviço com tempo de atividade de 99,95%.
 
 Os conjuntos de disponibilidade devem fazer parte do planejamento de alta disponibilidade da solução. Um conjunto de disponibilidade é definido como o conjunto de máquinas virtuais em um único serviço de nuvem que têm o mesmo nome de conjunto de disponibilidade. Depois de criar os serviços de nuvem, você pode criar conjuntos de disponibilidade.
 
@@ -308,7 +308,7 @@ Tarefa:
 
 - Defina o conjunto de conjuntos de disponibilidade usando a sua convenção de nomenclatura. Você pode associar uma máquina virtual a um conjunto quando criar as máquinas virtuais ou associar uma máquina virtual a um conjunto de disponibilidade depois que a máquina virtual tiver sido criada.
 
-## 7. Máquinas virtuais
+## 7\. Máquinas virtuais
 
 No Azure PaaS, o Azure gerencia as máquinas virtuais e seus discos associados. Você deve criar e nomear os serviços de nuvem e as funções e, em seguida, o Azure criará instâncias associadas a essas funções. No caso do Azure IaaS, cabe a você fornecer nomes para os serviços de nuvem, máquinas virtuais e discos associados.
 
@@ -441,4 +441,4 @@ Essa configuração inclui:
 [Provedores de armazenamento, rede e computação do Azure no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

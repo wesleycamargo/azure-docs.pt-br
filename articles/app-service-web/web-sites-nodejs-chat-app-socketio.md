@@ -61,7 +61,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IOGitHub].
 
         npm install
 
-    Isso instalará os módulos em uma subpasta chamada **node_modules**.
+    Isso instalará os módulos em uma subpasta chamada **node\_modules**.
 
 ## Criar um aplicativo Web do Azure
 
@@ -231,7 +231,7 @@ Se os navegadores do cliente continuam para sondagens compridas em vez de usar o
 		      <rules>
 		        <!-- Do not interfere with requests for node-inspector debugging -->
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
-		          <match url="^app.js/debug[/]?" />
+		          <match url="^app.js\/debug[\/]?" />
 		        </rule>
 
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
@@ -283,4 +283,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat hospedado em um 
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

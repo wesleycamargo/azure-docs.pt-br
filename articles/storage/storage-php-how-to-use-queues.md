@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # Como usar o Armazenamento de Fila do PHP
@@ -42,7 +42,7 @@ Neste guia, você usará os recursos do serviço Fila que podem ser chamados den
 
 Para usar as APIs do serviço Fila do Azure, você precisa:
 
-1. Consultar o arquivo do carregador automático usando a instrução [require_once][require_once] e
+1. Consultar o arquivo do carregador automático usando a instrução [require\_once][require_once] e
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -384,4 +384,4 @@ Agora que você aprendeu os conceitos básicos do serviço Fila do Azure, siga e
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

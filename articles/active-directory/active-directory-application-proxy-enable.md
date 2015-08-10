@@ -70,4 +70,4 @@ Se você deseja desinstalar o conector, depois de desinstalar o serviço de cone
 * [Inscrever-se no Azure como uma organização](..sign-up-organization.md)
 * [Identidade do Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

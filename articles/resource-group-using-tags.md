@@ -121,4 +121,4 @@ Gerenciar e auditar o acesso
 - [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

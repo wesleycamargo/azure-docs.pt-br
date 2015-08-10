@@ -1,11 +1,13 @@
-You can create Azure queues by using Visual Studio **Server Explorer**.
+Você pode criar filas do Azure usando o **Gerenciador de Servidores** do Visual Studio.
 
-![Server Explorer Blobs][Image1]
+![Blobs do Gerenciador de Servidores][Image1]
 
-1. On the **View** menu, choose **Server Explorer**.
-2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.
-3. Select the **Queues** node and choose **Create Queue** from the context menu.
-4. Enter a name for the queue and choose **OK**.   
+1. No menu **Exibir**, escolha**Gerenciador de Servidores**.
+2. No Gerenciador de Servidores, expanda o nó **Azure** de sua assinatura, o nó **Armazenamento** e o nó da conta de armazenamento que você especificou no serviço conectado do Armazenamento do Azure.
+3. Selecione o nó **Filas** e escolha **Criar Fila** no menu de contexto.
+4. Digite um nome para a fila e escolha **OK**.   
 
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
+
+<!---HONumber=July15_HO5-->

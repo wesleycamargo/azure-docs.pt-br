@@ -95,15 +95,15 @@ Pode haver ocasiões em que você deseja depurar seu aplicativo API localmente; 
 	![Configurações de Aplicativo Host de Aplicativo de API para Depuração Local](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. Em **Configurações do aplicativo**, localize cada um dos valores a seguir e adicione-os, no arquivo *web.config*, à seção **appSettings**.
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	Quando terminar, a seção **appSettings** de seu *web.config* deve se parecer com a captura de tela a seguir.
 
 	![Configurações de Aplicativo Host de Aplicativo de API para Depuração Local](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Observação:** os valores *EMA_* adicionados por você ao seu arquivo *web.config* nesta seção contêm informações de autorização confidenciais. Portanto, é recomendável que você tenha cuidado ao alocar esse arquivo em um meio de controle do código-fonte público (como *github*), já que esses segredos ficarão então visíveis para outras pessoas. Para obter mais informações, consulte o artigo [Práticas recomendadas para implantação de senhas e outros dados confidenciais no Serviço de Aplicativo do Azure e ASP.NET](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	**Observação:** os valores *EMA\_* adicionados por você ao seu arquivo *web.config* nesta seção contêm informações de autorização confidenciais. Portanto, é recomendável que você tenha cuidado ao alocar esse arquivo em um meio de controle do código-fonte público (como *github*), já que esses segredos ficarão então visíveis para outras pessoas. Para obter mais informações, consulte o artigo [Práticas recomendadas para implantação de senhas e outros dados confidenciais no Serviço de Aplicativo do Azure e ASP.NET](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 10. Coloque um ou mais pontos de interrupção no código do controlador do seu aplicativo de API (nos métodos `Get` e `Post`).
 
@@ -139,4 +139,4 @@ Aplicativos de API do Serviço de Aplicativo são aplicativos Web do Serviço de
 O aplicativo de API que você criou nesta série está disponível publicamente para qualquer pessoa que chamar. Para obter informações sobre como proteger aplicativos de API de modo que somente usuários autenticados possam chamá-los, consulte [Autenticação para aplicativos de API e aplicativos móveis no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -47,7 +47,7 @@ New-AzureDnsRecordSet retorna um objeto local que representa o conjunto de regis
 ### Registros curinga
 O Azure DNS dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
 
->[AZURE.NOTE]Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
+>[AZURE.NOTE]Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*", ou um nome cujo primeiro rótulo seja "\*", por exemplo, "\*.foo".
 
 >Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
@@ -265,4 +265,4 @@ O objeto do conjunto de registros também pode ser redirecionado em vez de ser p
 [Introdução à criação de conjuntos de registros e registros](../dns-getstarted-create-recordset)<BR> [Executar operações em zonas DNS](../dns-operations-dnszones)<BR> [Automatizar operações usando o SDK do .NET](../dns-sdk)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

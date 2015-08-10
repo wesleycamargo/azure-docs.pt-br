@@ -54,7 +54,7 @@ O conjunto de símbolos é fornecido trimestralmente e é atualizado na medida e
 
 Gostaríamos de saber o que você pensa, portanto, há instruções para fornecer comentários no download. Se você já usou os símbolos, lembre-se de preencher a nossa [pesquisa](http://aka.ms/azuresymbolssurveyv2) curta de 5 perguntas ou informar-nos pelo email acima se eles são úteis e como você os usa.
 
-Símbolos adicionais estão disponíveis no [estêncil do Microsoft Office Visio](http://www.microsoft.com/en-us/download/details.aspx?id=35772), embora eles não sejam otimizados para diagramas de arquitetura, como é o caso do conjunto CnE.
+Símbolos adicionais estão disponíveis no [estêncil do Microsoft Office Visio](http://www.microsoft.com/pt-br/download/details.aspx?id=35772), embora eles não sejam otimizados para diagramas de arquitetura, como é o caso do conjunto CnE.
 
 ![Conjunto de ícones/símbolos Enterprise e Nuvem](./media/architecture-overview/CnESymbols.png)
 
@@ -68,4 +68,4 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

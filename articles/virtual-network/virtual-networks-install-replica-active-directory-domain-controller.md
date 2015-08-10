@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Instalar um controlador de domínio de réplica no Azure" 
-	description="Um tutorial que explica como instalar um controlador de domínio por meio de uma floresta do Active Directory local em uma máquina virtual do Azure." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Instalar um controlador de domínio de réplica no Azure | Microsoft Azure"
+	description="Um tutorial que explica como instalar um controlador de domínio por meio de uma floresta do Active Directory local em uma máquina virtual do Azure."
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure
@@ -30,7 +30,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 
 ## Diagrama do cenário
 
-Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e os controladores de domínio de réplica são instaladas em uma rede virtual do Azure. A rede virtual pode ser conectada à rede local por uma conexão [VPN site a site](https://msdn.microsoft.com/library/azure/dn133795.aspx), conforme mostrado no diagrama a seguir, ou você pode usar a [Rota Expressa](../../services/expressroute/) para uma conexão mais rápida.
+Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e os controladores de domínio de réplica são instaladas em uma rede virtual do Azure. A rede virtual pode ser conectada à rede local por uma conexão [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md), conforme mostrado no diagrama a seguir, ou você pode usar a [Rota Expressa](../../services/expressroute/) para uma conexão mais rápida.
 
 Os servidores de aplicativos e os controladores de domínio são implantados em [serviços de nuvem](../cloud-services-what-is.md) separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
 
@@ -87,7 +87,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 ## Reconfigure o servidor DNS para a rede virtual
 
 1. No portal clássico do Azure, clique no nome da rede virtual e, em seguida, clique na guia **Configurar** para [reconfigurar os endereços IP do servidor DNS para a sua rede virtual](https://msdn.microsoft.com/library/azure/dn275925.aspx) para usar os endereços IP estáticos atribuídos à réplica de controladores de domínio em vez de endereços IP de servidores DNS locais.
- 
+
 2. Para garantir que todas as VMs do controlador de domínio de réplica na rede virtual sejam configuradas para usar servidores DNS na rede virtual, clique em **Máquinas Virtuais**, clique na coluna de status para cada VM e, em seguida, clique em **Reiniciar**. Aguarde até a VM mostrar o estado **Executando** antes de tentar conectar-se a ela.
 
 ## Crie VMs para servidores de aplicativos
@@ -121,6 +121,5 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

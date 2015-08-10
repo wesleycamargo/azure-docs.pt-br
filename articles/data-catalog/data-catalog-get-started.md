@@ -69,7 +69,7 @@ Neste exercício, você usará a ferramenta de registro do Catálogo de Dados do
 
     ![registrar4][4]
 
-    c. Clique na seta de movimentação selecionada (**>**). Isso moverá todos os objetos de Produto para a lista **A ser registrado**.
+    c. Clique na seta de movimentação selecionada (\*\*>\*\*). Isso moverá todos os objetos de Produto para a lista **A ser registrado**.
 
     ![registrar5][5]
 
@@ -222,4 +222,4 @@ Neste tutorial, você explorou recursos essenciais da visualização do **Catál
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

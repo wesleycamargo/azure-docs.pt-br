@@ -57,7 +57,7 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor Azure Multi-Factor Au
 24. Em seguida, clique no ícone de Configurações da Empresa e selecione a guia Resolução de Nome de Usuário.
 25. Selecione o botão de opção Usar atributo de identificador exclusivo LDAP para correspondência de nomes de usuário.
 26. Se os usuários inserirem o respectivo nome de usuário no formulário de logon do proxy do ADFS no formato “domínio\\nome de usuário”, o Servidor precisará estar apto a revelar o domínio do nome de usuário quando ele criar a consulta LDAP. Isso pode ser feito por meio de uma configuração do registro.
-27. Abra o editor de registro e vá para HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor em um servidor de 64 bits. Em um servidor de 32 bits, retire “Wow6432Node” do caminho. Crie uma chave de registro DWORD chamada “UsernameCxz_stripPrefixDomain” e defina o valor para 1. Agora o Azure Multi-Factor Authentication está protegendo o proxy do ADFS. Verifique se os usuários foram importados do Active Directory no Servidor. Consulte a seção abaixo, IPs Confiáveis, se desejar colocar os endereços IP internos na lista banca para que a autenticação multifator não seja exigida na conexão com o site a partir desses locais.
+27. Abra o editor de registro e vá para HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor em um servidor de 64 bits. Em um servidor de 32 bits, retire “Wow6432Node” do caminho. Crie uma chave de registro DWORD chamada “UsernameCxz\_stripPrefixDomain” e defina o valor para 1. Agora o Azure Multi-Factor Authentication está protegendo o proxy do ADFS. Verifique se os usuários foram importados do Active Directory no Servidor. Consulte a seção abaixo, IPs Confiáveis, se desejar colocar os endereços IP internos na lista banca para que a autenticação multifator não seja exigida na conexão com o site a partir desses locais.
 
 <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,4 +93,4 @@ Os IPs Confiáveis permitem que os usuários ignorem o Azure Multi-Factor Authen
 
 <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

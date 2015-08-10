@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # Como adicionar usuários a um pool de bancos de dados elástico
@@ -33,7 +33,7 @@ Os **trabalhos de banco de dados elástico** permitem que você execute o mesmo 
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. O usuário também deve ter permissões suficientes para executar o script especificado para o trabalho. Use o procedimento **sp_addrolemember** para fornecer ao usuário as permissões mínimas necessárias para que o script execute com êxito.
+3. O usuário também deve ter permissões suficientes para executar o script especificado para o trabalho. Use o procedimento **sp\_addrolemember** para fornecer ao usuário as permissões mínimas necessárias para que o script execute com êxito.
 
 ## Próximas etapas
 
@@ -45,4 +45,4 @@ Execute um trabalho no pool de banco de dados elástico. Consulte [Criando e ger
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

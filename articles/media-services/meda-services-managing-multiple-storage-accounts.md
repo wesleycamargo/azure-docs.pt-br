@@ -35,7 +35,7 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 Outras considerações:
 
-Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compilar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao compilar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !\*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 ##Para anexar uma conta de armazenamento com a API REST do Gerenciamento de Serviços do Azure
 
@@ -236,4 +236,4 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 	}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -33,8 +33,40 @@ Quando um arquivo de fluxo de trabalho é criado, ele pode ser carregado como um
 
 Os arquivos de fluxo de trabalho padrão podem ser modificados usando a ferramenta de designer. Você pode obter arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
 
-O blog abaixo oferece vídeos de treinamento sobre como usar o desginer:
+Os vídeos a seguir mostram como usar o designer.
 
-[Vídeos de treinamento de designer de fluxo de trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+###Dia 1 - Introdução
 
-<!---HONumber=July15_HO4-->
+O vídeo do Dia 1 abrange:
+
+- Visão geral do designer
+- Fluxos de trabalho básicos – "Hello World"
+- Criar vários arquivos MP4 de saída para uso com o streaming dos Serviços de Mídia do Azure
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
+
+###Dia 2
+
+O vídeo do Dia 2 abrange:
+
+- Diversos cenários de arquivo de origem – a manipulação do áudio
+- Fluxos de trabalho com lógica avançada
+- Estágios de gráfico
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-2]
+
+###Dia 3
+
+O vídeo do Dia 3 abrange:
+
+- Scripts em fluxos de trabalho/plantas
+- Restrições com o codificador atual
+- Perguntas e respostas
+ 
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+##Consulte também
+
+[Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+
+<!---HONumber=July15_HO5-->

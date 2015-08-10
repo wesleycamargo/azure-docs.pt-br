@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Fazendo backup de um farm do SharePoint no Azure
@@ -56,8 +56,8 @@ Você pode encontrar o **ConfigureSharePoint.exe** na pasta [Caminho de instala�
 1. No servidor WFE, em um prompt de comando, vá para [Caminho de instalação do DPM]\\bin\\
 2. Execute ConfigureSharePoint -EnableSharePointProtection
 3. Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de administradores local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
-  - Conceda o controle total do grupo WSS_Admin_WPG para a pasta do DPM (%Arquivos de Programas%\\Microsoft Data Protection Manager\\DPM).
-  - Conceda acesso de leitura do grupo WSS_Admin_WPG à chave do Registro do DPM (HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
+  - Conceda o controle total do grupo WSS\_Admin\_WPG para a pasta do DPM (%Arquivos de Programas%\\Microsoft Data Protection Manager\\DPM).
+  - Conceda acesso de leitura do grupo WSS\_Admin\_WPG à chave do Registro do DPM (HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]Você precisará executar novamente o ConfigureSharePoint.exe sempre que houver uma alteração nas credenciais de administrador de farm do SharePoint.
 
@@ -107,19 +107,19 @@ Depois de configurar o DPM e o farm do SharePoint conforme explicado anteriormen
 
 10. Na tela **Especificar o Agendamento do Backup Online**, selecione o agendamento preferencial e clique em **Próximo**.
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+    ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     >[AZURE.NOTE]O DPM permite 2 backups diários em momentos diferentes no Azure.
 
 11. Dependendo do agendamento do backup selecionado, na tela **Especificar a Política de Retenção Online**, selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+    ![Online\_retention\_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
     >[AZURE.NOTE]O DPM usa um esquema de retenção de avô-pai-filho em que uma política de retenção diferente pode ser escolhida para diferentes pontos de backup.
 
 12. Semelhante ao disco, uma réplica do ponto de referência inicial precisa ser criado no Azure. Selecione a opção preferencial para criar a cópia de backup inicial no Azure e clique em **Próximo**.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online\_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. Reveja as configurações selecionadas na página **Resumo** e clique em **Criar Grupo**. Após a criação do grupo de proteção, você verá uma mensagem de êxito.
 
@@ -226,4 +226,4 @@ P: Posso recuperar um banco de dados do SharePoint no local original se o ShareP
 - Reveja as [Notas de versão do System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Reveja as [Notas de versão do Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

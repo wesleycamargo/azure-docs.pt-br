@@ -2,7 +2,7 @@
 
 [EventProcessorHost] é uma classe .NET que simplifica o recebimento de eventos de Hubs de Eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o [EventProcessorHost], você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o [EventProcessorHost] para um único destinatário. O exemplo de [processamento de eventos de escala horizontal] mostra como usar [EventProcessorHost] com vários destinatários.
 
-Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do Azure]:
+Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do Azure]\:
 
 1. Faça logon no [Portal de Gerenciamento do Azure] e clique em **NOVO** na parte inferior da tela.
 
@@ -112,7 +112,7 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 > [AZURE.NOTE]Este tutorial usa uma única instância do [EventProcessorHost]. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do [EventProcessorHost], conforme mostrado no exemplo de [Processamento de eventos em escala]. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos de máquinas diferentes, pode ser útil especificar nomes para instâncias de [EventProcessorHost] com base em máquinas (ou funções) nas quais eles foram implantados. Para obter mais informações sobre esses tópicos, confira a [Visão geral de Hubs de Eventos] e o [Guia de Programação de Hubs de Eventos].
 
 <!-- Links -->
-[Visão geral de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Visão geral de Hubs de Eventos]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
 [Processamento de eventos em escala]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [processamento de eventos de escala horizontal]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Conta de armazenamento do Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
@@ -126,8 +126,8 @@ Para usar o [EventProcessorHost], você deve ter uma [Conta de armazenamento do 
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guia de Programação de Hubs de Eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[Guia de Programação de Hubs de Eventos]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

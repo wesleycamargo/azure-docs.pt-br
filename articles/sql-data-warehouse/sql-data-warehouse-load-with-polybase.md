@@ -49,7 +49,7 @@ Tópico de referência: [CREATE MASTER KEY (Transact-SQL)][].
 ## Criar uma credencial com escopo de banco de dados
 Para acessar o armazenamento de blob do Azure, você precisa criar uma credencial com escopo de banco de dados que armazene informações de autenticação da sua conta de armazenamento do Azure. Conecte-se ao banco de dados do seu data warehouse e crie uma credencial com escopo de banco de dados para cada conta de armazenamento do Azure que deseja acessar. Especifique um nome de identidade e a chave da conta de armazenamento do Azure como o Segredo. O nome da identidade não afeta a autenticação no Armazenamento do Azure.
 
-Para ver se já existe uma credencial no escopo do banco de dados, use sys.database_credentials, e não sys.credentials, que mostra apenas as credenciais do servidor.
+Para ver se já existe uma credencial no escopo do banco de dados, use sys.database\_credentials, e não sys.credentials, que mostra apenas as credenciais do servidor.
 
 ```
 -- Check for existing database-scoped credentials.
@@ -203,8 +203,8 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/en-us/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/en-us/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/en-us/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

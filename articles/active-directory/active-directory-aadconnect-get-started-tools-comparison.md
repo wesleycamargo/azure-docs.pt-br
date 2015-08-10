@@ -88,4 +88,4 @@ Permitir que os modelos de serviço diferentes a sejam aplicados para fluxos de 
 Permitir a remoção de atributos do fluxo do AD para o AD do Azure | ● | ● | |  
 Permitir a personalização avançada para fluxos de atributo | ● | ● | | ●  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

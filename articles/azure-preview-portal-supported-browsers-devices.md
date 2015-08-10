@@ -3,8 +3,8 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="JustinBeckwith" 
-	manager="carolz" 
+	authors="micflan" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2014" 
-	ms.author="justbe"/>
+	ms.date="07/23/2015" 
+	ms.author="micflan"/>
 
 #Navegadores e dispositivos com suporte
-O Portal de Visualização do Microsoft Azure é executado em todos os dispositivos desktop e tablet e navegadores modernos.
+O Portal do Microsoft Azure é executado em todos os dispositivos de desktop e tablet e navegadores modernos.
 
 ### Dispositivos com suporte
-O portal de visualização será executado sem problemas em PCs, Macs e tablets modernos. Atualmente, não há suporte para celulares.
+O portal será executado sem problemas em PCs, Macs e tablets modernos. Atualmente, não há suporte para celulares.
 
 ### Navegadores com suporte
 Há suporte para as versões mais recentes dos navegadores a seguir:
@@ -32,4 +32,4 @@ Há suporte para as versões mais recentes dos navegadores a seguir:
 
 *Não há suporte para o Safari 6 e inferior. Se você estiver usando OS X, poderá usar o Chrome, o Firefox, ou atualizar para OS X Mavericks para obter o Safari 7.*
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

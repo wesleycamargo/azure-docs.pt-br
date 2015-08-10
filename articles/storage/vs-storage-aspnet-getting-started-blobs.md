@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introdução ao armazenamento do Azure (Projetos ASP.NET)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
->[AZURE.NOTE]Este artigo descreve como começar a usar o armazenamento de blob do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. Para obter mais informações sobre como usar o armazenamento de blob do Azure, consulte [Como usar o armazenamento de blob de .NET](storage-dotnet-how-to-use-blobs.md).
+Este artigo descreve como começar a usar o armazenamento de blob do Azure depois de criar ou fazer referência a uma conta de armazenamento do Azure em um aplicativo ASP.NET usando a caixa de diálogo do Visual Studio **Adicionar Serviços Conectados**. Para obter mais informações sobre como usar o armazenamento de blob do Azure, consulte [Como usar o armazenamento de blob de .NET](storage-dotnet-how-to-use-blobs.md).
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos.
 
@@ -54,12 +54,12 @@ Para acessar programaticamente blobs em projetos do ASP.NET, você precisa adici
 		using Microsoft.WindowsAzure.Storage.Blob;
 
 
-2. Obtenha um objeto **CloudStorageAccount** que represente informações de sua conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
+2. Obtenha um objeto **CloudStorageAccount** que represente informações de sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
 
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    **OBSERVAÇÃO:** use todo esse código acima antes do código nas seções a seguir.
+    **OBSERVAÇÃO:** use todo esse código antes do código nas seções a seguir.
 
 
 3. Obtenha um objeto **CloudBlobClient** para fazer referência a um contêiner existente na sua conta de armazenamento.
@@ -70,12 +70,12 @@ Para acessar programaticamente blobs em projetos do ASP.NET, você precisa adici
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-**OBSERVAÇÃO:** algumas das APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais.
+**OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais.
 
 
 ## Criar um contêiner de blob no código
 
-Você também pode usar o **CloudBlobClient** para criar um contêiner na sua conta de armazenamento. Basta adicionar uma chamada para `CreateIfNotExistsAsync()`, como no código a seguir:
+Você também pode usar o **CloudBlobClient** para criar um contêiner na sua conta de armazenamento. Tudo o que você precisa fazer é adicionar uma chamada para `CreateIfNotExistsAsync()`, como no código a seguir:
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -165,14 +165,14 @@ Como mostrado acima, o serviço Blob também tem o conceito de diretórios dentr
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-Quando você chama **ListBlobs** no contêiner “fotos” (como no exemplo acima), a coleção retornada conterá os objetos **CloudBlobDirectory** e **CloudBlockBlob** que representam os diretórios e os blobs contidos no nível superior. Esta seria a saída resultante:
+Quando você chama **ListBlobs** no contêiner 'fotos' (como no exemplo acima), a coleção retornada conterá os objetos **CloudBlobDirectory** e **CloudBlockBlob**, que representam os diretórios e os blobs contidos no nível superior. Esta seria a saída resultante:
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Isso resultaria no retorno de cada blob como um **CloudBlockBlob**, independentemente do diretório. Esta seria a chamada para **ListBlobs**:
+Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Isso resultaria em cada blob sendo retornado como um **CloudBlockBlob**, independentemente do diretório. Esta seria a chamada para **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -318,4 +318,4 @@ Como o método de amostra chama um método assíncrono, ele deve ser precedido p
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

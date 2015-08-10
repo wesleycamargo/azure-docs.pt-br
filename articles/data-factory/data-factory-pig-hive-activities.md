@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Usar o Pig e o Hive com o Data Factory
@@ -39,7 +39,7 @@ Este passo a passo fornece instruções passo a passo para usar uma atividade de
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar consultas do Hive no arquivo HQL, adicione "**set hive.execution.engine=tez**;" na parte superior do arquivo.
+	> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar consultas do Hive no arquivo HQL, adicione "\*\*set hive.execution.engine=tez\*\*;" na parte superior do arquivo.
 		
 3.  Carregue o **hivequery.hql** no contêiner **adftutorial** no seu armazenamento de blob
 
@@ -133,7 +133,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
@@ -184,7 +184,7 @@ Ao definir uma atividade de Pig ou Hive em um pipeline de JSON, a propriedade **
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ Ao definir uma atividade de Pig ou Hive em um pipeline de JSON, a propriedade **
 - **linkedServiceName** é definido como **MyHDInsightLinkedService**. Consulte a seção de serviço vinculado HDInsight abaixo para obter detalhes sobre como criar um serviço vinculado HDInsight.
 - O **type** da **transformation** é definido como **Pig**.
 - É possível especificar o script de Pig embutido para a propriedade **script** ou armazenar os arquivos de script em um armazenamento de blobs do Azure e consultar o arquivo utilizando a propriedade **scriptPath**, que é explicada neste artigo. 
-- É possível especificar parâmetros do script de Pig utilizando as **extendedProperties**. Mais detalhes serão fornecidos posteriormente neste artigo. 
+- É possível especificar parâmetros do script de Pig utilizando **defines**. Mais detalhes serão fornecidos posteriormente neste artigo. 
 
 
 ## Exemplo de JSON de Hive
@@ -214,7 +214,7 @@ Ao definir uma atividade de Pig ou Hive em um pipeline de JSON, a propriedade **
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ Ao definir uma atividade de Pig ou Hive em um pipeline de JSON, a propriedade **
 - **linkedServiceName** é definido como **MyHDInsightLinkedService**. 
 - O **type** da **transformation** é definido como **Hive**.
 - É possível especificar o script de Hive embutido para a propriedade **script** ou armazenar os arquivos de script em um armazenamento de blobs do Azure e consultar o arquivo utilizando a propriedade **scriptPath**, que é explicada neste artigo. 
-- É possível especificar parâmetros do script de Hive utilizando **extendedProperties**. Mais detalhes serão fornecidos posteriormente neste artigo. 
+- É possível especificar parâmetros do script de Hive utilizando **defines**. Mais detalhes serão fornecidos posteriormente neste artigo. 
 
 > [AZURE.NOTE]Consulte a [Referência do Desenvolvedor](http://go.microsoft.com/fwlink/?LinkId=516908) para obter detalhes sobre os cmdlets, esquemas JSON e propriedades no esquema.
 
@@ -260,7 +260,7 @@ O exemplo de JSON a seguir para um pipeline de exemplo utiliza uma atividade de 
     					"type": "Hive",
     					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -277,16 +277,16 @@ O exemplo de JSON a seguir para um pipeline de exemplo utiliza uma atividade de 
 	}
 
 
-> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar uma consulta de Hive, execute "**set hive.execution.engine=tez**;" antes de executar a consulta de Hive.
+> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar uma consulta de Hive, execute "\*\*set hive.execution.engine=tez\*\*;" antes de executar a consulta de Hive.
 > 
 > Consulte a [Referência do Desenvolvedor](http://go.microsoft.com/fwlink/?LinkId=516908) para obter detalhes sobre os cmdlets, esquemas JSON e propriedades no esquema.
 
 ## Consultas de Hive e Pig Parametrizados
-As atividades de Pig e Hive da Data Factory permitem que você especifique valores para os parâmetros utilizados nos scripts de Pig e Hive, usando **extendedProperties**. A seção extendedProperties consiste no nome do parâmetro e o valor do parâmetro.
+As atividades de Pig e Hive da Data Factory permitem que você especifique valores para os parâmetros utilizados nos scripts de Pig e Hive, usando **defines**. A seção defines consiste no nome do parâmetro e o valor do parâmetro.
 
-Consulte o exemplo a seguir para especificar parâmetros para um script do Hive utilizando **extendedProperties**. Para utilizar os scripts de Hive parametrizados, faça o seguinte:
+Consulte o exemplo a seguir para especificar parâmetros para um script do Hive utilizando **defines**. Para utilizar os scripts de Hive parametrizados, faça o seguinte:
 
-1.	Defina os parâmetros em **extendedProperties**.
+1.	Defina os parâmetros em **defines**.
 2.	No script de Hive em linha (ou) arquivo de script de Hive armazenado no armazenamento de blog, consulte o parâmetro utilizando **${hiveconf:parameterName}**.
 
    
@@ -307,7 +307,7 @@ Consulte o exemplo a seguir para especificar parâmetros para um script do Hive 
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@ Artigo | Descrição
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

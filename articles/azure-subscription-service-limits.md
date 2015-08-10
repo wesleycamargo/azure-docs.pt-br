@@ -75,7 +75,7 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 ## Limites de armazenamento
 
-### Limites de Armazenamento Padrão 
+### Limites de Armazenamento Padrão
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -101,6 +101,10 @@ Para mais detalhes sobre os limites da conta de armazenamento, consulte [Metas d
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+## Limites do Agendador
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
+
 ## Limites de lote
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
@@ -120,7 +124,7 @@ Para mais detalhes sobre os limites da conta de armazenamento, consulte [Metas d
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Para obter mais detalhes sobre os limites de pesquisa do Azure, consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Para obter mais detalhes sobre os limites da Pesquisa do Azure, consulte [Limites e restrições](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ## Limites de banco de dados SQL
 
@@ -196,4 +200,4 @@ Para obter mais detalhes sobre os limites do Banco de Dados SQL, consulte os seg
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

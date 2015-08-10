@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Usando a biblioteca de cliente do banco de dados elástico com o Entity Framework 
+# Biblioteca cliente do Banco de Dados Elástico com Entity Framework 
  
 Você pode usar a biblioteca de cliente do banco de dados elástico do Microsoft Entity Framework (EF) para criar aplicativos que aproveitam a fragmentação de banco de dados, facilitando a escala vertical da camada de dados do aplicativo. Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das ferramentas de banco de dados elástico. O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do Entity Framework **Code First**. O tutorial [Code First – Novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução para este documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
   
@@ -53,7 +53,7 @@ Todas essas abordagens contam com a classe DbContext para gerenciar, transparent
 
 ## Suposições sobre ferramentas de banco de dados elástico 
 
-Para definições de termos, consulte o [Glossário de Escala Elástica](sql-database-elastic-scale-glossary.md).
+Para obter definições de termos, consulte o [Glossário de ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-glossary.md).
 
 Com a biblioteca de cliente de banco de dados elástico, você define partições dos seus dados de aplicativo chamados shardlets. Os shardlets são identificados por uma chave de fragmentação e são mapeados para bancos de dados específicos. Um aplicativo pode ter tantos bancos de dados quanto necessários e distribuir shardlets para fornecer capacidade ou desempenho suficientes, considerando os requisitos de negócio atuais. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs de banco de dados elástico. Chamamos essa funcionalidade de **Gerenciamento de Mapa de Fragmentos** ou SMM (abreviada do inglês: Shard Map Management). O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Chamamos essa funcionalidade de **roteamento dependente de dados**.
  
@@ -238,7 +238,7 @@ Com esses pré-requisitos, podemos criar um **SqlConnection** regular não abert
         } 
  
 
-Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (**ElasticScaleContext** no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
+Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (\*\*ElasticScaleContext\*\* no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -281,4 +281,4 @@ Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de ba
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

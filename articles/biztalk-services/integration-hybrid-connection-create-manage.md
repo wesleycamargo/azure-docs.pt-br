@@ -45,8 +45,8 @@ Este tópico lista estas etapas.
 
 	Propriedade | Descrição
 --- | ---
-Nome | O nome da Conexão Híbrida precisa ser único e não pode ser igual ao nome do Serviço do BizTalk. Você pode inserir qualquer nome, mas seja específico quanto à sua finalidade. Os exemplos incluem:<br/><br/>Pagamento*SQLServer*<br/>ListadeSuprimentos*SharepointServer*<br/>Clientes*OracleServer*
-Nome de host | Insira o nome de host totalmente qualificado, somente o nome de host ou, então, o endereço IPv4 do recurso local. Os exemplos incluem:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Nome | O nome da Conexão Híbrida precisa ser único e não pode ser igual ao nome do Serviço do BizTalk. Você pode inserir qualquer nome, mas seja específico quanto à sua finalidade. Os exemplos incluem:<br/><br/>Pagamento\*SQLServer\*<br/>ListadeSuprimentos\*SharepointServer\*<br/>Clientes\*OracleServer\*
+Nome de host | Insira o nome de host totalmente qualificado, somente o nome de host ou, então, o endereço IPv4 do recurso local. Os exemplos incluem:<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*Domain\*.corp.\*yourCompany\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*yourCompany\*.com<br/>10.100.10.10
 Porta | Insira o número da porta no recurso local. Por exemplo, se você estiver usando Aplicativos Web, insira a porta 80 ou 443. Se você estiver usando o SQL Server, insira a porta 1433.
 
 5. Clique na marca de seleção para concluir a configuração.
@@ -125,7 +125,7 @@ Para gerenciar suas Conexões Híbridas, você pode:
 3. No computador que modifica a política de grupo, faça o seguinte: 
 
 	- Copie os arquivos .ADMX para a pasta *%WINROOT%\\PolicyDefinitions*.
-	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\en-us*.
+	- Copie os arquivos .ADML para a pasta *%WINROOT%\\PolicyDefinitions\\pt-br*.
 
 Após tê-los copiado, você pode usar o Editor de políticas de grupo para mudar a política.
 
@@ -146,4 +146,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

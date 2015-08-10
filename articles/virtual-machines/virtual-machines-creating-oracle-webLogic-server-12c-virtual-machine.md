@@ -98,7 +98,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	Clique em **Próximo**.
 
-5.	Selecione I**nstalar essa implantação como um aplicativo** e, em seguida, clique em **Avançar**.
+5.	Selecione I\*\*nstalar essa implantação como um aplicativo\*\* e, em seguida, clique em **Avançar**.
 
 6.	Clique em **Concluir**.
 
@@ -154,7 +154,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	8.	Especifique um nome para a regra e, opcionalmente, uma descrição e depois clique em **Concluir**.
 
-12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<*unique_domain_name*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
+12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<\*unique\_domain\_name\*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
 
 
 ##Recursos adicionais
@@ -168,4 +168,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

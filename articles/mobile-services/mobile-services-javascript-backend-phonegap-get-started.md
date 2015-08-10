@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Serviços Móveis com PhoneGap | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Introdução aos Serviços Móveis do Azure para aplicativos PhoneGap/Cordova"
 	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento em PhoneGap para iOS, Android e Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # Introdução aos Serviços Móveis
@@ -171,4 +171,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

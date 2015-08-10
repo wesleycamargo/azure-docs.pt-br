@@ -99,7 +99,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	2. Na caixa de diálogo **Criar um novo servidor**:
 
-		1. Para **Nome do servidor**, digite o nome do seu primeiro servidor gerenciado. Por exemplo**, MYVM2-MANAGED.**
+		1. Para **Nome do servidor**, digite o nome do seu primeiro servidor gerenciado. Por exemplo\*\*, MYVM2-MANAGED.\*\*
 
 		2. Para **Endereço de escuta do servidor**, digite o nome novamente.
 
@@ -119,7 +119,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 9. Ainda no console de Administração do Servidor WebLogic, clique em **Ativar alterações.**
 
-10. No administrador de Máquina Virtual, crie uma variável de ambiente denominada **SERVER_HOME** com o valor definido para **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver.** Você pode criar uma variável de ambiente usando as seguintes etapas:
+10. No administrador de Máquina Virtual, crie uma variável de ambiente denominada **SERVER\_HOME** com o valor definido para **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver.** Você pode criar uma variável de ambiente usando as seguintes etapas:
 
 	1. Clique em **Windows Iniciar**, digite **Painel de Controle**, clique no ícone **Painel de Controle**, clique em **Sistema e Segurança**, clique em **Sistema** e, em seguida, clique em **Configurações avançadas do sistema**.
 
@@ -127,13 +127,13 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	3. Na seção **Variáveis do sistema**, clique em **Novo** para criar a variável.
 
-	4. Na caixa de diálogo **Nova variável do sistema**, digite **SERVER_HOME** para o nome da variável e digite **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver** para o valor.
+	4. Na caixa de diálogo **Nova variável do sistema**, digite **SERVER\_HOME** para o nome da variável e digite **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver** para o valor.
 
 	5. Clique em **OK** para salvar a nova variável de ambiente e feche a caixa de diálogo **Nova variável do sistema**.
 
 	6. Feche as outras caixas de diálogo que foram abertas pelo painel de controle.
 
-11. Abra um novo prompt de comando (para que a variável de ambiente **SERVER_HOME** entre em vigor).
+11. Abra um novo prompt de comando (para que a variável de ambiente **SERVER\_HOME** entre em vigor).
 
 	>[AZURE.NOTE]Algumas das etapas restantes exigem o uso de um prompt de comando após o logon em suas Máquinas Virtuais. Para habilitar facilmente as Noções básicas sobre qual computador você está conectado, depois de abrir o prompt de comando, execute **title %COMPUTERNAME%.**
 	>
@@ -141,7 +141,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 12. Execute o comando a seguir:
 
-		%SERVER_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar -template_name="mytestdomain" 
+		%SERVER\_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar -template\_name="mytestdomain" 
 
 	Este comando cria um jar chamado **c:\\mytestdomain.jar.** Posteriormente, você copiará este jar para as Máquinas Virtuais gerenciadas em seu cluster.
 
@@ -165,7 +165,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	1. Faça logon na Máquina Virtual.
 
-	2. Crie uma variável de ambiente denominada **SERVER_HOME** com o valor definido para **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver.**
+	2. Crie uma variável de ambiente denominada **SERVER\_HOME** com o valor definido para **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver.**
 
 	3. Copie C:\\mytestdomain.jar da administração de Máquina Virtual para C:\\mytestdomain.jar na Máquina Virtual gerenciada.
 
@@ -173,11 +173,11 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	5. Execute o comando a seguir:
 
-			%SERVER_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar
+			%SERVER\_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar
 
-	6. Altere o diretório atual do prompt de comando para **C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain\\bin.**
+	6. Altere o diretório atual do prompt de comando para **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin.**
 
-	7. Execute start<<*MACHINENAME*>>.cmd, em que <<*MACHINENAME*>> é o nome do computador gerenciado. Por exemplo, **startMYVM2-MANAGED.**
+	7. Execute start<<\*MACHINENAME\*>>.cmd, em que <<\*MACHINENAME\*>> é o nome do computador gerenciado. Por exemplo, **startMYVM2-MANAGED.**
 
 	8. Quando solicitado, forneça o nome de usuário do WebLogic Server e a senha.
 
@@ -196,7 +196,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	4. Marque **Criar um conjunto com balanceamento de carga** e, em seguida, clique em **Concluir**.
 
-	5. Especifique um nome para o balanceamento de carga definido, aceite os padrões para os outros parâmetros e, em seguida, clique em **Concluir. **
+	5. Especifique um nome para o balanceamento de carga definido, aceite os padrões para os outros parâmetros e, em seguida, clique em **Concluir. \*\*
 
 17. Crie um ponto de extremidade para a sua Máquina Virtual:
 
@@ -305,4 +305,4 @@ Agora que você configurou o cluster executando o Oracle WebLogic Server, consul
 
 - [Oracle WebLogic Server 12c usando o Linux no Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

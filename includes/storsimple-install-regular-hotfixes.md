@@ -1,4 +1,3 @@
-
 #### Para instalar hotfixes normais por meio do Windows PowerShell para StorSimple
 
 1. Conecte-se ao console serial do dispositivo. Para obter mais informações, confira [Conectar-se ao console serial](#connect-to-the-serial-console).
@@ -7,12 +6,12 @@
 
 3. No prompt de comando, digite:
 
-     `Start-HcsHotfix` <br/>
+    `Start-HcsHotfix`
 
-     >[AZURE.IMPORTANT]>>-Este comando se aplica somente para hotfixes normais. Executar esse comando em apenas um controlador, mas ambos os controladores serão atualizados. >-Você pode perceber um failover do controlador durante o processo de atualização; no entanto, o failover não afetará a disponibilidade ou operação do sistema.
+       >[AZURE.IMPORTANT]>>-Este comando se aplica somente a hotfixes normais. Você executa esse comando em apenas um controlador, mas ambos os controladores são atualizados. >- Você pode notar um failover do controlador durante o processo de atualização. Porém, o failover não afetará a disponibilidade nem a operação do sistema.
 
 4. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 
 5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

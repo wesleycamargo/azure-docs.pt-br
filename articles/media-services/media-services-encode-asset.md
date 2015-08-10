@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Codificando conteúdo sob demanda com os Serviços de Mídia do Azure
@@ -26,7 +26,7 @@ Os Serviços de Mídia dão suporte aos seguintes codificadores:
 
 - [Media Encoder Standard](#media_encoder_standard)
 - [Codificador de Mídia do Azure](#azure_media_encoder)
-- [Fluxo de trabalho do Media Encoder Premium](#media_encoder_premium_workflow) (visualização pública)
+- [Fluxo de trabalho do Media Encoder Premium](#media_encoder_premium_workflow)
 
 A [seção a seguir](#compare_encoders) compara os recursos de codificação dos codificadores com suporte.
 
@@ -61,7 +61,7 @@ Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal de Geren
 [Codificando sua mídia com Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md): descreve como codificar faixas de áudio usando a codificação Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Fluxo de trabalho do Media Encoder Premium (visualização)
+##<a id="media_encoder_premium_wokrflow"></a>Fluxo de trabalho do Codificador de Mídia Premium 
 
 **Observação** o processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
 
@@ -80,10 +80,10 @@ Codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando **.NET**. 
 
 <table border="1">
 <tr><th>Nome do processador de mídia</th><th>Preços aplicáveis</th><th>Observações</th></tr>
-<tr><td><b>Codificador de Mídia do Microsoft Azure</b></td><td>CODIFICADOR HERDADO</td><td>As tarefas de codificação serão cobradas de acordo com a soma dos tamanhos de ativos de entrada e saída, em GB, a uma taxa especificada <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR HERDADO.</td></tr>
-<tr><td><b>Codificador de Mídia do Azure</b></td><td>CODIFICADOR</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR.</td></tr>
-<tr><td><b>Media Encoder Standard</b></td><td>CODIFICADOR</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR.</td></tr>
-<tr><td><b>Fluxo de trabalho do Media Encoder Premium</b></td><td>CODIFICADOR PREMIUM</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/en-us/pricing/details/media-services/">aqui</a> abaixo da coluna CODIFICADOR PREMIUM.</td></tr>
+<tr><td><b>Codificador de Mídia do Microsoft Azure</b></td><td>CODIFICADOR HERDADO</td><td>As tarefas de codificação serão cobradas de acordo com a soma dos tamanhos de ativos de entrada e saída, em GB, a uma taxa especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR HERDADO.</td></tr>
+<tr><td><b>Codificador de Mídia do Azure</b></td><td>CODIFICADOR</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR.</td></tr>
+<tr><td><b>Media Encoder Standard</b></td><td>CODIFICADOR</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aqui</a>, abaixo da coluna CODIFICADOR.</td></tr>
+<tr><td><b>Fluxo de trabalho do Media Encoder Premium</b></td><td>CODIFICADOR PREMIUM</td><td>As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aqui</a> abaixo da coluna CODIFICADOR PREMIUM.</td></tr>
 </table>
 
 
@@ -107,7 +107,7 @@ Formatos de arquivo/contêiner de entrada
 <tr><td>AVI (8 bits/10 bits descompactado)</td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
 <tr><td>3GPP/3GPP2</td><td>Não</td><td>Sim</td><td>Sim</td></tr>
 <tr><td>Formato de arquivo do Smooth Streaming (PIFF 1.3)</td><td>Não</td><td>Sim</td><td>Sim</td></tr>
-<tr><td><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd692984(v=vs.85).aspx">Gravação (DVR-MS) de vídeo Digital da Microsoft</a></td><td>Não</td><td>Não</td><td>Sim</td></tr>
+<tr><td><a href="https://msdn.microsoft.com/pt-br/library/windows/desktop/dd692984(v=vs.85).aspx">Gravação (DVR-MS) de vídeo Digital da Microsoft</a></td><td>Não</td><td>Não</td><td>Sim</td></tr>
 <tr><td>Matroska/WebM</td><td>Não</td><td>Não</td><td>Sim</td></tr></table>
 
 Codecs de vídeo de entrada
@@ -195,4 +195,4 @@ Codecs de áudio de saída
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

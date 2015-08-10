@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="07/29/2015" 
 	ms.author="femila"/>
 
 
@@ -59,7 +59,7 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Erro: O atributo não tem suportado. | (user.invalidProperty -eq "Valor") | user.department - eq ("valor") Propriedade deve corresponder a um na lista de propriedades com suporte acima. |
 | Erro: Operador não é tem suportada no atributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) A propriedade é do tipo booleano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
-| Erro: Erro de compilação de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") Operador lógico deve corresponder a um na lista de propriedades com suporte acima. (user.userPrincipalName-corresponde a ".*@domain.ext") ou (user.userPrincipalName-correspondência "@domain.ext$") Error na expressão regular. |
+| Erro: Erro de compilação de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") Operador lógico deve corresponder a um na lista de propriedades com suporte acima. (user.userPrincipalName-corresponde a ".\*@domain.ext") ou (user.userPrincipalName-correspondência "@domain.ext$") Error na expressão regular. |
 | Erro: Expressão binária não está no formato correto. | user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") Consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") Consulta tem vários erros. Parênteses não no lugar certo. |
 
@@ -148,9 +148,19 @@ Operadores permitidos
 | otherMails | Um valor de cadeia de caracteres. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP:alias@domainsmtp:alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
-Estes são alguns tópicos que fornecem informações adicionais sobre o Active Directory do Azure
+## Regra de relatórios diretos
+Agora você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
+Para configurar um grupo como "Gerenciador"
+--------------------------------------------------------------------------------
+1. No portal do administrador, clique na guia **Configurar** e selecione **REGRA AVANÇADA**. 
+2. Digite a regra com a seguinte sintaxe: Relatórios diretos para *Relatórios diretos para {UserID\_of\_manager}*
+3. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Observe que pode levar alguns minutos para o preenchimento inicial do grupo. 
 
-* [Solucionando problemas de membros dinâmicos para grupos](active-directory-accessmanagement-troubleshooting.md)
+
+## Informações adicionais
+Estes são alguns tópicos que fornecerão informações adicionais sobre o Active Directory do Azure
+
+* [Solucionando problemas de associações dinâmicas a grupos](active-directory-accessmanagement-troubleshooting.md)
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
@@ -158,4 +168,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

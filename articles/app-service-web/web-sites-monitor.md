@@ -122,25 +122,25 @@ A seção **Diagnóstico de Site** da página de gerenciamento **Configurar** co
 
 Depois de habilitar o diagnóstico para um aplicativo Web, clique no ícone **Salvar** na parte inferior da página de gerenciamento **Configurar** aplicar as opções que você definiu.
 
-> [AZURE.IMPORTANT]Log e rastreamento colocam exigências significativas em um aplicativo Web. É recomendável desativar o registro e o rastreamento depois de reproduzir o(s) problema(s) que você está solucionando.
+> [AZURE.IMPORTANT]Mensagens de erro detalhadas e rastreamento de solicitação falha colocam exigências significativas em um aplicativo Web. É recomendável desativar o registro e o rastreamento depois de reproduzir o(s) problema(s) que você está solucionando.
 
 ### Configuração avançada ###
 
 Diagnóstico pode ser modificado ainda mais adicionando pares de chave/valor à seção **Configurações do aplicativo** da página de gerenciamento **Configurar**. As configurações a seguir podem ser configuradas a partir das **configurações do aplicativo**:
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - O local no qual os logs do aplicativo serão salvos em relação à raiz da web.
 
-- Valor padrão: ..\..\\LogFiles\\Application
+- Valor padrão: ..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - O tamanho máximo do buffer a ser usado ao capturar logs do aplicativo. As informações inicialmente são gravadas no buffer antes de ir para o arquivo ou armazenamento. Se novas informações são gravadas no buffer antes da liberação, você poderá perder informações registradas anteriormente. Se seu aplicativo produz grandes picos de informações de log, considere aumentar o tamanho do buffer.
 
 - Valor padrão: 10 MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - O tamanho máximo da pasta **Application** na qual o diagnóstico do aplicativo gravado em arquivo é armazenado.
 
@@ -277,4 +277,4 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

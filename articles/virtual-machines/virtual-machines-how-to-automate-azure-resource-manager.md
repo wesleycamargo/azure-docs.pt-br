@@ -17,21 +17,22 @@
 	ms.date="07/09/2015"
 	ms.author="davidmu"/>
 
+
 # Como automatizar com o Gerenciador de Recursos do Azure
 
 O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento de aplicativos complexos em execução nos serviços de infraestrutura do Azure. Muitos aplicativos exigem uma combinação de recursos de computação, rede e armazenamento, como rede virtual, conta de armazenamento e máquinas virtuais com interfaces de rede. O Gerenciador de Recursos do Azure permite que você use ou crie um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
 ## Comece por aqui
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
-[Modelos do Gerenciador de Recursos](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
+[Modelos de início rápido do Azure](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
 
 [Estruturas de Aplicativo usando modelos](virtual-machines-app-frameworks.md)
 
-[Implantar e gerenciar usando o Gerenciador de Recursos e a CLI](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+[Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
-[Implantar e gerenciar usando o Gerenciador de Recursos e o PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Implantar e gerenciar máquinas virtuais usando modelos do PowerShell e do Gerenciador de Recursos do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 
 ## Recursos gerais
 
@@ -42,27 +43,28 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 
 ## Rede
 
-[Configurar recursos de rede](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
+[Provedor de recursos de rede](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
 
 ## Automatizar com a CLI do Azure
 
-[Visão geral da CLI do Azure para Mac e Linux](xplat-cli-azure-resource-manager.md)
+[Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md)
 
-[Implantar e gerenciar usando o Gerenciador de Recursos e a CLI](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+[Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
-## Automatizar com o Powershell
+## Automatizar com o Azure PowerShell
 
-[Implantar e gerenciar usando o Gerenciador de Recursos e o PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Implantar e gerenciar máquinas virtuais usando modelos do PowerShell e do Gerenciador de Recursos do Azure](virtual-machines-deploy-rmtemplates-powershell.md)
 
 
 ## Automatizar com o .NET
 
 [Implantar recursos do Azure usando a biblioteca do .NET](virtual-machines-arm-deployment.md)
 
+
 ## Automatizar com a automação do Azure
 
-[Usar a automação do Azure para gerenciar tarefas de VM](automation-manage-virtual-machines.md)
+[Gerenciamento de Máquinas Virtuais do Azure usando a Automação do Azure](automation-manage-virtual-machines.md)
 
 
 
@@ -70,4 +72,4 @@ O Gerenciador de Recursos do Azure simplifica a implantação e o gerenciamento 
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

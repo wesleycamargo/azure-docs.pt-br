@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Consulta de vários fragmentos
 
 ## Visão geral
 
-**Consulta de vários fragmentos** é usada para tarefas, como coleta/relatórios de dados que exigem a execução de uma consulta que se estende por vários fragmentos. (Compare isso ao [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento).
+**Consulta de vários fragmentos** é usada para tarefas, como coleta/relatórios de dados que exigem a execução de uma consulta que se estende por vários fragmentos. (Compare isso ao [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento). Para usar o SQL Server Management Studio, consulte [Introdução à consulta de Banco de Dados Elástico](sql-database-elastic-query-getting-started.md).
 
-A biblioteca de cliente de banco de dados elástico introduz um novo namespace chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query** que fornece a capacidade de consultar vários fragmentos usando consulta e resultado únicos. Ele fornece uma abstração de consulta em uma coleção de fragmentos. Ele também fornece diretivas de execução alternativo, resultados parciais em particular, para lidar com falhas ao consultar sobre vários fragmentos.
+A biblioteca de cliente de banco de dados elástico introduz um novo namespace chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, que fornece a capacidade de consultar vários fragmentos usando consulta e resultado únicos. Ele fornece uma abstração de consulta em uma coleção de fragmentos. Ele também fornece diretivas de execução alternativo, resultados parciais em particular, para lidar com falhas ao consultar sobre vários fragmentos.
 
-O ponto de entrada principal para consultar vários fragmentos é a classe **MultiShardConnection**. Como com roteamento dependente de dados, a API segue a experiência familiar de classes e métodos **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Com a biblioteca do **SqlClient**, a primeira etapa é criar um **SqlConnection**, em seguida, criar um **SqlCommand** para a conexão e executar o comando por meio de um dos métodos **Execute**. Por fim, **SqlDataReader** percorre os conjuntos de resultados retornados da execução do comando. A experiência com a APIs de consulta de vários fragmentos segue estas etapas: 
+O ponto de entrada principal para consultar vários fragmentos é a classe **MultiShardConnection**. Como com roteamento dependente de dados, a API segue a experiência familiar de classes e métodos **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Com a biblioteca **SqlClient**, a primeira etapa é criar uma **SqlConnection**, então criar um **SqlCommand** para a conexão e, por fim, executar o comando por meio de um dos métodos **Execute**. Por fim, **SqlDataReader** itera pelos conjuntos de resultados retornados da execução do comando. A experiência com a APIs de consulta de vários fragmentos segue estas etapas: 
 
 1. Crie um **MultiShardConnection**.
 2. Crie um **MultiShardCommand** para um **MultiShardConnection**.
 3. Execute o comando.
 4. Consuma os resultados por meio de **MultiShardDataReader**. 
 
-Uma diferença importante é a construção de fragmentos várias conexões. Enquanto o **SqlConnection** opera em um banco de dados individual, o **MultiShardConnection** usa um ***conjunto de fragmentos*** como sua entrada. Uma possível preencher a coleção de fragmentos de um mapa do fragmento. A consulta é executada, em seguida, na coleção de fragmentos usando a semântica **UNION ALL** para montar um único resultado geral. Como alternativa, o nome do fragmento que origina a linha pode ser adicionado à saída usando a propriedade **ExecutionOptions** no comando. O código a seguir ilustra o uso da consulta de vários fragmentos usando um determinado **ShardMap** chamado *myShardMap*.
+Uma diferença importante é a construção de fragmentos várias conexões. Enquanto a **SqlConnection** opera em um banco de dados individual, a **MultiShardConnection** usa um ***conjunto de fragmentos*** como sua entrada. Uma possível preencher a coleção de fragmentos de um mapa do fragmento. A consulta então é executada na coleção de fragmentos usando a semântica **UNION ALL** para montar um único resultado geral. Como alternativa, o nome do fragmento que origina a linha pode ser adicionado à saída usando a propriedade **ExecutionOptions** no comando. O código a seguir ilustra o uso da consulta de vários fragmentos usando um determinado **ShardMap** chamado *myShardMap*.
 
     using (MultiShardConnection conn = new MultiShardConnection( 
                                         myShardMap.GetShards(), 
@@ -67,4 +67,4 @@ Consultas de vários fragmentos não verificam se shardlets do banco de dados co
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

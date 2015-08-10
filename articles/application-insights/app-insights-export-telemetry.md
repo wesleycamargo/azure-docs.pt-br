@@ -110,17 +110,7 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
 
 Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
-#### Exportar para SQL
 
-Outra opção é mover os dados para um banco de dados SQL, no qual você pode executar análises mais potentes.
-
-Temos exemplos mostrando dois métodos alternativos de mover os dados do armazenamento de blob para um banco de dados:
-
-* [Exportar para SQL usando uma função de trabalho][exportcode]
-* [Exportar para o SQL usando o Stream Analytics][exportasa]
-
-
-Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
 
 ## <a name="delete"></a>Excluir dados antigos
 Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário.
@@ -134,6 +124,27 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 ![Edite a exportação contínua, abra e feche o destino de exportação.](./media/app-insights-export-telemetry/07-resetstore.png)
 
 A exportação contínua será reiniciada.
+
+## Exportar para o Power BI
+
+O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em elementos visuais variados e avançados, com a capacidade de reunir informações de várias fontes. Você pode transmitir dados de telemetria sobre o desempenho e o uso de seus aplicativos do Application Insights para o Power BI.
+
+[Transmitir Application Insights para o Power BI](app-insights-export-power-bi.md)
+
+![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-telemetry/210.png)
+
+## Exportar para SQL
+
+Outra opção é mover os dados para um banco de dados SQL, no qual você pode executar análises mais potentes.
+
+Temos exemplos mostrando dois métodos alternativos de mover os dados do armazenamento de blob para um banco de dados:
+
+* [Exportar para SQL usando uma função de trabalho][exportcode]
+* [Exportar para o SQL usando o Stream Analytics][exportasa]
+
+
+Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
+
 
 
 ## Perguntas e respostas
@@ -183,4 +194,4 @@ A exportação contínua será reiniciada.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

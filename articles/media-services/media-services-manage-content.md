@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Gerenciar conteúdo com os Serviços de Mídia do Azure usando o Portal de Gerenciamento do Azure
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
 
 Este tópico mostra como usar o Portal de Gerenciamento para gerenciar o conteúdo de mídia em sua conta de serviços de mídia.
 
@@ -37,6 +36,9 @@ Este tópico mostra como executar as seguintes operações de conteúdo diretame
 ##<a id="upload"></a>Como: carregar conteúdo 
 
 
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
+
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia.
 2. Selecione a página CONTEÚDO. 
 3. Clique no botão **Carregar** na página ou na parte inferior do portal. 
@@ -49,13 +51,17 @@ Este tópico mostra como executar as seguintes operações de conteúdo diretame
 
 	![JobStatus][status]
 
-Quando o carregamento for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "**-Source**" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
+Quando o carregamento for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "\*\*-Source\*\*" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
 
 ![ContentPage][contentpage]
 
 Se o valor do tamanho do arquivo não for atualizado depois que o processo de carregamento parar, pressione o botão **Sincronizar Metadados**. Isso sincroniza o tamanho do arquivo do ativo com o tamanho real do arquivo no armazenamento e atualiza o valor na página Conteúdo.
 
 ##<a id="index"></a>Como: indexar conteúdo
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
 
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Você pode indexar seu conteúdo usando o Portal de Gerenciamento, seguindo as etapas demonstradas abaixo. No entanto, se você quiser mais controle sobre quais arquivos e como é feito o trabalho de indexação, você pode usar o SDK dos Serviços de Mídia para .NET ou APIs REST. Para saber mais, consulte [Indexando arquivos de mídia com o Indexador de Mídia do Azure](media-services-index-content.md).
 
@@ -69,6 +75,11 @@ As etapas a seguir demonstram como usar o Portal de gerenciamento para indexar s
 	![Processo][process]
 
 ##<a id="encode"></a>Como: codificar conteúdo
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os Serviços de Mídia oferecem um codificador de mídia que permite que você especifique como deseja que seu conteúdo seja codificado (por exemplo, os codecs para uso, formato de arquivo, resolução e taxa de bits).
 
@@ -88,7 +99,7 @@ Observe que, além de poder usar os recursos de empacotamento dinâmico, unidade
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal de Gerenciamento.
 
 1.  Selecione o arquivo que você deseja codificar. Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
-4. Na caixa de diálogo **Processo**, selecione o **processador do **Codificador de Mídia do Azure.5. Escolha uma das **configurações de codificação**.
+4. Na caixa de diálogo **Processo**, selecione o **processador do \*\*Codificador de Mídia do Azure.5. Escolha uma das **configurações de codificação**.
 
 	![Process2][process2]
 
@@ -131,6 +142,11 @@ Se você desejar para os serviços de mídia criptografar dinamicamente seus ati
 	Uma vez que você habilitou a criptografia, sempre que um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
 ##<a id="publish"></a>Como: publicar conteúdo
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ###Visão geral
 
@@ -198,4 +214,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

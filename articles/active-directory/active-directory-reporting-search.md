@@ -55,4 +55,4 @@ Ainda nem todos os relatórios estão incluídos nos resultados da pesquisa. Est
  - [Relatórios do Active Directory do Azure](active-directory-view-access-usage-reports.md)
  - [Eventos de Auditoria de Relatórios do Active Directory do Azure](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

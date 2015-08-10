@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Erro na Detecção da Autenticação
 
 Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.
 
-###O que está sendo verificado?
+##O que está sendo verificado?
 
 **Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser criado. Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, recrie o projeto e tente novamente.
 
-####Tipos de projeto
+###Tipos de projeto
 
 O assistente verifica o tipo de projeto que você está desenvolvendo para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que deriva de `ApiController` no projeto, será considerado um projeto de API da Web. Se houver apenas os controladores que derivam de `MVC.Controller` no projeto, será considerado um projeto MVC. Qualquer outra coisa é considerada sem suporte pelo assistente. Atualmente, não há suporte para projetos de formulários da Web.
 
-#####Código de autenticação compatível
+###Código de autenticação compatível
 
 O assistente também verifica se as configurações de autenticação configuradas anteriormente com o assistente são compatíveis com ele. Se todas as configurações estiverem presentes, ele é considerado um caso reentrante e o assistente será aberto e exibirá as configurações. Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
 
@@ -45,7 +45,7 @@ Além disso, o assistente verifica qualquer uma das configurações a seguir em 
 	<add key="ida:Tenant" value="" />
 	<add key="ida:Audience" value="" />
 
-#####Código de autenticação incompatível
+###Código de autenticação incompatível
 
 Por fim, o assistente tenta detectar versões do código de autenticação que foram configuradas com versões anteriores do Visual Studio. Se você recebeu esse erro, significa que seu projeto contém um tipo de autenticação incompatível. O assistente detecta os seguintes tipos de autenticação de versões anteriores do Visual Studio:
 
@@ -97,4 +97,4 @@ Para alterar o tipo de autenticação, remova o tipo de autenticação incompat�
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

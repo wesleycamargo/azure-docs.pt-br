@@ -48,7 +48,7 @@ Os seguintes tipos de arquivo são aceitos:
 	
 	![Adicionar lâmina do Trabalho Web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. Em **Nome**, forneça um nome para o Trabalho Web. O nome deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_".
+2. Em **Nome**, forneça um nome para o Trabalho Web. O nome deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "\_".
 	
 4. Na caixa **Como Executar**, escolha **Executado sob Demanda**.
 	
@@ -70,7 +70,7 @@ Os seguintes tipos de arquivo são aceitos:
 	
 > [AZURE.NOTE]Se seu aplicativo Web for executado em mais de uma instância, um Trabalho Web em execução contínua será executado em todas as suas instâncias. Trabalhos Web agendados e sob demanda são executados em uma única instância selecionada para o balanceamento de carga pelo Microsoft Azure.
 	
-> Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
+> Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado\* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
 
 ## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado
 
@@ -209,4 +209,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

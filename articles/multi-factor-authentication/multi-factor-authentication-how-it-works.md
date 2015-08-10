@@ -62,23 +62,23 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 
 Recurso | Multi-Factor Authentication para Office 365 (incluído nas SKUs do Office 365)|A Autenticação Multifator para administradores do Azure (incluída com a assinatura do Azure) | O Multi-Factor Authentication (incluído no Azure AD Premium e Enterprise Mobility Suite) 
 ------------- | :-------------: |:-------------: |:-------------: |
-Os administradores podem proteger contas com a MFA| * | * (Disponível apenas para contas de Administrador do Azure)|*
-Aplicativos móveis como um fator secundário|* | * | *
-Chamada telefônica como um fator secundário|* | * | *
-SMS como um fator secundário|* | * | *
-Senhas de aplicativos para clientes que não oferecem suporte a MFA|* | * | *
-Controle do administrador sobre métodos de autenticação| | | *
-Modo PIN| | | *
-Alerta de fraude| | | *
-Relatórios de MFA| | | *
-Desvio único| | | *
-Saudações personalizadas para chamadas telefônicas| | | *
-Personalização da ID do chamador para chamadas telefônicas| | | *
-Confirmação de evento| | | *
-IPs Confiáveis| | | *
-Suspender MFA para dispositivos lembrados (visualização pública)| | | *
-SDK de MFA| | | *
-MFA para aplicativos locais usando o servidor MFA| | | *
+Os administradores podem proteger contas com a MFA| \* | \* (Disponível apenas para contas de Administrador do Azure)|\*
+Aplicativos móveis como um fator secundário|\* | \* | \*
+Chamada telefônica como um fator secundário|\* | \* | \*
+SMS como um fator secundário|\* | \* | \*
+Senhas de aplicativos para clientes que não oferecem suporte a MFA|\* | \* | \*
+Controle do administrador sobre métodos de autenticação| | | \*
+Modo PIN| | | \*
+Alerta de fraude| | | \*
+Relatórios de MFA| | | \*
+Desvio único| | | \*
+Saudações personalizadas para chamadas telefônicas| | | \*
+Personalização da ID do chamador para chamadas telefônicas| | | \*
+Confirmação de evento| | | \*
+IPs Confiáveis| | | \*
+Suspender MFA para dispositivos lembrados (visualização pública)| | | \*
+SDK de MFA| | | \*
+MFA para aplicativos locais usando o servidor MFA| | | \*
 
 
 ##Como obter o Azure Multi-Factor Authentication
@@ -102,4 +102,4 @@ Escolha o modelo que funciona melhor para sua organização. Depois, para inicia
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

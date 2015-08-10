@@ -28,7 +28,7 @@ Os Ambientes de Serviço de Aplicativo exigem tudo o que se segue para que funci
 
 
 -  Conectividade de rede de saída para recursos de Banco de Dados SQL e Armazenamento do Azure localizados na mesma região que o Ambiente de Serviço de Aplicativo. Esse caminho de rede não pode viajar por meio de proxies corporativos internos, pois ao fazer isso, provavelmente mudaria o endereço NAT efetivo do tráfego de rede de saída. Alterar o endereço NAT do tráfego de rede de saída de um Ambiente de Serviço de Aplicativo direcionado aos pontos de extremidade do Banco de Dados SQL e Armazenamento do Azure causaria falhas de conectividade.
--  A configuração DNS para a rede virtual deve ser capaz de resolver pontos de extremidade nos seguintes domínios controlados pelo Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*. -  A configuração DNS para a rede virtual deve permanecer estável sempre que os Ambientes de Serviço de Aplicativo forem criados, bem como durante a reconfiguração e as mudanças de escala nos Ambientes de Serviço de Aplicativo.   
+-  A configuração DNS para a rede virtual deve ser capaz de resolver pontos de extremidade nos seguintes domínios controlados pelo Azure: **.file.core.windows.net\*, **.blob.core.windows.net\*, **.database.windows.net\*. -  A configuração DNS para a rede virtual deve permanecer estável sempre que os Ambientes de Serviço de Aplicativo forem criados, bem como durante a reconfiguração e as mudanças de escala nos Ambientes de Serviço de Aplicativo.   
 -  O acesso de rede de entrada a portas obrigatórias para Ambientes de Serviço de Aplicativo deve ser permitido, conforme descrito neste [artigo][requiredports].
 
 O requisito de DNS pode ser atendido ao garantir uma configuração DNS válida para a rede virtual.
@@ -111,8 +111,8 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[AzureDownloads]: http://azure.microsoft.com/en-us/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/en-us/download/details.aspx?id=41653
+[AzureDownloads]: http://azure.microsoft.com/downloads/
+[DownloadCenterAddressRanges]: http://www.microsoft.com/pt-br/download/details.aspx?id=41653
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -120,4 +120,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

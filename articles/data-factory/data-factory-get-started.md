@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao uso do Azure Data Factory"
+	pageTitle="Tutorial: Copiar dados de um blob do Azure para o SQL do Azure"
 	description="Este tutorial mostra como criar um pipeline de dados de exemplo que copia dados de um blob para uma instância do banco de dados SQL do Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Introdução ao Data Factory do Azure
+# Tutorial: Copiar dados de um blob do Azure para o SQL do Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -110,4 +110,4 @@ Faça o seguinte:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

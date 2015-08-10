@@ -179,8 +179,13 @@ O que você vê é o que é exportado. Altere o intervalo de tempo ou os filtros
 
 *Exportação funciona somente para Internet Explorer e Chrome no momento. Estamos trabalhando para adicionar suporte a outros navegadores.*
 
+### Exportação Contínua
+
 Se desejar que os dados sejam exportados continuamente para que você possa processá-los externamente, considere usar [Exportação contínua](app-insights-export-telemetry.md).
 
+### Power BI
+
+Se desejar exibições ainda mais avançadas, você pode [exportar para o Power BI](app-insights-export-power-bi.md).
 
 ## Próximas etapas
 
@@ -196,4 +201,4 @@ Se desejar que os dados sejam exportados continuamente para que você possa proc
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -24,7 +24,7 @@ Para usar blobs, primeiro você deve criar uma *conta de armazenamento* do Azure
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
 
-&lt;*Conta do Armazenamento*&gt; será um identificador exclusivo atribuído quando uma nova conta de armazenamento for criada, enquanto &lt;*Contêiner*&gt; e &lt;Nome do Blob*&gt; forem os nomes de um contêiner específico e um blob nesse contêiner.
+&lt;\*Conta do Armazenamento\*&gt; será um identificador exclusivo atribuído quando uma nova conta de armazenamento for criada, enquanto &lt;\*Contêiner\*&gt; e &lt;Nome do Blob\*&gt; forem os nomes de um contêiner específico e um blob nesse contêiner.
 
 O Azure fornece dois tipos diferentes de blobs. As opções são:
 
@@ -181,4 +181,4 @@ Mais amplamente, os dados de todos os tipos são importantes. É por isso que o 
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

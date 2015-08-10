@@ -31,7 +31,7 @@ As estatísticas de coluna única são objetos que contêm informações sobre o
 
 Estatísticas de várias colunas são estatísticas criadas em uma lista de colunas. Elas incluem estatísticas sobre uma única coluna na primeira coluna da lista, além de algumas informações de correlação entre colunas chamadas de densidades. As estatísticas de várias colunas podem melhorar o desempenho de consulta de algumas operações como junções compostas e agrupar por.
 
-Para obter mais detalhes, confira [DBCC SHOW_STATISTICS][] no MSDN.
+Para obter mais detalhes, confira [DBCC SHOW\_STATISTICS][] no MSDN.
 
 ## Por que as estatísticas são necessárias?
 Sem estatísticas adequadas, você não conseguirá o desempenho para o qual o SQL Data Warehouse foi desenvolvido. O SQL Data Warehouse não gera automaticamente estatísticas para tabelas e colunas, portanto você precisa criá-las por conta própria. Convém criá-las durante a criação da tabela e atualizá-las após o preenchimento.
@@ -152,13 +152,13 @@ Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, 
 
 > [AZURE.NOTE]O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
 
-Neste exemplo, o histograma está em *product_category*. As estatísticas entre colunas são calculadas em *product_category* e *product_sub_c\\ategory*:
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub\_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Como há uma correlação entre *product_category* e *product_sub_category*, uma estatística de várias colunas pode ser útil se essas colunas forem acessadas ao mesmo tempo.
+Como há uma correlação entre *product\_category* e *product\_sub\_category*, uma estatística de várias colunas pode ser útil se essas colunas forem acessadas ao mesmo tempo.
 
 ### G. Criar estatísticas em todas as colunas em uma tabela
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H. Use um procedimento armazenado para criar estatísticas em todas as colunas em um banco de dados
 
-O SQL Data Warehouse não tem um procedimento armazenado no sistema equivalente a [sp_create_stats][] no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
+O SQL Data Warehouse não tem um procedimento armazenado no sistema equivalente a [sp\_create\_stats][] no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
 
 Isso ajudará você a começar com o design do banco de dados. Fique à vontade para adaptá-lo às suas necessidades.
 
@@ -325,9 +325,9 @@ Essas exibições do sistema fornecem informações sobre estatísticas:
 | [sys.objects][] | Uma linha para cada objeto no banco de dados. | |
 | [sys.schemas][] | Uma linha para cada esquema no banco de dados. | |
 | [sys.stats][] | Uma linha para cada objeto de estatísticas. |
-| [sys.stats_columns][] | Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
+| [sys.stats\_columns][] | Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
 | [sys.tables][] | Uma linha para cada tabela (inclui tabelas externas). |
-| [sys.table_types][] | Uma linha para cada tipo de dados. |
+| [sys.table\_types][] | Uma linha para cada tipo de dados. |
 
 
 ### Funções de sistema para estatísticas
@@ -335,12 +335,12 @@ Essas funções de sistema são úteis para trabalhar com estatísticas:
 
 | Função de sistema | Descrição |
 | :-------------- | :---------- |
-| [STATS_DATE][] | Data da última atualização do objeto de estatísticas. |
-| [DBCC SHOW_STATISTICS][] | Fornece informações detalhadas e resumidas sobre a distribuição de valores, conforme entendido pelo objeto de estatísticas. |
+| [STATS\_DATE][] | Data da última atualização do objeto de estatísticas. |
+| [DBCC SHOW\_STATISTICS][] | Fornece informações detalhadas e resumidas sobre a distribuição de valores, conforme entendido pelo objeto de estatísticas. |
 
 ### Combinar colunas de estatísticas e funções em uma exibição
 
-Essa exibição une as colunas relacionadas às estatísticas e os resultados da função [STATS_DATE()][].
+Essa exibição une as colunas relacionadas às estatísticas e os resultados da função [STATS\_DATE()][].
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## Exemplos de DBCC SHOW_STATISTICS()
+## Exemplos de DBCC SHOW\_STATISTICS()
 
-DBCC SHOW_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes.
+DBCC SHOW\_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes.
 
 1. Cabeçalho
 2. Vetor de densidade
@@ -402,7 +402,7 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Mostrar uma ou mais partes de DBCC SHOW_STATISTICS();
+### Mostrar uma ou mais partes de DBCC SHOW\_STATISTICS();
 
 Se você só estiver interessado em ver partes específicas, use a cláusula `WITH` e especifique quais partes deseja ver:
 
@@ -416,13 +416,13 @@ Por exemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Diferenças do DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() é implementado mais estritamente no SQL Data Warehouse comparado ao SQL Server.
+## Diferenças do DBCC SHOW\_STATISTICS()
+DBCC SHOW\_STATISTICS() é implementado mais estritamente no SQL Data Warehouse comparado ao SQL Server.
 
 1. Não há suporte para recursos não documentados
-- Não é possível usar Stats_stream
-- Não é possível associar os resultados para subconjuntos específicos de dados de estatísticas, por exemplo, (STAT_HEADER JOIN DENSITY_VECTOR)
-2. NO_INFOMSGS não pode ser definido para a supressão de mensagem
+- Não é possível usar Stats\_stream
+- Não é possível associar os resultados para subconjuntos específicos de dados de estatísticas, por exemplo, (STAT\_HEADER JOIN DENSITY\_VECTOR)
+2. NO\_INFOMSGS não pode ser definido para a supressão de mensagem
 3. Não é possível usar colchetes em nomes de estatísticas
 4. Não é possível usar nomes de coluna para identificar objetos de estatísticas
 5. Não há suporte para o erro personalizado 2767
@@ -440,16 +440,16 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!-- External Links -->
 [Estimativa de cardinalidade]: https://msdn.microsoft.com/library/dn600374.aspx
 [CRIAR ESTATÍSTICAS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Estatísticas]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

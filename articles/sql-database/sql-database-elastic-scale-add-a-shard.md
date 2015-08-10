@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Adicionando um fragmento usando ferramentas de banco de dados elástico
+# Adicionando um fragmento usando ferramentas do Banco de Dados Elástico
 
 ## Para adicionar um fragmento a um novo intervalo ou uma chave  
 
@@ -25,7 +25,7 @@ Geralmente, os aplicativos precisam simplesmente adicionar novos fragmentos para
 Se o novo intervalo de valores de chave já não é parte de um mapeamento existente, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento.
 
 ### Exemplo: adicionar um fragmento e seu intervalo a um mapa de fragmentos existente
-No exemplo a seguir, um banco de dados denominado **sample_shard_2** e todos os objetos de esquema necessários dentro dele foram criados para conter o intervalo [300, 400).
+No exemplo a seguir, um banco de dados denominado **sample\_shard\_2** e todos os objetos de esquema necessários dentro dele foram criados para conter o intervalo [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@ Em algumas circunstâncias, você já mapeou um intervalo para um fragmento e pa
 
 ### Exemplo: dividir um intervalo e atribuir a parte vazia a um fragmento adicionado recentemente
 
-Um banco de dados chamado "sample_shard_2" e todos os objetos de esquema necessários dentro dele foram criados.
+Um banco de dados chamado "sample\_shard\_2" e todos os objetos de esquema necessários dentro dele foram criados.
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@ Um banco de dados chamado "sample_shard_2" e todos os objetos de esquema necess�
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -25,7 +25,7 @@ Se ocorrer uma falha ao tentar instalar o serviço do trabalho de banco de dados
 1. Abra o [portal de visualização do Azure](https://ms.portal.azure.com/).
 2. Navegue até a assinatura que contém o trabalho elástico.
 3. Clique em **Procurar** e clique em **Grupos de recursos**.
-4. Selecione o grupo de recursos chamado "__ElasticDatabaseJob".
+4. Selecione o grupo de recursos chamado "\_\_ElasticDatabaseJob".
 5. Exclua o grupo de recursos.
 
 Como alternativa, use este script do PowerShell:
@@ -58,4 +58,4 @@ Para uma visão geral do serviço de trabalho do banco de dados elástico, confi
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos
@@ -389,7 +389,7 @@ Isso cuida de toda a instalação e configuração inicial. Agora vamos ao motiv
 		
 		module.exports = config;
 
-3. No arquivo **config.js**, atualize os valores de HOST e AUTH_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal de visualização do Microsoft Azure](http://portal.azure.com):
+3. No arquivo **config.js**, atualize os valores de HOST e AUTH\_KEY usando os valores encontrados na lâmina Chaves de sua conta do Banco de Dados de Documentos no [portal de visualização do Microsoft Azure](http://portal.azure.com):
 
 4. Salve e feche o arquivo **config.js**.
  
@@ -559,4 +559,4 @@ O código-fonte para o aplicativo de referência completo pode ser baixado [aqui
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

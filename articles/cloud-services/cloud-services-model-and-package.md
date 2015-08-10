@@ -206,7 +206,7 @@ O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de 
 ###### Local da ferramenta CSPack (no Windows)
 | Versão do SDK | Caminho |
 | ----------- | ---- |
-| 1.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\.NET SDK\\[sdk-version]\\bin\\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
 >[AZURE.NOTE]O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
@@ -269,9 +269,9 @@ Estou usando o Visual Studio e desejo...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/en-us/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/en-us/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/pt-br/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/pt-br/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/en-us/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/pt-br/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

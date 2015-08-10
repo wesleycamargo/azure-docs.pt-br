@@ -36,9 +36,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Selecione **Aplicativos de API** e pesquise “Conector de margem de atraso”.
-3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades: 
-<br/> 
-![][1] 
+3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades: <br/> ![][1] 
 
 4. Clique em **Criar**.
 
@@ -50,21 +48,12 @@ Após criar o conector de margem de atraso, você poderá adicioná-lo como uma 
 
 1.	No aplicativo lógico, abra **Gatilhos e ações**. [Criar um novo aplicativo lógico](app-service-logic-create-a-logic-app.md)
 
-2.	O conector de margem de atraso é listado na galeria do lado direito: 
-<br/> 
-![][2]
+2.	O conector de margem de atraso é listado na galeria do lado direito: <br/> ![][2]
 
 3.	Selecione o conector de margem de atraso criado para adicioná-lo automaticamente ao aplicativo lógico.
-4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**: 
-<br/>
-![][3] 
-![][4] 
-![][5] 
-![][6]
+4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**: <br/> ![][3] ![][4] ![][5] ![][6]
 	
-5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar mensagem está disponível: 
-<br/> 
-![][7]
+5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar mensagem está disponível: <br/> ![][7]
 
 
 Percorramos a experiência “Postagem”. Você pode usar essa ação para postar uma mensagem em qualquer canal de margem de atraso:
@@ -103,4 +92,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

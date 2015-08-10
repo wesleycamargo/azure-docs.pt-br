@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos
@@ -202,7 +202,7 @@ Agora vamos criar o **V** no MVC, as exibições:
 	- Na caixa **Modelo**, selecione ***Lista***.
 	- Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
 	- Deixe a caixa **Classe de contexto de dados** vazia. 
-	- Na caixa da página de layout, digite ***~/Views/Shared/_Layout.cshtml***.
+	- Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
 	
 	![Captura de tela mostrando a caixa de diálogo Adicionar Exibição](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +219,7 @@ Semelhante à criação de uma exibição **Índice de Itens**, criaremos agora 
     - Na caixa **Modelo**, selecione ***Criar***.
     - Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
     - Deixe a caixa **Classe de contexto de dados** vazia.
-    - Na caixa da página de layout, digite ***~/Views/Shared/_Layout.cshtml***.
+    - Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
     - Clique em **Adicionar**.
 
 #### <a name="_Toc395888515"></a>Adicionar uma exibição Editar Item
@@ -233,7 +233,7 @@ E, por fim, adicione uma última exibição para editar um **Item** da mesma man
     - Na caixa **Modelo**, selecione ***Editar***.
     - Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
     - Deixe a caixa **Classe de contexto de dados** vazia. 
-    - Na caixa da página de layout, digite ***~/Views/Shared/_Layout.cshtml***.
+    - Na caixa da página de layout, digite ***\~/Views/Shared/\_Layout.cshtml***.
     - Clique em **Adicionar**.
 
 Feito isso, feche todos os documentos cshtml no Visual Studio, pois voltaremos a essas exibições mais tarde.
@@ -441,13 +441,13 @@ Neste ponto, sua solução deve ser capaz de compilar sem erros.
 
 Se você executou o aplicativo agora, deverá ir para o **HomeController** e para a exibição **Índice** desse controlador. Esse é o comportamento padrão para o projeto do modelo MVC que escolhemos no início, mas não queremos isso! Vamos alterar o roteamento neste aplicativo MVC para alterar seu comportamento.
 
-Abra ***App_Start\\RouteConfig.cs***, encontre a linha que começa com "defaults:" e altere-a para que se pareça com o seguinte.
+Abra ***App\_Start\\RouteConfig.cs***, encontre a linha que começa com "defaults:" e altere-a para que se pareça com o seguinte.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Agora isso informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento que, em vez de **Home**, usa **Item** como controlador e o usuário **Índice** como exibição.
 
-Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\**Item**\\**Índice**.
+Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\\*\*Item\*\*\\\*\*Índice\*\*.
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 
@@ -650,7 +650,7 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 7. Agora você pode [executar o aplicativo localmente](#_Toc395637773) e [implantá-lo nos Sites do Azure](#_Toc395637774).
 
 
-[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

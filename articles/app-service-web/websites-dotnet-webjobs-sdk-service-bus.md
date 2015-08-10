@@ -36,7 +36,7 @@ Os trechos de código mostram apenas funções, não o código que cria o objeto
 
 Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/), além dos pacotes do SDK de Trabalhos Web.
 
-Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento. Você pode fazer isso na seção `connectionStrings` do arquivo Web.config, conforme mostrado no seguinte exemplo:
+Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento. Você pode fazer isso na seção `connectionStrings` do arquivo App.config, conforme mostrado no seguinte exemplo:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@ Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de 
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-Para um projeto de exemplo, consulte [Exemplo de Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). Para obter mais informações, consulte [Comece a usar o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-get-started.md).
+Para um projeto de exemplo que inclui a configuração de cadeia de conexão do Barramento de Serviço no arquivo App.config, consulte [exemplo de Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus).
+
+As cadeias de conexão também podem ser definidas no ambiente de tempo de execução do Azure, que, em seguida, substitui as configurações do App.config quando o WebJob é executado no Azure. Para obter mais informações, consulte [Introdução ao SDK do WebJobs](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
 ## <a id="trigger"></a> Como disparar uma função quando uma mensagem da fila de Barramento de Serviço é recebida
 
@@ -157,4 +159,4 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

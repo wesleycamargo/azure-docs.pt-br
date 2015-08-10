@@ -107,9 +107,9 @@ Para poder enviar notificações por push para um dispositivo iOS do seu aplicat
 
     ![][9]
 
-    Nota: por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado <strong>aps_development.cer</strong>.
+    Nota: por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado <strong>aps\_development.cer</strong>.
 
-7. Clique duas vezes no certificado de push baixado, **aps_development.cer**.
+7. Clique duas vezes no certificado de push baixado, **aps\_development.cer**.
 
     Isso instalará o novo certificado no Conjunto de Chaves, conforme mostrado abaixo:
 
@@ -266,7 +266,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 	
 	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone do sinal de adição (**+**).
+2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone do sinal de adição (\*\*+\*\*).
 
 3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
 
@@ -324,12 +324,12 @@ Este tutorial foi concluído com êxito.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Provisionamento do dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
@@ -340,4 +340,4 @@ Este tutorial foi concluído com êxito.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

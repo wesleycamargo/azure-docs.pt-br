@@ -236,4 +236,4 @@ Você viu como instalar, configurar e testar um conector de SaaS. Para obter mai
 [Portal Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

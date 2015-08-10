@@ -103,7 +103,7 @@ Depois que a VM concluir o provisionamento, faça SSH na VM usando o endereço I
 
 >[AZURE.IMPORTANT]Neste momento, é recomendável que você não aplique as atualizações de kernel, que podem causar problemas com os drivers de RDMA do Linux.
 
-**Intel MPI** - Baixe e instale o tempo de execução do Intel MPI Library 5.0 do [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/). Depois de se registrar na Intel, siga o link no email de confirmação até a página da Web relacionada e copie o link de download para o arquivo .tgz para obter a versão apropriada do Intel MPI.
+**Intel MPI** - Baixe e instale o tempo de execução do Intel MPI Library 5.0 do [site Intel.com](https://software.intel.com/pt-br/intel-mpi-library/). Depois de se registrar na Intel, siga o link no email de confirmação até a página da Web relacionada e copie o link de download para o arquivo .tgz para obter a versão apropriada do Intel MPI.
 
 Execute comandos semelhantes ao seguinte para instalar o Intel MPI na VM:
 
@@ -137,7 +137,7 @@ Salve a chave pública em um local padrão e lembre a senha inserida.
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-No diretório /.ssh, edite ou crie o arquivo ssh_config. Forneça o intervalo do endereço IP da rede privada que você usará no Azure:
+No diretório \~/.ssh, edite ou crie o arquivo ssh\_config. Forneça o intervalo do endereço IP da rede privada que você usará no Azure:
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 É possível executar os seguintes comandos do Intel MPI para verificar a configuração do cluster usando um parâmetro de comparação pingpong.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 Você verá um resultado semelhante ao seguinte em um cluster em funcionamento com dois nós:
@@ -339,6 +337,6 @@ Você verá um resultado semelhante ao seguinte em um cluster em funcionamento c
 
 * Tente implantar e executar os aplicativos Linux MPI no cluster do Linux.
 
-* Consulte a [Documentação do Intel MPI Library](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
+* Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-br/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

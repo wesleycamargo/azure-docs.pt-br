@@ -81,7 +81,7 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 ## Grupos de segurança de rede
 Qualquer NIC em uma máquina virtual pode ser associada a um grupo de segurança de rede (NSG), incluindo todas as NICs de uma VM que seja habilitada para várias NICs. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
 
-Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na "**ordem de fluxo**" de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
+Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na "\*\*ordem de fluxo\*\*" de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
 
 - O **tráfego de entrada **cujo destino é a NIC em questão flui primeiro pela sub-rede, acionando as regras do NSG da sub-rede, antes de passar para a NIC, quando serão acionadas as regras do NSG da NIC.- O **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede. 
 
@@ -248,8 +248,4 @@ Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 
 Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
 
-## Próximas etapas
-
-- Saiba mais sobre o uso de [várias NICs de VM e dispositivos VNet no Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

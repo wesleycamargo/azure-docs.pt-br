@@ -45,7 +45,7 @@ Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciam
 
 Se você usa um utilitário que utiliza configurações de publicação ou perfil de publicação, importe o arquivo que contém as configurações de publicação ou o perfil para o utilitário e **exclua** o arquivo. Se você precisar manter o arquivo para compartilhar com outros que trabalhem no projeto, por exemplo, armazene-o em um local seguro, como um diretório **criptografado** com permissões restritas.
 
-Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **PowerShell do Azure** e a **Interface de linha de comando do Azure (CLI do Azure)** ambos armazenam informações importadas no seu **diretório base** (*~* em sistemas Linux ou OS X e */users/yourusername* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
+Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **PowerShell do Azure** e a **Interface de linha de comando do Azure (CLI do Azure)** ambos armazenam informações importadas no seu **diretório base** (\*\~\* em sistemas Linux ou OS X e */users/yourusername* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
 
 ### Definições de configuração e cadeias de conexão
 É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações.
@@ -86,4 +86,4 @@ Para obter informações sobre como registrar em log informações de aplicativo
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

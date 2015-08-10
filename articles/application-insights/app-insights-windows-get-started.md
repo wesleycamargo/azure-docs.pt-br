@@ -35,7 +35,7 @@ Você precisará de:
 * Uma assinatura do [Microsoft Azure][azure].
 * Visual Studio 2013 ou posterior.
 
-## 1. Criar um recurso do Application Insights 
+## 1\. Criar um recurso do Application Insights 
 
 No [Portal do Azure][portal], crie um novo recurso do Application Insights.
 
@@ -50,7 +50,7 @@ A chave identifica o recurso. Você precisará dela em breve, para configurar o 
 ![Abrir a gaveta de lista suspensa do Essentials e selecione a chave de instrumentação](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Adicionar o SDK do Application Insights aos seus aplicativos
+## 2\. Adicionar o SDK do Application Insights aos seus aplicativos
 
 No Visual Studio, adicione o SDK adequado ao seu projeto.
 
@@ -66,18 +66,20 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 
 3. Escolha **Application Insights para Aplicativos do Windows**
 
-4. Adicione um arquivo ApplicationInsights.config à raiz da sua solução e insira a chave de instrumentação copiada acima. Veja abaixo um exemplo de xml para esse arquivo de configuração. **Não se esqueça de marcar Ação de Compilação do arquivo ApplicationInsights.config como “Conteúdo” e Copiar no Diretório de Saída como “Copiar sempre”**.
+4. Adicione um arquivo ApplicationInsights.config à raiz do seu projeto e insira a chave de instrumentação copiada do portal. Veja abaixo um exemplo de xml para esse arquivo de configuração.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Defina as propriedades do arquivo ApplicationInsights.config: **Ação de Compilação** == **Conteúdo** e **Copiar para o Diretório de Saída** == **Copiar sempre**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Adicione o código de inicialização a seguir. É recomendável adicionar este código ao construtor `App()`. Se essa inicialização não foi feita no construtor do aplicativo, você poderá perder a coleta automática inicial das exibições de página.
+5. Adicione o código de inicialização a seguir. É melhor adicionar este código ao construtor `App()`. Se você fizer isso em outro lugar, poderá perder coleta automática das primeiras exibições de página.
 
 ```C#
 	public App()
@@ -90,7 +92,7 @@ Se for um aplicativo Windows Universal, repita as etapas tanto para o projeto do
 	}  
 ```
 
-**Aplicativos Universais do Windows**: repita as etapas para o projeto Phone e Store. [Exemplo de um aplicativo Universal do Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+**Aplicativos universais do Windows**: repita as etapas para o projeto Phone e Store. [Exemplo de um aplicativo universal do Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Habilitar o acesso à rede para seu aplicativo
 
@@ -141,7 +143,7 @@ O SDK do Application Insights inclui vários coletores, que coletam tipos difere
 
 #### Enviar seus próprios dados de telemetria
 
-Use a [API][api] para enviar dados de eventos, métricas e diagnóstico ao Application Insights. Em resumo:
+Use a [API][api] para enviar dados de eventos, métricas e diagnóstico para o Application Insights. Em resumo:
 
 ```C#
 
@@ -194,7 +196,7 @@ Adicione o Application Insights por meio do Gerenciador de Soluções.
 
 ## Para atualizar para uma nova versão do SDK
 
-Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): * clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. * Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
+Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): \* clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. \* Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
 
 
 ## <a name="usage"></a>Próximas etapas
@@ -227,4 +229,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

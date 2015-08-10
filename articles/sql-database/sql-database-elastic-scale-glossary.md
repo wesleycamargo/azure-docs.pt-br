@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#Glossário de ferramentas de banco de dados elástico
+# Glossário de ferramentas do banco de dados elástico
 Os seguintes termos são definidos para as ferramentas de banco de dados elásticos, um recurso do Banco de Dados SQL do Azure. As ferramentas incluem a biblioteca de cliente, a ferramenta de divisão/mesclagem, pools elásticos e consultas.
 
 ![Termos de escala elástica][1]
@@ -80,4 +80,4 @@ Os seguintes termos são definidos para as ferramentas de banco de dados elásti
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

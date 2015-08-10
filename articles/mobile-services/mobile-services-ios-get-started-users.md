@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Neste tutorial, você adiciona a autenticação ao [tutorial de início rápido dos Serviços Móveis] usando um provedor de identidade com suporte. Você deve concluir o [tutorial de início rápido dos Serviços Móveis] primeiro.
+Neste tutorial, você adiciona a autenticação ao [tutorial de início rápido dos Serviços Móveis] usando um provedor de identidade com suporte.
+
+Recomendamos que você conclua o [tutorial de início rápido dos Serviços Móveis] primeiro. Como alternativa, basta baixar o projeto de início rápido do iOS: clique no Portal do Azure > **Serviços Móveis** > seu serviço móvel > o sinal de nuvem na parte superior esquerda > **iOS** > **Criar um Novo Aplicativo iOS** > **Baixar e executar o aplicativo** > **Objective-C** > **Baixar**. Lembre-se de clicar em **Criar Tabela TodoItem** antes de clicar em **Baixar** se ainda não tiver criado a tabela.
 
 ##<a name="register"></a>Registrar o aplicativo para autenticação
 
@@ -82,4 +84,4 @@ Em seguida, aprenda [como usar o valor da ID de usuário para filtrar dados reto
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -44,7 +44,7 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo:
 
-* Em um projeto MVC ASP.NET, você deve colocá-lo em View\\Shared\_Layout.cshtml
+* Em um projeto MVC ASP.NET, você deve colocá-lo em View\\Shared\\\_Layout.cshtml
 * Em um site do SharePoint, no painel de controle, abra [Configurações do Site/Página Mestra](app-insights-sharepoint.md).
 
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights.
@@ -137,7 +137,7 @@ Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
 Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "..." para ver mais detalhes.
 
-> [AZURE.NOTE]Se você usar [Pesquisar][diagnostic], observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
+> [AZURE.NOTE]Se você usar [Pesquisar][diagnostic], observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr\*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "\*obr" não corresponde a "Sobre".
 
 > [Saiba mais sobre pesquisa de diagnóstico][diagnostic]
 
@@ -149,7 +149,8 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 
 Quer saber o que os usuários fazem com seu aplicativo? Inserindo chamadas em seu código de cliente e servidor, você pode enviar sua própria telemetria ao Application Insights. Por exemplo, você pode descobrir o número de usuários que criam pedidos sem concluí-los ou quais erros de validação ocorrem com mais frequência, ou ainda a pontuação média em um jogo.
 
-[Saiba mais sobre os eventos personalizados e métricas de API][track].
+* [Saiba mais sobre os eventos personalizados e métricas de API][track].
+* [Referência de API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Telemetria do servidor
 
@@ -177,8 +178,8 @@ Se ainda não tiver feito isso, você poderá obter percepções de seu servidor
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -81,23 +81,10 @@ Considere as seguintes variáveis:
 
 Por exemplo, se você presumir um tamanho de carregamento diário de 100 KB por agente e o período de arquivamento padrão, precisará do armazenamento a seguir para o grupo de gerenciamento:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Número de agentes</b></td>
-		<td><b>Espaço estimado necessário para o grupo de gerenciamento</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2,5 MB (5 agentes x 100 KB dados/dia x 5 dias = 2.500 KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25 MB (50 agentes x 100 KB dados/dia x 5 dias = 25.000 KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+Número de agentes|Espaço estimado necessário para o grupo de gerenciamento
+---|---
+5|\~2,5 MB (5 agentes x 100 KB dados/dia x 5 dias = 2.500 KB)
+50|\~25 MB (50 agentes x 100 KB dados/dia x 5 dias = 25.000 KB)
 
 ## Contas Executar como do Operations Manager para Insights Operacionais
 
@@ -228,4 +215,4 @@ Use as etapas a seguir para definir a conta ao conectar o Insights Operacionais 
 
 Se você deseja analisar os dados dos servidores em diferentes localizações geográficas, considere ter um grupo de gerenciamento por local. Isso pode melhorar o desempenho de transferência de dados do agente para o grupo de gerenciamento.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

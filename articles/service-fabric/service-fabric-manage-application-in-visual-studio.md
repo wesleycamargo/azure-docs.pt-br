@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="07/22/2015"
    ms.author="jesseb"/>
 
 # Gerenciando aplicativos da Malha do Serviço no Visual Studio
@@ -34,13 +34,8 @@ A implantação de um aplicativo da Malha do Serviço combina as etapas a seguir
 4. Remover as instâncias de aplicativo em execução
 5. Criar uma nova instância do aplicativo
 
-No Visual Studio, a implantação é feita clicando com o botão direito do mouse no aplicativo da Malha do Serviço, no **Gerenciador de Soluções**, e clicando em **Implantar**. Pressionar **F5** também implanta seu aplicativo e anexa o depurador a todas as instâncias do aplicativo.
+No Visual Studio, você pode implantar um aplicativo escolhendo Deploy Solution no menu Build. Pressionar **F5** também implanta seu aplicativo e anexa o depurador a todas as instâncias do aplicativo.
 
-A implantação pode ser removida usando **Remover Implantação**. Isso reverterá as etapas de implantação acima.
-
-1. Remover as instâncias de aplicativo em execução
-2. Cancelar o registro do tipo de aplicativo
-3. Remover o pacote de aplicativo do repositório de imagens
 
 ## Adicionando um serviço ao aplicativo da Malha do Serviço
 
@@ -60,6 +55,16 @@ O novo serviço será adicionado à solução e ao pacote de aplicativo existent
 
 Um pacote de aplicativo precisa ser criado para implantação do aplicativo e seus serviços em um cluster. O pacote organiza o manifesto do aplicativo, os manifestos do serviço e outros arquivos necessários em um layout específico. O Visual Studio configura e gerencia o pacote na pasta do projeto do aplicativo, no diretório 'pkg'. Clicar em **Pacote** cria ou atualiza o pacote de aplicativo. Convém fazer isso se você implantar o aplicativo usando scripts personalizados do PowerShell.
 
+## Removendo um aplicativo
+
+Você pode remover um aplicativo do cluster local usando o Gerenciador de Servidores. Isso reverterá as etapas de implantação descritas acima:
+
+1. Remover as instâncias de aplicativo em execução
+2. Cancelar o registro do tipo de aplicativo
+3. Remover o pacote de aplicativo do repositório de imagens
+
+![Remover um aplicativo](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
@@ -73,6 +78,5 @@ Um pacote de aplicativo precisa ser criado para implantação do aplicativo e se
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -94,14 +94,14 @@ Volte para o [Portal do Azure][portal] e navegue até o seu recurso do Applicati
 
 Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
 
-![Clique por mais dados](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
+![Clique para obter mais dados](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
 Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc\~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
 #### Não há dados?
 
@@ -126,9 +126,9 @@ Faça logon no servidor com direitos de administrador e instale o [Application I
 
 #### Se seu aplicativo for um Aplicativo Web do Azure
 
-No painel de controle do seu Aplicativo Web do Azure, adicione a extensão do Application Insights.
+No painel de controle do Aplicativo Web do Azure, adicione a extensão do Application Insights.
 
-![Em seu aplicativo Web, Configurações, Extensões, Adicionar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Em seu aplicativo Web, Ferramentas, Monitoramento de desempenho, Adicionar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
 (A extensão apenas ajuda um aplicativo que foi criado com o SDK. Ao contrário do Status Monitor, ela não pode instrumentar um aplicativo existente.)
 
@@ -142,7 +142,7 @@ Você também poderá escrever seu próprio código para rastrear como os usuár
 
 Se seu aplicativo exibir páginas da Web, adicione um trecho de JavaScript a cada página. Obtenha o código do recurso Application Insights:
 
-![Em seu aplicativo Web, abra Início Rápido e clique em 'Obter código para monitorar as minhas páginas da web'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![Em seu aplicativo Web, abra Início Rápido e clique em “Obter código para monitorar minhas páginas na Web”](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 Observe que o código contém a chave de instrumentação que identifica o recurso de aplicativo.
 
@@ -231,4 +231,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

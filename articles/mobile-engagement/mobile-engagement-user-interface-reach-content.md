@@ -50,7 +50,7 @@ Qualquer URL que possa ser interpretada pelo sistema operacional de destino do d
 
 - **Ações do Android + iOS**
     - Abrir uma página Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Exemplo:http://www.azure.com
     - Enviar um email
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -74,7 +74,7 @@ Qualquer URL que possa ser interpretada pelo sistema operacional de destino do d
     - Exemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Ações do Windows
     - Abrir uma página Web
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - Exemplo:http://www.azure.com
     - Enviar um email
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -230,4 +230,4 @@ A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em disposit
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

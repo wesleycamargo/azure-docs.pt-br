@@ -57,10 +57,17 @@ No diagrama acima:
 - Como o VIP público do Ambiente de Serviço de Aplicativo é 192.23.1.2, esse é o endereço IP de saída usado ao fazer chamadas para pontos de extremidade de "Internet".
 - O intervalo CIDR da sub-rede contida para o Ambiente de Serviço de Aplicativo é 10.0.1.0/26. Outros pontos de extremidade na mesma infraestrutura de rede virtual verá chamadas de aplicativos como originados de algum lugar dentro desse intervalo de endereços.
 
-## Informações e links adicionais ##
-Os detalhes sobre portas de entrada usadas pelos Ambientes de Serviço de Aplicativo e como usar grupos de segurança de rede para controlar o tráfego de entrada estão disponíveis [aqui][controllinginboundtraffic].
+## Chamadas entre Ambientes de Serviço de Aplicativo ##
+Um cenário mais complexo pode ocorrer se você implantar vários Ambientes de Serviço de Aplicativo na mesma rede virtual e fizer chamadas de saída de um Ambiente de Serviço de Aplicativo para outro. Esses tipos de chamadas entre Ambientes de Serviço de Aplicativo também serão tratadas como chamadas de "Internet".
 
-Detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à Internet de saída aos Ambientes de Serviço de Aplicativo estão disponíveis neste [artigo][ExpressRoute].
+Como um exemplo usando o Ambiente de Serviço de Aplicativo acima com o endereço IP de saída 192.23.1.2: se um aplicativo em execução no Ambiente de Serviços de Aplicativo faz uma chamada de saída para um aplicativo em execução em um segundo Ambiente de Serviço de Aplicativo localizado na mesma rede virtual, as chamadas de saída que chegam ao segundo Ambiente de Serviço de Aplicativo serão mostradas como originárias de 192.23.1.2 (ou seja, não o intervalo de endereços de sub-rede do primeiro Ambiente de Serviço de Aplicativo).
+
+Embora chamadas entre diferentes Ambientes de Serviço de Aplicativo sejam tratadas como chamadas de "Internet", quando ambos os Ambientes de Serviço de Aplicativo estão localizados na mesma região do Azure, o tráfego de rede permanece na rede regional do Azure e não flui fisicamente para a Internet pública. Como resultado, você pode usar um grupo de segurança de rede na sub-rede do segundo Ambiente de Serviço de Aplicativo para permitir somente chamadas de entrada de 192.23.1.2, garantindo assim a comunicação segura entre os Ambientes de Serviço de Aplicativo.
+
+## Informações e links adicionais ##
+Os detalhes sobre as portas de entrada usadas pelos Ambientes de Serviço de Aplicativo e como usar grupos de segurança de rede para controlar o tráfego de entrada estão disponíveis [aqui][controllinginboundtraffic].
+
+Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à Internet de saída aos Ambientes de Serviço de Aplicativo estão disponíveis neste [artigo][ExpressRoute].
 
 
 <!-- LINKS -->
@@ -72,4 +79,4 @@ Detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à I
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

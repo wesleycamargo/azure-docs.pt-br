@@ -24,4 +24,4 @@
 
 ![Entradas de dispositivos possivelmente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

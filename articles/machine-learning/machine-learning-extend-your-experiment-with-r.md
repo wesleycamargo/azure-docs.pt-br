@@ -272,7 +272,7 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 | lmPerm | Testes de permuta para modelos lineares |
 | lmtest | Teste de modelos de regressão linear |
 | locfit | Estimativa de densidade, regressão local e probabilidade |
-| lpSolve | Interface pata Lp_solve v. 5.5 para resolver programas lineares/inteiros |
+| lpSolve | Interface pata Lp\_solve v. 5.5 para resolver programas lineares/inteiros |
 
 
 ###Módulos R iniciados por M a R
@@ -503,4 +503,4 @@ Para obter a lista completa dos pacotes que estão disponíveis atualmente, cons
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

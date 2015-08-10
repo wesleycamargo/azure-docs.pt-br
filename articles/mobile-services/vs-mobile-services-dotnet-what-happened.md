@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
 > - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
-###<span id="whathappened">O que aconteceu com meu projeto?</span>
+###O que aconteceu com meu projeto?</span>
 
 #####Referências adicionadas
 
@@ -45,4 +45,4 @@ Se um serviço móvel .NET foi criado no Provedor de Serviço Conectado, um proj
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

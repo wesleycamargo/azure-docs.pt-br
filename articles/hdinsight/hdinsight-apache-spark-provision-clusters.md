@@ -126,7 +126,7 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blob do
 	<tr><td>Habilitar área de trabalho remota para o cluster</td>
 		<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
 	<tr><td>Inserir como metastore do Hive/Oozie</td>
-		<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído. Para obter instruções sobre como criar um metastore, consulte <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-database-get-started/" target="_blank">Criar seu primeiro banco de dados SQL do Azure</a>.</td></tr>
+		<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído. Para obter instruções sobre como criar um metastore, consulte <a href="https://azure.microsoft.com/pt-br/documentation/articles/sql-database-get-started/" target="_blank">Criar seu primeiro banco de dados SQL do Azure</a>.</td></tr>
 	</td></tr>
 </table>>[AZURE.NOTE]O banco de dados SQL do Azure usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No painel do banco de dados SQL do Azure, no lado direito, clique no nome do servidor. Esse é o servidor no qual a instância do banco de dados SQL está sendo executada. Quando estiver na exibição do servidor, clique em **Configurar** e em **Windows** **Azure Services**, clique em **Sim** e em **Salvar**.
 
@@ -497,4 +497,4 @@ Enquanto o aplicativo estiver aberto no Visual Studio, pressione **F5** para exe
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

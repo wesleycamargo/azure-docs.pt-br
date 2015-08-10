@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Introdução aos Serviços Confiáveis da Malha de Serviços do Microsoft Azure
@@ -30,14 +30,18 @@ Neste tutorial, você implementará um serviço sem estado e um serviço com est
 
 Vamos começar com um serviço sem estado.
 
-Inicie o Visual Studio 2015 RC como **Administrador** e crie um novo projeto de **Serviço Sem Estado da Malha de Serviços** chamado *HelloWorld*:
+Inicie o Visual Studio 2015 RC como **Administrador** e crie um novo projeto de **Aplicativo da Malha de Serviços** chamado *HelloWorld*:
 
-![Use a caixa de diálogo Novo Projeto para criar um novo serviço sem estado da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Use a caixa de diálogo Novo Projeto para criar um Aplicativo da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Você verá dois projetos na solução criada:
+Em seguida, crie um projeto de **Serviço sem Estado** chamado *HelloWorldStateless*:
 
- + **HelloWorldApplication** Este é o projeto de *aplicativo* que contém seus *serviços*. Ele também contém o manifesto do aplicativo que descreve o aplicativo e diversos scripts do PowerShell que ajudam a implantar seu aplicativo.
- + **HelloWorld** Esse é o projeto de serviço, que contém a implementação do serviço sem estado.
+![Na segunda caixa de diálogo, crie um serviço sem estado](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Agora, sua solução contém 2 projetos:
+
+ + **HelloWorld** Este é o projeto de *aplicativo* que contém seus *serviços*. Ele também contém o manifesto do aplicativo que descreve o aplicativo e diversos scripts do PowerShell que ajudam a implantar seu aplicativo.
+ + **HelloWorldStateless** Esse é o projeto de serviço, que contém a implementação do serviço sem estado.
 
 
 ## Implementar o serviço
@@ -88,7 +92,7 @@ A plataforma chama esse método quando uma instância do serviço é realizada e
 - O sistema pode percorrer as instâncias de seu serviço para obter o balanceamento de recursos.
 - Ocorreram falhas em seu código.
 - Durante as atualizações do aplicativo ou do sistema.
-- Quando o hardware subjacente sofrer uma interrupção. 
+- Quando o hardware subjacente sofrer uma interrupção.
 
 Essa orquestração é gerenciada pelo sistema a fim de manter seu serviço altamente disponível e devidamente balanceado.
 
@@ -155,7 +159,7 @@ As Coleções Confiáveis podem armazenar qualquer tipo .NET - incluindo seus ti
  1. A Malha de Serviços torna seu estado altamente disponível *replicando* estado entre nós e armazenando-os no disco local. Isso significa que tudo que é armazenado em uma Coleção Confiável deve ser *serializável*. Por padrão, as Coleções Confiáveis usam [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para serialização, então é importante assegurar que seus tipos sejam [suportados pelo Serializador de Contrato de Dados](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) ao usar o serializador padrão.
 
  2. Os objetos são replicados para alta disponibilidade quando você confirma uma transação em uma Coleção Confiável. Objetos armazenados em Coleções Confiáveis são mantidos na memória local em seu serviço, o que significa que você tem uma referência local ao objeto.
- 
+
     É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na Coleção Confiável em uma transação, pois essas alterações não serão replicadas automaticamente.
 
 O *StateManager* cuida do gerenciamento de Coleções Confiáveis para você. Basta solicitar ao StateManager uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço e ele garante que você obterá uma referência. Não é recomendável salvar referências às instâncias de Coleção Confiável em propriedades ou variáveis membro de classe, pois cuidado especial deve ser tomado para garantir que a referência seja definida como uma instância durante todo o ciclo de vida do serviço. O StateManager faz esse trabalho para você, otimizado para visitas repetidas.
@@ -199,6 +203,5 @@ Quando os serviços estão em execução, você pode ver os eventos ETW gerados 
 [Gerenciar um serviço da Malha de Serviços](service-fabric-manage-your-service-index.md)
 
 [Referência do desenvolvedor para Serviços Confiáveis](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

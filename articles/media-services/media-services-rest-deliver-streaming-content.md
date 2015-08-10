@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Como fornecer conteúdo de Streaming
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##Visão geral
 
 
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Antes de criar um localizador, você deve configurar a política de entrega de ativos conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico.
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico[ Codificando um ativo](media-services-rest-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador.
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
 
@@ -37,7 +40,7 @@ A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são 
 Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
 
 
-   1. Definir uma política de acesso.
+   1. Se o conteúdo for criptografado, defina uma política de acesso.
    2. Criar um localizador de streaming sob demanda.
    3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo. 
    		
@@ -175,4 +178,4 @@ exemplo:
         OnDemandOrigin = 2,
     } 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

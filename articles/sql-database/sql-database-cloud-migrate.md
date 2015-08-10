@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Migração para o banco de dados SQL do Azure" 
+   pageTitle="Migrando um banco de dados para o Banco de Dados SQL do Azure" 
    description="Banco de Dados SQL do Microsoft Azure, implantação de banco de dados, migração de banco de dados, banco de dados de importação, exportação de banco de dados, assistente de migração" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,8 @@
    ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-# Visão geral
+# Migrando um banco de dados para o Banco de Dados SQL do Azure
+
 O banco de dados SQL Azure V12 oferece compatibilidade de mecanismo quase completa com o SQL Server 2014. Como tal, ele simplifica drasticamente a tarefa de migrar a maioria dos bancos de dados do SQL Server para o banco de dados SQL do Azure. A migração para vários bancos de dados é uma operação de movimentação simples que requer poucas alterações no esquema e pouca ou nenhuma reengenharia de aplicativos. E onde os bancos de dados precisam ser alterados, o escopo dessas alterações é mais restrito.
 
 Por projeto, os recursos com escopo de servidor do SQL Server não são suportados pelo banco de dados SQL, de forma que os bancos de dados e aplicativos que dependem deles ainda precisarão de alguma reengenharia antes que possam ser migrados. Embora banco de dados SQL V12 melhore a compatibilidade com o SQL Server, a migração ainda precisa ser planejada e executada com cuidado, especialmente para bancos de dados maiores e mais complexos.
@@ -81,4 +82,4 @@ Use as [o SQL Server Data Tools mais recente para Visual Studio](https://msdn.mi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

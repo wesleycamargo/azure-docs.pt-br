@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 
@@ -215,7 +215,7 @@ As seguintes etapas criam o Banco de Dados SQL do Azure para o qual os dados ser
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Observe o nome do servidor retornado por este comando (**i1qwc540ts**no exemplo acima). Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**. No exemplo acima, o FQDN seria **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Observe o nome do servidor retornado por este comando (\*\*i1qwc540ts\*\*no exemplo acima). Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**. No exemplo acima, o FQDN seria **i1qwc540ts.database.windows.net**.
 
 2. Use o seguinte comando para criar um banco de dados denominado **oozietest** no servidor de Banco de Dados SQL:
 
@@ -276,7 +276,7 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 
 1. Use o seguinte comando para obter o endereço completo do WASB para o armazenamento padrão. Isto será usado no arquivo de configuração em breve:
 
-		sed -n '/<name>fs.default/,/</value>/p' /etc/hadoop/conf/core-site.xml
+		sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
 
 	Isso deve retornar informações semelhantes a estas:
 
@@ -383,7 +383,7 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 
 1. Use o seguinte para obter a URL para o serviço do Oozie:
 
-		sed -n '/<name>oozie.base.url/,/</value>/p' /etc/oozie/conf/oozie-site.xml
+		sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
 
 	Isso retornará um valor semelhante ao seguinte:
 
@@ -622,7 +622,7 @@ A seguir estão os erros específicos que podem ser encontrados e como resolvê-
 
 ###JA009: não é possível inicializar o cluster
 
-**Sintomas**: o status do trabalho será alterado para **SUSPENSO**. Detalhes do trabalho mostrarão o status de RunHiveScript como **START_MANUAL**. Selecionar a ação revelará a seguinte mensagem de erro:
+**Sintomas**: o status do trabalho será alterado para **SUSPENSO**. Detalhes do trabalho mostrarão o status de RunHiveScript como **START\_MANUAL**. Selecionar a ação revelará a seguinte mensagem de erro:
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -632,7 +632,7 @@ A seguir estão os erros específicos que podem ser encontrados e como resolvê-
 
 ###JA002: Oozie não tem permissão para representar &lt;USER>
 
-**Sintomas**: o status do trabalho será alterado para **SUSPENSO**. Detalhes do trabalho mostrarão o status de RunHiveScript como **START_MANUAL**. Selecionar a ação revelará a seguinte mensagem de erro:
+**Sintomas**: o status do trabalho será alterado para **SUSPENSO**. Detalhes do trabalho mostrarão o status de RunHiveScript como **START\_MANUAL**. Selecionar a ação revelará a seguinte mensagem de erro:
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -686,7 +686,6 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -704,7 +703,6 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -715,7 +713,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/pt-br/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +723,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

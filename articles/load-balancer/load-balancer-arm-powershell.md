@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criação de um balanceador de carga usando o gerenciador de recursos do Azure | Microsoft Azure"
+   pageTitle="Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure | Microsoft Azure"
    description="Como criar regras para um balanceador de carga, regras de NAT, teste para o gerenciador de recursos do Azure. Passo a passo mostra o processo de ponta a ponta para criar um recurso de balanceador de carga."
    services="load-balancer"
    documentationCenter="na"
@@ -12,29 +12,35 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Como criar um balanceador de carga usando o gerenciador de recursos do Azure
+# Introdução à configuração de um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure
 
-As etapas a seguir mostram como criar um balanceador de carga usando o gerenciador de recursos do Azure com o PowerShell. Com o Gerenciador de recursos do Azure, os itens para criar um balanceador de carga são configurados individualmente e, em seguida, colocados juntos para criar um recurso.
+
+> [AZURE.SELECTOR]
+- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+
+As etapas a seguir mostram como criar um balanceador de carga para a Internet usando o gerenciador de recursos do Azure com o PowerShell. Com o Gerenciador de Recursos do Azure, os itens para criar um balanceador de carga para a Internet são configurados individualmente e, em seguida, colocados juntos para criar um recurso.
 
 Nesta página, abordaremos a sequência de tarefas individuais que precisam ser realizadas para a criação de um balanceador de carga e explicaremos em detalhes o que está sendo feito para atingir o objetivo de criar um balanceador de carga.
 
 
-## O que é necessário para criar um balanceador de carga?
+## O que é necessário para criar um balanceador de carga para a Internet?
 
 Os itens a seguir devem ser configurados antes da criação de um balanceador de carga:
 
-- Configuração de IP front-end 
+- Configuração do IP de front-end - adicionará um endereço IP público ao pool de IPs do front-end balancear a carga do tráfego de rede de entrada. 
 
-- Pool de endereços de back-end
+- Pool de endereços de back-end - configurará as interfaces de rede que receberão o tráfego com balanceamento de carga proveniente do pool de IPs de front-end.
 
-- Regras de balanceamento de carga
+- Regras de balanceamento de carga - configuração de porta local e de origem para o balanceador de carga.
 
-- Investigações
+- Investigações - configura a investigação de status de integridade para instâncias de Máquina Virtual.
 
-- Regras NAT de entrada
+- Regras NAT de entrada - configura as regras de porta para acessar diretamente uma das instâncias de Máquina Virtual.
 
 É possível obter mais informações sobre componentes do balanceador de carga com o gerenciador de recursos do Azure em [Suporte do Gerenciador de Recursos do Azure para balanceador de carga](load-balancer-arm.md).
 
@@ -235,7 +241,7 @@ PS C:> $backendnic1
 
 Use o comando Add-AzureVMNetworkInterface para atribuir o NIC a uma máquina virtual.
 
-Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir a um NIC de acordo com a documentação [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir a um NIC de acordo com a documentação [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
 
 
 ## Consulte também
@@ -245,4 +251,4 @@ Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

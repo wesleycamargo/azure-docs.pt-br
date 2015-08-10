@@ -28,7 +28,7 @@ Se seu aplicativo web do ASP.NET usar o estado de sessão, você precisará conf
 Seguir [estas instruções](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) para criar o cache.
 
 ##<a id="configureproject"></a>Adicionar o pacote NuGet RedisSessionStateProvider em seu aplicativo Web
-Instalar o pacote `RedisSessionStateProvider` NuGet. Utilize o seguinte comando para instalar do console do gerenciador de pacotes (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
+Instalar o pacote `RedisSessionStateProvider` NuGet. Utilize o seguinte comando para instalar do console do gerenciador de pacotes (\*\*Ferramentas\*\* > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -108,4 +108,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

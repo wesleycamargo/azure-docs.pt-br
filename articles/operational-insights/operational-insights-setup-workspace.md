@@ -50,7 +50,7 @@ Cada espaço de trabalho pode ter várias contas de usuário associadas e cada c
 
 ## Atualizar o espaço de trabalho para um plano pago
 
-Há três tipos de plano de espaço de trabalho para as Informações Operacionais: **Gratuito**, **Standard** e **Premium**. Se você estiver usando um plano *gratuito*, poderá ter atingido o limite de dados de 500 MB. Você precisará atualizar seu espaço de trabalho para um '**plano pré-pago**' para coletar dados além desse limite. A qualquer momento, você pode converter seu tipo de plano. Para obter mais informações sobre os preços das Informações Operacionais, consulte [Detalhes dos Preços](http://azure.microsoft.com/pricing/operational-insights/)
+Há três tipos de plano de espaço de trabalho para as Informações Operacionais: **Gratuito**, **Standard** e **Premium**. Se você estiver usando um plano *gratuito*, poderá ter atingido o limite de dados de 500 MB. Você precisará atualizar seu espaço de trabalho para um '\*\*plano pré-pago\*\*' para coletar dados além desse limite. A qualquer momento, você pode converter seu tipo de plano. Para obter mais informações sobre os preços das Informações Operacionais, consulte [Detalhes dos Preços](http://azure.microsoft.com/pricing/operational-insights/)
 
 >[AZURE.IMPORTANT]Os planos do espaço de trabalho podem ser alterados apenas se eles estiverem *vinculados* a uma assinatura do Azure. Se você criou seu espaço de trabalho no Azure ou se *já* vinculou seu espaço de trabalho, poderá ignorar essa mensagem. Se você criou seu espaço de trabalho a partir do [opinsights.azure.com](http://opinsights.azure.com), precisará seguir as etapas em [Vincular um espaço de trabalho existente a uma assinatura do Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -180,4 +180,4 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 
 3. Clique em **Fechar espaço de trabalho**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

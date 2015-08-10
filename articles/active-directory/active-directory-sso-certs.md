@@ -80,4 +80,4 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 
 [Acesso a aplicativos e logon único no AD do Azure](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -67,11 +67,11 @@ Sua organização pode usar o AD do Azure para melhorar a produtividade dos func
 
 ## Como posso começar?
 -	Se você for um administrador de TI:
- - [Experimente!](https://azure.microsoft.com/en-us/pricing/free-trial/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
+ - [Experimente!](https://azure.microsoft.com/pt-br/pricing/free-trial/) - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
  - Leia nossa "Introdução ao AD do Azure" para obter dicas e truques sobre como colocar um locatário do AD do Azure em funcionamento rapidamente
 -	Se você for um desenvolvedor:
  - Confira nosso [Guia de Desenvolvedores](https://msdn.microsoft.com/library/azure/ff800682.aspx) para o Active Directory do Azure<need link>
- - [Inicie uma avaliação](https://azure.microsoft.com/en-us/pricing/free-trial/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo com o AD do Azure 
+ - [Inicie uma avaliação](https://azure.microsoft.com/pt-br/pricing/free-trial/) – inscreva-se em uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seu aplicativo com o AD do Azure 
 
 
 
@@ -92,4 +92,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 - [Utilize a nuvem para aprimorar e monitorar os sistemas de identidade locais](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Plataforma baseada em padrão avançado para desenvolvedores](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

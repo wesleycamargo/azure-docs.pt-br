@@ -47,8 +47,8 @@ A CLI do Azure é acessada usando o comando `azure`. Para ver uma lista de coman
 
 	info:             _    _____   _ ___ ___
 	info:            /_\  |_  / | | | _ \ __|
-	info:      _ ___/ _ __/ /| |_| |   / _|___ _ _
-	info:    (___  /_/ _/___|___/|_|____| _____)
+	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
@@ -252,9 +252,7 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 
 ## Recursos adicionais
 
-* [Lista de comandos de Gerenciamento de Serviços detalhados][Using the Azure CLI]
-
-* [Usando a CLI do Azure para Mac, Linux e Windows](cli-cli-azure-resource-manager)
+* [Usando a CLI do Azure com o Gerenciador de Serviços][Using the Azure CLI]
 
 * [Usando a CLI do Azure com o Gerenciamento de Recursos][cliarm]
 
@@ -283,4 +281,4 @@ Se estiver escrevendo um script que dependa do status da saída, verifique se os
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

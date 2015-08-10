@@ -1,22 +1,10 @@
 
-Primeiro, você precisa registrar o aplicativo em um provedor de identidade no respectivo site e, em seguida, defina essas credenciais no seu serviço móvel.
+* Clique em Portal do Azure > **Serviços Móveis** > seu serviço móvel > **Painel** e anote o valor da **URL de Serviço Móvel**.
 
-1. No [Portal de Gerenciamento do Azure], navegue até seu serviço móvel, clique em **Painel** e anote o valor de **URL do Serviço Móvel**.
+* Registre seu aplicativo no [Google](mobile-services-how-to-register-google-authentication.md), [Facebook](mobile-services-how-to-register-facebook-authentication.md), [Twitter](mobile-services-how-to-register-twitter-authentication.md), [Microsoft](mobile-services-how-to-register-microsoft-authentication.md) ou [Active Directory do Azure](mobile-services-how-to-register-active-directory-authentication.md). Anote os valores de identidade do cliente e segredo do cliente gerados pelo provedor. Não distribua nem compartilhe o segredo do cliente.
 
-2. Registre seu aplicativo em um dos seguintes provedores de identidade com suporte.
+* Clique em Portal do Azure > **Serviços Móveis** > seu serviço móvel > **Identidade** > configurações de seu provedor de identidade. Insira a ID do aplicativo e o valor secreto de seu provedor. Você configurou seu aplicativo e o serviço móvel para funcionar com seu provedor de autenticação. Opcionalmente, você pode repetir todas essas etapas para cada provedor de identidade adicional ao qual deseja dar suporte.
 
-	* [Google](mobile-services-how-to-register-google-authentication.md)
-	* [Facebook](mobile-services-how-to-register-facebook-authentication.md)
-	* [Twitter](mobile-services-how-to-register-twitter-authentication.md)
-	* [Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
-	* [Active Directory do Azure](mobile-services-how-to-register-active-directory-authentication.md).  
-	
-    >[AZURE.IMPORTANT]Não se esqueça de definir corretamente o URI de redirecionamento para o serviço móvel no site do desenvolvedor do provedor de identidade. Como descrito nas instruções vinculadas de cada provedor acima, o caminho da URL de redirecionamento é diferente para um serviço móvel de back-end .NET (`/signin-<provider>`) em comparação com um serviço móvel de back-end JavaScript (`/login/<provider>`). Um URI de redirecionamento configurado incorretamente impede o cliente de entrar no aplicativo. <br/>Não distribua nem compartilhe o segredo do cliente.
+    > [AZURE.IMPORTANT]Verifique se você definiu o URI de redirecionamento correto no site de desenvolvedores do provedor de identidade. Conforme descrito nas instruções vinculadas para cada provedor acima, o URI de redirecionamento pode ser diferente para um serviço de back-end do .NET em comparação com um serviço de back-end do JavaScript. Um URI de redirecionamento configurado incorretamente pode fazer com que a tela de logon não seja exibida corretamente e que o aplicativo funcione incorretamente de maneiras inesperadas.
 
-3. De volta ao serviço móvel no [Portal de Gerenciamento do Azure], clique na guia **Identidade** e insira os valores do segredo e da ID do aplicativo que você acabou de obter do provedor de identidade.
-
-Agora que você configurou o aplicativo e o serviço móvel para oferecer suporte a um provedor de identidade para autenticação, é possível repetir essas etapas para adicionar suporte a mais provedores de identidade.
-
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

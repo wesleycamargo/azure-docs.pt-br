@@ -172,9 +172,9 @@ A primeira etapa é criar um projeto de aplicativo Web. O Visual Studio criará 
 
 		Pode reduzir os tempos de aquecimento da primeira solicitação para aplicativos grandes.
 
-	* Exclua os arquivos da pasta App_Data.
+	* Exclua os arquivos da pasta App\_Data.
 
-		Para teste, algumas vezes você tem um arquivo de banco de dados de SQL Server na pasta App_Data que você não deseja implantar na produção.
+		Para teste, algumas vezes você tem um arquivo de banco de dados de SQL Server na pasta App\_Data que você não deseja implantar na produção.
 
 11. Na guia **visualização**, clique em **Iniciar Visualização**.
 
@@ -316,4 +316,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

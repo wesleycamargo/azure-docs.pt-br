@@ -162,9 +162,9 @@ Para poder enviar notificações por push para um aplicativo iOS dos serviços m
 
     ![][9]
 
-    Nota: por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado <strong>aps_development.cer</strong>.
+    Nota: por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado <strong>aps\_development.cer</strong>.
 
-7. Clique duas vezes no certificado de push baixado, **aps_development.cer**.
+7. Clique duas vezes no certificado de push baixado, **aps\_development.cer**.
 
     Isso instalará o novo certificado no Conjunto de Chaves, conforme mostrado abaixo:
 
@@ -689,7 +689,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 	>[AZURE.NOTE]Neste tutorial, o serviço móvel envia uma notificação de toast ao dispositivo. Ao enviar uma notificação de bloco, você deve chamar o método **BindToShellTile** no canal.
 
-4. Na parte superior do manipulador de eventos **Application_Launching** no App.xaml.cs, adicione a seguinte chamada para o novo método **AcquirePushChannel**:
+4. Na parte superior do manipulador de eventos **Application\_Launching** no App.xaml.cs, adicione a seguinte chamada para o novo método **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -697,7 +697,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 5. Pressione a tecla **F5** para executar o aplicativo. Uma caixa de diálogo pop-up com a chave do registro é exibida.
   
-6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se o recurso **ID_CAP_PUSH_NOTIFICATION** está marcado.
+6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se o recurso **ID\_CAP\_PUSH\_NOTIFICATION** está marcado.
 
    	![Habilitar notificações no VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -847,4 +847,4 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Exemplo completo da notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

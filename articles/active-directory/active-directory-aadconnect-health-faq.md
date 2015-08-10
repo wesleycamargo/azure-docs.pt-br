@@ -40,12 +40,12 @@ O impacto da instalação do agente de integridade de identidade Microsoft nos s
 
 Os números a seguir são uma aproximação.
 
-- O consumo da CPU: ~ 1% de aumento
+- O consumo da CPU: \~ 1% de aumento
 - Consumo de memória: 10% da memória total do sistema
-- Uso de largura de banda de rede: ~ 1 MB / 1000 das solicitações de ADFS
+- Uso de largura de banda de rede: \~ 1 MB / 1000 das solicitações de ADFS
 >[AZURE.NOTE]
 
-- Armazenamento de buffer local para o agente de integridade do AD: ~ 20 MB
+- Armazenamento de buffer local para o agente de integridade do AD: \~ 20 MB
 - Armazenamento de dados necessário para o canal de auditoria
 
 
@@ -104,6 +104,9 @@ Selecionar Avançada, SE você tiver portas de proxy diferente de HTTP e HTTPS/S
 Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não é suportado.
 
 
+
+
+
 ## Perguntas de operações
 
 
@@ -125,4 +128,4 @@ Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. 
 
 Você precisará ter as portas TCP/UDP 80 e 443 abertas para o agente do Azure AD Connect Health poder se comunicar com os pontos de extremidade de serviço de integridade do AD do Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

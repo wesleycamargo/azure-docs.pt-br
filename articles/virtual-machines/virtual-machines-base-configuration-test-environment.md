@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="Ambiente de teste de configuração básica" 
-	description="Aprenda a criar um ambiente de desenvolvimento/teste simples que simule uma intranet simplificada no Microsoft Azure." 
+<properties
+	pageTitle="Ambiente de teste de configuração básica"
+	description="Aprenda a criar um ambiente de desenvolvimento/teste simples que simule uma intranet simplificada no Microsoft Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Ambiente de teste de configuração básica
 
-Este artigo apresenta instruções passo a passo para criar o ambiente de teste com a configuração de base em uma Rede Virtual do Microsoft Azure, usando máquinas virtuais criadas no Gerenciamento de Serviços.
+Este artigo apresenta instruções passo a passo para criar o ambiente de teste com a configuração de base em uma Rede Virtual do Azure, usando máquinas virtuais criadas no Gerenciamento de Serviços.
 
 Você pode usar o ambiente de teste resultante:
 
 - Para testes e desenvolvimento de aplicativos.
-- O [ambiente de nuvem híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
-- E estendê-lo com máquinas virtuais e serviços do Azure adicionais para um ambiente de teste com seu próprio projeto.
- 
-O ambiente de teste de Configuração de Base consiste na sub-rede Corpnet em uma Rede Virtual do Azure somente de nuvem denominada TestLab, que simula uma intranet simplificada e privada conectada à Internet.
+- Para o [ambiente de nuvem híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- Para estendê-lo com máquinas virtuais e serviços do Azure adicionais para um ambiente de teste com seu próprio projeto.
+
+O ambiente de teste Configuração de Base consiste na sub-rede Corpnet em uma rede virtual do Azure somente de nuvem denominada TestLab, que simula uma intranet simplificada e privada conectada à Internet.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
@@ -39,34 +39,39 @@ Ele contém:
 
 Essa configuração permite que os computadores DC1, APP1, CLIENT1 e computadores adicionais da sub-rede Corpnet sejam:
 
-- Conectados à Internet para instalar atualizações, acessar recursos da Internet em tempo real e participar de tecnologias de nuvem pública, como o Microsoft Office 365 e outros serviços do Azure. 
-- Gerenciados remotamente usando Conexões de Área de Trabalho Remota de seu computador que está conectado à Internet ou à rede de sua organização. 
+- Conectados à Internet para instalar atualizações, acessar recursos da Internet em tempo real e participar de tecnologias de nuvem pública, como o Microsoft Office 365 e outros serviços do Azure.
+- Gerenciados remotamente usando Conexões de Área de Trabalho Remota de seu computador que está conectado à Internet ou à rede de sua organização.
 
 Há quatro fases para configurar a sub-rede Corpnet do ambiente de teste de Configuração de Base do Windows Server 2012 R2 no Azure.
 
-1.	Criar a Rede Virtual do Azure.
-2.	Configurar o DC1. 
-3.	Configurar o APP1. 
+1.	Crie a rede virtual.
+2.	Configurar o DC1.
+3.	Configurar o APP1.
 4.	Configurar o CLIENT1.
 
 Se ainda não tiver uma conta do Azure, você poderá se inscrever para obter uma avaliação gratuita em [Experimentar o Azure](http://azure.microsoft.com/pricing/free-trial/). Se tiver uma assinatura do MSDN, consulte [Benefício do Azure para assinantes do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]As máquinas virtuais no Azure incorrem em um custo monetário contínuo quando estão em execução. Esse custo é cobrado em sua avaliação gratuita, assinatura do MSDN ou assinatura paga. Para obter mais informações sobre os custos da execução de máquinas virtuais do Azure, consulte [Detalhes de preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/) e [Calculadora de preços do Azure](http://azure.microsoft.com/pricing/calculator/). Para reduzir os custos, consulte [Minimizando os custos de máquinas de virtuais do ambiente de teste no Azure](#costs).
 
-## Fase 1: criar a rede Virtual do Azure
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
-Primeiro, crie a Rede Virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base.
+- [Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
+
+## Fase 1: Criar a rede virtual
+
+Primeiro, crie a rede virtual TestLab do Azure que hospedará a sub-rede Corpnet da configuração de base.
 
 1.	Na barra de tarefas do Portal de Gerenciamento do Azure, clique em **Novo > Serviços de Rede > Rede Virtual > Criação Personalizada**.
 2.	Na página Detalhes da Rede Virtual, digite **TestLab** em **Nome**.
 3.	Em **Local**, selecione a região apropriada.
 4.	Clique na seta Avançar.
 5.	Na página Servidores DNS e Conectividade de VPN, em **Servidores DNS**, digite **DC1** em **Selecionar ou digitar o nome**, digite **10.0.0.4** em **Endereço IP** e, em seguida, clique na seta Avançar.
-6.	Na página Espaços de Endereço de Rede Virtual, em **Sub-redes**, clique em **Subnet-1** e substitua o nome por **Corpnet**. 
+6.	Na página Espaços de Endereço de Rede Virtual, em **Sub-redes**, clique em **Subnet-1** e substitua o nome por **Corpnet**.
 7.	Na coluna **CIDR (Contagem de Endereços)** da sub-rede Corpnet, clique em **/24 (256)**.
 8.	Clique no ícone Concluído. Aguarde a rede virtual ser criada antes de continuar.
 
-Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Abra um prompt de comando do PowerShell do Azure.
+Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md) para instalar o PowerShell do Azure no computador local. Abra um prompt de comando do Azure PowerShell.
 
 Primeiro, selecione a assinatura correta do Azure com estes comandos. Substitua tudo o que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
@@ -79,7 +84,7 @@ Em seguida, crie um serviço de nuvem do Azure. O serviço de nuvem age como um 
 
 Você deve escolher um nome exclusivo para seu serviço de nuvem. *O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.*
 
-Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
+Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-\*UniqueSequence\*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
 
 Você pode testar a exclusividade do nome com este comando do PowerShell do Azure.
 
@@ -115,8 +120,8 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 	$serviceName="<your cloud service name>"
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC1."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image 
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
+	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel "AD" -LUN 0 -HostCaching None
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4
@@ -125,11 +130,11 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 Em seguida, conecte-se à máquina virtual DC1.
 
 1.	No Portal de Gerenciamento do Azure, clique em **Máquinas Virtuais** no painel esquerdo e clique em **Iniciado** na coluna **Status** para a máquina virtual DC1.  
-2.	Na barra de tarefas, clique em **Conectar**. 
+2.	Na barra de tarefas, clique em **Conectar**.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\**[nome da conta do administrador local]
+- Nome: **DC1\\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -154,17 +159,17 @@ Em seguida, configure DC1 como um controlador de domínio e servidor DNS para o 
 Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 
 1.	Na página de máquinas virtuais do Portal de Gerenciamento do Azure, clique em **Em execução** na coluna **Status** da máquina virtual DC1.
-2.	Na barra de tarefas, clique em **Conectar**. 
+2.	Na barra de tarefas, clique em **Conectar**.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\**[nome da conta do administrador local]
+- Nome: **CORP\\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
 Em seguida, crie uma conta de usuário no Active Directory que será usada ao fazer logon em computadores membros do domínio CORP. Execute estes comandos, um de cada vez, em um prompt de comando do Windows PowerShell com nível de administrador.
- 
-	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false 
+
+	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Observe que o primeiro comando resulta em um prompt para fornecer a senha da conta User1. Como essa conta será usada para conexões de área de trabalho remota para todos os computadores membros do domínio CORP, escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre a senha da conta User1 e armazene-a em um local seguro.
@@ -189,7 +194,7 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for APP1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
@@ -222,7 +227,7 @@ Primeiro, preencha o nome de seu serviço de nuvem e execute estes comandos no p
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for CLIENT1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
@@ -233,7 +238,7 @@ Para verificar a comunicação de rede e a resolução de nomes entre CLIENT1 e 
 
 Verifique se que você pode acessar recursos Web e de compartilhamento de arquivos em APP1 por meio de CLIENT1.
 
-1.	No Gerenciador de Servidores, no painel de árvore, clique em **Servidor Local**. 
+1.	No Gerenciador de Servidores, no painel de árvore, clique em **Servidor Local**.
 2.	Em **Propriedades para CLIENT1**, clique em **Ativado** ao lado de **Configuração de Segurança Aprimorada do IE**.
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
@@ -253,13 +258,14 @@ A configuração básica no Azure agora está pronta para desenvolvimento e test
 
 [Ambientes de teste de nuvem híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
- 
+[Ambiente de teste Configuração de Base com o Gerenciador de Recursos do Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
 ## <a id="costs"></a>Minimizando os custos de máquinas virtuais do ambiente de teste no Azure
 
 Para minimizar o custo da execução de máquinas virtuais no ambiente de teste, você pode fazer o seguinte:
 
 - Crie o ambiente de teste e execute seus testes e demonstrações necessários o mais rápido possível. Ao concluir, exclua as máquinas virtuais do ambiente de teste.
-- Desligue as máquinas virtuais do ambiente teste para um estado desalocado. 
+- Desligue as máquinas virtuais do ambiente teste para um estado desalocado.
 
 Para desligar as máquinas virtuais com o PowerShell do Azure, preencha o nome do serviço de nuvem e execute estes comandos.
 
@@ -273,7 +279,7 @@ Para garantir que suas máquinas virtuais funcionem corretamente ao iniciar toda
 
 1.	DC1
 2.	APP1
-3.	CLIENT1 
+3.	CLIENT1
 
 Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha o nome do serviço de nuvem e execute estes comandos.
 
@@ -281,6 +287,5 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

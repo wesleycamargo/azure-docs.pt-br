@@ -63,4 +63,4 @@ Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilit
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

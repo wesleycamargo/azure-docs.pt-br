@@ -28,7 +28,7 @@ Este tópico explica o processo de criação de uma rede virtual entre locais us
 
 Estas tabelas geralmente são preenchidas em um tópico que descreve a configuração de uma carga de trabalho de TI no Azure e inclui uma rede virtual entre locais. Consulte [Fase 1: Configurar o Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) para obter um exemplo.
 
-O procedimento a seguir faz referência às informações nessas tabelas a fim de orientar você durante o processo de configuração da rede virtual no Gerenciamento de Serviço. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar a configurar uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+O procedimento a seguir faz referência às informações dessas tabelas para orientar você durante o processo de configuração da rede virtual. Se você ainda não tiver especificado as configurações nessas tabelas em outro tópico, mas quiser continuar configurando uma rede virtual entre locais, consulte [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar a Rota Expressa do Azure para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -65,6 +65,6 @@ O procedimento a seguir faz referência às informações nessas tabelas a fim d
 
 [Tarefas de configuração da rede virtual](https://msdn.microsoft.com/library/jj156206.aspx)
 
-[Configurar uma conexão site a site entre locais para uma rede virtual do Azure](https://msdn.microsoft.com/library/dn133795.aspx)
+[Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

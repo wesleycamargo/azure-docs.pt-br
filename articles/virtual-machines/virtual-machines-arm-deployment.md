@@ -1,12 +1,20 @@
-<properties pageTitle="Implante recursos do Azure usando as bibliotecas .NET de computação, rede e armazenamento" description="Aprenda a usar alguns dos clientes disponíveis nas bibliotecas .NET de computação, armazenamento e rede para criar e excluir recursos no Microsoft Azure" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET"
+	description="Saiba como usar alguns dos clientes disponíveis nas bibliotecas de computação, armazenamento e rede do .NET para criar e excluir recursos no Microsoft Azure."
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET
@@ -19,7 +27,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
 - [PowerShell do Azure](../install-configure-powershell.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
@@ -338,7 +346,7 @@ Agora que você criou todos os recursos de suporte, você pode criar uma máquin
           }
         }
 
-	>[AZURE.NOTE]Os nomes vhd de imagem são alterados regularmente na galeria de imagens, portanto, você precisa obter um nome de imagem atual para implantar a máquina virtual. Para fazer isso, confira [Gerenciar imagens do Windows usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), e substitua {nome-imagem-origem} pelo nome do arquivo vhd que você deseja usar. Por exemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]Os nomes vhd de imagem são alterados regularmente na galeria de imagens, portanto, você precisa obter um nome de imagem atual para implantar a máquina virtual. Para fazer isso, confira [Gerenciar imagens do Windows usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), e substitua {nome-imagem-origem} pelo nome do arquivo vhd que você deseja usar. Por exemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Substitua {id-assinatura} pelo identificador da sua assinatura.
 
@@ -380,4 +388,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

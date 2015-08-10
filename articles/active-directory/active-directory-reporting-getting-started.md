@@ -156,4 +156,4 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 
 > [AZURE.TIP]Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

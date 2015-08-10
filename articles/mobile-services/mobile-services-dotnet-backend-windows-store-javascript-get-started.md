@@ -21,13 +21,16 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+##Visão geral
 Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo universal do Windows usando os Serviços Móveis do Azure. Neste tutorial, você criará um novo serviço móvel e um aplicativo simples de *Tarefas pendentes* em HTML e JavaScript que armazena dados do aplicativo no novo serviço móvel. O serviço móvel que você cria usa as linguagens do .NET com suporte usando o Visual Studio para a lógica de negócios do lado do servidor e para gerenciar o serviço móvel. Para criar um serviço móvel que permita que você escreva a lógica de negócios do lado do servidor em JavaScript, consulte Versão do JavaScript neste tópico.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
+##Pré-requisitos
+
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Uma versão de avaliação gratuita está disponível.
 
 
@@ -68,26 +71,22 @@ Nesta seção, você criará um novo aplicativo universal do Windows conectado a
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<ol start="4">
-<li><p>No projeto do código compartilhado, abra o arquivo default.js, localize o código que cria uma instância de <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a>, comente o código que cria esse cliente usando <em>localhost</em> e remova o comentário do código que cria o cliente usando a URL de serviço móvel remoto, de maneira semelhante à seguinte:</p>
+&nbsp;&nbsp;4. No projeto do código compartilhado, abra o arquivo default.js, localize o código que cria uma instância de [WindowsAzure.MobileServiceClient](http://msdn.microsoft.com/library/azure/jj554219.aspx), comente o código que cria esse cliente usando *localhost* e remova o comentário do código que cria o cliente usando a URL de serviço móvel remoto, de maneira semelhante à seguinte:
 
-        <pre><code>var client = new WindowsAzure.MobileServiceClient(
-            "https://todolist.azure-mobile.net/",
-            "XXXXXX-APPLICATION-KEY-XXXXXX"
-        );</code></pre>
+	var client = new WindowsAzure.MobileServiceClient(
+	    "https://todolist.azure-mobile.net/",
+	    "XXXXXX-APPLICATION-KEY-XXXXXX"
+	);
 
-	<p>Agora, o cliente acessará o serviço móvel publicado no Azure.</p></li>
+&nbsp;&nbsp;Agora, o cliente acessará o serviço móvel publicado no Azure.
 
-<li><p>Pressione a tecla <strong>F5</strong> para recompilar o projeto e iniciar o aplicativo.</p></li>
+&nbsp;&nbsp;5. Pressione a tecla **F5** para recompilar o projeto e iniciar o aplicativo.
 
-<li><p>No aplicativo, digite um texto com sentido, como <em>Concluir o tutorial</em>, em <strong>Inserir um TodoItem</strong> e clique em <strong>Salvar</strong>.</p>
+&nbsp;&nbsp;6. No aplicativo, digite um texto com sentido, como *Concluir o tutorial*, em **Inserir um TodoItem** e clique em **Salvar**.
 
-<p>Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure.</p>
-</li>
-<li><p>(Opcional) Em uma solução universal do Windows, altere o projeto inicial padrão para o outro aplicativo e pressione <strong>F5</strong> novamente.</p>
+&nbsp;&nbsp;Isso envia uma solicitação de POST para o novo serviço móvel hospedado no Azure.
 
-	<p>Observe que os dados salvos da etapa anterior são carregados por meio do serviço móvel após o aplicativo ser iniciado.</p></li>
-</ol>
+&nbsp;&nbsp;7. (Opcional) Em uma solução universal do Windows, altere a projeto de inicialização padrão para o outro aplicativo, pressione **F5** novamente e observe que os dados salvos na etapa anterior são carregados do serviço móvel depois que o aplicativo é iniciado.
 
 Para obter mais informações sobre os aplicativos universais do Windows, consulte [Suporte a plataformas de múltiplos dispositivos por meio de um único serviço móvel](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
@@ -121,4 +120,4 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

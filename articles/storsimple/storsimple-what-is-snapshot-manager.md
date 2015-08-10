@@ -148,4 +148,4 @@ Para saber mais sobre como monitorar trabalhos de backup, vá para [Usar o StorS
 
 [Fazer download do StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

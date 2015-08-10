@@ -97,12 +97,12 @@ Veja abaixo a saída da instrução SELECT:
 
 O Hive fornece três mecanismos diferentes para executar consultas em documentos JSON:
 
-- usar a UDF (Função Definida pelo Usuário) GET_JSON_OBJECT
-- usar a UDF JSON_TUPLE
+- usar a UDF (Função Definida pelo Usuário) GET\_JSON\_OBJECT
+- usar a UDF JSON\_TUPLE
 - usar SerDe personalizado
 - gravar sua própria UDF usando Python ou outras linguagens. Consulte [este artigo][hdinsight-python] sobre como executar seu próprio código Python com o Hive. 
 
-### Usar a UDF GET_JSON_OBJECT
+### Usar a UDF GET\_JSON\_OBJECT
 O Hive fornece uma UDF interna chamada [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode executar consultas JSON durante o tempo de execução. Esse método requer dois argumentos: o nome da tabela e o nome do método que tem o documento JSON nivelado, e o campo JSON que precisa ser analisado. Vejamos um exemplo para ver como essa UDF funciona.
 
 Obter o nome e o sobrenome de cada aluno
@@ -114,19 +114,19 @@ Obter o nome e o sobrenome de cada aluno
 
 Aqui está a saída obtida ao executar essa consulta na janela do console.
 
-![UDF get_json_object][image-hdi-hivejson-getjsonobject]
+![UDF get\_json\_object][image-hdi-hivejson-getjsonobject]
 
-A UDF get-json_object tem algumas limitações.
+A UDF get-json\_object tem algumas limitações.
 
 - Uma vez que cada campo na consulta requer a reanálise da consulta, o desempenho é afetado.
-- GET_JSON_OBJECT() retorna a representação da cadeia de caracteres de uma matriz. Para converter isso em uma matriz do Hive, você precisará usar expressões regulares para substituir os colchetes “[” e “]” e depois também realizar a divisão para obter a matriz.
+- GET\_JSON\_OBJECT() retorna a representação da cadeia de caracteres de uma matriz. Para converter isso em uma matriz do Hive, você precisará usar expressões regulares para substituir os colchetes “[” e “]” e depois também realizar a divisão para obter a matriz.
 
 
-É por isso que o wiki do Hive recomenda o uso de json_tuple.
+É por isso que o wiki do Hive recomenda o uso de json\_tuple.
 
-### Usar a UDF JSON_TUPLE
+### Usar a UDF JSON\_TUPLE
 
-Outra UDF fornecida pelo Hive é chamada [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que [get_ json _object]https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. A consulta a seguir retorna a ID e a série do aluno por meio do documento JSON:
+Outra UDF fornecida pelo Hive é chamada [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que [get\_ json _object]https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. A consulta a seguir retorna a ID e a série do aluno por meio do documento JSON:
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -135,9 +135,9 @@ Outra UDF fornecida pelo Hive é chamada [json_tuple](https://cwiki.apache.org/c
 
 A saída deste script no console do Hive:
 
-![UDF json_tuple][image-hdi-hivejson-jsontuple]
+![UDF json\_tuple][image-hdi-hivejson-jsontuple]
 
-JSON_TUPLE usa a sintaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive, que permite que json_tuple crie uma tabela virtual aplicando a função UDT a cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de LATERAL VIEW. Além disso, JSON_TUPLE não pode manipular JSONs aninhados.
+JSON\_TUPLE usa a sintaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) no Hive, que permite que json\_tuple crie uma tabela virtual aplicando a função UDT a cada linha da tabela original. JSONs complexos se tornam muito complicados devido ao uso repetido de LATERAL VIEW. Além disso, JSON\_TUPLE não pode manipular JSONs aninhados.
 
 
 ###Usar SerDe personalizado
@@ -146,7 +146,7 @@ SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite 
 
 **Para usar o SerDe personalizado:**
 
-1. Instale [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Escolha a versão Windows X64 do JDK se você for usar a implantação do Windows do HDInsight
+1. Instale [Java SE Development Kit 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Escolha a versão Windows X64 do JDK se você for usar a implantação do Windows do HDInsight
 
 	>[AZURE.WARNING]O JDK 1.8 não funciona com este SerDe.
 
@@ -154,7 +154,7 @@ SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite 
 
 	1. Abra **Exibir configurações avançadas do sistema** na tela do Windows.
 	2. Clique em **Variáveis de Ambiente**.  
-	3. Adicione uma nova variável de ambiente **JAVA_HOME** apontando para **C:\\Arquivos de Programas\\Java\\jdk1.7.0_55** ou onde quer o JDK esteja instalado.
+	3. Adicione uma nova variável de ambiente **JAVA\_HOME** apontando para **C:\\Arquivos de Programas\\Java\\jdk1.7.0\_55** ou onde quer o JDK esteja instalado.
 
 	![Definir valores de configuração correto para o JDK][image-hdi-hivejson-jdk]
 
@@ -223,9 +223,9 @@ Esta é a saída do console do Hive.
 
 ![Consulta SerDe 2][image-hdi-hivejson-serde_query2]
 
-Para encontrar em quais matérias um aluno específico obteve mais de 80: SELECT jt.StudentClassCollection.ClassId FROM json_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
+Para encontrar em quais matérias um aluno específico obteve mais de 80: SELECT jt.StudentClassCollection.ClassId FROM json\_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
       
-A consulta acima retorna uma matriz de Hive diferente de get_json_object, que retorna uma cadeia de caracteres.
+A consulta acima retorna uma matriz de Hive diferente de get\_json\_object, que retorna uma cadeia de caracteres.
 
 ![Consulta SerDe 3][image-hdi-hivejson-serde_query3]
 
@@ -237,7 +237,7 @@ Se você quiser realizar skil em JSON malformado, conforme explicado no [página
 
 
 ##Resumo
-Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá usar o UDF get_json_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.
+Concluindo, o tipo de operador JSON no Hive que você escolher dependerá de seu cenário. Se você tiver um documento JSON simples e apenas um campo para pesquisar, poderá usar o UDF get\_json\_object do Hive. Se tiver mais de uma chave para pesquisar, poderá usar json\_tuple. Se tiver um documento aninhado, deverá usar o SerDe JSON.
 
 Para outros artigos relacionados, consulte
 
@@ -261,4 +261,4 @@ Para outros artigos relacionados, consulte
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

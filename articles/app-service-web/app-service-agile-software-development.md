@@ -46,9 +46,9 @@ Colocando em palavras:
 -	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
 -	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
 
-O ambiente de produção e preparo é definido pelo modelo em [*&lt;raiz_do_repositório>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
+O ambiente de produção e preparo é definido pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
-Os ambientes de desenvolvimento e teste são definidos pelo modelo em [*&lt;raiz_do_repositório>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
+Os ambientes de desenvolvimento e teste são definidos pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
 Você também usará a estratégia de ramificação típica, com código movendo-se da ramificação de desenvolvimento até a ramificação de teste, e em seguida para a ramificação mestre (com melhora na qualidade, por assim dizer).
 
@@ -87,7 +87,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	Depois que tiver o clone local, navegue até *&lt;raiz_do_repositório>*\\ARMTemplates e execute o script deploy.ps1 da seguinte maneira:
+4.	Depois que tiver o clone local, navegue até *&lt;raiz\_do\_repositório>*\\ARMTemplates e execute o script deploy.ps1 da seguinte maneira:
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Dê uma olhada em *&lt;raiz_do_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivos. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
+	>[AZURE.TIP]Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivos. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
  
 6.	De volta à sessão do Git Shell, execute:
 
@@ -105,11 +105,11 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
+7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>\*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
  
 5.	Faça logon no [Portal de Visualização do Azure](https://portal.azure.com) e veja o que foi criado.
 
-	Você deverá ser capaz de ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Percorra os diferentes recursos e compare-os com *&lt;raiz_do_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
+	Você deverá ser capaz de ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Percorra os diferentes recursos e compare-os com *&lt;raiz\_do\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@ Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetro
 
 		git checkout Dev
 
-2.	Faça uma alteração simples na camada de interface do usuário do aplicativo alterando o código para usar listas de [inicialização](http://getbootstrap.com/components/). Abra *&lt;raiz_do_repositório>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml e faça a alteração realçada abaixo:
+2.	Faça uma alteração simples na camada de interface do usuário do aplicativo alterando o código para usar listas de [inicialização](http://getbootstrap.com/components/). Abra *&lt;raiz\_do\_repositório>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml e faça a alteração realçada abaixo:
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

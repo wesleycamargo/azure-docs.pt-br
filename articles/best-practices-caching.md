@@ -48,7 +48,7 @@ _Figura 1: Usando um cache em memória em instâncias diferentes de um aplicativ
 
 Usar um cache compartilhado pode ajudar a aliviar a preocupação de que dados podem diferir em cada cache, como pode ocorrer com o caching em memória. O cache compartilhado garante que diferentes instâncias de aplicativo vejam a mesma exibição dos dados colocados em cache localizando o cache em um local separado, normalmente hospedado como parte de um serviço separado, conforme mostrado na Figura 2.
 
-![Usando um cache compartilhado_](media/best-practices-caching/Figure2.png)
+![Usando um cache compartilhado\_](media/best-practices-caching/Figure2.png)
 
 _Figura 2: Usando um cache compartilhado_
 
@@ -123,7 +123,7 @@ Tenha cuidado para não introduzir, em suas soluções, dependências críticas 
 
 No entanto, voltar para o repositório de dados original se o cache estiver temporariamente indisponível pode ter um impacto de escalabilidade sobre o sistema; enquanto o armazenamento de dados está sendo recuperado, o repositório de dados original pode ser inundado por solicitações de dados, resultando em tempos limite esgotados e conexões com falha. Uma estratégia que você deve considerar é implementar um cache local e privado em cada instância de um aplicativo junto com o cache compartilhado que todas as instâncias do aplicativo acessam. Quando o aplicativo recupera um item, ele pode verificar primeiro em seu cache local, em seguida no cache compartilhado e, finalmente, no repositório de dados original. O cache local pode ser populado usando os dados no cache compartilhado ou aqueles no banco de dados, se o cache compartilhado não estiver disponível. Essa abordagem requer configuração cuidadosa para impedir que o cache local se torne muito desatualizado em relação ao cache compartilhado, mas o cache local atua como um buffer se o cache compartilhado está inacessível. A Figura 3 mostra essa estrutura.
 
-![Usando um cache local e privado com um cache compartilhado_](media/best-practices-caching/Caching3.png) _Figura 3: Usando um cache local e privado com um cache compartilhado_
+![Usando um cache local e privado com um cache compartilhado\_](media/best-practices-caching/Caching3.png) _Figura 3: Usando um cache local e privado com um cache compartilhado_
 
 Para dar suporte a caches grandes que mantêm dados de vida útil relativamente longa, alguns serviços de cache fornecem uma opção de alta disponibilidade, que implementa o failover automático se o cache fica indisponível. Essa abordagem geralmente envolve a replicação dos dados em cache armazenados em um servidor de cache primário para um servidor de cache secundário, alternando para o servidor secundário se o servidor primário falha ou se a conectividade é perdida. Quando dados são gravados em cache no servidor primário, a replicação para o servidor secundário pode ocorrer de modo assíncrono para reduzir a latência associada a gravar em múltiplos destinos. Essa abordagem leva à possibilidade de algumas informações em cache serem perdidas em caso de falha, mas a proporção desses dados deve ser pequena em comparação com o tamanho geral do cache.
 
@@ -630,7 +630,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### Localizando itens acessados recentemente
 
-Um problema comum necessário para muitos aplicativos é localizar os itens acessados mais recentemente. Por exemplo, um site de blog talvez queira exibir informações sobre as postagens de blog lidas mais recentemente. Você pode implementar essa funcionalidade usando uma lista do Redis. Uma lista do Redis contém vários itens que compartilham a mesma chave, mas a lista atua como uma fila duas extremidades. Usando os comandos LPUSH (deslocar para a esquerda) e RPUSH (deslocar para a direita), você pode enviar itens para ambas as extremidades da lista. Você pode recuperar itens de qualquer das duas extremidades da lista usando os comandos LPOP e RPOP. Você também pode retornar um conjunto de elementos usando os comandos LRANGE e RRANGE. Os trechos de código a seguir mostram como você pode executar essas operações usando a biblioteca do StackExchange. Esse código usa o tipo BlogPost dos exemplos anteriores. Conforme uma postagem de blog é lida por um usuário, o título da postagem do blog é deslocado pela lista associada à chave "blog:recent_posts" no cache do Redis, usando o método IDatabase.ListLeftPushAsync:
+Um problema comum necessário para muitos aplicativos é localizar os itens acessados mais recentemente. Por exemplo, um site de blog talvez queira exibir informações sobre as postagens de blog lidas mais recentemente. Você pode implementar essa funcionalidade usando uma lista do Redis. Uma lista do Redis contém vários itens que compartilham a mesma chave, mas a lista atua como uma fila duas extremidades. Usando os comandos LPUSH (deslocar para a esquerda) e RPUSH (deslocar para a direita), você pode enviar itens para ambas as extremidades da lista. Você pode recuperar itens de qualquer das duas extremidades da lista usando os comandos LPOP e RPOP. Você também pode retornar um conjunto de elementos usando os comandos LRANGE e RRANGE. Os trechos de código a seguir mostram como você pode executar essas operações usando a biblioteca do StackExchange. Esse código usa o tipo BlogPost dos exemplos anteriores. Conforme uma postagem de blog é lida por um usuário, o título da postagem do blog é deslocado pela lista associada à chave "blog:recent\_posts" no cache do Redis, usando o método IDatabase.ListLeftPushAsync:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -777,4 +777,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para obter mais informações, consulte a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório Stackexchange.Redis.
 - O [Guia de Particionamento de Dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

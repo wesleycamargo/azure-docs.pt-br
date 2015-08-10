@@ -2,11 +2,10 @@
 	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo e tecnologia de análise avançada | Microsoft Azure"
 	description="Processar dados de tabelas Hive com consultas de Hive."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
-	editor="cgronlun"  />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -21,7 +20,7 @@
 
 Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Essa tarefa faz parte do ADAPT (Processo e Tecnologia de Análise Avançada) fornecido pelo Aprendizado de Máquina do Azure. Várias tarefas de wrangling de dados são discutidas: exploração de dados e geração de recursos. Consultas genéricas de Hive que mostram como explorar dados ou gerar recursos usando o Hive em um cluster do Hadoop do Azure HDInsight. Essas consultas de Hive usam UDFs (Funções Definidas pelo Usuário) de Hive incorporadas que são fornecidas.
 
-Exemplos de consultas que são específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
+Exemplos de consultas que são específicas para cenários de <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">Dados de Viagens de Táxi em NYC</a> também são fornecidos no <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">repositório Github</a>. Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
 
 Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
@@ -41,6 +40,8 @@ Consultas de Hive podem ser enviadas usando:
 * o IPython Notebook
 * o Editor de Hive
 * Scripts do PowerShell do Azure
+
+Consultas de Hive são semelhantes ao SQL. Usuários familiarizados com o SQL podem achar o <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Roteiro de SQL para Hive</a> útil.
 
 Ao enviar uma consulta de Hive, você também pode controlar o destino da saída de consultas de Hive, seja na tela, para um arquivo local no nó principal ou para um blob do Azure.
 
@@ -74,19 +75,17 @@ Quando a consulta de Hive é mais complicada e tem várias linhas, não é prát
 
 	`hive -f "<path to the .hql file>"`
 
-![Criar espaço de trabalho][15]
-
 
 #### Suprimir a impressão da tela de status de progresso de consultas de Hive
 
-Por padrão, após a consulta de Hive ser enviada no console de Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será ser impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar o argumento `-S` ("S" de ser em letra maiúscula) na linha de comando da seguinte maneira:
+Por padrão, após a consulta de Hive ser enviada no console de Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será ser impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar o argumento `-S` (diferencia maiúsculas de minúsculas) na linha de comando da seguinte maneira:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Enviar consultas de Hive no console de comando de Hive.
 
-Os usuários também podem entrar no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Aqui está um exemplo.
+Os usuários também podem entrar no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando do Hive no prompt **hive>**. Aqui está um exemplo.
 
 ![Criar espaço de trabalho][11]
 
@@ -100,9 +99,6 @@ Para exibir os resultados da consulta de Hive em um diretório local no nó prin
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-No exemplo a seguir, a saída da consulta de Hive é gravada em um arquivo *hivequeryoutput.txt* no diretório *C:\\apps\\temp*.
-
-![Criar espaço de trabalho][12]
 
 #### Exportar a saída de consulta de Hive para um blob do Azure
 
@@ -256,7 +252,7 @@ Quando a tabela Hive tem um campo de texto que contém uma cadeia de caracteres 
 
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC. A finalidade dessa consulta é mostrar como aplicar funções matemáticas incorporadas no Hive para gerar recursos.
 
-Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas *pickup_longitude*, *pickup_latitude*, *dropoff_longitude* e *dropoff_latitude*. As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
+Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* e *dropoff\_latitude*. As consultas que calculam a distância direta entre as coordenadas de saída e chegada são:
 
 		set R=3959;
 		set pi=radians(180);
@@ -274,11 +270,11 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site [Scripts de Tipo Móvel](http://www.movable-type.co.uk/scripts/latlong.html), as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat_or_lon*pi/180*, que converte graus em radianos. Aqui, *lat_or_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na [Wikipédia](http://en.wikipedia.org/wiki/Atan2).
+As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat\_or\_lon\*pi/180*, que converte graus em radianos. Aqui, *lat\_or\_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Criar espaço de trabalho][1]
 
-Uma lista completa de UDFs de Hive inseridas pode ser encontrada na seção **Funções Internas** no [wiki do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+Uma lista completa de UDFs de Hive inseridas pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.
 
 ## <a name="tuning"></a> Tópicos avançados: ajustar parâmetros de Hive para melhorar a velocidade de consulta
 
@@ -323,4 +319,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

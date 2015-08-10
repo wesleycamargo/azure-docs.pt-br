@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #Roteamento dependente de dados
 
 A classe **ShardMapManager** fornece a aplicativos ADO.NET a capacidade de direcionar facilmente consultas de banco de dados e comandos para o banco de dados físico apropriado em um ambiente fragmentado. Isso é chamado de **roteamento dependentes de dados** e é um padrão fundamental ao trabalhar com bancos de dados fragmentados. Cada consulta específica ou a transação em um aplicativo que usa o roteamento dependentes de dados é restrita a acessar um banco de dados por solicitação.
 
-Usando o roteamento de dados dependentes, não é necessário para o aplicativo controlar a várias cadeias de caracteres de conexão ou locais de banco de dados associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md) assume a responsabilidade pelo envio de conexões abertas no banco de dados correto quando necessário, com base nos dados do mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. (Essa chave é normalmente o *customer_id*, *tenant_id*, *date_key* ou outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados).
+Usando o roteamento de dados dependentes, não é necessário para o aplicativo controlar a várias cadeias de caracteres de conexão ou locais de banco de dados associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md) assume a responsabilidade pelo envio de conexões abertas no banco de dados correto quando necessário, com base nos dados do mapa de fragmentos e no valor da chave de fragmentação que é o destino da solicitação do aplicativo. (Essa chave é normalmente o *customer\_id*, *tenant\_id*, *date\_key* ou outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados).
 
 ## Usando um ShardMapManager em um aplicativo de roteamento dependente de dados 
 
@@ -76,7 +76,7 @@ O método **OpenConnectionForKeyAsync** também está disponível se seu aplicat
 
 ## Integrando a manipulação de falhas transitórias 
 
-É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutida em [Tratamento de Falhas Transitórias](http://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx).
+É uma prática recomendada no desenvolvimento de aplicativos de acesso de dados na nuvem garantir que as falhas transitórias na conexão com ou consultar o banco de dados são capturadas pelo aplicativo e que as operações serão repetidas várias vezes antes que ocorra um erro. O tratamento de falha transitória para aplicativos em nuvem é discutida em [Tratamento de Falhas Transitórias](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx).
  
 A manipulação de falhas transitórias pode coexistir naturalmente com o padrão de Roteamento dependente de dados. O principal requisito é repetir a solicitação de acesso de dados inteira incluindo o **uso** do bloco que obteve a conexão de roteamento dependente de dados. O exemplo anterior poderia ser reescrito da seguinte maneira (alteração de anotação realçada).
 
@@ -117,4 +117,4 @@ Propriedades transacionais são garantidas para todas as operações locais para
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Visão Geral do Gerenciador de Recursos do Azure
@@ -38,13 +38,15 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 
 No Portal de Visualização do Azure, todos os novos recursos são criados em um grupo de recursos. Mesmo se você criar um único recurso, como um site da Web, deverá decidir se deseja adicionar esse recurso a um grupo existente ou criar um novo grupo para ele.
 
-A imagem a seguir mostra um grupo de recursos com um site da Web, um banco de dados e o Application Insights.
+A imagem a seguir mostra um grupo de recursos com Application Insights, servidor de banco de dados, banco de dados, plano de serviço de aplicativo e site da Web.
 
-![resumo do grupo de recursos](./media/resource-group-overview/resourcegroupsummary.png)
+![resumo do grupo de recursos](./media/resource-group-overview/resourcegroupsummary2.png)
 
-Um grupo de recursos também pode ser vinculado a um recurso em outro grupo de recursos. Um recurso é considerado vinculado quando existe uma dependência de implantação entre os recursos em diferentes grupos de recursos. Por exemplo, se um aplicativo Web em um grupo de recursos se conecta ao banco de dados em outro grupo de recursos, esses recursos são vinculados.
+Um grupo de recursos também pode ser vinculado a um recurso em outro grupo de recursos. Um recurso é considerado vinculado quando existe uma dependência de implantação entre os recursos em diferentes grupos de recursos. Por exemplo, se um aplicativo Web em um grupo de recursos se conecta ao banco de dados em outro grupo de recursos, esses recursos são vinculados. Você também pode definir explicitamente os links entre os recursos em outro grupo de recursos.
 
-![recurso vinculado](./media/resource-group-overview/linkedresource.png)
+Para obter mais informações sobre a vinculação de recursos, consulte [Vinculação de recursos no Gerenciador de Recursos do Azure](resource-group-link-resources.md)
+
+Se você precisar mover um recurso para um novo grupo de recursos, consulte [Mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
 
 No portal de visualização, é possível exibir custos, monitorar eventos e gerenciar alertas com facilidade. A imagem a seguir mostra a cobrança consolidada para um grupo.
 
@@ -72,6 +74,8 @@ Para esquemas de modelo, consulte [Esquemas do Gerenciador de Recursos do Azure]
 
 Para obter informações sobre como usar um modelo para implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md) e [Implantar um aplicativo complexo de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
+Para obter orientações sobre como estruturar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
+
 ## Marcas
 
 O Gerenciador de Recursos do Azure fornece um recurso de marcação que permite classificar os recursos de acordo com suas necessidades de gerenciamento ou de cobrança. Pode ser útil usar marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e se precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento.
@@ -94,11 +98,13 @@ No portal de visualização, você pode definir o controle de acesso clicando no
 
 O Gerenciador de Recursos do Azure registra automaticamente as ações do usuário para auditoria.
 
-Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los.
+Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para obter mais informações, consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
 Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal de visualização do Microsoft Azure](./role-based-access-control-configure.md).
 
 Para obter exemplos de configuração de políticas de acesso, consulte [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md).
+
+Para ver as práticas recomendadas, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
 
 ## Camada de Gerenciamento Consistente
 
@@ -110,33 +116,13 @@ Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure p
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+Para obter informações sobre o uso do portal de visualização, consulte [Como usar o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+
 ## Próximas etapas
-Introdução
 
-- [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure com o Gerenciador de Recursos](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
+- Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md)
+- Para implantar o modelo criado, consulte [Implantando modelos](azure-portal/resource-group-template-deploy.md)
+- Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
+- Para obter orientações sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
-Criação e implantação de aplicativos
-
-- [Criação de modelos](./resource-group-authoring-templates.md)
-- [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
-- [Implantações de solução de problemas](virtual-machines/resource-group-deploy-debug.md)
-- [Implantar um aplicativo complexo de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Implantar usando o modelo e bibliotecas .NET](virtual-machines/arm-template-deployment.md)
-- [Funções de modelo](./resource-group-template-functions.md)
-- [Operações de modelo avançado](./resource-group-advanced-template.md)
-- [Esquemas de modelo](https://github.com/Azure/azure-resource-manager-schemas)
-
-Organização de recursos
-
-- [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
-
-Gerenciar e auditar o acesso
-
-- [Gerenciar e auditar o acesso a recursos](azure-portal/resource-group-rbac.md)
-- [Controle de acesso com base em função no portal de visualização](./role-based-access-control-configure.md)
-- [Autenticar uma entidade de serviço](./resource-group-authenticate-service-principal.md)
-- [Criar uma nova entidade de serviço do Azure usando o Portal do Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

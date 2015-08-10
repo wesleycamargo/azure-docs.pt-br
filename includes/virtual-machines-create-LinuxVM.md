@@ -1,34 +1,41 @@
-1. Entre no [Portal de Gerenciamento](http://manage.windowsazure.com) do Azure. Na barra de comandos, clique em **Nova**.
+1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure](../articles/xplat-cli-connect.md).
+2. Verifique se você está no modo Gerenciamento de Serviços usando:
 
-2. Clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
+        azure config mode asm
 
-3. Em **Escolher uma imagem**, selecione uma imagem de uma das listas. (As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando). Clique na seta para continuar.
+3. Localize a imagem do Linux que deseja carregar nas imagens disponíveis:
 
-4. Se várias versões da imagem estão disponíveis, na **Data de lançamento da versão**, selecione a versão que deseja usar.
+        azure vm image list | grep "Linux"
 
-5. Em **Nome da Máquina Virtual**, digite o nome que você deseja usar. Para esta máquina virtual, digite **MyTestVM1**.
+4. Use `azure vm create` para criar uma nova máquina virtual com a imagem do Linux da lista acima. Essa etapa cria um novo serviço de nuvem, bem como uma nova conta de armazenamento. Você também pode conectar essa máquina virtual a um serviço de nuvem existente com uma opção `-c`. Ela também cria um ponto de extremidade SSH para fazer logon na máquina virtual Linux com a opção `-e`.
 
-6. Em **Tamanho**, selecione o tamanho que você deseja usar para a máquina virtual. O tamanho que você escolhe depende do número de núcleos que são necessários para o seu aplicativo. Para esta máquina virtual, escolha o menor tamanho disponível.
+        ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
+        info:    Executing command vm create
+        + Looking up image b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64
+        Enter VM 'adminUser' password:*********
+        Confirm password: *********
+        + Looking up cloud service
+        info:    cloud service MyTestVM not found.
+        + Creating cloud service
+        + Retrieving storage accounts
+        + Creating a new storage account 'mytestvm1437604756125'
+        + Creating VM
+        info:    vm create command OK
 
-7. Em **Novo nome de usuário**, digite o nome da conta que você usará para administrar a máquina virtual. Você não pode usar a raiz para o nome de usuário. Para esta máquina virtual, digite **NewUser1**.
+    >[AZURE.NOTE]Para uma máquina virtual Linux, você deve fornecer a opção `-e` em `vm create`; não é possível habilitar o SSH depois que a máquina virtual tiver sido criada. Para obter mais detalhes sobre SSH, leia [Como usar SSH com Linux no Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
 
-8. Em autenticação, verifique **Fornecer uma Senha**. Em seguida, forneça as informações necessárias e clique na seta para continuar.
+    Observe que a imagem *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* é a que escolhemos na lista de imagens na etapa acima. *MyTestVM* é o nome da nossa nova máquina virtual e *adminUser* é o nome de usuário que usaremos para SSH na máquina virtual. Você pode substituir essas variáveis de acordo com suas necessidades. Para obter mais detalhes sobre esse comando, visite [Usando a CLI do Azure com o Gerenciamento de Serviços do Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-9. Você pode colocar máquinas virtuais juntas no serviço de nuvem, mas para este tutorial, você está criando uma única máquina virtual. Para fazer isso, selecione **Criar um novo serviço de nuvem**.
+5. A máquina virtual Linux recém-criada aparecerá na lista fornecida por:
 
-10. Em **Nome DNS de serviço de nuvem**, digite um nome que usa entre 3 e 24 letras minúsculas e números. Você precisará sugerir o próprio nome do serviço de nuvem porque ele deve ser exclusivo no Azure. O nome do serviço de nuvem se torna parte do URI que é usado para entrar em contato com a máquina virtual por meio do serviço de nuvem.
+        azure vm list
 
-11. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região onde você deseja localizar a máquina virtual.
+6. Você pode verificar os atributos da máquina virtual usando o comando:
 
-12. Você pode selecionar uma conta de armazenamento onde o arquivo VHD está armazenado. Para este tutorial, aceite a configuração padrão de **Usar uma conta de armazenamento gerada automaticamente**.
+        azure vm show MyTestVM
 
-13. Em **Conjunto de disponibilidade**, para os fins deste tutorial usam-se a configuração padrão de **Nenhum**.
+7. A máquina virtual recém-criada está pronta para começar com o comando `azure vm start`.
 
-14.	Em **Pontos de extremidade**, examine o ponto de extremidade que é criado automaticamente para permitir conexões Secure Shell (SSH) para a máquina virtual. (Pontos de extremidade permitem que os recursos na Internet ou outras redes virtuais se comuniquem com uma máquina virtual.) Você pode adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
+Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com Gerenciamento de Serviços do Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-15.  Em **Agente de VM**, veja as extensões disponíveis. Essas extensões oferecem diversos recursos que facilitam o uso e o gerenciamento de uma máquina virtual. Para obter detalhes, consulte [Extensões de VM do Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
-
-
-Após a criação da máquina virtual e do serviço de nuvem, o Portal de Gerenciamento lista a nova máquina virtual em **Máquinas Virtuais** e lista o serviço de nuvem em **Serviços de Nuvem**. A máquina virtual e o serviço de nuvem são iniciados automaticamente.
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

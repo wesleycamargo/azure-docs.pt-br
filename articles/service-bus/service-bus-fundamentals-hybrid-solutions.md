@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Barramento de Serviço do Azure
@@ -25,7 +25,7 @@ Situações diferentes pedem estilos diferentes de comunicação. Às vezes, per
 
 O Service Bus é um serviço de nuvem de diversos clientes, o que significa que o serviço é compartilhado por vários usuários. Cada usuário, como um desenvolvedor de aplicativos, cria um *namespace*, em seguida, define os mecanismos de comunicação necessárias dentro desse namespace. A Figura 1 mostra isso.
 
-![Diagrama do Service Bus do Azure][svc-bus]
+![][1]
  
 **Figura 1: O Barramento de Serviço fornece um serviço multilocatário para conexão de aplicativos por meio da nuvem.**
 
@@ -42,12 +42,11 @@ Para usar qualquer um desses objetos, os aplicativos do Windows podem usar o Win
 
 É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Service Bus é um mecanismo de comunicação genérico na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
 
-
 ## Filas
 
 Suponha que você queira conectar dois aplicativos usando uma fila do Barramento de Serviço. A Figura 2 ilustra essa opção.
 
-![Diagrama do Service Bus (API, REST)][queues]
+![][2]
  
 **Figura 2: Filas do Barramento de Serviço fornecem o enfileiramento de mensagens assíncronas unidirecional.**
 
@@ -67,12 +66,11 @@ Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes
 
 Filas são úteis em algumas situações. Eles permitem que os aplicativos se comuniquem mesmo quando ambos não são executados ao mesmo tempo, algo que é especialmente útil com lotes e aplicativos móveis. Uma fila com vários receptores também fornece balanceamento de carga automático, desde que as mensagens enviadas sejam distribuídas entre esses receptores.
 
-
 ## Tópicos
 
 Úteis como são, as filas nem sempre são a solução certa. Às vezes, os tópicos do Service Bus são melhores. Figura 3 ilustra a ideia.
 
-![Diagrama dos tópicos e das assinaturas do Service Bus][topics-subs]
+![][3]
  
 **Figura 3: Com base no filtro que um aplicativo de assinatura especifica, ele pode receber algumas ou todas as mensagens enviadas para um tópico do Barramento de Serviço.**
 
@@ -84,12 +82,11 @@ Um tópico é semelhante em muitas formas a uma fila. Mensagens de envio de reme
 
 Assim como acontece com filas, os assinantes de um tópico podem ler mensagens usando ReceiveAndDelete ou PeekLock. Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por vários assinantes. Essa abordagem, conhecida como *publicar e assinar*, é útil sempre que vários aplicativos podem interessar as mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
 
-
 ## Retransmissão
 
 Filas e tópicos fornecem comunicação unidirecional assíncrona por meio de um agente. O tráfego flui em apenas uma direção, e não há nenhuma conexão direta entre remetentes e receptores. Mas e se você não quiser isso? Suponha que seus aplicativos precisam enviar e receber mensagens, ou talvez você deseja um link direto entre eles e você não precisa de um agente para armazenar mensagens. Para lidar com cenários como este, o barramento de serviço fornece retransmissões, como mostra a Figura 4.
 
-![Retransmissão do Diagrama do Service Bus][relay]
+![][4]
  
 **Figura 4: a retransmissão do Barramento de Serviço fornece comunicação bidirecional síncrona entre os aplicativos.**
 
@@ -128,4 +125,9 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
 
-<!---HONumber=July15_HO4-->
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+
+<!---HONumber=July15_HO5-->

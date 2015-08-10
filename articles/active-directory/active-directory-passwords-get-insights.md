@@ -543,4 +543,4 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

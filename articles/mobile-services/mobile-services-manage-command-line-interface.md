@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administrando um serviço móvel na linha de comando - tutorial do Azure" 
+	pageTitle="Administrando um Serviço móvel na linha de comando | Serviços Móveis do Azure" 
 	description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Automatizar os serviços móveis com ferramentas de linha de comando 
@@ -25,10 +25,6 @@ Este tópico mostra como usar as ferramentas de linha de comando do Azure para a
 Quando combinadas em um único script ou arquivo em lotes, estes comandos individuais automatizam os processos de criação, verificação e exclusão de um serviço móvel.
 
 Este tópico aborda uma seleção de tarefas para administração comuns compatíveis com as ferramentas de linha de comando do Azure. Para obter mais informações, consulte [Documentação das ferramentas de linha de comando do Azure][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Instalar as ferramentas de linha de comando do Azure
 
@@ -110,11 +106,7 @@ O comando abaixo cria uma nova tabela com permissão para `read` pública, mas c
 
 A tabela a seguir mostra o valor da permissão de script em comparação com o valor da permissão no [Portal de Gerenciamento do Azure]
 
-<table border="1" width="100%"><tr><th>Valor do script</th><th>Valor do portal de gerenciamento</th></tr>
-<tr><td><code>public</code></td><td>Todos</td></tr>
-<tr><td><code>application</code> (padrão)</td><td>Qualquer pessoa com a chave de aplicativo</td></tr>
-<tr><td><code>user</code></td><td>Somente usuários autenticados</td></tr>
-<tr><td><code>administrador</code></td><td>Somente scripts e administradores</td></tr></table>
+|Valor do script|Valor do Portal de Gerenciamento| |========|========| |`public`| Todos| |`application`(padrão) |Qualquer pessoa com a chave do aplicativo |`user`| Somente usuários autenticados| |`admin`|Somente scripts e admins|
 
 O comando `mobile table create` falha quando a tabela especifica já existe. Em seus scripts de automação, você deve tentar excluir uma tabela antes de tentar recriá-la.
 
@@ -192,4 +184,4 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

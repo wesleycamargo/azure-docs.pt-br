@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução ao uso do Azure Data Factory" 
+	pageTitle="Tutorial: Copiar dados de um blob do Azure para o SQL do Azure" 
 	description="Este tutorial mostra como criar um pipeline de dados de exemplo que copia dados de um blob para uma instância do banco de dados SQL do Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar e monitorar uma data factory usando o Visual Studio
@@ -249,4 +249,4 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 
 Consulte [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de visualização do Azure para monitorar o pipeline e conjuntos de dados que você criou neste tutorial.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

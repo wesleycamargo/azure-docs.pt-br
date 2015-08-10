@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. É possível processar um arquivo de mídia ou vários arquivos de mídia em um lote.
 
@@ -40,7 +43,7 @@ Um trabalho de indexação gera quatro saídas para todo arquivo de indexação:
 
 Este tópico mostra como criar trabalhos de indexação **Indexar um ativo** e **Indexar vários arquivos**.
 
-Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos serviços de mídia](http://azure.microsoft.com/blog/topics/media-services/).
+Para as atualizações mais recentes do indexador de mídia do Azure, consulte [blogs dos Serviços de Mídia](http://azure.microsoft.com/blog/topics/media-services/).
 
 ##Usando arquivos de configuração e de manifesto para tarefas de indexação
 
@@ -306,7 +309,7 @@ Se nem todos os arquivos de mídia de entrada são indexados com êxito, o traba
 As mesmas saídas (como trabalhos com êxito) são geradas. Você pode consultar o arquivo de manifesto de saída para descobrir quais arquivos de entrada estão com falha, de acordo com os valores da coluna de erro. Para arquivos de entrada com falha, o AIB, SAMI, TTML e arquivos de palavra-chave resultantes não serão gerados.
 
 
-### <a id="error_codes"></a>Códigos do Erro
+### <a id="error_codes"></a>Códigos de erro
 
 
 <table border="1">
@@ -343,4 +346,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para obter mais info
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

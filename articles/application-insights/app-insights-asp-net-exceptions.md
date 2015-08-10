@@ -160,7 +160,7 @@ Se sua página da web inclui arquivos de script de redes de distribuição de co
 
 Para formulários da web, o módulo HTTP poderá coletar as exceções quando não houver nenhum redirecionamento configurado com CustomErrors.
 
-Mas se você tiver redirecionamentos ativos, adicione as seguintes linhas para a função Application_Error em Global.asax.cs. (Adicionar um arquivo Global.asax se você ainda não tiver um).
+Mas se você tiver redirecionamentos ativos, adicione as seguintes linhas para a função Application\_Error em Global.asax.cs. (Adicionar um arquivo Global.asax se você ainda não tiver um).
 
 *C#*
 
@@ -441,4 +441,4 @@ Adicione o atributo para as implementações de serviço:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

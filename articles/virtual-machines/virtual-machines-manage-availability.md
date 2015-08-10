@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #Gerenciar a disponibilidade de máquinas virtuais
@@ -69,4 +69,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

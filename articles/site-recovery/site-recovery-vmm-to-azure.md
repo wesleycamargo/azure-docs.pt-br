@@ -82,7 +82,7 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 
 2. Expanda
-3. *Serviços de Dados*, expanda *Serviços de Recuperação* e clique em *Cofre de Recuperação de Site*. *
+3. *Serviços de Dados*, expanda *Serviços de Recuperação* e clique em *Cofre de Recuperação de Site*. \*
 3. Clique em *Criar Novo* e, em seguida, clique em *Criação Rápida*.
 
 
@@ -321,4 +321,4 @@ Para executar um failover de teste, faça o seguinte:
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

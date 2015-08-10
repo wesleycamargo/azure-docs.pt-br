@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Implantar e gerenciar topologias Apache Storm no HDInsight
@@ -42,9 +42,7 @@ Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com A
 
 ##Painel de Controle do Storm
 
-O Painel Storm está disponível no cluster Storm. A URL é **https://&lt;clusternameazurehdinsight.net/**, onde **clustername** é o nome do seu Storm no cluster HDInsight. Você também pode acessar o painel usando o link **Painel Storm** no painel do cluster no Portal do Azure.
-
-![o portal com o painel storm realçado][hdinsight-dashboard]
+O Painel do Strom é uma página da Web disponível no cluster Storm. A URL é **https://&lt;clusternameazurehdinsight.net/**, onde **clustername** é o nome do seu Storm no cluster HDInsight.
 
 Na parte superior do Painel Storm, selecione **Enviar Topologia**. Siga as instruções na página para executar uma topologia de amostra ou para carregar e executar uma topologia que você criou.
 
@@ -178,4 +176,4 @@ Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Stor
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

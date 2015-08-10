@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="07/24/2015" 
 	ms.author="larryfr"/>
 
 #Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
@@ -43,7 +43,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 ##Para executar a amostra
 
-1. No Portal do Azure, clique no cluster no qual deseja executar a amostra e depois clique em **Console de Consulta** na parte inferior. Como alternativa, você pode abrir diretamente o Console de Consulta usando a seguinte URL:
+1. No seu navegador da Web, vá até a URL a seguir. Substitua `<clustername>` pelo nome do cluster HDInsight.
 
 	 	https://<clustername>.azurehdinsight.net
 
@@ -53,4 +53,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@ A Malha do Serviço emite eventos do ETW para ajudar os desenvolvedores de aplic
 1. Você deve ter os pré-requisitos a seguir instalados.
    * Visual Studio 2015
    * SDK da Malha do Serviço
-2. Inicie o Visual Studio como um administrador.
-3. Crie um projeto (ou abra um existente) para um Ator ou Serviço com ou sem estado. ![Criar um projeto da Malha do Serviço](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. Pressione F5 para depurar o aplicativo. Os eventos da Malha do Serviço devem ser mostrados na janela Eventos de Diagnóstico. Cada evento tem informações de metadados padrão que apontam em qual nó, aplicativo e serviço o evento tem sua origem. Você também pode filtrar a lista de eventos usando a caixa "Filtrar eventos", na parte superior da janela; por exemplo, é possível filtrar por Nome do Nó ou Nome do Serviço. ![Visualizador de Eventos de Diagnóstico do Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. Inicie o Visual Studio como um administrador.
+
+3. Crie um projeto (ou abra um existente) para um Ator ou Serviço com ou sem estado.
+
+  ![Criar um aplicativo da Malha de Serviço](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Criar um serviço da Malha de Serviço](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. Pressione F5 para depurar o aplicativo. Os eventos da Malha do Serviço devem ser mostrados na janela Eventos de Diagnóstico. Cada evento tem informações de metadados padrão que apontam em qual nó, aplicativo e serviço o evento tem sua origem. Você também pode filtrar a lista de eventos usando a caixa "Filtrar eventos", na parte superior da janela; por exemplo, é possível filtrar por Nome do Nó ou Nome do Serviço.
+
+  ![Visualizador de Eventos de Diagnóstico do Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. Se a janela Eventos de Diagnóstico não for exibida automaticamente, vá para a guia Gerenciador de Servidores no Visual Studio, clique com o botão direito do mouse no cluster Malha do Serviço e escolha “Exibir Eventos de Diagnóstico” no menu de contexto.
 
-![Abrir o Visualizador de Eventos de Diagnóstico do Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Abrir o Visualizador de Eventos de Diagnóstico do Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Adicionar seus próprios rastreamentos personalizados ao código do aplicativo
 Os modelos de projeto do Visual Studio da Malha do Serviço contêm amostra de código. O código mostra como adicionar rastreamentos personalizados ETW de código de aplicativo, que é mostrado no visualizador do ETW do Visual Studio ao lado dos rastreamentos do sistema da Malha do Serviço. A vantagem desse método é que os metadados são adicionados automaticamente aos rastreamentos, e o Visualizador de Diagnóstico do Visual Studio já está configurado para exibi-los.
@@ -70,6 +78,5 @@ O mesmo código de rastreamento que você adicionou ao aplicativo acima para dia
 * [Configuração do Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Serviços Confiáveis com estado](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

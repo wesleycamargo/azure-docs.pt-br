@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introdução ao Apache Storm no HDInsight | Microsoft Azure"
 	description="Obtenha uma introdução ao Apache Storm e saiba como usar o Apache Storm no HDInsight para criar soluções de análise de dados em tempo real na nuvem."
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
@@ -51,9 +50,7 @@ Para começar a usar o Storm, consulte [Introdução ao uso do Storm no HDInsigh
 
 Você pode provisionar um novo Storm no cluster HDInsight em minutos. Especifique o nome do cluster, o tamanho, a conta de administrador e a conta de armazenamento. O Azure vai criar o cluster com topologias de exemplo e um painel de gerenciamento da Web.
 
-Abaixo temos um exemplo de provisionamento de um cluster Storm no HDInsight usando o portal do Azure. Você também pode provisionar clusters Storm usando o [Azure PowerShell](../install-configure-powershell.md).
-
-![Um exemplo de formulário de cluster de criação rápida no portal](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE]Você também pode provisionar clusters Storm usando a [CLI do Azure](../xplat-cli.md) ou o [Azure PowerShell](../powershell-install-configure.md).
 
 Após 15 minutos do envio da solicitação, você terá um novo cluster Storm em execução e pronto para o primeiro pipeline de análise em tempo real.
 
@@ -77,7 +74,7 @@ Cada Storm no cluster HDInsight também fornece um Painel Storm baseado na Web q
 
 Para obter mais informações sobre como usar o painel Storm, consulte [Implantar e gerenciar topologias Apache Storm no HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-O Storm no HDInsight também facilita a integração com Hubs de Eventos do Azure através do **Spout de Hub de Eventos**. Isso está disponível em cada cluster Storm em **%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para exemplos de como usar esse spout em uma topologia Storm, consulte [Introdução aos Hubs de Eventos](service-bus-event-hubs-c-storm-getstarted.MD) e [Analisando dados de sensor com Storm e HBase](hdinsight-storm-sensor-data-analysis.MD).
+O Storm no HDInsight também facilita a integração com Hubs de Eventos do Azure através do **Spout de Hub de Eventos**. Isso está disponível em cada cluster Storm em **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para exemplos de como usar esse spout em uma topologia Storm, consulte [Introdução aos Hubs de Eventos](service-bus-event-hubs-c-storm-getstarted.MD) e [Analisando dados de sensor com Storm e HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Confiabilidade
 
@@ -93,7 +90,7 @@ A configuração padrão do Apache Storm é ter apenas um nó Nimbus. O Storm no
 
 Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os clusters HDInsight permitem que você altere o número de nós no cluster, mesmo durante o processamento de dados.
 
-![contagem de instâncias de nós de dados no portal](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE]Para tirar proveito dos novos nós adicionados por meio do dimensionamento, você precisará balancear novamente as topologias iniciadas antes do tamanho do cluster ser aumentado.
 
 ###Suporte
 
@@ -156,7 +153,7 @@ A maioria dos exemplos com Java encontrados envolvem Java simples ou Trident. Tr
 
 Para obter mais informações sobre o Trident, consulte o [Tutorial do Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) em apache.org.
 
-Para obter exemplos das topologias brutas Java e Trident, consulte o diretório **%storm_home%\\contrib\\storm-starter** em seu cluster Storm no HDInsight.
+Para obter exemplos das topologias brutas Java e Trident, consulte o diretório **%storm\_home%\\contrib\\storm-starter** em seu cluster Storm no HDInsight.
 
 ##Quais são alguns dos padrões de desenvolvimento comuns?
 
@@ -209,4 +206,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

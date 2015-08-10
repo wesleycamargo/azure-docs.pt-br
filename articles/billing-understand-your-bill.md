@@ -9,7 +9,7 @@
    tags="billing"/>
 
 <tags
-   ms.service="na"
+   ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -212,9 +212,9 @@ Unidade | Unidade | Identifica a unidade em que o serviço é cobrado. Por exemp
 Consumido | Quantidade consumida | Contém a quantidade do recurso que foi consumida naquele dia.
 Sub-região | Local do recurso | Identifica o datacenter onde o recurso está sendo executado.
 O Barramento de | Serviço consumido | Esta coluna é utilizada para controlar o serviço da plataforma do Azure individual que não pode ser especificamente identificado na coluna Nome. Essa coluna Serviço indicará a qual serviço específico o uso pertence.
-N/D | Grupo de recursos | _**Adição de nova coluna.**_ O grupo de recursos no qual o recurso implantado está sendo executado. Consulte http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
+N/D | Grupo de recursos | _**Adição de nova coluna.**_ O grupo de recursos no qual o recurso implantado está sendo executado. Consulte http://azure.microsoft.com/documentation/articles/resource-group-overview/
 Componente | ID da instância | O identificador do recurso em execução. O identificador contém o nome especificado para o recurso quando ele foi criado.
-N/D | Marcas | _**Adição de nova coluna.**_ Novos tipos de recursos no Azure permitem recursos de marca. Consulte http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
+N/D | Marcas | _**Adição de nova coluna.**_ Novos tipos de recursos no Azure permitem recursos de marca. Consulte http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/
 Informações Adicionais | Informações Adicionais | Metadados adicionais relacionados ao serviço.
 Informações do Serviço 1 | Informações do Serviço 1 | Esta coluna fornece o nome do projeto ao qual os serviços pertencem na sua assinatura.
 Informações do Serviço 2 | Informações do Serviço 2 | Este é um campo herdado que captura os metadados específicos do serviço opcional.
@@ -227,7 +227,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 - **Informações adicionais**: A coluna Informações adicionais no .csv de uso especifica os metadados específicos do serviço. Por exemplo, um tipo de imagem para uma VM. Atualmente, um serviço emite metadados específicos do serviço em várias colunas: Informações do Serviço 1, Informações do Serviço 2 e Informações Adicionais. Os serviços do Microsoft Azure irão padronizar a emissão de metadados específicos do serviço somente na coluna de Informações adicionais. Consulte o instantâneo abaixo do formato padronizado:
 
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre Usando marcas para organizar os recursos do Azure Serviços que oferecem suporte a marcas de emissão são:
     - Máquinas Virtuais
@@ -262,4 +262,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

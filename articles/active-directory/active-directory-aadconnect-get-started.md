@@ -49,11 +49,11 @@ A tabela a seguir mostra os requisitos mínimos para o computador do Azure AD Co
 | Número de objetos no Active Directory | CPU | Memória | Tamanho do disco rígido |
 | ------------------------------------- | --- | ------ | --------------- |
 | Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
+| 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
 | Para 100.000 ou mais objetos, é necessária a versão completa do SQL Server| | | |
-| 100.000–300.000 | 1,6 GHz | 32 GB | 300 GB |
-| 300.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100\.000–300.000 | 1,6 GHz | 32 GB | 300 GB |
+| 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Mais de 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -79,7 +79,7 @@ Selecionar as configurações expressas é a opção padrão e é um dos cenári
 8. Na tela Conectar-se ao AD DS, digite o nome de usuário e a senha para uma conta de administrador corporativa. Clique em **Próximo**.
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Na tela Pronto para configurar, clique em **Instalar**.
-	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “**Iniciar o processo de sincronização assim que a configuração for concluída**”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
+	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “\*\*Iniciar o processo de sincronização assim que a configuração for concluída\*\*”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
 	- Também é possível configurar os serviços de sincronização para **implantação híbrida do Exchange** marcando a caixa de seleção correspondente. Se você não planeja ter caixas de correio do Exchange na nuvem e no local, isso não é necessário.
 
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -114,4 +114,4 @@ Agora que você tem o Azure AD Connect instalado, você pode usar o link [aqui](
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

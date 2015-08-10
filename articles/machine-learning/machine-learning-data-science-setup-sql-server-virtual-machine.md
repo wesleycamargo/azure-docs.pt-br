@@ -61,7 +61,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
     -   Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
     -   Leia e aceite as informações de preços.
 
-6.	Na seção **PONTOS DE EXTREMIDADE**, clique na lista suspensa vazia em **NAME** e selecione **MSSQL**, em seguida, digite o número da porta da instância do mecanismo de banco de dados (**1433** para a instância padrão).
+6.	Na seção **PONTOS DE EXTREMIDADE**, clique na lista suspensa vazia em **NAME** e selecione **MSSQL**, em seguida, digite o número da porta da instância do mecanismo de banco de dados (\*\*1433\*\* para a instância padrão).
 
 7.  A sua VM do SQL Server também pode funcionar como um IPython Notebook Server, que será configurado em uma etapa posterior. Adicione um novo ponto de extremidade para especificar a porta a ser usada para o IPython Notebook Server. Insira um nome na coluna **NAME**, selecione um número da porta de sua preferência para a porta pública e 9999 para a porta privada.
 
@@ -137,7 +137,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
     Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
 
-2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe ***your_VM_name*\\your_local_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
+2.  Ao abrir, o Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe ***your\_VM\_name*\\your\_local\_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
 
     ![Conectar-se ao servidor][6]
 
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

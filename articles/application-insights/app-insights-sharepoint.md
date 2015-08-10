@@ -41,7 +41,7 @@ Em Início Rápido, obtenha o script para páginas da Web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\\Shared_Layout.cshtml
+Insira o script antes da marca &lt;/head&gt; de cada página que você deseja acompanhar. Se seu site possui uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\\Shared\_Layout.cshtml
 
 O script contém a chave de instrumentação que direciona a telemetria para o recurso do Application Insights.
 
@@ -108,4 +108,4 @@ Clique em Usuários para ver detalhes sobre novos usuários e suas localizaçõe
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

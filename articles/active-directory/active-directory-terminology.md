@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Terminologia do AD do Azure" 
-	description="Termos e definições relacionadas ao AD do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Terminologia do AD do Azure | Microsoft Azure"
+	description="Termos e definições relacionados ao Active Directory do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Terminologia do AD do Azure
 
@@ -36,14 +36,11 @@ Assistente de Conexão do Microsoft Online Services | O Assistente de Conexão �
 Multi-Factor Authentication (também conhecida como autenticação de dois fatores ou 2FA) | A Multi-Factor Authentication adiciona uma segunda camada crítica de segurança para transações e entradas de usuário. Quando você habilita a autenticação multifator para uma conta de usuário no AD do Azure, esse usuário precisa então usar o seu telefone, além de suas credenciais de senha padrão, como o método de verificação de segurança adicional cada vez que ele precisa entrar e usar qualquer um dos serviços de nuvem Microsoft assinados por sua organização.
 Logon único | Usado para fornecer aos usuários uma experiência de autenticação mais dinâmica quando eles acessam serviços de nuvem da Microsoft enquanto os usuários estão com logon ativo na rede corporativa. Para configurar o logon único, as organizações precisam implantar um serviço de token de segurança local. Depois que o logon único tiver sido definido, os usuários poderão usar suas credenciais corporativas do Active Directory (nome de usuário e senha) para acessar os serviços na nuvem e seus recursos locais existentes.
 Id de Usuário | Uma ID de usuário é um identificador exclusivo fornecido pelo usuário na página de entrada para acessar os serviços de nuvem da Microsoft que sua organização tenha assinado.
-Conta corporativa ou de estudante | Uma conta de usuário atribuída por uma organização (empresa, escola, sem fins lucrativos) a um de seus constituintes (um funcionário, estudante, cliente) que fornece acesso por entrada a um ou mais dos serviços de nuvem da Microsoft assinados pela organização, como o Office 365 ou Azure. Essas contas são armazenadas no diretório do AD do Azure da organização e normalmente são excluídas quando o usuário deixa a organização. Contas corporativas ou de estudante diferem das contas da Microsoft por que são criadas e gerenciadas por administradores na organização, e não pelo usuário. 
+Conta corporativa ou de estudante | Uma conta de usuário atribuída por uma organização (empresa, escola, sem fins lucrativos) a um de seus constituintes (um funcionário, estudante, cliente) que fornece acesso por entrada a um ou mais dos serviços de nuvem da Microsoft assinados pela organização, como o Office 365 ou Azure. Essas contas são armazenadas no diretório do AD do Azure da organização e normalmente são excluídas quando o usuário deixa a organização. Contas corporativas ou de estudante diferem das contas da Microsoft por que são criadas e gerenciadas por administradores na organização, e não pelo usuário.
 
 ## O que vem a seguir
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Restrições e limites de serviço do AD do Azure](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

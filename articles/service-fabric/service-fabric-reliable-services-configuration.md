@@ -91,4 +91,4 @@ O MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas e permitem que um serviço use um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para o arquivo de log compartilhado, de forma que a contenção de movimentação do cabeçote seja reduzida. A expectativa é de que isso precise ser alterado somente em casos raros.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

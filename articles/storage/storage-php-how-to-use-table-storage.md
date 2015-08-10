@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -43,7 +43,7 @@ Neste guia, você usará os recursos de serviço de Tabela que podem ser chamado
 
 Para usar as APIs do serviço de Tabela do Azure, você precisa:
 
-1. Fazer referência ao arquivo de carregador automático usando a instrução [require_once][require_once], e
+1. Fazer referência ao arquivo de carregador automático usando a instrução [require\_once][require_once], e
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -218,7 +218,7 @@ O método **TableRestProxy->getEntity** permite que você recupere uma única en
 
 ## Como recuperar todas as entidades em uma partição
 
-As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
+As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome\_da\_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -479,4 +479,4 @@ Agora que você aprendeu os conceitos básicos do Serviço de Tabela do Azure, s
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

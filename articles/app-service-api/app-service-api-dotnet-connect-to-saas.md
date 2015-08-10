@@ -376,7 +376,7 @@ Observações adicionais:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Veja os valores a serem usados com outros provedores: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	Veja os valores a serem usados com outros provedores: \* "microsoftaccount" \* "facebook" \* "twitter" \* "google" <br/><br/>
 
 * O segundo parâmetro do método `GetConsentLinkAsync()` é a URL de retorno de chamada para a qual o servidor de consentimento redireciona depois que o usuário faz logon no Dropbox e concede consentimento para acessar a conta do usuário.
 
@@ -447,4 +447,4 @@ Você aprender a codificar e configurar um aplicativo de API que se conecta a um
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

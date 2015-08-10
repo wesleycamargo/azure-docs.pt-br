@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" 
+	pageTitle="Agendar trabalhos recorrentes nos Serviços Móveis do Azure" 
 	description="Use o Agendador dos serviços móveis do Azure para agendar trabalhos para seu aplicativo móvel." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Agendar trabalhos recorrentes nos Serviços Móveis 
@@ -36,16 +36,14 @@ Este tutorial explica como usar o agendador de trabalhos para criar um trabalho 
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>No Gerenciador de Soluções do Visual Studio, abra o arquivo web config do projeto do serviço móvel, localize as configurações dos aplicativos <strong>MS_TwitterConsumerKey</strong> e <strong>MS_TwitterConsumerSecret</strong> e substitua os valores dessas chaves pelos valores da chave de consumidor do segredo do consumidor do Twitter que você definiu no portal.</p></li>
+&nbsp;&nbsp;7. No Gerenciador de Soluções no Visual Studio, abra o arquivo web.config do projeto de serviço móvel, localize as configurações de aplicativo `MS_TwitterConsumerKey` e `MS_TwitterConsumerSecret` e substitua os valores dessas chaves pelas chaves e valores secretos do consumidor do Twitter que você definiu no portal.
 
-<li><p>Na mesma seção, adicione as seguintes novas configurações do aplicativo, substituindo os espaços reservados pelos valores do token de acesso e do segredo do token de acesso do Twitter que você definiu como configurações do aplicativo no portal:</p>
+&nbsp;&nbsp;8. Na mesma seção, adicione as seguintes novas configurações do aplicativo, substituindo os espaços reservados pelos valores do token de acesso e do segredo do token de acesso do Twitter que você definiu como configurações do aplicativo no portal:
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**seu_token_de_acesso**" />
-&lt;add key="TWITTER_ACCESS_TOKEN" value="**chave_secreta_do_seu_token_de_acesso**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>O serviço móvel usa essas configurações armazenadas quando é executado no computador local, o que permite testar o trabalho agendado antes de publicá-lo. Ao executar no Azure, o serviço móvel usa o conjunto de valores no portal e ignora essas configurações do projeto.  </p></li>
-</ol>
+O serviço móvel usa essas configurações armazenadas quando é executado no computador local, o que permite testar o trabalho agendado antes de publicá-lo. Ao executar no Azure, o serviço móvel usa o conjunto de valores no portal e ignora essas configurações do projeto.
 
 ##<a name="install-linq2twitter"></a>Baixar e instalar a biblioteca LINQ to Twitter
 
@@ -65,7 +63,7 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 
 	Isso cria um novo arquivo de projeto para a classe Updates.
 
-2. Clique com o botão direito do mouse em **Referências**, clique em **Adicionar Referência...**, selecione **Framework** em **Assemblies**, marque **System.ComponentModel.DataAnnotations** e clique em **OK**.
+2. Clique com o botão direito do mouse em **Referências** > **Adicionar Referência...** > **Framework**, em **Assemblies**, marque **System.ComponentModel.DataAnnotations** e clique em **OK**.
 
 	![][7]
 
@@ -88,7 +86,7 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda a pasta Models, abra o arquivo de contexto do modelo de dados (denominado <em>service_name</em>Context.cs) e adicione a seguinte propriedade que retorna um **DbSet** tipado:
+4. Expanda a pasta Models, abra o arquivo de contexto do modelo de dados (denominado *service\_name\*Context.cs) e adicione a seguinte propriedade que retorna um **DbSet** tipado:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 		    }
 		}
 
-	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são <em>mobile&#95;service&#95;name</em>Service e <em>mobile&#95;service&#95;name</em>Context, respectivamente.
+	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são *mobile&#95;service&#95;name\*Service e *mobile&#95;service&#95;name\*Context, respectivamente. 
    	
 	No código acima, o método de substituição **ExecuteAsync** chama a API de consulta do Twitter usando as credenciais armazenadas para solicitar tweets recentes que contenham a hashtag `#mobileservices`. Respostas e tweets duplicados são removidos dos resultados antes de serem armazenados na tabela.
 
@@ -301,4 +300,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

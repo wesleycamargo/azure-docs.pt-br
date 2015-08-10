@@ -84,7 +84,7 @@ Primeiro, vamos adicionar o acesso à Leitura para todos os recursos da assinatu
 
 ![][3]
 
-Clique no *nome de sua assinatura* ** > Leitor > Adicionar**. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
+Clique no *nome de sua assinatura* \*\* > Leitor > Adicionar\*\*. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Phone) | Serviços Móveis" 
-	description="Aprenda a usar os Serviços Móveis para carregar imagens no Armazenamento de blobs do Azure." 
+	pageTitle="Carregar imagens no Armazenamento do Azure de um aplicativo Silverlight do Windows Phone | Serviços Móveis do Azure" 
+	description="Aprenda a usar os Serviços Móveis para carregar imagens de um aplicativo Silverlight do Windows Phone para o Armazenamento de Blob do Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no Armazenamento do Azure usando Serviços Móveis
@@ -103,4 +103,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -2,7 +2,7 @@
 	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
 	services="sql-database" 
-	documentationCenter=""  
+	documentationCenter="" 
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -329,4 +329,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -347,6 +347,11 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 * Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
 
 
+## Referências
+
+* [Usando a API: visão geral][api]
+* [Referência da API de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## Vídeo
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

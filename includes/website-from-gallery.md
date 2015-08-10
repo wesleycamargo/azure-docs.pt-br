@@ -88,4 +88,4 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

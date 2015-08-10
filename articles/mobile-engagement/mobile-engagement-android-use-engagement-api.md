@@ -252,7 +252,7 @@ Cada chave no `Bundle` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -260,7 +260,7 @@ Os extras são limitados a **1024** caracteres por chamada (uma vez codificado e
 
 No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres:
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##Relatório de informações de aplicativo
 
@@ -287,7 +287,7 @@ Cada chave no `Bundle` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -298,4 +298,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

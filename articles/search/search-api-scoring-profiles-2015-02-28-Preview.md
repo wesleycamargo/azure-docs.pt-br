@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)" 
-	description="Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Perfis de pontuação (API REST da Pesquisa do Azure Versão 2015-02-28-Preview) | Microsoft Azure"
+	description="Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/24/2015" 
-	ms.author="heidist"/>
-      
-#Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.author="heidist"
+	ms.date="07/24/2015" />
 
-> [AZURE.NOTE]Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui. Fornecemos este artigo para que você tenha a documentação completa definida para `2015-02-28-Preview`, embora essa API esteja inalterada.
+# Perfis de pontuação (API REST do Azure Search Versão 2015-02-28-Preview)
+
+> [AZURE.NOTE]Este artigo descreve os perfis de pontuação na versão [2015-02-28-Preview](search-api-2015-02-28-preview.md). Atualmente não há nenhuma diferença entre a versão `2015-02-28` documentada no [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) e a versão `2015-02-28-Preview` descrita aqui.
 
 ## Visão geral
 
@@ -36,7 +36,7 @@ Para dar uma ideia da aparência de um perfil de pontuação, o exemplo a seguir
         "text": {
           "weights": { "hotelName": 5 }
         },
-        "functions": [ 
+        "functions": [
           {
             "type": "distance",
             "boost": 5,
@@ -55,7 +55,7 @@ Para usar esse perfil de pontuação, sua consulta é formulada para especificar
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview.md#SearchDocs).
+Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Os parâmetros de consulta são descritos em [Pesquisar documentos (API do Azure Search)](search-api-2015-02-28-preview/#SearchDocs.md).
 
 Clique em [Exemplo](#example) para examinar um exemplo mais detalhado de um perfil de pontuação.
 
@@ -108,7 +108,7 @@ Este exemplo mostra o esquema de um índice com dois perfis de pontuação (`boo
             "weights": {
               "albumTitle": 1,
               "genre": 5 ,
-              "artistName": 2 
+              "artistName": 2
             }
           }
 	    },
@@ -144,7 +144,7 @@ Este exemplo mostra o esquema de um índice com dois perfis de pontuação (`boo
           "searchMode": "analyzingInfixMatching",
           "sourceFields": ["albumTitle", "artistName"]
         }
-      ] 
+      ]
     }
 
 
@@ -158,9 +158,50 @@ Forneça um nome. Os perfis de pontuação são opcionais, mas se você adiciona
 
 O corpo do perfil de pontuação é criado com campos ponderados e funções.
 
-<font> <table> <thead><tr><td><b>Elemento</b></td><td><b>Descrição</b></td></tr></thead> <tbody> <tr> <td><b>Pesos</b></td> <td> Especificar pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo ](#example), os campos Título do álbum, gênero e Nome do artista são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de 'gênero' em ), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em , 'rock' é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto. </td> </tr> <tr> <td><b>Funções</b></td><td>Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros exclusivos para ela. <p> - `freshness` devem ser usados quando você deseja aumentar de acordo com a indicação de que um item é novo ou antigo. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe o atributo `boostingDuration` é usado apenas com a função de atualização. </p><p> - `magnitude` devem ser usados quando você deseja aumentar de acordo com a indicação de que um valor numérico é alto ou baixo. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro. </p><p> Para a função `magnitude`, você poderá reverter o intervalo de alto para baixo, se desejar o padrão inverso (por exemplo, para aumentar itens de menor preço mais do que itens com preço maior). Com um intervalo de preços de US$ 100 a US$ 1, você poderia definir `boostingRangeStart` como 100 e `boostingRangeEnd` como 1 para aumentar os itens de menor preço. </p><p> - `distance` deve ser usado quando você deseja aumentar de acordo com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos `Edm.GeographyPoint`. </p><p> - `tag` devem ser usados quando você deseja aumentar de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos `Edm.String` e '(Collection(Edm.String). </p> <p><b>Regras para usar funções</b></p> O tipo de função (atualização, magnitude, distância, marca) deve estar em minúsculas. <br/> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo. <br/> As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice](search-api-2015-02-28-preview.md#createindex) para obter mais informações sobre campos filtráveis. <br/> As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.</td> </tr> </tbody> </table> </font>
+<table>
+<thead>
+<tr><td><b>Elemento</b></td><td><b>Descrição</b></td></tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <b>Pesos</b>
+      </td>
+      <td>
+        Especifique pares de nome-valor que atribuem um peso relativo a um campo. No [Exemplo](#exemplo), os campos albumTitle, genre e artistName são aumentados em 1, 5 e nulo, respectivamente. Por que o campo gênero aumentou muito mais do que os outros? Se a pesquisa for realizada com dados que são um pouco homogêneos (como é o caso de “genre” em “musicstoreindex”), talvez seja necessária uma variação maior nos pesos relativos. Por exemplo, em “musicstoreindex”, “rock” é exibido como um gênero e em descrições de gênero escritas de forma idêntica. Se você quiser que gênero tenha um peso maior do que a descrição do gênero, o campo gênero precisará ter um peso relativo muito mais alto.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Funções</b>
+      </td>
+      <td>
+        Usadas quando cálculos adicionais são necessários para contextos específicos. Os valores válidos são “freshness”, “magnitude”, “distance” e “tag”. Cada função tem parâmetros que são exclusivos.
+        <p>
+          - “freshness” deve ser usado quando você deseja aumentar a prioridade de acordo com o quão novo ou antigo um item é. Essa função só pode ser usada com campos datetime (Edm.DataTimeOffset). Observe que o atributo “boostingDuration” é usado apenas com a função de freshness.
+          </p><p>
+            - “magnitude” deve ser usado quando você deseja aumentar a prioridade de acordo com o quão alto ou baixo um valor numérico é. Cenários que exigem essa função incluem aumentar de acordo com a margem de lucro, maior preço, menor preço ou uma contagem de downloads. Essa função só pode ser usada com campos duplo e inteiro.
+          </p><p>
+            Para a função “magnitude”, você poderá reverter o intervalo de alto para baixo, se desejar o padrão inverso (por exemplo, para aumentar itens de menor preço mais do que itens com preço maior). Com um intervalo de preços de US$ 100 a US$ 1, você definiria “boostingRangeStart” como 100 e “boostingRangeEnd” como 1 para aumentar a prioridade dos itens com preço inferior.
+          </p><p>
+            - “distance” deve ser usado quando você desejar aumentar a prioridade com a proximidade ou a localização geográfica. Essa função só pode ser usada com campos “Edm.GeographyPoint”.
+          </p><p>
+            - “tag” deve ser usado quando você desejar aumentar a prioridade de acordo com marcas em comum entre documentos e consultas de pesquisa. Essa função só pode ser usada com campos “Edm.String” e “(Collection(Edm.String)”.
+          </p>
+             <p><b>Regras para o uso de funções</b>
+			</p>
+            O tipo de função (freshness, magnitude, distance, tag) deve estar em minúsculas.
+            <br/>
+            As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome do campo, você precisará defini-lo como algo.
+            <br/>
+             As funções só podem ser aplicadas a campos filtráveis. Consulte [Criar índice](search-api-2015-02-28/#createindex) para obter mais informações sobre campos filtráveis.
+             <br/>
+             As funções só podem ser aplicadas a campos que são definidos na coleção de campos de um índice.
+         </td>
+</tr>
+  </tbody>
+</table>
 
-Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice](search-api-2015-02-28-preview.md#createindex) e [Adicionar ou atualizar documentos](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
+Depois que o índice for definido, crie o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar índice](search-api-2015-02-28-preview/#createindex) e [Adicionar ou atualizar documentos](search-api-2015-02-28-preview/#AddOrUpdateDocuments) para obter instruções sobre essas operações. Depois que o índice for criado, você deverá ter um perfil de pontuação funcional que funciona com seus dados de pesquisa.
 
 <a name="bkmk_template"></a>
 ##Modelo
@@ -168,51 +209,51 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 
     ...
     "scoringProfiles": [
-      { 
-        "name": "name of scoring profile", 
-        "text": (optional, only applies to searchable fields) { 
-          "weights": { 
-            "searchable_field_name": relative_weight_value (positive #'s), 
-            ... 
-          } 
-        }, 
+      {
+        "name": "name of scoring profile",
+        "text": (optional, only applies to searchable fields) {
+          "weights": {
+            "searchable_field_name": relative_weight_value (positive #'s),
+            ...
+          }
+        },
         "functions": (optional) [
-          { 
-            "type": "magnitude | freshness | distance | tag", 
-            "boost": # (positive number used as multiplier for raw score != 1), 
-            "fieldName": "...", 
-            "interpolation": "constant | linear (default) | quadratic | logarithmic", 
-            
-            "magnitude": { 
-              "boostingRangeStart": #, 
-              "boostingRangeEnd": #, 
-              "constantBoostBeyondRange": true | false (default) 
+          {
+            "type": "magnitude | freshness | distance | tag",
+            "boost": # (positive number used as multiplier for raw score != 1),
+            "fieldName": "...",
+            "interpolation": "constant | linear (default) | quadratic | logarithmic",
+
+            "magnitude": {
+              "boostingRangeStart": #,
+              "boostingRangeEnd": #,
+              "constantBoostBeyondRange": true | false (default)
             }
 
-            // (- or -) 
-    
-            "freshness": { 
-              "boostingDuration": "..." (value representing timespan over which boosting occurs) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "freshness": {
+              "boostingDuration": "..." (value representing timespan over which boosting occurs)
+            }
 
-            "distance": { 
-              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location) 
-              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "distance": {
+              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+            }
+
+            // (- or -)
 
             "tag": {
               "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field)
             }
-          } 
-        ], 
-        "functionAggregation": (optional, applies only when functions are specified) 
-            "sum (default) | average | minimum | maximum | firstMatching" 
-      } 
-    ], 
+          }
+        ],
+        "functionAggregation": (optional, applies only when functions are specified)
+            "sum (default) | average | minimum | maximum | firstMatching"
+      }
+    ],
     "defaultScoringProfile": (optional) "...",
     ...
 
@@ -221,11 +262,10 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 
 **Observação** uma função de pontuação só pode ser aplicada a campos filtráveis.
 
-<table>
-<thead>
+<table border="1">
 <tr>
-<td>Atributo</td>
-<td>Descrição</td>
+<th>Atributo</th>
+<th>Descrição</th>
 </tr>
 <tr>
 <td>Nome</td>	<td>Obrigatório. Esse é o nome do perfil de pontuação. Ele segue as mesmas convenções de nomenclatura que os campos. Ele deve começar com uma letra, não pode conter pontos, dois-pontos ou símbolos @ e não pode se iniciar com a frase 'azureSearch' (diferencia maiúsculas de minúsculas). </td>
@@ -244,9 +284,9 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 </tr><tr>
 <td>Interpolação</td>	<td>Necessário para funções de pontuação. Define a inclinação para a qual o aumento de pontuação ocorre, do início ao fim do intervalo. Os valores válidos incluem Linear (padrão), Constante, Quadrática e Logarítmica. Consulte [Definir interpolações]([#bkmk_interpolation]) para obter detalhes.</td>
 </tr><tr>
-<td>magnitude</td>	<td>A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns são: 
+<td>magnitude</td>	<td>A função de pontuação magnitude é usada para alterar a classificação com base no intervalo de valores de um campo numérico. Alguns dos exemplos de uso mais comuns são:
 <br>
-‒ Classificações por estrelas: alterar a pontuação com base no valor do campo "Classificação por estrelas". Quando dois itens são relevantes, o item com a classificação mais alta é exibido primeiro.
+‒ Classificações por estrelas: alterar a pontuação com base no valor do campo "Star Rating". Quando dois itens são relevantes, o item com a classificação mais alta é exibido primeiro.
 <br>
 ‒ Margem: quando dois documentos forem relevantes, um varejista poderá aumentar documentos que tenham margens superiores primeiro.
 <br>
@@ -257,28 +297,27 @@ Esta seção mostra a sintaxe e o modelo para perfis de pontuação. Consulte [R
 <td>magnitude | boostingRangeStart</td>	<td>Define o valor inicial do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou duplo. Para classificações por estrelas de 1 a 4, isso seria 1. Para mais acima de 50% de margens, isso seria 50.</td>
 </tr><tr>
 <td>magnitude | boostingRangeEnd</td>	<td>Define o valor final do intervalo em que a magnitude é pontuada. O valor deve ser um inteiro ou duplo. Para classificações por estrelas de 1 a 4, isso seria 4.</td>
-</tr><tr> 
+</tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>Os valores válidos são true ou false (padrão). Quando definido como true, o aumento completo continuará a ser aplicado a documentos que tenham um valor para o campo de destino maior do que a extremidade superior do intervalo. Se for false, o aumento dessa função não será aplicado a documentos com um valor para o campo de destino que esteja fora do intervalo.</td>
 </tr><tr>
-<td>atualização</td>	<td>A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento de &lt; 1.</td>
+<td>atualização</td>	<td>A função de pontuação atualização é usada para alterar as pontuações de classificação para os itens com base nos valores nos campos DateTimeOffset. Por exemplo, um item com uma data mais recente pode ter classificação mais alta do que itens mais antigos. Na versão atual do serviço, uma extremidade do intervalo será corrigida para a hora atual. A taxa à qual o aumento é alterado em um intervalo máximo e mínimo é determinada pela Interpolação é aplicada ao perfil de pontuação (consulte a figura abaixo). Para inverter o fator de aumento aplicado, escolha um fator de aumento que seja inferior a 1.</td>
 </tr><tr>
-<td>atualização | boostingDuration</td>	<td>Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration](#bkmk_boostdur) na próxima seção para obter a sintaxe e exemplos.</td>
+<td>atualização | boostingDuration</td>	<td>Define um período de expiração após o qual o aumento será interrompido para um documento específico. Consulte [Definir boostingDuration ][#bkmk_boostdur] na próxima seção para obter a sintaxe e exemplos.</td>
 </tr><tr>
 <td>distância</td>	<td>A função de pontuação distância é usada para afetar a pontuação de documentos com base em sua distância ou proximidade em relação a um local geográfico de referência. O local de referência é fornecido como parte da consulta em um parâmetro (usando a opção de cadeia de caracteres 'scoringParameterquery') como um argumento lon,lat.</td>
 </tr><tr>
-<td>distância | referencePointParameter</td>	<td>Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview.md#SearchDocs) para obter descrições dos parâmetros de consulta.</td>
+<td>distância | referencePointParameter</td>	<td>Um parâmetro a ser passado em consultas para usar como local de referência. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview/#SearchDocs) para obter descrições dos parâmetros de consulta.</td>
 </tr><tr>
 <td>distância | boostingDistance</td>	<td>Um número que indica a distância em quilômetros do local de referência em que o intervalo de aumento termina.</td>
 </tr><tr>
 <td>marca</td>	<td>A função de pontuação marca é usada para afetar a pontuação de documentos com base em marcas em documentos e consultas de pesquisa. Documentos com marcas em comum com a consulta de pesquisa serão ser aumentados. As marcas para a consulta de pesquisa são fornecidas como um parâmetro de pontuação em cada solicitação de pesquisa (usando a opção de cadeia de caracteres 'scoringParameterquery').</td>
 </tr><tr>
-<td>marca | tagsParameter</td>	<td>Um parâmetro a ser passado em consultas para especificar marcas para uma solicitação específica. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview.md#SearchDocs) para obter descrições dos parâmetros de consulta.</td>
+<td>marca | tagsParameter</td>	<td>Um parâmetro a ser passado em consultas para especificar marcas para uma solicitação específica. scoringParameter é um parâmetro de consulta. Consulte [Pesquisar documentos](search-api-2015-02-28-preview/#SearchDocs) para obter descrições dos parâmetros de consulta.</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>Opcional. Aplicável apenas quando funções são especificadas. Os valores válidos incluem: soma (padrão), média, mínimo, máximo e firstMatching. Uma pontuação de pesquisa é um valor único calculado por meio de diversas variáveis, incluindo várias funções. Esses atributos indicam como os aumentos de todas as funções são combinados em um único aumento agregado que, em seguida, é aplicado à pontuação de documento de base. A pontuação de base é fundamentada no valor tf-idf calculado por meio do documento e da consulta de pesquisa.</td>
 </tr><tr>
 <td>defaultScoringProfile</td>	<td>Ao se executar uma solicitação de pesquisa, se nenhum perfil de pontuação for especificado, a pontuação padrão será usada (somente tf-idf). Um nome de perfil de pontuação padrão pode ser definido aqui, fazendo com que o Azure Search use esse perfil quando nenhum perfil específico for fornecido na solicitação de pesquisa. </td>
 </tr>
-</tbody>
 </table>
 
 <a name="bkmk_interpolation"></a>
@@ -293,7 +332,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 - `Quadratic` Em comparação com uma interpolação Linear que tem um aumento que diminui constantemente, a opção Quadrática diminuirá inicialmente em um ritmo menor e, em seguida, à medida que se aproximar do intervalo de término, diminuirá em um intervalo muito maior. Essa opção de interpolação não é permitida em funções de pontuação de marca.
 
 - `Logarithmic` Em comparação com uma interpolação Linear que tem um aumento que diminui constantemente, a opção Logarítmica diminuirá inicialmente em um ritmo maior e, em seguida, ao se aproximar do intervalo de término, será reduzida em um intervalo muito menor. Essa opção de interpolação não é permitida em funções de pontuação de marca.
- 
+
 <a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
@@ -301,7 +340,7 @@ As interpolações permitem que você defina a inclinação para a qual o aument
 
 `boostingDuration` é um atributo da função de atualização. Você pode usá-lo para definir um período de expiração após o qual o aumento será interrompido para um documento específico. Por exemplo, para aumentar uma linha de produtos ou marca por um período promocional de 10 dias, você especificaria o período de 10 dias como "P10D" para esses documentos.
 
-`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão para isso é: "P(nD)(T(nH)(nM)(nS))".
+`boostingDuration` deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um valor de duração ISO 8601). O padrão é: "P[nD][T[nH][nM][nS]]".
 
 A tabela a seguir fornece vários exemplos.
 
@@ -331,6 +370,4 @@ Para obter mais exemplos, consulte [Esquema XML: tipos de dados (site W3.org)](h
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

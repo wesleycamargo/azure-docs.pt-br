@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -286,9 +286,9 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
 
  O manifesto do seu aplicativo deve ter permissões para usar contas do AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 Usando este passo a passo, você deve ter o que precisa para se integrar com êxito com o Active Directory do Azure. Para obter mais exemplos de como isso funciona, visite o repositório AzureADSamples / no GitHub.
@@ -409,7 +409,7 @@ A ADAL criptografa os tokens e os armazena em SharedPreferences por padrão. Voc
 
 ### Desafio de portador de Oauth2
 
-A classe AuthenticationParameters fornece funcionalidade para obter o authorization_uri do desafio de portador de Oauth2.
+A classe AuthenticationParameters fornece funcionalidade para obter o authorization\_uri do desafio de portador de Oauth2.
 
 ### Cookies de sessão no Webview
 
@@ -444,4 +444,4 @@ A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

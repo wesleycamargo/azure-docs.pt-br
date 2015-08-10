@@ -83,7 +83,7 @@ Se você ainda não iniciou a sessão de 1 hora, siga estas etapas para começar
 
 
 ##O que fazer primeiro
-Como o índice de pesquisa é totalmente operacional, uma boa primeira etapa é testar algumas consultas. A Pesquisa do Azure dá suporte a todos os operadores de pesquisa padrão (+, -, |), aspas para correspondências literais, curinga (*) e operadores de precedência. Você pode examinar a referência de sintaxe de consulta para a lista completa dos operadores.
+Como o índice de pesquisa é totalmente operacional, uma boa primeira etapa é testar algumas consultas. A Pesquisa do Azure dá suporte a todos os operadores de pesquisa padrão (+, -, |), aspas para correspondências literais, curinga (\*) e operadores de precedência. Você pode examinar a referência de sintaxe de consulta para a lista completa dos operadores.
 
 - Comece com uma pesquisa de curinga adicionando um asterisco (`*`). Isso informa quantos documentos são encontrados no índice: 2,262,578.
 - Em seguida, digite "Yellowstone", e depois adicione "+centro", "+ criando" e "-ND" restringir progressivamente os resultados da pesquisa apenas para os centros de visitantes de Yellowstone, exceto aqueles na Dakota do Norte: `Yellowstone +center +building -ND`.  
@@ -157,7 +157,7 @@ Os filtros são especificados usando a sintaxe de OData e são frequentemente us
 
 3. Abra o aplicativo.
 
-4. Digite o caractere curinga (*) para retornar uma contagem. Observe que os resultados agora estão limitados a 42.411 itens, que são todos os documentos para todos os recursos geográficos no estado de Washington.
+4. Digite o caractere curinga (\*) para retornar uma contagem. Observe que os resultados agora estão limitados a 42.411 itens, que são todos os documentos para todos os recursos geográficos no estado de Washington.
 
    ![][12]
 
@@ -529,4 +529,4 @@ A captura de tela a seguir mostra o esquema usado para criar o índice usado nes
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

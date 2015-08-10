@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="03/13/2015"
+   ms.date="07/22/2015"
    ms.author="john.harvey@microsoft.com"/>
 
 #  Visão geral do Governo do Microsoft Azure 
 
-<p> O Microsoft Azure Government é uma instância isolada fisicamente e da rede do Microsoft Azure. Este guia de desenvolvedores fornecerá detalhes sobre as diferenças que os desenvolvedores de aplicativos e administradores precisam interagir e trabalhar com essas regiões separadas do Azure.
+<p> O Microsoft Azure Government é uma instância isolada fisicamente e da rede do Microsoft Azure. Esta visão geral fornece uma introdução ao ambiente e aos serviços, bem como links para informações adicionais.
 
 
 ## <a name="Overview"></a>Visão geral
@@ -31,7 +31,7 @@ Abaixo está uma exibição resumida da infraestrutura, malha, serviços e estru
 
 ![][2]
 
-O Governo do Azure inclui os principais componentes da Infraestrutura Como Serviço (IaaS) e Plataforma como Serviço (PaaS). Isso inclui a infraestrutura, rede, armazenamento, gerenciamento de dados, gerenciamento de identidades e muitos outros serviços. O Governo do Azure oferece suporte a excelentes recursos que os clientes do Azure público utilizaram como replicação de dados de sincronização geográfica e dimensionamento automático. A Microsoft foi identificada como líder em <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> por analistas líderes do setor.
+O Governo do Azure inclui os principais componentes da Infraestrutura Como Serviço (IaaS) e Plataforma como Serviço (PaaS). Isso inclui a infraestrutura, rede, armazenamento, gerenciamento de dados, gerenciamento de identidades e muitos outros serviços. O Governo do Azure oferece suporte a excelentes recursos que os clientes do Azure público utilizaram como replicação de dados de sincronização geográfica e dimensionamento automático. A Microsoft foi identificada como líder em <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> e <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> por analistas líderes do setor.
 
 Além de fornecer os serviços robustos e recursos do Azure público, o Governo do Azure fornece uma série de recursos para garantir para as entidades governamentais dos EUA que seus dados sejam protegidos, fornecendo:
 
@@ -73,6 +73,7 @@ O Azure Government atualmente tem os seguintes serviços disponíveis nas regiõ
 - Serviços de mídia
 - Gerenciador de Tráfego
 - Barramento de Serviço
+- StorSimple
 
 Outros serviços estão disponíveis e mais serviços serão adicionados continuamente. Para obter a lista mais atual dos serviços, consulte a [página regiões](http://azure.microsoft.com/regions/#services) que destacará todas as regiões disponíveis e seus serviços.
 
@@ -103,4 +104,4 @@ Se você estiver interessado em aprender mais sobre o Governo do Azure aproveite
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

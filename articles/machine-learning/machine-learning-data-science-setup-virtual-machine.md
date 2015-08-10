@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Configurar uma máquina virtual como um servidor do IPython Notebook | Microsoft Azure"
 	description="Configure uma Máquina Virtual do Azure para uso em um ambiente de ciência de dados com o IPython Server para análise avançada."
-	metaKeywords=""
-	services="machine-learning"
-	solutions="" 
+	services="machine-learning" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -26,9 +24,9 @@ Este tópico mostra como provisionar e configurar uma máquina virtual do Azure 
 
 Se você já tiver uma máquina virtual do Azure e apenas deseja configurar um servidor do IPython Notebook nela, é possível ignorar esta etapa e prosseguir para a [Etapa 2: adicionar um ponto de extremidade para IPython Notebooks a uma máquina virtual existente](#add-endpoint).
 
-Antes de iniciar o processo de criação de uma máquina virtual no Azure, você precisa determinar o tamanho da máquina que é necessária para processar os dados para o seu projeto. Máquinas menores têm menos memória e menos núcleos de CPU que máquinas maiores, mas elas também são mais baratas. Para obter uma lista dos tipos de máquinas e seus preços, consulte a página [Preços de máquinas virtuais](http://azure.microsoft.com/pricing/details/virtual-machines/)
+Antes de iniciar o processo de criação de uma máquina virtual no Azure, você precisa determinar o tamanho da máquina que é necessária para processar os dados para o seu projeto. Máquinas menores têm menos memória e menos núcleos de CPU que máquinas maiores, mas elas também são mais baratas. Para obter uma lista dos tipos de máquinas e seus preços, consulte a página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Preços de máquinas virtuais</a>
 
-1. Faça logon no https://manage.windowsazure.com e clique em **Novo** no canto inferior esquerdo. Uma janela será exibida. Selecione **COMPUTAÇÃO** -> **MÁQUINA VIRTUAL** -> **DA GALERIA**.
+1. Faça logon no <a href="https://manage.windowsazure.com" target="_blank">Portal do Azure</a> e clique em **Novo** no canto inferior esquerdo. Uma janela será exibida. Selecione **COMPUTAÇÃO** -> **MÁQUINA VIRTUAL** -> **DA GALERIA**.
 
 	![Criar espaço de trabalho][24]
 
@@ -41,15 +39,13 @@ Antes de iniciar o processo de criação de uma máquina virtual no Azure, você
 
 	![Criar espaço de trabalho][25]
 
-3. Digite um nome para a máquina virtual que você deseja criar, selecione o tamanho da máquina com base no tamanho dos dados que a máquina processará e a potência que você deseja que a máquina tenha (tamanho da memória e número de núcleos de computação), digite um nome de usuário e senha para a máquina. Em seguida, clique na seta para a direita para ir para a próxima página de configuração.
+3. Digite um nome para a máquina virtual que você deseja criar, selecione o tamanho da máquina (padrão: A3) com base no tamanho dos dados que a máquina processará e a potência que você deseja que a máquina tenha (tamanho da memória e número de núcleos de computação), digite um nome de usuário e senha para a máquina. Em seguida, clique na seta para a direita para ir para a próxima página de configuração.
 
 	![Criar espaço de trabalho][26]
 
-4. Selecione a **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL** que contém a **CONTA DE ARMAZENAMENTO** que você planeja usar para a máquina virtual e, em seguida, selecione essa conta de armazenamento. Adicione um ponto de extremidade na parte inferior no campo **PONTOS DE EXTREMIDADE** digitando o nome do ponto de extremidade ("IPython" aqui). Você pode escolher qualquer cadeia de caracteres como o **NOME** do ponto de extremidade e qualquer inteiro entre 0 e 65536 que esteja **disponível** como a **PORTA PÚBLICA**. A **PORTA PRIVADA** deve ser **9999**. Os usuários devem **evitar** usar portas públicas que já tenham sido atribuídas a serviços de Internet. As [Portas para Serviços de Internet](http://www.chebucto.ns.ca/~rakerman/port-table.html) fornecem uma lista de portas que foram atribuídas e devem ser evitadas.
+4. Selecione a **REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL** que contém a **CONTA DE ARMAZENAMENTO** que você planeja usar para a máquina virtual e, em seguida, selecione essa conta de armazenamento. Adicione um ponto de extremidade na parte inferior no campo **PONTOS DE EXTREMIDADE** digitando o nome do ponto de extremidade ("IPython" aqui). Você pode escolher qualquer cadeia de caracteres como o **NOME** do ponto de extremidade e qualquer inteiro entre 0 e 65536 que esteja **disponível** como a **PORTA PÚBLICA**. A **PORTA PRIVADA** deve ser **9999**. Os usuários devem **evitar** usar portas públicas que já tenham sido atribuídas a serviços de Internet. As <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Portas para Serviços de Internet</a> fornecem uma lista de portas que foram atribuídas e devem ser evitadas.
 
 	![Criar espaço de trabalho][27]
-
-	>[AZURE.NOTE]Se o ponto de extremidade for adicionado a esta etapa, a [Etapa2: adicionar um ponto de extremidade para IPython Notebooks a uma máquina virtual existente](#add-endpoint) pode ser ignorada.
 
 5. Clique na marca de seleção para iniciar o processo de provisionamento da máquina virtual.
 
@@ -70,24 +66,24 @@ Se a máquina virtual já existir e você precisar adicionar um ponto de extremi
 
 ## <a name="run-commands"></a>Etapa 3: instalar o IPython Notebook e outras ferramentas de suporte
 
-Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines-log-on-windows-server.md). Abra o **Prompt de Comando** (**não a janela de comando do Powershell**) como Administrador e execute o comando a seguir.
+Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines-log-on-windows-server.md). Abra o **Prompt de Comando** (\*\*não a janela de comando do Powershell\*\*) como **Administrador** e execute o comando a seguir.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Quando a instalação for concluída, o servidor do IPython Notebook será iniciado automaticamente no diretório *C:\\Users&#60;nome de usuário>\\Documents\\IPython Notebooks*.
+Quando a instalação for concluída, o servidor do IPython Notebook será iniciado automaticamente no diretório *C:\\Users\\<nome de usuário>\\Documents\\IPython Notebooks*.
 
 Quando solicitado, digite uma senha para o IPython Notebook e a senha de administrador do computador. Isso permite que o IPython Notebook seja executado como um serviço no computador.
 
 ## <a name="access"></a>Etapa 4: acesse o IPython Notebooks usando um navegador da Web
-Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado. Se você escolher *443* como o número da porta pública, o IPython Notebook pode ser acessado sem especificar explicitamente o número da porta na caixa de texto da URL. Caso contrário, o **&#60;número da porta pública>* é necessário.
+Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
 
 O *&#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
 
 ![Criar espaço de trabalho][19]
 
-Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
+Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;\*Nome DNS\*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
 
 Internet Explorer: ![Criar espaço de trabalho][20]
 
@@ -147,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="07/23/2015"
    ms.author="elfish"/>
 
-# Recuperação de um Banco de Dados SQL do Azure de um erro do usuário
+# Recuperar um Banco de Dados SQL do Azure de um erro do usuário
 
 O Banco de Dados SQL do Azure oferece dois recursos principais para recuperação de erro do usuário ou modificação de dados não intencional.
 
@@ -109,4 +109,4 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

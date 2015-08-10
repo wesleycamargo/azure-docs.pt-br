@@ -44,7 +44,7 @@ Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviç
 
 Proteja os ativos com criptografia, autentique usuários corporativos no local ou remotamente e autorize seu uso dos ativos.
 
-Proteja os ativos internos contra interceptadores com o [HTTPS]. O nome de domínio ***.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web do Serviço de Aplicativo. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
+Proteja os ativos internos contra interceptadores com o [HTTPS]. O nome de domínio **\*.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web do Serviço de Aplicativo. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
 
 [Autentique usuários] em relação ao diretório corporativo. Os aplicativos Web do Serviço de Aplicativo podem autenticar usuários com provedores de identidade locais, como AD FS (Serviços de Federação do Active Directory), ou com um locatário do Active Directory do Azure que foi sincronizado com sua implantação corporativa do Active Directory. Os usuários podem acessar as propriedades da Web em aplicativos Web por meio de logon único quando estão no local e quando estão em campo. Serviços existentes, como o Office 365 ou o Microsoft Intune, já usam o Active Directory do Azure. Com o recurso de [Autenticação Fácil], é muito fácil ativar a autenticação com o mesmo locatário do Active Directory do Azure para seu aplicativo Web.
 
@@ -62,7 +62,7 @@ No entanto, sua empresa pode necessitar que seus dados sejam mantidos no local. 
 
 Otimize seu aplicativo de linha de negócios dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu aplicativo de linha de negócios, independentemente do porte de sua carga de trabalho. Expanda seu aplicativo Web de forma manual por meio do [Portal de Gerenciamento do Azure], de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu aplicativo de linha de negócios, independentemente do porte de sua carga de trabalho. Expanda seu aplicativo Web de forma manual por meio do [Portal de Gerenciamento do Azure], de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu aplicativo Web mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -124,4 +124,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

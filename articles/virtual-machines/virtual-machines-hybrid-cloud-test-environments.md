@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Ambientes de teste de nuvem híbrida do Azure" 
-	description="Acesse os principais tópicos que descrevem como criar ambientes de teste que você pode usar para desenvolvimento/teste ou uma prova de conceito para sua nuvem híbrida do Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Ambientes de teste de nuvem híbrida do Azure"
+	description="Acesse os principais tópicos que descrevem como criar ambientes de teste que você pode usar para desenvolvimento/teste ou uma prova de conceito para sua nuvem híbrida do Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Ambientes de teste de nuvem híbrida do Azure
 
-Para desenvolvimento/teste ou uma prova de conceito, os ambientes de teste de nuvem híbrida usam sua conexão de Internet local e um de seus endereços IP públicos e o orientam durante a configuração de uma VNet (Rede Virtual) do Azure entre locais funcional. Ao concluir, você pode realizar o desenvolvimento e teste de aplicativos, fazer experiências com cargas de trabalho de TI simplificadas e medir o desempenho de uma conexão VPN (rede privada virtual) de site a site em relação a seu local na Internet.
+Para desenvolvimento/teste ou uma prova de conceito, os ambientes de teste de nuvem híbrida usam sua conexão de Internet local e um de seus endereços IP públicos e o orientam durante a configuração de uma VNet (Rede Virtual) do Azure entre locais funcional. Ao concluir, você pode desenvolver e testar aplicativos, fazer experiências com cargas de trabalho de TI simplificadas e medir o desempenho de uma conexão VPN (rede privada virtual) de site a site em relação a seu local na Internet.
 
 > [AZURE.NOTE]Estes artigos atualmente criam máquinas virtuais, redes virtuais e outros recursos no Gerenciamento de Serviços.
 
@@ -27,7 +27,7 @@ Para desenvolvimento/teste ou uma prova de conceito, os ambientes de teste de nu
 
 A [configuração de base de nuvem híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md) consiste em:
 
-- Uma rede local simplificada com quatro máquinas virtuais (um controlador de domínio, um servidor de aplicativos, um computador cliente e um dispositivo VPN que executa o Windows Server e o Roteamento e Acesso Remoto)
+- Uma rede local simplificada com quatro máquinas virtuais (um controlador de domínio, um servidor de aplicativos, um computador cliente e um dispositivo VPN que executa o Windows Server e o Roteamento e Acesso Remoto).
 - Uma rede virtual do Azure com um controlador de domínio de réplica
 - Uma conexão VPN de site a site.
 
@@ -56,9 +56,6 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 [Implantar DirSync (Sincronização de Diretório) do Office 365 no Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-[Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

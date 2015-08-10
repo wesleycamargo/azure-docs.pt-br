@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Este tutorial mostra como usar os Serviços Móveis do Azure no aplicativo Sencha Touch. Você criará um aplicativo simples de Lista de Tarefas Pendentes usando o Sencha Touch, que usa um serviço móvel definido por meio do Portal de Gerenciamento. Este tutorial destina-se a desenvolvedores de aplicativos web intermediários a avançados que tenham um bom entendimento do JavaScript e que estejam familiarizados com a estrutura do Sencha Touch. </p>
-<p>Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial. No vídeo, Arthur Kay explicará como criar um aplicativo do Sencha Touch usando um back-end dos Serviços Móveis do Azure.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">14:37</span></div>
-</div>
+##Visão geral
+
+Este tutorial mostra como usar os Serviços Móveis do Azure no aplicativo Sencha Touch. Você criará um aplicativo simples de Lista de Tarefas Pendentes usando o Sencha Touch, que usa um serviço móvel definido por meio do Portal de Gerenciamento. Este tutorial destina-se a desenvolvedores de aplicativos web intermediários a avançados que tenham um bom entendimento do JavaScript e que estejam familiarizados com a estrutura do Sencha Touch.
+
+Se você preferir assistir a um vídeo, o clipe segue as mesmas etapas deste tutorial. No vídeo, Arthur Kay explica como criar um aplicativo do Sencha Touch usando um back-end dos Serviços Móveis do Azure.
+
+> [AZURE.VIDEO getting-started-with-sencha-touch]
 
 
 Uma captura de tela do aplicativo completo é mostrada abaixo:
@@ -35,9 +35,9 @@ Uma captura de tela do aplicativo completo é mostrada abaixo:
 
 ##Requisitos
 
-- Baixe e instale o [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+- Baixe e instale o [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- Baixe e instale [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+- Baixe e instale [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - Java Runtime Environment (JRE) ou Java Development Kit (se você estiver criando aplicativos para o Android)
 
@@ -712,4 +712,4 @@ Para obter mais informações sobre como começar a usar o Sencha Touch, acesse 
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

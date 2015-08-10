@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -94,7 +95,7 @@ As propriedades específicas serão diferentes conforme a fonte de dados, porém
 
 <br/>
 
-> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor desta propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms_description para objetos e colunas. Para obter mais informações, consulte o TechNet [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para fontes de dados como o SQL Server Analysis Services que têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor desta propriedade. Para bancos de dados relacionais do SQL Server, que não têm uma propriedade **Descrição** de primeira classe, o aplicativo de publicação do **Catálogo de Dados do Azure** extrairá o valor da propriedade estendida ms\_description para objetos e colunas. Para obter mais informações, consulte o TechNet [Usando propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P.: Quanto tempo levará para recursos recém-registrados aparecem no Catálogo de Dados do Azure?
 
@@ -157,4 +158,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

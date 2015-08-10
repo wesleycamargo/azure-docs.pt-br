@@ -71,7 +71,7 @@ Forneça seu conteúdo estático de forma extremamente rápida aos usuários glo
 
 Otimize seu aplicativo Web dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] é perfeita para cargas de trabalho imprevisíveis, o que é o caso das campanhas de marketing digital. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Esse recurso ajuda a maximizar a agilidade e minimizar os custos ao mesmo tempo, escalando horizontalmente o aplicativo Web apenas quando necessário com base na atividade do usuário. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativos Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] é perfeita para cargas de trabalho imprevisíveis, o que é o caso das campanhas de marketing digital. Escale horizontalmente seu aplicativo Web de forma manual por meio do [Portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. Na camada **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um aplicativo Web de forma automática com base na utilização da CPU. Esse recurso ajuda a maximizar a agilidade e minimizar os custos ao mesmo tempo, escalando horizontalmente o aplicativo Web apenas quando necessário com base na atividade do usuário. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu aplicativo Web mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -141,4 +141,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

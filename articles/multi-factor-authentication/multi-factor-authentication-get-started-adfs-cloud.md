@@ -24,7 +24,7 @@ Se sua organização for federada com o Active Directory do Azure e você tiver 
 
 
 
-1. Use as etapas descritas em [ativar autenticação multifator](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) para que os usuários habilitem uma conta.
+1. Use as etapas descritas em [ativar autenticação multifator](active-directory/multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) para que os usuários habilitem uma conta.
 2. Use o procedimento a seguir para configurar uma regra de declaração:
 
 ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
@@ -53,57 +53,44 @@ IPs confiáveis permitem aos administradores ignorar a autenticação multifator
 
 ### Configurar as regras de declarações do AD FS
 
-A primeira coisa que precisamos fazer é configurar as declarações do AD FS. Estamos criando duas regras declarações: uma para o tipo de declaração Dentro da rede corporativa e um adicional para manter nossos usuários conectados.<ol>
+A primeira coisa que precisamos fazer é configurar as declarações do AD FS. Estamos criando duas regras declarações: uma para o tipo de declaração Dentro da rede corporativa e um adicional para manter nossos usuários conectados.
 
-<li>Abra o gerenciamento do AD FS.</li>
-<li>À esquerda, selecione a relação de confiança com terceira parte confiável.</li>
-<li>No meio, clique com o botão direito do mouse na plataforma de identidade Microsoft Office 365 e selecione **Editar Regras de Declaração...**</li>
-
-![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
-
-<li>Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.</li>
-
-![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-
-<li>No Assistente Adicionar Regra de Declaração de Transformação, selecione Passar ou filtrar uma Declaração de Entrada na lista e clique em Avançar.</li>
-
-![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
-
-<li>Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.</li>
-<li>Na lista suspensa, ao lado do tipo de declaração de entrada, selecione Dentro da rede corporativa.</li>
-
-![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-
-<li>Clique em Concluir.</li>
-<li>Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.</li>
-<li>No Assistente Adicionar Regra de Declaração de Transformação, selecione Enviar Declarações Usando uma Regra Personalizada da lista suspensa e clique em Avançar.</li>
-<li>Na caixa abaixo do nome da regra de declaração: insira Manter Usuários Conectados.</li>
-<li>Na caixa de regra Personalizar, insira: c:[Type == "http://schemas.microsoft.com/2014/03/psso"] => issue(claim = c);
-</li>
-
+1. Abra o gerenciamento do AD FS.
+2. À esquerda, selecione a relação de confiança com terceira parte confiável.
+3. No meio, clique com o botão direito do mouse na plataforma de identidade Microsoft Office 365 e selecione **Editar Regras de Declaração...**![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+5. No Assistente Adicionar Regra de Declaração de Transformação, selecione Passar ou filtrar uma Declaração de Entrada na lista e clique em Avançar.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
+7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione Dentro da rede corporativa.![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+8. Clique em Concluir.
+9. Em Regras de Transformação de Emissão, clique em **Adicionar Regra**.
+10. No Assistente Adicionar Regra de Declaração de Transformação, selecione Enviar Declarações Usando uma Regra Personalizada da lista suspensa e clique em Avançar.
+11. Na caixa abaixo do nome da regra de declaração: insira Manter Usuários Conectados.
+12. Na caixa de regra Personalizada, digite:
+	    
+		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+			=> issue(claim = c);
 ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+13. Clique em **Concluir**.
+14. Clique em **Aplicar**.
+15. Clique em **OK**.
+16. Feche o gerenciamento do AD FS.
 
-<li>Clique em **Concluir**.</li>
-<li>Clique em **Aplicar**.</li>
-<li>Clique em **OK**.</li>
 
-<li>Feche o gerenciamento do AD FS.</li>
 
 ### Configurar IPs confiáveis do Azure Multi-Factor Authentication com usuários federados
-Agora que as declarações estão prontas, podemos configurar IPs confiáveis.<ol>
+Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
-<li>Entre no Portal de Gerenciamento do Azure.</li>
-<li>À esquerda, clique no Active Directory.</li>
-<li>Em Diretório, clique no diretório em que deseja configurar IPs confiáveis.</li>
-<li>No Diretório que você selecionou, clique em Configurar.</li>
-<li>Na seção autenticação multifator, clique em Gerenciar configurações de serviço.</li>
-<li>Na página Configurações de Serviço, em IPs Confiáveis, selecione **Para solicitações de usuários federados originárias da minha intranet.**</li>
+1. Entre no Portal de Gerenciamento do Azure.
+2. À esquerda, clique no Active Directory.
+3. Em Diretório, clique no diretório em que deseja configurar IPs confiáveis.
+4. No Diretório que você selecionou, clique em Configurar.
+5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
+6. Na página Configurações de Serviço, em IPs Confiáveis, selecione **Para solicitações de usuários federados originárias da minha intranet.**![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+7. Clique em Salvar.
+8. Depois que as atualizações forem aplicadas, clique em Fechar.
 
-![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-
-<li>Clique em Salvar.</li>
-<li>Depois que as atualizações forem aplicadas, clique em Fechar.</li>
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

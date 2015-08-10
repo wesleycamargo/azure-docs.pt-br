@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure
@@ -48,9 +48,12 @@ Com os modelos Gerenciador de recursos, você pode:
 
 ## Implantar com o portal de visualização
 
-E adivinhe? Todos os aplicativos na Galeria são respaldados por um modelo do Gerenciador de recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço.
+E adivinhe? Todos os aplicativos que você cria por meio do [portal de visualização](https://portal.azure.com/) tem um modelo do Gerenciador de Recursos do Azure! Ao simplesmente criar uma Máquina Virtual, Rede Virtual, Conta de Armazenamento, Serviço de Aplicativo ou banco de dados por meio do portal, você já está colhendo os benefícios do Gerenciador de recursos do Azure sem muito esforço. Basta selecionar o ícone **Novo** e você estará a caminho da implantação de um aplicativo por meio do Gerenciador de Recursos do Azure.
 
-Para solucionar problemas de implantações por meio do portal de visualização, clique em **Procurar** -> **grupos de recursos** -> *YourResourceGroupName*. Aqui, clique no bloco **Eventos**, sob a lente **Monitoramento**. Finalmente, você pode selecionar uma **operação** e **evento** individual para exibir os detalhes.
+![Novo](./media/resource-group-template-deploy/new.png)
+
+Para obter mais informações sobre o uso do portal com o Gerenciador de Recursos do Azure, consulte [Como usar o Portal de Visualização do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
+
 
 ## Implantação com o PowerShell
 
@@ -247,13 +250,11 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
     }
 
 ## Próximas etapas
-- [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
-- [Implantar dos recursos do Azure usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
-- [Implantar um aplicativo complexo de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Criação de modelos](../resource-group-authoring-templates.md)
-- [Funções de modelo](../resource-group-template-functions.md)
-- [Operações avançadas de modelo](../resource-group-advanced-template.md)  
+- Para obter um exemplo da implantação de recursos por meio da biblioteca cliente .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, consulte [Criando modelos](../resource-group-authoring-templates.md)
+- Para ver uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, consulte [Funções do modelo](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

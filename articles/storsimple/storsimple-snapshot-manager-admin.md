@@ -60,4 +60,4 @@ Você pode usar o StorSimple Snapshot Manager para monitorar e gerenciar trabalh
 
 [Baixar o StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

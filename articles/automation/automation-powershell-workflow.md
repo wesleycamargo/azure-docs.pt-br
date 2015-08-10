@@ -52,7 +52,7 @@ O código de fluxo de trabalho do PowerShell é praticamente idêntico ao códig
 
 Uma atividade é uma tarefa específica em um fluxo de trabalho. Assim como um script é composto de um ou mais comandos, um fluxo de trabalho é composto de uma ou mais atividades que são executadas em uma sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell para atividades ao executar um fluxo de trabalho. Quando você especifica um desses cmdlets em seu runbook, a atividade correspondente é efetivamente executada pelo Windows Workflow Foundation. Para esses cmdlets sem uma atividade correspondente, o Fluxo de Trabalho do Windows PowerShell executa o cmdlet automaticamente dentro de uma atividade de [InlineScript](#inlinescript). Há um conjunto de cmdlets que são excluídos e não podem ser usados em um fluxo de trabalho, a menos que você o inclua explicitamente em um bloco de InlineScript. Para obter mais detalhes sobre esses conceitos, confira [Usando atividades em fluxos de trabalho de script](http://technet.microsoft.com/library/jj574194.aspx).
 
-As atividades de fluxo de trabalho compartilham um conjunto de parâmetros comuns para configurar suas operações. Para obter detalhes sobre os parâmetros comuns de fluxo de trabalho, confira [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+As atividades de fluxo de trabalho compartilham um conjunto de parâmetros comuns para configurar suas operações. Para obter detalhes sobre os parâmetros comuns de fluxo de trabalho, confira [about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### Parâmetros posicionais
 
@@ -144,7 +144,7 @@ Embora as atividades InlineScript possam ser essenciais em determinados fluxos d
 - Não é possível usar a [execução paralela](#parallel-execution) dentro de um InlineScriptBlock.
 - O InlineScript afeta a escalabilidade do fluxo de trabalho, uma vez que retém a sessão do Windows PowerShell por toda a duração do bloco de InlineScript.
 
-Para obter mais detalhes sobre como usar o InlineScript, confira [Executando comandos do Windows PowerShell em um Fluxo de Trabalho](http://technet.microsoft.com/library/jj574197.aspx) e [about_inlinescript](http://technet.microsoft.com/library/jj649082.aspx).
+Para obter mais detalhes sobre como usar o InlineScript, confira [Executando comandos do Windows PowerShell em um Fluxo de Trabalho](http://technet.microsoft.com/library/jj574197.aspx) e [about\_inlinescript](http://technet.microsoft.com/library/jj649082.aspx).
 
 
 ## Processamento paralelo
@@ -249,4 +249,4 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 - [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

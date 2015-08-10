@@ -79,7 +79,7 @@ Primeiro, crie uma nova rede virtual chamada TestVNET.
 
 Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure para instalar o PowerShell do Azure no computador local](../install-configure-powershell.md).
 
-Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como**TestVNET-***UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de **TestVNET-Tailspin**.
+Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como**TestVNET-**\*UniqueSequence\*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de **TestVNET-Tailspin**.
 
 Você pode testar a exclusividade do nome com este comando do PowerShell do Azure em seu computador local.
 
@@ -171,7 +171,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC2\**[Nome da conta de administrador local]
+- Nome: **DC2\\**[Nome da conta de administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -226,7 +226,7 @@ Você também pode criar estas configurações nesse ambiente de teste:
 
 [Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurar uma conexão VNet a VNet](http://msdn.microsoft.com/library/azure/dn690122.aspx)
+[Configurar uma conexão VNet a VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 [Ambiente de teste de configuração básica](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
 
@@ -236,7 +236,7 @@ Você também pode criar estas configurações nesse ambiente de teste:
 
 ## <a id="costs"></a>Minimizando os custos contínuos desse ambiente
 
-Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais nas redes virtuais TestLab e Test_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md). Ao reiniciar as máquinas virtuais na sub-rede Corpnet, inicie o DC1 primeiro.
+Para minimizar os custos de executar máquinas virtuais nesse ambiente, realize seus testes e demonstração necessários o mais rápido possível e, então, exclua ou desligue as máquinas virtuais quando você não as estiver usando. Por exemplo, você poderia usar um runbook e automação do Azure para desligar automaticamente as máquinas virtuais nas redes virtuais TestLab e Test\_VNET ao final de cada dia útil. Para saber mais, confira [Introdução à automação do Azure](../automation-create-runbook-from-samples.md). Ao reiniciar as máquinas virtuais na sub-rede Corpnet, inicie o DC1 primeiro.
 
 Um gateway VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure, o que gera um custo monetário contínuo. Para obter detalhes, confira [Preços - Rede Virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos dos dois gateways VPN (um para TestLab e outro para TestVNET), crie o ambiente de teste e realize seus testes e demonstração necessários o mais rápido possível ou exclua os gateways com estas etapas.
  
@@ -273,4 +273,4 @@ Em seguida, configure a chave pré-compartilhada para que ambos os gateways usem
 Em seguida, na página Rede do Portal de Gerenciamento do Azure, clique na rede virtual **TestLab** e, em seguida, clique em **Conectar** na barra de tarefas. Aguarde até que a rede virtual TestLab mostre um estado conectado à rede local TestVNET.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

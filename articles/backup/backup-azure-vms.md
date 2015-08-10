@@ -24,7 +24,7 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
 ![Três etapas para fazer o backup de uma máquina virtual do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1. Descobrir máquinas virtuais do Azure
+## 1\. Descobrir máquinas virtuais do Azure
 O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do Serviço de Nuvem e a Região.
 
 > [AZURE.NOTE]O processo de descoberta sempre deve ser executado como a primeira etapa. Isso é para garantir que quaisquer novas máquinas virtuais adicionadas à assinatura sejam identificadas.
@@ -41,7 +41,7 @@ O processo de descoberta consulta o Azure quanto à lista de máquinas virtuais 
 
 5. Quando o processo de detecção for concluído, uma notificação do sistema será exibida. ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-##  2. Registre as máquinas virtuais do Azure
+##  2\. Registre as máquinas virtuais do Azure
 Antes que uma máquina virtual possa ser protegida, ela precisa ser registrada com o serviço de Backup do Azure. O processo de registro tem dois objetivos principais:
 
 1. Para conectar a extensão de backup ao agente de VM na máquina virtual
@@ -70,7 +70,7 @@ Normalmente, o registro é uma atividade realizada uma única vez. O serviço de
 
 7. Quando a operação é concluída, o status no portal é alterado para refletir o estado registrado. ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## 3. Proteção: Fazer backup de máquinas virtuais do Azure
+## 3\. Proteção: Fazer backup de máquinas virtuais do Azure
 Essa etapa envolve configurar uma política de backup e de retenção para a máquina virtual. Para proteger uma máquina virtual, execute as seguintes etapas:
 
 ### Para fazer backup de máquinas virtuais do Azure
@@ -182,4 +182,4 @@ Para saber mais sobre a introdução ao Backup do Azure, consulte:
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

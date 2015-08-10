@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma máquina virtual executando o Windows no Portal de Visualização do Azure | Microsoft Azure"
-	description="Aprenda a criar uma máquina virtual (VM) do Azure executando o Windows, usando o Azure Marketplace no Portal de Visualização do Azure"
+	pageTitle="Criar uma máquina virtual executando o Windows no portal de visualização do Azure | Microsoft Azure"
+	description="Saiba como criar um recurso de VM (máquina virtual) do Azure executando o Windows, usando o Azure Marketplace no portal de visualização do Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -16,15 +16,15 @@
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
-# Criar uma máquina virtual executando o Windows no Portal de Visualização do Azure#
+# Criar uma máquina virtual executando o Windows no portal de visualização do Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-Este tutorial mostra como é fácil criar uma máquina virtual (VM) do Azure no Portal de Visualização do Azure. Usaremos uma imagem do Windows Server 2012 R2 Datacenter como exemplo para criar a VM no Gerenciador de Recursos do Azure, mas essa é apenas uma das muitas imagens oferecidas pelo Azure. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
+Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure em apenas alguns minutos no portal de visualização. Usaremos uma imagem do Windows Server 2012 R2 Datacenter como exemplo para criar a VM no Gerenciador de Recursos do Azure, mas essa é apenas uma das muitas imagens oferecidas pelo Azure. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
 
 Você também pode criar VMs usando suas próprias imagens, com modelos do Gerenciador de Recursos ou com ferramentas de automação. Para saber mais sobre esse e outros métodos, consulte [Diferentes maneiras de criar uma máquina virtual do Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -33,9 +33,9 @@ Você também pode criar VMs usando suas próprias imagens, com modelos do Geren
 
 ## Selecionar a imagem
 
-Vá para o Azure Marketplace no portal de Visualização para localizar a imagem de VM do Windows Server desejada.
+Vá para o Azure Marketplace no portal de visualização para localizar a imagem de VM do Windows Server desejada.
 
-1. Entre no [Portal de Visualização](https://portal.azure.com).
+1. Entre no [portal de visualização](https://portal.azure.com).
 
 2. No menu Hub, clique em **Novo** > **Computação** > **Windows Server 2012 R2 Datacenter**.
 
@@ -55,7 +55,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Configurar os aspectos básicos da VM](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]O **Nome de usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha que seja difícil para outras pessoas adivinharem mas da qual você possa se lembrar. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
+	>[AZURE.NOTE]O \*\*Nome de usuário\*\* se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha que seja difícil para outras pessoas adivinharem mas da qual você possa se lembrar. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 
 2. Clique em **Tamanho** e selecione um tamanho de VM apropriado para suas necessidades. Cada tamanho especifica o número de núcleos de computação, memória e outros recursos, como suporte para Armazenamento Premium, o que afetará o preço. O Azure recomenda automaticamente determinados tamanhos, dependendo da imagem escolhida.
 
@@ -79,7 +79,7 @@ Após criar a VM, você pode fazer logon nela para que possa gerenciar as config
 
 >[AZURE.NOTE]Para mais dicas de requisitos e solução de problemas, consulte [Conecte-se à uma máquina virtual Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Se ainda não fez isso, entre no [Portal de Visualização](https://portal.azure.com).
+1. Se ainda não fez isso, entre no [portal de visualização](https://portal.azure.com).
 
 2. Clique na VM no quadro inicial. Se você precisar encontrá-la, clique em **Procurar Tudo** > **Recente** ou **Procurar Tudo** > **Máquinas virtuais**. Em seguida, selecione sua VM na lista.
 
@@ -100,6 +100,6 @@ Após criar a VM, você pode fazer logon nela para que possa gerenciar as config
 ## Próximas etapas
 
 * Use o Azure PowerShell e a CLI do Azure para [localizar e selecionar imagens da VM](resource-groups-vm-searching.md).
-* Automatize a implantação e o gerenciamento de VM e de carga de trabalho com o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/en-us/documentation/templates/).
+* Automatize a implantação e o gerenciamento de VM e de carga de trabalho com o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

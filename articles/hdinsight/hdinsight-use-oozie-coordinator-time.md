@@ -273,7 +273,7 @@ Para saber mais, confira [HDInsight: Introdução às tabelas internas e externa
 
 **Para preparar-se para o tutorial**
 
-1. Abra o ISE do Windows PowerShell (na tela Iniciar do Windows 8, digite **PowerShell_ISE** e clique em **ISE do Windows PowerShell**. Confira [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start]) para saber mais.
+1. Abra o ISE do Windows PowerShell (na tela Iniciar do Windows 8, digite **PowerShell\_ISE** e clique em **ISE do Windows PowerShell**. Confira [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start]) para saber mais.
 2. No painel inferior, execute o seguinte comando para se conectar à sua assinatura do Azure:
 
 		Add-AzureAccount
@@ -370,7 +370,7 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
 
 **Para enviar um trabalho do Oozie**
 
-1. Abra o ISE do Windows PowerShell (na tela Iniciar do Windows 8, digite **PowerShell_ISE** e clique em **ISE do Windows PowerShell**. Confira [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start]) para saber mais.
+1. Abra o ISE do Windows PowerShell (na tela Iniciar do Windows 8, digite **PowerShell\_ISE** e clique em **ISE do Windows PowerShell**. Confira [Iniciar o Windows PowerShell no Windows 8 e no Windows][powershell-start]) para saber mais.
 
 3. Copie o script a seguir no painel de script e defina as catorze primeiras variáveis (ignore a **$storageUri**).
 
@@ -733,4 +733,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

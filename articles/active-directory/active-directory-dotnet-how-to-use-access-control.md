@@ -116,7 +116,7 @@ Nesta etapa, você cria um aplicativo ASP.NET MVC. Em etapas posteriores, iremos
 
 1. Em **Nome**, digite **MvcACS**, e, em seguida, clique em **OK**.
 1. Na próxima caixa de diálogo, selecione **Aplicativo da Internet** e clique em **OK**.
-1. Edite o arquivo *Views\\Shared_LoginPartial.cshtml* e substitua o conteúdo pelo código a seguir:
+1. Edite o arquivo *Views\\Shared\_LoginPartial.cshtml* e substitua o conteúdo pelo código a seguir:
 
         @if (Request.IsAuthenticated)
         {
@@ -403,4 +403,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

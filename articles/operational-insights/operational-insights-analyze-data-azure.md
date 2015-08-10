@@ -87,54 +87,18 @@ Os Diagnósticos do Azure são uma extensão do Azure que permite coletar dados 
 
 O Diagnóstico do Azure pode coletar os seguintes tipos de telemetria:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Fonte de dados</b></td>
-		<td><b> Descrição </b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Logs IIS</td>
-		<td>Informações sobre sites IIS.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Logs de infraestrutura de diagnóstico do Azure</td>
-		<td>Informações sobre o próprio Diagnostics.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Logs de solicitação com falha IIS </td>
-		<td>Informações sobre solicitações falhas para um site IIS ou aplicativo.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Log de eventos do Windows</td>
-		<td>Informações enviadas ao sistema de registro de evento do Windows.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Contadores de desempenho</td>
-		<td>Sistema Operacional e contadores de desempenho personalizados.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Despejos de falhas</td>
-		<td>Informações sobre o estado do processo no evento de uma falha do aplicativo.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Logs de erros personalizados</td>
-		<td>Logs criados por seu aplicativo ou serviço.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>NET EventSource</td>
-		<td>Os eventos de log gerados pelo seu código usando a classe .NET <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Manifesto com base no ETW</td>
-		<td>Eventos ETW gerados por qualquer processo.</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>Eventos enviados para os daemons Syslog ou Rsyslog</td>
-    </tr>
-    </tbody>
-    </table>
+Fonte de dados|Descrição
+ ---|--- 
+Logs IIS|Informações sobre sites IIS.
+Logs de infraestrutura de diagnóstico do Azure|Informações sobre o próprio Diagnostics.
+Logs de solicitação com falha IIS |Informações sobre solicitações falhas para um site IIS ou aplicativo.
+Log de eventos do Windows|Informações enviadas ao sistema de registro de evento do Windows.
+Contadores de desempenho|Sistema Operacional e contadores de desempenho personalizados.
+Despejos de falhas|Informações sobre o estado do processo no evento de uma falha do aplicativo.
+Logs de erros personalizados|Logs criados por seu aplicativo ou serviço.
+NET EventSource|Os eventos de log gerados pelo seu código usando .NET [classe do EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+Manifesto com base no ETW|Eventos ETW gerados por qualquer processo.
+Syslog|Eventos enviados para os daemons Syslog ou Rsyslog
 
 
 Atualmente, o Insights Operacionais é capaz de analisar:
@@ -222,7 +186,7 @@ Use o procedimento a seguir para habilitar os diagnósticos do Azure em uma máq
 	5. Selecione cada métrica de diagnóstico que deseja usar. O Insights Operacionais podem analisar logs do sistema de eventos do Windows, logs de aplicativos de eventos do Windows e logs do IIS.
 	7. Clique em **OK**.
 
-Usando o PowerShell do Azure, você pode especificar mais precisamente os eventos gravados no armazenamento do Azure. Consulte o esquema de configuração do Diagnóstico do Azure 1.2 para um exemplo de arquivo de configuração e documentação detalhada sobre seu esquema. Certifique-se de instalar e configurar o PowerShell do Azure versão 0.8.7 ou posterior em [Como instalar e configurar o PowerShell do Azure](powershell-install-configure). Se você tiver uma versão do Diagnóstico do Microsoft Azure instalada anterior à versão 1.2, você não pode usar o novo portal para habilitar ou configurar o diagnóstico.
+Usando o PowerShell do Azure, você pode especificar mais precisamente os eventos gravados no armazenamento do Azure. Consulte o esquema de configuração do Diagnóstico do Azure 1.2 para um exemplo de arquivo de configuração e documentação detalhada sobre seu esquema. Certifique-se de instalar e configurar o Azure PowerShell versão 0.8.7 ou posterior em [Como instalar e configurar o PowerShell do Azure](powershell-install-configure). Se você tiver uma versão do Diagnóstico do Microsoft Azure instalada anterior à versão 1.2, você não pode usar o novo portal para habilitar ou configurar o diagnóstico.
 
 Você pode habilitar e atualizar o agente usando o seguinte script do PowerShell. Você também pode usar esse script com a configuração de log personalizada. Você precisará modificar o script para definir a conta de armazenamento, o nome do serviço e o nome da máquina virtual.
 
@@ -271,7 +235,7 @@ Use o procedimento a seguir para habilitar a análise de armazenamento e configu
 2. Clique em **Adicionar uma conta de armazenamento** para abrir a caixa **Adicionar conta de armazenamento**.
 3. Selecione a conta de armazenamento que você deseja usar.
 4. Na lista **Tipo de dados**, selecione um tipo de dados: **Eventos**, **Logs do IIS** ou **Syslog (Linux)**.
-5. Clique na imagem **OK**. ![caixa conta de armazenamento](./media/operational-insights-analyze-data-azure/storage-account.png)
+5. Clique na imagem **OK**. <br> ![caixa conta de armazenamento](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Repita as etapas acima para cada combinação de tipo de dados e conta de armazenamento que deseja coletar.
 
 Em aproximadamente 1 hora, você começará a ver os dados da conta de armazenamento disponíveis para análise no Insights Operacionais.
@@ -285,4 +249,4 @@ Em aproximadamente 1 hora, você começará a ver os dados da conta de armazenam
 
 [Definir as configurações de Proxy e Firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -540,4 +540,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 
 Saiba como [Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

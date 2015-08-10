@@ -39,7 +39,7 @@ Há duas maneiras de acessar a interface do usuário de criação do ASE. Ela po
 ### Criação Rápida ###
 Depois de inserir a interface do usuário de criação, você pode criar rapidamente um ASE simplesmente digitando um nome para a implantação. Isso criará, por sua vez, uma VNET com 512 endereços, uma sub-rede com 256 endereços nessa VNET e um ambiente ASE com 2 Front-Ends e 2 processadores no pool de trabalho 1. Certifique-se de selecionar o local onde você deseja que o sistema esteja localizado e a assinatura em que você quer que ele esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
 
-O nome especificado para o ASE será usado para aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome de domínio será .*appsvcenvdemo.p.azurewebsites.net*. Se você criou, portanto, um aplicativo Web chamado mytestapp, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome.
+O nome especificado para o ASE será usado para aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome de domínio será .\*appsvcenvdemo.p.azurewebsites.net\*. Se você criou, portanto, um aplicativo Web chamado mytestapp, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome.
 
 
 ![][1]
@@ -143,4 +143,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

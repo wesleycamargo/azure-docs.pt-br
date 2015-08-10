@@ -13,11 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/04/2015"
+   ms.date="07/24/2015"
    ms.author="seanmck"/>
 
 # Configurar o ambiente de desenvolvimento da Malha do Serviço
  Este artigo aborda tudo o que você precisa para começar a criar aplicativos da [Malha do Serviço][1], incluindo a instalação do tempo de execução, do SDK e das ferramentas, bem como a configuração de um cluster local.
+
+ >[AZURE.NOTE]Estas instruções têm como objetivo a configuração de novos PCs. Se você instalou uma versão anterior da Malha de Serviço em seu computador, siga as [instruções para atualizar seu ambiente de desenvolvimento ](service-fabric-update-your-development-environment.md).
 
 ## Pré-requisitos
 ### Versões de sistema operacional com suporte
@@ -29,15 +31,15 @@ Há suporte para as seguintes versões de sistema operacional:
 
 ### Visual Studio 2015
 
-As ferramentas da Malha do Serviço Preview 1 dependem do Visual Studio 2015 RC, que pode ser encontrado [aqui][2].
+As ferramentas da Malha de Serviço dependem do Visual Studio 2015, que pode ser encontrado [aqui][2].
 
-> [AZURE.NOTE]Se não estiver executando uma das versões de sistema operacional com suporte ou prefere não instalar o Visual Studio 2015 RC no seu computador, você poderá [configurar uma máquina virtual do Azure][3] com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados usando uma imagem da Galeria da VM.
+> [AZURE.NOTE]Se não estiver executando uma das versões de sistema operacional com suporte ou prefere não instalar o Visual Studio 2015 no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio 2015 pré-instalados usando uma imagem da Galeria da VM.
 
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
 A instalação dos componentes da Malha do Serviço é feita pelo Web Platform Installer. Siga estas instruções de instalação:
 
-1. Clique [aqui][4] para baixar o SDK usando o Web Platform Installer.
+1. [Baixe o SDK][3] usando o Web Platform Installer.
 
 2. Clique em Instalar para iniciar o processo de instalação.
 
@@ -87,10 +89,8 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 - [Confira os exemplos da Malha do Serviço no GitHub](https://github.com/azure/servicefabric-samples)
 - [Visualizar o cluster usando o Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md)
 
-[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Página de campanha da Malha do Serviço"
+[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página de campanha da Malha do Serviço"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "VM do Azure"
-[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
- 
+[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

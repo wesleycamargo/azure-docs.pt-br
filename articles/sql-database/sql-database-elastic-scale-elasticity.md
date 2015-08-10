@@ -18,7 +18,7 @@
 
 # Elasticidade de fragmentos 
 
-A **elasticidade de fragmento** permite aos desenvolvedores de aplicativos ampliar ou reduzir dinamicamente os recursos de banco de dados conforme a necessidade, habilitando a otimização do desempenho de seus aplicativos e também minimizando os custos. A combinação das **ferramentas de banco de dados elástico** para o Banco de Dados SQL do Azure juntamente com as [camadas de serviço Básica, Standard e Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) fornecem cenários de elasticidade muito atrativos. Ferramentas de banco de dados elástico habilitam o dimensionamento horizontal, um padrão de design no qual os bancos de dados (também [chamados de "fragmentos"](sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um conjunto de fragmentos para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do Banco de Dados SQL fornecem recursos de **dimensionamento vertical** que recursos de um banco de dados individual podem escalar e reduzir verticalmente até que atendam à demanda de forma adequada. Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
+A **elasticidade de fragmento** permite aos desenvolvedores de aplicativos ampliar ou reduzir dinamicamente os recursos de banco de dados conforme a necessidade, habilitando a otimização do desempenho de seus aplicativos e também minimizando os custos. A combinação das **ferramentas do Banco de Dados Elástico** para o Banco de Dados SQL do Azure junto com as [camadas de serviço Básica, Standard e Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) fornecem cenários de elasticidade muito atrativos. Ferramentas de banco de dados elástico habilitam o dimensionamento horizontal, um padrão de design no qual os bancos de dados (também [chamados de "fragmentos"](sql-database-elastic-scale-glossary.md)) são adicionados ou removidos de um conjunto de fragmentos para aumentar ou reduzir a capacidade. Da mesma forma, as camadas de serviço do Banco de Dados SQL fornecem recursos de **dimensionamento vertical** que recursos de um banco de dados individual podem escalar e reduzir verticalmente até que atendam à demanda de forma adequada. Juntos, a escala vertical de um único fragmento e a escala horizontal de vários fragmentos proporcionam aos desenvolvedores de aplicativos um ambiente muito flexível que pode ser dimensionado para atender às necessidades de desempenho, capacidade e otimização de custo.
 
 Com a recém-lançada funcionalidade de **pools de banco de dados elástico**, fica ainda mais simples de atingir o dimensionamento vertical. Os pools permitem que o consumo de recursos de um banco de dados individual aumente ou diminua *automaticamente* dentro de um orçamento compartilhado por todo o pool. Para aplicativos que prefiram não aproveitar os pools de banco de dados elástico, este artigo descreverá outras técnicas para implementar um mecanismo baseado em políticas para gerenciar o dimensionamento vertical, bem como alguns cenários comuns para automatizar operações deste.
 
@@ -55,10 +55,10 @@ A **elasticidade orientada a dados** é a base de um aplicativo de escala elást
 #### Fontes de dados de telemetria
 No contexto do Banco de Dados SQL do Azure, há inúmeras fontes principais que podem ser usados como fontes de dados para ter elasticidade de fragmento.
 
-1. A **telemetria de desempenho** é apresentada dentro de cinco minutos na exibição **sys.resource_stats** 
-2. A **telemetria de capacidade do banco de dados** por hora é apresentada por meio da exibição **sys.resource_usage**.  
+1. A **telemetria de desempenho** é apresentada dentro de cinco minutos na exibição **sys.resource\_stats** 
+2. A **telemetria de capacidade do banco de dados** por hora é apresentada por meio da exibição **sys.resource\_usage**.  
 
-Uma possível analisar o uso de recursos de desempenho consultando o mestre de banco de dados usando a consulta a seguir onde 'Shard_20140623' é o nome do banco de dados de destino.
+Uma possível analisar o uso de recursos de desempenho consultando o mestre de banco de dados usando a consulta a seguir onde 'Shard\_20140623' é o nome do banco de dados de destino.
 
     SELECT TOP 10 *  
     FROM sys.resource_stats  
@@ -81,7 +81,7 @@ A **telemetria de desempenho** pode ser resumida em um período de tempo (sete d
     FROM sys.resource_stats  
     WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
-A **capacidade de banco de dados** pode ser medida com uma consulta semelhante em relação à exibição de **sys.resource_usage**. O máximo da coluna **storage_in_megabytes** produz o tamanho atual do banco de dados. Tal telemetria é útil para escala horizontal de um aplicativo quando um fragmento específico atinge sua capacidade.
+A **capacidade de banco de dados** pode ser medida com uma consulta semelhante em relação à exibição de **sys.resource\_usage**. O máximo da coluna **storage\_in\_megabytes** produz o tamanho atual do banco de dados. Tal telemetria é útil para escala horizontal de um aplicativo quando um fragmento específico atinge sua capacidade.
 
     SELECT TOP 10 * 
     FROM [sys].[resource_usage] 
@@ -155,4 +155,4 @@ Para facilitar a implementação real de cenários de dimensionamento vertical e
 [Action]: #action
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

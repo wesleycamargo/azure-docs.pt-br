@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Introdução à configuração de um balanceador de carga interno
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 O ILB (Balanceamento de Carga Interno) do Azure fornece balanceamento de carga entre máquinas virtuais que residem em um serviço de nuvem ou em uma rede virtual com escopo regional. Para obter informações sobre o uso e a configuração de redes virtuais com escopo regional, consulte [Redes virtuais regionais](../regional-virtual-networks.md) no blog do Azure. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB.
 
@@ -230,7 +234,7 @@ A configuração ILB deve ser definida durante a criação da primeira implanta�
 
 ### Etapa 1
 
-Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de nuvem no visual studio e adicione a seção a seguir para criar o ILB no último item "</Role>" para a configuração de rede.
+Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de nuvem no visual studio e adicione a seção a seguir para criar o ILB no último item "`</Role>`" para a configuração de rede.
 
 
 
@@ -244,7 +248,7 @@ Abra o arquivo de configuração de serviço (.cscfg) para sua implantação de 
 	</NetworkConfiguration>
  
 
-Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma sub-rede chamada "test_vnet" com uma sub-rede 10.0.0.0/24 chamada test_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
+Vamos adicionar os valores para o arquivo de configuração de rede para mostrar como ele se parecerá. No exemplo, suponha que você criou uma sub-rede chamada "test\_vnet" com uma sub-rede 10.0.0.0/24 chamada test\_subnet e um endereço IP estático 10.0.0.4. O balanceador de carga será nomeado testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -331,4 +335,4 @@ Para obter informações adicionais sobre cmdlets ILB, execute os comandos a seg
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

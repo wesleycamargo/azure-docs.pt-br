@@ -208,7 +208,7 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - A Automação do Azure não dá suporte ao uso de módulos do PowerShell lado a lado. Isso significa que todas as configurações em uma conta da Automação devem trabalhar com a última versão de um módulo de PowerShell importado para essa conta da Automação de automação e com quaisquer recursos da DSC do PowerShell que o módulo contenha e que a configuração use.
 
-- O servidor de pull da DSC do PowerShell tradicional espera que zips de módulos sejam colocados no servidor de pull no formato **ModuleName_Version.zip "**. A Automação do Azure espera que módulos do PowerShell sejam importados com nomes no formato **ModuleName.zip**. Consulte [esta postagem de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obter mais informações sobre o formato do Módulo de Integração necessário para importar o módulo para a Automação do Azure.
+- O servidor de pull da DSC do PowerShell tradicional espera que zips de módulos sejam colocados no servidor de pull no formato **ModuleName\_Version.zip "**. A Automação do Azure espera que módulos do PowerShell sejam importados com nomes no formato **ModuleName.zip**. Consulte [esta postagem de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obter mais informações sobre o formato do Módulo de Integração necessário para importar o módulo para a Automação do Azure.
 
 - Os módulos do PowerShell que especificam recursos da DSC lado a lado dentro do módulo, usando o formato "versão por pasta", não funcionarão na Automação do Azure no momento.
 
@@ -226,4 +226,4 @@ No momento, a DSC da Automação do Azure fornece os seguintes cmdlets no [módu
 
 - Os nós DSC integrados à DSC da Automação do Azure, inicialmente, mostrarão um status de conformidade, mesmo que eles não estejam de fato em conformidade com a configuração do nó DSC para o qual foram mapeados. Depois que um nó efetua seu primeiro pull e envia seu primeiro relatório DSC à DSC da Automação do Azure, o status do nó deve ser corrigido.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

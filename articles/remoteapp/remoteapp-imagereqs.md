@@ -43,4 +43,4 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 - Não há suporte para carregar o VHD de uma cadeia de instantâneo.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

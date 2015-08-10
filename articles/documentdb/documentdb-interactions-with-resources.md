@@ -48,7 +48,7 @@ Conforme ilustrado no diagrama abaixo, POST só pode ser executado em um recurso
 ## Criar um novo recurso usando POST 
 Para entender melhor o modelo de interação, vamos considerar o caso de criar um novo recurso (também conhecido como INSERT). Para criar um novo recurso, você precisa emitir uma solicitação HTTP POST com o corpo da solicitação contendo a representação do recurso em relação ao URI do feed do contêiner ao qual o recurso pertence. A única propriedade exigida para a solicitação é a ID do recurso.
 
-Por exemplo, para criar um novo banco de dados, você lança (POST) um recurso de banco de dados (definindo a propriedade id com um nome exclusivo) em /dbs. Da mesma forma, para criar uma nova coleção, você lança (POST) um recurso de coleção em /dbs/_rid/colls/e assim por diante. A resposta contém o recurso totalmente confirmado com as propriedades geradas pelo sistema, incluindo o link _self do recurso usando o que você pode navegar para outros recursos. Como exemplo do modelo de interação baseado no HTTP simples, um cliente pode emitir uma solicitação HTTP para criar um novo banco de dados dentro de uma conta. 
+Por exemplo, para criar um novo banco de dados, você lança (POST) um recurso de banco de dados (definindo a propriedade id com um nome exclusivo) em /dbs. Da mesma forma, para criar uma nova coleção, você lança (POST) um recurso de coleção em /dbs/\_rid/colls/e assim por diante. A resposta contém o recurso totalmente confirmado com as propriedades geradas pelo sistema, incluindo o link _self do recurso usando o que você pode navegar para outros recursos. Como exemplo do modelo de interação baseado no HTTP simples, um cliente pode emitir uma solicitação HTTP para criar um novo banco de dados dentro de uma conta. 
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -82,7 +82,7 @@ Como outro exemplo de criação e execução de um recurso, considere um simples
         response.setBody("Hello, World");
      }
 
-O procedimento armazenado pode ser registrado em uma coleção em MyDb executando um POST no /dbs/_rid-db/colls/_rid-coll/sprocs.
+O procedimento armazenado pode ser registrado em uma coleção em MyDb executando um POST no /dbs/\_rid-db/colls/\_rid-coll/sprocs.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
@@ -253,13 +253,13 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 - [Referência de SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados](../documentdb-programming/)
 - [Documentação de referência do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - Especificação JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - Especificação HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- Marcas da entidade [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- Marcas da entidade [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

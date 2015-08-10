@@ -141,4 +141,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

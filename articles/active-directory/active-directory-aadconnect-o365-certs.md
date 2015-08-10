@@ -39,13 +39,16 @@ Se você estiver usando o AD FS 2.0 ou posterior, o Office 365 e o AD do Azure a
 
 Verifique se os metadados de federação são acessíveis publicamente, navegando até a seguinte URL em um computador na Internet pública (fora da rede corporativa):
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml
 
-em que `<your_FS_name> `é substituído pelo nome de host de serviço de federação que sua organização usa, por exemplo, fs.contoso.com. Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+
+em que `(your_FS_name) ` é substituído pelo nome de host de serviço de federação que sua organização usa, por exemplo, fs.contoso.com. Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.
+
+Exemplo: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Se a propriedade AutoCertificateRollover estiver definida como Falsa
 
-Se a propriedade AutoCertificateRollover estiver definida como Falsa, você estará usando configurações de certificado do AD FS não padrão. O motivo mais comum para isso é que sua organização gerencia certificados do AD FS inscritos de uma autoridade de certificação organizacional. Nesse caso, você terá de renovar e atualizar seus certificados por conta própria. Use as orientações [aqui](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Se a propriedade AutoCertificateRollover estiver definida como Falsa, você estará usando configurações de certificado do AD FS não padrão. O motivo mais comum para isso é que sua organização gerencia certificados do AD FS inscritos de uma autoridade de certificação organizacional. Nesse caso, você terá de renovar e atualizar seus certificados por conta própria. Use as orientações fornecidas [aqui](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 ## Se os metadados não forem acessíveis publicamente
 Se a configuração AutocertificateRollover for Verdadeira, mas os metadados de federação não estiverem disponíveis publicamente, use o procedimento a seguir para garantir que os certificados sejam atualizados no local e na nuvem:
@@ -82,4 +85,4 @@ Dois certificados deverão ser listados agora, um dos quais tem uma data NotAfte
 
 >[AZURE.NOTE]Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção SupportMultipleDomain com todos os cmdlets. Para obter mais informações, consulte Suporte para vários domínios de nível superior. Por fim, certifique-se de que todos os servidores Proxy do aplicativo Web sejam atualizados com o rollup [Windows Server de maio de 2014](http://support.microsoft.com/kb/2955164), caso contrário, os proxies poderão não atualizar a si mesmos com o novo certificado, resultando em interrupção.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

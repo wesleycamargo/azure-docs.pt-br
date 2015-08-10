@@ -68,7 +68,7 @@ Para obter informações sobre o histórico de versões da API REST dos Serviço
 
 Anunciando a disponibilidade geral do Media Encoder Standard. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-O Media Encoder Standard usa predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Observe que ao usar uma predefinição de codificações 4K, você deve adquirir o tipo de unidade reservada **Premium **. Para saber mais, confira [Como dimensionar codificação](media-services-portal-encoding-units) 
+O Media Encoder Standard usa predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Observe que ao usar uma predefinição de codificações 4K, você deve adquirir o tipo de unidade reservada **Premium \*\*. Para saber mais, confira [Como dimensionar codificação](media-services-portal-encoding-units) 
 
 
 ###Atualizações do SDK do .NET dos Serviços de Mídia
@@ -76,10 +76,10 @@ O Media Encoder Standard usa predefinições descritas [nesta](http://go.microso
 O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.4.0.0. A seguinte funcionalidade foi adicionada nessa versão:
 
 - Suporte implementado para arquivo morto dinâmico. Observe que você não pode baixar um ativo que contenha um arquivo morto dinâmico.
-- Suporte implementado para filtros dinâmicos
-- Funcionalidade implementada que permite aos usuários manter o contêiner de armazenamento ao excluir ativos
-- Correções de bugs relacionados a políticas de repetição nos canais
-- Fluxo de trabalho do Media Encoder Premium **habilitado**
+- Suporte implementado para filtros dinâmicos.
+- Funcionalidade implementada que permite aos usuários manter o contêiner de armazenamento ao excluir ativos.
+- Correções de bugs relacionados a políticas de repetição nos canais.
+- Fluxo de trabalho do Codificador de Mídia Premium **habilitado**.
 
 ##<a id="june_changes_15"></a>Versão de junho de 2015
 
@@ -331,7 +331,7 @@ As seguintes alterações foram feitas na versão 3.0.0.3:
 
 * Atualizadas as dependências de armazenamento do Azure para usar a versão 3.0.3.0. 
 
-* Corrigido o problema de compatibilidade reversa para versões 3.0.*.*
+* Corrigido o problema de compatibilidade reversa para versões 3.0.\*.\*
 
 
 ##<a id="december_changes_13"></a>Versão de dezembro de 2013
@@ -556,4 +556,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

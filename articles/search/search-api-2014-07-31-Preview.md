@@ -1,17 +1,16 @@
 <properties pageTitle="Versão de Visualização de 31-07-2014 da API REST do Serviço Azure Search" description="API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
 
 # API REST do Serviço de Pesquisa do Azure: Versão 2014-07-31-Visualização
 
-Este documento descreve a versão antiga **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure, lançado para a visualização pública do Azure pesquisa em agosto de 2014. A documentação da versão atual disponível da API REST de Pesquisa do Azure pode ser encontrada no MSDN. Consulte [API REST do Serviço Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter mais informações.
-
-Se você estiver usando uma versão de visualização da API no código do aplicativo, recomendamos migrar para a versão disponível. Para obter diretrizes, consulte [Transição da visualização para a versão de API disponível](search-transition-from-preview.md).
+Este documento descreve a versão antiga **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure, lançado para a visualização pública do Azure pesquisa em agosto de 2014. Como esta versão será desativada em breve, é altamente recomendável que você use a versão associada à versão disponível em seu lugar. Para obter diretrizes sobre a migração do código, consulte [Transição da visualização para a versão de API disponível](search-transition-from-preview.md).
 
 Outros tipos de conteúdo da API relacionadas ao **2014-07-31-Visualização** incluem:
 
 - [Perfis de Pontuação (API REST do Serviço Azure Search: Visualização-31-07-2014)](search-api-scoring-profiles-2014-07-31-preview.md)
 
+A documentação da versão atual disponível da API REST de Pesquisa do Azure pode ser encontrada no MSDN. Consulte [API REST do Serviço Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter mais informações.
 
 ##Sobre a API REST do Serviço
 
@@ -46,13 +45,18 @@ O ponto de extremidade para operações de serviço é a URL do serviço Azure S
 
 ### Versões
 
-Há várias versões da API para o Azure Search. Se você estiver avaliando o Azure Search para uso com um aplicativo de produção, recomendamos examinar as informações de versão publicadas para cada conjunto de APIs. Consulte [Controle de Versão do Serviço de Pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter diretrizes sobre como escolher uma versão específica.
+Há várias versões da API para o Azure Search. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter uma lista das versões de API.
 
 
 <a name="Authentication"></a>
 ### Autenticação e Controle de Acesso
 
-A autenticação para um serviço Azure Search exige duas informações: uma URL de serviço de pesquisa e uma `api-key`. As `api-keys` são geradas quando o serviço é criado e podem ser regeneradas sob demanda depois que o serviço é provisionado. Uma `api-key` é uma chave de administração que concede acesso a todas as operações ou uma chave de consulta que autentica apenas solicitações de consulta. Você tem duas chaves de administração e até 50 chaves de consulta por serviço.
+A autenticação para um serviço Azure Search exige duas informações: uma URL de serviço de pesquisa e uma `api-key`. As `api-keys` são geradas quando o serviço é criado e podem ser regeneradas sob demanda depois que o serviço é provisionado. Um `api-key` sempre é um dos seguintes:
+
+- uma chave de administrador que concede acesso a todas as operações, incluindo operações de gravação, como criar e excluir índices.
+- uma chave de consulta que autentica solicitações somente leitura.
+
+Você pode ter duas chaves de administração e até 50 chaves de consulta por serviço. Ter duas chaves de administração é útil quando você precisa de substituição de uma das chaves.
 
 O controle de acesso é limitado à administração do serviço por meio dos RBAC (controles de acesso baseados em função) fornecidos no Portal de Visualização do Azure. As funções são usadas para definir níveis de acesso para administração de serviços. Por exemplo, a exibição da chave de administração é restrita às funções de Proprietário e Colaborador, enquanto a exibição do status do serviço é visível para os membros de qualquer função.
 
@@ -62,7 +66,7 @@ As operações de dados executadas em relação a um ponto de extremidade de ser
 
 ###Resumo das APIs
 
-A API do serviço Azure Search dá suporte a duas sintaxes para a pesquisa de entidades. A lista a seguir mostra a sintaxe de OData simples e a alternativa.
+A API do serviço Azure Search dá suporte a duas sintaxes para pesquisa de entidades: sintaxe de OData [simples](https://msdn.microsoft.com/library/dn798920.aspx) e alternativa (consulte [Suporte a OData (API do Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obter detalhes). A lista a seguir mostra a sintaxe simples.
 
 [Criar o índice](#CreateIndex)
 
@@ -90,7 +94,7 @@ A API do serviço Azure Search dá suporte a duas sintaxes para a pesquisa de en
 
 [Adicionar, excluir e atualizar dados em um índice](#AddOrUpdateDocuments)
 
-    POST /indexes/[index name]/docs/index?api-version=2014-07-31-Preview 
+    POST /indexes/[index name]/docs/index?api-version=2014-07-31-Preview
 
 [Pesquisar documentos](#SearchDocs)
 
@@ -131,9 +135,9 @@ O exemplo a seguir fornece uma ilustração de um esquema usado para pesquisar i
       {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
       {"name": "rating", "type": "Edm.Int32"},
       {"name": "location", "type": "Edm.GeographyPoint"}
-     ] 
+     ]
     }
- 
+
 Depois que o índice for criado, você carregará documentos que populam o índice. Consulte [Adicionar ou Atualizar Documentos](#AddOrUpdateDocuments) para a próxima etapa.
 
 Para um vídeo de introdução à indexação no Azure Search, consulte o [episódio do Cloud Cover do Channel 9 sobre o Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=511509).
@@ -167,9 +171,9 @@ A `api-version` é obrigatória. Os valores válidos incluem `2014-07-31-Preview
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `Content-Type`: obrigatório. Defina-o como `application/json`
-- `api-key`: obrigatório. A `api-key` é usada para 
-- autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta). 
- 
+- `api-key`: obrigatório. A `api-key` é usada para
+- autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Criar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 <a name="RequestData"></a> **Sintaxe de corpo da solicitação**
@@ -227,7 +231,7 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -236,10 +240,10 @@ A sintaxe para estruturar a carga da solicitação é indicada a seguir. Uma sol
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 Observação: o tipo de dados `Edm.Int64` tem suporte a partir da versão da API 2014-10-20-Preview.
-    
+
 **Atributos de índice**
 
 Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalhes sobre pontuação e perfis de pontuação, consulte [Adicionar perfis de pontuação a um índice de pesquisa](http://msdn.microsoft.com/library/azure/dn798928.aspx).
@@ -278,7 +282,7 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 Os campos pesquisáveis são submetidos a análise que, frequentemente, envolve quebra de palavras, normalização do texto e filtragem de termos. Por padrão, os campos pesquisáveis no Azure Search são analisados com o [Analisador Apache Lucene Padrão](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html), que quebra o texto em elementos seguindo as regras de ["Segmentação de texto Unicode"](http://unicode.org/reports/tr29/). Além disso, o analisador padrão converte todos os caracteres em sua forma em letras minúsculas. Documentos indexados e termos de pesquisa são submetidos a análise durante a indexação e o processamento de consultas.
 
 O Azure Search permite a indexação de perfis em diversos idiomas. Cada um desses idiomas requer um analisador de texto não padrão que leva em consideração as características de determinado idioma. Por exemplo, o analisador de francês aplica um [Lematizador Leve do Francês](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html) para reduzir as palavras a seus [radicais](http://en.wikipedia.org/wiki/Stemming). Além disso, ele remove [elisões](http://en.wikipedia.org/wiki/Elision) e palavras irrelevantes do francês do texto analisado. O analisador de inglês amplia o analisador padrão. Ele remove possessivos (apóstrofos à direita) de palavras, aplica a lematização conforme o [algoritmo de lematização de Porter](http://tartarus.org/~martin/PorterStemmer/) e remove as [palavras irrelevantes](http://en.wikipedia.org/wiki/Stop_words) do inglês.
- 
+
 O analisador pode ser configurado independentemente para cada campo na definição do índice por meio da definição da propriedade `analyzer`. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice. A consulta especifica o campo específico do idioma a ser retornado em suas consultas de pesquisa.
 
 A seguir está a lista de analisadores com suporte, juntamente com uma breve descrição de seus recursos:
@@ -594,7 +598,7 @@ O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navega
 - `maxAgeInSeconds` (opcional): navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Esse deve ser um inteiro não negativo. Quanto maior for esse valor, melhor será o desempenho, porém, mais tempo levará para que as alterações de política CORS entrem em vigor. Se ele não for definido, uma duração padrão de cinco minutos será usada.
 
 <a name="CreateUpdateIndexExample"></a> **Exemplo de Corpo de Solicitação**
- 
+
     {
       "name": "hotels",  
       "fields": [
@@ -610,7 +614,7 @@ O Javascript do lado do cliente não pode chamar APIs por padrão, pois o navega
         {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
         {"name": "rating", "type": "Edm.Int32"},
         {"name": "location", "type": "Edm.GeographyPoint"}
-      ] 
+      ]
     }
 
 **Resposta**
@@ -646,7 +650,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Atualizar Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Sintaxe do Corpo da Solicitação**
@@ -700,7 +704,7 @@ A sintaxe do esquema usada para criar um índice é reproduzida aqui para sua co
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -709,7 +713,7 @@ A sintaxe do esquema usada para criar um índice é reproduzida aqui para sua co
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 Observação: o tipo de dados `Edm.Int64` tem suporte a partir da versão da API 2014-10-20-Preview.
 
@@ -736,9 +740,9 @@ O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-
 **Cabeçalhos de solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
- 
+
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Listar Índices** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -795,7 +799,7 @@ A operação **Obter Índice** obtém a definição de índice do Azure Search.
 **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Obter Índice** pode ser criada usando o método GET.
- 
+
 O [nome do índice] na solicitação URI especifica qual índice deve ser retornado da coleção de índices.
 
 O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
@@ -803,7 +807,7 @@ O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-
 **Cabeçalhos de solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
- 
+
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Índice** deve incluir uma `api-key` definida como uma chave de administração (em vez de uma chave de consulta).
 
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
@@ -825,11 +829,11 @@ A operação **Excluir Índice** remove um índice e os documentos associados de
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
-    
+
 **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Excluir Índice** pode ser criada usando o método DELETE.
- 
+
 O [nome do índice] no URI da solicitação especifica qual índice deve ser excluído da coleção de índices.
 
 O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-31-Preview` ou `2014-10-20-Preview`. Você pode especificar qual deles usar em cada solicitação para obter comportamentos específicos da versão, mas, como prática recomendada, use a mesma versão em todo o código. A versão recomendada é `2014-07-31-Preview` para uso geral. Como alternativa, use `2014-10-20-Preview` para avaliar recursos experimentais. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes.
@@ -837,9 +841,9 @@ O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-
 **Cabeçalhos de solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
- 
+
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Excluir Índice** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -869,9 +873,9 @@ O parâmetro `api-version` é necessário. Os valores válidos incluem `2014-07-
 **Cabeçalhos de solicitação**
 
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
- 
+
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Obter Estatísticas de Índice** deve incluir um `api-key` definido como uma chave de administração (em vez de uma chave de consulta).
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -893,19 +897,17 @@ ________________________________________
 <a name="DocOps"></a>
 ## Operações de documento
 
-No Azure Search, um índice é populado usando documentos JSON que você carrega no serviço. Todos os documentos que você carrega formam o corpus de seus dados de pesquisa. Documentos contêm campos, alguns dos quais são indexados em termos de pesquisa ao serem carregados. O segmento de URL `/docs` na API do Azure Search representa a coleção de documentos em um índice. Todas as operações executadas na coleção, como carregar, mesclar, excluir ou consultar documentos, ocorrem no contexto de um único índice. Portanto, as URLs para essas operações sempre começarão com `/indexes/[index name]/docs` para um nome de índice específico.
+Na Pesquisa do Azure, um índice é armazenado na nuvem e preenchido usando documentos JSON que você carrega no serviço. Todos os documentos que você carrega formam o corpus de seus dados de pesquisa. Documentos contêm campos, alguns dos quais são indexados em termos de pesquisa ao serem carregados. O segmento de URL `/docs` na API do Azure Search representa a coleção de documentos em um índice. Todas as operações executadas na coleção, como carregar, mesclar, excluir ou consultar documentos, ocorrem no contexto de um único índice. Portanto, as URLs para essas operações sempre começarão com `/indexes/[index name]/docs` para um nome de índice específico.
 
-O código do aplicativo pode gerar documentos JSON para carregar no Azure Search usando um conjunto de resultados de um banco de dados relacional ou qualquer outra fonte de dados estruturados. O aplicativo de exemplo Azure Search Adventure Works Demo no Codeplex inclui código que cria documentos JSON usando um conjunto de resultados do banco de dados de exemplo Adventure Works. Você pode saber mais sobre o aplicativo de exemplo [aqui](search-create-first-solution.md).
-
-Na maioria dos cenários de desenvolvimento de aplicativos, dados de pesquisa são separados e externos à camada de dados do aplicativo. Se o aplicativo usar um banco de dados local para acompanhar o status de estoque, os documentos mantidos no Azure Search conterão valores de dados semelhantes ou idênticos em termos de nome do produto, preço e disponibilidade, mas eles serão armazenados em um índice invertido para otimizar as pesquisas.
+O código do aplicativo deve gerar documentos JSON para carregar na Pesquisa do Azure. Normalmente, os índices são preenchidos por meio de um único conjunto de dados que você fornece.
 
 Você deve planejar ter um documento para cada item que deseja pesquisar. Um aplicativo de aluguel de filmes pode ter um documento por filme, um aplicativo de vitrine pode ter um documento por SKU, um aplicativo de cursos online pode ter um documento por curso, uma empresa de pesquisa pode ter um documento para cada artigo acadêmico em seu repositório e assim por diante.
 
-Os documentos consistem em um ou mais campos. Os campos podem conter texto indexado em termos de pesquisa, bem como valores não indexados ou que não são de texto, que podem ser usadas em filtros ou perfis de pontuação. Os nomes, tipos de dados e recursos de pesquisa com suporte para cada campo são determinados pelo esquema de índice. Um dos campos em cada esquema de índice deve ser designado como uma ID, e cada documento deve ter um valor para o campo de ID que identifique de forma exclusiva o documento no índice. Todos os outros campos de documento são opcionais e usarão como padrão um valor nulo, se o valor não for especificado. Observe que os valores nulos não ocupam espaço no índice invertido.
+Os documentos consistem em um ou mais campos. Os campos podem conter texto indexado pelo Azure Search em termos de pesquisa, bem como valores não indexados ou que não são de texto, que podem ser usadas em filtros ou perfis de pontuação. Os nomes, tipos de dados e recursos de pesquisa com suporte para cada campo são determinados pelo esquema de índice. Um dos campos em cada esquema de índice deve ser designado como uma ID, e cada documento deve ter um valor para o campo de ID que identifique de forma exclusiva o documento no índice. Todos os outros campos de documento são opcionais e usarão como padrão um valor nulo, se o valor não for especificado. Observe que os valores nulos não ocupam espaço no índice de pesquisa.
 
 Para poder carregar documentos, você precisa já ter criado o índice no serviço. Consulte [Criar o índice](#CreateIndex) para obter detalhes sobre essa primeira etapa.
 
-**Observação**: a Visualização Pública do Azure Search dá suporte apenas a inglês para pesquisa de texto completo.
+**Observação**: esta versão da API fornece pesquisa de texto completo apenas em inglês.
 
 <a name="AddOrUpdateDocuments"></a>
 ## Adicionar, atualizar ou excluir documentos
@@ -915,7 +917,7 @@ Você pode carregar, mesclar, mesclar ou carregar ou excluir documentos de um í
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
-    
+
 **Solicitação**
 
 HTTPS é necessário para todas as solicitações de serviço. Você pode carregar, mesclar, mesclar ou carregar ou excluir documentos de um índice especificado usando HTTP POST.
@@ -930,7 +932,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `Content-Type`: obrigatório. Defina-o como `application/json`
 - `api-key`: obrigatório. A `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo de seu serviço. A solicitação **Adicionar Documentos** deve incluir um cabeçalho de `api-key` definido como sua chave de administração (em vez de uma chave de consulta).
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -948,13 +950,13 @@ O corpo da solicitação contém um ou mais documentos a serem indexados. Os doc
         ...
       ]
     }
-    
+
 **Ações do documento**
 
 - `upload`: uma ação de carregamento é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. Observe que todos os campos são substituídos no caso da atualização.
 - `merge`: a mesclagem atualiza um documento existente com os campos especificados. Se o documento não existir, a mesclagem falhará. Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo "marcas" com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para "marcas", o valor final do campo "marcas" final será `["economy", "pool"]`. Ele **não** será `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, se comportará como `upload` com um novo documento.
-- `delete`: a exclusão remove o documento especificado do índice. Observe que você pode especificar apenas o valor do campo de chave em uma operação `delete`. Se você tentar especificar outros campos, isso resultará em um erro HTTP 400. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`. 
+- `delete`: a exclusão remove o documento especificado do índice. Observe que você pode especificar apenas o valor do campo de chave em uma operação `delete`. Se você tentar especificar outros campos, isso resultará em um erro HTTP 400. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
 
 **Resposta**
 
@@ -971,7 +973,7 @@ O código de status: 200 OK é retornado para uma resposta bem-sucedida, indican
     }  
 
 O código de status: 207 é retornado quando pelo menos um item não é indexado com êxito (conforme indicado pelo campo 'status' definido como falso para itens que não foram indexados):
- 
+
     {
       "value": [
         {
@@ -997,7 +999,7 @@ O código de status: 429 indica que você excedeu sua cota no número de documen
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville", 
+		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1052,7 +1054,7 @@ O URI da solicitação especifica qual índice deve ser consultado para todos os
 
 **Parâmetros de consulta**
 
-`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao se pesquisar campos `searchable`, o próprio texto de pesquisa é indexado, assim, vários termos podem ser separados por espaços em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte "Sintaxe de consulta simples" a seguir para obter informações específicas sobre a sintaxe de pesquisa.
+`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao se pesquisar campos `searchable`, o próprio texto de pesquisa é indexado, assim, vários termos podem ser separados por espaços em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
 
   - **Observação**: os resultados às vezes podem ser surpreendentes ao se consultar sobre campos `searchable`. O criador de token inclui lógica para lidar com casos comuns para texto em inglês, como apóstrofos, vírgulas em números etc. Por exemplo, `search=123,456` corresponderá a um único termo, 123,456, em vez de cada um do termos 123 e 456, já que as vírgulas são usadas como separadores de milhar para números grandes em inglês. Por esse motivo, recomendamos o uso de espaços em branco em vez de pontuação para separar os termos do parâmetro `search`.
 
@@ -1074,7 +1076,7 @@ O URI da solicitação especifica qual índice deve ser consultado para todos os
 
 - `count` (número máximo de termos de faceta; o padrão é 10). Não há um máximo, mas os valores mais altos incorrerão em uma penalidade de desempenho correspondente, principalmente se o campo facetado contiver um grande número de termos exclusivos.
   - Por exemplo: `facet=category,count:5` obtém as cinco principais categorias nos resultados de faceta.  
-  - **Observação**: se o parâmetro `count` for menor do que o número de termos exclusivos, os resultados poderão não ser precisos. Isso ocorre devido à maneira como as consultas de facetamento são distribuídas entre fragmentos. O aumento de `count` geralmente aumenta a precisão da contagem de termos, mas isso prejudica o desempenho. 
+  - **Observação**: se o parâmetro `count` for menor do que o número de termos exclusivos, os resultados poderão não ser precisos. Isso ocorre devido à maneira como as consultas de facetamento são distribuídas entre fragmentos. O aumento de `count` geralmente aumenta a precisão da contagem de termos, mas isso prejudica o desempenho.
 - `sort` (uma das `count` para classificar em ordem *decrescente* por contagem, `-count` para classificar em ordem *crescente* por contagem, `value` para classificar em ordem *crescente* por valor ou `-value` para classificar em ordem *decrescente* por valor)
   - Por exemplo: `facet=category,count:3,sort:count` obtém as três principais categorias nos resultados de faceta em ordem decrescente pelo número de documentos com o nome de cada cidade. Por exemplo, se as três principais categorias forem Orçamento, Motel e Luxo, Orçamento tiver cinco ocorrências, Motel tiver seis e Luxo tiver quatro, as classificações, em ordem, serão Motel, Orçamento, Luxo.
   - Por exemplo: `facet=rating,sort:-value` produz todas as classificações possíveis, em ordem decrescente por valor. Por exemplo, se as classificações forem de 1 a 5, as classificações serão ordenadas como 5, 4, 3, 2, 1, independentemente de quantos documentos corresponderem a cada classificação.
@@ -1103,7 +1105,7 @@ Observação: para essa operação, a `api-version` é especificada como um par�
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -1142,7 +1144,7 @@ Código de status: 200 OK é retornado para uma resposta bem-sucedida.
       ],
       "@odata.nextLink": (URL to fetch the next page of results if $top is greater than 1000)
     }
-    
+
 **Exemplos:**
 
 Você pode encontrar exemplos adicionais na página [Sintaxe de expressão OData para o Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
@@ -1172,7 +1174,7 @@ OBSERVAÇÃO: a precisão dos campos de data e hora é limitada a milissegundos.
 6) Pesquisar o índice em vários campos. Por exemplo, você pode armazenar e consultar campos pesquisáveis em vários idiomas, todos no mesmo índice. Se descrições em inglês e francês coexistirem no mesmo documento, você poderá retornar qualquer uma das descrições ou todas elas nos resultados da consulta:
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2014-07-31-Preview
-	
+
 Observe que você pode consultar apenas um índice por vez. Não crie vários índices para cada idioma, a menos que você planeje consultar um de cada vez.
 
 7) Paginar ‒ obter a primeira página de itens (o tamanho de página é 10):
@@ -1194,7 +1196,7 @@ Observe que você pode consultar apenas um índice por vez. Não crie vários í
 11) Pesquisar o índice e retornar fragmentos com realces de ocorrências
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2014-07-31-Preview
-    
+
 12) Pesquisar o índice e retornar documentos classificados de mais próximo a mais distante em relação a um local de referência
 
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2014-07-31-Preview
@@ -1209,14 +1211,14 @@ Observe que você pode consultar apenas um índice por vez. Não crie vários í
 
 A operação **Pesquisar Documento** recupera um documento do Azure Search. Isso é útil quando um usuário clica em um resultado de pesquisa específico e você deseja pesquisar detalhes específicos sobre esse documento.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters] 
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
     api-key: [admin key]
-    
+
 **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Pesquisar Documento** pode ser criada da maneira a seguir.
 
-    GET /indexes/[index name]/docs/key?[query parameters] 
+    GET /indexes/[index name]/docs/key?[query parameters]
 
 Como alternativa, você pode usar a sintaxe tradicional de OData para pesquisa de chave:
 
@@ -1237,7 +1239,7 @@ Observação: para essa operação, a `api-version` é especificada como um par�
 A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcionais.
 
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Pesquisar Documento** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -1251,7 +1253,7 @@ Código de status: 200 OK é retornado para uma resposta bem-sucedida.
     {
       field_name: field_value (fields matching the default or specified projection)
     }
-    
+
 **Exemplo**
 
 Pesquisar o documento que tem a chave '2'
@@ -1270,7 +1272,7 @@ A operação **Contar Documentos** recupera uma contagem do número de documento
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
     Accept: text/plain
     api-key: [admin key]
-    
+
 **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Contar Documentos** pode ser criada usando o método GET.
@@ -1285,7 +1287,7 @@ A lista a seguir descreve os cabeçalhos de solicitação obrigatórios e opcion
 
 - `Accept`: esse valor deve ser definido como `text/plain`.
 - `api-key`: a `api-key` é usada para autenticar a solicitação para o serviço de pesquisa. É um valor de cadeia de caracteres exclusivo para a URL do serviço. A solicitação **Contar Documentos** pode especificar uma chave de administração ou a chave de consulta para `api-key`.
- 
+
 Você também precisará do nome de serviço para criar a URL da solicitação. Você pode obter o nome do serviço e a `api-key` por meio do painel de serviço no Portal de Visualização do Azure. Consulte [Criar um serviço Azure Search no portal](search-create-service.portal.md) para obter ajuda sobre a navegação na página.
 
 **Corpo da solicitação**
@@ -1379,9 +1381,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

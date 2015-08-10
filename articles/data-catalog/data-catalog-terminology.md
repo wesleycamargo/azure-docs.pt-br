@@ -40,7 +40,7 @@ Metadados estruturais são metadados extraídos de uma fonte de dados que descre
 
 ## Metadados descritivos
 
-Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. A ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services e da propriedade estendida [ms_description](https://technet.microsoft.com/library/ms190243.aspx) em bancos de dados do SQL Server, se essas propriedades foram preenchidas com valores.
+Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. A ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services e da propriedade estendida [ms\_description](https://technet.microsoft.com/library/ms190243.aspx) em bancos de dados do SQL Server, se essas propriedades foram preenchidas com valores.
 
 ## Visualizações
 
@@ -71,4 +71,4 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- Este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para descoberta de fonte de dados.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

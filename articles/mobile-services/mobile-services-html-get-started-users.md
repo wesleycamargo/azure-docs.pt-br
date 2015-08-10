@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução à autenticação (HTML 5) | Mobile Dev Center" 
-	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo HTML por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Adicionar autenticação ao seu aplicativo HTML/JavaScript | Serviços Móveis do Azure" 
+	description="Aprenda a usar os Serviços Móveis para autenticar usuários de seu aplicativo HTML por meio de uma variedade de provedores de identidade, incluindo contas do Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis 
@@ -53,7 +53,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
->[AZURE.NOTE]Como o logon é realizado em um pop-up, você deve chamar o método <strong>login</strong> a partir de um evento de clique do botão. Caso contrário, muitos navegadores suprimirão a janela de logon.
+>[AZURE.NOTE]Como o logon é realizado em um pop-up, você deve invocar o método **login** em um evento de clique do botão. Caso contrário, muitos navegadores suprimirão a janela de logon.
 
 1. Abra o arquivo de projeto index.html, localize o elemento H1 e, sob ele, adicione o seguinte trecho de código:
 
@@ -109,7 +109,7 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
 	   Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
-	>[AZURE.NOTE]Ao usar o Internet Explorer, você pode receber o seguinte erro após o logon: <code>Não é possível alcançar a janela de abertura. Talvez ela esteja em outra zona do Internet Explorer</code>. Isso ocorre porque o pop-up é executado em uma zona de segurança diferente (internet) do host local (intranet). Isso afeta apenas aplicativos durante o desenvolvimento usando localhost. Para solucionar esse problema, abra a guia <strong>Segurança</strong> de <strong>Opções da Internet</strong>, clique em <strong>Intranet Local</strong>, clique em <strong>Sites</strong> e desabilite <strong>Detectar automaticamente a rede intranet</strong>. Lembre-se de alterar essa configuração novamente quando concluir o teste.
+	>[AZURE.NOTE]Ao usar o Internet Explorer, você pode receber o seguinte erro após o logon: <code>Não é possível alcançar a janela de abertura. Talvez ela esteja em outra zona do Internet Explorer</code>. Isso ocorre porque o pop-up é executado em uma zona de segurança diferente (internet) do host local (intranet). Isso afeta apenas aplicativos durante o desenvolvimento usando localhost. Para solucionar esse problema, abra a guia **Segurança** de **Opções da Internet**, clique em **Intranet Local**, clique em **Sites**e desative **Detectar automaticamente a rede intranet**. Lembre-se de alterar essa configuração novamente quando concluir o teste.
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -138,4 +138,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

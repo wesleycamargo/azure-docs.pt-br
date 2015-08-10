@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/20/2015"
+   ms.date="07/24/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
@@ -83,10 +83,7 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 - **Velocidade** – Não é um parâmetro configurável pelo usuário. DATA 0, DATA 1, DATA 4 e DATA 5 são sempre de 1 GbE, enquanto DATA 2 e DATA 3 são interfaces de 10 GbE.
 
-     >[AZURE.NOTE]
-     >
-     >- Velocidade e duplex são sempre negociados automaticamente.
-     >- Não há suporte para quadros jumbo.
+       >[AZURE.NOTE]Velocidade e duplex são sempre negociados automaticamente. Não há suporte para quadros Jumbo.
  
 - **Estado da interface** – Uma interface pode ser habilitada ou desabilitada. Se for habilitada, o dispositivo tentará usar a interface. É recomendável que apenas as interfaces que estejam conectadas à rede e sendo usadas sejam habilitadas. Desabilite qualquer interface que não estiver em uso.
 
@@ -97,7 +94,7 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
     É recomendável isolar o tráfego iSCSI do tráfego do armazenamento em nuvem. Também observe que, se o host estiver na mesma sub-rede que o dispositivo, não será preciso atribuir um gateway; no entanto, se o host estiver em uma sub-rede diferente de seu dispositivo, será preciso atribuir um gateway.
 
-- **Endereço IP** – Pode ser IPv4, IPv6 ou ambos. As famílias de endereço IPv4 e IPv6 são compatíveis com as interfaces de rede do dispositivo. Ao usar o IPv4, especifique um endereço IP de 32 bits (*xxx.xxx.xxx.xxx*) em notação de ponto decimal. Ao usar o IPv6, basta fornecer um prefixo de quatro dígitos, e um endereço de 128 bits será gerado automaticamente para a interface de rede do dispositivo com base nesse prefixo.
+- **Endereço IP** – Pode ser IPv4, IPv6 ou ambos. As famílias de endereço IPv4 e IPv6 são compatíveis com as interfaces de rede do dispositivo. Ao usar o IPv4, especifique um endereço IP de 32 bits (\*xxx.xxx.xxx.xxx\*) em notação de ponto decimal. Ao usar o IPv6, basta fornecer um prefixo de quatro dígitos, e um endereço de 128 bits será gerado automaticamente para a interface de rede do dispositivo com base nesse prefixo.
 
 - **Sub-rede** – Refere-se à máscara de sub-rede e é configurada por meio da interface do Windows PowerShell.
 
@@ -131,4 +128,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
  
      
 
-<!--------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

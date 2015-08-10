@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Como adicionar referências da biblioteca de cliente do banco de dados elástico a um projeto do Visual Studio 
+# Como adicionar referências da biblioteca cliente do Banco de Dados Elástico a um projeto do Visual Studio 
 
 ### Pré-requisitos: 
 
@@ -40,4 +40,4 @@ A referência da biblioteca de cliente será adicionada ao seu projeto.
 [1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

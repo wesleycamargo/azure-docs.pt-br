@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Como codificar um ativo usando o Codificador de Mídia do Azure
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-encode-asset.md)
+- [.NET](media-services-dotnet-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Visão geral
 
@@ -218,4 +222,4 @@ O seguinte método **CreateChainedTaskEncodingJob** cria um trabalho que contém
 [Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

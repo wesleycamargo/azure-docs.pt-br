@@ -31,7 +31,7 @@
 
 ## Selecionar a imagem
 
-Vá para o Azure Marketplace no portal de visualização para localizar a imagem de VM do Windows Server que você deseja.
+Vá para o Azure Marketplace no portal de Visualização para localizar a imagem de VM do Windows Server desejada.
 
 1. Entre no [Portal de visualização](https://portal.azure.com).
 
@@ -49,7 +49,7 @@ Vá para o Azure Marketplace no portal de visualização para localizar a imagem
 
 ## Criar a máquina virtual
 
-Depois de selecionar a imagem, você pode usar as configurações padrão do Azure para a maior parte da configuração e criar rapidamente a VM.
+Depois de selecionar a imagem, você poderá usar as configurações padrão do Azure para a maior parte da configuração e criar rapidamente a VM.
 
 1. Na folha **Criar a máquina virtual**, clique em **Noções básicas**. Insira o **Nome** desejado para a máquina virtual e um arquivo de chave pública (no formato **ssh-rsa**; nesse caso, do arquivo `~/.ssh/id_rsa.pub`). Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova VM, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
 
@@ -126,4 +126,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

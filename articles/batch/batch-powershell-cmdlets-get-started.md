@@ -53,7 +53,7 @@ Você pode usar os cmdlets do PowerShell do Azure para criar e gerenciar contas 
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Em seguida, crie uma nova conta do Batch no grupo de recursos, também especificando um nome de conta para <*nome_da_conta*> e um local onde o serviço Batch esteja disponível. A criação da conta pode levar vários minutos para ser concluída. Por exemplo:
+Em seguida, crie uma nova conta do Batch no grupo de recursos, também especificando um nome de conta para <\*nome\_da\_conta\*> e um local onde o serviço Batch esteja disponível. A criação da conta pode levar vários minutos para ser concluída. Por exemplo:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +156,4 @@ Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 * [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficientes](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

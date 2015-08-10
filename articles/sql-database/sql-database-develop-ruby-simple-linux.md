@@ -55,9 +55,9 @@ Em seguida, instale o TinyTDS.
 
 ## Criar um banco de dados e recuperar a cadeia de conexão
 
-O exemplo Ruby se baseia no banco de dados de exemplo do AdventureWorks. Se você ainda não tiver o AdventureWorks, você pode ver como criá-lo no tópico a seguir: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md)
+O exemplo Ruby se baseia em dados de exemplo do AdventureWorks. Se você ainda não tiver o AdventureWorks, você pode ver como criá-lo no tópico a seguir: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md)
 
-O tópico também explica como recuperar a cadeia de conexão de banco de dados.
+O tópico também explica como recuperar a cadeia de conexão do banco de dados.
 
 ## Conectar-se ao seu Banco de Dados SQL
 
@@ -117,4 +117,4 @@ Para alinhar com o formado [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

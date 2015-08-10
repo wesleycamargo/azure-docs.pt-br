@@ -32,7 +32,7 @@ Nome | Script
 **Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalar e usar o Spark em clusters do HDInsight][hdinsight-install-spark].
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalar e usar o R em cluster do HDInsight][hdinsight-r-scripts].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalar e usar o Solr em clusters do HDInsight](hdinsight-hadoop-solr-install.md).
-- **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar e usar o Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
+\- **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar e usar o Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
 
 A Ação de script pode ser implantada por meio do portal do Azure, do Azure PowerShell ou usando o SDK .NET do HDInsight. Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
 
@@ -161,7 +161,7 @@ Com frequência no desenvolvimento de ação de script, você sentirá a necessi
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Essa instrução define a variável de ambiente **MDS_RUNNER_CUSTOM_CLUSTER** para o valor “true” e também define o escopo dessa variável como todo o computador. Às vezes é importante que as variáveis de ambiente sejam definidas no escopo apropriado – computador ou usuário. Consulte [aqui][1] para obter mais informações sobre como definir variáveis de ambiente.
+Essa instrução define a variável de ambiente **MDS\_RUNNER\_CUSTOM\_CLUSTER** para o valor “true” e também define o escopo dessa variável como todo o computador. Às vezes é importante que as variáveis de ambiente sejam definidas no escopo apropriado – computador ou usuário. Consulte [aqui][1] para obter mais informações sobre como definir variáveis de ambiente.
 
 ### Acesso a locais onde estão armazenados os scripts personalizados
 
@@ -304,4 +304,4 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

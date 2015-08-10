@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Provisionando uma máquina virtual do SQL Server no Azure #
@@ -143,7 +143,7 @@ Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de e
 
 3. Na caixa de diálogo **Assistente para Nova Regra de Entrada**, em **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
 
-4. Na caixa de diálogo **Protocolo e Portas**, use o **TCP** padrão. Na caixa **Portas locais específicas**, digite o número da porta da instância do Mecanismo de Banco de Dados (**1433** para a instância padrão ou sua opção para a porta privada na etapa de ponto de extremidade).
+4. Na caixa de diálogo **Protocolo e Portas**, use o **TCP** padrão. Na caixa **Portas locais específicas**, digite o número da porta da instância do Mecanismo de Banco de Dados (\*\*1433\*\* para a instância padrão ou sua opção para a porta privada na etapa de ponto de extremidade).
 
 	![Porta TCP 1433][Image14]
 
@@ -180,7 +180,7 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 
 	![Habilitar TCP][Image10]
 
-5. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (_instance name_)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
+5. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (\_instance name\_)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
 
 	![Reiniciar o Mecanismo de Banco de Dados][Image11]
 
@@ -200,7 +200,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
 	Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
 
-2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe **_your_VM_name_\\your_local_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
+2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor**. Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar-se ao Mecanismo de Banco de Dados com o Object Explorer. (Em vez do nome da máquina virtual, também é possível usar **(local)** ou um único ponto como o **Nome do Servidor**. Selecione **Autenticação do Windows** e deixe **_your\_VM\_name_\\your\_local\_administrator** na caixa **Nome de usuário**. Clique em **Conectar**.
 
 	![Conectar-se ao servidor][Image19]
 
@@ -274,7 +274,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 ### <a id="cde">Conectar-se ao Mecanismo de Banco de Dados de outro computador</a>
  
 1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
-2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número da porta pública de ponto de extremidade no formato *NomeDNS,númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**. Para obter o número da porta, faça logon no Portal de Gerenciamento do Azure e encontre a Máquina Virtual. No painel, clique em **PONTOS DE EXTREMIDAD**E e use a **PORTA PÚBLICA** atribuída ao **MSSQL**. ![Porta pública][Image36]
+2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa \*\*Nome do servidor\*\*, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número da porta pública de ponto de extremidade no formato *NomeDNS,númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**. Para obter o número da porta, faça logon no Portal de Gerenciamento do Azure e encontre a Máquina Virtual. No painel, clique em **PONTOS DE EXTREMIDAD**E e use a **PORTA PÚBLICA** atribuída ao **MSSQL**. ![Porta pública][Image36]
 3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
 5. Na caixa **Logon**, digite o nome de um logon que você criou em uma tarefa anterior.
 6. Na caixa **Senha**, digite a senha do logon que você criou em uma tarefa anterior.
@@ -291,7 +291,9 @@ Se você puder se conectar a uma instância do SQL Server em execução em uma m
 Para obter mais informações, consulte [Como solucionar problemas de conexão com o Mecanismo de Banco de Dados do SQL Server (a página pode estar em inglês)](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 ##<a id="Optional">Próximas etapas</a>
-Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure usando a imagem de plataforma. Ao usar o SQL Server em Máquinas Virtuais do Azure, recomendamos seguir as diretrizes detalhadas fornecidas na documentação do [SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) na biblioteca. Este conjunto de documentação inclui uma série de artigos e tutoriais que fornecem orientações detalhadas. A série inclui as seguintes sessões:
+Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure usando a imagem de plataforma. Em muitos casos, a próxima etapa é migrar os bancos de dados para essa nova VM do SQL Server. Para obter diretrizes sobre migração de banco de dados, consulte [Migrando um banco de dados para SQL Server em uma VM do Azure](virtual-machines-migrate-onpremises-database.md).
+
+Além desses recursos, é recomendável seguir as diretrizes detalhadas fornecidas na documentação [SQL Server em máquinas virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) na biblioteca. Este conjunto de documentação inclui uma série de artigos e tutoriais que fornecem orientações detalhadas. A série inclui as seguintes sessões:
 
 [SQL Server nas Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -319,7 +321,7 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 
 [Business Intelligence do SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-[Armazenamento de dados do SQL Server e cargas de trabalho transacionais em máquinas virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[Cargas de trabalho transacionais e data warehouse do SQL Server nas máquinas virtuais do Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Artigos técnicos sobre o SQL Server em Máquinas Virtuais do Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
@@ -362,4 +364,4 @@ Você viu como criar e configurar um SQL Server em uma máquina virtual do Azure
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

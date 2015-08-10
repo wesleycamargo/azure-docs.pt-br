@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="Learn how to backup and restore from a Windows Server or Windows Client. Este artigo abrange a recuperação do servidor alternativa" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Backup e restauração de um computador cliente Windows ou Windows Server
 Este artigo aborda as etapas necessárias para fazer o backup de um computador cliente Windows ou Windows Server. Ele também aborda as etapas necessárias para restaurar os arquivos de backup no mesmo computador e as etapas necessárias para restaurar arquivos de backup em qualquer outro computador.
@@ -42,7 +42,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurar um arquivo/volume 
 
     ![Recuperar dados](./media/backup-azure-backup-and-recover/recover.png)
 
-3. Selecione a opção **Este servidor (*nomedoseucomputador*)** quando planejar restaurar o arquivo de backup no mesmo computador.
+3. Selecione a opção **Este servidor (\*nomedoseucomputador\*)** quando planejar restaurar o arquivo de backup no mesmo computador.
 
     ![Mesmo computador](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -114,4 +114,4 @@ A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o co
 ## Próximas etapas
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

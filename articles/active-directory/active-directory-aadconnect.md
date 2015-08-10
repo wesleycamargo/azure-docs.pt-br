@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Integração de suas identidades locais com o Active Directory do Azure." 
+	pageTitle="Integrando suas identidades locais ao Active Directory do Azure." 
 	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -100,7 +100,9 @@ Antes de instalar o Azure AD Connect com configurações expressas, há algumas 
  
 - Uma assinatura do Azure ou uma [assinatura de avaliação do Azure](http://azure.microsoft.com/pricing/free-trial/) - isso só é necessário para acessar o portal do Azure, não para usar o Azure AD Connect. Se estiver usando o PowerShell ou o Office 365, você não precisará de uma assinatura do Azure para usar o Azure AD Connect.
 - Uma conta de Administrador Global de AD do Azure para o locatário do AD do Azure com o qual você deseja se integrar
-- Um controlador de domínio ou servidor membro do AD com o Windows Server 2008 ou posterior
+- O Azure AD Connect deve ser instalado no Windows Server 2008 ou posterior. Esse servidor pode ser um controlador de domínio ou um servidor membro.
+- O nível de floresta e a versão de esquema do AD devem ser para Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
+- Se os Serviços de Federação do Active Directory estão sendo implantados, os servidores em que os AD FS serão instalados devem ser Windows Server 2012 ou posterior.
 - Uma conta de administrador corporativo para o Active Directory local
 - Opcional: uma conta de usuário de teste para verificar a sincronização. 
 
@@ -110,11 +112,11 @@ A tabela a seguir mostra os requisitos mínimos para o computador do Azure AD Co
 | Número de objetos no Active Directory | CPU | Memória | Tamanho do disco rígido |
 | ------------------------------------- | --- | ------ | --------------- |
 | Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
+| 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
 | Para 100.000 ou mais objetos, é necessária a versão completa do SQL Server| | | |
-| 100.000–300.000 | 1,6 GHz | 32 GB | 300 GB |
-| 300.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100\.000–300.000 | 1,6 GHz | 32 GB | 300 GB |
+| 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Mais de 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -140,7 +142,7 @@ Selecionar as configurações expressas é a opção padrão e é um dos cenári
 8. Na tela Conectar-se ao AD DS, digite o nome de usuário e a senha para uma conta de administrador corporativa. Clique em **Próximo**.
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Na tela Pronto para configurar, clique em **Instalar**.
-	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “**Iniciar o processo de sincronização assim que a configuração for concluída**”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
+	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “\*\*Iniciar o processo de sincronização assim que a configuração for concluída\*\*”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
 	- Também é possível configurar os serviços de sincronização para **implantação híbrida do Exchange** marcando a caixa de seleção correspondente. Se você não planeja ter caixas de correio do Exchange na nuvem e no local, isso não é necessário.
 
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -182,7 +184,7 @@ Agora que os usuários foram sincronizados para a nuvem, você precisará atribu
 2. Selecione **Active Directory** à esquerda.
 3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
 4. Na parte superior da página do diretório, selecione **Licenças**.
-5. Na página Licenças, selecione Active Directory Premium ou Enterprise Mobility Suite e, em seguida, clique em **Atribuir**.
+5. Na página de licenças, selecione Active Directory Premium ou Enterprise Mobility Suite e, em seguida, clique em **Atribuir**.
 6. Na caixa de diálogo, selecione os usuários para os quais você deseja atribuir licenças e, em seguida, clique no ícone de marca de seleção para salvar as alterações.
 
 
@@ -245,6 +247,8 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - Monitore a integridade de sua infraestrutura AD FS local.
 
+[Perguntas Frequentes do Azure AD Connect](active-directory-aadconnect-faq.md) - perguntas frequentes sobre o Azure AD Connect.
+
 
 
 
@@ -252,4 +256,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

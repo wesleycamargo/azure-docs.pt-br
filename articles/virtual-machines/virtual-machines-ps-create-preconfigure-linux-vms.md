@@ -157,7 +157,7 @@ Após a criação da máquina virtual, confira [Como fazer logon em uma máquina
 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
-- Salve esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1)
+- Salve esse conjunto de comandos como um arquivo de script do PowerShell (\*.ps1)
 - Salvar este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do Portal de Gerenciamento do Azure
 
 ## <a id="examples"></a>Exemplos
@@ -260,4 +260,4 @@ Aqui está o conjunto de comandos do Azure PowerShell correspondente para criar 
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

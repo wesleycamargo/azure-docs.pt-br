@@ -47,7 +47,7 @@ Use o procedimento a seguir para criar uma nova política de backup.
 
    1. Na caixa de texto **Nome**, digite um nome para a política.
 
-   2. Na caixa de texto **Grupo de volumes, **digite o nome do grupo de volumes associado à política.
+   2. Na caixa de texto \*\*Grupo de volumes, **digite o nome do grupo de volumes associado à política.
 
    3. Selecione **Instantâneo Local** ou **Instantâneo em Nuvem**.
 
@@ -118,4 +118,4 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

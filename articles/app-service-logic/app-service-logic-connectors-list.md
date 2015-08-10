@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Lista de Conectores e Aplicativos de API | Azure" 
-	description="Leia sobre conectores e aplicativos de API no serviço de aplicativo do Azure; arquitetura de microsserviços" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Lista de Conectores e Aplicativos de API | Azure"
+	description="Leia sobre conectores e aplicativos de API no serviço de aplicativo do Azure; arquitetura de microsserviços"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,6 @@ Nome | Descrição
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use esse conector para criar um cluster do Hadoop no Azure e enviar diferentes trabalhos do Hadoop, como Pig, Hive, MapReduce e Streaming MapReduce. Usando esse conector, você também pode criar um cluster, enviar um trabalho e aguardar sua conclusão.
 [Barramento de Serviço do Azure](app-service-logic-connector-azureservicebus.md) | Usando esse conector, você pode enviar mensagens de entidades do Barramento de Serviço, como Filas e Tópicos, e receber mensagens de entidades do Barramento de Serviço, como Filas e Assinaturas.
 [Blob de Armazenamento do Azure](app-service-logic-connector-azurestorageblob.md) | Conecta-se ao armazenamento de Blob e pode carregar, obter e excluir Blobs, listar Blobs no contêiner, fazer instantâneos dos Blobs, copiar Blobs e usar um gatilho para recuperar Blobs.
-Azure WebJobs | Conecta-se ao WebJobs.
 [Box](app-service-logic-connector-box.md) | Conecta-se ao Box e pode carregar, obter, excluir e listar arquivos e usa um gatilho para recuperar arquivos.
 [Chatter](app-service-logic-connector-chatter.md) | Conecta ao Chatter e pode postar mensagens, pesquisar e usar um gatilho para recuperar novas mensagens.
 [Dropbox](app-service-logic-connector-dropbox.md) | Conecta-se ao Dropbox e pode carregar, obter, excluir e listar arquivos e usar um gatilho para recuperar arquivos.
@@ -87,11 +86,11 @@ Vários conectores fornecem gatilhos para aplicativos lógicos. Os gatilhos são
 Os conectores também podem ser usados como ações dentro do Aplicativo Lógico. Ações são úteis para pesquisar dados no Aplicativo Lógico que podem, em seguida, ser usado na execução. Por exemplo, talvez seja necessário pesquisar dados de um banco de dados SQL para obter informações adicionais sobre um cliente durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em um destino. Você pode fazer isso usando as ações fornecidas pelos conectores. As ações são mapeadas para operações em aplicativos de API (conforme definido pelos seus metadados Swagger).
 
 ## Criar seus próprios conectores e aplicativos de AP
-[Referência a aplicativos de API e conectores](http://aka.ms/appservicesconnectorreference)<br/> [Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [Referência a aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[Connectors and API Apps Reference (Referência a aplicativos de API e conectores)](http://aka.ms/appservicesconnectorreference)<br/> [Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [Logic App Reference (Referência de aplicativos lógicos)](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## Mais informações sobre conectores e aplicativos de API
 
 [O que são aplicativos de API do BizTalk e conectores](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)<br/> [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -66,4 +66,4 @@ Para abrir um tíquete de suporte, faça o seguinte:
 1. Clique em Enviar para abrir o tíquete.
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

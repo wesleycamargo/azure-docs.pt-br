@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
-#Codificação avançada com fluxo de trabalho do Media Encoder Premium (demonstração pública)
+#Codificação avançada com fluxo de trabalho do Media Encoder Premium
 
 **Observação** o processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
 
 ##Visão geral
 
-Os Serviços de Mídia do Microsoft Azure estão apresentando a visualização pública do processador de mídia do **Fluxo de trabalho do Media Encoder Premium**. Esse processador oferece recursos avançados de codificação para seus fluxos de trabalho premium sob demanda.
+Os Serviços de Mídia do Microsoft Azure estão apresentando o processador de mídia do **Fluxo de trabalho do Codificador de Mídia Premium**. Esse processador oferece recursos avançados de codificação para seus fluxos de trabalho premium sob demanda.
 
 Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de trabalho do Media Encoder Premium**:
 
@@ -265,4 +265,4 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

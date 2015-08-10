@@ -49,9 +49,9 @@ Além disso, ao planejar alterações em um site da Web ativo, você pode facilm
 
 Use o domínio dos Aplicativos Web do Serviço de Aplicativo gratuitamente ou mapeie para seu nome de domínio registrado e proteja sua marca com seu certificado SSL assinado por uma autoridade de certificação.
 
-O domínio ***.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer registro de DNS, como GoDaddy.
+O domínio **\*.azurewebsites.net** é gratuito quando você executa seu site nos Aplicativos Web. Ou então, você pode mapear seu site para um [domínio personalizado] (por exemplo, contoso.com), que você obteve em qualquer registro de DNS, como GoDaddy.
 
-Se coleta informações do usuário, realiza comércio eletrônico ou gerencia outros dados confidenciais, você pode proteger a reputação de sua marca e seus clientes com o [HTTPS]. O nome de domínio ***.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
+Se coleta informações do usuário, realiza comércio eletrônico ou gerencia outros dados confidenciais, você pode proteger a reputação de sua marca e seus clientes com o [HTTPS]. O nome de domínio **\*.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
 
 ## Ter alcance global
 
@@ -65,7 +65,7 @@ Forneça seu conteúdo estático de forma extremamente rápida aos usuários glo
 
 Otimize seu site .COM dimensionando automaticamente com o recurso de Autoescala, armazenando em cache com o Cache Redis do Azure, executando tarefas em segundo plano com Trabalhos Web e mantendo alta disponibilidade com o Gerenciador de Tráfego do Azure.
 
-A capacidade dos Aplicativo Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu site .COM, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu site de forma manual por meio do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. No plano de hospedagem **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um site de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
+A capacidade dos Aplicativo Web do Serviço Aplicativos de [escalar verticalmente e horizontalmente] atende às necessidades de seu site .COM, independentemente do porte de sua carga de trabalho. Escale horizontalmente seu site de forma manual por meio do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), de forma programática por meio da [API de Gerenciamento de Serviços] ou dos [scripts do PowerShell] ou de forma automática por meio do recurso de Autoescala. No plano de hospedagem **Padrão**, o recurso de Autoescala o habilita a escalar horizontalmente um site de forma automática com base na utilização da CPU. Para obter as práticas recomendadas, confira o artigo de [Troy Hunt]\: [Dez coisas que aprendi sobre como expandir com rapidez os aplicativos Web com o Azure].
 
 Torne seu site mais ágil com o [Cache Redis do Azure]. Use-o para armazenar em cache os dados de bancos de dados de back-end e outros itens, como o [estado da sessão ASP.NET] e o [cache de saída].
 
@@ -140,4 +140,4 @@ Torne seu site .COM atraente com recursos de mídia avançada, como:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

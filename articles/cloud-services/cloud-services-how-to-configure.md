@@ -144,4 +144,4 @@ Adicione os elementos de **Importação** ao arquivo de definição de serviço 
 			
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

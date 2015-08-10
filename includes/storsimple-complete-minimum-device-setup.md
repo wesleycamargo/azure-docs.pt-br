@@ -22,4 +22,4 @@
 
  >[AZURE.NOTE]Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

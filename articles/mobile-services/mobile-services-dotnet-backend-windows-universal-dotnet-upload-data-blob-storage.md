@@ -71,4 +71,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -3,7 +3,7 @@
    description="Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2015"
-   ms.author="telmos" />
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # Vários VIPs por serviço de nuvem
 Você pode acessar os serviços de nuvem do Azure pela Internet pública usando um endereço IP fornecido pelo Azure. Este endereço IP público é conhecido como um VIP (IP virtual), uma vez que está vinculado ao balanceador de carga do Azure, e não realmente às instâncias VM no serviço de nuvem. Você pode acessar qualquer instância VM dentro de um serviço de nuvem usando um único VIP.
@@ -38,7 +38,6 @@ Neste momento, a funcionalidade de VIP multi está limitada aos seguintes cenár
 
 - **IaaS apenas**. Só é possível habilitar o VIP multi para serviços de nuvem que contêm máquinas virtuais. Você não pode usar o VIP multi em cenários de PaaS, com instâncias de função.
 - **PowerShell apenas**. Você só pode gerenciar o VIP multi usando o PowerShell.
-- **Nenhum suporte ARM**. Não há nenhum suporte para VIP multi no Gerenciador de Recursos do Azure.
 
 >[AZURE.IMPORTANT]Essas limitações são temporárias e podem ser alteradas a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
 
@@ -156,4 +155,4 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

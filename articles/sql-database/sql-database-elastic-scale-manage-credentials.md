@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/24/2015" 
 	ms.author="sidneyh"/>
 
 # Gerenciamento de credenciais na biblioteca de cliente do banco de dados elástico
 
-A [biblioteca de cliente de banco de dados elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa credenciais para diferentes tipos de operações, especialmente ao criar ou manipular um gerenciador de mapa de fragmentos, fazendo referência a um [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) existente para obter informações sobre fragmentos e conectar-se a eles. Credenciais para esses tipos de operações são discutidas abaixo.
+A [biblioteca cliente do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa credenciais para diferentes tipos de operações, especialmente ao criar ou manipular um [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), fazendo referência a um Gerenciador de Mapa de Fragmentos existente para obter informações sobre fragmentos e conectar-se a eles. Credenciais para esses tipos de operações são discutidas abaixo.
 
 
 * **Credenciais de gerenciamento de acesso ao mapa de fragmentos**: as credenciais de gerenciamento são usadas ao instanciar um objeto **ShardMapManager** para aplicativos que lidam com os mapas de fragmentos. O usuário da biblioteca de cliente de escala elástica deve criar os usuários necessários do SQL e logons do SQL Server, alem de verificar se que eles têm as permissões de leitura/gravação no banco de dados do mapa de fragmentos global e também em todos os bancos de dados de fragmentos. Essas credenciais são usadas para manter o mapa do fragmento globais e os mapas de fragmento local quando as alterações para o mapa do fragmento são executadas. Por exemplo, use as credenciais de gerenciamento para instanciar o objeto de gerenciador do mapa do fragmento, como mostra o seguinte código: 
@@ -60,4 +60,4 @@ A [biblioteca de cliente de banco de dados elástico](http://www.nuget.org/packa
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

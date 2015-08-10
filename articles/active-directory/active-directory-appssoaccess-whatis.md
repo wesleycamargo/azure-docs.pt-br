@@ -78,7 +78,7 @@ Em ambos os casos, as credenciais são armazenadas em um estado criptografado no
 
 O SSO baseado em senha conta com uma extensão de navegador para recuperar as informações específicas do aplicativo e de usuário do AD do Azure e aplicá-la ao serviço com segurança. A maioria dos aplicativos SaaS de terceiros que são suportados pelo AD do Azure oferecem suporte a esse recurso.
 
-Para SSO baseada em senha, os navegadores do usuário final podem ser: * IE 8, IE9 e IE10 no Windows 7 ou posterior * Chrome no Windows 7 ou posterior ou MacOS X ou posterior
+Para SSO baseada em senha, os navegadores do usuário final podem ser: \* IE 8, IE9 e IE10 no Windows 7 ou posterior \* Chrome no Windows 7 ou posterior ou MacOS X ou posterior
 
 ###Logon único existente
 
@@ -212,4 +212,4 @@ Esses links usam os mesmos mecanismos de controle de acesso que o painel de aces
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -88,9 +88,9 @@ Durante a mudança, o banco de dados pode ficar temporariamente indisponível. I
 Quando ocorre um erro com o Banco de Dados SQL, uma [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) é lançada. A `SqlException` contém um código de erro numérico em sua propriedade **Number**. Se o código de erro identificar um erro transitório, seu programa deverá repetir a chamada.
 
 
-- [Mensagens de erro (Banco de Dados SQL do Azure)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
  - A seção **Erros transitórios, Erros de perda de conexão** é uma lista dos erros transitórios que garantem uma repetição automática.
- - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a <br/>*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.
+ - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a <br/>\*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.
 
 
 Ás vezes, os *erros* transitórios são chamados de *falhas* transitórias. Este tópico considera esses dois termos como sinônimos.
@@ -135,7 +135,7 @@ O gateway tinha a lógica de repetição que lidava com alguns erros transitóri
  - Contém links para exemplos de código que contém a lógica de repetição e exemplos mais simples para conexão-e-consulta.
 - [Como conectar-se de forma confiável ao Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [Como conectar-se ao Banco de Dados SQL do Azure usando o ADO.NET com a Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Como conectar-se ao Banco de Dados SQL do Microsoft Azure usando o ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL](sql-database-develop-csharp-retry-windows.md)
 
 
 ## Tecnologias
@@ -174,4 +174,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

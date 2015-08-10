@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -218,7 +218,7 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição
 | :----------------------: | :------: | :----------
-| apiVersion | Sim | Versão da API que oferece suporte ao recurso.
+| apiVersion | Sim | Versão da API que oferece suporte ao recurso. Para as versões e esquemas disponíveis para os recursos, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
 | name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
 | location | Não | Locais geográficos com suporte do recurso fornecido.
@@ -311,7 +311,9 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
 ## Cenários mais avançados.
 Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
 
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, consulte [Modelos aninhados](../resource-group-advanced-template#nested-template).
+Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para obter mais informações, consulte [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+
+Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 
 Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](../resource-group-template-functions#resourceid).
 
@@ -319,7 +321,7 @@ Talvez seja necessário usar recursos que existam em um grupo de recursos difere
 O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um arquivo .zip.
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ O modelo a seguir implanta um aplicativo Web e o provisiona com o código de um 
     }
 
 ## Próximas etapas
-- [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
-- [Operações avançadas de modelo](./resource-group-advanced-template.md)
-- [Implantar um aplicativo complexo de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)
-- [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Para obter detalhes sobre as funções que você pode usar de dentro de um modelo, consulte [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
+- Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de modo previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

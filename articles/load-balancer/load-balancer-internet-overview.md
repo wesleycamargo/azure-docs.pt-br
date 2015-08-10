@@ -23,7 +23,7 @@ Um uso de pontos de extremidade é a configuração do balanceador de carga do A
 
 O balanceador de carga do Azure mapeia o endereço IP público e o número da porta do tráfego de entrada até o endereço IP privado e o número da porta da máquina virtual e vice-versa no tráfego de resposta da máquina virtual.
 
->[AZURE.NOTE]Quando você configura o balanceamento de carga do tráfego entre várias máquinas virtuais ou serviços usando configurações padrão, ele fornece uma distribuição aleatória do tráfego de entrada. Se você estiver procurando por afinidade de sessão (ou sessões temporárias), consulte o [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]Quando você configura o balanceamento de carga do tráfego entre várias máquinas virtuais ou serviços usando configurações padrão, ele fornece uma distribuição aleatória do tráfego de entrada. Se você estiver procurando por afinidade de sessão, confira [modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 Para um serviço de nuvem que contenha instâncias de funções web ou funções de trabalho, você pode definir um ponto de extremidade público na definição do serviço (.csdef).
  
@@ -52,4 +52,4 @@ Quando os clientes da Internet enviam solicitações de página da Web para o en
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

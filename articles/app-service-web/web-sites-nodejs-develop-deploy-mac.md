@@ -28,7 +28,7 @@ A seguinte é uma captura de tela do aplicativo concluído:
 
 Siga estas etapas para criar um aplicativo Web e habilitar a publicação Git.
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante MSDN](/pt-br/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se para uma avaliação gratuita](/pt-br/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
@@ -196,4 +196,4 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

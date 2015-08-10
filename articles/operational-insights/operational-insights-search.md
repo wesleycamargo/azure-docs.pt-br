@@ -65,7 +65,7 @@ Isso lhe dará apenas os dados de desempenho onde o nome do contador de desempen
 ### Para procurar dados de desempenho de tempo do processador
 - No campo pesquisar consulta, digite `Type=PerfHourly CounterName="% Processor Time"`
 
-Você também pode ser mais específico e usar **InstanceName=_'Total'** na consulta, que é um contador de desempenho do Windows. Você também pode selecionar uma faceta e outro **field:value**. O filtro é adicionado automaticamente ao seu filtro na barra de consulta. Você pode ver isso na imagem a seguir. Ela mostra onde clicar para adicionar **InstanceName:’_Total’** à consulta sem digitar nada.
+Você também pode ser mais específico e usar **InstanceName=\_'Total'** na consulta, que é um contador de desempenho do Windows. Você também pode selecionar uma faceta e outro **field:value**. O filtro é adicionado automaticamente ao seu filtro na barra de consulta. Você pode ver isso na imagem a seguir. Ela mostra onde clicar para adicionar **InstanceName:’\_Total’** à consulta sem digitar nada.
 
 ![pesquisar faceta](./media/operational-insights-search/search-facet.png)
 
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Se você estiver familiarizado com o Microsoft System Center - Operations Manager, pode pensar no comando where em termos de pacote de gerenciamento de comando. Se o exemplo fosse uma regra, a primeira parte da consulta seria a fonte de dados e o comando where seria a detecção de condição.
 
-Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor de classificações, para ver quando as CPUs do computador são utilizadas em excesso. Para saber mais sobre painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para obter mais informações, consulte [Aplicativo móvel do Insights Operacionais do Azure ](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
+Você pode usar a consulta como um bloco em **Meu Painel**, como um monitor de classificações, para ver quando as CPUs do computador são utilizadas em excesso. Para saber mais sobre painéis, consulte [Painéis do Insights Operacionais](operational-insights-use-dashboards). Você também pode criar e usar painéis utilizando o aplicativo móvel. Para obter mais informações, consulte [Aplicativo móvel do Insights Operacionais do Azure ](http://www.windowsphone.com/pt-br/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). Nos dois blocos inferiores da imagem a seguir, você pode ver o monitor exibindo uma lista e como um número. No fundo, convém sempre ter o número como zero e a lista em branco. Caso contrário, isso indica uma condição de alerta. Se necessário, você pode usá-lo para dar uma olhada em quais computadores estão sob pressão.
 
 ![painel móvel](./media/operational-insights-search/search-mobile.png)
 
@@ -467,7 +467,7 @@ Sintaxe:
 
 filterExpression | command1 | command2 …
 
-A expressão de filtro (**filterExpression**) define a condição "where" para a consulta. Os comandos se aplicam aos resultados retornados pela consulta. Vários comandos devem ser separados pelo caractere de barra vertical (|).
+A expressão de filtro (\*\*filterExpression\*\*) define a condição "where" para a consulta. Os comandos se aplicam aos resultados retornados pela consulta. Vários comandos devem ser separados pelo caractere de barra vertical (|).
 
 #### Exemplos de sintaxe geral
 
@@ -614,7 +614,15 @@ Você pode encadear os operadores de cálculo de data/hora, por exemplo:
 
 A tabela a seguir lista as unidades com suporte de data/hora.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unidade de data/hora </th> <th>Descrição </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arredonda para o ano atual ou desloca pelo número especificado de anos.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arredonda para o mês atual ou desloca pelo número especificado de meses.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p>Arredonda para o dia do mês atual ou desloca pelo número especificado de dias.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arredonda para a hora atual ou desloca pelo número especificado de horas.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arredonda para o minuto atual ou desloca pelo número especificado de minutos.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Arredonda para o segundo atual ou desloca pelo número especificado de segundos.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Arredonda para o milissegundo atual ou desloca pelo número especificado de milissegundos.</p> </td> </tr> </table>
+Unidade de data/hora|Descrição
+---|--- 
+YEAR, YEARS|Arredonda para o ano atual ou desloca pelo número especificado de anos.
+MONTH, MONTHS|Arredonda para o mês atual ou desloca pelo número especificado de meses.
+DAY, DAYS, DATE|Arredonda para o dia do mês atual ou desloca pelo número especificado de dias.
+HOUR, HOURS|Arredonda para a hora atual ou desloca pelo número especificado de horas.
+MINUTE, MINUTES|Arredonda para o minuto atual ou desloca pelo número especificado de minutos.
+SECOND, SECONDS|Arredonda para o segundo atual ou desloca pelo número especificado de segundos.
+MILLISECOND, MILLISECONDS, MILLI, MILLIS|Arredonda para o milissegundo atual ou desloca pelo número especificado de milissegundos.
 
 
 #### Facetas de campo
@@ -690,7 +698,10 @@ Exemplos:
 Você pode omitir o operador lógico para os argumentos de filtro de nível superior. Nesse caso, o operador AND será assumido.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expressão de filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>erro de sistema</p> </td> <td> <p>erro AND sistema</p> </td> </tr> <tr> <td> <p>sistema "; Windows Server"; OR Severity:1</p> </td> <td> <p>sistema AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
+Expressão do filtro...|Equivalente a
+---|---
+erro do sistema|erro do sistema AND
+sistema "Windows Server" OR Gravidade: 1|sistema AND (“Windows Server” OR Gravidade: 1)
 
 
 
@@ -766,11 +777,11 @@ Sintaxe:
 Agrega os resultados por **groupField** e calcula os valores agregados de medida usando **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Função estatística de measure</th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções de agregação:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NAME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Função estatística de measure </th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções de agregação:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NAME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-A opção de intervalo só pode ser usada em campos de grupo de data/hora (como **TimeGenerated** e **TimeCreated**). Atualmente, isso não é imposto pelo serviço, mas um campo sem data/hora que é passado para o back-end causará um erro de tempo de execução. Quando a validação do esquema é implementada, a API do serviço rejeita as consultas que usam campos sem data/hora para agregação de intervalo. A implementação atual de **Measure** oferece suporte somente ao agrupamento de intervalo para a função de agregação **Count**.
+A opção de intervalo só pode ser usada em campos de grupo de data/hora (como **TimeGenerated** e **TimeCreated**). Atualmente, isso não é imposto pelo serviço, mas um campo sem data/hora que é passado para o back-end causará um erro de tempo de execução. Quando a validação do esquema é implementada, a API do serviço rejeita as consultas que usam campos sem data/hora para agregação de intervalo. A implementação atual de **Measure** dá suporte somente ao agrupamento de intervalo para a função de agregação **Count**.
 
 Se a cláusula BY for omitida, mas um intervalo for especificado (como uma segunda sintaxe), o campo **TimeGenerated** será considerado por padrão.
 
@@ -798,7 +809,7 @@ Agrupa os alertas por intervalos de 1 hora usando o campo **TimeGenerated** e re
 
 *Explicação*
 
-Mesma coisa que o exemplo anterior, mas com um alias de campo agregado (**AlertsPerHour**).
+Mesma coisa que o exemplo anterior, mas com um alias de campo agregado (\*\*AlertsPerHour\*\*).
 
 **Exemplo 4**
 
@@ -2036,6 +2047,6 @@ Quando você usar Pesquisar para localizar dados, os resultados exibem vários c
 - [Coleção de consultas de pesquisa úteis do Insights Operacionais](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
 ## Outros recursos
-Stefan Roth criou uma cola muito prática. Configura seu [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar seu roteiro.
+Stefan Roth criou uma cola muito prática. Confira o [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar o roteiro.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

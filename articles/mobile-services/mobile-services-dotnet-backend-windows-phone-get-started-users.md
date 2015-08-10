@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução à autenticação (Windows Phone) | Centro de desenvolvimento móvel" 
-	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo do Windows Phone por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
+	pageTitle="Adicionar autenticação ao seu aplicativo Silverlight do Windows Phone | Serviços Móveis do Azure" 
+	description="Aprenda a usar os Serviços Móveis para autenticar usuários de seu aplicativo Sliverlight do Windows Phone por meio de uma variedade de provedores de identidade, incluindo contas do Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -38,12 +38,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li>No Visual Studio, abra o projeto do aplicativo cliente e certifique-se de que, no App.xaml.cs, a instância do <strong>MobileServiceClient</strong> esteja configurada para usar a URL da nuvem para o serviço móvel.</li> 
-<li><p>Pressione a tecla F5 para executar este aplicativo baseado em inicialização rápida; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado.</p>
-   
-   	<p>Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela <em>TodoItem</em> agora exige autenticação.</p></li>
-</ol>
+&nbsp;&nbsp;6. No Visual Studio, abra o projeto do aplicativo cliente e certifique-se de que, no App.xaml.cs, a instância do **MobileServiceClient** esteja configurada para usar a URL da nuvem para o serviço móvel.
+
+&nbsp;&nbsp;7. Pressione a tecla F5 para executar este aplicativo baseado em inicialização rápida; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece quando o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
@@ -79,4 +76,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

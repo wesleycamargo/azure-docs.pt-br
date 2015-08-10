@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tratar conflitos de dados offline nos serviços móveis (Windows Store) | Centro de desenvolvimento de Serviços Móveis" 
-	description="Saiba como usar o manipulador de conflitos dos serviços móveis do Azure ao sincronizar dados offline em seu aplicativo da Windows Store" 
+	pageTitle="Tratar conflitos de dados offline em aplicativos universais do Windows | Serviços Móveis do Azure" 
+	description="Saiba como usar o manipulador de conflitos dos Serviços Móveis do Azure ao sincronizar dados offline em seu aplicativo universal do Windows" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # Tratamento de conflitos com sincronização de dados offline nos Serviços Móveis
@@ -23,15 +23,13 @@
 
 ##Visão geral
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure.</p>
-<p>Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">assista ao tutorial</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproduzir o vídeo</span></a> <span class="time">14:36:00</span></div>
-</div>
+Este tópico mostra como sincronizar dados e tratar conflitos ao usar os recursos offline dos Serviços Móveis do Azure.
 
-Neste tutorial, você baixará uma solução Windows Universal c# para um aplicativo que dá suporte a tratamento de conflitos de sincronização offline. Você integrará um serviço móvel com o aplicativo e executará os clientes Windows Store 8.1 e Windows Phone 8.1 para gerar um conflito de sincronização e resolvê-lo.
+Se você preferir assistir a um vídeo, o clipe abaixo segue as mesmas etapas deste tutorial.
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+
+Neste tutorial, você baixa uma solução universal do Windows em C# para um aplicativo que dá suporte a tratamento de conflitos de sincronização offline. Você integrará um serviço móvel com o aplicativo e executará os clientes Windows Store 8.1 e Windows Phone 8.1 para gerar um conflito de sincronização e resolvê-lo.
 
 Esse tutorial se baseia nas etapas e no aplicativo de exemplo do tutorial anterior [Introdução aos dados offline]. Antes de iniciar este tutorial, primeiro você deverá concluir [Introdução aos dados offline].
 
@@ -166,4 +164,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Exemplo de serviços móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

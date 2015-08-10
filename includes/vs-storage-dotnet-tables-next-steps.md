@@ -4,13 +4,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela do Azu
 - Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
 - Saiba como simplificar o código que você escreve a fim de trabalhar com o Armazenamento do Azure usando o [SDK WebJobs do Azure](../app-service/websites-dotnet-webjobs-sdk.md)
 - Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-<ul> 
- <ul>
-    <li>Usar o <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Blob</a> para armazenar dados não estruturados.</li>
-    <li>Usar o <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Tabela</a> para armazenar dados estruturados.</li>
-    <li>Usar o <a href="https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/">Armazenamento de Fila</a> para armazenar dados estruturados.</li>
-    <li>Usar o <a href="https://azure.microsoft.com/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li>
-  </ul>
-</ul>
+  - Use [Armazenamento de Blob](./storage-dotnet-how-to-use-blobs.md) para armazenar dados estruturados.
+  - Usar o [Armazenamento de Tabela](./storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados.
+  - Usar o [Banco de Dados SQL](../sql-database/sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

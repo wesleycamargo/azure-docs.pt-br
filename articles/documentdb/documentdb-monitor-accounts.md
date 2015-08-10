@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitorar uma conta do Banco de Dados de Documentos | Azure" 
-	description="Saiba como monitorar sua conta do Banco de Dados de Documentos para métricas de desempenho (como solicitações e erros de servidor) e as métricas de uso (por exemplo, o consumo de armazenamento)." 
+	pageTitle="Monitorar uma conta do Banco de Dados de Documentos usando o Portal de Visualização do Azure | Microsoft Azure" 
+	description="Saiba como monitorar sua conta do Banco de Dados de Documentos para métricas de desempenho, como solicitações e erros de servidor, e as métricas de uso, como o consumo de armazenamento." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/29/2015" 
 	ms.author="mimig"/>
 
-#Monitorar uma conta de Banco de Dados de Documentos  
+# Monitorar uma conta do Banco de Dados de Documentos usando o Portal de Visualização do Azure 
 
 Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de Visualização do Microsoft Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
-## <a id="metrics"></a> Como: exibir métricas de desempenho para uma conta do Banco de Dados de Documentos
-1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você quer ver.
+## Como: exibir métricas de desempenho para uma conta do Banco de Dados de Documentos
+1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar Tudo**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de desempenho você quer ver.
 2.	Dentro da lente **Monitoramento**, você pode, por padrão, consultar:
 	*	Solicitações totais para o dia de hoje.
 	*	Média de solicitações por minuto no dia atual. 
@@ -35,20 +35,20 @@ Você pode monitorar suas contas do Banco de Dados de Documentos no [Portal de V
 	![Captura de tela da lâmina Métrica](./media/documentdb-monitor-accounts/madocdb2.png)
 
 
-## <a id="custom"></a>Personalizar exibições de métricas de desempenho para uma conta do Banco de Dados de Documentos
+## Personalizar visualizações de métricas de desempenho para uma conta do Banco de Dados de Documentos
 
 1.	Para personalizar as métricas exibidas em uma parte específica, clique com o botão direito no gráfico de métricas e selecione **Editar gráfico**. ![Captura de tela do gráfico Total de Solicitações com o botão Editar gráfico realçado](./media/documentdb-monitor-accounts/madocdb3.png)
 
 2.	Na folha **Editar Gráfico**, há opções para modificar as métricas que são exibidas nessa parte, além de seu intervalo de tempo. ![Captura de tela da folha Editar gráfico](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Para alterar as métricas que são exibidas na parte, basta marcar ou desmarcar as métricas de desempenho disponíveis e clicar em **Salvar** na parte inferior da folha.
-4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Última Hora**) e clique em **Salvar** na parte inferior da folha.  
+4.	Para alterar o intervalo de tempo, escolha um intervalo diferente (por exemplo, **Personalizado**) e clique em **Salvar** na parte inferior da folha.  
 
 	![Captura de tela da parte do Intervalo de Tempo da folha Editar gráfico mostrando como inserir um intervalo de tempo personalizado](./media/documentdb-monitor-accounts/madocdb5.png)
 
 
-## <a id="create">Criar gráficos de métricas de desempenho lado a lado</a>
-O portal de Visualização do Azure permite que você crie gráficos de métricas lado a lado.
+## Criar gráficos de métricas de desempenho lado a lado
+O Portal de Visualização do Azure permite que você crie gráficos de métricas lado a lado.
 
 1.	Primeiro, clique com o botão direito no gráfico que você deseja clonar e modificar e selecione **Personalizar**. 
 
@@ -61,19 +61,19 @@ O portal de Visualização do Azure permite que você crie gráficos de métrica
 
 Agora, você pode tratar essa parte como qualquer outra parte de métrica, personalizando as métricas e o intervalo de tempo exibidos na parte. Fazendo isso, você pode ver um gráfico com duas métricas diferentes lado a lado simultaneamente. ![Captura de tela do gráfico Total de Solicitações e o novo gráfico Total de solicitações na última hora](./media/documentdb-monitor-accounts/madocdb8.png)
 
-## <a id="view"></a>Ver métricas de uso de uma conta do Banco de Dados de Documentos
+## Visualizar métricas de utilização para uma conta do Banco de Dados de Documentos
 1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos cujas métricas de uso você quer ver.
 2.	Na lente **Uso**, por padrão, você vê os seguintes itens:
-	*	Custo estimado.
+	*	Custo estimado até a data do Banco de Dados de Documentos para o período de cobrança atual.
 	*	Armazenamento consumido na conta.
-	*	Armazenamento máximo disponível da conta.
+	*	Armazenamento máximo disponível da conta (limite).
 	*	Uso de permissões e usuários.
 	*	Uso de anexos.
 
 	![Captura de tela da lente de Uso](./media/documentdb-monitor-accounts/madocdb9.png)
  
-## <a id="setup"></a>Definir alertas de métricas de desempenho para uma conta do Banco de Dados de Documentos
-1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos para a qual você quer definir alertas de métricas de desempenho.
+## Defina alertas de métrica de desempenho para uma conta do Banco de Dados de Documentos
+1.	No [Portal de Visualização do Azure](https://portal.azure.com/), clique em **Procurar Tudo**, **Contas do Banco de Dados de Documentos** e clique no nome da conta do Banco de Dados de Documentos para a qual você quer definir alertas de métricas de desempenho.
 2.	Na lente **Operações**, clique na parte **Regras de alerta**. ![Captura de tela da lente de Operações, com a parte de regras de Alerta selecionada](./media/documentdb-monitor-accounts/madocdb10.png)
 
 3.	Na folha das Regras de alerta, clique em **Adicionar Alerta**. ![Captura de tela da folha Regras de Alerta, com o botão Adicionar alerta realçado](./media/documentdb-monitor-accounts/madocdb11.png)
@@ -86,17 +86,8 @@ Agora, você pode tratar essa parte como qualquer outra parte de métrica, perso
 	*	Se o administrador de serviços e seus coadministradores recebem ou não emails quando o alerta é enviado.
 	*	Endereços de email adicionais para notificações de alerta. ![Captura de tela da folha da regra Adicionar um alerta](./media/documentdb-monitor-accounts/madocdb12.png)
 
- 
-## <a id="next"></a>Próximas etapas
+## Próximas etapas
 Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Gerenciar a capacidade do Banco de Dados de Documentos](documentdb-manage.md).
-
-<!--Anchors-->
-[How to view performance metrics for a DocumentDB account]: #How-to-view-performance-metrics-for-a-DocumentDB-account
-[Customize performance metric views for a DocumentDB account]: #Customize-performance-metric-views-for-a-DocumentDB-account
-[How to create side-by-side performance metric charts]: #How-to-create-side-by-side-performance-metric-charts
-[How to view usage metrics for a DocumentDB account]: #How-to-view-usage-metrics-for-a-DocumentDB-account
-[How to setup performance metric alerts for a DocumentDB account]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
-[Next steps]: #Next-steps
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

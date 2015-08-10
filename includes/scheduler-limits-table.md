@@ -1,17 +1,19 @@
-The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
+A tabela a seguir descreve cada uma das principais cotas, limites, padrões e limitações no Agendador do Azure.
 
-|Resource|Limit Description|
+|Recurso|Descrição de limite|
 |---|---|
-|**Job size**|The maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned.|
-|**Request URL size**|Maximum size of the request URL is 2048 chars.|
-|**Aggregate header size**|Maximum aggregate header size is 4096 chars.|
-|**Header count**|Maximum header count is 50 headers.|
-|**Body size**|Maximum body size is 8192 chars.|
-|**Recurrence span**|Maximum recurrence span is 18 months.|
-|**Time to start time**|Maximum “time to start time” is 18 months.|
-|**Job history**|Maximum response body stored in job history is 2048 bytes.|
-|**Frequency**|The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code.|
-|**Jobs**|The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code.|
-|**Job history retention**|Job history is retained for up to 2 months.|
-|**Completed and faulted job retention**|Completed and faulted jobs are retailed for 60 days.|
-|**Timeout**|There’s a static (not configurable) request timeout of 30 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background.|
+|**Tamanho do trabalho**|O tamanho máximo do trabalho é 16K. Se um PUT ou PATCH resultarem em um trabalho maior do que esses limites, é retornado um código de status 400 Solicitação incorreta.|
+|**Tamanho da solicitação de URL**|O tamanho máximo da URL da solicitação é de 2048 caracteres.|
+|**Tamanho do cabeçalho de agregação**|O tamanho máximo do cabeçalho agregação é de 4096 caracteres.|
+|**Contagem de cabeçalho**|A contagem máxima do cabeçalho é de 50 cabeçalhos.|
+|**Tamanho do corpo**|O tamanho máximo do corpo é de 8192 caracteres.|
+|**Intervalo de recorrência**|O período máximo de recorrência é de 18 meses.|
+|**Hora de início da hora**|O "tempo para a hora de início" máximo é de 18 meses.|
+|**Histórico de trabalho**|O corpo de resposta máximo armazenado no histórico de trabalho é de 2048 bytes.|
+|**Frequência**|A cota de frequência máxima padrão é de 1 hora em uma coleção de trabalhos livre e de 1 minuto em um conjunto de trabalhos padrão. A frequência máxima é configurável em uma coleção de trabalhos que seja menor que o máximo. Todos os trabalhos na coleção de trabalhos são limitados ao valor definido na coleção de trabalhos. Se você tentar criar um trabalho com uma frequência superior à frequência máxima na coleção de trabalhos a solicitação falhará com um código de status 409 Conflito.|
+|**Trabalhos**|A cota máxima padrão é de 5 trabalhos em uma coleção de trabalhos livre e 50 trabalhos em uma coleção de trabalhos padrão. O número máximo de trabalhos é configurável em uma coleção de trabalhos. Todos os trabalhos na coleção de trabalhos são limitados ao valor definido na coleção de trabalhos. Se você tentar criar mais trabalhos do que a cota máxima de trabalhos, a solicitação falhará com um código de status 409 Conflito.|
+|**Retenção de histórico de trabalho**|O histórico do trabalho é retido por até 2 meses.|
+|**Retenção de trabalhos concluídos e com falha**|Os trabalhos concluídos e com falha são vendidos após 60 dias.|
+|**Tempo limite**|Há um tempo limite da solicitação (não configurável) estático de 30 segundos para ações de HTTP. Para operações mais demoradas em execução, execute protocolos assíncronos HTTP; por exemplo, retornar um 202 imediatamente, mas continuar a trabalhar no plano de fundo.|
+
+<!---HONumber=July15_HO5-->

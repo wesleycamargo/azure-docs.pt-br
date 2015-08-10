@@ -24,7 +24,7 @@ Este tópico explica como usar o Visual Studio para implantar um projeto de Apli
 
 Ao implantar um projeto do Aplicativo de Console habilitado para Trabalhos Web, o Visual Studio realiza duas tarefas:
 
-* Copia arquivos de tempo de execução para a pasta apropriada no aplicativo Web (*App_Data/jobs/continuous* para Trabalhos Web contínuos, *App_Data/jobs/triggered* para Trabalhos Web agendados e sob demanda).
+* Copia arquivos de tempo de execução para a pasta apropriada no aplicativo Web (\*App\_Data/jobs/continuous\* para Trabalhos Web contínuos, *App\_Data/jobs/triggered* para Trabalhos Web agendados e sob demanda).
 * Configura [Trabalhos do Agendador do Azure](#scheduler) para Trabalhos Web agendados a serem executados em determinados horários. (Isso não é necessário para Trabalhos Web contínuos.)
 
 Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
@@ -200,4 +200,4 @@ Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter i
 * Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

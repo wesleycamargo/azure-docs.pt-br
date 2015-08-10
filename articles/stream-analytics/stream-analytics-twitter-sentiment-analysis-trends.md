@@ -55,13 +55,13 @@ Fornecemos um aplicativo de cliente que acessará os dados do Twitter por meio d
 Siga estas etapas para configurar o aplicativo:
 
 1.	[Baixar a solução TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Abra App.config e substitua oauth_consumer_key, oauth_consumer_secret, oauth_token e oauth_token_secret por tokens do Twitter com seus valores.  
+2.	Abra App.config e substitua oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token e oauth\_token\_secret por tokens do Twitter com seus valores.  
 
 	[Etapas para gerar um token de acesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Observe que você precisa criar um aplicativo vazio para gerar um token.  
 3.	Substitua os valores EventHubConnectionString e EventHubName em App.config pela cadeia de conexão e o nome do Hub de Eventos.
-4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter_keywords em App.config, se desejar.
+4.	*Opcional:* ajuste as palavras-chave a serem pesquisadas. Por padrão, esse aplicativo procura por "Azure,Skype,XBox,Microsoft,Seattle". Você poderá ajustar os valores de twitter\_keywords em App.config, se desejar.
 5.	Compilar a solução
 6.	Inicie o aplicativo. Você verá eventos de Tweet com os valores CreatedAt, Topic e SentimentScore sendo enviados ao Hub de Eventos:
 
@@ -235,4 +235,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

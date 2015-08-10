@@ -75,31 +75,18 @@ Atualmente, o Governo de Iowa e da Virgínia nos E.U.A. são os centros de dados
 
 Use a tabela a seguir para guiá-lo ao mapear pontos de extremidade públicos do Microsoft Azure e do Banco de dados SQL para os pontos de extremidade específicos do Azure Government.
 
-<table>
-<tr style='font-weight:bold'><td>
-Tipo de serviço</td><td>	Público do Azure</td><td>	Azure Government
-</td></tr><tr><td>
-Página inicial do Azure Government</td><td>	windowsazure.com	</td><td>microsoftazure.us
-</td></tr><tr><td>
-Portal de Gerenciamento</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-Geral</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
-</td></tr><tr><td>
-Núcleo	</td><td>*.core.windows.net	</td><td>*.core.usgovcloudapi.net
-</td></tr><tr><td>
-Computação	</td><td>*.cloudapp.net	</td><td>*.usgovcloudapp.net
-</td></tr><tr><td>
-Armazenamento de Blob</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi.net
-</td></tr><tr><td>
-Armazenamento de Fila	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
-</td></tr><tr><td>
-Armazenamento de tabela</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-Gerenciamento de serviços</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
-</td></tr>
-<tr><td>Banco de dados SQL</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table>
+Tipo de serviço|Público do Azure|Azure Government
+---|---|---
+Página inicial do Azure Government|windowsazure.com|microsoftazure.us
+Portal de Gerenciamento|manage.windowsazure.com|manage.windowsazure.us
+Geral|*.windows.net|*.usgovcloudapi.net
+Núcleo|*.core.windows.net|*.core.usgovcloudapi.net
+Computação|*.cloudapp.net|*.usgovcloudapp.net
+Armazenamento de Blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Armazenamento de fila|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Armazenamento de tabela|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+Gerenciamento de serviços|management.core.windows.net|management.core.usgovcloudapi.net
+Banco de Dados SQL|*.database.windows.net|*.database.usgovcloudapi.net
 
 ## <a name="next"></a>Próximas etapas
 Se você estiver interessado em saber mais sobre o Azure Government e como sua organização pode se qualificar para acessar, vá para <A href="http://azure.com/gov"> http://www.azure.com/gov</a>
@@ -118,4 +105,4 @@ Se você estiver interessado em saber mais sobre o Azure Government e como sua o
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -142,7 +142,7 @@ Para configurar o firewall do Azure pela primeira vez, execute as seguintes etap
 
     Há algumas coisas a fazer aqui. Elas são:-nomear sua regra de firewall - fornecer um intervalo de IP se você não tiver um endereço IP estático
 
-    > [AZURE.NOTE]O intervalo de endereços IP do cliente que você precisa incluir é o endereço IP externo ou público. Para localizar seu endereço IP externo você pode usar um número de sites como <a href="http://www.whatismyip.com" target="_blank">www.whatismyip.com</a>
+    > [AZURE.NOTE]O intervalo de endereços IP do cliente que você precisa incluir é o endereço IP externo ou público. Para localizar seu endereço IP externo você pode usar um número de sites como <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
 
 7. Salvar sua regra de firewall
 
@@ -163,7 +163,7 @@ As próximas etapas são, portanto, para saber como: 1. [Conectar e consultar][]
 [Conectar e consultar]: sql-data-warehouse-get-started-connect-query.md
 
 <!--External links-->
-[avaliação gratuita]: https://azure.microsoft.com/en-us/pricing/free-trial/
+[avaliação gratuita]: https://azure.microsoft.com/pt-br/pricing/free-trial/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -106,4 +106,4 @@ Para que um aplicativo dê suporte a provisionamento automatizado de usuários, 
 
 Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

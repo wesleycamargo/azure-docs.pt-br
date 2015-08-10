@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # Atores Confiáveis: o cenário canônico HelloWorld passo a passo
@@ -143,14 +143,6 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 
 ![Janela de saída de Depuração de Malha de Serviço][3]
 
-## Implantação do aplicativo
-No Visual Studio, você também pode empacotar e implantar o aplicativo no cluster local sem precisar iniciar o depurador, bastando selecionar o projeto Aplicativo da Malha do Serviço e clicar nele com o botão direito do mouse.
-
-![Malha de Serviço - projetar menu para a implantação e empacotamento de aplicativos][4]
-
-* **Implantar**: empacota o aplicativo e inicia o processo de implantação
-* **Remover Implantação**: pode ser usada para remover um aplicativo do cluster local
-* **Empacotar**: empacota o aplicativo. Essa ação pode ser útil para preparar o aplicativo a ser implantado em um cluster diferente, por exemplo, no Azure.
 
 ## Próximas etapas
 
@@ -163,6 +155,5 @@ No Visual Studio, você também pode empacotar e implantar o aplicativo no clust
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

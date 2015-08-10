@@ -1,4 +1,5 @@
-<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet de volta para o local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+<properties pageTitle="Configurar túnel forçado para gateways de VPN do Microsoft Azure" description="Se você tiver uma rede virtual com um gateway de VPN entre locais, poderá redirecionar ou "forçar" todo o tráfego de Internet de volta para o local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -144,4 +145,4 @@ Use o procedimento a seguir para configurar o túnel forçado.
 
 Você pode adicionar máquinas virtuais à sua rede virtual. Veja [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
