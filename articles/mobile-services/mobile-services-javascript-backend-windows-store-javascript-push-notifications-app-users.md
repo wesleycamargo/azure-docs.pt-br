@@ -91,7 +91,7 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 [Adicionar notificação por push ao seu aplicativo]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Adicionar notificações por push ao seu aplicativo]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

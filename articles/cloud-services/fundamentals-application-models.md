@@ -1,6 +1,8 @@
 <properties 
 	pageTitle="Opções de hospedagem de computação fornecidas pelo Azure" 
 	description="Saiba mais sobre as opções de hospedagem de computação do Azure e como elas funcionam: Serviços de Aplicativo, Serviços de Nuvem, Máquinas Virtuais entre outros" 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -79,4 +81,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Saiba mais sobre [Serviço de Nuvem](services/cloud-services/)
 * Saiba mais sobre [Máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

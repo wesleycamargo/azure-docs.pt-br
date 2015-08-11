@@ -69,12 +69,12 @@ Após a criação do aplicativo de API, você poderá usar o conector do Twitter
 
 Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os tweets recuperados do gatilho do Twitter em outras ações no fluxo.
 
-![][6]
+	![][6]
 
 De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação:
 
-![][7] ![][8]
-
+	![][7]
+	![][8]
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
@@ -92,4 +92,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

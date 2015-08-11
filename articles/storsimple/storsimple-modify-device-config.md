@@ -83,7 +83,10 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 - **Velocidade** – Não é um parâmetro configurável pelo usuário. DATA 0, DATA 1, DATA 4 e DATA 5 são sempre de 1 GbE, enquanto DATA 2 e DATA 3 são interfaces de 10 GbE.
 
-       >[AZURE.NOTE]Velocidade e duplex são sempre negociados automaticamente. Não há suporte para quadros Jumbo.
+     >[AZURE.NOTE]
+     >
+     >- Velocidade e duplex são sempre negociados automaticamente.
+     >- Não há suporte para quadros jumbo.
  
 - **Estado da interface** – Uma interface pode ser habilitada ou desabilitada. Se for habilitada, o dispositivo tentará usar a interface. É recomendável que apenas as interfaces que estejam conectadas à rede e sendo usadas sejam habilitadas. Desabilite qualquer interface que não estiver em uso.
 
@@ -128,4 +131,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
  
      
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

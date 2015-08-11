@@ -14,7 +14,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
 6. Crie diretórios de dados e de log do MongoDB no disco de dados (unidade **F:**, por exemplo) criado nas etapas acima. No menu **Iniciar**, selecione **Prompt de Comando** para abrir uma janela do prompt de comando. Digite:
 
-		C:> F:
+		C:\> F:
 		F:> mkdir \MongoData
 		F:> mkdir \MongoLogs
 
@@ -27,7 +27,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
 8. Para iniciar o shell administrativo do MongoDB, abra outra janela Comando no menu **Iniciar** e digite:
 
-		C:> cd \my_mongo_dir\bin  
+		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test
@@ -108,4 +108,4 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

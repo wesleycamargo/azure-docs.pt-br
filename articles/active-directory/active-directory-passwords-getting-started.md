@@ -194,7 +194,8 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
 O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior. O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Para verificar a versão do Azure AD Sync
-1.	Navegue até **%ProgramFiles%\\Azure Active Directory Sync\*\*. 2.	Encontre o executável **ConfigWizard.exe**.
+1.	Navegue até **%ProgramFiles%\Azure Active Directory Sync**. 
+2.	Encontre o executável **ConfigWizard.exe**.
 3.	Clique com o botão direito no executável e selecione a opção **Propriedades** no menu de contexto.
 4.	Clique na guia **Detalhes**.
 5.	Encontre o campo **Versão do arquivo**.
@@ -269,7 +270,9 @@ Definir essas permissões permite que a conta de serviço MA de cada floresta ge
 8.	No menu suspenso na parte superior, selecione **Objetos descendentes de Usuário**.
 9.	Na caixa de diálogo **Entrada de Permissão** exibida, marque as caixas **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet`.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	Em seguida, clique em **Aplicar/Ok** por meio de todas as caixas de diálogo abertas.
 
@@ -342,4 +345,4 @@ Agora que o Write-back de senha foi habilitado, você pode testar se ele funcion
 
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

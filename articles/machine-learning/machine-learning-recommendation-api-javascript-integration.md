@@ -90,7 +90,8 @@ Esse evento deve ser usado sempre que um usuário clicou em um item. Normalmente
 Parâmetros:
 - evento (cadeia de caracteres, obrigatório) – "click"
 - item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item
-- itemName (cadeia de caracteres, opcional) – o nome do item - itemDescription (cadeia de caracteres, opcional) – a descrição do item
+- itemName (cadeia de caracteres, opcional) – o nome do item
+- itemDescription (cadeia de caracteres, opcional) – a descrição do item
 - itemCategory (cadeia de caracteres, opcional) – a categoria do item
 		
 		<script>
@@ -114,8 +115,9 @@ Parâmetros:
 - item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item
 - itemName (cadeia de caracteres, opcional) – o nome do item
 - itemDescription (cadeia de caracteres, opcional) – a descrição do item
-- itemCategory (cadeia de caracteres, opcional) – a categoria do item - propaga (matriz da cadeia de caracteres, opcional) – as propagações que geraram a consulta de recomendação.
--recoList (matriz da cadeia de caracteres. opcional) – o resultado da solicitação de recomendação que gerou o item clicado.
+- itemCategory (cadeia de caracteres, opcional) – a categoria do item
+- propaga (matriz da cadeia de caracteres, opcional) – as propagações que geraram a consulta de recomendação.
+- recoList (matriz da cadeia de caracteres. opcional) – o resultado da solicitação de recomendação que gerou o item clicado.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -131,7 +133,8 @@ Ou com dados opcionais:
 
 
 ####3.2.3. Evento Adicionar ao Carrinho de Compras
-Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. Parâmetros:
+Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras.
+Parâmetros:
 * evento (cadeia de caracteres, obrigatório) – "addshopcart"
 * item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item
 * itemName (cadeia de caracteres, opcional) – o nome do item
@@ -185,7 +188,7 @@ Parâmetros:
 * evento (cadeia de caracteres) – "userlogin" 
 * usuário (cadeia de caracteres) – a identificação exclusiva do usuário.
 		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
 			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
@@ -225,4 +228,4 @@ Exemplo: O código a seguir solicita oito recomendações para o item "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

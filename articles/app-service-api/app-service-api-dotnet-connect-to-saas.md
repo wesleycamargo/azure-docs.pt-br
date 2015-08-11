@@ -376,7 +376,12 @@ Observações adicionais:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Veja os valores a serem usados com outros provedores: \* "microsoftaccount" \* "facebook" \* "twitter" \* "google" <br/><br/>
+	Veja os valores a serem usados com outros provedores:
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * O segundo parâmetro do método `GetConsentLinkAsync()` é a URL de retorno de chamada para a qual o servidor de consentimento redireciona depois que o usuário faz logon no Dropbox e concede consentimento para acessar a conta do usuário.
 
@@ -445,6 +450,8 @@ Se você remover %3d%3d do final do valor da cadeia de consulta `error`, ela ser
 Você aprender a codificar e configurar um aplicativo de API que se conecta a uma plataforma SaaS. Para obter links para outros tutoriais sobre como lidar com a autenticação em aplicativos da API, consulte [Autenticação para aplicativos de API e aplicativos móveis - próximas etapas](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[portal de visualização do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

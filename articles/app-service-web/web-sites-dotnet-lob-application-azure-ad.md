@@ -83,7 +83,12 @@ O aplicativo de exemplo neste tutorial, [WebApp-GroupClaims-DotNet](https://gith
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]Em Views\\Roles\\Index.cshtml, você verá que a exibição usa um objeto JavaScript chamado <code>AadPicker</code> (definido em Scripts\\AadPickerLibrary.js) para acessar a ação <code>Pesquisa</code> no controlador <code>Funções</code>. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> Em Controllers\\RolesController.cs, você verá a ação <code>Pesquisa</code>, que envia a solicitação real para a Graph API do Active Directory do Azure e retorna a resposta para a página. Posteriormente, você usará o mesmo método para criar uma funcionalidade simples em seu aplicativo.
+	> [AZURE.NOTE]Em Views\Roles\Index.cshtml, você verá que a exibição usa um objeto JavaScript chamado <code>AadPicker</code> (definido em Scripts\AadPickerLibrary.js) para acessar a ação <code>Pesquisa</code> no controlador <code>Funções</code>.
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		Em Controllers\RolesController.cs, você verá a ação <code>Pesquisa</code>, que envia a solicitação real para a Graph API do Active Directory do Azure e retorna a resposta para a página.
+		Posteriormente, você usará o mesmo método para criar uma funcionalidade simples em seu aplicativo.
 
 6.	Selecione um usuário ou grupo na lista suspensa, selecione uma função e clique em **Atribuir Função**.
 
@@ -151,7 +156,8 @@ Aqui, você publicará o aplicativo para um Aplicativo Web no Serviço de Aplica
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Certifique-se de que o valor de ida: PostLogoutRedirectUri termine com uma barra "/".
+&lt;/appSettings></pre>
+	Certifique-se de que o valor de ida: PostLogoutRedirectUri termine com uma barra "/".
 
 1. Clique duas vezes com o botão direito em seu projeto e selecione **Publicar**.
 
@@ -191,7 +197,7 @@ Nesta parte do tutorial, você aprenderá a criar a funcionalidade de linha de n
 		    }
 		}
 
-6.	Abra DAL\\GroupClaimContext.cs e adicione o código destacado:
+6.	Abra DAL\GroupClaimContext.cs e adicione o código destacado:
 	<pre class="prettyprint">
 public class GroupClaimContext : DbContext
 {
@@ -213,53 +219,59 @@ public class GroupClaimContext : DbContext
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
 
-9.	Abra Controllers\\WorkItemsController.cs
+9.	Abra Controllers\WorkItemsController.cs
 
 11. Adicione as decorações [Authorize] destacadas nas respectivas ações a seguir.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
-}</pre>Como você cuida de mapeamentos de função no controlador Funções, tudo que você precisa fazer é garantir que cada ação autorize as funções certas.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-	> [AZURE.NOTE]Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), seu HTTP POST poderá ser reprovado na validação de token antifalsificação porque: + o Active Directory do Azure não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é necessário por padrão para o token antifalsificação. + Se o Active Directory do Azure for o diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora você possa configurar manualmente o AD FS para enviar essa declaração. Você cuidará disso na próxima etapa.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
+	Como você cuida de mapeamentos de função no controlador Funções, tudo que você precisa fazer é garantir que cada ação autorize as funções certas.
 
-12.  Em App\_Start\\Startup.Auth.cs, adicione a seguinte linha de código no método `ConfigureAuth`:
+	> [AZURE.NOTE]Você talvez tenha observado a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), seu HTTP POST poderá ser reprovado na validação de token antifalsificação porque:
+	> + o Active Directory do Azure não envia o http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é necessário por padrão para o token antifalsificação.
+	> + Se o Active Directory do Azure for o diretório sincronizado com o AD FS, a relação de confiança do AD FS, por padrão, também não enviará a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora você possa configurar manualmente o AD FS para enviar essa declaração.
+	> Você cuidará disso na próxima etapa.
+
+12.  Em App_Start\Startup.Auth.cs, adicione a seguinte linha de código no método `ConfigureAuth`:
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
 	`ClaimTypes.NameIdentifies` especifica a declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, que o Active Directory do Azure fornece. Agora que você cuidou da parte de autorização (é sério, não demorou muito), você pode dedicar seu tempo à funcionalidade real das ações.
 
-13.	Em Create() e Edit(), adicione o seguinte código para tornar algumas variáveis disponíveis para o JavaScript posteriormente: ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+13.	Em Create() e Edit(), adicione o seguinte código para tornar algumas variáveis disponíveis para o JavaScript posteriormente:
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant;
 
-14.	Em Views\\WorkItems\\Create.cshtml (um item automaticamente submetido a scaffolding), localize o método auxiliar `Html.BeginForm` e modifique-o da seguinte maneira:
+14.	Em Views\WorkItems\Create.cshtml (um item automaticamente submetido a scaffolding), localize o método auxiliar `Html.BeginForm` e modifique-o da seguinte maneira:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 {
     @Html.AntiForgeryToken()
@@ -324,18 +336,19 @@ public class WorkItemsController : Controller
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>No script, o objeto AadPicker procura a ação `~/Roles/Search` para usuários do Active Directory do Azure e grupos que correspondem à entrada. Em seguida, quando o botão de envio é clicado, o objeto AadPicker salva a ID de usuário no campo oculto `AssignedToID`.
+	No script, o objeto AadPicker procura a ação `~/Roles/Search` para usuários do Active Directory do Azure e grupos que correspondem à entrada. Em seguida, quando o botão de envio é clicado, o objeto AadPicker salva a ID de usuário no campo oculto `AssignedToID`.  
 
 15. Agora execute o aplicativo no depurador do Visual Studio ou publique nos Aplicativos Web do Serviço de Aplicativo do Azure. Faça logon como o proprietário do aplicativo e navegue até `~/WorkItems/Create`. Para meu aplicativo de linha de negócios publicado, eu navego até `https://mylobapp.azurewebsites.net/WorkItems/Create`. Você verá agora que pode usar o mesmo filtro de pesquisa AadPicker para selecionar um usuário do Active Directory do Azure.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. Preencha o restante do formulário e clique em **Criar**. A página \~/WorkItems/Index agora mostra o item de trabalho criado recentemente. Você também observará na captura de tela abaixo que removi a coluna `AssignedToID` em Views\\WorkItems\\Index.cshtml.
+16. Preencha o restante do formulário e clique em **Criar**. A página ~/WorkItems/Index agora mostra o item de trabalho criado recentemente. Você também observará na captura de tela abaixo que removi a coluna `AssignedToID` em Views\WorkItems\Index.cshtml.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
-11.	Agora, faça alterações semelhantes na exibição **Editar**. Em Views\\WorkItems\\Edit.cshtml, faça as alterações no método auxiliar `Html.BeginForm` que são idênticas às de Views\\WorkItems\\Create.cshtml na etapa anterior (substitua "Criar" por "Editar" no código realçado acima).
+11.	Agora, faça alterações semelhantes na exibição **Editar**. Em Views\WorkItems\Edit.cshtml, faça as alterações no método auxiliar `Html.BeginForm` que são idênticas às de Views\WorkItems\Create.cshtml na etapa anterior (substitua "Criar" por "Editar" no código realçado acima).
 
 É isso!
 
@@ -362,4 +375,4 @@ Agora que você configurou as autorizações e a funcionalidade de linha de neg�
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

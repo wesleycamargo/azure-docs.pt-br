@@ -54,7 +54,9 @@ Siga estas etapas para instalar, configurar e executar a versão de comunidade d
 > [AZURE.NOTE]Estas etapas são para a versão Community 5.6.23.0 do MySQL e Windows Server 2012 R2. Sua experiência pode ser diferente em versões diferentes de servidor MySQL ou de servidor Windows.
 
 1.	Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, clique em **Internet Explorer** no menu Iniciar.
-2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e, em seguida, clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione **http://*.mysql.com** à lista de sites confiáveis. Clique em **Fechar** e, em seguida, em **OK**.3.	Na barra de endereços do Internet Explorer, digite **http://dev.mysql.com/downloads/mysql/**. 4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-instalador-comunidade-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o arquivo do instalador na área de trabalho do Windows.
+2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e, em seguida, clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione **http://*.mysql.com** à lista de sites confiáveis. Clique em **Fechar** e, em seguida, em **OK**.
+3.	Na barra de endereços do Internet Explorer, digite **http://dev.mysql.com/downloads/mysql/**. 
+4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-instalador-comunidade-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o arquivo do instalador na área de trabalho do Windows.
 5.	Na área de trabalho, clique duas vezes no arquivo do instalador para iniciar a instalação.
 6.	Na página **Contrato de Licença**, aceite o contrato de licença e clique em **Avançar**.
 7.	Na página **Escolhendo um Tipo de Instalação**, clique no tipo de instalação desejada e clique em **Avançar**. As etapas a seguir pressupõem a seleção do tipo de instalação **Somente servidor**.
@@ -128,4 +130,4 @@ Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http
 
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

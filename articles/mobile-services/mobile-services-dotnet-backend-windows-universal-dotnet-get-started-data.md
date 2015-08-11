@@ -111,7 +111,7 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [Introdução à autenticação]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introdução às notificações por push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Introdução à sincronização de dados offline]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -121,4 +121,4 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um projeto do a
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
