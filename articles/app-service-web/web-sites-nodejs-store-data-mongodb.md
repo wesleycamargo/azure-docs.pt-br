@@ -113,13 +113,13 @@ Nesta seção você criará um novo aplicativo de nó em nosso ambiente de desen
 
 1. Da linha de comando, mude os diretórios para o diretório **tasklist**. Se o diretório **tasklist** não existir, crie-o.
 
-	> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\\node\\tasklist**
+> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\\node\\tasklist**
 
 2. Digite o seguinte comando para instalar o comando Express.
 
 	npm install express-generator -g
 
-	> [AZURE.NOTE]Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de ___Erro: EPERM, chmod '/usr/local/bin/express'___ e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando `sudo` para executar o npm com um nível de privilégio mais elevado.
+> [AZURE.NOTE]Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de ___Erro: EPERM, chmod '/usr/local/bin/express'___ e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando `sudo` para executar o npm com um nível de privilégio mais elevado.
 
     A saída desse comando deve ser semelhante ao seguinte:
 
@@ -573,4 +573,4 @@ Para saber como proteger o MongoDB, consulte [Segurança do MongoDB][mongosecuri
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

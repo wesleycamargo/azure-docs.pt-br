@@ -397,7 +397,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**. - A consulta SQL **select \* from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
-	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
+	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://pt.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
 	Se você não especificar o valor para a propriedade **end**, ele será calculado como "\*\*início + 48 horas\*\*". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	

@@ -345,7 +345,7 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
 4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
 
     > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
-    '<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
+    '\<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>,\<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
     Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Store output data to DocumentDB.
