@@ -260,7 +260,7 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
 -  [Adicionar uma máquina virtual a uma rede virtual](../virtual-machines/virtual-machines-create-custom.md)
 
--  [Sobre dispositivos VPN para Rede Virtual(http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
+-  [Sobre dispositivos VPN para Rede Virtual](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Resolução de nomes de máquinas virtuais e instâncias de função](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configurar um ambiente de nuvem híbrida para teste](virtual-networks-setup-hybrid-cloud-environment-testing.md)
@@ -271,4 +271,4 @@ Se você desejar exportar as configurações de rede virtual para um arquivo de 
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
