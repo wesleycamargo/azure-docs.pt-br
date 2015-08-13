@@ -39,7 +39,7 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
+2\.	Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -238,4 +238,4 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
  
 
-<!-----HONumber=July15_HO5-->
+<!-------HONumber=July15_HO5-->

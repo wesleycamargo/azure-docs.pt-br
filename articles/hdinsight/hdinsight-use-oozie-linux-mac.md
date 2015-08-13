@@ -360,7 +360,8 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 		  </property>
 		</configuration>
 
-	* Substitua todas as instâncias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente. 
+	* Substitua todas as instâncias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente.
+
 	> [AZURE.WARNING]Você deve usar o caminho completo do WASB, com a conta de armazenamento e contêiner como parte do caminho. Usar o formato curto (wasb:///) fará com que a ação de RunHiveScript falhe quando o trabalho for iniciado.
 
 	* Substitua **JOBTRACKERADDRESS** pelo endereço de JobTracker/ResourceManager recebido anteriormente.

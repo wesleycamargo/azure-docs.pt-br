@@ -18,7 +18,7 @@
 
 #Como integrar o Engagement Reach ao Android
 
-> [AZURE.IMPORTANT]Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
+> [AZURE.IMPORTANT] Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
 
 ##Integração padrão
 
@@ -87,7 +87,7 @@ Edite seu arquivo `AndroidManifest.xml`:
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]Esta seção é **obrigatória** se você planeja usar notificações de sistema durante a criação de campanhas de Alcance. O Android impede que as notificações de sistema sem ícones sejam exibidas. Portanto, se você omitir esta seção, os usuários finais não poderão recebê-las.
+> [AZURE.IMPORTANT] Esta seção é **obrigatória** se você planeja usar notificações de sistema durante a criação de campanhas de Alcance. O Android impede que as notificações de sistema sem ícones sejam exibidas. Portanto, se você omitir esta seção, os usuários finais não poderão recebê-las.
 
 -   Se você criar campanhas com notificações de sistema usando a visão global, você precisa adicionar as seguintes permissões (após a marca `</application>`) se estiverem faltando:
 
@@ -191,7 +191,7 @@ Por padrão, uma notificação no aplicativo é um modo de exibição que é adi
 
 Para modificar a aparência de suas sobreposições de notificação, você pode simplesmente modificar o arquivo `engagement_notification_area.xml` segundo as suas necessidades.
 
-> [AZURE.NOTE]O arquivo `engagement_notification_overlay.xml` é aquele usado para criar uma sobreposição de notificação, e ele inclui o arquivo `engagement_notification_area.xml`. Você também pode personalizá-lo para adequar-se às suas necessidades (como para posicionar a área de notificação dentro da sobreposição).
+> [AZURE.NOTE] O arquivo `engagement_notification_overlay.xml` é aquele usado para criar uma sobreposição de notificação, e ele inclui o arquivo `engagement_notification_area.xml`. Você também pode personalizá-lo para adequar-se às suas necessidades (como para posicionar a área de notificação dentro da sobreposição).
 
 ##### Incluir um layout de notificação como parte de um layout de atividade
 
@@ -231,7 +231,7 @@ Neste exemplo, adicionamos um contêiner pai porque o layout original usou um mo
 
 O SDK do Engagement Reach detecta automaticamente que o layout de notificação está incluído nesta atividade e não adicionará uma sobreposição para tal atividade.
 
-> [AZURE.TIP]Se você usar um ListActivity em seu aplicativo, uma sobreposição de Reach visível impedirá que você continue a reagir a itens clicados na exibição de lista. Esse é um problema conhecido. Para contornar esse problema, sugerimos que você incorpore o layout de notificação em seu próprio layout de atividade de lista, como no exemplo anterior.
+> [AZURE.TIP] Se você usar um ListActivity em seu aplicativo, uma sobreposição de Reach visível impedirá que você continue a reagir a itens clicados na exibição de lista. Esse é um problema conhecido. Para contornar esse problema, sugerimos que você incorpore o layout de notificação em seu próprio layout de atividade de lista, como no exemplo anterior.
 
 ##### Desabilitando a notificação de aplicativo por atividade
 
@@ -247,7 +247,7 @@ Quando você modifica os layouts fornecidos, pode modificar também a aparência
 
 Para registrar um manipulador de categorias para suas notificações, você precisa adicionar uma chamada quando o aplicativo é inicializado.
 
-> [AZURE.IMPORTANT]Leia o aviso sobre o atributo android: process <android-sdk-engagement-process> no tópico Como integrar contratos Android antes de continuar.
+> [AZURE.IMPORTANT] Leia o aviso sobre o atributo android: process <android-sdk-engagement-process> no tópico Como integrar contratos Android antes de continuar.
 
 O exemplo a seguir pressupõe que você confirmou o recebimento do aviso anterior e utilizará uma subclasse de `EngagementApplication`:
 
@@ -497,7 +497,7 @@ Se sua implementação de `EngagementNotifier` ignora o comportamento padrão, v
 -   Para notificações do sistema, você substituiu o `onNotificationPrepared` e modificou `contentIntent` ou `deleteIntent` no objeto `Notification`.
 -   Para notificações no aplicativo, você substituiu `prepareInAppArea`, certifique-se de mapear pelo menos `actionNotification` para um de seus controles de IU.
 
-> [AZURE.NOTE]Se `handleNotification` lança uma exceção, o conteúdo é excluído e `dropContent` é chamado. Isso é informado nas estatísticas e as próximas campanhas agora podem ser processadas.
+> [AZURE.NOTE] Se `handleNotification` lança uma exceção, o conteúdo é excluído e `dropContent` é chamado. Isso é informado nas estatísticas e as próximas campanhas agora podem ser processadas.
 
 ### Anúncios e pesquisas
 
