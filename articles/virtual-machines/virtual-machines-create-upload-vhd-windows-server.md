@@ -35,7 +35,13 @@ Este artigo pressupõe que você tenha o seguinte:
 
 > [AZURE.NOTE]Não há suporte para o formato VHDX no Microsoft Azure. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o [cmdlet convert-vhd](http://technet.microsoft.com/library/hh848454.aspx). Você pode encontrar um tutorial sobre isso [aqui](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
- Há suporte para as seguintes versões do Windows Server: <P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>Sistema operacional</TH> <TH>SKU</TH> <TH>Service Pack</TH> <TH>Arquitetura</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>Todas as edições</TD> <TD>N/D</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>Todas as edições</TD> <TD>N/D</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>Todas as edições</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ Há suporte para as seguintes versões do Windows Server:
+
+SO|SKU|Service Pack|Arquitetura
+---|---|---|---
+Windows Server 2012 R2|Todas as edições|N/D|x64
+Windows Server 2012|Todas as edições|N/D|x64
+Windows Server 2008 R2|Todas as edições|SP1|x64
 
 
 Esta tarefa inclui as seguintes etapas:
@@ -211,4 +217,4 @@ Após criar uma máquina virtual, tente criar uma máquina virtual do SQL Server
 [Etapa 4: carregar o arquivo .vhd]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

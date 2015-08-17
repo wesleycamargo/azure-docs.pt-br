@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="yuaxu;wesmc"/>
 
@@ -38,7 +38,7 @@ Este tutorial exige o seguinte:
 
 Completar este tutorial é um pré-requisito para todos os outros tutoriais de hub de notificação para aplicativos Xamarin.Android.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
+> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 
 ##<a name="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -497,4 +497,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Componente de mensagens do Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

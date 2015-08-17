@@ -127,4 +127,4 @@ O arquivo de configuração de serviço é criado para cada serviço de nuvem qu
 
 [Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710) [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100) [Sobre como definir configurações de Rede Virtual no Portal de Gerenciamento](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurar uma Rede Virtual usando um arquivo de configuração de rede](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tarefas de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

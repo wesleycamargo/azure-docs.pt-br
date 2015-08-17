@@ -57,8 +57,7 @@ Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelec
 Nome do Servidor Parceiro | Não | Se o servidor primário não estiver disponível, você poderá informar um servidor parceiro como servidor alternativo ou de backup.
 Tabelas | Não | Lista as tabelas de banco de dados que podem ser atualizadas pelo conector. Por exemplo, digite *OrdersTable* ou *EmployeeTable*. Se nenhuma tabela for especificada, todas as tabelas poderão ser usadas. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
 Procedimentos Armazenados | Não | Informe um procedimento armazenado existente que pode ser chamado pelo conector. Por exemplo, digite *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Tabelas válidas e/ou procedimentos armazenados são necessários para usar esse conector como uma ação.
-Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(\*) from table\_name.
-Sondar Consulta de Dados | Para suporte de gatilho | Instrução SQL para sondar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT \* FROM table\_name; DELETE FROM table\_name. <br/><br/>\*\*Observação\*\*<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
+Consulta de Dados Disponíveis | Para suporte de gatilho | Instrução SQL para determinar se há dados disponíveis para sondar uma tabela de banco de dados do SQL Server. Deve retornar um valor numérico que representa o número de linhas de dados disponíveis. Exemplo: SELECT COUNT(*) from table\_name. Pesquisar consulta de dados | Para suporte de gatilho | A instrução SQL para pesquisar a tabela de banco de dados do SQL Server. Você pode especificar qualquer número de instruções SQL separadas por ponto e vírgula. Essa instrução é executada transacionalmente e confirmada somente quando os dados são armazenados com segurança em seu aplicativo lógico. Exemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Observação**<br/>Você deve fornecer uma instrução de pesquisa que evite um loop infinito. Para isso, exclua, mova ou atualize os dados selecionados para garantir que eles não sejam sondados novamente.
 
 5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
@@ -110,7 +109,7 @@ Você pode testar o aplicativo lógico adicionando um novo registro na tabela qu
 
 Consulta SQL | Suportado | Sem suporte
 --- | --- | ---
-Cláusula Where | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= e LIKE</li><li>Várias subcondições podem ser combinadas por '(' e ')'</li><li>Literais de cadeia, data/hora (entre aspas simples), números (só devem conter caracteres numéricos)</li><li>Deve estar estritamente em formato de expressão binária, como ((operando operador operando) AND/OR (operando operador operando))\*</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como* -, +, e assim por diante</li><li>Concatenações de cadeias usando +.</li><li>Todas as associações</li><li>IS NULL e IS NOT Null</li><li>Quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul> Campos (na consulta Select) | <ul><li>Nomes de colunas válidos separados por vírgulas. Nenhum prefixo de nome de tabela permitido (o conector funciona em uma tabela por vez).</li><li>Os nomes podem escapar com '[' e ']'</li></ul> | <ul><li>Palavras-chave como TOP, DISTINCT e assim por diante</li><li>Alias como rua + cidade + CEP como endereço</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como *, -, +, e assim por diante</li><li>Concatenações de cadeias usando +</li></ul>
+Cláusula Where | <ul><li>Operadores: AND, OR = <>, <, < =, >, > = e LIKE</li><li>várias condições de sub-rotina podem ser combinadas com '(' e')'</li><li>cadeia de caracteres literais, Datetime (entre aspas), números (deve conter apenas caracteres numéricos)</li><li>estritamente deve estar em um formato de expressão binária, como ((operand operator operand) AND/OR (operando do operador operando)) **</li></ul> | <ul><li>Operadores: Between, IN</li><li>todas as funções internas como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>operadores matemáticos, como *, -, +, e assim por diante</li><li>concatenações usando +.</li><li>Todas as associações</li><li>IS NULL e IS NOT Null</li><li>quaisquer números com caracteres não numéricos, como números hexadecimais</li></ul>campos (na consulta Select) |<ul><li>Nomes de coluna válidos separados por vírgulas. Nenhum prefixo de nome de tabela permitido (o conector funciona em uma tabela por vez).</li><li>Os nomes podem escapar com '[' e ']'</li></ul> | <ul><li>Palavras-chave como TOP, DISTINCT e assim por diante</li><li>Alias como rua + cidade + CEP como endereço</li><li>Todas as funções internas, como ADD(), MAX() NOW(), POWER() e assim por diante</li><li>Operadores matemáticos, como, -, +, e assim por diante</li><li>Concatenações de cadeias usando +</li></ul>
 
 #### Dicas
 
@@ -130,7 +129,7 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -146,4 +145,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

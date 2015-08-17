@@ -101,4 +101,4 @@ Use REST para executar a recuperação do banco de dados de forma programática.
 Após a recuperação do banco de dados, você poderá configurá-lo para uso seguindo o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

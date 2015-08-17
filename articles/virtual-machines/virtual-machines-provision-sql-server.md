@@ -60,7 +60,8 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 5. Na segunda página **Configuração da máquina virtual**, configure recursos para rede, armazenamento e disponibilidade:
 	- Na caixa **Serviço de Nuvem**, selecione **Criar um novo serviço de nuvem**.
 	- Na caixa **Nome DNS do Serviço de Nuvem**, forneça a primeira parte de um nome DNS de sua escolha, para que ele complete um nome no formato **TESTNAME.cloudapp.net** 
-	- Selecione uma **ASSINATURA**, se você tiver várias assinaturas para escolher. A escolha determina quais **contas de armazenamento** estão disponíveis. - Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
+	- Selecione uma **ASSINATURA**, se você tiver várias assinaturas para escolher. A escolha determina quais **contas de armazenamento** estão disponíveis.
+- Na caixa **Região/Grupo de Afinidade/Rede Virtual**, selecione uma região onde essa imagem virtual será hospedada.
 	- Na **conta de armazenamento**, gere automaticamente uma conta, ou selecione uma na lista. Altere a **ASSINATURA** para ver mais contas. 
 	- Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
 	- Leia e aceite o termos legais.
@@ -92,7 +93,7 @@ Para obter as informações mais atualizadas sobre as imagens do SQL Server com 
 
 Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal.
 
-##<a id="SSMS">Conectar à instância VM do SQL Server do SSMS em outro computador</a>
+##<a id="SSMS">Conectar à instância de VM do SQL Server do SSMS em outro computador</a>
 
 As etapas a seguir demonstram como se conectar à instância do SQL Server pela Internet usando o SSMS (SQL Server Management Studio). No entanto, as mesmas etapas se aplicam para tornar sua máquina virtual de SQL Server acessível para seu aplicativos, em execução local e no Azure.
 
@@ -115,7 +116,7 @@ O caminho de conexão é resumido pelo diagrama a seguir:
 
 Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
 
->[AZURE.NOTE]Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para saber mais, consulte [Considerações sobre conectividade para o SQL Server em Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para saber mais, consulte [Considerações sobre conectividade para o SQL Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
 
 1. No Portal de Gerenciamento do Azure, clique em **MAQUINAS VIRTUAIS**.
 	
@@ -143,7 +144,7 @@ Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de e
 
 3. Na caixa de diálogo **Assistente para Nova Regra de Entrada**, em **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
 
-4. Na caixa de diálogo **Protocolo e Portas**, use o **TCP** padrão. Na caixa **Portas locais específicas**, digite o número da porta da instância do Mecanismo de Banco de Dados (\*\*1433\*\* para a instância padrão ou sua opção para a porta privada na etapa de ponto de extremidade).
+4. Na caixa de diálogo **Protocolo e Portas**, use o **TCP** padrão. Na caixa **Portas locais específicas**, digite o número da porta da instância do Mecanismo de Banco de Dados (**1433** para a instância padrão ou sua opção para a porta privada na etapa de ponto de extremidade).
 
 	![Porta TCP 1433][Image14]
 
@@ -180,7 +181,7 @@ Abrir portas adicionais para outros componentes conforme necessário. Para obter
 
 	![Habilitar TCP][Image10]
 
-5. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (\_instance name\_)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
+5. No painel do console, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do mouse em **SQL Server (_instance name_)** (a instância padrão é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar**, para parar e reiniciar a instância do SQL Server.
 
 	![Reiniciar o Mecanismo de Banco de Dados][Image11]
 
@@ -274,7 +275,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 ### <a id="cde">Conectar-se ao Mecanismo de Banco de Dados de outro computador</a>
  
 1. Em um computador conectado à Internet, abra o SQL Server Management Studio.
-2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa \*\*Nome do servidor\*\*, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número da porta pública de ponto de extremidade no formato *NomeDNS,númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**. Para obter o número da porta, faça logon no Portal de Gerenciamento do Azure e encontre a Máquina Virtual. No painel, clique em **PONTOS DE EXTREMIDAD**E e use a **PORTA PÚBLICA** atribuída ao **MSSQL**. ![Porta pública][Image36]
+2. Na caixa de diálogo **Conectar ao Servidor** ou **Conectar ao Mecanismo de Banco de Dados**, na caixa **Nome do servidor**, digite o nome DNS da máquina virtual (determinado na tarefa anterior) e um número da porta pública de ponto de extremidade no formato *NomeDNS,númerodaporta*, como **tutorialtestVM.cloudapp.net,57500**. Para obter o número da porta, faça logon no Portal de Gerenciamento do Azure e encontre a Máquina Virtual. No painel, clique em **PONTOS DE EXTREMIDAD**E e use a **PORTA PÚBLICA** atribuída ao **MSSQL**. ![Porta pública][Image36]
 3. Na caixa **Autenticação**, selecione **Autenticação do SQL Server**.
 5. Na caixa **Logon**, digite o nome de um logon que você criou em uma tarefa anterior.
 6. Na caixa **Senha**, digite a senha do logon que você criou em uma tarefa anterior.
@@ -364,4 +365,4 @@ Além desses recursos, é recomendável seguir as diretrizes detalhadas fornecid
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

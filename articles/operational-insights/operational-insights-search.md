@@ -467,7 +467,7 @@ Sintaxe:
 
 filterExpression | command1 | command2 …
 
-A expressão de filtro (\*\*filterExpression\*\*) define a condição "where" para a consulta. Os comandos se aplicam aos resultados retornados pela consulta. Vários comandos devem ser separados pelo caractere de barra vertical (|).
+A expressão de filtro (**filterExpression**) define a condição "where" para a consulta. Os comandos se aplicam aos resultados retornados pela consulta. Vários comandos devem ser separados pelo caractere de barra vertical (|).
 
 #### Exemplos de sintaxe geral
 
@@ -485,7 +485,7 @@ Essa consulta retorna resultados que contêm as palavras "sistema" e "erro".
 
 	system error | sort ManagementGroupName, TimeGenerated desc | top 10
 
-Essa consulta retorna resultados que contêm as palavras "sistema" e "erro". Em seguida, ela classifica os resultados pelo campo **ManagementGroupName** (ordem crescente) e pelo campo **TimeGenerated** (em ordem decrescente). Ela usa apenas os 10 primeiros resultados.
+Essa consulta retorna resultados que contêm as palavras "sistema" e "erro". Em seguida, ela classifica os resultados pelo campo **ManagementGroupName** (em ordem crescente) e depois pelo campo **TimeGenerated** (em ordem decrescente). Ela usa apenas os 10 primeiros resultados.
 
 >[AZURE.IMPORTANT]Todos os nomes de campo e os valores para os campos de cadeia de caracteres e de texto diferenciam maiúsculas de minúsculas.
 
@@ -521,9 +521,9 @@ Exemplos:
 
 #### Data/hora
 
-Cada porção dos dados do sistema tem uma propriedade **TimeGenerated** que representa a data e hora original do registro. Alguns tipos de dados podem ter mais campos de data/hora (por exemplo, **LastModified**).
+Cada parte dos dados no sistema tem uma propriedade **TimeGenerated** que representa a data e hora original do registro. Alguns tipos de dados podem ter mais campos de Data/Hora (por exemplo, **LastModified**).
 
-O seletor Gráfico/Tempo da linha do tempo no Insights Operacionais mostra uma distribuição de resultados ao longo do tempo (de acordo com a consulta atual que está sendo executada) baseada no campo **TimeGenerated**. Os campos de data/hora têm um formato de cadeia de caracteres específico que pode ser usado em consultas para restringi-la a um determinado período. Você também pode usar a sintaxe para se referir a intervalos de tempo relativo (por exemplo, "entre 3 dias atrás e 2 horas atrás").
+O seletor de Gráfico/Tempo da linha do tempo nos Insights Operacionais mostra uma distribuição de resultados ao longo do tempo (de acordo com a consulta atual que está sendo executada) com base no campo **TimeGenerated**. Os campos de data/hora têm um formato de cadeia de caracteres específico que pode ser usado em consultas para restringi-la a um determinado período. Você também pode usar a sintaxe para se referir a intervalos de tempo relativo (por exemplo, "entre 3 dias atrás e 2 horas atrás").
 
 Sintaxe:
 
@@ -761,11 +761,11 @@ Exemplo:
 
 	Type:Alert errors detected | select Name, Severity
 
-Limita os campos de resultados retornados a **Name** e **Severity**.
+Limita os campos de resultados retornados para **Name** e **Severity**.
 
 #### Medida
 
-O comando **measure** é usado para aplicar funções estatísticas aos resultados brutos da pesquisa. Isso é muito útil para obter as exibições *agrupar por* dos dados. Quando você usa o comando **measure**, o Insights Operacionais exibe uma tabela com resultados agregados.
+O comando **measure** é usado para aplicar funções estatísticas aos resultados brutos da pesquisa. Isso é muito útil para obter as exibições *agrupar por* dos dados. Quando você usa o comando **measure**, os Insights Operacionais exibem uma tabela com resultados agregados.
 
 Sintaxe:
 
@@ -774,10 +774,10 @@ Sintaxe:
 
 	measure aggregateFunction([aggregatedField])  interval interval
 
-Agrega os resultados por **groupField** e calcula os valores agregados de medida usando **aggregatedField**.
+Agrega os resultados por **groupField** e calcula os valores de medida agregados usando **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Função estatística de measure </th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções de agregação:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NAME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Função estatística de medida </th> <th>Descrição </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>O nome da função de agregação (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções de agregação:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>O nome do campo pelo qual o conjunto de resultados é agrupado. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>O intervalo de tempo no formato: </p> <p><em>nnnNAME</em> </p> <p></p> <p>Em que: </p> <p>nnn é o número inteiro positivo</p> <p><em>NAME</em> é o nome do intervalo</p> <p>Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
@@ -801,7 +801,7 @@ Agrupa os alertas por **ObjectID** e calcula o número de alertas para cada grup
 
 *Explicação*
 
-Agrupa os alertas por intervalos de 1 hora usando o campo **TimeGenerated** e retorna o número de alertas em cada intervalo.
+Agrupa os alertas por intervalos de uma hora usando o campo **TimeGenerated** e retorna o número de alertas em cada intervalo.
 
 **Exemplo 3**
 
@@ -809,7 +809,7 @@ Agrupa os alertas por intervalos de 1 hora usando o campo **TimeGenerated** e re
 
 *Explicação*
 
-Mesma coisa que o exemplo anterior, mas com um alias de campo agregado (\*\*AlertsPerHour\*\*).
+Igual ao exemplo anterior, mas com um alias de campo agregado (**AlertsPerHour**).
 
 **Exemplo 4**
 
@@ -817,7 +817,7 @@ Mesma coisa que o exemplo anterior, mas com um alias de campo agregado (\*\*Aler
 
 *Explicação*
 
-Agrupa os resultados por intervalos de 5 dias usando o campo **TimeCreated** e retorna o número de resultados em cada intervalo.
+Agrupa os resultados por intervalos de cinco dias usando o campo **TimeCreated** e retorna o número de resultados em cada intervalo.
 
 **Exemplo 5**
 
@@ -2049,4 +2049,4 @@ Quando você usar Pesquisar para localizar dados, os resultados exibem vários c
 ## Outros recursos
 Stefan Roth criou uma cola muito prática. Confira o [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para saber mais e baixar o roteiro.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

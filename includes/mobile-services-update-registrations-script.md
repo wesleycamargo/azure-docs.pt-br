@@ -28,4 +28,4 @@
 
    Isso registra um novo script de inserção, que armazena as informações de registro na nova tabela.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

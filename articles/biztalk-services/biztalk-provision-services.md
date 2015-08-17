@@ -12,7 +12,7 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/03/2015"
 	ms.author="mandia"/>
 
@@ -133,7 +133,7 @@ Como parte do provisionamento do Serviço do BizTalk, um certificado autoassinad
 O certificado autoassinado criado automaticamente durante a criação dos Serviços BizTalk devem ser usados apenas em ambientes de desenvolvimento. Para cenários de produção, substitua-o por um certificado pronto para produção.
 
 1. Na guia **Painel**, selecione **Atualizar Certificado SSL**.
-2. Procure seu certificado SSL privado (*Nome_do_certificado*.pfx) que inclui o nome do seu Serviço BizTalk, insira a senha e marque a caixa de seleção.
+2. Procure seu certificado SSL privado (*Nome\_do\_certificado*.pfx) que inclui o nome do seu Serviço BizTalk, insira a senha e selecione a caixa de seleção.
 
 #### <a name="ACS"></a>Obter o namespace do Controle de Acesso
 
@@ -238,4 +238,4 @@ Agora que o Serviço BizTalk foi criado, familiarize-se com os diferentes [Servi
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

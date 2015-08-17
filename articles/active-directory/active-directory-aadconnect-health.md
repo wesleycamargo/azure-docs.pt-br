@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/12/2015" 
 	ms.author="billmath"/>
 
@@ -155,4 +155,4 @@ Para continuar com o Azure AD Connect Health, consulte [Requisitos do Azure AD C
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

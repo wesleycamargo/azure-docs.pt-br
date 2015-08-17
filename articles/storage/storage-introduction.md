@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -93,7 +93,9 @@ Para usuários com grandes quantidades de dados não estruturados para armazenam
 
 Cada blob é organizado em um contêiner. Os contêineres também fornecem uma maneira útil para atribuir políticas de segurança para grupos de objetos. Uma conta de armazenamento pode conter qualquer número de contêineres e um contêiner pode conter qualquer número de blobs, até o limite de 500 TB de capacidade da conta de armazenamento.
 
-O armazenamento de blob oferece dois tipos de blobs, blobs de bloco e blobs de página (discos). Os blobs de blocos são otimizados para streaming e armazenamento de objetos de nuvem e são uma boa opção para armazenar documentos, arquivos de mídia, backups etc. Um blob de blocos pode ter até 200 GB de tamanho. Os blobs de página são otimizados para representar discos de IaaS e gravações aleatórias de suporte e podem ter até 1 TB de tamanho. Um disco de IaaS anexado a uma rede de máquinas virtuais do Azure é um VHD armazenado como um blob de página.
+O armazenamento de blobs oferece três tipos de blobs: blob de blocos, blob de anexo e blob de páginas (discos). Os blobs de blocos são otimizados para streaming e armazenamento de objetos de nuvem e são uma boa opção para armazenar documentos, arquivos de mídia, backups etc. Blobs de anexo são semelhantes aos blobs de blocos, mas são otimizados para operações de anexo. Um blob de anexo pode ser atualizado apenas com a adição de um novo bloco no final. Acrescentar blobs é uma boa opção para cenários como registro em log, em que novos dados precisam ser gravados apenas até o fim do blob.
+
+Os blobs de página são otimizados para representar discos de IaaS e gravações aleatórias de suporte e podem ter até 1 TB de tamanho. Um disco de IaaS anexado a uma rede de máquinas virtuais do Azure é um VHD armazenado como um blob de página.
 
 Para conjuntos de dados muito grandes onde as restrições de rede impossibilitam o carregamento e o download de dados por transferência eletrônica, você pode enviar uma unidade de disco rígido para a Microsoft para importar ou exportar dados diretamente do data center usando o [Serviço de importação/exportação do Azure](storage-import-export-service.md) Você também pode copiar dados de blob em sua conta de armazenamento ou entre contas de armazenamento.
 
@@ -171,6 +173,7 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Pacote NuGet de Armazenamento do Azure: bibliotecas do cliente para .NET, Windows Phone e Tempo de Execução do Windows](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [SDKs e Ferramentas do Azure](http://azure.microsoft.com/downloads/)
 - [Emulador de Armazenamento do Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [PowerShell do Azure](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### Código-fonte
 
@@ -183,7 +186,9 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Referência da Ferramenta de Linha de Comando AzCopy](storage-use-azcopy.md)
 
 ### Para usuários do PowerShell
-- [Cmdlets do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Usando o PowerShell do Azure com o Armazenamento do Azure](storage-powershell-guide-full.md)
+- [Cmdlets de Armazenamento do Azure para o Gerenciamento de Serviços](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Cmdlets de Armazenamento do Azure para o Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### Para desenvolvedores do .NET
 
@@ -191,6 +196,7 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)
 - [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)
 - [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
+- [Como usar o armazenamento de arquivo com o PowerShell e .NET](storage-dotnet-how-to-use-files.md)
 
 ### Para desenvolvedores de Java/Android
 
@@ -224,4 +230,4 @@ Para começar com o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de Fila no Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

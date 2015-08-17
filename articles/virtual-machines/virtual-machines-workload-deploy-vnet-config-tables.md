@@ -67,4 +67,4 @@ O procedimento a seguir faz referência às informações dessas tabelas para or
 
 [Configurar uma conexão site a site entre locais para uma rede virtual do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

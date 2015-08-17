@@ -265,4 +265,4 @@ Para obter as perguntas frequentes sobre o consumo do servi√ßo Web ou a publica√
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

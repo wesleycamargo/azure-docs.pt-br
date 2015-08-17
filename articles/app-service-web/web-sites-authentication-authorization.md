@@ -53,4 +53,4 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

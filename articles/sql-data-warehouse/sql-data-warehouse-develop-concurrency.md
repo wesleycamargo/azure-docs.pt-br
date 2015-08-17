@@ -39,13 +39,13 @@ Executar cada consulta simultaneamente consome um ou mais slots de simultaneidad
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Consumo de slot de simultaneidade | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Máximo de consultas simultâneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| Máximo de slots simultâneos | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+| Máximo de slots simultâneos | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
 
 Classes de recursos são uma parte essencial do gerenciamento de carga de trabalho do SQL Data Warehouse, pois também definem recursos computacionais alocados para a consulta. Elas serão abordadas na seção de gerenciamento de carga de trabalho abaixo.
 
@@ -223,7 +223,7 @@ Abra uma conexão com o banco de dados do SQL Data Warehouse e execute o seguint
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-Uma vez concluídas as permissões, elas precisarão ser concedidas ao usuário. O exemplo a seguir concede `CONTROL` no banco de dados de SQL Data Warehouse. `CONTROL` no nível do banco de dados é o equivalente de db_owner no SQL Server.
+Uma vez concluídas as permissões, elas precisarão ser concedidas ao usuário. O exemplo a seguir concede `CONTROL` no banco de dados de SQL Data Warehouse. `CONTROL` no nível do banco de dados é o equivalente de db\_owner no SQL Server.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -373,8 +373,8 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx
+[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure]: https://msdn.microsoft.com/pt-br/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,16 +38,16 @@ Primeiro, você precisará instalar o PowerShell do Azure. Para obter instruçõ
 
 Em seguida, abra o PowerShell do Azure e execute os comandos a seguir. Lembre-se de substituir `ACCOUNT_NAME` e `ACCOUNT_KEY== ` por suas credenciais de conta de armazenamento. Substitua `CONTAINER_NAME` por um nome da sua escolha.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 O URI de assinatura de acesso compartilhado do novo contêiner deve ser semelhante ao seguinte:
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-A assinatura de acesso compartilhado criada no contêiner será válida para o dia seguinte. A assinatura concede permissões completas (por exemplo, leitura, gravação, exclusão e lista) para os blobs do contêiner.
+A assinatura de acesso compartilhado criada no contêiner será válida para o dia seguinte. A assinatura concede permissões completas (*por exemplo*, leitura, gravação, exclusão e lista) para os blobs do contêiner.
 
 Para obter mais informações sobre as assinaturas de acesso compartilhado, consulte o [Tutorial de SAS para .NET](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -173,10 +173,7 @@ Neste tutorial, você aprendeu a usar o armazenamento de Blob do Azure e SAS com
 
 Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 
-[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md)  
-[Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md)  
-[Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md)  
-[Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
+[Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) [Como usar o Armazenamento de Blob no .NET](storage-dotnet-how-to-use-blobs.md) [Como usar o Armazenamento de Tabela no .NET](storage-dotnet-how-to-use-tables.md) [Como usar o Armazenamento de Fila no .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -104,7 +104,7 @@ As modificações no resultado do arquivo **Server.js** no aplicativo que está 
 
 Como agora seu aplicativo está escutando na porta 443, você também deve modificar a definição do serviço para permitir a comunicação através dessa porta.
 
-1.  No diretório de serviço, abra o arquivo de definição de serviço (**ServiceDefinition.csdef**), atualize o elemento http **InputEndpoint** na seção **Pontos de extremidade** para habilitar a comunicação pela porta 443:
+1.  No diretório de serviço, abra o arquivo de definição de serviço (**ServiceDefinition.csdef**), atualize o elemento http **InputEndpoint** na seção **Endpoints** para habilitar a comunicação pela porta 443:
 
         <WorkerRole name="WorkerRole1" vmsize="Small">
         ...
@@ -173,4 +173,4 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
   
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

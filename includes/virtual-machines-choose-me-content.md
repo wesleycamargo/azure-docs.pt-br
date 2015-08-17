@@ -24,7 +24,7 @@ Como outras máquinas virtuais, uma VM no Azure tem um sistema operacional, arma
 
 As máquinas virtuais usam discos rígidos virtuais (VHDs) para armazenar seus dados e sistema operacional (SO). Os VHDs também são usados para as imagens que você pode optar por instalar um sistema operacional. A figura a seguir mostra isso, bem como duas das ferramentas para criar e gerenciar suas VMs.
 
-<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **Figura: As Máquinas Virtuais do Azure fornecem a infraestrutura como serviço.**
 
@@ -42,4 +42,4 @@ Outros benefícios a serem consideradas para VMs:
 
 **Resiliência** – o Azure monitora o hardware físico que hospeda cada VM em execução. Se um servidor físico executando uma VM falhar, o Azure observa isso, a VM é movida para novo hardware e reinicia a VM. Esse processo é chamado, às vezes, recuperação de serviço. Azure também protege os dados de uma máquina virtual, mantendo cópias redundantes dos VHDs no armazenamento de blob.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -62,12 +62,12 @@ Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar*
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
 ## Recuperar sua cadeia de conexão
-Você pode usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar**.
+Você pode usar a classe **cloud\_storage\_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Em seguida, obtenha uma referência para uma classe **cloud_blob_client** que permita recuperar os objetos que representam os contêineres e os blobs armazenados no serviço de armazenamento de Blobs. O código a seguir cria um objeto **cloud_blob_client** usando o objeto da conta de armazenamento que recuperamos acima:
+Em seguida, obtenha uma referência para uma classe **cloud\_blob\_client** que permita recuperar os objetos que representam os contêineres e os blobs armazenados no serviço de armazenamento de Blobs. O código a seguir cria um objeto **cloud\_blob\_client** usando o objeto da conta de armazenamento que recuperamos acima:
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -109,7 +109,7 @@ Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você 
 ## Como: carregar um blob em um contêiner
 O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a ser usado.
 
-Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Depois de ter uma referência do blob, você pode carregar qualquer fluxo de dados para ele chamando o método **upload_from_stream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
+Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Depois de ter uma referência do blob, você pode carregar qualquer fluxo de dados para ele chamando o método **upload\_from\_stream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -137,10 +137,10 @@ Para carregar um arquivo em um blob de blocos, obtenha uma referência de contê
 	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
 	blob3.upload_text(U("other text"));  
 
-Como alternativa, você pode usar o método **upload_from_file** para carregar um arquivo em um blob de bloco.
+Como alternativa, você pode usar o método **upload\_from\_file** para carregar um arquivo em um blob de bloco.
 
 ## Como: listar os blobs em um contêiner
-Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode usar o método **list_blobs** do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o conjunto avançado de propriedades e métodos para um **list_blob_item** retornado, você deve chamar o método **list_blob_item.as_blob** para obter um objeto **cloud_blob** ou o método **list_blob.as_directory** para obter um objeto cloud_blob_directory. O código a seguir demonstra como recuperar e apresentar a URI de cada item no contêiner **my-sample-container**:
+Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode usar o método **list\_blobs** do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o conjunto avançado de propriedades e métodos para um **list\_blob\_item** retornado, você deve chamar o método **list\_blob\_item.as\_blob** para obter um objeto **cloud\_blob** ou o método **list\_blob.as\_directory** para obter um objeto cloud\_blob\_directory. O código a seguir demonstra como recuperar e apresentar a URI de cada item no contêiner **my-sample-container**:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -168,7 +168,7 @@ Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêin
 Para obter mais detalhes sobre a lista de operações, consulte [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md).
 
 ## Como: baixar blobs
-Para baixar blobs, primeiro recupere uma referência do blob, em seguida, chame o método **download_to_stream**. O exemplo a seguir usa o método **download_to_stream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
+Para baixar blobs, primeiro recupere uma referência do blob, em seguida, chame o método **download\_to\_stream**. O exemplo a seguir usa o método **download\_to\_stream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -193,7 +193,7 @@ Para baixar blobs, primeiro recupere uma referência do blob, em seguida, chame 
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
-Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um blob em um arquivo. Você também pode usar o método **download_text** para baixar o conteúdo de um blob como uma cadeia de texto.
+Como alternativa, você pode usar o método **download\_to\_file** para baixar o conteúdo de um blob em um arquivo. Você também pode usar o método **download\_text** para baixar o conteúdo de um blob como uma cadeia de texto.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -211,7 +211,7 @@ Como alternativa, você pode usar o método **download_to_file** para baixar o c
 	utility::string_t text = text_blob.download_text();
 
 ## Como: excluir blobs
-Para excluir um blob, primeiro obtenha uma referência do blob, em seguida, chame o método **delete_blob**.
+Para excluir um blob, primeiro obtenha uma referência do blob, em seguida, chame o método **delete\_blob**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -243,4 +243,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

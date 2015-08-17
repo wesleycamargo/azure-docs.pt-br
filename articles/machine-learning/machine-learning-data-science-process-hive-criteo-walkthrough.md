@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Processo e Tecnologia de Análises Avançadas em Ação: usando clusters Hadoop do Azure HDInsight em um conjunto de dados da Criteo de 1 TB | Azure" 
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um grande conjunto de dados (1 TB) disponível publicamente" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -86,11 +84,11 @@ Os dados residem em um local público do [armazenamento de blob do Azure](storag
 
 1. Os dados desse armazenamento de blob público consistem de três subpastas de dados descompactados.
 		
-	1. A subpasta *raw/count/* contém os primeiros 21 dias de dados, de day_00 a day_20
-	2. A subpasta *raw/train/* consiste de um dia de dados, day_21
-	3. A subpasta *raw/test/* consiste de dois dias de dados, day_22 e day_23
+	1. A subpasta *raw/count/* contém os primeiros 21 dias de dados, de day\_00 a day\_20
+	2. A subpasta *raw/train/* consiste de um dia de dados, day\_21
+	3. A subpasta *raw/test/* consiste de dois dias de dados, day\_22 e day\_23
 
-2. Para quem quiser começar com os dados no gzip brutos, eles também estão disponíveis na pasta principal, *raw/*, como day_NN.gz, em que NN vai de 00 a 23.
+2. Para quem quiser começar com os dados no gzip brutos, eles também estão disponíveis na pasta principal, *raw/*, como day\_NN.gz, em que NN vai de 00 a 23.
 
 Uma abordagem alternativa para acessar, explorar e modelar esses dados que não requer nenhum download local é explicada mais adiante neste passo a passo, quando criamos tabelas de Hive.
 
@@ -114,16 +112,16 @@ Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Lin
 
 **OBSERVAÇÃO IMPORTANTE**: **execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/ do Hive acima. Isso solucionará automaticamente quaisquer problemas de caminho. Nós usaremos os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" alternadamente.**
 
-**OBSERVAÇÃO IMPORTANTE 2**: **para executar qualquer consulta de Hive, sempre é possível fazer o seguinte** cd %hive_home%\\bin hive
+**OBSERVAÇÃO IMPORTANTE 2**: **para executar qualquer consulta de Hive, sempre é possível fazer o seguinte** cd %hive\_home%\\bin hive
 
 Após a REPL do Hive aparecer com um sinal "hive>", basta recortar e colar a consulta para executá-la.
 
 O código abaixo cria um banco de dados "criteo" e gera quatro tabelas:
 
 
-* uma *tabela para gerar contagens* criada nos dias dia_00 a dia_20, 
-* uma *tabela para ser usada como o conjunto de dados de treinamento* criada no dia_21 e 
-* duas *tabelas para serem usadas como os conjuntos de dados de teste* criadas nos dias dia_22 e dia_23, respectivamente. 
+* uma *tabela para gerar contagens* criada nos dias dia\_00 a dia\_20, 
+* uma *tabela para ser usada como o conjunto de dados de treinamento* criada no dia\_21 e 
+* duas *tabelas para serem usadas como os conjuntos de dados de teste* criadas nos dias dia\_22 e dia\_23, respectivamente. 
 
 Nós dividimos nosso conjunto de dados de teste em duas tabelas diferentes porque um dos dias é feriado, e queremos determinar se o modelo é capaz de detectar diferenças entre dias que são feriado e dias que não são, com base na taxa de clickthrough.
 
@@ -234,7 +232,7 @@ Como de costume, também podemos chamar o script no prompt do diretório bin/ do
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Por fim, examinamos o número de exemplos de teste do conjunto de dados de teste com base no day_23.
+Por fim, examinamos o número de exemplos de teste do conjunto de dados de teste com base no day\_23.
 
 O comando para fazer isso é semelhante ao acima (consulte [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
@@ -261,7 +259,7 @@ Observe que o percentual de rótulos positivos é de cerca de 3,3% (consistente 
 		
 ### Distribuições de histograma de algumas variáveis numéricas no conjunto de dados de treinamento
 
-Nós podemos usar função nativa do Hive "histogram_numeric" para descobrir como é a distribuição das variáveis numéricas. O conteúdo de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) é este:
+Nós podemos usar função nativa do Hive "histogram\_numeric" para descobrir como é a distribuição das variáveis numéricas. O conteúdo de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql) é este:
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -299,7 +297,7 @@ A combinação de EXIBIÇÃO LATERAL -explodir no Hive serve para produzir uma s
 
 ### Percentis aproximados de algumas variáveis numéricas no conjunto de dados de treinamento
 
-Outro aspecto que é de interesse com relação às variáveis numéricas é o cálculo de percentuais aproximados. O "percentile_approx" nativo do Hive faz isso para nós. O conteúdo de [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) é:
+Outro aspecto que é de interesse com relação às variáveis numéricas é o cálculo de percentuais aproximados. O "percentile\_approx" nativo do Hive faz isso para nós. O conteúdo de [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) é:
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -382,7 +380,7 @@ Isso resulta em:
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-O script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) faz isso para dados de teste, day_22:
+O script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) faz isso para dados de teste, day\_22:
 
 		--- Now for test data (day_22)
 
@@ -400,7 +398,7 @@ Isso resulta em:
 		Time taken: 317.66 seconds
 
 
-Por fim, o script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) faz isso para dados de teste, day_23:
+Por fim, o script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) faz isso para dados de teste, day\_23:
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -452,7 +450,7 @@ Esta é a aparência do **Leitor** ao obter dados da tabela do Hive:
 Para o módulo **Leitor**, os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Leitor**.
 
 1. Escolha "Consulta de Hive" para **Fonte de dados**
-2. Na caixa **Consulta ao banco de dados Hive**, um simples SELECT * FROM <nome_banco_dados.nome_tabela> - é suficiente.
+2. Na caixa **Consulta ao banco de dados Hive**, um simples SELECT * FROM <nome\_banco\_dados.nome\_tabela> - é suficiente.
 3. **URI do servidor Hcatalog**: se seu cluster for "abc", ele será somente: https://abc.azurehdinsight.net
 4. **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido no momento da programação do cluster. (NÃO o nome de usuário do Acesso Remoto!)
 5. **Senha da conta de usuário do Hadoop**: a senha para o nome de usuário acima escolhido no momento da programação do cluster. (NÃO a senha de Acesso Remoto!)
@@ -540,7 +538,7 @@ No segundo script R, podemos equilibrar a distribuição entre classes positivas
 
 ![](http://i.imgur.com/91wvcwN.png)
 
-Nesse script R simples, usamos "pos_neg_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. Isso é importante, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que em nosso caso, temos classes positivo 3,3% e 96,7% negativo).
+Nesse script R simples, usamos "pos\_neg\_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. Isso é importante, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que em nosso caso, temos classes positivo 3,3% e 96,7% negativo).
 
 ##### Aplicando a transformação de contagem aos nossos dados
 
@@ -658,4 +656,4 @@ Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na es
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -141,4 +141,4 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

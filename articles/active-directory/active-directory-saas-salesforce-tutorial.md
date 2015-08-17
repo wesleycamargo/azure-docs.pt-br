@@ -26,7 +26,7 @@ Este tutorial mostrará como conectar o ambiente Salesforce ao Active Directory 
 
 2. Você deve ter um locatário válido em [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Se você estiver usando uma conta Salesforce.com de **avaliação**, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
+> [AZURE.IMPORTANT]Se você estiver usando uma conta Salesforce.com de **avaliação **, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas.
 > 
 > Você pode contornar essa limitação usando uma [conta de desenvolvedor gratuita](https://developer.salesforce.com/signup) para concluir este tutorial.
 
@@ -84,7 +84,7 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. Na página **Definir Configurações de Aplicativo**, preencha a **URL de Logon** digitando a URL do domínio do Salesforce usando o seguinte formato:
  - Conta empresarial: `https://<domain>.my.salesforce.com`
@@ -216,15 +216,11 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Se você estiver provisionando para um ambiente de **desenvolvedor** do Salesforce, terá um número bem limitado de licenças disponíveis para cada perfil. Portanto, é melhor provisionar usuários para o perfil **Usuário Chatter Free**, que tem 4.999 licenças disponíveis.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Salesforce**.
 
-##Consulte também
-
-- [Lista de tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
-- [Acesso de aplicativos no AD do Azure](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introdução ao painel de acesso](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +253,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

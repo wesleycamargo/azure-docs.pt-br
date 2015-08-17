@@ -1177,7 +1177,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
+1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
 2. Substitua o conteúdo com o seguinte:
 
 		<!DOCTYPE html>
@@ -1355,7 +1355,6 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

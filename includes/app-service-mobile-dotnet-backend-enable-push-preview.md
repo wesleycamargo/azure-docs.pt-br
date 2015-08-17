@@ -6,4 +6,4 @@ Em seu projeto do ASP.NET, você verá o seguinte:
 
 * Em WebApiConfig.cs, o método `UseDefaultConfiguration()` é chamado no objeto MobileAppConfiguration. Isso, por sua vez, chama o método de extensão `AddPushNotifications()` fornecido pelo pacote NuGet acima.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

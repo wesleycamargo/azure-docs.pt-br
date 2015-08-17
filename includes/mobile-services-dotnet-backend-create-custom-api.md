@@ -54,4 +54,4 @@
 
 	> [AZURE.NOTE]Com as permissões padrão, qualquer pessoa com a chave do aplicativo pode chamar a API personalizada. No entanto, a chave de aplicativo não é considerada uma credencial segura porque ela não pode ser distribuída ou armazenada com segurança. Considere a possibilidade de restringir o acesso somente para usuários autenticados para obter segurança adicional.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

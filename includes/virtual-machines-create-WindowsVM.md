@@ -40,4 +40,4 @@
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

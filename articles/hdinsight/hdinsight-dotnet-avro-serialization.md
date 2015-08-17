@@ -1406,4 +1406,4 @@ Para limpar o cluster, execute este comando:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

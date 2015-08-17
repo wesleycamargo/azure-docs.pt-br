@@ -1,10 +1,11 @@
 <properties
-	pageTitle="Como se conectar a um Banco de Dados SQL do Azure usando o SSMS" metaKeywords=""
+	pageTitle="Como se conectar a um Banco de Dados SQL do Azure usando o SSMS" 
 	description="Saiba como se conectar a um Banco de Dados SQL do Azure usando o SSMS."
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -43,7 +44,7 @@ Estas são as etapas para instalar o SQL Server Management Studio (SSMS) e usar 
 	![Conectar-se ao banco de dados][3]
 
 ### Se a conexão falhar
-Certifique-se de que o firewall do servidor lógico que você criou permite conexões do computador local. Consulte [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx)
+Certifique-se de que o firewall do servidor lógico que você criou permite conexões do computador local. Consulte [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
 ## Executar consultas de exemplo
 
@@ -76,4 +77,4 @@ Você pode usar instruções do Transact-SQL para criar ou gerenciar bancos de d
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -82,4 +82,4 @@ As máquinas virtuais têm esses recursos relacionados: * Nomes de domínio * Re
     
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

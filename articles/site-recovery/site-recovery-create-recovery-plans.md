@@ -53,16 +53,18 @@ Crie um plano de recuperação da seguinte forma:
 	- Se estiver replicando do VMM no VMM, selecione VMM em **Tipo de Origem** e os servidores VMM de origem e de destino. Clique em **Hyper-V** para ver as nuvens que estão configuradas para usar a réplica do Hyper-V. 
 	- Se estiver replicando do VMM no VMM usando SAN, selecione VMM em **Tipo de Origem** e os servidores VMM de origem e de destino. Clique em **SAN** para ver as nuvens que estão configuradas para a replicação SAN.
 	- Se estiver replicando do VMM no Azure, selecione VMM em **Tipo de Origem**. Selecione o servidor do VMM de origem e **Azure** como o destino.
-	- Se estiver replicando de um site do Hyper-V, selecione site do Hyper-V em Tipo de Origem. Selecione o site como a origem e **Azure **como o destino. - Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
+	- Se estiver replicando de um site do Hyper-V, selecione site do Hyper-V em Tipo de Origem. Selecione o site como a origem e **Azure **como o destino.
+- Se estiver replicando do site VMware ou de um servidor local físico no Azure, selecione um servidor de configuração como a origem e **Azure** como o destino.
 
-2. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
+2\. Em **Selecionar máquinas virtuais**, selecione as máquinas virtuais (ou o grupo de replicação) que deseja adicionar ao grupo padrão (Grupo 1) no plano de recuperação.
 
 ## Personalizar planos de recuperação
 
 Depois de adicionar máquinas virtuais protegidas ou grupos de replicação ao grupo de planos de recuperação padrão e criar o plano, você pode personalizá-lo:
 
 - **Adicionar novos grupos**: você pode incluir grupos de plano de recuperação adicionais. Os grupos adicionados são numerados na ordem em que você os adiciona. É possível adicionar até sete grupos. Você pode adicionar mais computadores ou grupos de replicação a esses novos grupos. Observe que uma máquina virtual ou um grupo de replicação pode ser incluído apenas em um grupo de planos de recuperação.
-- **Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado. - **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele é interrompido no ponto em que você inseriu a ação manual, e uma caixa de diálogo solicita que você especifique que a ação manual foi concluída.
+- ****Adicionar um script **: você pode adicionar scripts antes ou depois de um grupo de planos de recuperação. Quando você adiciona um script, este adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas do Grupo 1 será criado com o nome: Grupo 1: pré-etapas. Todas as pré-etapas serão listadas dentro desse conjunto. Observe que só será possível adicionar um script no site primário se você tiver um servidor VMM implantado.
+- **Adicionar uma ação manual**: você pode adicionar ações manuais que são executadas antes ou depois de um grupo de planos de recuperação. Quando o plano de recuperação é executado, ele é interrompido no ponto em que você inseriu a ação manual, e uma caixa de diálogo solicita que você especifique que a ação manual foi concluída.
 
 ### Estender os planos de recuperação com scripts
 
@@ -79,7 +81,7 @@ Antes de começar, observe o seguinte:
 - Verifique se você possui pelo menos um servidor de biblioteca na sua implantação do VMM. Por padrão, o caminho de compartilhamento da biblioteca de um servidor VMM pode ser encontrado localmente no servidor VMM com o nome de pasta MSCVMMLibrary.
 - Se o caminho de compartilhamento da biblioteca for remoto (ou local, mas não compartilhado com MSCVMMLibrary, configure o compartilhamento como se segue (usando \\libserver2.contoso.com\\share\\ como um exemplo):
 	- Abra o Editor do Registro.
-	- Navegue até HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
+	- Navegue até HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Edite o valor ScriptLibraryPath.
 	- Coloque o valor como \\libserver2.contoso.com\\share. Especifique o FQDN completo.
 	- Forneça permissões para o local de compartilhamento.
@@ -122,4 +124,4 @@ Você pode estender o seu plano de recuperação executando um runbook da automa
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

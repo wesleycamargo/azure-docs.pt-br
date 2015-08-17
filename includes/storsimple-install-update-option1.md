@@ -1,3 +1,4 @@
+
 #### Para instalar a Atualização 1 do Windows PowerShell para StorSimple
 
 1. Execute as etapas a seguir para baixar a atualização do software.
@@ -19,7 +20,7 @@
  
         ![Exibir carrinho](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Clique em **Download**. Especifique ou navegue até o local onde deseja que o download seja exibido. A atualização (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) será baixada em uma pasta do pacote StorSimple Update 1.0 Appliance Update (KB3063418)" para o local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+    6. Clique em **Download**. Especifique ou navegue até o local onde deseja que o download seja exibido. A atualização (all-hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) será baixada em uma pasta do pacote StorSimple Update 1.0 Appliance Update (KB3063418)" para o local escolhido. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
         
 2. Para instalar a atualização do software, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-serial-console).
 
@@ -96,4 +97,4 @@
 
     O status do firmware deve ser **UpToDate**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

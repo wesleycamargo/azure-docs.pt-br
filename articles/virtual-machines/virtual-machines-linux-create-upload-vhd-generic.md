@@ -91,7 +91,7 @@ Se você não estiver executando em um ambiente Windows, então é recomendável
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. Redimensione o disco bruto usando $rounded_size conforme definido no script acima:
+ 3. Redimensione o disco bruto usando $rounded\_size conforme definido no script acima:
 
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -123,9 +123,9 @@ Se for necessário usar um kernel personalizado, recomendamos que você use uma 
 
 Sabemos que a ausência dos patches a seguir resulta em problemas no Azure. Por isso, eles devem constar no kernel. De forma alguma essa lista pode ser considerada completa para todas as distribuições:
 
-- [ata_piix: adie os discos para os drivers Hyper-V por padrão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix: adie os discos para os drivers Hyper-V por padrão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc: conta para pacotes em trânsito no caminho RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc: evite o uso de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: evite o uso de WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
 - [storvsc: desabilite WRITE SAME para RAID e drivers do adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc: correção de desreferência de ponteiro NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc: as falhas do buffer de anéis podem resultar em congelamento de E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
@@ -189,4 +189,4 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

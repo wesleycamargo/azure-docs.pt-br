@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
@@ -46,12 +46,12 @@ Você pode consultar um Início Rápido simples no Portal de Gerenciamento para 
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>De volta ao Portal de Gerenciamento, clique na guia <strong>DADOS</strong> e na tabela <strong>TodoItem</strong>. Isso permite que você procure os dados inseridos pelo aplicativo na tabela.<p></li></ol></p>
+<ol start="4"> <li><p>De volta ao Portal de Gerenciamento, clique na guia **Dados** e na tabela **TodoItem** Isso permite que você procure os dados inseridos pelo aplicativo na tabela.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Próximas etapas
 Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
-* [Adicionar serviços móveis a um aplicativo existente] <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
+* [Adicionar Serviços Móveis a um aplicativo existente] <br/>Saiba mais sobre como armazenar e consultar dados usando os Serviços Móveis.
 
 * [Introdução à sincronização de dados offline] <br/>Saiba como usar a sincronização de dados offline para tornar o seu aplicativo responsivo e robusto.
 
@@ -77,7 +77,7 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 
 
 <!-- URLs. -->
-[Adicionar serviços móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Introdução à sincronização de dados offline]: mobile-services-ios-get-started-offline-data.md
 [Adicionar autenticação a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Adicionar notificações por push a um aplicativo existente]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -88,4 +88,4 @@ Saiba como executar tarefas adicionais importantes nos Serviços Móveis:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versão back-end .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

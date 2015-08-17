@@ -12,4 +12,4 @@ Você pode criar a tabela de armazenamento do Azure usando o **Gerenciador de Se
 
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

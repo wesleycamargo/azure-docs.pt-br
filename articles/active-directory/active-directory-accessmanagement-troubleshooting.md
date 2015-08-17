@@ -35,4 +35,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

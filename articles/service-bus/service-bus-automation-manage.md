@@ -44,4 +44,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 * Confira o artigo sobre [Gerenciar Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

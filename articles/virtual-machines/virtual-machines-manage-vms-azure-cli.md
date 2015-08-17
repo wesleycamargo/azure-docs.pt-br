@@ -81,4 +81,4 @@ Para criar uma nova VM baseada no Linux, você precisará ter vários valores à
 Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, consulte [Usando a CLI do Microsoft Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-resource-manager.md). Para saber mais sobre recursos do Azure e seus conceitos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

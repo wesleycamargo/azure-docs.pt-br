@@ -7,14 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="08/07/2015"
-	 ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -54,9 +47,9 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** <br/> R10. Os backups configurados atualmente serão interrompidos. Você precisará registrar novamente o servidor no cofre de backup e ele será considerado um novo servidor pelos Serviços de Recuperação, portanto, a primeira operação de backup que ocorrer após o registro será um backup completo de todos os dados incluídos no backup e não apenas as alterações desde o último backup. No entanto, se você precisar executar uma operação de recuperação, poderá recuperar os dados que passaram por backup usando Recuperar em outra opção de recuperação de servidor. Para obter mais informações, consulte Renomear um servidor.
 
-**P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. É possível fazer backup do seguinte conjunto de unidades/volumes:
+**P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. Não é possível fazer backup do seguinte conjunto de unidades/volumes:
 
-- Mídia removível: a unidade deve ser indicada como fixa para ser usada como uma origem para itens de backup.
+- Mídia removível: a unidade deve ser indicada como fixa para ser usada como uma origem de itens de backup.
 - Volumes somente leitura: o volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
 - Volumes offline: o volume deve estar online para que o VSS funcione.
 - Compartilhamento de rede: O volume deve ser local para o backup do servidor usando o backup online.
@@ -93,10 +86,10 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 **P20. Quais regras de firewall devem ser configuradas para o backup do Backup do Azure?** <br/> R20. Certifique-se de que as regras de firewall permitem a comunicação com as URLs abaixo para o backup contínuo do local para a proteção do Azure e da carga de trabalho no Azure:
 
 - www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+- *.Microsoft.com
+- *.WindowsAzure.com
+- *.microsoftonline.com
+- *.windows.net
 
 
 ## Backup e retenção
@@ -148,4 +141,4 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P4. O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados ou a Microsoft pode recuperar os dados?** <br/> R4. A chave usada para criptografar os dados de backup está presente apenas nas instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente inserir a chave incorretamente, a Microsoft não poderá recuperar os dados de backup.
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

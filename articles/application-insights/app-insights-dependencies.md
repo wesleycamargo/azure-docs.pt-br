@@ -27,7 +27,7 @@ O monitoramento de dependência pronto para uso está disponível atualmente par
 * Aplicativos Web em ASP.NET e serviços em execução em um servidor IIS ou no Azure
 * [Aplicativos Web em Java](app-insights-java-agent.md)
 
-Para outros tipos, como aplicativos de dispositivo, você pode escrever seu próprio monitor usando a API TrackDependency.
+Para outros tipos, como aplicativos de dispositivo, você pode escrever seu próprio monitor usando a [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 O monitor de dependência pronto para uso atualmente relata chamadas para esses tipos de dependências:
 
@@ -37,7 +37,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
  * Chamadas HTTP locais ou remotas
  * Banco de Dados de Documentos, tabela, o armazenamento de blob e fila do Azure
 * Java
- * Chamadas para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
+ * Chamada para um banco de dados por meio de um driver [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL ou SQLite.
 
 Novamente, você pode escrever suas próprias chamadas de SDK para monitorar outras dependências.
 
@@ -129,4 +129,4 @@ Se quiser desativar o módulo padrão de acompanhamento de dependência, remova 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

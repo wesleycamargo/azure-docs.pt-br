@@ -46,11 +46,11 @@ Em um serviço implementado usando a API Web ASP.NET, cada solicitação é rote
 	);
 	```
 
-	As rotas podem ser genéricas, incluindo argumentos literais como _api_ e variáveis como _{controller}_ e _{id}_. O roteamento baseado em convenções permite que alguns elementos da rota sejam opcionais. A estrutura da API da Web determina qual método invocar no controlador, fazendo a correspondência entre o método HTTP na solicitação e a parte inicial do nome do método na API e, em seguida, combinando quaisquer eventuais parâmetros opcionais. Por exemplo, se um controlador chamado _orders_ contém os métodos _GetAllOrders()_ ou _GetOrderByInt(int id)_, então a solicitação GET _http://www.adventure-works.com/api/orders/_ será direcionada para o método _GetAlllOrders()_ e a solicitação GET _http://www.adventure-works.com/api/orders/99_ será roteada para o método _GetOrderByInt(int id)_. Se não houver nenhum método correspondente disponível que comece com o prefixo Get no controlador, a estrutura da API Web responde com uma mensagem HTTP 405 (Método Não Permitido). Além disso, o nome do parâmetro (id) especificado na tabela de roteamento deve ser igual ao nome do parâmetro para o método _GetOrderById_; caso contrário, a estrutura da API da Web envia uma resposta HTTP 404 (Não Encontrado).
+	As rotas podem ser genéricas, incluindo argumentos literais como _api_ e variáveis como _{controller}_ e _{id}_. O roteamento baseado em convenções permite que alguns elementos da rota sejam opcionais. A estrutura da API da Web determina qual método invocar no controlador, fazendo a correspondência entre o método HTTP na solicitação e a parte inicial do nome do método na API e, em seguida, combinando quaisquer eventuais parâmetros opcionais. Por exemplo, se um controlador chamado _orders_ contém os métodos _GetAllOrders()_ ou _GetOrderByInt(int id)_, então a solicitação GET \__http://www.adventure-works.com/api/orders/_ será direcionada para o método _GetAlllOrders()_ e a solicitação GET \__http://www.adventure-works.com/api/orders/99_ será roteada para o método _GetOrderByInt(int id)_. Se não houver nenhum método correspondente disponível que comece com o prefixo Get no controlador, a estrutura da API Web responde com uma mensagem HTTP 405 (Método Não Permitido). Além disso, o nome do parâmetro (id) especificado na tabela de roteamento deve ser igual ao nome do parâmetro para o método _GetOrderById_; caso contrário, a estrutura da API da Web envia uma resposta HTTP 404 (Não Encontrado).
 
-	As mesmas regras se aplicam a solicitações HTTP POST, PUT e DELETE; uma solicitação PUT que atualiza os detalhes do pedido 101 deve ser direcionada para o URI _http://www.adventure-works.com/api/orders/101_; o corpo da mensagem conterá os novos detalhes do pedido e essas informações serão passadas como um parâmetro para um método no controlador “orders”, com um nome começando com o prefixo _Put_ como, por exemplo, _PutOrder_.
+	As mesmas regras se aplicam a solicitações HTTP POST, PUT e DELETE; uma solicitação PUT que atualiza os detalhes do pedido 101 deve ser direcionada para o URI \__http://www.adventure-works.com/api/orders/101_; o corpo da mensagem conterá os novos detalhes do pedido e essas informações serão passadas como um parâmetro para um método no controlador “orders”, com um nome começando com o prefixo _Put_ como, por exemplo, _PutOrder_.
 
-	A tabela de roteamento padrão não corresponderá a uma solicitação que faz referência a recursos filho em uma API da Web RESTful, como _http://www.adventure-works.com/api/customers/1/orders_ (localizar os detalhes de todos os pedidos feitos pelo cliente 1). Para tratar desses casos, você pode adicionar rotas personalizadas à tabela de roteamento:
+	A tabela de roteamento padrão não corresponderá a uma solicitação que faz referência a recursos filho em uma API Web RESTful, como \__http://www.adventure-works.com/api/customers/1/orders_ (localize os detalhes de todos os pedidos feitos pelo cliente 1). Para tratar desses casos, você poderá adicionar rotas personalizadas à tabela de roteamento:
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +145,7 @@ Em um serviço implementado usando a API Web ASP.NET, cada solicitação é rote
 
 - **Considere as vantagens e desvantagens de colocar a API em um subdomínio**.
 
-	Por padrão, a API Web ASP.NET organiza as APIs no diretório _/api_ em um domínio, como _http://www.adventure-works.com/api/orders_. Esse diretório reside no mesmo domínio que qualquer outro serviço exposto pelo mesmo host. Pode ser vantajoso dividir a API da Web em seu próprio subdomínio em execução em um host separado, com URIs como _http://api.adventure-works.com/orders_. Essa separação permite a você particionar e dimensionar a API da Web com mais eficiência, sem afetar outros serviços ou aplicativos da Web em execução no domínio _www.adventure-works.com_.
+	Por padrão, a API Web ASP.NET organiza as APIs no diretório _/api_ em um domínio, como \__http://www.adventure-works.com/api/orders_. Esse diretório reside no mesmo domínio que qualquer outro serviço exposto pelo mesmo host. Pode ser vantajoso dividir a API Web em seu próprio subdomínio em execução em um host separado, com URIs como \__http://api.adventure-works.com/orders_. Essa separação permite a você particionar e dimensionar a API da Web com mais eficiência, sem afetar outros serviços ou aplicativos da Web em execução no domínio _www.adventure-works.com_.
 
 	No entanto, colocar uma API da Web em um subdomínio diferente também pode levar a problemas de segurança. Qualquer aplicativo ou serviço Web hospedado em _www.adventure-works.com_ que invoca uma API da Web sendo executada em outro lugar pode violar a política de mesma origem de muitos navegadores da Web. Nessa situação, será necessário habilitar compartilhamento de CORS (recursos entre origens) entre os hosts. Para obter mais informações, consulte o documento Diretrizes de Segurança de API.
 
@@ -302,14 +302,15 @@ Depois de uma solicitação de um aplicativo cliente ter sido roteada com êxito
 
 	Os links HATEOAS mostrados no exemplo de resposta HTTP indicam que um aplicativo cliente pode executar as seguintes operações:
 
-	- Uma solicitação HTTP GET para o URI _http://adventure-works.com/customers/2_ coletar os detalhes do cliente (novamente). Os dados podem ser retornados como XML ou JSON. 
-	- Uma solicitação HTTP PUT para o URI _http://adventure-works.com/customers/2_ modificar os detalhes do cliente. Os novos dados devem ser fornecidos na mensagem de solicitação no formato x-www-form-urlencoded.
+	- Uma solicitação HTTP GET para o URI \__http://adventure-works.com/customers/2_ coletar os detalhes do cliente (novamente). Os dados podem ser retornados como XML ou JSON.
 
-	- Uma solicitação HTTP DELETE para o URI _http://adventure-works.com/customers/2_ excluir o cliente. A solicitação não espera nenhuma informação adicional nem dados de retorno no corpo da mensagem de resposta.
+	- Uma solicitação HTTP PUT para o URI \__http://adventure-works.com/customers/2_ para modificar os detalhes do cliente. Os novos dados devem ser fornecidos na mensagem de solicitação no formato x-www-form-urlencoded.
 
-	- Uma solicitação HTTP GET para o URI _http://adventure-works.com/customers/2/orders_ localizar todos os pedidos do cliente. Os dados podem ser retornados como XML ou JSON.
+	- Uma solicitação HTTP DELETE para o URI _http://adventure-works.com/customers/2_ para excluir o cliente. A solicitação não espera nenhuma informação adicional nem dados de retorno no corpo da mensagem de resposta.
 
-	- Uma solicitação HTTP PUT para o URI _http://adventure-works.com/customers/2/orders_ criar um novo pedido para esse cliente. Os dados devem ser fornecidos na mensagem de solicitação no formato x-www-form-urlencoded.
+	- Uma solicitação HTTP GET para o URI\__http://adventure-works.com/customers/2/orders_ para localizar todos os pedidos do cliente. Os dados podem ser retornados como XML ou JSON.
+
+	- Uma solicitação HTTP PUT para o URI _http://adventure-works.com/customers/2/orders_ para criar um novo pedido para esse cliente. Os dados devem ser fornecidos na mensagem de solicitação no formato x-www-form-urlencoded.
 
 ## Considerações para tratar de exceções
 Por padrão, na estrutura da API Web ASP.NET, se uma operação gera uma exceção não percebida a estrutura retorna uma mensagem de resposta, com código de status HTTP 500 (Erro Interno do Servidor). Em muitos casos, essa abordagem simplista não é útil no isolamento e torna difícil determinar a causa da exceção. Portanto você deve adotar uma abordagem mais abrangente para tratamento de exceções, considerando os seguintes pontos:
@@ -923,7 +924,7 @@ Pode haver ocasiões em que um aplicativo cliente precise emitir solicitações 
 	}
 	```
 
-	Um aplicativo cliente pode emitir uma solicitação para recuperar 30 pedidos começando com deslocamento 50, pelo uso do URI _http://www.adventure-works.com/api/orders?limit=30&offset=50_.
+	Um aplicativo cliente pode emitir uma solicitação para recuperar 30 pedidos começando com deslocamento 50, pelo uso do URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_.
 
 	> [AZURE.TIP]Evite habilitar aplicativos cliente a especificar cadeias de consulta que resultem em um URI com mais de 2.000 caracteres. Muitos servidores e clientes da Web não podem processar URIs tão longos.
 
@@ -954,7 +955,7 @@ A mesma API da Web pode ser utilizada por muitos aplicativos cliente em execuç�
 
 	6. Enquanto a tarefa é executada, o cliente pode continuar a executar seu próprio processamento. Ele pode enviar periodicamente uma solicitação para o URI _/polling/{guid}_, onde _{guid}_ é a GUID retornada na mensagem de resposta 202 pela API da Web.
 
-	7. A API da Web no URI _/polling{guid}_ consulta o estado da tarefa correspondente na tabela e retorna uma mensagem de resposta, com código de status HTTP 200 (OK) e contendo esse estado (_Em execução_, _Concluída_ ou _Falha_). Se a tarefa foi concluída ou falhou, a mensagem de resposta também pode incluir os resultados de processamento ou quaisquer informações disponíveis sobre o motivo da falha.
+	7. A API da Web no URI _/polling{guid}_ consulta o estado da tarefa correspondente na tabela e retorna uma mensagem de resposta, com código de status HTTP 200 (OK) e contendo esse estado (_Em execução_, _Concluído_ ou _Falha_). Se a tarefa foi concluída ou falhou, a mensagem de resposta também pode incluir os resultados de processamento ou quaisquer informações disponíveis sobre o motivo da falha.
 
 	Se você prefere implementar notificações, as opções disponíveis incluem:
 
@@ -1151,4 +1152,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

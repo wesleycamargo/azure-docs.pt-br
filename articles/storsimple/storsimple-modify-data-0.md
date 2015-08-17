@@ -54,23 +54,20 @@ Uma maneira alternativa de reconfigurar a interface de rede DADOS 0 é através 
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
 
-	Se você estiver usando endereços IPv6, use o seguinte comando:
-
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv6Address <> -IPv6Netmask <> -IPv6Gateway <> -Controller0IPv6Address <> -Controller1IPv6Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
+	
 1. Digite valores para os DADOS 0 os colchetes angulares (< >) para o seguinte:
 											
-	- Endereço IPv4/IPv6
+	- Endereço IPv4
 	
-	- Gateway IPv4/IPv6
+	- Gateway IPv4
 	
-	- Máscara de sub-rede IPv4/IPv6
+	- Máscara da sub-rede IPv4
 	
-	- Endereço IPv4/IPv6 fixo para o controlador 0
+	- Endereço IPv4 fixo para o controlador 0
 
-	- Endereço IPv4/IPv6 fixo para o controlador 1
+	- Endereço IPv4 fixo para o controlador 1
 
 ## Próximas etapas
-Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
+Para configurar as interfaces de rede que não sejam DADOS 0, você pode usar a [página Configurar no Portal de Gerenciamento](storsimple-modify-device-config.md). Se você tiver problemas ao configurar suas interfaces de rede, consulte [Solucionar problemas de implantação](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

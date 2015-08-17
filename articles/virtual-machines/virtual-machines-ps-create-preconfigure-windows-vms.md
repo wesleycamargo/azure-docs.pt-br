@@ -269,4 +269,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Criar e pré-configurar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

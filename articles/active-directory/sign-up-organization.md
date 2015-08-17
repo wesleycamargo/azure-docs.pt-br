@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Inscrever-se no Azure como uma organização" 
-	description="Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="Inscrever-se no Azure como uma organização"
+	description="Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # Inscrever-se no Azure como uma organização
@@ -27,13 +27,12 @@ Até recentemente, era possível se inscrever para uma nova assinatura do Micros
 
 	Depois que esse diretório tiver sido criado, um administrador pode criar usuários e atribuir licenças a eles com base em quais assinaturas de serviço de nuvem que precisam de acesso, como o Azure.
 
-Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](http://go.microsoft.com/fwlink/?LinkId=269967)
+Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Recursos adicionais**
 
-* [Blog do Microsoft Azure](http://azure.microsoft.com/blog/) 
+* [Blog do Microsoft Azure](http://azure.microsoft.com/blog/)
 * [O que é o AD do Azure?](active-directory-whatis.md)
 * [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

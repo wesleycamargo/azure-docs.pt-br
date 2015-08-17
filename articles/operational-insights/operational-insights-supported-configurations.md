@@ -29,13 +29,13 @@ Você pode usar o Insights Operacionais como um serviço anexado no Operations M
 Usar o Insights Operacionais como um serviço anexado tem os seguintes pré-requisitos:
 
 
-- A integração entre o Operations Manager do System Center 2012 SP1 e o Insights Operacionais requer pacotes de gerenciamento atualizados que são incluídos no [Conector do Insights Operacionais para o Operations Manager](https://www.microsoft.com/en-us/download/details.aspx?id=38199). Você pode baixar e instalar os pacotes de gerenciamento no [Conector do Insights Operacionais para o Operations Manager](https://www.microsoft.com/en-us/download/details.aspx?id=38199).
+- A integração entre o Operations Manager do System Center 2012 SP1 e o Insights Operacionais requer pacotes de gerenciamento atualizados que são incluídos no [Conector do Insights Operacionais para o Operations Manager](https://www.microsoft.com/pt-br/download/details.aspx?id=38199). Você pode baixar e instalar os pacotes de gerenciamento no [Conector do Insights Operacionais para o Operations Manager](https://www.microsoft.com/pt-br/download/details.aspx?id=38199).
 
 - System Center 2012 SP1: Pacote Cumulativo de Atualizações 6 do Operations Manager, embora o Pacote Cumulativo de Atualizações 7 seja preferido. Esta atualização precisa ser aplicada ao servidor de gerenciamento, agentes e console de Operações do Insights Operacionais como um cenário de serviço anexado.
 
 - System Center 2012 R2: Pacote Cumulativo de Atualizações 2 do Operations Manager, embora o Pacote Cumulativo de Atualizações 3 seja preferido. Esta atualização precisa ser aplicada ao servidor de gerenciamento, agentes e console de Operações do Insights Operacionais como um cenário de serviço anexado.
 
-- Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o Virtual Machine Manager (VMM). Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/en-us/library/hh882396.aspx).
+- Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o Virtual Machine Manager (VMM). Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/pt-br/library/hh882396.aspx).
 
 Consulte [Exibir Alertas do Insights Operacionais](http://go.microsoft.com/fwlink/?LinkID=293793) para obter instruções sobre a instalação e configuração.
 
@@ -48,11 +48,11 @@ Os agentes do Operations Manager têm suporte em vários computadores. Consulte 
 
 ### Software necessário para o Operations Manager
 
-Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o VMM. Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/en-us/library/hh882396.aspx).
+Para exibir os dados de gerenciamento da capacidade, você deve habilitar a conectividade do Operations Manager com o VMM. Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](https://technet.microsoft.com/pt-br/library/hh882396.aspx).
 
 ## Agentes conectando diretamente ao Insights Operacionais
 
-O agente usado para se conectar diretamente ao serviço é o agente de Monitoramento da Microsoft. Seus requisitos de sistema são listados na página [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
+O agente usado para se conectar diretamente ao serviço é o agente de Monitoramento da Microsoft. Seus requisitos de sistema são listados na página [Centro de Download da Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
 
 ## Navegadores
 
@@ -100,4 +100,4 @@ Para o SQL Server, as seguintes edições de 32 e 64 bits têm suporte para a an
 
 Além disso, a edição de 32 bits do SQL Server tem suporte ao ser executada na implementação do WOW64.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -23,4 +23,4 @@ Parabéns! O MongoLab forneceu apenas um banco de dados MongoDB na região do Az
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

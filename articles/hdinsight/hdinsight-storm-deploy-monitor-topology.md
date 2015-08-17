@@ -176,4 +176,4 @@ Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Stor
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

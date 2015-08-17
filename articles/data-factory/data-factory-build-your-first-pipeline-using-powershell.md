@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -264,4 +264,4 @@ Consulte [Referência de cmdlet de Data Factory](https://msdn.microsoft.com/libr
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL do Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -339,4 +339,4 @@ Você verá um resultado semelhante ao seguinte em um cluster em funcionamento c
 
 * Consulte a [Documentação do Intel MPI Library](https://software.intel.com/pt-br/articles/intel-mpi-library-documentation/) para obter orientação sobre o Intel MPI.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -114,10 +114,10 @@ Esta seção explica o código relacionado à sincronização offline no exemplo
 Ao usar o armazenamento offline de dados principais, você precisa definir determinadas tabelas e campos em seu modelo de dados. O aplicativo de exemplo já inclui um modelo de dados com o formato correto. Nesta seção observaremos essas tabelas e como elas são usadas.
 
 - Abra **QSDataModel.xcdatamodeld**. Há quatro tabelas definidas - três que são usados pelo SDK e uma tabela para os itens ToDo:
-      * MS_TableOperations: Para acompanhar os itens que devem ser sincronizados com o servidor
-      * MS_TableOperationErrors: para acompanhar todos os erros que ocorrerem durante a sincronização offline
-      * MS_TableConfig: para controlar a hora da última atualização para a última operação de sincronização para todas as operações de recepção
-      * TodoItem: para armazenar os itens de tarefas. As colunas do sistema **ms_createdAt**, **ms_updatedAt** e **ms_version** são propriedades opcionais do sistema.
+      * MS\_TableOperations: Para acompanhar os itens que devem ser sincronizados com o servidor
+      * MS\_TableOperationErrors: para acompanhar todos os erros que ocorrerem durante a sincronização offline
+      * MS\_TableConfig: para controlar a hora da última atualização para a última operação de sincronização para todas as operações de recepção
+      * TodoItem: para armazenar os itens de tarefas. As colunas do sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** são propriedades opcionais do sistema.
 
 >[AZURE.NOTE]O SDK do aplicativo móvel reserva nomes de coluna que começam com “**`ms_`**”. Você não deve usar este prefixo em nada exceto colunas do sistema, caso contrário, os nomes de coluna serão modificados ao usar o back-end remoto.
 
@@ -125,7 +125,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     ### Tabelas do sistema
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +137,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | tabela | Cadeia de caracteres |
     | tableKind | Número inteiro 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +148,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | propriedades | Dados binários |
     | tableKind | Número inteiro 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +172,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | ID | Cadeia de caracteres | chave primária no repositório remoto |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms_createdAt | Data | (opcional) é mapeado para __createdAt propriedade do sistema | | ms_updatedAt | Data | (opcional) é mapeado para __updatedAt propriedade do sistema | | ms_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para __versão |
+    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
 
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
@@ -279,7 +279,7 @@ Quando desejamos sincronizar o repositório local com o servidor, usamos os mét
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: sincronização offline em serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

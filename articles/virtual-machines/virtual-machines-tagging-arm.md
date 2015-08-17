@@ -17,9 +17,9 @@
    ms.date="07/23/2015"
    ms.author="dkshir;memccror"/>
 
-# Como marcar uma máquina virtual no Azure
+# Como marcar uma Máquina Virtual no Azure
 
-Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Azure. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente.
+Este artigo descreve as diferentes maneiras de marcar uma máquina virtual no Azure por meio do Gerenciador de Recursos do Azure. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas a recursos criados por meio do Gerenciador de Recursos do Azure.
 
 ## Marcando uma máquina virtual por meio de modelos
 
@@ -72,7 +72,7 @@ Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você pre
 
 Em primeiro lugar, navegue para uma Máquina Virtual usando o cmdlet `Get-AzureVM`.
 
-        PS C:> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
+        PS C:\> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
 
 Se sua Máquina Virtual já contiver marcas, você verá todas elas no seu recurso:
 
@@ -87,11 +87,11 @@ Se desejar adicionar marcas por meio do PowerShell, você poderá usar o comando
 
 Este primeiro cmdlet define todas as marcas colocadas em *MyWindowsVM* para a variável *tags* usando as funções `Get-AzureResource` e `Tags`.
 
-        PS C:> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
+        PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
 O segundo comando exibe as marcas para a variável fornecida.
 
-        PS C:> $tags
+        PS C:\> $tags
 
         Name		Value
         ----                           -----
@@ -106,15 +106,15 @@ O segundo comando exibe as marcas para a variável fornecida.
 
 O terceiro comando adiciona uma marca extra à variável *tags*. Observe o uso de **+=** para acrescentar o novo par de chave/valor à lista *tags*.
 
-        PS C:> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
 O quarto comando define todas as marcas definidas na variável *tags* para o recurso fornecido. Nesse caso, é MyWindowsVM.
 
-        PS C:> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
+        PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
 O quinto comando exibe todas as marcas no recurso. Como pode ser visto, *Location* agora está definido como uma marca com *MyLocation* como o valor.
 
-        PS C:> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
+        PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
         Name		Value
         ----                           -----
@@ -187,4 +187,4 @@ Ao analisar essas marcas juntamente com o uso, as organizações poderão adquir
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

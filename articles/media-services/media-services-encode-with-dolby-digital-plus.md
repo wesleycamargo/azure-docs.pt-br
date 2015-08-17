@@ -592,17 +592,17 @@ Cada atributo é descrito nas seções a seguir.
 Este atributo determina o modo de medição de intensidade. Valores permitidos são:
 
  
-**ITU_R_BS_1770_2_DI** (padrão) — indica ITU-R BS.1770-2 mais Dialogue Intelligence
+**ITU\_R\_BS\_1770\_2\_DI** (padrão) — indica ITU-R BS.1770-2 mais Dialogue Intelligence
 
-**ITU_R_BS_1770_1_DI** — indica ITU-R BS.1770-1 mais Dialogue Intelligence
+**ITU\_R\_BS\_1770\_1\_DI** — indica ITU-R BS.1770-1 mais Dialogue Intelligence
 
-**ITU_R_BS_1770_2** — indica ITU-R BS.1770-2
+**ITU\_R\_BS\_1770\_2** — indica ITU-R BS.1770-2
 
-**LEQA_DI** — indica Leq(A) mais Dialogue Intelligence
+**LEQA\_DI** — indica Leq(A) mais Dialogue Intelligence
 
 **Observação**
 
-O modo **EBU R128** pode ser alcançado com **ITU_R_BS_1770_2_DI**
+O modo **EBU R128** pode ser alcançado com **ITU\_R\_BS\_1770\_2\_DI**
 
 O **Leq(A)** é incluído exclusivamente por motivos de herança e só deve ser usado em fluxos de trabalho herdados específicos
 
@@ -610,7 +610,7 @@ O **ITU** recentemente lançou uma atualização chamada BS.1770-3, que é equiv
 
 ###Atributo SpeechThreshold
 
-Especifica o limite de fala usado pelo DPLM para produzir um resultado de intensidade integrado (por exemplo, selecionando entre restrição de fala, restrição de nível e nenhuma restrição). O intervalo de configuração de limite de fala é de 0% a 100%, em incrementos de 1%. Esse parâmetro tem efeito somente quando o DPLM é configurado de modo que utilize Dialogue Intelligence, que significa que só pode ser especificado se o modo é definido como ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI. O valor padrão, quando Mode for ITU_R_BS_1770_2_DI ou ITU_R_BS_1770_1_DI, é 20%. Valores para este atributo devem ser definidos no intervalo entre 0, 1 – 100.
+Especifica o limite de fala usado pelo DPLM para produzir um resultado de intensidade integrado (por exemplo, selecionando entre restrição de fala, restrição de nível e nenhuma restrição). O intervalo de configuração de limite de fala é de 0% a 100%, em incrementos de 1%. Esse parâmetro tem efeito somente quando o DPLM é configurado de modo que utilize Dialogue Intelligence, que significa que só pode ser especificado se o modo é definido como ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI. O valor padrão, quando Mode for ITU\_R\_BS\_1770\_2\_DI ou ITU\_R\_BS\_1770\_1\_DI, é 20%. Valores para este atributo devem ser definidos no intervalo entre 0, 1 – 100.
 
 ###Atributo TruePeakDCBlock
 
@@ -640,7 +640,7 @@ Cada atributo é descrito abaixo.
 
 **DialogNormalization**: o valor de DialNorm, em decibéis, medido a partir do áudio de entrada, que será inserido no fluxo de saída DD +, no intervalo {-31, -30,..., -1} dB.
 
-**IntegratedLoudness**: a intensidade integrada conforme medida pelo DPLM, no intervalo de -70 a + 10 LKFS/dBFS (onde dBFS é usado somente quando o modo é definido como LEQA_DI).
+**IntegratedLoudness**: a intensidade integrada conforme medida pelo DPLM, no intervalo de -70 a + 10 LKFS/dBFS (onde dBFS é usado somente quando o modo é definido como LEQA\_DI).
 
 **IntegratedLoudnessGatingMethod**: os valores válidos são: 0 – None/Ungated; 1 – Speech Gated; 2 – Level Gated.
 
@@ -651,4 +651,4 @@ Cada atributo é descrito abaixo.
 **TruePeak**: esse resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

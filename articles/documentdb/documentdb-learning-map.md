@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mapa de Aprendizagem para o Banco de Dados de Documentos | Azure" 
+	pageTitle="Mapa de Aprendizagem para o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Obtenha um mapa visual dos recursos disponíveis para ir de 0 a 60 no Banco de Dados de Documentos do Azure."
 	services="documentdb" 
 	documentationCenter="" 
@@ -23,4 +23,4 @@ O Banco de Dados de Documentos do Azure é um serviço de banco de dados de docu
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

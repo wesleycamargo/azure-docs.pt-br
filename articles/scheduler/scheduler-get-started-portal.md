@@ -11,8 +11,8 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.topic="hero-article" 
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # Introdução à utilização do Agendador no Portal de Gerenciamento
@@ -264,4 +264,4 @@ Por fim, para todos os tipos de ação, você pode alterar o agendamento em si e
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

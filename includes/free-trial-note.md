@@ -4,4 +4,4 @@
   >
   > + É possível [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): sua assinatura do MSDN fornece a você créditos todo mês, que você pode usar para os serviços pagos do Azure.
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

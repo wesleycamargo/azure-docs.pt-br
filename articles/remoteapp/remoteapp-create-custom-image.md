@@ -85,7 +85,7 @@ As etapas detalhadas para a criação de uma nova imagem são:
 	1. Criar uma nova máquina virtual. Use o Novo assistente da máquina virtual no Hyper-V Manager ou no Client Hyper-V.
 		1. Na página Especificar Geração, escolha **Geração 1**.
 		2. Na página Conectar o disco virtual, selecione **Usar um disco virtual existente** e procure pelo VHD criado na etapa anterior.
-		2. Na página Opções de instalação, selecione **Instalar um sistema operacional de um CD/DVD_ROM de inicialização** e, em seguida, selecione o local da mídia de instalação do seu Windows Server 2012 R2.
+		2. Na página Opções de instalação, selecione **Instalar um sistema operacional de um CD/DVD\_ROM de inicialização** e, em seguida, selecione o local da mídia de instalação do seu Windows Server 2012 R2.
 		3. Escolha outras opções necessárias no assistente para instalar o Windows e os seus aplicativos. Conclua o assistente.
 	2.  Após a conclusão do assistente, edite as configurações da máquina virtual e faça outras alterações necessárias para instalar o Windows e os seus programas, como o número de processadores virtuais, e clique em **OK**.
 	4.  Conecte-se à máquina virtual e instale o Windows Server 2012 R2.
@@ -120,7 +120,7 @@ As etapas detalhadas para a criação de uma nova imagem são:
 	Alternativamente, é possível configurar ou adicionar o valor DWORD a seguir no Registro:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	Se você estiver criando sua imagem dentro de uma máquina virtual do Azure, renomeie o arquivo **\%windir%\\Panther\\Unattend.xml**, já que ele bloqueará o script de carregamento usado posteriormente no trabalho. Modifique o nome deste arquivo para Unattend.old para que você ainda tenha este arquivo no caso de precisar reverter sua implantação.
+9.	Se você estiver criando sua imagem dentro de uma máquina virtual do Azure, renomeie o arquivo **\\%windir%\\Panther\\Unattend.xml**, já que ele bloqueará o script de carregamento usado posteriormente no trabalho. Modifique o nome deste arquivo para Unattend.old para que você ainda tenha este arquivo no caso de precisar reverter sua implantação.
 10.	Vá para o Windows Update e instale todas as atualizações importantes. Talvez seja necessário executar o Windows Update várias vezes para obter todas as atualizações. (Às vezes, você pode instalar uma atualização e essa atualização em si requerer uma atualização.)
 10.	SYSPREP a imagem. Em um prompt de comandos com privilégios elevados, execute o seguinte comando:
 
@@ -137,4 +137,4 @@ Agora que você tem a sua imagem de modelo personalizada, você precisará atual
 - [Como criar uma coleção na nuvem do RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

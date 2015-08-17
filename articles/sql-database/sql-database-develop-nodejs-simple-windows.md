@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/30/2015" 
 	ms.author="mebha"/>
 
 
@@ -41,25 +41,12 @@ Os seguintes itens de software devem existir no computador de desenvolvimento do
 
 ### Instalar os módulos necessários
 
+Depois de atender aos requisitos, verifique se você está na versão 0.8.9 do Node.js. É possível verificar isso usando o seguinte comando no terminal de linha de comando: node -v. <br>Em uma janela de linha de comando do **cmd.exe**, navegue até o diretório do projeto, por exemplo, C:\\NodeJSSQLProject. Insira os seguintes comandos na sequência mostrada.
 
-Em uma janela de linha de comando **cmd.exe**, navegue até o diretório que contém msnodesql. Insira os seguintes comandos na sequência mostrada.
-
-
+	npm init
 	npm install msnodesql
-	npm install -g node-gyp
 
-
-Agora que o node-gyp está instalado, navegue até o *DiretórioDoSeuProjeto* e, em seguida, até **node_modules\\msnodesql**. Em seguida, emita os seguintes comandos em sua janela **cmd.exe**.
-
-
-	node-gyp configure 
-	node-gyp build
-
-
-Depois, navegue até o diretório **build\\release**. Copie o arquivo **sqlserver.node** e cole-o no diretório **msnodesql\\lib**. Se necessário, substitua o arquivo antigo.
-
-Confira nosso [blog da equipe](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) e o [vídeo](https://www.youtube.com/watch?v=kQo_L-D_zk8) para aprender a instalar e configurar os requisitos mencionados anteriormente.
-
+Em seguida, navegue até a pasta node\_modules\\msnodesql e abra o executável **msnodesql-0.2.1-v0.8-ia32**. Siga as etapas do assistente de instalação e pressione concluir quando tiver terminado. Neste ponto, você deve ter o driver Node.js do SQL Server instalado. Siga as etapas a seguir para obter a cadeia de conexão e, em seguida, você deve conseguir se conectar ao Banco de Dados SQL do Azure do seu aplicativo Node.js.
 
 ### Criar um banco de dados e recuperar a cadeia de conexão
  
@@ -234,4 +221,4 @@ Para que este exemplo de código funcione, você deve primeiro ter ou criar um p
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

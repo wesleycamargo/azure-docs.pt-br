@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="06/22/2015"
 	ms.author="mahender"/>
 
 # Adicionar autenticação ao seu aplicativo do Windows
@@ -52,7 +52,7 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)]
 
 
->[AZURE.NOTE]Depois de registrar as informações do pacote do aplicativo da Windows Store com os Serviço de Aplicativo, você deve chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> fornecendo um valor de <strong>true</strong> ao parâmetro <em>useSingleSignOn</em>. Se você não fizer isso, uma solicitação de logon ainda será apresentada aos usuários toda vez que o método de logon for chamado.
+>[AZURE.NOTE]Depois de registrar as informações do pacote do aplicativo da Windows Store com os Serviço de Aplicativo, você deve chamar o método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> fornecendo um valor de **true** ao parâmetro <em>useSingleSignOn</em>. Se você não fizer isso, uma solicitação de logon ainda será apresentada aos usuários toda vez que o método de logon for chamado.
 
 
 ##<a name="tokens"></a>Armazenar o token de autenticação no cliente
@@ -75,4 +75,4 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 [Introdução ao seu aplicativo móvel]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

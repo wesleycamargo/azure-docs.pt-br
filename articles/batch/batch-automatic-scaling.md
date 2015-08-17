@@ -359,8 +359,8 @@ Esses métodos podem ser usados para obter dados de amostra.
           <li><p><b>doubleVec GetSample(double count)</b> - Especifica o número de amostras que são necessárias para os exemplos mais recentes.</p>
 				  <p>Um exemplo é 5 segundos de dados de métrica. GetSample(1) retorna a última amostra disponível, mas para métricas como $CPUPercent você não deve usá-lo porque não é possível saber quando a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antigo. É melhor usar um intervalo de tempo, conforme mostrado abaixo.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Especifica um intervalo de tempo para a coleta de dados de amostra e, opcionalmente, especifica o percentual de amostras que deve haver no intervalo solicitado.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10) deve retornar 200 amostras se todas as amostras dos últimos dez minutos estiverem presentes no histórico de CPUPercent. Se o último minuto do histórico ainda não estiver presente, somente 180 exemplos são retornados.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) é bem-sucedido e $CPUPercent.GetSample(TimeInterval_Minute\*10,95) falha.</p></li>
+          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10) deve retornar 200 amostras se todas as amostras dos últimos dez minutos estiverem presentes no histórico de CPUPercent. Se o último minuto do histórico ainda não estiver presente, somente 180 exemplos são retornados.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) é bem-sucedido e $CPUPercent.GetSample(TimeInterval_Minute*10,95) falha.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@ Essas métricas podem ser definidas em uma fórmula.
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>Este exemplo mostra uma fórmula que é usada para definir o número de nós de computação no pool para 110% do número de destino de nós atual se o uso médio mínimo da CPU nos últimos 10 minutos estiver acima de 70%:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
     <p>Este exemplo mostra uma fórmula que é usada para definir o número de nós de computação no pool para 90% do número de destino de nós atual se o uso médio da CPU nos últimos 60 minutos ficar abaixo de 20%:</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
     <p>Este exemplo define o número de destino de nós de computação dedicados para um máximo de 400:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@ Essas métricas podem ser definidas em uma fórmula.
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Este exemplo mostra uma fórmula que detecta se 70% das amostras foram registradas nos últimos 15 minutos. Caso contrário, ele usa a última amostra. Ele tenta aumentar o número de nós de computação para corresponder ao número de tarefas ativas, com um máximo de 3. Ele define o número de nós para um quarto do número de tarefas ativas porque a propriedade MaxTasksPerVM do pool está definida como 4. Ele também define a opção de Desalocação como "taskcompletion" para manter o computador até a conclusão das tarefas.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@ Você deve verificar periodicamente os resultados das execuções automáticas d
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – este cmdlet obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
 2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

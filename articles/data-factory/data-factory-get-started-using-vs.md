@@ -101,16 +101,17 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 5. Clique com o botão direito no nó **Serviços vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 6. Desta vez, selecione **Serviço vinculado do SQL Azure** e clique em **Adicionar**. 
-7. No **arquivo AzureSqlLinkedService1.json** substitua **servername**, **databasename**, **username@servername**, e **senha** pelos nomes de seu Azure SQL Server, banco de dados, conta de usuário e senha.8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
+7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **nomedobancodedados**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
+8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
 
 
 ### Criar tabelas de entrada e saída
-Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedService1** e **AzureSqlLinkedService1** para vincular uma conta de armazenamento do Azure e o banco de dados SQL do Azure à data factory: **ADFTutorialDataFactory**. Nesta etapa, você vai definir duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída que são armazenados nos repositórios de dados referidos por AzureStorageLinkedService1 e AzureSqlLinkedService1, respectivamente. Em EmpTableFromBlob, você especifica o contêiner de blob que contém um blob com os dados de origem e, em EmpSQLTable, você especifica a tabela SQL que armazenará os dados de saída.
+Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedService1** e **AzureSqlLinkedService1** para vincular uma conta de armazenamento do Azure e o banco de dados SQL do Azure ao data factory: **ADFTutorialDataFactory**. Nesta etapa, você definirá duas tabelas de data factory – **EmpTableFromBlob** e **EmpSQLTable** – que representam os dados de entrada/saída armazenados nos repositórios de dados referidos por AzureStorageLinkedService1 e AzureSqlLinkedService1, respectivamente. Em EmpTableFromBlob, você especifica o contêiner de blob que contém um blob com os dados de origem e, em EmpSQLTable, você especifica a tabela SQL que armazenará os dados de saída.
 
 #### Criar a tabela de entrada
 
-9. Clique com o botão direito em **Tabelas** no **Gerenciador de Soluções**, aponte para **Adicionar** e clique em **Novo Item**.
-10. Na caixa de diálogo **Adicionar novo item**, selecione **Blob do Azure** e clique em **Adicionar**.   
+9. Clique com o botão direito do mouse em **Tabelas** no **Gerenciador de Soluções**, aponte para **Adicionar** e clique em **Novo Item**.
+10. Na caixa de diálogo **Adicionar Novo Item**, selecione **Blob do Azure** e clique em **Adicionar**.   
 10. Substitua o texto JSON pelo seguinte texto e salve o arquivo **AzureBlobLocation1.json**. 
 
 		{
@@ -144,8 +145,8 @@ Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedServi
 
 #### Criar a tabela de saída
 
-11. Clique com o botão direito em **Tabelas** no **Gerenciador de Soluções**, aponte para **Adicionar** novamente e clique em **Novo item**.
-12. Na caixa de diálogo **Adicionar novo item**, selecione **SQL do Azure** e clique em **Adicionar**. 
+11. Clique com o botão direito do mouse em **Tabelas** no **Gerenciador de Soluções**, aponte para **Adicionar** novamente e clique em **Novo item**.
+12. Na caixa de diálogo **Adicionar Novo Item**, selecione **SQL do Azure** e clique em **Adicionar**. 
 13. Substitua o texto JSON pelo seguinte JSON e salve o arquivo **AzureSqlTableLocation1.json**.
 
 		{
@@ -172,11 +173,11 @@ Na etapa anterior, você criou os serviços vinculados **AzureStorageLinkedServi
 		}
 
 #### Criar o pipeline 
-Você criou tabelas e serviços vinculados de entrada/saída até o momento. Agora, você criará um pipeline com uma **Atividade de Cópia** para copiar dados do blob do Azure ao Banco de Dados SQL do Azure.
+Você criou tabelas e serviços vinculados de entrada/saída até o momento. Agora, você criará um pipeline com uma **Atividade de Cópia** para copiar dados do blob do Azure ao banco de dados SQL do Azure.
 
 
-1. Clique com o botão direito em **Pipelines** no **Gerenciador de Soluções**, aponte para **Adicionar** e clique em **Novo Item**.  
-15. Selecione **Pipeline de dados de cópia** na caixa de diálogo **Adicionar novo item** e clique em **Adicionar**. 
+1. Clique com o botão direito do mouse em **Pipelines** no **Gerenciador de Soluções**, aponte para **Adicionar** e clique em **Novo Item**.  
+15. Selecione **Pipeline de dados de cópia** na caixa de diálogo **Adicionar Novo Item** e clique em **Adicionar**. 
 16. Substitua o JSON pelo JSON a seguir e salve o arquivo **CopyActivity1.json**.
 			
 		 {
@@ -224,11 +225,11 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 
 #### Publicar/implantar entidades de data factory
   
-18. Na área da barra de ferramentas, clique com botão direito e selecione **Data Factory** para habilitar a barra de ferramentas de data factory se ela ainda não estiver habilitada. 
-19. Na **barra de ferramentas de data factory**, clique na **caixa suspensa** para ver todas as data factories na sua assinatura do Azure. Se você vir a caixa de diálogo **Entrar no Visual Studio**: 
+18. Na área da barra de ferramentas, clique com botão direito do mouse e selecione **Data Factory** para habilitar a barra de ferramentas de data factory, se ela ainda não estiver habilitada. 
+19. Na **barra de ferramentas Data Factory**, clique na **caixa suspensa** para ver todas as data factories na sua assinatura do Azure. Se você vir a caixa de diálogo **Entrar no Visual Studio**: 
 	20. Insira a **conta de email** associada à assinatura do Azure na qual você deseja criar a data factory, digite **Senha** e clique em **Entrar**.
 	21. Quando a entrada for bem-sucedida, você deverá ver todas as data factories na assinatura do Azure. Neste tutorial, você criará uma nova data factory.       
-22. Na lista suspensa, selecione **ADFTutorialFactoryVS** e clique no botão **Publicar** para implantar/publicar os serviços vinculados, conjuntos de dados e o pipeline.    
+22. Na lista suspensa, selecione **ADFTutorialFactoryVS** e clique no botão **Publicar** para implantar/publicar os serviços vinculados, os conjuntos de dados e o pipeline.    
 
 	![Botão Publicar](./media/data-factory-get-started-using-vs/publish.png)
 
@@ -237,16 +238,16 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 ## Use o Gerenciador de Servidores para examinar as entidades de data factory
 
 1. Em **Visual Studio**, clique em **Exibição** no menu e clique em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se você vir **Entrar no Visual Studio**, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite sua **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de tarefas de data factory**.![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Clique com o botão direito em uma data factory e selecione Exportar data factory para novo projeto para criar um projeto do Visual Studio com base em uma data factory existente.![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se você vir **Entrar no Visual Studio**, digite a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Digite sua **Senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
 Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
 
-1. Clique em **Ferramentas** no menu e selecione **Extensões e atualizações**. 
+1. Clique em **Ferramentas** no menu e selecione **Extensões e Atualizações**. 
 2. Selecione **Atualizações** no painel esquerdo e selecione **Galeria do Visual Studio**.
 4. Selecione **Ferramentas do Azure Data Factory para Visual Studio** e clique em **Atualizar**. Se você não vir essa entrada, você já tem a versão mais recente das ferramentas. 
 
 Consulte [Monitorar conjuntos de dados e pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) para obter instruções sobre como usar o Portal de visualização do Azure para monitorar o pipeline e conjuntos de dados que você criou neste tutorial.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -9,7 +9,7 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/22/2015"
@@ -57,14 +57,14 @@ As etapas a seguir mostram como configurar um balanceador de carga para carga ba
 Alterne para o modo PowerShell para usar os cmdlets do ARM. Mais informações estão disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Etapa 2
 
 Faça logon na sua conta do Azure.
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 Você deverá autenticar com suas credenciais.
 
@@ -73,7 +73,7 @@ Você deverá autenticar com suas credenciais.
 
 Escolha quais das suas assinaturas do Azure deseja usar.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscription”.
 
@@ -82,7 +82,7 @@ Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscr
 
 Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Certifique-se de que todos os comandos para criar um balanceador de carga usarão o mesmo grupo de recursos.
 
@@ -184,7 +184,7 @@ Nesta etapa, estamos criando uma segunda interface de rede, atribuindo o mesmo p
 O resultado mostrará o seguinte:
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

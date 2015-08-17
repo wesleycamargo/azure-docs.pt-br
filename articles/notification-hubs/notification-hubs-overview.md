@@ -160,4 +160,4 @@ As referências relevantes da API .NET gerenciada para notificações push estã
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

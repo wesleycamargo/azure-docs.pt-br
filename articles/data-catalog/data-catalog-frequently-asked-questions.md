@@ -6,8 +6,7 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/>
-<tags
+   tags=""/> <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -158,4 +157,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

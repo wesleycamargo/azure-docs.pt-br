@@ -94,7 +94,7 @@ Ferramentas de gerenciamento de cluster e agendamento de trabalho ajudam a alcan
 
 O Azure tem uma série de serviços de computação, dados, rede e serviços relacionados que você pode usar para fluxos de trabalho e soluções de Big Compute. Para obter orientações detalhadas sobre cada um desses serviços, consulte a documentação de serviços do Azure. Consulte os [cenários de solução](#solution-scenarios) neste artigo para algumas abordagens comuns com aplicativos HPC e Lote.
 
->[AZURE.NOTE]Novos serviços são introduzidos regularmente na plataforma do Azure e podem ser úteis para seu cenário. O uso dos serviços de visualização é recomendado somente para teste ou implantações de verificação de conceito, não cargas de trabalho de produção. Se você tiver dúvidas, entre em contato com um [parceiro do Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) ou email *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Novos serviços são introduzidos regularmente na plataforma do Azure e podem ser úteis para seu cenário. O uso dos serviços de visualização é recomendado somente para teste ou implantações de verificação de conceito, não cargas de trabalho de produção. Se você tiver dúvidas, entre em contato com um [parceiro do Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) ou envie um email para *bigcompute@microsoft.com*.
 
 ### Serviços de computação
 
@@ -104,39 +104,39 @@ Serviços de computação no Azure são a essência de uma solução de Big Comp
 
 O Barramento de | Descrição
 ------------- | -----------
-**[Serviços de Nuvem](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Pode executar aplicativos de Big Compute em instâncias de função de trabalho, que são máquinas virtuais que executam uma versão do Windows Server e são totalmente gerenciadas pelo Azure<br/><br/>• Permite aplicativos escalonáveis e confiáveis com pouca sobrecarga administrativa, executados em um modelo de plataforma como serviço (PaaS)<br/><br/>• Pode exigir ferramentas adicionais ou desenvolvimento para integrar soluções de cluster HPC local
-**[Máquinas Virtuais](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Fornece infraestrutura de computação como serviço (IaaS) usando a tecnologia Microsoft Hyper-V<br/><br/>• Permite provisionar e gerenciar com flexibilidade computadores persistentes de nuvem por meio de imagens padrão do Windows Server ou Linux ou imagens e discos de dados fornecido ou por meio [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Executa ferramentas e aplicativos de cluster de computação local totalmente na nuvem
+**[Serviços de nuvem](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Pode executar aplicativos de Big Compute em instâncias de função de trabalho, que são máquinas virtuais que executam uma versão do Windows Server e são totalmente gerenciadas pelo Azure<br/><br/>• Permite aplicativos escalonáveis e confiáveis com pouca sobrecarga administrativa, executados em um modelo de plataforma como serviço (PaaS)<br/><br/>• Pode exigir ferramentas adicionais ou desenvolvimento para integrar soluções de cluster HPC local
+**[Máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Fornece infraestrutura de computação como serviço (IaaS) usando a tecnologia Microsoft Hyper-V<br/><br/>• Permite provisionar e gerenciar com flexibilidade computadores persistentes de nuvem por meio de imagens padrão do Windows Server ou Linux ou imagens e discos de dados fornecido ou por meio [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Executa ferramentas e aplicativos de cluster de computação local totalmente na nuvem
 **[Lote](http://azure.microsoft.com/documentation/services/batch)**<br/><br/> |• Executado cargas de trabalho de larga escala paralelas e em lote, como renderização de imagem e codificação e transcodificação de mídia em um serviço completamente gerenciado<br/><br/>• Fornece o plano de trabalho e o dimensionamento automático de um pool de máquinas virtuais gerenciado<br/><br/>• Permite aos desenvolvedores compilar e executar aplicativos como um serviço ou habilitar pela nuvem aplicativos existentes<br/>
 
 ### Serviços de armazenamento
 
 Uma solução de Big Compute geralmente opera em um conjunto de dados de entrada e gera dados para seus resultados. Alguns dos serviços de armazenamento do Azure usados em muitas soluções de Big Compute incluem:
 
-* [Blob, tabela e armazenamento de fila](http://azure.microsoft.com/documentation/services/storage) - Gerencie grandes quantidades de dados não estruturados, dados NoSQL e mensagens para fluxo de trabalho e comunicação, respectivamente. Por exemplo, você pode usar o armazenamento de blob para conjuntos de dados técnicos grandes ou as imagens de entrada ou arquivos de mídia que seu aplicativo processa. Você pode usar filas para comunicação assíncrona em uma solução. Consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md) para obter mais informações sobre essas soluções de armazenamento.
+* [Blob, tabela e armazenamento de fila](http://azure.microsoft.com/documentation/services/storage) - gerencie grandes quantidades de dados não estruturados, dados NoSQL e mensagens para fluxo de trabalho e comunicação, respectivamente. Por exemplo, você pode usar o armazenamento de blob para conjuntos de dados técnicos grandes ou as imagens de entrada ou arquivos de mídia que seu aplicativo processa. Você pode usar filas para comunicação assíncrona em uma solução. Consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md) para obter mais informações sobre essas soluções de armazenamento.
 
-* [Armazenamento de arquivo do Azure](http://azure.microsoft.com/services/storage/files/) - Compartilha arquivos e dados em comum no Azure usando o protocolo SMB padrão, que é necessário para algumas soluções de cluster HPC.
+* [Armazenamento de arquivo do Azure](http://azure.microsoft.com/services/storage/files/) - compartilha arquivos e dados em comum no Azure usando o protocolo SMB padrão, que é necessário para algumas soluções de cluster HPC.
 
 ### Serviços de dados e análise
 
 Alguns cenários de Big Compute envolvem fluxos de dados em grande escala ou geram dados que precisam de mais análise ou processamento. Para lidar com isso, o Azure oferece uma série de serviços de dados e análise incluindo:
 
-* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory) - Compila fluxos de trabalho orientados a dados (pipelines) que unem, agregam e transformam dados originados local, baseados em nuvem e de repositórios de dados da Internet.
+* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory) - compila fluxos de trabalho orientados a dados (pipelines) que unem, agregam e transformam dados originados local, baseados em nuvem e de repositórios de dados da Internet.
 
-* [Banco de dados SQL](http://azure.microsoft.com/documentation/services/sql-database) - Fornece os principais recursos de um sistema de gerenciamento de banco de dados relacional do Microsoft SQL Server em um serviço de plataforma gerenciada.
+* [Banco de dados SQL](http://azure.microsoft.com/documentation/services/sql-database) - fornece os principais recursos de um sistema de gerenciamento de banco de dados relacional do Microsoft SQL Server em um serviço de plataforma gerenciada.
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight)- Implanta e provisiona clusters do Apache Hadoop no Windows Server ou baseados em Linux na nuvem para gerenciar, analisar e relatar Big Data com alta confiabilidade e disponibilidade.
+* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight)- implanta e provisiona clusters do Apache Hadoop no Windows Server ou baseados em Linux na nuvem para gerenciar, analisar e relatar Big Data com alta confiabilidade e disponibilidade.
 
-* [Aprendizado de Máquina](http://azure.microsoft.com/documentation/services/machine-learning) - Ajuda a criar, testar, operar e gerenciar soluções analíticas de previsão em um serviço de plataforma totalmente gerenciado.
+* [Aprendizado de Máquina](http://azure.microsoft.com/documentation/services/machine-learning) - ajuda a criar, testar, operar e gerenciar soluções analíticas de previsão em um serviço de plataforma totalmente gerenciado.
 
 ### Serviços adicionais
 
 Talvez seja necessário que sua solução de Big Compute inclua outros serviços de plataforma e infraestrutura do Azure para se conectar aos recursos locais ou em outros ambientes. Os exemplos incluem:
 
-* [Rede virtual](http://azure.microsoft.com/documentation/services/virtual-network) - Cria uma seção logicamente isolada no Azure para conectar recursos do Azure ao seu data center local ou um único computador cliente usando o protocolo IPSec; permite que aplicativos Big Compute acessem dados locais, serviços do Active Directory e servidores de licenças
+* [Rede virtual](http://azure.microsoft.com/documentation/services/virtual-network) - cria uma seção logicamente isolada no Azure para conectar recursos do Azure ao seu data center local ou um único computador cliente usando o protocolo IPSec; permite que aplicativos Big Compute acessem dados locais, serviços do Active Directory e servidores de licenças
 
-* [Rota Expressa](http://azure.microsoft.com/documentation/services/expressroute) - Cria uma conexão privada entre data centers da Microsoft e a infraestrutura que está local ou em um ambiente de colocalização, com maior segurança, mais confiabilidade, velocidades mais rápidas e latências menores que as conexões típicas através da Internet.
+* [Rota Expressa](http://azure.microsoft.com/documentation/services/expressroute) - cria uma conexão privada entre data centers da Microsoft e a infraestrutura que está local ou em um ambiente de colocalização, com maior segurança, mais confiabilidade, velocidades mais rápidas e latências menores que as conexões típicas através da Internet.
 
-* [Barramento de Serviço](http://azure.microsoft.com/documentation/services/service-bus) - Fornece vários mecanismos para que os aplicativos se comuniquem ou troquem dados, independentemente de eles estarem localizados no Azure, em outra plataforma de nuvem ou em um data center.
+* [Barramento de Serviço](http://azure.microsoft.com/documentation/services/service-bus) - fornece vários mecanismos para que os aplicativos se comuniquem ou troquem dados, independentemente de eles estarem localizados no Azure, em outra plataforma de nuvem ou em um data center.
 
 ## Cenários de solução
 
@@ -146,33 +146,33 @@ A seguir estão cenários comuns para executar cargas de trabalho Big Compute no
 
 ### Cenário 1. Disparar um cluster HPC local para o Azure
 
-**Quando você escolheria isso?** - Talvez você já tenha um cluster HPC local executando suas cargas de trabalho intensivas de computação, mas precisa de recursos de computação extras para períodos de pico, como relatórios de final de mês ou em projetos especiais. Em vez de comprar, implantar e gerenciar hardwares e softwares adicionais que podem ficar ociosos na maioria do tempo, você pode usar o Azure para adicionar capacidade de computação sob demanda ao cluster existente.
+**Quando você escolheria isso?** - talvez você já tenha um cluster HPC local executando suas cargas de trabalho intensivas de computação, mas precisa de recursos de computação extras para períodos de pico, como relatórios de final de mês ou em projetos especiais. Em vez de comprar, implantar e gerenciar hardwares e softwares adicionais que podem ficar ociosos na maioria do tempo, você pode usar o Azure para adicionar capacidade de computação sob demanda ao cluster existente.
 
-Por exemplo, se seu cluster HPC local existente for compilado com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), você pode adicionar recursos de computação extras na forma de instâncias de função de trabalho do Azure em execução em um serviço de nuvem. Consulte a figura a seguir. Para obter mais informações e instruções passo a passo, consulte [Intermitência para Azure com Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+Por exemplo, se seu cluster HPC local existente for compilado com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), você poderá adicionar recursos de computação extras na forma de instâncias de função de trabalho do Azure em execução em um serviço de nuvem. Consulte a figura a seguir. Para obter mais informações e instruções passo a passo, consulte [Intermitência para Azure com Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ![Intermitência de cluster][burst_cluster]
 
->[AZURE.NOTE]Se você quiser minimizar o tamanho do cluster de HPC Pack, você poderia reduzir o cluster local apenas ao nó principal do HPC Pack. Em seguida, adicione todos os recursos de computação sob demanda no Azure. Para um tutorial que percorra esse cenário, consulte [Configurar um cluster de computação híbrido com Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
+>[AZURE.NOTE]Se você quiser minimizar o tamanho do cluster de HPC Pack, você poderia reduzir o cluster local apenas ao nó principal do HPC Pack. Em seguida, adicione todos os recursos de computação sob demanda no Azure. Para obter um tutorial que percorra esse cenário, consulte [Configurar um cluster de computação híbrido com Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
 
 Essa solução híbrida aproveita o investimento existente em um cluster local, mas permite que você dimensione a infraestrutura local fixa para cargas de trabalho típicas (não pico). Se você precisar acessar um armazenamento de dados ou servidor de licença local, você pode configurar uma rede virtual do Azure para conectar o cluster local ao Azure.
 
 ### Cenário 2: Criar um cluster de HPC inteiramente no Azure
 
-**Quando você escolheria isso?** - Talvez você já tenha um investimento substancial em um cluster HPC do Windows ou Linux local incluindo o gerenciamento e agendamento de ferramentas e aplicativos personalizados. Você pode precisar de capacidade de cluster adicional para executar seus aplicativos e conjuntos de ferramentas existentes, mas talvez não queira investir em uma infraestrutura local adicional ou modificar seus aplicativos. Ou talvez seja necessário criar um novo cluster por um período de tempo curto ou longo, mas talvez você não queira pagar o custo de aquisição, manutenção e operação ou alocar espaço para instalar e implantá-lo.
+**Quando você escolheria isso?** - talvez você já tenha um investimento substancial em um cluster HPC do Windows ou Linux local incluindo o gerenciamento e agendamento de ferramentas e aplicativos personalizados. Você pode precisar de capacidade de cluster adicional para executar seus aplicativos e conjuntos de ferramentas existentes, mas talvez não queira investir em uma infraestrutura local adicional ou modificar seus aplicativos. Ou talvez seja necessário criar um novo cluster por um período de tempo curto ou longo, mas talvez você não queira pagar o custo de aquisição, manutenção e operação ou alocar espaço para instalar e implantá-lo.
 
 Você pode usar ferramentas de automação do Azure para criar um cluster HPC em máquinas virtuais do Azure para criar a capacidade necessária. Dependendo das máquinas virtuais implantadas, você pode executar uma variedade de cargas de trabalho de HPC e paralelas, incluindo aplicativos MPI rigidamente acoplados.
 
 >[AZURE.NOTE]Verifique com o fornecedor de sua solução e aplicativos de cluster local os requisitos adicionais e as práticas recomendadas para execução em uma nuvem pública fornecendo infraestrutura como serviço (IaaS).
 
-Por exemplo, você pode criar um cluster HPC baseado no Windows Server em com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) em máquinas virtuais de serviços de infraestrutura do Azure (IaaS) para executar suas cargas de trabalho, conforme mostrado na seguinte figura simplificada. Um usuário de cluster pode enviar um trabalho com segurança para o cluster de nuvem por meio de ferramentas de envio de trabalho de HPC Pack padrão em execução em um computador cliente. Consulte [Microsoft HPC Pack em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx) para obter detalhes e opções de implantação.
+Por exemplo, você pode criar um cluster HPC baseado no Windows Server em com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) em máquinas virtuais de serviços de infraestrutura do Azure (IaaS) para executar suas cargas de trabalho, conforme mostrado na seguinte figura simplificada. Um usuário de cluster pode enviar um trabalho com segurança para o cluster de nuvem por meio de ferramentas de envio de trabalho de HPC Pack padrão em execução em um computador cliente. Consulte [Microsoft HPC Pack em VMs do Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx) para obter detalhes e opções de implantação.
 
 ![Cluster em IaaS][iaas_cluster]
 
-**Implantação automatizada** - Para implantar um grande número de máquinas virtuais do Windows Server ou Linux, você pode usar imagens de máquina virtual padrão ou personalizadas e ferramentas de automação do Azure como a [Interface de linha de comando do Azure](../xplat-cli.md) ou [PowerShell do Azure](../powershell-install-configure.md). Os exemplos incluem:
+**Implantação automatizada** - para implantar um grande número de VMs do Windows Server ou do Linux, você pode usar imagens de VM padrão ou personalizadas e ferramentas de automação do Azure como a [Interface de linha de comando do Azure](../xplat-cli.md) ou [Azure PowerShell](../powershell-install-configure.md). Os exemplos incluem:
 
-* Para implantar um cluster de HPC Pack em serviços de infraestrutura do Azure, você pode executar um [script do PowerShell do Azure](https://msdn.microsoft.com/library/azure/dn864734.aspx) flexível de um computador cliente; o script usa uma imagem de máquina virtual do Windows Server com o HPC Pack pré-instalado. Você também pode usar um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) com o Azure PowerShell ou a CLI do Azure para implantar um cluster de HPC Pack.
+* Para implantar um cluster de HPC Pack em serviços de infraestrutura do Azure, você pode executar um [script do Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) flexível de um computador cliente; o script usa uma imagem de VM do Windows Server com o HPC Pack pré-instalado. Você também pode usar um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) com o Azure PowerShell ou a CLI do Azure para implantar um cluster de HPC Pack.
 
-* Você pode usar um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/slurm/) com o Azure PowerShell ou a CLI do Azure para implantar um cluster do Linux executando o gerenciamento de carga de trabalho de software livre [SLURM](https://computing.llnl.gov/linux/slurm/).
+* Você pode usar um [modelo de início rápido](https://azure.microsoft.com/documentation/templates/slurm/) do Azure com o Azure PowerShell ou a CLI do Azure para implantar um cluster do Linux executando o gerenciamento de carga de trabalho de software livre [SLURM](https://computing.llnl.gov/linux/slurm/).
 
 Colocar um cluster HPC inteiro na nuvem pode proporcionar benefícios claros.
 
@@ -182,15 +182,15 @@ Colocar um cluster HPC inteiro na nuvem pode proporcionar benefícios claros.
 
 * Em comparação com uma solução híbrida que estende um cluster local para a nuvem, a execução de um aplicativo totalmente na nuvem pode simplificar o acesso a dados. Em vez de dividir dados entre as instalações locais e de nuvem ou fazer uma parte do aplicativo acessar os dados remotamente, todos os dados de aplicativo podem ser armazenados na nuvem.
 
-* Alguns fornecedores de software otimizam seus aplicativos para executar clusters baseados em nuvem. Por exemplo, ao implantar o [servidor de computação distribuída MATLAB](http://www.mathworks.com/products/distriben/), da MathWorks, em um cluster de HPC Pack em máquinas virtuais do Azure, você pode executar trabalhos do MATLAB em paralelo inteiramente com recursos de computação baseados em nuvem.
+* Alguns fornecedores de software otimizam seus aplicativos para executar clusters baseados em nuvem. Por exemplo, ao implantar o [Servidor de Computação Distribuída MATLAB](http://www.mathworks.com/products/distriben/), da MathWorks, em um cluster de HPC Pack em máquinas virtuais do Azure, você pode executar trabalhos do MATLAB em paralelo inteiramente com recursos de computação baseados em nuvem.
 
 ### Cenário 3: Escale horizontalmente um aplicativo paralelo para o Azure
 
-**Quando você escolheria isso?** - Talvez você esteja executando um aplicativo de computação intensiva como uma simulação de Monte Carlo, renderização de animação ou transcodificação de mídia em estações de trabalho locais ou em um pequeno cluster. Você não deseja gerenciar recursos de computação ou de um agendador de trabalho; em vez disso, você quer se concentrar na execução do aplicativo com eficiência para resolver seus problemas de negócios. Ou talvez você queira descarregar seu aplicativo de computação intensiva, ou um aplicativo de terceiros, para que seja executado inteiramente como um serviço na nuvem.
+**Quando você escolheria isso?** - talvez você esteja executando um aplicativo de computação intensiva como uma simulação de Monte Carlo, renderização de animação ou transcodificação de mídia em estações de trabalho locais ou em um pequeno cluster. Você não deseja gerenciar recursos de computação ou de um agendador de trabalho; em vez disso, você quer se concentrar na execução do aplicativo com eficiência para resolver seus problemas de negócios. Ou talvez você queira descarregar seu aplicativo de computação intensiva, ou um aplicativo de terceiros, para que seja executado inteiramente como um serviço na nuvem.
 
-Dependendo da carga de trabalho, você pode tirar proveito de um serviço de Big Compute existente no Azure, hospedado pela Microsoft ou por outro fornecedor de serviço para simplificar o gerenciamento da infraestrutura e do aplicativo para sua solução. Alguns serviços hospedam aplicativos específicos para os clientes em setores selecionados. Alguns serviços se conectam a aplicativos locais, permitindo uma solução híbrida. Outros, como os [Serviços de Mídia do Azure](http://azure.microsoft.com/documentation/services/media-services) são serviços de plataforma dedicada.
+Dependendo da carga de trabalho, você pode tirar proveito de um serviço de Big Compute existente no Azure, hospedado pela Microsoft ou por outro fornecedor de serviço para simplificar o gerenciamento da infraestrutura e do aplicativo para sua solução. Alguns serviços hospedam aplicativos específicos para os clientes em setores selecionados. Alguns serviços se conectam a aplicativos locais, permitindo uma solução híbrida. Outros, como os [Serviços de Mídia do Azure](http://azure.microsoft.com/documentation/services/media-services), são serviços de plataforma dedicada.
 
-Para habilitar a nuvem escalar horizontalmente com facilidade um aplicativo executado hoje, o [lote](http://azure.microsoft.com/documentation/services/batch) fornece APIs para agendar trabalhos e gerenciar os recursos de computação em um serviço. O Lote gerencia a implantação e o dimensionamento automático de máquinas virtuais, agendamento de trabalho, a recuperação de desastres, movimentação de dados, gerenciamento de dependência, implantação de aplicativos e todos os outros detalhes necessários para executar trabalhos na nuvem. Atualmente, o Lote é ideal para aplicativos intrinsecamente paralelos, como renderização de imagem, modelagem de riscos financeiros e simulações de Monte Carlo em execução em recursos de computação do Windows Server.
+Para habilitar para nuvem e dimensionar com facilidade um aplicativo executado hoje, o [Lote](http://azure.microsoft.com/documentation/services/batch) fornece APIs para agendar trabalhos e gerenciar os recursos de computação em um serviço. O Lote gerencia a implantação e o dimensionamento automático de máquinas virtuais, agendamento de trabalho, a recuperação de desastres, movimentação de dados, gerenciamento de dependência, implantação de aplicativos e todos os outros detalhes necessários para executar trabalhos na nuvem. Atualmente, o Lote é ideal para aplicativos intrinsecamente paralelos, como renderização de imagem, modelagem de riscos financeiros e simulações de Monte Carlo em execução em recursos de computação do Windows Server.
 
 Consulte a figura a seguir para um fluxo de trabalho típico, que um desenvolvedor pode criar com o Lote.
 
@@ -211,7 +211,7 @@ Consulte a figura a seguir para um fluxo de trabalho típico, que um desenvolved
 
 ## Próximas etapas
 
-* Consulte [Recursos técnicos para Lote e HPC](big-compute-resources.md) para encontrar orientações técnicas para sua solução.
+* Consulte [Recursos técnicos para o Lote e o HPC](big-compute-resources.md) para encontrar orientações técnicas para sua solução.
 
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](http://azure.microsoft.com/blog/tag/hpc/).
 
@@ -222,4 +222,4 @@ Consulte a figura a seguir para um fluxo de trabalho típico, que um desenvolved
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

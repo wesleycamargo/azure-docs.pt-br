@@ -80,7 +80,7 @@ public MainWindow()
 }
 ```
 
-- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private void Search(object sender, RoutedEventArgs e)
@@ -166,4 +166,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

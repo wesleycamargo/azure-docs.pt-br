@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Notas de versão do Data Factory do Azure
@@ -115,15 +115,15 @@ Observe o seguinte:
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
 
 Observe o seguinte:
 
-- A propriedade **tipo** foi movida um nível acima e o nome do tipo **AzureTableLocation** foi alterado para **AzureTable**.
-- O **linkedServiceName** é movido um nível para cima. 
+- A propriedade **type** foi movida um nível acima e o nome do tipo **AzureTableLocation** foi alterado para **AzureTable**.
+- O **linkedServiceName** foi movido um nível para cima. 
 - O elemento **local** é removido agora e as propriedades específicas de tipo como **tableName** que foram especificados na seção **local** são especificadas na nova seção **typeProperties**.  
 
 ### Atividade antiga do JSON
@@ -239,24 +239,24 @@ Observe o seguinte:
 
 - A propriedade **waitOnExternal** é removida da seção **disponibilidade** 
 - Uma nova propriedade **external** é adicionada um nível acima e definida como **true** para uma tabela externa. 
-- As propriedades do elemento **waitOnExternal**, como **retryInterval**, são adicionados à nova seção **externalData** no elemento **política**.
+- As propriedades do elemento **waitOnExternal**, como **retryInterval**, são adicionados à nova seção **externalData** no elemento **Política**.
 - O elemento **externalData** é um elemento opcional. 
-- Quando você usa o elemento **externalData**, você deve ter a propriedade **external** definida para **true**. 
+- Ao usar o elemento **externalData**, você deve ter a propriedade **external** definida como **true**. 
  
 
 ## Nova propriedade copyBehavior para o BlobSink
 O **BlobSink** dá suporte à nova propriedade chamada: **copyBehavior**. Essa propriedade define o comportamento de cópia quando a origem for **BlobSource** ou **FileSystem**. Há três valores possíveis para a propriedade **copyBehavior**.
 
-**PreserveHierarchy**:: preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.
+**PreserveHierarchy**: preserva a hierarquia de arquivos na pasta de destino, ou seja, o caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.
 
 
-**FlattenHierarchy**: : todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente.
+**FlattenHierarchy**: todos os arquivos da pasta de origem estarão no primeiro nível da pasta de destino. Os arquivos de destino terão o nome gerado automaticamente.
 
 
 **MergeFiles**: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente.
  
 ## Nova propriedade getDebugInfo para todas as atividades do HDInsight
-As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida para **Falha** os logs são baixados somente em caso de falha de execução. Quando ela é definida para **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida para **Nenhum**, nenhum log é baixado.
+As atividades do HDInsight (Hive, Pig, MapReduce, Streaming do Hadoop) oferecem suporte à nova propriedade: **getDebugInfo**. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como **Falha**, os logs são baixados somente em caso de falha de execução. Quando ela é definida como **Todos**, os logs sempre são baixados, não importa o status de execução. Quando ela é definida como **Nenhum**, nenhum log é baixado.
 
   
      
@@ -355,4 +355,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -26,4 +26,4 @@ Para testar um serviço móvel localmente com clientes que executam em um emulad
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

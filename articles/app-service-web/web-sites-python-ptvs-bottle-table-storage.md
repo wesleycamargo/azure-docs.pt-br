@@ -217,4 +217,4 @@ Siga estes links para aprender mais sobre o Python Tools para Visual Studio, Bot
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -123,7 +123,7 @@ A configuração do gateway define a sub-rede e o endereço IP público a serem 
 Nesta etapa, você criará o gateway de rede virtual. Use os seguintes valores:
 
 - O Tipo de Gateway é *Vpn*.
-- O VpnType pode ser RouteBased\* (referenciado como um Gateway Dinâmico em algumas documentações) ou *Policy Based* (referenciado como um Gateway Estático em algumas documentações). Para obter mais informações sobre tipos de gateway de VPN, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md). 	
+- O VpnType pode ser RouteBased* (referenciado como um Gateway Dinâmico em algumas documentações) ou *Policy Based* (referenciado como um Gateway Estático em algumas documentações). Para obter mais informações sobre tipos de gateway de VPN, consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -152,4 +152,4 @@ Depois de alguns minutos, a conexão deve ser estabelecida. Neste momento, as co
 
 Adicione uma máquina virtual à rede virtual. [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

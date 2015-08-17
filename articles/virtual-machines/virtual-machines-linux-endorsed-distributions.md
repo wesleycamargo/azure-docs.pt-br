@@ -31,61 +31,14 @@ Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são m�
 
 O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e normalmente está disponível no repositório de pacotes de distribuição. O código-fonte pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>Distribuição</th>		
-	    <th>Versão</th>
-	    <th>Drivers</th>
-		<th>Agente</th>
-			</tr>
-	<tr>
-		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04, 14.04, 14.10 e 15.04 </td>
-		<td>No kernel</td>
-		<td>Pacote: no repositório em "walinuxagent" <br />
-			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> CentOS by OpenLogic </th>
-		<td> CentOS 6.3+, 7.0+</td>
-	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">download do LIS</a><br/>
-	        CentOS 6.4+: no Kernel</td>
-		<td>Pacote: no repositório do <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic</a> em "WALinuxAgent"<br />
-			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
-        <td> No kernel </td>
-		<td> Fonte: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4+, 7.0+ </td>
-        <td>No kernel</td>
-		<td>Pacote: no repositório em "WALinuxAgent"<br />
-			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+, SLES 12+ e <br /> SLES para SAP 11.3+ </td>
-        <td>No kernel</td>
-		<td>Pacote: no repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> em "WALinuxAgent"<br />
-			Fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE 13.1+</td>
-		<td>No kernel</td>
-		<td>Pacote: no repositório <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> em "WALinuxAgent"<br />
-			Código-fonte: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+Distribuição|Versão|Drivers|Agente
+---|---|---|---
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 e 15.04|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel|Pacote: no repositório <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |No kernel|Fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent"<p><p>Fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Parceiros
 
@@ -124,4 +77,4 @@ O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece co
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
 
 
@@ -21,12 +21,13 @@
 
 Conecte-se ao seu feed do Twitter para publicar e receber tweets de sua linha do tempo, da linha do tempo de seus amigos e dos seguidores de sua conta do Twitter. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do Twitter em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
-- Obter novos tweets associados a uma palavra-chave ou texto específico. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo de trabalho e passa os dados para o próximo conector no fluxo de trabalho. Por exemplo: você cria um conector do Twitter e usa o disparador de novo tweet da pesquisa para monitorar #peanutbutterandjelly. Sempre que houver um novo tweet com #peanutbutterandjelly, o fluxo de trabalho (também conhecido como aplicativo lógico) será iniciado automaticamente.
+- Obter novos tweets associados a uma palavra-chave ou texto específico. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo de trabalho e passa os dados para o próximo conector no fluxo de trabalho. Por exemplo: você cria um conector do Twitter e usa o disparador de novo tweet da pesquisa para monitorar \#peanutbutterandjelly. Sempre que houver um novo tweet com \#peanutbutterandjelly, o fluxo de trabalho (também conhecido como aplicativo lógico) será iniciado automaticamente.
 - Usando ações diferentes, como "Pesquisar Tweets", você obtém a resposta e a usa em seu fluxo de trabalho. Por exemplo: você pode pesquisar tweets com o nome da sua empresa. Quando eles são encontrados, você pode usar um aplicativo lógico para gravar esses dados em um banco de dados do SQL Server. Em seguida, use os dados do SQL Server para determinar o que está sendo tweetado sobre a sua empresa. 
+- Usar todos os operadores em [Pesquisa do Twitter](https://twitter.com/search). Selecione o link **operadores**. O conector do Twitter é compatível todos os operadores listados.
 
 
 ## Gatilhos e Ações
-*Gatilhos* são eventos que ocorrem. Por exemplo: um novo tweet pode disparar ou iniciar um processo ou um fluxo de trabalho. Uma *ação* é o resultado de algo. Por exemplo: você pode pesquisar um tweet específico e, quando localizá-lo, enviar um email ou atualizar um banco de dados.
+*Gatilhos* são eventos que ocorrem. Por exemplo: um novo tweet pode disparar ou iniciar um processo ou um fluxo de trabalho. Uma *Ação* é o resultado de algo. Por exemplo: você pode pesquisar um tweet específico e, quando localizá-lo, enviar um email ou atualizar um banco de dados.
 
 O conector do Twitter pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML.
 
@@ -69,20 +70,20 @@ Após a criação do aplicativo de API, você poderá usar o conector do Twitter
 
 Agora você pode configurar o conector do Twitter para compilar seu fluxo de trabalho. Você pode usar os tweets recuperados do gatilho do Twitter em outras ações no fluxo.
 
-	![][6]
+![][6]
 
 De maneira semelhante, você pode usar as ações do Twitter no fluxo de trabalho. Selecione uma ação do Twitter e configure as entradas para a ação:
 
-	![][7]
-	![][8]
+![][7] ![][8]
+
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -92,4 +93,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

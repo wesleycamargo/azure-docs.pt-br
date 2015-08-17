@@ -2,7 +2,6 @@
 	pageTitle="Enviar consultas de Hive para clusters do Hadoop no processo de análise avançada | Microsoft Azure" 
 	description="Processar dados de tabelas Hive" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -257,7 +256,7 @@ Suponha que a tabela Hive tem um campo de texto, que é uma cadeia de caracteres
 
 A consulta fornecida nesta seção pode ser aplicada diretamente aos Dados de Viagens de Táxi em NYC. A finalidade dessa consulta é mostrar como aplicar as funções matemáticas incorporadas no Hive para gerar recursos.
 
-Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas pickup_longitude, pickup_latitude, dropoff_longitude e dropoff_latitude. As consultas para calcular a distância direta entre as coordenadas de saída e chegada são:
+Os campos que são usados nesta consulta são coordenadas de GPS de locais de saída e chegada, chamadas pickup\_longitude, pickup\_latitude, dropoff\_longitude e dropoff\_latitude. As consultas para calcular a distância direta entre as coordenadas de saída e chegada são:
 
 		set R=3959;
 		set pi=radians(180);
@@ -326,4 +325,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

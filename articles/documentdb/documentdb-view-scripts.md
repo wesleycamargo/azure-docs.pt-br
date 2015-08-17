@@ -3,7 +3,7 @@
 	description="Saiba mais sobre o Gerenciador de Script do Banco de Dados de Documentos, uma ferramenta do Portal de Visualização do Azure que permite exibir artefatos de programação do Banco de Dados de Documentos no servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@ O Gerenciador de Script permite que você exiba facilmente os artefatos de progr
 
 	![Captura de tela da exibição de propriedades do script do Gerenciador de Script](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]A propriedade (_ts) de carimbo de data/hora é representada internamente como tempo de época, mas o Gerenciador de Script exibe o valor em um formato GMT legível.
+	> [AZURE.NOTE]A propriedade (\_ts) de carimbo de data/hora é representada internamente como tempo de época, mas o Gerenciador de Script exibe o valor em um formato GMT legível.
 
 ## Próximas etapas
 
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

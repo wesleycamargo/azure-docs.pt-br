@@ -129,4 +129,4 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

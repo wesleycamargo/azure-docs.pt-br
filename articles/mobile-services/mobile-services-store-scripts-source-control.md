@@ -36,8 +36,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
-	> [AZURE.NOTE]
-	> Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
+	> [AZURE.NOTE]Em alguns sistemas operacionais, uma versão da linha de comando e uma versão da GUI do Git estão disponíveis. As instruções fornecidas neste artigo usam a versão de linha de comando.
 
 2. Abra uma linha de comando, como **GitBash** (Windows) ou **Bash** (shell Unix). Nos sistemas OS X, você pode acessar a linha de comando por meio do aplicativo **Terminal**.
 
@@ -62,7 +61,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 7. Abra a subpasta .\\service\\table e observe se ela contém um arquivo TodoItem.json, que é uma representação JSON das permissões de operação na tabela TodoItem.
 
-	Quando os scripts de servidor tiverem sido definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._operation_.js</code> contendo os scripts para a operação da tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
+	Quando os scripts de servidor tiverem sido definidos nessa tabela, você também terá um ou mais arquivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> contendo os scripts para a operação da tabela específica. O Agendador e os scripts de APIs personalizadas serão mantidos em pastas separadas com esses respectivos nomes. Para obter mais informações, consulte [Controle do código-fonte].
 
 Agora que criou seu repositório local, você pode fazer alterações nos scripts de servidor e enviar por push as alterações de volta para o serviço móvel.
 
@@ -133,11 +132,9 @@ A maneira recomendada para adicionar módulos Node.js ao seu serviço móvel é 
 
 Agora que concluiu este tutorial, você sabe como armazenar seus scripts no controle do código-fonte. Para saber mais sobre como trabalhar com scripts de servidor e APIs personalizadas, consulte:
 
-+ [Trabalhar com scripts de servidor em Serviços Móveis]
-	<br/>Mostra como trabalhar com scripts de servidor, o agendador de trabalhos e APIs personalizadas.
++ [Trabalhar com scripts de servidor em Serviços Móveis] <br/>Mostra como trabalhar com scripts de servidor, o agendador de trabalhos e APIs personalizadas.
 
-+ [Chamar uma API personalizada do cliente] 
-	<br/>Mostra como criar APIs personalizadas que podem ser chamadas do cliente.
++ [Chamar uma API personalizada do cliente] <br/>Mostra como criar APIs personalizadas que podem ser chamadas do cliente.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -157,10 +154,10 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Introdução aos Serviços Móveis]: mobile-services-ios-get-started.md
 [Adicionar Serviços Móveis a um aplicativo existente]: mobile-services-ios-get-started-data.md
 [Trabalhar com scripts de servidor em Serviços Móveis]: mobile-services-how-to-use-server-scripts.md
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Chamar uma API personalizada do cliente]: mobile-services-ios-call-custom-api.md
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

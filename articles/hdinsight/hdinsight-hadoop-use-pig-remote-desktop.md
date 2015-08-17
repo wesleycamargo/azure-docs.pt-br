@@ -94,7 +94,7 @@ Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele 
 
 Você também pode usar o comando Pig para executar o Pig Latin contido em um arquivo.
 
-3. Depois de sair do prompt do grunt, abra o **Bloco de Notas** e crie um novo arquivo chamado **pigbatch.pig** no diretório **%PIG_HOME%**.
+3. Depois de sair do prompt do grunt, abra o **Bloco de Notas** e crie um novo arquivo chamado **pigbatch.pig** no diretório **%PIG\_HOME%**.
 
 4. Digite ou cole as seguintes linhas no arquivo **pigbatch.pig** e salve-o quando terminar:
 
@@ -135,4 +135,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

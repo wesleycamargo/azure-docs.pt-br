@@ -72,7 +72,7 @@ No painel, você pode escolher até seis métricas para serem traçadas no gráf
 	
 	- Para ocultar uma métrica que esteja plotada no gráfico, desmarque a caixa de seleção colorida ao lado do cabeçalho da métrica.
 	
-		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+		![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. Por padrão, o gráfico mostra tendências, exibindo apenas o valor atual de cada métrica (a opção **Relativo** na parte superior do gráfico). Para exibir um eixo Y para que você possa visualizar os valores absolutos, selecione **Absoluto**.
 
@@ -99,7 +99,7 @@ Use os procedimentos a seguir para escolher quais métricas de armazenamento dev
 	A página de **Monitoramento** é exibida. Por padrão, a tabela de métricas exibe um subconjunto de métricas que estão disponíveis para o monitoramento. A ilustração mostra a exibição de Monitoramento padrão para uma conta de armazenamento com a configuração de monitoramento detalhado para os três serviços. Use **Adicionar métricas** para selecionar as métricas que você deseja monitorar de todas as métricas disponíveis.
 
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	> [AZURE.NOTE]Considere os custos ao selecionar as métricas. Existem transações e custos de saída associados à atualização das exibições do monitoramento. Para obter mais informações, consulte [Análise de armazenamento e cobrança](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
@@ -159,4 +159,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

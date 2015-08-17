@@ -88,7 +88,7 @@ Se você nunca usou APIs personalizadas com Serviços Móveis, deve considerar e
             });
         }
 
-    Dado o *tenant_domain*, *ID do cliente* do aplicativo integrado e *chave* do aplicativo, essa função fornece um token de acesso gráfico usado para ler informações de diretório.
+    Dado o *tenant\_domain*, *ID do cliente* do aplicativo integrado e *chave* do aplicativo, essa função fornece um token de acesso gráfico usado para ler informações de diretório.
 
 4. Adicione a seguinte função `getUser` que usa a API Graph para retornar informações do usuário.
 
@@ -182,4 +182,4 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 [Controle de acesso baseado em função com o AAD em Serviços Móveis]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Blog da equipe do Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

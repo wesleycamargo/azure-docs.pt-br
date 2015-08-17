@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Gerenciar servidores e dados de uso
@@ -27,7 +27,7 @@ Você pode exibir seu uso usando o bloco **Servidores e Uso** no painel **Visão
 
 ![imagem do bloco Servidores e Uso](./media/operational-insights-usage/overview-servers-usage.png)
 
-Se tiver excedido o limite de uso diário ou se estiver próximo do limite, você também pode remover uma solução para reduzir a quantidade de dados enviados para o serviço do Insights Operacionais. Para obter mais informações sobre a remoção de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md).
+Se tiver excedido o limite de uso diário ou se estiver próximo do limite, você também pode remover uma solução para reduzir a quantidade de dados enviados para o serviço do Insights Operacionais. Para obter mais informações sobre a remoção de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-setup-workspace.md).
 
 Se um grupo de gerenciamento do Operations Manager tiver problemas para enviar dados para o Insights Operacionais, você pode solucionar o problema ou remover o grupo do Insights Operacionais, se necessário.
 
@@ -59,4 +59,4 @@ O painel **Uso** exibe as seguintes informações:
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

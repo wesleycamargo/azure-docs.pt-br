@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
@@ -49,4 +49,4 @@ Se você estiver começando a aprender sobre as máquinas virtuais do Azure, con
 [Máquinas virtuais]: #tellmevm
 [Serviços de Nuvem]: cloud-services-choose-me.md
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

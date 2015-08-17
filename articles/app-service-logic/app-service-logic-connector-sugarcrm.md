@@ -153,4 +153,4 @@ Vamos criar um aplicativo lógico simples que cria uma conta no SugarCRM e atual
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

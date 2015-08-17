@@ -97,4 +97,4 @@ Para obter mais informações, consulte [Serviços de Aplicativo do Azure][Azure
 [SharepointDocumentLibrary]: ./media/app-service-enterprise-multichannel-apps/05aSharepointDocumentLibrary.png
 [SalesforceIntegration]: ./media/app-service-enterprise-multichannel-apps/06aSalesforceIntegration.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

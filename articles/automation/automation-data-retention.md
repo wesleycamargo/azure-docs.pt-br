@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Retenção de dados da Automação do Azure
@@ -36,4 +36,4 @@ A política de retenção se aplica a todos os usuários e, atualmente não, pod
 ## Artigos relacionados
 - [Fazendo backup da Automação do Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

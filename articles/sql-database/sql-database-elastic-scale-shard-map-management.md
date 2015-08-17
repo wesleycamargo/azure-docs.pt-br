@@ -67,17 +67,18 @@ Cada uma das tabelas mostradas acima é um exemplo conceitual de um objeto **Sha
 
 Na biblioteca do cliente, o gerenciador de mapa de fragmentos é uma coleção de mapas de fragmentos. Os dados gerenciados por um objeto .NET **ShardMapManager** são mantidos em três locais:
 
-1. **GSM (Mapa de Fragmentos Global)**: ao criar um **ShardMapManager**, você pode especificar um banco de dados para servir como repositório para todos os mapas de fragmento e mapeamentos. Procedimentos armazenados e tabelas especiais são criados automaticamente para gerenciar as informações. Isso geralmente é um banco de dados pequeno e pouco acessados, mas ele não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **__ShardManagement\*\*. 
-2. **LSM (Mapa de Fragmentos Local)**: cada banco de dados que você especificar para ser um fragmento dentro de um mapa de fragmentos será modificado para conter várias pequenas tabelas e procedimentos armazenados especiais que contêm e gerenciam informações de mapa de fragmentos específicas para esse fragmento. Essas informações são redundantes nas informações de GSM, mas permite que o aplicativo validar informações de mapa do fragmento em cache sem colocar nenhuma carga no GSM. O aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes a LSM em cada fragmento estão no esquema **__ShardManagement\*\*.
+1. **GSM (Mapa de Fragmentos Global)**: ao criar um **ShardMapManager**, você pode especificar um banco de dados para servir como repositório para todos os mapas de fragmento e mapeamentos. Procedimentos armazenados e tabelas especiais são criados automaticamente para gerenciar as informações. Isso geralmente é um banco de dados pequeno e pouco acessados, mas ele não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **\_\_ShardManagement**.
+
+2. **LSM (Mapa de Fragmentos Local)**: cada banco de dados que você especificar para ser um fragmento dentro de um mapa de fragmentos será modificado para conter várias pequenas tabelas e procedimentos armazenados especiais que contêm e gerenciam informações do mapa de fragmentos específicas para esse fragmento. Essas informações são redundantes nas informações de GSM, mas permite que o aplicativo validar informações de mapa do fragmento em cache sem colocar nenhuma carga no GSM. O aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento estão no esquema * * \_\_ShardManagement * *.
 
 3. **Cache do aplicativo**: cada instância do aplicativo que acessa um objeto **ShardMapManager** mantém um cache na memória local dos seus mapeamentos. Ele armazena informações de roteamento que recentemente foi recuperadas.
 
 ## Construindo um ShardMapManager
 Um objeto **ShardMapManager** no aplicativo é instanciado usando um padrão de fábrica. O método **ShardMapManagerFactory.GetSqlShardMapManager** usa credenciais (incluindo o nome do servidor e o nome do banco de dados contendo o GSM) na forma de uma **ConnectionString** e retorna uma instância de um **ShardMapManager**.
 
-O **ShardMapManager** deve ser inicializado apenas uma vez por domínio de aplicativo dentro do código de inicialização para um aplicativo. Um **ShardMapManager** pode conter qualquer número de mapas de fragmento. Enquanto um mapa do fragmento único pode ser suficiente para muitos aplicativos, há vezes quando conjuntos diferentes de bancos de dados são usados para esquemas diferentes ou para fins exclusivos e, nesses casos, vários mapas de fragmentação podem ser preferíveis.
+O**ShardMapManager**deve ser instanciado apenas uma vez por domínio de aplicativo dentro do código de inicialização para um aplicativo. O**ShardMapManager**pode conter qualquer número de mapas de fragmento. Enquanto um mapa do fragmento único pode ser suficiente para muitos aplicativos, há vezes quando conjuntos diferentes de bancos de dados são usados para esquemas diferentes ou para fins exclusivos e, nesses casos, vários mapas de fragmentação podem ser preferíveis.
 
-Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente. Se os objetos que representam um **ShardMapManager Global** (GSM) ainda não existirem no banco de dados, a biblioteca de cliente os criará no local.
+Nesse código, um aplicativo tenta abrir um existente**ShardMapManager**. Se objetos que representam um **ShardMapManager**Global (GSM) ainda não existirem no banco de dados, a biblioteca do cliente os cria lá.
 
     // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
     // If it doesn't already exist, then create it. 
@@ -110,11 +111,11 @@ Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente. Se os
 
 Normalmente, os aplicativos que administrar e manipulam mapas de fragmento são diferentes daqueles que utilizam os mapas de fragmento para conexões de rota.
 
-Para aplicativos que administram mapas de fragmentos (adicionando ou alterando fragmentos, mapas de fragmentos, mapeamentos de fragmento, etc.), você deve instanciar o **ShardMapManager** usando **credenciais que tenham privilégios de leitura/gravação no banco de dados do GSM e em cada banco de dados que sirva como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e LSM como informações de mapa do fragmento são inseridas ou alteradas, bem como para criar tabelas LSM em novos fragmentos.
+Para aplicativos que administrem mapas de fragmento (adição ou alteração de fragmentos, mapas de fragmento, mapeamentos de fragmento, etc.) você deve instanciar o **ShardMapManager** usando **credenciais que tenham privilégios de leitura/gravação em banco de dados GSM e em cada banco de dados que sirva como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e LSM como informações de mapa do fragmento são inseridas ou alteradas, bem como para criar tabelas LSM em novos fragmentos.
 
 ### Apenas os metadados afetados 
 
-Métodos usados para preencher ou alterar os dados do **ShardMapManager** não alteram os dados de usuário armazenados nos fragmentos em si. Por exemplo, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afetam somente os metadados do mapa de fragmentos. Não remova, adicione ou altere dados de usuário contidos nos fragmentos. Em vez disso, esses métodos destinam-se a ser usado em conjunto com operações separadas, que você pode executar para criar ou remover bancos de dados real ou que move linhas de um fragmento para outro para reequilibrar um ambiente fragmentado. (A **ferramenta de divisão/mesclagem** fornecida com as ferramentas de banco de dados elástico usa essas APIs, além de orquestrar a movimentação de dados real entre fragmentos.)
+Métodos usados para preencher ou alterar o**ShardMapManager**dados não alteram os dados de usuário armazenados nos próprios fragmentos. Por exemplo, os métodos como**CreateShard**, **DeleteShard**, **UpdateMapping** etc, afetam apenas os metadados do mapa de fragmento. Não remova, adicione ou altere dados de usuário contidos nos fragmentos. Em vez disso, esses métodos destinam-se a ser usado em conjunto com operações separadas, que você pode executar para criar ou remover bancos de dados real ou que move linhas de um fragmento para outro para reequilibrar um ambiente fragmentado. (A ferramenta de **divisão/mesclagem** incluída com as ferramentas de banco de dados elástico faz uso dessas APIs além de orquestrar a movimentação de dados real entre fragmentos.)
 
 ## Popular um mapa de fragmentos: exemplo
  
@@ -226,7 +227,7 @@ Esses métodos funcionam juntos como blocos de construção disponíveis para mo
 
 * Para dividir intervalos existentes em dois ou mesclar intervalos adjacentes em um: use **SplitMapping** e **MergeMappings**.
 
-    Observe que as operações de divisão e mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeada para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já são mapeados para o mesmo fragmento, juntando-os em um único intervalo. A movimentação de pontos ou intervalos em si entre fragmentos precisa ser coordenada usando **UpdateMapping** junto com a movimentação de dados real. Você pode usar o serviço de **Divisão/Mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar as alterações de mapa de fragmentos com a movimentação de dados, quando houver necessidade de movimentação.
+    Observe que as operações de divisão/mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeada para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já são mapeados para o mesmo fragmento, juntando-os em um único intervalo. A movimentação de pontos ou intervalos em si entre fragmentos precisa ser coordenada usando **UpdateMapping** junto com a movimentação de dados real. Você pode usar o serviço de **Divisão/Mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar as alterações de mapa de fragmentos com a movimentação de dados, quando houver necessidade de movimentação.
 
 * Para remapear (ou mover) pontos individuais ou intervalos de fragmentos diferentes: use **UpdateMapping**.
 
@@ -251,4 +252,4 @@ Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -169,9 +169,10 @@ As seguintes são as etapas de alto nível para executar seu aplicativo. Os deta
 2. Modifique o **startup.cmd** para descompactar seu WAR TwilioCloud.
 3. Compile o aplicativo para o emulador de computação.
 4. Inicie a implantação no emulador de computação.
-5. Abra um navegador e execute **http://localhost:8080/TwilioCloud/callform.jsp**. 6. Insira os valores no formulário, clique em **Fazer esta chamada** e, em seguida, veja os resultados em makecall.jsp.
+5. Abra um navegador e execute ****http://localhost:8080/TwilioCloud/callform.jsp**.
+6. Insira os valores no formulário, clique em **Fazer esta chamada** e, em seguida, veja os resultados em makecall.jsp.
 
-Quando você estiver pronto para implantar no Azure, recompile para implantação da nuvem, implante no Azure e execute http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua o seu valor pot *your_hosted_name*).
+Quando você estiver pronto para implantar no Azure, recompile para implantação da nuvem, implante no Azure e execute http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua o seu valor pot *your\_hosted\_name*).
 
 ## Próximas etapas
 Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio no Java no Azure. Antes de implantar o Azure na produção, convém adicionar mais tratamento de erros ou outros recursos. Por exemplo:
@@ -208,4 +209,4 @@ Para obter informações adicionais sobre a Twilio, consulte [https://www.twilio
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

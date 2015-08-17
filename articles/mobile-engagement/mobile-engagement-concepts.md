@@ -67,16 +67,16 @@ As informações do aplicativo (ou `app info`) são usadas para usuários de mar
 
 As informações de um aplicativo podem ser registradas usando a API do SDK do Mobile Engagement ou usando a API do dispositivo da plataforma do Mobile Engagement.
 
-As informações de um aplicativo são um par chave/valor associado a um dispositivo. A chave é o nome das informações do aplicativo (limitado a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [_]). O valor (limitado a 1024 caracteres) pode ser qualquer cadeia de caracteres, inteiro, data (aaaa-MM-dd) ou booliano (verdadeiro ou falso).
+As informações de um aplicativo são um par chave/valor associado a um dispositivo. A chave é o nome das informações do aplicativo (limitado a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [\_]). O valor (limitado a 1024 caracteres) pode ser qualquer cadeia de caracteres, inteiro, data (aaaa-MM-dd) ou booliano (verdadeiro ou falso).
 
 Qualquer número de informações de aplicativo pode ser associado a um dispositivo, dentro dos limites definidos pelos termos de preços do Mobile Engagement. Para uma determinada chave, o Mobile Engagement controla apenas o conjunto mais recente de valor (nenhum histórico). Definir ou alterar o valor das informações de um aplicativo força o Mobile Engagement a reavaliar o conjunto de critérios de público definido nessas informações do aplicativo (se houver), o que significa que essas informações de aplicativo podem ser usadas para os pushes do gatilho em tempo real.
 
 ##Dados extras
 Os dados extras (ou extras) são alguns dados arbitrários que podem ser anexados a trabalhos, atividades, erros e eventos.
 
-Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de de uma árvore de pares chave/valor. As chaves são limitadas a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [_]) e o tamanho total de extras é limitado a 1024 caracteres (uma vez codificados em JSON pelo SDK do Mobile Engagement).
+Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de de uma árvore de pares chave/valor. As chaves são limitadas a 64 letras ASCII [a-zA-Z], números [0-9] e sublinhados [\_]) e o tamanho total de extras é limitado a 1024 caracteres (uma vez codificados em JSON pelo SDK do Mobile Engagement).
 
-A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento “SciFi fans” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content_viewed" com a chave extra "content_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
+A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento “SciFi fans” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content\_viewed" com a chave extra "content\_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

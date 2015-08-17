@@ -109,13 +109,13 @@ Um script Python pode ser utilizado como uma UDF por meio do Pig por meio da ins
 
 Eis aqui como este exemplo funciona:
 
-1. Ele registra o arquivo contendo o script Python (**jython.py**) usando **Jython** e, então, o expõe ao Pig como **myfuncs**. O Jython é uma implementação do Python em Java e é executado na mesma máquina virtual de Java que o Pig. Isso nos permite tratar o script Python como uma chamada tradicional de função vs. a abordagem de streaming usada com o Hive.
+1. Ele registra o arquivo contendo o script Python (**jython.py**), usando **Jython**, então, o expõe ao Pig como **myfuncs**. O Jython é uma implementação do Python em Java e é executado na mesma máquina virtual de Java que o Pig. Isso nos permite tratar o script Python como uma chamada tradicional de função vs. a abordagem de streaming usada com o Hive.
 
 2. A próxima linha carrega o arquivo de dados de amostra, **sample.log** em **LOGS**. Como esse arquivo de log não tem um esquema consistente, ele também define cada registro (**LINE** neste caso), como uma **matriz de caracteres**. A matriz de caracteres é, essencialmente, uma cadeia de caracteres.
 
 3. A terceira linha filtra e remove quaisquer valores nulos, armazenando o resultado da operação no **LOG**.
 
-4. Em seguida, ela faz a iteração pelos registros em **LOG** e usa **GENERATE** para chamar o método **create_structure** contido no script **jython.py** carregado como **myfuncs**. **LINE** é usado para passar o registro atual para a função.
+4. Em seguida, ela faz a iteração pelos registros em **LOG** e usa **GENERATE** para chamar o método **create\_structure** contido no script **jython.py** carregado como **myfuncs**. **LINE** é usado para passar o registro atual para a função.
 
 5. Por fim, as saídas são depositadas em STDOUT usando o comando **DUMP**. Isso é só para mostrar imediatamente os resultados após a conclusão da operação; em um script real, você normalmente **ARMAZENARIA** os dados em um novo arquivo.
 
@@ -138,9 +138,9 @@ Você se lembra que, anteriormente, nós apenas definimos a entrada **LINE** com
 	* level - o nível do log
 	* detail - detalhes para a entrada de log
 
-2. Em seguida, a **def create_structure(input)** define a função à qual o Pig passará os itens de linha.
+2. Em seguida, a **def create\_structure(input)** define a função à qual o Pig passará os itens de linha.
 
-3. Os dados de exemplo, **sample.log**, na maior parte das vezes estão em conformidade com o esquema de data, horário, nome de classe, nível e detalhe que desejamos retornar. Mas eles também contêm algumas linhas que começam com a cadeia “*java.lang.Exception*”, as quais precisam ser modificadas para corresponder ao esquema. A instrução **if** busca essas linhas, então movimenta os dados de entrada para mover a cadeia de caracteres “*java.lang.Exception*” para o final, colocando os dados em linha com o nosso esquema de saída esperado.
+3. Os dados de exemplo, **sample.log**, na maior parte das vezes estão em conformidade com o esquema de data, horário, nome de classe, nível e detalhe que desejamos retornar. Mas eles também contêm algumas linhas que começam com a cadeia '*java.lang.Exception*‘, que precisam ser modificadas para corresponder ao esquema. A instrução **if** busca essas linhas, então movimenta os dados de entrada para mover a cadeia de caracteres '*java.lang.Exception*' para o final, colocando os dados em linha com o nosso esquema de saída esperado.
 
 4. Em seguida, o comando **split** é utilizado para dividir os dados nos caracteres ocupando os quatro primeiros espaços. Isso resulta em cinco valores, que são atribuídos a **date**, **time**, **classname**, **level** e **detail**.
 
@@ -330,4 +330,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

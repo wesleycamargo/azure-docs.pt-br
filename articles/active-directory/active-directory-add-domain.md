@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
 
@@ -58,7 +58,8 @@ Se você planeja usar o logon único com o serviço de nuvem, é recomendável q
 ### Adicionar e verificar um nome de domínio usando o Portal de Gerenciamento do Azure
 
 1. No portal, clique em **Active Directory**, em seguida, clique no nome do diretório da organização. Você pode executar uma das seguintes ações:
-    1. Na página do diretório padrão, clique em **Adicionar Domínio** na seção **Melhorar a experiência de logon do usuário **. 2. Clique em **Domínios** e, em seguida, clique em **Adicionar um domínio de cliente** ou no botão **Adicionar**.
+    1. Na página do diretório padrão, clique em **Adicionar Domínio** na seção **Melhorar a experiência de logon do usuário **.
+2. Clique em **Domínios** e, em seguida, clique em **Adicionar um domínio de cliente** ou no botão **Adicionar**.
 2. Na página **Adicionar domínio**, digite o nome de domínio que você deseja adicionar e execute uma das seguintes ações:
     1. Se você não planeja integrar o Active Directory local com o AD do Azure, faça o seguinte:
         1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** desmarcada e clique no botão **Adicionar**.
@@ -211,4 +212,4 @@ Se você adicionar seu nome de domínio personalizado ao serviço de nuvem depoi
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 - [Gerenciar domínios no AD do Azure](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

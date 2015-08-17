@@ -280,10 +280,10 @@ Você precisa copiá-lo para a sua estação de trabalho no caminho [Pasta de in
 ##Próximas etapas
 Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
-- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
+- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]\: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]\: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 - [Configurar replicação HBase no HDInsight](hdinsight-hbase-geo-replication.md): saiba como configurar a replicação do HBase entre dois datacenters do Azure. 
-- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
+- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]\: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
 
 [azure-portal]: https://manage.windowsazure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -306,4 +306,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para obter ma
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

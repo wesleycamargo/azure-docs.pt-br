@@ -31,4 +31,4 @@ Se você usar a autenticação multifator com o Azure, será conveniente gerenci
 
 <center>![Configuração](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

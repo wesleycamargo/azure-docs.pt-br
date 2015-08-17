@@ -29,4 +29,4 @@ Todos os controladores em seu projeto foram marcados com o atributo **Autorizar*
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

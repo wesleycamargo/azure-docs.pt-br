@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos | Azure" 
+	pageTitle="Compilar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos com o .NET para compilar um aplicativo Web de lista de tarefas pendentes. Você vai armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado nos Sites do Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -447,7 +447,7 @@ Abra ***App\_Start\\RouteConfig.cs***, encontre a linha que começa com "default
 
 Agora isso informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento que, em vez de **Home**, usa **Item** como controlador e o usuário **Índice** como exibição.
 
-Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\\*\*Item\*\*\\\*\*Índice\*\*.
+Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\**Item**\**Índice**.
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 
@@ -650,7 +650,7 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 7. Agora você pode [executar o aplicativo localmente](#_Toc395637773) e [implantá-lo nos Sites do Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@ Se você prefere economizar tempo e deseja apenas compilar a solução de lista 
 [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -90,4 +90,4 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

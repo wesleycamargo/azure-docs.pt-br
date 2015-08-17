@@ -56,4 +56,4 @@ O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

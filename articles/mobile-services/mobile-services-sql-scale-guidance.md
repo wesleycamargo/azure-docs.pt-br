@@ -263,27 +263,27 @@ Para executar qualquer uma das consultas abaixo, cole-as na janela e selecione *
 
 #### Métricas avançadas
 
-O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **[sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
+O portal de gerenciamento disponibiliza determinadas métricas para leitura se você estiver usando as camadas Basic, Standard e Premium. No entanto, se estiver usando as camadas Web e Business, apenas a métrica Armazenamento estará disponível no portal. Felizmente, é fácil obter essas e outras métricas usando a exibição de gerenciamento **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independentemente de qual camada você está usando. Considere a seguinte consulta:
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Execute essa consulta no banco de dados **principal** de seu servidor, uma vez que a exibição **sys.resource\_stats** está presente apenas nesse banco de dados.
+> [AZURE.NOTE]Execute essa consulta no banco de dados **principal** de seu servidor, uma vez que a exibição **sys.resource\\\_stats** está presente apenas nesse banco de dados.
 
 O resultado contem a seguinte métrica útil: CPU (% de limite de camada), Armazenamento (megabytes), Leituras de Dados Físicos (% de limite de camada), Gravações de Log (% de limite de camada), Memória (% de limite de camada), Contagem de Trabalhador, Contagem de Sessão, etc.
 
 #### Eventos de conectividade de SQL
 
-A exibição **[sys.event_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contém os detalhes dos eventos relacionados à conectividade.
+A exibição **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contém os detalhes dos eventos relacionados à conectividade.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Execute essa consulta no banco de dados **mestre** de seu servidor, uma vez que a exibição **sys.event\_log** está presente apenas nesse banco de dados.
+> [AZURE.NOTE]Execute essa consulta no banco de dados **mestre** de seu servidor, uma vez que a exibição **sys.event\\\_log** está presente apenas nesse banco de dados.
 
 <a name="AdvancedIndexing" />
 ### Indexação avançada
@@ -296,7 +296,7 @@ Uma tabela ou exibição pode conter os seguintes tipos de índices:
 
 Para fornecer uma analogia ao mundo real: considere um livro ou uma técnica manual. O conteúdo de cada página é um registro, o número da página é o índice clusterizado e o índice de tópicos na parte final do livro é um índice não clusterizado. Cada entrada no índice de tópicos aponta para o índice clusterizado, o número da página.
 
-> [AZURE.NOTE]Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end do .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]Por padrão, o back-end do JavaScript dos Serviços Móveis do Azure configura **\\\_createdAt** como o índice clusterizado. Se você remover essa coluna ou se desejar um índice clusterizado diferente, procure seguir as [orientações de design de índice clusterizado](#ClusteredIndexes) abaixo. No back-end do .NET, a classe `EntityData` define `CreatedAt` como um índice clusterizado usando a anotação `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Orientações de design de índices clusterizados
@@ -476,4 +476,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

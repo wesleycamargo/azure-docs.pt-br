@@ -24,7 +24,7 @@ Este tópico explica como usar o Visual Studio para implantar um projeto de Apli
 
 Ao implantar um projeto do Aplicativo de Console habilitado para Trabalhos Web, o Visual Studio realiza duas tarefas:
 
-* Copia arquivos de tempo de execução para a pasta apropriada no aplicativo Web (\*App\_Data/jobs/continuous\* para Trabalhos Web contínuos, *App\_Data/jobs/triggered* para Trabalhos Web agendados e sob demanda).
+* Copia arquivos de tempo de execução para a pasta apropriada no aplicativo Web (*App\_Data/jobs/continuous* para Trabalhos Web contínuos, *App\_Data/jobs/triggered* para Trabalhos Web agendados e sob demanda).
 * Configura [Trabalhos do Agendador do Azure](#scheduler) para Trabalhos Web agendados a serem executados em determinados horários. (Isso não é necessário para Trabalhos Web contínuos.)
 
 Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
@@ -193,11 +193,11 @@ Para um Trabalho Web independente, o mesmo assistente **Publicar Web** usado em 
 
 ## <a id="nextsteps"></a>Próximas etapas
 
-Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter informações sobre como implantar Azure WebJobs do Visual Studio usando um processo de entrega contínuo, consulte [Azure WebJobs — Recursos recomendados — Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter informações sobre como implantar o Azure WebJobs desde o Visual Studio usando um processo de entrega contínuo, consulte [Azure WebJobs — Recursos recomendados — Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

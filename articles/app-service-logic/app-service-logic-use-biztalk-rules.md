@@ -248,4 +248,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

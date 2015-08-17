@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -153,4 +153,4 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

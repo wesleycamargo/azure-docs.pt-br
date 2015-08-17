@@ -18,22 +18,22 @@
 
 #Notas de versão do SDK de aplicativos do Windows Universal
 
-##3.1.0 (21/05/2015)
+##3\.1.0 (21/05/2015)
 
 -   A ID do dispositivo Mobile Engagement agora se baseia em um GUID gerado no momento da instalação
 
-##3.0.1 (29/04/2015)
+##3\.0.1 (29/04/2015)
 
 -   Correção de um bug que afeta a inicialização do SDK em alguns aplicativos do Windows Phone WinRT.
 
-##3.0.0 (03/04/2015)
+##3\.0.0 (03/04/2015)
 
 -   Introdução do SDK do Mobile Engagement para aplicativo Universal (Windows e Windows Phone WinRT).
 -   Ícone de notificação padrão atualizado.
 -   Envia comentários de ação de notificação do sistema quando uma notificação é clicada.
 -   Correção de notificação de sistema que, às vezes, é repetida no aplicativo após ser clicada.
 
-##2.0.0 (17/02/2015)
+##2\.0.0 (17/02/2015)
 
 -   Versão Inicial do Mobile Engagement do Azure
 -   A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
@@ -41,4 +41,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

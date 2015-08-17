@@ -107,7 +107,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## Exportar dados do SQL Data Warehouse
-Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Warehouse. Exportaremos os dados que criamos acima para um novo arquivo de dados chamado DimDate2_export.txt.
+Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Warehouse. Exportaremos os dados que criamos acima para um novo arquivo de dados chamado DimDate2\_export.txt.
 
 ### Etapa 1: Exportar os dados
 
@@ -152,4 +152,4 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

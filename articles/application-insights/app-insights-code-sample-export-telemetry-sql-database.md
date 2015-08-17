@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Exemplo de código: Exportar para SQL do Application Insights usando uma função de trabalho
@@ -134,7 +134,7 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em seu projet
  * EntityFramework 6.1.2 ou posterior - Usaremos isso para gerar o esquema da tabela de banco de dados rapidamente, com base no conteúdo do JSON no blob.
  * JsonFx - Usaremos isso para mesclar o JSON com propriedades de classe de C#.
 
-Use essa ferramenta para gerar a classe c# do nosso único documento JSON. Ele requer algumas pequenas alterações como o nivelamento de matrizes JSON em uma única propriedade de C# na coluna única da tabela do banco de dados (ex. urlData_port)
+Use essa ferramenta para gerar a classe c\# do nosso único documento JSON. Ele requer algumas pequenas alterações como o nivelamento de matrizes JSON em uma única propriedade de C# na coluna única da tabela do banco de dados (ex. urlData\_port)
 
  * [Gerador de classe C# JSON](http://jsonclassgenerator.codeplex.com/)
 
@@ -519,6 +519,7 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 * [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportação Contínua no Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

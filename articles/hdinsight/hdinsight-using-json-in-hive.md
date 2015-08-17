@@ -81,7 +81,7 @@ Os métodos listados na próxima seção exigem que o documento JSON estejam em 
 	
 	SELECT * FROM StudentsOneLine
 
-O arquivo JSON bruto está localizado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. A tabela Hive *StudentsRaw* aponta para o documento JSON bruto não nivelado.
+O arquivo JSON bruto está localizado em ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. A tabela Hive *StudentsRaw* aponta para o documento JSON bruto não nivelado.
 
 A tabela Hive *StudentsOneLine* armazenará os dados no sistema de arquivos padrão do HDInsight no caminho */json/students/*.
 
@@ -126,7 +126,7 @@ A UDF get-json\_object tem algumas limitações.
 
 ### Usar a UDF JSON\_TUPLE
 
-Outra UDF fornecida pelo Hive é chamada [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que [get\_ json _object]https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. A consulta a seguir retorna a ID e a série do aluno por meio do documento JSON:
+Outra UDF fornecida pelo Hive é chamada [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), que é mais eficaz do que [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Esse método usa um conjunto de chaves e uma cadeia de caracteres JSON e retorna uma tupla de valores usando uma função. A consulta a seguir retorna a ID e a série do aluno por meio do documento JSON:
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -261,4 +261,4 @@ Para outros artigos relacionados, consulte
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

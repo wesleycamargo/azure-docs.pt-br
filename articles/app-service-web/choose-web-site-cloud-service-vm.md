@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
@@ -79,7 +79,7 @@ O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutu
 
 ### <a id="smallbusiness"></a>Eu sou um pequeno empresário e preciso de uma maneira barata de hospedar meu site, mas com crescimento futuro em mente.
 
-O Serviço de Aplicativo do Azure é uma ótima solução para esse cenário, pois você pode começar a usá-lo gratuitamente e, em seguida, adicionar mais recursos quando precisar. Cada aplicativo Web gratuito vem com um domínio fornecido pelo Azure (*sua_empresa*.azurewebsites.net) e a plataforma inclui ferramentas de implantação e gerenciamento integradas, bem como uma galeria de aplicativos que fazem com que seja fácil começar. Há muitos outros serviços e opções de dimensionamento que permite que o site evolua com maior demanda do usuário. Com o Serviço de Aplicativo do Azure, você pode:
+O Serviço de Aplicativo do Azure é uma ótima solução para esse cenário, pois você pode começar a usá-lo gratuitamente e, em seguida, adicionar mais recursos quando precisar. Cada aplicativo Web gratuito vem com um domínio fornecido pelo Azure (*sua\_empresa*.azurewebsites.net) e a plataforma inclui ferramentas de implantação e gerenciamento integradas, bem como uma galeria de aplicativos que fazem com que seja fácil começar. Há muitos outros serviços e opções de dimensionamento que permite que o site evolua com maior demanda do usuário. Com o Serviço de Aplicativo do Azure, você pode:
 
 - Começar com a camada livre e, em seguida, dimensionar conforme necessário.
 - Use a Galeria de Aplicativos para a rápida criação de aplicativos Web populares, como o WordPress.
@@ -140,197 +140,34 @@ Além disso, o Serviço de Aplicativo do Azure tem um novo recurso de visualiza�
 
 A tabela a seguir compara os recursos de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais para ajudá-lo a fazer a melhor escolha. Para obter as informações mais recentes sobre SLA para cada opção, consulte os [Acordos de Nível de Serviço do Azure](/support/legal/sla/).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Serviço de Aplicativo (aplicativos Web)</th>
-   <th align="left" valign="middle">Serviços de nuvem (funções Web)</th>
-   <th align="left" valign="middle">Máquinas Virtuais</th>
-   <th align="left" valign="middle">Observações</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Implantação quase instantânea</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">Implantar um aplicativo ou uma atualização de um aplicativo em um Serviço de Nuvem ou criar uma Máquina Virtual leva no mínimo alguns minutos; implantar um aplicativo em um aplicativo Web leva segundos.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Dimensionar para máquinas maiores sem reimplantação</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Instâncias do servidor da Web compartilham conteúdos e configuração, o que significa que você não precisa implantar ou configurar novamente conforme realiza o dimensionamento.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Vários ambientes de implantação (produção e preparo)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Gerenciamento de atualização automática do sistema operacional</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 64 bits)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Implantar código com GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Implantar o código com a implantação da Web</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Suporte do WebMatrix</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Acesso a serviços como o Service Bus, Armazenamento, Banco de Dados SQL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Camada intermediária de host de uma arquitetura multicamada</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de visualização [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) fornece ainda mais recursos para hospedar serviços REST.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Suporte integrado do MySQL como serviço</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal de Gerenciamento.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Suporte para ASP.NET, classic ASP, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Dimensionamento para várias instâncias sem reimplantação</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Suporte para SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte <a href="../web-sites-configure-ssl-certificate/">Configurar um certificado SSL para um Website do Azure</a>.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Integração do Visual Studio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Depuração Remota</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Implantar código com TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Isolamento de rede com a <a href="/services/virtual-network/">Rede Virtual do Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Consulte também <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integração de Rede Virtual dos Websites do Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Suporte a <a href="/services/traffic-manager/">Gerenciador de Tráfego do Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Monitoramento do ponto de extremidade integrado</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Acesso remoto a área de trabalho para servidores</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Instalação de qualquer MSI personalizado</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Capacidade de definir/executar tarefas de inicialização</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Capacidade de ouvir eventos de ETW</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+Recurso|Serviço de Aplicativo (aplicativos Web)|Serviços de nuvem (funções Web)|Máquinas Virtuais|Observações
+---|---|---|---|---
+Implantação quase instantânea|X|||Implantar um aplicativo ou uma atualização de um aplicativo em um Serviço de Nuvem ou criar uma Máquina Virtual leva no mínimo alguns minutos; implantar um aplicativo em um aplicativo Web leva segundos.
+Dimensionar para máquinas maiores sem reimplantação|X|||
+Instâncias do servidor da Web compartilham conteúdos e configuração, o que significa que você não precisa implantar ou configurar novamente conforme realiza o dimensionamento.|X|||
+Vários ambientes de implantação (produção e preparo)|X|X||
+Gerenciamento de atualização automática do sistema operacional|X|X||
+Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 64 bits)|X|X||
+Implantar código com GIT, FTP|X||X|
+Implantar o código com a implantação da Web|X||X|Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção.
+Suporte do WebMatrix|X||X|
+Acesso a serviços como o Service Bus, Armazenamento, Banco de Dados SQL|X|X|X|
+Camada de serviços da Web ou Web hospedada de uma arquitetura multicamada|X|X|X|
+Camada intermediária de host de uma arquitetura multicamada|X|X|X|Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. O recurso de [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform/) de visualização oferece ainda mais recursos para hospedar serviços REST.
+Suporte integrado do MySQL como serviço|X|X|X|Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal de Gerenciamento.
+Suporte para ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
+Dimensionamento para várias instâncias sem reimplantação|X|X|X|Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware.
+Suporte para SSL|X|X|X|Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar SSL com aplicativos Web, consulte [Configurar um certificado SSL para um Website do Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Integração do Visual Studio|X|X|X|
+Depuração Remota|X|X|X|
+Implantar código com TFS|X|X|X|
+Isolamento de rede com a [Rede Virtual do Azure](../services/virtual-network/)|X|X|X|Consulte também [Integração de Rede Virtual dos Websites do Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
+Suporte a [Gerenciador de Tráfego do Azure](../services/traffic-manager/)|X|X|X|
+Monitoramento do ponto de extremidade integrado|X|X|X|
+Acesso remoto a área de trabalho para servidores||X|X|
+Instalação de qualquer MSI personalizado||X|X|
+Capacidade de definir/executar tarefas de inicialização||X|X|
+Capacidade de ouvir eventos de ETW||X|X|
 
 
 > [AZURE.NOTE]Se você quiser começar a usar o Serviço de Aplicativo do Azure antes de se inscrever para uma conta, acesse <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, em que é possível criar imediatamente um aplicativo de iniciante de curta duração no Serviço de Aplicativo do Azure gratuitamente. Nenhum cartão de crédito é exigido, sem compromissos.
@@ -367,4 +204,4 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
   [armazenamento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

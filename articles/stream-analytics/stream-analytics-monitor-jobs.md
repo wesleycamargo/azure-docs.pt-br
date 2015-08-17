@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/16/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 
-# Monitorar os trabalhos do Stream Analytics programaticamente 
+# Monitorar trabalhos do Stream Analytics programaticamente 
 Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do Powershell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure navegando até a página de monitoramento do trabalho e clicando no botão Habilitar ou pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia "Monitor" no Portal do Azure para o trabalho de Stream Analytics.
 
 ![Guia de trabalhos do monitor](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
@@ -178,4 +178,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

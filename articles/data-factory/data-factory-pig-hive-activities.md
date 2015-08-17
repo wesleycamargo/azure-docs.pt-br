@@ -39,7 +39,7 @@ Este passo a passo fornece instruções passo a passo para usar uma atividade de
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar consultas do Hive no arquivo HQL, adicione "\*\*set hive.execution.engine=tez\*\*;" na parte superior do arquivo.
+	> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar consultas do Hive no arquivo HQL, adicione "**set hive.execution.engine=tez**;" na parte superior do arquivo.
 		
 3.  Carregue o **hivequery.hql** no contêiner **adftutorial** no seu armazenamento de blob
 
@@ -140,7 +140,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -159,7 +159,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
       		}
 		}
 
-	> [AZURE.NOTE]Substitua o valor **StartDateTime** pelos três dias anteriores ao dia atual e valor **EndDateTime** pelo dia atual. StartDateTime e EndDateTime precisam ambos estar em [formato ISO](http://pt.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A tabela de saída está agendada para ser produzida diariamente, então haverá três fatias produzidas.
+	> [AZURE.NOTE]Substitua o valor **StartDateTime** pelos três dias anteriores ao dia atual e valor **EndDateTime** pelo dia atual. StartDateTime e EndDateTime precisam ambos estar em [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A tabela de saída está agendada para ser produzida diariamente, então haverá três fatias produzidas.
 	> 
 	> Substitua o **nome da sua conta de armazenamento** e pela chave da conta de armazenamento.
 	
@@ -258,7 +258,7 @@ O exemplo de JSON a seguir para um pipeline de exemplo utiliza uma atividade de 
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -277,7 +277,7 @@ O exemplo de JSON a seguir para um pipeline de exemplo utiliza uma atividade de 
 	}
 
 
-> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar uma consulta de Hive, execute "\*\*set hive.execution.engine=tez\*\*;" antes de executar a consulta de Hive.
+> [AZURE.NOTE]Para usar o mecanismo **Tez** para executar uma consulta de Hive, execute "**set hive.execution.engine=tez**;" antes de executar a consulta de Hive.
 > 
 > Consulte a [Referência do Desenvolvedor](http://go.microsoft.com/fwlink/?LinkId=516908) para obter detalhes sobre os cmdlets, esquemas JSON e propriedades no esquema.
 
@@ -353,4 +353,4 @@ Artigo | Descrição
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

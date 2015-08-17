@@ -194,4 +194,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

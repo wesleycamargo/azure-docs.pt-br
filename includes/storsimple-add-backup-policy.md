@@ -14,4 +14,4 @@
 A política recém-adicionada será exibida no modo de exibição tabular na página **Políticas de Backup**.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

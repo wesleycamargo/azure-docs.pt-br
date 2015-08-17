@@ -63,7 +63,7 @@ Em seguida, começaremos a escrever um aplicativo node.js simples, que usa a API
 
 Para fazer solicitações autenticadas no back-end do Twilio, precisamos do nosso SID de conta e do token de autenticação, que funcionam como o nome de usuário e a senha definida para a nossa conta do Twilio. A maneira mais segura de configurá-los para uso com o módulo de nó no Azure é por meio de variáveis de ambiente do sistema, que podem ser definidas diretamente no console de administração do Azure.
 
-Selecione o site do node.js e clique no link "CONFIGURAR". Se você rolar para baixo um pouco, verá uma área na qual poderá definir propriedades de configuração para o seu aplicativo. Insira suas credenciais de conta do Twilio ([encontradas no seu painel do Twilio][twilio_dashboard]) conforme mostrado – não se esqueça de nomeá-las como "TWILIO_ACCOUNT_SID" e "TWILIO_AUTH_TOKEN", respectivamente:
+Selecione o site do node.js e clique no link "CONFIGURAR". Se você rolar para baixo um pouco, verá uma área na qual poderá definir propriedades de configuração para o seu aplicativo. Insira suas credenciais de conta do Twilio ([encontradas no seu painel do Twilio][twilio_dashboard]) conforme mostrado – não se esqueça de nomeá-las como "TWILIO\_ACCOUNT\_SID" e "TWILIO\_AUTH\_TOKEN", respectivamente:
 
 ![Console de administração do Azure][azure-admin-console]
 
@@ -80,7 +80,7 @@ Isso declara o módulo twilio como uma dependência, bem como a popular [estrutu
 <a id="makecall"/>
 ## Fazer uma chamada de saída
 
-Vamos criar um formulário simples que fará uma chamada para um número escolhido. Abra o server.js e insira o código a seguir. Observe onde está escrito “CHANGE_ME” - coloque o nome do seu site do Azure nesse local:
+Vamos criar um formulário simples que fará uma chamada para um número escolhido. Abra o server.js e insira o código a seguir. Observe onde está escrito “CHANGE\_ME” - coloque o nome do seu site do Azure nesse local:
 
     // Module dependencies
     var express = require('express'), 
@@ -233,4 +233,4 @@ Esperamos que você aprecie escrever com o node.js e o Twilio no Azure!
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

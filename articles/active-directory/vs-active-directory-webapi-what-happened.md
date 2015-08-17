@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # O que aconteceu com meu projeto?
 
@@ -59,11 +59,13 @@ Se você já tiver uma classe de Inicialização em seu projeto, o método **Con
 
 ###Seu arquivo app.config ou web.config possui novos valores de configuração.
 
-As entradas de configuração a seguir foram adicionadas. <pre> `<appSettings>
+As entradas de configuração a seguir foram adicionadas. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Um aplicativo do Azure AD foi criado
 
@@ -71,7 +73,7 @@ Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-##Se eu marquei *Desabilitar autenticação de contas de usuários individuais*, que alterações adicionais foram feitas ao meu projeto?
+##Se eu tiver marcado *desabilitar a autenticação de Contas de Usuários Individuais*, quais alterações adicionais foram feitas ao meu projeto?
 Referências ao pacote NuGet foram removidas e arquivos foram removidos e copiados. Dependendo do estado do seu projeto, você terá de remover manualmente referências ou arquivos adicionais ou modificar o código conforme apropriado.
 
 ###Referências ao pacotes NuGet removidas (para aquelas presentes)
@@ -97,17 +99,21 @@ Cada um dos seguintes arquivos foi copiado antes de ser substituído. Arquivos d
 - `Startup.cs`
 - `App_Start\Startup.Auth.cs`
 
-##Se eu marquei *Ler dados do diretório*, que alterações adicionais foram feitas ao meu projeto?
+##Se eu tiver marcado *Ler dados do diretório*, quais alterações adicionais foram feitas ao meu projeto?
 
 ###Foram feitas alterações adicionais em sua app.config ou web.config
 
-As entradas de configuração extras a seguir foram adicionadas. <pre> `<appSettings>
+As outras entradas de configuração a seguir foram adicionadas.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Seu aplicativo Active Directory do Azure foi atualizado
-Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave extra foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
+Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

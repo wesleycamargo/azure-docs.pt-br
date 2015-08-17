@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
@@ -76,18 +76,18 @@ Se os firewalls de saída forem restritos na porta 443, os seguintes intervalos 
 
 Subrede de IP|Máscara de rede|Intervalo IP
 :------------- | :------------- | :------------- |
-134.170.116.0/25|255.255.255.128|134.170.116.1 – 134.170.116.126
-134.170.165.0/25|255.255.255.128|134.170.165.1 – 134.170.165.126
-70.37.154.128/25|255.255.255.128|70.37.154.129 – 70.37.154.254
+134\.170.116.0/25|255\.255.255.128|134\.170.116.1 – 134.170.116.126
+134\.170.165.0/25|255\.255.255.128|134\.170.165.1 – 134.170.165.126
+70\.37.154.128/25|255\.255.255.128|70\.37.154.129 – 70.37.154.254
 
 Se você não estiver usando recursos de Confirmação de Eventos do Azure Multi-Factor Authentication e se os usuários não estiverem se autenticando com os aplicativos móveis de autenticação multifator em dispositivos na rede corporativa, os intervalos de IP podem ser reduzidos ao seguinte:
 
 
 Subrede de IP|Máscara de rede|Intervalo IP
 :------------- | :------------- | :------------- |
-134.170.116.72/29|255.255.255.248|134.170.116.72 – 134.170.116.79
-134.170.165.72/29|255.255.255.248|134.170.165.72 – 134.170.165.79
-70.37.154.200/29|255.255.255.248|70.37.154.201 – 70.37.154.206
+134\.170.116.72/29|255\.255.255.248|134\.170.116.72 – 134.170.116.79
+134\.170.165.72/29|255\.255.255.248|134\.170.165.72 – 134.170.165.79
+70\.37.154.200/29|255\.255.255.248|70\.37.154.201 – 70.37.154.206
 
 
 ### Para instalar e configurar o Servidor Azure Multi-Factor Authentication
@@ -157,4 +157,4 @@ Método|Descrição
 [Sincronizar com o Active Directory do Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Informações sobre instalação e como configurar a sincronização entre o Active Directory e o Servidor Azure MFA.
 [Implantando o Serviço Web do aplicativo móvel do Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informações sobre instalação e como configurar o serviço Web do Servidor Azure MFA.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

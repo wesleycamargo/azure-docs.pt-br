@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.topic="hero-article" 
+	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -368,4 +368,4 @@ Agora que você aprendeu o básico de cache Redis do Azure,siga os links para sa
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

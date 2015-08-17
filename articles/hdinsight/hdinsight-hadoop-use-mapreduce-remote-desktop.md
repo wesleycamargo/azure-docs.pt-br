@@ -40,13 +40,13 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
 1. Na área de trabalho do HDInsight, inicie a **Linha de Comando do Hadoop**. Isso abre um novo prompt de comando no diretório **c:\\apps\\dist\\hadoop-<número de versão>**.
 
-	> [AZURE.NOTE]O número de versão muda à medida que o Hadoop é atualizado. A variável de ambiente **HADOOP_HOME** pode ser usada para localizar o caminho. Por exemplo, `cd %HADOOP_HOME%` altera os diretórios para o diretório do Hadoop, sem a necessidade de saber o número de versão.
+	> [AZURE.NOTE]O número de versão muda à medida que o Hadoop é atualizado. A variável de ambiente **HADOOP\_HOME** pode ser usada para localizar o caminho. Por exemplo, `cd %HADOOP_HOME%` altera os diretórios para o diretório do Hadoop, sem a necessidade de saber o número de versão.
 
 2. Para usar o comando **Hadoop** para executar um trabalho MapReduce de exemplo, use o seguinte comando:
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar** no diretório atual. Como entrada, ele usa o **documento wasb://example/data/gutenberg/davinci.txt**, e a saída é armazenado em: **wasb:///example/data/WordCountOutput**.
+	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar** no diretório atual. Como entrada, ele usa o ****wasb://example/data/gutenberg/davinci.txt**documento, e a saída é armazenada em: ****wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE]Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="hdinsight-use-mapreduce.md">Usar o MapReduce no HDInsight Hadoop</a>.
 
@@ -57,19 +57,19 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Quando o trabalho for concluído, use o seguinte comando para exibir os arquivos de saída armazenados em **wasb://example/data/WordCountOutput**:
+3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em ****wasb://example/data/WordCountOutput**:
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Isso deve exibir dois arquivos, **_SUCCESS** e **part-r-00000**. O arquivo **part-r-00000** contém a saída para esse trabalho.
+	Isso deve exibir dois arquivos, **\_SUCCESS** e **part-r-00000**. O arquivo **part-r-00000** contém a saída para esse trabalho.
 
-	> [AZURE.NOTE]Alguns trabalhos MapReduce podem dividir os resultados em vários arquivos **part-r-#####**. Nesse caso, use o sufixo ##### para indicar a ordem dos arquivos.
+	> [AZURE.NOTE]Alguns trabalhos MapReduce podem dividir os resultados em vários arquivos **part-r-\#\#\#\#\#**. Nesse caso, use o sufixo \#\#\#\#\# para indicar a ordem dos arquivos.
 
 4. Para exibir a saída, use o comando a seguir:
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Isso exibe uma lista das palavras contidas no arquivo **wasb://example/data/gutenberg/davinci.txt**, juntamente com o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
+	Isso exibe uma lista das palavras contidas no arquivo ****wasb://example/data/gutenberg/davinci.txt**, juntamente com o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +95,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

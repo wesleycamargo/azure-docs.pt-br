@@ -294,7 +294,6 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 -	[Idioma de modelo do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn835138.aspx)
 -	[Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 -	[Funções de modelo do Gerenciador de Recursos do Azure](../resource-group-template-functions.md)
--	[Operações avançadas de modelo](../resource-group-advanced-template.md)
 -	[Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
 -	[Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 -	[Solucionando problemas de implantações de grupos de recursos no Azure](../resource-group-deploy-debug.md)
@@ -304,4 +303,4 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

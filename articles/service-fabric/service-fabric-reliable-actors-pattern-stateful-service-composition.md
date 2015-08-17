@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Padrão de design da composição de serviço com estado dos Atores da Malha do Serviço do Azure"
-   description="Padrão de design dos Atores da Malha do Serviço que usa atores com estado para manter o estado entre chamadas de serviço, bem como resultados do serviço anterior. O estado pode ser persistente ou transitório."
+   pageTitle="Padrão de design de composição de serviço com estado de Atores Confiáveis"
+   description="O padrão de design dos Atores Confiáveis do Service Fabric que usa atores para manter o estado entre chamadas de serviço, bem como resultados do serviço anterior armazenado em cache. O estado pode ser persistente ou transitório."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Padrão de design de Atores da Malha do Serviço: composição de serviço com estado
+# Padrão de design de Atores Confiáveis: composição de serviço com estado
 Os desenvolvedores passaram a última década e meia criando serviços sem estado de N camadas no mundo corporativo. Eles criaram serviços nos bancos de dados, serviços de ordem superior sobre outros serviços, bem como mecanismos de orquestração e middleware orientado a mensagem para coordenar esses serviços. À medida que as cargas de trabalho foram evoluindo, seja exigindo mais interatividade, seja em escala, a arquitetura orientado ao serviço sem estado começou a mostrar seus pontos fracos.
 
 ## O método antigo: serviços SOA
@@ -90,6 +90,5 @@ Vemos desvantagens do “serviço sem estado” na criação de serviços escalo
 [1]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

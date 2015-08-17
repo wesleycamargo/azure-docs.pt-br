@@ -77,4 +77,4 @@ Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simple
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

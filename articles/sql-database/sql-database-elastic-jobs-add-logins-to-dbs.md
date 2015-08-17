@@ -45,4 +45,4 @@ Execute um trabalho no pool de banco de dados elástico. Consulte [Criando e ger
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

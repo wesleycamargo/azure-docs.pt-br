@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/15/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
 
 # Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure  
@@ -132,7 +132,7 @@ A tabela a seguir descreve elementos de _agendamento_ em detalhes.
 |:---|:---|:---|
 |**minutos**|Minutos da hora em que o trabalho será executado|<ul><li>Número inteiro ou</li><li>Matriz de números inteiros</li></ul>|
 |**horas**|Horas do dia em que o trabalho será executado|<ul><li>Número inteiro ou</li><li>Matriz de números inteiros</li></ul>|
-|**Dias da semana**|Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal.|<ul><li>"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" ou "Domingo"</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz 7)</li></ul>_Não_diferencia_maiúsculas_de_minúsculas|
+|**Dias da semana**|Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal.|<ul><li>"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" ou "Domingo"</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz 7)</li></ul>\_Não\_diferencia\_maiúsculas\_de\_minúsculas|
 |**monthlyOccurences**|Determina em quais dias do mês o trabalho será executado. Só pode ser especificado com uma frequência mensal.|<ul><li>Matriz de objetos monthlyOccurence:</li></ul> <pre>{"dia": _dia_,<br /> "ocorrência": _ocorrência_<br />}</pre><p> _dia_ é o dia da semana em que o trabalho será executado, por exemplo, {Domingo} é todo domingo do mês. Obrigatório.</p><p>Ocorrência é a _ocorrência_ do dia durante o mês, por exemplo, {Domingo, -1} é o último domingo do mês. Opcional.</p>|
 |**Dias do mês**|Dia do mês em que o trabalho será executado. Só pode ser especificado com uma frequência mensal.|<ul><li>Qualquer valor < = -1 e > = -31.</li><li>Qualquer valor > = 1 e < = 31.</li><li>Uma matriz dos valores acima</li></ul>|
 
@@ -198,4 +198,4 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

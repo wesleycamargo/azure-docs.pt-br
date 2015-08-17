@@ -50,7 +50,7 @@ Insira um nome para o aplicativo, selecione **Aplicativo Web e/ou API Web**, e c
 
 Para **URL de logon**, copie a **URL de redirecionamento** da seção **Active Directory do Azure** da guia **Identidades Externas** no portal do editor e remova o sufixo **-aad** do final da URL. Neste exemplo, a **URL de logon** é `https://aad03.portal.current.int-azure-api.net/signin`.
 
-Para a **URL de ID do aplicativo**, digite o domínio padrão ou um domínio personalizado para o Active Directory do Azure e acrescente uma cadeia de caracteres exclusiva a ele. Neste exemplo, o domínio padrão de **https://contoso5api.onmicrosoft.com** é usado com o sufixo do **/api** especificado.
+Para a **URL de ID do aplicativo**, digite o domínio padrão ou um domínio personalizado para o Active Directory do Azure e acrescente uma cadeia de caracteres exclusiva a ele. Neste exemplo, o domínio padrão de ****https://contoso5api.onmicrosoft.com** é usado com o sufixo do **/api** especificado.
 
 ![Propriedades do novo aplicativo do Active Directory do Azure][api-management-new-aad-application-2]
 
@@ -228,4 +228,4 @@ Agora, o usuário está conectado no portal do desenvolvedor para a instância d
 
 [Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

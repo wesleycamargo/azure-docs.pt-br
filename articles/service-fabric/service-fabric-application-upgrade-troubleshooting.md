@@ -78,7 +78,7 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-Neste exemplo, podemos ver que a atualização falhou no domínio de atualização *MYUD1* e duas partições (*744c8d9f-1D26-417e-a60e-cd48f5c098f0* e *4b43f4d8-b26b-424e-9307-7a7a62e79750*) ficaram presas, incapazes de colocar as réplicas primárias (*WaitForPrimaryPlacement*) nos nós de destino *Node1* e *Node4*. O comando **Get-ServiceFabricNode** pode ser usado para verificar se esses dois nós estão no domínio de atualização *MYUD1*. O *UpgradePhase* diz *PostUpgradeSafetyCheck*, que significa que essas verificações de segurança estão ocorrendo depois que todos os nós no domínio de atualização concluíram a atualização. Todas essas informações combinadas apontam para um possível problema com a nova versão do código do aplicativo. Os problemas mais comuns são erros de serviço em aberto ou promoção para caminhos de código principal.
+Neste exemplo, podemos ver que a atualização falhou no domínio de atualização *MYUD1* e duas partições (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* e *4b43f4d8-b26b-424e-9307-7a7a62e79750*) ficaram presas, incapazes de colocar as réplicas primárias (*WaitForPrimaryPlacement*) nos nós de destino *Node1* e *Node4*. O comando **Get-ServiceFabricNode** pode ser usado para verificar se esses dois nós estão no domínio de atualização *MYUD1*. O *UpgradePhase* diz *PostUpgradeSafetyCheck*, que significa que essas verificações de segurança estão ocorrendo depois que todos os nós no domínio de atualização concluíram a atualização. Todas essas informações combinadas apontam para um possível problema com a nova versão do código do aplicativo. Os problemas mais comuns são erros de serviço em aberto ou promoção para caminhos de código principal.
 
 Um *UpgradePhase* de *PreUpgradeSafetyCheck* significa que houve problemas na preparação do domínio de atualização antes de realmente executar a atualização. Nesse caso, os problemas mais comuns são erros de serviço no fechamento ou rebaixamento de caminhos de código principal.
 
@@ -140,7 +140,7 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-A investigação das falhas de verificação de integridade exige primeiro uma compreensão do modelo de integridade da Malha do Serviço, mas mesmo sem essa compreensão detalhada, podemos ver que dois serviços não estão íntegros: *malha:/DemoApp/Svc3* e *malha:/DemoApp/Svc2*, junto com os relatórios de erro de integridade ("InjectedFault" nesse caso). Neste exemplo, 2 dentre 4 serviços estão não íntegros, abaixo da meta padrão de 0% não íntegro (*MaxPercentUnhealthyServices*).
+A investigação das falhas de verificação de integridade exige primeiro uma compreensão do modelo de integridade da Malha do Serviço, mas mesmo sem essa compreensão detalhada, podemos ver que dois serviços não estão íntegros: *malha:/DemoApp/Svc3* e *malha:/DemoApp/Svc2*, junto com os relatórios de erro de integridade ("InjectedFault" nesse caso). Neste exemplo, dois de quatro serviços não estão íntegros, abaixo da meta padrão de 0% de não integridade (*MaxPercentUnhealthyServices*).
 
 A atualização foi suspensa com a falha pela especificação de uma **FailureAction** manual quando iniciada a atualização, para que possamos investigar o sistema dinâmico no estado de falha, se for o caso, antes de tomar medidas adicionais.
 
@@ -225,4 +225,4 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 [Serialização de dados](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

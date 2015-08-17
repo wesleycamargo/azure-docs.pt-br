@@ -124,7 +124,7 @@ Sim. Você pode criar comunicação rede virtual para rede virtual usando APIs R
 
 ### Quais são minhas opções DNS para redes virtuais?
 
-Use a tabela de decisão na página [Resolução de nome para VMs e instâncias de função](https://msdn.microsoft.com/library/azure/jj156088.aspx), que orientará você por todas as opções DNS disponíveis.
+Use a tabela de decisão na página [Resolução de nome para VMs e instâncias de função](virtual-networks-name-resolution-for-vms-and-role-instances.md), que orientará você por todas as opções DNS disponíveis.
 
 ### Posso especificar servidores DNS para uma rede virtual?
 
@@ -264,4 +264,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

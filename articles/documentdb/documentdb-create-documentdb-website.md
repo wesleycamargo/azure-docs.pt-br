@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure | Azure" 
+	pageTitle="Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure | Microsoft Azure" 
 	description="Saiba como implantar uma conta do Banco de Dados de Documentos, aplicativos Web do Serviço de Aplicativo do Azure e aplicativo Web de exemplo usando um modelo do Gerenciador de Recursos do Azure." 
 	services="documentdb, app-service\web" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure #
@@ -210,4 +210,4 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 >[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

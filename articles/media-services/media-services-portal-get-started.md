@@ -111,7 +111,7 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 
 	![JobStatus][status]
 
-Quando o carregamento for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "**-Source**" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
+Quando o carregamento for concluído, você verá o novo ativo listado na lista Conteúdo. Por convenção, o nome terá "**Source**" acrescentado ao final para ajudar a acompanhar o novo conteúdo como um conteúdo de origem para tarefas de codificação.
 
 ![ContentPage][contentpage]
 
@@ -141,7 +141,8 @@ Observe que, além de poder usar os recursos de empacotamento dinâmico, unidade
 Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Codificador de Mídia do Azure usando o Portal de Gerenciamento.
 
 1.  Selecione o arquivo que você deseja codificar. Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
-4. Na caixa de diálogo **Processo**, selecione o **processador do **Codificador de Mídia do Azure.5. Escolha uma das **configurações de codificação**.
+4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia do Azure**.
+5. Escolha uma das **configurações de codificação**.
 
 	![Process2][process2]
 
@@ -255,4 +256,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

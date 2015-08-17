@@ -42,7 +42,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
 1.  Se o Visual Studio estiver instalado no servidor de compilação, clique em **Iniciar**, em **Todos os Programas** e localize e clique em **Prompt de Comando do Visual Studio** na pasta **Ferramentas do Visual Studio**.
 
-    Se o Visual Studio não estiver instalado no servidor de compilação, abra um prompt de comando e verifique se MSBuild.exe está acessível no caminho. MSBuild está instalado com o .NET Framework no caminho %WINDIR%\\Microsoft.NET\\Framework\\*Versão*. Por exemplo, para adicionar MSBuild.exe à variável de ambiente PATH quando você tem o .NET Framework 4 instalado, digite o seguinte comando no prompt de comando:
+    Se o Visual Studio não estiver instalado no servidor de compilação, abra um prompt de comando e verifique se MSBuild.exe está acessível no caminho. O MSBuild está instalado com o .NET Framework no caminho %WINDIR%\\Microsoft.NET\\Framework\*Versão*. Por exemplo, para adicionar MSBuild.exe à variável de ambiente PATH quando você tem o .NET Framework 4 instalado, digite o seguinte comando no prompt de comando:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +56,7 @@ Esta seção descreve como criar um comando do MSBuild que compila um pacote do 
 
     Você também pode especificar o nome do projeto como um parâmetro do MSBuild. Se não for especificado, o diretório atual é usado. Para obter mais informações sobre as opções da linha de comando, consulte [Referência da linha de comando do MSBuild][1].
 
-4.  Localize a saída. Por padrão, este comando cria um diretório com relação à pasta raiz do projeto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
+4.  Localize a saída. Por padrão, esse comando cria um diretório relacionado à pasta raiz do projeto, como *ProjectDir*\\bin\*Configuration*\\app.publish\\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -91,7 +91,7 @@ Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapa
 
 5.  Clique na guia **Processo**. Na guia Processo, selecione o modelo padrão, em **Compilação**, selecione o projeto se ele ainda não estiver selecionado e expanda a seção **Avançado** na seção **Compilação** da grade.
 
-6.  Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\\myserver\\drops\** para compilar um pacote e copie os arquivos de pacote para o local \\\\myserver\\drops\:
+6.  Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\\myserver\\drops\** para compilar um pacote e copie os arquivos de pacote para o local \\\\myserver\\drops\\:
 
     ![][2]
 
@@ -121,7 +121,7 @@ Esta seção descreve como criar um script do Windows PowerShell que publicará 
 
     Isso exibirá informações sobre a sua assinatura. Verifique se tudo está correto.
 
-4.  Salve o modelo de script fornecido ao [final deste artigo][] na sua pasta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Salve o modelo de script fornecido no [final deste artigo][] na sua pasta de scripts como c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Consulte a seção de parâmetros do script. Adicione ou modifique os valores padrão. Esses valores podem ser substituídos sempre passando parâmetros explícitos.
 
@@ -295,7 +295,7 @@ Esta etapa conectará o TFS Team Build ao script criado na etapa 4, que lida com
 	            </Sequence.Variables>
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
 	              <mtbwa:InvokeProcess.ErrorDataReceived>
 	                <ActivityAction x:TypeArguments="x:String">
 	                  <ActivityAction.Argument>
@@ -578,4 +578,4 @@ Para habilitar a depuração remota ao usar entrega contínua, consulte [estas i
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

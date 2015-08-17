@@ -79,4 +79,4 @@ Os detalhes sobre como usar rotas definidas pelo usu√°rio para conceder acesso √
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

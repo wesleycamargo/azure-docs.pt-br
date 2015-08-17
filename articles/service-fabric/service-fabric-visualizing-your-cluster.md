@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Visualizando o cluster usando o Gerenciador de Malha do Serviço
@@ -74,6 +74,5 @@ Para exibir um cluster de Malha do Serviço remoto, clique em **Conectar** para 
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

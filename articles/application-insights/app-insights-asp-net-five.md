@@ -118,7 +118,7 @@ No método `Configure`:
 
 ## Adicionar instrumentação do cliente JavaScript
 
-Se você tiver um _arquivo Layout. cshtml, insira o seguinte código. Caso contrário, coloque o código em qualquer página que você deseja monitorizar.
+Se você tiver um arquivo \_Layout. cshtml, insira o seguinte código. Caso contrário, coloque o código em qualquer página que você deseja monitorizar.
 
 Defina a injeção na parte superior do arquivo:
 
@@ -171,4 +171,4 @@ Volte para o [Portal do Azure][portal] e navegue até o seu recurso do Applicati
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

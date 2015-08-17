@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -78,7 +78,7 @@ Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do A
 	> [AZURE.NOTE]Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: `Add-AzureNodeWebRole MyRole`
 
 
-O aplicativo do Node.js é definido no arquivo **server.js**, localizado no diretório da função Web (**FunçãodaWeb1**, por padrão). Eis o código:
+O aplicativo do Node.js é definido no arquivo **server.js**, localizado no diretório da função Web (**WebRole1**, por padrão). Eis o código:
 
 	var http = require('http');
 	var port = process.env.port || 1337;
@@ -192,4 +192,4 @@ Depois de implantar seu aplicativo, convém desativá-lo para que você possa ev
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

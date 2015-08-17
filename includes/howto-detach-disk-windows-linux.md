@@ -31,4 +31,4 @@ Depois de localizar o nome do disco, você estará pronto para desanexá-lo:
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

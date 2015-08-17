@@ -69,4 +69,4 @@ Os principais recursos dessa solução são:
 + As perguntas frequentes sobre o serviço de Backup do Azure estão listadas [aqui](backup-azure-backup-faq.md).
 + Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

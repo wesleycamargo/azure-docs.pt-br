@@ -53,17 +53,27 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 |A9|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
 |A10|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
 |A11|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 1,77 TB<br/>Aplicativos = aprox. 1,5 GB<blockquote> Observação: para obter informações e considerações sobre o uso desse tamanho, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre as instâncias intensivas de computação A8, A9, A10 e A11</a>.</blockquote>|
-|Standard_D1|1|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 50 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D2|2|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D3|4|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D4|8|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D11|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D12|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D13|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
-|Standard_D14|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 800 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D1|1|3,5 GB|SO = tamanho do SO convidado<br/>Recurso local = 50 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D2|2|7 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D3|4|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D4|8|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D11|2|14 GB|SO = tamanho do SO convidado<br/>Recurso local = 100 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D12|4|28 GB|SO = tamanho do SO convidado<br/>Recurso local = 200 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D13|8|56 GB|SO = tamanho do SO convidado<br/>Recurso local = 400 GB<br/>Aplicativos = aprox. 1,5 GB|
+|Standard\_D14|16|112 GB|SO = tamanho do SO convidado<br/>Recurso local = 800 GB<br/>Aplicativos = aprox. 1,5 GB|
 
+## Configurar tamanhos para os Serviços de Nuvem
+
+Você pode especificar o tamanho da Máquina Virtual de uma instância de função como parte do modelo de serviço descrito pelo arquivo de definição de serviço. O tamanho da função determina o número de núcleos de CPU, a capacidade de memória e o tamanho do sistema de arquivos local alocados para uma instância em execução. Escolha o tamanho da função com base em requisitos de recurso do aplicativo.
+
+Veja um exemplo de definição do tamanho da função como pequeno para uma instância de Função Web:
+
+
+    <WebRole name="WebRole1" vmsize="Small">
+    …
+    </WebRole>
 ## Próximas etapas
 
-[Configurar um Serviço de Nuvem do Azure](https://msdn.microsoft.com/library/hh124108) [Configurar tamanhos para Serviços de Nuvem](https://msdn.microsoft.com/library/ee814754)
+[Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -69,7 +69,7 @@ Com mapeamentos de atributo, você controla como os atributos são preenchidos e
 - **Constante** – o atributo de destino é preenchido com uma cadeia de caracteres especificada por você.
 
 
-- **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. Para obter mais detalhes, consulte Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure.
+- **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. Para obter mais detalhes, consulte [Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
 
 - **Nenhum** – o atributo de destino é deixado inalterado. No entanto, se o atributo de destino estiver vazio, ele será preenchido com o valor padrão que você especificar.
@@ -82,16 +82,12 @@ O AD do Microsoft Azure fornece uma implementação muito eficiente de um proces
 
 
 
-
-## Recursos adicionais
-
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

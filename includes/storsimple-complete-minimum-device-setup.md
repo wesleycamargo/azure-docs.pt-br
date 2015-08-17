@@ -1,3 +1,4 @@
+
 #### Para concluir a configuração mínima do dispositivo StorSimple
 
 1. Selecione o dispositivo e clique em **Início Rápido**. Clique em **Concluir a instalação do dispositivo** para iniciar o Assistente para configurar o dispositivo.
@@ -22,4 +23,4 @@
 
  >[AZURE.NOTE]Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

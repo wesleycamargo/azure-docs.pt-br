@@ -30,7 +30,7 @@ Para todos esses cenários, aplicativos em execução em um ambiente de serviço
 ## Requisitos de DNS e conectividade de saída ##
 Observe que para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele exige acesso de saída ao Armazenamento do Azure, bem como ao Banco de Dados SQL na mesma região do Azure. Se o acesso de saída à Internet for bloqueado na rede virtual, os Ambientes de Serviço de Aplicativo não poderão acessar esses pontos de extremidade do Azure.
 
-O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net. 
+O cliente também pode ter servidores DNS personalizados configurados na rede virtual. Os Ambientes de Serviço de Aplicativo precisam poder resolver pontos de extremidade do Azure em *.database.windows.net, *.file.core.windows.net e *.blob.core.windows.net.
 
 Também é recomendável que todos os servidores DNS personalizados em uma rede virtual sejam configurados antes da criação de um Ambiente de Serviço de Aplicativo. Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo.
 
@@ -110,4 +110,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

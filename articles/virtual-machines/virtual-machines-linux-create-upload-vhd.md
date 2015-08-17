@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
 
 # Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
@@ -66,6 +66,8 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 ### Se estiver usando a CLI do Azure
 
+Use o método do AD do Azure para fazer logon:
+
 1. Abra uma janela da CLI do Azure
 
 2. Digite:
@@ -74,7 +76,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 	Quando solicitado, digite seu nome de usuário e senha.
 
-**OU**, para usar um arquivo PublishSettings:
+**OU** use um arquivo PublishSettings:
 
 1. Abra uma janela da CLI do Azure
 
@@ -92,8 +94,22 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 	Em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
+	Para obter mais informações, leia [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md).
+
 
 ### Se estiver usando o PowerShell do Azure
+
+Use o método do AD do Azure para fazer logon:
+
+1. Abra uma janela do PowerShell do Azure.
+
+2. Digite:
+
+	`Add-AzureAccount`
+
+	Quando solicitado, insira seu id de usuário e senha organizacionais.
+
+**OU**, use os arquivos PublishSettings:
 
 1. Abra uma janela do PowerShell do Azure.
 
@@ -111,8 +127,9 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
 	Em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
 
-	Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+	Para obter mais informações, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md)
 
+> [AZURE.NOTE]Recomendamos que você use o método mais recente do Active Directory do Azure para fazer logon na sua assinatura do Azure, CLI do Azure ou Azure PowerShell.
 
 ## <a id="upload"> </a>Etapa 3: carregar a imagem no Azure ##
 
@@ -141,4 +158,4 @@ Para obter mais informações, consulte [Add-AzureVhd]((https://msdn.microsoft.c
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

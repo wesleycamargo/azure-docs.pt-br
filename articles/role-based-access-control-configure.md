@@ -84,7 +84,7 @@ Primeiro, vamos adicionar o acesso à Leitura para todos os recursos da assinatu
 
 ![][3]
 
-Clique no *nome de sua assinatura* \*\* > Leitor > Adicionar\*\*. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
+Clique no *nome de sua assinatura* ** > Leitor > Adicionar**. Na lista de usuários e grupos, selecione ou digite o nome do grupo do Active Directory.
 
 ![][4]
 
@@ -98,7 +98,7 @@ Para adicionar Brock à função de Colaborador do grupo de recursos Prod, cliqu
 
 As atribuições de função podem também ser gerenciadas usando o módulo Microsoft Azure para o Windows PowerShell. Aqui está um exemplo de como adicionar a conta de Brock usando o cmdlet New-AzureRoleAssignment em vez do portal:
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Para obter mais informações sobre como usar o Windows PowerShell para adicionar e remover o acesso, consulte [Gerenciar o controle de acesso com base em função com o Windows PowerShell](role-based-access-control-powershell.md).
 
@@ -110,7 +110,7 @@ Você também pode remover atribuições facilmente. Digamos que você deseja re
 
 Aqui está um exemplo de como remover Brad Adams usando o cmdlet New-AzureRoleAssignment:
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### Adicionar ou remover o acesso para o usuário externo
 
@@ -1293,4 +1293,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

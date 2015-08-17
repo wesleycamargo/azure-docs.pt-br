@@ -62,7 +62,7 @@ Os dados de exemplo ficam no armazenamento de Blob do Azure, que é usado pelo H
 
 Como o WASB é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do Pig Latin.
 
-> [AZURE.NOTE]A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**
 
 
 ##<a id="job"></a>Sobre o trabalho de exemplo
@@ -85,7 +85,7 @@ A imagem a seguir mostra uma análise do que cada transformação faz aos dados.
 
 O HDInsight pode executar trabalhos de Pig Latin usando vários métodos. Use a tabela a seguir para decidir qual método é o melhor para você e siga o link para obter o passo-a-passo.
 
-| **Use** se quiser... | ...um shell **interativo** | ...processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
+| **Use** se quiser... | ...um shell **interativo** | ...Processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
 |:--------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-pig-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-pig-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
@@ -127,4 +127,4 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

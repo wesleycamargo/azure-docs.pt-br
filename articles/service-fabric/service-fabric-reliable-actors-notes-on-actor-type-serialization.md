@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Observações sobre os Atores da Malha do Serviço do Azure e a serialização do tipo de ator"
-   description="requisitos básicos para definir as classes serializáveis que podem ser usadas para definir as interfaces e o estado de Ator Confiável da Malha do Azure"
+   pageTitle="Observações de Atores Confiáveis sobre a serialização do tipo de Ator"
+   description="Discute os requisitos básicos para definir as classes serializáveis que podem ser usadas para estabelecer as interfaces e o estado do Ator Confiável do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Observações sobre a serialização do tipo de Atores da Malha do Serviço do Azure
+# Observações sobre a serialização de tipo dos Atores Confiáveis do Service Fabric
 
 Há alguns aspectos importantes que precisam ser considerados ao definir as interfaces e o estado do ator: os tipos precisam ser serializáveis pelo contrato de dados. Para obter mais informações sobre contratos de dados podem ser encontradas no [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
@@ -82,6 +82,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

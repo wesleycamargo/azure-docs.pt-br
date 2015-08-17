@@ -1,6 +1,6 @@
 <properties
-   pageTitle="manage-vms-azure-powershell"
-   description="Gerenciar suas VMs usando o PowerShell do Azure"
+   pageTitle="Gerenciar suas máquinas virtuais usando o Azure PowerShell | Microsoft Azure"
+   description="Aprenda os comandos que você pode usar para automatizar tarefas de gerenciamento de suas máquinas virtuais."
    services="virtual-machines"
    documentationCenter="windows"
    authors="singhkay"
@@ -16,13 +16,13 @@
    ms.date="06/24/2015"
    ms.author="kasing"/>
 
-# Gerenciar suas máquinas virtuais usando o PowerShell do Azure
+# Gerenciar suas máquinas virtuais usando o Azure PowerShell
 
-Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do PowerShell do Azure. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
+Muitas tarefas realizadas diariamente para gerenciar suas VMs podem ser automatizadas usando cmdlets do Azure PowerShell. Este artigo fornece comandos de exemplo para tarefas mais simples e links para artigos que mostram os comandos para tarefas mais complexas.
 
->[AZURE.NOTE]Se ainda não instalou e configurou o PowerShell do Azure, você pode obter instruções [aqui](../install-configure-powershell.md).
+>[AZURE.NOTE]Se você ainda não instalou e configurou o Azure PowerShell, você pode obter instruções no artigo [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md).
 
-## Como Usar os Comandos de Exemplo
+## Como usar os comandos de exemplo
 Você precisará substituir parte do texto nos comandos por texto apropriado para seu ambiente. Os símbolos < and > indicam o texto que você precisa substituir. Ao substituir o texto, remova os símbolos, mas mantenha as aspas.
 
 ## Obter uma VM
@@ -36,7 +36,7 @@ Para armazenar a saída em uma variável $vm, execute:
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Faça logon em uma máquina virtual baseada no Windows
+## Faça logon em uma VM baseada em Windows
 
 Execute estes comandos:
 
@@ -62,17 +62,17 @@ Execute este comando:
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Anexar um Disco de Dados
-Essa tarefa requer algumas etapas. Primeiro, use o cmdlet ****Add-AzureDataDisk**** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet Update-AzureVM para atualizar a configuração da VM.
+## Anexar um disco de dados
+Essa tarefa requer algumas etapas. Primeiro, use o cmdlet ****Add-AzureDataDisk**** para adicionar o disco ao objeto $vm. Em seguida, use o cmdlet **Update-AzureVM** para atualizar a configuração da VM.
 
-Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e anexa-o no mesmo comando.
+Você também precisará decidir se deseja anexar um novo disco ou um que contenha dados. Para um novo disco, o comando cria o arquivo .vhd e o anexa.
 
 Para anexar um novo disco, execute este comando:
 
     Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
               | Update-AzureVM
 
-Para anexar discos de dados existentes, execute este comando:
+Para anexar um disco de dados existente, execute este comando:
 
     Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
               | Update-AzureVM
@@ -84,13 +84,13 @@ Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blo
               -DiskLabel "<main>" -LUN <0> `
               | Update-AzureVM
 
-## Criar uma VM do Windows
+## Criar uma VM baseada no Windows
 
-Para criar uma nova máquina virtual baseada no Windows no Azure, use as instruções em [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas no Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Este tópico o orienta durante a criação de um conjunto de comandos do PowerShell que cria uma máquina virtual do Windows que pode ser pré-configurada com:
+Para criar uma nova máquina virtual baseada no Windows no Azure, use as instruções em [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Este tópico o orienta durante a criação de um conjunto de comandos do Azure PowerShell que cria uma VM baseada em Windows que pode ser pré-configurada:
 
-- Associação de domínio do Active Directory
-- Discos adicionais
-- Como membro de um conjunto de balanceamento de carga existente
-- Um endereço IP estático
+- Com associação de domínio do Active Directory.
+- Com discos adicionais.
+- Como membro de um conjunto de balanceamento de carga existente.
+- Com um endereço IP estático.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

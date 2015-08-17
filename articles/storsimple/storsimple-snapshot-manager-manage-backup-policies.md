@@ -47,7 +47,7 @@ Use o procedimento a seguir para criar uma nova política de backup.
 
    1. Na caixa de texto **Nome**, digite um nome para a política.
 
-   2. Na caixa de texto \*\*Grupo de volumes, **digite o nome do grupo de volumes associado à política.
+   2. Na caixa de texto** Grupo de volumes **, digite o nome do grupo de volumes associado à política.
 
    3. Selecione **Instantâneo Local** ou **Instantâneo em Nuvem**.
 
@@ -77,11 +77,11 @@ Após você criar uma política de backup, as seguintes informações aparecem n
 
 - **Grupo de Volumes** – o grupo de volumes associado à política.
 
-- **Retenção**– o número de instantâneos retidos; o máximo é 64.
+- **Retenção** – o número de instantâneos retidos; o máximo é 64.
 
 - **Criado** – a data em que esta política foi criada.
 
-- **Habilitado**– se a política está em vigor. **Verdadeiro** indica que ele está em vigor e **Falso** indica que não está.
+- **Habilitado** – se a política está em vigor. **Verdadeiro** indica que está em vigor e **Falso** indica que não está.
 
 ## Editar uma política de backup
 
@@ -109,7 +109,7 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 2. No painel **Escopo**, clique no nó **Políticas de Backup**. Todas as políticas de backup aparecem no painel **Resultados**.
 
-3. Clique com o botão direito na política de backup que você deseja excluir e clique em **Excluir**.
+3. Clique com o botão direito na política de backup que você deseja excluir e clique em **Excluir**. e
 4. Quando a mensagem de confirmação aparecer, clique em **Sim**.
 
     ![Excluir confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
@@ -118,4 +118,4 @@ Use o procedimento a seguir para excluir uma política de backup.
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

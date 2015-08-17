@@ -39,7 +39,7 @@ Para **pontos de extremidade específicos de locatário**, o <TenantDomainName> 
 
 Para **pontos de extremidade independentes de locatário**, o <TenantDomainName> é **common**. Esse nome indica que apenas os elementos de Metadados de Federação que são comuns a todos os locatários do AD do Azure hospedados em login.windows.net.
 
-Por exemplo, um ponto de extremidade específico de locatário pode ser *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. O ponto de extremidade independente de locatário é *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
+Por exemplo, um ponto de extremidade específico de locatário pode ser **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. O ponto de extremidade independente de locatário é *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
 
 ## Conteúdo de metadados de federação
 
@@ -149,4 +149,4 @@ Da mesma forma, os pontos de extremidade para os pontos de extremidade de protoc
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

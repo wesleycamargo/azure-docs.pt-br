@@ -42,7 +42,7 @@ O SSH é uma ferramenta importante para os administradores do sistema. No entant
 
 Siga estas etapas para gerar a chave de autenticação SSH.
 
--	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/\~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Execute puttygen.exe.
 -	Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela. ![][1]
 -	Após o processo de geração, Puttygen.exe mostrará a chave gerada. Por exemplo: ![][2]
@@ -329,7 +329,7 @@ Você também deve alterar o perfil /etc/mysql/my.cnf. Se você tiver linhas com
 	skip-networking
 	bind-address = 127.0.0.1  
 
-Você deve comentá-las (adicionar um # no início das linhas) e, em seguida, reiniciar o MySQL.
+Você deve comentá-las (adicionar um \# no início das linhas) e, em seguida, reiniciar o MySQL.
 
 Para adicionar um ponto de extremidade para permitir o acesso remoto, consulte as instruções na Fase 1: Criar uma imagem para criar um novo ponto de extremidade. O número padrão da porta TCP de acesso do MySQL é 3306. Aqui está um exemplo:
 
@@ -345,7 +345,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
+	>[AZURE.NOTE]Talvez seja necessário fazer logon novamente se você quiser modificar um arquivo em /var/www/html /.
 -	Use qualquer cliente SFTP (por exemplo, o FileZilla) para se conectar ao nome DNS da máquina virtual (por exemplo, lampdemo.cloudapp.net) e navegue até /**var/www/html** para publicar seu site. ![][18]
 
 
@@ -356,7 +356,7 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 
 -	**Sintoma** O Apache está sendo executado, mas você não consegue ver a página padrão do Apache com o seu navegador.
 -	**Possível causa raiz**
-	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade da sua máquina virtual para o tráfego da Web.</br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Consulte a Fase 1: Criar uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.</br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
+	1.	A porta de escuta do Apache não é a mesma que a Porta Privada do ponto de extremidade da sua máquina virtual para o tráfego da Web.</br> Verifique as configurações de ponto de extremidade da Porta Pública e da Porta Privada e certifique-se de que a Porta Privada é a mesma que a porta de escuta do Apache. Consulte a Fase 1: Crie uma imagem para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.</br> Para determinar a porta de escuta do Apache, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/apache2/ports.conf (versão Debian) e pesquise a cadeia de caracteres “Listen”. A porta padrão é 80.
 
 	2.	O firewall desabilitou a porta de escuta do Apache.</br> Se você pode ver a página padrão do Apache no host local, então, o problema pode ser que a porta que está sendo escutada pelo Apache esteja bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalam o w3m e navegam até a página padrão do Apache:
 
@@ -452,4 +452,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=06-->

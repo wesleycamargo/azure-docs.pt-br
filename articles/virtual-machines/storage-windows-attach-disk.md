@@ -21,7 +21,7 @@
 
 É possível anexar discos vazios e discos com dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
-> [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+> [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela tem um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como seu nome quer dizer, a unidade D oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -49,8 +49,8 @@
 
 [Como desanexar um disco de uma máquina virtual Windows](storage-windows-detach-disk.md)
 
-[Sobre discos e VHDs para Máquinas Virtuais](virtual-machines-disks-vhds.md)
+[Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

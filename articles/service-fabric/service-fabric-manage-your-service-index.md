@@ -50,4 +50,4 @@ Os seguintes artigos descrevem o dimensionamento e o particionamento:
 - [Dimensionando aplicativos da Malha do Serviço](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

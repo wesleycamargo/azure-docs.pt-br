@@ -36,7 +36,7 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 **Versão do Framework**. Configurar essas opções se seu aplicativo usa qualquer um desses frameworks:
 
 - **.NET Framework**: configure a versão do .NET framework. 
-- **PHP**: configure a versão PHP, ou **DESATIVADO **para desabilitar o PHP.
+- **PHP**: defina a versão PHP ou **DESATIVADO** para desabilitar o PHP.
 - **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
 - **Python**: selecione a versão do Python ou **DESATIVADO** para desabilitar o Python.
 
@@ -64,7 +64,7 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 
 - Para aplicativos .NET, essas configurações serão injetadas em sua configuração `AppSettings` em tempo de execução, substituindo as configurações existentes. 
 
-- Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING_. Ambas contêm o mesmo valor.
+- Os aplicativos PHP, Python, Java e Nó podem acessar essas configurações como variáveis do ambiente em tempo de execução. Para cada configuração do aplicativo, são criadas duas variáveis; uma com o nome especificado pela entrada de configuração do aplicativo, e outra com um prefixo de APPSETTING\_. Ambas contêm o mesmo valor.
 
 ### Cadeias de conexão
 
@@ -74,10 +74,10 @@ Para aplicativos .NET, essas cadeias de conexão serão injetadas em suas config
 
 Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponíveis como variáveis de ambiente em tempo de execução, antecedidas com o tipo de conexão. Os prefixos das variáveis de ambiente são os seguintes:
 
-- SQL Server: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- Banco de Dados SQL: SQLAZURECONNSTR_
-- Personalizado: CUSTOMCONNSTR_
+- SQL Server: SQLCONNSTR\_
+- MySQL: MYSQLCONNSTR\_
+- Banco de Dados SQL: SQLAZURECONNSTR\_
+- Personalizado: CUSTOMCONNSTR\_
 
 Por exemplo, se uma cadeia de conexão MySql fosse nomeado `connectionstring1`, ela seria acessada pela variável de ambiente `MYSQLCONNSTR_connectionString1`.
 
@@ -91,7 +91,8 @@ Os aplicativos Web podem utilizar módulos que rotearão na URL, em vez de atend
 
 Use essa área para adicionar processadores de script personalizados para manipular solicitações de extensões de arquivo específicas.
 
-- **Extensão**. A extensão do arquivo a ser manipulada, como *.php ou handler.fcgi. - **Caminho do Processador de script**. O caminho absoluto do processador de script. As solicitações para arquivos que correspondam a extensão do arquivo serão processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
+- **Extensão**. A extensão do arquivo a ser manipulada, como *.php ou handler.fcgi.
+- **Caminho do Processador de script**. O caminho absoluto do processador de script. As solicitações para arquivos que correspondam a extensão do arquivo serão processadas pelo processador de script. Use o caminho `D:\home\site\wwwroot` para se referir ao diretório raiz do seu aplicativo.
 - **Argumentos adicionais**. Argumentos da linha de comando opcionais para o processador de script 
 
 
@@ -175,4 +176,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

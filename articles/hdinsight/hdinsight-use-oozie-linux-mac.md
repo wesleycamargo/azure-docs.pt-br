@@ -61,7 +61,7 @@ O fluxo de trabalho que você vai implementar seguindo as instruções neste doc
 
 ##Criar o diretório de trabalho
 
-O Oozie espera que os recursos necessários para um trabalho sejam armazenados no mesmo diretório. Este exemplo usa **wasb:///tutorials/useoozie**. Use o seguinte comando para criar esse diretório e o diretório de dados que armazenará a nova tabela de Hive criada por este fluxo de trabalho:
+O Oozie espera que os recursos necessários para um trabalho sejam armazenados no mesmo diretório. Este exemplo usa ****wasb:///tutorials/useoozie**. Use o comando a seguir para criar esse diretório e o diretório de dados que armazenará a nova tabela do Hive criada por este fluxo de trabalho:
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -111,7 +111,7 @@ Use as seguintes etapas para criar um script HiveQL que define uma consulta, que
 
 2. Pressione Ctrl-X para sair do editor. Quando solicitado, selecione **Y** para salvar o arquivo e, em seguida, use **Enter** para usar o nome de arquivo **useooziewf.hql**.
 
-3. Use os seguintes comandos para copiar **useooziewf.hql** para **wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Use os comandos a seguir para copiar **useooziewf.hql** para ****wasb:///tutorials/useoozie/useooziewf.hql**:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -192,7 +192,7 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 2. Use Ctrl-X e, em seguida, **Y** e **Enter** para salvar o arquivo.
 
-3. Use o seguinte comando para copiar o arquivo **workflow.xml** para **wasb:///tutorials/useoozie/workflow.xml**:
+3. Use o comando a seguir para copiar o arquivo **workflow.xml** para ****wasb:///tutorials/useoozie/workflow.xml**:
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -215,7 +215,7 @@ As seguintes etapas criam o Banco de Dados SQL do Azure para o qual os dados ser
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Observe o nome do servidor retornado por este comando (\*\*i1qwc540ts\*\*no exemplo acima). Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**. No exemplo acima, o FQDN seria **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Observe o nome do servidor retornado por este comando (**i1qwc540ts** no exemplo acima). Esse é o nome curto do Banco de Dados SQL Server que foi criado. O nome de domínio totalmente qualificado (FQDN) é **&lt;shortname&gt;.database.windows.net**. No exemplo acima, o FQDN seria **i1qwc540ts.database.windows.net**.
 
 2. Use o seguinte comando para criar um banco de dados denominado **oozietest** no servidor de Banco de Dados SQL:
 
@@ -283,7 +283,7 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Salve o valor **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, pois ele será usado nas próximas etapas.
+	Salve o valor ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, pois ele será usado nas próximas etapas.
 
 2. Use o seguinte comando para obter o FQDN do headnode do cluster. Isso será usado para o endereço do JobTracker para o cluster. Isto será usado no arquivo de configuração em breve:
 
@@ -360,7 +360,7 @@ A definição de trabalho descreve onde encontrar o workflow.xml, bem como outro
 		  </property>
 		</configuration>
 
-	* Substitua todas as instâncias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente.
+	* Substitua todas as instâncias de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** pelo valor que você recebeu anteriormente.
 
 	> [AZURE.WARNING]Você deve usar o caminho completo do WASB, com a conta de armazenamento e contêiner como parte do caminho. Usar o formato curto (wasb:///) fará com que a ação de RunHiveScript falhe quando o trabalho for iniciado.
 
@@ -391,7 +391,7 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 		<name>oozie.base.url</name>
 		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
 
-	A parte **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** é a URL para usar com o comando Oozie.
+	A parte ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
 
 2. Use o seguinte para criar uma variável de ambiente para a URL para que você não precise digitá-la para cada comando:
 
@@ -482,7 +482,7 @@ Para acessar a interface do usuário do Oozie da Web, use as seguintes etapas:
 
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
-2. Quando um túnel tiver sido criado, abra a interface do usuário da Web do Ambari no navegador da Web. O URI para o site Ambari é **https://CLUSTERNAME.azurehdinsight.net**. Substitua **CLUSTERNAME** pelo nome do seu cluster do HDInsight baseado em Linux.
+2. Quando um túnel tiver sido criado, abra a interface do usuário da Web do Ambari no navegador da Web. O URI do site Ambari é ****https://CLUSTERNAME.azurehdinsight.net**. Substitua **NOMEDOCLUSTER** pelo nome do cluster do HDInsight baseado em Linux.
 
 3. No lado esquerdo da página, selecione **Oozie** e, em seguida, **Links rápidos** e, finalmente, **Interface do usuário da Web do Oozie**.
 
@@ -724,4 +724,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

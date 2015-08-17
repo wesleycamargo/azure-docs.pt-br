@@ -110,7 +110,7 @@ Tópico de referência: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 A definição de tabela externa é semelhante a uma definição de tabela relacional. As principais diferenças são o local e o formato dos dados. A definição de tabela externa é armazenada no banco de dados do SQL Data Warehouse. Os dados são armazenados no local especificado pela fonte de dados.
 
-A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'.
+A opção LOCATION especifica o caminho para os dados a partir da raiz da fonte de dados. Neste exemplo, os dados estão localizados em 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no BLOB do Azure.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
@@ -129,7 +129,6 @@ WITH (LOCATION='/Demo/',
 
 > [AZURE.NOTE]Observe que, neste momento, não será possível criar estatísticas sobre uma tabela externa.
 
-Todos os arquivos para a mesma tabela precisam estar na mesma pasta lógica no BLOB do Azure. Como prática recomendada, divida os dados do Armazenamento do Azure em arquivos que não ultrapassem 1 GB, quando possível, para processamento paralelo com o SQL Data Warehouse.
 
 Tópico de referência: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
@@ -207,4 +206,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/pt-br/library/ms189450.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

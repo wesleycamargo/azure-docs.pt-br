@@ -18,7 +18,9 @@
 
 # Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure (CLI do Azure) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="CLI do Azure">CLI do Azure</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 O controle de acesso com base em função (RBAC) no Portal do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura e recursos em um nível detalhado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -118,7 +120,7 @@ Em seguida, use `azure role assignment create` para criar uma atribuição de fu
 
 - Isso criará uma atribuição de função em um nível de grupo de recursos:
 
-    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - Isso criará uma atribuição de função em um nível de recursos:
 
@@ -128,8 +130,8 @@ Em seguida, use `azure role assignment create` para criar uma atribuição de fu
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando:
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
@@ -148,4 +150,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -204,7 +204,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 		Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
 		Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
-	Na primeira linha na previsão, você pode ver que para um sistema de HVAC com ID 20 e sistema de 25 anos, o prédio será quente (** previsão = 1,0 **). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
+	Na primeira linha na previsão, você pode ver que para um sistema de HVAC com ID 20 e sistema de 25 anos, o prédio será quente (**previsão = 1.0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1.0**.
 
 11. Agora você pode sair do bloco de anotações reiniciando o kernel. Na barra de menus superior, clique em **Kernel**, clique em **Reiniciar** e, em seguida, clique em **Reiniciar** novamente no prompt.
 
@@ -213,7 +213,7 @@ Podemos usar esses dados para prever se um prédio será mais quente ou frio com
 
 ##<a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para Aprendizado de Máquina
 
-Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também inclui a biblioteca **scikit-learn** para Aprendizado de Máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também inclui a biblioteca **scikit-learn** para Aprendizado de Máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Consulte também
 
@@ -240,4 +240,4 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

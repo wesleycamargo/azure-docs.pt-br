@@ -82,4 +82,4 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

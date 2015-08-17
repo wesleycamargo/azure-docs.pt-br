@@ -3,7 +3,7 @@
 	description="Redefina rapidamente uma senha de administrador local ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows usando o portal de visualização do Azure ou os comandos do PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Como redefinir uma senha ou o serviço de Área de Trabalho Remota para máquinas virtuais Windows
 
@@ -113,4 +113,4 @@ Se você não conseguir executar o pacote de diagnóstico do Azure IaaS (Windows
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

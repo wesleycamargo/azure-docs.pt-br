@@ -70,4 +70,4 @@ Para obter mais informações sobre configurações de rede virtual, consulte:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

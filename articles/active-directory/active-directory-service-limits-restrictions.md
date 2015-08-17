@@ -27,4 +27,4 @@
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologia do AD do Azure](active-directory-terminology.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

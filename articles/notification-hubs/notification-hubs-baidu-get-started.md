@@ -32,7 +32,7 @@ Este tutorial exige o seguinte:
 + [SDK para Android de Serviços Móveis]
 + [SDK do Android Push Baidu]
 
->[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+>[AZURE.NOTE]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
 
 ##Criar uma conta de Baidu
@@ -264,7 +264,7 @@ Você verá **保存成功！Mensagem (Salvo com êxito!)**.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Defina o valor de *API_KEY* com o que você recuperou do projeto de nuvem Baidu anteriormente, *NotificationHubName* com o nome de seu hub de notificação no portal do Azure e *NotificationHubConnectionString* com DefaultListenSharedAccessSignature no portal do Azure.
+	Defina o valor de *API\_KEY* com o que você recuperou do projeto de nuvem Baidu anteriormente, *NotificationHubName* com o nome de seu hub de notificação no portal do Azure e *NotificationHubConnectionString* com DefaultListenSharedAccessSignature no portal do Azure.
 
 11. Adicione uma nova classe chamada **DemoApplication.java** e adicione o seguinte código para ela:
 
@@ -482,4 +482,4 @@ Para testar este aplicativo com o emulador:
 [Portal do Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

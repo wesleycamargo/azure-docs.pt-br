@@ -57,7 +57,7 @@ Para o desenvolvimento usando o Visual Studio, é uma prática comum anotar os c
 
 	![Definir a propriedade de documento XML](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
 
-4. Abra o arquivo *SwaggerConfig.cs* (localizado na pasta **App_Start** do projeto).
+4. Abra o arquivo *SwaggerConfig.cs* (localizado na pasta **App\_Start** do projeto).
 
 5. Adicione diretivas **using** à parte superior do arquivo *SwaggerConfig.cs* para os namespaces **System** e **System.Globalization**.
 
@@ -235,4 +235,4 @@ Para aplicativos de API que usam metadados dinâmicos, você pode fazer uso de a
 Neste artigo, você viu como aprimorar a experiência do usuário do seu aplicativo API quando ele é usado no designer de Aplicativos Lógicos. Como melhor prática, é recomendável que você forneça nomes amigáveis adequados para todas as operações (ações e gatilhos), parâmetros e propriedades. Também é recomendável que você forneça no máximo 5 operações básicas. Para parâmetros de entrada, a recomendação é restringir o número de propriedades básicas para não mais do que 4 e, para propriedades, a recomendação é de 5 ou menos. O restante das suas operações e propriedades devem ser marcadas como avançadas.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

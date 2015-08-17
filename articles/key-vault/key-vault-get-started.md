@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../../pricing/free-trial).
 - PowerShell do Azure, versão 0.9.1 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-- Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
+- Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-br/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 
 Este tutorial foi criado para iniciantes do Windows PowerShell, mas pressupõe que você compreende os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações sobre o Windows PowerShell, consulte [Introdução ao PowerShell do Windows Azure (a página pode estar em inglês)](https://technet.microsoft.com/library/hh857337.aspx).
@@ -119,7 +119,7 @@ Depois, digite o seguinte para importar a chave do arquivo .PFX, que protege a c
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica. 
+Agora, você pode fazer referência à chave que foi criada ou carregada no Cofre da Chave do Azure, usando seu URI. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
 
 Para exibir o URI dessa chave, digite:
 
@@ -133,7 +133,7 @@ Em seguida, digite o seguinte:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
+Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
 
 Para exibir o URI do segredo, digite:
 
@@ -248,4 +248,4 @@ Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do 
 Para referências de programação, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

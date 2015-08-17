@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Atores da Malha do Serviço do Azure para Internet das Coisas"
-   description="Os Atores da Malha do Serviço do Azure são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que oferece suporte a vários transportes, como HTTPS, MQTT ou AMQP, e se comunica com atores que representam dispositivos individuais."
+   pageTitle="Atores Confiáveis para a Internet das Coisas"
+   description="Os Atores Confiável do Service Fabric são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP, e então se comunica com atores que representam dispositivos individuais."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Padrão de design de Atores da Malha do Serviço: Internet das Coisas
-Desde que a IoT se tornou a nova tendência juntamente com os avanços tecnológicos em dispositivos e serviços de nuvem, os desenvolvedores começaram a examinar os principais blocos de construção nos quais desenvolver seus sistemas. O diagrama a seguir ilustra os principais cenários obtidos usando os Atores da Malha do Serviço do Azure:
+# Padrão de design de Atores Confiáveis: Internet das Coisas
+Desde que a IoT se tornou a nova tendência juntamente com os avanços tecnológicos em dispositivos e serviços de nuvem, os desenvolvedores começaram a examinar os principais blocos de construção nos quais desenvolver seus sistemas. O diagrama a seguir ilustra os principais cenários obtidos usando os Atores Confiáveis do Service Fabric:
 
 ![][1]
 
-Os Atores da Malha do Serviço do Azure são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que oferece suporte a vários transportes, como HTTPS, MQTT ou AMQP, e se comunica com atores que representam dispositivos individuais. Como os atores podem manter o estado, modelar fluxos (especialmente processamento de fluxo com estado) e agregação por dispositivo é uma ação direta. Se os dados devem ser persistidos, também podemos liberá-los facilmente sob demanda ou de acordo com um temporizador, enquanto ainda mantemos facilmente os últimos N bits de dados em outra variável para consulta rápida. Observe que em nossos exemplos, omitimos deliberadamente os detalhes da camada de evento/mensagens, o que permite que os atores se comuniquem com dispositivos, a fim de manter o foco no modelo de ator. Basicamente, existem dois cenários que geralmente são compostos juntos:
+Os Atores Confiável do Service Fabric são os principais blocos de construção (como uma camada intermediária) em um sistema que combina um front-end de sistema de mensagens que dá suporte a vários transportes como HTTPS, MQTT ou AMQP, e então se comunica com atores que representam dispositivos individuais. Como os atores podem manter o estado, modelar fluxos (especialmente processamento de fluxo com estado) e agregação por dispositivo é uma ação direta. Se os dados devem ser persistidos, também podemos liberá-los facilmente sob demanda ou de acordo com um temporizador, enquanto ainda mantemos facilmente os últimos N bits de dados em outra variável para consulta rápida. Observe que em nossos exemplos, omitimos deliberadamente os detalhes da camada de evento/mensagens, o que permite que os atores se comuniquem com dispositivos, a fim de manter o foco no modelo de ator. Basicamente, existem dois cenários que geralmente são compostos juntos:
 
 * *Coletando dados de estado e telemetria de um único dispositivo ou de um conjunto de dispositivos e mantendo seu estado*. Pense em dezenas de milhares de ratoeiras (sim, esse é um cenário de cliente real) enviando dados, tão simples como se a armadilha tivesse capturado um desses bichos asquerosos. Os dados são agregados por região, e com ratos suficientes apanhados em armadilhas em uma região, um engenheiro é despachado para limpar as ratoeiras (dispositivos). Uma ratoeira como um ator? Com certeza. Um ator de grupo por região como o agregador? Pode apostar que sim.
 
@@ -216,6 +216,5 @@ Concluímos que mais e mais clientes olharão para os Atores da Malha do Serviç
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

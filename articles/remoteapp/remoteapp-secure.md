@@ -47,4 +47,4 @@ Outro exemplo é se você quiser bloquear o acesso à Internet para um aplicativ
 - [Políticas do Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluindo [como personalizar a barra de ferramentas do Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

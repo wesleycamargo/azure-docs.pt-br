@@ -189,4 +189,4 @@ Figura 13. Resultados da validação cruzada de um modelo de classificação mul
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

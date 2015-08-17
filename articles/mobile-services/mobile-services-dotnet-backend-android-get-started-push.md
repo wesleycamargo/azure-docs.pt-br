@@ -126,4 +126,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

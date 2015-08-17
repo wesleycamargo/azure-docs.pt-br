@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -106,7 +106,7 @@ Os usuários também podem exportar a saída da consulta de Hive para um blob do
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como *wasb:///queryoutputdir/queryoutput.txt*.
+No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Criar espaço de trabalho][13]
 
@@ -226,14 +226,14 @@ O Hive vem com um conjunto de UDFs para processar campos datetime. No Hive, o fo
     	select day(<datetime field>), month(<datetime field>)
 		from <databasename>.<tablename>;
 
-Essa consulta de Hive pressupõe que o *&#60;campo datetime>* esteja no formato datetime padrão.
+Essa consulta de Hive pressupõe que o *&\#60;campo datetime>* esteja no formato datetime padrão.
 
 Se um campo datetime não estiver no formato padrão, é necessário primeiro converter o campo datetime em carimbo de data/hora de Unix e, em seguida, converter o carimbo de data/hora do Unix em uma cadeia de caracteres datetime no formato padrão. Quando o datetime estiver no formato padrão, os usuários poderão aplicar UDFs datetime incorporadas para extrair recursos.
 
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-Nesta consulta, se o *&#60;campo datetime>* tem o padrão *03/26/2015 12:04:39*, o *'&#60;padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
+Nesta consulta, se o *&\#60;campo datetime>* tem o padrão *03/26/2015 12:04:39*, o *'&\#60;padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os usuários podem executar
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
@@ -270,7 +270,7 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat\_or\_lon\*pi/180*, que converte graus em radianos. Aqui, *lat\_or\_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
+As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat\_or\_lon*pi/180*, que converte graus em radianos. Aqui, *lat\_or\_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
 ![Criar espaço de trabalho][1]
 
@@ -319,4 +319,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

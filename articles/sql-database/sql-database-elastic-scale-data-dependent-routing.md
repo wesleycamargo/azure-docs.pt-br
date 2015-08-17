@@ -117,4 +117,4 @@ Propriedades transacionais são garantidas para todas as operações locais para
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

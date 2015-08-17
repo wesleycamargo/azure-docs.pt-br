@@ -3,4 +3,4 @@
 
 2. Verifique se a notificação é recebida. Além disso e, opcionalmente, repita as etapas acima em um dispositivo iOS físico diferente, uma vez usando a mesma conta de logon, outra usando uma conta de logon diferente. Verifique se a notificação é recebida apenas pelos dispositivos autenticados com a mesma conta de usuário.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

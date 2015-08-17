@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/02/2015" 
 	ms.author="banders"/>
 # Conectar computadores diretamente a Insights Operacionais
@@ -76,4 +76,4 @@ Se você tiver servidores proxy ou firewalls em seu ambiente que restrinjam o ac
 
 - [Definir as configurações de proxy e firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

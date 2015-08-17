@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos usando o Gerenciador de Consultas | Azure" 
+	pageTitle="Criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos usando o Gerenciador de Consultas | Microsoft Azure" 
 	description="Saiba mais sobre o Gerenciador de Consultas do Banco de Dados de Documentos, uma ferramenta de Portal de Visualização do Azure para criar, editar e executar consultas SQL em uma coleção do Banco de Dados de Documentos." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -78,4 +78,4 @@ O Gerenciador de Consultas permite criar, editar e executar consultas facilmente
 - Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte pelo Gerenciador de Consultas, clique [aqui](documentdb-sql-query.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

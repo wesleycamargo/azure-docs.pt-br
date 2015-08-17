@@ -28,7 +28,7 @@ A página **Políticas de Backup** também permite filtrar as políticas de back
 - **Nome da política** – o nome associado à política. Os diferentes tipos de políticas incluem:
 
    - Políticas agendadas, que são criadas explicitamente pelo usuário.
-   - Políticas automáticas, que são criadas quando o backup padrão para essa opção de volume foi habilitado no momento da criação do volume. Essas políticas são nomeadas como VolumeName_Default, em que Volume se refere ao nome do volume StorSimple configurado pelo usuário no Portal de Gerenciamento. As políticas automáticas resultam em instantâneos diários de nuvem, começando na hora do dispositivo 22:30.
+   - Políticas automáticas, que são criadas quando o backup padrão para essa opção de volume foi habilitado no momento da criação do volume. Essas políticas são nomeadas como VolumeName\_Default, em que Volume se refere ao nome do volume StorSimple configurado pelo usuário no Portal de Gerenciamento. As políticas automáticas resultam em instantâneos diários de nuvem, começando na hora do dispositivo 22:30.
    - Políticas importadas, que foram originalmente criadas no Gerenciador de Instantâneos do StorSimple. Elas têm uma marca que descreve o host do Gerenciador de Instantâneos do StorSimple do qual as políticas foram importadas.
 
 - **Volumes** – os volumes associados à política. Todos os volumes associados a uma política de backup são agrupados quando os backups são criados.
@@ -84,4 +84,4 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 Saiba como gerenciar backups do StorSimple com o [Gerenciador de Instantâneos do StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

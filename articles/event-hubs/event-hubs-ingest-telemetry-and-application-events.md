@@ -36,4 +36,4 @@ Os aplicativos modernos criam uma grande quantidade de informações enquanto es
 - [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

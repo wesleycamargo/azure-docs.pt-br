@@ -9,4 +9,4 @@
 
     Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo Normal.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

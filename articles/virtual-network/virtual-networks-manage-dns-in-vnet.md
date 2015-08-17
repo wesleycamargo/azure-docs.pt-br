@@ -65,4 +65,4 @@ Para editar uma lista de servidores DNS usando um arquivo de configuração de r
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

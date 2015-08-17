@@ -59,7 +59,7 @@ Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http:/
 O Banco de Dados de Documentos do Microsoft Azure está disponível no [Portal de visualização do Azure][azure-portal]. Primeiro, você precisa se inscrever para uma assinatura do Microsoft Azure. Após se inscrever para uma assinatura do Microsoft Azure, e possível adicionar uma conta do Banco de Dados de Documentos à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta do Banco de Dados de Documentos, consulte [Criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
 
 ### O que é uma chave mestra?
-Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves **do [Portal de Visualização do Azure][azure-portal]. Para obter mais informações sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
+Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves ** do [Portal de Visualização do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
 
 ### Como crio um banco de dados?
 Você pode criar bancos de dados usando o [Portal de Visualização do Azure]() conforme descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -98,7 +98,7 @@ O Banco de Dados de Documentos suporta transações integradas de linguagens com
 Há três maneiras de inserir documentos em massa no Banco de Dados de Documentos:
 
 - A ferramenta de migração de dados, conforme descrito em [Importar dados para o Banco de Dados de Documentos](documentdb-import-data.md).
-- o Gerenciador de Documentos no Portal de Visualização do Azure, conforme descrito em [Adicionar documentos em massa com o Gerenciador de Documentos](documentdb-view-json-document-explorer.md#BulkAdd).
+- O Gerenciador de Documentos no Portal de Visualização do Azure, conforme descrito em [Adicionar documentos em massa com o Gerenciador de Documentos](documentdb-view-json-document-explorer.md#BulkAdd).
 - Procedimentos armazenados, conforme descrito em [Programação de servidor do Banco de Dados de Documentos](documentdb-programming.md).
 
 ### O Banco de Dados de Documentos tem suporte para cache de link?
@@ -111,4 +111,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

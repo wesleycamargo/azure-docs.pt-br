@@ -54,4 +54,4 @@ Para usar o modo de Gerenciamento de Recursos do Azure (ARM) com a CLI do Azure,
 
 > [AZURE.NOTE]Você pode alternar novamente para usar os comandos de gerenciamento de serviço do Azure digitando `azure config mode asm`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

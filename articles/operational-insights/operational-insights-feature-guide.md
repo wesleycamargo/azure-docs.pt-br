@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/24/2015"
 	ms.author="banders"/>
 
 # Guia do recurso Insights Operacionais
@@ -47,7 +47,7 @@ Você também pode:
 	- [Conectar computadores diretamente a Insights Operacionais](operational-insights-direct-agent.md)
 	- [Analisar dados de servidores no Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Faça todas as opções acima em praticamente qualquer lugar com o aplicativo móvel**
-	- Para saber mais sobre o aplicativo Windows Phone, confira [Aplicativo móvel Insights Operacionais](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- Para saber mais sobre o aplicativo Windows Phone, confira [Aplicativo móvel Insights Operacionais](http://www.windowsphone.com/pt-br/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
 ## Ambiente do Insights Operacionais
 
@@ -72,4 +72,4 @@ Os dados em cada solução são analisados e apresentados no portal do Insights 
 ### Onde o Insights Operacionais está disponível?
 O Insights Operacionais do Microsoft Azure está hospedado nos Estados Unidos. Embora o idioma do Insights Operacionais seja o inglês, o serviço está disponível em vários outros mercados. Para saber mais, confira [Disponibilidade internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

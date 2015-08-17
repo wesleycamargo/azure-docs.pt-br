@@ -93,4 +93,4 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

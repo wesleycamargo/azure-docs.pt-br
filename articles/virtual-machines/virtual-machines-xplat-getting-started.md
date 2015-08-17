@@ -74,4 +74,4 @@ Um ótimo lugar para ver mais exemplos de como usar a CLI do Azure para gerencia
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

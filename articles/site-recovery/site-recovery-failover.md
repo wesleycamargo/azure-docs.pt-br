@@ -108,7 +108,7 @@ Observe que:
 
 Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover para um único computador na guia **Máquinas Virtuais**.
 
-1. Selecione **Planos de Recuperação** > *nome_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
+1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste**, especifique como os computadores de réplica serão conectados a uma rede Azure depois do failover.
 3. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor. 
 4. Acompanhe o progresso do failover na guia **Trabalhos**. Você deve poder ver o computador de réplica de teste no portal do Azure.
@@ -193,7 +193,7 @@ Prepare um servidor DNS para o failover de teste da seguinte forma:
 
 Este procedimento descreve como executar um failover não planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais**.
 
-1. Selecione **Planos de Recuperação** > *nome_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
+1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste**, especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste.
 3. Acompanhe o progresso do failover na guia **Trabalhos**. Quando o failover atingir a fase **Concluir teste***, clique em **Concluir Teste** para finalizar o failover de teste.
 4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
@@ -207,8 +207,9 @@ Observe que, se um failover de teste continuar por mais de duas semanas, ele ser
  Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia **Máquinas Virtuais**.
 
 1. Antes de começar, verifique se todas as máquinas virtuais das quais deseja fazer failover concluíram a replicação inicial.
-2. Selecione **Planos de Recuperação** > *nome_planoderecuperação*. Clique em **Failover** > **Failover Planejado**. 
-3. Na página **Confirmar Failover Planejado **, escolha os locais de origem e de destino. Observe a direção do failover. 
+2. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover Planejado**. 
+3. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover.
+
 	- Se os failovers anteriores funcionaram conforme esperado e todos os servidores de máquina virtual estiverem localizados ou no local de origem, ou de destino, os detalhes da direção do failover serão apenas para fins informativos. 
 	- Quando as máquinas virtuais estão ativas nos locais de origem e de destino, o botão **Alterar Direção** é exibido. Use esse botão para alterar e especificar a direção na qual o failover deve ocorrer.
 
@@ -221,8 +222,9 @@ Observe que, se um failover de teste continuar por mais de duas semanas, ele ser
 
 Este procedimento descreve como executar um failover não planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais**.
 
-1. Selecione **Planos de Recuperação** > *nome_planoderecuperação*. Clique em **Failover** > **Failover Não Planejado**. 
-3. Na página **Confirmar Failover Não Planejado **, escolha os locais de origem e de destino. Observe a direção do failover. 
+1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover Não Planejado**. 
+3. Na página **Confirmar Failover Não Planejado **, escolha os locais de origem e de destino. Observe a direção do failover.
+
 	- Se os failovers anteriores funcionaram conforme esperado e todos os servidores de máquina virtual estiverem localizados ou no local de origem, ou de destino, os detalhes da direção do failover serão apenas para fins informativos. 
 	- Quando as máquinas virtuais estão ativas nos locais de origem e de destino, o botão **Alterar Direção** é exibido. Use esse botão para alterar e especificar a direção na qual o failover deve ocorrer.
 
@@ -237,8 +239,9 @@ Este procedimento descreve como executar um failover não planejado para um plan
 
  Depois do failover do local primário no secundário, as máquinas virtuais replicadas não são protegidas pela Recuperação de Site, e o local secundário agora está atuando como o primário. Siga estes procedimentos para fazer failback no site primário original. Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia **Máquinas Virtuais**.
 
-1. Selecione **Planos de Recuperação** > *nome_planoderecuperação*. Clique em **Failover** > **Failover Planejado**.
-2. Na página **Confirmar Failover Planejado **, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover o local primário funcionou conforme esperado e todas as máquinas virtuais estiverem no local secundário, a direção será apenas para fins informativos. 3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
+1. Selecione **Planos de Recuperação** > *nome\_planoderecuperação*. Clique em **Failover** > **Failover Planejado**.
+2. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
+3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
 
 	- **Sincronizar os dados antes do failover**: essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que faz a sincronização sem desligá-las. Ele faz o seguinte:
 		- Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
@@ -279,4 +282,4 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

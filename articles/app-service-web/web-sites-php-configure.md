@@ -69,7 +69,7 @@ Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js
 
 Para qualquer tempo de execução interno do PHP, é possível alterar qualquer uma das opções de configuração seguindo as etapas abaixo. (Para obter informações sobre diretrizes de php. ini, consulte [Lista de diretrizes de php. ini].)
 
-### Alterando definições de configuração de PHP_INI_USER, PHP_INI_PERDIR, PHP_INI_ALL
+### Alterando definições de configuração de PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL
 
 1. Adicione um arquivo [.user.ini] no seu diretório raiz.
 2. Adicione as definições de configuração ao arquivo `.user.ini` usando a mesma sintaxe que você usaria em um arquivo `php.ini`. Por exemplo, se você quisesse ativar a configuração `display_errors` e definir a configuração `upload_max_filesize` como 10 M, o arquivo `.user.ini` conteria este texto:
@@ -81,9 +81,9 @@ Para qualquer tempo de execução interno do PHP, é possível alterar qualquer 
 3. Implante seu aplicativo Web.
 4. Reinicie o aplicativo Web. (É necessário reiniciar, pois a frequência com a qual o PHP lê arquivos `.user.ini` é regida pela configuração`user_ini.cache_ttl`, que é uma configuração de nível de sistema e é, por padrão, 300 segundos (5 minutos). Reiniciar o aplicativo Web força o PHP a ler as novas configurações no arquivo `.user.ini`).
 
-Uma alternativa para o uso de um arquivo `.user.ini` é usar a função [ini_set()] em scripts para definir opções de configuração que não sejam diretrizes de nível de sistema apenas.
+Uma alternativa para o uso de um arquivo `.user.ini` é usar a função [ini\_set()] em scripts para definir opções de configuração que não sejam diretrizes de nível de sistema apenas.
 
-### Alterando as definições de configuração de PHP_INI_SYSTEM
+### Alterando as definições de configuração de PHP\_INI\_SYSTEM
 
 1. Adicionar uma Configuração de Aplicativo a seu aplicativo Web com a chave `PHP_INI_SCAN_DIR` e o valor `d:\home\site\ini`
 2. Crie um arquivo `settings.ini` usando o Console Kudu (http://&lt;site-name&gt;.scm.azurewebsite.net) no diretório `d:\home\site\ini`.
@@ -120,7 +120,7 @@ Conforme indicado na seção anterior, a melhor forma de visualizar a versão pa
 	![Configurações do aplicativo Web][settings-button]
 
 5. Na folha **Configurações**, selecione **Configurações do Aplicativo** e role até a seção **Configurações do Aplicativo**.
-6. Na seção **Configurações do aplicativo**, crie uma chave **PHP_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\\seu-arquivo-de-ext**.
+6. Na seção **Configurações do aplicativo**, crie uma chave **PHP\_EXTENSIONS**. O valor para essa chave seria um caminho relativo à raiz do site: **bin\\seu-arquivo-de-ext**.
 
 	![Habilitar extensões em configurações do aplicativo][php-extensions]
 
@@ -128,7 +128,7 @@ Conforme indicado na seção anterior, a melhor forma de visualizar a versão pa
 
 	![Salvar definições de configuração][save-button]
 
-Também há suporte para extensões Zend usando uma chave **PHP_ZENDEXTENSIONS**. Para habilitar várias extensões, inclua uma lista de arquivos `.dll` separados por vírgulas para o valor de configuração do aplicativo.
+Também há suporte para extensões Zend usando uma chave **PHP\_ZENDEXTENSIONS**. Para habilitar várias extensões, inclua uma lista de arquivos `.dll` separados por vírgulas para o valor de configuração do aplicativo.
 
 
 ## Como: usar um tempo de execução personalizado do PHP
@@ -163,7 +163,7 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [Lista de diretrizes de php. ini]: http://www.php.net/manual/en/ini.list.php
 [Lista de diretrizes php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
@@ -177,4 +177,4 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

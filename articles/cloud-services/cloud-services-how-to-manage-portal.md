@@ -106,4 +106,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 [Portal de Visualização do Azure]: https://portal.azure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

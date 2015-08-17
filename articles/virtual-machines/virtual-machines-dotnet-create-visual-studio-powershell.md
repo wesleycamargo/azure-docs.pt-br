@@ -38,7 +38,8 @@ Para criar uma máquina virtual ao criar um site, siga estas etapas:
 8. Na lista **Tamanho**, escolha o tamanho da máquina virtual.
 9. Especifique as credenciais de logon da máquina virtual. Anote-as porque você precisará delas para acessar a máquina por meio da Área de Trabalho Remota.
 10. Na lista **Local**, escolha a região na qual hospedar a máquina virtual.
-11. Escolha o botão **OK** para começar a criar a máquina virtual. Você pode acompanhar o progresso da operação na **janela Saída **. 
+11. Escolha o botão **OK** para começar a criar a máquina virtual. Você pode acompanhar o progresso da operação na janela **Saída **.
+
 	![][3]
 
 12. Quando a máquina virtual está provisionada, os scripts de publicação são criados em um nó **PublishScripts** da solução. O script de publicação é executado e provisiona uma máquina virtual no Azure. A janela **Saída** mostra o status. O script realiza as seguintes ações para configurar a máquina virtual:
@@ -67,4 +68,4 @@ Se você quiser personalizar os scripts de publicação criados, veja informaç�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

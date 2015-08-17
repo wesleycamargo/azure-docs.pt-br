@@ -134,4 +134,4 @@ Vá executar as coisas em seu swarm. Para procurar inspiração, confira [https:
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

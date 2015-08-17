@@ -8,4 +8,4 @@ Clique em **Exibir Log** para ver a saída do script de implantação personaliz
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

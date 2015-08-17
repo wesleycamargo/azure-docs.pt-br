@@ -92,7 +92,7 @@ A única lógica especial necessária para E/S de arquivo é indicar onde o dire
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -179,4 +179,4 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

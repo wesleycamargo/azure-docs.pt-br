@@ -122,12 +122,12 @@ Aqui está um exemplo do que você vê no portal do Application Insights:
 
 Os seguintes contadores são coletados por padrão:
 
-    * \Process(??APP_WIN32_PROC??)% Processor Time
+    * \Process(??APP_WIN32_PROC??)\% Processor Time
 	* \Memory\Available Bytes
-	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)% Processor Time
+	* \Processor(_Total)\% Processor Time
 
 Além disso, o seguinte também é coletado para funções web:
 
@@ -196,4 +196,4 @@ Para obter a visão de 360 graus completa de seu aplicativo, há mais algumas co
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

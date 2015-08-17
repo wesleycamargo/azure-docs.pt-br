@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # Como usar o armazenamento de Fila do .NET
@@ -24,7 +24,7 @@
 
 Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são escritos em C# e usam o Cliente de Armazenamento do Azure para .NET. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
-> [AZURE.NOTE]Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) ou como parte do [SDK do Azure para .NET](/downloads/). Consulte [Acessar programaticamente o armazenamento de fila](#programmatically-access-queue-storage) abaixo para mais detalhes sobre como obter a Biblioteca do Cliente de Armazenamento.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [armazenamento-fila-conceitos-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-<ul>
-<li>Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-  <ul>
-    <li>Referência à <a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Biblioteca de Cliente de Armazenamento para .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referência da API REST</a></li>
-  </ul>
-</li>
-<li>Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Armazenando e acessando dados no Azure</a>.</li>
-<li>Saiba como simplificar o código que você escreve para trabalhar com o armazenamento do Azure usando o <a href="../websites-dotnet-webjobs-sdk/">SDK WebJobs do Azure.</li>
-<li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-  <ul>
-    <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Armazenamento de Tabela</a> para armazenar dados estruturados.</li>
-    <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Armazenamento de Blob</a> para armazenar dados não estruturados.</li>
-    <li>Usar o <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li>
-  </ul>
-</li>
-</ul>
+- Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
+    - Referência à [Biblioteca de Cliente de Armazenamento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Referência da API REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Conheça as tarefas mais avançadas que você pode executar com o Armazenamento do Azure em [Armazenando e acessando dados no Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Saiba como simplificar o código que você escreve a fim de trabalhar com o Armazenamento do Azure usando o [SDK WebJobs do Azure](../websites-dotnet-webjobs-sdk/).
+- Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
+    - Usar o [Armazenamento de Tabela](storage-dotnet-how-to-use-tables.md) para armazenar dados estruturados. 
+    - Usar o [Armazenamento de Blob](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
+    - Usar o [Banco de Dados SQL](sql-database-dotnet-how-to-use.md) para armazenar dados relacionais.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

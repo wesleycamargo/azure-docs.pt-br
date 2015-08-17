@@ -98,9 +98,9 @@ Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapR
 
     	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    A entrada para este trabalho é lida em **wasb:///example/data/gutenberg/davinci.txt**.
+    A entrada para este trabalho é lida em ****wasb:///example/data/gutenberg/davinci.txt**.
 
-    A saída do exemplo será armazenada em **wasb:///example/data/davinciwordcount**.
+    A saída do exemplo será armazenada em ****wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE]Conforme observado na ajuda do exemplo wordcount, você também pode especificar vários arquivos de entrada. Por exemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaria as palavras em davinci.txt e ulysses.txt.
 
@@ -195,10 +195,11 @@ Este exemplo usa três conjuntos de programas MapReduce:
 
 Use as seguintes etapas para gerar dados, classificar e validar a saída:
 
-1. Gerar 10 GB de dados, que serão armazenados no armazenamento padrão do cluster do HDInsight em **wasb:///example/data/10GB-sort-input**: 
+1. Gerar 10 GB de dados, que serão armazenados no armazenamento padrão do cluster do HDInsight em ****wasb:///example/data/10GB-sort-input**:
+
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	O `-Dmapred.map.tasks` informa o Hadoop quantas tarefas de mapeamento serão usadas para este trabalho. Os dois parâmetros finais instruem o trabalho a criar 10 GB de dados e armazená-los em **wasb:///example/data/10GB-sort-input**.
+	O `-Dmapred.map.tasks` informa o Hadoop quantas tarefas de mapeamento serão usadas para este trabalho. Os dois parâmetros finais instruem o trabalho a criar 10 GB de dados e armazená-los em ****wasb:///example/data/10GB-sort-input**.
 
 2. Use o comando a seguir para classificar os dados:
 
@@ -241,4 +242,4 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -76,7 +76,7 @@ Depois que você habilitar o acesso à CDN para uma conta de armazenamento ou se
 
 Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. O endereço de um blob armazenado em cache será semelhante ao seguinte:
 
-http://<*NamespaceCDN*>.vo.msecnd.net/<*meuContêinerPúblico*>/<*NomeDoBlob*>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a> <h2>Etapa 4: Remover conteúdo da CDN</h2>
 
@@ -111,4 +111,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

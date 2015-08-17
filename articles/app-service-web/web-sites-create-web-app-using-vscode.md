@@ -127,7 +127,7 @@ Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o ap
 
 5. Abra uma janela de navegador e navegue até a URL a seguir.
 
-	**http://localhost:5001**
+	****http://localhost:5001**
 
 	A página padrão do aplicativo Web será exibida da maneira a seguir.
 
@@ -187,8 +187,8 @@ O Git é um sistema de controle de versão distribuído que você pode usar para
 
 	![Credenciais de implantação do Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em \*\*
-10.  URL\*\*.
+9. Na folha de seu aplicativo Web, clique em **Configurações > Propriedades**. A URL do repositório Git remoto na qual você vai implantar é mostrada em **
+10.  URL**.
 
 10. Copie o valor de **URL do GIT** para uso posterior no tutorial.
 
@@ -236,7 +236,7 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicar diretamente no VS Code usando a funcionalidade Git interna selecionando a opção **Confirmar Tudo** seguida pela opção **Envio por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
+> [AZURE.NOTE]Se fizer alterações no seu aplicativo, você poderá republicar diretamente no VS Code usando a funcionalidade Git interna selecionando a opção **Confirmar Tudo** seguida pela opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
 
 Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
@@ -256,4 +256,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para obter mais informações sobre o código do VS, consulte o artigo [Por que o Código do Visual Studio?](https://code.visualstudio.com/Docs/). Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

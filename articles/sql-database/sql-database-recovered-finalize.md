@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="04/13/2015"
+   ms.date="07/30/2015"
    ms.author="elfish"/>
 
 # Finalizar seu Banco de Dados SQL do Azure recuperado
@@ -53,7 +53,7 @@ Para saber mais sobre regras de alerta do banco de dados, confira [Como receber 
 
 ## Habilitar a auditoria
 
-Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à auditoria do banco de dados SQL](sql-database-auditing-get-started.md). 
+Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

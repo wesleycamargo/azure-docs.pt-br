@@ -86,7 +86,7 @@ Expor essa função `CustomAddRows` como um módulo de Aprendizado de Máquina d
 	</Module>
 
  
-Observe que o valor da **id** atributos dos elementos **Input** e **Arg** no arquivo XML devem corresponder exatamente aos nomes de parâmetro de função do código R (\*dataset1\*, *dataset2* e *troca* no exemplo). Da mesma forma, o valor do atributo **entryPoint** do elemento **idioma** deve corresponder exatamente ao nome da função no script R (\*CustomAddRows\* no exemplo). Por outro lado, o atributo **id** para os elementos de **Saída** não correspondem a todas as variáveis no script R. Quando mais de uma saída for necessária, basta retornar uma lista da função R com resultados colocados na mesma ordem em que as saídas são declaradas no arquivo XML.
+Observe que o valor dos atributos **id** dos elementos **Input** e **Arg** no arquivo XML devem corresponder exatamente aos nomes de parâmetro de função do código R (*dataset1*, *dataset2* e *swap*, no exemplo). Da mesma forma, o valor do atributo **entryPoint** do elemento **Language** deve corresponder exatamente ao nome da função no script R (*CustomAddRows*, no exemplo). Por outro lado, o atributo **id** para os elementos de **Saída** não correspondem a todas as variáveis no script R. Quando mais de uma saída for necessária, basta retornar uma lista da função R com resultados colocados na mesma ordem em que as saídas são declaradas no arquivo XML.
 
 Salve esses dois arquivos como *CustomAddRows.R* e *CustomAddRows.xml* e compacte-os em um arquivo *CustomAddRows.zip*.
 
@@ -114,7 +114,7 @@ Dentro do elemento **Módulo**, você pode especificar um elemento **Proprietár
 * O conteúdo do elemento **Descrição** não deve exceder 128 caracteres de comprimento.
 * O conteúdo do elemento **Proprietário** não deve exceder 32 caracteres de comprimento.
 
-\*\* Indicando se os resultados do módulo são deterministas ou não deterministas
+** Indicando se os resultados do módulo são deterministas ou não deterministas
 
 Por padrão, todos os módulos são considerados deterministas. Ou seja, dado um conjunto inalterável de parâmetros, o módulo deve retornar os mesmos resultados sempre que for executado. Devido a esse comportamento, o Studio de Aprendizado de Máquina do Azure não executa novamente os módulos marcados como deterministas, a menos que um parâmetro ou os dados de entrada tenham mudado. Resultados em cache são retornados, resultando na execução mais rápida do teste.
 
@@ -363,4 +363,4 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

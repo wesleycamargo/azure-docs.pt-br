@@ -49,7 +49,7 @@ Veja abaixo uma lista de definições de formato especial que se aplicam à inge
 5. A Seção 3.3.6 em [1] define a caixa chamada MovieFragmentRandomAccessBox (‘mfra’) que PODE ser enviada no fim da ingestão dinâmica para indicar o EOS (Fim do Fluxo) para o canal. Devido à lógica de ingestão dos Serviços de Mídia do Azure, o uso do EOS foi preterido e a caixa ‘mfra’ para ingestão dinâmica NÃO DEVE ser enviada. Se enviada, os Serviços de Mídia do Azure vão ignorá-la silenciosamente. É recomendável usar [Redefinir Canais](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para redefinir o estado do ponto de ingestão, assim como é recomendável usar [Parar Programas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para encerrar uma apresentação e um fluxo.
 6. A duração do fragmento MP4 DEVE ser constante para reduzir o tamanho dos manifestos do cliente e aprimorar a heurística de download do cliente por meio do uso de marcas de repetição. A duração PODE flutuar para compensar as taxas de quadro de números não inteiros.
 7. A duração do fragmento MP4 DEVE estar entre segundos 2 e 6 segundos, aproximadamente.
-8. Os carimbos de data/hora e índices do fragmento MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time e fragment_index) DEVEM chegar na ordem crescente. Embora os Serviços de Mídia do Azure sejam resilientes a fragmentos duplicados, sua capacidade de reordenar os fragmentos de acordo com a linha do tempo da mídia é bastante limitada.
+8. Os carimbos de data/hora e índices do fragmento MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time e fragment\_index) DEVEM chegar na ordem crescente. Embora os Serviços de Mídia do Azure sejam resilientes a fragmentos duplicados, sua capacidade de reordenar os fragmentos de acordo com a linha do tempo da mídia é bastante limitada.
 
 ##Formato de protocolo – HTTP
 
@@ -139,7 +139,7 @@ Veja abaixo as expectativas do ponto de extremidade da ingestão dinâmica quand
 3. A solicitação POST do novo codificador DEVE incluir as mesmas caixas do cabeçalho MP4 fragmentado da instância com falha.
 4. O novo codificador DEVE ser sincronizado corretamente com todos os outros codificadores em execução para a mesma apresentação ao vivo de modo a gerar as amostras de áudio/vídeo sincronizadas com os limites de fragmento alinhados.
 5. O novo fluxo DEVE ser semanticamente equivalente ao fluxo anterior e intercambiável no nível de cabeçalho e fragmento.
-6. O novo codificador DEVE tentar minimizar a perda de dados. O fragment_absolute_time e o fragment_index dos fragmentos de mídia DEVEM aumentar do ponto em que o codificador parou pela última vez. O fragment_absolute_time e fragment_index DEVEM aumentar de forma contínua, mas é permitida a introdução de uma descontinuidade se necessário. Os Serviços de Mídia do Azure ignorarão os fragmentos que já receberam e processaram, de modo que é melhor errar no reenvio de fragmentos do que introduzir descontinuidades na linha do tempo da mídia. 
+6. O novo codificador DEVE tentar minimizar a perda de dados. O fragment\_absolute\_time e o fragment\_index dos fragmentos de mídia DEVEM aumentar do ponto em que o codificador parou pela última vez. O fragment\_absolute\_time e fragment\_index DEVEM aumentar de forma contínua, mas é permitida a introdução de uma descontinuidade se necessário. Os Serviços de Mídia do Azure ignorarão os fragmentos que já receberam e processaram, de modo que é melhor errar no reenvio de fragmentos do que introduzir descontinuidades na linha do tempo da mídia. 
 
 ##Redundância do codificador 
 
@@ -206,4 +206,4 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

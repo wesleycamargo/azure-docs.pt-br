@@ -167,7 +167,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 	1.	Para a propriedade **gatewayName**, digite **adftutorialgateway** para substituir todo o texto dentro das aspas duplas.  
 	2.	Se você estiver usando **autenticação SQL**: 
 		1.	Para a propriedade **connectionString**, substitua **<servername>**, **<databasename>**, **<username>**, e **<password>** por nomes de seu SQL Server, banco de dados, conta de usuário e senha locais. Para especificar um nome de instância, use o caractere de escape:. Por exemplo:**server\\instancename**. 	
-		2.	Remova as duas últimas propriedades (\*\*username\*\* e **password**) do arquivo JSON e remova o caractere de **vírgula (,)** ao final da última linha do script JSON restante.
+		2.	Remova as duas últimas propriedades (**username** e **password**) do arquivo JSON e remova o caractere de **vírgula (,)** ao final da última linha do script JSON restante.
 		
 				{
 				  "name": "SqlServerLinkedService",
@@ -227,7 +227,7 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 
 ### Preparar o SQL Server local para o tutorial
 
-1. No banco de dados especificado para o serviço vinculado do SQL Server local (\*\*SqlServerLinkedService\*\*), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
+1. No banco de dados especificado para o serviço vinculado do SQL Server local (**SqlServerLinkedService**), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
 
 
         CREATE TABLE dbo.emp
@@ -317,9 +317,9 @@ Nesta etapa, você criará conjuntos de dados de entrada e saída que representa
 	- **type** é definido como **AzureBlob**.
 	- **linkedServiceName** é definido como **StorageLinkedService** (você criou esse serviço vinculado na Etapa 2).
 	- **folderPath** é definido como **adftutorial/outfromonpremdf**, em que outfromonpremdf é a pasta no contêiner adftutorial. Você precisa apenas criar o contêiner **adftutorial**.
-	- A **availability** é definida como **hourly** (\*\*frequency\*\* definida como **hour** e **interval** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
+	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gerará uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure. 
 
-	Se você não especificar um **fileName** para uma **tabela de entrada**, todos os arquivos/blobs da pasta de entrada (\*\*folderPath\*\*) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
+	Se você não especificar um **fileName** para uma **tabela de entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
  
 	Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -395,11 +395,12 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
  
 	- Na seção atividades, há somente a atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
-	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**. - A consulta SQL **select \* from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**.
+- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
-	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://pt.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
+	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
-	Se você não especificar o valor para a propriedade **end**, ele será calculado como "\*\*início + 48 horas\*\*". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
+	Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	
 	Especificando o período ativo de um pipeline, você está definindo a duração de tempo em que as fatias de dados serão processadas com base nas propriedades de **Disponibilidade** que foram definidas para cada tabelo da Azure Data Factory.
 	
@@ -463,7 +464,7 @@ Nesta etapa, você utilizará o Portal do Azure para monitorar o que está acont
 	![Folha Detalhes da execução de atividade][image-data-factory-activity-run-details]
 
 11. Clique em **X** para fechar todos as folhas até que você volte à folha de base para **ADFTutorialOnPremDF**.
-14. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF** e execute uma consulta drill-through das tabelas de entrada (\*\*Consumidas\*\*) ou das tabelas de saída (\*\*Produzidas\*\*).
+14. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF** e execute uma consulta drill-through das tabelas de entrada (**Consumidas**) ou das tabelas de saída (**Produzidas**).
 15. Use ferramentas como o **Explorador de Armazenamento do Azure** para verificar a saída.
 
 	![Gerenciador de Armazenamento do Azure][image-data-factory-stroage-explorer]
@@ -485,7 +486,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de comando e saída**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -507,12 +508,12 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 	**Exemplo de saída de comando:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. No PowerShell do Azure, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\ e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
+4. No Azure PowerShell, alterne para a pasta **C:\\Arquivos de Programas\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\\** e execute o script **RegisterGateway.ps1** associado à variável local **$Key** conforme mostrado no seguinte comando para registrar o agente cliente instalado no computador com o gateway lógico criado anteriormente.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -625,4 +626,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

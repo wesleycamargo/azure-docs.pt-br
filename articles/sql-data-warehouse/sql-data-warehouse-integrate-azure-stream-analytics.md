@@ -82,4 +82,4 @@ Para obter uma visão geral da integração, consulte [Visão geral da integraç
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

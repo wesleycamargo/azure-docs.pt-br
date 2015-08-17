@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
@@ -45,7 +45,7 @@ Você pode habilitar uma série de recursos para o ponto de extremidade da CDN, 
 
 ## Etapa 4: acessar conteúdo da CDN
 
-Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. Por exemplo, o endereço de um blob armazenado em cache será semelhante ao seguinte: http://<*NamespaceDaCDN*>.vo.msecnd.net/<*MeuContêinerPúblico*>/<*NomeDoBlob*>
+Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornecida no portal. Por exemplo, o endereço de um blob armazenado em cache será semelhante a: http://<*NamespaceDaCDN*>.vo.msecnd.net/<*meuContêinerPúblico*>/<*NomeDoBlob*>
 
 
 
@@ -54,4 +54,4 @@ Para acessar o conteúdo armazenado em cache na CDN, utilize a URL da CDN fornec
 [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

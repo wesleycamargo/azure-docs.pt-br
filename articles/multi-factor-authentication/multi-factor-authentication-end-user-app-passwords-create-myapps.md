@@ -39,4 +39,4 @@ Se você não usar autenticação multifator com o Office 365 que tenha uma assi
 <li>Insira um nome para a senha de aplicativo e clique em **Avançar**</li>
 <li>Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

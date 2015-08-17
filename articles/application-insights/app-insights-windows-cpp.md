@@ -47,10 +47,10 @@ A chave identifica o recurso, e você a instalará em breve no SDK para direcion
 
 3. Nas configurações do projeto para lançamento e depuração:
   - Adicione $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc às propriedades do projeto -> Diretórios VC++ -> Incluir Diretórios
-  - Adicione $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights_Win10-UAP às propriedades do projeto -> Diretórios VC + + -> Diretórios de Biblioteca
+  - Adicione $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights\_Win10-UAP às propriedades do projeto -> Diretórios VC + + -> Diretórios de Biblioteca
 
 4. Adicione ApplicationInsights.winmd como uma referência ao projeto por meio de $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA> \\release\\ApplicationInsights
-5. Adicione o AppInsights_Win10-UAP.dll de $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights_Win10-UAP. Vá até as propriedades e defina o conteúdo como SIM. Isso copiará a dll para o diretório de compilação.
+5. Adicione o AppInsights\_Win10-UAP.dll de $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights\_Win10-UAP. Vá até as propriedades e defina o conteúdo como SIM. Isso copiará a dll para o diretório de compilação.
 
 
 #### Para atualizar o SDK para versões futuras
@@ -73,7 +73,7 @@ Inicialize o SDK e inicie o rastreamento de telemetria.
 	
      `// this will do automatic session tracking and automatic page view collection` `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
-  - Depois de criar o quadro raiz (geralmente ao final de App::OnLaunched), inicialize m_session:
+  - Depois de criar o quadro raiz (geralmente ao final de App::OnLaunched), inicialize m\_session:
 	
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
@@ -139,4 +139,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

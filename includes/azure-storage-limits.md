@@ -73,8 +73,8 @@
 
 Basicamente, você pode calcular o número de discos altamente utilizados com suporte de uma única conta de armazenamento com base no limite de transação. Por exemplo, para uma VM da camada Basic, o número máximo de discos altamente utilizados é de aproximadamente 66 (20.000/300 IOPS por disco) e, para uma VM da camada Standard, é de aproximadamente 40 (20.000/500 IOPS por disco). No entanto, observe que a conta de armazenamento pode oferecer suporte a um grande número de discos, caso eles não sejam altamente utilizados ao mesmo tempo.
 
-<sup>2</sup>\*Entrada\* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
+<sup>2</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
 
 <sup>3</sup>GRS refere-se a um armazenamento com redundância geográfica, enquanto LRS refere-se ao armazenamento com redundância local.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

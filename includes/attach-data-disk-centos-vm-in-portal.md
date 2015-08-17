@@ -1,4 +1,4 @@
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com) do Azure, clique em **Máquinas Virtuais** e selecione a máquina virtual que acabou de criar (**testlinuxvm**).
+1. No [Portal de Gerenciamento do Azure](http://manage.windowsazure.com), clique em **Máquinas Virtuais** e selecione a máquina virtual que acabou de criar (**testlinuxvm**).
 
 2. Na barra de comandos, clique em **Anexar** e, em seguida, clique em **Anexar Disco Vazio**.
 
@@ -114,4 +114,4 @@ Faça logon na máquina virtual para completar a instalação do disco e poder u
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

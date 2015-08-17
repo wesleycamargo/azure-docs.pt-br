@@ -64,4 +64,4 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

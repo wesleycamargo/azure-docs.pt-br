@@ -61,4 +61,4 @@ Consulte [Considerações diversas sobre imagens de máquinas virtuais do Oracle
 
 [Configurando o Oracle GoldenGate para o Azure](virtual-machines-configuring-oracle-goldengate.md) percorre as etapas de instalação do banco de dados e replicação.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

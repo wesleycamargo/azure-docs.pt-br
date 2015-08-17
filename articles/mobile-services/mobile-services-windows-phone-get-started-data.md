@@ -119,9 +119,9 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Esse código cria uma coleção de ligação com reconhecimento dos serviços móveis (\*\*items\*\*) e uma classe de proxy para a tabela de Banco de Dados SQL **TodoItem** (\*\*todoTable\*\*).
+   	Esse código cria uma coleção de ligação com reconhecimento dos serviços móveis (**items**) e uma classe de proxy para a tabela de Banco de Dados SQL **TodoItem** (**todoTable**).
 
-7. No método **InsertTodoItem**, remova a linha de código que define a propriedade **TodoItem**.\*\*Id\*\*, adicione o modificador **async** ao método e remova o comentário da seguinte linha de código:
+7. No método **InsertTodoItem**, remova a linha de código que define a propriedade **TodoItem**.**Id**, adicione o modificador **async** ao método e remova o comentário da seguinte linha de código:
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@ Este tutorial demonstrou as noções básicas sobre a habilitação de um aplica
 [Site de Exemplos de Código do Desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

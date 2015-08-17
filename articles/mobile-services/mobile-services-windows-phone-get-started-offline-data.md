@@ -59,7 +59,7 @@ Esta seção usa o SQLite como o armazenamento local para os recursos offline.
 
     >[AZURE.NOTE]Se você estiver usando o Internet Explorer, clicando no link para instalar o SQLite pode ser solicitado que você baixe o arquivo .vsix como um arquivo .zip. Salve o arquivo em um local no seu disco rígido com a extensão .vsix em vez de .zip. O duplo clique no arquivo .vsix no Windows Explorer para executar a instalação.
 
-2. No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados]. No Gerenciador de Soluções, clique com botão direito do mouse em **Referências** sob o projeto e adicione uma referência ao **SQLite para Windows Phone** em **Windows Phone**>**Extensões**.
+2. No Visual Studio, abra o projeto que você concluiu no tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados]. No Gerenciador de Soluções, clique com o botão direito em **Referências** no projeto e inclua uma referência ao **SQLite for Windows Phone** em **Windows Phone**>**Extensões**.
 
     ![][1]
 
@@ -292,4 +292,4 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

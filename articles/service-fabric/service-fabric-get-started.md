@@ -93,4 +93,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -162,8 +162,8 @@ No exemplo a seguir, vamos filtrar todos os usuários em que extensionAttribute1
 1. Faça logon no computador que está executando o Azure AD Connect Sync usando uma conta que seja membro do grupo de segurança ADSyncAdmins.
 2. Abra o **Editor de Regras de Sincronização** do **Menu Iniciar**.
 3. Certifique-se de que **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
-4. Atribua um nome descritivo à regra, como "\*Entrada do AD – DoNotSyncFilter do Usuário\*", selecione a floresta correta, escolha **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto de MV**. Como **Tipo de Vínculo**, selecione **Junção** e, em tipo de precedência, digite um valor não usado atualmente por outra regra de sincronização (p. ex.: 50); em seguida, clique em **Avançar**.
-5. Em **Filtro de escopo**, clique em **Adicionar Grupo**, clique em **Adicionar Cláusula** e, no atributo, selecione **ExtensionAttribute15**. Assegure-se que o Operador está definido como **IGUAL** e **digite** o valor NoSync na caixa Valor. Clique em **Avançar**.
+4. Atribua um nome descritivo à regra, como "*Entrada do AD – DoNotSyncFilter do Usuário*", selecione a floresta correta, escolha **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto de MV**. Como **Tipo de Vínculo**, selecione **Junção** e, em tipo de precedência, digite um valor não usado atualmente por outra regra de sincronização (p. ex.: 50); em seguida, clique em **Avançar**.
+5. Em **Filtro de escopo**, clique em **Adicionar Grupo**, clique em **Adicionar Cláusula** e, no atributo, selecione **ExtensionAttribute15**. Assegure-se de que o Operador esteja definido como **EQUAL** e **digite** o valor NoSync na caixa Valor. Clique em **Próximo**.
 6. Deixe as regras de **Junção** vazias e, em seguida, clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione o **Tipo de Fluxo** como **Constante**, selecione o Atributo de Destino cloudFiltered e, na caixa de texto de origem, digite True. Clique em Adicionar para salvar a regra.
 8. Execute uma sincronização completa: na guia **Conectores**, clique com botão direito do mouse em **SourceAD**, clique em **Executar**, clique em **Sincronização Completa** e, em seguida, clique em **OK**. 
@@ -171,12 +171,12 @@ No exemplo a seguir, vamos filtrar todos os usuários em que extensionAttribute1
 
 O atributo **sourceObjectType** provisionará um **Usuário** ou **Contato** ao AD do Azure se este atributo tiver o valor **Usuário** ou **Contato**, respectivamente. Ao criar uma Regra de Sincronização com uma precedência maior do que as iniciais, você pode substituir o comportamento padrão. Esse método também oferece uma oportunidade para expressar tanto as regras positivas quanto as negativas.
 
-No exemplo a seguir, você só sincronizará os usuários quando o atributo department é "\*Vendas\*" ou quando estiver vazio:
+No exemplo a seguir, você só sincronizará os usuários quando o atributo department é "*Vendas*" ou quando estiver vazio:
 
 1. Faça logon no computador que está executando o Azure AD Connect Sync usando uma conta que seja membro do grupo de segurança ADSyncAdmins.
 2. Abra o **Editor de Regras de Sincronização** do **Menu Iniciar**.
 3. Certifique-se de que **Entrada** está selecionada, então clique em **Adicionar Nova Regra**.
-4. Atribua um nome descritivo à regra (por exemplo, "\*Entrada do AD – DoNotSyncFilter do Usuário\*"), selecione a floresta correta, escolha **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto de MV**. Como **Tipo de Vínculo**, selecione **Junção** e, em **tipo de precedência**, digite um valor não usado atualmente por outra regra de sincronização (p. ex.: 60). Clique em **Avançar**.
+4. Atribua um nome descritivo à regra (por exemplo, "*Entrada do AD – DoNotSyncFilter do Usuário*"), selecione a floresta correta, escolha **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto de MV**. Como **Tipo de Víncul**o, selecione **Junção** e, em **tipo de precedência**, digite um valor não usado atualmente por outra regra de sincronização (p. ex.: 60). Clique em **Próximo**.
 5. Deixe o **filtro de escopo** e as **regras de junção** vazios e clique duas vezes em **Avançar**.
 6. Clique em **Adicionar Transformação**, selecione o **Tipo de Fluxo** como **Expressão** e selecione o **Atributo de Destino** como **sourceObjectType**. Na **Fonte**, digite a seguinte expressão:<br>`IIF(IsNullOrEmpty([department]),NULL,IIF([department]<>”Sales”,”DoNotSync”,NULL))`
 7. Clique em Adicionar para salvar a regra.
@@ -213,4 +213,4 @@ Neste exemplo, vamos alterar a filtragem para que somente usuários nos quais am
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

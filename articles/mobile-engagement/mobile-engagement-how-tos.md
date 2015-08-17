@@ -75,7 +75,7 @@ Depois que o SDK é totalmente integrado ao seu aplicativo, você pode começar 
  
 ![Personalize1][11]
 
-A personalização funciona substituindo um marcador por uma marca de informações do aplicativo, então, você precisará certificar-se de que o usuário tem as informações do aplicativo apropriado e definido primeiro. Neste exemplo, os usuários de destino terão uma marca definida de informações de aplicativo chamada rebate_code. Como você pode ver acima, o conteúdo da notificação por push inclui o ${rebate_code} de marcador que indicará que ela deve ser substituída pelo conteúdo real da marca de informações do aplicativo.
+A personalização funciona substituindo um marcador por uma marca de informações do aplicativo, então, você precisará certificar-se de que o usuário tem as informações do aplicativo apropriado e definido primeiro. Neste exemplo, os usuários de destino terão uma marca definida de informações de aplicativo chamada rebate\_code. Como você pode ver acima, o conteúdo da notificação por push inclui o ${rebate\_code} de marcador que indicará que ela deve ser substituída pelo conteúdo real da marca de informações do aplicativo.
 
 > Aviso: se a marca de informações de aplicativo não estiver definida para o usuário, o usuário não receberá o envio por push.
 
@@ -293,4 +293,4 @@ Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up apar
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

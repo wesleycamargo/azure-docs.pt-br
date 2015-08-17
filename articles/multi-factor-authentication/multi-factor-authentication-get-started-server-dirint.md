@@ -137,4 +137,4 @@ Os servidores adicionais Multi-Factor Auth podem ser configurados para servir co
 
 ![Servidores Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

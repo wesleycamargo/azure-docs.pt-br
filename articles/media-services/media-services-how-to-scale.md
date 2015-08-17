@@ -47,4 +47,4 @@ Para saber mais, consulte [Gerenciando Ativos de Serviços de Mídia entre Diver
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Explorar os logs de rastreamento do .NET no Application Insights  
@@ -61,7 +61,7 @@ Por exemplo:
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-
+Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.
 
 
 ## Explorar seus logs
@@ -124,4 +124,4 @@ Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por set
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

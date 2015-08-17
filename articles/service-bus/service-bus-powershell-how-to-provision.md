@@ -184,4 +184,4 @@ Alguns scripts prontos também estão disponíveis para download: [Scripts do Po
 [API .NET para Barramento de Serviço]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -47,7 +47,7 @@ Para esclarecer a utilidade do Blitline, geralmente é mais fácil identificar o
 
 - O Blitline NÃO aceita carregamentos de imagens, e não é possível enviar suas imagens por push para o Blitline diretamente. Você deve enviá-las ao Armazenamento do Azure ou a outros locais com suporte do Blitline e, em seguida, informar ao Blitline onde obtê-las.
 
-- O Blitline é massivamente paralelo e NÃO faz nenhum processamento síncrono. Ou seja, você deve nos fornecer um postback_url para que possamos informar a conclusão do processamento.
+- O Blitline é massivamente paralelo e NÃO faz nenhum processamento síncrono. Ou seja, você deve nos fornecer um postback\_url para que possamos informar a conclusão do processamento.
 
 ## <a id="createaccount"></a>Criar uma conta do Blitline
 
@@ -95,11 +95,11 @@ O JSON de volta será semelhante a isto:
     }
 
 
-Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Isso informa a você que o Blitline recebeu sua solicitação, colocou-a em uma fila de processamento e, quando ela for concluída, a imagem será disponibilizada em: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Como salvar uma imagem em sua conta de Armazenamento do Azure
 
-Se tiver uma conta de armazenamento do Azure, o Blitline poderá enviar por push as imagens processadas para seu contêiner do Azure com facilidade. Ao adicionar um "azure_destination", você define o local e as permissões para o Blitline enviar por push.
+Se tiver uma conta de armazenamento do Azure, o Blitline poderá enviar por push as imagens processadas para seu contêiner do Azure com facilidade. Ao adicionar um "azure\_destination", você define o local e as permissões para o Blitline enviar por push.
 
 Aqui está um exemplo:
 
@@ -150,4 +150,4 @@ Acesse blitline.com para ler sobre todos os nossos outros recursos (as páginas 
   [Como criar um trabalho do Blitline]: #createjob
   [Como salvar uma imagem em seu Armazenamento do Azure]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

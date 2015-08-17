@@ -104,7 +104,7 @@ No PowerShell, substitua os elementos dentro de "< >" por informações específ
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:>"
+	$OutputPathForSettingsFile = "<C:\>"
 
 ```
 
@@ -125,7 +125,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:>"
+		$OutputPathForSettingsFile = "<C:\>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -307,7 +307,7 @@ O cmdlet final cria um mapeamento entre a rede principal e a rede de máquina vi
 
 ```
 
-PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

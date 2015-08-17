@@ -103,4 +103,4 @@ Agora, seu projeto de serviço móvel é mantido no controle de origem e você p
 [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -65,4 +65,4 @@ Este tópico contém links para as Notas de versão SDK do Azure para .NET
 [Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -138,7 +138,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
     * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto
 
-    * **scalding-core_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
+    * **scalding-core\_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
 
     * **maven-scala-plugin**: plug-in para compilar aplicativos Scala
 
@@ -289,4 +289,4 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

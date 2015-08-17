@@ -59,4 +59,4 @@ Criar um Application Gateway. Consulte [Criar um Application Gateway](applicatio
 
 Configurar o descarregamento SSL. Consulte [Configurar o descarregamento de SSL com o Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -150,17 +150,14 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>Visualizar regiões
 
 
-A V12 foi lançada em dezembro de 2014, mas apenas com o status de [Visualização](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Em abril de 2015, a V12 foi promovida a Disponibilidade Geral (GA) em quase todas as regiões geográficas.
+A V12 foi lançada em dezembro de 2014, mas apenas com o status de Visualização.
 
 
-A V12 está disponível como visualização nas seguintes regiões:
+- [Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-| Região do Azure | Status<br/>da versão atual da V12 | Data da promoção<br/>para disponibilidade geral, estimativa |
-| :--- | :--- | :--- |
-| Leste da Austrália | **Visualização** | Terceiro trimestre de 2015, estimativa |
-| Sudeste da Austrália | **Visualização** | Terceiro trimestre de 2015, estimativa |
+Em 31 de julho de 2015, todas as regiões tinham foi promovidas para Disponibilidade Geral (GA).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

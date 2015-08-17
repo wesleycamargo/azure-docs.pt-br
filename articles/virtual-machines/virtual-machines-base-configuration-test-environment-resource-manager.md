@@ -149,7 +149,7 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado, abra o arquivo DC1.rdp baixado.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\\**[Nome da conta do administrador local]
+- Nome: **DC1\**[Nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -178,7 +178,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\\**[Nome da conta do administrador local]
+- Nome: **CORP\**[Nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -289,7 +289,8 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 2.	Em **Propriedades para CLIENT1**, clique em **Ativado** ao lado de **Configuração de Segurança Aprimorada do IE**.
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
-5.	Na barra de endereços, digite **http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1. 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
+5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
+6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
 7.	Na barra de endereços, digite **\\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
 9.	Na janela de pasta compartilhada **Arquivos**, clique duas vezes no arquivo **Example.txt**. Você deverá ver o conteúdo do arquivo Example.txt.
@@ -335,4 +336,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

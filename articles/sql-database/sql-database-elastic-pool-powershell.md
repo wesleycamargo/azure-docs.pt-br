@@ -59,7 +59,7 @@ Após entrar, você verá algumas informações na tela, incluindo a ID usada pa
 
 ### Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (\*\*-SubscriptionName\* \*). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
+Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado. Quando tiver sua assinatura, execute o seguinte cmdlet:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -116,7 +116,7 @@ Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet **
 
 ### Mover um banco de dados existente para um pool de banco de dados elástico
 
-Para mover um banco de dados existente para um pool, use o cmdlet **AzurSqlDatabase conjunto** e defina o parâmetro **ElasticPoolName**.
+Para mover um banco de dados existente para um pool, use o cmdlet **Set-AzurSqlDatabase** e defina o parâmetro **ElasticPoolName**.
 
 
 Para a demonstração, crie um banco de dados que não esteja em um pool de banco de dados elástico.
@@ -234,4 +234,4 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

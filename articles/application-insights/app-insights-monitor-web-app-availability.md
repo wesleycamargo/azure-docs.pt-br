@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -69,7 +69,7 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 
 #### Testar mais URLs
 
-Você pode adicionar mais testes para quantas URLs desejar. Por exemplo, além de testar a página inicial, você poderia certificar-se de que o banco de dados está sendo executado testando a URL para uma pesquisa.
+Adicione mais testes. Por exemplo, além de testar a página inicial, você poderia certificar-se de que o banco de dados está sendo executado testando a URL para uma pesquisa.
 
 
 ### <a name="monitor"></a>3. Exibir relatórios de disponibilidade
@@ -207,6 +207,16 @@ Abra um teste individual para editá-lo ou desabilitá-lo.
 
 Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenção de seu serviço.
 
+## Perguntas? Problemas?
+
+* Recebo um erro sobre "caracteres inválidos" quando eu 
+
+* ** Há uma diferença entre "testes da web" e "disponibilidade"?
+
+    Usamos os dois termos de forma intercambiável.
+
+
+
 ## <a name="video"></a>Vídeo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +239,4 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

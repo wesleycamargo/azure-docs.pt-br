@@ -236,4 +236,4 @@ Os links a seguir fornecem informações adicionais para uma abordagem sem códi
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

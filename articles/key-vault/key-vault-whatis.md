@@ -68,4 +68,4 @@ Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

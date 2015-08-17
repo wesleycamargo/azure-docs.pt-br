@@ -32,7 +32,7 @@ Nesta seção, você criará um novo aplicativo Web usando uma solução de exem
 
     - Na lâmina que se abre, selecione **Todas as configurações** e, em seguida, **Configurações do aplicativo**.
 
-    - Em **Cadeias de conexão**, clique em **Mostrar cadeias de conexão**. Copie o valor da configuração **MS_TableConnectionString**. Esta é a cadeia de conexão usada pelo aplicativo móvel para conectar-se ao banco de dados SQL.
+    - Em **Cadeias de conexão**, clique em **Mostrar cadeias de conexão**. Copie o valor da configuração **MS\_TableConnectionString**. Esta é a cadeia de conexão usada pelo aplicativo móvel para conectar-se ao banco de dados SQL.
 
 5. No Visual Studio, clique com botão direito do mouse no projeto de API da Web e selecione **Publicar**. Selecione **Aplicativos Web do Azure** como o destino de publicação e selecione o aplicativo Web que você criou acima. Clique em **Avançar** até chegar à seção **Configurações** do assistente Publicar Web.
 
@@ -77,4 +77,4 @@ Neste exemplo, mostramos como usar o mesmo banco de dados subjacente para um apl
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Criar um aplicativo móvel]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

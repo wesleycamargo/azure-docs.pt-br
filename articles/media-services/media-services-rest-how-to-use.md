@@ -27,29 +27,58 @@ Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitaçõ
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela a seguir lista os cabeçalhos necessários:
 
 
-<table border="1"> <tr><th>Cabeçalho</th><th>Tipo</th><th>Valor</th></tr> <tr><td>Autorização</td><td>Portador</td><td>Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo ACS.</td></tr> <tr><td>x-ms-version</td><td>Decimal</td><td>2.11</td></tr> <tr><td>DataServiceVersion</td><td>Decimal</td><td>3.0</td></tr> <tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3.0</td></tr> </table><br/>
+Cabeçalho|Tipo|Valor
+---|---|---
+Autorização|Portador|Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo ACS.
+x-ms-version|Decimal|2\.11
+DataServiceVersion|Decimal|3\.0
+MaxDataServiceVersion|Decimal|3\.0
+
 
 
 >[AZURE.NOTE]Como os serviços de mídia usam o OData para expor seu repositório de metadados de ativo subjacente por meio de APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em qualquer solicitação. No entanto, se não forem, então os serviços de mídia assumem que o valor DataServiceVersion em uso é 3.0.
 
 Este é um conjunto de cabeçalhos opcional:
 
-<table border="1"> <tr><th>Cabeçalho</th><th>Tipo</th><th>Valor</th></tr> <tr><td>Data</td><td>Data do RFC 1123</td><td>Carimbo de data/hora da solicitação</td></tr> <tr><td>Aceitar</td><td>Tipo de conteúdo</td><td>O tipo de conteúdo solicitado para a resposta, como a seguinte: <ul><li>application/json;odata=verbose</li><li>application/atom+xml</li></ul></br> As respostas podem ter diferentes tipos de conteúdo, como uma busca de blob, onde uma resposta bem-sucedida irá conter o fluxo de blob como carga.</td></tr> Codificação <tr><td>Accept-Encoding</td><td>Gzip, deflate</td><td>GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados. </td></tr> <tr><td>Accept-Language</td><td>"en", "es" e assim por diante.</td><td>Especifica o idioma preferido para resposta.</td></tr> <tr><td>Accept-Charset</td><td>Tipo de Charset como "UTF-8"</td><td>O padrão é UTF-8.</td></tr> <tr><td>Método X-HTTP</td><td>Método HTTP</td><td>Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via chamada GET.</td></tr> <tr><td>Content-Type</td><td>Tipo de conteúdo</td><td>O tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST.</td></tr> <tr><td>client-request-id</td><td>Cadeia de Caracteres</td><td>Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <br/><br/><b>Importante</b><br/>Os valores devem ser limitados a 2096b (2K).</td></tr></table><br/>
-
+Cabeçalho|Tipo|Valor
+---|---|---
+Data|Data do RFC 1123|Carimbo de hora da solicitação
+Aceitar|Tipo de conteúdo|O conteúdo solicitado para a resposta, como o seguinte: <p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter diferentes tipos de conteúdo, como uma busca de blob, onde uma resposta bem-sucedida irá conter o fluxo de blob como carga.
+Codificação aceita|Gzip, deflate|Codificar GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados.
+Idioma aceito|"en", "es", e assim por diante.|Especifica o idioma preferencial para a resposta.
+Conjunto de caracteres aceito|Tipo de conjunto de caracteres como "UTF-8"|Padrão é UTF-8.
+Método X-HTTP|Método HTTP|Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET.
+Tipo de conteúdo|Tipo de conteúdo|Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST.
+ID da solicitação de cliente|Cadeia de caracteres|Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação.<p><p>**Importante**<p>Os valores devem ser limitados em 2096b (2k).
 
 ## Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
 
-<table border="1"> <tr><th>Cabeçalho</th><th>Tipo</th><th>Valor</th></tr> <tr><td>request-id</td><td>Cadeia de Caracteres</td><td>Um identificador exclusivo para a operação atual, gerado pelo serviço.</td></tr> <tr><td>client-request-id</td><td>Cadeia de Caracteres</td><td>Um identificador exclusivo para a operação atual, se presente.</td></tr> <tr><td></td>Data<td></td>Data RFC 1123<td></td>A data em que a solicitação foi processada.</tr> <tr><td>Content-Type</td><td>Variável</td><td>O tipo de conteúdo no corpo da resposta.</td></tr> <tr><td>Content-Encoding</td><td>Variável</td><td>Gzip ou deflate, conforme apropriado.</td></tr> </table><br/>
+Cabeçalho|Tipo|Valor
+---|---|---
+ID da solicitação|Cadeia de caracteres|Um identificador exclusivo para a operação atual, serviço gerado.
+ID da solicitação de cliente|Cadeia de caracteres|Um identificador especificado pelo chamador na solicitação original, se presente.
+Data|Data do RFC 1123|A data em que a solicitação foi processada.
+Tipo de conteúdo|Varia|O tipo de conteúdo do corpo da resposta.
+Codificação de conteúdo|Varia|Gzip ou deflate, conforme apropriado.
+
 
 ## Verbos HTTP padrão suportados pelos serviços de mídia.
 
 A seguir está uma lista completa de verbos HTTP que podem ser usados quando fazem solicitações HTTP:
 
 
-<table border="1"> <tr><th>Verbo</th><th>Descrição</th></tr> <tr><td>GET</td><td>Retorna o valor atual de um objeto.</td></tr> <tr><td>POST</td><td>Cria um objeto com base nos dados fornecidos ou envia um comando.</td></tr> <tr><td>PUT</td><td>Substitui um objeto ou cria um objeto nomeado (quando aplicável).</td></tr> <tr><td>DELETE</td><td>Exclui um objeto.</td></tr> <tr><td>MERGE</td><td>Atualiza um objeto existente com alterações de propriedade nomeada.</td></tr> <tr><td>HEAD</td><td>Retorna metadados de um objeto para uma resposta GET.</td></tr></table><br/>
+Verbo|Descrição
+---|---
+GET|Retorna o valor atual de um objeto.
+POST|Cria um objeto com base nos dados fornecidos ou envia um comando.
+PUT|Substitui um objeto ou cria um objeto nomeado (quando aplicável).
+EXCLUIR|Exclui um objeto.
+MESCLAR|Atualiza um objeto existente com alterações de propriedade nomeada.
+HEAD|Retorna metadados de um objeto para uma resposta GET.
+
 
 ## Descobrindo o modelo de serviços de mídia
 
@@ -68,4 +97,4 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

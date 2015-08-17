@@ -51,7 +51,7 @@
 - [\+ (Concatenação de cadeias de caracteres)](https://msdn.microsoft.com/library/ms177561.aspx)
 - [\- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
 - [\- (Subtração)](https://msdn.microsoft.com/library/ms189518.aspx)
-- [\* (Multiplicar)](https://msdn.microsoft.com/library/ms176019.aspx)
+- [* (Multiplicar)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Divisão)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
@@ -290,4 +290,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

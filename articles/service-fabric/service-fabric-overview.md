@@ -95,4 +95,4 @@ Para obter mais informações: [Visão geral técnica](../service-fabric-technic
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

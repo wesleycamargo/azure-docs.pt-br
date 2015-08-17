@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 # Atores Confiáveis: o cenário canônico HelloWorld passo a passo
@@ -146,7 +146,7 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 
 ## Próximas etapas
 
-[Introdução aos atores de Malha de Serviço](service-fabric-reliable-actors-introduction.md)[Documentação de referência de APIs de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)[Código de exemplo](https://github.com/Azure/servicefabric-samples)
+[Introdução aos Atores Confiáveis do Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentação de referência de APIs de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de exemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +156,4 @@ As ferramentas para Visual Studio da Malha do Serviço oferecem suporte à depur
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

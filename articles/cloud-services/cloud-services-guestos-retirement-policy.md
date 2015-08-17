@@ -59,7 +59,7 @@ Versões do SO convidado são lançadas a cada mês. Devido aos lançamentos reg
 
 Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do Portal de Gerenciamento do Azure. Ela também pode não ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução, mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
 
-Em um momento posterior, a versão do sistema operacional convidado "*expira*", e todas as instalações que ainda estiverem executando essa versão serão forçosamente atualizadas e definidas para atualizar automaticamente o sistema operacional convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
+Posteriormente, a versão SO Convidado “*expira*” e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
 
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 
@@ -88,4 +88,4 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

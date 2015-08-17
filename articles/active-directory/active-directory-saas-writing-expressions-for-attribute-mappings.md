@@ -82,7 +82,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
-| **source1 .. sourceN \*\* | Obrigatório, número de vezes variável | Cadeia de caracteres |Valores de **source** entre os quais escolher |
+| **source1 .. sourceN ** | Obrigatório, número de vezes variável | Cadeia de caracteres |Valores de **source** entre os quais escolher |
 
 
 
@@ -118,7 +118,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obrigatório | Cadeia de caracteres | Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1 … sourceN \*\* | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
+| ****source1 … sourceN ** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
 
 
 
@@ -166,7 +166,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Função:**<br> Not(source)
 
-**Descrição:**<br> inverte o valor booliano do **source**. Se o valor de **source** for "\*True\*", retorna "\*False\*". Caso contrário, retorna "\*True\*".
+**Descrição:**<br> inverte o valor booliano do **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
 
 **Parâmetros:**<br>
@@ -203,7 +203,7 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
    - Se **source** tiver um valor, o **source** é retornado
 
-- Se **source** não tiver nenhum valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
+- Se **source** não tiver valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 
 **Parâmetros:**<br>
@@ -242,7 +242,7 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Função:**<br> ReplaceRegex(source, find, replace, group)
 
-**Descrição:**<br> dentro da cadeia de caracteres de **source**, substitui todas as subcadeias de caracteres que correspondem à expressão regular de **find** pelo valor de **replace**. Se um **group** for especificado, ela substitui somente o valor desse grupo de RegEx.
+**Descrição:**<br> dentro da cadeia de caracteres de **source**, substitui todas as subcadeias de caracteres que correspondem à expressão regular de **find** pelo valor de **replace**. Se um **group** for especificado, ele substitui somente o valor desse grupo de RegEx.
 
 **Parâmetros:**<br>
 
@@ -261,7 +261,7 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Função:**<br> StripSpaces(source)
 
-**Descrição:**<br> remove todos os caracteres de espaço (" ") caracteres da cadeia de caracteres de source.
+**Descrição:**<br> remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
 
 **Parâmetros:**<br>
 
@@ -282,7 +282,7 @@ Substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
-| **fonte** | Obrigatório | Cadeia de caracteres | Valor de **source** a atualizar. |
+| **fonte** | Obrigatório | Cadeia de caracteres | Valor de **Source** a atualizar. |
 | **defaultValue** | Opcional | Cadeia de caracteres | Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
 | **chave** | Obrigatório | Cadeia de caracteres | Parâmetro **key** com o qual comparar o valor de **source**. |
 | **valor** | Obrigatório | Cadeia de caracteres | Valor de substituição para o **source** que corresponde ao parâmetro key. |
@@ -315,7 +315,7 @@ Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescent
 
 **Expressão:** <br> `Append([userPrincipalName], ".test"))`
 
-**Entrada/saída de exemplo:**<br>
+**Entrada/saída de exemplo:** <br>
 
 - **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
 
@@ -333,7 +333,7 @@ Você precisa gerar um alias de usuário selecionando as três primeiras letras 
 
 **Expressão:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Entrada/saída de exemplo:**<br>
+**Entrada/saída de exemplo:** <br>
 
 - **ENTRADA** (givenName): "John"
 
@@ -380,11 +380,6 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 - **SAÍDA**: "Australia/Brisbane"
 
 
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-## Recursos adicionais
-
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-<!--Image references-->
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

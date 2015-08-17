@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Dados de Perfil do Usuário no Azure RemoteApp"
 	description="Saiba como os dados de usuário são armazenados e acessados no Azure RemoteApp"
-	services="remoteapp"
+	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
@@ -123,4 +123,4 @@ Não, não há suporte para isso com o Azure RemoteApp, que usa RDSH, que també
 
 Não, não há suporte para isso com o Azure RemoteApp.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

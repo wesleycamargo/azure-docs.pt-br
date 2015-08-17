@@ -153,7 +153,7 @@ Nesta seção, configuraremos variáveis do ambiente para a instância de Aplica
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY_NAME**, **STORAGE_NAME** e **STORAGE_KEY** conforme descrito na seção acima.
+1.  Role para baixo até a seção **configurações do aplicativo** e defina os valores para **REPOSITORY\_NAME**, **STORAGE\_NAME** e **STORAGE\_KEY** conforme descrito na seção acima.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@ Siga estes links para saber mais sobre as ferramentas Python para Visual Studio,
 [SDK do Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

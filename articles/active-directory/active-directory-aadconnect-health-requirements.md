@@ -49,7 +49,8 @@ Para começar a usar a Integridade do o Azure AD Connect, você pode baixar a ve
 ### Conectividade de saída para os pontos de extremidade de serviço do Azure
 Durante a instalação e o tempo de execução, o agente requer conectividade com os pontos de extremidade de serviço do Azure AD Connect Health listados a seguir. Se você bloquear a conectividade de saída, certifique-se de que os recursos a seguir estão adicionados à lista de permissões:
 
-- *.servicebus.windows.net - Porta: 5671 - https://*.adhybridhealth.azure.com/
+- *.servicebus.windows.net - Porta: 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -62,7 +63,7 @@ Os sites a seguir precisam ser permitidos se a segurança reforçada do IE estiv
 - https://login.microsoftonline.com 
 - https://secure.aadcdn.microsoftonline-p.com
 - https://login.windows.net
-- O servidor de federação para a sua organização confiável pelo Azure Active Directory para o exemplo:https://sts.contoso.com 
+- O servidor de federação para a sua organização confiável pelo Active Directory do Azure para o exemplo: https://sts.contoso.com 
 
 
 ### Para o AD FS, a auditoria do AD FS deve ser ativada para usar a Análise de uso
@@ -71,26 +72,26 @@ Para que o recurso de Análise de uso colete e analise dados, o agente do Azure 
 
 #### Para habilitar a auditoria do AD FS 2.0
 
-1. Clique em **Iniciar**aponte para**Programas**, aponte para**Ferramentas administrativas**e, em seguida, clique em**Política de Segurança Local**.
+1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas administrativas** e, em seguida, clique em **Política de Segurança Local**.
 1. Navegue até a pasta **Configurações de segurança\\Políticas locais\\Gerenciamento de direitos de usuário** e, em seguida, clique duas vezes em Gerar auditorias de segurança.
-1. Na Guia **Configuração de segurança Local**, verifique se a conta de serviço 2.0 do AD FS está listada. Se não estiver presente, clique em **Adicionar usuário ou grupo**e adicione-a à lista e, em seguida, clique em **OK**.
-1. Abra um prompt de comando com privilégios elevados e execute o seguinte comando para habilitar a auditoria.`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
-1. Feche a Política de segurança Local e, em seguida, abra o snap-in de Gerenciamento. Para abrir o snap-in de Gerenciamento, clique em **Iniciar**aponte para **Programas**aponte para **Ferramentas administrativas ** e, em seguida, clique em Gerenciamento do AD FS 2.0
+1. Na Guia **Configuração de segurança Local**, verifique se a conta de serviço 2.0 do AD FS está listada. Se não estiver presente, clique em **Adicionar usuário ou grupo** e adicione-a à lista e, em seguida, clique em **OK**.
+1. Abra um prompt de comando com privilégios elevados e execute o comando a seguir para habilitar a auditoria. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
+1. Feche a Política de segurança Local e, em seguida, abra o snap-in de Gerenciamento. Para abrir o snap-in de Gerenciamento, clique em **Iniciar**, aponte para **Programas** aponte para **Ferramentas administrativas** e, em seguida, clique em Gerenciamento do AD FS 2.0
 1. No painel de ações, clique em Editar propriedades do serviço de federação.
-1. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
-1. Selecione as caixas de seleção **Auditorias com êxito**e**Auditorias com falha**.
+1. Na caixa de diálogo **Propriedades do serviço de federação**, clique na guia **Eventos**.
+1. Selecione as caixas de seleção **Auditorias com êxito** e **Auditorias com falha**.
 1. Clique em **OK**.
 
 #### Para habilitar a auditoria do AD FS no Windows Server 2012 R2
 
-1. Abra**Política de Segurança Local**abrindo**Gerenciador do Servidor**na tela Iniciar, ou Gerenciador de servidores na barra de tarefas na área de trabalho, clique em **Ferramentas/Política de Segurança Local**.
-1. Navegue até a pasta **Configurações de segurança\\Políticas locais\\Atribuição de direitos do usuário** e clique duas vezes em**Gerar auditorias de segurança**.
-1. Na guia **Configuração de Segurança Local**, verifique se a conta de serviço do AD FS está listada. Se não estiver presente, clique em **Adicionar usuário ou grupo**e adicione-a à lista e, em seguida, clique em **OK**.
-1. Abra um prompt de comando com privilégios elevados e execute o comando a seguir para habilitar a auditoria:`auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
-1. Feche **Política de Segurança Local**e, em seguida, abra o snap-in de **Gerenciamento do AD FS** (no Gerenciador de servidores, clique em ferramentas e, em seguida, selecione Gerenciamento do AD FS).
-1. No painel de ações, clique em**Editar propriedades do serviço de Federação**.
+1. Abra **Política de Segurança Local ** abrindo **Gerenciador do Servidor** na tela Iniciar, ou Gerenciador de servidores na barra de tarefas na área de trabalho, clique em **Ferramentas/Política de Segurança Local**.
+1. Navegue até a pasta **Configurações de segurança\\Políticas locais\\Atribuição de direitos do usuário** e clique duas vezes em **Gerar auditorias de segurança**.
+1. Na guia **Configuração de Segurança Local**, verifique se a conta de serviço do AD FS está listada. Se não estiver presente, clique em **Adicionar usuário ou grupo** e adicione-a à lista e, em seguida, clique em **OK**.
+1. Abra um prompt de comando com privilégios elevados e execute o comando a seguir para habilitar a auditoria: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
+1. Feche **Política de Segurança Local** e, em seguida, abra o snap-in de **Gerenciamento do AD FS** (no Gerenciador de servidores, clique em ferramentas e, em seguida, selecione Gerenciamento do AD FS).
+1. No painel de ações, clique em **Editar propriedades do serviço de Federação**.
 1. Na caixa de diálogo Propriedades do serviço de federação, clique na guia **Eventos**.
-1. Selecione as caixas de seleção **Auditorias com êxito e Falha auditorias**e, em seguida, clique em**OK**.
+1. Selecione as caixas de seleção **Auditorias com êxito e Falha auditorias** e, em seguida, clique em **OK**.
 
 
 
@@ -117,9 +118,9 @@ Para servidores Windows Server 2008 R2 faça o seguinte:
 1. Certifique-se de que o servidor esteja em execução no Service Pack 1 ou superior.
 1. Desative a ESC do IE para instalação do agente:
 1. Instale o Windows PowerShell 4.0 em cada um dos servidores antes de instalar o agente de integridade do AD. Para instalar o Windows PowerShell 4.0:
- - Instale o [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)usando o link a seguir para baixar o instalador offline.
+ - Instale o [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) usando o link a seguir para baixar o instalador offline.
  - Instale o PowerShell ISE (de recursos do Windows)
- - Instale o[Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
+ - Instale o [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
  - Instale o Internet Explorer versão 10 ou superior no servidor. Isso é necessário para que o serviço de integridade faça sua autenticação usando suas credenciais de administrador do Azure.
 1. Para obter informações adicionais sobre como instalar o Windows PowerShell 4.0 no Windows Server 2008 R2, consulte o artigo no wiki [aqui](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
@@ -155,4 +156,4 @@ Para verificar se o agente foi instalado, abra serviços e procure pelo seguinte
  
 ![Verifique o Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

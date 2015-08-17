@@ -91,4 +91,4 @@ Sempre que uma regra determina que um novo objeto de espaço conector precisa se
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

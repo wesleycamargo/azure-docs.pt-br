@@ -57,11 +57,11 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-A conta de administrador do servidor com a qual você está se conectando é um membro de db_owner, que tem autoridade para realizar qualquer tarefa no banco de dados. Salve essa conta para implantar atualizações de esquema e outras operações de gerenciamento. Use a conta "ApplicationUser" com permissões mais limitadas para se conectar do aplicativo ao banco de dados com os privilégios mínimos necessários para seu aplicativo.
+A conta de administrador do servidor com a qual você está se conectando é um membro de db\_owner, que tem autoridade para realizar qualquer tarefa no banco de dados. Salve essa conta para implantar atualizações de esquema e outras operações de gerenciamento. Use a conta "ApplicationUser" com permissões mais limitadas para se conectar do aplicativo ao banco de dados com os privilégios mínimos necessários para seu aplicativo.
 
 Existem maneiras de limitar ainda mais o que um usuário pode fazer com o Banco de Dados SQL do Azure:
 
-* [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121) diferentes de db_datareader e db_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes.
+* [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121) diferentes de db\_datareader e db\_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes.
 * [Permissões](https://msdn.microsoft.com/library/ms191291) granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, procedimentos e outros objetos individuais no banco de dados.
 * [Representação](https://msdn.microsoft.com/library/vstudio/bb669087) e [assinatura de módulo](https://msdn.microsoft.com/library/bb669102) podem ser usadas para elevar permissões temporariamente com segurança.
 * [Segurança no nível de linha](https://msdn.microsoft.com/library/dn765131) permite filtrar quais linhas um usuário pode ver.
@@ -98,4 +98,4 @@ A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a 
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](http://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

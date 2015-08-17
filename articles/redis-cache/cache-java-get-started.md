@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # Como usar o Cache Redis do Azure com Java
@@ -87,4 +87,4 @@ Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente 
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

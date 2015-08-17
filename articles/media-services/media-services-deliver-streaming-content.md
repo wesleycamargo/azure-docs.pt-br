@@ -157,4 +157,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 
 [Baixar ativos](media-services-deliver-asset-download.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

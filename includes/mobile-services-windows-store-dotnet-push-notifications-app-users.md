@@ -29,7 +29,7 @@ Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto
 
 	Isto garante que o registro seja feito usando a instância do mesmo cliente que tem as credenciais de usuário autenticadas. De outra forma, o registro falhará com um erro não autorizado (401).
 
-3. Abra o arquivo de projeto compartilhado MainPage.cs e substitua o manipulador **ButtonLogin_Click** pelo seguinte:
+3. Abra o arquivo de projeto compartilhado MainPage.cs e substitua o manipulador **ButtonLogin\_Click** pelo seguinte:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ Neste método, o assistente gera um arquivo novo push.register.cs no seu projeto
 
 	Isso garante que a autenticação ocorra antes da tentativa de registro por push.
 
-4. 	No código anterior, substitua o nome da classe do push gerada (`todolistPush`) pelo nome da classe gerada pelo assistente, normalmente no formato <code><em>serviço_móvel</em>Push</code>.
+4. 	No código anterior, substitua o nome da classe do push gerada (`todolistPush`) pelo nome da classe gerada pelo assistente, normalmente no formato <code><em>serviço\_móvel</em>Push</code>.
 
 ###Notificações por push habilitadas manualmente		
 
@@ -54,7 +54,7 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
  
 2. Altere a acessibilidade do método **InitNotificationsAsync** de `private` para `public` e adicione o modificador `static`.
 
-3. Abra o arquivo de projeto compartilhado MainPage.cs e substitua o manipulador **ButtonLogin_Click** pelo seguinte:
+3. Abra o arquivo de projeto compartilhado MainPage.cs e substitua o manipulador **ButtonLogin\_Click** pelo seguinte:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -69,4 +69,4 @@ Neste método, você adicionou o código de registro do tutorial diretamente no 
 	
 	Isso garante que a autenticação ocorra antes da tentativa de registro por push.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

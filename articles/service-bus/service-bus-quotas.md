@@ -23,4 +23,4 @@ Esta seção lista as cotas básicas e limites nas mensagens do Barramento de Se
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

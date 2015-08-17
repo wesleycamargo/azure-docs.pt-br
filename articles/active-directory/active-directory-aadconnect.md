@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -142,14 +142,15 @@ Selecionar as configurações expressas é a opção padrão e é um dos cenári
 8. Na tela Conectar-se ao AD DS, digite o nome de usuário e a senha para uma conta de administrador corporativa. Clique em **Próximo**.
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Na tela Pronto para configurar, clique em **Instalar**.
-	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “\*\*Iniciar o processo de sincronização assim que a configuração for concluída\*\*”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
+	- Na página “Pronto para configurar”, você pode desmarcar a caixa de seleção “**Iniciar o processo de sincronização assim que a configuração for concluída**”. Se você fizer isso, o assistente vai configurar a sincronização, mas deixará a tarefa desabilitada para que ela não seja executada até você habilitá-la manualmente no Agendador de Tarefas. Quando a tarefa estiver habilitada, a sincronização será executada a cada três horas.
 	- Também é possível configurar os serviços de sincronização para **implantação híbrida do Exchange** marcando a caixa de seleção correspondente. Se você não planeja ter caixas de correio do Exchange na nuvem e no local, isso não é necessário.
 
 <center>![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
 8. Quando a instalação for concluída, clique em **Sair**.
 
 
-<br> <br>
+
+
 
 Para ver um vídeo sobre como usar a instalação expressa, verifique o seguinte:
 
@@ -256,4 +257,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

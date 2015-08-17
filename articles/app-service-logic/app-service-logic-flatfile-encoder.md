@@ -46,28 +46,11 @@ Uma vez configurado, os usuários podem clicar em *->* e escolher uma ação em 
 
 ![Lista de ações do Codificador de Arquivo Simples do BizTalk][5]
 
-<table>
-	<tr>
-		<th>Parâmetro</th>
-		<th>Tipo</th>
-		<th>Descrição do parâmetro</th>
-	</tr>
-	<tr>
-		<td>Arquivo simples</td>
-		<td>string</td>
-		<td>Conteúdo do arquivo simples de entrada</td>
-	</tr>
-	<tr>
-		<td>Nome do Esquema</td>
-		<td>string</td>
-		<td>Nome do esquema que representa o arquivo simples de entrada</td>
-	</tr>
-	<tr>
-		<td>Nome Raiz</td>
-		<td>string</td>
-		<td>Nome do nó raiz do esquema de arquivo simples</td>
-	</tr>
-</table>
+Parâmetro|Tipo|Descrição do parâmetro
+---|---|---
+Arquivo simples|string|Conteúdo do arquivo simples de entrada
+Nome do Esquema|string|Nome do esquema que representa o arquivo simples de entrada
+Nome Raiz|string|Nome do nó raiz do esquema de arquivo simples
 
 
 A ação retorna a saída como uma cadeia de caracteres ‒ Xml de saída. O Xml de saída contém a representação em xml do conteúdo do arquivo simples de entrada.
@@ -76,18 +59,9 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Xml de saída. O Xml
 
 ![Lista de ações do Codificador de Arquivo Simples do BizTalk][6]
 
-<table>
-	<tr>
-		<th>Parâmetro</th>
-		<th>Tipo</th>
-		<th>Descrição do parâmetro</th>
-	</tr>
-	<tr>
-		<td>XML de entrada</td>
-		<td>string</td>
-		<td>Conteúdo do Xml de entrada</td>
-	</tr>
-</table>
+Parâmetro|Tipo|Descrição do parâmetro
+---|---|---
+XML de entrada|string|Conteúdo do Xml de entrada
 
 A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A saída contém a representação de arquivo simples do conteúdo xml de entrada.
 
@@ -100,4 +74,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Arquivo Simples. A s
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

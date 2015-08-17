@@ -19,4 +19,4 @@ Por padrão, os pontos de extremidade definidos em seu Aplicativo Móvel são ex
 
 4. Republique seu projeto de aplicativo móvel.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -77,7 +77,7 @@ Neste caso, o tamanho *real* da máquina virtual é de 17 GB + 30 GB + 0 GB = 47
 A cobrança não é iniciada até que o primeiro backup bem-sucedido seja concluído. Neste ponto, será iniciada a cobrança de instâncias Protegidas e de Armazenamento. A cobrança continuará desde que haja *dados de backup armazenados com o Backup do Microsoft Azure* para a máquina virtual. Executar a operação Parar Proteção não interrompe a cobrança se os dados de backup forem mantidos. A cobrança para uma máquina virtual especificada será descontinuada somente se a proteção for interrompida *e* os dados de backup forem excluídos. Quando não há nenhum trabalho de backup ativo (quando a proteção tiver sido interrompida), o tamanho da máquina virtual no momento do último backup bem-sucedido torna-se o tamanho da instância protegida em que a fatura mensal se baseia.
 
 ## Pré-requisitos
-### 1. Cofre de backup
+### 1\. Cofre de backup
 Para iniciar o backup de suas máquinas virtuais do Azure, você precisa primeiro criar um cofre de backup. O cofre é uma entidade que armazena todos os backups e pontos de recuperação que foram criados ao longo do tempo. O cofre também contém as políticas de backup que serão aplicadas às máquinas virtuais que passarão por backup.
 
 A imagem abaixo mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
@@ -102,7 +102,7 @@ A imagem abaixo mostra os relacionamentos entre as várias entidades do Backup d
 
     >[AZURE.NOTE]Certifique-se de que a opção de redundância de armazenamento apropriada esteja selecionada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup][redundância-de-armazenamento-no-cofre].
 
-### 2. Agente de VM
+### 2\. Agente de VM
 Antes de iniciar o backup da máquina virtual do Azure, certifique-se de que o agente de VM do Azure esteja instalado corretamente na máquina virtual. Para fazer backup da máquina virtual, o serviço de Backup do Azure instala uma extensão para o agente de VM. Como o agente de VM é um componente opcional no momento em que a máquina virtual é criada, você precisa garantir que a caixa de seleção do agente de VM esteja marcada antes de a máquina virtual ser provisionada.
 
 Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -136,4 +136,4 @@ Para começar a usar o backup de máquinas virtuais, saiba como:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

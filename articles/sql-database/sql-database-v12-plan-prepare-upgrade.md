@@ -48,8 +48,8 @@ As subseções a seguir descrevem o aprendizado e a tomada de decisão que devem
 Este documento aborda a atualização do Banco de dados SQL do Microsoft Azure da versão V11 para V12. Mais formalmente, os números de versão estão próximos aos dois valores a seguir, conforme relatado pela instrução Transact-SQL **SELECT @@version;** :
 
 
-- 12.0.2000.8 *(ou um pouco maior, V12)*
-- 11.0.9228.18 *(V11)*
+- 12\.0.2000.8 *(ou um pouco maior, V12)*
+- 11\.0.9228.18 *(V11)*
  - O V11 também era conhecido como SAWA v2.
 
 ### Planejamento da camada de serviço
@@ -138,7 +138,7 @@ Incentivamos você a se conectar aos bancos de dados SQL do Azure com o Visual S
 - Para desenvolver um banco de dados online ou offline.
 
 
-Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
+Você pode se conectar ao [Visual Studio Community 2013](https://www.visualstudio.com/pt-br/news/vs2013-community-vs.aspx/), que é uma versão gratuita e completa em termos de recursos do VS2013.
 
 
 No antigo portal do Azure, na página de banco de dados, você pode clicar em **Abrir no Visual Studio** para iniciar o VS2013 no seu computador para conexão com o Banco de Dados SQL do Azure.
@@ -244,4 +244,4 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

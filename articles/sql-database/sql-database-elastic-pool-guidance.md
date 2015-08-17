@@ -110,16 +110,16 @@ A heurística a seguir pode ajudar a estimar se um pool elástico é mais econô
 
 1. Estime as DTUs necessárias para o pool da seguinte maneira:
     
-    MÁX(*Número total de bancos de dados* * *Utilização de DTU média por DB*, *número de DBs em pico simultaneamente* * *Pico de utilização de DTU por DB*)
+    MÁX(**Número total de DBs* * *Utilização de DTU média por DB*, *número de DBs em pico simultaneamente* * *Pico de utilização de DTU por DB*)
 
-2. Selecione o menor valor de DTU disponível para o pool que seja maior que a estimativa da etapa 1. Para ver as opções de DTU disponíveis, consulte os valores válidos para DTUs listados aqui: [Limites de DTU e armazenamento para pools e bancos de dados elásticos](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+2. Selecione o menor valor de DTU disponível para o pool que seja maior que a estimativa da etapa 1. Para ver as opções de DTU disponíveis, consulte os valores válidos para as DTUs listadas aqui: [Limites de DTU e armazenamento para pools e bancos de dados elásticos](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     
 
 
 3. Calcule o preço para o pool da seguinte maneira:
 
-    preço do pool = (* DTUs do pool * * *preço unitário de DTU do pool*) + (*número total de DBs* * *preço unitário de DB do pool*)
+    preço do pool = (*DTUs do pool* * *preço unitário de DTU do pool*) + (*número total de DBs* * *preço unitário de DB do pool*)
 
     Consulte [Preços de Banco de Dados SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obter informações sobre preços.
 
@@ -141,9 +141,9 @@ Observe que, para a camada de serviço Standard, 1 GB de armazenamento é alocad
 
 O STA e DMVs fornecem diferentes opções de ferramentas e recursos para dimensionamento de um pool elástico. Independentemente da opção de ferramentas usada, a estimativa de dimensionamento deve ser usada somente como uma avaliação inicial e criação de pools elásticos. Depois de criar um pool elástico, seu uso de recursos deve ser monitorado com precisão e as configurações de desempenho do pool devem ser ajustadas conforme necessário.
 
-O **STA**<br>STA é uma ferramenta interna no Portal do Azure que avalia automaticamente a utilização histórica de recursos de bancos de dados em um servidor de Banco de Dados SQL existente e recomenda uma configuração de pool elástico apropriada.
+**STA**<br>STA é uma ferramenta interna no Portal do Azure que avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda uma configuração de pool elástico apropriada.
 
-A **Ferramenta de dimensionamento de DMV**<br>ferramenta de dimensionamento de DMV é fornecida como um script do PowerShell e permite personalizar as estimativas de dimensionamento de um pool elástico para bancos de dados existentes em um servidor.
+**Ferramenta de dimensionamento de DMV**<br>a ferramenta de dimensionamento de DMV é fornecida como um script do PowerShell e permite personalizar as estimativas de dimensionamento de um pool elástico para bancos de dados existentes em um servidor.
 
 ### Escolhendo entre as ferramentas STA e DMV 
 
@@ -165,7 +165,7 @@ O STA está disponível no portal do Azure ao adicionar um pool elástico a um s
 
 ### Estimar o tamanho do pool elástico usando DMVs (Exibições de Gerenciamento Dinâmico) 
 
-A DMV [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) mede a utilização de recursos de um banco de dados individual. Essa DMV apresenta CPU, E/S, log e utilização de log do banco de dados como um percentual do limite de nível de desempenho do banco de dados. Esses dados podem ser usados para calcular a utilização de DTU de um banco de dados em qualquer intervalo de 15 segundos.
+A DMV [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) mede a utilização de recursos de um banco de dados individual. Essa DMV apresenta CPU, E/S, log e utilização de log do banco de dados como um percentual do limite de nível de desempenho do banco de dados. Esses dados podem ser usados para calcular a utilização de DTU de um banco de dados em qualquer intervalo de 15 segundos.
 
 A utilização de DTU agregada de um pool elástico em um intervalo de 15 segundos pode ser estimada agregando a utilização de DTU para todos os bancos de dados candidatos durante esse período. Dependendo das metas de desempenho específicas, pode fazer sentido descartar um pequeno percentual dos dados de exemplo. Por exemplo, um valor de 99% das DTUs agregadas em todos os intervalos de tempo pode ser aplicado para excluir exceções e fornecer um DTU de pool elástico para adequar a 99% dos intervalos de tempo de exemplo.
 
@@ -188,7 +188,7 @@ Instale o seguinte antes de executar o script:
 ### Detalhes do script
 
 
-Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte os [Detalhes de preços de transferência de dados](http://azure.microsoft.com/pricing/details/data-transfers/).
+Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Veja abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte os [Detalhes de Preços de Transferência de Dados](http://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     Um banco de dados por hora = 38 KB
  -     Um banco de dados por dia = 900 KB
@@ -402,4 +402,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools de ba
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

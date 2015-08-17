@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução de Atores de Malha do Serviço do Azure para padrões e antipadrões"
-   description="padrões de projeto que funcionam bem com Atores de Malha do Serviço"
+   pageTitle="Introdução dos Atores Confiáveis do Service Fabric a padrões e antipadrões"
+   description="Saiba mais sobre o modelo de programação dos Atores Confiáveis do Service Fabric e os padrões de design que funcionam bem com Atores."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Introdução aos padrões de projeto de Malha do Serviço
-O Modelo de Ator de Malha de Serviço do Microsoft Azure é uma plataforma criada em relação ao modelo de ator para resolver problemas do mundo real em escala de nuvem. A Malha de Serviço do Azure é uma plataforma para a criação aplicativos altamente confiáveis e escalonáveis tanto para a nuvem e como para local que sejam fáceis de serem desenvolvidos e gerenciados. Este artigo destina-se a ser um documento prático sobre problemas práticos. Após a leitura por meio de vários padrões, você deve estar apto a entender como é possível usar o Modelo de Ator de Malha do Serviço para criar soluções de soluções de "empresa" ou "nuvem".
+# Introdução aos padrões de design de Atores Confiáveis
+O modelo de programação dos Atores Confiáveis do Service Fabric é uma plataforma criada em torno do modelo de ator para resolver problemas do mundo real em escala de nuvem. A Malha de Serviço do Azure é uma plataforma para a criação aplicativos altamente confiáveis e escalonáveis tanto para a nuvem e como para local que sejam fáceis de serem desenvolvidos e gerenciados. Este artigo destina-se a ser um documento prático sobre problemas práticos. Após a leitura por meio de vários padrões, você deve estar apto a entender como é possível usar o Modelo de Ator de Malha do Serviço para criar soluções de soluções de "empresa" ou "nuvem".
 
 ## Padrões
-Nesta seção, listaremos um conjunto de padrões e cenários associados que aproveitamos durante nossos contatos com clientes. Esses padrões representam classes de problemas que são aplicáveis a uma ampla gama de soluções que nossos clientes estão criando o Microsoft Azure. Embora os cenários estejam baseados em casos reais, eliminamos a maioria das preocupações específicas de domínio para tornar os padrões mais claros para o leitor. Você pode achar que grande parte do código de exemplo é simples ou óbvio. Estamos incluindo o código para esgotarmos todas as possibilidade e não porque seja algo particularmente inteligente ou impressionante. Os padrões apresentados neste artigo não têm o objetivos de serem abrangentes ou canônicos — alguns desenvolvedores podem resolver o mesmo problema ou padrão de formas diferentes do padrão que apresentamos.
+Nesta seção, listaremos um conjunto de padrões e cenários associados que aproveitamos durante nossos contatos com clientes. Esses padrões representam classes de problemas que são aplicáveis a uma ampla gama de soluções que nossos clientes estão criando o Microsoft Azure. Embora os cenários estejam baseados em casos reais, eliminamos a maioria das preocupações específicas de domínio para tornar os padrões mais claros para o leitor. Você pode achar que grande parte do código de exemplo é simples ou óbvio. Estamos incluindo o código para esgotarmos todas as possibilidade e não porque seja algo particularmente inteligente ou impressionante.
+
+Os padrões apresentados neste artigo não têm o objetivos de serem abrangentes ou canônicos. Alguns desenvolvedores podem resolver o mesmo problema ou padrão de formas diferentes do padrão que apresentamos.
 
 [Padrão: cache inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
@@ -37,10 +39,14 @@ Nesta seção, listaremos um conjunto de padrões e cenários associados que apr
 [Alguns antipadrões](service-fabric-reliable-actors-anti-patterns.md)
 
 ### Saiba mais sobre os atores, um breve histórico
-O [artigo](http://dl.acm.org/citation.cfm?id=1624804) escrito por Hewitt et al. que é a origem do modelo de ator foi publicado em 1973, embora o modelo de ator tenha ganhado mais atenção somente mais recentemente como um meio de lidar com simultaneidade e a complexidade em sistemas distribuídos. O modelo de ator oferece suporte a objetos individuais refinados — atores — que são isolados uns dos outros. Eles se comunicam através de mensagens assíncronas que passam, o que permite a comunicação direta entre os atores. Um ator é executado com semântica de thread único. Juntamente com o encapsulamento do estado do ator e o isolamento de outros atores, isso simplifica a criação de sistemas altamente paralelos, eliminando as preocupações de simultaneidade do código do ator. Os atores são criados dinamicamente no pool de recursos de hardware disponíveis. [Erlang](http://www.erlang.org/) é a implementação mais popular do modelo de ator. Os desenvolvedores começaram a redescobrir o modelo de ator, o que estimulou o interesse renovado na Erlang e na criação de novas soluções semelhantes à Erlang: atores em [Scala](http://www.scala-lang.org/), [Akka](http://akka.io), [Akka.net](http://getakka.net/), [DCell](http://research.microsoft.com/pubs/75988/dcell.pdf).
+O [artigo](http://dl.acm.org/citation.cfm?id=1624804) escrito por Hewitt et al. que é a origem do modelo de ator foi publicado em 1973, embora o modelo de ator tenha ganhado mais atenção somente mais recentemente como um meio de lidar com simultaneidade e a complexidade em sistemas distribuídos. O modelo de ator oferece suporte a objetos individuais refinados — atores — que são isolados uns dos outros. Eles se comunicam através de mensagens assíncronas que passam, o que permite a comunicação direta entre os atores. Um ator é executado com semântica de thread único. Juntamente com o encapsulamento do estado do ator e o isolamento de outros atores, isso simplifica a criação de sistemas altamente paralelos, eliminando as preocupações de simultaneidade do código do ator. Os atores são criados dinamicamente no pool de recursos de hardware disponíveis.
+
+[Erlang](http://www.erlang.org/) é a implementação mais popular do modelo de ator. Os desenvolvedores começaram a redescobrir o modelo de ator, o que estimulou o interesse renovado na Erlang e na criação de novas soluções semelhantes à Erlang: atores em [Scala](http://www.scala-lang.org/), [Akka](http://akka.io), [Akka.net](http://getakka.net/), [DCell](http://research.microsoft.com/pubs/75988/dcell.pdf).
 
 ## Breve visão geral da Malha de Serviço do Azure
-Os Atores da Malha do Azure constituem uma implementação do modelo de ator que usa algumas ideias da Erlang e sistemas de objetos distribuídos, adiciona uma camada de indireção do ator e os expõe em um modelo integrado de programação que aproveita a plataforma de Malha do Serviço do Azure. Os principais benefícios de Atores de Malha do Azure são: 1) **produtividade do desenvolvedor**, mesmo para os programadores não-especialistas; e 2) **escalabilidade transparente por padrão** sem nenhum esforço especial do programador. Atores de Malha do Azure é uma biblioteca do .NET executado no topo da Malha do Azure e das ferramentas que facilitam muito o desenvolvimento de aplicativos distribuídos complexos e tornam os aplicativos resultantes dimensionáveis por projeto. Expandimos cada um desses benefícios abaixo. O modelo de programação de Atores de Malha do Azure aumenta a produtividade dos programadores especialistas e não-especialistas, fornecendo os seguintes abstrações chave, garantias e serviços do sistema.
+Os Atores da Malha do Azure constituem uma implementação do modelo de ator que usa algumas ideias da Erlang e sistemas de objetos distribuídos, adiciona uma camada de indireção do ator e os expõe em um modelo integrado de programação que aproveita a plataforma de Malha do Serviço do Azure.
+
+Os principais benefícios de Atores de Malha do Azure são: 1) **produtividade do desenvolvedor**, mesmo para os programadores não-especialistas; e 2) **escalabilidade transparente por padrão** sem nenhum esforço especial do programador. Atores de Malha do Azure é uma biblioteca do .NET executado no topo da Malha do Azure e das ferramentas que facilitam muito o desenvolvimento de aplicativos distribuídos complexos e tornam os aplicativos resultantes dimensionáveis por projeto. Expandimos cada um desses benefícios abaixo. O modelo de programação de Atores de Malha do Azure aumenta a produtividade dos programadores especialistas e não-especialistas, fornecendo os seguintes abstrações chave, garantias e serviços do sistema.
 
 * * Paradigma da programação orientada a objeto (OOP) familiar*. Atores são classes .NET que implementam interfaces de ator do .NET com propriedades e métodos assíncronos. Portanto, os atores aparecem ao programador como objetos remotos cujos métodos/propriedades podem ser diretamente chamados. Isso fornece ao programador o paradigma OOP familiar, ativando chamadas do método em mensagens, roteá-los para os pontos de extremidade certos, invocando os métodos do ator de destino e lidando com falhas e situações extremas de uma forma completamente transparente.
 
@@ -63,6 +69,5 @@ Os Atores da Malha do Azure constituem uma implementação do modelo de ator que
 * *O agendamento eficiente.* O tempo de execução de Malha do Azure agenda a execução de um grande número de atores de thread único em um pool de threads personalizado com um thread por núcleo de processador físico. Com o código de ator escrito em um estilo sem bloqueio baseado com base em continuação (um requisito do modelo de programação de Atores de Malha do Azure) o código do aplicativo é executado em uma maneira "cooperativa" multithread muito eficiente sem nenhuma contenção. Isso permite que o sistema alcance uma alta taxa de transferência e seja executado em uma CPU de utilização muito alta (até 90 + %) com grande estabilidade. O fato de que um aumento no número de atores no sistema e da carga não resulte em threads adicionais ou outras primitivas de sistema operacional ajuda no dimensionamento de nós individuais e todo o sistema.
 
 * *Assincronismo explícito.* O modelo de programação de Atores de Malha do Azure torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

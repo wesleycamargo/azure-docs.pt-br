@@ -310,15 +310,15 @@ Depois de alguns segundos, e usando `sudo crm_mon –L`, verifique se um dos nó
 
 A captura de tela a seguir mostra `crm_mon` com um nó parado (saia usando Control-C)
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm\_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 E essa captura de tela mostra ambos os nós, com um mestre e um subordinado:
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm\_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## Testando
 
-Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o subordinado assumirá. Não se esqueça de desativá-lo (ou crm_mon informará que um nó está em espera)
+Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o subordinado assumirá. Não se esqueça de desativá-lo (ou crm\_mon informará que um nó está em espera)
 
 A maneira difícil é desligando a VM primária (hadb01) por meio do Portal ou alterando o nível de execução na VM (ou seja: parada, desligamento) e, assim, estamos ajudando o Corosync e o Pacemaker sinalizando o desligamento do mestre. Podemos testar isso (útil para janelas de manutenção), mas também podemos forçar o cenário apenas congelando a VM.
 
@@ -348,4 +348,4 @@ As seguintes limitações se aplicam:
 - O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -195,11 +195,11 @@ Quando todas as etapas anteriores forem concluídas, você definirá as chaves p
 
 Para VNet1
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 Para VNet2
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Aguarde até que as conexões sejam inicializadas. Depois que o Gateway for inicializado, ele será semelhante ao gráfico abaixo, e suas redes virtuais estarão conectadas.
 
@@ -223,4 +223,4 @@ Para saber mais sobre o esquema de configuração, consulte [Esquema de configur
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

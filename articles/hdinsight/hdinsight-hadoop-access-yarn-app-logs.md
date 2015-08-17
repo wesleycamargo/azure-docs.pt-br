@@ -137,7 +137,7 @@ Agora você pode usar o cliente de Histórico de Aplicativos para listar os apli
 
 O código acima lista/localiza aplicativos de interesse usando o cliente de Histórico de Aplicativos e baixa os logs desses aplicativos para uma pasta local.
 
-Como alternativa, o trecho de código a seguir baixa os logs de um aplicativo cuja ID é conhecida. A ID do aplicativo é um identificador global exclusivo de um aplicativo atribuído pelo RM. Ela é formada pela hora de início do RM, acrescida de uma contagem crescente monotônica dos aplicativos que foram enviados para ele. A ID do aplicativo está no formato "aplicativo_ <Hora-de-início-do-RM>_<Contador>". Observe que a ID do aplicativo e a ID do trabalho são diferentes. A ID do trabalho é um conceito específico da estrutura do MapReduce, enquanto que a ID do aplicativo é um conceito YARN independente de estrutura. No YARN, uma ID de trabalho identifica um trabalho de MapReduce específico, conforme manipulado pelo AM de um aplicativo MapReduce enviado ao RM.
+Como alternativa, o trecho de código a seguir baixa os logs de um aplicativo cuja ID é conhecida. A ID do aplicativo é um identificador global exclusivo de um aplicativo atribuído pelo RM. Ela é formada pela hora de início do RM, acrescida de uma contagem crescente monotônica dos aplicativos que foram enviados para ele. A ID do aplicativo está no formato "aplicativo\_ <Hora-de-início-do-RM>\_<Contador>". Observe que a ID do aplicativo e a ID do trabalho são diferentes. A ID do trabalho é um conceito específico da estrutura do MapReduce, enquanto que a ID do aplicativo é um conceito YARN independente de estrutura. No YARN, uma ID de trabalho identifica um trabalho de MapReduce específico, conforme manipulado pelo AM de um aplicativo MapReduce enviado ao RM.
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ Se necessário, você também pode baixar os logs de cada contêiner (ou de um c
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

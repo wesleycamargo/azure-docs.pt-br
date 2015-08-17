@@ -11,7 +11,7 @@
     ms.workload="mobile" 
     ms.tgt_pltfrm="mobile-android" 
     ms.devlang="na" 
-    ms.topic="article" 
+    ms.topic="get-started-article" 
 	ms.date="04/28/2015" 
     ms.author="awills"/>
 
@@ -199,4 +199,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

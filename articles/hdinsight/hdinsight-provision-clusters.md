@@ -529,7 +529,8 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para instalar a CLI do Azure usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**. 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
+1.	Navegue até ****http://azure.microsoft.com/downloads/**.
+2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
 
@@ -781,4 +782,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

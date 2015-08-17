@@ -2307,4 +2307,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

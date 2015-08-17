@@ -262,4 +262,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

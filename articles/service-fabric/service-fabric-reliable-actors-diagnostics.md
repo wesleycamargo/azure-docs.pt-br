@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnóstico e monitoramento de desempenho de Atores da Malha do Serviço do Azure"
-   description="Este artigo descreve os recursos de diagnóstico e monitoramento de desempenho no tempo de execução dos Atores da Malha, incluindo os eventos e os contadores de desempenho emitidos por eles."
+   pageTitle="Diagnóstico e monitoramento de desempenho para Atores Confiáveis"
+   description="Este artigo descreve os recursos de diagnóstico e monitoramento de desempenho no tempo de execução dos Atores Confiáveis, incluindo os eventos e os contadores de desempenho emitidos por eles."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Diagnóstico e monitoramento de desempenho para Atores da Malha
-O tempo de execução dos Atores da Malha emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) que fornecem informações sobre como o tempo de execução está funcionando e que ajudam na solução de problemas e no monitoramento do desempenho.
+# Diagnóstico e monitoramento de desempenho para Atores Confiáveis
+O tempo de execução dos Atores Confiáveis emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) que fornecem informações sobre como o tempo de execução está funcionando e que ajudam na solução de problemas e no monitoramento do desempenho.
 
 ## Eventos EventSource
-O nome EventSource do tempo de execução dos Atores da Malha é "Microsoft-ServiceFabric-Actors". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o aplicativo de ator está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
+O nome EventSource do tempo de execução dos Atores Confiáveis é "Microsoft-ServiceFabric-Actors". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o aplicativo de ator está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
 A Malha do Serviço também oferece a opção de direcionar esses eventos para o [Application Insights](http://azure.microsoft.com/services/application-insights/). Para obter mais informações sobre isso, consulte o artigo sobre [Instalação do Application Insights para a Malha do Serviço](service-fabric-diagnostics-application-insights-setup.md).
 
 Outros exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Azure](../cloud-services-dotnet-diagnostics.md), [Log de Semântica](https://msdn.microsoft.com/library/dn774980.aspx) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palavras-chave
-Todos os eventos que pertencem ao EventSource dos Atores da Malha são associados a uma ou mais palavras-chave. Isso permite a filtragem dos eventos que são coletados. Os bits de palavras-chave são definidos a seguir:
+Todos os eventos que pertencem ao EventSource dos Atores Confiáveis são associados a uma ou mais palavras-chave. Isso permite a filtragem dos eventos que são coletados. Os bits de palavras-chave são definidos a seguir:
 
 |Bit|Descrição|
 |---|---|
@@ -37,7 +37,7 @@ Todos os eventos que pertencem ao EventSource dos Atores da Malha são associado
 |0x8|Conjunto de eventos relacionados à simultaneidade baseada no turno do ator. Para obter mais informações, consulte o tópico sobre [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Contadores de desempenho
-O tempo de execução dos Atores da Malha define as categorias de contador de desempenho a seguir.
+O tempo de execução dos Atores Confiáveis define as categorias de contador de desempenho a seguir.
 
 |Categoria|Descrição|
 |---|---|
@@ -88,7 +88,7 @@ No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, `
 ## Lista de eventos e contadores de desempenho
 
 ### Eventos e contadores de desempeno do método de ator
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados aos [métodos de ator](service-fabric-reliable-actors-introduction.md#actors).
+O tempo de execução dos Atores Confiáveis emite os eventos relacionados aos [métodos de ator](service-fabric-reliable-actors-introduction.md#actors) a seguir.
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados
 |ActorMethodStop|8|Detalhado|0x2|Um método de ator acabou de ser executado, isto é, a chamada assíncrona do tempo de execução para o método de ator foi retornada e a Tarefa retornada pelo método de ator foi concluída.|
 |ActorMethodThrewException|9|Aviso|0x3|Uma exceção foi lançada durante a execução de um método de ator, ou durante a chamada assíncrona do tempo de execução para o método de ator, ou durante a execução da Tarefa retornada pelo método de ator. Esse evento indica algum tipo de falha no código do ator que precisa de investigação.|
 
-O tempo de execução dos Atores da Malha publica os contadores de desempenho a seguir relacionados à execução dos métodos de ator.
+O tempo de execução dos Atores Confiáveis publica os contadores de desempenho relacionados à execução dos métodos de ator a seguir.
 
 |Nome da categoria|Nome do contador|Descrição|
 |---|---|---|
@@ -105,34 +105,34 @@ O tempo de execução dos Atores da Malha publica os contadores de desempenho a 
 |Método de ator da Malha do Serviço|Exceções lançadas/s|Número de vezes que o método de serviço do ator lançou uma exceção por segundo|
 
 ### Contadores de desempenho e eventos simultâneos
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados à [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency).
+O tempo de execução dos Atores Confiáveis emite os eventos relacionados à [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency) a seguir.
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
 |ActorMethodCallsWaitingForLock|12|Detalhado|0x8|Esse evento é escrito no início de cada novo turno em um ator. Ele contém o número chamadas do ator pendentes aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno.|
 
-O tempo de execução dos Atores da Malha publica os contadores de desempenho a seguir relacionados à simultaneidade.
+O tempo de execução dos Atores Confiáveis publica os contadores de desempenho a seguir relacionados à simultaneidade.
 
 |Nome da categoria|Nome do contador|Descrição|
 |---|---|---|
 |Ator da Malha do Serviço|Número de chamadas do ator aguardando o bloqueio do ator|Número de chamadas do ator pendentes aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno.|
 
 ### Contadores de desempenho e eventos do gerenciamento de estado do ator
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-introduction.md#actor-state-management).
+O tempo de execução dos Atores Confiáveis emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-introduction.md#actor-state-management).
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
 |ActorSaveStateStart|10|Detalhado|0x4|O tempo de execução dos atores está prestes a salvar o estado do ator.|
 |ActorSaveStateStop|11|Detalhado|0x4|O tempo de execução dos atores acabou de salvar o estado do ator.|
 
-O tempo de execução dos Atores da Malha publica os contadores de desempenho a seguir relacionados ao gerenciamento de estado do ator.
+O tempo de execução dos Atores Confiáveis publica os contadores de desempenho a seguir relacionados ao gerenciamento de estado do ator.
 
 |Nome da categoria|Nome do contador|Descrição|
 |---|---|---|
 |Ator da Malha do Serviço|Milissegundos em média por operação de salvamento do estado|Tempo necessário para salvar o estado do ator em milissegundos|
 
 ### Eventos relacionados às instâncias de ator sem estado
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados às [instâncias de ator sem estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
+O tempo de execução dos Atores Confiáveis emite os eventos a seguir relacionados às [instâncias de ator sem monitoração de estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
@@ -140,7 +140,7 @@ O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados
 |ServiceInstanceClose|4|Informativo|0x1|Instância do ator sem estado fechada. Isso significa que os atores dessa partição não serão mais criados dentro dessa instância. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa instância. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas.|
 
 ### Eventos relacionados às réplicas de ator com estado
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados às [réplicas de ator com estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+O tempo de execução dos Atores Confiáveis emite os eventos a seguir relacionados às [réplicas de ator com estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
@@ -148,11 +148,11 @@ O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados
 |ReplicaChangeRoleFromPrimary|2|Informativo|0x1|Função alterada pela réplica de ator com estado para não Primária. Isso significa que os atores dessa partição não serão mais criados dentro dessa réplica. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa réplica. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas.|
 
 ### Eventos de ativação e desativação do ator
-O tempo de execução dos Atores da Malha emite os eventos a seguir relacionados à [ativação e desativação do ator](service-fabric-reliable-actors-lifecycle.md).
+O tempo de execução dos Atores Confiáveis emite os eventos a seguir relacionados à [ativação e desativação do ator](service-fabric-reliable-actors-lifecycle.md).
 
 |Nome do evento|ID do evento|Nível|Palavras-chave|Descrição|
 |---|---|---|---|---|
 |ActorActivated|5|Informativo|0x1|Um ator foi ativado.|
 |ActorDeactivated|6|Informativo|0x1|Um ator foi desativado.|
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

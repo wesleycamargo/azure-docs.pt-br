@@ -59,7 +59,7 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Erro: O atributo não tem suportado. | (user.invalidProperty -eq "Valor") | user.department - eq ("valor") Propriedade deve corresponder a um na lista de propriedades com suporte acima. |
 | Erro: Operador não é tem suportada no atributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) A propriedade é do tipo booleano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
-| Erro: Erro de compilação de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") Operador lógico deve corresponder a um na lista de propriedades com suporte acima. (user.userPrincipalName-corresponde a ".\*@domain.ext") ou (user.userPrincipalName-correspondência "@domain.ext$") Error na expressão regular. |
+| Erro: Erro de compilação de consulta. | (user.department - eq "Sales")- e (user.department - eq "Marketing") (user.userPrincipalName-match "*@domain.ext") | (user.department - eq "Sales")- e o operador lógico (user.department - eq "Marketing") deve corresponder a uma lista de propriedades com suporte acima. (user.userPrincipalName-corresponder ".*@domain.ext")or (user.userPrincipalName-match"@domain.ext$")Erro na expressão regular. |
 | Erro: Expressão binária não está no formato correto. | user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") Consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") Consulta tem vários erros. Parênteses não no lugar certo. |
 
@@ -168,4 +168,4 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

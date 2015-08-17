@@ -26,7 +26,7 @@ Estamos sempre trabalhando para melhorar o RemoteApp com base em seu feedback. A
 |Fazer a implantação em um VNET sem ingressar em um domínio (conexão de coleção de nuvem para VMs do Azure) ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| |X| | |
 |Reutilizar uma rede virtual existente para coleção híbrida de RemoteApp (também habilita a Rota Expressa) ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |Rota Expressa ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
-|O RemoteApp do Azure disponível no novo [portal de visualização do Azure](http://azure.microsoft.com/en-us/overview/preview-portal/)| | | |X|
+|O RemoteApp do Azure disponível no novo [portal de visualização do Azure](http://azure.microsoft.com/overview/preview-portal/)| | | |X|
 |Aplicativo Universal do Windows 10 para visualização do RemoteApp do Azure| | |X| |
 |Capacidade de publicar aplicativos individuais para usuários específicos ([comentários](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
 
@@ -39,4 +39,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

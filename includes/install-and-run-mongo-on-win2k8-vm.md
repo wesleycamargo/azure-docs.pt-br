@@ -4,7 +4,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 
 1. Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, abra o Internet Explorer usando o menu **Iniciar** da máquina virtual.
 
-2. Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione _http://\*.mongodb.org_ à lista de sites confiáveis.
+2. Selecione o botão **Ferramentas** no canto superior direito. Em **Opções da Internet**, selecione a guia **Segurança**, em seguida selecione o ícone **Sites confiáveis** e, por fim, clique no botão **Sites**. Adicione \__http://*.mongodb.org_ à lista de sites confiáveis.
 
 3. Acesse [Downloads- MongoDB][MongoDownloads].
 
@@ -21,7 +21,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 7. Para executar o banco de dados, execute:
 
 		F:> C:
-		C:> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
+		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	Todas as mensagens de log serão direcionadas ao arquivo *F:\\MongoLogs\\mongolog.log* quando o servidor mongod.exe for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
 
@@ -108,4 +108,4 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual que
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

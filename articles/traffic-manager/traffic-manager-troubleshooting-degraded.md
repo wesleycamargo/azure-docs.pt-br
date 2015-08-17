@@ -79,4 +79,4 @@ Se a investigação estiver usando o protocolo HTTPs, convém adicionar o parâm
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

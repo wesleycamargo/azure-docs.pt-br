@@ -283,4 +283,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com R 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

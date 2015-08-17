@@ -125,7 +125,7 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
+	> [AZURE.NOTE]Os valores **audienceuris** e **realm** devem ser precedidos por "spn:".
 
 4. No Eclipse, clique com o botão direito no projeto **phpSample**, clique em **Novo** e, em seguida, clique em **Arquivo PHP**.
 
@@ -181,7 +181,7 @@ Esta etapa mostra como adicionar suporte para logon federado usando o Windows Id
 		</body>
 		</html> 
 
-8. No menu **Executar**, clique em **Executar**. Você deverá ser redirecionado automaticamente para a página do Provedor de Identidade do Office 365, onde você pode fazer logon usando suas credenciais de locatário do diretório. Por exemplo, *john.doe@fabrikam.onmicrosoft.com*.
+8. No menu **Executar**, clique em **Executar**. Você deverá ser redirecionado automaticamente para a página do Provedor de Identidade do Office 365, onde você pode fazer logon usando suas credenciais de locatário do diretório. Por exemplo, **john.doe@fabrikam.onmicrosoft.com*.
 
 ## Resumo
 Este tutorial mostrou como criar e configurar um aplicativo PHP de locatário único que usa os recursos de logon único do Azure Active Directory.
@@ -203,4 +203,4 @@ Um exemplo que mostra como usar o Active Directory do Azure e o logon único par
 [Código de exemplo de PHP para o Active Directory do Azure]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

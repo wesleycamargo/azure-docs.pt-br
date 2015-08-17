@@ -104,4 +104,4 @@ Quando a execução do modelo for concluída, você terá o servidor WordPress e
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

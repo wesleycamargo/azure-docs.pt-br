@@ -3,8 +3,8 @@
    description="Terminologia do Catálogo de Dados do Azure"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 # Terminologia do Catálogo de Dados do Azure
 
@@ -42,6 +42,15 @@ Metadados estruturais são metadados extraídos de uma fonte de dados que descre
 
 Metadados descritivos são metadados que descrevem a finalidade ou a intenção de um ativo de dados. Normalmente os metadados descritivos são adicionados por usuários de catálogo usando o portal do Catálogo de Dados do Azure, mas também podem ser extraídos da fonte de dados durante o registro. A ferramenta de registro do Catálogo de Dados do Azure extrairá as descrições da propriedade Descrição no SQL Server Analysis Services e SQL Server Reporting Services e da propriedade estendida [ms\_description](https://technet.microsoft.com/library/ms190243.aspx) em bancos de dados do SQL Server, se essas propriedades foram preenchidas com valores.
 
+## Solicitar acesso
+
+Os metadados descritivos de um ativo de dados podem incluir informações sobre como solicitar acesso ao ativo de dados ou à fonte de dados. Essas informações são apresentadas com a localização do ativo de dados e podem incluir uma ou mais das seguintes opções:
+
+- O endereço de email do usuário ou da equipe responsável por conceder acesso à fonte de dados.
+- A URL do processo documentado que os usuários precisam seguir para obter acesso à fonte de dados.
+- A URL de uma ferramenta de gerenciamento de identidade e de acesso (como o Microsoft Identity Manager) que pode ser usada para acessar a fonte de dados.
+- Uma entrada de texto livre que descreve como os usuários podem obter acesso à fonte de dados.
+
 ## Visualizações
 
 Uma visualização no Catálogo de Dados do Azure é um instantâneo de até 20 registros que podem ser extraídos da fonte de dados durante o registro e armazenados no catálogo com os metadados de ativos de dados. A visualização pode ajudar usuários que descobrem um ativo de dados a compreender melhor sua função e finalidade. Em outras palavras, a visualização de dados de exemplo pode ser mais valiosa do que ver apenas os nomes de coluna e tipos de dados. Visualizações só têm suporte para tabelas e exibições e devem ser explicitamente selecionadas pelo usuário durante o registro.
@@ -60,15 +69,15 @@ Especialista é um usuário que foi identificado como tendo uma perspectiva de "
 
 Um proprietário é um usuário que tem privilégios adicionais para gerenciar um ativo de dados no Catálogo de Dados do Azure. Os usuários podem se apropriar de ativos de dados registrados e os proprietários podem adicionar outros usuários como co-proprietários.
 > [AZURE.NOTE]Propriedade e gerenciamento estão disponíveis somente na Standard Edition do Catálogo de Dados do Azure.
- 
+
 ## Registro
 
 Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados e copiá-los no serviço de Catálogo de Dados do Azure. Ativos de dados que foram registrados podem ser anotados e descobertos.
 
 ## Consulte também
 
-- [o que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md)- Este artigo fornece uma visão geral do serviço Catálogo de Dados do Azure, o valor que ele oferece e os cenários aos quais ele dá suporte.
+- [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md)- este artigo oferece uma visão geral do serviço Catálogo de Dados do Azure, o valor que ele oferece e os cenários aos quais ele dá suporte.
+  
+- [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.
 
-- [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- Este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para descoberta de fonte de dados.
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

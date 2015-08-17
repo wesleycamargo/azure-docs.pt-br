@@ -18,7 +18,7 @@
 
 #Visão geral detalhada de planos de serviço de aplicativo do Azure#
 
-Um **plano do Serviço do Aplicativo** representa um conjunto de recursos e capacidades que pode ser compartilhado entre vários aplicativos em [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), inclusive aplicativos Web, aplicativos móveis, aplicativos lógicos ou aplicativos de API. Esses planos dão suporte a cinco camadas de preços (**Gratuito**, **Compartilhado**, **Basic**, **Standard** e **Premium**), em que cada camada tem seus próprios recursos e capacidade. Aplicativos na mesma assinatura e localização geográfica podem compartilhar um plano. Todos os aplicativos que compartilham um plano podem aproveitar todos os recursos e recursos definidos pela camada do plano. Todos os aplicativos associados a determinado plano são executados nos recursos definidos pelo plano. Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" na camada de serviço padrão, todos os aplicativos associados a esse plano serão executados em ambas as instâncias e terão acesso à funcionalidade da camada de serviço padrão. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
+Um **plano do Serviço do Aplicativo** representa um conjunto de recursos e capacidades que pode ser compartilhado entre vários aplicativos em [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), inclusive aplicativos Web, aplicativos móveis, aplicativos lógicos ou aplicativos de API. Esses planos dão suporte a cinco camadas de preços (**Gratuito**, **Compartilhado**, **Básico**, **Standard** e **Premium**), em que cada camada tem seus próprios recursos e capacidade. Aplicativos na mesma assinatura e localização geográfica podem compartilhar um plano. Todos os aplicativos que compartilham um plano podem aproveitar todos os recursos e recursos definidos pela camada do plano. Todos os aplicativos associados a determinado plano são executados nos recursos definidos pelo plano. Por exemplo, se seu plano for configurado para usar duas instâncias "pequenas" na camada de serviço padrão, todos os aplicativos associados a esse plano serão executados em ambas as instâncias e terão acesso à funcionalidade da camada de serviço padrão. Instâncias do plano nas quais aplicativos estão em execução são totalmente gerenciadas e altamente disponíveis.
 
 Neste artigo, exploraremos as principais características, como camada e dimensionamento de um plano de Serviço de Aplicativo e como elas entram em jogo ao gerenciar seus aplicativos.
 
@@ -96,4 +96,4 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

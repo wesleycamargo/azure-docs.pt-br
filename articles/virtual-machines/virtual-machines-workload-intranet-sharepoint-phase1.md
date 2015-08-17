@@ -35,13 +35,13 @@ Para as configurações da rede virtual (VNet), preencha a Tabela V.
 
 Item | Elemento de configuração | Descrição | Valor
 --- | --- | --- | ---
-1. | Nome da VNet | Um nome a ser atribuído à Rede Virtual do Azure (exemplo: SPFarmNet). | __________________
-2. | Local da VNet | O data center do Azure que conterá a rede virtual. | __________________
-3. | Nome da rede local | Um nome a ser atribuído à rede da organização. | __________________
-4. | Endereço IP do dispositivo VPN | O endereço IPv4 público da interface do seu dispositivo VPN na Internet. Trabalhe com o departamento de TI para determinar esse endereço. | __________________
-5. | Espaço de endereço da VNet | O espaço de endereço (definido em um prefixo de endereço privado) da rede virtual. Trabalhe com o departamento de TI para determinar esse espaço de endereço. | __________________
-6. | Primeiro servidor DNS final | O quarto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | __________________
-7. | Segundo servidor DNS final | O quinto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | __________________
+1\. | Nome da VNet | Um nome a ser atribuído à Rede Virtual do Azure (exemplo: SPFarmNet). | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Local da VNet | O data center do Azure que conterá a rede virtual. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Nome da rede local | Um nome a ser atribuído à rede da organização. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Endereço IP do dispositivo VPN | O endereço IPv4 público da interface do seu dispositivo VPN na Internet. Trabalhe com o departamento de TI para determinar esse endereço. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+5\. | Espaço de endereço da VNet | O espaço de endereço (definido em um prefixo de endereço privado) da rede virtual. Trabalhe com o departamento de TI para determinar esse espaço de endereço. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+6\. | Primeiro servidor DNS final | O quarto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+7\. | Segundo servidor DNS final | O quinto endereço IP possível para o espaço de endereço da sub-rede da rede virtual (consulte a Tabela S). Trabalhe com o departamento de TI para determinar esses endereços. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela V: Configuração de rede virtual entre locais**
 
@@ -49,7 +49,7 @@ Preencha a tabela S para a sub-rede dessa solução. Dê à sub-rede um nome ami
 
 Item | Nome da sub-rede | Espaço de endereço da sub-rede | Finalidade
 --- | --- | --- | ---
-1. | _______________ | _____________________________ | _________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela S: Sub-redes na rede virtual**
 
@@ -59,8 +59,8 @@ Para os dois servidores DNS locais que você deseja usar ao configurar os contro
 
 Item | Nome amigável do servidor DNS | Endereço IP do servidor DNS
 --- | --- | ---
-1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela D: Servidores DNS locais**
 
@@ -70,15 +70,15 @@ Para o conjunto de espaços de endereço da rede local, preencha a Tabela L. Obs
 
 Item | Espaço de endereço da rede local
 --- | ---
-1. | ___________________________________
-2. | ___________________________________
-3. | ___________________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela L: Prefixos de endereços para a rede local**
 
 Para criar a rede virtual com as configurações das Tabelas V, S, D e L, use as instruções em [Criar uma rede virtual entre locais usando tabelas de configuração](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](http://msdn.microsoft.com/en-us/library/dn606309.aspx).
+> [AZURE.NOTE]Este procedimento orienta a criação de uma rede virtual que usa uma conexão VPN site a site. Para saber mais sobre como usar o ExpressRoute para sua conexão site a site, consulte [Visão geral técnica do ExpressRoute](http://msdn.microsoft.com/library/dn606309.aspx).
 
 Depois de criar a rede virtual do Azure, o Portal de Gerenciamento do Azure determinará:
 
@@ -106,9 +106,9 @@ Em seguida, crie os três serviços de nuvem necessários para esse farm do Shar
 
 Item | Finalidade | Nome do serviço de nuvem
 --- | --- | ---
-1. | Controladores de domínio | ___________________________
-2. | Servidores SQL | ___________________________
-3. | Servidores SharePoint | ___________________________
+1\. | Controladores de domínio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Servidores SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Servidores SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela C: Nomes de serviços de nuvem**
 
@@ -140,10 +140,10 @@ Em seguida, defina os nomes dos quatro conjuntos de disponibilidade. Preencha a 
 
 Item | Finalidade | Nome do conjunto de disponibilidade
 --- | --- | ---
-1. | Controladores de domínio | ___________________________
-2. | Servidores SQL | ___________________________
-3. | Servidores de aplicativos do SharePoint | ___________________________
-4. | Servidores Web front-end do SharePoint | ___________________________
+1\. | Controladores de domínio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Servidores SQL | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Servidores de aplicativos do SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Servidores Web front-end do SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabela A: Nomes dos conjuntos de disponibilidade**
 
@@ -169,4 +169,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

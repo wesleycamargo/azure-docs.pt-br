@@ -3,4 +3,4 @@
 
 2. Entre com credenciais do Azure e selecione seu serviço em **Serviços Móveis Existentes**. O Visual Studio baixa suas configurações de publicação diretamente do Azure. Por fim, clique em **Publicar**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

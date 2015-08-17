@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -71,7 +71,7 @@ O aterramento de diretórios foi realizado em outubro de 2013 como parte de uma 
 
 Não há nenhum custo associado ao uso do Azure AD. O diretório é um recurso gratuito. Há uma camada adicional do Azure Active Directory Premium que é licenciada separadamente e fornece recursos adicionais, como identidade visual para empresas e redefinição de senha com autoatendimento.
 
-Para alterar o nome de exibição do diretório, clique no diretório no portal e em **Configurar**. Conforme explicado neste tópico, você pode adicionar um novo diretório ou excluir um diretório de que não precisa mais. Para associar sua assinatura a um diretório diferente, clique na extensão **Configurações** no painel de navegação esquerdo e, na parte inferior da página **Assinaturas**, clique em **Editar diretório**. Você também pode criar um domínio personalizado usando um nome DNS que você registrou ao invés do domínio padrão *.onmicrosoft.com, que pode ser preferível com um serviço como o SharePoint Online. 
+Para alterar o nome de exibição do diretório, clique no diretório no portal e em **Configurar**. Conforme explicado neste tópico, você pode adicionar um novo diretório ou excluir um diretório de que não precisa mais. Para associar sua assinatura a um diretório diferente, clique na extensão **Configurações** no painel de navegação esquerdo e, na parte inferior da página **Assinaturas**, clique em **Editar diretório**. Você também pode criar um domínio personalizado usando um nome DNS que você registrou ao invés do domínio padrão *.onmicrosoft.com, que pode ser preferível com um serviço como o SharePoint Online.
 
 ## Como posso gerenciar dados de diretório
 
@@ -147,4 +147,4 @@ As seguintes condições são verificadas:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

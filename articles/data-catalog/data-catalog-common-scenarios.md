@@ -3,8 +3,8 @@
    description="Reveja cenários comuns no Catálogo de Dados do Azure: registrar, aprimorar, explorar, entender e consumir fontes de dados, bem como remover os metadados da fonte de dados."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 
 # Cenários comuns de Catálogo de Dados do Azure
@@ -33,6 +33,8 @@ Muitas vezes é difícil para os usuários saber onde localizar os dados dentro 
 - Não sei se esses números estão certos. A quem posso consultar para obter informações sobre como esses dados devem ser usados para compartilhar esse painel com minha equipe?
 
 Nesse cenário, o Catálogo de Dados do Azure pode ajudar. As fontes de dados central, de alto valor e gerenciada por TI que são usadas em toda a organização costumam ser o ponto de partida lógico para popular o catálogo. Embora qualquer usuário possa registrar uma fonte de dados, iniciar o catálogo com fontes de dados que têm mais probabilidade de fornecer valor para o maior número de usuários ajudará a conduzir a adoção e o uso do sistema. Para os clientes que estão começando no Catálogo de Dados do Azure, identificar e registrar as principais fontes de dados usadas por muitas equipes diferentes de consumidores de dados podem ser as primeiras etapas para o sucesso.
+
+Este cenário também apresenta uma oportunidade para anotar as fontes de dados de alto valor para torná-las mais fáceis de entender e de acessar. Um aspecto fundamental desse esforço é incluir informações sobre como os usuários podem solicitar acesso à fonte de dados. O Catálogo de Dados do Azure permite que os usuários forneçam o endereço de email do usuário ou da equipe responsável pelo controle do acesso à fonte de dados, dos links para ferramentas, da documentação ou do texto livre que descreve o processo de solicitação de acesso. Com essas informações incluídas no catálogo, os usuários que descobrirem fontes de dados registradas, mas que ainda não tenham permissões para acessar os dados, poderão solicitar com facilidade o acesso usando os processos definidos e controlados por proprietários da fontes de dados.
 
 ## Cenário nº 2 - Autoatendimento de Business Intelligence
 
@@ -64,4 +66,4 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 
 O Catálogo de Dados do Azure fornece um local para compartilhar esse conhecimento de grupo, tornando-o facilmente identificável. Especialistas em dados podem anotar diretamente os ativos de dados e também incluir links para a documentação existente. Isso não apenas captura o conhecimento em si, mas também o coloca na mesma experiência usada para descoberta de fonte de dados. Quando alguém usa o catálogo para descobrir um fonte de dados, não encontrará apenas a fonte em si, mas também o conhecimento do especialista que anteriormente existia somente na mente do próprio especialista.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

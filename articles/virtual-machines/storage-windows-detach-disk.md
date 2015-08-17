@@ -25,8 +25,8 @@
 
 ## Recursos adicionais
 
-[Sobre discos e VHDs para Máquinas Virtuais](virtual-machines-disks-vhds.md)
+[Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md)
 
 [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

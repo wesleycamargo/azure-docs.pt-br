@@ -25,7 +25,7 @@ Você precisará de uma assinatura do [Microsoft Azure](http://azure.com).
 
 > [AZURE.NOTE]O procedimento nesta página adiciona o SDK ao seu aplicativo Web no tempo de execução. Isso é útil se você não quiser atualizar ou recompilar o código-fonte. Mas, se possível, recomendamos que você [adicione o SDK para o código-fonte](app-insights-java-get-started.md) em vez disso. Isso dá mais opções, como escrever o código para rastrear a atividade do usuário.
 
-## 1. Obter uma chave de instrumentação do Application Insights
+## 1\. Obter uma chave de instrumentação do Application Insights
 
 1. Fazer logon no [Portal do Microsoft Azure](https://portal.azure.com)
 2. Criar um novo recurso do Application Insights
@@ -38,13 +38,13 @@ Você precisará de uma assinatura do [Microsoft Azure](http://azure.com).
 
     ![Na visão geral do novo recurso, clique em Propriedades e copie a chave de instrumentação](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Baixar o SDK
+## 2\. Baixar o SDK
 
 1. Baixe o [SDK para Java do Application Insights](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
 2. No servidor, extraia o conteúdo do SDK para o diretório por meio do qual os binários do projeto são carregados. Se você estiver usando o Tomcat, isso normalmente estaria em `webapps<your_app_name>\WEB-INF\lib`
 
 
-## 3. Adicione um arquivo xml do Application Insights
+## 3\. Adicione um arquivo xml do Application Insights
 
 Crie o ApplicationInsights.xml na pasta em que você adicionou o SDK. Coloque dentro dela o XML a seguir.
 
@@ -86,7 +86,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona isso como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
 
 
-## 4. Adicionar um filtro HTTP
+## 4\. Adicionar um filtro HTTP
 
 Localize e abra o arquivo web.xml em seu projeto, então mescle o trecho de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
 
@@ -103,9 +103,9 @@ Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5. Reiniciar seu aplicativo Web
+## 5\. Reiniciar seu aplicativo Web
 
-## 6. Exibir sua telemetria no Application Insights
+## 6\. Exibir sua telemetria no Application Insights
 
 Retorne para seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
 
@@ -139,4 +139,4 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

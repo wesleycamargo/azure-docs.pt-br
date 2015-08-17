@@ -85,7 +85,7 @@ Para obter exemplos, consulte [API REST para bloqueios de gerenciamento](https:/
 
 Você pode bloquear recursos implantados com o Azure PowerShell usando o **New-AzureResourceLock** conforme mostrado abaixo.
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 O PowerShell fornece outros comandos para bloqueios de trabalho, tais como **Set-AzureResourceLock** para atualizar um bloqueio e **Remove-AzureResourceLock** para excluir um bloqueio.
 
@@ -94,4 +94,4 @@ O PowerShell fornece outros comandos para bloqueios de trabalho, tais como **Set
 - [Usando marcas para organizar os recursos](resource-group-using-tags.md)
 - [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

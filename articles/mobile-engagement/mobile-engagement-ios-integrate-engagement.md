@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Integração do SDK do iOS do Azure Mobile Engagement" 
+<properties
+	pageTitle="Integração do SDK do iOS do Azure Mobile Engagement"
 	description="Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Como integrar o Engagement no iOS
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Este procedimento descreve a maneira mais simples de ativar as funções de Analítica e Monitoramento do Engagement em seu aplicativo iOS.
 
-> [AZURE.IMPORTANT]O SDK do Engagement exige iOS4+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 4.
+> [AZURE.IMPORTANT]O SDK do Engagement exige iOS5+: o destino da implantação do seu aplicativo deve ter pelo menos o iOS 5.
 
 As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no seu aplicativo iOS](mobile-engagement-ios-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
 
@@ -51,17 +51,17 @@ Você precisa modificar seu representante de Aplicativo:
 
 -   Na parte superior do seu arquivo de implementação, importe o agente do Engagement:
 
-			[...]
-			#import "EngagementAgent.h"
+		[...]
+		#import "EngagementAgent.h"
 
--   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching:**'ou '**application: didFinishLaunchingWithOptions:**':
+-   Inicialize o Engagement dentro do método '**applicationDidFinishLaunching**:' ou '**application: didFinishLaunchingWithOptions:**':
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-			  [...]
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		  [...]
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+		  [...]
+		}
 
 ##Relatórios básicos
 
@@ -71,28 +71,28 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
 
 **Sem o Engagement :**
 
-			#import <UIKit/UIKit.h>
-			
-			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+
+	@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 **Com o Engagement :**
 
-			#import <UIKit/UIKit.h>
-			#import "EngagementViewController.h"
-			
-			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+	#import "EngagementViewController.h"
+
+	@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### Método alternativo: chame `startActivity()` manualmente
 
@@ -114,12 +114,12 @@ As áreas relatadas são usadas para computar as estatísticas geográficas sobr
 
 Para habilitar o relatório de local de área lenta, adicione a seguinte linha depois de inicializar o agente de Engagement:
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
-			  [...]
-			}
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  [...]
+	  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
+	  [...]
+	}
 
 ### Relatórios de local em tempo real
 
@@ -129,19 +129,19 @@ Os locais em tempo real *NÃO* são usados para calcular estatísticas. Sua úni
 
 Para habilitar o relatório de local em tempo real, adicione a seguinte linha depois de inicializar o agente do Engagement:
 
-			[[EngagementAgent shared] setRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### Relatórios com base em GPS
 
 Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. Para habilitar o uso do GPS com base em locais (que são muito mais precisos), adicione:
 
-			[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### Relatório de segundo plano
 
 Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o aplicativo é executado em primeiro plano (ou seja, durante uma sessão). Para habilitar o relatório também em segundo plano, adicione:
 
-			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
+	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [AZURE.NOTE]Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
 
@@ -159,8 +159,8 @@ Por padrão, o Engagement usará o [IDFA] para identificar exclusivamente um usu
 
 Integração no arquivo **prefix.pch**:
 
-			#define ENGAGEMENT_DISABLE_IDFA
-			...
+	#define ENGAGEMENT_DISABLE_IDFA
+	...
 
 Você pode verificar se a coleção IDFA está corretamente desabilitada em seu aplicativo, verificando os logs de teste do Engagement. Consulte a documentação de Integração de teste < ios-sdk-contrato-teste-idfa > para obter mais informações.
 
@@ -170,7 +170,7 @@ Você pode verificar se a coleção IDFA está corretamente desabilitada em seu 
 
 Se desejar que o Engagement pare de enviar logs, você pode chamar:
 
-			[[EngagementAgent shared] setEnabled:NO];
+	[[EngagementAgent shared] setEnabled:NO];
 
 Essa chamada é persistente: usa `NSUserDefaults` para armazenar as informações.
 
@@ -182,23 +182,23 @@ Em vez de chamar essa função, você também pode integrar essa configuração 
 
 O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 
-			<dict>
-			    <key>PreferenceSpecifiers</key>
-			    <array>
-			        <dict>
-			            <key>DefaultValue</key>
-			            <true/>
-			            <key>Key</key>
-			            <string>engagement_agent_enabled</string>
-			            <key>Title</key>
-			            <string>Log reporting enabled</string>
-			            <key>Type</key>
-			            <string>PSToggleSwitchSpecifier</string>
-			        </dict>
-			    </array>
-			    <key>StringsTable</key>
-			    <string>Root</string>
-			</dict>
+	<dict>
+	    <key>PreferenceSpecifiers</key>
+	    <array>
+	        <dict>
+	            <key>DefaultValue</key>
+	            <true/>
+	            <key>Key</key>
+	            <string>engagement_agent_enabled</string>
+	            <key>Title</key>
+	            <string>Log reporting enabled</string>
+	            <key>Type</key>
+	            <string>PSToggleSwitchSpecifier</string>
+	        </dict>
+	    </array>
+	    <key>StringsTable</key>
+	    <string>Root</string>
+	</dict>
 
 <!-- URLs. -->
 [API do dispositivo]: http://go.microsoft.com/?linkid=9876094
@@ -206,6 +206,5 @@ O exemplo a seguir de `Settings.bundle` mostra como implementá-lo:
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

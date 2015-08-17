@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -61,4 +61,4 @@ Para obter informações adicionais sobre por que usar o Azure Multi-Factor Auth
 * [O que o Multi-Factor Authentication significa para mim?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

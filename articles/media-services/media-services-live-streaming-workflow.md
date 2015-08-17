@@ -85,4 +85,4 @@ Para obter mais informações, consulte [Trabalhando com Canais que recebam tran
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

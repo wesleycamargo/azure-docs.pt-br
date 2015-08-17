@@ -1,4 +1,3 @@
-
 #### Para montar, inicializar e formatar um volume
 
 1. Inicie o iniciador iSCSI da Microsoft.
@@ -30,4 +29,4 @@
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

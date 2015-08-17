@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Configurar o RBS para o Adaptador StorSimple para SharePoint | Microsoft Azure"
+   description="Descreve como instalar o Adaptador StorSimple para SharePoint em um farm de servidores do SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/17/2015"
+   ms.author="v-sharos" />
+
 >[AZURE.NOTE]Ao fazer alterações na configuração do Adaptador StorSimple para SharePoint RBS, você deve estar conectado com uma conta de usuário que pertença ao grupo Administradores do Domínio. Além disso, você deve acessar a página de configuração em um navegador em execução no mesmo host que a Administração Central.
 
 #### Para configurar o RBS
@@ -26,7 +43,7 @@
 
           ![Configurar o Adaptador StorSimple para Habilitado/Desabilitado](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. Clique no botão **Atualizar** para aplicar a configuração. Quando você clica no botão Atualizar, o status da configuração do RBS é atualizado em todos os servidores WFE e todo o farm é habilitado para RBS. A seguinte mensagem é exibida.
+    4. Clique no botão **Atualizar** para aplicar a configuração. Quando você clica no botão **Atualizar**, o status da configuração do RBS é atualizado em todos os servidores WFE e todo o farm é habilitado para RBS. A seguinte mensagem é exibida.
 
            ![Mensagem de configuração do adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -95,11 +112,11 @@
  
      Se você armazenar BLOBs e o banco de dados de conteúdo em volumes separados no dispositivo StorSimple, é recomendável configurá-los no mesmo contêiner de volume. Isso garante que os respectivos backups sejam feitos juntos.
 
-     >[AZURE.WARNING]Se você não tiver habilitado o RBS, não é recomendável mover o banco de dados de conteúdo para o dispositivo StorSimple. Essa é uma configuração não testada.
+       >[AZURE.WARNING]Se você não tiver habilitado o RBS, não é recomendável mover o banco de dados de conteúdo para o dispositivo StorSimple. Essa é uma configuração não testada.
  
 9. Vá para a próxima etapa: [Configurar a coleta de lixo](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

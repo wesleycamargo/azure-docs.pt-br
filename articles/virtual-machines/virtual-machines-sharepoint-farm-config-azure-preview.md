@@ -139,4 +139,4 @@ O recurso Farm de Servidores do SharePoint do portal de visualização do azure 
 
 [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

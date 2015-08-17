@@ -493,7 +493,7 @@ Antes de publicar o aplicativo, você precisa alterar algumas configurações pa
 
 1. No portal clássico, vá para a página **Painel** do aplicativo Web e clique em **Configurar**. Na página **Configurar**, especifique as configurações a seguir.
 
-2. Em **Versão do Java**, o padrão é **Desativado**; selecione a versão de Java que seu aplicativo busca; por exemplo, 1.7.0_51. Depois de fazer isso, verifique também que **Contêiner da Web** esteja definido para uma versão do Servidor Tomcat.
+2. Em **Versão do Java**, o padrão é **Desativado**; selecione a versão de Java que seu aplicativo busca; por exemplo, 1.7.0\_51. Depois de fazer isso, verifique também que **Contêiner da Web** esteja definido para uma versão do Servidor Tomcat.
 
 3. Em **Documentos Padrão**, adicione index.jsp e mova-o para a parte superior da lista. (O arquivo padrão para aplicativos Web é hostingstart.html.)
 
@@ -590,4 +590,4 @@ Este procedimento cria um aplicativo Web do Serviço de Aplicativo. Você será 
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

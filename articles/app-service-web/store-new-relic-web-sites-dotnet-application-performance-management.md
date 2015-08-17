@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -38,8 +38,7 @@ Para obter informações sobre preços, consulte a [Página New Relic no Azure M
 
 Azure clientes recebem uma assinatura de avaliação de 2 semanas do nova Relíquia Pro ao implantar o agente Relíquia de novo.
 
-Inscrever-se para o New Relic usando o Azure Marketplace 
---
+Inscrever-se para o New Relic usando o Azure Marketplace --
 
 O New Relic integra-se perfeitamente com as funções Web, as funções de trabalho e o Serviço de Aplicativo do Azure.
 
@@ -47,7 +46,7 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 ## Etapa 1. Criar uma conta do New Relic
 
-1. Faça logon no [Portal de Visualização do Azure](https://portal.azure.com) e clique em **Novo** no canto inferior esquerdo.
+1. Faça logon no [portal de visualização do Azure](https://portal.azure.com) e clique em **Novo** no canto.
 3. Clique em **Serviços de desenvolvedor** > **APM do New Relic**.
 4. Configurar sua conta do New Relic especificando o seguinte e clique em **Criar**.
 	- **Nome**
@@ -63,12 +62,16 @@ Para se inscrever para o New Relic diretamente do Azure Marketplace, siga estas 
 
 ## Etapa 2: Configurar a integração do New Relic ao seu aplicativo Web
 
-2. Abrir a folha do seu aplicativo Web no [Portal de Visualização do Azure](https://portal.azure.com).
-3. Clique em **Monitoramento de aplicativos** > **New Relic**. Selecione a conta que você criou na etapa anterior e clique em **OK**. 
+1. Abrir a folha do seu aplicativo Web no [Portal de Visualização do Azure](https://portal.azure.com).
+2. No menu “...” na parte superior da folha e selecione **Adicionar blocos**.
+3. Na guia **Monitoramento**, selecione **Resumo do aplicativo** e arraste-o para onde você deseja que o bloco apareça na folha do aplicativo Web.
+4. Clique em Concluir para terminar a adição de blocos.
+5. Clique no bloco **Monitoramento de aplicativos** e selecione **Nova Relíquia**.
+6. Selecione a conta que você criou na etapa anterior e clique em **OK**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	Assim que o salvamento da operação for concluído, clique em **Todas as configurações** na folha do aplicativo Web e, em seguida, clique em **Configurações do aplicativo**. Você deve ver a configuração **NEWRELIC_LICENSEKEY** adicionada à seção **Configurações do aplicativo** da folha para dar suporte ao New Relic:
+	Assim que o salvamento da operação for concluído, clique em **Todas as configurações** na folha do aplicativo Web e, em seguida, clique em **Configurações do aplicativo**. Você deve ver a configuração **NEWRELIC\_LICENSEKEY** adicionada à seção **Configurações do aplicativo** da folha para dar suporte ao New Relic:
 
 	>[AZURE.NOTE]Pode levar até 30 segundos para que as novas configurações do aplicativo entrem em vigor. Para fazer com que as configurações entrem em vigor imediatamente, reinicie o aplicativo Web.
 
@@ -176,4 +179,4 @@ Confira estes recursos adicionais para obter mais informações:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

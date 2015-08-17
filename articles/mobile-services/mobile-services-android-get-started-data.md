@@ -35,13 +35,13 @@
 </div>
 
 
-<p>Este tutorial ajuda a entender em mais detalhes como os Serviços Móveis do Azure podem armazenar e recuperar dados de um aplicativo Android. Portanto, ele explica muitas das etapas que já foram concluídas para você no tutorial de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/en-us/develop/mobile/tutorials/get-started-android">Introdução aos Serviços Móveis</a>.</p>
+<p>Este tutorial ajuda a entender em mais detalhes como os Serviços Móveis do Azure podem armazenar e recuperar dados de um aplicativo Android. Portanto, ele explica muitas das etapas que já foram concluídas para você no tutorial de início rápido dos Serviços Móveis. Se esta for sua primeira experiência com os Serviços Móveis, primeiro conclua o tutorial <a href="/pt-br/develop/mobile/tutorials/get-started-android">Introdução aos Serviços Móveis</a>.</p>
 
 ## Pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
+- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
 
 
 - o [SDK do Android dos Serviços Móveis do Azure];
@@ -156,4 +156,4 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

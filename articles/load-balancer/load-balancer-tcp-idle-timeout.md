@@ -63,7 +63,7 @@ Para alterar a configuração de tempo limite para um ponto de extremidade
  
 Recupere a configuração de tempo limite de ociosidade
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ Atualize a configuração dos pontos de extremidade de entrada com balanceamento
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

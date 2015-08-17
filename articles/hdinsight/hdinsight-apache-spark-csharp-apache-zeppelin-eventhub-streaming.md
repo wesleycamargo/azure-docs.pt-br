@@ -52,7 +52,7 @@ Você deve ter o seguinte:
 <tr><th>Nome</th><th>Permissões</th></tr>
 <tr><td>mysendpolicy</td><td>Enviar</td></tr>
 <tr><td>myreceivepolicy</td><td>Escutar</td></tr>
-</table>Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (\* \* mysendpolicy \* \*) e escutar (\* \* myreceivepolicy \* \*) para esse Hub de Eventos.
+</table>Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (**mysendpolicy**) e escutar (**myreceivepolicy**) para esse Hub de Eventos.
 
 	![políticas](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Criar políticas de Hub de Eventos")
 
@@ -77,7 +77,7 @@ Nesta seção, você criará um bloco de notas [Zeppelin](https://zeppelin.incub
 
 	![Criar um novo bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Criar um novo bloco de anotações do Zeppelin")
 
-	Na mesma página, sob o título **Notebook**, você verá um novo bloco de anotações com nomes começando com **Nota XXXXXXXXX**. Clique no novo bloco de anotações.
+	Na mesma página, sob o título **Notebook**, você verá um novo bloco de anotações com nomes começando com **Anotação XXXXXXXXX**. Clique no novo bloco de anotações.
 
 3. Na página da Web para o novo bloco de anotações, clique no título e altere o nome do bloco de anotações, se desejar. Pressione ENTER para salvar a alteração do nome. Além disso, verifique se o cabeçalho do bloco de anotações mostra um status **Conectado** no canto superior direito.
 
@@ -164,4 +164,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

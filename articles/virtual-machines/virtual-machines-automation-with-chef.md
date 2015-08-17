@@ -86,7 +86,7 @@ Agora você deve ter quatro arquivos, incluindo o arquivo de publicação do Azu
 
 Os arquivos PEM contêm as chaves particulares de organização e administração para comunicação enquanto o arquivo **knife.rb** contém a configuração knife. Será necessário editar o arquivo **knife.rb**.
 
-Abra o arquivo no seu editor de escolha e modifique o "cookbook_path" removendo o /../ do caminho, para que ele se pareça como abaixo:
+Abra o arquivo no seu editor de escolha e modifique o "cookbook\_path" removendo o /../ do caminho, para que ele se pareça como abaixo:
 
 	cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -238,4 +238,4 @@ Espero que isso tenha sido útil! Vá e comece a sua jornada Infraestrutura como
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

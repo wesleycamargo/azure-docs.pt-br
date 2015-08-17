@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -76,10 +75,11 @@ Se você tiver um servidor de banco de dados, use isso para criar um novo banco 
 ### Configurar o cabeçalho e o rodapé da página
 
 
-1. No **Gerenciador de Soluções**, expanda a pasta *Views\\Shared* e abra o arquivo *_Layout.cshtml*. 
-	![_Layout.cshtml no Gerenciador de Soluções][newapp004]
+1. No **Gerenciador de Soluções**, expanda a pasta *Views\\Shared* e abra o arquivo *\_Layout.cshtml*.
 
-1. Substitua o conteúdo do arquivo *Views\\Shared_Layout.cshtml* pelo código a seguir:
+	![\_Layout.cshtml no Gerenciador de Soluções][newapp004]
+
+1. Substitua o conteúdo do arquivo *Views\\Shared\_Layout.cshtml* pelo código a seguir:
 
 
 		<!DOCTYPE html>
@@ -232,7 +232,7 @@ A próxima tarefa é habilitar o recurso [Codificar Primeiras Migrações](http:
 
 		add-migration Initial
 
-	O comando **add-migration Initial** gera uma classe denominada **&lt;carimbo_de_data/hora&gt;Initial** que cria o banco de dados. O primeiro parâmetro ( *Initial* ) é arbitrário e é usado para criar o nome do arquivo. Você pode ver os novos arquivos de classe no **Gerenciador de Soluções**.
+	O comando **add-migration Initial** gera uma classe denominada **&lt;carimbo\_de\_data/hora&gt;Initial** que cria o banco de dados. O primeiro parâmetro ( *Initial* ) é arbitrário e é usado para criar o nome do arquivo. Você pode ver os novos arquivos de classe no **Gerenciador de Soluções**.
 
 	Na classe **Inicial**, o método **Up** cria a tabela Contatos e o método **Down** (usado quando você deseja retornar ao estado anterior) a descarta.
 
@@ -810,4 +810,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -31,4 +31,4 @@ Aqui está um exemplo passo a passo dos comandos acima incluindo a saída de ter
     data:    1    20        pinkylinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

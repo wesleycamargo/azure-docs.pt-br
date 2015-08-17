@@ -92,7 +92,7 @@ Uma credencial representa a ID de usuário e senha que a consulta de banco de da
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
-Verifique se o & lt; nome_de_usuário_do_mapa_de_fragmentos > não tem nenhum sufixo "@servername".
+Verifique se o & lt; nome\_de\_usuário\_do\_mapa\_de\_fragmentos > não tem nenhum sufixo "@servername".
 
 Você pode usar a sintaxe a seguir para remover a chave mestra e as credenciais:
 
@@ -204,9 +204,9 @@ Depois de definir a fonte de dados externa e suas tabelas externas, você pode u
     where w_id > 100 and w_id < 200
     group by w_id, o_c_id
 
-### Procedimento armazenado SP_ EXECUTE_FANOUT
+### Procedimento armazenado SP\_ EXECUTE\_FANOUT
 
-SP_EXECUTE_FANOUT é um procedimento armazenado que fornece acesso aos bancos de dados representados por um mapa de fragmentos. O procedimento armazenado usa os seguintes parâmetros:
+SP\_EXECUTE\_FANOUT é um procedimento armazenado que fornece acesso aos bancos de dados representados por um mapa de fragmentos. O procedimento armazenado usa os seguintes parâmetros:
 
 -    **Nome do servidor** (nvarchar): o nome totalmente qualificado do servidor lógico que hospeda o mapa de fragmentos.
 -    **Nome de banco de dados do mapa de fragmentos** (nvarchar): o nome do banco de dados do mapa de fragmentos.
@@ -240,7 +240,7 @@ A consulta de Banco de Dados Elástico inclui o custo dos bancos de dados do Ban
 Há alguns pontos que devem ser considerados na visualização:
 
 *    O recurso de consulta de Banco de Dados Elástico ficará inicialmente disponível apenas na camada de desempenho Premium do Banco de Dados SQL v12, embora os bancos de dados remotos acessados por uma consulta de banco de dados elástico possa ser de qualquer camada.
-* Tabelas externas referenciadas por sua fonte de dados externa somente dão suporte a operações de leitura dos bancos de dados remotos. Você pode, no entanto, apontar a funcionalidade completa do Transact-SQL no banco de dados de consulta elástico do banco de dados onde reside a própria definição da tabela externa. Isso pode ser útil, por exemplo, para manter os resultados temporários usando SELECT column_list INTO local_table ou definir os procedimentos armazenados na consulta de banco de dados elástico que se referem a tabelas externas.
+* Tabelas externas referenciadas por sua fonte de dados externa somente dão suporte a operações de leitura dos bancos de dados remotos. Você pode, no entanto, apontar a funcionalidade completa do Transact-SQL no banco de dados de consulta elástico do banco de dados onde reside a própria definição da tabela externa. Isso pode ser útil, por exemplo, para manter os resultados temporários usando SELECT column\_list INTO local\_table ou definir os procedimentos armazenados na consulta de banco de dados elástico que se referem a tabelas externas.
 *    Parâmetros em consultas não podem ser enviados para bancos de dados remotos no momento. Consultas parametrizadas deverão reunir todos os dados no nó principal, podendo sofram com baixo desempenho, dependendo do tamanho dos dados. Uma solução temporária é evitar parâmetros em suas consultas ou usar a opção RECOMPILE para que os parâmetros sejam automaticamente substituídos por seus valores atuais.
 * Estatísticas no nível de coluna sobre tabelas externas não tem suporte no momento.
 * A consulta de Banco de Dados Elástico atualmente não executa a eliminação de fragmento em casos quando predicados da chave de fragmentação permitiriam excluir com segurança determinados bancos de dados remotos de processamento. Como resultado, consultas sempre afetam todos os bancos de dados remotos representados por fontes de dados externas da consulta.
@@ -263,4 +263,4 @@ Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tuto
 
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

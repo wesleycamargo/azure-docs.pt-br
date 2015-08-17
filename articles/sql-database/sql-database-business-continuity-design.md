@@ -80,7 +80,7 @@ Para criar a replicação geográfica com um secundário legível de um banco de
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-Esse comando é assíncrono. Depois que ele retornar, use o cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) para verificar o status dessa operação. O campo ReplicationState do objeto retornado terá o valor CATCH_UP quando a operação for concluída.
+Esse comando é assíncrono. Depois que ele retornar, use o cmdlet [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) para verificar o status dessa operação. O campo ReplicationState do objeto retornado terá o valor CATCH\_UP quando a operação for concluída.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +89,7 @@ Esse comando é assíncrono. Depois que ele retornar, use o cmdlet [Get-AzureSql
 
 Use o API [Iniciar cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509576.aspx) para criar uma configuração de replicação geográfica programaticamente.
 
-Esse API é assíncrono. Depois que ele retornar, use o API [Obter cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509570.aspx) API para verificar o status dessa operação. O campo ReplicationState do corpo da resposta terá o valor CATCH_UP quando a operação for concluída.
+Esse API é assíncrono. Depois que ele retornar, use o API [Obter cópia de banco de dados](https://msdn.microsoft.com/library/azure/dn509570.aspx) API para verificar o status dessa operação. O campo ReplicationState do corpo da resposta terá o valor CATCH\_UP quando a operação for concluída.
 
 
 ##Como escolher a configuração de failover 
@@ -99,4 +99,4 @@ Ao projetar seu aplicativo para continuidade dos negócios, você deve considera
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

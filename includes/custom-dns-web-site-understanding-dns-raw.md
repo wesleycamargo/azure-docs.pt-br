@@ -50,4 +50,4 @@ Você pode encontrar o endereço IP, bem como o nome **awverify** e os nomes **.
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

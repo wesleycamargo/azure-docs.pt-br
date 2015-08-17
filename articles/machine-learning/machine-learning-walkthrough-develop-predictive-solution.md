@@ -41,4 +41,4 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 Este passo a passo é baseado em uma versão simplificada do [Teste de exemplo de previsão de risco de crédito](../machine-learning-sample-credit-risk-prediction.md) incluído no Estúdio de Aprendizado de Máquina.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

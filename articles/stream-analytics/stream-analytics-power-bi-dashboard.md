@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure" 
-	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics." 	
+	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 	
 # Stream Analytics do Azure e Power BI: Painel Dinâmico em Análise em Tempo real de Dados de Streaming
@@ -30,7 +30,7 @@ Neste artigo, saiba como criar suas próprias ferramentas de inteligência de ne
 
 * Conta do Microsoft Azure
 * Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.  
-* Id da organização Microsoft Power BI
+* Conta corporativa ou de estudante para Power BI
 
 ## Criar Trabalho do Azure Stream Analytics ##
 
@@ -77,20 +77,20 @@ Para este tutorial, estamos supondo que você esteja usando o Hub de Eventos com
 
 1.  Clique em **Saída** na parte superior da página e então clique em **Adicionar Saída**. Você verá o Power BI listado como uma opção de saída.
 
-![elementográfico2][graphic2]
+    ![elementográfico2][graphic2]
 
 2.  Selecione **Power BI** e então clique no botão direito.
 3.  Você verá uma tela como esta:
 
-![elementográfico3][graphic3]
+    ![elementográfico3][graphic3]
 
-4.  Nesta etapa, forneça uma Ord Id para a saída de trabalho do Stream Analytics. Se você já tiver uma conta do Power BI, selecione **Autorizar Agora**. Se não, escolha **Inscreva-se agora**. [Aqui você encontrará um blog com detalhes de orientação para a inscrição no Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  Nesta etapa, forneça uma conta corporativa ou de estudante para a saída de trabalho do Stream Analytics. Se você já tiver uma conta do Power BI, selecione **Autorizar Agora**. Se não, escolha **Inscreva-se agora**. [Aqui você encontrará um blog com detalhes de orientação para a inscrição no Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 
-![elementográfico11][graphic11]
+    ![elementográfico11][graphic11]
 
 5.  Em seguida, você verá uma tela como esta:
 
-![elementográfico4][graphic4]
+    ![elementográfico4][graphic4]
 
 Forneça valores como a seguir:
 
@@ -98,11 +98,11 @@ Forneça valores como a seguir:
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
 
->	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Gravar Consultas ##
@@ -128,7 +128,7 @@ Inicie o trabalho. Valide se o seu hub de eventos está recebendo eventos e se s
 
 ## Criar o Painel no Power BI ##
 
-Acesse [Powerbi.com](https://powerbi.com) e faça logon com a sua Id da Org. Se a consulta do trabalho do Stream Analytics tiver como saída resultados, você verá seu conjunto de dados já criado:
+Acesse [Powerbi.com](https://powerbi.com) e faça logon com a sua conta corporativa ou de estudante. Se a consulta do trabalho do Stream Analytics tiver como saída resultados, você verá seu conjunto de dados já criado:
 
 ![elementográfico5][graphic5]
 
@@ -167,8 +167,7 @@ O Power BI emprega restrições de simultaneidade e de taxa de transferência co
 
 Por causa dessas restrições, o Power BI se ajusta bem mais naturalmente nos casos em que a Stream Analytics do Azure faz uma significativa redução de carga de dados. É recomendável usar a TumblingWindow ou a HoppingWindow para garantir que o push de dados seja no máximo 1 push por segundo e que sua consulta esteja dentro dos requisitos de taxa de transferência – você pode usar a seguinte equação para calcular o valor em segundos a dar para a sua janela: ![equação1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Por exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, está na Pro SKU do Power BI que oferece suporte a 1.000.000 linhas por hora e se você desejar obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo):
-![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Por exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, está na Pro SKU do Power BI que oferece suporte a 1.000.000 de linhas por hora e se você desejar obter a média de dados por dispositivo no Power BI, você pode fazer no máximo um push a cada quatro segundos por dispositivo (como mostrado abaixo): ![eequação2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Isso significa que mudaríamos a consulta original para:
 
@@ -211,4 +210,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

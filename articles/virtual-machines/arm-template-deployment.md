@@ -19,7 +19,7 @@ Para concluir este tutorial, você também precisa do seguinte:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Conta de armazenamento do Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/pt-br/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/pt-br/download/details.aspx?id=40855)
 - [PowerShell do Azure](../powershell-install-configure.md)
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
@@ -294,7 +294,7 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
           }
         }
 
-    >[AZURE.NOTE]Os nomes vhd de imagem são alterados regularmente na galeria de imagens, portanto, você precisa obter um nome de imagem atual para implantar a máquina virtual. Para fazer isso, consulte [Gerenciar imagens do Windows usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) e substitua {source-image-name} pelo nome do arquivo vhd que você deseja usar. Por exemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Substitua {subscription-id} pelo identificador da sua assinatura.
+    >[AZURE.NOTE]Os nomes vhd de imagem são alterados regularmente na galeria de imagens, portanto, você precisa obter um nome de imagem atual para implantar a máquina virtual. Para fazer isso, consulte [Gerenciar imagens do Windows usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) e substitua {source-image-name} pelo nome do arquivo vhd que você deseja usar. Por exemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Substitua {subscription-id} pelo identificador da sua assinatura.
 
 
 4.	Salve o arquivo de parâmetros que você criou.
@@ -443,4 +443,4 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 	![Criar um aplicativo do AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 
-1. No Gerenciador de Soluções no Visual Studio, expanda a pasta App_Start e abra o arquivo do projeto WebApiConfig.cs.
+1. No Gerenciador de Soluções no Visual Studio, expanda a pasta App\_Start e abra o arquivo do projeto WebApiConfig.cs.
 
 2. Adicionar a seguinte linha de código para o método Register após a definição **ConfigOptions**:
 
@@ -92,4 +92,4 @@
 Agora, o serviço usa a marca de ID do usuário para enviar notificações por push (com o texto do item inserido) para todos os registros criados pelo usuário conectado.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

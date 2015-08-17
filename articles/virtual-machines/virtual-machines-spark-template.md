@@ -311,7 +311,7 @@ Ao implantar, tenha em mente que uma nova conta de Armazenamento do Azure precis
 Durante a implantação, você verá algo assim:
 
 ```powershell
-PS C:> New-AzureResourceGroup -Name $RGName -Location $locName
+PS C:\> New-AzureResourceGroup -Name $RGName -Location $locName
 
 ResourceGroupName : SparkResourceGroup
 Location          : westus
@@ -324,7 +324,7 @@ Permissions       :
 
 ResourceId        : /subscriptions/2018abc3-dbd9-4437-81a8-bb3cf56138ed/resourceGroups/sparkresourcegroup
 
-PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 VERBOSE: 10:08:28 AM - Template is valid.
 VERBOSE: 10:08:28 AM - Create template deployment 'SparkTestDeployment'.
 VERBOSE: 10:08:37 AM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -843,4 +843,4 @@ Descubra mais [estruturas de aplicativo](virtual-machines-app-frameworks.md).
 
 [Solucionar problemas de implantações de modelo](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

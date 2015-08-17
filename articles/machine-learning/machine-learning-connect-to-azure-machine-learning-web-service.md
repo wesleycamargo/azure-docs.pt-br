@@ -106,4 +106,4 @@ Para se conectar a um serviço Web do AM do Azure, use a biblioteca **urllib2** 
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

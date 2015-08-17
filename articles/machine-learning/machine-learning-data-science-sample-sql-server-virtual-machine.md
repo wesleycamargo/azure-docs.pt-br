@@ -26,7 +26,7 @@ Este documento aborda os dados de exemplo armazenados no SQL Server no Azure usa
 
 Esta seção descreve vários métodos usando SQL para executar uma amostragem aleatória simples em relação aos dados no banco de dados. Escolha um método com base no tamanho e na distribuição dos seus dados.
 
-Os dois itens a seguir mostram como usar newid no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk_id no código de exemplo abaixo é considerado como uma chave primária gerada automaticamente).
+Os dois itens a seguir mostram como usar newid no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk\_id no código de exemplo abaixo é considerado como uma chave primária gerada automaticamente).
 
 1. Menos rígido do exemplo aleatório
 
@@ -114,4 +114,4 @@ Para obter um exemplo passo a passo de ponta a ponta do ADAPT (Processo de Anál
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

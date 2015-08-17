@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visão geral dos Atores da Malha do Serviço do Azure"
-   description="Introdução ao modelo de programação dos Atores da Malha do Serviço do Azure"
+   pageTitle="Visão Geral dos Atores Confiáveis do Service Fabric"
+   description="Introdução ao modelo de programação de Atores Confiáveis do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Introdução aos Atores da Malha do Serviço do Azure
+# Introdução aos Atores Confiáveis do Service Fabric
 A API de Atores Confiáveis é uma das duas estruturas de alto nível fornecidas pela [Malha de Serviço](service-fabric-technical-overview.md), junto com a [API de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
 
 A API de Atores Confiáveis, com base no padrão de Ator, fornece um modelo de programação assíncrono e em thread único que simplifica o código e ainda aproveita as garantias de confiabilidade e escalabilidade fornecidas pela Malha de Serviço.
@@ -191,11 +191,11 @@ Os retornos de chamada de temporizador podem ser marcados com o atributo `Readon
 
 [Como os Atores da Malha usam a plataforma da Malha do Serviço](service-fabric-reliable-actors-platform.md)
 
-[Configurando o ator KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Configurando o ator KVSActorStateProvider](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

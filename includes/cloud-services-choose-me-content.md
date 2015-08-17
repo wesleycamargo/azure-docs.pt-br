@@ -3,7 +3,7 @@
 
 Os Serviços de Nuvem é um exemplo de PaaS (Plataforma como Serviço). Como os [Serviços de Aplicativos](app-service-web-overview.md), essa tecnologia foi desenvolvida para oferecer suporte a aplicativos escalonáveis, confiáveis e baratos de operar. Assim como os [Serviços de Aplicativos](app-service-web-overview.md) são hospedados em VMs, também o são os Serviços de Nuvem. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 Mais controle também significa menos facilidade de uso. Se precisar das opções de controle adicional, normalmente é mais rápido e fácil de colocar um aplicativo web em funcionamento em sites da Web em comparação com os serviços de nuvem.
 
@@ -30,4 +30,4 @@ Os Serviços de Nuvem também fornecem monitoramento. Assim como as Máquinas Vi
 
 A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem não deve manter o estado de suas próprias VMs no sistema de arquivos. Diferentemente das VMs criadas com as Máquinas Virtuais do Azure, as gravações feitas nas VMs dos Serviços de Nuvem não são persistentes; não há nada parecido com um disco de dados das Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem deve gravar explicitamente todo o estado no Banco de Dados SQL, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

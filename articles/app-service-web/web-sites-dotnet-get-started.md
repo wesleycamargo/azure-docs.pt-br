@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
@@ -316,4 +316,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

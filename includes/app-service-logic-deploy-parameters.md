@@ -53,4 +53,4 @@ O tamanho da instância do aplicativo.
 
 O modelo define os valores que são permitidos para esse parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor é especificado. Os valores correspondem a pequeno, médio e grande.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

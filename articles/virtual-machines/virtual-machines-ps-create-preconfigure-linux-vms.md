@@ -35,18 +35,18 @@ Se você ainda não fez isso, use as instruções em [Como instalar e configurar
 
 ## Etapa 2: definir a assinatura e a conta de armazenamento
 
-Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do PowerShell do Azure. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
+Defina a assinatura e a conta de armazenamento do Azure executando os comandos a seguir no prompt de comando do Azure PowerShell. Substitua tudo que estiver entre aspas, inclusive os caracteres < and >, pelos nomes corretos.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome de assinatura correto na propriedade SubscriptionName na saída do comando **Get-AzureSubscription**. Você pode obter o nome de conta de armazenamento correto na propriedade Label na saída do comando **Get-AzureStorageAccount**, após emitir o comando **Select-AzureSubscription**. Você também pode armazenar esses comandos em um arquivo de texto para uso futuro.
+Você pode obter o nome de assinatura correto na propriedade **SubscriptionName** na saída do comando **Get-AzureSubscription**. Você pode obter o nome de conta de armazenamento correto na propriedade **Label** na saída do comando **Get-AzureStorageAccount**, após emitir o comando **Select-AzureSubscription**. Você também pode armazenar esses comandos em um arquivo de texto para uso futuro.
 
 ## Etapa 3: determinar a ImageFamily
 
-Em seguida, você precisa determinar o valor de ImageFamily para a imagem específica correspondente à máquina virtual do Azure que deseja criar. Você pode obter a lista de valores de ImageFamily disponíveis com este comando.
+Em seguida, você precisa determinar o valor de ImageFamily para a imagem específica correspondente à máquina virtual do Azure que deseja criar. Você pode obter a lista de valores de ImageFamily disponíveis com o comando a seguir.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -63,7 +63,7 @@ Abra uma nova instância do editor de texto de sua escolha ou uma instância do 
 
 ## Etapa 4: criar o conjunto de comandos
 
-Crie o restante do seu conjunto de comandos, copiando o conjunto apropriado de blocos abaixo para o novo arquivo de texto ou o ISE do PowerShell e, em seguida, preencha os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
+Crie o restante do seu conjunto de comandos, copiando um dos seguintes conjuntos de blocos de comandos para o novo arquivo de texto ou o ISE do PowerShell e, em seguida, preencha os valores das variáveis e remova os caracteres < and >. Veja os dois [exemplos](#examples) no final deste artigo para ter uma ideia do resultado final.
 
 Comece seu conjunto de comandos escolhendo um destes dois blocos de comandos (obrigatório).
 
@@ -82,7 +82,7 @@ Opção 2: especifique um nome, o tamanho e o nome do conjunto de disponibilidad
 
 Para os valores de InstanceSize para máquinas virtuais da série D, DS ou G, confira [Tamanhos de máquina virtual e serviços de nuvem no Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Especifique o nome de usuário inicial do Linux e a senha (obrigatório). Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Use os comandos a seguir para especificar o nome de usuário inicial do Linux e a senha (obrigatório). Escolha uma senha forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -103,7 +103,7 @@ Opcionalmente, atribua um endereço IP específico, conhecido como um DIP estát
 
 	$vm1 | Set-AzureStaticVNetIP -IPAddress <IP address>
 
-Você pode verificar se um endereço IP específico está disponível com:
+Você pode verificar se um endereço IP específico está disponível com o comando a seguir.
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
@@ -131,13 +131,13 @@ Opcionalmente, adicione a máquina virtual a um conjunto existente de balanceame
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Finalmente, inicie o processo de criação de máquina virtual escolhendo um destes blocos de comandos (obrigatório).
+Finalmente, inicie o processo de criação de máquina virtual escolhendo um dos blocos de comandos a seguir (obrigatório).
 
 Opção 1: criar a máquina virtual em um serviço de nuvem existente.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no Portal de Gerenciamento do Azure ou na lista de Grupos de Recursos no Portal de Visualização do Azure.
+O nome curto do serviço de nuvem é o nome que aparece na lista de Serviços de Nuvem no Portal do Azure ou na lista de grupos de recursos no Portal de Visualização do Azure.
 
 Opção 2: criar a máquina virtual em um serviço de nuvem e em uma rede virtual existentes.
 
@@ -157,23 +157,23 @@ Após a criação da máquina virtual, confira [Como fazer logon em uma máquina
 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
-- Salve esse conjunto de comandos como um arquivo de script do PowerShell (\*.ps1)
-- Salvar este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do Portal de Gerenciamento do Azure
+- Salve esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1)
+- Salvar este conjunto de comandos como um runbook de automação do Azure, na seção **Automação** do Portal do Azure
 
 ## <a id="examples"></a>Exemplos
 
-Aqui estão dois exemplos de como usar as etapas acima para criar conjuntos de comandos do PowerShell do Azure que criam máquinas virtuais do Azure baseadas em Linux.
+Aqui estão dois exemplos de como usar as etapas anteriores para criar conjuntos de comandos do Azure PowerShell que criam máquinas virtuais do Azure baseadas em Linux.
 
 ### Exemplo 1
 
 Preciso de um conjunto de comandos do PowerShell para criar a máquina virtual Linux inicial para um servidor MySQL que:
 
-- Usa a imagem do Ubuntu Server 12.10
-- Tem o nome de AZMYSQL1
-- Tem um disco de dados adicional de 500 GB
-- Tem o endereço IP estático 192.168.244.4
-- Está na sub-rede de Back-end da rede virtual AZDatacenter
-- Está no serviço de nuvem Azure-TailspinToys
+- Usa a imagem do Ubuntu Server 12.10.
+- Tem o nome de AZMYSQL1.
+- Tem um disco de dados adicional de 500 GB.
+- Tem o endereço IP estático 192.168.244.4.
+- Está na sub-rede de Back-end da rede virtual AZDatacenter.
+- Está no serviço de nuvem Azure-TailspinToys.
 
 Aqui está o conjunto de comandos do PowerShell do Azure correspondente para criar essa máquina virtual, com linhas em branco entre cada bloco para facilitar a leitura.
 
@@ -205,14 +205,14 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 Preciso de um conjunto de comandos do PowerShell para criar uma máquina virtual Linux para um servidor Apache que:
 
-- Usa a imagem do SUSE Linux Enterprise Server 12
-- Tem o nome de LOB1
-- Tem um disco de dados adicional de 50 GB
-- É membro do conjunto do balanceador de carga LOBServers tráfego da Web padrão
-- Está na sub-rede de Front-end da rede virtual AZDatacenter
-- Está no serviço de nuvem Azure-TailspinToys
+- Usa a imagem do SUSE Linux Enterprise Server 12.
+- Tem o nome de LOB1.
+- Tem um disco de dados adicional de 50 GB.
+- É membro do conjunto do balanceador de carga LOBServers de tráfego da Web padrão.
+- Está na sub-rede de Front-end da rede virtual AZDatacenter.
+- Está no serviço de nuvem Azure-TailspinToys.
 
-Aqui está o conjunto de comandos do Azure PowerShell correspondente para criar essa máquina virtual.
+Aqui está o conjunto de comandos do PowerShell do Azure correspondente para criar essa máquina virtual.
 
 	$family="SUSE Linux Enterprise Server 12"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -254,10 +254,10 @@ Aqui está o conjunto de comandos do Azure PowerShell correspondente para criar 
 
 [Visão geral das máquinas virtuais do Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-[Como fazer logon em uma máquina virtual executando o Linux](virtual-machines-linux-how-to-log-on.md)
+[Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

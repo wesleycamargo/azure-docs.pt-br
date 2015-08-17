@@ -65,4 +65,4 @@ VMs do Windows:
 -  [Capturar uma Máquina Virtual do Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desanexar um disco](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

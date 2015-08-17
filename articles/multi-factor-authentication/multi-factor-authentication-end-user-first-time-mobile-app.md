@@ -73,4 +73,4 @@ Se você estiver usando uma conta de terceiros com o aplicativo móvel, insira o
 >[AZURE.NOTE]Se você vir "Adicionar conta de trabalho", isso é para a Junção de Local de Trabalho, e não para autenticação multifator. Você pode ignorar isso.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

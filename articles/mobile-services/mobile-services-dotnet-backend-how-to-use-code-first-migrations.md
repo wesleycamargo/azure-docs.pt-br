@@ -20,7 +20,7 @@
 
 Este tópico mostra como usar Migrações Code First do Entity Framework para fazer alterações no modelo de dados para um Banco de Dados SQL existente para evitar perder os dados existentes. Este procedimento pressupõe que você já tenha publicado o projeto de serviço móvel no Azure, que há dados existentes no banco de dados, e que os modelos de dados locais e remotos ainda estão sincronizados. Este tópico também descreve os inicializadores do Code First implementados pelos Serviços Móveis do Azure que são usados durante o desenvolvimento. Esses inicializadores permitem quem você faça alterações de esquema facilmente sem usar as Migrações Code First quando não for necessário manter seus dados existentes.
 
->[AZURE.NOTE]O nome do esquema usado para prefixar suas tabelas no banco de dados SQL é definido pela configuração de aplicativo MS_MobileServiceName no arquivo web. config. Ao baixar o projeto inicial do portal, esse valor já está definido como o nome do serviço móvel. Quando o nome do esquema coincide com o serviço móvel, vários serviços móveis podem compartilhar com segurança a mesma instância de banco de dados.
+>[AZURE.NOTE]O nome do esquema usado para prefixar suas tabelas no banco de dados SQL é definido pela configuração de aplicativo MS\_MobileServiceName no arquivo web. config. Ao baixar o projeto inicial do portal, esse valor já está definido como o nome do serviço móvel. Quando o nome do esquema coincide com o serviço móvel, vários serviços móveis podem compartilhar com segurança a mesma instância de banco de dados.
 
 ## Atualização do modelo de dados
 
@@ -74,7 +74,7 @@ As etapas a seguir ativam as Migrações e aplicam as alterações no modelo de 
 
 	Isso cria uma nova migração chamada *Initial*. O código de migração é armazenado na pasta do projeto Migrations.
 
-5. Expanda a pasta App_Start, abra o arquivo do projeto WebApiConfig.cs e adicione as seguintes instruções **using**:
+5. Expanda a pasta App\_Start, abra o arquivo do projeto WebApiConfig.cs e adicione as seguintes instruções **using**:
 
 		using System.Data.Entity.Migrations;
 		using todolistService.Migrations;
@@ -170,4 +170,4 @@ Esse código chama o método de extensão auxiliar [AddOrUpdate] para adicionar 
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

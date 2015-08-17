@@ -42,7 +42,7 @@ Se desejar excluir um gateway de aplicativo, vá para [Excluir um gateway de apl
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
     
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -57,7 +57,7 @@ No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opci
 
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   : 
 	VnetName      : testvnet1
@@ -133,7 +133,7 @@ Você pode construir sua configuração criando um objeto de configuração ou u
 Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou com um arquivo XML de configuração.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -150,7 +150,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicatio
 
 
 
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -164,7 +164,7 @@ Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. S
 
 Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -189,7 +189,7 @@ Para excluir um gateway de aplicativo, você precisará seguir este procedimento
 
 Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
 
-	PS C:> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -200,7 +200,7 @@ Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, s
 Depois que o gateway de aplicativo estiver em um estado Parado, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 
-	PS C:> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -211,7 +211,7 @@ Depois que o gateway de aplicativo estiver em um estado Parado, use o cmdlet `Re
 Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureApplicationGateway`. Essa etapa não é necessária.
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -229,4 +229,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

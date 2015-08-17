@@ -54,11 +54,19 @@ Estas notas de versão resumem as alterações de versões anteriores e os probl
 
 ### <a id="general_issues"></a>Problemas gerais dos Serviços de Mídia
 
-<table border="1"><tr><th>Problema</th><th>Descrição</yt></tr><tr><td>Vários cabeçalhos HTTP comuns não são fornecidos na API REST.</td><td>Se você desenvolve aplicativos de Serviços de Mídia usando a API REST, verá que não há suporte a alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura.</td></tr> <tr><td>Falha na codificação de um ativo com nome de arquivo que contém caracteres de escape (por exemplo, %20) com a mensagem "MediaProcessor: arquivo não encontrado."</td><td>Nomes de arquivos que serão adicionados a um ativo e codificados devem conter apenas caracteres alfanuméricos e espaços. O problema será corrigido em uma atualização futura.</td></tr> <tr><td>Falha do método ListBlobs que faz parte da versão 3.x do SDK de Armazenamento do Azure.</td><td>Os Serviços de Mídia geram URLs SAS baseadas na versão <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a>. Se desejar que o SDK de Armazenamento do Azure liste os blobs em um contêiner de blob, use o método <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> que faz parte do SDK de Armazenamento do Azure versão 2.x. O método ListBlobs que faz parte do SDK de Armazenamento do Azure versão 3.x falhará.</td></tr> <tr><td>O mecanismo de limitação dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).</td><td>Para saber mais, confira a descrição do código de status HTTP 503 no tópico <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Códigos de Erro dos Serviços de Mídia do Azure</a>.</td></tr> </table><br/>
- 
+Problema|Descrição
+---|---
+Vários cabeçalhos HTTP comuns não são fornecidos na API REST.|Se você desenvolver aplicativos de Serviços de Mídia usando a API REST, verá que não há suporte a alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID). Os cabeçalhos serão adicionados em uma atualização futura.
+Codificar um ativo com um nome de arquivo que contenha caracteres de escape (por exemplo, %20) falha com “MediaProcessor : Arquivo não encontrado.”|Nomes de arquivos que serão adicionados a um ativo e, então, codificados devem conter apenas caracteres e espaços alfanuméricos. O problema será corrigido em uma atualização futura.
+O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falha.|Os Serviços de Mídia geram URLs SAS com base na versão de [12/02/2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Se desejar que o SDK de Armazenamento do Azure liste os blobs em um contêiner de blob, use o método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que faz parte do SDK de Armazenamento do Azure versão 2.x. O método ListBlobs que faz parte do SDK do Armazenamento do Azure versão 3.x falhará.
+O mecanismo de aceleração dos Serviços de Mídia restringe o uso dos recursos para aplicativos que fazem solicitações excessivas ao serviço. O serviço pode retornar o código de status HTTP Serviço Não Disponível (503).|Para obter mais informações, consulte a descrição do código de status HTTP 503 no tópico [Códigos de erro dos Serviços de Mídia do Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+
+
 ### <a id="dotnet_issues"></a>SDK dos Serviços de Mídia para Problemas do .NET
 
-<table border="1"> <tr><th>Problema</th><th>Descrição</yt></tr> <tr><td>Os objetos de Serviços de Mídia no SDK não podem ser serializados e, portanto, não funcionam com o Caching do Azure.</td><td>Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Caching do Azure, uma exceção será lançada.</td></tr> </table><br/>
+Problema|Descrição
+---|---
+Os objetos de Serviços de Mídia no SDK não podem ser serializados, e, como resultado, não funcionam com Caching do Azure.|Se você tentar serializar o objeto AssetCollection do SDK para adicioná-lo ao Caching do Azure, uma exceção será lançada.
 
 ##<a id="rest_version_history"></a>Histórico de versão da API REST
 
@@ -68,7 +76,7 @@ Para obter informações sobre o histórico de versões da API REST dos Serviço
 
 Anunciando a disponibilidade geral do Media Encoder Standard. Para saber mais, confira [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-O Media Encoder Standard usa predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Observe que ao usar uma predefinição de codificações 4K, você deve adquirir o tipo de unidade reservada **Premium \*\*. Para saber mais, confira [Como dimensionar codificação](media-services-portal-encoding-units) 
+O Media Encoder Standard usa predefinições descritas [nesta](http://go.microsoft.com/fwlink/?LinkId=618336) seção. Observe que ao usar uma predefinição de codificações 4K, você deve adquirir o tipo de unidade reservada **Premium**. Para saber mais, confira [Como dimensionar codificação](media-services-portal-encoding-units).
 
 
 ###Atualizações do SDK do .NET dos Serviços de Mídia
@@ -79,7 +87,7 @@ O SDK do .NET dos Serviços de Mídia do Azure está agora na versão 3.4.0.0. A
 - Suporte implementado para filtros dinâmicos.
 - Funcionalidade implementada que permite aos usuários manter o contêiner de armazenamento ao excluir ativos.
 - Correções de bugs relacionados a políticas de repetição nos canais.
-- Fluxo de trabalho do Codificador de Mídia Premium **habilitado**.
+- **Fluxo de trabalho do Codificador de Mídia Premium** habilitado.
 
 ##<a id="june_changes_15"></a>Versão de junho de 2015
 
@@ -282,7 +290,7 @@ As seguintes correções de erro foram feitas ao Empacotador e Criptografador do
 
 ### <a id="may_14_changes"></a>Atualizações gerais dos Serviços de Mídia
 
-Agora é possível usar o [Empacotamento Dinâmico] para transmitir Live Streaming HTTP (HLS) v3. Para transmitir HLS v3, adicione o seguinte formato para o caminho do localizador de origem: *.ism/manifest(format=m3u8-aapl-v3). Para saber mais, confira o[ Blog de Nick Drouin].
+Agora é possível usar o [Empacotamento Dinâmico] para transmitir Live Streaming HTTP (HLS) v3. Para transmitir HLS v3, adicione o seguinte formato para o caminho do localizador de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, consulte o [Blog de Nick Drouin].
 
 O Empacotamento Dinâmico agora também oferece suporte à entrega de HLS (v3 e v4) criptografado com PlayReady com base em Smooth Streaming estaticamente criptografado com PlayReady. Para obter informações sobre como criptografar Smooth Streaming com PlayReady, consulte [Protegendo Smooth Stream com PlayReady].
 
@@ -331,7 +339,7 @@ As seguintes alterações foram feitas na versão 3.0.0.3:
 
 * Atualizadas as dependências de armazenamento do Azure para usar a versão 3.0.3.0. 
 
-* Corrigido o problema de compatibilidade reversa para versões 3.0.\*.\*
+* Corrigido o problema de compatibilidade reversa para versões 3.0*.*.
 
 
 ##<a id="december_changes_13"></a>Versão de dezembro de 2013
@@ -539,7 +547,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Streaming de conteúdo criptografado de armazenamento]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure Management Portal]: https://manage.windowsazure.com
 [Empacotamento Dinâmico]: http://msdn.microsoft.com/library/azure/jj889436.aspx
-[ Blog de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
+[Blog de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protegendo Smooth Stream com PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
 [Lógica de repetição no SDK de Serviços de Mídia para .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
 [Grass Valley anuncia streaming EDIUS 7 pela nuvem]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
@@ -556,4 +564,4 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Manipulando notificações de trabalho dos Serviços de Mídia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

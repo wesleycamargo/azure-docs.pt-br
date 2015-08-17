@@ -77,7 +77,7 @@ As recomendações de camada de preços proporcionam uma experiência automatiza
 
 ## Próximas etapas
 
-Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal de gerenciamento fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm_operation_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor do Banco de Dados SQL.
+Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal de gerenciamento fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor do Banco de Dados SQL.
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

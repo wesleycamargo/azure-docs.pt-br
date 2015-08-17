@@ -229,4 +229,4 @@ Execute o script \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

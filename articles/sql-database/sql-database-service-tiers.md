@@ -89,4 +89,4 @@ Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -192,7 +192,7 @@ Antes de testar, você deve iniciar o painel de controle para exibir a saída da
 
 		Server listening at port 3000
 
-2. Abra um navegador da Web e digite **http://localhost:3000/** como o endereço. Você deve ver uma página semelhante a esta:
+2. Abra um navegador da Web e digite ****http://localhost:3000/** como o endereço. Você verá uma página semelhante à seguinte:
 
 	![Painel da Web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -352,7 +352,7 @@ Para gravar no HBase usando o cluster Storm, você deve usar o FQDN (nome de dom
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-Nos dados JSON retornados, localize a entrada **"host_name"**. Ela conterá o FQDN para os nós no cluster. Por exemplo:
+Nos dados JSON retornados, localize a entrada **"host\_name"**. Ela conterá o FQDN para os nós no cluster. Por exemplo:
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -385,7 +385,7 @@ Antes de executar a topologia, você deve preparar o HBase para aceitar os dados
 
 2. Na área de trabalho, inicie a linha de comando do HDInsight e insira os seguintes comandos:
 
-    cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE\_HOME% bin\\hbase shell
 
 3. No shell do HBase, insira o seguinte comando para criar uma tabela na qual os dados do sensor serão armazenados:
 
@@ -420,4 +420,4 @@ Você agora aprendeu a usar o Storm para ler dados do Hub de Eventos, armazenar 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

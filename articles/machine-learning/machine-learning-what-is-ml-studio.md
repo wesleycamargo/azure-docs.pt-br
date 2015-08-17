@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="O que é o Estúdio de Aprendizado de Máquina do Azure? | Microsoft Azure" 
-	description="Visão geral do Estúdio AM do Azure, uma ferramenta do tipo ";arrastar e soltar"; para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso." 
+	description="Visão geral do Estúdio AM do Azure, uma ferramenta do tipo &quot;arrastar e soltar&quot; para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso." 	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -91,4 +91,4 @@ Um módulo pode ter um conjunto de parâmetros que você pode usar para configur
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

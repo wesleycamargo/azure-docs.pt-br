@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurar um banco de dados do SQL Azure excluído com a API REST
@@ -52,4 +52,4 @@ Para obter mais informações, consulte o seguinte:
 
 [Referência de API REST de gerenciamento de serviço](http://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Tutorial do Apache Storm: Introdução ao Storm | Microsoft Azure"
 	description="Introdução à análise de big data usando o Apache Storm e os exemplos do Storm Starter no HDInsight. Saiba como usar o Storm para processar dados em tempo real."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -82,7 +81,7 @@ O painel está localizado em **https://&lt;clustername>.azurehdinsight.net//**, 
 
 ![Link Portal do Azure com Painel do Storm](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
 
-> [AZURE.NOTE]Ao conectar-se ao painel, você deverá inserir um nome de usuário e uma senha. Esse é o nome do administrador (* * admin * *) e a senha usada durante a criação do cluster.
+> [AZURE.NOTE]Ao conectar-se ao painel, você deverá inserir um nome de usuário e uma senha. Esse é o nome do administrador (**admin**) e a senha usada durante a criação do cluster.
 
 Depois que o Painel Storm for carregado, você verá o formulário **Enviar Topologia**.
 
@@ -143,7 +142,7 @@ A interface do usuário do Storm pode ser usada para monitorar a topologia.
 
 	* **Desativar** - pausa uma topologia em execução.
 
-	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para obter mais informações, consulte [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Eliminar** - encerra uma topologia do Storm após o tempo limite especificado.
 
@@ -190,9 +189,9 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 
 * **Ferramentas do HDInsight para Visual Studio** - as Ferramentas do HDInsight permitem que você use o Visual Studio para enviar, monitorar e gerenciar topologias Storm semelhantes ao Painel Storm mencionado anteriormente. As Ferramentas do HDInsight também oferecem a capacidade de criar topologias Storm C# e incluem topologias de amostra que você pode implantar e executar no cluster.
 
-	Para obter mais informações, consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+	Para saber mais, consulte [Introdução ao uso das Ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Arquivos de exemplo** - o cluster Storm do HDInsight oferece vários exemplos no diretório **%STORM_HOME%\\contrib**. Cada exemplo deve conter o seguinte:
+* **Arquivos de exemplo** - o cluster Storm do HDInsight oferece vários exemplos no diretório **%STORM\_HOME%\\contrib**. Cada exemplo deve conter o seguinte:
 
 	* O código-fonte - por exemplo, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +203,7 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 
 	> [AZURE.NOTE]Os documentos Java consistem em páginas da Web. Após a extração, use um navegador para exibir o arquivo **index.html**.
 
-	Para acessar essas amostras, você deve habilitar a Área de Trabalho Remota para o Storm no cluster HDInsight e, em seguida, copiar os arquivos de **%STORM_HOME%\\contrib**.
+	Para acessar essas amostras, você deve habilitar a Área de Trabalho Remota para o Storm no cluster HDInsight e, em seguida, copiar os arquivos de **%STORM\_HOME%\\contrib**.
 
 * O documento a seguir contém uma lista de outros exemplos que podem ser usados com o Storm no HDInsight:
 
@@ -217,4 +216,4 @@ Neste tutorial sobre o Storm Apache, você usou o Storm Starter para aprender a 
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

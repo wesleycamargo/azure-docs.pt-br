@@ -18,15 +18,15 @@
 
 #Push Avançado dos Hubs de Notificação do Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##Visão geral
 
 Para atrair os usuários com conteúdo elaborado instantâneo, um aplicativo talvez queira enviar por push além do texto sem formatação. Essas notificações promovem interações do usuário e apresentam conteúdo, como urls, sons, imagens/cupons e muito mais. Esse tutorial se baseia no tópico [Notificar Usuários](notification-hubs-aspnet-backend-ios-notify-users.md) e mostra como enviar notificações por push que incorporam cargas (por exemplo, imagem).
 
-Este tutorial é compatível com iOS 7 e 8. ![][IOS1]
+
+Este tutorial é compatível com iOS 7 e 8.
+
+    ![][IOS1]
 
 Em um alto nível:
 
@@ -382,4 +382,4 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

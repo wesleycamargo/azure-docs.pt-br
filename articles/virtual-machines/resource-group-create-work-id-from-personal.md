@@ -140,4 +140,4 @@ Você agora pode aproveitar a sua nova identidade do Active Directory do Azure p
     data:
     info:    group create command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

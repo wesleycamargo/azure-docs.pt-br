@@ -91,9 +91,9 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 5.	Opcional: se o sistema Ubuntu encontrar um erro e for reinicializado, geralmente ele aguardará a ação do usuário no prompt de inicialização do Grub, o que impede a inicialização adequada do sistema. Para evitar isso, conclua as seguintes etapas:
 
-	a) Abra o arquivo /etc/grub.d/00_header.
+	a) Abra o arquivo /etc/grub.d/00\_header.
 
-	b) Na função **make_timeout()**, pesquise por **se ${recordfail}" = 1 ]; e, em seguida**
+	b) Na função **make\_timeout()**, pesquise por **se ${recordfail}" = 1 ]; e, em seguida**
 
 	c) Altere a instrução abaixo desta linha para **set timeout=5**.
 
@@ -125,4 +125,4 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

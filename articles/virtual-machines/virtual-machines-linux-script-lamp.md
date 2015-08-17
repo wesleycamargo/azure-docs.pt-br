@@ -64,11 +64,11 @@ Esse script instala uma pilha LAMP no Ubuntu (incluindo a configuração de uma 
 
 **Upload**
 
-Salve o script como um arquivo de texto, por exemplo *lamp_install.sh*, e, em seguida, carregue-o para o armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Observação: Se o contêiner não existir, você precisará criá-lo primeiro.
+Salve o script como um arquivo de texto, por exemplo *lamp\_install.sh*, e, em seguida, carregue-o para o armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Observação: Se o contêiner não existir, você precisará criá-lo primeiro.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Crie também um arquivo JSON que descreve como baixar o script do armazenamento do Azure. Salve isso como *public_config.json* (substituindo "mystorage" com o nome da sua conta de armazenamento):
+Crie também um arquivo JSON que descreve como baixar o script do armazenamento do Azure. Salve isso como *public\_config.json* (substituindo "mystorage" com o nome da sua conta de armazenamento):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +79,7 @@ Agora estamos prontos para implantar a extensão CustomScript do Linux para a VM
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-Isso baixará e executará o script *lamp_install.sh* na VM chamada *lamp-vm*.
+Isso baixará e executará o script *lamp\_install.sh* na VM chamada *lamp-vm*.
 
 Como o aplicativo inclui um servidor da Web, lembre-se de abrir uma porta de escuta HTTP na VM remota:
 
@@ -92,7 +92,7 @@ Você pode verificar o andamento da execução do script personalizado, observan
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Quando a extensão CustomScript tiver terminado a execução, você poderá navegar até a página PHP criada, que, neste exemplo, seria: *http://lamp-vm.cloudapp.net/phpinfo.php*.
+Quando a extensão CustomScript tiver terminado a execução, você poderá navegar até a página PHP criada, que, neste exemplo, seria: **http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Recursos adicionais
 
@@ -107,4 +107,4 @@ Estes são alguns recursos adicionais para o Azure CLI, Linux e a extensão Cust
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

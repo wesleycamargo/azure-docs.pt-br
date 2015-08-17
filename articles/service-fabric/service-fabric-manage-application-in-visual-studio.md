@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Gerenciando aplicativos da Malha do Serviço no Visual Studio
@@ -68,10 +68,10 @@ Você pode remover um aplicativo do cluster local usando o Gerenciador de Servid
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-- [Modelo de aplicativo da Malha do Serviço](../service-fabric-application-model)
-- [Implantação de aplicativo da Malha do Serviço](../service-fabric-deploy-remove-applications)
-- [Depurando o aplicativo da Malha do Serviço](../service-fabric-debugging-your-application)
-- [Visualizando o cluster usando o Gerenciador da Malha do Serviço](../service-fabric-visualizing-your-cluster)
+- [Modelo de aplicativo da Malha do Serviço](service-fabric-application-model.md)
+- [Implantação de aplicativo da Malha do Serviço](service-fabric-deploy-remove-applications.md)
+- [Depurando o aplicativo da Malha do Serviço](service-fabric-debugging-your-application.md)
+- [Visualizando o cluster usando o Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@ Você pode remover um aplicativo do cluster local usando o Gerenciador de Servid
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -38,4 +38,4 @@ No portal do antigo, a guia **Configurar** do aplicativo que você criou no **Ac
 
 (A URL de resposta na imagem mostra a mesma URL duas vezes, uma vez com `http:` e uma vez com `https:`.)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

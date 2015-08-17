@@ -128,4 +128,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

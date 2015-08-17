@@ -154,7 +154,7 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 
 2. Clique em qualquer lugar na entrada da conta de armazenamento, exceto no nome, e em **Excluir**.
 
-	 -Ou-
+	 \-Ou-
 
 	Clique no nome da conta de armazenamento para abrir o painel e, em seguida, clique em **Excluir**.
 
@@ -167,4 +167,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

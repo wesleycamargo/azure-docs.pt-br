@@ -69,4 +69,4 @@ Agora que você teve uma visão geral de como funciona o Barramento de Serviço,
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

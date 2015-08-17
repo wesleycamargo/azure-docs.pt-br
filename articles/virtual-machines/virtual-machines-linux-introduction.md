@@ -110,4 +110,4 @@ No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os us
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

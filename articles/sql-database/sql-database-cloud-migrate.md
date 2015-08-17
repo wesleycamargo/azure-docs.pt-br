@@ -82,4 +82,4 @@ Use as [o SQL Server Data Tools mais recente para Visual Studio](https://msdn.mi
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

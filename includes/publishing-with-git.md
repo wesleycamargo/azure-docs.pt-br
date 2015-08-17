@@ -273,7 +273,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
+[Azure Developer Center]: http://azure.microsoft.com/develop/overview/
 [Portal de Visualização do Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Instalando o Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -300,4 +300,4 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 [Usando o Dropbox para compartilhar repositórios do Git]: https://gist.github.com/trey/2722927
 [Envio contínuo ao Azure por meio do Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

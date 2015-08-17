@@ -116,7 +116,7 @@ O conjunto de ferramentas inclui o seguinte:
 - Um pacote do Universo de segurança que tem um nome que começa com **BYOK-SecurityWorld-pkg-.**
 - Um script python chamado v**erifykeypackage.py.**
 - Um arquivo executável de linha de comando chamado **KeyTransferRemote.exe** e DLLs associadas.
-- Um pacote redistribuível do Visual C++, chamado **vcredist_x64.exe.**
+- Um pacote redistribuível do Visual C++, chamado **vcredist\_x64.exe.**
 
 Copie o pacote para uma unidade USB ou outro armazenamento portátil.
 
@@ -129,7 +129,7 @@ Para essa segunda etapa, siga os procedimentos a seguir na estação de trabalho
 
 Instale o software de suporte nCipher (Thales) em um computador Windows e, em seguida, anexe um HSM da Thales a esse computador.
 
-Certifique-se de que as ferramentas Thales estejam no caminho (**%nfast_home%\\bin** e **%nfast_home%\\python\\bin**). Por exemplo, digite o seguinte:
+Certifique-se de que as ferramentas Thales estejam no caminho (**%nfast\_home%\\bin** e **%nfast\_home%\\python\\bin**). Por exemplo, digite o seguinte:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte o guia do usuário fornecido com o HSM d
 Copie o pacote do conjunto de ferramentas BYOK da unidade USB ou outro armazenamento portátil e, em seguida, faça o seguinte:
 
 1. Extraia os arquivos do pacote baixado em qualquer pasta.
-2. Nessa pasta, execute o vcredist_x64.exe.
+2. Nessa pasta, execute o vcredist\_x64.exe.
 3. Siga as instruções para instalar os componentes de tempo de execução do Visual C++ para o Visual Studio 2012.
 
 ##Etapa 3: Gerar a sua chave
@@ -153,7 +153,7 @@ Inicie um prompt de comando e execute o programa do novo universo da Thales.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Este programa cria um arquivo de **Universo de segurança** em %NFAST_KMDATA%\\local\\world, que corresponde à pasta C:\\ProgramData\\nCipher\\Key Management Data\\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de cartões do administrador** para o novo universo de segurança.
+Este programa cria um arquivo de **Universo de segurança** em %NFAST\_KMDATA%\\local\\world, que corresponde à pasta C:\\ProgramData\\nCipher\\Key Management Data\\local. É possível usar valores diferentes para o quorum, mas, no nosso exemplo, você será solicitado a inserir três cartões em branco e pins para cada um deles. Em seguida, os dois cartões darão acesso completo ao universo de segurança. Esses cartões se tornam o **Conjunto de cartões do administrador** para o novo universo de segurança.
 
 Faremos o seguinte:
 
@@ -188,7 +188,7 @@ Para validar o pacote baixado:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]O software Thales inclui python em %NFAST_HOME%\\python\\bin
+	>[AZURE.TIP]O software Thales inclui python em %NFAST\_HOME%\\python\\bin
 	
 2.	Confirme que você vê o seguinte, que indica a validação bem-sucedida: **Resultado: SUCCESS**
 
@@ -210,7 +210,7 @@ Quando você executar esse comando, use estas instruções:
 
 - O pubexp é deixado em branco (padrão) neste exemplo, mas você pode especificar valores específicos. Para obter mais informações, consulte a Documentação da Thales.
 
-Este comando cria um arquivo de Chave com Token na sua pasta %NFAST_KMDATA%\\local com um nome iniciado por **key_simple_** seguido pela ident que foi especificada no comando. Por exemplo: **key_simple_contosokey**. Esse arquivo contém uma chave criptografada.
+Este comando cria um arquivo de Chave com Token na sua pasta %NFAST\_KMDATA%\\local com um nome iniciado por **key\_simple\_** seguido pela ident que foi especificada no comando. Por exemplo: **key\_simple\_contosokey**. Esse arquivo contém uma chave criptografada.
 
 Faça backup deste arquivo de Chave com Token em um local seguro.
 
@@ -246,7 +246,7 @@ Quando você executar esse comando, substitua *contosokey* pelo mesmo valor espe
 
 Você será solicitado a conectar seus cartões de admin do Universo de segurança.
 
-Quando o comando for concluído, você verá **Resultado: SUCCESS** e a cópia da sua chave com permissões reduzidas estará no arquivo chamado key_xferacId_<contosokey>.
+Quando o comando for concluído, você verá **Resultado: SUCCESS** e a cópia da sua chave com permissões reduzidas estará no arquivo chamado key\_xferacId\_<contosokey>.
 
 ###Etapa 4.2: Inspecione a nova cópia da chave
 
@@ -282,7 +282,7 @@ Execute um dos seguintes comandos, dependendo da sua região:
 
 Quando você executar esse comando, use estas instruções:
 
-- Substitua *contosokey* pelo identificador usado para gerar a chave na **Etapa 3.3: Criar uma nova chave** na etapa [Gear a sua chave](#step-3-generate-your-key).
+- Substitua *contosokey* pelo identificador usado para gerar a chave na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
 - Substitua *SubscriptionID* pela ID da assinatura do Azure que contém o seu Cofre da Chave. Esse valor foi recuperado anteriormente, na **Etapa 1.2: Obter a sua ID da assinatura do Azure** na etapa [Preparar a sua estação de trabalho conectada à Internet](#step-1-prepare-your-internet-connected-workstation).
 
@@ -304,6 +304,6 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 ##Próximas etapas
 
-Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para obter mais informações, consulte a seção **Se você deseja usar um Módulo de segurança de hardware (HSM)** no tutorial [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
+Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um Módulo de segurança de hardware (HSM)** no tutorial [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

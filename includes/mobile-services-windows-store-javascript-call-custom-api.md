@@ -62,4 +62,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

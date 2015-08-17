@@ -168,7 +168,7 @@ E/S de pico da rede
 
 </td>
 <td>
-~5 Mbps
+\~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ E/S de pico da rede
 
 </td>
 <td>
-~100 Mbps
+\~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ E/S de pico da rede
 
 </td>
 <td>
-~200 Mbps
+\~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ E/S de pico da rede
 
 </td>
 <td>
-~400 Mbps
+\~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ E/S de pico da rede
 
 </td>
 <td>
-~800 Mbps
+\~800 Mbps
 
 </td>
 </tr>
@@ -284,7 +284,7 @@ O arquivo de definição do serviço (CSDEF) também é onde você especifica mu
 
 O arquivo de configuração do serviço (CSCFG) é um arquivo XML que descreve as configurações que podem ser alteradas sem reimplantar o aplicativo. O esquema completo para o arquivo XML pode ser encontrado aqui: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]. O arquivo CSCFG contém um elemento Role para cada função de seu aplicativo. Estes são alguns dos itens que você pode especificar no arquivo CSCFG:
 
--   **Versão do Sistema Operacional**. Este atributo permite que você selecione a versão do SO (sistema operacional) que você deseja que seja usada em todas as instâncias de função que estão executando o código de seu aplicativo. Esse sistema operacional é conhecido como o *SO convidado*, e cada nova versão inclui os patches de segurança e as atualizações mais recentes disponíveis no momento em que o SO convidado é liberado. Se você definir o valor do atributo osVersion como "*", o Azure atualizará automaticamente o SO convidado em cada uma de suas instâncias de função à medida que novas versões do SO convidado se tornarem disponíveis. No entanto, você pode recusar as atualizações automáticas, selecionando uma versão específica do SO convidado. Por exemplo, a definição do atributo osVersion como um valor de "WA-GUEST-OS-2.8_201109-01" faz com que todas as instâncias de função obtenham o que é descrito nesta página da Web: [http://msdn.microsoft.com/library/hh560567.aspx][]. Para saber mais sobre as versões de SO convidado, consulte [Gerenciando as atualizações no SO convidado do Azure].
+-   **Versão do Sistema Operacional**. Este atributo permite que você selecione a versão do SO (sistema operacional) que você deseja que seja usada em todas as instâncias de função que estão executando o código de seu aplicativo. Esse sistema operacional é conhecido como o *SO convidado*, e cada nova versão inclui os patches de segurança e as atualizações mais recentes disponíveis no momento em que o SO convidado é liberado. Se você definir o valor do atributo osVersion como "*", o Azure atualizará automaticamente o SO convidado em cada uma de suas instâncias de função à medida que novas versões do SO convidado se tornarem disponíveis. No entanto, você pode recusar as atualizações automáticas, selecionando uma versão específica do SO convidado. Por exemplo, a definição do atributo osVersion como um valor de "WA-GUEST-OS-2.8\_201109-01" faz com que todas as instâncias de função obtenham o que é descrito nesta página da Web: [http://msdn.microsoft.com/library/hh560567.aspx][]. Para saber mais sobre as versões de SO convidado, consulte [Gerenciando as atualizações no SO convidado do Azure].
 
 -   **Instâncias**. O valor desse elemento indica o número de instâncias de função que você deseja que sejam provisionadas para a execução do código de uma função específica. Como você pode carregar um novo arquivo CSCFG no Azure (sem reimplantar o aplicativo), é muito simples alterar o valor desse elemento e carregar um novo arquivo CSCFG para aumentar ou diminuir dinamicamente o número de instâncias de função que executam o código do seu aplicativo. Isso permite que você expanda ou reduza facilmente seu aplicativo para atender às demandas reais da carga de trabalho enquanto também controla o quanto você será cobrado para executar as instâncias de função.
 
@@ -346,4 +346,4 @@ Para obter mais informações sobre como implantar, atualizar e reconfigurar sua
   [Migrando aplicativos para o Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configurar um aplicativo do Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

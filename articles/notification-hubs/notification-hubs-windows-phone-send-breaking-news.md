@@ -161,9 +161,9 @@ Estas etapas registram com o hub de notificação na inicialização, usando as 
 
 	Esse procedimento retorna as categorias definidas na classe.
 
-1. Abra o arquivo App.xaml.cs e adicione o modificador **async** ao método **Application_Launching**.
+1. Abra o arquivo App.xaml.cs e adicione o modificador **async** ao método **Application\_Launching**.
 
-2. No método **Application_Launching** localize e substitua o código do registro de Hubs de Notificação que você adicionou na [Introdução aos Hubs de Notificação] pela seguinte linha de código:
+2. No método **Application\_Launching** localize e substitua o código do registro de Hubs de Notificação que você adicionou na [Introdução aos Hubs de Notificação] pela seguinte linha de código:
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

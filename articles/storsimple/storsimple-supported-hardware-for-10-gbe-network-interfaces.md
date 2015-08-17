@@ -112,4 +112,4 @@ A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testad
 
 [Saiba mais sobre os componentes hardware StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

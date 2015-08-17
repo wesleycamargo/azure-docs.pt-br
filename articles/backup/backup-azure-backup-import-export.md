@@ -5,15 +5,7 @@
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
-   editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/14/2015"
-   ms.author="aashishr"; "jimpark"/>
+   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -71,20 +63,20 @@ As informações fornecidas nesta seção são para concluir o fluxo de trabalho
 
 2. Descompacte o arquivo *WAImportExport.zip*. Execute a ferramenta *WAImportExport*, que formatará a unidade SATA, gravará os dados de backup na unidade SATA e vai criptografá-la. Antes de executar o comando a seguir, certifique-se de que o BitLocker esteja habilitado no computador. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<\*JournalFile*>.jrn /id: <\*SessionId\*> /sk:<\*StorageAccountKey\*> /BlobType:\*\*PageBlob\*\* /t:<\*TargetDriveLetter\*> /format /encrypt /srcdir:<\*staging location\*> /dstdir: <\*DestinationBlobVirtualDirectory\*>/\*
+    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | Parâmetro | Descrição
 |-------------|-------------|
-| /j:<\*JournalFile\*>| O caminho para o arquivo de diário. Cada unidade deve ter exatamente um arquivo de diário. Observe que o arquivo de diário não deve residir na unidade de destino. A extensão de arquivo de diário é .jrn e é criada como parte da execução desse comando.|
-|/id:<\*SessionId\*> | A ID de sessão identifica uma *sessão de cópia*. Ela é usada para garantir a recuperação correta de uma sessão de cópia interrompida. Os arquivos copiados em uma sessão de cópia são armazenados em um diretório nomeado como a ID de sessão na unidade de destino.|
-| /sk:<\*StorageAccountKey\*> | A chave da conta de armazenamento para a qual os dados serão importados. |
+| /j:<*JournalFile*>| O caminho para o arquivo de diário. Cada unidade deve ter exatamente um arquivo de diário. Observe que o arquivo de diário não deve residir na unidade de destino. A extensão de arquivo de diário é .jrn e é criada como parte da execução desse comando.|
+|/id:<*SessionId*> | A ID de sessão identifica uma *sessão de cópia*. Ela é usada para garantir a recuperação correta de uma sessão de cópia interrompida. Os arquivos copiados em uma sessão de cópia são armazenados em um diretório nomeado como a ID de sessão na unidade de destino.|
+| /sk:<*StorageAccountKey*> | A chave da conta de armazenamento para a qual os dados serão importados. |
 | /BlobType | Especifique **PageBlob**, esse fluxo de trabalho terá êxito somente se a opção PageBlob for especificada. Essa não é a opção padrão e deve ser mencionada nesse comando. |
-|/t:<\*TargetDriveLetter\*> | A letra da unidade do disco rígido de destino para a sessão de cópia atual, sem dois-pontos no final.|
+|/t:<*TargetDriveLetter*> | A letra da unidade do disco rígido de destino para a sessão de cópia atual, sem dois-pontos no final.|
 |/format | Especifique esse parâmetro quando for necessário formatar a unidade; caso contrário, omita-o. Antes de a ferramenta formatar a unidade, ela solicitará uma confirmação no console. Para suprimir a confirmação, especifique o parâmetro /silentmode.|
 |/encrypt | Especifique esse parâmetro quando a unidade ainda não tiver sido criptografada com o BitLocker e precisar ser criptografada pela ferramenta. Se a unidade já tiver sido criptografada com o BitLocker, omita esse parâmetro e especifique o parâmetro /bk, fornecendo a chave do BitLocker existente. Se você especificar o parâmetro /format, também deverá especificar o parâmetro /encrypt. |
-|/srcdir:<\*SourceDirectory\*> | O diretório de origem que contém os arquivos a serem copiados para a unidade de destino. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
-|/dstdir:<\*DestinationBlobVirtualDirectory\*> | O caminho para o diretório virtual de destino em sua conta de armazenamento do Microsoft Azure. Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas.|
+|/srcdir:<*SourceDirectory*> | O diretório de origem que contém os arquivos a serem copiados para a unidade de destino. O caminho do diretório deve ser um caminho absoluto (não um caminho relativo).|
+|/dstdir:<*DestinationBlobVirtualDirectory*> | O caminho para o diretório virtual de destino em sua conta de armazenamento do Microsoft Azure. Certifique-se de usar nomes de contêineres válidos ao especificar diretórios virtuais ou blobs de destino. Tenha em mente que os nomes de contêiner devem estar em minúsculas.|
 
   >[AZURE.NOTE]Um arquivo de diário é criado na pasta WAImportExport que captura todas as informações do fluxo de trabalho. Ao criar um trabalho de importação no Portal do Azure, você precisará desse arquivo.
 
@@ -115,4 +107,4 @@ Quando os dados de backup iniciais estiverem disponíveis em sua conta de armaze
 - Se tiver dúvidas sobre o fluxo de trabalho de importação/exportação do Azure, consulte este [artigo](../storage-import-export-service.md).
 - Consulte a seção “Backup Offline” das [perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure se tiver dúvidas sobre o fluxo de trabalho
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
+	ms.date="07/16/2015"
 	ms.author="antonba"/>
 
 # Como configurar conexões VPN no Gerenciamento de API do Azure
@@ -67,4 +67,4 @@ Depois que o serviço de Gerenciamento de API é conectado à VPN, acessar servi
 [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

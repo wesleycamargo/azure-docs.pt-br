@@ -15,4 +15,4 @@ O Gerenciador de Conexões Híbridas permite que seu computador local se conecte
 
 A configuração da conexão híbrida agora está concluída.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

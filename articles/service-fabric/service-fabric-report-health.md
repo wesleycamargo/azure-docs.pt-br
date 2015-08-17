@@ -79,7 +79,7 @@ var fabricClient = new FabricClient(clientSettings);
 Os mesmos parâmetros podem ser especificados na criação de uma conexão com um cluster por meio do Powershell. Veja abaixo o início de uma conexão com um cluster local:
 
 ```powershell
-PS C:> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
+PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
 True
 
 ConnectionEndpoint   :
@@ -181,9 +181,9 @@ Os usuários podem enviar relatórios de integridade com Send-ServiceFabric*Enti
 O exemplo a seguir mostra um relatório periódico sobre valores de CPU em um nó. Os relatórios devem ser enviados a cada 30 segundos e têm uma TTL de 2 minutos. Se eles expirarem, isso significa que o relator está com problemas, de modo que o nó é avaliado com erro. Quando a CPU está acima de um limite, o relatório apresenta o estado de integridade Aviso, se a CPU estiver acima do limite por mais do que o tempo configurado, ela será relatada como Erro. Caso contrário, o relator enviará OK.
 
 ```powershell
-PS C:> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
+PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
@@ -218,13 +218,13 @@ HealthEvents          :
 O exemplo a seguir relata um Aviso transitório em uma réplica. Em primeiro lugar, é obtida a ID da partição e a ID da réplica para o serviço de interesse, em seguida, um relatório é enviado de PowershellWatcher na propriedade ResourceDependency. O relatório é de interesse apenas por 2 minutos, e será automaticamente removido do repositório.
 
 ```powershell
-PS C:> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
+PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
 
-PS C:> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
+PS C:\> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
 
-PS C:> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
+PS C:\> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
 
-PS C:> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
+PS C:\> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
 
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
@@ -274,4 +274,4 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 [Atualização de aplicativo da Malha de Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -126,16 +126,16 @@ Use o procedimento a seguir duas vezes, uma vez para cada SQL Server, para confi
 6.	Clique em **OK** para fechar a janela.
 7.	No painel esquerdo, expanda a **pasta Segurança**.
 8.	Clique com o botão direito em **Logons** e clique em **Novo logon**.
-9.	Em **Nome de logon**, digite *domínio*\\sp_farm_db em (no qual *domínio* é o nome do domínio no qual a conta sp_farm_db foi criada).
+9.	Em **Nome de logon**, digite *domínio*\\sp\_farm\_db em (no qual *domínio* é o nome do domínio no qual a conta sp\_farm\_db foi criada).
 10.	Em **Selecionar uma página**, clique em **Funções de Servidor**, em **sysadmin** e em **OK**.
 11.	Feche o SQL Server 2014 Management Studio.
 
-Use o procedimento a seguir duas vezes, uma vez para cada SQL Server, para permitir conexões de área de trabalho remota usando a conta sp_farm_db.
+Use o procedimento a seguir duas vezes, uma vez para cada SQL Server, para permitir conexões de área de trabalho remota usando a conta sp\_farm\_db.
 
 1.	Na tela inicial, clique **Este PC** e em **Propriedades**.
 2.	Na janela **Sistema**, clique em **Configurações Remotas**.
 3.	Na seção **Área de Trabalho Remota**, clique em **Selecionar Usuários** e, em seguida, clique em **Adicionar**.
-4.	Em **Digite os nomes de objetos a serem selecionados **, digite [domínio]**\\sp_farm_db** e clique em **OK** três vezes.
+4.	Em **Digite os nomes de objetos a serem selecionados **, digite [domínio]**\\sp\_farm\_db** e clique em **OK** três vezes.
 
 O SQL Server exige uma porta que os clientes usem para acessar o servidor de banco de dados. Ele também precisa de portas para se conectar com o SQL Server Management Studio e gerenciar o grupo de alta disponibilidade. Em seguida, execute o seguinte comando em um prompt de comando de nível de administrador do Windows PowerShell duas vezes, uma vez para cada SQL Server, para adicionar uma regra de firewall que permita o tráfego de entrada para o SQL Server.
 
@@ -167,7 +167,7 @@ Para os computadores do SQL Server e o nó principal do cluster, execute o segui
 
 Devido ao comportamento atual não compatível com RFC do DHCP no Azure, a criação de um Cluster de Failover do Windows Server (WSFC) pode falhar. Para obter detalhes, procure por "Comportamento do cluster do WSFC no sistema de rede do Azure" em Alta disponibilidade e recuperação de desastres para o SQL Server em máquinas virtuais do Azure. No entanto, há uma solução alternativa. Use as etapas a seguir para criar o cluster:
 
-1.	Faça logon na máquina virtual primária do SQL Server com a conta **sp_install**.
+1.	Faça logon na máquina virtual primária do SQL Server com a conta **sp\_install**.
 2.	Na tela inicial, digite **Failover** e clique em **Gerenciador de Cluster de Failover**.
 3.	No painel esquerdo, clique com botão direito **Gerenciador de Cluster de Failover** e, em seguida, clique em **Criar Cluster**.
 4.	Na página Antes de Começar, clique em **Avançar**.
@@ -197,7 +197,7 @@ A próxima etapa é habilitar os Grupos de Disponibilidade AlwaysOn usando o SQL
 
 Use essas etapas para habilitar Grupos de Disponibilidade AlwaysOn no SQL Server.
 
-1.	Faça logon no SQL Server primário usando a conta **sp_farm_db** ou outra conta que tenha a função de servidor sysadmin no SQL Server.
+1.	Faça logon no SQL Server primário usando a conta **sp\_farm\_db** ou outra conta que tenha a função de servidor sysadmin no SQL Server.
 2.	Na tela inicial, digite **Configuração do SQL Server** e, em seguida, clique em **SQL Server Configuration Manager**.
 3.	No painel esquerdo, clique em **Serviços do SQL Server**.
 4.	No painel de conteúdo, clique duas vezes em **SQL Server (MSSQLSERVER)**.
@@ -226,4 +226,4 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 4: conf
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
    pageTitle="Tutorial do Hadoop: Introdução ao Hadoop no Windows | Microsoft Azure"
    description="Introdução ao Hadoop no HDInsight. Saiba como provisionar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -163,7 +162,7 @@ Agora que você provisionou um cluster HDInsight, a próxima etapa é executar u
 
     ![Hora de Início do Trabalho listada na guia Histórico de Trabalhos do painel do cluster HDInsight.][img-hdi-dashboard-query-select-result-output]
 
-    A página também mostra a **Saída do Trabalho** e o **Log do Trabalho**. Além disso, você tem a opção de baixar o arquivo de saída (_stdout) e o arquivo de log (_stderr).
+    A página também mostra a **Saída do Trabalho** e o **Log do Trabalho**. Além disso, você tem a opção de baixar o arquivo de saída (\_stdout) e o arquivo de log (\_stderr).
 
 
 **Para navegar até o arquivo de saída**
@@ -276,4 +275,4 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

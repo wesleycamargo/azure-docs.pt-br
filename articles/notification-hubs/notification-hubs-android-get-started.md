@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
@@ -31,7 +31,7 @@ Este tutorial demonstra o simples cenário de transmissão usando Hubs de Notifi
 Este tutorial exige o seguinte:
 
 + Android Studio, que você pode baixar <a href="http://go.microsoft.com/fwlink/?LinkId=389797">daqui</a>
-+ Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais sobre hubs de notificação para aplicativos do Android.
@@ -106,7 +106,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	Atualize os três espaços reservados: * **SENDER_ID**: defina a `SENDER_ID` como o Número do Projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [Portal de Gerenciamento do Azure]. * **HubName**: o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a url completa). Por exemplo: `"myhub"`.
+	Atualize os três espaços reservados: * **SENDER\_ID**: defina a `SENDER_ID` como o Número do Projeto obtido anteriormente do projeto criado no [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para seu hub. Você pode copiar essa cadeia de conexão clicando em **Exibir Cadeia de Conexão** na guia **Painel** de seu hub no [Portal de Gerenciamento do Azure]. * **HubName**: o nome do seu hub de notificação que aparece na parte superior da página do Azure para o hub (**não** é a url completa). Por exemplo: `"myhub"`.
 
 
 
@@ -259,7 +259,7 @@ Você pode testar o recebimento de notificações em seu aplicativo ao enviar no
 
 ![][31]
 
-1. Na Exibição de Projeto do Android Studio, expanda **Aplicativo**->**src**->**main**->**res**->**layout**. Abra o arquivo de layout **activity_main.xml** e clique na guia **Texto** para atualizar o conteúdo do texto do arquivo. Atualize-o com o código abaixo que adiciona um novo controle `Button` e `EditText` para o envio de mensagens de notificação para o hub de notificação. Adicione este código na parte inferior imediatamente antes de `</RelativeLayout>`.
+1. Na Exibição de Projeto do Android Studio, expanda **App**->**src**->**main**->**res**->**layout**. Abra o arquivo de layout **activity\_main.xml** e clique na guia **Texto** para atualizar o conteúdo do texto do arquivo. Atualize-o com o código abaixo que adiciona um novo controle `Button` e `EditText` para o envio de mensagens de notificação para o hub de notificação. Adicione este código na parte inferior imediatamente antes de `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@ Você pode testar o recebimento de notificações em seu aplicativo ao enviar no
 ##Testando seu aplicativo
 
 ####Testando no emulador
-Se você quiser testar no emulador, verifique se a sua imagem de emulador dá suporte ao nível de API do Google escolhido para o seu aplicativo. Se a imagem não oferecer suporte às APIs do Google, você acabará com a exceção **SERVICE_NOT_AVAILABLE**.
+Se você quiser testar no emulador, verifique se a sua imagem de emulador dá suporte ao nível de API do Google escolhido para o seu aplicativo. Se a imagem não oferecer suporte às APIs do Google, você acabará com a exceção **SERVICE\_NOT\_AVAILABLE**.
 
-Verifique também se você adicionou sua conta do Google ao seu emulador em execução sob **Configurações**->**Contas**. Caso contrário, suas tentativas de se registrar no GCM podem resultar na exceção **AUTHENTICATION_FAILED**.
+Verifique também se você adicionou sua conta do Google ao seu emulador em execução sob **Configurações**->**Contas**. Caso contrário, suas tentativas de se registrar no GCM podem resultar na exceção **AUTHENTICATION\_FAILED**.
 
 ####Testando o aplicativo     
 
@@ -511,4 +511,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Usar Hubs de Notificação para enviar notícias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

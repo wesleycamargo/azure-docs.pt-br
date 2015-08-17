@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="apwestgarth"/>
 
 # White paper Ofertas de Aplicativos Web do Serviço de Aplicativo do Azure para Enterprise #
@@ -32,7 +32,7 @@ O Aplicativos Web do Serviço de Aplicativo é uma plataforma ideal para hospeda
 
 ## Definição do problema ##
 
-O cenário de TI está mudando rapidamente, com uma migração da hospedagem em servidores tradicionais com seus custos de capital altos nos tempos de entrega a longo prazo para uma que utiliza o uso sob demanda de serviços que é dimensionado automaticamente para tratar da carga. Os departamentos de TI estão sendo desafiados a reduzir os custos e requisitos de infraestrutura e de manutenção gastos com foco na redução de CAPEX enquanto aumentam a agilidade. O fim da vida útil eminente de plataformas mais antigas de infraestrutura, como o Windows Server 2003, está levando os departamentos de TI a revisar a migração em nuvem como uma possível maneira de evitar os custos de capital novo de longo prazo. No passado, os CIOs faziam as decisões de compra para outros departamentos, porém, cada vez mais, os CMOs e outros diretores de unidade de negócios estão adotando um papel mais ativo em como seu orçamento é gasto e qual é o retorno sobre o investimento. Cada vez mais, as empresas precisam que sua força de trabalho tenha muito mais mobilidade com funcionários trabalhando remotamente, passando mais tempo com clientes que precisam de acesso a sistemas sem complicações.
+O cenário de TI está mudando rapidamente, com uma migração da hospedagem em servidores tradicionais com seus custos de capital altos nos tempos de entrega a longo prazo para uma que utiliza o uso sob demanda de serviços que é dimensionado automaticamente para tratar da carga. Os departamentos de TI estão sendo desafiados a reduzir os custos e requisitos de infraestrutura e de manutenção gastos com foco na redução de CAPEX enquanto aumentam a agilidade. O fim da vida útil de plataformas mais antigas de infraestrutura, como o Windows Server 2003, está levando os departamentos de TI a revisar a migração na nuvem como uma possível maneira de evitar os custos de capital novo de longo prazo. No passado, os CIOs faziam as decisões de compra para outros departamentos, porém, cada vez mais, os CMOs e outros diretores de unidade de negócios estão adotando um papel mais ativo em como seu orçamento é gasto e qual é o retorno sobre o investimento. Cada vez mais, as empresas precisam que sua força de trabalho tenha muito mais mobilidade com funcionários trabalhando remotamente, passando mais tempo com clientes que precisam de acesso a sistemas sem complicações.
 
 Necessidades dos negócios mudam mensalmente, semanalmente, diariamente. As empresas estão buscando escala global instantânea com serviços atualizados regulares e completos dos novos recursos, fornecidos por terceiros ou internamente. Os usuários têm expectativas mais elevadas, muitos deles já usam serviços em suas vidas particulares, como o Office365. Eles esperam ter acesso a serviços com recursos avançados, semelhantes e atualizados em sua rotina de trabalho. Para lidar com essa demanda, o departamento de TI deve ajudar os negócios para permitir isso através da seleção e integração com serviços de terceiros, a seleção cuidadosa de plataformas que podem se adaptar às necessidades comerciais e, ao mesmo tempo, confiáveis e com um menor custo total de propriedade.
 
@@ -153,4 +153,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

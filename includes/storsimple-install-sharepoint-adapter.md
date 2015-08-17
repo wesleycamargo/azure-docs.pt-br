@@ -1,3 +1,4 @@
+
 #### Para instalar o Adaptador StorSimple para SharePoint
 
 1. Copie o instalador para o servidor WFE (Web front-end) que também está configurado para executar o aplicativo Web da Administração Central do SharePoint. 
@@ -24,4 +25,4 @@
 
 8. Vá para a próxima etapa: [Configurar RBS](#configure-rbs).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

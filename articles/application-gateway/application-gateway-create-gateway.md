@@ -56,7 +56,7 @@ Existe uma ordem de etapas que você precisará seguir para criar um Application
 O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede denominada "subnet-1":
 
     
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -73,7 +73,7 @@ O exemplo a seguir mostra como criar um novo Application Gateway usando uma rede
 
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   : 
 	VnetName      : testvnet1
@@ -202,7 +202,7 @@ O exemplo a seguir mostra como usar um arquivo de configuração configurando o 
 Em seguida, você vai configurar o gateway de aplicativo. Você usará o cmdlet `Set-AzureApplicationGatewayConfig` com um arquivo XML de configuração.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -222,57 +222,57 @@ Crie todos os itens de configuração individuais:
 
 Crie o IP front-end:
 
-	PS C:> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration 
-	PS C:> $fip.Name = "fip1" 
-	PS C:> $fip.Type = "Private" 
-	PS C:> $fip.StaticIPAddress = "10.0.0.5" 
+	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration 
+	PS C:\> $fip.Name = "fip1" 
+	PS C:\> $fip.Type = "Private" 
+	PS C:\> $fip.StaticIPAddress = "10.0.0.5" 
 
 Crie a porta front-end:
 	
-	PS C:> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort 
-	PS C:> $fep.Name = "fep1" 
-	PS C:> $fep.Port = 80
+	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort 
+	PS C:\> $fep.Name = "fep1" 
+	PS C:\> $fep.Port = 80
 	
 Crie o pool de servidores back-end:
 
  Defina os endereços IP que serão adicionados ao pool de servidores back-end:
 
 
-	PS C:> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
-	PS C:> $servers.Add("10.0.0.1") 
-	PS C:> $servers.Add("10.0.0.2")
+	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
+	PS C:\> $servers.Add("10.0.0.1") 
+	PS C:\> $servers.Add("10.0.0.2")
 
  Usando o objeto $server, adicione os valores ao objeto do pool de back-end ($pool)
 
-	PS C:> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
-	PS C:> $pool.BackendServers = $servers 
-	PS C:> $pool.Name = "pool1"
+	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
+	PS C:\> $pool.BackendServers = $servers 
+	PS C:\> $pool.Name = "pool1"
 
 Crie a configuração do pool de servidores back-end
 
-	PS C:> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings 
-	PS C:> $setting.Name = "setting1" 
-	PS C:> $setting.CookieBasedAffinity = "enabled" 
-	PS C:> $setting.Port = 80 
-	PS C:> $setting.Protocol = "http"
+	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings 
+	PS C:\> $setting.Name = "setting1" 
+	PS C:\> $setting.CookieBasedAffinity = "enabled" 
+	PS C:\> $setting.Port = 80 
+	PS C:\> $setting.Protocol = "http"
 
 Crie o ouvinte
 
-	PS C:> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener 
-	PS C:> $listener.Name = "listener1" 
-	PS C:> $listener.FrontendPort = "fep1" 
-	PS C:> $listener.FrontendIP = "fip1" 
-	PS C:> $listener.Protocol = "http" 
-	PS C:> $listener.SslCert = ""
+	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener 
+	PS C:\> $listener.Name = "listener1" 
+	PS C:\> $listener.FrontendPort = "fep1" 
+	PS C:\> $listener.FrontendIP = "fip1" 
+	PS C:\> $listener.Protocol = "http" 
+	PS C:\> $listener.SslCert = ""
 
 Crie a regra
 
-	PS C:> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule 
-	PS C:> $rule.Name = "rule1" 
-	PS C:> $rule.Type = "basic" 
-	PS C:> $rule.BackendHttpSettings = "setting1" 
-	PS C:> $rule.Listener = "listener1" 
-	PS C:> $rule.BackendAddressPool = "pool1"
+	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule 
+	PS C:\> $rule.Name = "rule1" 
+	PS C:\> $rule.Type = "basic" 
+	PS C:\> $rule.BackendHttpSettings = "setting1" 
+	PS C:\> $rule.Listener = "listener1" 
+	PS C:\> $rule.BackendAddressPool = "pool1"
  
 ### Etapa 2
 
@@ -280,34 +280,34 @@ Atribua todos os itens de configuração individuais a um objeto de configuraç�
 
 Adicione o IP front-end à configuração
 
-	PS C:> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-	PS C:> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]" 
-	PS C:> $appgwconfig.FrontendIPConfigurations.Add($fip)
+	PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]" 
+	PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
  
 Adicione a porta front-end à configuração
 
-	PS C:> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]" 
-	PS C:> $appgwconfig.FrontendPorts.Add($fep)
+	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]" 
+	PS C:\> $appgwconfig.FrontendPorts.Add($fep)
 
 Adicione o pool de servidores back-end à configuração
 
-	PS C:> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]" 
-	PS C:> $appgwconfig.BackendAddressPools.Add($pool)  
+	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]" 
+	PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
 
 Adicione a configuração do pool back-end à configuração
 
-	PS C:> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]" 
-	PS C:> $appgwconfig.BackendHttpSettingsList.Add($setting) 
+	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]" 
+	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting) 
 
 Adicione o ouvinte à configuração
 
-	PS C:> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]" 
-	PS C:> $appgwconfig.HttpListeners.Add($listener)
+	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]" 
+	PS C:\> $appgwconfig.HttpListeners.Add($listener)
 
 Adicione a regra à configuração
 
-	PS C:> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]" 
-	PS C:> $appgwconfig.HttpLoadBalancingRules.Add($rule) 
+	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]" 
+	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule) 
 
 ### Etapa 3
 
@@ -324,7 +324,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicatio
 
 
 
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -338,7 +338,7 @@ Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. S
 
 Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -363,7 +363,7 @@ Para excluir um gateway de aplicativo, você precisará seguir este procedimento
 
 Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
 
-	PS C:> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -374,7 +374,7 @@ Este exemplo mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, s
 Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 
-	PS C:> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -385,7 +385,7 @@ Depois que o Application Gateway estiver em um estado Stopped, use o cmdlet `Rem
 Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureApplicationGateway`. Essa etapa não é necessária.
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -403,4 +403,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de Carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

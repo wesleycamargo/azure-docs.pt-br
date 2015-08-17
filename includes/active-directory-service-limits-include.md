@@ -10,4 +10,4 @@ Aqui estão as restrições de uso e outros limites de serviço para o serviço 
 | Painel de acesso | <ul><li>Há um limite para o número de aplicativos que podem ser vistos no Painel de Acesso por usuário final, para usuários com licenças para o Azure AD Premium ou o Enterprise Mobility Suite.</li><li>No máximo 10 blocos de aplicativos (exemplos: Box, Salesforce ou Dropbox) podem ser vistos no Painel de Acesso para cada usuário final, para usuários com licenças para edições gratuitas ou básicas do Azure AD do Active Directory do Azure. Esse limite não se aplica às contas de Administrador.</li></ul> |
 | Relatórios | Um máximo de 1.000 linhas podem ser exibidas ou baixadas em qualquer relatório. Todos os dados adicionais serão truncados. |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

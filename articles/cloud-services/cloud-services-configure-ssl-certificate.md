@@ -44,10 +44,10 @@ O certificado deve atender aos seguintes requisitos para certificados SSL no Azu
 
 -   O certificado deve conter uma chave privada.
 -   O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
--   O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ***.contoso.com** ou **www.contoso.com**.
+-   O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ****.contoso.com** ou **www.contoso.com**.
 -   O certificado deve usar, no mínimo, uma criptografia de 2048 bits.
 
-Para finalidades de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**. Para obter detalhes sobre como criar um certificado autoassinado usando o Gerenciador do IIS, consulte [Como criar um certificado para uma função][].
+Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
 
 Em seguida, você deve incluir informações sobre o certificado nos arquivos de definição e configuração do serviço.
 
@@ -117,7 +117,7 @@ Agora que os arquivos de definição e configuração do serviço foram atualiza
 O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o Portal de Gerenciamento.
 
 1. Faça logon no [Portal de Gerenciamento do Azure][]. 
-2. Clique em **Serviços de nuvem** no painel de navegação à esquerda.
+2. Clique em **Serviços de Nuvem** no painel de navegação à esquerda.
 3. Clique no serviço de nuvem desejado.
 4. Clique na guia **Certificados**.
 
@@ -127,7 +127,7 @@ O pacote de implantação foi atualizado para usar o certificado, e um ponto de 
 
     ![Carregar](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. Forneça o **Arquivo** e a **Senha** e depois clique em **Concluir**(a marca de seleção).
+6. Forneça o **Arquivo**, a **Senha** e depois clique em **Concluir**(a marca de seleção).
 
 ## Etapa 4: Conectar-se à instância da função usando HTTPS
 
@@ -152,4 +152,4 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

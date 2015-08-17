@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar uma experiência simples no Studio de Aprendizado de Máquina | Microsoft Azure"
-	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure."
+	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure." 
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -67,7 +67,7 @@ Para ver a aparência dos dados, clique na porta de saída na parte inferior do 
 
 ![Visualização de conjunto de dados][screen1b]
 
-Feche a janela de visualização clicando no “\*\*x\*\*” no canto superior direito.
+Feche a janela de visualização clicando no "**x**" no canto superior direito.
 
 ## Etapa 2: Pré-processar dados
 
@@ -232,4 +232,4 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

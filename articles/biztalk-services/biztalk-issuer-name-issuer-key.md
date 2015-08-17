@@ -55,7 +55,7 @@ Você também pode selecionar **Abrir Portal de Gerenciamento ACS** para recuper
 
 No painel de navegação à esquerda, você também pode selecionar **Active Directory** para recuperar os valores do Controle de Acesso.
 
-> [AZURE.IMPORTANT]Quando o namespace do Controle de Acesso é criado usando o <strong>Active Directory</strong>, uma Identidade de Serviço **não** é criada automaticamente. Quando você provisiona um Serviço BizTalk, um Namespace de Controle de Acesso, uma Identidade de Serviço chamada "proprietário" (Nome do Emissor), uma Senha (Chave do Emissor) e uma Chave Simétrica são criados automaticamente.<br /> [Como usar o Serviço de Gerenciamento do ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornece mais informações sobre identidades de serviço do Controle de Acesso.
+> [AZURE.IMPORTANT]Quando o namespace do Controle de Acesso é criado usando o **Active Directory**, uma Identidade de Serviço **não** é criada automaticamente. Quando você provisiona um Serviço BizTalk, um Namespace de Controle de Acesso, uma Identidade de Serviço chamada "proprietário" (Nome do Emissor), uma Senha (Chave do Emissor) e uma Chave Simétrica são criados automaticamente.<br /> [Como usar o Serviço de Gerenciamento do ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942) fornece mais informações sobre identidades de serviço do Controle de Acesso.
 
 
 ## Nome e chave do emissor do Barramento de Serviço
@@ -86,4 +86,4 @@ Tópicos adicionais sobre Serviços BizTalk do Azure:
 - [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

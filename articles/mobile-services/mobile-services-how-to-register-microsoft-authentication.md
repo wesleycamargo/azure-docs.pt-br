@@ -107,4 +107,4 @@ O serviço móvel e o seu aplicativo agora estão configurados para trabalhar co
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

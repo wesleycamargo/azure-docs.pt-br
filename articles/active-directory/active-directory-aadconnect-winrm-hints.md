@@ -45,4 +45,4 @@ Ao usar o Azure AD Connect para implantar Serviços de Federação do Active Dir
 * [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

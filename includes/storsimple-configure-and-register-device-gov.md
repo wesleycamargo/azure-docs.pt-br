@@ -1,3 +1,4 @@
+
 ### Para configurar e registrar o dispositivo
 
 1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
@@ -89,7 +90,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    Você verá uma mensagem de confirmação. Aceite o padrão (\*\*Y\*\*).
+    Você verá uma mensagem de confirmação. Aceite o padrão (**Y**).
 
 11. Execute o seguinte cmdlet para retomar a instalação:
 
@@ -132,4 +133,4 @@
      
         
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -24,9 +24,9 @@ Como esperado, o SQL Data Warehouse oferece suporte a todas as propriedades de t
 O SQL Data Warehouse implementa transações ACID. No entanto, o isolamento do suporte transacional é limitado a `READ UNCOMMITTED` e isso não pode ser alterado. Você pode implementar diversos métodos de codificação para impedir leituras sujas de dados, se isso for importante para você. Os métodos mais populares utilizam CTAS e a alternância de partição de tabela (normalmente conhecida como padrão de janela deslizante) para impedir que os usuários consultem dados que ainda estejam sendo preparados. Modos de exibição que filtram previamente os dados também são uma abordagem popular.
 
 ## Estado da transação
-O SQL Data Warehouse usa a função XACT_STATE() para relatar uma transação com falha usando o valor -2. Isso significa que a transação falhou e está marcada para reversão somente
+O SQL Data Warehouse usa a função XACT\_STATE() para relatar uma transação com falha usando o valor -2. Isso significa que a transação falhou e está marcada para reversão somente
 
-> [AZURE.NOTE]O uso de -2 pela função XACT_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, SELECT 1/0 poderia causar um erro mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, em SQLDW, este não é o caso. Se ocorrer um erro dentro de uma transação SQLDW, ele irá inserir automaticamente o estado de-2: incluindo os erros SELECT 1/0. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT_STATE().
+> [AZURE.NOTE]O uso de -2 pela função XACT\_STATE para denotar uma transação com falha representa um comportamento diferente para o SQL Server. O SQL Server usa o valor -1 para representar uma transação não confirmável. O SQL Server consegue tolerar alguns erros dentro de uma transação sem precisar ser marcado como não confirmável. Por exemplo, SELECT 1/0 poderia causar um erro mas não forçar uma transação em um estado não confirmável. O SQL Server também permite leituras na transação não confirmável. No entanto, em SQLDW, este não é o caso. Se ocorrer um erro dentro de uma transação SQLDW, ele irá inserir automaticamente o estado de-2: incluindo os erros SELECT 1/0. Portanto, é importante verificar se o código do aplicativo para ver se ele usa XACT\_STATE().
 
 No SQL Server, talvez você veja um fragmento de código com esta aparência:
 
@@ -81,8 +81,8 @@ SELECT @xact;
 
 Observe que a reversão da transação deve ocorrer antes da leitura das informações de erro no bloco `CATCH`.
 
-## Função Error_line()
-Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Consulte o artigo [rótulos de consulta] para obter mais detalhes sobre esse recurso.
+## Função Error\_line()
+Também vale a pena observar que o SQL Data Warehouse não implementa ou aceita a função ERROR\_LINE(). Se você tiver isso em seu código, você precisará removê-lo para que seja compatível com o SQL Data Warehouse. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Consulte o artigo [rótulos de consulta] para obter mais detalhes sobre esse recurso.
 
 ## Uso de THROW e RAISERROR
 THROW é a implementação mais moderna para lançar exceções no SQL Data Warehouse, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
@@ -112,4 +112,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

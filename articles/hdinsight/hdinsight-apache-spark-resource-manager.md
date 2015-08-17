@@ -79,4 +79,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

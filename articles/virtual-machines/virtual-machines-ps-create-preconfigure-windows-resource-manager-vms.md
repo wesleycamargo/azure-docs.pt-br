@@ -153,7 +153,7 @@ O índice de sub-rede é o número da sub-rede na exibição deste comando. A nu
 
 Para este exemplo:
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
 
 	Subnets
 	-------
@@ -311,7 +311,7 @@ Revise o conjunto de comandos do PowerShell do Azure criado em seu editor de tex
 
 Se os comandos estiverem em um editor de texto, copie o conjunto de comandos para a área de transferência e clique com o botão direito do mouse no prompt aberto do PowerShell do Azure. Isto emitirá o conjunto de comandos como uma série de comandos do PowerShell e criará sua máquina virtual do Azure. Como alternativa, execute o conjunto de comandos do ISE do PowerShell do Azure.
 
-Caso você queria criar essa máquina virtual novamente, ou uma semelhante, você poderá salvar esse conjunto de comandos como um arquivo de script do PowerShell (\*.ps1).
+Caso você queria criar essa máquina virtual novamente, ou uma semelhante, você poderá salvar esse conjunto de comandos como um arquivo de script do PowerShell (*.ps1).
 
 ## Exemplo
 
@@ -387,4 +387,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

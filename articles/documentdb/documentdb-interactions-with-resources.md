@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Interações RESTful com recursos do Banco de Dados de Documentos | Azure" 
+	pageTitle="Interações RESTful com recursos do Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como executar as interações RESTful com os recursos do Banco de Dados de Documentos do Microsoft Azure usando verbos HTTP." 
 	services="documentdb" 
 	authors="h0n" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
 # Interações RESTful com recursos do Banco de Dados de Documentos 
@@ -48,7 +48,7 @@ Conforme ilustrado no diagrama abaixo, POST só pode ser executado em um recurso
 ## Criar um novo recurso usando POST 
 Para entender melhor o modelo de interação, vamos considerar o caso de criar um novo recurso (também conhecido como INSERT). Para criar um novo recurso, você precisa emitir uma solicitação HTTP POST com o corpo da solicitação contendo a representação do recurso em relação ao URI do feed do contêiner ao qual o recurso pertence. A única propriedade exigida para a solicitação é a ID do recurso.
 
-Por exemplo, para criar um novo banco de dados, você lança (POST) um recurso de banco de dados (definindo a propriedade id com um nome exclusivo) em /dbs. Da mesma forma, para criar uma nova coleção, você lança (POST) um recurso de coleção em /dbs/\_rid/colls/e assim por diante. A resposta contém o recurso totalmente confirmado com as propriedades geradas pelo sistema, incluindo o link _self do recurso usando o que você pode navegar para outros recursos. Como exemplo do modelo de interação baseado no HTTP simples, um cliente pode emitir uma solicitação HTTP para criar um novo banco de dados dentro de uma conta. 
+Por exemplo, para criar um novo banco de dados, você lança (POST) um recurso de banco de dados (definindo a propriedade id com um nome exclusivo) em /dbs. Da mesma forma, para criar uma nova coleção, você lança (POST) um recurso de coleção em /dbs/\_rid/colls/e assim por diante. A resposta contém o recurso totalmente confirmado com as propriedades geradas pelo sistema, incluindo o link \_self do recurso usando o que você pode navegar para outros recursos. Como exemplo do modelo de interação baseado no HTTP simples, um cliente pode emitir uma solicitação HTTP para criar um novo banco de dados dentro de uma conta.
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -153,7 +153,7 @@ O serviço responde com os resultados da consulta SQL.
 
 
 ## Usando PUT, GET e DELETE
-Substituir ou ler uma quantidade de recursos para executar verbos PUT (com um corpo de solicitação válido) e GET no link _self do recurso, respectivamente. Do mesmo modo, excluir uma quantidade de recursos para executar um verbo DELETE no link _self do recurso. É válido destacar que a organização hierárquica de recursos no modelo de recursos do Banco de Dados de Documentos necessita de suporte para exclusões em cascata, em que a exclusão do recurso proprietário causa a exclusão dos recursos dependentes. Os recursos dependentes podem ser distribuídos em outros nós diferentes dos recursos proprietários e, desse modo, a exclusão pode ocorrer lentamente. Independentemente da mecânica da coleta de lixo, ao excluir um recurso, a cota é liberada instantaneamente e fica disponível para uso. Observe que a integridade referencial é preservada pelo sistema. Por exemplo, você não pode inserir uma coleção em um banco de dados que é excluído ou substituído nem consultar um documento de uma coleção que não existe mais. 
+Substituir ou ler uma quantidade de recursos para executar verbos PUT (com um corpo de solicitação válido) e GET no link \_self do recurso, respectivamente. Do mesmo modo, excluir uma quantidade de recursos para executar um verbo DELETE no link \_self do recurso. É válido destacar que a organização hierárquica de recursos no modelo de recursos do Banco de Dados de Documentos necessita de suporte para exclusões em cascata, em que a exclusão do recurso proprietário causa a exclusão dos recursos dependentes. Os recursos dependentes podem ser distribuídos em outros nós diferentes dos recursos proprietários e, desse modo, a exclusão pode ocorrer lentamente. Independentemente da mecânica da coleta de lixo, ao excluir um recurso, a cota é liberada instantaneamente e fica disponível para uso. Observe que a integridade referencial é preservada pelo sistema. Por exemplo, você não pode inserir uma coleção em um banco de dados que é excluído ou substituído nem consultar um documento de uma coleção que não existe mais.
  
 A execução de um GET em um feed de recursos ou a consulta de uma coleção pode, potencialmente, resultar em milhões de itens, tornando impraticável para o servidor materializá-los e para os clientes consumi-los como parte de uma única viagem de ida e volta/solicitação e troca de resposta. Para lidar com isso, o Banco de Dados de Documentos permite aos clientes paginar pelo feed grande com uma página por vez. Os clientes podem usar o cabeçalho de resposta [x-ms-continuation] como um cursor para navegar até a próxima página.
 
@@ -164,7 +164,7 @@ A maioria dos aplicativos Web confia na marca da entidade baseada no controle de
 2.	Se um cliente apresentar uma versão mais antiga do recurso (especificada pelo cabeçalho da solicitação [if-match]), a solicitação será rejeitada.  
 
 ## Opções de conectividade
-O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em que cada recurso tem um URI lógico e estável identificado pelo link _self. Como um sistema de armazenamento distribuído espalha-se pelas regiões, os recursos em várias contas do banco de dados no Banco de Dados de Documentos são particionados em inúmeros computadores e cada partição é replicada para alta disponibilidade. As réplicas que gerenciam os recursos de uma determinada partição registram endereços físicos. Enquanto os endereços físicos mudam com o tempo devido a falhas, seus endereços lógicos permanecem estáveis e constantes. A conversão do endereço lógico em físico é mantida em uma tabela de roteamento que também está disponível internamente como um recurso. O Banco de Dados de Documentos expõe dois modos de conectividade: 
+O Banco de Dados de Documentos expõe um modelo de endereçamento lógico, em que cada recurso tem um URI lógico e estável identificado pelo link \_self. Como um sistema de armazenamento distribuído espalha-se pelas regiões, os recursos em várias contas do banco de dados no Banco de Dados de Documentos são particionados em inúmeros computadores e cada partição é replicada para alta disponibilidade. As réplicas que gerenciam os recursos de uma determinada partição registram endereços físicos. Enquanto os endereços físicos mudam com o tempo devido a falhas, seus endereços lógicos permanecem estáveis e constantes. A conversão do endereço lógico em físico é mantida em uma tabela de roteamento que também está disponível internamente como um recurso. O Banco de Dados de Documentos expõe dois modos de conectividade:
 
 1.	**Modo de Gateway**: Os clientes são protegidos da conversão de endereços lógicos em físicos ou dos detalhes do roteamento; eles lidam apenas com URIs lógicos e navegam de maneira RESTful pelo modelo do recurso. Os clientes emitem as solicitações usando o URI lógico e os computadores de borda convertem o URI lógico para o endereço físico da réplica que gerencia o recurso e encaminha a solicitação. Com os computadores de borda fazendo caching (e atualização periódica) da tabela de roteamento, o roteamento é extremamente eficiente. 
 2.	**Modo de conectividade direta**: Os clientes gerenciam diretamente a tabela de roteamento no seu espaço de processamento e atualizam-na periodicamente. O cliente pode conectar-se diretamente a réplicas e ignorar os computadores de borda.   
@@ -262,4 +262,4 @@ Explore a [referência da API REST do Banco de Dados de Documentos do Azure](htt
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

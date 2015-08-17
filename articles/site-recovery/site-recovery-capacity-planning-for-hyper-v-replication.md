@@ -9,7 +9,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="06/01/2015"
@@ -120,11 +120,11 @@ Se você já tiver preparado um host Hyper-V autônomo como servidor de recupera
 
 	g. Na seção **Autorização e armazenamento**, especifique se deseja permitir que **qualquer** servidor autenticado (primário) envie dados de replicação para este servidor de réplica ou limitar a aceitação de determinados servidores primários. Você pode usar caracteres curinga para limitar a aceitação aos servidores de um determinado domínio sem ter de especificá-los individualmente (por exemplo, *.contoso.com).
 
-	h. Abra portas de firewall em todos os hosts de recuperação do Hyper-V: porta 443 (autenticação de certificado): Get-ClusterNode | ForEach-Object {Invoke-command - computername \\$_.name - scriptblock {Enable-Netfirewallrule - displayname "Ouvinte HTTPS da Réplica do Hyper-V (TCP-In)"}}
+	h. Abra portas de firewall em todos os hosts de recuperação do Hyper-V: porta 443 (autenticação de certificado): Get-ClusterNode | ForEach-Object {Invoke-command - computername \\$\_.name - scriptblock {Enable-Netfirewallrule - displayname "Ouvinte HTTPS da Réplica do Hyper-V (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
-              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
+              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
 
 
 ## Etapa 3: Executar a ferramenta de planejamento de capacidade
@@ -239,4 +239,4 @@ Para iniciar a implantação do ASR:
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

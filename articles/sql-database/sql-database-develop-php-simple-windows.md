@@ -62,7 +62,7 @@ Essa função **OpenConnection** é chamada próxima à parte superior em todas 
 
 ## Executar uma consulta e recuperar o conjunto de resultados
 
-A função [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e o objeto de conexão e retorna um conjunto de resultados que pode ser iterado com o uso de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e o objeto de conexão e retorna um conjunto de resultados que pode ser iterado com o uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -126,11 +126,11 @@ No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/libra
 
 Este exemplo de código demonstra o uso de transações nas quais você:
 
-- Inicia uma transação
+\- Inicia uma transação
 
--Inserir uma linha de dados, outra linha de dados de atualização
+\-Inserir uma linha de dados, outra linha de dados de atualização
 
--Confirmar a transação se a inserção e a atualização tiverem sido bem-sucedidas e reverter a transação se uma delas tiver falhado
+\-Confirmar a transação se a inserção e a atualização tiverem sido bem-sucedidas e reverter a transação se uma delas tiver falhado
 
 
 	function Transactions()
@@ -180,4 +180,4 @@ Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Banco
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

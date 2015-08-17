@@ -452,4 +452,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

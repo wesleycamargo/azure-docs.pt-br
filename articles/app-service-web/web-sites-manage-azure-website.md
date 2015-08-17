@@ -3,7 +3,7 @@
 	description="Links para recursos para gerenciar um aplicativo Web no Serviço de Aplicativo do Azure." 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="07/31/2015" 
+	ms.author="erikre"/>
 
 # Gerenciar um aplicativo Web no Serviço de Aplicativo do Azure
 
@@ -103,4 +103,4 @@ Se você usar o Visual Studio Online, é possível configurar a implantação co
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de Cache Inteligente dos Atores da Malha do Serviço do Azure"
-   description="Padrão de design sobre como usar os Atores da Malha do Serviço como infraestrutura de cache em aplicativos baseados na Web"
+   pageTitle="Padrão de design de cache inteligente de Atores Confiáveis"
+   description="Padrão de design sobre como usar os Atores Confiáveis como infraestrutura de armazenamento em cache em aplicativos baseados na Web"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Padrão de design de Atores da Malha do Serviço: cache inteligente
+# Padrão de design de Atores Confiáveis: cache inteligente
 A combinação de uma camada da Web, camada de cache, camada de armazenamento e, ocasionalmente, uma camada de trabalho, é quase uma parte padrão dos aplicativos de hoje. A camada de cache geralmente é essencial para o desempenho e pode, na verdade, ser composta por várias camadas em si. Muitos caches são pares simples de chave-valor, enquanto outros sistemas, como o [Redis](http://redis.io), são usados como caches que oferecem semântica mais rica. Ainda assim, qualquer camada de cache especial será limitada em semântica e, o mais importante, ainda é outra camada a ser gerenciada. E se, em vez disso, os objetos apenas mantivessem o estado em variáveis locais e esses objetos pudessem ser colocados em instantâneos ou persistidos em um repositório durável automaticamente? Além disso, as coleções avançadas, como listas, conjuntos classificados, filas e outros tipos personalizados para esse fim são simplesmente modelados como métodos e variáveis de membro.
 
 ![][1]
@@ -301,6 +301,5 @@ Basicamente, o Cache Inteligente fornece:
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

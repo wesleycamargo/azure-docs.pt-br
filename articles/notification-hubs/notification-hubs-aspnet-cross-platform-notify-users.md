@@ -112,4 +112,4 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 [Instruções sobre Hub de Notificação para a Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

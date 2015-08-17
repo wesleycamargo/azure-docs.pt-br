@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API | Microsoft Azure"
 	description="Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API."
-	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -38,7 +37,7 @@ Para concluir este guia, você precisa:
 
 * Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](http://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
 * Uma conta do AzureML. Se você não tiver uma conta do AzureML, clique [aqui](https://studio.azureml.net/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
-* O espaço de trabalho, o serviço e a api_key para um teste do AzureML publicada como um serviço Web. Clique [aqui](machine-learning/machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como publicar um teste do AzureML como um serviço Web. Como alternativa, o apêndice A tem instruções sobre como criar e testar um teste simples do AzureML e publicá-la como um serviço Web.
+* O espaço de trabalho, o serviço e a api\_key para um teste do AzureML publicada como um serviço Web. Clique [aqui](machine-learning/machine-learning-create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como publicar um teste do AzureML como um serviço Web. Como alternativa, o apêndice A tem instruções sobre como criar e testar um teste simples do AzureML e publicá-la como um serviço Web.
 
 ##Criar uma instância de Gerenciamento de API
 
@@ -72,7 +71,7 @@ Clique em **APIs** no menu **Gerenciamento de API** à esquerda e depois clique 
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Digite **AzureML demonstração API** como o **Nome da API Web**. Digite **https://ussouthcentral.services.azureml.net** como a **URL do serviço Web**. Digite **azureml-demo** como o **sufixo da URL da API Web**. Marque **HTTPS** como o esquema da **URL da API Web**. Selecione **Iniciador** como **Produto**. Quando terminar, clique em **Salvar** para criar a API.
+Digite **AzureML demonstração API** como o **Nome da API Web**. Digite ****https://ussouthcentral.services.azureml.net** como a **URL do serviço Web**. Digite **azureml-demo** como o **sufixo da URL da API Web**. Marque **HTTPS** como o esquema da **URL da API Web**. Selecione **Iniciador** como **Produto**. Quando terminar, clique em **Salvar** para criar a API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -200,11 +199,11 @@ Clique em **Sim** para publicar o teste.
 
 Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo a seguir, talvez seja necessário baixar e instalar o SDK do Azure para Python (consulte: [Como instalar Python](python-how-to-install.md)).
 
-Você também precisará do **espaço de trabalho**, do **serviço** e da **api_key** do seu teste para a fonte de exemplo abaixo. Você pode encontrar o espaço de trabalho e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o seu teste no painel de serviço Web.
+Você também precisará do **espaço de trabalho**, do **serviço** e da **api\_key** do seu teste para a fonte de exemplo abaixo. Você pode encontrar o espaço de trabalho e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o seu teste no painel de serviço Web.
 
 ![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-Você pode encontrar a **api_key** clicando no teste no painel de serviço Web.
+Você pode encontrar a **api\_key** clicando no teste no painel de serviço Web.
 
 ![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
 
@@ -228,7 +227,7 @@ Você verá algo semelhante a
 
 Outra maneira de testar seu RRS é do código cliente. Se você clicar em **Solicitação/resposta** no painel e rolar até o final, verá o código de exemplo para C#, Python e R. Também verá a sintaxe da solicitação RRS, incluindo o URI, os cabeçalhos e o corpo da solicitação.
 
-Este guia mostra um exemplo de trabalho do Python. Você precisará modificar com o **espaço de trabalho**, o **serviço** e a **api_key** do seu teste.
+Este guia mostra um exemplo de trabalho do Python. Você precisará modificar com o **espaço de trabalho**, o **serviço** e a **api\_key** do seu teste.
 
 	import urllib2
 	import json
@@ -260,7 +259,7 @@ Este guia mostra um exemplo de trabalho do Python. Você precisará modificar co
 ####Testar ponto de extremidade BES
 Clique em **Execução em lote** no painel e role até o final. Você verá o código de exemplo para C#, Python e R. Também verá a sintaxe das solicitações BES para enviar um trabalho, iniciar um trabalho, obter o status ou os resultados de um trabalho e excluir um trabalho.
 
-Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o **espaço de trabalho**, o **serviço** e a **api_key** do seu teste. Além disso, você precisa modificar o **nome da conta de armazenamento**, a **chave da conta de armazenamento** e o **nome do contêiner de armazenamento**. Por fim, você precisará modificar o local do **arquivo de entrada** e o local do **arquivo de saída**.
+Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o **espaço de trabalho**, o **serviço** e a **api\_key** do seu teste. Além disso, você precisa modificar o **nome da conta de armazenamento**, a **chave da conta de armazenamento** e o **nome do contêiner de armazenamento**. Por fim, você precisará modificar o local do **arquivo de entrada** e o local do **arquivo de saída**.
 
 	import urllib2
 	import json
@@ -384,4 +383,4 @@ Este guia mostra um exemplo de trabalho do Python. Você precisa modificar com o
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

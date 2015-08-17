@@ -78,7 +78,7 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 
 2. Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no emulador do iPhone, que é o padrão para este projeto.
 
-3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (\*\*+\*\*).
+3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (**+**).
 
 	![][10]
 
@@ -134,4 +134,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -55,7 +55,7 @@ A versão atual do Portal de Gerenciamento do Azure aceita apenas chaves públic
 ## Gerar uma chave com base em uma chave compatível com OpenSSH existente
 O exemplo anterior descreve como criar uma nova chave para ser usada com o Azure. Em alguns casos, talvez você já tenha um par de chaves OpenSSH públicas e privadas compatíveis existentes e queira usar as mesmas chaves com o Azure.
 
-As chaves privadas OpenSSH são diretamente legíveis pelo utilitário `openssl`. O seguinte comando usará uma chave privada SSH existente (id_rsa no exemplo abaixo) e criará a chave pública `.pem` necessária para o Azure:
+As chaves privadas OpenSSH são diretamente legíveis pelo utilitário `openssl`. O seguinte comando usará uma chave privada SSH existente (id\_rsa no exemplo abaixo) e criará a chave pública `.pem` necessária para o Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -133,14 +133,14 @@ Há vários utilitários que incluem um `openssl` para Windows. Alguns exemplos 
 
 ## Criar um PPK para Putty ##
 
-1. Baixe e instale o Puttygen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Baixe e instale o Puttygen do seguinte local: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Talvez o Puttygen não seja capaz de ler a chave privada criada anteriormente (`myPrivateKey.key`). Execute o comando a seguir para convertê-la em uma chave privada RSA legível para o Puttygen:
 
 		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
 		# chmod 600 ./myPrivateKey_rsa
 
-	O comando acima deve produzir uma nova chave privada chamada myPrivateKey_rsa.
+	O comando acima deve produzir uma nova chave privada chamada myPrivateKey\_rsa.
 
 3. Execute o `puttygen.exe`
 
@@ -163,7 +163,7 @@ Há vários utilitários que incluem um `openssl` para Windows. Alguns exemplos 
 
 ## Use Putty para se conectar a um computador Linux ##
 
-1.	Baixe e instale o putty do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	Baixe e instale o putty do seguinte local: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Execute putty.exe
 3.	Preencha o nome do host usando o IP do Portal de Gerenciamento:
 
@@ -176,4 +176,4 @@ Há vários utilitários que incluem um `openssl` para Windows. Alguns exemplos 
 5.	Clique em **Abrir** para se conectar a sua máquina virtual
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

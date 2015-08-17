@@ -64,4 +64,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

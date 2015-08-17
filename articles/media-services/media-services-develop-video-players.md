@@ -76,4 +76,4 @@ Para obter informações sobre o suporte à legendagem e a anúncios em vídeos 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

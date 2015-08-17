@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Classificando dados do Banco de Dados de Documentos usando Order By | Azure" 
+	pageTitle="Classificando dados do Banco de Dados de Documentos usando Order By | Microsoft Azure" 
 	description="Saiba como usar ORDER BY em consultas do Banco de Dados de Documentos em LINQ e SQL, e como especificar uma política de indexação para consultas de ORDER BY." 
 	services="documentdb" 
 	authors="arramac" 
@@ -86,7 +86,7 @@ Lembre-se de que o Banco de Dados de Documentos dá suporte a dois tipos de índ
 Para obter mais detalhes, consulte [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
 
 ### Indexação de Order By em relação a todas as propriedades
-Aqui está como você pode criar uma coleção com indexação "Todos os Intervalos" para Order By em todas as propriedades numéricas ou de cadeia de caracteres que aparecem em documentos JSON dentro dela. Aqui, "/ \*" representa todas as propriedades JSON/caminhos dentro da coleção e -1 representa a precisão máxima.
+Aqui está como você pode criar uma coleção com indexação "Todos os Intervalos" para Order By em todas as propriedades numéricas ou de cadeia de caracteres que aparecem em documentos JSON dentro dela. Aqui, "/ *" representa todas as propriedades JSON/caminhos dentro da coleção e -1 representa a precisão máxima.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -160,7 +160,8 @@ Order By pode ser especificado somente em uma propriedade, seja de valores numé
 
 Não é possível executar o seguinte:
  
-- Order By com propriedades de cadeia de caracteres interna, como id, _rid e _self (em breve). - Order By com propriedades derivadas do resultado de uma junção intradocumento (em breve).
+- Order By com propriedades de cadeia de caracteres interna, como id, \_rid e \_self (em breve).
+- Order By com propriedades derivadas do resultado de uma junção intradocumento (em breve).
 - Order By com múltiplas propriedades (em breve).
 - Order By com consultas em bancos de dados, coleções, usuários, permissões ou anexos (em breve).
 - Order By com as propriedades calculadas, por exemplo, o resultado de uma expressão ou uma função UDF/incorporada.
@@ -176,4 +177,4 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

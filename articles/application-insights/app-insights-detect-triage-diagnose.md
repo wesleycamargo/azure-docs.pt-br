@@ -4,15 +4,15 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Detectar, realizar triagem e diagnosticar com o Application Insights
@@ -48,7 +48,7 @@ O Application Insights funciona para aplicativos de dispositivos e aplicativos W
 ## Detectar baixa disponibilidade
 
 
-Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]:
+Marcela Markova é especialista em testes da equipe de OBS e assume a liderança no monitoramento de desempenho online. Ela define vários [testes da Web][availability]\:
 
 * Um teste de URL única para a página de aterrissagem principal para o aplicativo, http://fabrikambank.com/onlinebanking/. Ela define os critérios de código HTTP 200 e o texto “Bem-vindo!”. Se esse teste falhar, há algum problema sério com a rede ou os servidores, ou talvez um problema de implantação. (Ou alguém alterou a mensagem “bem-vindo!” na página sem informá-la.)
 
@@ -59,7 +59,7 @@ Marcela Markova é especialista em testes da equipe de OBS e assume a liderança
 Com esses testes configurados, Marcela está confiante de que a equipe saberá rapidamente sobre qualquer interrupção.
 
 
-Falhas aparecem como pontos vermelhos no gráfico de visão geral do teste da Web:
+Falhas aparecem como pontos vermelhos no gráfico de teste da Web:
 
 ![Exibição de testes da Web que foram executados durante o período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,22 +70,21 @@ Mas o mais importante, um alerta sobre qualquer falha será enviado por email à
 ## Monitorar métricas de desempenho
 
 
-Na mesma página de visão geral do gráfico de disponibilidade, há um gráfico que mostra uma variedade de [principais métricas][perf].
-
+Na mesma página de visão geral do Application Insights, há um gráfico que mostra as [principais métricas][perf].
 
 ![Métricas diversas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-O tempo de processamento do cliente é derivado da telemetria enviada diretamente por meio de páginas da Web. Os outros mostram métricas calculadas em servidores Web.
+O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. Tempo de resposta do servidor, contagem de solicitação do servidor e contagem de solicitação com falha são todos medidos no servidor Web e enviadas ao Application Insights a partir daí.
 
 
 A contagem de solicitações com falha indica casos em que os usuários já viram um erro - geralmente após uma exceção lançada no código. Talvez eles vejam uma mensagem dizendo "Desculpe, não foi possível atualizar os detalhes agora" ou, na hipótese mais vergonhosa possível, um despejo de pilha na tela do usuário, cortesia do servidor Web.
 
 
-Marcela gosta de examinar esses gráficos de tempos em tempos. A tela de fundo constante com solicitações com falha é um pouco deprimente, mas ela está relacionada a um bug que a equipe está investigando, e portanto, deve diminuir quando a correção for liberada. Mas se houver um pico repentino em solicitações com falha ou em alguma das outras métricas, como tempo de resposta do servidor, Marcela que saber a respeito imediatamente. Isso pode indicar um problema imprevisto causado por um lançamento de código, ou uma falha em uma dependência como um banco de dados, ou ainda uma má reação a uma carga alta de solicitações.
+Marcela gosta de examinar esses gráficos de tempos em tempos. A ausência de solicitações com falha é animadora, apesar de que quando ela altera o intervalo do gráfico para cobrir a última semana, falhas ocasionais são exibidas. Esse é um nível aceitável em um servidor ocupado. Mas se houver um salto súbito em falhas ou em algumas das métricas, como tempo de resposta do servidor, Marcela quer saber imediatamente. Isso pode indicar um problema imprevisto causado por um lançamento de código, ou uma falha em uma dependência como um banco de dados, ou ainda uma má reação a uma carga alta de solicitações.
 
 #### Alertas
 
-Portanto, ela define dois [alertas][metrics]: um para tempos de resposta maiores que um limite típico e outro para uma taxa de solicitações com falha maior do que aquela na tela de fundo atual.
+Portanto, ela define dois [alertas][metrics]\: um para tempos de resposta maiores que um limite típico e outro para uma taxa de solicitações com falha maior do que aquela na tela de fundo atual.
 
 
 Junto com o alerta de disponibilidade, eles dão a certeza de que, assim que qualquer coisa incomum acontecer, ela saberá a respeito.
@@ -103,7 +102,7 @@ Também é possível definir alertas em uma grande variedade de outras métricas
 ## Detectando exceções
 
 
-Exceções são relatadas ao Application Insights chamando [TrackException()][api]:
+Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são relatadas ao Application Insights automaticamente. Elas podem também ser capturadas explicitamente inserindo chamadas para [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) no código:
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +143,20 @@ Exceções e eventos aparecem na folha [Pesquisa de diagnóstico][diagnostic]. V
 
 ![Na Pesquisa de diagnóstico, use filtros para exibir tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Monitoramento de eventos positivos
+## Monitorando a atividade do usuário
+
+Quando o tempo de resposta é constantemente bom com poucas exceções, a equipe de desenvolvimento pode pensar sobre como melhorar a experiência dos usuários e como encorajar mais usuários a atingir as metas desejadas.
 
 
-A equipe de desenvolvimento da Fabrikam deseja controlar coisas boas, tanto quanto aquelas desagradáveis. Em parte porque é bom saber quanto sucesso está ocorrendo e onde; e segundo porque é desagradável quando coisas boas param repentinamente de acontecer.
+Por exemplo, uma jornada típica do usuário no site tem um 'funil' claro: muitos clientes examinam as taxas de diferentes tipos de empréstimos; alguns deles preenchem o formulário de cotação; e daqueles que conseguem uma cotação, alguns vão em frente e pegam o empréstimo.
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Por exemplo, muitas viagens de usuário tem um bastante claro “funil”: muitos clientes examinam as taxas de diferentes tipos de empréstimo; alguns deles preenchem o formulário de cotação, e daqueles que recebem uma cotação, alguns vão em frente e tiram o empréstimo.
+Considerando onde os números maiores de clientes caem, a empresa pode trabalhar em como conseguir mais usuários na parte inferior do funil. Em alguns casos pode haver uma falha de experiência (UX) do usuário - por exemplo, o botão "Avançar" é difícil de encontrar ou as instruções não são óbvias. Provavelmente, existem motivos de negócio mais significativos para transferências de depósito: talvez as taxas de empréstimo são muito altas.
 
+Sejam quais forem as razões, os dados ajudam a equipe a descobrir o que os usuários estão fazendo. Mais chamadas de rastreamento podem ser inseridas para descobrir mais detalhes. TrackEvent() pode ser usado para a contagem de qualquer ação do usuário, dos muitos detalhes de cliques de botão individuais até realizações significativas como o pagamento de um empréstimo.
 
-A equipe de desenvolvimento insere chamadas TrackMetric() em cada estágio no funil. No Metrics Explorer, Brian, o arquiteto, pode comparar os valores de cada métrica para estimar com que sucesso o sistema está vendendo empréstimos.
-
-
-A especialista em experiência do usuário Úrsula também fica de olho nas métricas positivas. Se o gráfico mostra uma queda repentina em qualquer estágio no funil, isso indica que há algum problema lá. Talvez esteja difícil encontrar o botão certo, ou talvez o texto não seja muito estimulante. Ou talvez haja um bug: os usuários clicam no botão, mas nada acontece.
+A equipe está acostumando-se a ter informações sobre a atividade do usuário. Hoje em dia, sempre que criam um novo recurso, eles pensam como irão receber comentários sobre seu uso. Eles criam chamadas de rastreamento para o recurso desde o início. Eles usam os comentários para melhorar o recurso em cada ciclo de desenvolvimento.
 
 
 ## Monitoramento proativo  
@@ -260,4 +260,4 @@ Portanto, é assim que uma equipe usa o Application Insights não apenas para co
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

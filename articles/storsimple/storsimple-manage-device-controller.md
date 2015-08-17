@@ -221,4 +221,4 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 Se você tiver algum problema com os controladores de dispositivo StorSimple que não podem ser resolvidos usando os procedimentos listados neste tutorial, [Contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

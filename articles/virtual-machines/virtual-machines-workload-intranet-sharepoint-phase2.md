@@ -29,15 +29,15 @@ Primeiro, você precisa preencher a coluna **Nome da máquina virtual** da Tabel
 
 Item | Nome da máquina virtual | Imagem da galeria | Tamanho mínimo
 --- | --- | --- | ---
-1. | ______________ (primeiro controlador de domínio, por exemplo: DC1) | Windows Server 2012 R2 Datacenter | A2 (Médio)
-2. | ______________ (segundo controlador de domínio, por exemplo: DC2) | Windows Server 2012 R2 Datacenter | A2 (Médio)
-3. | ______________ (primeiro computador SQL Server, por exemplo: SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (segundo computador SQL Server, por exemplo: SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (testemunha do nó principal para o cluster, por exemplo: MN1) | Windows Server 2012 R2 Datacenter | A1 (Pequeno)
-6. | ______________ (primeiro servidor de aplicativos do SharePoint, por exemplo: APP1) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
-7. | ______________ (segundo servidor de aplicativos do SharePoint, por exemplo: APP2) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
-8. | ______________ (primeiro servidor Web do SharePoint, por exemplo: WEB1) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
-9. | ______________ (segundo servidor Web do SharePoint, por exemplo: WEB2) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primeiro controlador de domínio, por exemplo: DC1) | Windows Server 2012 R2 Datacenter | A2 (Médio)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo controlador de domínio, por exemplo: DC2) | Windows Server 2012 R2 Datacenter | A2 (Médio)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primeiro computador SQL Server, por exemplo: SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo computador SQL Server, por exemplo: SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (testemunha do nó principal para o cluster, por exemplo: MN1) | Windows Server 2012 R2 Datacenter | A1 (Pequeno)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primeiro servidor de aplicativos do SharePoint, por exemplo: APP1) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo servidor de aplicativos do SharePoint, por exemplo: APP2) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primeiro servidor Web do SharePoint, por exemplo: WEB1) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo servidor Web do SharePoint, por exemplo: WEB2) | Avaliação do Microsoft SharePoint Server 2013 – Windows Server 2012 R2 | A4 (Extra grande)
 
 **Tabela M: Máquinas virtuais para o farm de intranet do SharePoint 2013 no Azure**
 
@@ -113,7 +113,7 @@ Faça logon no primeiro computador do controlador de domínio usando as credenci
 5.	A caixa de diálogo do navegador será exibida com a pergunta: "Deseja abrir ou salvar ComputerName.rdp de manage.windowsazure.com?" Clique em **Abrir**.
 6.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Conectar**.
 7.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
-8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato:*NomeDoComputador*\\*NomeDeContaDoAdministradorLocal*
+8.	Em **Nome de usuário**, digite o nome da VM e o nome de usuário da conta de administrador local criada com a máquina virtual (uma conta de máquina local). Use o seguinte formato: *NomeDoComputador*\*NomeDeContaDoAdministradorLocal*
 9.	Em **Senha**, digite a senha da conta de administrador local.
 10.	Clique em **OK**.
 11.	Na caixa de diálogo **Conexão de Área de Trabalho Remota**, clique em **Sim**. A área de trabalho da nova máquina é exibida em uma janela de sessão de Área de Trabalho Remota.
@@ -170,9 +170,9 @@ O computador será reiniciado.
 
 O farm do SharePoint precisará das seguintes contas de usuário:
 
-- sp_farm: uma conta de usuário gerenciar os farms do SharePoint.
-- sp_farm_db: uma conta de usuário com direitos sysadmin em instâncias do SQL Server.
-- sp_install: uma conta de usuário com os direitos de administração de domínio necessários para instalar funções e recursos.
+- sp\_farm: uma conta de usuário gerenciar os farms do SharePoint.
+- sp\_farm\_db: uma conta de usuário com direitos sysadmin em instâncias do SQL Server.
+- sp\_install: uma conta de usuário com os direitos de administração de domínio necessários para instalar funções e recursos.
 - sqlservice: uma conta de usuário que pode ser executada como instâncias do SQL Server.
 
 Em seguida, faça logon em qualquer computador com uma conta de administrador de domínio para o domínio do qual os controladores de domínio são membros, abra um prompt de comando de nível de administrador do Windows PowerShell e execute esses comandos *um por vez*:
@@ -191,14 +191,14 @@ Em seguida, execute as seguintes etapas para adicionar outras propriedades de co
 
 1.	Na tela inicial, digite **Usuários do Active Directory** e, em seguida, clique em **Usuários e Computadores do Active Directory**.
 2.	No painel de árvore, abra seu domínio e clique em **Usuários**.
-3.	No painel de conteúdo, clique com botão direito em **sp_install** e, em seguida, clique em **Adicionar a um grupo**.
+3.	No painel de conteúdo, clique com botão direito em **sp\_install** e, em seguida, clique em **Adicionar a um grupo**.
 4.	Na caixa de diálogo **Selecionar Grupos**, digite **administradores do domínio** e, em seguida, clique em **OK** duas vezes.
 5.	Na caixa de diálogo, clique em **Exibição e em Recursos Avançados**. A opção permite que você veja todos os contêineres e guias ocultas nas janelas de propriedade para objetos do Active Directory.
 6.	Clique no nome do domínio com o botão direito e clique em **Propriedades**.
 7.	Na caixa de diálogo **Propriedades**, clique na guia **Segurança** e, em seguida, clique no botão **Avançado**.
 8.	Na janela **Configurações de Segurança Avançadas para <YourDomain>**, clique em **Adicionar**.
 9.	Na janela **Entrada de Permissão para <YourDomain>**, clique em **Selecionar uma entidade de segurança**.
-10.	Na caixa de texto, digite **<YourDomain>\\sp_install** e, em seguida, clique em **OK**.
+10.	Na caixa de texto, digite **<YourDomain>\\sp\_install** e, em seguida, clique em **OK**.
 11.	Selecione **Permitir** para **Criar objetos de computador** e clique em **OK** três vezes.
 
 Em seguida, atualize os servidores DNS da sua rede virtual para que o Azure atribua às máquinas virtuais os endereços IP dos dois novos controladores de domínio para que eles sejam usados como seus servidores DNS. Observe que esse procedimento usa os valores da Tabela V (para as configurações da rede virtual).
@@ -217,7 +217,7 @@ Em seguida, atualize os servidores DNS da sua rede virtual para que o Azure atri
 
 Observe que você reinicia os dois controladores de domínio para que eles não sejam configurados com os servidores DNS locais como servidores DNS. Como ambos são servidores DNS, eles são configurados automaticamente com os servidores DNS locais como encaminhadores DNS quando são promovidos a controladores de domínio.
 
-Em seguida, você precisa criar um site de replicação do Active Directory para garantir que servidores na rede virtual do Azure usem os controladores de domínio locais. Faça logon no controlador de domínio primário com a conta sp_install e execute os seguintes comandos em um prompt de comando de nível de administrador do Windows PowerShell:
+Em seguida, você precisa criar um site de replicação do Active Directory para garantir que servidores na rede virtual do Azure usem os controladores de domínio locais. Faça logon no controlador de domínio primário com a conta sp\_install e execute os seguintes comandos em um prompt de comando de nível de administrador do Windows PowerShell:
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
@@ -244,4 +244,4 @@ Para continuar a configuração dessa carga de trabalho, vá para a [Fase 3: con
 
 [Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

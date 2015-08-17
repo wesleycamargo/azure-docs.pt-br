@@ -70,7 +70,7 @@ A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por me
 
 Eis aqui uma visão geral dos arquivos que você encontrará no repositório Git inicial, o qual iremos clonar na próxima seção.
 
-    \app__init__.py
+    \app\__init__.py
     \app\forms.py
     \app\models.py
     \app\tests.py
@@ -84,7 +84,7 @@ Eis aqui uma visão geral dos arquivos que você encontrará no repositório Git
     \app\templates\layout.html
     \app\templates\login.html
     \app\templates\loginpartial.html
-    \DjangoWebProject__init__.py
+    \DjangoWebProject\__init__.py
     \DjangoWebProject\settings.py
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
@@ -423,7 +423,7 @@ A coleta de arquivos estáticos é feita automaticamente como parte do script de
 
 Se você quiser ignorar a coleção de arquivos estáticos para seu aplicativo Django:
 
-    .skipDjango
+    \.skipDjango
 
 Em seguida, você precisará fazer a coleta manualmente no computador local:
 
@@ -515,4 +515,4 @@ Para obter informações sobre como usar o MySQL e banco de dados SQL:
 [Documentação do Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -561,4 +561,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento da tabela, siga 
 [postagem de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

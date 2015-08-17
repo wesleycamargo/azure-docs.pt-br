@@ -70,4 +70,4 @@ Para as macros funcionarem, sua CHAVE DE ACESSO precisa fazer parte da planilha.
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

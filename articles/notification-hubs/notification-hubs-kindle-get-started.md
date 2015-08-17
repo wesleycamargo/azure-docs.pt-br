@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -79,7 +79,8 @@ No portal, adicione o segredo do cliente e a id do cliente à guia **Configurar*
 Adicione as bibliotecas do ADM ao seu projeto Eclipse.
 
 1. Para obter a biblioteca do ADM, [baixar o SDK]. Extraia o arquivo zip do SDK.
-2. No Eclipse, clique com o botão direito do mouse em seu projeto e clique em **Propriedades**. Selecione **Caminho de Compilação de Java** à esquerda e selecione a guia **Bibliotecas **na parte superior. Clique em **Adicionar Jar Externo** e selecione o arquivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` da pasta na qual você extraiu o SDK da Amazon. 3. Baixe o SDK do Android NotificationHubs (link).
+2. No Eclipse, clique com o botão direito do mouse em seu projeto e clique em **Propriedades**. Selecione o **Caminho de Compilação de Java** à esquerda e selecione a guia **Bibliotecas** na parte superior. Clique em **Adicionar Jar Externo** e selecione o arquivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` do diretório no qual você extraiu o SDK da Amazon.
+3. Baixe o SDK do Android NotificationHubs (link).
 4. Descompacte o pacote e, em seguida, arraste o arquivo `notification-hubs-sdk.jar` na pasta `libs `no Eclipse.
 
 Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
@@ -241,7 +242,7 @@ Edite seu manifesto de aplicativo para oferecer suporte ao ADM:
 
 ## Adicionar a APIKey ao seu aplicativo
 
-1. No Eclipse, crie um novo arquivo chamado **api_key.txt** no diretório assets de seu projeto.
+1. No Eclipse, crie um novo arquivo chamado **api\_key.txt** no diretório assets de seu projeto.
 2. Abra o arquivo e copie **Chave da API** gerada no portal do desenvolvedor da Amazon.
 
 ## Executar o aplicativo
@@ -281,4 +282,4 @@ Para enviar uma mensagem usando o .NET:
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

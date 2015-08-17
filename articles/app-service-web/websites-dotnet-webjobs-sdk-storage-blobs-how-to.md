@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este guia fornece exemplos de código c# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece exemplos de código c\# que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
 
 Para obter exemplos de código que mostram como criar blobs, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		
@@ -152,7 +152,7 @@ O número máximo de novas tentativas é configurável. A mesma [MaxDequeueCount
 
 A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no formato *{WebJob name}*.Functions.*{Function name}*, por exemplo: WebJob1.Functions.CopyBlob)
+* FunctionId (no formato *{nome do Trabalho Web}*.Functions.*{nome da Função}*, por exemplo: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName
@@ -203,7 +203,7 @@ O SDK de Trabalhos Web garante que nenhuma função `BlobTrigger` seja chamada m
 
 Os recebimentos de blob são armazenados em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure especificada pela cadeia de conexão AzureWebJobsStorage. Um recebimento de blob tem as seguintes informações:
 
-* A função que foi chamada para o blob ("*{WebJob name}*.Functions.*{Function name}*", por exemplo: "WebJob1.Functions.CopyBlob")
+* A função que foi chamada para o blob ("*{nome do Trabalho Web}*.Functions.*{nome da Função}*", por exemplo: "WebJob1.Functions.CopyBlob")
 * O nome do contêiner
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob
@@ -232,4 +232,4 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

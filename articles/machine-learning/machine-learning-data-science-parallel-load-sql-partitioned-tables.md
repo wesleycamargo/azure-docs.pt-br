@@ -184,4 +184,4 @@ ou
 Para obter um exemplo passo a passo de ponta a ponta usando o ADAPT (Processo e Tecnologia de Análise Avançada) com um conjunto de dados público, confira [Processo e Tecnologia de Análise Avançada em Ação: usando o SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

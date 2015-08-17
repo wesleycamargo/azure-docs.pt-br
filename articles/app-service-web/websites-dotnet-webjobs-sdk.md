@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # O que é o SDK de Trabalhos Web do Azure
@@ -46,6 +46,8 @@ Aqui estão alguns cenários típicos que é possível processar mais facilmente
 
 * Outras tarefas de execução longa que você deseja executar em um thread em segundo plano, como [enviar e-mails](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure).
 
+Em muitos desses cenários, talvez você queira dimensionar um aplicativo Web para execução em várias VMs, o que executaria diversos Trabalhos Web simultaneamente. Em alguns cenários, isso poderia resultar nos mesmos dados sendo processados várias vezes, mas isso não será um problema quando você usar os gatilhos internos de fila, de blob e do Barramento de Serviços do SDK do WebJobs. O SDK garante que suas funções serão processadas apenas uma vez para cada mensagem ou blob.
+
 ## <a id="code"></a> Exemplos de código
 
 O código para processar tarefas típicas que funcionam com o Armazenamento do Azure é simples. Em um Aplicativo do Console, você escreve métodos para as tarefas em segundo plano que deseja executar e as decora com atributos do SDK de Trabalhos Web. O método `Main` cria um objeto `JobHost` que coordena as chamadas para métodos escritos por você. A estrutura do SDK de Trabalhos Web sabe quando chamar os métodos com base nos atributos do SDK de Trabalhos Web que você usou neles.
@@ -66,15 +68,12 @@ Este é um programa simples que consulta uma fila e cria um blob para cada mensa
 
 O objeto `JobHost` é um contêiner de um conjunto de funções em segundo plano. O objeto `JobHost` monitora as funções, observa eventos que as acionam e executa as funções quando ocorrem os eventos de acionamento. É possível chamar um método `JobHost` para indicar se deseja que o processo de contêiner seja executado no thread atual ou em um thread em segundo plano. No exemplo, o método `RunAndBlock` executa continuamente o processo no thread atual.
 
-Como o método `ProcessQueueMessage` neste exemplo tem um atributo `QueueTrigger`, o gatilho dessa função é a recepção de uma nova mensagem da fila. O objeto `JobHost` observa novas mensagens na fila especificada ("webjobsqueue" neste exemplo) e quando uma é encontrada, ele chama `ProcessQueueMessage`. O atributo `QueueTrigger` também notifica a estrutura para associar o parâmetro `inputText` ao valor da mensagem da fila:
+Como o método `ProcessQueueMessage` neste exemplo tem um atributo `QueueTrigger`, o gatilho dessa função é a recepção de uma nova mensagem da fila. O objeto `JobHost` observa novas mensagens na fila especificada ("webjobsqueue" neste exemplo) e quando uma é encontrada, ele chama `ProcessQueueMessage`.
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+O atributo `QueueTrigger` associa o parâmetro `inputText` ao valor da mensagem da fila. E o atributo `Blob` associa um objeto `TextWriter` a um blob chamado “blobname” em um contêiner chamado "containername".
 
-A estrutura também associa um objeto `TextWriter` a um blob chamado "blobname" em um contêiner chamado "containername":
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 Em seguida, a função usa esses parâmetros para gravar o valor da mensagem da fila no blob:
 
@@ -105,4 +104,4 @@ O SDK de Trabalhos Web oferece várias vantagens, mesmo que você não precise t
 Para obter mais informações sobre o SDK de Trabalhos Web, consulte [Recursos recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

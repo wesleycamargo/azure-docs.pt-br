@@ -147,4 +147,4 @@ Se as configurações de proxy Web tiverem sido definidas incorretamente, mensag
 ## Próximas etapas
 Se você tiver problemas ao implantar seu dispositivo ou definir as configurações de proxy Web, confira [Solucionando problemas de seu dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

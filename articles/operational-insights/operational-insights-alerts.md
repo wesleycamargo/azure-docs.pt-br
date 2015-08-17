@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Antes de usar o gerenciamento de alertas no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). A solução funciona somente quando os servidores são monitorados por agentes do Operations Manager. Consulte [Conectar-se a Insights Operacionais do System Center Operations Manager](operational-insights-connect-scom.md) para obter informações sobre como usar o Operations Manager com Insights Operacionais.
+Antes de usar o gerenciamento de alertas no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Configurar seu espaço de trabalho](operational-insights-setup-workspace.md). A solução funciona somente quando os servidores são monitorados por agentes do Operations Manager. Consulte [Conectar-se a Insights Operacionais do System Center Operations Manager](operational-insights-connect-scom.md) para obter informações sobre como usar o Operations Manager com Insights Operacionais.
 
 Depois que a solução estiver instalada, você poderá exibir alertas para os servidores monitorados usando o bloco **Gerenciamento de Alertas** no painel **Visão Geral** no Insights Operacionais.
 
@@ -58,4 +58,4 @@ No painel **Gerenciamento de Alertas**, você pode exibir todos os alertas que o
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

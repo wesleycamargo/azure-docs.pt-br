@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -126,4 +126,4 @@ Para gerenciar ambos os diretórios no Portal de Gerenciamento, execute essas et
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

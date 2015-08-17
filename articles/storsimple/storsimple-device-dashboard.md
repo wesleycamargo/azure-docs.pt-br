@@ -96,4 +96,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 
 [Saiba mais sobre o painel de serviço do StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

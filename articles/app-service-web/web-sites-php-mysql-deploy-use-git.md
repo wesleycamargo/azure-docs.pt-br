@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
@@ -41,17 +41,11 @@ Este tutorial pressupõe que você tem o [PHP][install-php], a Ferramenta de Lin
 Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
 1. Faça logon no [Portal do Azure][management-portal].
-2. Clique no ícone **Novo** na parte inferior esquerda do portal.
-
-	![Criar um novo aplicativo Web do Azure][new-website]
+2. Clique no ícone **Novo**.
 
 3. Clique em **Web + Móvel** e em **Azure Marketplace**.
 
-	![Criação personalizada de um novo aplicativo Web][custom-create]
-
 4. Clique em **Aplicativos Web** e em **Aplicativo Web + MySQL**. Em seguida, clique em **Criar**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Insira um nome válido para o grupo de recursos.
 
@@ -66,8 +60,6 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 	![Criar novo banco de dados MySQL][new-mysql-db]
 
 7. Quando o aplicativo Web tiver sido criado, você verá o novo grupo de recursos. Clique no nome do aplicativo Web para definir suas configurações.
-
-	![Abrir um aplicativo Web][go-to-webapp]
 
 7. Clique em **Configurar implantação contínua**.
 
@@ -210,7 +202,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 		</body>
 		</html>
 
-Agora você pode navegar até **http://localhost/registration/index.php** para testar o aplicativo.
+Agora você pode navegar até ****http://localhost/registration/index.php** para testar o aplicativo.
 
 
 ##Publicar seu aplicativo
@@ -296,4 +288,4 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

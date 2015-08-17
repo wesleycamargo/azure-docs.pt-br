@@ -19,4 +19,4 @@ Siga estas etapas para criar um novo serviço móvel.
 
 Você criou um novo serviço móvel que pode ser usado por seus aplicativos móveis.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

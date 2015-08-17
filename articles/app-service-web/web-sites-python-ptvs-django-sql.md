@@ -139,7 +139,7 @@ Editar a definição de `DATABASES` para usar os valores acima.
 
 1.  No Gerenciador de Soluções, em **Ambientes Python**, clique com o botão direito do mouse no ambiente virtual e selecione **Instalar Pacote Python**.
 
-1.  Instale o pacote `pyodbc` usando **easy_install**.
+1.  Instale o pacote `pyodbc` usando **easy\_install**.
 
   	![Caixa de diálogo Instalar Pacote Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -221,4 +221,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [Banco de Dados SQL]: /documentation/services/sql-database/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

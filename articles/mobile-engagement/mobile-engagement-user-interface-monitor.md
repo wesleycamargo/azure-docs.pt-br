@@ -144,4 +144,4 @@ Você também pode especificar condições para alertas que serão enviados auto
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 # Configurar o Active Directory para o Azure RemoteApp
 
 
-Para uma coleção híbrida do RemoteApp, você precisa configurar uma infraestrutura de domínio do Active Directory local e o Azure Active Directory locatário com a Integração de diretório (e opcionalmente logon único). Além disso, você precisa criar alguns objetos do Active Directory no diretório local. Use as seguintes informações para configurar o Active Directory local e o AD do Azure e integre os dois.
+Para obter uma coleção híbrida do RemoteApp, você precisa configurar uma infraestrutura de domínio do Active Directory local e um locatário do Active Directory do Azure com a Integração de Diretório (e, opcionalmente, logon único). Além disso, você precisa criar alguns objetos do Active Directory no diretório local. Use as seguintes informações para configurar o Active Directory local e o AD do Azure e integre os dois.
 
 ## Configurar o Active Directory no local
 Iniciar a configuração de seu Active Directory local. Você precisa identificar o sufixo de domínio para usar e, em seguida, criar objetos do Active Directory para o RemoteApp.
@@ -105,7 +105,7 @@ Se você estiver tendo problemas ao configurar a sincronização de diretórios,
 -	Em **Active Directory->Diretório Padrão-> Usuários**, adicione um novo usuário ao domínio (por exemplo, myAzureSyncUser@mydomain.com).
 -	Em seu domínio no Active Directory, você adicionou um novo usuário de domínio e o tornou um membro do grupo Administradores de Empresa (por exemplo, myDomainSyncUser@mydomain.com).
 
-Agora inicie a ferramenta de sincronização de Diretórios do Azure e use as credenciais **myAzureSyncUser@mydomain.com** para o primeiro prompt (credenciais de administrador do Active Directory do Microsoft Azure) e use **myDomainSyncUser@mydomain.com** para o segundo prompt.
+Agora, inicie a ferramenta de Sincronização de Diretório do Azure e use as credenciais ****myAzureSyncUser@mydomain.com** para o primeiro prompt (Credenciais de Administrador do Active Directory do Microsoft Azure) e use ****myDomainSyncUser@mydomain.com** para o segundo prompt.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

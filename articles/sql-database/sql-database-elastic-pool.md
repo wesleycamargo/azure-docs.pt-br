@@ -57,10 +57,10 @@ A Restauração Geográfica permite recuperar o banco de dados de um pool para u
 
 ### Replicação Geográfica
 
-Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilitado podem ser movidos para dentro e para fora de um Pool de Banco de Dados Elástico e a replicação continuará a funcionar da mesma maneira. Na visualização atual, não é possível habilitar a Replicação Geográfica em um banco de dados que já esteja em um pool.
+Os bancos de dados que já tiverem o recurso de Replicação Geográfica habilitado podem ser movidos para dentro e para fora de um Pool de Banco de Dados Elástico e a replicação continuará a funcionar da mesma maneira. Você pode habilitar a Replicação Geográfica em um banco de dados que já está no pool, se o servidor de destino que você especificar tenha um pool com o mesmo nome do pool de origem. Atualmente na visualização, você não pode habilitar a Replicação Geográfica em um banco de dados que já está em um pool para um pool com um nome diferente ou para um banco de dados de singleton secundário.
 
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

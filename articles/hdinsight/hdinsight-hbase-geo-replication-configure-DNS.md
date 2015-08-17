@@ -33,7 +33,7 @@ Este tutorial é a segunda parte da [série][hdinsight-hbase-geo-replication] so
 - [Configurar a replicação geográfica HBase][hdinsight-hbase-geo-replication]
 
 
-O diagrama a seguir ilustra as duas redes virtuais criadas no [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet]:
+O diagrama a seguir ilustra as duas redes virtuais criadas no [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet]\:
 
 ![Diagrama de rede virtual de replicação de HBase do HDInsight][img-vnet-diagram]
 
@@ -220,4 +220,4 @@ Neste tutorial, você aprendeu como configurar a resolução de nomes entre as r
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

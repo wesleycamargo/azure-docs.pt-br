@@ -39,4 +39,4 @@ Se desejar usar seu telefone celular como o método de contato principal, você 
 
 <center>![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

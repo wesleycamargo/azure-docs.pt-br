@@ -3,9 +3,9 @@
 	description="Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -31,9 +31,7 @@ Agora é possível combinar vários recursos do Azure em um único Grupo de Recu
 
 Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Gerenciador de Recursos do Azure**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
 
-> [AZURE.NOTE]É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos. 
-<!-- --> 
-Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+> [AZURE.NOTE]É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos. <!-- --> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em uma determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 
 ## Limites de assinatura
 
@@ -67,13 +65,13 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+### Limites do Gerenciador de Tráfego
 
-### Limites de Rede – Gerenciador de Recursos do Azure
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure. Limites que não foram alterados com o Gerenciador de Recursos do Azure não estão listados abaixo. Consulte a tabela anterior para obter esses limites.
+### Limites de DNS
 
-[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
-
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ## Limites de armazenamento
 
@@ -151,6 +149,11 @@ Para obter mais detalhes sobre os limites do Banco de Dados SQL, consulte os seg
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+## Limites de fábrica de dados
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
+
 ## Limites do Stream Analytics
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -202,4 +205,4 @@ Para obter mais detalhes sobre os limites do Banco de Dados SQL, consulte os seg
 
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=06-->

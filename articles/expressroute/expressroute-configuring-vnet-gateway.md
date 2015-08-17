@@ -61,7 +61,7 @@ Essas etapas o orientarão ao longo da configuração de uma rede virtual e de u
 
 	Verifique se você tem pelo menos uma rede virtual do Azure com um gateway criado. A sub-rede de gateway deve ser /28 ou maior para trabalhar com uma conexão de Rota Expressa, e deve estar ativada e em execução.
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -73,4 +73,4 @@ Para obter mais informações sobre a Rota Expressa, consulte [Visão geral téc
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

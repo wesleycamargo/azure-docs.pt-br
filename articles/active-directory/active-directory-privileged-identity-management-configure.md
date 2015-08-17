@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Gerenciamento de identidades com privilégios do AD do Azure" 
-	description="Um tópico que explica o que é o Gerenciamento de identidades com privilégios do AD do Azure e como configurá-lo." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Gerenciamento de identidades com privilégios do AD do Azure"
+	description="Um tópico que explica o que é o Gerenciamento de identidades com privilégios do AD do Azure e como configurá-lo."
+	services="active-directory"
+	documentationCenter=""
+	authors="IHenkel"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="inhenk"/>
 
 # Gerenciamento de identidades com privilégios do Azure AD
 
@@ -26,18 +26,18 @@ O gerenciamento de identidades com privilégios do AD do Azure nesta visualizaç
 
 - Descobrir quais usuários são os administradores do AD do Azure
 - Habilitar acesso administrativo sob demanda a recursos de diretório "just in time"
-- Obter relatórios sobre o histórico de acesso de administrador e sobre as alterações nas atribuições de administrador 
-- Receber alertas sobre o acesso a uma função com privilégios 
+- Obter relatórios sobre o histórico de acesso de administrador e sobre as alterações nas atribuições de administrador
+- Receber alertas sobre o acesso a uma função com privilégios
 
 Nesta visualização, o gerenciamento de identidades com privilégios do AD do Azure pode gerenciar funções organizacionais internas do Active Directory do Azure:
 
-- Administrador global 
-- Administrador de cobrança 
+- Administrador global
+- Administrador de cobrança
 - Administrador de serviços  
-- Administrador de usuários 
-- Administrador de senha 
+- Administrador de usuários
+- Administrador de senha
 
-## Administrador de acesso just in time 
+## Administrador de acesso just in time
 
 Historicamente, você pode atribuir um usuário a uma função de administrador por meio do Portal de Gerenciamento ou do Windows PowerShell. Como resultado, ele se torna **admin permanente**, sempre ativo na função a ele atribuída. Essa visualização adiciona suporte para um **admin temporário**, que é um usuário que precisa concluir um processo de ativação para a função atribuída. O processo de ativação altera a atribuição do usuário para uma função no AD do Azure, de inativo para ativo.
 
@@ -49,28 +49,28 @@ Você pode começar a usar o gerenciamento de identidades com privilégios do AD
 
 Após inicializar essa extensão, você tornará automaticamente o primeiro **Administrador de segurança** do diretório. Somente um administrador de segurança pode acessar essa extensão para gerenciar o acesso de outros administradores. Durante a inicialização, será adicionado um bloco do gerenciamento de identidades com privilégios do AD do Azure ao quadro inicial do Portal de Visualização do Azure.
 
-## Painel de gerenciamento de identidades com privilégios 
+## Painel de gerenciamento de identidades com privilégios
 
 O gerenciador de identidades com privilégios do AD do Azure oferece um painel que fornece informações importantes, como:
 
 - O número de usuários atribuídos a cada função com privilégios  
-- O número de administradores temporários e permanentes 
-- O histórico de acesso do administrador 
+- O número de administradores temporários e permanentes
+- O histórico de acesso do administrador
 
 ![][2]
 
-## Gerenciamento de funções com privilégios 
+## Gerenciamento de funções com privilégios
 
 Com o gerenciamento de identidade com privilégios do AD do Azure, você pode gerenciar os administradores adicionando ou removendo os administradores permanentes ou temporários para cada função.
 
 ![][3]
 
-## Definir as configurações de ativação de função 
+## Definir as configurações de ativação de função
 
 Usando a configuração de ativação de função, você pode configurar as propriedades de ativação da função temporária, incluindo:
 
 - A duração do período de ativação de função
-- A notificação de ativação de função 
+- A notificação de ativação de função
 - As informações que um usuário precisa fornecer durante o processo de ativação de função  
 
 ![][4]
@@ -82,7 +82,7 @@ Para ativar uma função, um administrador temporário deve solicitar uma "ativa
 Um administrador que deseja ativar uma função precisa inicializar o Gerenciamento de identidades com privilégios do AD do Azure no Portal de Visualização do Azure.
 
 Qualquer tipo de administrador pode usar o Gerenciamento de identidades com privilégios do AD do Azure para ativar sua própria função.
- 
+
 A ativação de função tem um limite de tempo. Nas configurações de ativação de função, você pode configurar o comprimento de ativação, bem como as informações necessárias que o administrador precisa fornecer para ativar a função.
 
 ![][5]
@@ -105,6 +105,4 @@ Usando o Gerenciamento de identidades com privilégios do AD do Azure, também �
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

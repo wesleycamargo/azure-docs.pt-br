@@ -139,4 +139,4 @@ Consulte também as seguintes seções sobre [Implantação de Trabalhos Web](#d
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

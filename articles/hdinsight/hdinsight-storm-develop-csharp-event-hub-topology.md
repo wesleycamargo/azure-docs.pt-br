@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight
@@ -538,11 +538,11 @@ Você também pode exportar e importar os pontos de verificação persistentes p
 
 Os scripts que estão nesse diretório são:
 
-* **stormmeta_import.cmd**: importe todos os metadados do Storm do contêiner de armazenamento de cluster padrão para o Zookeeper.
+* **stormmeta\_import.cmd**: importe todos os metadados do Storm do contêiner de armazenamento de cluster padrão para o Zookeeper.
 
-* **stormmeta_export.cmd**: exporte todos os metadados do Storm do Zookeeper para o contêiner de armazenamento do cluster padrão.
+* **stormmeta\_export.cmd**: exporte todos os metadados do Storm do Zookeeper para o contêiner de armazenamento do cluster padrão.
 
-* **stormmeta_delete.cmd**: exclua todos os metadados do Storm do Zookeeper.
+* **stormmeta\_delete.cmd**: exclua todos os metadados do Storm do Zookeeper.
 
 Exportar uma importação permite que você mantenha os dados de ponto de verificação quando precisar excluir o cluster, mas quiser retomar o processamento do deslocamento atual no hub quando colocar um novo cluster novamente online.
 
@@ -557,4 +557,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -18,10 +18,10 @@ O serviço Fila contém os seguintes componentes:
       
 A URL a seguir endereça uma das filas no diagrama:http://myaccount.queue.core.windows.net/imagesToDownload
 
--**Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
+\-**Conta de Armazenamento:** todo o acesso ao armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 - **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens devem estar em uma fila.
 
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

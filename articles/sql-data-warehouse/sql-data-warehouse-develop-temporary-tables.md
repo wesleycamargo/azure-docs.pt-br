@@ -124,7 +124,7 @@ DROP TABLE #stats_ddl;
 
 Em alguns casos, funções embutidas e de várias instruções também podem ser substituídas usando essa técnica.
 
-> [AZURE.NOTE]Você também pode ampliar essa solução. Se você quiser atualizar uma única tabela por exemplo, tudo o que precisaria fazer é simplesmente filtrar a tabela #stats_ddl
+> [AZURE.NOTE]Você também pode ampliar essa solução. Se você quiser atualizar uma única tabela por exemplo, tudo o que precisaria fazer é simplesmente filtrar a tabela #stats\_ddl
 
 ## Limitações da tabela temporária
 O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias.
@@ -147,4 +147,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

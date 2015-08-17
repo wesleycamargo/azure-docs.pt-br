@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="06/24/2015"
@@ -109,4 +109,4 @@ Sempre que alguém envia uma mensagem ao ponto de extremidade HTTP, dispara o ap
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

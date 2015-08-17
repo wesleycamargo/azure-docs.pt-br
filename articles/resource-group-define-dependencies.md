@@ -62,4 +62,4 @@ Para obter mais informações, consulte [Função reference](../resource-group-t
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

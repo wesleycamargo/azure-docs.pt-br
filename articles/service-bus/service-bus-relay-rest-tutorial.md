@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -64,7 +64,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
   	using System.IO;
 	```
 
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/en-us/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
+	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/pt-br/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
 
 7. Renomeie o namespace para o programa alterando o padrão do Visual Studio para **Microsoft.ServiceBus.Samples**.
 
@@ -298,7 +298,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
   
 	Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
 
-6. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida no portal de gerenciamento do Azure na Etapa 1.
+6. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS\_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida no portal de gerenciamento do Azure na Etapa 1.
   
 	```xml
 	<behaviors>
@@ -580,4 +580,4 @@ Agora que você compilou um aplicativo que usa o serviço de retransmissão do B
 
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

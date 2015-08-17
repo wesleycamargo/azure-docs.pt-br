@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
@@ -33,11 +33,11 @@ Para determinar a solução de autenticação multifator correta, precisamos res
 
 O que você está tentando proteger| Autenticação multifator na nuvem|Servidor Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
-Aplicativos primários da Microsoft|\* |\* |
-Aplicativos SaaS da Galeria de Aplicativos|\* |\* |
-Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD|\* |\* |
-Aplicativos IIS não publicados por meio da Proxy de aplicativo do Azure AD | |\* |
-Acesso remoto, como VPN, RDG| |\* |
+Aplicativos primários da Microsoft|* |* |
+Aplicativos SaaS da Galeria de Aplicativos|* |* |
+Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD|* |* |
+Aplicativos IIS não publicados por meio da Proxy de aplicativo do Azure AD | |* |
+Acesso remoto, como VPN, RDG| |* |
 
 
 
@@ -87,4 +87,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 * [Para usuários](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

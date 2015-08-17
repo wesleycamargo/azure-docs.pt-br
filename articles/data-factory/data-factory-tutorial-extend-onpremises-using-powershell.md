@@ -106,7 +106,8 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 7.	Insira **MarketingCampaigns** para o Banco de dados. 
 8.	Clique em **CREDENCIAIS**. 
 9.	Na folha **Credenciais**, clique em **Clique aqui para definir credenciais com segurança**.
-10.	Ela instala um aplicativo em um único clique pela primeira vez e inicia a **caixa de diálogo **Definindo credenciais. 11.	Na caixa de diálogo **Definindo Credenciais**, insira **Nome de Usuário** e **Senha**, e clique em **OK**. Aguarde até que a caixa de diálogo seja fechada. 
+10.	Ela instala um aplicativo em um único clique pela primeira vez e inicia a caixa de diálogo **Definindo Credenciais**.
+11.	Na caixa de diálogo **Definindo Credenciais**, insira **Nome de Usuário** e **Senha**, e clique em **OK**. Aguarde até que a caixa de diálogo seja fechada. 
 12.	Clique em **OK** na folha **Novo armazenamento de dados**. 
 13.	Na folha **Serviços Vinculados**, confirme se **OnPremSqlLinkedService** aparece na lista e o **status** do serviço vinculado é **Bom**.
 
@@ -170,4 +171,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

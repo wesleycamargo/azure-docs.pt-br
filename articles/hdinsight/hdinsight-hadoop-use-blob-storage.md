@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Consultar dados do armazenamento de blob compatível com o HDFS | Microsoft Azure"
 	description="O HDInsight usa armazenamento de Blob como armazenamento de big data para HDFS. Aprenda a consultar dados do armazenamento de blob e armazenar os resultados da análise."
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	authors="mumian"
@@ -13,7 +12,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
 
@@ -26,7 +25,7 @@ O armazenamento de blob do Azure é uma solução de armazenamento de uso geral 
 
 O armazenamento de dados no armazenamento de blob permite que os clusters HDInsight usados para cálculo sejam excluídos com segurança sem que ocorra perda de dados do usuário.
 
-> [AZURE.NOTE]A sintaxe *asv://* não tem suporte em clusters HDInsight versão 3.0. Isso significa que qualquer trabalho enviado para um cluster HDInsight 3.0 que use explicitamente a sintaxe *asv://* falhará. Em vez disso, a sintaxe *wasb://* deve ser usada. Além disso, os trabalhos enviados para qualquer cluster HDInsight 3.0 que foram criados com um metastore existente que contenha referências explícitas a recursos usando a sintaxe asv:// falharão. Esses metastores precisarão ser recriados usando a sintaxe “wasb://” para endereçar recursos.
+> [AZURE.NOTE]A sintaxe **asv://* não tem suporte em clusters HDInsight versão 3.0. Isso significa que qualquer trabalho enviado para um cluster HDInsight 3.0 que use explicitamente a sintaxe **asv://* falhará. Em vez disso, a sintaxe **wasb://* deve ser usada. Além disso, os trabalhos enviados para qualquer cluster HDInsight 3.0 que foram criados com um metastore existente que contenha referências explícitas a recursos usando a sintaxe asv:// falharão. Esses metastores precisarão ser recriados usando a sintaxe wasb:// para endereçar recursos.
 
 > Atualmente, o HDInsight dá suporte apenas a blobs de bloco.
 
@@ -62,7 +61,7 @@ Além dessa conta de armazenamento, você pode adicionar mais contas de armazena
 - **Contêineres privados nas contas de armazenamento que NÃO estão conectadas a um cluster:** não é possível acessar os blobs nos contêineres, a menos que você defina a conta de armazenamento quando envia os trabalhos do WebHCat. Isso será explicado mais adiante neste artigo.
 
 
-As contas de armazenamento definidas no processo de provisionamento e suas chaves são armazenadas em % HADOOP_HOME%/conf/core-site.xml nos nós do cluster. O comportamento padrão do HDInsight é usar as contas de armazenamento definidas no arquivo core-site.xml. Não é recomendável editar o arquivo core-site.xml porque o nó principal do cluster (mestre) poderá ter outra imagem criada ou ser migrado a qualquer hora, sendo que as alterações realizadas a esses arquivos serão perdidas.
+As contas de armazenamento definidas no processo de provisionamento e suas chaves são armazenadas em % HADOOP\_HOME%/conf/core-site.xml nos nós do cluster. O comportamento padrão do HDInsight é usar as contas de armazenamento definidas no arquivo core-site.xml. Não é recomendável editar o arquivo core-site.xml porque o nó principal do cluster (mestre) poderá ter outra imagem criada ou ser migrado a qualquer hora, sendo que as alterações realizadas a esses arquivos serão perdidas.
 
 Vários trabalhos do WebHCat, incluindo Hive, MapReduce, streaming de Hadoop e Pig, podem conter uma descrição de contas de armazenamento e metadados (normalmente funciona para Pig com contas de armazenamento, mas não para metadados). (Isso funciona atualmente com o Pig para contas de armazenamento, mas não para metadados.) Na seção [Acessar blobs usando o PowerShell do Azure](#powershell) deste artigo, há um exemplo desse recurso. Para obter mais informações, consulte [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -328,4 +327,4 @@ Para saber mais, consulte os seguintes artigos:
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

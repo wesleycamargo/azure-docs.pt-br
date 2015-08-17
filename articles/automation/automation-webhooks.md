@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/05/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
 
 # Webhooks da Automação do Azure
@@ -37,8 +37,6 @@ A tabela a seguir descreve as propriedades que devem ser configuradas para um we
 
 ### Parâmetros
 Um webhook pode definir valores para parâmetros de runbook que são usados quando o runbook é iniciado por esse webhook. O webhook deve incluir valores de quaisquer parâmetros obrigatórios do runbook e pode incluir valores de parâmetros opcionais. Vários webhooks vinculados a um único runbook podem usar valores de parâmetros diferentes.
-
->[AZURE.NOTE]Os valores de parâmetro definidos por um webhook ativo não podem ser alterados depois que o webhook é criado. Você deve criar outro webhook que usa valores de parâmetros diferentes.
 
 Quando um cliente inicia um runbook usando um webhook, ele não pode substituir os valores de parâmetro definidos no webhook. Para receber dados do cliente, o runbook pode aceitar um parâmetro único chamado **$WebhookData** do tipo [objeto] que conterá os dados que o cliente inclui na solicitação POST.
 
@@ -174,4 +172,4 @@ O seguinte exemplo de runbook aceita a solicitação do exemplo anterior e inici
 - [Iniciando um runbook](automation-starting-a-runbook.md)
 - [Exibindo o status de um trabalho de runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

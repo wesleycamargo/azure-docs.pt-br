@@ -58,4 +58,4 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

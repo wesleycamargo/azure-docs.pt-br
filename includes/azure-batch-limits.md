@@ -27,4 +27,4 @@
 </table>
 <sup>1</sup> O número de núcleos por conta de Lote pode ser aumentado, mas o número máximo não está especificado. Entre em contato com o suporte ao cliente para discutir opções de aumento. <sup>2</sup> Inclui trabalhos ativos de execução única e agendas de trabalho ativas.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

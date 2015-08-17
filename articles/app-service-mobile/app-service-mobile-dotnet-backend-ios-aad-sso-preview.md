@@ -20,9 +20,9 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Neste tutorial, adicione a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do diretório ativo.
+Neste tutorial, você adiciona a autenticação ao projeto de início rápido usando uma Biblioteca de autenticação do Active Directory (ADAL). Você também pode habilitar a autenticação com a menor configuração apenas usando o SDK de aplicativos móveis, conforme abordado no tutorial [Adicionar autenticação ao seu aplicativo]. Com esse tópico em ADAL você tem uma experiência mais integrada de autenticação para usuários finais e o ADAL fornece recursos mais avançados para acessar outros recursos protegidos de AAD.
 
-Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com seu locatário do AAD (Active Directory do Azure). Isso é feito em duas etapas. Primeiro, você deve registrar seu serviço de aplicativo e expor permissões nele. Em segundo lugar, você deve registrar seu aplicativo iOS e conceder acesso com essas permissões.
+Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com seu locatário do Active Directory do Azure (AAD). Isso é feito em duas etapas. Primeiro, você deve registrar seu serviço de aplicativo e expor permissões nele. Em segundo lugar, você deve registrar seu aplicativo iOS e conceder acesso com essas permissões.
 
 Este tutorial exige o seguinte:
 
@@ -121,6 +121,6 @@ Agora você poderá referenciar a Biblioteca de Autenticação do Active Directo
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Introdução a Aplicativos Móveis]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
- 
+ [Adicionar autenticação ao seu aplicativo]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

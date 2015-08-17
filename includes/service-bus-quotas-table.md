@@ -24,4 +24,4 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 |Número de filtros de correlação por tópico|Todo o sistema|Estático|Solicitações subsequentes para criação de filtros adicionais no tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.|100.000|
 |Tamanho de filtros/ações de SQL|Todo o sistema|Estático|Solicitações subsequentes para criação de filtros adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada.|Comprimento máximo da cadeia de caracteres de condição do filtro: 1024 (1 K).<br /><br />Comprimento máximo da cadeia de caracteres de ação da regra: 1024 (1 K).<br /><br />Número máximo de expressões por ação da regra: 32.|
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

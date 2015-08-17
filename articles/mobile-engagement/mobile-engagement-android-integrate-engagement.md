@@ -55,7 +55,7 @@ A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   Em alguns modelos de dispositivo, não é possível gerar o identificador de dispositivo do Engagement por meio do ANDROID_ID (pode conter bugs ou estar indisponível). Nesse caso, o SDK gera um identificador aleatório de dispositivo e tenta salvá-lo no armazenamento externo desse dispositivo, para que outros aplicativos do Engagement possam compartilhar o mesmo identificador de dispositivo (ele também é salvo como uma preferência compartilhada, para garantir que o próprio aplicativo use sempre o mesmo identificador de dispositivo, independentemente do que acontecer com o armazenamento externo). Para que esse mecanismo funcione corretamente, você precisa adicionar a permissão a seguir se ele estiver ausente (antes da marca `<application>`):
+-   Em alguns modelos de dispositivo, não é possível gerar o identificador de dispositivo do Engagement por meio do ANDROID\_ID (pode conter bugs ou estar indisponível). Nesse caso, o SDK gera um identificador aleatório de dispositivo e tenta salvá-lo no armazenamento externo desse dispositivo, para que outros aplicativos do Engagement possam compartilhar o mesmo identificador de dispositivo (ele também é salvo como uma preferência compartilhada, para garantir que o próprio aplicativo use sempre o mesmo identificador de dispositivo, independentemente do que acontecer com o armazenamento externo). Para que esse mecanismo funcione corretamente, você precisa adicionar a permissão a seguir se ele estiver ausente (antes da marca `<application>`):
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -311,4 +311,4 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 [API do dispositivo]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introdução ao Emulador do Hadoop para HDInsight | Microsoft Azure"
 	description="Use um emulador instalado com um tutorial do MapReduce e outros exemplos para conhecer o ecossistema do Hadoop. O Emulador do HDInsight funciona como uma área restrita do Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -13,7 +12,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/07/2015"
 	ms.author="nitinme"/>
 
@@ -76,7 +75,7 @@ A instalação também deve ter instalado vários serviços locais. Esta é uma 
 
 ![Serviços do ecossistema do Hadoop listados na janela do emulador.][image-hdi-emulator-services]
 
-Os serviços relacionados ao Emulador do HDInsight não são iniciados, por padrão. Para iniciar os serviços, na linha de comando do Hadoop, execute **start_local_hdp_services.cmd** em C:\\hdp (local padrão). Para iniciar automaticamente os serviços após o reinício do computador, execute **set-onebox-autostart.cmd**.
+Os serviços relacionados ao Emulador do HDInsight não são iniciados, por padrão. Para iniciar os serviços, na linha de comando do Hadoop, execute **start\_local\_hdp\_services.cmd** em C:\\hdp (local padrão). Para iniciar automaticamente os serviços após o reinício do computador, execute **set-onebox-autostart.cmd**.
 
 Para ver os problemas conhecidos ao instalar e executar o Emulador do HDInsight, consulte as [Notas de versão do Emulador do HDInsight](hdinsight-emulator-release-notes.md). O log de instalação está localizado em **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
 
@@ -117,7 +116,7 @@ Após a conexão ser estabelecida com êxito, você pode usar as ferramentas do 
 			<value>*</value>
 		</property>
 
-3. Pode ocorrer um erro quando o Visual Studio tenta se conectar ao serviço WebHCat ("erro": "Não foi possível encontrar o trabalho job_XXXX_0001"). Nesse caso, reinicie o serviço WebHCat e tente novamente. Para reiniciar o serviço WebHCat, inicie o MMC **Serviços**, clique com botão direito do mouse em **Apache Hadoop Templeton** (antigo nome do serviço WebHCat) e clique em **Reiniciar**.
+3. Pode ocorrer um erro quando o Visual Studio tenta se conectar ao serviço WebHCat ("erro": "Não foi possível encontrar o trabalho job\_XXXX\_0001"). Nesse caso, reinicie o serviço WebHCat e tente novamente. Para reiniciar o serviço WebHCat, inicie o MMC **Serviços**, clique com botão direito do mouse em **Apache Hadoop Templeton** (antigo nome do serviço WebHCat) e clique em **Reiniciar**.
 
 ##<a name="runwordcount"></a>Um tutorial de contagem de palavras do MapReduce
 
@@ -127,7 +126,9 @@ O programa MapReduce de contagem de palavras foi empacotado em *hadoop-mapreduce
 
 O trabalho do MapReduce para contar palavras usa dois argumentos:
 
-- Uma pasta de entrada. Você usará *hdfs://localhost/user/HDIUser* como pasta de entrada. - Uma pasta de saída. Você usará *hdfs://localhost/user/HDIUser/WordCount_Output* como pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, deverá especificar uma pasta de saída diferente ou excluir a pasta de saída existente. 
+- Uma pasta de entrada. Você usará *hdfs://localhost/user/HDIUser* como pasta de entrada.
+- Uma pasta de saída. Você usará **hdfs://localhost/user/HDIUser/WordCount_Output* como pasta de saída. A pasta de saída não pode ser uma pasta existente, ou o trabalho do MapReduce falhará. Se você quiser executar o trabalho do MapReduce pela segunda vez, especifique uma pasta de saída diferente ou exclua a pasta de saída existente.
+
 **Para executar o trabalho do MapReduce de contagem de palavras**
 
 1. Na área de trabalho, clique duas vezes em **Linha de comando do Hadoop** para abrir a janela de linha de comando do Hadoop. A pasta atual deve ser:
@@ -257,7 +258,7 @@ O arquivo jar e os arquivos de origem estão localizados na pasta C:\\Hadoop\\Ge
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	A tabela a seguir descreve os elementos do comando: <table border="1"> <tr><td>Parameter</td><td>Note</td></tr> <tr><td>w3c_scenarios.jar</td><td>O arquivo jar se encontra em C:\\hdp\\GettingStarted\\Java folder.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>O tipo pode ser substituído por um destes: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>O arquivo de entrada pode ser substituído por um destes: <ul> <li>/w3c/input/medium/data_w3c_medium.txt</li> <li>/w3c/input/large/data_w3c_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Este é o nome da pasta de saída.</td></tr> </table>
+	A tabela a seguir descreve os elementos do comando: <table border="1"> <tr><td>Parameter</td><td>Note</td></tr> <tr><td>w3c\_scenarios.jar</td><td>O arquivo jar se encontra em C:\\hdp\\GettingStarted\\Java folder.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>O tipo pode ser substituído por um destes: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td>O arquivo de entrada pode ser substituído por um destes: <ul> <li>/w3c/input/medium/data\_w3c\_medium.txt</li> <li>/w3c/input/large/data\_w3c\_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Este é o nome da pasta de saída.</td></tr> </table>
 
 4. Execute o comando a seguir para exibir o arquivo de saída:
 
@@ -357,7 +358,7 @@ O processamento do pig usa uma linguagem de fluxo de dados chamada *Pig Latin*. 
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	A tabela a seguir mostra os elementos do comando: <table border="1"> <tr><td>Arquivo</td><td>Descrição</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>O script de comando do Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Você pode substituir o arquivo de script Pig Latin por um destes: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Você pode substituir o parâmetro por um arquivo maior:
+	A tabela a seguir mostra os elementos do comando: <table border="1"> <tr><td>Arquivo</td><td>Descrição</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>O script de comando do Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Você pode substituir o arquivo de script Pig Latin por um destes: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td> Você pode substituir o parâmetro por um arquivo maior:
 
 	<ul>
 <li>/w3c/input/medium/data_w3c_medium.txt</li>
@@ -447,7 +448,7 @@ Esta é uma amostra para o envio de um trabalho do Hadoop:
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster é sempre **http://localhost:50111**.
+Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster é sempre ****http://localhost:50111**.
 
 Para obter mais informações sobre o envio de trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop programaticamente](hdinsight-submit-hadoop-jobs-programmatically.md). Para obter mais informações sobre os cmdlets do PowerShell do Azure para HDInsight, consulte [Referência de cmdlets do HDInsight][hdinsight-powershell-reference].
 
@@ -491,4 +492,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

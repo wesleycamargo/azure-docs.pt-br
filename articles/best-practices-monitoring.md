@@ -612,4 +612,4 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - A página [Noções básicas sobre alertas e notificações de monitoramento no Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started/) no site da Microsoft.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

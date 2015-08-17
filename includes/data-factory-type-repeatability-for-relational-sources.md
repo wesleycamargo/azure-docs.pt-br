@@ -1,21 +1,21 @@
-## Repeatability during Copy
+## Capacidade de repetição durante a cópia
 
-When copying data from and to relational stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+Ao copiar dados de e para repositórios relacionais, você precisa ter em mente a capacidade de repetição para evitar resultados não intencionais.
 
-**Note:** A slice can be re-run automatically in Azure Data Factory as per the retry policy specified. It is recommended to set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+**Observação:** uma fatia pode ser reexecutada automaticamente no Azure Data Factory, de acordo com a política de repetição especificada. É recomendável definir uma política de repetição para se proteger contra falhas transitórias. Portanto, a capacidade de repetição é um aspecto importante a ser observado durante a movimentação de dados.
 
-**As a source:**
+**Como uma fonte:**
 
-In most cases when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. Example: 
+Na maioria dos casos, ao ler repositórios relacionais, convém ler apenas os dados correspondentes a essa fatia. Uma maneira de fazer isso é usando as variáveis WindowStart e WindowEnd disponíveis no Azure Data Factory. Leia sobre as variáveis e funções no Azure Data Factory aqui, no artigo [Planejamento e execução](data-factory-scheduling-and-execution.md). Exemplo:
 	
 	  "source": {
 	    "type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm\'', WindowStart, WindowEnd)"
 	  },
 
-The above query will read data from ‘MyTable’ that falls in the slice duration range. Re-run of this slice would also always ensure this behavior. 
+A consulta anterior lê dados de 'MyTable' dentro do intervalo de duração da fatia. A reexecução dessa fatia também garante esse comportamento todas as vezes.
 
-In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
+Em outros casos, talvez seja conveniente ler a tabela inteira (por exemplo, para mover apenas uma vez) e definir sqlReaderQuery da seguinte maneira:
 
 	
 	"source": {
@@ -23,3 +23,5 @@ In other cases, you may wish to read the entire Table (suppose for one time move
 	            "sqlReaderQuery": "select * from MyTable"
 	          },
 	
+
+<!---HONumber=August15_HO6-->

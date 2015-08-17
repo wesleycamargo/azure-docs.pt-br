@@ -154,4 +154,4 @@ Para obter a lista de comandos Redis que estão desabilitados para o Cache Redis
 ## Próximas etapas
 -	Para obter mais informações sobre como trabalhar com os comandos Redis, consulte [Como executar comandos Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -135,7 +135,12 @@ Após o Provedor ser instalado, continue com a configuração para registrar o s
 	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
 	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
 	- As URLs a seguir devem estar acessíveis no servidor VMM:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 	
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
@@ -182,7 +187,7 @@ Depois que os servidores VMM são registrados, você pode definir as configuraç
 12. Em **Método de replicação**, especifique como a replicação inicial de dados de locais de origem para destino será tratada, antes de iniciar a replicação normal. 
 	- **Pela rede**- Copiando dados pela rede pode ser demorado e consumir muitos recursos. É recomendável usar essa opção se a nuvem contiver máquinas virtuais com discos rígidos virtuais relativamente pequenos e se o site primário estiver conectado ao site secundário por uma conexão com largura de banda ampla. Você pode especificar que a cópia deve iniciar imediatamente ou selecionar uma hora. Se você usar a replicação de rede, recomendamos que você agende fora dos horários de pico.
 	- **Offline**- Esse método especifica que a replicação inicial será executada usando mídia externa. É útil se você deseja evitar a degradação no desempenho da rede ou para locais geograficamente remotos. Para usar esse método, você especifica o local de exportação na nuvem de origem e o local de importação na nuvem de destino. Ao ativar a proteção de uma máquina virtual, o disco rígido virtual é copiado para o local de exportação especificado. Você envia para o local de destino e copia para o local de importação. O sistema copia as informações importadas para as máquinas virtuais de réplica. Para obter uma lista completa dos pré-requisitos de replicação offline, confira a <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Etapa 3: definir as configurações da proteção de nuvens VMM</a> no Guia de Implantação.
-13. Selecione **Excluir Máquina Virtual de Réplica** para especificar que a máquina virtual de réplica deve ser excluída se você parar de proteger a máquina virtual ao selecionar a opção **Excluir proteção para a máquina virtual** na guia Máquinas Virtuais das propriedades da nuvem. Com esta configuração habilitada, quando você desabilita a proteção, a máquina virtual é removida do Azure Site Recovery, as configurações do Site Recovery para a máquina virtual são removidas no console VMM e a réplica é excluída.![Definir configurações de proteção](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
+13. Selecione **Excluir Máquina Virtual de Réplica** para especificar que a máquina virtual de réplica deve ser excluída se você parar de proteger a máquina virtual ao selecionar a opção **Excluir proteção para a máquina virtual** na guia Máquinas Virtuais das propriedades da nuvem. Com esta configuração habilitada, quando você desabilita a proteção, a máquina virtual é removida do Azure Site Recovery, as configurações do Site Recovery para a máquina virtual são removidas no console VMM e a réplica é excluída. ![Definir configurações de proteção](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
 
 <p>Depois de salvar as configurações, um trabalho será criado e poderá ser monitorado pela guia **Trabalhos**. Todos os servidores do host Hyper-V na nuvem de origem do VMM serão configurados para replicação. As configurações de nuvem podem ser modificadas na guia **Configurar**. Se você deseja modificar a nuvem de destino local ou destino, você deve remover a configuração de nuvem e, em seguida, reconfigurar a nuvem.</p>
 
@@ -221,7 +226,7 @@ Você precisará executar as seguintes ações para preparar a replicação inic
 ## Etapa 6: configurar mapeamento de armazenamento
 Por padrão, quando você replica uma máquina virtual em um servidor host Hyper-V de origem para um servidor host Hyper-V de destino, os dados replicados são armazenados no local padrão indicado para o host Hyper-V de destino no Gerenciador Hyper-V. Para obter mais controle sobre onde os dados replicados são armazenados, você pode configurar mapeamentos de armazenamento da seguinte maneira:
 
-- Defina classificações de armazenamento nos servidores VMM de origem e de destino. Para obter instruções, confira [Como criar classificações de armazenamento no VMM](http://go.microsoft.com/fwlink/?LinkId=400937). As classificações devem estar disponíveis para os servidores host Hyper-V nas nuvens de origem e de destino. As classificações não precisam ter o mesmo tipo de armazenamento. Por exemplo, você pode mapear uma classificação de origem que contenha compartilhamentos SMB para uma classificação de destino que contenha CSVs.
+- Defina classificações de armazenamento nos servidores VMM de origem e de destino. Para obter instruções, consulte [Como criar classificações de armazenamento no VMM](http://go.microsoft.com/fwlink/?LinkId=400937). As classificações devem estar disponíveis para os servidores host Hyper-V nas nuvens de origem e de destino. As classificações não precisam ter o mesmo tipo de armazenamento. Por exemplo, você pode mapear uma classificação de origem que contenha compartilhamentos SMB para uma classificação de destino que contenha CSVs.
 - Depois que classificações estiverem em vigor, você poderá criar mapeamentos.
 1. Na página **Início Rápido** > **Mapear armazenamento**.
 1. Clique na guia **Armazenamento** > **Mapear classificações de armazenamento**.
@@ -345,7 +350,7 @@ Esta seção fornece informações adicionais de privacidade para o serviço Mic
 
 - **Uso de informações**: o Serviço usa os metadados para popular o portal do Serviço, em que você pode mapear as informações de rede.
 
-- **Escolha**: essa é uma parte essencial do Serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use o recurso de mapeamento de rede.
+- **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use o recurso de mapeamento de rede.
 
 **Recurso: Failover — planejado, não planejado, teste**
 
@@ -365,4 +370,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

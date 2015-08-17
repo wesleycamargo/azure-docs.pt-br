@@ -22,9 +22,9 @@
 
 AzCopy é um utilitário de linha de comando projetado para upload, download e cópia de dados de alto desempenho do e para o armazenamento de blob, arquivo e tabela do Microsoft Azure. Este guia apresenta uma visão geral do uso do AzCopy.
 
-> [AZURE.NOTE]Este guia pressupõe que você tenha o AzCopy 3.1.0 ou posterior instalado. AzCopy 3.x agora está em disponibilidade geral.
+> [AZURE.NOTE]Este guia pressupõe que você tenha o AzCopy 3.2.0 ou posterior instalado. AzCopy 3.x agora está em disponibilidade geral.
 > 
-> Este guia também aborda o uso do AzCopy 4.1.0, que é uma versão de visualização do AzCopy. Ao longo deste guia, funções fornecidas apenas na versão de visualização são designadas como *visualização*.
+> Este guia também aborda o uso do AzCopy 4.2.0, que é uma versão de visualização do AzCopy. Ao longo deste guia, funções fornecidas apenas na versão de visualização são designadas como *visualização*.
 > 
 > Observe que, para o AzCopy 4.x, as opções de linha de comandos e funcionalidades podem ser alteradas em versões futuras.
 
@@ -91,6 +91,8 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
           <br />
           Se a origem especificada for um compartilhamento de arquivos do Azure, você deve especificar o nome exato do arquivo (por exemplo, abc.txt) para copiar um único arquivo ou especificar a opção /S para copiar todos os arquivos recursivamente no compartilhamento. A tentativa de especificar, ao mesmo tempo, um padrão de arquivo e uma opção /S resultará em erro.
           <br />
+          O AzCopy diferencia maiúsculas de minúsculas quando /Source é um contêiner de blob ou diretório virtual de blob, e não diferencia maiúsculas de minúsculas em todos os outros casos.
+          <br/>
           O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.* para um local do sistema de arquivos, ou um prefixo vazio para um local de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
@@ -105,11 +107,11 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
   </tr>
   <tr>
     <td class="auto-style1"><b>/DestSAS:&lt;sas-token></b></td>
-    <td class="auto-style1">Especifica uma SAS (Assinatura de Acesso Compartilhado) para o contêiner de destino (se aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.<br />
-        Se o recurso de destino for um blob, um contêiner ou uma tabela será possível especificar essa opção seguida do token da SAS ou a SAS como parte do URI do blob de destino, sem essa opção.<br />
+    <td class="auto-style1">Especifica uma SAS (Assinatura de acesso compartilhado) com as permissões de LEITURA e GRAVAÇÃO para o destino (se for aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.<br />
+        Se o recurso de destino for um contêiner de blob, compartilhamento de arquivo ou tabela, você poderá especificar essa opção seguida pelo token da SAS, ou a SAS como parte do URI do contêiner de blob, compartilhamento de arquivo ou tabela de destino, sem essa opção.<br />
         Se a origem e o destino forem blobs, ambos devem residir na mesma conta de armazenamento.</td>
     <td class="auto-style1">S</td>
-    <td class="auto-style1">N</td>
+    <td class="auto-style1">S<br /> (somente visualização)</td>
     <td class="auto-style1">S<br /> (somente visualização)</td>
   </tr>
   <tr>
@@ -121,13 +123,13 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
   </tr>
   <tr>
     <td><b>/SourceSAS:&lt;sas-token></b></td>
-    <td>Especifica uma Assinatura de Acesso Compartilhado para o contêiner de origem (se aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.
+    <td>Especifica uma Assinatura de acesso compartilhado com as permissões de LEITURA e LISTAGEM para a origem (se for aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.
         <br />
         Se o recurso da fonte foir um contêiner de blob e não for fornecida uma chave nem uma SAS, o contêiner será lido por meio de acesso anônimo.
         <br />
-        Se a fonte for uma tabela, chave ou SAS, ela deverá ser fornecida.</td>
+        Se a origem for um compartilhamento de arquivo ou uma tabela, será necessário fornecer uma chave ou SAS.</td>
     <td>S</td>
-    <td>N</td>
+    <td>S<br /> (somente visualização)</td>
     <td>S<br /> (somente visualização)</td>
   </tr>
   <tr>
@@ -138,8 +140,8 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/BlobType:&lt;block | page></b></td>
-    <td>Especifica se o destino é um blob de blocos ou um blob de páginas. Essa opção só é aplicável no carregamento de blobs. Do contrário, um erro é gerado. Se o destino for um blob e essa opção não estiver especificada, por padrão, o AzCopy criará um blob de blocos.</td>
+    <td><b>/BlobType:&lt;block | page | append></b></td>
+    <td>Especifica se o blob de destino é um blob de blocos, um blob de páginas ou um blob anexo. Essa opção só é aplicável no carregamento de blobs. Do contrário, um erro é gerado. Se o destino for um blob e essa opção não estiver especificada, por padrão, o AzCopy criará um blob de blocos.</td>
     <td>S</td>
     <td>N</td>
     <td>N</td>
@@ -210,7 +212,13 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
   </tr>
   <tr>
     <td><b>/L</b></td>
-    <td>Especifica uma operação de listagem apenas. Nenhum dado é copiado.</td>
+    <td>Especifica uma operação de listagem apenas. Nenhum dado é copiado.
+    <br />
+    O AzCopy interpretará o uso dessa opção como uma simulação para execução da linha de comando sem essa opção /L, e contará quantos objetos serão copiados. Você pode especificar a opção /V ao mesmo tempo para verificar quais objetos serão copiados no log detalhado.
+    <br />
+    O comportamento dessa opção também é determinado pelo local dos dados de origem e pela presença da opção no modo recursivo /S e pela opção de padrão de arquivo /Pattern.
+    <br />
+    O AzCopy exige a permissão de LISTAGEM e de LEITURA deste local de origem ao usar essa opção.</td>
     <td>S</td>
     <td>S<br /> (somente visualização)</td>
     <td>N</td>
@@ -378,8 +386,10 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
   </tr>
   <tr>
     <td><b>/Manifest:&lt;manifest-file></b></td>
-    <td>Especifica o arquivo de manifesto para a operação de importação. <br />
-        O arquivo de manifesto é gerado durante a operação de exportação.</td>
+    <td>Especifica o arquivo de manifesto para a operação de exportação e importação de tabela. <br />
+    Essa opção é opcional durante a operação de exportação. O AzCopy gerará um arquivo de manifesto com nome predefinido se essa opção não for especificada.
+    <br />
+    Essa opção é exigida durante a operação de importação para localização dos arquivos de dados.</td>
     <td>N</td>
     <td>N</td>
     <td>S<br /> (somente visualização)</td>
@@ -400,8 +410,15 @@ Os parâmetros do AzCopy são descritos na tabela abaixo. Também é possível d
     <td>S<br /> (somente visualização)</td>
     <td>N</td>
   </tr>
+    <tr>
+    <td><b>/PayloadFormat:&lt;JSON | CSV></b></td>
+    <td>Especifica o formato do arquivo de dados exportados da tabela.<br />
+    Se essa opção não for especificada, por padrão, o AzCopy exportará o arquivo de dados da tabela no formato JSON.</td>
+    <td>N</td>
+    <td>N</td>
+    <td>S<br /> (somente visualização)</td>
+  </tr>
 </table>
-
 <br/>
 
 ## Limite gravações simultâneas durante a cópia de dados
@@ -462,19 +479,19 @@ Se o contêiner de destino especificado não existir, o AzCopy o criará e carre
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-Observe que se o diretório virtual especificado não existir, o AzCopy carregará o arquivo para incluir o diretório virtual em seu nome (\*por exemplo\*, `vd/abc.txt` no exemplo acima).
+Observe que se o diretório virtual especificado não existir, o AzCopy carregará o arquivo para incluir o diretório virtual em seu nome (*por exemplo*, `vd/abc.txt` no exemplo acima).
 
 ### Baixar um blob em uma nova pasta
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Se a pasta `C:\myfolder` ainda não existir, o AzCopy a criará no sistema de arquivos e a baixará `abc.txt ` na nova pasta.
+Se a pasta `C:\myfolder` ainda não existir, o AzCopy a criará no sistema de arquivos e baixará `abc.txt ` na nova pasta.
 
 ### Carregar arquivos e subpastas de um diretório em um contêiner de maneira recursiva
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
-A especificação da opção `/S` copia o conteúdo do diretório especificado para o armazenamento de blob de maneira recursiva, o que significa que todas as subpastas e seus arquivos serão copiados também. Por exemplo, suponhamos que os seguintes arquivos residam na pasta `C:\myfolder`:
+A especificação da opção `/S` copia o conteúdo do diretório especificado para o armazenamento de blob de maneira recursiva, o que significa que todas as subpastas e seus arquivos serão copiados também. Por exemplo, vamos supor que a pasta `C:\myfolder` contenha os seguintes arquivos:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -494,7 +511,7 @@ Depois da operação de cópia, o contêiner incluirá os seguintes arquivos:
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key
 
-Se você não especificar a opção `/S` na linha de comando, o AzCopy não copiará de maneira recursiva. Apenas os arquivos no diretório especificado são copiados. Subpastas e seus arquivos NÃO são copiados. Por exemplo, suponhamos que os seguintes arquivos residam na pasta `C:\myfolder`:
+Se você não especificar a opção `/S` na linha de comando, o AzCopy não copiará de maneira recursiva. Apenas os arquivos no diretório especificado são copiados. Subpastas e seus arquivos NÃO são copiados. Por exemplo, vamos supor que a pasta `C:\myfolder` contenha os seguintes arquivos:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -520,7 +537,7 @@ Suponhamos que os seguintes blobs residam no contêiner especificado:
 	vd1\a.txt
 	vd1\abcd.txt
 
-Depois da operação de cópia, o diretório `C:\myfolder` incluirá os seguintes arquivos:
+Após a operação de cópia, o diretório `C:\myfolder` incluirá os seguintes arquivos:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -540,7 +557,7 @@ Suponhamos que os seguintes blobs residam no contêiner especificado:
 	vd1\a.txt
 	vd1\abcd.txt
 
-Depois da operação de cópia, o diretório `C:\myfolder` incluirá os seguintes arquivos. Apenas os blobs no diretório virtual são copiados:
+Após a operação de cópia, o diretório `C:\myfolder` incluirá os seguintes arquivos. Apenas os blobs no diretório virtual são copiados:
 
 	C:\myfolder\a.txt
 	C:\myfolder\abcd.txt
@@ -549,7 +566,7 @@ Depois da operação de cópia, o diretório `C:\myfolder` incluirá os seguinte
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 
-Suponhamos que os seguintes arquivos residam na pasta `C:\myfolder`:
+Vamos supor que a pasta `C:\myfolder` contenha os seguintes arquivos:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -579,7 +596,7 @@ Suponhamos que os blobs a seguir residam no contêiner especificado. Todos os bl
 	vd1\a.txt
 	vd1\abcd.txt
 
-Depois da operação de cópia, a pasta `C:\myfolder` incluirá os seguintes arquivos:
+Após a operação de cópia, a pasta `C:\myfolder` incluirá os seguintes arquivos:
 
 	C:\myfolder\abc.txt
 	C:\myfolder\abc1.txt
@@ -607,7 +624,7 @@ Depois da operação de cópia, o contêiner de destino incluirá o blob e seus 
 
 **Especificar um ou mais arquivos de resposta de linha única**
 
-Suponhamos um arquivo de resposta chamado `source.txt` que especifique um contêiner de origem:
+Vamos supor um arquivo de resposta chamado `source.txt` que especifique um contêiner de origem:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer
 
@@ -629,7 +646,7 @@ O AzCopy processa esse comando assim como faria se você tivesse incluído todos
 
 **Especifique um arquivo de resposta multilinhas**
 
-Suponhamos um arquivo de resposta chamado `copyoperation.txt` que contenha as seguintes linhas. Todo parâmetro do AzCopy é especificado na própria linha:
+Vamos supor que um arquivo de resposta chamado `copyoperation.txt` contenha as seguintes linhas. Todo parâmetro do AzCopy é especificado na própria linha:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer
 	/Dest:C:\myfolder
@@ -682,7 +699,7 @@ Se o arquivo de diário existir, o AzCopy verificará se a linha de comando inse
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-Se você omitir a opção `/Z` ou especificar a opção `/Z` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
+Se você omitir a opção `/Z` ou especificar a opção `/Z` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
 
 **Especificar um local padrão para o arquivo de diário**
 
@@ -703,7 +720,7 @@ Este exemplo retoma a última operação, cuja conclusão pode ter falhado.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-Se você especificar a opção `/V` sem fornecer um caminho de arquivo para o log detalhado, o AzCopy criará o arquivo de log no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Se você especificar a opção `/V` sem fornecer um caminho de arquivo para o log detalhado, o AzCopy criará o arquivo de log no local padrão, que é `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 **Gravar o arquivo de log detalhado em um local personalizado**
 
@@ -741,11 +758,11 @@ A opção `/NC` especifica o número de operações de cópia simultâneas. Por 
 
 O AzCopy por padrão copia dados entre dois pontos de extremidade de armazenamento assincronamente. Portanto, a operação de cópia será executada em segundo plano usando capacidade de largura de banda extra sem nenhum SLA em termos da velocidade de como o blob será copiado e o AzCopy verificará periodicamente o status da cópia até que a cópia esteja concluída ou tenha ocorrido uma falha.
 
-A opção `/SyncCopy`, nova na versão 3.1.0, garante que a operação de cópia obterá velocidade consistente. O AzCopy realiza a cópia síncrona baixando os blobs para copiar da fonte especificada para a memória local, e, em seguida, carregá-los para o destino de armazenamento de Blob.
+A opção `/SyncCopy`, garante que a operação de cópia obterá velocidade consistente. O AzCopy realiza a cópia síncrona baixando os blobs para copiar da fonte especificada para a memória local, e, em seguida, carregá-los para o destino de armazenamento de Blob.
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
-Observe que /SyncCopy pode gerar custo de saída adicional comparando a cópia assíncrona, a abordagem recomendada é usar essa opção na VM do Azure que está na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
+Observe que `/SyncCopy` pode gerar custo de saída adicional comparando a cópia assíncrona, a abordagem recomendada é usar essa opção na VM do Azure que está na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
 
 ### Especificar o tipo de conteúdo MIME de um blob de destino
 
@@ -765,11 +782,11 @@ Os exemplos abaixo demonstram vários cenários para copiar arquivos do Azure co
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Observe que se a origem especificada for um compartilhamento de arquivos do Azure, você deve especificar o nome exato do arquivo, (\*por exemplo\*, `abc.txt`) para copiar um único arquivo ou especificar a opção `/S` para copiar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e uma opção `/S` simultaneamente resultará em um erro.
+Observe que se a origem especificada for um compartilhamento de arquivos do Azure, você deve especificar o nome exato do arquivo, (*por exemplo* `abc.txt`) para copiar um único arquivo ou especificar a opção `/S` para copiar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e uma opção `/S` simultaneamente resultará em um erro.
 
-### Baixar arquivos e pastas de um compartilhamento de arquivos do Azure no sistema de arquivos de maneira recursiva
+### Baixar arquivos e pastas de um compartilhamento de arquivos do Azure no sistema de arquivos, de maneira recursiva, especificará a assinatura de acesso
 
-	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
+	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceSAS:SAS /S
 
 Nenhuma pasta vazia será copiada.
 
@@ -785,10 +802,27 @@ Nenhuma pasta vazia será copiada.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
+### Copiar arquivos de forma assíncrona no Armazenamento de arquivos do Azure
+
+O Armazenamento de arquivos do Azure oferece suporte à cópia assíncrona no lado do servidor.
+
+Cópia assíncrona do Armazenamento de arquivos para o Armazenamento de arquivos:
+
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
+
+Cópia assíncrona do Armazenamento de arquivos para o Blob de blocos:
+  
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
+
+Cópia assíncrona do Blob de blocos/páginas para o Armazenamento de arquivos:
+
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
+
+Observe que não há suporte para a cópia assíncrona do Armazenamento de arquivos para o Blob de páginas.
 
 ### Copiar arquivos de forma síncrona no armazenamento de arquivos do Azure
 
-Com a nova opção /SyncCopy na versão de teste 4.1.0, usuário pode copiar arquivos de armazenamento de arquivos para armazenamento de arquivos, do armazenamento de arquivo para o armazenamento de Blob e do armazenamento de Blob ao armazenamento de arquivos.
+Além da cópia assíncrona, o usuário também pode especificar a opção `/SyncCopy` para copiar dados do Armazenamento de arquivos para o Armazenamento de arquivos, do Armazenamento de arquivos para o Armazenamento de blob e do Armazenamento de blob para o Armazenamento de arquivos de forma síncrona. O AzCopy faz isso baixando os dados de origem para a memória local e carregando-os novamente no destino.
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -796,9 +830,9 @@ Com a nova opção /SyncCopy na versão de teste 4.1.0, usuário pode copiar arq
 	
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
-Durante a cópia de armazenamento de arquivos no armazenamento de Blob, o tipo de blob padrão é o blob de bloco, o usuário pode especificar a opção /BlobType:page para alterar o tipo de blob de destino.
+Durante a cópia do Armazenamento de arquivos para o Armazenamento de blob, o tipo de blob padrão é o blob de blocos, o usuário pode especificar a opção `/BlobType:page` para alterar o tipo de blob de destino.
 
-Observe que o serviço de armazenamento do Azure não oferece suporte cópia assíncrona ainda quando a versão de teste AzCopy 4.1.0 foi lançada, portanto, as operações de cópia acima falharão se a opção /SyncCopy não estiver especificada.
+Observe que `/SyncCopy` pode gerar custo de saída adicional comparando a cópia assíncrona, a abordagem recomendada é usar essa opção na VM do Azure que está na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
 
 
 ## Copiar entidades em uma tabela do Azure com o AzCopy (somente na versão de teste)
@@ -808,6 +842,23 @@ Os exemplos abaixo demonstram vários cenários para copiar entidades de tabela 
 ### Exportar entidades para o sistema de arquivos local
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
+
+O AzCopy grava um arquivo de manifesto na pasta de destino ou o contêiner de blob especificado. O arquivo do manifesto é usado pelo processo de importação para localizar os arquivos de dados necessários e executar a validação de dados durante o processo de importação. O arquivo de manifesto usa a seguinte convenção de nomenclatura por padrão:
+
+	<account name>_<table name>_<timestamp>.manifest
+
+O usuário também pode especificar a opção `/Manifest:<manifest file name>` para definir o nome do arquivo de manifesto.
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
+
+
+### Exportar entidades para o formato de arquivo de dados JSON e CSV
+
+Por padrão, o AzCopy exporta entidades de tabela para arquivos JSON. O usuário pode especificar a opção `/PayloadFormat:JSON|CSV` para decidir o tipo de arquivo de dados exportado.
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
+
+Ao especificar o formato de carga CSV, além dos arquivos de dados com a extensão `.csv` encontrados no local especificado pelo parâmetro `/Dest`, o AzCopy gerará um arquivo de esquema com a extensão `.schema.csv` para cada arquivo de dados. Observe que o AzCopy não inclui o suporte para "importar" o arquivo de dados CSV, você pode usar o formato JSON para exportar e importar dados de tabela.
 
 ### Exportar entidades para um blob do Azure
 
@@ -819,7 +870,7 @@ O AzCopy gera um arquivo de dados JSON na pasta local ou no contêiner do blob, 
 
 O arquivo de dados JSON gerado segue o formato de carga para metadados mínimos. Para obter detalhes sobre esse formado de carga, confira [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Observe que ao exportar Entidades de Tabela de Armazenamento para o Armazenamento de Blob, o AzCopy exportará entidades da tabela para arquivos de dados temporários locais em primeiro lugar e, em seguida, vai carregá-los no Blob, esses arquivos de dados temporários são colocados na pasta de arquivo de diário com o caminho padrão “<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>”, você pode especificar a opção /Z:[journal-file-folder] para alterar o local da pasta de arquivo de diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o Blob, verifique que você tem espaço suficiente no disco local para armazenar esses arquivos de dados temporários antes de serem excluídos,
+Observe que ao exportar Entidades da tabela de armazenamento para o Armazenamento de blob, primeiro, o AzCopy exportará entidades da tabela para arquivos de dados temporários locais e, em seguida, os carregará no Blob, esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão “<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>”, você pode especificar a opção /Z:[journal-file-folder] para alterar o local da pasta de arquivo de diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o Blob, verifique que você tem espaço suficiente no disco local para armazenar esses arquivos de dados temporários antes de serem excluídos,
 
 ### Dividir os arquivos exportados
 
@@ -848,10 +899,6 @@ Observe que a opção `/NC` também controla a quantidade de operações simult�
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
 
-Quando você exporta entidades de tabelas, o AzCopy grava um arquivo de manifesto para a pasta de destino ou o contêiner do blob especificado. O arquivo do manifesto é usado pelo processo de importação para localizar os arquivos de dados necessários e executar a validação de dados durante o processo de importação. O arquivo de manifesto usa esta convenção de nomenclatura:
-
-	<account name>_<table name>_<timestamp>.manifest
-
 A opção `/EntityOperation` indica como inserir entidades na tabela. Os valores possíveis são:
 
 - `InsertOrSkip`: ignora uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
@@ -866,27 +913,41 @@ Observe que não é possível especificar a opção `/PKRS` no cenário de impor
 #### Execute uma instância de AzCopy em um computador.
 O AzCopy foi projetado para maximizar a utilização do recurso do seu computador para acelerar a transferência de dados, recomendamos que você execute apenas uma instância do AzCopy em um único computador e especifique a opção `/NC` se precisar de mais operações simultâneas. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
 
-#### Verifique se "Usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura" está desabilitado ao usar AzCopy, observe que essa opção está desabilitada por padrão.
-Você pode digitar `secpol.msc` na sua janela `Run` e verificar esse comutador em `Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing`. Observe que esse caminho de configuração pode ser diferente dependendo do sistema operacional Windows que você está usando.
+#### Habilite algoritmos MD5 compatíveis com FIPS para o AzCopy quando você "Usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura".
+Por padrão, o AzCopy usa a implementação MD5 do .NET para calcular o MD5 ao copiar objetos, mas há alguns requisitos de segurança que precisam do AzCopy para permitir a configuração de MD5 compatível com FIPS.
 
+Você pode criar um arquivo app.config `AzCopy.exe.config` com a propriedade `AzureStorageUseV1MD5` e reservá-lo com o AzCopy.exe.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	  <appSettings>
+	    <add key="AzureStorageUseV1MD5" value="false"/>
+	  </appSettings>
+	</configuration>
+
+Para a propriedade “AzureStorageUseV1MD5” • True - valor padrão, o AzCopy usará a implementação MD5 de .NET. • False – o AzCopy usará o algoritmo MD5 compatível com FIPS.
+
+Observe que os algoritmos compatíveis com FIPS estão desabilitados por padrão em seu computador com Windows. Digite secpol.msc na janela Executar e marque essa opção em Configuração de Segurança -> Segurança -> Políticas Locais > Opções de Segurança > Criptografia do Sistema: usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura.
 
 ## Versões do AzCopy
 
 | Versão | O que há de novo |
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.1.0** | **Versão de teste atual. Inclui todas as funcionalidades da V3.1.0. Suporta cópia de blobs e arquivos de forma síncrona e especifica o tipo de conteúdo para blobs e arquivos de destino**	
-| **V3.1.0** | **Versão atual. Suporta cópia de blobs de forma síncrona e especifica o tipo de conteúdo para blobs de destino.**
+| **V4.2.0** | **Versão de teste atual. Inclui todas as funcionalidades da V3.2.0. Também oferece suporte a SAS de compartilhamento do arquivo de armazenamento, cópia assíncrona do armazenamento de arquivos, exportação de entidades de tabela para CSV e especificação do nome do manifesto ao exportar entidades de Tabela**
+| **V3.2.0** | **Versão atual. Oferece suporte ao Blob anexo e configuração de MD5 compatível com FIPS**
+| V4.1.0 | Inclui todas as funcionalidades da V3.1.0. Suporta cópia de blobs e arquivos de forma síncrona e especifica o tipo de conteúdo para blobs e arquivos de destino
+| V3.1.0 | Suporta cópia de blobs de forma síncrona e especifica o tipo de conteúdo para blobs de destino.
 | V4.0.0 | Inclui todas as funcionalidades do V3.0.0. Também permite copiar arquivos de ou para o armazenamento de arquivos do Azure e copiar entidades de ou para o armazenamento de tabela do Azure.
 | V3.0.0 | Modifica a sintaxe da linha de comando do AzCopy para solicitar os nomes do parâmetro e redefine a ajuda da linha de comando. Essa versão dá suporte apenas copiar para e do armazenamento de blob do Azure.	
 | V2.5.1 | Otimiza o desempenho com o uso das opções /xo e /xn. Corrige bugs relacionados a caracteres especiais nos nomes dos arquivos de origem e os danos nos arquivos de diário quando o usuário insere sintaxe errada na linha de comando.	
-| V2.5.0 | Otimiza o desempenho para cenários de cópia em larga escala e apresenta diversos aperfeiçoamentos de usabilidade importantes.	
+| V2.5.0 | Otimiza o desempenho para cenários de cópia em larga escala e apresenta diversos aperfeiçoamentos de usabilidade importantes.
 | V2.4.1 | Permite a especificação da pasta de destino no assistente de instalação.                     			
-| V2.4.0 | Permite o upload e o download de arquivos para armazenamento de arquivo do Azure.                       				                              
-| V2.3.0 | Permite contas de armazenamento de redundância geográfica com acesso de leitura. |
-| V2.2.2 | Atualizado para usar a versão da biblioteca do cliente de armazenamento do Azure 3.0.3.                                            				                    
-| V2.2.1 | Problema de desempenho corrigido durante a cópia de arquivos muito grandes dentro da mesma conta de armazenamento.            				                                                
-| V2.2 | Permite a configuração do delimitador de diretório virtual para nomes de blob. Permite a especificação do caminho de arquivo de diário. |
-| V2.1 | Oferece mais de 20 opções para permitir operações de upload, download e cópia de blob de maneira eficiente. |
+| V2.4.0 | Permite o upload e o download de arquivos para armazenamento de arquivo do Azure.
+| V2.3.0 | Permite contas de armazenamento de redundância geográfica com acesso de leitura.|
+| V2.2.2 | Atualizado para usar a versão da biblioteca do cliente de armazenamento do Azure 3.0.3.
+| V2.2.1 | Problema de desempenho corrigido durante a cópia de arquivos muito grandes dentro da mesma conta de armazenamento.
+| V2.2 | Permite a configuração do delimitador de diretório virtual para nomes de blob. Permite a especificação do caminho de arquivo de diário.|
+| V2.1 | Oferece mais de 20 opções para permitir operações de upload, download e cópia de blob de maneira eficiente.|
 
 
 ## Próximas etapas
@@ -911,4 +972,4 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

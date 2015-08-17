@@ -91,4 +91,4 @@ Para restaurar os dispositivos desativados para os padrões de fábrica, acesse 
 
 Para obter assistência técnica, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

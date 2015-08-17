@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # O que aconteceu com meu projeto?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###O que aconteceu com meu projeto?</id>
+###O que aconteceu com meu projeto?
 
 #####Pacote NuGet adicionado
 
@@ -46,4 +46,4 @@ Na pasta de serviços, arquivos de configuração de Serviços Conectados foram 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

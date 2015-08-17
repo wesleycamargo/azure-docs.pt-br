@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Criar ou editar usuários no Azure AD" 
-	description="Um tópico que explica como criar ou editar contas de usuário no Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Criar ou editar usuários no Azure AD"
+	description="Um tópico que explica como criar ou editar contas de usuário no Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # Criar ou editar usuários no Azure AD
 
@@ -24,10 +24,10 @@ Você precisa criar uma conta para cada usuário que acessará um serviço de nu
 
 1. Clique em **Active Directory** e no nome do diretório da sua organização.
 2. Na página **Usuários**, clique em **Adicionar usuário**.
-3. Na página **Conte-nos sobre este usuário**, para **Tipo de usuário**, selecione: 
+3. Na página **Conte-nos sobre este usuário**, para **Tipo de usuário**, selecione:
 	1. **Novo usuário na sua organização** – indica que você deseja que uma nova conta de usuário seja criada e gerenciada no diretório.
-	2. **Usuário com uma conta Microsoft existente** – indica que você deseja adicionar uma conta existente da Microsoft no seu diretório para colaborar com os recursos do Azure com um co-administrador que acessa o Azure com uma conta da Microsoft.	
-	3. **Usuário em outro diretório do Azure AD** – indica que você deseja adicionar uma conta de usuário ao seu diretório que foi originado de outro diretório do Azure AD. Você precisa ser um membro do outro diretório para selecionar um usuário nele. 
+	2. **Usuário com uma conta Microsoft existente** – indica que você deseja adicionar uma conta existente da Microsoft no seu diretório para colaborar com os recursos do Azure com um co-administrador que acessa o Azure com uma conta da Microsoft.
+	3. **Usuário em outro diretório do Azure AD** – indica que você deseja adicionar uma conta de usuário ao seu diretório que foi originado de outro diretório do Azure AD. Você precisa ser um membro do outro diretório para selecionar um usuário nele.
 4. Dependendo da opção selecionada, digite um nome de usuário ou nome de conta da Microsoft com que esse usuário irá se conectar.
 5. O na página **Perfil** do usuário, forneça o nome e sobrenome do usuário, um nome amigável e uma função de usuário no menu suspenso Funções. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md). Especifique se deseja **Habilitar a autenticação multifator**.
 6. Na página **Obter senha temporária**, clique em **Criar**.
@@ -40,7 +40,7 @@ Se sua organização usa mais de um domínio, você deve saber sobre os seguinte
 ## Editar um usuário
 
 Se o usuário que você está tentando editar estiver sincronizado com o serviço do Active Directory local, será exibida uma mensagem de erro e não será possível editar o usuário usando esse procedimento. Para editar o usuário, use suas ferramentas de gerenciamento do Active Directory locais.
- 
+
 Para editar um usuário no Portal de Gerenciamento do Azure:
 
 1. Clique em **Active Directory** e no nome do diretório da sua organização.
@@ -110,6 +110,5 @@ A capacidade dos convidados verem detalhes limitados de um usuário ou grupo per
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

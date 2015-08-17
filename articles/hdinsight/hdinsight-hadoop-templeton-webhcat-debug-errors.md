@@ -38,7 +38,7 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 
 | Configuração | O que faz | Valor padrão |
 | ------- | ------------ | ------------- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | O número máximo de trabalhos que podem estar ativos ao mesmo tempo (em execução ou pendentes) | 10.000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | O número máximo de trabalhos que podem estar ativos ao mesmo tempo (em execução ou pendentes) | 10\.000 |
 | [templeton.exec.max-procs][max-procs] | O número máximo de solicitações que podem ser atendidas simultaneamente | 20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | O número de dias em que o histórico de trabalhos será mantido | 7 dias |
 
@@ -85,4 +85,4 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

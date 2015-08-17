@@ -1,22 +1,22 @@
-## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## Mapeamento de coluna com regras de conversor
+O mapeamento de coluna pode ser usado para definir como colunas especificadas na "estrutura" da tabela de origem estão correlacionadas a colunas especificada na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade de cópia.
 
-Column mapping supports the following scenarios:
+O mapeamento de coluna oferece suporte para os seguintes cenários:
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+1.	Todas as colunas na "estrutura" da tabela de origem são mapeadas para todas as colunas na "estrutura" da tabela de coletor.
+2.	Um subconjunto das colunas na "estrutura" da tabela de origem é mapeado para todas as colunas na "estrutura" da tabela de coletor.
 
-The following are error conditions and will result in an exception:
+A seguir há condições de erro que geram exceções:
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+1.	Menos colunas ou mais colunas na "estrutura" da tabela de coletor do que o especificado no mapeamento.
+2.	Mapeamento duplicado.
+3.	O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
 
-## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+## Exemplos de mapeamento de coluna
+> [AZURE.NOTE]Os exemplos a seguir são para o SQL Azure e Blobs do Azure, mas são aplicáveis da mesma maneira a qualquer armazenamento de dados que oferece suporte a tabelas retangulares. Você precisará ajustar o conjunto de dados e as definições de serviço vinculado nos exemplos abaixo para apontar para dados na fonte de dados relevante.
 
-### Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### Exemplo 1 - mapeamento de coluna do SQL Azure para blobs do Azure
+Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL Azure.
 
 	{
 	    "name": "AzureSQLInput",
@@ -47,7 +47,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	    }
 	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+Neste exemplo, a tabela de saída tem uma estrutura e ela aponta para um blob em um armazenamento de blobs do Azure.
 
 	{
 	    "name": " AzureBlobOutput",
@@ -78,7 +78,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+O JSON para a atividade é mostrado abaixo. As colunas da fonte são mapeadas para colunas no coletor (**columnMappings**) utilizando a propriedade **Translator**.
 
 	{
 	    "name": "CopyActivity",
@@ -107,12 +107,12 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column mapping flow:**
+**Fluxo de mapeamento de coluna:**
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Fluxo de mapeamento de coluna](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### Exemplo 2 - mapeamento de coluna com a consulta SQL do SQL Azure para blobs do Azure
+Neste exemplo, uma consulta SQL é usada para extrair dados do SQL Azure, em vez de simplesmente especificar o nome da tabela e os nomes das colunas na seção de "estrutura".
 
 	{
 	    "name": "CopyActivity",
@@ -125,7 +125,7 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        "source":
 	        {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', WindowStart)"
 	        },
 	        "sink":
 	        {
@@ -143,15 +143,10 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        }
 	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+Nesse caso, os resultados da consulta primeiro são mapeados para colunas especificadas na "estrutura" da origem. Em seguida, as colunas da "estrutura" de origem são mapeadas para colunas na "estrutura" do coletor com as regras especificadas em columnMappings. Suponha que a consulta retorne cinco colunas, duas colunas adicionais e as especificadas na "estrutura" de origem.
 
-**Column mapping flow**
+**Fluxo de mapeamento de coluna**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Fluxo de mapeamento de coluna-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
+<!---HONumber=August15_HO6-->

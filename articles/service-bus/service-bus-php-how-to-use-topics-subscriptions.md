@@ -39,7 +39,7 @@ Neste guia, você usará os recursos de serviços que podem ser chamados em um a
 
 Para usar as APIs do barramento de serviço:
 
-1. Faça referência ao arquivo do carregador automático usando a instrução [require_once][require-once].
+1. Faça referência ao arquivo do carregador automático usando a instrução [require\_once][require-once].
 2. Fazer referência a qualquer classe que você possa usar.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
@@ -332,4 +332,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

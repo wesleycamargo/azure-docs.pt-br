@@ -83,7 +83,7 @@ Para movê-la para uma VNET regional na Europa Ocidental, altere a configuraçã
 
 Você precisará criar uma nova conta de armazenamento que seja configurada para Armazenamento Premium. Observe que o uso do Armazenamento Premium é definido na conta de armazenamento, não em VHDs individuais, no entanto, ao usar uma VM série DS*, você pode anexar VHDs de contas de Armazenamento Padrão e Premium. Você poderá considerar isso se não quiser colocar o VHD do sistema operacional na conta de Armazenamento Premium.
 
-O seguinte comando **New-AzureStorageAccountPowerShell** com o **Tipo** "Premium_LRS" cria uma conta de Armazenamento Premium:
+O seguinte comando **New-AzureStorageAccountPowerShell** com o **Tipo** "Premium\_LRS" cria uma conta de Armazenamento Premium:
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -143,9 +143,9 @@ Após o mapeamento de VHDs para discos físicos nos pools de armazenamento, voc�
 
 O desempenho de armazenamento depende do tamanho da VM DS* especificado e dos tamanhos de VHD. As VMs têm concessões diferentes para o número de VHDs que podem ser anexados e a largura de banda máxima que aceitarão (MB/s). Para obter os números de largura de banda específicos, consulte [Máquina virtual e tamanhos de serviço de nuvem do Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage).
+Mais IOPS são obtidos com tamanhos de disco maiores. Considere isso quando você pensar em seu caminho de migração. Para obter detalhes, [consulte a tabela de IOPS e tipos de disco](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whpt-bring-premium-storage).
 
-Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
+Por fim, considere que as VMs têm larguras de banda máxima de disco diferentes que aceitarão para todos os discos anexados. Em cargas elevadas, você poderia saturar a largura de banda máxima de disco disponível para esse tamanho de função de VM. Por exemplo, um Standard\_DS14 oferecerá suporte a até 512 MB/s; portanto, com três discos P30 você poderia saturar a largura de banda do disco da VM. Porém, neste exemplo, o limite de taxa de transferência poderia ser excedido dependendo da combinação de E/Ss de leitura e gravação.
 
 ## Novas implantações
 
@@ -374,7 +374,7 @@ Existem duas estratégias para migrar as implantações AlwaysOn que permitem al
 1. **Adicionar mais réplicas secundárias a um cluster AlwaysOn existente**
 1. **Migrar para um novo cluster AlwaysOn**
 
-#### 1. Adicionar mais réplicas secundárias a um cluster AlwaysOn existente
+#### 1\. Adicionar mais réplicas secundárias a um cluster AlwaysOn existente
 
 Uma estratégia é adicionar mais réplicas secundárias ao grupo de disponibilidade AlwaysOn. Você precisa adicioná-las em um novo serviço de nuvem e atualizar o ouvinte com o novo IP do balanceador de carga.
 
@@ -396,7 +396,7 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 1. Copie sobre backups e restauração completos com **NORECOVERY**.
 1. Copie sobre objetos dependentes de ‘banco de dados fora do usuário’, como logons etc.
 1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
-> [AZURE.NOTE] Verifique se todos os nós têm a configuração do Ponto de Extremidade correta antes de continuar
+> [AZURE.NOTE]Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
 
 1. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
 1. Interrompa serviços de mecanismo do SQL Server em todos os nós (se você estiver usando pools de armazenamento).
@@ -421,7 +421,7 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 - O tempo de transferência de dados SQL pode ser muito longo durante a configuração de réplicas secundárias.
 - Há custos adicionais durante a migração quando há novas máquinas em execução em paralelo.
 
-#### 2. Migrar para um novo cluster AlwaysOn
+#### 2\. Migrar para um novo cluster AlwaysOn
 
 Outra estratégia é criar um novo cluster AlwaysOn com nós totalmente novos no novo serviço de nuvem e redirecionar os clientes para usá-lo.
 
@@ -452,7 +452,7 @@ Existem duas estratégias para migrar implantações AlwaysOn para o tempo de in
 1. **Utilizar uma réplica secundária existente: site único**
 1. **Utilizar réplicas secundárias existentes: vários sites**
 
-#### 1. Utilizar uma réplica secundária existente: site único
+#### 1\. Utilizar uma réplica secundária existente: site único
 
 Uma estratégia para tempo de inatividade mínimo é usar uma réplica secundária de nuvem existente e removê-la do serviço de nuvem atual. Em seguida, copie os VHDs para a nova conta de Armazenamento Premium e crie a VM no novo serviço de nuvem. Em seguida, atualize o ouvinte no clustering e failover.
 
@@ -498,7 +498,7 @@ Este documento não demonstra um exemplo completo de ponta a ponta, no entanto, 
 - Se você seguir as etapas 5ii, adicione SQL1 como um possível proprietário para o recurso de endereço IP adicionado
 - Failovers de teste.
 
-#### 2. Utilizar réplicas secundárias existentes: vários sites
+#### 2\. Utilizar réplicas secundárias existentes: vários sites
 
 Se tiver nós em mais de um data center do Azure (DC) ou se tiver um ambiente híbrido, você poderá usar uma configuração AlwaysOn nesse ambiente para minimizar o tempo de inatividade.
 
@@ -674,7 +674,7 @@ Como vai retirar pelo menos um SQL Server de cada vez, você deverá modificar a
 
     Set-ClusterQuorum -NodeMajority  
 
-Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/en-us/library/jj612870.aspx).
+Para saber mais sobre como gerenciar e configurar o quorum de cluster, confira [Configurar e gerenciar o quorum em um cluster de failover do Windows Server 2012](https://technet.microsoft.com/pt-br/library/jj612870.aspx).
 
 #### Etapa 6: extrair ACLs e pontos de extremidade existentes
     #GET Endpoint info
@@ -868,7 +868,7 @@ O código a seguir também usa a opção adicional em que é possível importar 
     
     #SET Azure ACLs or Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
     
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
@@ -1022,7 +1022,7 @@ Você pode verificar o status da cópia VHD para todos os VHDs: ForEach ($disk i
 
 Aguarde até que todos esses itens sejam registrados como êxito.
 
-Para obter informações de blobs individuais: #Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
+Para obter informações de blobs individuais: \#Check induvidual blob status Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### Etapa 21: registrar o disco do sistema operacional
     #change storage account to the new XIO storage account
@@ -1081,7 +1081,7 @@ Para obter informações de blobs individuais: #Check induvidual blob status Get
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Etapa 23: failover de teste
 
@@ -1143,4 +1143,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

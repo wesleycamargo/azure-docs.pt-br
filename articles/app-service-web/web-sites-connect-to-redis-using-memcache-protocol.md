@@ -83,7 +83,7 @@ Baixe o link x86 NTS (Non-Thread Safe) para a versão do PHP habilitada nos apli
 
 ### Habilitar a extensão php\_memcache
 
-Após baixar o arquivo, descompacte e carregue **php\_memcache.dll** no diretório **d:\\home\\site\\wwwroot\\bin\\ext\\**. Depois que php\_memcache.dll for carregado no aplicativo web, a extensão precisará ser habilitada para o Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP\_EXTENSIONS** e o valor **bin\\ext\\php\_memcache.dll**.
+Após baixar o arquivo, descompacte e carregue **php\_memcache.dll** no diretório **d:\\home\\site\\wwwroot\\bin\\ext\**. Depois que php\_memcache.dll for carregado no aplicativo web, a extensão precisará ser habilitada para o Tempo de Execução do PHP. Para habilitar a extensão Memcache no Portal do Azure, abra a folha **Configurações de Aplicativo do aplicativo Web** e, em seguida, adicione uma nova configuração de aplicativo com a chave**PHP\_EXTENSIONS** e o valor **bin\\ext\\php\_memcache.dll**.
 
 
 > Se o aplicativo Web precisar carregar várias extensões PHP, o valor de PHP\_EXTENSIONS deverá ser uma lista delimitada por vírgulas de caminhos relativos para arquivos DLL.
@@ -197,4 +197,4 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

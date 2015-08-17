@@ -70,7 +70,7 @@ A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por me
 
 Eis aqui uma visão geral dos arquivos que você encontrará no repositório Git inicial, o qual iremos clonar na próxima seção.
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Documentação do Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

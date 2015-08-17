@@ -40,11 +40,11 @@ Após instalar e configurar os cmdlets do PowerShell, você deve especificar em 
 
 Para obter uma lista de assinaturas disponíveis, execute o seguinte cmdlet:
 
-	PS C:> Get-AzureSubscription
+	PS C:\> Get-AzureSubscription
 
 Depois, selecione um da seguinte forma:
 
-	PS C:> Select-AzureSubscription "TestSubscription"
+	PS C:\> Select-AzureSubscription "TestSubscription"
 
  
 ##Obter nome de conta de armazenamento
@@ -77,14 +77,14 @@ Neste exemplo, uma conta de armazenamento existente é usada. O cmdlet [Get-Azur
 Para criar uma nova conta dos Serviços de Mídia do Azure, use o novo cmdlet [AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx), fornecendo o nome da conta dos Serviços de Mídia, o local do data center em que ela será criada e o nome da conta de armazenamento.
 
 
-	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##Obter as contas dos Serviços de Mídia
 
 Após criar uma ou mais contas dos Serviços de Mídia, você pode listar informações usando [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
 
 	
-	PS C:> Get-AzureMediaServicesAccount
+	PS C:\> Get-AzureMediaServicesAccount
 	
 	AccountId		Name				State
 	---------       ----       			 -----
@@ -92,7 +92,7 @@ Após criar uma ou mais contas dos Serviços de Mídia, você pode listar inform
 
 Fornecendo o parâmetro Name, você obterá informações mais detalhadas, incluindo chaves de conta.
 
-	PS C:> Get-AzureMediaServicesAccount -Name amstestaccount001
+	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
 
 ##Gerar novamente as chaves de acesso dos Serviços de Mídia
 
@@ -100,14 +100,14 @@ Para atualizar a chave de acesso primária ou secundária dos Serviços de Mídi
 
 Especifique a opção -Force se não desejar que o PowerShell faça perguntas de confirmação.
 
-	PS C:> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
 
 ##Remover a conta dos Serviços de Mídia
 
 Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
 
-	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

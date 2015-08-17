@@ -53,7 +53,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
+3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure-storage** que contém as bibliotecas necessárias para acessar o armazenamento.
 
 ### Importar o pacote
 
@@ -63,7 +63,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte s
 
 ## Configurar uma conexão de armazenamento do Azure
 
-O módulo do azure lerá as variáveis de ambiente AZURE_STORAGE_ACCOUNT e AZURE_STORAGE_ACCESS_KEY, ou AZURE_STORAGE_CONNECTION_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
+O módulo do azure lerá as variáveis de ambiente AZURE\_STORAGE\_ACCOUNT e AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar **createQueueService**.
 
 Para obter um exemplo de como definir variáveis de ambiente no portal de gerenciamento de um Site do Azure, consulte [Aplicativo Node.js na Web com armazenamento].
 
@@ -332,4 +332,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
  [Site com o WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

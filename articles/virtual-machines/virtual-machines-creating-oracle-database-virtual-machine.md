@@ -1,4 +1,4 @@
-<properties pageTitle="Criando uma máquina virtual do Oracle Database no Azure" description="Percorra um exemplo de criação de uma máquina virtual Oracle no Microsoft Azure e, em seguida, crie um banco de dados Oracle nela." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="Criando uma máquina virtual do Oracle Database no Azure" description="Percorra um exemplo de criação de uma máquina virtual Oracle no Microsoft Azure e, em seguida, crie um banco de dados Oracle nela." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando uma máquina virtual do Oracle Database no Azure
 O exemplo a seguir mostra como você pode criar uma máquina virtual baseada em uma imagem do Oracle Database fornecida pela Microsoft em execução no Windows Server 2012 no Azure. Há duas etapas: criar a máquina virtual e criar um Oracle Database dentro da máquina virtual. O exemplo mostrado é a versão do Oracle Database 12c, mas as etapas são praticamente idênticas para a versão 11g.
@@ -48,7 +48,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual baseada em 
 
 5.	Responda às solicitações conforme necessário para se conectar à Máquina Virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a Máquina Virtual.
 
-6.	Crie uma variável de ambiente denominada **ORACLE_HOSTNAME** com o valor definido para o nome do computador da máquina virtual. Você pode criar uma variável de ambiente usando as seguintes etapas:
+6.	Crie uma variável de ambiente denominada **ORACLE\_HOSTNAME** com o valor definido para o nome do computador da máquina virtual. Você pode criar uma variável de ambiente usando as seguintes etapas:
 
 	1.	Clique em **Windows Iniciar**, digite **Painel de Controle**, clique no ícone **Painel de Controle**, clique em **Sistema e Segurança**, clique em **Sistema** e, em seguida, clique em **Configurações avançadas do sistema**.
 
@@ -56,7 +56,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual baseada em 
 
 	3.	Na seção **Variáveis do sistema**, clique em **Novo** para criar a variável.
 
-	4.	No diálogo **Nova variável de sistema**, digite **ORACLE_HOSTNAME** para o nome da variável e digite o nome do computador da máquina virtual como o valor. Para determinar o nome do computador, abra um prompt de comando e execute **SET COMPUTERNAME** (a saída desse comando conterá o nome do computador).
+	4.	No diálogo **Nova variável de sistema**, digite **ORACLE\_HOSTNAME** para o nome da variável e digite o nome do computador da máquina virtual como o valor. Para determinar o nome do computador, abra um prompt de comando e execute **SET COMPUTERNAME** (a saída desse comando conterá o nome do computador).
 	
 	5.	Clique em **OK** para salvar a nova variável de ambiente e feche a caixa de diálogo **Nova variável do sistema**.
 
@@ -92,7 +92,7 @@ O exemplo a seguir mostra como você pode criar uma máquina virtual baseada em 
 
 3.	Execute o seguinte comando no prompt de comando SQL Plus:
 
-		select * from GLOBAL_NAME;
+		select * from GLOBAL\_NAME;
 
 	O resultado deve ser o nome global do banco de dados que você criou.
 
@@ -157,7 +157,7 @@ Para permitir que o banco de dados a ser acessado remotamente (por exemplo, de u
 10. Clique em **OK**
 
 ##Habilitando o acesso remoto do Oracle Database Enterprise Manager
-Se você deseja habilitar o acesso remoto para o Oracle Database Enterprise Manager, abra a porta 5500 no firewall e crie um ponto de extremidade de máquina virtual para 5500 no Portal do Azure (usando as etapas acima para abrir a porta 1521 e criar um ponto de extremidade para 1521). Em seguida, para executar o Oracle Enterprise Manager do computador remoto, abra um navegador para a URL na forma de `http://<<unique_domain_name>>:5500/em`. (Você pode determinar o valor de *<<unique_domain_name >>* dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle Database).
+Se você deseja habilitar o acesso remoto para o Oracle Database Enterprise Manager, abra a porta 5500 no firewall e crie um ponto de extremidade de máquina virtual para 5500 no Portal do Azure (usando as etapas acima para abrir a porta 1521 e criar um ponto de extremidade para 1521). Em seguida, para executar o Oracle Enterprise Manager do computador remoto, abra um navegador para a URL na forma de `http://<<unique_domain_name>>:5500/em`. (Você pode determinar o valor de *<<unique\_domain\_name >>* dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle Database).
 
 ##Configurando opções populares e pacotes de opções avançadas
 Se você escolheu o **Oracle Database com Opções Populares** ou **pacote Oracle Database com Opções Avançadas**, a próxima etapa será configurar os recursos de complemento na instalação do Oracle. Consulte a documentação do Oracle para obter instruções sobre como configurá-los no Windows, já que as configurações podem variar amplamente com base nas necessidades de cada componente individual.
@@ -179,4 +179,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

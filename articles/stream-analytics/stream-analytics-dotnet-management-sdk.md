@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Saiba como usar o SDK .NET do Stream Analytics Management | Microsoft Azure" 
 	description="Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise: criar um projeto, entradas, saídas e transformações." 
-	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/16/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -365,4 +364,4 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -41,7 +41,7 @@ Você também pode habilitar despejos de heap para os processos de mapeamento e 
 
 Despejos de heap são habilitados transmitindo opções (às vezes conhecidas como opts, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, isso pode ser feito modificando o script de shell usado para iniciar o serviço.
 
-Em cada script, há uma exportação para ***_OPTS**, que contém as opções passadas para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
+Em cada script, há uma exportação para ***\_OPTS**, que contém as opções passadas para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
 
 Processos de mapeamento e redução são ligeiramente diferentes, uma vez que são processos filho do serviço MapReduce. Cada processo de mapeamento ou redução é executado em um contêiner filho, e há duas entradas que contêm as opções de JVM para eles. Contidos em **mapred-site.xml**:
 
@@ -96,9 +96,9 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
     ![Lista filtrada](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. Encontre a entrada ***_OPTS** do serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP_NAMENODE_OPTS**:
+4. Encontre a entrada ***\_OPTS** do serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP\_NAMENODE\_OPTS**:
 
-    ![HADOOP_NAMENODE_OPTS com -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![HADOOP\_NAMENODE\_OPTS com -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
 	> [AZURE.NOTE]Ao habilitar despejos de heap para o processo filho de mapeamento ou redução, você procurará os campos rotulados **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
 
@@ -120,4 +120,4 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

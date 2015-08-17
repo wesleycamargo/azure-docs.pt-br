@@ -57,7 +57,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
     * **-u**: o nome de usuário e a senha usados para autenticar a solicitação
     * **-G**: indica que se trata de uma solicitação GET
 
-    O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
+    O início da URL, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
 2. Use o seguinte para enviar um trabalho de Pig Latin para o cluster:
 
@@ -87,7 +87,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 ##<a id="results"></a>Exibir resultados
 
-Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blob do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **wasb:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
+Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blob do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
 
 Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](../xplat-cli.md). Por exemplo, para listar arquivos em **exemplo/pigcurl**, use o seguinte comando:
 
@@ -97,7 +97,7 @@ Para baixar um arquivo, use o seguinte:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k`, ou definir as variáveis de ambiente **AZURE_STORAGE_ACCOUNT** e **AZURE_STORAGE_ACCESS_KEY**.
+> [AZURE.NOTE]Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k`, ou definir as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**.
 
 ##<a id="summary"></a>Resumo
 
@@ -117,4 +117,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

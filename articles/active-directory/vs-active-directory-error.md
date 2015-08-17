@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Erro na Detecção da Autenticação
 
@@ -56,45 +56,45 @@ Por fim, o assistente tenta detectar versões do código de autenticação que f
 
 Para detectar a Autenticação do Windows em um projeto MVC, o assistente procura pelo elemento `authentication` de seu arquivo **web.config**.
 
-<PRE class="prettyprint">
+```
 	&lt;configuration&gt;
 	    &lt;system.web&gt;
 	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
 	    &lt;/system.web&gt;
 	&lt;/configuration&gt;
-</pre>
+```
 
 Para detectar a Autenticação do Windows em um projeto da API da Web, o assistente procura pelo elemento `IISExpressWindowsAuthentication` do arquivo **.csproj** de seu projeto:
 
-<PRE class="prettyprint">
+```
 	&lt;Project&gt;
 	    &lt;PropertyGroup&gt;
 	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
 	    &lt;/PropertyGroup>
 	&lt;/Project&gt;
-</PRE>
+```
 
 Para detectar a autenticação de contas de usuário individual, o assistente procura o elemento de pacote de seu arquivo **Packages.config**.
 
-<PRE class="prettyprint">
+```
 	&lt;packages&gt;
 	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
 	&lt;/packages&gt;
-</PRE>
+```
 
 Para detectar uma forma anterior de Autenticação de conta organizacional, o assistente procura o seguinte elemento **web.config**:
 
-<PRE class="prettyprint">
+```
 	&lt;configuration&gt;
 	    &lt;appSettings&gt;
 	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
 	    &lt;/appSettings&gt;
 	&lt;/configuration&gt;
-</PRE>
+```
 
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e execute o assistente novamente.
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

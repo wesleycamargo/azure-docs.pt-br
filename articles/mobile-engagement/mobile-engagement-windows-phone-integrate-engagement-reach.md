@@ -113,15 +113,15 @@ O objeto EngagementReach fornece dois métodos para gerenciar o opt-in/opt-out, 
 
 Você também pode decidir desativar MPNS por meio da configuração do Engagement <--sdk-alcance-configuração do windows phone >.
 
-> 2.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão do usuário express (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por receber notificações por push**. Todas as notificações fornecidas usando o Serviço de notificação por push da Microsoft devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de aplicativo][Content Policies] e [Requisitos adicionais para tipos específicos de aplicativo] aplicáveis.
+> 2\.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão do usuário express (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por receber notificações por push**. Todas as notificações fornecidas usando o Serviço de notificação por push da Microsoft devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de aplicativo][Content Policies] e [Requisitos adicionais para tipos específicos de aplicativo] aplicáveis.
 
 2) Você não deve usar muitas notificações por push. O Engagement manipulará notificações para você.
 
-> 2.9.2) O aplicativo e o uso do Serviço de notificação por push da Microsoft não devem usar excessivamente a capacidade de rede ou de largura de banda do serviço de notificação por push da Microsoft, ou caso contrário indevidamente sobrecarregam o Windows Phone ou outros dispositivos Microsoft ou serviço com notificações por push excessivo, conforme determinado pela Microsoft a seu critério lógico e não devem prejudicar ou interferir com nenhuma rede Microsoft ou servidores ou quaisquer servidores de terceiros ou redes conectadas ao do serviço de notificação por push da Microsoft.
+> 2\.9.2) O aplicativo e o uso do Serviço de notificação por push da Microsoft não devem usar excessivamente a capacidade de rede ou de largura de banda do serviço de notificação por push da Microsoft, ou caso contrário indevidamente sobrecarregam o Windows Phone ou outros dispositivos Microsoft ou serviço com notificações por push excessivo, conforme determinado pela Microsoft a seu critério lógico e não devem prejudicar ou interferir com nenhuma rede Microsoft ou servidores ou quaisquer servidores de terceiros ou redes conectadas ao do serviço de notificação por push da Microsoft.
 
 3) Não confie totalmente no MPNS para enviar informações muito sérias. O Engagement usa o MPNS, portanto, essa regra também se aplica para campanhas criadas dentro do projeto front-end.
 
-> 2.9.3) O serviço de notificação por push da Microsoft não pode ser usado para enviar notificações que são de missão crítica ou que poderiam afetar assuntos de vida ou morte, incluindo, sem limitação, relacionadas a um dispositivo médico ou condição de notificações críticas. A MICROSOFT EXPRESSAMENTE SE ISENTA DE QUAISQUER GARANTIAS DE QUE O USO DO SERVIÇO DE NOTIFICAÇÃO POR PUSH OU ENVIO DE NOTIFICAÇÕES DO SERVIÇO DE NOTIFICAÇÃO POR PUSH DA MICROSOFT SERÁ ININTERRUPTO, SEM ERRO, OU CASO CONTRÁRIO GARANTIDO QUE OCORRA EM TEMPO REAL.
+> 2\.9.3) O serviço de notificação por push da Microsoft não pode ser usado para enviar notificações que são de missão crítica ou que poderiam afetar assuntos de vida ou morte, incluindo, sem limitação, relacionadas a um dispositivo médico ou condição de notificações críticas. A MICROSOFT EXPRESSAMENTE SE ISENTA DE QUAISQUER GARANTIAS DE QUE O USO DO SERVIÇO DE NOTIFICAÇÃO POR PUSH OU ENVIO DE NOTIFICAÇÕES DO SERVIÇO DE NOTIFICAÇÃO POR PUSH DA MICROSOFT SERÁ ININTERRUPTO, SEM ERRO, OU CASO CONTRÁRIO GARANTIDO QUE OCORRA EM TEMPO REAL.
 
 **Não podemos garantir que seu aplicativo passará o processo de validação se você não respeita essas recomendações.**
 
@@ -266,4 +266,4 @@ Você pode definir o retorno de chamada em seu método `Application_Launching` d
 [Requisitos adicionais para tipos específicos de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

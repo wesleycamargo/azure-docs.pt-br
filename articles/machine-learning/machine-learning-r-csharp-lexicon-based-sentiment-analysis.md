@@ -76,7 +76,7 @@ A entrada é "Hoje é um bom dia". A saída será "1", que indica um sentimento 
 >Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
 
-De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. A figura a seguir mostra o fluxo de teste da análise de sentimento baseada em léxico. O arquivo “sent_dict.csv” é o léxico de subjetividade MPQA, e é definido como uma entrada de [Executar script R][execute-r-script]. Outra entrada é uma análise de amostra do conjunto de dados de análise Amazon para teste, em que realizamos a seleção, a modificação do nome de coluna e as operações de divisão. Usamos um pacote de hash para armazenar o léxico de subjetividade na memória e acelerar o processo de cálculo de pontuação. O texto inteiro será indexado pelo pacote "tm" e comparado com a palavra no dicionário sentimento. Por fim, uma pontuação será calculada adicionando o peso de cada palavra subjetiva no texto.
+De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. A figura a seguir mostra o fluxo de teste da análise de sentimento baseada em léxico. O arquivo “sent\_dict.csv” é o léxico de subjetividade MPQA, e é definido como uma entrada de [Executar script R][execute-r-script]. Outra entrada é uma análise de amostra do conjunto de dados de análise Amazon para teste, em que realizamos a seleção, a modificação do nome de coluna e as operações de divisão. Usamos um pacote de hash para armazenar o léxico de subjetividade na memória e acelerar o processo de cálculo de pontuação. O texto inteiro será indexado pelo pacote "tm" e comparado com a palavra no dicionário sentimento. Por fim, uma pontuação será calculada adicionando o peso de cada palavra subjetiva no texto.
 
 ###Fluxo de teste:
 
@@ -89,7 +89,7 @@ De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criad
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # Instalar pacote de hash install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # Instalar pacote de hash install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

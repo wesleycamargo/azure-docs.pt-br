@@ -266,7 +266,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 	
 	> [AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone do sinal de adição (\*\*+\*\*).
+2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone do sinal de adição (**+**).
 
 3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
 
@@ -340,4 +340,4 @@ Este tutorial foi concluído com êxito.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

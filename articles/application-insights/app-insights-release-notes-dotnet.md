@@ -32,16 +32,28 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 * Compare o ApplicationInsights.config com a cópia antiga. A maioria das alterações que você ocorreu porque removemos alguns módulos e tornamos outros parametrizáveis. Reaplique as personalizações feitas no arquivo antigo.
 * Recompile sua solução.
 
+## Versão 1.2
+
+- Inicializadores de telemetria que não têm dependências em bibliotecas do ASP.NET foram movidos de `Microsoft.ApplicationInsights.Web` para o novo nuget de dependência `Microsoft.ApplicationInsights.WindowsServer`
+- `Microsoft.ApplicationInsights.Web.dll` foi renomeado para `Microsoft.AI.Web.dll`.
+- O NuGet `Microsoft.Web.TelemetryChannel` foi renomeado em `Microsoft.WindowsServer.TelemetryChannel`. O assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. A classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Todos os namespaces que fazem parte do Web SDK foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em Applicationinsights. config e o módulo `ApplicationInsightsWebTracking` no web.config.
+- As dependências são coletadas usando o agente de instrumentação do tempo de execução (habilitado por meio da extensão do Monitor de Status ou do Site do Azure) não serão marcadas como assíncronas se não houver nenhum HttpContext.Current no thread.
+- A Propriedade `SamplingRatio` de `DependencyTrackingTelemetryModule` não faz nada e foi marcado como obsoleto.
+- O assembly `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` foi renomeado em `Microsoft.AI.PerfCounterCollector`
+- Várias correções de bugs secundários na Web e SDKs de Dispositivos
+
+
 ## Versão 1.1
 
 - O novo tipo de telemetria `DependencyTelemetry` foi adicionado, que pode ser usado para enviar informações sobre chamadas de dependência do aplicativo (como chamadas SQL, HTTP, etc.).
-- O novo método de sobrecarga `TelemetryClient.TrackDependency` foi adicionado, que permite enviar informações sobre chamadas de dependência.
+- O novo método de sobrecarga `TelemetryClient.TrackDependency` foi adicionado, o que permite enviar informações sobre chamadas de dependência.
 - NullReferenceException fixo lançado pelo módulo de diagnóstico quando TelemetryConfiguration.CreateDefault é usado.
 
 ## Versão 1.0
 
 - Os módulos e inicializadores de telemetria movidos dos subnamespaces separados para o namespace `Microsoft.ApplicationInsights.Extensibility.Web` da raiz.
-- O prefixo “Web” removido de nomes dos inicializadores e módulos de telemetria porque ele já está incluído no nome do namespace `Microsoft.ApplicationInsights.Extensibility.Web`.
+- O prefixo “Web” foi removido de nomes dos inicializadores e módulos de telemetria porque ele já está incluído no nome do namespace `Microsoft.ApplicationInsights.Extensibility.Web`.
 - `DeviceContextInitializer` movido do assembly `Microsoft.ApplicationInsights` para o assembly `Microsoft.ApplicationInsights.Extensibility.Web` e convertido em um `ITelemetryInitializer`.
 - Altere os nomes do namespace e do assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` para `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` para consistência com o nome do pacote NuGet.
 - Renomeie `RemoteDependencyModule` para `DependencyTrackingTelemetryModule`.
@@ -74,4 +86,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

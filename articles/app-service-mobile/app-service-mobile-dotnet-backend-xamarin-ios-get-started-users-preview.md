@@ -115,4 +115,4 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

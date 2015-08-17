@@ -335,4 +335,4 @@ Para obter informações adicionais sobre cmdlets ILB, execute os comandos a seg
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

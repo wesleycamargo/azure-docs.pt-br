@@ -1,3 +1,4 @@
+
 Neste procedimento, você vai:
 
 1. [Preparar-se para executar o arquivo executável do Maintainer](#to-prepare-to-run-the-maintainer).
@@ -6,7 +7,7 @@ Neste procedimento, você vai:
 
 3. [Executar o Maintainer.exe](#to-run-the-maintainer).
 
-4. [Reverter as configurações da Lixeira e do banco de dados de conteúdo](to-revert-the-content-database-and-recycle-bin-settings).
+4. [Reverter as configurações da Lixeira e do banco de dados de conteúdo](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### Preparar-se para executar o arquivo executável do Maintainer.
 
@@ -20,7 +21,7 @@ Neste procedimento, você vai:
 
 5. No arquivo web.config descriptografado, sob o nó **<connectionStrings>**, adicione a cadeia de conexão para sua instância de servidor SQL e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 
 6. Use `aspnet_regiis –pef connectionStrings` para criptografar o arquivo web.config novamente.
 
@@ -62,4 +63,4 @@ Neste procedimento, você vai:
 
 2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique em **Administração Central** -> **Gerenciamento de Aplicativos** -> **Aplicativos Web (Gerenciar aplicativos Web)** -> **SharePoint - 80** -> **Configurações Gerais de Aplicativos**. Defina o Status da Lixeira para **ATIVADO**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

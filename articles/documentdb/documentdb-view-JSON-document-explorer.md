@@ -3,7 +3,7 @@
 	description="Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal de Visualização do Azure para exibir, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -113,7 +113,7 @@ O Gerenciador de Documentos permite criar, editar e excluir documentos com facil
 
 	![Captura de tela da exibição de propriedades de documento do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]A propriedade do carimbo de data/hora (_ts) é representada internamente como um tempo de época, mas o Gerenciador de Documentos exibe o valor em um formato GMT legível.
+	> [AZURE.NOTE]A propriedade do carimbo de data/hora (\_ts) é representada internamente como um tempo de época, mas o Gerenciador de Documentos exibe o valor em um formato GMT legível.
 
 ##<a id="BulkAdd"></a>Adicionar documentos em massa com o Gerenciador de Documentos##
 
@@ -140,4 +140,4 @@ O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais docu
 Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -84,7 +84,7 @@ Em seguida, crie um serviço de nuvem do Azure. O serviço de nuvem age como um 
 
 Você deve escolher um nome exclusivo para seu serviço de nuvem. *O nome do serviço de nuvem pode conter apenas letras, números e hifens. O primeiro e o último caractere no campo devem ser uma letra ou um número.*
 
-Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-\*UniqueSequence\*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
+Por exemplo, você poderia nomear seu serviço de nuvem como TestLab-*UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de TestLab-Tailspin.
 
 Você pode testar a exclusividade do nome com este comando do PowerShell do Azure.
 
@@ -134,7 +134,7 @@ Em seguida, conecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC1\\**[nome da conta do administrador local]
+- Nome: **DC1\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -163,7 +163,7 @@ Após a reinicialização de DC1, reconecte-se à máquina virtual DC1.
 3.	Quando solicitado a abrir DC1.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **CORP\\**[nome da conta do administrador local]
+- Nome: **CORP\**[nome da conta do administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -242,7 +242,8 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 2.	Em **Propriedades para CLIENT1**, clique em **Ativado** ao lado de **Configuração de Segurança Aprimorada do IE**.
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
-5.	Na barra de endereços, digite **http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1. 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
+5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
+6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
 7.	Na barra de endereços, digite **\\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
 9.	Na janela de pasta compartilhada **Arquivos**, clique duas vezes no arquivo **Example.txt**. Você deverá ver o conteúdo do arquivo Example.txt.
@@ -288,4 +289,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

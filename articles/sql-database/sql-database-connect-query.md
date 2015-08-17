@@ -28,7 +28,7 @@ Este tópico fornece um exemplo de código C# que mostra como se conectar a um B
 
 
 - Um banco de dados do AdventureWorks existente no banco de dados SQL do Azure. [Criar um em minutos](sql-database-get-started.md).
-- [Visual Studio com o .NET Framework](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+- [Visual Studio com o .NET Framework](https://www.visualstudio.com/pt-br/visual-studio-homepage-vs.aspx)
 
 
 ## Etapa 1: aplicativo de console
@@ -127,7 +127,7 @@ Na folha de cadeias de conexão de banco de dados, é possível localizar as cad
 ## Etapa 4: substituir as informações reais de conexão
 
 
-- No código-fonte que você colou, substitua o espaço reservado *[Your_Connection_String]* pela cadeia de conexão e não se esqueça de substituir *your_password_here* nessa cadeia pela sua senha real.
+- No código-fonte que você colou, substitua o espaço reservado *[Your\_Connection\_String]* pela cadeia de conexão e não se esqueça de substituir *your\_password\_here* nessa cadeia pela sua senha real.
 
 
 ## Etapa 5: executar o aplicativo
@@ -137,4 +137,4 @@ Na folha de cadeias de conexão de banco de dados, é possível localizar as cad
 2. O programa imprime os resultados da consulta na janela do console.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

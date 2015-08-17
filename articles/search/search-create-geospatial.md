@@ -67,7 +67,7 @@ Vamos usar a API do Bing Mapas para duas coisas.
 
 Nesta etapa, usamos a API do Bing Mapas DataFlow para geocodificar alguns endereços para várias lojas de bicicletas no mundo todo.
 
-Esses dados vêm de um arquivo CSV chamado store_locations.csv localizado na fonte que você baixou antes. Se você abrir esse arquivo em um editor de texto ou no Excel, verá que ele tem a coluna de ID para cada loja, o nome da loja e seu endereço.
+Esses dados vêm de um arquivo CSV chamado store\_locations.csv localizado na fonte que você baixou antes. Se você abrir esse arquivo em um editor de texto ou no Excel, verá que ele tem a coluna de ID para cada loja, o nome da loja e seu endereço.
 
 Vamos explorar o código que explica como isso funciona.
 
@@ -75,13 +75,13 @@ Vamos explorar o código que explica como isso funciona.
 
 2. Vá até a função **Principal** e observe que ela chama o **ApplyStoreData**. Mova para essa função e explore o código.
 
-3. O **ApplyStoreData** carrega dados de um arquivo CSV chamado "store_locations.csv" para um System.Data.DataTable.
+3. O **ApplyStoreData** carrega dados de um arquivo CSV chamado "store\_locations.csv" para um System.Data.DataTable.
 
     Esse arquivo contém todas as lojas, incluindo os endereços que desejamos carregar na Pesquisa do Azure. Ao fazer a iteração de cada linha neste arquivo, podemos criar um conjunto de **indexOperations** que são inseridos em um índice da Pesquisa do Azure (criado anteriormente na função **CreateStoresIndex()**).
 
     Se você olhar com cuidado para o índice posteriormente, observará que o campo **GeoPt** que conterá a longitude e latitude para cada loja está vazio. Isso nos leva à próxima etapa da função **Main**.
 
-5. Mova para a função **ExtractAddressInfoToXML()**. Essa função extrai as informações do endereço ao arquivo store_locations.csv e carrega essas informações a um arquivo XML que é formatado de uma maneira que o Bing Mapas pode aceitar para geocodificação. Assim que o arquivo for criado, ele é enviado para processar para o Bing Mapas DataFlow ao chamar a função **GeoCoding.CreateJob**.
+5. Mova para a função **ExtractAddressInfoToXML()**. Essa função extrai as informações do endereço ao arquivo store\_locations.csv e carrega essas informações a um arquivo XML que é formatado de uma maneira que o Bing Mapas pode aceitar para geocodificação. Assim que o arquivo for criado, ele é enviado para processar para o Bing Mapas DataFlow ao chamar a função **GeoCoding.CreateJob**.
 
 6. Como o processo de geocodificação pode demorar um pouco, há um loop que chama o **GeoCoding.CheckStatus** a cada 10 segundos para ver se o trabalho está concluído. Assim que estiver concluído, os resultados são baixados ao chamar o **GeoCoding.DownloadResults** em uma classe de endereços.
 
@@ -127,7 +127,8 @@ O projeto **AdventureWorksWebGeo** nos mostra como o ASP.NET MVC 4 pode ser usad
 
 +	A função **Pesquisa** recupera os locais de lojas que são então recebidos como PushPins para o mapa do Bing.
 
-4.	Abra o HomeController.cs em **Controladores** e examine a função **Pesquisa**. Observe como a chamada é feita para __storeSearch.Search(lat, lon, 10000). Isso fará que uma consulta seja executada para encontrar todas as lojas a uma distância de 10.000 Km da latitude (lat) e longitude (lon) especificadas. Os resultados dessa consulta são processados e depois enviados de volta para a exibição Index para serem processados como PushPins sobrepostos ao Bing Mapas. 
+4.	Abra o HomeController.cs em **Controladores** e examine a função **Pesquisa**. Observe como a chamada é feita para o \_storeSearch.Search(lat, lon, 10000). Isso fará que uma consulta seja executada para encontrar todas as lojas a uma distância de 10.000 Km da latitude (lat) e longitude (lon) especificadas. Os resultados dessa consulta são processados e depois enviados de volta para a exibição Index para serem processados como PushPins sobrepostos no mapa do Bing.
+
 Isso conclui a demonstração. Você percorreu agora as operações principais que precisará conhecer antes desenvolver um mapa baseado no aplicativo ASP.NET MVC4 usando a Pesquisa do Azure.
 
 
@@ -166,4 +167,4 @@ Para um estudo individual adicional, considere adicionar mais capacidade ao apli
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

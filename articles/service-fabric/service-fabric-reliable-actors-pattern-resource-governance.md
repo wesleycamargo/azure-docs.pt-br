@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de Controle de Recursos dos Atores da Malha do Serviço do Azure"
-   description="O padrão de design de como os Atores da Malha do Serviço podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
+   pageTitle="Padrão de design de governança de recursos de Atores Confiáveis"
+   description="O padrão de design de como os Atores Confiáveis podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Padrão de design de Atores da Malha do Serviço do Azure: controle de recursos
+# Padrão de design de Atores Confiáveis: governança de recursos
 Esse padrão e cenários relacionados podem ser facilmente reconhecidos pelos desenvolvedores (corporativos ou não) que têm recursos restritos no local ou na nuvem, os quais não podem dimensionar imediatamente, ou que desejam enviar aplicativos e dados em larga escala para a nuvem.
 
 Na empresa, esses recursos restritos, como bancos de dados, são executados em hardware de escala vertical. Qualquer pessoa com um longo histórico corporativo sabe que essa é uma situação comum no local. Mesmo em escala de nuvem, temos visto essa situação ocorrer quando um serviço de nuvem tenta exceder o limite de conexões TCP de 64 K entre uma tupla de endereço/porta ou ao tentar se conectar a um banco de dados baseado em nuvem que limita o número de conexões simultâneas.
@@ -48,7 +48,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Simples, mas não muito flexível. Agora vamos examinar uma abordagem mais avançada e útil. Primeiro, modelamos a afinidade entre recursos físicos e atores. Isso é feito por meio de um ator chamado Resolvedor que compreende o mapeamento entre usuários, partições lógicas e recursos físicos. O Resolvedor mantém seus dados em um repositório persistente, no entanto, eles são armazenados em cache para pesquisa fácil. Como vimos anteriormente no exemplo de Taxa de Câmbio no padrão de Cache Inteligente, o Resolvedor pode buscar de modo proativo as informações mais recentes usando um temporizador. Depois que o ator de usuário determina o recurso que precisa usar, ele o armazena em cache em uma variável local chamada _resolution e o utiliza durante seu tempo de vida. Escolhemos uma resolução baseada em pesquisa (ilustrada abaixo) em vez de um hash simples ou hash de intervalo em razão da flexibilidade fornecida em operações como expandir/reduzir ou mover um usuário de um recurso para outro.
+Simples, mas não muito flexível. Agora vamos examinar uma abordagem mais avançada e útil. Primeiro, modelamos a afinidade entre recursos físicos e atores. Isso é feito por meio de um ator chamado Resolvedor que compreende o mapeamento entre usuários, partições lógicas e recursos físicos. O Resolvedor mantém seus dados em um repositório persistente, no entanto, eles são armazenados em cache para pesquisa fácil. Como vimos anteriormente no exemplo de Taxa de Câmbio no padrão de Cache Inteligente, o Resolvedor pode buscar de modo proativo as informações mais recentes usando um temporizador. Depois que o ator do usuário determina o recurso que precisa usar, ele o armazena em cache em uma variável local chamada \_resolution e o utiliza durante seu tempo de vida. Escolhemos uma resolução baseada em pesquisa (ilustrada abaixo) em vez de um hash simples ou hash de intervalo em razão da flexibilidade fornecida em operações como expandir/reduzir ou mover um usuário de um recurso para outro.
 
 ![][2]
 
@@ -416,6 +416,5 @@ Esse padrão é muito comum em cenários onde os desenvolvedores têm recursos r
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

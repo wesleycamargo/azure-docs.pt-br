@@ -245,7 +245,7 @@ Os metadados adicionados contêm:
 Os campos de transição de estado podem ser usados para gerar alertas mais inteligentes ou informações “históricas” de evento de integridade. Eles permitem cenários como:
 
 - Alerta quando uma propriedade estiver no estado Aviso/Erro por mais de X minutos. Isso evita a geração de alertas em condições temporárias. Por exemplo, se o estado da integridade estiver em Aviso por mais de 5 minutos, ele pode ser traduzido em (HealthState == Aviso e Agora - LastWarningTransitionTime
-> 
+> 5 minutos).
 
 - Alerta apenas em condições que mudaram nos últimos X minutos. Se um relatório estiver em estado de Erro desde antes disso, ele poderá ser ignorado (pois ele já tinha sido sinalizado anteriormente).
 
@@ -255,9 +255,9 @@ Os campos de transição de estado podem ser usados para gerar alertas mais inte
 O exemplo a seguir envia um relatório de integridade por meio PowerShell no aplicativo denominado fabric:/WordCount da origem MyWatchdog. O relatório de integridade contém informações sobre a propriedade de integridade Disponibilidade em um estado de integridade de Erro, com TTL infinita. Em seguida, ele consultará a integridade do aplicativo, que retornará erro do estado de integridade agregada e o evento de integridade reportado como parte da lista de eventos de integridade.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 [Atualização de aplicativo da Malha do Serviço](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -101,7 +101,7 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
 
 	> [AZURE.NOTE]**Nota de Segurança**: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.
 
-4. Adicione o seguinte código no fim do método `Register` na classe **App_Start/WebApiConfig.cs** para registrar o manipulador de mensagens:
+4. Adicione o seguinte código no fim do método `Register` na classe **App\_Start/WebApiConfig.cs** para registrar o manipulador de mensagens:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

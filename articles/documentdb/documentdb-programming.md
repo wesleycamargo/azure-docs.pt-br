@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados| Azure" 
+	pageTitle="Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados| Microsoft Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDF) nativamente em JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -641,4 +641,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

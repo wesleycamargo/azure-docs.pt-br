@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
 
 # Como e por que os aplicativos são adicionados ao AD do Azure
@@ -36,7 +36,7 @@ Os aplicativos são adicionados ao AD do Azure para aproveitar um ou mais servi�
 
 Aplicativos são representados no AD do Azure usando dois objetos: um objeto de aplicativo e um objeto de entidade de serviço. Há um objeto de aplicativo registrado no diretório "home"/"proprietário" ou "publicação", além de um ou mais objetos de entidade de serviço representando o aplicativo em cada diretório em que ele atua.
 
-O objeto de aplicativo descreve o aplicativo ao AD do Azure (o serviço multilocatário) e pode incluir qualquer um dos seguintes itens: (*Observação*: isso não é uma lista exaustiva.)
+O objeto de aplicativo descreve o aplicativo ao AD do Azure (o serviço multilocatário) e pode incluir qualquer um dos seguintes itens: (*Observação*: esso não é uma lista completa.)
 
 * Nome, logotipo e publicador
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
@@ -65,7 +65,7 @@ A entidade de serviço é um registro do aplicativo em cada diretório, onde o a
 ![Um diagrama que ilustra como objetos de aplicativo e entidades de serviço coexistem com instâncias do AD do Azure.][apps_service_principals_directory]
 
 Como você pode ver no diagrama acima. A Microsoft mantém dois diretórios internamente (à esquerda), que utiliza para publicar aplicativos.
- 
+
 * Um para Microsoft Apps (diretório de serviços da Microsoft)
 * Um para aplicativos de terceiros pré-integrados (diretório de galeria de aplicativos)
 
@@ -145,6 +145,5 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -35,6 +35,11 @@
    <td valign="middle"><p>1.200 por hora</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Tamanho da solicitação de API do Gerenciador de Recursos</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Serviços de nuvem</a> por assinatura</p></td>
    <td valign="middle"><p>Preterido<sup>3</sup></p></td>
    <td valign="middle"><p>Preterido<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Gerenciador de Recursos do Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

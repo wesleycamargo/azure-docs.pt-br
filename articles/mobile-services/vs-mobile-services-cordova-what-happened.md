@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # O que aconteceu com meu projeto?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###O que aconteceu com meu projeto?</span>
+###O que aconteceu com meu projeto?
 
 #####Referências adicionadas
 
@@ -41,4 +41,4 @@ Em `services\mobileServices\settings`, um novo arquivo JavaScript (.js) com um *
 
 [Saiba mais sobre serviços móveis](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

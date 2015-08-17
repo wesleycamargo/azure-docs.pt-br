@@ -29,4 +29,4 @@ O Banco de Dados SQL está disponível nas [camadas de serviço](sql-database-se
 Comece com uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [crie seu primeiro Banco de Dados SQL](sql-database-get-started.md) em apenas alguns minutos.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ Você também pode tentar estes tutoriais:
 
 [Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md) [Introdução ao .NET da Pesquisa do Azure](search-get-started-dotnet.md) [Pesquisa do Azure: exemplos, tutoriais e demonstrações em vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

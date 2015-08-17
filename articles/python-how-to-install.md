@@ -221,4 +221,4 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [armazenamento de fila]: storage-python-how-to-use-queue-storage.md
 [armazenamento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

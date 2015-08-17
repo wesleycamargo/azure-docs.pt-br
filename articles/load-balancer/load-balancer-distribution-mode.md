@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# Visão geral
+# Modo de distribuição do balanceador de carga (afinidade do IP de origem)
 
 Apresentamos um novo modo de distribuição chamado Afinidade de IP de origem (também conhecido como afinidade de sessão ou afinidade de IP do cliente). O Balanceador de Carga do Azure pode ser configurado para usar uma tupla 2 (IP de origem, IP de destino) ou tupla 3 ( IP de origem, IP de destino, Protocolo) para mapear o tráfego até os servidores disponíveis. Ao usar a afinidade de IP de origem, as conexões iniciadas no mesmo computador cliente vão para o mesmo ponto de extremidade DIP.
 
@@ -47,7 +47,7 @@ Adicione um ponto de extremidade do Azure a uma máquina virtual e defina o modo
 
 Recupee uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

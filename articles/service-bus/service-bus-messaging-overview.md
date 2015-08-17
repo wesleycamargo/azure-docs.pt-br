@@ -38,4 +38,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

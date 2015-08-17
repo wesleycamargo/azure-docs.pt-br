@@ -61,7 +61,7 @@ Você também pode usar o script para instalar o Giraph no HDInsight usando o Po
 
 Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementação básica <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> para encontrar o caminho mais curto entre objetos em um gráfico. Use as etapas a seguir para carregar os dados de exemplo e o jar do exemplo, executar um trabalho usando o exemplo SimpleShortestPathsComputation e exibir os resultados.
 
-1. Carregue um arquivo de dados de exemplo no armazenamento de Blob do Azure. Em sua estação de trabalho local, crie um novo arquivo chamado **tiny_graph.txt**. Ele deve conter as seguintes linhas:
+1. Carregue um arquivo de dados de exemplo no armazenamento de Blob do Azure. Em sua estação de trabalho local, crie um novo arquivo chamado **tiny\_graph.txt**. Ele deve conter as seguintes linhas:
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -69,17 +69,17 @@ Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementaçã
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	Carregue o arquivo tiny_graph.txt no armazenamento primário para o seu cluster HDInsight. Para obter instruções sobre como carregar dados, consulte [Carregar dados de trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
+	Carregue o arquivo tiny\_graph.txt no armazenamento primário para o seu cluster HDInsight. Para obter instruções sobre como carregar dados, consulte [Carregar dados de trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
-	Esses dados descrevem uma relação entre objetos em um gráfico direcionado, usando o formato [source_id, source_value,[[dest_id], [edge_value],...]]. Cada linha representa uma relação entre um objeto **source_id** e um ou mais objetos **dest_id**. O **edge_value** (ou peso) pode ser pensado como a força ou a distância da conexão entre **source_id** e **dest_id**.
+	Esses dados descrevem uma relação entre objetos em um gráfico direcionado, usando o formato [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Cada linha representa uma relação entre um objeto **source\_id** e um ou mais objetos **dest\_id**. O **edge\_value** (ou peso) pode ser pensado como a força ou a distância da conexão entre **source\_id** e **dest\_id**.
 
 	Desenhado e utilizando o valor (ou peso) como distância entre os objetos, os dados acima podem se parecer com os demonstrados aqui:
 
-	![tiny_graph.txt Desenhado como círculos com linhas de distância variável entre](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+	![tiny\_graph.txt Desenhado como círculos com linhas de distância variável entre](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
-4. Execute o exemplo SimpleShortestPathsComputation. Use os seguintes cmdlets do PowerShell do Azure para executar o exemplo, usando o arquivo tiny_graph.txt como entrada. Isso requer que você tenha instalado e configurado o [PowerShell do Azure][powershell-install].
+4. Execute o exemplo SimpleShortestPathsComputation. Use os seguintes cmdlets do PowerShell do Azure para executar o exemplo, usando o arquivo tiny\_graph.txt como entrada. Isso requer que você tenha instalado e configurado o [PowerShell do Azure][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -109,7 +109,7 @@ Usamos o exemplo SimpleShortestPathsComputation para demonstrar a implementaçã
 
 	No exemplo acima, substitua **clustername** pelo nome do cluster HDInsight que tem o Giraph instalado.
 
-5. Exibir os resultados. Concluído o trabalho, os resultados serão armazenados em dois arquivos de saída na pasta __wasb:///example/out/shotestpaths__. Os arquivos se chamam __part-m-00001__ e __part-m-00002__. Execute as seguintes etapas para baixar e exibir a saída:
+5. Exiba os resultados. Concluído o trabalho, os resultados serão armazenados em dois arquivos de saída na pasta \___wasb:///example/out/shotestpaths__. Os arquivos se chamam __part-m-00001__ e __part-m-00002__. Execute as etapas a seguir para baixar e exibir a saída:
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -353,4 +353,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

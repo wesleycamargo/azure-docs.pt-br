@@ -69,4 +69,4 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pela Malha de S
 ```
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Saiba o que é o Hive e como usar o HiveQL | Microsoft Azure"
 	description="Saiba mais sobre o Apache Hive e como usá-lo com o Hadoop no HDInsight. Escolha como você deseja executar o trabalho do Hive e usar o HiveQL para analisar um arquivo log4j do Apache de exemplo."
-	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -55,11 +54,11 @@ Os dados de exemplo ficam no armazenamento de blob do Azure, que é usado pelo H
 
 Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do HiveQL.
 
-> [AZURE.NOTE]A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no recipiente de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster, e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados, especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
 
-As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no **diretório wasb:///example/data**:
+As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no diretório ****wasb:///example/data**:
 
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -109,7 +108,7 @@ Os [documentos de design do Hive no Tez](https://cwiki.apache.org/confluence/dis
 
 O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tabela a seguir para decidir qual método é o melhor para você e siga o link para obter o passo-a-passo.
 
-| **Use** se quiser... | ...um shell **interativo** | ...processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
+| **Use** se quiser... | ...um shell **interativo** | ...Processamento em **lotes** | ... com esse **sistema operacional de cluster** | ... desse **sistema operacional cliente** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
@@ -163,4 +162,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

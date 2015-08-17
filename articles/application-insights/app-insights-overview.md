@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -103,6 +103,11 @@ O impacto sobre o desempenho é muito pequeno. As chamadas de rastreamento não 
 
 Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra de navegação à esquerda desta página.
 
+## Exemplos
+
+
+[Exemplos e explicações passo a passo](app-insights-code-samples.md)
+
 
 ## Suporte e comentários
 
@@ -145,4 +150,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

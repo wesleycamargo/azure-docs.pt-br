@@ -7,22 +7,23 @@
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/28/2015"
-	 ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
 
 # Criar um cofre de backup
 Para fazer backup de arquivos e dados do System Center Data Protection Manager (SCDPM) ou do Windows Server no Azure ou ao fazer backup de VMs de IaaS no Azure, você deve criar um cofre de backup na região geográfica em que deseja armazenar os dados.
 
 Este tutorial o orientará durante o processo de criação do cofre que você usará para armazenar backups.
 
+## Passo a passo em vídeo
+
+Veja um passo a passo deste tutorial.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Criando o Cofre de Backup
+
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com/)
-2. Clique em **Novo** > **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Backup** e escolha **Criação Rápida**.
+2. Clique em **Novo** > **Serviços de Dados** > **Serviços de Recuperação** > **Cofre de Backup** e escolha **Criação Rápida**
 
   ![Criar cofre][1]
 
@@ -43,7 +44,7 @@ Este tutorial o orientará durante o processo de criação do cofre que você us
 
 O melhor momento para identificar sua opção de redundância de armazenamento é logo após a criação de um cofre e antes de qualquer máquina virtual ser registrada no cofre. Depois que um item tiver sido registrado no cofre, a opção de redundância de armazenamento será bloqueada e não poderá ser modificada.
 
-Suas necessidades comerciais determinam a redundância do armazenamento de back-end do Backup do Azure. Se você estiver usando o Azure como ponto de extremidade de armazenamento de backup principal (por exemplo, estiver fazendo backup de um Windows Server no Azure), deverá considerar a possibilidade de escolher a opção de armazenamento com redundância geográfica (padrão). Isso é visto na opção **Configurar** do seu cofre de backup.
+Suas necessidades comerciais determinam a redundância do armazenamento de back-end do Backup do Azure. Se você estiver usando o Azure como ponto de extremidade de armazenamento de backup principal (por exemplo, estiver fazendo backup de um Windows Server no Azure), deverá considerar a possibilidade de escolher a opção de armazenamento com redundância geográfica (padrão). Isso é visto na opção **Configurar** do seu cofre de Backup.
 
 ![GRS][4]
 
@@ -69,4 +70,4 @@ Se você estiver usando o Azure como um ponto de extremidade de armazenamento de
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

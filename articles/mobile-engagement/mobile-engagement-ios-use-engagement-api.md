@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como usar o API Engagement no iOS" 
+<properties
+	pageTitle="Como usar o API Engagement no iOS"
 	description="SDK do iOS mais recente - Como usar a API Engagement no iOS"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="na" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="01/24/2015"
+	ms.author="piyushjo" />
 
 
 #Como usar o API Engagement no iOS
@@ -61,34 +61,34 @@ Eventos de sessão são geralmente usados para relatar as ações executadas por
 
 **Exemplo sem dados adicionais:**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
+	        ...
+	   }
+	   [...]
+	}
 
 **Exemplo com dados adicionais:**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
-			    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
-			    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
+	    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
+	    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
+	        ...
+	   }
+	   [...]
+	}
 
 ### Eventos autônomos
 
@@ -96,7 +96,7 @@ Ao contrário dos eventos de sessão, os eventos autônomos podem ser usados for
 
 **Exemplo:**
 
-			[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
+	[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
 ##Erros de relatório
 
@@ -106,17 +106,17 @@ Erros de sessão são geralmente usados para relatar os erros que afetam o usuá
 
 **Exemplo:**
 
-			/** The user has entered invalid data in a form */
-			@implementation MyViewController {
-			  [...]
-			  -(void)onMyFormSubmitted:(MyForm*)form {
-			    [...]
-			    /* The user has entered an invalid email address */
-			    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
-			    [...]
-			  }
-			  [...]
-			}
+	/** The user has entered invalid data in a form */
+	@implementation MyViewController {
+	  [...]
+	  -(void)onMyFormSubmitted:(MyForm*)form {
+	    [...]
+	    /* The user has entered an invalid email address */
+	    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
+	    [...]
+	  }
+	  [...]
+	}
 
 ### Erros autônomos
 
@@ -124,7 +124,7 @@ Ao contrário dos erros de sessão, os erros autônomos podem ser usados fora do
 
 **Exemplo:**
 
-			[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
+	[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
 ##Relatório de trabalhos
 
@@ -132,18 +132,18 @@ Ao contrário dos erros de sessão, os erros autônomos podem ser usados fora do
 
 Suponha que você deseja relatar a duração do processo de logon:
 
-			[...]
-			-(void)signIn 
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  [... sign in ...]
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			}
-			[...]
+	[...]
+	-(void)signIn
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  [... sign in ...]
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	}
+	[...]
 
 ### Relatar erros durante um trabalho
 
@@ -153,35 +153,35 @@ Os erros podem estar relacionados a um trabalho em execução, em vez de serem r
 
 Suponha que você deseja relatar um erro durante o processo de logon:
 
-			[...]
-			-(void)signin
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  BOOL success = NO;
-			  while (!success) {
-			    /* Try to sign in */
-			    NSError* error = nil;
-			    [self trySigin:&error];
-			    success = error == nil;
-			
-			    /* If an error occured report it */
-			    if(!success)
-			    {
-			      [[EngagementAgent shared] sendJobError:@"sign_in_error"
-			                     jobName:@"sign_in"
-			                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
-			
-			      /* Retry after a moment */
-			      [NSThread sleepForTimeInterval:20];
-			    }
-			  }
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			};
-			[...]
+	[...]
+	-(void)signin
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  BOOL success = NO;
+	  while (!success) {
+	    /* Try to sign in */
+	    NSError* error = nil;
+	    [self trySigin:&error];
+	    success = error == nil;
+
+	    /* If an error occured report it */
+	    if(!success)
+	    {
+	      [[EngagementAgent shared] sendJobError:@"sign_in_error"
+	                     jobName:@"sign_in"
+	                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
+
+	      /* Retry after a moment */
+	      [NSThread sleepForTimeInterval:20];
+	    }
+	  }
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	};
+	[...]
 
 ### Eventos durante um trabalho
 
@@ -191,25 +191,25 @@ Os erros podem estar relacionados a um trabalho em execução, em vez de serem r
 
 Suponha que temos uma rede social e usamos um trabalho para relatar o tempo total durante o qual o usuário está conectado ao servidor. O usuário pode receber mensagens de seus amigos, esse é um evento de trabalho.
 
-			[...]
-			- (void) signin
-			{
-			  [...Sign in code...]
-			  [[EngagementAgent shared] startJob:@"connection" extras:nil];
-			}
-			[...]
-			- (void) signout
-			{
-			  [...Sign out code...]
-			  [[EngagementAgent shared] endJob:@"connection"];
-			}
-			[...]
-			- (void) onMessageReceived 
-			{
-			  [...Notify user...]
-			  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
-			}
-			[...]
+	[...]
+	- (void) signin
+	{
+	  [...Sign in code...]
+	  [[EngagementAgent shared] startJob:@"connection" extras:nil];
+	}
+	[...]
+	- (void) signout
+	{
+	  [...Sign out code...]
+	  [[EngagementAgent shared] endJob:@"connection"];
+	}
+	[...]
+	- (void) onMessageReceived
+	{
+	  [...Notify user...]
+	  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
+	}
+	[...]
 
 ##Parâmetros adicionais
 
@@ -221,16 +221,16 @@ Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(N
 
 > [AZURE.NOTE]Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
 >
-			 -(NSString*)JSONRepresentation; 
+			 -(NSString*)JSONRepresentation;
 >
 > O método deve retornar uma representação JSON de seu objeto.
 
 ### Exemplo
 
-			NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
-			[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
-			[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
-			[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
+	NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
+	[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
+	[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
+	[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
 ### Limites
 
@@ -240,7 +240,7 @@ Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -248,7 +248,7 @@ Os adicionais estão limitados à **1024** caracteres por chamada (uma vez codif
 
 No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres:
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+	{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##Relatório de informações de aplicativo
 
@@ -260,10 +260,10 @@ Como os adicionais de evento, a classe `NSDictionary` é usada para abstrair as 
 
 **Exemplo:**
 
-			NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-			[appInfo setObject:@"female" forKey:@"gender"];
-			[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
-			[[EngagementAgent shared] sendAppInfo:appInfo];
+	NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+	[appInfo setObject:@"female" forKey:@"gender"];
+	[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
+	[[EngagementAgent shared] sendAppInfo:appInfo];
 
 ### Limites
 
@@ -273,7 +273,7 @@ Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -281,8 +281,6 @@ Os adicionais estão limitados à **1024** caracteres por chamada (uma vez codif
 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
-			{"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

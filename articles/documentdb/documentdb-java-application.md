@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um aplicativo Web Java usando o Banco de Dados de Documentos" 
+	pageTitle="Criar um aplicativo Web Java usando o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Este tutorial mostra a você como usar o serviço do Banco de Dados de Documentos do Azure para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -118,7 +118,7 @@ Para fazer isso, você precisará converter o projeto para um projeto Maven conc
 
 	Neste projeto, estamos usando [Project Lombok](http://projectlombok.org/) para gerar o construtor, os getters, os setters e um builder. Como alternativa, você pode escrever esse código manualmente ou o IDE pode gerá-lo.
 
-2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [SEU_PONTO_EXTREMIDADE_AQUI] pelo seu URI e substitua [SUA_CHAVE_AQUI] pela sua chave primária.
+2. Para invocar o serviço do Banco de Dados de Documentos, você deve criar um novo **DocumentClient**. Em geral, é melhor reutilizar o **DocumentClient** - em vez de construir um novo cliente para cada solicitação subsequente. O cliente pode ser reutilizado envolvendo o cliente em uma **DocumentClientFactory**. Aqui também é onde você precisa colar o valor da URI e a CHAVE PRIMÁRIA salva na área de transferência na [etapa 1](#CreateDB). Substitua [SEU\_PONTO\_EXTREMIDADE\_AQUI] pelo seu URI e substitua [SUA\_CHAVE\_AQUI] pela sua chave primária.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -747,7 +747,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
 3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, consulte [Adicionar um aplicativo ao seu site Java no Azure](../web-sites-java-add-app.md).
 
 	Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
-4. Para exibir seu produto acabado, navegue até http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
+4. Para exibir seu produto acabado, navegue até http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e comece a adicionar suas tarefas!
 
 ##<a id="GetProject"></a>Obtenha o projeto do GitHub##
 
@@ -763,7 +763,7 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e, em seguida, clique em **Próximo**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e, em seguida, clique em **Próximo**.
 10. Na tela **Importar projetos**, desmarque o projeto **Banco de Dados de Documentos** e, em seguida, clique em **Concluir**. O projeto Banco de Dados de Documentos contém o SDK Java do Banco de Dados de Documentos, que adicionaremos como uma dependência em seu lugar.
-11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
+11. No **Explorador de Projeto**, navegue até azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java e substitua os valores HOST e MASTER\_KEY pela URI e a CHAVE PRIMÁRIA para a sua conta do Banco de Dados de Documentos e, em seguida, salve o arquivo. Para obter mais informações, consulte a [Etapa 1. Criar uma conta de banco de dados do Banco de Dados de Documentos](#CreateDB).
 12. Em **Explorador de Projeto**, clique com o botão direito do mouse em **azure-documentdb-java-sample**, clique em **Caminho de compilação** e, em seguida, clique em **Configurar caminho de compilação**.
 13. Na tela **Caminho de compilação Java**, no painel direito, selecione a guia **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**. Navegue até o local do arquivo lombok.jar e clique em **Abrir** e, em seguida, clique em **OK**.
 14. Use a Etapa 12 para abrir a janela **Propriedades** novamente e, no painel esquerdo, clique em **Tempos de Execução Direcionados**.
@@ -779,4 +779,4 @@ Todos os exemplos neste tutorial são incluídos no projeto [tarefas](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

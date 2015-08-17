@@ -278,4 +278,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

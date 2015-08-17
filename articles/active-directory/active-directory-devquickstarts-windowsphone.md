@@ -92,7 +92,7 @@ public MainPage()
 }
 ```
 
-- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -128,7 +128,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 }
 ```
 
-- Agora é hora de usar o `AuthenticationResult` que a ADAL retornou ao seu aplicativo. No retorno de chamada `QueryGraph(...)`, anexe o access_token que você adquiriu à solicitação GET, no cabeçalho Autorização:
+- Agora é hora de usar o `AuthenticationResult` que a ADAL retornou ao seu aplicativo. No retorno de chamada `QueryGraph(...)`, anexe o access\_token que você adquiriu à solicitação GET, no cabeçalho Autorização:
 
 ```C#
 private async void QueryGraph(AuthenticationResult result)
@@ -174,4 +174,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

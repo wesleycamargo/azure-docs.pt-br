@@ -67,18 +67,18 @@ Instale a última versão do PowerShell do Azure, disponível na página de down
 ### Etapa 2
 Alterne modo do PowerShell para usar os cmdlets do ARM. Mais informações estão disponíveis em Usando o Windows Powershell com o Gerenciador de Recursos.
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### Etapa 3
 Faça logon na sua conta do Azure.
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 Você deverá autenticar com suas credenciais.
 
 ### Etapa 4
 Escolha quais das suas assinaturas do Azure deseja usar.
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscription”.
 
@@ -86,12 +86,12 @@ Para ver uma lista das assinaturas disponíveis, use o cmdlet “Get-AzureSubscr
 
  O serviço do Gerenciador de Tráfego é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o Gerenciador de Tráfego pelo ARM. Essa operação deve ser executa apenas uma vez para cada assinatura.
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### Etapa 6
 Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de perfil do Gerenciador de Tráfego são globais, não regionais, a escolha do local do grupo de recursos não afeta o Gerenciador de Tráfego do Azure.
 
@@ -99,7 +99,7 @@ O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especi
 
 Para criar um perfil do Gerenciador de Tráfego, use o cmdlet New-AzureTrafficManagerProfile:
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 Os parâmetros são os seguintes:
 
@@ -125,7 +125,7 @@ O cmdlet cria um perfil do Gerenciador de Tráfego do Azure e retorna um objeto 
 
 Para recuperar um objeto existente de perfil do Gerenciador de Tráfego, use o cmdlet Get-AzureTrafficManagerProfle:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 Esse cmdlet retorna um objeto de perfil do Gerenciador de Tráfego.
 
@@ -145,9 +145,9 @@ Essa operação é melhor explicada nos exemplos abaixo:
 
 Pontos de extremidade podem ser adicionados a um perfil do Gerenciador de Tráfego usando o cmdlet “Add-AzureTrafficManagerEndpointConfig”:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Os parâmetros para o Add-AzureTrafficManagerEndpointConfig são os seguintes:
 
@@ -173,36 +173,36 @@ O status do ponto de extremidade, a prioridade e o peso são parâmetros opciona
 
 Para remover um ponto de extremidade de um perfil, use “Remove-AzureTrafficmanagerEndpointConfig”, especificando o nome do ponto de extremidade a ser removido:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 A sequência de operações para adicionar ou remover pontos de extremidade também pode ser 'transferida', passando o objeto de perfil por meio do pipe em vez de como um parâmetro. Por exemplo:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### Alterar as configurações de perfil ou de ponto de extremidade
 
 Os parâmetros de perfil e de ponto de extremidade podem ser alterados offline e as alterações podem ser confirmadas usando Set-AzureTrafficManagerProfile. A única exceção é que o perfil RelativeDnsName não pode ser alterado depois de ser criado (para alterar esse valor, exclua e recrie o perfil). Por exemplo, para alterar a TTL do perfil e o status do primeiro ponto de extremidade:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### Excluir um perfil do Gerenciador de Tráfego
 Para excluir um perfil do Gerenciador de Tráfego, use o cmdlet Remove-AzureTrafficManagerProfile, especificando o nome do perfil e o nome do grupo de recursos:
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 Esse cmdlet solicitará uma confirmação. A opção '-Force' pode ser usada para suprimir essa solicitação. O perfil a ser excluído também pode ser especificado usando um objeto de perfil:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Essa sequência também pode ser transferida:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## Veja também
@@ -212,4 +212,4 @@ Essa sequência também pode ser transferida:
 [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

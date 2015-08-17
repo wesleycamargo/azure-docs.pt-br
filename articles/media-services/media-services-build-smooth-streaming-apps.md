@@ -56,36 +56,14 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 2.	No menu **Arquivo**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3.	Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
-	<table border="1">
-<tr>
-	<th>Nome</th>
-	<th>Valor</th>
-</tr>
-<tr>
-	<td>Grupo de modelos</td>
-	<td>Instalado/Modelos/Visual C#/Windows Store</td>
-</tr>
-<tr>
-	<td>Modelo</td>
-	<td>Aplicativo em branco (XAML)</td>
-</tr>
-<tr>
-	<td>Nome</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Local</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>Nome da solução</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Criar diretório para a solução</td>
-	<td>(selecionado)</td>
-</tr>
-</table>
+Nome|Valor
+---|---
+Grupo de modelos|Instalado/Modelos/Visual C#/Windows Store
+Modelo|Aplicativo em branco (XAML)
+Nome|SSPlayer
+Local|C:\\SSTutorials
+Nome da solução|SSPlayer
+Criar diretório para a solução|(selecionado)
 
 4.	Clique em **OK**.
 
@@ -94,23 +72,12 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 2.	Digite ou selecione os valores a seguir:
 
-	<table border="1">
-<tr>
-	<th>Nome</th>
-	<th>Valor</th>
-</tr>
-<tr>
-	<td>Grupo de referências</td>
-	<td>Windows/Extensions</td>
-</tr>
-<tr>
-	<td>Referência</td>
-	<td>Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ 
-	</td>
-</tr>
-</table>
+Nome|Valor
+---|---
+Grupo de referências|Windows/Extensions
+Referência|Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++
 	
-3.	Clique em **OK**.
+3.	Clique em **OK**. 
 
 Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU. No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
 
@@ -228,7 +195,7 @@ Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controle
 		}
 		#endregion
 
-	O manipulador de eventos sliderProgress_PointerPressed é definido aqui. Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
+	O manipulador de eventos sliderProgress\_PointerPressed é definido aqui. Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
 6.	Pressione **CTRL+S** para salvar o arquivo.
 
 O arquivo code-behind concluído deve ser semelhante ao seguinte:
@@ -320,7 +287,7 @@ Esta lição contém os seguintes procedimentos:
 
 4.	No final do construtor **MainPage**, adicione a seguinte linha para inscrever-se para o evento de fonte aberta adaptável:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += novo AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += novo AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	Pressione **CTRL+S** para salvar o arquivo.
 
@@ -352,7 +319,7 @@ Esta lição contém os seguintes procedimentos:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	No final do método <strong>mediaElement AdaptiveSourceOpened</strong>, adicione o seguinte código para se inscrever nos eventos:
+4.	No final do método **mediaElement AdaptiveSourceOpened**, adicione o seguinte código para se inscrever nos eventos:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	No final do método **mediaElement_AdaptiveSourceStatusUpdated**, adicione o seguinte código:
+6.	No final do método **mediaElement\_AdaptiveSourceStatusUpdated**, adicione o seguinte código:
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 		}
 		#endregion stream selection
 
-5. Localize o método mediaElement_ManifestReady e acrescente o seguinte código no final da função:
+5. Localize o método mediaElement\_ManifestReady e acrescente o seguinte código no final da função:
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 2.	Pressione **F5** para executar o aplicativo.
 3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
 4.	Clique em **Definir Origem**. 
-5.	O idioma padrão é audio_eng. Tente alternar entre audio_eng e audio_es. Toda vez que selecionar um novo fluxo, você deverá clicar no botão Enviar.
+5.	O idioma padrão é audio\_eng. Tente alternar entre audio\_eng e audio\_es. Toda vez que selecionar um novo fluxo, você deverá clicar no botão Enviar.
 
 Você concluiu a lição 3. Nesta lição, você adicionará a funcionalidade de escolher fluxos.
 
@@ -967,7 +934,7 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
         }
         #endregion track selection
 
-5. Localize o método mediaElement_ManifestReady e acrescente o seguinte código no final da função:
+5. Localize o método mediaElement\_ManifestReady e acrescente o seguinte código no final da função:
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ Você concluiu a lição 4. Nesta lição, você adicionará a funcionalidade de
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

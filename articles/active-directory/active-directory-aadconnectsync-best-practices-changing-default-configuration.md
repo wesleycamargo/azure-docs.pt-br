@@ -55,4 +55,4 @@ Quando você precisar alterar a configuração padrão, faça o seguinte:
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,12 +1,5 @@
-<properties 
-   pageTitle="Restaurar um volume StorSimplede um cojunto de backups" | Microsoft Azure"
-   description="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
+<properties pageTitle="Restaurar um volume StorSimplede um cojunto de backups" | Descrição do Microsoft Azure ="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -58,8 +51,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
   1. Selecione o dispositivo adequado.
   2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
   3. Especifique o intervalo de tempo.
-  4. Clique no ícone de verificação
-    ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) para executar esta consulta.
+  4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) para executar esta consulta.
  
     Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 
@@ -75,9 +67,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
     ![Página de confirmação](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
-7. Examine as informações de restauração e clique no ícone de verificação
-    ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png).
-    Isso iniciará um trabalho de restauração que poderá ser exibido por meio do acesso à página **Trabalhos**.
+7. Examine as informações de restauração e clique no ícone de verificação ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Isso iniciará um trabalho de restauração que poderá ser exibido por meio do acesso à página **Trabalhos**.
 
 8. Após a conclusão da restauração, você poderá verificar se o conteúdo de seus volumes foi substituído pelos volumes do backup.
 
@@ -85,4 +75,4 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

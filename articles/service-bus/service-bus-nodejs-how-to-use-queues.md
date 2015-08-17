@@ -48,7 +48,7 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar as filas do Barramento de Serviço.
+3.  Você pode executar o comando **ls** manualmente para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar as filas do Barramento de Serviço.
 
 ### Importar o módulo
 
@@ -58,7 +58,7 @@ Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao início
 
 ### Configurar uma conexão do barramento de serviço do Azure
 
-O módulo Azure lê as variáveis de ambiente AZURE_SERVICEBUS_NAMESPACE e AZURE_SERVICEBUS_ACCESS_KEY para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createServiceBusService**.
+O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZURE\_SERVICEBUS\_ACCESS\_KEY para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createServiceBusService**.
 
 Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento].
 
@@ -190,4 +190,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Aplicativo Node.js na Web com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

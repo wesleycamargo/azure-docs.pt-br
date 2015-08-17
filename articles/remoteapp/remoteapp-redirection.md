@@ -102,4 +102,4 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

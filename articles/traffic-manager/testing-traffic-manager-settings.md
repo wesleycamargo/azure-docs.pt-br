@@ -21,11 +21,11 @@ A melhor maneira de testar suas configurações do Gerenciador de Tráfego é co
 
 ## Etapas básicas de teste
 
--**Defina o TTL do DNS bem baixo** de modo que as alterações se propaguem rapidamente - 30 segundos, por exemplo.
+\-**Defina o TTL DNS como muito baixo**, de forma que as alterações sejam propagadas rapidamente (30 segundos, por exemplo).
 
--**Conheça os endereços IP de seus serviços de nuvem do Azure e sites** no perfil que você está testando.
+\-**Conheça os endereços IP de seus serviços de nuvem do Azure e sites** no perfil que você está testando.
 
--**Use ferramentas que lhe permitem resolver um nome DNS para um endereço IP** e exiba esse endereço. Você está verificando se o nome de domínio de sua empresa é resolvido na forma de endereços IP dos pontos de extremidade em seu perfil. Eles devem ser resolvidos de maneira consistente com o método de balanceamento de carga de sua política do Gerenciador de Tráfego. Se estiver em um computador que executa o Windows, você poderá usar a ferramenta Nslookup.exe em um prompt de comando ou do Windows PowerShell. Outras ferramentas disponíveis publicamente que permitem que você "se aprofunde" em um endereço IP também estão prontamente disponíveis na Internet.
+\-**Use ferramentas que permitam resolver um nome DNS para um endereço IP** e exibir esse endereço. Você está verificando se o nome de domínio de sua empresa é resolvido na forma de endereços IP dos pontos de extremidade em seu perfil. Eles devem ser resolvidos de maneira consistente com o método de balanceamento de carga de sua política do Gerenciador de Tráfego. Se estiver em um computador que executa o Windows, você poderá usar a ferramenta Nslookup.exe em um prompt de comando ou do Windows PowerShell. Outras ferramentas disponíveis publicamente que permitem que você "se aprofunde" em um endereço IP também estão prontamente disponíveis na Internet.
 
 ### Para verificar um perfil do Gerenciador de Tráfego usando nslookup
 
@@ -57,4 +57,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 [Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Tarefas de configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

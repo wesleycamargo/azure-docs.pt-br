@@ -66,4 +66,4 @@ A senha do administrador do dispositivo agora deve estar atualizada. Você pode 
 
 [Saiba mais sobre como modificar a configuração do dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

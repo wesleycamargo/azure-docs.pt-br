@@ -35,11 +35,11 @@ Este guia presume que você já tenha um namespace do Barramento de Serviço que
 
 ## Baixando a biblioteca do cliente do JMS do AMQP 1.0
 
-Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [acessehttp://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
+Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [acessehttp://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
 
-*    geronimo-jms_1.1_spec-1.0.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -71,9 +71,9 @@ A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquiv
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Onde **[jndi_name]** e **[ConnectionURL]** têm os seguintes significados:
+Onde **[jndi\_name]** e **[ConnectionURL]** têm os seguintes significados:
 
-- **[jndi_name]**: o nome lógico do ConnectionFactory. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
+- **[jndi\_name]**: o nome lógico do ConnectionFactory. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
 - **[ConnectionURL]**: uma URL que fornece à biblioteca JMS as informações necessárias para o agenciador do AMQP.
 
 O formato de **ConnectionURL** é o seguinte:
@@ -87,7 +87,7 @@ Onde **[namespace]**, **[username]** e **[password]** têm os seguintes signific
 - **[username]**: o nome do emissor do Barramento de Serviço.
 - **[password]**: formulário codificado por URL da chave do emissor do Barramento de Serviço.
 
-> [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE]você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Configurando destinos
 
@@ -103,10 +103,10 @@ ou
 topic.[jndi_name] = [physical_name]
 ```
 
-Onde **[jndi_name]** e **[physical_name]** têm os seguintes significados:
+Onde **[jndi\_name]** e **[physical\_name]** têm os seguintes significados:
 
-- **[jndi_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
-- **[physical_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
+- **[jndi\_name]**: o nome lógico do destino. Este é o nome que será resolvido no aplicativo Java usando o método IntialContext.lookup() do JNDI.
+- **[physical\_name]**: o nome da entidade do Barramento de Serviço para a qual o aplicativo envia ou recebe mensagens.
 
 > [AZURE.NOTE]ao receber de uma assinatura de tópico do Service Bus, o nome físico especificado na JNDI deve ser o nome do tópico. O nome da assinatura é fornecido quando a assinatura durável é criada no código do aplicativo JMS. O [Guia do Desenvolvedor do Service Bus do AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) fornece mais detalhes sobre como trabalhar com assinaturas de tópico do Service Bus a partir do JMS.
 
@@ -338,4 +338,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

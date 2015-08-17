@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 # O que são as imagens de modelo do RemoteApp?
@@ -24,7 +24,9 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 - Microsoft Office 365 ProPlus (assinatura do Office 365 necessária)
 - Microsoft Office 2013 Professional Plus (somente avaliação)
 
-> [AZURE.IMPORTANT]Independentemente da imagem você usar, existem considerações de licenciamento toda vez que você compartilhar um aplicativo com os usuários. Confira os [Detalhes de licenciamento do RemoteApp](remoteapp-licensing.md) para obter mais informações.
+> [AZURE.IMPORTANT]Sua assinatura do Azure RemoteApp concede o acesso ao software nas imagens, com exceção do Office 365 ProPlus, que requer uma assinatura separada, e o Office 2013, que não pode ser usado na produção. Isso significa que você pode compartilhar os programas ou aplicativos nas imagens de modelo com seus usuários. Por exemplo, se você criar uma coleção que usa a imagem do Windows Server 2012 R2, poderá publicar o System Center Endpoint Protection para que os usuários acessem por meio do RemoteApp.
+> 
+> Confira os [Detalhes de licenciamento do RemoteApp](remoteapp-licensing.md) para obter mais informações.
 
 Leia mais para obter detalhes sobre o que cada imagem contém.
 
@@ -78,7 +80,7 @@ E os seguintes aplicativos, assim:
 - PowerMap
 
 
-Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](remoteapp-licensing.md)
+Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Ainda tem dúvidas? Confira as informações do [Office 365 + RemoteApp](remoteapp-o365.md).
 
 ## Microsoft Office 2013 Professional Plus (somente avaliação)
 Durante o período de avaliação gratuito, você pode testar o serviço com a imagem do Office 2013.
@@ -98,7 +100,7 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Word
 - Revisores de texto do Microsoft Office
 
-> [AZURE.IMPORTANT]**Importantes informações legais:** Esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento no RemoteApp, consulte [Como funciona o licenciamento no RemoteApp do Azure?](remoteapp-licensing.md)
+> [AZURE.IMPORTANT]**Importantes informações legais:** Esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o Azure RemoteApp](remoteapp-o365.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

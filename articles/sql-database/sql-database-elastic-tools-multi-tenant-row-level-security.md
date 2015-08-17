@@ -47,17 +47,17 @@ Compile e execute o aplicativo. Isso inicializará o gerenciador de mapas de fra
 
 Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmentos, cada um desses testes revela um problema: locatários podem ver blogs que não pertencem a eles e o aplicativo não é impedido de inserir um blog para o locatário errado. O restante deste artigo descreve como resolver esses problemas impondo o isolamento de locatários com RLS. Há duas etapas:
 
-1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir CONTEXT_INFO como o TenantId atual após a abertura de uma conexão. O projeto de exemplo já fez isso. 
-2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar linhas com base no valor de CONTEXT_INFO. Você precisará fazer isso para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas. 
+1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir CONTEXT\_INFO como o TenantId atual após a abertura de uma conexão. O projeto de exemplo já fez isso. 
+2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar linhas com base no valor de CONTEXT\_INFO. Você precisará fazer isso para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas. 
 
 
-## Etapa 1) Camada de aplicativo: definir CONTEXT_INFO como TenantId
+## Etapa 1) Camada de aplicativo: definir CONTEXT\_INFO como TenantId
 
-Depois de se conectar a um banco de dados de fragmentos usando dados da biblioteca cliente do banco de dados elástico que depende de APIs de roteamento, o aplicativo ainda precisa informar o banco de dados qual TenantId está usando essa conexão para que uma política de segurança RLS possa filtrar linhas pertencentes a outros locatários. A maneira recomendada para transmitir essas informações é definir [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) como o TenantId atual dessa conexão. Observe que, no Banco de Dados SQL do Azure, CONTEXT_INFO é populado previamente com um GUID específico da sessão, então é *necessário* definir CONTEXT_INFO para a TenantId correta antes de executar qualquer consulta em uma nova conexão para garantir que nenhuma linha seja perdida inadvertidamente.
+Depois de se conectar a um banco de dados de fragmentos usando dados da biblioteca cliente do banco de dados elástico que depende de APIs de roteamento, o aplicativo ainda precisa informar o banco de dados qual TenantId está usando essa conexão para que uma política de segurança RLS possa filtrar linhas pertencentes a outros locatários. A maneira recomendada para transmitir essas informações é definir [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) como o TenantId atual dessa conexão. Observe que, no Banco de Dados SQL do Azure, CONTEXT\_INFO é populado previamente com um GUID específico da sessão, então é *necessário* definir CONTEXT\_INFO para a TenantId correta antes de executar qualquer consulta em uma nova conexão para garantir que nenhuma linha seja perdida inadvertidamente.
 
 ### Entity Framework
 
-Para aplicativos que usam o Entity Framework, a abordagem mais simples é definir CONTEXT_INFO na substituição ElasticScaleContext descrita em [Roteamento Dependente de Dados usando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de retornar a conexão negociada por meio do roteamento dependente de dados, crie e execute um SqlCommand que define CONTEXT_INFO como o shardingKey (TenantId) especificado para a conexão. Dessa maneira, só é preciso gravar o código uma vez para definir CONTEXT_INFO.
+Para aplicativos que usam o Entity Framework, a abordagem mais simples é definir CONTEXT\_INFO na substituição ElasticScaleContext descrita em [Roteamento Dependente de Dados usando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de retornar a conexão negociada por meio do roteamento dependente de dados, crie e execute um SqlCommand que define CONTEXT\_INFO como o shardingKey (TenantId) especificado para a conexão. Dessa maneira, só é preciso gravar o código uma vez para definir CONTEXT\_INFO.
 
 ```
 // ElasticScaleContext.cs 
@@ -103,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Agora, o CONTEXT_INFO será automaticamente definido como o TenantId especificado sempre que ElasticScaleContext for invocado:
+Agora, o CONTEXT\_INFO será automaticamente definido como o TenantId especificado sempre que ElasticScaleContext for invocado:
 
 ```
 // Program.cs 
@@ -126,7 +126,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-Para aplicativos que usam o ADO.NET SqlClient, a abordagem recomendada é criar uma função de wrapper em torno de ShardMap.OpenConnectionForKey() que define automaticamente CONTEXT_INFO para a TenantId correta antes de retornar uma conexão. Para garantir que CONTEXT_INFO seja sempre definido corretamente, você só deve abrir conexões usando essa função de wrapper.
+Para aplicativos que usam o ADO.NET SqlClient, a abordagem recomendada é criar uma função de wrapper em torno de ShardMap.OpenConnectionForKey() que define automaticamente CONTEXT\_INFO para a TenantId correta antes de retornar uma conexão. Para garantir que CONTEXT\_INFO seja sempre definido corretamente, você só deve abrir conexões usando essa função de wrapper.
 
 ```
 // Program.cs
@@ -188,9 +188,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### Criar uma política de segurança para filtrar consultas SELECT, UPDATE e DELETE 
 
-Agora que o aplicativo está definindo CONTEXT_INFO como o TenantId atual antes de enviar a consulta, uma política de segurança RLS pode filtrar consultas e excluir linhas que tenham um TenantId diferente.
+Agora que o aplicativo está definindo CONTEXT\_INFO como o TenantId atual antes de enviar a consulta, uma política de segurança RLS pode filtrar consultas e excluir linhas que tenham um TenantId diferente.
 
-A RLS é implementada no T-SQL: uma função de predicado definida pelo usuário define a lógica de filtragem e uma política de segurança associa essa função a quantas tabelas desejar. Para este projeto, a função de predicado simplesmente verificará se o aplicativo (em vez de outro usuário do SQL) está conectado ao banco de dados, e se o valor de CONTEXT_INFO corresponde ao TenantId de uma determinada linha. As linhas que atendem a essas condições serão permitidas pelo filtro para consultas SELECT, UPDATE e DELETE. Se CONTEXT_INFO não tiver sido definido, nenhuma linha será retornada.
+A RLS é implementada no T-SQL: uma função de predicado definida pelo usuário define a lógica de filtragem e uma política de segurança associa essa função a quantas tabelas desejar. Para este projeto, a função de predicado simplesmente verificará se o aplicativo (em vez de outro usuário do SQL) está conectado ao banco de dados, e se o valor de CONTEXT\_INFO corresponde ao TenantId de uma determinada linha. As linhas que atendem a essas condições serão permitidas pelo filtro para consultas SELECT, UPDATE e DELETE. Se CONTEXT\_INFO não tiver sido definido, nenhuma linha será retornada.
 
 Para habilitar a RLS, execute o seguinte comando do T-SQL em todos os fragmentos usando Visual Studio (SSDT), SSMS ou o script do PowerShell incluído no projeto (ou, se você estiver usando [Trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md), você poderá usá-lo para automatizar a execução desse T-SQL em todos os fragmentos):
 
@@ -262,7 +262,7 @@ Agora, o aplicativo não poderá inserir linhas que pertencem a locatários dife
 
 ### Adicionar restrições padrão para preencher automaticamente o TenantId para INSERTs 
 
-Além de usar restrições CHECK para bloquear inserções de locatário errado, você pode incluir uma restrição padrão em cada tabela para preencher automaticamente o TenantId com o valor atual de CONTEXT_INFO ao inserir linhas. Por exemplo:
+Além de usar restrições CHECK para bloquear inserções de locatário errado, você pode incluir uma restrição padrão em cada tabela para preencher automaticamente o TenantId com o valor atual de CONTEXT\_INFO ao inserir linhas. Por exemplo:
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -291,7 +291,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Se você usar restrições padrão para um projeto do Entity Framework, é recomendável não incluir a coluna TenantId em seu modelo de dados do EF. Isso ocorre porque as consultas do Entity Framework fornecem automaticamente os valores padrão que substituirão as restrições padrão criadas no T-SQL que usam CONTEXT_INFO. Para usar restrições padrão no projeto de exemplo, por exemplo, você deve remover TenantId de DataClasses.cs (e executar Add-Migration no Console do Gerenciador de Pacotes) e usar o T-SQL para garantir que o campo só exista nas tabelas do banco de dados. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados.
+> [AZURE.NOTE]Se você usar restrições padrão para um projeto do Entity Framework, é recomendável não incluir a coluna TenantId em seu modelo de dados do EF. Isso ocorre porque as consultas do Entity Framework fornecem automaticamente os valores padrão que substituirão as restrições padrão criadas no T-SQL que usam CONTEXT\_INFO. Para usar restrições padrão no projeto de exemplo, por exemplo, você deve remover TenantId de DataClasses.cs (e executar Add-Migration no Console do Gerenciador de Pacotes) e usar o T-SQL para garantir que o campo só exista nas tabelas do banco de dados. Dessa forma, o EF não fornecerá valores padrão incorretos automaticamente ao inserir dados.
 
 ### (Opcional) Habilitar um "superusuário" acessar todas as linhas
 Alguns aplicativos talvez queiram criar um "superusuário" que pode acessar todas as linhas, por exemplo, para permitir a emissão de relatórios em todos os locatários em todos os fragmentos ou para executar operações de divisão/mesclagem em fragmentos que envolvem a movimentação de linhas de locatário entre bancos de dados. Para habilitar isso, você deve criar um novo usuário do SQL ("superusuário" neste exemplo) em cada banco de dados do fragmento. Em seguida, altere a política de segurança com uma nova função de predicado que permite que esse usuário acesse todas as linhas:
@@ -340,4 +340,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

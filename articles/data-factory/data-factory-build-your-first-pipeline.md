@@ -37,7 +37,7 @@ Antes de começar este tutorial, você deve cumprir com os seguintes pré-requis
 
 1.	**Uma assinatura do Azure** - Se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
 
-2.	**Armazenamento do Azure** – Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, consulte o artigo [Adicionar uma Conta de Armazenamento do Azure](../storage/storage-create-storage-account.md/#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+2.	**Armazenamento do Azure** – Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage-create-storage-account/#create-a-storage-account). Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 ## O que é abordado neste tutorial?	
 O Azure Data Factory permite compor tarefas de processamento de dados e movimentação de dados como um fluxo de trabalho de orientado a dados. Você aprenderá a criar seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente.
@@ -118,7 +118,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 		partitioned by ( year int, month int)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
-		LOCATION 'wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata';
+		LOCATION '${hiveconf:partitionedtable}';
 
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
@@ -147,7 +147,7 @@ Antes de iniciar o tutorial, você precisa preparar o armazenamento do Azure com
 	 
  
 2. Como preparar o armazenamento do Azure para o tutorial:
-	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [última versão de visualização](http://aka.ms/downloadazcopypr). Consulte [AzCopy](../storage/storage-use-azcopy.md) para saber como usar o AzCopy
+	1. Baixe a [versão mais recente do **AzCopy**](http://aka.ms/downloadazcopy) ou a [última versão de visualização](http://aka.ms/downloadazcopypr). Consulte o artigo [Como usar o AzCopy](../storage/storage-use-azcopy.md) para obter instruções sobre o uso do utilitário.
 	2. Após a instalação do AzCopy, você pode adicioná-lo ao caminho do sistema, executando o seguinte comando no prompt de comando. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -173,4 +173,4 @@ Faça o seguinte:
 - Clique no link [Usando o PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
 - Clique no link [Usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) na parte superior para executar o tutorial usando o Visual Studio. 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

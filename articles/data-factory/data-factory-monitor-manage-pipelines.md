@@ -31,7 +31,7 @@ Usando o Portal de Visualização do Azure, você pode exibir sua data factory c
 	![Procurar tudo -> fata Factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	Você deve ver todas as data factories na folha **Data factories**. 
-4. Na folha Data factories, selecione a data factory em que está interessado e você deverá ver a home page (folha \* Data factory\* \*) da fábrica de dados.
+4. Na folha Data factories, selecione a data factory em que está interessado e você deverá ver a home page (folha **Data factory**) da data factory.
 
 	![Folha Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
@@ -49,7 +49,7 @@ Clique em **Diagrama** na home page da data factory acima para ver a exibição 
 1. Clique com o botão direito no pipeline e clique em **Abrir pipeline** para ver todas as atividades no pipeline junto com conjuntos de dados de entrada e saída para as atividades. Isso é útil quando o pipeline é composto de mais de uma atividade e você deseja compreender a linhagem operacional de um único pipeline.
 
 	![Menu do pipeline aberto](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)	 
-2. No exemplo a seguir, você vê duas atividades no pipeline com suas entradas e saídas. A atividade denominada **JoinData**, do tipo Atividade de Hive do HDInsight, e **EgressDataAzure**, do tipo Atividade de cópia, estão neste pipeline de exemplo. 
+2. No exemplo a seguir, você vê duas atividades no pipeline com suas entradas e saídas. A atividade denominada **JoinData**, do tipo atividade de Hive do HDInsight, e **EgressDataAzure**, do tipo atividade de cópia, estão neste pipeline de exemplo. 
 	
 	![Atividades dentro de um pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png) 
 3. Você pode navegar de volta para a home page da Data Factory clicando no link da Data factory trilha no canto superior esquerdo.
@@ -59,23 +59,23 @@ Clique em **Diagrama** na home page da data factory acima para ver a exibição 
 ### Exibir o estado de cada atividade dentro de um pipeline
 Você pode exibir o estado atual de uma atividade exibindo o status de qualquer um dos conjuntos de dados produzidos pela atividade.
 
-Por exemplo: no exemplo a seguir, **BlobPartitionHiveActivity** foi executado com êxito e produziu um conjunto de dados chamado **PartitionedProductsUsageTable**, que está no estado **Ready**.
+Por exemplo: no exemplo a seguir, **BlobPartitionHiveActivity** foi executado com êxito e produziu um conjunto de dados chamado **PartitionedProductsUsageTable**, que está no estado **Pronto**.
 
 ![Estado do pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Clicar duas vezes em **PartitionedProductsUsageTable** no diagrama exibirá todas as fatias produzidas por diferentes atividades executadas dentro de um pipeline. Você pode ver que **BlobPartitionHiveActivity** foi executado com êxito todos os meses nos últimos 8 meses e produziu as fatias com estado **Ready**.
+Clicar duas vezes em **PartitionedProductsUsageTable** no diagrama exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que **BlobPartitionHiveActivity** foi executado com êxito todos os meses nos últimos 8 meses e produziu as fatias com estado **Pronto**.
 
 As fatias de conjunto de dados na data factory podem ter um dos seguintes status:
 
 Status | Substatus | Descrição
 ------ | ---------- | -----------
-Aguardando | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | Aguardando que as pré-condições sejam atendidas antes da execução. Consulte o sub status para descobrir o que a fatia está aguardando.
-In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Atualmente, a atividade está sendo executada e produzindo/validando os dados para uma fatia específica.
+Aguardando | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Tentar novamente<br/>Validação<br/>ValidationRetry | Aguardando que as pré-condições sejam atendidas antes da execução. Consulte o sub status para descobrir o que a fatia está aguardando.
+In-Progress | Iniciando<br/>Configurando<br/>Alocando Recursos<br/>Executando<br/>Validando | Atualmente, a atividade está sendo executada e produzindo/validando os dados para uma fatia específica.
 Falha | | Falha no processamento da fatia. Consulte os logs de erro para descobrir o que causou a falha
 Ready | | Êxito no processamento da fatia. A fatia está pronta para consumo.
 Skip | | Não processar essa fatia
 
-Você pode exibir os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias atualizadas recentemente**.
+Você pode exibir os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias Atualizadas Recentemente**.
 
 ![Detalhes da fatia](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -87,7 +87,7 @@ Você pode exibir detalhes sobre uma execução de atividade clicando na entrada
 
 ![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Quando a fatia não está no estado **Pronto**, você pode ver as fatias upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas**. Isso é muito útil quando a fatia está no estado **Waiting** e você quer entender as dependências upstream que a fatia está aguardando.
+Se a fatia não está no estado **Pronto**, você pode ver as fatias de upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias de upstream que não estão prontas**. Isso é muito útil quando a fatia está no estado **Aguardando** e você quer entender as dependências de upstream em que a fatia está aguardando.
 
 ![As fatias upstream não estão prontas](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -98,16 +98,16 @@ Quando você implanta uma data factory e os pipelines têm um período de ativid
 
 O fluxo de transição de estado do conjunto de dados na data factory envolve o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
-A fatias começam com um estado **Waiting** para que as pré-condições sejam atendidas antes da execução. Depois disso, a atividade começa a ser executada e vai para o estado **In-Progress**. A execução da atividade pode ser bem-sucedida ou falhar e, com base nisso, a fatia passará para o estado **Ready** ou **Failed**.
+A fatias começam com um estado **Aguardando** para que as pré-condições sejam atendidas antes da execução. Depois disso, a atividade começa a ser executada e passa para o estado **Em Andamento**. A execução da atividade pode ser bem-sucedida ou falhar e, com base nisso, a fatia passará para o estado **Pronto** ou **Falha**.
 
-O usuário pode redefinir a fatia par voltar do estado **Ready** ou **Failed** para o estado **Waiting**. O usuário também pode marcar o estado da fatia como **Skip**, o que vai impedir a execução da atividade e não processará a fatia.
+O usuário pode redefinir a fatia para voltar do estado **Pronto** ou **Falha** para o estado **Aguardando**. O usuário também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
 
 
 ## Gerenciar pipelines
 Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, você pode pausar e retomar pipelines executando cmdlets do Azure PowerShell.
 
 ### Pausar e retomar pipelines
-Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactoryPipeline** do Powershell. Isso é útil quando você já descobriu um problema com os dados e não quer executar o pipeline para processar dados até que o problema seja corrigido.
+Você pode pausar/suspender pipelines usando o cmdlet do Powershell **Suspend-AzureDataFactoryPipeline**. Isso é útil quando você já descobriu um problema com os dados e não quer executar o pipeline para processar dados até que o problema seja corrigido.
 
 Por exemplo: na captura de tela abaixo, foi identificado um problema com **PartitionProductsUsagePipeline** na data factory **productrecgamalbox1dev** e queremos suspender o pipeline.
 
@@ -121,7 +121,7 @@ Por exemplo:
 
 	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-Depois que o problema com **PartitionProductsUsagePipeline** foi corrigido, o pipeline suspenso poderá ser retomado executando o seguinte comando do PowerShell.
+Depois que o problema com **PartitionProductsUsagePipeline** tiver sido corrigido, o pipeline suspenso poderá ser retomado executando o seguinte comando do PowerShell.
 
 	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -214,7 +214,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 
 ### Usando o Portal do Azure
 
-Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar novamente a falhas navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
+Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
@@ -226,7 +226,7 @@ Você pode executar novamente a falhas usando o cmdlet 'Set-AzureDataFactorySlic
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
-**Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela 'DAWikiAggregatedData' para 'PendingExecution' na data factory do Azure 'WikiADF'.
+**Exemplo:** o exemplo a seguir define o status de todas as fatias da tabela 'DAWikiAggregatedData' para 'PendingExecution' na Azure Data Factory 'WikiADF'.
 
 **Observação:** o UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) que são usadas como tabelas de entrada para as atividades no pipeline é definido como "PendingExecution". Outro valor possível para esse parâmetro é "Individual".
 
@@ -292,7 +292,7 @@ A tabela a seguir fornece a lista de operações e status (e substatus) disponí
 Nome da operação | Status | Substatus
 -------------- | ------ | ----------
 RunStarted | Iniciado | Iniciando
-RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Falhou / Bem-sucedido | <p>FailedResourceAllocation</p><p>Bem-sucedido</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandonado</p>
 SliceOnTime | Em Andamento | OnTime
 SliceDelayed | Em Andamento | Atrasado
 OnDemandClusterCreateStarted | Iniciado
@@ -337,7 +337,7 @@ Para recuperar a lista de implantações do grupo de recursos do Azure já impla
 
 
 #### Solucionando problemas de eventos de usuário
-Você pode ver todos os eventos gerados depois de clicar no bloco **Operações**, e os alertas podem ser configurados em qualquer uma dessas operações visíveis na folha **Eventos**:
+Você pode ver todos os eventos gerados depois de clicar no bloco **Operações** e os alertas podem ser configurados em qualquer uma dessas operações visíveis na folha **Eventos**:
 
 ![Operações](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -380,7 +380,7 @@ Uma vez salvas, pode levar uma hora para que as métricas fiquem visíveis na fo
 
 ### Configurando alertas no Metrics:
 
-Para configurar alertas de métricas, clique no seguinte na folha do Data Factory: **Monitoramento** -> **Métrica** -> **Adicionar alerta** -> **Adicionar uma regra de alerta**.
+Para configurar alertas de métricas, clique no seguinte na folha Data Factory: **Monitoramento** -> **Métrica** -> **Adicionar alerta** -> **Adicionar uma regra de alerta**.
 
 Preencha os detalhes da regra de alerta, especifique os emails e clique em **OK**.
 
@@ -467,4 +467,4 @@ Você verá a seguinte mensagem após a implantação bem-sucedida:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

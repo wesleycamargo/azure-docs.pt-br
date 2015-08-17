@@ -110,4 +110,4 @@ Todos os scripts e a automação que você criou continuarão a funcionar para a
 Não há suporte para isso no momento. Você não pode conectar as Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure a um circuito do Express Route. Haverá suporte para isso no futuro.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

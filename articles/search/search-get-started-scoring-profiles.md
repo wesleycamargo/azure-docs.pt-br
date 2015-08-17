@@ -126,4 +126,4 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -187,4 +187,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

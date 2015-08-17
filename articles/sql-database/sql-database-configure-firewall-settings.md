@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -62,11 +62,11 @@ As regras de firewall no nível de servidor podem ser criadas e gerenciadas por 
 1. Inicie uma janela de consulta por meio do Portal de Gerenciamento ou SQL Server Management Studio.
 2. Verifique se você está conectado ao banco de dados mestre.
 3. As regras de firewall no nível de servidor podem ser criadas, atualizadas ou excluídas de dentro da janela de consulta.
-4. Para criar ou atualizar regras de firewall no nível de servidor, execute o procedimento armazenado sp_set_firewall_rule. O exemplo a seguir permite um intervalo de endereços IP no servidor Contoso.
+4. Para criar ou atualizar regras de firewall no nível de servidor, execute o procedimento armazenado sp\_set\_firewall\_rule. O exemplo a seguir permite um intervalo de endereços IP no servidor Contoso.
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	Para excluir uma regra de firewall no nível de servidor, execute o procedimento armazenado sp_delete_firewall_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
+	Para excluir uma regra de firewall no nível de servidor, execute o procedimento armazenado sp\_delete\_firewall\_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@ As regras de firewall no nível de servidor podem ser criadas e gerenciadas por 
 1. Depois de criar um firewall no nível de servidor para seu endereço IP, inicie uma janela de consulta por meio do Portal de Gerenciamento ou SQL Server Management Studio.
 2. Conecte-se ao banco de dados para o qual você deseja criar uma regra de firewall no nível de banco de dados.
 
-	Para criar uma nova regra ou atualizar uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado sp_set_database_firewall_rule. O exemplo a seguir cria uma nova regra de firewall denominada ContosoFirewallRule.
+	Para criar uma nova regra ou atualizar uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado sp\_set\_database\_firewall\_rule. O exemplo a seguir cria uma nova regra de firewall denominada ContosoFirewallRule.
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	Para excluir uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado sp_delete_database_firewall_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
+	Para excluir uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado sp\_delete\_database\_firewall\_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

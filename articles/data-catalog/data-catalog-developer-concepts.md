@@ -6,8 +6,7 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/>
-<tags
+   tags=""/> <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -163,18 +162,18 @@ Por padrão qualquer usuário autenticado tem o direito **Read** para qualquer i
 
 ## API REST
 
-Solicitações de exibição de item **PUT** e **POST** podem ser usadas para controlar funções e permissões. Além da carga do item, é possível especificar duas propriedades do sistema **__funções\*\* e **__permissões\*\*.
+As solicitações de exibição de item **PUT** e **POST** podem ser usadas para controlar funções e permissões. Além da carga do item, é possível especificar duas propriedades do sistema, **\_\_roles** e **\_\_permissions**.
 
 > [AZURE.NOTE]
 >
-> **__permissões\*\* aplica-se somente a um item de raiz.
+> **__**\_\_permissions** aplica-se somente a um item raiz.
 >
-> A função **Proprietário** só é aplicável a um item de raiz.
+> A função **Proprietário** só é aplicável a um item raiz.
 >
-> Por padrão, quando um item é criado no catálogo, seu **Colaborador** é definido como o usuário autenticado no momento. Se o item deve ser atualizável por todos os usuários, **Colaborador** deve ser definido como a entidade de segurança especial <Everyone> na propriedade **__funções\*\* quando o item for publicado pela primeira vez (consulte o exemplo abaixo). O **Colaborador** não pode ser alterado e permanece o mesmo durante o tempo de vida de um item (ou seja, até mesmo o **Administrador** ou o **Proprietário** não têm o direito de alterar o **Colaborador**). O único valor com suporte para a configuração explícita do **Colaborador** é <Everyone>, ou seja, o **Colaborador** só pode ser um usuário que criou um item ou <Everyone>.
+> Por padrão, quando um item é criado no catálogo, seu **Colaborador** é definido como o usuário autenticado no momento. Se o item tiver de ser atualizado por todos os usuários, o **Colaborador** deverá ser definido como a entidade de segurança especial <Everyone> na propriedade **\_\_roles** quando o item for publicado pela primeira vez (consulte o exemplo abaixo). O **Colaborador** não pode ser alterado e permanece o mesmo durante o tempo de vida de um item (ou seja, até mesmo o **Administrador** ou o **Proprietário** não têm o direito de alterar o **Colaborador**). O único valor com suporte para a configuração explícita do **Colaborador** é <Everyone>, ou seja, o **Colaborador** só pode ser um usuário que criou um item ou <Everyone>.
 
 ###Exemplos
-**Definir Colaborador para <Everyone> ao publicar um item.** A entidade de segurança especial <Everyone> tem objectId "00000000-0000-0000-0000-000000000201". **POST**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview**no corpo**
+**Defina o Colaborador como <Everyone> ao publicar um item.** A entidade de segurança especial <Everyone> tem a objectId "00000000-0000-0000-0000-000000000201". **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Corpo**
 
 	{
 	    "__roles": [
@@ -190,7 +189,7 @@ Solicitações de exibição de item **PUT** e **POST** podem ser usadas para co
 	    … other table properties
 	}
 
-**Atribuir proprietários e restringir a visibilidade de um item de raiz existente** **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
+**Atribua proprietários e restrinja a visibilidade de um item raiz existente** **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
 	{
 	    "__roles": [
@@ -239,4 +238,4 @@ Solicitações de exibição de item **PUT** e **POST** podem ser usadas para co
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

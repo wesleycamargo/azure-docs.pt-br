@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="07/31/2015"
    ms.author="alkohli" />
 
 # Status e componentes de hardware do StorSimple
@@ -63,7 +63,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 
 |Componente|Módulo|Tipo|Local|Unidade renovável (FRU)?|Descrição|
 |---|---|---|---|---|---|
-|Unidade no slot *n*|Unidades de disco|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário.|
+|Unidade no slot [0-11]|Unidades de disco|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário.|
 |Sensor de temperatura ambiente|Compartimento|Físico|Compartilhado|Não|Mede a temperatura dentro do chassi.|
 |Sensor de temperatura do plano intermediário|Compartimento|Físico|Compartilhado|Não|Mede a temperatura do plano intermediário.|
 |Alarme audível|Compartimento|Físico|Compartilhado|Não|Indica se o subsistema de alarme audível dentro do gabinete é funcional.|
@@ -72,9 +72,9 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 |Sensores de tensão de linha|PCM|Físico|Compartilhado|Não|Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância.|
 |Sensores de corrente de linha|PCM|Físico|Compartilhado|Não|Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância.|
 |Sensores de temperatura em PCM|PCM|Físico|Compartilhado|Não|Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância.|
-|N da fonte de alimentação|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo.|
-|Resfriamento *n*|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs.|
-|Bateria *n*|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM.|
+|Fonte de alimentação [0-1]|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo.|
+|Resfriamento [0-1]|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs.|
+|Bateria [0-1]|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos módulos de bateria de backup que estão encaixados no PCM.|
 |Metis|N/D|Lógico|Compartilhado|N/D|Exibe o estado das baterias: se elas precisam de carregamento e estão no fim da vida útil.|
 |HDInsight|N/D|Lógico|Compartilhado|N/D|Exibe o estado do cluster que é criado entre os dois módulos do controlador integrado.|
 |Nó de cluster|N/D|Lógico|Compartilhado|N/D|Indica o estado do controlador como parte do cluster.|
@@ -87,10 +87,10 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 |Espaço SSD NVRAM|N/D|Lógico|Compartilhado|N/D|O espaço de armazenamento no pool de armazenamento SSD dedicado para lógica NVRAM.|
 |Pool de armazenamento do HDD|N/D|Lógico|Compartilhado|N/D|Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo.|
 |Pool de armazenamento do SSD|N/D|Lógico|Compartilhado|N/D|Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo.|
-|Controlador *n* [estado]|E/S|Físico|Controller|Sim|Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi.|
+|Controller [0-1] [estado]|E/S|Físico|Controller|Sim|Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi.|
 |Sensores de temperatura no controlador|E/S|Físico|Controller|Não|Vários sensores de temperatura, como o módulo de E/S, temperatura da CPU, sensores DIMM e PCI e têm seu estado exibido, que indica se a temperatura encontrada está ou não dentro da tolerância.|
 |Expansor SAS|E/S|Físico|Controller|Não|Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador.|
-|Conector SAS *n*|E/S|Físico|Controller|Não|Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS.|
+|Conector SAS [0-1]|E/S|Físico|Controller|Não|Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS.|
 |Interconexão de plano intermediário de SBB|E/S|Físico|Controller|Não|Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário.|
 |Núcleo do processador|E/S|Físico|Controller|Não|Indica o estado dos núcleos de processador em cada controlador.|
 |Energia de eletrônicos do compartimento|E/S|Físico|Controller|Não|Indica o estado do sistema de energia usado pelo compartimento.|
@@ -103,7 +103,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 
 |Componente|Módulo|Tipo|Local|FRU?|Descrição|
 |---|---|---|---|---|---|
-|Unidade no slot *n*|Unidades de disco|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD.|
+|Unidade no slot [0-11]|Unidades de disco|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD.|
 |Sensor de temperatura ambiente|Compartimento|Físico|Compartilhado|Não|Mede a temperatura dentro do chassi.|
 |Sensor de temperatura do plano intermediário|Compartimento|Físico|Compartilhado|Não|Mede a temperatura do plano intermediário.|
 |Alarme audível|Compartimento|Físico|Compartilhado|Não|Indica se o subsistema de alarme audível dentro do gabinete é funcional.|
@@ -112,13 +112,13 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 |Sensores de tensão de linha|PCM|Físico|Compartilhado|Não|Vários sensores de tensão de linha têm seu estado exibido, que indica se a tensão medida está dentro da tolerância.|
 |Sensores de corrente de linha|PCM|Físico|Compartilhado|Não|Vários sensores de corrente de linha têm seu estado exibido, que indica se a corrente medida está dentro da tolerância.|
 |Sensores de temperatura em PCM|PCM|Físico|Compartilhado|Não|Vários sensores de temperatura, como de Entrada e Ponto de acesso, têm seu estado exibido, indicando se a temperatura medida está dentro da tolerância.|
-|Fonte de alimentação *n*|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo.|
-|Resfriamento *n*|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs.|
+|Fonte de alimentação [0-1]|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada uma das fontes de alimentação nos dois PCMs localizados na parte posterior do dispositivo.|
+|Resfriamento [0-1]|PCM|Físico|Compartilhado|Sim|É apresentada uma linha para cada um dos quatro ventiladores que residem nos dois PCMs.|
 |Armazenamento local [HDD]|N/D|Lógico|Compartilhado|N/D|Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo.|
-|Controlador *n* [estado]|E/S|Físico|Controller|Sim|Exibe o estado dos controladores no módulo EBOD.|
+|Controller [0-1] [estado]|E/S|Físico|Controller|Sim|Exibe o estado dos controladores no módulo EBOD.|
 |Sensores de temperatura no EBOD|E/S|Físico|Controller|Não|Vários sensores de temperatura têm seu estado exibido, indicando se a temperatura encontrada está dentro da tolerância.|
 |Expansor SAS|E/S|Físico|Controller|Não|Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador.|
-|Conector SAS *n*|E/S|Físico|Controller|Não|Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS.|
+|Conector SAS [0-2]|E/S|Físico|Controller|Não|Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS.|
 |Interconexão de plano intermediário de SBB|E/S|Físico|Controller|Não|Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário.|
 |Energia de eletrônicos do compartimento|E/S|Físico|Controller|Não|Indica o estado do sistema de energia usado pelo compartimento.|
 |Diagnósticos de eletrônicos do compartimento|E/S|Físico|Controller|Não|Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador.|
@@ -131,4 +131,4 @@ Se você precisar substituir um componente de hardware com falha, consulte o [Gu
 
 Se você continuar tendo problemas de dispositivo, [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

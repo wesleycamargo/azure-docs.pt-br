@@ -77,4 +77,4 @@ Exemplos de modelos:
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

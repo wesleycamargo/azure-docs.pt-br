@@ -103,7 +103,12 @@ Provedores e agentes são instalados em servidores locais para que possam se con
 
 	- Configurar o servidor proxy personalizado antes de instalar o Provedor.
 	- Permitir essas URLs através do firewall:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Se você estiver implantando a Recuperação de Site com o VMM e usar um proxy personalizado, uma conta de RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas nas configurações personalizadas de proxy no portal de Recuperação de Site. Será necessário configurar o servidor proxy para que essa conta possa ser autenticada.
 
 
@@ -189,4 +194,4 @@ Depois de revisar essas práticas recomendadas, inicie a implantação da Recupe
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

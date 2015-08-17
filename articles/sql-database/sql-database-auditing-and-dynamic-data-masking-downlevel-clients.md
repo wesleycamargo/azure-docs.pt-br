@@ -25,7 +25,7 @@ Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a r
 
 Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
 
-FQDN original do servidor na cadeia de conexão: <*nome do servidor* >.database.windows.net
+FQDN original do servidor na cadeia de conexão: <*nome do servidor*>.database.windows.net
 
 FQDN do servidor modificado na cadeia de conexão: <*nome do servidor*>.database.**secure**.windows.net
 
@@ -40,4 +40,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -29,7 +29,7 @@ Todas as operações executadas nos recursos do Azure são auditadas totalmente 
 >[AZURE.NOTE]Você só pode exibir os 500 eventos mais recentes para uma determinada assinatura no portal do Azure.
 
 4. Você pode clicar em qualquer entrada de log para ver os eventos que a compõem. Por exemplo, quando você implanta algo em um grupo de recursos, muitos recursos diferentes podem ser criados ou modificados. Para cada entrada, você pode ver:
-    * O **nível** do evento - por exemplo, pode ser algo para monitorar (**Informativo**), ou quando algo deu errado e você precisa ficar sabendo (**Erro**). 
+    * O **Nível** do evento - por exemplo, ele pode ser simplesmente algo a ser rastreado (**Informational**) ou quando algo deu errado e você precisa ser informado (**Error**). 
     * O **Status** - o status final será geralmente **Bem-sucedido** ou **Com falha**, mas também pode ser **Aceito** para operações de longa duração.
     * *Quando* o evento ocorreu.
     * *Quem* realizou a operação, se houver. Nem todas as operações são executadas pelos usuários, algumas são executadas pelos serviços de back-end, por isso, elas podem não ter um **Chamador**.
@@ -72,4 +72,4 @@ Depois de escolher o que você deseja ver, clique no botão **Atualizar** na par
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
 * [Acompanhe a integridade do serviço](insights-service-health.md) para saber quando o Azure sofreu interrupções de serviço ou degradação do desempenho.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

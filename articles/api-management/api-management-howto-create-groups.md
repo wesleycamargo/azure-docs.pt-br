@@ -107,4 +107,4 @@ Após um desenvolvedor ser associado a um grupo, ele poderá ver e assinar produ
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [aproveitar grupos externos em locatários do Active Directory do Azure]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

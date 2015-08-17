@@ -33,7 +33,7 @@ Se você estiver usando o AD FS 2.0 ou posterior, o Office 365 e o AD do Azure a
 
 	- Verifique se a instalação do AD FS está usando substituição automática de certificado, executando o seguinte comando em uma janela Comando do PowerShell no servidor de federação primário:
 
-	`PS C:> Get-ADFSProperties`
+	`PS C:\> Get-ADFSProperties`
 
 (observe que, se você estiver usando o AD FS 2.0, terá de executar Add-Pssnapin Microsoft.Adfs.Powershell primeiro).
 
@@ -58,7 +58,7 @@ Se a configuração AutocertificateRollover for Verdadeira, mas os metadados de 
 - Verifique se você efetuou logon no servidor do AD FS primário.
 - Verifique os certificado de autenticação atuais no AD FS abrindo uma janela Comando do PowerShell e executando o seguinte comando: 
 
-`PS C:>Get-ADFSCertificate –CertificateType token-signing.`
+`PS C:\>Get-ADFSCertificate –CertificateType token-signing.`
 
 (observe que, se você estiver usando o AD FS 2.0, terá de executar Add-Pssnapin Microsoft.Adfs.Powershell primeiro).
 
@@ -67,9 +67,9 @@ Se a configuração AutocertificateRollover for Verdadeira, mas os metadados de 
 	
 - Se você vir apenas um certificado e a data NotAfter não for dentro de 5 dias, terá de gerar um novo certificado executando as etapas a seguir.
 
-- Para gerar um novo certificado, execute o seguinte comando em um prompt de comando do PowerShell: `PS C:>Update-ADFSCertificate –CertificateType token-signing`.
+- Para gerar um novo certificado, execute o seguinte comando em um prompt de comando do PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
-- Verifique a atualização executando o seguinte comando novamente: PS C:>Get-ADFSCertificate –CertificateType token-signing
+- Verifique a atualização executando o seguinte comando novamente: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 - Em seguida, para atualizar manualmente as propriedades de confiança de federação do Office 365, siga estas etapas.
 
 Dois certificados deverão ser listados agora, um dos quais tem uma data NotAfter de aproximadamente um ano no futuro e para o qual o valor IsPrimary é Falso.
@@ -85,4 +85,4 @@ Dois certificados deverão ser listados agora, um dos quais tem uma data NotAfte
 
 >[AZURE.NOTE]Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção SupportMultipleDomain com todos os cmdlets. Para obter mais informações, consulte Suporte para vários domínios de nível superior. Por fim, certifique-se de que todos os servidores Proxy do aplicativo Web sejam atualizados com o rollup [Windows Server de maio de 2014](http://support.microsoft.com/kb/2955164), caso contrário, os proxies poderão não atualizar a si mesmos com o novo certificado, resultando em interrupção.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

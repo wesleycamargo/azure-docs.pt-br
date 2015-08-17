@@ -66,32 +66,13 @@ Como os grupos de recursos permitem que você gerencie o ciclo de vida de todos 
 ## Próximas etapas
 Introdução
 
-- [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)  
-- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md)  
-  
-Criação e implantação de aplicativos
-  
-- [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)  
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
-- [Implantar um aplicativo complexo de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Solucionando problemas de implantações de grupos de recursos no Azure](../resource-group-deploy-debug.md)  
-- [Funções de modelo do Gerenciador de Recursos do Azure](../resource-group-template-functions.md)  
-- [Operações avançadas de modelo](../resource-group-advanced-template.md)  
-- [Implantar recursos do Azure usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
-  
-Organização de recursos
-  
-- [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md)  
-  
-Gerenciar e auditar o acesso
-  
-- [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md)  
-- [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](../resource-group-authenticate-service-principal.md)  
-- [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](../resource-group-create-service-principal-portal.md)  
+- Para obter uma introdução aos conceitos no Gerenciador de Recursos, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).  
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../xplat-cli-azure-resource-manager.md). 
+- Para saber mais sobre a organização lógica de recursos, consulte [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

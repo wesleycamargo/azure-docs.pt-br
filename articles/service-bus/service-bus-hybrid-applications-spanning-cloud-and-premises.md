@@ -45,4 +45,4 @@ Aplicativos híbridos na nuvem/locais são uma realidade dos ambientes de TI mod
 - [Serviços de Nuvem](http://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

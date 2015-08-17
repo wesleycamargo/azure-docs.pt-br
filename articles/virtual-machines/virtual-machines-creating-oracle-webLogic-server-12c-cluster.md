@@ -1,4 +1,4 @@
-<properties pageTitle="Criando um cluster do Oracle WebLogic Server 12c no Azure" description="Percorrer um exemplo de como criar um cluster do Oracle WebLogic Server 12c no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Criando um cluster do Oracle WebLogic Server 12c no Azure" description="Percorrer um exemplo de como criar um cluster do Oracle WebLogic Server 12c no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando um cluster do Oracle WebLogic Server 12c no Azure
 O exemplo a seguir mostra como você pode criar um cluster do Oracle WebLogic Server no Azure, com base em uma imagem fornecida pelo Microsoft Oracle WebLogic Server 12c em execução no Windows Server 2012.
@@ -99,7 +99,7 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	2. Na caixa de diálogo **Criar um novo servidor**:
 
-		1. Para **Nome do servidor**, digite o nome do seu primeiro servidor gerenciado. Por exemplo\*\*, MYVM2-MANAGED.\*\*
+		1. Para **Nome do servidor**, digite o nome do seu primeiro servidor gerenciado. Por exemplo**, MYVM2-MANAGED.**
 
 		2. Para **Endereço de escuta do servidor**, digite o nome novamente.
 
@@ -177,26 +177,27 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	6. Altere o diretório atual do prompt de comando para **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin.**
 
-	7. Execute start<<\*MACHINENAME\*>>.cmd, em que <<\*MACHINENAME\*>> é o nome do computador gerenciado. Por exemplo, **startMYVM2-MANAGED.**
+	7. Execute start<<*MACHINENAME*>>.cmd, em que <<*MACHINENAME*>> é o nome do computador gerenciado. Por exemplo, **startMYVM2-MANAGED.**
 
 	8. Quando solicitado, forneça o nome de usuário do WebLogic Server e a senha.
 
 	9. Permitir uma conexão de entrada por meio do firewall na porta 7008. (Siga as etapas usadas para abrir a porta 7001 no servidor de administração, mas use 7008 em vez disso, para os servidores gerenciados).
 
-15. Na administração de Máquina Virtual, abra o **Console de Administração do WebLogic Server,** <http://localhost:7001/console>, e veja os servidores que estão em execução.
+15. Na máquina virtual de administração, abra o **Console de Administração do WebLogic Server,** <http://localhost:7001/console>, e veja os servidores que estão em execução.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image003.png)
 
 16. Crie um ponto de extremidade com balanceamento de carga definido para as Máquinas Virtuais gerenciadas:
 
-	1. Dentro do [Portal do Azure](https://ms.portal.azure.com/), na seção **Máquinas Virtuais **, selecione a primeira Máquina Virtual gerenciada (como **MYVM2-MANAGED)**. 
+	1. Dentro do [Portal do Azure](https://ms.portal.azure.com/), na seção**Máquinas Virtuais **, selecione a primeira máquina virtual gerenciada (como **MYVM2-MANAGED)**.
+
 	2. Clique em **Configurações**, **Pontos de extremidade** e, em seguida, **Adicionar**.
 
 	3. Especifique um nome para o ponto de extremidade, especifique **TCP** para o protocolo, especifique a porta pública **80** e a porta privada **7008**. Deixe o restante das opções como estão.
 
 	4. Marque **Criar um conjunto com balanceamento de carga** e, em seguida, clique em **Concluir**.
 
-	5. Especifique um nome para o balanceamento de carga definido, aceite os padrões para os outros parâmetros e, em seguida, clique em **Concluir. \*\*
+	5. Especifique um nome para o balanceamento de carga definido, aceite os padrões para os outros parâmetros e, em seguida, clique em **Concluir. **
 
 17. Crie um ponto de extremidade para a sua Máquina Virtual:
 
@@ -230,21 +231,21 @@ Crie Máquinas Virtuais adicionais, que serão gerenciadas pelo servidor de admi
 
 	12. Aguarde até que essa Máquina Virtual una a Carga Balanceada definida antes de prosseguir para a próxima etapa.
 
-18. Dentro do [Portal do Azure](https://ms.portal.azure.com/), na seção **Máquinas Virtuais**, selecione a segunda Máquina Virtual gerenciada (como **MYVM3-MANAGED**). Siga as etapas acima para unir o conjunto de balanceamento de carga que você criou para a primeira Máquina Virtual gerenciada.
+18. Dentro do [Portal do Azure](https://ms.portal.azure.com/), na seção **Máquinas Virtuais**, selecione a segunda máquina virtual gerenciada (como **MYVM3-MANAGED**). Siga as etapas acima para unir o conjunto de balanceamento de carga que você criou para a primeira Máquina Virtual gerenciada.
 
 ##Implantando um aplicativo no cluster
 
 Neste ponto, você pode implantar o seu aplicativo usando as seguintes etapas. Vamos supor que você esteja implantando o aplicativo de carrinho de compras Oracle, disponível para download em <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>.
 
-1. Faça logon na Máquina Virtual que serve como administrador para o cluster do WebLogic Server (por exemplo, **MYVM1 ADMIN**). 
+1. Faça logon na máquina virtual que serve como administrador para o cluster do WebLogic Server (por exemplo, **MYVM1-ADMIN**). 
 
-2. Copie o shoppingcart.war localmente. Por exemplo, crie uma pasta chamada **C:\\mywar** e salve o WAR na <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> para **c:\\mywar**.
+2. Copie o shoppingcart.war localmente. Por exemplo, crie uma pasta chamada **c:\\mywar** e salve o WAR na <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> em **c:\\mywar**.
 
 3. Abra o **Console de administração do WebLogic Server**, <http://localhost:7001/console>. Quando solicitado, forneça o seu nome de usuário do WebLogic e a senha.
 
 4. Dentro do **Console de administração do WebLogic Server**, clique em **Bloquear e Editar**, **Implantações** e, em seguida, clique em **Instalar**.
 
-5. Para **Caminho**, tipo **C:\\mywar\\shoppingcart.war**.
+5. Para **Caminho**, digite **c:\\mywar\\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
@@ -262,7 +263,7 @@ Neste ponto, você pode implantar o seu aplicativo usando as seguintes etapas. V
 
 11.  Clique em **Implantações**, selecione **carrinho de compras**, clique em **Iniciar** e, em seguida, clique em **Todas as solicitações de serviço**. Quando solicitado a confirmar, clique em **Sim**.
 
-12.  Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de `<<unique_domain_name>>` dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em Máquinas Virtuais e, em seguida, selecionando a Máquina Virtual que você está usando para executar o Oracle WebLogic Server).
+12.  Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. Você pode determinar o valor de `<<unique_domain_name>>` dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em Máquinas Virtuais e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server.
 
 ## Próximas etapas
 
@@ -270,7 +271,7 @@ Para ver mais que o cluster está funcionando conforme o esperado, é possível 
 
 Por exemplo:
 
-1. Modificar o arquivo **DWRHeader1.jspf** para conter o código a seguir na parte superior do arquivo:
+1. Modifique o arquivo **DWRHeader1.jspf** para conter o código a seguir na parte superior do arquivo:
 
 		<table>
 		
@@ -289,7 +290,7 @@ Por exemplo:
 
 4. Abra uma sessão do navegador e execute o aplicativo carrinho de compras. Adicione alguns itens ao carrinho de compras e observe qual máquina está atendendo a sessão do navegador.
 
-5. No Portal do Azure, na interface do usuário **Máquinas Virtuais**, selecione a VM que atendeu a sessão do navegador e clique em **Desligar**. Aguarde até que o status da VM esteja **Parado (desalocado)** antes de continuar.
+5. No Portal do Azure, na interface do usuário **Máquinas Virtuais**, selecione a VM que atendeu a sessão do navegador e clique em **Desligar**. Aguarde até que o status da VM seja **Parado (desalocado)** antes de continuar.
 
 6. Atualize a sessão do navegador que está executando o aplicativo do carrinho de compras e veja se uma máquina diferente está atendendo a sessão do navegador.
 
@@ -305,4 +306,4 @@ Agora que você configurou o cluster executando o Oracle WebLogic Server, consul
 
 - [Oracle WebLogic Server 12c usando o Linux no Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

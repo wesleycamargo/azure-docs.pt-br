@@ -101,17 +101,17 @@ No editor de texto, preencha o nome da máquina virtual, o nome do serviço de n
 
 Por fim, copie o conjunto de comandos para a Área de Transferência e clique com o botão direito do mouse no prompt de comando aberto do Azure PowerShell. Isso emitirá o conjunto de comandos como uma série de comandos do Azure PowerShell, solicitará o nome e a senha da conta de administrador local e criará sua máquina virtual do Azure. Aqui está um exemplo de como executar o conjunto de comandos:
 
-	PS C:> $vmName="PSTest"
-	PS C:> $csName=" TestCS-Tailspin"
-	PS C:> $locName="West US"
-	PS C:> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	PS C:\> $vmName="PSTest"
+	PS C:\> $csName=" TestCS-Tailspin"
+	PS C:\> $locName="West US"
+	PS C:\> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	VERBOSE: 3:01:17 PM - Begin Operation: Get-AzureVMImage
 	VERBOSE: 3:01:22 PM - Completed Operation: Get-AzureVMImage
 	VERBOSE: 3:01:22 PM - Begin Operation: Get-AzureVMImage
 	VERBOSE: 3:01:23 PM - Completed Operation: Get-AzureVMImage
-	PS C:> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
-	PS C:> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	PS C:> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
+	PS C:\> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
+	PS C:\> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+	PS C:\> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
 	GetNetworkCredential().Password
 
 
@@ -134,7 +134,7 @@ Por fim, copie o conjunto de comandos para a Área de Transferência e clique co
 	DataVirtualHardDisksToBeDeleted   :
 	VMImageInput                      :
 
-	PS C:> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
+	PS C:\> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
 	VERBOSE: 3:01:46 PM - Begin Operation: New-AzureVM - Create Deployment with VM PSTest
 	VERBOSE: 3:02:49 PM - Completed Operation: New-AzureVM - Create Deployment with VM PSTest
 
@@ -209,4 +209,4 @@ Para anexar discos de dados de um arquivo .vhd existente no armazenamento de blo
 
 [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -70,16 +70,16 @@ A convenção de nomenclatura de arquivo é especificada usando o atributo Defau
 	   </OutputFormat>
 	</MediaFile>
 
-O codificador inserirá sublinhados entre cada macro, por exemplo, a configuração acima resultará em um nome de arquivo como: MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+O codificador inserirá sublinhados entre cada macro, por exemplo, a configuração acima resultará em um nome de arquivo como: MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##Criando sobreposições
 
-O Codificador de Serviços de Mídia do Azure permite sobrepor uma imagem (jpg, bmp, gif, tif), um vídeo ou uma faixa de áudio (WMA, *. mp3, *. wav) em um vídeo existente. Essa funcionalidade é semelhante à do Expression Encoder 4 (Service Pack 2).
+O Codificador de Serviços de Mídia do Azure permite sobrepor uma imagem (jpg, bmp, gif, tif), um vídeo ou uma faixa de áudio (*wma, *.mp3, *.wav) em um vídeo existente. Essa funcionalidade é semelhante à do Expression Encoder 4 (Service Pack 2).
 
 ###Sobreposições com o Codificador de Serviços de Mídia
 
-É possível especificar quando a sobreposição será apresentada, a duração que ela será apresentada e para sobreposições de imagem/vídeo onde a sobreposição aparece na tela. Também é possível ter sobreposições que aparecem ou desaparecem. Os arquivos de áudio/vídeo para sobreposição podem estar contidos em um único ou vários ativos. As sobreposições são controladas pelo XML predefinido que é transmitido ao codificador. Para obter uma descrição completa do esquema predefinido, consulte esquemas de codificador de mídia do Azure. As sobreposições são especificadas no <MediaFile> elemento, conforme mostrado no seguinte trecho predefinido:
+É possível especificar quando a sobreposição será apresentada, a duração que ela será apresentada e para sobreposições de imagem/vídeo onde a sobreposição aparece na tela. Também é possível ter sobreposições que aparecem ou desaparecem. Os arquivos de áudio/vídeo para sobreposição podem estar contidos em um único ou vários ativos. As sobreposições são controladas pelo XML predefinido que é transmitido ao codificador. Para obter uma descrição completa do esquema predefinido, consulte esquemas de codificador de mídia do Azure. As sobreposições são especificadas no elemento <MediaFile>, conforme mostrado no seguinte trecho predefinido:
 
 	<MediaFile
 	    ...
@@ -227,7 +227,7 @@ O trecho de código a seguir mostra como realizar estas etapas:
 
 
 
->[AZURE.NOTE]Para facilitar, este trecho carrega cada ativo de maneira sequencial. Em ambiente de produção, os ativos deveriam ser carregados em massa. Para obter mais informações sobre como carregar vários ativos em massa, consulte [Ingestão de ativos em massa com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-upload-files.md#ingest_in_bulk).
+>[AZURE.NOTE]Para facilitar, este trecho carrega cada ativo de maneira sequencial. Em ambiente de produção, os ativos deveriam ser carregados em massa. Para saber mais sobre como carregar vários ativos em massa, consulte [Ingestão de ativos em massa com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-upload-files.md#ingest_in_bulk).
 
 Para o exemplo de código completo, consulte [Criação de sobreposições com o Codificador de Serviços de Mídia](https://code.msdn.microsoft.com/Creating-Audio-and-Video-c2942c47).
 
@@ -288,11 +288,11 @@ A união é controlada dentro do elemento <MediaFile>, conforme mostrado na pred
 	     </Sources>
 	</MediaFile>
 
-Para cada vídeo a ser unido, um elemento de <Source> é adicionado para o elemento de <Sources>. Cada elemento de <Source> contém um elemento de <Clips>. Cada elemento de <Clips> contém um ou mais elementos de <Clip> que especificam a quantidade do vídeo a ser unida ao ativo de saída, especificando um horário de início e de término. O elemento de <Source> faz referência o ativo no qual ele atua. O formato da referência depende se os vídeos a serem unidos estão em ativos separados ou em um único ativo. Se você deseja unir um vídeo inteiro, basta omitir o elemento de <Clips>.
+Para cada vídeo a ser unido, um elemento de <Source> é adicionado para o elemento de <Sources>. Cada elemento de <Source> contém um elemento de <Clips>. Cada elemento de <Clips> contém um ou mais elementos de <Clip> que especificam a quantidade do vídeo a ser unida ao ativo de saída, especificando um horário de início e de término. O elemento de <Source> faz referência ao ativo no qual atua. O formato da referência depende se os vídeos a serem unidos estão em ativos separados ou em um único ativo. Se você deseja unir um vídeo inteiro, basta omitir o elemento de <Clips>.
 
 ###União de vídeos a partir de vários ativos
 
-Ao unir vídeos a partir de vários ativos, um índice baseado em zero é usado para o atributo MediaFile do elemento de <Source> para identificar qual ativo ao qual o elemento de <Source> corresponde. O índice zero não é especificado, o elemento de <Source> que não especifica um atributo MediaFile referencia o primeiro ativo de entrada. Todos os outros <Source> devem especificar o índice baseado em zero do ativo de entrada ao qual ele se refere usando sintaxe %n%, em que n é o índice baseado em zero do ativo de entrada. No exemplo anterior, o primeiro elemento de <Source> especifica o primeiro ativo de entrada, o segundo elemento de <Source> especifica o segundo ativo, e assim por diante. Não há nenhuma exigência de que os ativos de entrada sejam referenciados em ordem, por exemplo:
+Ao unir vídeos a partir de vários ativos, um índice baseado em zero é usado para o atributo MediaFile do elemento de <Source> para identificar qual ativo ao qual o elemento de <Source> corresponde. O índice zero não é especificado, o elemento de <Source> que não especifica um atributo MediaFile referencia o primeiro ativo de entrada. Todos os outros elementos <Source> devem especificar o índice baseado em zero do ativo de entrada ao qual ele se refere usando sintaxe %n%, em que n é o índice baseado em zero do ativo de entrada. No exemplo anterior, o primeiro elemento de <Source> especifica o primeiro ativo de entrada, o segundo elemento de <Source> especifica o segundo ativo, e assim por diante. Não há nenhuma exigência de que os ativos de entrada sejam referenciados em ordem, por exemplo:
 	
 	<MediaFile
 	    DeinterlaceMode="AutoPixelAdaptive"
@@ -375,7 +375,7 @@ O trecho de código a seguir mostra como realizar estas etapas:
 	} 
 
 
-Para facilitar, este trecho carrega cada ativo de maneira sequencial. Em ambiente de produção, os ativos deveriam ser carregados em massa. Para obter mais informações sobre como carregar vários ativos em massa, consulte [Ingestão de ativos em massa com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-upload-files.md#ingest_in_bulk). Para o completo exemplo de código, consulte [União com o Codificador de Serviços de Mídia](https://code.msdn.microsoft.com/Stitching-with-Media-8fd5f203).
+Para facilitar, este trecho carrega cada ativo de maneira sequencial. Em ambiente de produção, os ativos deveriam ser carregados em massa. Para saber mais sobre como carregar vários ativos em massa, consulte [Ingestão de ativos em massa com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-upload-files.md#ingest_in_bulk). Para o exemplo completo de código, consulte [União com o Codificador de Serviços de Mídia](https://code.msdn.microsoft.com/Stitching-with-Media-8fd5f203).
 
 ###União de vídeos com um único ativo
 
@@ -447,7 +447,7 @@ Ao codificar um vídeo cuja faixa de áudio contém na maior parte fala, as pred
 Para evitar a amplificação dos ruídos de fundo, faça o seguinte:
 
 1. Copie o conteúdo da predefinição do codificador usada em um arquivo XML. As predefinições do codificador podem ser encontradas em: Esquemas de Codificador de Mídia do Azure
-1. Exclua o atributo NormalizeAudio, ele pode ser localizado na parte superior do arquivo de predefinição, sob o elemento de <MediaFile>:
+1. Exclua o atributo NormalizeAudio, ele pode ser localizado na parte superior do arquivo de predefinição, sob o elemento <MediaFile>:
 	
 	<MediaFile
 	     DeinterlaceMode="AutoPixelAdaptive"
@@ -462,7 +462,7 @@ Para evitar a amplificação dos ruídos de fundo, faça o seguinte:
 	 
 	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Codificar trabalho para " + asset.Name + ", codificado usando " + presetName);
+	IJob job = \_context.Jobs.Create("Codificar trabalho para " + asset.Name + ", codificado usando " + presetName);
 	
 	Console.WriteLine("Codificar trabalho para " + asset.Name + ", codificado usando " + presetName);
 	
@@ -482,4 +482,4 @@ Para evitar a amplificação dos ruídos de fundo, faça o seguinte:
 
 [Esquema XML do Codificador de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

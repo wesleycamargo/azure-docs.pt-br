@@ -20,9 +20,9 @@
 
 ##Visão geral
 
-Tabelas criadas com o JavaScript ou o back-end do .NET podem, opcionalmente, ter exclusão reversível habilitada. Ao usar a exclusão reversível, uma nova coluna chamada *__deleted* do [tipo de bit SQL] é adicionada ao banco de dados. Com a exclusão reversível habilitada, uma operação de excluir não excluir fisicamente as linhas do banco de dados, mas, em vez disso, define o valor da coluna excluída para TRUE.
+Tabelas criadas com o JavaScript ou o back-end do .NET podem, opcionalmente, ter exclusão reversível habilitada. Ao usar a exclusão reversível, uma nova coluna chamada *\_\_deleted* do [tipo de bit SQL] é adicionada ao banco de dados. Com a exclusão reversível habilitada, uma operação de excluir não excluir fisicamente as linhas do banco de dados, mas, em vez disso, define o valor da coluna excluída para TRUE.
 
-Ao consultar registros em uma tabela com exclusão reversível habilitada, as linhas excluídas não são retornadas na consulta por padrão. Para solicitar essas linhas, é preciso passar um parâmetro de consulta *__includeDeleted=true* na sua [Operação de Consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). No SDK do cliente .NET, também é possível usar o método auxiliar `IMobileServiceTable.IncludeDeleted()`.
+Ao consultar registros em uma tabela com exclusão reversível habilitada, as linhas excluídas não são retornadas na consulta por padrão. Para solicitar essas linhas, é preciso passar um parâmetro de consulta *\_\_includeDeleted=true* na sua [Operação de Consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). No SDK do cliente .NET, também é possível usar o método auxiliar `IMobileServiceTable.IncludeDeleted()`.
 
 O suporte a exclusão reversível para o back-end do .NET foi lançado pela primeira vez com a versão 1.0.402 do Back-end do .NET de Serviços Móveis do Microsoft Azure. Os pacotes NuGet mais recentes estão disponíveis aqui, [Back-end do .NET de Serviços Móveis do Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -66,11 +66,11 @@ Se estiver criando uma nova tabela para seu serviço móvel, é possível habili
 Para habilitar a exclusão reversível em uma tabela existente no back-end do JavaScript:
 
 1. No [Portal de Gerenciamento], clique no seu serviço móvel. Então clique na guia Dados.
-2. Na página de dados, clique para selecionar a tabela desejada. Então clique no botão **Habilitar Exclusão Reversível** na barra de comando. Se a tabela já tiver exclusão reversível habilitada, esse botão não aparecerá, mas você poderá ver a coluna *__deleted* ao clicar na guia **Procurar** ou **Colunas** para a tabela.
+2. Na página de dados, clique para selecionar a tabela desejada. Então clique no botão **Habilitar Exclusão Reversível** na barra de comando. Se a tabela já tiver exclusão reversível habilitada, esse botão não aparecerá, mas você poderá ver a coluna *\_\_deleted* ao clicar na guia **Procurar** ou **Colunas** para a tabela.
 
     ![][0]
 
-    Para desabilitar a exclusão reversível para sua tabela, clique na guia **Colunas** e depois clique na coluna *__deleted* e no botão **Excluir**.
+    Para desabilitar a exclusão reversível para sua tabela, clique na guia **Colunas** e depois clique na coluna *\_\_deleted* e no botão **Excluir**.
 
     ![][1]
 
@@ -126,7 +126,7 @@ Para incluir registros excluídos no resultado da consulta em um script, defina 
         }
     });
 
-Para recuperar registros excluídos usando uma solicitação HTTP, inclua o parâmetro de consulta "__includedeleted=true":
+Para recuperar registros excluídos usando uma solicitação HTTP, inclua o parâmetro de consulta "\_\_includedeleted=true":
 
     http://youservice.azure-mobile.net/tables/todoitem?__includedeleted=true
 
@@ -163,4 +163,4 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis de back-end d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

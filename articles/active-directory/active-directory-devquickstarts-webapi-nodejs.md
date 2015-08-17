@@ -32,7 +32,7 @@ Já lançamos todo o código-fonte para este exemplo em execução no GitHub sob
 
 ## Sobre módulos Node.js
 
-Usaremos módulos Node.js neste passo a passo. Os módulos são pacotes carregáveis do JavaScript que fornecem funcionalidade específica para seu aplicativo. Você geralmente instala módulos usando a ferramenta de linha de comando NPM Node.js no diretório de instalação do NPM, mas alguns módulos, como o módulo HTTP, estão incluídos o pacote Node.js principal. Os módulos instalados são salvos no diretório node_modules, na raiz do diretório de instalação do seu Node.js. Cada módulo dentro do diretório node_modules mantém seu próprio diretório node_modules que contém todos os módulos dos quais ele depende e cada módulo requerido tem um diretório node_modules. Essa estrutura de diretório recursiva representa a cadeia de dependências.
+Usaremos módulos Node.js neste passo a passo. Os módulos são pacotes carregáveis do JavaScript que fornecem funcionalidade específica para seu aplicativo. Você geralmente instala módulos usando a ferramenta de linha de comando NPM Node.js no diretório de instalação do NPM, mas alguns módulos, como o módulo HTTP, estão incluídos o pacote Node.js principal. Os módulos instalados são salvos no diretório node\_modules, na raiz do diretório de instalação do seu Node.js. Cada módulo dentro do diretório node\_modules mantém seu próprio diretório node\_modules que contém todos os módulos dos quais ele depende e cada módulo requerido tem um diretório node\_modules. Essa estrutura de diretório recursiva representa a cadeia de dependências.
 
 Essa estrutura de cadeia de dependências resulta em um espaço maior do aplicativo, mas garante que todas as dependências sejam atendidas e que a versão dos módulos usados no desenvolvimento também seja usada na produção. Isso torna o comportamento do aplicativo de produção mais previsível e evita os problemas de controle de versão que podem afetar os usuários.
 
@@ -198,7 +198,7 @@ Na linha de comando, altere os diretórios para o diretório **azuread**, se voc
 `cd azuread`
 
 
-Digite os comandos a seguir para instalar os seguintes módulos em seu diretório node_modules:
+Digite os comandos a seguir para instalar os seguintes módulos em seu diretório node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -275,7 +275,7 @@ Crie um arquivo `config.js` no nosso editor favorito e adicione as informações
 
 **Observação:** você provavelmente nunca precisará alterar esses valores.
 
-**Observação:** reverter as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid_keys" e de que o aplicativo pode acessar a Internet.
+**Observação:** reverter as nossas chaves em intervalos frequentes. Certifique-se de estar extraindo sempre da URL "openid\_keys" e de que o aplicativo pode acessar a Internet.
 
 
 ## Etapa 12: adicionar configuração ao arquivo server.js
@@ -541,7 +541,7 @@ Agora todos os essa preparação passará a compensar, enquanto agrupamos esses 
 
 Para este passo a passo usaremos MongoDB para armazenar nossas tarefas conforme discutido em ***Etapa 4***.
 
-Se você se lembrar do arquivo `config.js` criado na ***Etapa 11***, chamamos nosso banco de dados de `tasklist`, já que era isso que colocamos no final da nossa URL de conexão mogoose_auth_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
+Se você se lembrar do arquivo `config.js` criado na ***Etapa 11***, chamamos nosso banco de dados de `tasklist`, já que era isso que colocamos no final da nossa URL de conexão mogoose\_auth\_local. Você não precisa criar esse banco de dados com antecedência no MongoDB, ele criará isso para nós na primeira execução do nosso aplicativo de servidor (supondo que ele ainda não exista).
 
 Agora que dissemos ao servidor qual banco de dados MongoDB, gostaríamos de usar, precisamos escrever algum código adicional para criar o modelo e o esquema para as tarefas do nosso servidor.
 
@@ -848,7 +848,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1030,7 +1030,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. Informar o nosso servidor que estamos usando autenticação
+### 2\. Informar o nosso servidor que estamos usando autenticação
 
 Abra seu arquivo `server.js` no nosso editor favorito e adicione as seguintes informações **abaixo de server.get()**, onde você definiu suas rotas, mas acima do método **server.listen()**.
 
@@ -1044,7 +1044,7 @@ Precisamos dizer ao Restify para começar a usar seu `authorizationParser()` e e
 ```
 
 
-### 3. Adicionar o módulo Passport OAuth2 ao nosso código
+### 3\. Adicionar o módulo Passport OAuth2 ao nosso código
 
 Aqui usamos os parâmetros específicos de OAuth2 que adicionamos ao arquivo config.js. Se nosso arquivo `aadutils.js` fez seu trabalho analisando nosso documento de metadados de federação, todos esses valores devem estar preenchidos para nós mesmo que estejam em branco no arquivo config.js.
 
@@ -1181,4 +1181,4 @@ Simplesmente faça a clonagem para sua máquina de desenvolvedor e configure con
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

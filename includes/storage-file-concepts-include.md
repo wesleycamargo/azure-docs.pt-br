@@ -36,4 +36,4 @@ Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos,
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

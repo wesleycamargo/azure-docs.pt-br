@@ -171,14 +171,14 @@ Por exemplo:
 O arquivo App.config a seguir contém os valores de conexão necessárias. Os valores no elemento <appSettings> são os valores necessários que você obteve do processo de configuração de conta dos serviços de mídia.
 
 
-<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+```
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+```
 
 Para recuperar valores de conexão da configuração, você pode usar a classe **ConfigurationManager** e, em seguida, atribuir valores aos campos em seu código:
 	
@@ -191,4 +191,4 @@ Para recuperar valores de conexão da configuração, você pode usar a classe *
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

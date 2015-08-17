@@ -246,7 +246,7 @@ Nesse exemplo, há três regras de dimensionamento automático (uma **regra de r
 
 -   A regra de restrição está sempre ativa e define o número mínimo de instâncias de função como dois e o número máximo de instâncias de função como seis.
 
--   As duas regras reativas usam um **operando** chamado **WebRoleA_CPU_Avg_5m** que calcula o uso médio da CPU nos últimos cinco minutos para uma função do Azure chamada **AutoscalingApplicationRole**. Esta função está definida no **modelo de serviço**.
+-   As duas regras reativas usam um **operando** chamado **WebRoleA\_CPU\_Avg\_5m** que calcula o uso médio da CPU nos últimos cinco minutos para uma função do Azure chamada **AutoscalingApplicationRole**. Esta função está definida no **modelo de serviço**.
 
 -   A regra reativa chamada **ScaleUpOnHighUtilization** incrementa a contagem de instâncias da função de destino por um se a utilização média da CPU nos últimos cinco minutos tiver sido maior ou igual a 60%.
 
@@ -382,4 +382,4 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -17,13 +17,15 @@
 	ms.author="yuaxu"/>
 
 # Como usar os Hubs de notificação do Java
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
+Este tópico descreve os principais recursos do totalmente novo do Java SDK do Hub de notificação do Azure com suporte oficial. Este é um projeto de software livre e você pode exibir todo o código do SDK no [SDK do Java].
 
-Este tópico descreve os principais recursos do totalmente novo do Java SDK do Hub de notificação do Azure com suporte oficial. Este é um projeto de código-fonte aberto e você pode exibir todo o código do SDK no [Java SDK].
-
-Normalmente, você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx). Esse SDK Java fornece um wrapper estreito em relação a essas interfaces REST em Java.
+Normalmente, você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end de Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx). Esse SDK Java fornece um wrapper estreito em relação a essas interfaces REST em Java.
 
 O SDK oferece suporte atualmente:
 
@@ -40,7 +42,7 @@ O SDK oferece suporte atualmente:
 
 ### Compilação e construção
 
-Use [Maven]
+Usar [Maven]
 
 Para construir:
 
@@ -223,7 +225,7 @@ O mesmo que o envio regular, mas com um parâmetro adicional - scheduledTime que
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI com assinatura SAS:** esta é a URL de um arquivo de blob ou contêiner de blob mais o conjunto de parâmetros, como tempo de expiração e permissões mais assinatura de todas essas coisas feitas usando a chave SAS da conta. O SDK Java do armazenamento do Azure tem recursos avançados, incluindo a criação de tal espécie de URIs. Como alternativa simples, você pode dar uma olhada na classe de teste ImportExportE2E (a partir do local do github) que tem muitas implementações de algoritmo de assinatura básicas e compactas.
+**URI com assinatura SAS:** esta é a URL de um arquivo de blob ou contêiner de blob, mais um conjunto de parâmetros como permissões e tempo de expiração, mais a assinatura de todas essas coisas criadas usando a chave SAS da conta. O SDK Java do armazenamento do Azure tem recursos avançados, incluindo a criação de tal espécie de URIs. Como alternativa simples, você pode dar uma olhada na classe de teste ImportExportE2E (a partir do local do github) que tem muitas implementações de algoritmo de assinatura básicas e compactas.
 
 ###Enviar notificações
 O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns métodos de utilitário que ajudam na criação de objetos nativos e de modelo de notificações.
@@ -287,7 +289,7 @@ A execução do código Java agora deve produzir uma notificação que aparece n
 ##<a name="next-steps"></a>Próximas etapas
 Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de Notificação. A partir daqui, você pode:
 
-* Baixar o [Java SDK] completo, que contém todo o código do SDK. 
+* Baixe o [SDK do Java] completo, que contém todo o código do SDK. 
 * Brincar com os exemplos:
 	- [Introdução aos Hubs de Notificação]
 	- [Enviar últimas notícias]
@@ -295,7 +297,7 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 	- [Enviar notificações aos usuários autenticados]
 	- [Enviar notificações entre plataformas aos usuários autenticados]
 
-[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
+[SDK do Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Introdução aos Hubs de Notificação]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Enviar últimas notícias]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
@@ -305,4 +307,4 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

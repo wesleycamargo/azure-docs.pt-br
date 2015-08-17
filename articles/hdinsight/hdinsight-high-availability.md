@@ -49,7 +49,7 @@ Nós [ZooKeeper](http://zookeeper.apache.org/) (ZKs) foram adicionados e são us
 
 
 ## Verificar o status de serviço do nó principal ativo
-Para determinar qual nó principal está ativo e verificar o estado dos serviços em execução no nó principal, você deve se conectar ao cluster Hadoop usando o protocolo RDP. Para obter instruções de RDP, consulte [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Depois de acessar remotamente o cluster, clique duas vezes no ícone **Disponível do Serviço Hadoop** localizado na área de trabalho para obter status sobre qual nó principal os serviços Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 estão executando; ou então, para o HDI 3.0, os serviços Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
+Para determinar qual nó principal está ativo e verificar o estado dos serviços em execução no nó principal, você deve se conectar ao cluster Hadoop usando o protocolo RDP. Para obter instruções de RDP, consulte [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Depois de acessar remotamente o cluster, clique duas vezes no ícone**Disponível do Serviço Hadoop** localizado na área de trabalho para obter status sobre qual nó principal os serviços Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 estão executando; ou então, para o HDI 3.0, os serviços Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -105,4 +105,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

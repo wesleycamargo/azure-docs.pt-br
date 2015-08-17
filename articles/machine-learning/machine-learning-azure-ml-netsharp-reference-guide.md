@@ -18,37 +18,37 @@
 
 
 
-# Guia de linguagem de especificação de rede neural Net# para Aprendizado de Máquina do Azure
+# Guia de linguagem de especificação de rede neural Net\# para Aprendizado de Máquina do Azure
 
 ##Visão geral
-Net# é uma linguagem desenvolvida pela Microsoft que é utilizada para definir arquiteturas de rede neural para módulos de rede neural em Aprendizado de Máquina do Microsoft Azure. Neste artigo, você aprenderá:
+Net\# é uma linguagem desenvolvida pela Microsoft que é utilizada para definir arquiteturas de rede neural para módulos de rede neural em Aprendizado de Máquina do Microsoft Azure. Neste artigo, você aprenderá:
 
 -	Conceitos básicos relacionados à rede neural
 -	Requisitos da rede neural e como definir os componentes primários
--	A sintaxe e palavras-chave da linguagem de especificação Net#
--	Exemplos de redes neurais personalizadas criadas pelo uso do Net# 
+-	A sintaxe e palavras-chave da linguagem de especificação Net\#
+-	Exemplos de redes neurais personalizadas criadas pelo uso do Net\# 
 	
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##Conceitos básicos de rede neural
 Uma estrutura de rede neural consiste em ***nós*** que são organizados em ***camadas*** e ***conexões*** ponderadas (ou ***bordas***) entre os nós. As conexões são direcionais e cada conexão tem um nó de ***origem*** e um nó de ***destino***.
 
-Cada ***camada treinável*** (uma camada oculta ou de saída) tem um ou mais ***pacotes de conexão***. Um grupo de conexões consiste de uma camada de origem e uma especificação das conexões dessa camada de origem. Todas as conexões em um determinado grupo compartilham a mesma ***camada de origem*** e a mesma ***camada de destino***. Em Net#, um grupo de conexões é considerado como pertencente à camada de destino do grupo.
+Cada ***camada treinável*** (uma camada oculta ou de saída) tem um ou mais ***pacotes de conexão***. Um grupo de conexões consiste de uma camada de origem e uma especificação das conexões dessa camada de origem. Todas as conexões em um determinado grupo compartilham a mesma ***camada de origem*** e a mesma ***camada de destino***. Em Net\#, um grupo de conexões é considerado como pertencente à camada de destino do grupo.
  
-A Net# dá suporte diversos tipos de conjuntos de conexão, o que permite que você personalize o modo pelo qual as entradas são mapeadas para camadas ocultas e mapeadas para as saídas.
+A Net\# dá suporte diversos tipos de conjuntos de conexão, o que permite que você personalize o modo pelo qual as entradas são mapeadas para camadas ocultas e mapeadas para as saídas.
 
 O grupo padrão ou usual é um **grupo completo**, no qual cada nó na camada de origem é conectado a todos os nós na camada de destino.
 
-Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avançados a seguir:
+Adicionalmente, a Net\# dá suporte aos quatro tipos de grupos de conexão avançados a seguir:
 
 -	**Grupos filtrados**. O usuário pode definir um predicado utilizando os locais do nó de camada de origem e de destino. Os nós são conectados sempre que o predicado é Verdadeiro.
 -	**Grupos convolucionais**. O usuário pode definir pequenas zonas próximas de nós na camada de origem. Cada nó na camada de destino está conectado a uma zona próxima de nós na camada de origem.
 -	**Grupos de pooling** e **Grupos de normalização de resposta**. Estes são similares a grupos convolucionais, no sentido que o usuário define pequenas zonas próximas de nós na camada de origem. A diferença é que a ponderação das bordas nesses grupos não são treináveis. Em vez disso, uma função predefinida é aplicada aos valores de nó de origem para determinar o valor do nó de destino.  
 
-Usar Net# para definir a estrutura de uma rede neural torna possível definir estruturas complexas como redes neurais profundas ou convoluções de dimensões arbitrárias, que são conhecidas por aprimorar o aprendizado sobre dados como imagens, áudio ou vídeo.
+Usar Net\# para definir a estrutura de uma rede neural torna possível definir estruturas complexas como redes neurais profundas ou convoluções de dimensões arbitrárias, que são conhecidas por aprimorar o aprendizado sobre dados como imagens, áudio ou vídeo.
 
 ##Personalizações com suporte
-A arquitetura de modelos de rede neural que você cria no Aprendizado de Máquina do Azure pode ser amplamente personalizado usando Net#. Você pode:
+A arquitetura de modelos de rede neural que você cria no Aprendizado de Máquina do Azure pode ser amplamente personalizado usando Net\#. Você pode:
 
 -	Criar camadas ocultas e controlar o número de nós em cada camada.
 -	Especifique como as camadas devem conectar-se umas às outras.
@@ -188,7 +188,7 @@ Para mais informações sobre redes convolucionais e seus aplicativos, consulte 
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ##Grupos de pooling
 Um **grupo de pooling** aplica geometria similar à da conectividade convolucional, mas usa funções predefinidas para gerar valores de nó de origem a fim de derivar o valor do nó de destino. Assim, os grupos de pooling não têm estado treinável (pesos ou vieses). Grupos de pooling dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
@@ -211,12 +211,12 @@ O exemplo a seguir ilustra um grupo de pooling:
 	
 Para mais informações sobre camadas de pooling, consulte esses artigos:
 
--	[http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Seção 3.4)
--	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
--	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
+-	[http://www.cs.toronto.edu/\~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Seção 3.4)
+-	[http://cs.nyu.edu/\~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
+-	[http://cs.nyu.edu/\~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ##Grupos de normalização de resposta
-**Normalização de resposta** é um esquema de normalização local que foi introduzido primeiramente por Geoffrey Hinton, entre outros, em um documento intitulado Classificação ImageNet com Redes Neurais Convolucionais Profundas (consulte a seção 3.3). A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito pelo uso de três parâmetros α, ***β*** e ***k***, além de uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino ***y*** corresponde a um neurônio ***x*** na camada de origem. O nível de ativação de ***y*** é fornecido pela fórmula a seguir, na qual ***f*** é o nível de ativação de um neurônio, e ***Nx*** é o kernel, ou o conjunto contendo os neurônios na zona próxima a ***x***, conforme definido pela seguinte estrutura convolucional:
+**Normalização de resposta** é um esquema de normalização local que foi introduzido primeiramente por Geoffrey Hinton, entre outros, em um documento intitulado Classificação ImageNet com Redes Neurais Convolucionais Profundas (consulte a seção 3.3). A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito pelo uso de três parâmetros (***α***, ***β*** e ***k***), além de uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino ***y*** corresponde a um neurônio ***x*** na camada de origem. O nível de ativação de ***y*** é fornecido pela fórmula a seguir, na qual ***f*** é o nível de ativação de um neurônio, e ***Nx*** é o kernel, ou o conjunto contendo os neurônios na zona próxima a ***x***, conforme definido pela seguinte estrutura convolucional:
 
 ![][1]
 
@@ -250,7 +250,7 @@ O exemplo a seguir define um grupo de normalização de resposta usando esses at
 -	O valor padrão de **Padding** é Falso, portanto, a camada tem apenas 10 nós em cada dimensão. Para incluir um nó na camada de destino correspondente a cada nó da camada de origem, adicione Padding = [true, true, true]; então, altere o tamanho de RN1 para [5, 12, 12].  
 
 ##Declaração de compartilhamento 
-Net# dá suporte, opcionalmente, à definição de múltiplos grupos com pesos compartilhados. Os pesos de quaisquer dois grupos pode ser compartilhado se suas estruturas forem iguais. A sintaxe a seguir define grupos com pesos compartilhados:
+Net\# dá suporte, opcionalmente, à definição de múltiplos grupos com pesos compartilhados. Os pesos de quaisquer dois grupos pode ser compartilhado se suas estruturas forem iguais. A sintaxe a seguir define grupos com pesos compartilhados:
 
 	share-declaration:
 	    share    {    layer-list    }
@@ -312,8 +312,8 @@ Alternativamente, isso pode ser especificado com duas declarações de compartil
 
 Você pode usar a forma abreviada somente quando as camadas contiverem um único grupo. Em geral, é possível compartilhar somente quando a estrutura relevante é idêntica, significando que elas têm o mesmo tamanho, mesma geometria convolucional e assim por diante.
 
-##Exemplos de uso do Net#
-Esta seção oferece alguns exemplos de como você pode usar o Net# para acrescentar camadas ocultas, definir o modo pelo qual as camadas ocultas interagem com outras camadas e compilar redes convolucionais.
+##Exemplos de uso do Net\#
+Esta seção oferece alguns exemplos de como você pode usar o Net\# para acrescentar camadas ocultas, definir o modo pelo qual as camadas ocultas interagem com outras camadas e compilar redes convolucionais.
 
 ###Defina uma rede neural personalizada simples: exemplo "Olá mundo"
 Este exemplo simples demonstra como criar um modelo de rede neural que tem uma única camada oculta.
@@ -390,15 +390,15 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 -	A rede tem uma terceira camada oculta, Hid3, que é totalmente conectada à Conv2, a segunda camada oculta.
 -	A camada de saída, Digit, é conectada somente à terceira camada oculta, Hid3. A palavra-chave **all** indica que a camada de saída está totalmente conectada à Hid3.
 -	A aridade da convolução é três (o tamanho das tuplas **InputShape**, **KernelShape**, **Stride** e **Sharing**). 
--	O número de pesos por kernel é _1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	O número de pesos por kernel é _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1]= (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\\1 = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+-	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Como **Sharing**[d] é Falso somente para _d == 0_, o número de kernels é _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

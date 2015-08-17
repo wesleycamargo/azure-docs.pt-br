@@ -10,11 +10,11 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 
 3. Escolha um provedor de identidade com suporte na lista abaixo e siga as etapas para configurar o seu aplicativo com o provedor:
 
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/" target="_blank">Active Directory do Azure</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication-preview/" target="_blank">Logon no Facebook</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-google-authentication-preview/" target="_blank">Logon no Google</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication-preview/" target="_blank">Conta da Microsoft</a>
- - <a href="/en-us/documentation/articles/app-service-mobile-how-to-configure-twitter-authentication-preview/" target="_blank">Logon no Twitter</a>
+ - <a href="/pt-br/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/" target="_blank">Active Directory do Azure</a>
+ - <a href="/pt-br/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication-preview/" target="_blank">Logon no Facebook</a>
+ - <a href="/pt-br/documentation/articles/app-service-mobile-how-to-configure-google-authentication-preview/" target="_blank">Logon no Google</a>
+ - <a href="/pt-br/documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication-preview/" target="_blank">Conta da Microsoft</a>
+ - <a href="/pt-br/documentation/articles/app-service-mobile-how-to-configure-twitter-authentication-preview/" target="_blank">Logon no Twitter</a>
 
 	Agora, o seu aplicativo está configurado para trabalhar com o seu provedor de autenticação escolhido.
 
@@ -23,4 +23,4 @@ Para ser capaz de autenticar usuários, você deve registrar seu aplicativo com 
 <!-- URLs. -->
 [Portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -21,4 +21,4 @@
 
   O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

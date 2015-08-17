@@ -47,7 +47,7 @@ Quando uma máquina virtual é criada, uma ACL padrão é colocada no lugar para
 
 | **Nº da regra** | **Sub-rede remota** | **Ponto de extremidade** | **Permitir/Negar** |
 |--------|---------------|----------|-------------|
-| 100 | 0.0.0.0/0 | 3389 | Permitir |
+| 100 | 0\.0.0.0/0 | 3389 | Permitir |
 
 ## Permitir e negar
 
@@ -75,8 +75,8 @@ No exemplo a seguir, se você quiser permitir acesso ao ponto de extremidade RDP
 
 | **Nº da regra** | **Sub-rede remota** | **Ponto de extremidade** | **Permitir/Negar** |
 |--------|---------------|----------|-------------|
-| 100 | 65.0.0.0/8 | 3389 | Permitir |
-| 200 | 159.0.0.0/8 | 3389 | Permitir |
+| 100 | 65\.0.0.0/8 | 3389 | Permitir |
+| 200 | 159\.0.0.0/8 | 3389 | Permitir |
 
 ### Ordem das regras
 
@@ -86,8 +86,8 @@ Como é possível especificar várias regras para um ponto de extremidade, deve 
 
 | **Nº da regra** | **Sub-rede remota** | **Ponto de extremidade** | **Permitir/Negar** |
 |--------|---------------|----------|-------------|
-| 100 | 175.1.0.1/24 | 80 | Negar |
-| 200 | 175.0.0.0/8 | 80 | Permitir |
+| 100 | 175\.1.0.1/24 | 80 | Negar |
+| 200 | 175\.0.0.0/8 | 80 | Permitir |
 
 ## ACLs de rede e conjuntos de cargas balanceadas
 
@@ -99,4 +99,4 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 [Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

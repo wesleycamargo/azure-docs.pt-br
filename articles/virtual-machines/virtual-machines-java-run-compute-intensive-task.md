@@ -102,7 +102,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
 1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://azure.microsoft.com/develop/java/).
-2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your_service_bus_namespace**, **your_service_bus_owner** e **your_service_bus_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
+2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
 <p/>
@@ -292,7 +292,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 ## Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
 
-1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your_service_bus_namespace**, **your_service_bus_owner** e **your_service_bus_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
+1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
 2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
 
 <p/>
@@ -519,4 +519,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

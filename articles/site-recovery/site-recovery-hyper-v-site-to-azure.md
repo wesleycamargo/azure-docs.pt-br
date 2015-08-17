@@ -61,7 +61,12 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 - Você deve executar as versões mais recentes do Provedor e do agente.
 - Todos os servidores Hyper-V em um cofre devem ter as mesmas versões.
 - O Provedor precisará se conectar ao Azure Site Recovery pela Internet. Você pode fazer isso sem um proxy, usando as configurações de proxy configuradas no servidor VMM ou usando as configurações personalizadas de proxy definidas durante a instalação do Provedor. Para usar um servidor proxy existente, verifique se as URLs de conexão com o Azure têm permissão no firewall:
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - Para usar o proxy personalizado, configure-o antes de instalar o Provedor. Durante a instalação do Provedor, você precisará especificar o endereço do servidor proxy e a porta, além das credenciais que podem ser usadas para acesso.
 
 A figura abaixo mostra os canais de comunicação e as portas diferentes usados pelo Azure Site Recovery para coordenação e a replicação
@@ -139,7 +144,12 @@ Instale o Provedor e o agente. Se você estiver instalando em um cluster do Hype
 	- Se o proxy padrão no servidor Hyper-V exigir autenticação, você deverá selecionar o uso de um servidor proxy personalizado. Digite os detalhes do proxy padrão e especifique as credenciais.
 	- Se quiser usar um servidor proxy personalizado, você deverá configurá-lo antes de instalar o Provedor. 
 	- As URLs a seguir devem estar acessíveis no host Hyper-v
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
@@ -179,7 +189,7 @@ Observe que se você quiser instalar o Provedor no Server Core do Windows Server
 		- /proxyUsername <username>: credenciais, caso o proxy exija autenticação.
 		- proxyPassword <password>
 
->[AZURE.NOTE]Você pode configurar cada host Hyper-V individual para usar configurações de largura de banda de rede diferentes para replicar as máquinas virtuais no Azure. Saiba mais sobre [Como gerenciar o uso de largura de banda de rede para proteção do local para o Azure](https://support.microsoft.com/en-us/kb/3056159)
+>[AZURE.NOTE]Você pode configurar cada host Hyper-V individual para usar configurações de largura de banda de rede diferentes para replicar as máquinas virtuais no Azure. Saiba mais sobre [Como gerenciar o uso de largura de banda de rede para proteção do local para o Azure](https://support.microsoft.com/pt-br/kb/3056159)
 
 
 ## Etapa 4: criar recursos do Azure
@@ -218,13 +228,13 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 	Os trabalhos de Habilitar a Proteção são iniciados. Você pode acompanhar o andamento na guia **Trabalhos**. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover. 
 3. Após a configuração da proteção, é possível:
 
-	- Exibir as máquinas virtuais em **Itens Protegidos** > **Grupos de Proteção** > *nome_grupodeproteção* > **Máquinas Virtuais**. É possível detalhar as informações sobre a máquina na guia **Propriedades**.
-	- Configure as propriedades de failover de uma máquina virtual em **Itens Protegidos** > **Grupos de Proteção** > *nome_grupodeproteção* > **Máquinas Virtuais** *virtual_machine_name* > **Configurar**. Você pode configurar:
+	- Exibir as máquinas virtuais em **Itens Protegidos** > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais**. É possível detalhar as informações sobre a máquina na guia **Propriedades**.
+	- Configure as propriedades de failover de uma máquina virtual em **Itens Protegidos** > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais** *virtual\_machine\_name* > **Configurar**. Você pode configurar:
 		- **Nome**: o nome da máquina virtual no Azure.
 		- **Tamanho**: o tamanho de destino da máquina virtual que executa o failover.
 
 		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Defina as configurações adicionais de máquina virtual em *Itens Protegidos* > **Grupos de Proteção** > *nome_grupodeproteção* > **Máquinas Virtuais** *nome_da_máquina_virtual* > **Configurar**, incluindo.
+	- Defina as configurações adicionais de máquina virtual em *Itens Protegidos* > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais** *nome\_da\_máquina\_virtual* > **Configurar**, incluindo.
 
 		- **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. 
 			- Grande (A3) e A6: 2
@@ -296,4 +306,4 @@ Para executar o failover de teste, faça o seguinte:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

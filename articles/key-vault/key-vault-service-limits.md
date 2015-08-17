@@ -22,4 +22,4 @@ Esses são os limites de serviço para o Azure Key Vault.
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

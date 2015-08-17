@@ -74,7 +74,7 @@ Nesta seção, você usará um modelo do [Gerenciador de Recursos do Azure](../r
 
 8. Modifique o parâmetro **newStorageAccountName**. Trata-se da conta de armazenamento para os discos do sistema operacional da VM. Este nome de conta precisa ser único globalmente.
 
-9. Modifique o parâmetro **publicDomainName**. Ele se tornará parte do nome DNS associado ao IP público do balanceador de carga. O FQDN final terá o formato _[valor desse parâmetro]_. _.[região].cloudapp.azure.com. Por exemplo, se você especificar o nome como deishbai32 e o grupo de recursos for implantado na região oeste dos EUA, o FQDN final do balanceador de carga será deishbai32.westus.cloudapp.azure.com.
+9. Modifique o parâmetro **publicDomainName**. Ele se tornará parte do nome DNS associado ao IP público do balanceador de carga. O FQDN final terá o formato _[valor desse parâmetro]_._[região]_.cloudapp.azure.com. Por exemplo, se você especificar o nome como deishbai32 e o grupo de recursos for implantado na região oeste dos EUA, o FQDN final do balanceador de carga será deishbai32.westus.cloudapp.azure.com.
 
 10. Salve o arquivo de parâmetro. Depois, você pode provisionar o cluster usando o PowerShell do Azure:
 
@@ -180,7 +180,7 @@ As etapas a seguir mostram como implantar um aplicativo Go do tipo "Hello World"
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
-4. Adicione id_rsa.pub ou a chave pública de sua escolha ao GitHub. Você pode fazer isso usando o botão Adicionar SSH em sua tela de configuração de chaves SSH:
+4. Adicione id\_rsa.pub ou a chave pública de sua escolha ao GitHub. Você pode fazer isso usando o botão Adicionar SSH em sua tela de configuração de chaves SSH:
 
   ![Chave do GitHub](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. Registrar um novo usuário:
 
@@ -248,10 +248,10 @@ As etapas a seguir mostram como implantar um aplicativo Go do tipo "Hello World"
 
 Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no Azure usando um modelo do Gerenciador de Recursos do Azure. O modelo dá suporte a redundância em conexões de ferramentas, bem como balanceamento de carga para aplicativos implantados. O modelo também evita o uso de IPs públicos em nós membro, o que economiza preciosos recursos de IP públicos e fornece um ambiente mais seguro para hospedar aplicativos. Para saber mais, consulte os seguintes artigos:
 
-[Visão Geral do Gerenciador de Recursos do azure][resource-group-overview] [Como usar a CLI do Azure][azure-command-line-tools] [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure][powershell-azure-resource-manager]
+[Visão geral do Gerenciador de Recursos do Azure][resource-group-overview] [Como usar a CLI do Azure][azure-command-line-tools] [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure][powershell-azure-resource-manager]
 
 [azure-command-line-tools]: ../xplat-cli.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

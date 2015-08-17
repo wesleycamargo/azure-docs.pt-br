@@ -199,7 +199,7 @@ Abaixo está uma folha de dicas com orientações sobre questões específicas.
 
 **Adicionar rótulos para cada campo na navegação facetada**
 
-Rótulos geralmente são definidos no HTML ou formulário (**index.cshtml** no aplicativo de exemplo). Não há API na Pesquisa do Azure para rótulos de navegação facetada ou qualquer outro tipo de metadado.
+Rótulos geralmente são definidos no HTML ou no formulário (**index.cshtml** no aplicativo de exemplo). Não há API na Pesquisa do Azure para rótulos de navegação facetada ou qualquer outro tipo de metadado.
 
 **Definir os campos podem ser usados como facetas**
 
@@ -373,4 +373,4 @@ Para obter mais informações sobre princípios de design para navegação facet
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

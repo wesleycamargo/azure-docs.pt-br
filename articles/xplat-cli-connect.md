@@ -85,7 +85,7 @@ Esse comando abrirá o navegador padrão e solicitará que você entre no [Porta
 
 > [AZURE.NOTE]Se a conta estiver associada a vários locatários do Active Directory do Azure, você deverá selecionar para qual Active Directory você deseja baixar um arquivo de configurações de publicação.
 >
-> Depois de selecionado por meio da página de download ou acessando o Portal do Azure, o Active Directory escolhido se torna o padrão usado pelo portal e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto '__clique aqui para retornar à página de seleção__' na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
+> Depois de selecionado por meio da página de download ou acessando o Portal do Azure, o Active Directory escolhido se torna o padrão usado pelo portal e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto `__clique aqui para retornar à página de seleção__` na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
 
 Em seguida, importe o arquivo `.publishsettings` executando o seguinte comando:
 
@@ -139,10 +139,10 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 
 
 [authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
-[free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

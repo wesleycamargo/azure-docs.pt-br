@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -156,4 +156,4 @@ Depois de habilitar os usuários, aconselhamos que você envie a eles um email i
 ## Próximas etapas
 Agora que você configurou o Multi-Factor Authentication na nuvem, é possível seguir adiante acessando [Configurando o Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Nesse documento, você aprenderá sobre relatórios, alertas de fraude, personalização de mensagens de voz e todos os recursos oferecidos pelo Azure Multi-Factor Authentication.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

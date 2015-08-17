@@ -159,4 +159,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
 - Visite o repositório [SDK do Azure para o nó](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

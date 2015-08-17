@@ -57,7 +57,7 @@ Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais do
 
     Você também deseja transferir alguns usando as instruções para **MainPage.cs**.
 
-2. Use esse método logo após a chamada **AuthenticateAsync** em **ButtonLogin_Click**.
+2. Use esse método logo após a chamada **AuthenticateAsync** em **ButtonLogin\_Click**.
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -104,7 +104,7 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 <!-- URLs. -->
 [Introdução à autenticação]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Introdução às notificações por push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
-[modelos]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
+[modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

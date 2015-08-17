@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Solicitação de aumento dos limites da conta do Banco de Dados de Documentos | Azure" 
+	pageTitle="Solicitação de aumento dos limites da conta do Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como solicitar um ajuste aos limites do Banco de Dados de Documentos, como o número de coleções permitidas, procedimentos armazenados e cláusulas de consulta." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # Limites da conta do Banco de Dados de Documentos aumentados por solicitação
@@ -91,4 +91,4 @@ Depois que o chamado de suporte tiver sido criado, você deve receber o número 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

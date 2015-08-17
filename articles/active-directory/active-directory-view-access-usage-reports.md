@@ -302,4 +302,4 @@ Para obter mais informações sobre as notificações de relatórios do AD do Az
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

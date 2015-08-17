@@ -36,13 +36,13 @@ Depois de concluir as etapas neste documento, você terá uma topologia básica 
 
 As seguintes variáveis de ambiente podem ser definidas quando você instala o Java e o JDK. No entanto, você deve verificar se elas existem e se contêm os valores corretos para o seu sistema.
 
-* **JAVA_HOME** - deve apontar para o diretório onde o Java runtime environment (JRE) está instalado. Por exemplo, em uma distribuição Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** - deve apontar para o diretório onde o Java runtime environment (JRE) está instalado. Por exemplo, em uma distribuição Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** - deve conter os seguintes caminhos:
 
-	* **JAVA_HOME** (ou o caminho equivalente)
+	* **JAVA\_HOME** (ou o caminho equivalente)
 
-	* **JAVA_HOME\\bin** (ou o caminho equivalente)
+	* **JAVA\_HOME\\bin** (ou o caminho equivalente)
 
 	* O diretório onde o Maven está instalado
 
@@ -466,4 +466,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

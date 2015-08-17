@@ -102,10 +102,10 @@ Se o pacote de implantação foi [configurado para usar certificados](cloud-serv
 
 2. Em **Essentials**, clique na **URL do site** para abrir o serviço de nuvem em um navegador da Web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

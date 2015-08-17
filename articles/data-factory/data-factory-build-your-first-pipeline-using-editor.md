@@ -45,7 +45,7 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 
 	![Folha Nova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Nomes de Azure Data Factory são globalmente exclusivos. Será necessário prefixar o nome da fábrica de dados com seu nome, para habilitar a criação bem-sucedida de fábrica. 
 3.	Se não criou nenhum grupo de recursos, você precisará criar um grupo de recursos. Para fazer isso:
 	1.	Clique em **NOME DO GRUPO DE RECURSOS**.
 	2.	Selecione **Criar um novo grupo de recursos** na folha **Grupo de recursos**.
@@ -54,8 +54,8 @@ Este artigo não fornece uma visão geral conceitual do serviço Azure Data Fact
 	
 		![Criar grupo de recursos](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	Depois de selecionar o grupo de recursos, verifique se que você está usando a assinatura correta na qual deseja que a data factory seja criada.
-5.	Clique em **Criar** na folha **Nova data factory**.
-6.	Você verá a data factory que está sendo criada no **Quadro inicial** do Portal de Visualização do Azure da seguinte maneira:   
+5.	Clique em **Criar** na folha **Nova fábrica de dados**.
+6.	Você verá a fábrica de dados que está sendo criada no **Quadro inicial** do Portal de Visualização do Azure da seguinte maneira:   
 
 	![Status da criação da data factory](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Parabéns! Você criou com êxito sua primeira data factory. Após a data factory ter sido criada com êxito, você verá a página da data factory, que exibe seu conteúdo. 	
@@ -76,7 +76,7 @@ Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster d
 	![Serviço vinculado de armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor. 
-4. Substitua **account name** pelo nome da sua conta de armazenamento do Azure e **account key** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter a chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Substitua **nome da conta** pelo nome da sua conta de armazenamento do Azure e **chave de conta** pela chave de acesso da sua conta de armazenamento do Azure. Para saber como obter a chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
 5. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 	![Botão Implantar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -84,7 +84,7 @@ Nesta etapa, você vinculará sua conta do Armazenamento do Azure e um cluster d
 ### Criar o serviço vinculado do Azure HDInsight
 Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda que será usado para executar o script Hive.
 
-1. No **Data Factory Editor**, Clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight sob demanda**.
+1. No **Data Factory Editor**, clique em **Nova computação** na barra de comandos e selecione **Cluster HDInsight sob demanda**.
 
 	![Nova computação](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 2. Copie e cole o trecho abaixo na janela de Rascunho-1. O trecho JSON descreve as propriedades que serão usadas para criar o cluster do HDInsight sob demanda. 
@@ -120,10 +120,10 @@ Agora, você criará um serviço vinculado para um cluster HDInsight sob demanda
 ### Criar o conjunto de dados de saída
 Agora, você criará o conjunto de dados de saída para representar os dados armazenados no armazenamento de Blob do Azure.
 
-1. No **Editor Data Factory**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blob do Azure**.  
+1. No **Data Factory Editor**, clique em **Novo conjunto de dados** na barra de comandos e selecione **Armazenamento de Blob do Azure**.  
 
 	![Novo conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copie e cole o trecho abaixo na janela de Rascunho-1. No trecho de JSON, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **data** e na pasta chamada **partitioneddata**. A seção **availability** especifica que o conjunto de dados de saída é produzido mensalmente.
+2. Copie e cole o trecho abaixo na janela de Rascunho-1. No trecho de JSON, você cria um conjunto de dados chamado **AzureBlobOutput** e especifica a estrutura dos dados que serão produzidos pelo script do Hive. Além disso, você especifica que os resultados são armazenados no contêiner de blob denominado **data** e na pasta chamada **partitioneddata**. A seção **disponibilidade** especifica que o conjunto de dados de saída é produzido mensalmente.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -178,6 +178,10 @@ Nesta etapa, você criará seu primeiro pipelines.
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -197,15 +201,15 @@ Nesta etapa, você criará seu primeiro pipelines.
 
 	A seção **extendedProperties** é usada para especificar as configurações de tempo de execução que serão passadas para o script do hive como valores de configuração de Hive (como ${hiveconf:PartitionedData}).
 
-	As propriedades **start** e **end** do pipeline especificam o período de atividade do pipeline.
+	As propriedades **start** e **end** do pipeline especificam o período ativo do pipeline.
 
-	Na atividade de JSON, você especifica que o script do Hive seja executado na computação especificada pelo serviço vinculado –**HDInsightOnDemandLinkedService**.
+	Na atividade de JSON, você especifica que o script do Hive deve ser executado na computação especificada pelo serviço vinculado –**HDInsightOnDemandLinkedService**.
 3. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 4. Confirme que você vê o pipeline no modo de exibição de árvore.
 
 	![Modo de exibição de árvore com pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Parabéns, você criou com sucesso seu primeiro pipeline!
-6. Clique em **X** para fechar as lâminas do Data Factory Editor para navegar de volta para a folha do Data Factory e clique em **Diagrama**.
+6. Clique em **X** para fechar as folhas do Data Factory Editor para navegar de volta para a folha do Data Factory e clique em **Diagrama**.
   
 	![Bloco do diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. Na Exibição de diagrama, você terá uma visão geral dos pipelines e conjuntos de dados usados neste tutorial.
@@ -223,7 +227,7 @@ Nesta etapa, você criará seu primeiro pipelines.
  
 
 ## Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL do Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](./data-factory-get-started.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

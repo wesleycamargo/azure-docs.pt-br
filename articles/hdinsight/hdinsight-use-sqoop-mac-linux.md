@@ -49,7 +49,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Compreender o cenário
 
-O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará uma tabela Hive chamada **hivesampletable** que faz referência ao arquivo de dados localizado em **wasb:///hive/warehouse/hivesampletable**. A tabela contém alguns dados de dispositivo móvel. O esquema da tabela Hive é:
+O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará uma tabela Hive chamada **hivesampletable** que faz referência ao arquivo de dados localizado em ****wasb:///hive/warehouse/hivesampletable**. A tabela contém alguns dados de dispositivo móvel. O esquema da tabela Hive é:
 
 | Campo | Tipo de dados |
 | ----- | --------- |
@@ -65,7 +65,7 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usará uma t
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure ou SQL Server em uma tabela chamada **mobiledata** e, em seguida, importará a tabela de volta para o HDInsight em **wasb:///tutorials/usesqoop/importeddata**.
+Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure ou SQL Server em uma tabela chamada **mobiledata** e, em seguida, importará a tabela de volta para o HDInsight em ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Criar um banco de dados
 
@@ -170,7 +170,7 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do **wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
+    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do ****wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
 
 5. Depois de concluir o comando, use o seguinte para se conectar ao banco de dados usando TSQL:
 
@@ -185,7 +185,7 @@ Você primeiro exportará **hivesampletable** para o banco de dados SQL do Azure
 
 ##Importação do Sqoop
 
-1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório **wasb:///tutorials/usesqoop/importeddata** do HDInsight:
+1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório ****wasb:///tutorials/usesqoop/importeddata** do HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -238,9 +238,9 @@ Você também pode usar o Sqoop para importar e exportar dados do SQL Server, se
 
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
-- [Usar o Oozie com o HDInsight][hdinsight-use-oozie]: use a ação do Sqoop no fluxo de trabalho do Oozie.
-- [Analisar dados de atraso de voos usando o HDInsight][hdinsight-analyze-flight-data]: use o Hive para analisar dados de atraso de voos e o Sqoop para exportar dados para o banco de dados SQL do Azure.
-- [Carregar dados no HDInsight][hdinsight-upload-data]: localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
+- [Usar o Oozie com o HDInsight][hdinsight-use-oozie]\: use a ação do Sqoop no fluxo de trabalho do Oozie.
+- [Analisar dados de atraso de voos usando o HDInsight][hdinsight-analyze-flight-data]\: use o Hive para analisar dados de atraso de voos e o Sqoop para exportar dados para o banco de dados SQL do Azure.
+- [Carregar dados no HDInsight][hdinsight-upload-data]\: localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
 
 
 
@@ -262,4 +262,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de computação distribuída dos Atores da Malha de Serviço do Azure"
-   description="A Malha de Serviços do Azure é uma boa opção com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
+   pageTitle="Padrão de computação distribuída de Atores Confiáveis"
+   description="Os Atores Confiáveis do Service Fabric funcionam bem com mensagens assíncronas paralelas, estado distribuído facilmente gerenciado e computação paralela."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Padrão de projeto dos Atores da Malha de Serviço: computação distribuída
-Devemos isso, em parte, ao fato de ver um cliente real produzir rapidamente um cálculo financeiro nos Atores da Malha de Serviço do Azure em um tempo absurdamente pequeno — para ser mais exato, uma simulação de Monte Carlo para riscos.
+# Padrão de design de Atores Confiáveis: computação distribuída
+Devemos isso, em parte, ao fato de termos observado um cliente real produzir rapidamente um cálculo financeiro nos Atores Confiáveis do Service Fabric em um tempo absurdamente pequeno, para ser mais exato, o cálculo de risco de uma simulação de Monte Carlo.
 
 A princípio, especialmente para aqueles que não possuem conhecimento específico do domínio, a manipulação da Malha de Serviço do Azure desse tipo de carga de trabalho, em contraposição às abordagens mais tradicionais, como o Mapear/Reduzir ou MPI, talvez não seja óbvia.
 
@@ -202,6 +202,5 @@ Não estamos de forma alguma afirmando que a Malha de Serviço do Azure seja uma
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

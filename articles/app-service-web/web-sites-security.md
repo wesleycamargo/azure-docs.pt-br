@@ -25,7 +25,7 @@ Um dos desafios do desenvolvimento de um aplicativo Web é como fornecer um disp
 
 ##<a name="https"></a> Comunicações seguras
 
-Se você usar o nome de domínio ***.azurewebsites.net** criado para o aplicativo Web, poderá usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ***.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+Se você usar o nome de domínio ****.azurewebsites.net** criado para o aplicativo Web, poderá usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ****.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
 
 ##<a name="develop"></a> Desenvolvimento seguro
 
@@ -45,14 +45,14 @@ Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciam
 
 Se você usa um utilitário que utiliza configurações de publicação ou perfil de publicação, importe o arquivo que contém as configurações de publicação ou o perfil para o utilitário e **exclua** o arquivo. Se você precisar manter o arquivo para compartilhar com outros que trabalhem no projeto, por exemplo, armazene-o em um local seguro, como um diretório **criptografado** com permissões restritas.
 
-Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **PowerShell do Azure** e a **Interface de linha de comando do Azure (CLI do Azure)** ambos armazenam informações importadas no seu **diretório base** (\*\~\* em sistemas Linux ou OS X e */users/yourusername* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
+Além disso, você deve se certificar de que as credenciais importadas sejam seguras. Por exemplo, o **Azure PowerShell** e a **Interface da Linha de Comando do Azure (CLI do Azure)** ambos armazenam informações importadas no seu **diretório base** (*\~* em sistemas Linux ou OS X e em */usuários/seunomedeusuário* em sistemas Windows). Para ter segurança extra, convém **criptografar** esses locais usando as ferramentas de criptografia disponíveis para o sistema operacional.
 
 ### Definições de configuração e cadeias de conexão
 É uma prática comum armazenar cadeias de conexão, credenciais de autenticação e outras informações confidenciais em arquivos de configuração. Infelizmente, esses cookies podem ser expostos no site ou pode haver check-in deles em um repositório público, expondo essas informações.
 
 O Serviço de Aplicativo do Azure permite que você armazene informações de configuração como parte do ambiente de tempo de execução de aplicativos Web, como **configurações do aplicativo** e **cadeias de conexão**. Os valores são expostos ao aplicativo durante o tempo de execução por meio de *variáveis do ambiente* na maioria das linguagens de programação. Para aplicativos do .NET, esses valores são injetados na configuração do .NET durante o tempo de execução.
 
-As **Configurações do aplicativo** e **cadeias de conexão** podem ser definidas usando o [portal de visualização do Azure](http://portal.azure.com) ou os utilitários, como o PowerShell ou a CLI do Azure.
+As **Configurações do aplicativo** e as **cadeias de conexão** podem ser configuradas usando o [portal de visualização do Azure](http://portal.azure.com) ou utilitários, como o PowerShell ou a CLI do Azure.
 
 Para obter mais informações sobre configurações do aplicativo e cadeias de conexão, consulte [Configurando aplicativos Web](web-sites-configure.md).
 
@@ -86,4 +86,4 @@ Para obter informações sobre como registrar em log informações de aplicativo
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

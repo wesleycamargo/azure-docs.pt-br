@@ -28,7 +28,7 @@ Esta página falará sobre o impacto direto no desempenho que o Gerenciador de T
 
 ## Observação importante sobre o funcionamento do Gerenciador de Tráfego
 
-http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx é um excelente recurso para aprender como funciona o Gerenciador de Tráfego, mas há muitas informações nessa página, e pode ser difícil escolher as informações importantes relacionadas ao desempenho. Os pontos importantes na documentação do MSDN são as etapas 5 e 6 da Imagem 3, que explicarei aqui com mais detalhes:
+http://msdn.microsoft.com/library/windowsazure/hh744833.aspx é um excelente recurso para aprender como funciona o Gerenciador de Tráfego, mas há muitas informações nessa página, e pode ser difícil escolher as informações importantes relacionadas ao desempenho. Os pontos importantes na documentação do MSDN são as etapas 5 e 6 da Imagem 3, que explicarei aqui com mais detalhes:
 
 - Essencialmente, o Gerenciador de Tráfego faz apenas uma coisa – resolução de DNS. Isso significa que o único impacto de desempenho que o Gerenciador de Tráfego pode ter sobre seu site é na pesquisa inicial de DNS.
 - Esclarecimento sobre a pesquisa de DNS do Gerenciador de Tráfego. O Gerenciador de Tráfego preenche, e atualiza regularmente, os servidores raiz de DNS normais da Microsoft com base em sua política e nos resultados de teste. Portanto, mesmo durante a pesquisa inicial de DNS não há qualquer envolvimento do Gerenciador de Tráfego, uma vez que a solicitação de DNS é tratada pelos servidores raiz de DNS normais da Microsoft. Se o Gerenciador de Tráfego 'cair' (ou seja, se ocorrer uma falha nas VMs que realizam a investigação de política e atualização de DNS), não haverá qualquer impacto em seu nome DNS do Gerenciador de Tráfego, uma vez que as entradas nos servidores DNS da Microsoft ainda serão preservadas. O único impacto será a não realização da investigação e da atualização com base na política (ou seja, se o site primário ficar inativo, o Gerenciador de Tráfego não poderá atualizar o DNS a fim de apontar para seu site de failover).
@@ -98,4 +98,4 @@ Considerando as informações acima, sabemos que o único impacto no desempenho 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

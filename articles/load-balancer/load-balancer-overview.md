@@ -99,4 +99,4 @@ Você pode obter mais de um endereço IP público de balanceamento de carga atri
 [Introdução - Balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -213,7 +213,7 @@ Consulte [Privacidade e Retenção de Dados][data].
 <tr><th>O que você deverá ver</th><th>Como obter isso</th><th>Por que você deseja isso</th></tr>
 <tr><td>Gráficos de disponibilidade</td><td><a href="../app-insights-monitor-web-app-availability/">Testes da Web</a></td><td>Tenha certeza que o aplicativo Web está ativo</td></tr>
 <tr><td>Desempenho do aplicativo para servidores: tempos de resposta...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Adicione o Application Insights ao seu projeto</a><br/>ou <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar o Monitor de Status do Application Insights no servidor</a></td><td>Detectar problemas de desempenho</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Adicione o Application Insights ao seu projeto</a><br/>ou o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar AI Status Monitor no servidor</a>(ou escreva seu próprio código para <a href="../app-insights-api-custom-events-metrics/#track-dependency">rastrear dependências</a>)</td><td>Detectar problemas de desempenho</td></tr>
 <tr><td>Telemetria de dependência</td><td><a href="../app-insights-monitor-performance-live-website-now/">Instalar o Monitor de Status do Application Insights no servidor</a></td><td>Diagnosticar problemas com bancos de dados ou outros componentes externos</td></tr>
 <tr><td>Obter rastreamentos de pilha por meio de exceções</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Inserir chamadas TrackException em seu código</a> (mas alguns são informados automaticamente)</td><td>Detectar e diagnosticar exceções</td></tr>
 <tr><td>Pesquisar rastreamentos de log</td><td><a href="../app-insights-search-diagnostic-logs/">Adicionar um adaptador de log</a></td><td>Diagnosticar exceções, problemas de desempenho</td></tr>
@@ -239,4 +239,4 @@ Você pode [gravar um Script do PowerShell](app-insights-powershell-script-creat
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

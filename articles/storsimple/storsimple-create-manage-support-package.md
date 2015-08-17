@@ -199,4 +199,4 @@ Abaixo há um exemplo que demonstra como descriptografar, editar e criptografar 
 
 Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

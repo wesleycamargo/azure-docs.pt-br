@@ -242,4 +242,4 @@ Para ver informações detalhadas sobre os cmdlets do PowerShell do Azure usados
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

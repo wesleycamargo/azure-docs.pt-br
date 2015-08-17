@@ -65,7 +65,7 @@ Esse comando importa um arquivo publishsettings ou certificado para que possa se
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir. <code>~$ azure config set subscription &lt;outra-id-assinatura&gt;</code>
+> [AZURE.NOTE]O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir. <code>\~$ azure config set subscription &lt;outra-id-assinatura&gt;</code>
 
 **account clear [options]**
 
@@ -206,9 +206,9 @@ As máquinas virtuais do Windows podem habilitar RDP posteriormente adicionando 
 
 Os seguintes parâmetros opcionais são aceitos para esse comando:
 
-**-c, --connect** criar a máquina virtual dentro de uma implantação já criada em um serviço de hospedagem. Se -vmname não for usado com essa opção, o nome da nova máquina virtual será gerado automaticamente. <br /> **-n, --vm-name** especifica o nome da máquina virtual. Por padrão, esse parâmetro usa o nome do serviço de hospedagem. Se -vmname não for especificado, o nome da nova máquina virtual será gerado como &lt;nome_do_serviço>&lt;id>, em que &lt;id> é o número de máquinas virtuais existentes no serviço mais 1. Por exemplo, se você usar esse comando para adicionar uma nova máquina virtual a um serviço de hospedagem Meu_serviço que tem máquina virtual existente, a nova máquina virtual será chamada de Meu_serviço2.<br /> **-u, --blob-url** especifica a URL de armazenamento de blob na qual criar o disco de sistema da máquina virtual. <br /> **-z, --vm-size** especifica o tamanho da máquina virtual. Os valores válidos são: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". O valor padrão é "Small". <br /> **-r** adiciona conectividade RDP a uma máquina virtual do Windows. <br /> **-e, --ssh** adiciona conectividade SSH a uma máquina virtual do Windows. <br /> **-t, --ssh-cert** especifica o certificado SSH. <br /> **-s** a assinatura <br /> **-o, --community** A imagem especificada é uma imagem comunitária <br /> **-w** o nome da rede virtual <br/> **-l, --location** especifica o local (por exemplo, "Centro-Norte dos EUA"). <br /> **-a, --affinity-group** especifica o grupo de afinidades.<br /> **-w, --virtual-network-name** especifica a rede virtual na qual adicionar a nova máquina virtual. As redes virtuais podem ser configuradas e gerenciadas no portal do Azure.<br /> **-b, --subnet-names** especifica os nomes de sub-redes a serem atribuídas à máquina virtual.
+**-c, --connect** criar a máquina virtual dentro de uma implantação já criada em um serviço de hospedagem. Se -vmname não for usado com essa opção, o nome da nova máquina virtual será gerado automaticamente. <br /> **-n, --vm-name** especifica o nome da máquina virtual. Por padrão, esse parâmetro usa o nome do serviço de hospedagem. Se -vmname não for especificado, o nome da nova máquina virtual será gerado como &lt;nome\_do\_serviço>&lt;id>, em que &lt;id> é o número de máquinas virtuais existentes no serviço mais 1. Por exemplo, se você usar esse comando para adicionar uma nova máquina virtual a um serviço de hospedagem Meu\_serviço que tem máquina virtual existente, a nova máquina virtual será chamada de Meu\_serviço2.<br /> **-u, --blob-url** especifica a URL de armazenamento de blob na qual criar o disco de sistema da máquina virtual. <br /> **-z, --vm-size** especifica o tamanho da máquina virtual. Os valores válidos são: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". O valor padrão é "Small". <br /> **-r** adiciona conectividade RDP a uma máquina virtual do Windows. <br /> **-e, --ssh** adiciona conectividade SSH a uma máquina virtual do Windows. <br /> **-t, --ssh-cert** especifica o certificado SSH. <br /> **-s** a assinatura <br /> **-o, --community** A imagem especificada é uma imagem comunitária <br /> **-w** o nome da rede virtual <br/> **-l, --location** especifica o local (por exemplo, "Centro-Norte dos EUA"). <br /> **-a, --affinity-group** especifica o grupo de afinidades.<br /> **-w, --virtual-network-name** especifica a rede virtual na qual adicionar a nova máquina virtual. As redes virtuais podem ser configuradas e gerenciadas no portal do Azure.<br /> **-b, --subnet-names** especifica os nomes de sub-redes a serem atribuídas à máquina virtual.
 
-Neste exemplo, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB é uma imagem fornecida pela plataforma. Para obter mais informações sobre imagens do sistema operacional, consulte vm image list.
+Neste exemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-pt-br-30GB é uma imagem fornecida pela plataforma. Para obter mais informações sobre imagens do sistema operacional, consulte vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -335,9 +335,9 @@ O diagrama a seguir mostra a arquitetura de uma implantação típica de várias
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
 
-As solicitações externas para máquinas virtuais passam por um balanceador de carga. Por esse motivo, as solicitações não podem ser especificadas em relação a uma máquina virtual específica em implantações com várias máquinas virtuais. Para implantações com várias máquinas virtuais, o mapeamento da porta deve ser configurado entre as máquinas virtuais (porta_da_vm) e o balanceador de carga (porta_do_bc).
+As solicitações externas para máquinas virtuais passam por um balanceador de carga. Por esse motivo, as solicitações não podem ser especificadas em relação a uma máquina virtual específica em implantações com várias máquinas virtuais. Para implantações com várias máquinas virtuais, o mapeamento da porta deve ser configurado entre as máquinas virtuais (porta\_da\_vm) e o balanceador de carga (porta\_do\_bc).
 
-**vm endpoint create &lt;vm-name> &lt;lb-port> [porta_da_vm]**
+**vm endpoint create &lt;vm-name> &lt;lb-port> [porta\_da\_vm]**
 
 Esse comando cria um ponto de extremidade da máquina virtual. Você também pode usar -u ou --enable-direct-server-return para especificar se o retorno direto do servidor deve ser habilitado nesse ponto de extremidade, desabilitado por padrão.
 
@@ -420,15 +420,15 @@ Esse comando obtém uma lista de imagens de máquinas virtuais. Existem três ti
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-pt-br-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.pt-br.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.pt-br.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-pt-br-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-pt-br-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-pt-br-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -499,7 +499,7 @@ Esse comando mostra detalhes sobre um disco do Azure.
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-pt-br-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -535,7 +535,7 @@ Esse comando exclui um disco do Azure de um repositório pessoal. O disco deve s
 
 **vm disk create <name> [source-path]**
 
-Este comando carrega e registra um disco do Azure. É necessário especificar --blob-url, --location, or --affinity-group. Se você usar esse comando com [caminho_de_origem], o arquivo .vhd especificado será carregado e uma nova imagem será criada. Em seguida, você pode anexar essa imagem a uma máquina virtual usando o comando vm disk attach.
+Este comando carrega e registra um disco do Azure. É necessário especificar --blob-url, --location, or --affinity-group. Se você usar esse comando com [caminho\_de\_origem], o arquivo .vhd especificado será carregado e uma nova imagem será criada. Em seguida, você pode anexar essa imagem a uma máquina virtual usando o comando vm disk attach.
 
 Alguns sistemas impõem limites de descritor de arquivo por processo. Se esse limite for excedido, a ferramenta exibirá um erro de limite de descritor de arquivo. Você pode executar o comando novamente usando o parâmetro -p &lt;number> para reduzir o número máximo de carregamentos paralelos. O número máximo padrão de carregamentos paralelos é 96.
 
@@ -787,7 +787,7 @@ Este comando troca dois slots do aplicativo Web.
 
 Esse comando oferece suporte à seguinte opção adicional:
 
-**-q or **--quiet**: não solicita confirmação. Utilize esta opção em scripts automatizados.
+****-q ou **--quiet**: não solicita confirmação. Use esta opção em scripts automatizados.
 
 
 **site start [options] [name]**
@@ -810,7 +810,7 @@ Esse comando para um aplicativo Web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+****vm restart [opções] [nome]
 
 Este comando para e, em seguida, inicia um aplicativo Web específico.
 
@@ -2346,4 +2346,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

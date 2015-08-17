@@ -97,7 +97,7 @@ Um token SAML, o nome (ou "nome fornecido") aparece em uma declaração no eleme
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-Em um token JWT, o nome aparece na declaração nome_fornecido.
+Em um token JWT, o nome aparece na declaração nome\_fornecido.
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ A declaração Sobrenome fornece o último nome, sobrenome ou sobrenome da famí
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-Em um token JWT, o último nome aparece na declaração family_name.
+Em um token JWT, o último nome aparece na declaração family\_name.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ A declaração Nome fornece um valor legível humano que identifica o assunto do
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-Em uma declaração JWT, o nome aparece na declaração unique_name.
+Em uma declaração JWT, o nome aparece na declaração unique\_name.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ Em um token JWT, a declaração de funções é exibida na declaração funçõe
 
 ### Escopo
 
-O escopo do token indica as permissões de representação concedidas ao aplicativo cliente. A permissão padrão é user_impersonation. O proprietário do recurso protegido pode registrar valores adicionais no AD do Azure.
+O escopo do token indica as permissões de representação concedidas ao aplicativo cliente. A permissão padrão é user\_impersonation. O proprietário do recurso protegido pode registrar valores adicionais no AD do Azure.
 
 Em um token JWT, o escopo do token é especificado em uma declaração scp.
 
@@ -413,4 +413,4 @@ Este é um exemplo de um típico JWT (JSON Web token) usado em um fluxo de Web d
 [Protocolos de autenticação do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

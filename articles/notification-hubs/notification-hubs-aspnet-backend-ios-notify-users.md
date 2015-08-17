@@ -69,7 +69,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. No ViewController.h, adicione o seguinte `#define` logo abaixo das instruções de importação. Substitua o espaço reservado *< Inserir o seu ponto de extremidade do back-end >* pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo, *http://you_backend.azurewebsites.net*.
+4. No ViewController.h, adicione o seguinte `#define` logo abaixo das instruções de importação. Substitua o espaço reservado *< Inserir o seu ponto de extremidade do back-end >* pela URL de destino que você usou para implantar o back-end do aplicativo na seção anterior. Por exemplo, **http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -466,4 +466,4 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

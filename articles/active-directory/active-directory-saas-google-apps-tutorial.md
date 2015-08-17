@@ -64,7 +64,7 @@ Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Dire
 
 	![Selecione Logon Único do AD do Azure][7]
 
-	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](https://msdn.microsoft.com/library/azure/dn308588.aspx)
+	> [AZURE.NOTE]Para saber mais sobre as diferentes opções de logon único, [clique aqui](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. Na página **Definir Configurações de Aplicativo**, para o campo **URL de Logon**, digite a URL do locatário do Google Apps usando o seguinte formato: `https://mail.google.com/a/<yourdomain>`
 
@@ -212,11 +212,7 @@ Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Dire
 
 4. Para testar suas configurações de logon único, abra o Painel de Acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), depois entre na conta de teste e clique em **Google Apps**.
 
-##Consulte também
-
-- [Lista de tutoriais de integração de aplicativos SaaS](active-directory-saas-tutorial-list.md)
-- [Acesso de aplicativos no AD do Azure](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introdução ao painel de acesso](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png
@@ -250,4 +246,4 @@ Este tutorial mostrará como conectar seu ambiente do Google Apps ao Active Dire
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Criar pipelines de previsão usando o Data Factory e o Aprendizado de Máquina do Azure 
 ## Visão geral
-Você pode colocar em operação modelos publicados de [Aprendizado de Máquina do Azure][azure-machine-learning] em pipelines da Azure Data Factory. Essas pipelines são chamadas de pipelines de previsão. Para criar uma pipeline de previsão, você precisará de:
 
--	Chave de API do modelo do espaço de trabalho publicado e o URL de pontuação em lote (consulte a imagem abaixo)
--	Um blob do Azure mantém o arquivo CSV de entrada (ou) um banco de dados SQL do Azure que contém os dados de entrada a contabilizar. 
--	Um armazenamento de blob do Azure que conterá o arquivo CSV com resultados de contagem (ou) um banco de dados SQL do Azure que conterá os dados de saída. 
+O Azure Data Factory permite que você crie facilmente pipelines que utilizam o serviço Web do [aprendizado de máquina do Azure][azure-machine-learning] publicado para análise preditiva. Isso permite que você use o Azure Data Factory para gerenciar o processamento e movimentação de dados e executar a pontuação de lote usando o Aprendizado de Máquina do Azure. Para conseguir isso, você precisará fazer o seguinte:
+
+1. Use a atividade **AzureMLBatchScoring**.
+2. **URI de solicitação** para a API de execução do lote. Você pode encontrar o URI de solicitação clicando no link **EXECUÇÃO EM LOTES** na página de serviços Web (mostrada abaixo).
+3. **Chave API** para o serviço Web do Aprendizado de Máquina do Azure publicado. Você pode encontrar essas informações clicando no serviço Web publicado. 
 
 	![Painel de Aprendizado de Máquina][machine-learning-dashboard]
-
-	A URL de contagem em lote para o AzureMLLinkedService é obtida como indicado na imagem acima, menos ‘**ajuda**’: https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
 
 Um **pipeline de previsão** tem as seguintes partes:
 
@@ -42,48 +41,47 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 É recomendável que você estude o tutorial [Introdução à Azure Data Factory][adf-getstarted] antes de passar por esse exemplo e que use o Editor da Data Factory para criar os artefatos de Data Factory (serviços vinculados, tabelas, pipeline) neste exemplo.
  
 
-1. Crie um serviço vinculado para o Armazenamento do Azure. Se os arquivos de saída e entrada de pontuação estiverem em diferentes contas de armazenamento, você precisará de dois serviços vinculados. Aqui está um exemplo JSON:
+1. Crie um **serviço vinculado** para o **Armazenamento do Azure**. Se os arquivos de saída e entrada de pontuação estiverem em diferentes contas de armazenamento, você precisará de dois serviços vinculados. Aqui está um exemplo JSON:
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
+		  "name": "StorageLinkedService",
+		  "properties": {
+		    "type": "AzureStorage",
+		    "typeProperties": {
+		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
 		    }
+		  }
 		}
 
-2. Criar a entrada e saída de tabelas do Data Factory do Azure. Observe que ao contrário de algumas outras tabelas de Data Factory, essas devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de "waitOnExternal" mostradas no exemplo a seguir e seu ScoringInputBlob será a tabela de saída de uma atividade diferente.
+2. Criar a **entrada** de **tabelas** do Azure Data Factory. Observe que ao contrário de algumas outras tabelas de Data Factory, essas devem conter os valores **folderPath** e **fileName**. Você pode usar o particionamento para fazer com que cada execução em lote (cada fatia de dados) processe ou produza arquivos de entrada e saída exclusiva. Provavelmente, você precisará incluir algumas atividades upstream para transformar a entrada para o formato de arquivo CSV e colocá-lo na conta de armazenamento de cada fatia. Nesse caso, não inclua as configurações de **external** e **externalData** mostradas no exemplo a seguir e seu ScoringInputBlob será a tabela de saída de uma atividade diferente.
 
-		{  
-			"name":"ScoringInputBlob",
-			"properties":
-			{  
-					"location":
-					{  
-						"type":"AzureBlobLocation",
-						"folderPath":"azuremltesting/input",
-						"fileName":"in.csv",
-						"format":
-						{ 
-							"type":"TextFormat",
-							"columnDelimiter":","
-						},
-						"linkedServiceName":"StorageLinkedService"
-					},
-					"availability":
-					{  
-						"frequency":"Day",
-						"interval":1,
-						"waitOnExternal":
-						{
-		                	"retryInterval": "00:01:00",
-		                	"retryTimeout": "00:10:00",
-		                	"maximumRetry": 3
-		            	}
-		      		}
-		   		}
-			}
+		{
+		  "name": "ScoringInputBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/input",
+		      "fileName": "in.csv",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
+		}
 	
 	O arquivo csv de contagem de lote deve ter a linha de cabeçalho de coluna. Se você estiver usando a **Atividade de cópia** para criar/mover o csv para dentro do armazenamento de blob, você deve definir a propriedade de coleta **blobWriterAddHeader** como **true**. Por exemplo:
 	
@@ -94,76 +92,91 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 	     }
 	 
 	Se o arquivo csv não tem a linha de cabeçalho, você poderá ver o seguinte erro: **Erro na atividade: erro ao ler a cadeia de caracteres. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
-3. Este exemplo de saída usa o particionamento para criar um caminho de saída exclusivo para cada execução de fatia. Sem isso, a atividade substituiria o arquivo.
+3. Criar a **saída** de **tabelas** do Azure Data Factory. Este exemplo usa o particionamento para criar um caminho de saída exclusivo para cada execução de divisão. Sem isso, a atividade substituiria o arquivo.
 
-		{  
-		   "name":"ScoringResultBlob",
-		   "properties":
-			{  
-		        "location":
-				{  
-		            "type":"AzureBlobLocation",
-		            "folderPath": "azuremltesting/scored/{folderpart}/",
-		            "fileName": "{filepart}result.csv",
-		            "partitionedBy": [ 
-		                 { "name": "folderpart", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMdd" } },
-		                 { "name": "filepart", "value": { "type": "DateTime", "date": "SliceStart", "format": "HHmmss" } } 
-		             ], 
-		            "format":{  
-		              "type":"TextFormat",
-		              "columnDelimiter":","
-		            },
-		            "linkedServiceName":"StorageLinkedService"
+		{
+		  "name": "ScoringResultBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/scored/{folderpart}/",
+		      "fileName": "{filepart}result.csv",
+		      "partitionedBy": [
+		        {
+		          "name": "folderpart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "yyyyMMdd"
+		          }
 		        },
-		        "availability":
-				{  
-		            "frequency":"Day",
-		            "interval":15
+		        {
+		          "name": "filepart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "HHmmss"
+		          }
 		        }
-		   }
+		      ],
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 15
+		    }
+		  }
 		}
 
-
-4. Crie um serviço vinculado do tipo **AzureMLLinkedService**, fornecendo a chave API e a URL pontuação de lote do modelo.
+4. Crie um **serviço vinculado** do tipo **AzureMLLinkedService**, fornecendo a chave API e a URL de pontuação de lote do modelo.
 		
 		{
-		    "name": "MyAzureMLLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureMLLinkedService",
-		        "mlEndpoint":"https://[batch scoring endpoint]/jobs",
-		        "apiKey":"[apikey]"
+		  "name": "MyAzureMLLinkedService",
+		  "properties": {
+		    "type": "AzureML",
+		    "typeProperties": {
+		      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+		      "apiKey": "[apikey]"
 		    }
+		  }
 		}
-
 5. Por fim, crie um pipeline que contenha um **AzureMLBatchScoringActivity**. Ela obterá o local do arquivo de entrada de tabelas de entrada, chamará a API de pontuação em lote e copiará o saída da pontuação em lote para o blob especificado na sua tabela de saída. Ao contrário de algumas outras atividades de Data Factory, oAzureMLBatchScoringActivity pode ter apenas uma entrada e uma tabela de saída.
 
-		 {
-		    "name": "PredictivePipeline",
-		    "properties":
-		    {
-		        "description" : "use AzureML model",
-		        "activities":
-		        [
-		         {  
-		            "name":"MLActivity",
-		            "type":"AzureMLBatchScoringActivity",
-		            "description":"prediction analysis on batch input",
-		            "inputs": [ { "name": "ScoringInputBlob" } ],
-		            "outputs":[ { "name": "ScoringResultBlob" } ],
-		            "linkedServiceName":"MyAzureMLLinkedService",
-		            "policy":{  
-		               "concurrency":3,
-		               "executionPriorityOrder":"NewestFirst",
-		               "retry":1,
-		               "timeout":"02:00:00"
-		            }
-		         }
+		{
+		  "name": "PredictivePipeline",
+		  "properties": {
+		    "description": "use AzureML model",
+		    "activities": [
+		      {
+		        "name": "MLActivity",
+		        "type": "AzureMLBatchScoring",
+		        "description": "prediction analysis on batch input",
+		        "inputs": [
+		          {
+		            "name": "ScoringInputBlob"
+		          }
 		        ],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z"
-		    }
+		        "outputs": [
+		          {
+		            "name": "ScoringResultBlob"
+		          }
+		        ],
+		        "linkedServiceName": "MyAzureMLLinkedService",
+		        "policy": {
+		          "concurrency": 3,
+		          "executionPriorityOrder": "NewestFirst",
+		          "retry": 1,
+		          "timeout": "02:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z"
+		  }
 		}
 
 	Ambos os valores de data/hora de **início** e de **término** devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **final** é opcional. Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9999-09-09** como o valor para a propriedade **end**. Consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter detalhes sobre as propriedades JSON.
@@ -172,10 +185,10 @@ Este exemplo usa o armazenamento do Azure para conter tanto os dados de entrada 
 Você pode usar parâmetros de serviço Web que são expostos por um serviço Web de aprendizado de máquina do Azure publicado em pipelines de ADF (Azure Data Factory). Você pode criar uma experiência de aprendizado de máquina do Azure e publicá-la como um serviço Web, então usar esse serviço Web em várias atividades ou pipelines ADF, passando entradas diferentes via parâmetros de serviço Web.
 
 ### Passar valores para parâmetros de serviço Web
-Adicione uma seção **transformação** à seção **AzureMLBatchScoringActivty** no pipeline do JSON para especificar valores para parâmetros de serviço Web nessa seção, conforme mostrado no exemplo a seguir:
+Adicione uma seção **typeProperties** à seção **AzureMLBatchScoringActivty** no pipeline JSON para especificar valores para parâmetros de serviço Web nessa seção, conforme mostrado no exemplo a seguir:
 
-	transformation: {
-		webServiceParameters: {
+	"typeProperties": {
+		"webServiceParameters": {
 			"Param 1": "Value 1",
 			"Param 2": "Value 2"
 		}
@@ -184,18 +197,19 @@ Adicione uma seção **transformação** à seção **AzureMLBatchScoringActivty
 
 Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/library/dn835056.aspx) para passar valores para os parâmetros do serviço Web conforme mostrado no exemplo a seguir:
 
-	transformation: {
-    	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
 > [AZURE.NOTE]Os parâmetros de serviço Web diferenciam maiúsculas de minúsculas, portanto, garanta que os nomes que você especificar na atividade de JSON correspondam aos expostos pelo serviço Web.
 
-### Gravadores e leitores do SQL do Azure
+### Módulos de leitor e gravador
+
 Um cenário comum de uso de parâmetros de serviço Web é o uso de leitores e gravadores do SQL do Azure. O módulo do leitor é usado para carregar dados em uma experiência de serviços de gerenciamento de dados fora do Estúdio de aprendizado de máquina do Azure e o módulo de gravador é usado para salvar os dados de suas experiências nos serviços de gerenciamento de dados fora do Estúdio de aprendizado de máquina do Azure. Para obter detalhes sobre o leitor/gravador do SQL Azure/Blob do Azure, consulte os tópicos [Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Gravador](https://msdn.microsoft.com/library/azure/dn905984.aspx) na biblioteca MSDN. O exemplo na seção anterior usou o leitor de blobs do Azure e o gravador de blobs do Azure. Esta seção discute usando o leitor do SQL do Azure e o gravador do SQL do Azure.
 
-#### Leitor do SQL do Azure
+#### SQL Azure como uma fonte de dados
 No Estúdio AM do Azure, você pode criar uma experiência e publicar um serviço Web com um leitor do SQL do Azure para a entrada. O leitor do SQL Azure tem propriedades de conexão que podem ser expostas como parâmetros de serviços Web, permitindo que os valores para as propriedades de conexão sejam passados em tempo de execução na solicitação de contagem de lote.
 
 Em tempo de execução, os detalhes da tabela de Data Factory de entrada serão usados pelo serviço Data Factory para preencher os parâmetros de serviço Web. Observe que você deve usar nomes padrão (Nome do servidor de banco de dados, Nome do banco de dados, Nome de conta de usuário do servidor, Senha de conta de usuário do servidor) para os parâmetros de serviço Web para que essa integração com o serviço Data Factory funcione.
@@ -205,17 +219,17 @@ Se você tiver quaisquer parâmetros de serviço Web adicionais, use a seção *
 Para usar um leitor do SQL do Azure por meio de um pipeline da Azure Data Factory, faça o seguinte:
 
 - Criar um **serviço vinculado do SQL do Azure**. 
-- Criar uma **tabela** de Data Factory que use **AzureSqlTableLocation**.
+- Criar uma **tabela** de Data Factory que use **AzureSqlTable**.
 - Defina essa **tabela** da Data Factory como o **entrada** para o **AzureMLBatchScoringActivity** no pipeline JSON. 
 
 
 
-#### Gravador do SQL do Azure
+#### SQL Azure como um coletor de dados
 Assim como com o leitor do SQL Azure, um gravador do SQL Azure também pode ter suas propriedades expostas como parâmetros de serviço Web. Um gravador do SQL do Azure usa as configurações do serviço vinculado associado à tabela de entrada ou tabela de saída. A tabela a seguir descreve quando o serviço vinculado de entrada é utilizado versus o serviço vinculado de saída.
 
 | Entrada/Saída | A entrada é SQL do Azure | A entrada é Blob do Azure |
 | ------------ | ------------------ | ------------------- |
-| A saída é SQL do Azure | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço INPUT vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Se o leitor do SQL Azure e o gravador do SQL Azure em seu modelo Azure ML compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Database server name1, Database name1, Server user account name1, Server user account password1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web OUTPUT na seção webServiceParameters da atividade JSON.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço da Web usando a seção webServiceParameters da atividade JSON.</p> | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado OUTPUT para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p> |
+| A saída é SQL do Azure | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço de ENTRADA vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Se o leitor do SQL Azure e o gravador do SQL Azure em seu modelo Azure ML compartilham os mesmos parâmetros de serviço Web mencionados acima, está tudo bem. Se eles não compartilham os mesmos parâmetros de serviço Web, por exemplo, se o gravador do SQL Azure usa nomes de parâmetros: Database server name1, Database name1, Server user account name1, Server user account password1 (com "1" no final), você deve passar valores para esses parâmetros de serviço Web de SAÍDA na seção webServiceParameters da atividade JSON.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON.</p> | <p>O serviço Data Factory usa as informações da cadeia de conexão do serviço vinculado de SAÍDA para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure.</p><p>Você pode passar valores para quaisquer outros parâmetros de serviço Web usando a seção webServiceParameters da atividade JSON. <p>O blob de entrada será usado como o local de entrada.</p> |
 |A saída é o Blob do Azure | O serviço Data Factory usa as informações da cadeia de conexão do serviço de entrada vinculado para gerar os parâmetros de serviço Web com nomes: "Nome do servidor de banco de dados", "Nome do banco de dados", "Nome de conta de usuário do servidor", "Senha de conta de usuário do servidor". Observe que você deve usar esses nomes padrão para parâmetros de serviço Web no Estúdio AM do Azure. | <p>Você deve passar valores para qualquer parâmetro de serviço Web usando a seção WebServiceParameters da atividade JSON.</p><p>Os blobs serão usados como locais de entrada e saída.</p> |
     
 
@@ -223,43 +237,56 @@ Assim como com o leitor do SQL Azure, um gravador do SQL Azure também pode ter 
 > 
 > Você pode usar tabelas de preparo com uma atividade de procedimento armazenado para mesclar linhas ou truncar os dados antes da contagem. Se você usar essa abordagem, defina a configuração de simultaneidade da executionPolicy como 1.
 
+#### Blob do Azure como uma fonte
+
+Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Azure, você pode especificar os Blobs do Azure como uma entrada. Os arquivos no armazenamento de blob do Azure podem ser os arquivos de saída (por exemplo, 000000\_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo de leitor permite que você leia arquivos (com nenhuma extensão), configurando a propriedade do **caminho para o diretório, blob ou contêiner** do módulo do leitor para apontar para a contêiner/pasta que contém os arquivos conforme mostrado abaixo. Observação: o asterisco (isto é, *) **especifica que todos os arquivos na pasta/contêiner (ou seja, data/aggregateddata/year=2014/month-6/*)** serão lidos como parte da experiência.
+
+![Propriedades de Blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+
 ### Exemplo de como usar parâmetros de serviço Web
 #### Pipeline com AzureMLBatchScoringActivity com parâmetros de serviço Web
 
 	{
-		"name": "MLWithSqlReaderSqlWriter",
-	  	"properties": {
-		    "description": "Azure ML model with sql azure reader/writer",
-		    "activities": [
-		    	{
-		    	    "name": "MLSqlReaderSqlWriterActivity",
-		    	    "type": "AzureMLBatchScoringActivity",
-		    	    "description": "test",
-		        	"inputs": [ { "name": "MLSqlInput" } ],
-		        	"outputs": [ { "name": "MLSqlOutput" } ],
-		        	"linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
-		        	"policy": {
-		          		"concurrency": 1,
-			          	"executionPriorityOrder": "NewestFirst",
-			          "retry": 1,
-			          "timeout": "02:00:00"
-			        },
-			        transformation: {
-			        	webServiceParameters: {
-		            		"Database server name1": "output.database.windows.net",
-				            "Database name1": "outputDatabase",
-		            		"Server user account name1": "outputUser",
-		            		"Server user account password1": "outputPassword",
-			           		"Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
-		    		        "Data table name": "BikeBuyerPredicted" 
-		          		}  
-		        	}
-		      	}
-	    	],
-
-			"start": "2015-02-13T00:00:00Z",
-        	"end": "2015-02-14T00:00:00Z"
-		}
+	  "name": "MLWithSqlReaderSqlWriter",
+	  "properties": {
+	    "description": "Azure ML model with sql azure reader/writer",
+	    "activities": [
+	      {
+	        "name": "MLSqlReaderSqlWriterActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "test",
+	        "inputs": [
+	          {
+	            "name": "MLSqlInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "MLSqlOutput"
+	          }
+	        ],
+	        "linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        },
+	        "typeProperties": {
+	          "webServiceParameters": {
+	            "Database server name1": "output.database.windows.net",
+	            "Database name1": "outputDatabase",
+	            "Server user account name1": "outputUser",
+	            "Server user account password1": "outputPassword",
+	            "Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
+	            "Data table name": "BikeBuyerPredicted"
+	          }
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
 	}
  
 No exemplo JSON acima:
@@ -300,4 +327,4 @@ Artigo | Descrição
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

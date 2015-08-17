@@ -186,7 +186,7 @@ Retorna o índice no atributo com vários valores em que a cadeia de caracteres 
 
 **Exemplo**<br> `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`<br> `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Ambos os exemplos retornam "\*Olá mundo!\*"
+Ambos os exemplos retornam "*Hello world!*"
  
  
 
@@ -202,7 +202,7 @@ Ambos os exemplos retornam "\*Olá mundo!\*"
  
 **Comentários:**<br> a diferença entre essa função e ConvertFromBase64(,UTF8) é que o resultado é amigável para o atributo DN.<br> Esse formato é usado pelo Active Directory do Azure como DN.
  
-**Exemplo:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br> retorna "\*Olá mundo!\*"
+**Exemplo:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br> retorna "*Hello world!*"
  
  
 
@@ -456,7 +456,7 @@ Ambos os exemplos retornam "\*Olá mundo!\*"
 
 **Comentários:** <br> retorna a posição em que a subcadeia de caracteres foi encontrada ou 0 se ela não for encontrada.
 
-**Exemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> retorna 7
+**Exemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> retorna 7.
  
  
 
@@ -641,7 +641,7 @@ Retorna um valor nulo se o índice está fora dos limites.
  
 **Sintaxe:** <br> `str LCase(str value)`
  
-**Exemplo:** <br> `LCase(“TeSt”)` <br> retorna “teste”.
+**Exemplo:** <br> `LCase(“TeSt”)` <br> retorna “Test”.
  
  
 
@@ -676,7 +676,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
  
 **Sintaxe:** <br> `num Len(str value)`
  
-**Exemplo:** <br> `Len(“John Doe”)` <br> retorna 8
+**Exemplo:** <br> `Len(“John Doe”)` <br> retorna 8.
  
 
 
@@ -688,7 +688,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
  
 **Sintaxe:** <br> `str LTrim(str value)`
  
-**Exemplo:** <br> `LTrim(“ Test ”)` <br> retorna “Teste”
+**Exemplo:** <br> `LTrim(“ Test ”)` <br> retorna “Test”
  
  
 
@@ -742,7 +742,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 **Sintaxe:** <br> `num NumFromDate(dt value)`
  
 
-**Exemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> retorna 129699324000000000
+**Exemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> retorna 129699324000000000.
  
  
 
@@ -808,7 +808,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
  
 **Sintaxe:** <br> `String PCase(string)`
  
-**Exemplo:** <br> `PCase(“TEsT”)` <br> retorna “Teste”.
+**Exemplo:** <br> `PCase(“TEsT”)` <br> retorna “Test”.
  
  
 
@@ -932,7 +932,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
  
 **Sintaxe:** <br> `str RTrim(str value)`
 
-**Exemplo:** <br> `RTrim(“ Test ”)` <br> retorna “Teste”.
+**Exemplo:** <br> `RTrim(“ Test ”)` <br> retorna “Test”.
 
 
 
@@ -1006,7 +1006,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
  
 **Sintaxe:** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
  
-**Exemplo:** <br> `Trim(“ Test ”)` <br> retorna “Teste”.
+**Exemplo:** <br> `Trim(“ Test ”)` <br> retorna “Test”.
 
 `Trim([proxyAddresses])` <br> Remove espaços à direita e à esquerda para cada valor no atributo proxyAddress.
 
@@ -1020,7 +1020,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** <br> `str UCase(str string)`
  
-**Exemplo:** <br> `UCase(“TeSt”)` <br> retorna “TESTE”.
+**Exemplo:** <br> `UCase(“TeSt”)` <br> retorna “TEST”.
  
  
 
@@ -1058,4 +1058,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

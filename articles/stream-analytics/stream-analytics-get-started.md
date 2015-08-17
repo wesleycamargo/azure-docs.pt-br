@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introdução à Stream Analytics: detecção de fraudes em tempo real | Microsoft Azure"
 	description="Aprenda a criar uma solução para detecção de fraudes em tempo real com a Stream Analytics. Use um hub de eventos para o processamento de eventos em tempo real."
-	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok" />
 
 
@@ -258,4 +257,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

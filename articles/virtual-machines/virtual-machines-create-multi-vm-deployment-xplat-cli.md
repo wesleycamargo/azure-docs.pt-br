@@ -24,7 +24,7 @@ A imagem a seguir explica qual será a aparência de sua implantação após a c
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-O script cria uma máquina virtual (**servervm**) no serviço de nuvem **servercs** com dois discos de dados anexados e duas VMs (**clientvm1, clientvm2**) no serviço de nuvem **workercs**. Os serviços de nuvem são colocados na VNET **samplevnet**. O serviço de nuvem **servercs** também tem um ponto de extremidade configurado para conectividade externa.
+O script cria uma VM (**servervm**) no serviço de nuvem **servercs** com dois discos de dados anexados e duas VMs (**clientvm1, clientvm2**) no serviço de nuvem **workercs**. Os serviços de nuvem são colocados na VNET **samplevnet**. O serviço de nuvem **servercs** também tem um ponto de extremidade configurado para conectividade externa.
 
 ## Script CLI para que isso aconteça
 O código para configurar é relativamente simples:
@@ -32,9 +32,9 @@ O código para configurar é relativamente simples:
 >[AZURE.NOTE]Você provavelmente precisará alterar o servercs de nomes do serviço de nuvem e workercs para que os nomes do serviço de nuvem seja exclusivos
 
     azure network vnet create samplevnet -l "West US"
-    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-br-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
     azure vm endpoint create servervm 443 443 -n https -o tcp
@@ -67,4 +67,4 @@ Embora você possa encontrar mais informações usando a opção -help em qualqu
 * [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

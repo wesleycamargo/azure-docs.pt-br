@@ -393,4 +393,4 @@ Nesta seção, você criará um novo atributo de autorização personalizado que
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

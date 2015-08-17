@@ -208,7 +208,7 @@ Nesta seção, você usa a <a href="http://www.scala-sbt.org/0.13/docs/index.htm
 		sbt package
 
 
-	Depois que o aplicativo for compilado, você verá um arquivo **simpleapp_2.10-1.0.jar** criado no diretório **\\target\\scala-2.10** contida na pasta raiz SimpleScalaApp.
+	Depois que o aplicativo for compilado, você verá um arquivo **simpleapp\_2.10-1.0.jar** criado no diretório **\\target\\scala-2.10** contida na pasta raiz SimpleScalaApp.
 
 
 #### Executar o trabalho no cluster
@@ -429,4 +429,4 @@ Forneça um nome de cluster e pressione ENTER para provisionar um cluster com o 
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

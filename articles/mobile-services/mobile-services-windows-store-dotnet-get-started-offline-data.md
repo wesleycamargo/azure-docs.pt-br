@@ -24,7 +24,7 @@ Este tutorial mostra como adicionar suporte offline para um aplicativo Universal
 
 Se você preferir assistir a um vídeo, o clipe à direita segue as mesmas etapas deste tutorial.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 Neste tutorial, você atualizará o projeto de aplicativo Universal desde o tutorial da [Introdução aos Serviços Móveis] para dar suporte aos recursos offline dos Serviços Móveis do Azure. Em seguida, você adicionará dados em um cenário offline desconectado, sincronizará esses itens ao banco de dados online e, em seguida, fará logon no Portal de Gerenciamento do Azure para exibir as alterações de dados feitas durante a execução do aplicativo.
 
@@ -284,4 +284,4 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

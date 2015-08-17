@@ -71,4 +71,4 @@ O processo de implantação pode ser dividido em duas etapas: exportação e imp
 ##Alternativas
 Também é possível usar o utilitário de linha de comando sqlpackage.exe para implantar o banco de dados ou exportar e importar um BACPAC. Sqlpackage.exe usa a mesma tecnologia DAC que o SSMS. Portanto, o resultado é o mesmo. Para obter mais informações, consulte [SqlPackage.exe no MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

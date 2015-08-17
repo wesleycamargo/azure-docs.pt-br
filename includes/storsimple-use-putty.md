@@ -29,4 +29,4 @@
 7. Clique em **Abrir** para iniciar uma sessão serial.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

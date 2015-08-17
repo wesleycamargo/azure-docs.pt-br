@@ -77,4 +77,4 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 [Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

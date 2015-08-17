@@ -82,7 +82,7 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 
 
 2. Expanda
-3. *Serviços de Dados*, expanda *Serviços de Recuperação* e clique em *Cofre de Recuperação de Site*. \*
+3. *Serviços de Dados*, expanda *Serviços de Recuperação* e clique em *Cofre de Recuperação de Site*. *
 3. Clique em *Criar Novo* e, em seguida, clique em *Criação Rápida*.
 
 
@@ -128,7 +128,7 @@ Após o Provedor ser instalado, continue com a configuração para registrar o s
 
 5. Em **Conexão de Internet**, especifique como o Provedor em execução no servidor VMM se conecta à Internet. Selecione *Usar configurações de proxy padrão do sistema* para usar as configurações de conexão com a Internet definidas no servidor.
 
-	![Configurações da Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Se quiser usar um proxy personalizado, configure-o antes de instalar o provedor. Quando você define as configurações personalizadas de proxy, um teste é executado para verificar a conexão proxy. -Se você usar um proxy personalizado, ou o proxy padrão exigir autenticação, será necessário inserir detalhes do proxy, incluindo o endereço do proxy e a porta. - As urls a seguir devem estar acessíveis do servidor VMM e dos hosts Hyper-v - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IPs do Datacenter do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que incluir em uma lista de intervalos IP permitidos da região do Azure que você planeja usar e do Oeste dos EUA.
+	![Configurações da Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png) - Se quiser usar um proxy personalizado, configure-o antes de instalar o provedor. Quando você define as configurações personalizadas de proxy, um teste é executado para verificar a conexão proxy. -Se você usar um proxy personalizado, ou o proxy padrão exigir autenticação, será necessário inserir detalhes do proxy, incluindo o endereço do proxy e a porta. - As urls a seguir devem estar acessíveis do servidor VMM e dos hosts Hyper-v - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita os endereços IP descritos em [Intervalos de IPs do Datacenter do Azure](http://go.microsoft.com/fwlink/?LinkId=511094) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho Configurações, expanda Segurança, clique em contas Executar como e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
@@ -150,7 +150,7 @@ Após o Provedor ser instalado, continue com a configuração para registrar o s
 
 ## Etapa 4: criar uma conta de armazenamento do Azure
 
-Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma conta de armazenamento do Azure**. A conta deve ter a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
+Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma conta de Armazenamento do Azure**. A conta deve ter a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço de Recuperação de Site do Azure e ser associada à mesma assinatura.
 
 
 ![Conta de armazenamento](./media/site-recovery-vmm-to-azure/ASRE2AVMM_StorageAgent.png)
@@ -159,7 +159,7 @@ Se não tiver uma conta de armazenamento do Azure, clique em **Adicionar uma con
 
 Instale o Agente de Serviços de Recuperação do Azure em cada servidor de host Hyper-V localizado nas nuvens VMM que você deseja proteger.
 
-1. Na página Início Rápido, clique em <b>Baixar o Agente de Serviços de Recuperação de Site do Azure e instalar nos hosts</b> para obter a versão mais recente do arquivo de instalação do agente.
+1. Na página Início Rápido, clique em <b>Baixar o Agente dos Serviços Azure Site Recovery e instalar nos hosts</b> para obter a versão mais recente do arquivo de instalação do agente.
 
 	![Instalar o Agente de Serviços de Recuperação](./media/site-recovery-vmm-to-azure/ASRE2AVMM_InstallHyperVAgent.png)
 
@@ -181,7 +181,7 @@ Após o registro do servidor VMM, você poderá definir as configurações de pr
 2. Na guia **Itens Protegidos**, clique na nuvem que você deseja configurar e vá até a guia **Configuração**.
 3. Em <b>Destino</b>, selecione <b>Microsoft Azure</b>.
 4. Em <b>Conta de Armazenamento</b>, selecione a conta de armazenamento do Azure que você deseja utilizar para replicar suas máquinas virtuais.
-5. Defina <b>Criptografar dados armazenados</b> como <b>Desligado</b>. Essa configuração especifica que os dados podem ser criptografados e replicados entre o site local e o Azure.
+5. Defina <b>Criptografar dados armazenados</b> como <b>Desativado</b>. Essa configuração especifica que os dados podem ser criptografados e replicados entre o site local e o Azure.
 6. Em <b>Copiar frequência</b>, deixe a configuração padrão. Esse valor especifica a frequência com que dados devem ser sincronizados entre os locais de origem e de destino.
 7. Em <b>Manter pontos de recuperação para</b>, mantenha a configuração padrão. Com um valor padrão de zero, apenas o ponto de recuperação mais recente para uma máquina virtual primária é armazenado em um servidor de host de réplica.
 8. Em <b>Frequência dos instantâneos consistentes de aplicativo</b>, mantenha a configuração padrão. Esse valor especifica a frequência de criação de instantâneos. Os snapshots usam o Volume Shadow Copy Service (VSS) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo é obtido. Se você definir um valor, verifique se ele é menor do que o número dos pontos de recuperação adicionais que você configurar.
@@ -199,7 +199,7 @@ Antes de começar o mapeamento de rede, verifique se as máquinas virtuais no se
 1. Na página Início Rápido, clique em **Mapear redes**.
 2. Na guia **Redes**, em **Local de origem**, selecione o servidor VMM de origem. Em **Local de destino**, selecione Azure.
 3. Em redes de **Origem**, é exibida uma lista de redes VM associadas ao servidor VMM. Em redes de **Destino**, são exibidas as redes do Azure associadas à assinatura.
-4. Selecione a rede VM de origem e clique em **Mapear**.
+4. Selecione a rede de VM de origem e clique em **Mapear**.
 5. Na página **Selecionar uma Rede de Destino**, selecione a rede de destino do Azure que você deseja usar.
 6. Clique na marca de seleção para concluir o processo de mapeamento.
 
@@ -213,7 +213,7 @@ Observe que, se a rede de destino tiver várias sub-redes, e uma dessas sub-rede
 
 Depois de redes, servidores e nuvens estarem configurados corretamente, você pode ativar a proteção para máquinas virtuais na nuvem. Observe o seguinte:
 
-- As máquinas virtuais devem cumprir os requisitos do Azure. Confira-os em <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Pré-requisitos e suporte</a> na guia Planejamento.
+- As máquinas virtuais devem cumprir os requisitos do Azure. Confira-os em <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Pré-requisitos e suporte</a> no Guia de planejamento.
 - Para habilitar a proteção, o sistema operacional e as propriedades do disco do sistema operacional devem estar definidos para as máquinas virtuais. Ao criar uma máquina virtual no VMM usando um modelo de máquina virtual, é possível definir a propriedade. Você também pode definir essas propriedades para máquinas virtuais existentes nas guias **Geral** e **Configuração de Hardware** nas propriedades da máquina virtual. Se você não definir essas propriedades no VMM, poderá configurá-las no portal de Recuperação de Site do Azure.
 
 ![Criar máquina virtual](./media/site-recovery-vmm-to-azure/ASRE2AVMM_EnableNew.png)
@@ -315,10 +315,10 @@ Para executar um failover de teste, faça o seguinte:
 
 ##<a id="next" name="next" href="#next"></a>Próximas etapas
 <UL>
-<LI>Para planejar e implantar o Azure Site Recovery em um ambiente de produção completo, confira <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guia de planejamento para o Azure Site Recovery</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guia de implantação para o Azure Site Recovery</a>.</LI>
+<LI>Para planejar e implantar o Azure Site Recovery em um ambiente de produção completo, consulte o <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guia de planejamento para o Azure Site Recovery</a> e o <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guia de implantação para o Azure Site Recovery</a>.</LI>
 
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -71,7 +71,7 @@ No entanto, o modelo de novo projeto de aplicativo de API do desabilita a págin
 
 **Observação:** se você implantar o aplicativo de API como *público anônimo* e com a interface do usuário do Swagger habilitada, qualquer pessoa poderá usar a interface do usuário do Swagger para descobrir e chamar suas APIs.
 
-1. Abra o arquivo *App_Start/SwaggerConfig.cs*, e pesquise por **EnableSwaggerUI**:
+1. Abra o arquivo *App\_Start/SwaggerConfig.cs*, e pesquise por **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@ Para exibir a página de teste da API, execute as etapas a seguir.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

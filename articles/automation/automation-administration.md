@@ -60,4 +60,4 @@ Não é possível recuperar o valor de variáveis criptografadas nem o campo de 
 
 Você não pode exportar certificados da Automação do Azure. Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

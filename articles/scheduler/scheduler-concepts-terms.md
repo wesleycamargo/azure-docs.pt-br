@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # Conceitos, terminologia e hierarquia de entidades do Agendador
@@ -183,9 +183,9 @@ O status do trabalho inclui o tempo de execução anterior (se houver), a hora d
 
 Se um trabalho do Agendador falhar, é possível especificar uma política de repetição para determinar se e como a ação é repetida. Isso é determinado pelo objeto **retryType** – é definido como **nenhum** se não houver nenhuma política de repetição, conforme mostrado acima. Defina-o como **fixo** se houver uma política de repetição.
 
-Para definir uma política de repetição, duas configurações adicionais de valores podem ser especificadas: um intervalo de repetição (* * retryInterval * *) e o número de tentativas (* * retryCount * *).
+Para definir uma política de nova tentativa, configurações adicionais de dois valores podem ser especificadas: um intervalo de nova tentativa (**retryInterval**) e o número de tentativas (**retryCount**).
 
-Intervalo de repetição, especificado com o objeto **retryInterval**, que é o intervalo entre as tentativas. O valor padrão é 1 minuto, seu valor mínimo é 1 minuto e o máximo é 18 meses. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount**; é o número de vezes que uma nova tentativa será feita. O valor padrão é 5 e o valor máximo é 20. Ambos o **retryInterval** e o **retryCount** são opcionais – eles recebem seus valores padrão se **retryType** é definido como **fixo** e nenhum valor é especificado explicitamente.
+Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é o intervalo entre as tentativas. O valor padrão é 1 minuto, seu valor mínimo é 1 minuto e o máximo é 18 meses. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount**; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 5 e o valor máximo é 20. Ambos os valores **retryInterval** e o **retryCount** são opcionais. Eles recebem seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
 
 ## Consulte também
 
@@ -208,4 +208,4 @@ Intervalo de repetição, especificado com o objeto **retryInterval**, que é o 
  [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um novo gateway
@@ -42,6 +42,14 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
 
+### hostingPlanName
+
+O nome do Plano de Serviço do Aplicativo.
+
+    "hostingPlanName": {
+      "type": "string"
+    }
+
 ### hostingPlanSettings
 
 As configurações para o novo plano de hospedagem.
@@ -65,7 +73,7 @@ Esse modelo define uma variável que é usada ao implantar os recursos.
       "packageId": "Microsoft.ApiApp"
     }
     
-O valor é usado abaixo como **variables('packageId')**.
+O valor é usado abaixo como **variables('packageId')**. Ele contém a ID do pacote do NuGet para aplicativos da API.
 
 ## Recursos a implantar
 
@@ -91,7 +99,7 @@ Cria o plano de hospedagem de serviço para o aplicativo de API.
 
 Cria um aplicativo Web que hospeda o gateway.
 
-Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. Um link é definido entre o aplicativo Web que hospeda e o gateway. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
+Observe que o parâmetro **kind** (tipo) é definido como **gateway**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. Um link é definido entre o aplicativo Web que hospeda e o gateway. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API. O **serverFarmId**contém o nome do plano de serviço do aplicativo que você forneceu no parâmetro **hostingPlanName**.
 
 
     {
@@ -178,7 +186,7 @@ O aplicativo Web responsável pela hospedagem é definido como uma propriedade d
 
 Cria um aplicativo Web que hospeda o aplicativo de API.
 
-Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um aplicativo de API. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
+Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um aplicativo de API. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API. O **serverFarmId**contém o nome do plano de serviço do aplicativo que você forneceu no parâmetro **hostingPlanName**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -300,4 +308,4 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

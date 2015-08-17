@@ -315,7 +315,7 @@ Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
    >[AZURE.NOTE]Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite um texto significativo, como _Uma nova tarefa de Serviços Móveis_ e clique no ícone de adição (\*\*+\*\*).
+2. No aplicativo, digite um texto significativo, como por exemplo _Uma nova tarefa de Serviços Móveis_ e clique no ícone de adição (**+**).
 
     ![][24]
 
@@ -399,4 +399,4 @@ Este tutorial foi concluído com êxito.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

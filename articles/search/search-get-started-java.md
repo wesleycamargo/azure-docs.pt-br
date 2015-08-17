@@ -232,4 +232,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

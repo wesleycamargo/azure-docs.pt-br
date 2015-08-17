@@ -42,7 +42,7 @@ Para criar o certificado `.cer`, execute isto:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obter mais informações sobre certificados do Azure, consulte [Gerenciando certificados no Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal], e anotar o local onde você salvou o arquivo `.pem`.
 
@@ -64,7 +64,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+O comando criará o arquivo `.cer` e o instalará no repositório de certificados **Pessoal**. Para obter mais detalhes, consulte [Criar e carregar um certificado de gerenciamento para Azure (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
 
 Depois que você tiver criado o certificado, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [portal de gerenciamento][management-portal].
 
@@ -93,7 +93,7 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
 	for location in result:
 		print(location.name)
 
-Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local válido. O método **list_Locations** sempre retornará uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
+Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer um local válido. O método **list\_Locations** sempre retornará uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
 
 - Europa Ocidental
 - Norte da Europa
@@ -126,7 +126,7 @@ Quando você cria um aplicativo e o executa no Azure, o código e a configuraç�
 
 	sms.create_hosted_service(name, label, desc, location)
 
-Você pode listar todos os serviços hospedados para seu assinatura com o método **list_hosted_services**.
+Você pode listar todos os serviços hospedados para seu assinatura com o método **list\_hosted\_services**.
 
 	result = sms.list_hosted_services()
 
@@ -136,7 +136,7 @@ Você pode listar todos os serviços hospedados para seu assinatura com o métod
 		print('Location: ' + hosted_service.hosted_service_properties.location)
 		print('')
 
-Se desejar obter informações sobre um determinado serviço hospedado, você pode fazê-lo passando o nome do serviço hospedado para o método **get_hosted_service_properties**:
+Se desejar obter informações sobre um determinado serviço hospedado, você pode fazê-lo passando o nome do serviço hospedado para o método **get\_hosted\_service\_properties**:
 
 	hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -144,11 +144,11 @@ Se desejar obter informações sobre um determinado serviço hospedado, você po
 	print('Management URL: ' + hosted_service.url)
 	print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Após ter criado um serviço de nuvem, você pode implantar seu código ao serviço com o método **create_deployment**.
+Após ter criado um serviço de nuvem, você pode implantar seu código ao serviço com o método **create\_deployment**.
 
 ## <a name="DeleteCloudService"> </a>Como excluir um serviço de nuvem
 
-Você pode excluir um serviço de nuvem passando o nome do serviço para o método **delete_hosted_service**:
+Você pode excluir um serviço de nuvem passando o nome do serviço para o método **delete\_hosted\_service**:
 
 	sms.delete_hosted_service('myhostedservice')
 
@@ -156,7 +156,7 @@ Observe que para poder excluir um serviço, todas as implantações do serviço 
 
 ## <a name="DeleteDeployment"> </a>Como excluir uma implantação
 
-Para excluir uma implantação, use o método **delete_deployment**. O exemplo a seguir mostra como excluir uma implantação chamada `v1`.
+Para excluir uma implantação, use o método **delete\_deployment**. O exemplo a seguir mostra como excluir uma implantação chamada `v1`.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -184,9 +184,9 @@ Um [serviço de armazenamento] fornece acesso a [Blobs][azure-blobs], [Tabelas][
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Observe no exemplo acima, que o status da operação **create_storage_configuration** pode ser recuperada passando o resultado retornado pelo **create_storage_configuration** ao método **get_operation_status**.
+Observe no exemplo acima, que o status da operação **create\_storage\_configuration** pode ser recuperada passando o resultado retornado pelo **create\_storage\_configuration** ao método **get\_operation\_status**.
 
-Você pode listar suas contas de armazenamento e suas propriedades com o método **list_storage_services**:
+Você pode listar suas contas de armazenamento e suas propriedades com o método **list\_storage\_services**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -201,7 +201,7 @@ Você pode listar suas contas de armazenamento e suas propriedades com o método
 
 ## <a name="DeleteStorageService"> </a>Como excluir um serviço de armazenamento
 
-Você pode excluir um serviço de armazenamento passando o nome do serviço para o método **delete_storage_account**: A exclusão de um serviço de armazenamento excluirá todos os dados armazenados no serviço (blobs, tabelas e filas).
+Você pode excluir um serviço de armazenamento passando o nome do serviço para o método **delete\_storage\_account**: A exclusão de um serviço de armazenamento excluirá todos os dados armazenados no serviço (blobs, tabelas e filas).
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -212,7 +212,7 @@ Você pode excluir um serviço de armazenamento passando o nome do serviço para
 
 ## <a name="ListOperatingSystems"> </a>Como listar os sistemas operacionais disponíveis
 
-Para listar os sistemas operacionais que estão disponíveis para hospedar serviços, use o método **list_operating_systems**:
+Para listar os sistemas operacionais que estão disponíveis para hospedar serviços, use o método **list\_operating\_systems**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -226,7 +226,7 @@ Para listar os sistemas operacionais que estão disponíveis para hospedar servi
 		print('Family: ' + os.family_label)
 		print('Active: ' + str(os.is_active))
 
-Como alternativa, você pode usar o método **list_operating_system_families** que agrupa os sistemas operacionais por família:
+Como alternativa, você pode usar o método **list\_operating\_system\_families** que agrupa os sistemas operacionais por família:
 
 	result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ Como alternativa, você pode usar o método **list_operating_system_families** q
 
 ## <a name="CreateVMImage"> </a>Como criar uma imagem do sistema operacional
 
-Para adicionar uma imagem do sistema operacional ao repositório de imagens, use o método **add_os_image**:
+Para adicionar uma imagem do sistema operacional ao repositório de imagens, use o método **add\_os\_image**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Para adicionar uma imagem do sistema operacional ao repositório de imagens, use
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Para listar as imagens do sistema operacional estão disponíveis, use o método **list_os_images**. Isso inclui todas as imagens da plataforma e imagens do usuário:
+Para listar as imagens do sistema operacional estão disponíveis, use o método **list\_os\_images**. Isso inclui todas as imagens da plataforma e imagens do usuário:
 
 	result = sms.list_os_images()
 
@@ -273,7 +273,7 @@ Para listar as imagens do sistema operacional estão disponíveis, use o método
 
 ## <a name="DeleteVMImage"> </a>Como excluir uma imagem do sistema operacional
 
-Para excluir uma imagem de usuário, use o método **delete_os_image**.
+Para excluir uma imagem de usuário, use o método **delete\_os\_image**.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -287,7 +287,7 @@ Para excluir uma imagem de usuário, use o método **delete_os_image**.
 
 ## <a name="CreateVM"> </a>Como criar uma máquina virtual
 
-Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nuvem](#CreateCloudService). Em seguida, criar a implantação da máquina virtual usando o método **create_virtual_machine_deployment**:
+Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nuvem](#CreateCloudService). Em seguida, criar a implantação da máquina virtual usando o método **create\_virtual\_machine\_deployment**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -303,7 +303,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-pt-br-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -326,7 +326,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
 
 ## <a name="DeleteVM"> </a>Como excluir uma máquina virtual
 
-Para excluir uma máquina virtual, primeiro você exclui a implantação usando o método **delete_deployment**:
+Para excluir uma máquina virtual, primeiro você exclui a implantação usando o método **delete\_deployment**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -336,13 +336,13 @@ Para excluir uma máquina virtual, primeiro você exclui a implantação usando 
 	sms.delete_deployment(service_name='myvm',
 		deployment_name='myvm')
 
-O serviço de nuvem pode ser excluído usando o método **delete_hosted_service**:
+O serviço de nuvem pode ser excluído usando o método **delete\_hosted\_service**:
 
 	sms.delete_hosted_service(service_name='myvm')
 
 ##Como criar uma máquina virtual por meio de uma imagem de máquina virtual capturada
 
-Para capturar uma imagem de VM, você primeiro chama o método **capture_vm_image**:
+Para capturar uma imagem de VM, você primeiro chama o método **capture\_vm\_image**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -369,11 +369,11 @@ Para capturar uma imagem de VM, você primeiro chama o método **capture_vm_imag
 			image
 		)
 
-Em seguida, para certificar-se de que você capturou a imagem com sucesso, use a api **list_vm_images** e garanta que a imagem seja exibida nos resultados:
+Em seguida, para certificar-se de que você capturou a imagem com sucesso, use a api **list\_vm\_images** e garanta que a imagem seja exibida nos resultados:
 
 	images = sms.list_vm_images()
 
-Para criar finalmente a máquina virtual usando a imagem capturada, use o método **create_virtual_machine_deployment** como antes, mas desta vez passe vm_image_name
+Para criar finalmente a máquina virtual usando a imagem capturada, use o método **create\_virtual\_machine\_deployment** como antes, mas desta vez passe vm\_image\_name
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -445,4 +445,4 @@ Agora que você aprendeu os fundamentos do gerenciamento de serviços, você pod
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

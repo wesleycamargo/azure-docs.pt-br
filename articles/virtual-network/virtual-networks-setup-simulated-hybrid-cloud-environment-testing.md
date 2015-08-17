@@ -79,7 +79,7 @@ Primeiro, crie uma nova rede virtual chamada TestVNET.
 
 Em seguida, use as instruções em [Como instalar e configurar o PowerShell do Azure para instalar o PowerShell do Azure no computador local](../install-configure-powershell.md).
 
-Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como**TestVNET-**\*UniqueSequence\*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de **TestVNET-Tailspin**.
+Em seguida, crie um novo serviço de nuvem para a rede virtual TestVNET. Você deve escolher um nome exclusivo. Por exemplo, você poderia nomeá-lo como **TestVNET-***UniqueSequence*, em que *UniqueSequence* é uma abreviação de sua organização. Por exemplo, se a sua organização se chamasse Tailspin Toys, você poderia chamar o serviço de nuvem de **TestVNET-Tailspin**.
 
 Você pode testar a exclusividade do nome com este comando do PowerShell do Azure em seu computador local.
 
@@ -171,7 +171,7 @@ Em seguida, faça logon na nova máquina virtual DC2.
 3.	Quando solicitado a abrir DC2.rdp, clique em **Abrir**.
 4.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota, clique em **Conectar**.
 5.	Quando solicitado a fornecer credenciais, use estas:
-- Nome: **DC2\\**[Nome da conta de administrador local]
+- Nome: **DC2\**[Nome da conta de administrador local]
 - Senha: [senha da conta de administrador local]
 6.	Quando receber uma caixa de mensagem de Conexão de Área de Trabalho Remota referindo-se aos certificados, clique em **Sim**.
 
@@ -273,4 +273,4 @@ Em seguida, configure a chave pré-compartilhada para que ambos os gateways usem
 Em seguida, na página Rede do Portal de Gerenciamento do Azure, clique na rede virtual **TestLab** e, em seguida, clique em **Conectar** na barra de tarefas. Aguarde até que a rede virtual TestLab mostre um estado conectado à rede local TestVNET.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

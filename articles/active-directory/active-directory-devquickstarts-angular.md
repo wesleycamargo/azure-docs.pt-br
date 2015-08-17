@@ -112,7 +112,7 @@ adalProvider.init(
 ...
 ```
 
-Agora você tem um aplicativo de página única seguro com a capacidade de fazer logon de usuários e emitir solicitações protegidas de token de portador para sua API de back-end. Quando um usuário clica no link `TodoList`, a adal.js o redireciona automaticamente ao AD do Azure para se conectar, se necessário. Além disso, a adal.js automaticamente anexa um access_token para todas as solicitações ajax que são enviadas ao back-end do aplicativo. O disposto acima é o mínimo necessário para compilar um SPA com adal.js, mas há alguns outros recursos que são úteis em SPAs:
+Agora você tem um aplicativo de página única seguro com a capacidade de fazer logon de usuários e emitir solicitações protegidas de token de portador para sua API de back-end. Quando um usuário clica no link `TodoList`, a adal.js o redireciona automaticamente ao AD do Azure para se conectar, se necessário. Além disso, a adal.js automaticamente anexa um access\_token para todas as solicitações ajax que são enviadas ao back-end do aplicativo. O disposto acima é o mínimo necessário para compilar um SPA com adal.js, mas há alguns outros recursos que são úteis em SPAs:
 
 - Para emitir explicitamente solicitações de entrada e saída, você pode definir funções em seus controladores que invocam a adal.js. Em `App/Scripts/homeCtrl.js`:
 
@@ -152,4 +152,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

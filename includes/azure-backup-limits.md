@@ -1,3 +1,4 @@
+
 Os limites a seguir se aplicam ao Backup do Azure.
 
 | Identificador de limite | Limite padrão |
@@ -12,4 +13,4 @@ Os limites a seguir se aplicam ao Backup do Azure.
 - <sup>1</sup>O limite de 1,65 TB não se aplica ao backup do IaaS VM.
 - <sup>2</sup>Você pode usar qualquer permutação para chegar a um número que seja menor do que 366.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

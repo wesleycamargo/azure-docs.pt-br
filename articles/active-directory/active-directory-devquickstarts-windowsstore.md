@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+- Agora localize o método `Search(...)`, que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido. Mas para consultar a Graph API, você precisa incluir um access\_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -112,7 +112,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 - Quando o aplicativo solicita um token chamando `AcquireTokenAsync(...)`, a ADAL tentará retornar um token sem pedir as credenciais ao usuário. Se a ADAL determina que o usuário precisa entrar para obter um token, exibirá uma caixa de diálogo de logon, coletar as credenciais do usuário e retornar um token após uma autenticação bem-sucedida. Se a ADAL não puder retornar um token por qualquer motivo, o status `AuthenticationResult` será um erro.
 
-- Agora é hora de usar o access_token que você acabou de adquirir. Além disso, no método `Search(...)`, anexe o token para a solicitação GET de Graph API no cabeçalho Autorização:
+- Agora é hora de usar o access\_token que você acabou de adquirir. Além disso, no método `Search(...)`, anexe o token para a solicitação GET de Graph API no cabeçalho Autorização:
 
 ```C#
 // Add the access token to the Authorization Header of the call to the Graph API
@@ -148,4 +148,4 @@ Para referência, o exemplo concluído (sem seus valores de configuração) é f
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

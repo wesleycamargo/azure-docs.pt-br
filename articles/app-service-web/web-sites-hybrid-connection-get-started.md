@@ -30,7 +30,7 @@ Você pode conectar um aplicativo Web no Serviço de Aplicativo do Azure a qualq
 - O computador no qual você instala o agente do Hybrid Connection Manager local, descrito posteriormente neste artigo:
 
 	- Precisa ser capaz de conectar-se ao Azure pela porta 5671
-	- Precisa ser capaz de acessar o *nome_de_host*:*número_de_porta* de seu recurso local. 
+	- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
 
 > [AZURE.NOTE]As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
 
@@ -207,4 +207,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, você criará 
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

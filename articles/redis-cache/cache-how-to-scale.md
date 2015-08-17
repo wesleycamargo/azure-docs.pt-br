@@ -63,7 +63,7 @@ Além de dimensionar sua instância de Cache Redis do Azure no portal do Azure, 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx#bk_portal
+        // https://msdn.microsoft.com/pt-br/library/azure/dn790557.aspx#bk_portal
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -138,4 +138,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

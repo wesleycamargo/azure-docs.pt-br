@@ -562,7 +562,7 @@ O layout é definido por vários trechos de código XML. Com base em um layout e
     </ListView>
 	
 
-No código acima, o atributo *listitem* especifica a id do layout para uma linha individual na lista. Este é o código, que especifica uma caixa de seleção e seu texto associado. Isso será instanciado uma vez para cada item da lista. Um layout mais complexo seria especificar campos adicionais na exibição. Este código está no arquivo *row_list_to_do.xml*.
+No código acima, o atributo *listitem* especifica a id do layout para uma linha individual na lista. Este é o código, que especifica uma caixa de seleção e seu texto associado. Isso será instanciado uma vez para cada item da lista. Um layout mais complexo seria especificar campos adicionais na exibição. Este código está no arquivo *row\_list\_to\_do.xml*.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -579,7 +579,7 @@ No código acima, o atributo *listitem* especifica a id do layout para uma linha
 
 ### <a name="adapter"></a>Como definir o adaptador
 	
-Como a fonte de dados da nossa exibição é uma matriz de *ToDoItem*, podemos criar uma subclasse do nosso adaptador de uma classe *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclasse produzirá uma exibição para cada *ToDoItem* usando o layout *row_list_to_do*.
+Como a fonte de dados da nossa exibição é uma matriz de *ToDoItem*, podemos criar uma subclasse do nosso adaptador de uma classe *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclasse produzirá uma exibição para cada *ToDoItem* usando o layout *row\_list\_to\_do*.
 
 No nosso código, definimos a seguinte classe que é uma extensão da classe *ArrayAdapter&lt;ToDoItem&gt;*:
 
@@ -928,4 +928,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Códigos de controle ASCII C0 e C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

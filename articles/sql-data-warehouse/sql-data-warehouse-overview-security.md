@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-A conta de administrador do servidor com a qual você está se conectando é um membro de db_owner, que tem autoridade para realizar qualquer tarefa no banco de dados. Salve essa conta para implantar atualizações de esquema e outras operações de gerenciamento. Use a conta "ApplicationUser" com permissões mais limitadas para se conectar do aplicativo ao banco de dados com os privilégios mínimos necessários para seu aplicativo.
+A conta de administrador do servidor com a qual você está se conectando é um membro de db\_owner, que tem autoridade para realizar qualquer tarefa no banco de dados. Salve essa conta para implantar atualizações de esquema e outras operações de gerenciamento. Use a conta "ApplicationUser" com permissões mais limitadas para se conectar do aplicativo ao banco de dados com os privilégios mínimos necessários para seu aplicativo.
 
-Há formas de limitar ainda mais o que um usuário pode fazer com o Banco de Dados SQL do Azure: - As [funções do banco de dados][], além de db_datareader e db_datawriter, podem ser usadas para criar contas de usuário de aplicativo com mais privilégios ou contas de gerenciamento com menos privilégios. - As [permissões][] granulares permitem controlar quais operações você pode realizar em colunas individuais, tabelas, exibições, procedimentos e outros objetos no banco de dados. - Os [procedimentos armazenados][] podem ser usados para limitar as ações que podem ser executadas no banco de dados.
+Há formas de limitar ainda mais o que um usuário pode fazer com o Banco de Dados SQL do Azure: - As [funções do banco de dados][], além de db\_datareader e db\_datawriter, podem ser usadas para criar contas de usuário de aplicativo com mais privilégios ou contas de gerenciamento com menos privilégios. - As [permissões][] granulares permitem controlar quais operações você pode realizar em colunas individuais, tabelas, exibições, procedimentos e outros objetos no banco de dados. - Os [procedimentos armazenados][] podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
 O gerenciamento de bancos de dados e servidores lógicos pelo Portal de Gerenciamento do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pela atribuições de função da sua conta de usuário. Para obter mais informações sobre esse tópico, consulte [Controle de acesso baseado em função no portal de Visualização do Azure][].
 
@@ -76,6 +76,6 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
 
 <!--Other Web references-->
-[Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
+[Controle de acesso baseado em função no portal de Visualização do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

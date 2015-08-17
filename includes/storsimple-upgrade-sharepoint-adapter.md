@@ -1,3 +1,4 @@
+
 ### Atualizar o SharePoint 2010 para SharePoint 2013 e instalar o Adaptador StorSimple para SharePoint
 
 >[AZURE.IMPORTANT]Todos os arquivos que foram movidos anteriormente para o armazenamento externo via RBS não estarão disponíveis até que a atualização seja concluída e o recurso RBS esteja habilitado novamente. Para limitar o impacto do usuário, execute qualquer atualização ou reinstalação durante uma janela de manutenção planejada.
@@ -33,4 +34,4 @@
  
 2. Instale o novo Adaptador StorSimple para SharePoint. O novo adaptador reconhecerá automaticamente os bancos de dados de conteúdo habilitados ou desabilitados para RBS anteriormente e usará as configurações anteriores.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

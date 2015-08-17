@@ -44,25 +44,24 @@ O castLabs e o AMS oferecem suporte ao formato de token JWT (JSON Web Token) usa
 
 A tabela a seguir descreve o token JWT no AMS.
 
-<table border="1">
-<tr><td>Emissor</td><td>Cadeia de caracteres do emissor do Secure Token Service (STS) escolhido</td></tr>
-<tr><td>Público-alvo</td><td>Cadeia de caracteres do público-alvo do STS usado</td></tr>
-<tr><td>Declarações</td><td>Um conjunto de declarações</td></tr>
-<tr><td>NotBefore</td><td>Validade inicial do token</td></tr>
-<tr><td>Expira</td><td>Validade final do token</td></tr>
-<tr><td>SigningCredentials</td><td>A chave que é compartilhada entre o servidor de licenças do PlayReady, servidor de licenças do castLabs e STS, pode ser simétrica ou assimétrica.</td></tr>
-</table>
+Emissor|Cadeia de caracteres do emissor do Secure Token Service (STS) escolhido
+---|---
+Público-alvo|Cadeia de caracteres do público-alvo do STS usado
+Declarações|Um conjunto de declarações
+NotBefore|Validade inicial do token
+Expira|Validade final do token
+SigningCredentials|A chave que é compartilhada entre o servidor de licenças do PlayReady, servidor de licenças do castLabs e STS, pode ser simétrica ou assimétrica.
 
 ###Token JWT no castLabs
 
 A tabela a seguir descreve o token JWT no castLabs.
 
-<table border="1">
-<tr><td>optData</td><td>Uma cadeia de caracteres JSON que contém informações sobre você. </td></tr>
-<tr><td>crt</td><td>Uma cadeia de caracteres JSON que contém informações sobre o ativo, suas informações de licença e seus direitos de reprodução.</td></tr>
-<tr><td>iat</td><td>A data e horário correntes na época.</td></tr>
-<tr><td>jti</td><td>Um identificador exclusivo sobre esse token (cada token pode ser usado apenas uma vez no sistema do castLabs).</td></tr>
-</table>
+Nome|Descrição
+---|---
+optData|Uma cadeia de caracteres JSON que contém informações sobre você. 
+crt|Uma cadeia de caracteres JSON que contém informações sobre o ativo, suas informações de licença e seus direitos de reprodução.
+iat|A data e horário correntes na época.
+jti|Um identificador exclusivo sobre esse token (cada token pode ser usado apenas uma vez no sistema do castLabs).
 
 ##Configuração da solução de exemplo 
 
@@ -114,4 +113,4 @@ Para reproduzir o vídeo protegido em HTML5 com o Chrome com o player castLabs, 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

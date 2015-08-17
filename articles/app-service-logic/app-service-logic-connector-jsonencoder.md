@@ -39,24 +39,10 @@ Siga as etapas em [Criando um aplicativo lógico]. O Codificador JSON do BizTalk
 
 	![Codificar e enviar configurado][6]
 
-<table>
-	<tr>
-		<th>Parâmetro</th>
-		<th>Tipo</th>
-		<th>Descrição do parâmetro</th>
-	</tr>
-	<tr>
-		<td>XML de entrada</td>
-		<td>objeto</td>
-		<td>Conteúdo do Xml de entrada</td>
-	</tr>
-	<tr>
-		<td>Remover Envelope externo</td>
-		<td>string</td>
-		<td>Sinalizador definido para remover o nó raiz do conteúdo Xml</td>
-	</tr>
-</table>
-
+Parâmetro|Tipo|Descrição do parâmetro
+---|---|---
+XML de entrada|objeto|Conteúdo do Xml de entrada
+Remover Envelope externo|string|Sinalizador definido para remover o nó raiz do conteúdo Xml
 
 A ação retorna uma representação json do conteúdo da entrada.
 
@@ -76,4 +62,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Criando um aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

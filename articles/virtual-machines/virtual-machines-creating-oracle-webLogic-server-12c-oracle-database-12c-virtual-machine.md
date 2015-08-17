@@ -1,17 +1,5 @@
-<properties 
-	pageTitle="Criação de uma máquina virtual Oracle WebLogic Server 12c e Oracle Database 12c no Azure" 
-	description="Veja um exemplo de como criar uma imagem do Oracle WebLogic Server 12c e do Oracle Database 12c em execução no Windows Server 2012 no Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" ms.author="bbenz" />
+<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="Criação de uma máquina virtual Oracle WebLogic Server 12c e Oracle Database 12c no Azure" description="Veja um exemplo de como criar uma imagem do Oracle WebLogic Server 12c e do Oracle Database 12c em execução no Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #Criar uma máquina virtual Oracle WebLogic Server 12c e Oracle Database 12c no Azure
 
@@ -66,4 +54,4 @@ Siga as instruções em [Criar uma máquina virtual Oracle WebLogic Server 12c n
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

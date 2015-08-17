@@ -86,7 +86,7 @@ Em seguida, você precisa criar uma nova tabela na qual armazenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda a pasta Models, abra o arquivo de contexto do modelo de dados (denominado *service\_name\*Context.cs) e adicione a seguinte propriedade que retorna um **DbSet** tipado:
+4. Expanda a pasta Models, abra o arquivo de contexto do modelo de dados (denominado *service\_name*Context.cs) e adicione a seguinte propriedade que retorna um **DbSet **tipado:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -213,7 +213,7 @@ Em seguida, você pode criar o trabalho agendado que acessa o Twitter e armazena
 		    }
 		}
 
-	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são *mobile&#95;service&#95;name\*Service e *mobile&#95;service&#95;name\*Context, respectivamente. 
+	No código acima, você deve substituir as cadeias de caracteres _todolistService_ e _todolistContext_ pelo namespace e DbContext do projeto baixado, que são *mobile&\#95;service&\#95;name*Service e *mobile&\#95;service&\#95;name*Context, respectivamente.
    	
 	No código acima, o método de substituição **ExecuteAsync** chama a API de consulta do Twitter usando as credenciais armazenadas para solicitar tweets recentes que contenham a hashtag `#mobileservices`. Respostas e tweets duplicados são removidos dos resultados antes de serem armazenados na tabela.
 
@@ -300,4 +300,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ para projeto CodePlex do Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

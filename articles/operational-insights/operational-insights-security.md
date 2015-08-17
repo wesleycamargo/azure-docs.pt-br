@@ -107,4 +107,4 @@ O serviço OMS processa os dados brutos e os dados processados agregados são ar
 
 Você pode entrar na OMS usando a conta configurada anteriormente. Todo o tráfego entre a OMS e o serviço OMS é enviado por um canal HTTPS seguro.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

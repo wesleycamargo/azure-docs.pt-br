@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="Aplicativo local com armazenamento de blob (Java) | Microsoft Azure" 
-	description="Saiba como criar um aplicativo de console que carrega uma imagem para o Azure e a exibe no navegador. Amostras de código em Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Aplicativo local com armazenamento de blob (Java) | Microsoft Azure"
+	description="Saiba como criar um aplicativo de console que carrega uma imagem para o Azure e a exibe no navegador. Amostras de código em Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
-# Aplicativo local com Armazenamento de Blob
+# Aplicativo local com armazenamento de blob
 
 ## Visão geral
 
-O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarmazenar imagens no Azure. O código a seguir é de um aplicativo de console que carrega uma imagem para o Azure e cria um arquivo HTML que exibe a imagem no seu navegador.
+O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarmazenar imagens no Azure. O código deste arquivo é de um aplicativo de console que carrega uma imagem para o Azure e cria um arquivo HTML que exibe a imagem no seu navegador.
 
 ## Pré-requisitos
 
-1.  Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
-2.  O SDK do Azure deve estar instalado.
-3.  O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para obter informações sobre como instalar as bibliotecas do Azure para Java, confira [Baixar o SDK do Azure para Java].
-4.  Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código a seguir. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento] para obter informações sobre como recuperar a chave da conta.
-5.  Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
+- Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
+- O SDK do Azure deve estar instalado.
+- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para obter informações sobre como instalar as bibliotecas do Azure para Java, confira [Baixar o SDK do Azure para Java].
+- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Confira [Como criar uma conta de armazenamento] para obter informações sobre como criar uma conta de armazenamento e [Como gerenciar contas de armazenamento] para obter informações sobre como recuperar a chave da conta.
+- Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## Para usar o armazenamento de blobs do Azure para carregar um arquivo
 
-Um procedimento passo a passo é apresentado aqui. Se você quiser pular isso, o código completo será apresentado posteriormente neste tópico.
+Um procedimento passo a passo é apresentado aqui. Se você quiser pular, todo o código será apresentado mais tarde neste artigo.
 
-Inicie o código incluindo as importações das principais classes de armazenamento do Azure, as classes de cliente do blob do Azure, as classes de E/S de Java e a classe **URISyntaxException**:
+Inicie o código incluindo as importações das principais classes de armazenamento do Azure, as classes de cliente do blob do Azure, as classes de E/S de Java e a classe **URISyntaxException**.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -47,16 +47,16 @@ Declare uma classe chamada **StorageSample** e inclua o colchete de abertura, **
 
     public class StorageSample {
 
-Na classe **StorageSample**, declare uma variável de cadeia de caracteres que conterá o protocolo de ponto de extremidade padrão, o nome da sua conta de armazenamento e a sua chave de acesso de armazenamento, conforme especificado na conta de armazenamento do Azure. Substitua os valores dos espaços reservados **nome_da_sua_conta** e **sua_chave_de_conta** pelo nome da sua conta e por sua chave de conta, respectivamente.
+Na classe **StorageSample**, declare uma variável de cadeia de caracteres que conterá o protocolo de ponto de extremidade padrão, o nome da sua conta de armazenamento e a sua chave de acesso de armazenamento, conforme especificado na conta de armazenamento do Azure. Substitua os valores dos espaços reservados **nome\_da\_sua\_conta** e **sua\_chave\_de\_conta** pelo nome da sua conta e por sua chave de conta, respectivamente.
 
-    public static final String storageConnectionString = 
-           "DefaultEndpointsProtocol=http;" + 
-               "AccountName=your_account_name;" + 
-               "AccountKey=your_account_name"; 
+    public static final String storageConnectionString =
+           "DefaultEndpointsProtocol=http;" +
+               "AccountName=your_account_name;" +
+               "AccountKey=your_account_name";
 
 Adicione sua declaração para **main**, inclua um bloco **try** e inclua os colchetes de abertura necessários, **{**.
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         try
         {
@@ -104,7 +104,7 @@ Obtenha uma referência para o blob de blocos, que representará o blob no armaz
 
     blob = container.getBlockBlobReference("image1.jpg");
 
-Use o construtor **File** para obter uma referência para o arquivo criado localmente que será carregado. (Certifique-se de criar esse arquivo antes de executar o código.)
+Use o construtor **File** para obter uma referência para o arquivo criado localmente que será carregado. Certifique-se de criar esse arquivo antes de executar o código.
 
     File fileReference = new File ("c:\\myimages\\image1.jpg");
 
@@ -112,7 +112,7 @@ Carregue o arquivo local por meio de uma chamada para o método **CloudBlockBlob
 
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
-Chame uma função auxiliar denominada **MakeHTMLPage** para fazer uma página HTML básica que contém um elemento **&lt;image&gt;** com a origem definida para o blob que agora está na sua conta de armazenamento do Azure. (O código de **MakeHTMLPage** será discutido posteriormente neste tópico).
+Chame uma função auxiliar denominada **MakeHTMLPage** para fazer uma página HTML básica que contém um elemento **&lt;image&gt;** com a origem definida para o blob que agora está na sua conta de armazenamento do Azure. O código de **MakeHTMLPage** será discutido posteriormente neste artigo.
 
     MakeHTMLPage(container);
 
@@ -198,7 +198,7 @@ Feche **MakeHTMLPage** inserindo um colchete de fechamento: **}**
 
 Feche **StorageSample** inserindo um colchete de fechamento: **}**
 
-A seguir está o código completo deste exemplo. Lembre-se de modificar os valores dos espaço reservado **your_account_name** e**your_account_key** para que usem seu nome de conta e chave de conta, respectivamente.
+A seguir está o código completo deste exemplo. Lembre-se de modificar os valores dos espaço reservado **your\_account\_name** e**your\_account\_key** para que usem seu nome de conta e chave de conta, respectivamente.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -206,14 +206,14 @@ A seguir está o código completo deste exemplo. Lembre-se de modificar os valor
     import java.net.URISyntaxException;
 
     // Create an image, c:\myimages\image1.jpg, prior to running this sample.
-    // Alternatively, change the value used by the FileInputStream constructor 
+    // Alternatively, change the value used by the FileInputStream constructor
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
-                       "AccountName=your_account_name;" + 
-                       "AccountKey=your_account_name"; 
+                       "AccountName=your_account_name;" +
+                       "AccountKey=your_account_name";
 
         public static void main(String[] args) {
             try {
@@ -298,7 +298,7 @@ Como o código contém o nome e a chave da sua conta, certifique-se de que seu c
 
 ## Para excluir um contêiner
 
-Como você é cobrado pelo armazenamento, talvez queira excluir o contêiner **gettingstarted** após concluir os testes com este exemplo. Para excluir um contêiner, use o método **CloudBlobContainer.delete**:
+Como você é cobrado pelo armazenamento, talvez queira excluir o contêiner **gettingstarted** após concluir os testes com este exemplo. Para excluir um contêiner, use o método **CloudBlobContainer.delete**.
 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
@@ -310,25 +310,25 @@ Para chamar o método **CloudBlobContainer.delete**, o processo de inicializar o
 
     public class DeleteContainer {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_key"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                   "AccountName=your_account_name;" +
+                   "AccountKey=your_account_key";
 
-        public static void main(String[] args) 
+        public static void main(String[] args)
         {
             try
             {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.delete();
-                
+
                 System.out.println("Container deleted.");
 
             }
@@ -366,6 +366,5 @@ Siga estes links para saber mais sobre as tarefas mais complexas de armazenament
   [Referência de SDK do Cliente de Armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
   [API REST de Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

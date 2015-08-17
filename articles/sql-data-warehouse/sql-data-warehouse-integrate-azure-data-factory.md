@@ -29,7 +29,7 @@ O Azure Data Factory permite a movimentação de dados entre fontes locais e dif
 + SQL Server local
 + SQL Server na IaaS
 
-Para obter informações sobre como configurar uma atividade de cópia de dados, consulte [copiar dados com o Azure Data Factory][].
+Para obter informações sobre como configurar uma atividade de cópia de dados, consulte [Copiar dados com o Azure Data Factory][].
 
 > [AZURE.NOTE]Neste momento o Azure Data Factory não pode ser usado para transferir dados para colunas não nulas no SQL Data Warehouse.
 
@@ -43,7 +43,7 @@ Para obter uma visão geral da integração, consulte [visão geral da integraç
 
 <!--Article references-->
 
-[copiar dados com o Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
 [Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [visão geral da integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
 
@@ -51,5 +51,6 @@ Para obter uma visão geral da integração, consulte [visão geral da integraç
 
 <!--Other Web references-->
 [documentação do Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[Copiar dados com o Azure Data Factory]: https://azure.microsoft.com/pt-br/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

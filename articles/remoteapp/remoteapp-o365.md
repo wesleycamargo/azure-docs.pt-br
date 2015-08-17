@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Usando o Office 365 com o RemoteApp do Azure" 
     description="Saiba como o Office 365 e o Azure RemoteApp funcionam juntos" 
-    services="remoteapp" 
+    services="remoteapp"  
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -48,4 +48,4 @@ Quando você ativar sua conta, isso afetará todas as coleções de RemoteApp em
 Se você não fizer a transição para o modo de produção até a expiração da sua avaliação, as coleções de RemoteApp serão desabilitadas. Não se preocupe – suas configurações e dados de usuários serão salvas por outros 90 dias para que você ainda possa ativar o serviço e alternar para o modo de produção sem qualquer perda de dados.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -126,4 +126,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

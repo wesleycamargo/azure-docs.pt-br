@@ -140,7 +140,7 @@ Nas próximas etapas, você desenvolverá o aplicativo Lista de Tarefas ao adici
 
 	Na caixa de diálogos resultante, navegue para os arquivos que você baixou anteriormente, selecione todos eles e clique em Abrir. Quando solicitado, escolha substituir o arquivo `index.php`.
 
-7. Em seguida, você deverá adicionar as informações para conexão do seu banco de dados MySQL local ao arquivo `taskmodel.php`. Abra o arquivo `taskmodel.php` clicando nele duas vezes e atualize as informações de conexão do banco de dados na função `connect`. (***Observação**: vá para [Publicar seu aplicativo](#Publish) se você não desejar testar o aplicativo localmente e, em vez disso, quiser publicá-lo diretamente em Aplicativos Web do Serviço de Aplicativo do Azure.)
+7. Em seguida, você deverá adicionar as informações para conexão do seu banco de dados MySQL local ao arquivo `taskmodel.php`. Abra o arquivo `taskmodel.php` clicando nele duas vezes e atualize as informações para conexão do banco de dados na função `connect`. (**Observação**: vá para [Publicar seu aplicativo](#Publish) se não quiser testar seu aplicativo localmente e, em vez disto, quiser publicá-lo diretamente nos Aplicativos Web do Serviço de Aplicativo do Azure).
 
 		// DB connection info
 		$host = "localhost";
@@ -261,4 +261,4 @@ Você pode facilmente modificar seu aplicativo editando a cópia local do site q
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

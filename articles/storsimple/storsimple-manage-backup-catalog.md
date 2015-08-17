@@ -117,4 +117,4 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
 Saiba como usar o catálogo de backup para [restaurar seu dispositivo por meio de um conjunto de backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

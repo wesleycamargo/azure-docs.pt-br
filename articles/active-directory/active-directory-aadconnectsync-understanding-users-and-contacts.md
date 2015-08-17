@@ -63,7 +63,7 @@ O pressuposto é que, se uma conta de usuário desabilitada for encontrada, não
 
 ## Alterando o sourceAnchor
 
-Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar o sourceAnchor. Quando o objeto é exportado do atributo de metaverso **cloudSourceAnchor**, é definido com o valor **sourceAnchor** aceito pelo AD do Azure. Se **sourceAnchor** for alterado e não corresponder a **cloudSourceAnchor**, a regra \*\* Saída para o AAD – Junção de Usuário\*\* gerará o erro **O atributo sourceAnchor foi alterado**. Nesse caso, a configuração ou os dados ou devem ser corrigidos para que o mesmo sourceAnchor esteja presente no metaverso novamente antes que o objeto possa ser sincronizado outra vez.
+Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar o sourceAnchor. Quando o objeto é exportado do atributo de metaverso **cloudSourceAnchor**, é definido com o valor **sourceAnchor** aceito pelo AD do Azure. Se **sourceAnchor** for alterado e não corresponder a **cloudSourceAnchor**, a regra ** Saída para o AAD – Junção de Usuário** gerará o erro **O atributo sourceAnchor foi alterado**. Nesse caso, a configuração ou os dados ou devem ser corrigidos para que o mesmo sourceAnchor esteja presente no metaverso novamente antes que o objeto possa ser sincronizado outra vez.
 
 
 
@@ -75,4 +75,4 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

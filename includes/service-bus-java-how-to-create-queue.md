@@ -23,11 +23,9 @@ Para criar um namespace de serviço:
 
 2.  No painel de navegação esquerdo do Portal de Gerenciamento, clique em**Service Bus**.
 
-3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  No painel inferior do Portal de Gerenciamento, clique em **Criar**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
@@ -45,13 +43,11 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
 ###Para obter as credenciais de gerenciamento do portal
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Na lista mostrada, clique no namespace que acabou de criar.
 
-3.  Clique em **Configurar** para exibir as políticas de acesso compartilhado para seu namespace. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Clique em **Configurar** para exibir as políticas de acesso compartilhado para seu namespace. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Anote a chave primária ou copie-a na área de transferência.
 
@@ -60,4 +56,4 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

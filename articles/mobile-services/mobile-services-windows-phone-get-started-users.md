@@ -80,4 +80,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Logon único para aplicativos do Windows Phone usando o Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

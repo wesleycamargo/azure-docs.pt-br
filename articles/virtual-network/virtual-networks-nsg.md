@@ -65,15 +65,15 @@ As regras padrão são:
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
-| PERMITIR A ENTRADA DA VNET | 65000 | REDE_VIRTUAL | * | REDE_VIRTUAL | * | * | PERMITIR |
-| PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA_AZURE | * | * | * | * | PERMITIR |
+| PERMITIR A ENTRADA DA VNET | 65000 | REDE\_VIRTUAL | * | REDE\_VIRTUAL | * | * | PERMITIR |
+| PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA\_AZURE | * | * | * | * | PERMITIR |
 | NEGAR TODAS AS ENTRADAS | 65500 | * | * | * | * | * | NEGAR |
 
 **Saída**
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
-| PERMITIR SAÍDA DA VNET | 65000 | REDE_VIRTUAL | * | REDE_VIRTUAL | * | * | PERMITIR |
+| PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | * | REDE\_VIRTUAL | * | * | PERMITIR |
 | PERMITIR SAÍDA DA INTERNET | 65001 | * | * | INTERNET | * | * | PERMITIR |
 | NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR |
 
@@ -89,9 +89,9 @@ As regras NSG são explícitas. Nenhum tráfego é permitido ou negado além do 
 
 Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. As marcas padrão podem ser especificadas nas regras definidas pelo cliente. As marcas padrão são os seguintes:
 
-- **REDE_VIRTUAL:** essa marca padrão indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço VNet para VNet .
+- **REDE\_VIRTUAL:** essa marca padrão indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço VNet para VNet .
 
-- **BALANCEADORDECARGA_AZURE:** essa marca padrão denota o balanceador de carga de infraestrutura do Azure. Isso significa um IP de datacenter do Azure de onde se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
+- **BALANCEADORDECARGA\_AZURE:** essa marca padrão denota o balanceador de carga de infraestrutura do Azure. Isso significa um IP de datacenter do Azure de onde se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
 
 - **INTERNET:** essa marca padrão denota o espaço de endereço IP que está fora da rede virtual e acessível através da Internet pública. Esse intervalo também inclui o espaço de IP público de propriedade do Azure.
 
@@ -138,7 +138,7 @@ Imagine a seguinte regra NSG para esse cenário:
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|NO INTERNET|100| REDE_VIRTUAL|&#42;|INTERNET|&#42;|TCP|NEGAR| 
+|NO INTERNET|100| REDE\_VIRTUAL|&#42;|INTERNET|&#42;|TCP|NEGAR| 
 
 Como a regra está negando todos os acessos da rede virtual à Internet, as VMs não poderão acessar qualquer serviço de PaaS do Azure que requeira um ponto de extremidade de Internet público, como bancos de dados SQL.
 
@@ -146,8 +146,8 @@ Em vez de usar uma regra de negação, considere o uso de uma regra para permiti
 
 | Nome | Prioridade | IP de origem | Porta de origem | IP de destino | Porta de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|TO INTERNET|100| REDE_VIRTUAL|&#42;|INTERNET|&#42;|TCP|PERMITIR|
-|FROM INTERNET|110| INTERNET|&#42;|REDE_VIRTUAL|&#42;|TCP|NEGAR| 
+|TO INTERNET|100| REDE\_VIRTUAL|&#42;|INTERNET|&#42;|TCP|PERMITIR|
+|FROM INTERNET|110| INTERNET|&#42;|REDE\_VIRTUAL|&#42;|TCP|NEGAR| 
 
 
 ## Planejamento: fluxo de trabalho de grupo de segurança de rede
@@ -248,4 +248,4 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

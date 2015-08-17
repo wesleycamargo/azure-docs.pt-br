@@ -260,4 +260,4 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

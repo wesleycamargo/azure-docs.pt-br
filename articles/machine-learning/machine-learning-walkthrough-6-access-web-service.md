@@ -42,4 +42,4 @@ A página de ajuda de API inclui exemplos de linguagens de programação R, C# e
 
 Para obter mais informações sobre como acessar e usar o serviço Web, consulte [Como consumir um serviço Web de aprendizado de máquina do Azure que foi publicado de um experimento de aprendizado de máquina](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -41,7 +41,7 @@ Antes de começar a configuração, verifique se você atendeu aos seguintes pr�
 - Uma assinatura do Azure
 - Versão mais recente do PowerShell do Azure
 
-###  1. Importar o módulo do PowerShell para Rota Expressa
+###  1\. Importar o módulo do PowerShell para Rota Expressa
 
 O Windows PowerShell é um ambiente de script poderoso que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para obter mais informações, consulte a documentação do PowerShell no [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -52,7 +52,7 @@ Use os cmdlets abaixo para importar o módulo do PowerShell para a Rota Expressa
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2. Configurar um circuito da Rota Expressa com os recursos do complemento Premium ativados
+### 2\. Configurar um circuito da Rota Expressa com os recursos do complemento Premium ativados
 
 Você pode criar um novo circuito da Rota Expressa com o complemento Premium habilitado no momento da criação. Siga as instruções sobre como criar circuitos da Rota Expressa com [NSPs](expressroute-configuring-nsps.md) ou [EXPs](expressroute-configuring-exps.md). Temos um novo parâmetro opcional no cmdlet New-AzureDedicatedCircuit que permite especificar a SKU. A SKU pode ser Standard ou Premium. O valor padrão é standard. Passar a SKU como Premium ativará o circuito com os recursos do complemento Premium.
 
@@ -60,10 +60,10 @@ Você pode criar um novo circuito da Rota Expressa com o complemento Premium hab
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3. Verificar se o complemento Premium da Rota Expressa está ativado
+### 3\. Verificar se o complemento Premium da Rota Expressa está ativado
 Você pode verificar e ver se o complemento Premium da Rota Expressa está habilitado para o circuito. No exemplo abaixo, o circuito da Rota Expressa não tem recursos do complemento Premium da Rota Expressa ativados. A SKU aparecerá como ***Premium*** se o complemento estiver ativado.
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Você pode habilitar recursos do complemento Premium da Rota Expressa para qualq
 	Você pode obter detalhes do circuito da Rota Expressa usando o seguinte cmdlet do PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Esse comando retornará uma lista de todos os circuitos que você criou na assinatura. Você pode usar o comando a seguir para obter os detalhes de um circuito da Rota Expressa específico se tiver a chave de serviço em mãos
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Substitua o <skey> pela chave de serviço real.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Você pode habilitar recursos do complemento Premium da Rota Expressa para qualq
 
 	Você pode habilitar o complemento Premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Você pode desabilitar o complemento Premium da Rota Expressa para um circuito d
 	Você pode obter detalhes do circuito da Rota Expressa usando o seguinte cmdlet do PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Esse comando retornará uma lista de todos os circuitos que você criou na assinatura. Você pode usar o comando a seguir para obter os detalhes de um circuito da Rota Expressa específico se tiver a chave de serviço em mãos
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Substitua o <skey> pela chave de serviço real.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Você pode desabilitar o complemento Premium da Rota Expressa para um circuito d
 
 	Você pode desabilitar o complemento Premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Você pode desabilitar o complemento Premium da Rota Expressa para um circuito d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

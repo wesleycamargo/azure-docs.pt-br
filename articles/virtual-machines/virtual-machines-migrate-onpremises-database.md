@@ -161,4 +161,4 @@ Use esse método para migrar todos os sistemas e bancos de dados de usuário em 
 
 Use o [método do Serviço de Importação/Exportação do Azure](../storage-import-export-service/) para transferir grandes quantidades de dados de arquivo para o armazenamento de Blob do Azure em situações onde o carregamento pela rede é extremamente dispendioso ou inviável. Com esse serviço, você envia um ou mais discos rígidos contendo esses dados para um data center do Azure, onde os dados serão carregados para sua conta de armazenamento.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

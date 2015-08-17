@@ -146,14 +146,14 @@ Para enviar e receber alterações entre o dispositivo e os serviços móveis do
 			syncAsync();
 			refreshItemsFromTable();
 
-	Esse código é executado quando você pressiona o botão **atualizar** no canto superior direito. Isso é o principal meio de sincronizar seu repositório local no Azure, além de sincronizar na inicialização. Isso incentiva o envio em lote de alterações de sincronização e é eficiente, considerando que a recepção do Azure é uma operação relativamente cara. Também é possível criar esse aplicativo para sincronizar cada alteração, adicionando uma chamada para os métodos `syncAsync` para o `addItem` e `checkItem`, se seu aplicativo precisar disso.
+	Esse código é executado quando você pressiona o botão **Atualizar** no canto superior direito. Isso é o principal meio de sincronizar seu repositório local no Azure, além de sincronizar na inicialização. Isso incentiva o envio em lote de alterações de sincronização e é eficiente, considerando que a recepção do Azure é uma operação relativamente cara. Também é possível criar esse aplicativo para sincronizar cada alteração, adicionando uma chamada para os métodos `syncAsync` para o `addItem` e `checkItem`, se seu aplicativo precisar disso.
 
 
 ## Testar o aplicativo
 
 Nesta seção, você testará o comportamento com WiFi ativo e, depois, com ele desativo para criar um cenário offline.
 
-Quando você adiciona itens de dados, eles são mantidos no armazenamento local do SQL Light , mas não sincronizados para o serviço móvel, até que você pressione o botão **Atualizar** botão. Outros aplicativos podem ter necessidades diferentes em relação a quando os dados precisam ser sincronizados, mas para fins de demonstração neste tutorial o usuário tem que solicitá-lo explicitamente.
+Quando você adiciona itens de dados, eles são mantidos no armazenamento local do SQL Light , mas não sincronizados para o serviço móvel, até que você pressione o botão **Atualizar**. Outros aplicativos podem ter necessidades diferentes em relação a quando os dados precisam ser sincronizados, mas para fins de demonstração neste tutorial o usuário tem que solicitá-lo explicitamente.
 
 Quando você pressiona o botão, uma nova tarefa em segundo plano é iniciada e envia primeiro todas as alterações feitas no armazenamento local, usando o contexto de sincronização e, em seguida, recebe todos os dados alterados do Azure para a tabela local.
 
@@ -164,8 +164,8 @@ Vamos testar os cenários a seguir.
 
 1. Adicione alguns novos itens ao seu dispositivo; 
 2. Certifique-se de que os itens não aparecem no portal; 
-3. a seguir, pressione **Atualizar** e certifique-se de que eles sejam exibidos.
-4. Altere ou adicione um item no portal, pressione **Atualizar** e certifique-se de que as alterações apareceram em seu dispositivo.
+3. a seguir, pressione **Atualizar** e verifique se eles são exibidos.
+4. Altere ou adicione um item no portal, pressione **Atualizar** e verifique se as alterações apareceram em seu dispositivo.
 
 ### Teste offline
 
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

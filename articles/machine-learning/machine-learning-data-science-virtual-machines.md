@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Máquinas virtuais de ciência de dados no Azure | Microsoft Azure"
 	description="Configurar uma Máquina Virtual de ciência de dados"
-	metaKeywords=""
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
@@ -34,4 +32,4 @@ Uma vez provisionadas e configuradas, essas máquinas virtuais estão prontas pa
 > [AZURE.NOTE]A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** do [Portal de Gerenciamento do Azure](http://manage.windowsazure.com/). Para obter instruções passo a passo ou como desalocar a sua máquina virtual, consulte [Desligar e desalocar máquina virtual quando não estiver em uso](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

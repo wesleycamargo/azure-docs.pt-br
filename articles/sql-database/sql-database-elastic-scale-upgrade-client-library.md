@@ -1,4 +1,4 @@
-<properties 
+<properties  
 	pageTitle="Atualizar para a biblioteca de cliente de banco de dados elástico mais recente" 
 	description="Atualizar instruções usando o PowerShell e C#" 
 	services="sql-database" 
@@ -94,4 +94,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

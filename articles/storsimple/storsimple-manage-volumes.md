@@ -181,4 +181,4 @@ Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

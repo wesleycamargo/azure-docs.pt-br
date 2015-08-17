@@ -41,7 +41,7 @@ Antes de começar este tutorial, você deve ter feito o seguinte:
 - Obtenha uma assinatura do Azure. Para obter instruções, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Desenvolver um programa C&#35 de streaming do Hadoop para a contagem de palavras
+##<a name="develop"></a>Desenvolver um programa C&\#35 de streaming do Hadoop para a contagem de palavras
 
 A solução de contagem de palavras contém dois projetos de aplicativo de console: mapeador e redutor. O aplicativo mapeador transmite cada palavra no console e o aplicativo redutor conta o número de palavras que são transmitidas de um documento. Tanto o mapeador, quanto o redutor leem caracteres, linha por linha, do fluxo de entrada padrão (stdin) e gravam no fluxo de saída padrão (stdout).
 
@@ -169,7 +169,7 @@ Este tutorial usa a seguinte estrutura de pastas:
 
 <table border="1"> <tr><td>Pasta</td><td>Observação</td></tr> <tr><td>\\WordCount</td><td>A pasta raiz do projeto de contagem de palavras. </td></tr> <tr><td>\\WordCount\\Apps</td><td>A pasta dos executáveis do mapeador e do redutor.</td></tr> <tr><td>\\WordCount\\Input</td><td>A pasta do arquivo de origem do MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>A pasta do arquivo de saída do MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr> </table></br>
 
-Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home%.
+Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home%.
 
 > [AZURE.NOTE]Os comandos de HDFS do Hadoop diferenciam maiúsculas de minúsculas.
 
@@ -263,7 +263,8 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home%.
 
 **Para verificar o status do trabalho**
 
-1. Na área de trabalho, clique em **Status do Hadoop YARN** ou navegar até **http://localhost:50030/jobtracker.jsp**. 2. Localize o trabalho usando a ID do trabalho em uma categoria **EM EXECUÇÃO** ou **CONCLUÍDO**. 
+1. Na área de trabalho, clique em **Status do Hadoop YARN** ou navegar até ****http://localhost:50030/jobtracker.jsp**.
+2. Localize o trabalho usando a ID do trabalho em uma categoria **EM EXECUÇÃO** ou **CONCLUÍDO**. 
 3. Se um trabalho falhar, você poderá encontrá-lo na categoria **COM FALHA**. Você também poderá abrir os detalhes do trabalho e localizar informações úteis para depuração.
 
 
@@ -278,7 +279,7 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home%.
 	Você pode acrescentar "|more" no final do comando para obter a exibição da página.
 
 ##<a id="upload"></a>Carregar dados no armazenamento de Blob do Azure
-O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. Você pode configurar um cluster HDInsight para usar armazenamento de Blob adicional para os arquivos de dados. Nesta seção, você criará uma conta do Armazenamento do Azure e carregará os arquivos de dados no armazenamento de Blob. Os arquivos de dados são os arquivos .txt no diretório %hadoop_home%\\share\\doc\\hadoop\\common.
+O Azure HDInsight usa o armazenamento de Blob do Azure como o sistema de arquivos padrão. Você pode configurar um cluster HDInsight para usar armazenamento de Blob adicional para os arquivos de dados. Nesta seção, você criará uma conta do Armazenamento do Azure e carregará os arquivos de dados no armazenamento de Blob. Os arquivos de dados são os arquivos .txt no diretório %hadoop\_home%\\share\\doc\\hadoop\\common.
 
 
 **Para criar uma conta e um contêiner do Armazenamento**
@@ -468,7 +469,7 @@ Esta seção fornece um script do PowerShell do Azure que executa todas as taref
 
 3. Defina as quatro primeiras variáveis no script. A variável **$stringPrefix** é usada como prefixo da cadeia especificada para o nome do cluster HDInsight, o nome da conta de armazenamento e o nome do contêiner de armazenamento de Blob. Como esses nomes devem ter de 3 a 24 caracteres, garanta que a cadeia de caracteres que você especificar e os nomes que esse script usa, juntos, não excedam o limite de caracteres para o nome. Você deve usar letras minúsculas para **$stringPrefix**.
 
-	As variáveis **$storageAccountName_Data** e **$containerName_Data** são a conta e o contêiner do Armazenamento que você criou nas etapas anteriores. Por isso, você deve fornecer seus nomes. Eles são usados para armazenar os arquivos de dados e os aplicativos. A variável **$location** deve corresponder ao local da conta de armazenamento de dados.
+	As variáveis **$storageAccountName\_Data** e **$containerName\_Data** são a conta e o contêiner do Armazenamento que você criou nas etapas anteriores. Por isso, você deve fornecer seus nomes. Eles são usados para armazenar os arquivos de dados e os aplicativos. A variável **$location** deve corresponder ao local da conta de armazenamento de dados.
 
 4. Verifique o restante das variáveis.
 5. Salve o arquivo de script.
@@ -551,4 +552,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

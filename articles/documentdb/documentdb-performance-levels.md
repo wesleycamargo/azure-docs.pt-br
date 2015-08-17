@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Níveis de desempenho no Banco de Dados de Documentos | Azure" 
+	pageTitle="Níveis de desempenho no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como os níveis de desempenho no Banco de Dados de Documentos permitem reservar a produtividade com base na coleção." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -141,4 +141,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

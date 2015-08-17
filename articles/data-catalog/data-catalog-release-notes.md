@@ -35,7 +35,7 @@ O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versã
 
 Ao abrir ativos de dados no Microsoft Excel no portal do Catálogo de Dados do Azure, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
-Para obter mais informações, consulte [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obter mais informações, consulte [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/pt-br/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ## Colunas BLOB e UDT não encontradas nas visualizações
 
@@ -67,4 +67,4 @@ Para obter mais informações, consulte [Configurando autenticação baseada em 
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -204,4 +204,4 @@ Considere a possibilidade de obter mais informações sobre os seguintes tópico
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

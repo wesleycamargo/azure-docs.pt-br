@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -196,7 +196,7 @@ Adicione o Application Insights por meio do Gerenciador de Soluções.
 
 ## Para atualizar para uma nova versão do SDK
 
-Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): \* clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. \* Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
+Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.md): * clique com o botão direito no seu projeto e escolha Gerenciar pacotes NuGet. * Selecione os pacotes instalados do Application Insights e escolha Ação: Atualizar.
 
 
 ## <a name="usage"></a>Próximas etapas
@@ -229,4 +229,4 @@ Quando uma [nova versão do SDK é lançada](app-insights-release-notes-windows.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

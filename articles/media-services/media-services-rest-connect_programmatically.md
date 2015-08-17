@@ -60,9 +60,9 @@ O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado par
 	
 **Corpo**:
 
-Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
+Você precisa provar os valores de client\_id e client\_secret no corpo dessa solicitação. O client\_id e client\_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
 
-Observe que a AccountKey da sua conta de Serviços de Mídia deve ter a codificação de URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) ao ser usado=a como o valor de client_secret em sua solicitação de token de acesso.
+Observe que a AccountKey da sua conta de Serviços de Mídia deve ter a codificação de URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) ao ser usado=a como o valor de client\_secret em sua solicitação de token de acesso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -93,9 +93,9 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 	}
 	
 
->[AZURE.NOTE]É recomendável armazenar em cache os valores "access_token" e "expires_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+>[AZURE.NOTE]É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
-Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
+Certifique-se de monitorar o valor "expires\_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
 ###Conectando o URI dos serviços de mídia
 
@@ -167,4 +167,4 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

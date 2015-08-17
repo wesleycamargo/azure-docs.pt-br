@@ -74,11 +74,11 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 ### Criar o trabalho de importação
 
-1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em <strong>Visão Rápida</strong>, clique em <strong>Criar um Trabalho de Importação</strong>. 
+1.	Depois de preparar a unidade, navegue até a conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. 
  
 2.	Na Etapa 1 do assistente, indique que você preparou a unidade e que o arquivo de diário de unidade está disponível.
  
-3.	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de importação. Se desejar salvar dados de log detalhados para o trabalho de importação, marque a opção para <strong>Salvar o log detalhado no meu contêiner de blob 'waimportexport'</strong>.
+3.	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de importação. Se desejar salvar dados de log detalhados para o trabalho de importação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
 4.	Na Etapa 3, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Você precisa carregar um arquivo para cada unidade preparada.
 
@@ -104,9 +104,9 @@ A Ferramenta de Importação/Exportação do Microsoft Azure gera um arquivo de 
 
 Crie um trabalho de exportação para notificar o serviço Importar/Exportar que você enviará uma ou mais unidades vazias para o data center, para que os dados podem ser exportados de sua conta de armazenamento para as unidades e, em seguida, as unidades sejam enviadas para você.
 
-1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em <strong>Visão Rápida</strong>, clique em <strong>Criar um Trabalho de Exportação</strong> e continue com o assistente.
+1. 	Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal de Gerenciamento e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
 
-2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para <strong>Salvar o log detalhado no meu contêiner de blob 'waimportexport'</strong>.
+2. 	Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
 
 3.	Na Etapa 3, especifique quais dados de blob deseja exportar da sua conta de armazenamento para a(s) unidade(s) em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs ou conjuntos de blobs serão exportados.
 
@@ -117,50 +117,15 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 	A tabela mostra exemplos de caminhos de blob válidos:
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Seletor</strong></td>
-			<td><strong>Caminho do Blob</strong></td>
-			<td><strong>Descrição</strong></td>
-		</tr>
-		<tr>
-			<td>Começa com</td>
-			<td>/</td>
-			<td>Exporta todos os blobs na conta de armazenamento</td>
-		</tr>
-		<tr>
-			<td>Começa com</td>
-			<td>/$root/</td>
-			<td>Exporta todos os blobs no contêiner raiz</td>
-		</tr>
-		<tr>
-			<td>Começa com</td>
-			<td>/book</td>
-			<td>Exporta todos os blobs em qualquer contêiner que comece com o prefixo <strong>book</strong></td>
-		</tr>
-		<tr>
-			<td>Começa com</td>
-			<td>/music/</td>
-			<td>Exporta todos os blobs no contêiner <strong>music</strong></td>
-		</tr>
-		<tr>
-			<td>Começa com</td>
-			<td>/music/love</td>
-			<td>Exporta todos os blobs no contêiner <strong>music</strong> que comecem com o prefixo <strong>love</strong></td>
-		</tr>
-		<tr>
-			<td>Igual a</td>
-			<td>$root/logo.bmp</td>
-			<td>Exporta o blob <strong>logo.bmp</strong> no contêiner raiz</td>
-		</tr>
-		<tr>
-			<td>Igual a</td>
-			<td>videos/story.mp4</td>
-			<td>Exporta o blob <strong>story.mp4</strong> no contêiner <strong>vídeos</strong></td>
-		</tr>
-	</tbody>
-</table>
+	Seletor|Caminho do Blob|Descrição
+	---|---|---
+	Começa com|/|Exporta todos os blobs na conta de armazenamento
+	Começa com|/$root/|Exporta todos os blobs no contêiner raiz
+	Começa com|/book|Exporta todos os blobs em qualquer contêiner que comece com o prefixo **book**
+	Começa com|/music/|Exporta todos os blobs no contêiner **music**
+	Começa com|/music/love|Exporta todos os blobs no contêiner **music** que comecem com o prefixo **love**
+	Igual a|$root/logo.bmp|Exporta o blob **logo.bmp** no contêiner raiz
+	Igual a|videos/story.mp4|Exporta o blob **story.mp4** no contêiner **vídeos**
 
 
 4.	Na Etapa 4, digite um nome descritivo para o trabalho de exportação. O nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar por letra e não pode conter espaços.
@@ -171,7 +136,7 @@ Crie um trabalho de exportação para notificar o serviço Importar/Exportar que
 
 	Se tiver um número de acompanhamento, selecione a transportadora na lista e insira o número de acompanhamento.
 
-	Se ainda não tiver um número de controle, escolha <strong>Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote</strong> e, em seguida, conclua o processo de exportação.
+	Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote** e, em seguida, conclua o processo de exportação.
 
 6. Para inserir o número de controle após enviar o pacote, volte à página **Importar/Exportar** da sua conta de armazenamento no Portal de Gerenciamento, selecione seu trabalho na lista e selecione **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
 	
@@ -187,34 +152,14 @@ Você pode acompanhar o status dos seus trabalhos de importação ou exportaçã
 
 A tabela descreve o que significa cada designação de status do trabalho:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Status do Trabalho</strong></td>
-			<td><strong>Descrição</strong></td>
-		</tr>
-		<tr>
-			<td>Criando</td>
-			<td>Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa.</td>
-		</tr>
-		<tr>
-			<td>Remessa</td>
-			<td>Seu trabalho foi criado e você forneceu as informações de remessa.</td>
-		</tr>
-		<tr>
-			<td>Transferindo</td>
-			<td>Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação).</td>
-		</tr>
-		<tr>
-			<td>Empacotamento</td>
-			<td>A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você.</td>
-		</tr>
-		<tr>
-			<td>Concluído</td>
-			<td>Seu disco rígido foi enviado de volta para você.</td>
-		</tr>
-	</tbody>
-</table>
+Status do Trabalho|Descrição
+---|---
+Criando|Seu trabalho foi criado, mas você ainda não forneceu as informações de remessa.
+Remessa|Seu trabalho foi criado e você forneceu as informações de remessa.
+Transferindo|Os dados estão sendo transferidos do seu disco rígido (para um trabalho de importação) ou para o seu disco rígido (para um trabalho de exportação).
+Empacotamento|A transferência dos dados foi concluída e o seu disco rígido está sendo preparado para enviar de volta para você.
+Concluído|Seu disco rígido foi enviado de volta para você.
+
 
 ## Exibir Chaves do BitLocker para um trabalho de exportação ##
 
@@ -324,4 +269,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

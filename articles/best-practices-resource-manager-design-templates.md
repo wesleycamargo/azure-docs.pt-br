@@ -245,7 +245,7 @@ O modelo de recursos opcionais contém recursos que são implantados por meio de
 
 **Modelo de recursos opcionais**
 
-Por exemplo, você pode usar um modelo de recursos opcionais para configurar um jumpbox que permita acesso indireto a um ambiente implantado pela Internet pública. Você usaria um parâmetro ou variável para identificar se o jumpbox deve ou não ser habilitado e a função *concat* para criar o nome de destino para o modelo, como *jumpbox_enabled.json*. A vinculação de modelos usaria a variável resultante para instalar o jumpbox.
+Por exemplo, você pode usar um modelo de recursos opcionais para configurar um jumpbox que permita acesso indireto a um ambiente implantado pela Internet pública. Você usaria um parâmetro ou variável para identificar se o jumpbox deve ou não ser habilitado e a função *concat* para criar o nome de destino para o modelo, como *jumpbox\_enabled.json*. A vinculação de modelos usaria a variável resultante para instalar o jumpbox.
 
 É possível vincular o modelo de recursos opcionais de vários locais:
 
@@ -309,7 +309,7 @@ Você cria um modelo principal chamado azuredeploy.json.
 
 Você cria um modelo de recursos compartilhados chamado shared-resources.json
 
-Você cria um modelo de recurso opcional para habilitar a implantação de um jumpbox denominado jumpbox_enabled.json
+Você cria um modelo de recurso opcional para habilitar a implantação de um jumpbox denominado jumpbox\_enabled.json
 
 O Redis usará apenas um tipo de nó, portanto, você criará um modelo único de recurso de membro chamado node-resources.json.
 
@@ -319,9 +319,9 @@ Com o Redis, você desejará instalar cada nó individualmente e, em seguida, de
 
 Usando vinculação de modelos, o modelo principal vincula-se ao modelo de recursos compartilhados, o que estabelece a rede virtual.
 
-A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena *_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
+A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena * \_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
 
-O modelo principal aplica o valor de parâmetro *large* como um sufixo para um nome de modelo base para tamanhos de camiseta, então usa esse valor em uma vinculação de modelo para *technology_on_os_large.json*.
+O modelo principal aplica o valor de parâmetro *large* como um sufixo para um nome de modelo base para tamanhos de camiseta, então usa esse valor em uma vinculação de modelo para *technology\_on\_os\_large.json*.
 
 A topologia seria semelhante a essa ilustração.
 
@@ -381,4 +381,4 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 - Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
 - Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

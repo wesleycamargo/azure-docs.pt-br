@@ -40,15 +40,10 @@ Você pode inserir uma lista de distribuição como destinatário; no entanto, �
 Se você tiver notificações de provisionamento de conta habilitadas, receberá emails sobre problemas críticos relacionados ao provisionamento do usuário. No entanto, para evitar uma sobrecarga de emails, você só receberá um email de notificação por dia para cada aplicativo SaaS para o qual o email de notificação está habilitado.
 
 
-
-
-## Recursos adicionais
-
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

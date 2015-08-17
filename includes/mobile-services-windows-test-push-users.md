@@ -11,4 +11,4 @@
 
 	Verificar que a notificação seja recebida apenas neste dispositivo, porque o dispositivo anterior não estava marcado com a ID do usuário atual.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

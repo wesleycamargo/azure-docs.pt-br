@@ -66,4 +66,4 @@ Depois de criar a sua VNet, você pode adicionar novas VMs a ela. É importante 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Tutorial do HBase: Introdução ao HBase no Hadoop | Microsoft Azure"
 	description="Siga este tutorial do HBase para começar a usar o Apache HBase com o Hadoop no HDInsight. Criar tabelas a partir do shell do HBase e consultá-las usando o Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -44,7 +43,7 @@ Antes de começar este tutorial do HBase, você deve ter o seguinte:
 1. Entre no [Portal do Azure][azure-management-portal].
 2. Clique em **Novo** na parte inferior esquerda e clique em **Serviços de dados**, **HDInsight** e **HBase**.
 
-	>[AZURE.NOTE]**Criação personalizada**
+	>[AZURE.NOTE]Você também pode usar a opção de **Criação personalizada**.
 3. Forneça o **Nome do cluster**, **Tamanho do cluster**, senha de usuário HTTP e **Conta de armazenamento**.
 
 	![Provisionar clusters do HBase no HDInsight][img-hdinsight-hbase-cluster-quick-create]
@@ -324,10 +323,10 @@ Neste tutoria do HBase para o HDInsight, você aprendeu a provisionar um cluster
 
 Para obter mais informações, consulte:
 
-- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
-- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
+- [Visão geral do HBase do HDInsight][hdinsight-hbase-overview]\: o HBase é um banco de dados NoSQL de software livre Apache baseado no Hadoop que fornece acesso aleatório e uma sólida consistência para grandes quantidades de dados não estruturados e semiestruturados.
+- [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]\: com a integração da rede virtual, os clusters do HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 - [Configurar replicação HBase no HDInsight](hdinsight-hbase-geo-replication.md): saiba como configurar a replicação do HBase entre dois datacenters do Azure.
-- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
+- [Analisar sentimentos do Twitter com o HBase no HDInsight][hbase-twitter-sentiment]\: saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de grandes volumes de dados usando o HBase em um cluster do Hadoop no HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -357,4 +356,4 @@ Para obter mais informações, consulte:
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -45,4 +45,4 @@ Para obter instruções, baixe o "Guia de introdução" na página [Microsoft Wi
 [Como fazer logon em uma máquina virtual que executa o Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

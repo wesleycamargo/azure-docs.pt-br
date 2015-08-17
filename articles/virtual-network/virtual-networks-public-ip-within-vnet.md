@@ -33,15 +33,15 @@ Você adiciona um intervalo de endereços IP públicos da mesma maneira que adic
 
 Há alguns intervalos de endereços IP que não são permitidos:
 
-- 224.0.0.0/4 (Multicast)
+- 224\.0.0.0/4 (Multicast)
 
-- 255.255.255.255/32 (Broadcast)
+- 255\.255.255.255/32 (Broadcast)
 
-- 127.0.0.0/8 (loopback)
+- 127\.0.0.0/8 (loopback)
 
-- 169.254.0.0/16 (link-local)
+- 169\.254.0.0/16 (link-local)
 
-- 68.63.129.16/32 (DNS interno)
+- 68\.63.129.16/32 (DNS interno)
 
 ## Próximas etapas
 
@@ -51,4 +51,4 @@ Há alguns intervalos de endereços IP que não são permitidos:
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

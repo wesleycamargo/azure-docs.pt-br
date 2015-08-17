@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
@@ -56,7 +56,7 @@ Para criar um namespace de serviço:
 
 	IMPORTANTE: selecione a **mesma região** que você pretende escolher para implantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
-6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada Padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
@@ -64,7 +64,7 @@ Para criar um namespace de serviço:
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-Para realizar operações de gerenciamento, como a criação de uma conexão de retransmissão no novo namespace, você deve configurar a regra de autorização de Assinatura de acesso compartilhado (SAS) para o namespace. Para saber mais sobre SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço][].
+Para realizar operações de gerenciamento, como a criação de uma conexão de retransmissão no novo namespace, você deve configurar a regra de autorização de Assinatura de acesso compartilhado (SAS) para o namespace. Para obter mais informações sobre SAS, consulte [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço][].
 
 1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -78,7 +78,7 @@ Para realizar operações de gerenciamento, como a criação de uma conexão de 
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O pacote **NuGet** do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
+O pacote **NuGet** de Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências de Barramento de Serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
 
 Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
@@ -109,7 +109,7 @@ Primeiro, crie o serviço em si. Qualquer serviço WCF consiste em pelo menos tr
 
 Os exemplos de código desta seção abordam cada um desses componentes.
 
-O contrato define uma única operação, `AddNumbers`, que adiciona dois números e retorna o resultado. A interface `IProblemSolverChannel` permite que o cliente gerencie mais facilmente o ciclo de vida do proxy. A criação dessa interface é considerada uma prática recomendada. É uma boa ideia colocar essa definição de contrato em um arquivo separado para que você possa fazer referência a ele nos dois projetos, "Cliente" e "Serviço", mas você também pode copiar o código nos dois projetos:
+O contrato define uma única operação, `AddNumbers`, que adiciona dois números e retorna o resultado. A interface `IProblemSolverChannel` permite que o cliente gerencie mais facilmente o tempo de vida do proxy. A criação dessa interface é considerada uma prática recomendada. É uma boa ideia colocar essa definição de contrato em um arquivo separado para que você possa fazer referência a ele nos dois projetos, "Cliente" e "Serviço", mas você também pode copiar o código nos dois projetos:
 
         using System.ServiceModel;
      
@@ -155,7 +155,7 @@ Com o contrato e a implementação estabelecidos, você agora pode hospedar o se
 
     sh.Close();
 
-No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio do Barramento de Serviço. As principais diferenças entre eles são as associações; [`NetTcpBinding`](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para o local e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para o ponto de extremidade e os endereços do Barramento de Serviço. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade do Barramento de Serviço tem um endereço de ponto de extremidade composto da cadeia de caracteres “sb”, o nome do seu namespace e o caminho “solver”. Isso resulta no URI "sb://[serviceNamespace].servicebus.windows.net/solver", identificando o ponto de extremidade de serviço como um ponto de extremidade TCP do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, conforme explicado acima, na função `Main` do aplicativo "Serviço", você terá um serviço funcional. Se desejar que o serviço detecte exclusivamente o Barramento de serviço, remova a declaração de ponto de extremidade local.
+No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio do Barramento de Serviço. As principais diferenças entre eles são as associações; [`NetTcpBinding`](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para aquela no local e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para o ponto de extremidade e os endereços do Barramento de Serviço. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade do Barramento de Serviço tem um endereço de ponto de extremidade composto da cadeia de caracteres “sb”, o nome do seu namespace e o caminho “solver”. Isso resulta no URI "sb://[serviceNamespace].servicebus.windows.net/solver", identificando o ponto de extremidade de serviço como um ponto de extremidade TCP do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, conforme explicado acima, na função `Main` do aplicativo "Serviço", você terá um serviço funcional. Se desejar que o serviço detecte exclusivamente o Barramento de serviço, remova a declaração de ponto de extremidade local.
 
 ### Como configurar um host de serviço no arquivo App.config
 
@@ -252,9 +252,9 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
 
 Agora que você já aprendeu os conceitos básicos do serviço de **retransmissão** do Barramento de Serviço, siga estes links para saber mais.
 
--   Compilando um serviço: [Compilando um serviço para o Barramento de Serviço][].
--   Compilando o cliente: [Compilando um aplicativo cliente do Barramento de Serviço][].
--   Exemplos de Barramento de Serviço: baixe em [Exemplos do Azure][] ou confira a visão geral no [MSDN][].
+-   Compilando um serviço: [compilando um serviço para o Barramento de Serviço][].
+-   Compilando o cliente: [compilando um aplicativo cliente do Barramento de Serviço][].
+-   Exemplos de Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a visão geral no [MSDN][].
 
   [Create a Service Namespace]: #create_namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
@@ -262,10 +262,10 @@ Agora que você já aprendeu os conceitos básicos do serviço de **retransmiss�
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Portal de Gerenciamento do Azure]: http://manage.windowsazure.com
   [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço]: http://msdn.microsoft.com/library/azure/dn170477.aspx
-  [Compilando um serviço para o Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173564.aspx
-  [Compilando um aplicativo cliente do Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173543.aspx
+  [compilando um serviço para o Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173564.aspx
+  [compilando um aplicativo cliente do Barramento de Serviço]: http://msdn.microsoft.com/library/azure/ee173543.aspx
   [Exemplos do Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/en-us/library/azure/dn194201.aspx
+  [MSDN]: https://msdn.microsoft.com/pt-br/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

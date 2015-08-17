@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Amostras de código cliente de início rápido para o Banco de Dados SQL | Microsoft Azure" 
-	description="Fornece exemplos de código e drivers para Node. js no Linux, Python no Mac OS, Java e Windows e muitos mais, tudo para clientes do Banco de Dados SQL."
+	description="Fornece exemplos de código e drivers para Node. js no Linux, Python no Mac OS, Java e Windows, Enterprise Library e muitos mais, tudo para clientes do Banco de Dados SQL."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -75,7 +75,7 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 
 | Linguagem | Pequeno exemplo | Exemplo de repetição | Relacionado ao objeto |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personalizado](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET com a Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personalizado](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [Driver ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -92,5 +92,6 @@ Esta seção fornece links para tópicos com exemplo de código para programas c
 - [Desenvolvimento do Banco de Dados SQL do Azure: tópicos sobre como fazer](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md)
 - [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md)
+- [Entity Framework 6 aqui, EF 7 em GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

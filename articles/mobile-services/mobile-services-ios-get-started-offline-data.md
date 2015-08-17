@@ -30,7 +30,7 @@ A sincronização offline oferece várias vantagens:
 * Sincroniza dados em vários dispositivos
 * Detecta os conflitos quando o mesmo registro é modificado por dois dispositivos
 
-> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE]Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá se inscrever para uma avaliação do Azure e obter [serviços móveis gratuitos que você pode continuar usando mesmo depois do fim de sua avaliação](http://azure.microsoft.com/pricing/details/mobile-services/). Para obter detalhes, consulte [Avaliação Gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Este tutorial se baseia no [tutorial de Início Rápido dos Serviços Móveis], que você deve concluir primeiro. Vamos primeiro examinar o código relacionado à sincronização offline já no Início Rápido.
 
@@ -110,10 +110,10 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
 - Abra **QSDataModel.xcdatamodeld**. Há quatro tabelas definidas: três que são usadas pelo SDK e uma para os próprios itens pendentes:
 
-      * MS_TableOperations: para acompanhar os itens que serão sincronizados com o servidor
-      * MS_TableOperationErrors: para acompanhar os erros que ocorrerem durante a sincronização offline
-      * MS_TableConfig: para controlar a hora da última atualização da última operação de sincronização para todas as operações de pull
-      * TodoItem: para armazenar os itens pendentes. As colunas do sistema **ms_createdAt**, **ms_updatedAt** e **ms_version** são propriedades opcionais do sistema.
+      * MS\_TableOperations: para acompanhar os itens que serão sincronizados com o servidor
+      * MS\_TableOperationErrors: para acompanhar os erros que ocorrerem durante a sincronização offline
+      * MS\_TableConfig: para controlar a hora da última atualização da última operação de sincronização para todas as operações de pull
+      * TodoItem: para armazenar os itens pendentes. As colunas do sistema **ms\_createdAt**, **ms\_updatedAt** e **ms\_version** são propriedades opcionais do sistema.
 
 >[AZURE.NOTE]O SDK dos Serviços Móveis reserva nomes de coluna que começam com "**`ms_`**". Não use esse prefixo em algo diferente das colunas do sistema. Caso contrário, os nomes de coluna serão modificados ao usar o serviço remoto.
 
@@ -121,7 +121,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
 
     ### Tabelas do sistema
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | Atributo | Tipo |
     |-------------- |   ------    |
@@ -131,7 +131,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | tabela | Cadeia de caracteres |
     | tableKind | Número inteiro 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | Atributo | Tipo |
     |-------------- | ----------  |
@@ -140,7 +140,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | propriedades | Dados binários |
     | tableKind | Número inteiro 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | Atributo | Tipo |
@@ -160,7 +160,7 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | ID (obrigatório) | Cadeia de caracteres | chave primária no repositório remoto (obrigatório) |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms_createdAt | Data | (opcional) é mapeado para __createdAt propriedade do sistema | | ms_updatedAt | Data | (opcional) é mapeado para __updatedAt propriedade do sistema | | ms_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para __versão |
+    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
 
 
 
@@ -271,4 +271,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

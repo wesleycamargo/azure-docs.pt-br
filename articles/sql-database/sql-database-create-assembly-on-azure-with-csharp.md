@@ -50,7 +50,7 @@ Para entender esse tópico, você já deve saber parcialmente o seguinte:
 5. Instrução T-SQL SELECT para chamar e testar sua função.
 
 
-A lista acima não menciona...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ...pois não é necessário para o Banco de Dados SQL do Azure, mesmo que seja necessário para o Microsoft SQL Server.
+A lista acima não menciona...<br/> **execute sp\_configure 'clr enabled', 1;**<br/> ...pois não é necessário para o Banco de Dados SQL do Azure, mesmo que seja necessário para o Microsoft SQL Server.
 
 
 Se for necessário para repetir a execução, o código T-SQL para descartar a função e o assembly é o seguinte:
@@ -328,4 +328,4 @@ O bloco de código Transact-SQL anterior termina com uma instrução SELECT que 
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

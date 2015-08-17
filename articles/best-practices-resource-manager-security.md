@@ -191,7 +191,7 @@ Uma regra especifica o seguinte:
 -	Intervalo de porta de origem: um inteiro ou um intervalo entre 0 e 65536
 -	Intervalo de IP de destino: CIDR do intervalo de IP de destino
 -	Intervalo de porta de destino: um inteiro ou um intervalo entre 0 e 65536
--	Protocolo: TCP, UDP ou ‘\*’
+-	Protocolo: TCP, UDP ou ‘*’
 -	Acesso: Permitir/Negar
 
 ### Regras padrão
@@ -206,17 +206,17 @@ As regras padrão são mostradas nas tabelas abaixo.
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR A ENTRADA DA VNET | 65000 | REDE\_VIRTUAL |	\* |	REDE\_VIRTUAL | \* |	\* | PERMITIR
-PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA\_AZURE | \* | \* | \* | \* | PERMITIR
-NEGAR TODAS AS ENTRADAS | 65500 | \* | \* | \* | \* | \* | NEGAR
+PERMITIR A ENTRADA DA VNET | 65000 | REDE\_VIRTUAL |	* |	REDE\_VIRTUAL | * |	* | PERMITIR
+PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA\_AZURE | * | * | * | * | PERMITIR
+NEGAR TODAS AS ENTRADAS | 65500 | * | * | * | * | * | NEGAR
 
 **Regras de saída padrão**
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | \* | REDE\_VIRTUAL | \* | \* | PERMITIR
-PERMITIR SAÍDA DA INTERNET | 65001 | \* | \* | INTERNET | \* | \* | PERMITIR
-NEGAR TODAS AS SAÍDAS | 65500 | \* | \* | \* | \* | \* | NEGAR
+PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | * | REDE\_VIRTUAL | * | * | PERMITIR
+PERMITIR SAÍDA DA INTERNET | 65001 | * | * | INTERNET | * | * | PERMITIR
+NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR
 
 ### Regras especiais de infraestrutura
 
@@ -243,7 +243,7 @@ As regras de NSG podem ser especificadas em uma porta de origem ou de destino ú
 
 ### Tráfego ICMP
 
-Com as regras NSG atuais, você pode especificar TCP ou UDP como protocolos, mas não o ICMP. No entanto, o tráfego com ICMP é permitido em uma rede virtual por padrão por meio das regras de entrada que dão suporte ao tráfego de e para qualquer porta e protocolo (\*) na rede virtual.
+Com as regras NSG atuais, você pode especificar TCP ou UDP como protocolos, mas não o ICMP. No entanto, o tráfego com ICMP é permitido em uma rede virtual por padrão por meio das regras de entrada que dão suporte ao tráfego de e para qualquer porta e protocolo (*) na rede virtual.
 
 ### Associando um NSG a uma VM
 
@@ -267,7 +267,7 @@ Por exemplo, você cria uma nova VM e um novo NSG. Você associa o NSG à VM. A 
 
 Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | \* | \* | 80 | TCP | PERMITIR
+WEB | 100 | INTERNET | * | * | 80 | TCP | PERMITIR
 
 ## Rotas definidas pelo usuário
 
@@ -335,4 +335,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Para uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

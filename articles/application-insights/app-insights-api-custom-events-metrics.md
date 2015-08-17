@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -112,7 +112,7 @@ Clique no bloco Eventos Personalizados na folha de visão geral:
 
 Clique para ver um gráfico de visão geral e uma lista completa.
 
-Selecione o gráfico e segmente-o pelo Nome do evento para ver as contribuições relativas dos eventos mais importantes.
+Selecione o gráfico e agrupe-o pelo Nome do evento para ver as contribuições relativas dos eventos mais importantes.
 
 ![Selecione o gráfico e defina o agrupamento](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -402,9 +402,7 @@ O limite de tamanho para `message` é muito maior do que o limite para proprieda
 
 ## Rastrear dependência
 
-O módulo de rastreamento de dependência padrão usa essa API para registrar em log chamadas para dependências externas, como bancos de dados ou APIs REST. O módulo descobre automaticamente algumas dependências externas, mas convém que alguns componentes adicionais sejam tratados da mesma forma.
-
-Por exemplo, se você criar seu código com um assembly que não escreveu, será possível determinar o tempo de todas as chamadas nele, a fim de descobrir qual sua contribuição para seus tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência do Application Insights, envie-os usando `TrackDependency`.
+Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de chamadas para uma parte externa do código. Os resultados são exibidos nos gráficos de dependência no portal.
 
 ```C#
 
@@ -422,7 +420,9 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, será
             }
 ```
 
-Para desativar o módulo de rastreamento de dependência padrão, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
+Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha automaticamente determinadas chamadas de dependência - por exemplo em bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
+
+Para desativar o módulo padrão de acompanhamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Definir padrões para telemetria personalizada selecionada
 
@@ -561,7 +561,7 @@ Use inicializadores de telemetria para substituir o comportamento selecionado do
 
 Por exemplo, o Application Insights para o pacote da Web coleta a telemetria sobre solicitações HTTP. Por padrão, ele sinaliza como qualquer solicitação com um código de resposta de falha > = 400. Mas se você desejar tratar 400 como sucesso, você pode fornecer um inicializador de telemetria que define a propriedade de sucesso.
 
-Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track\*() for chamado. Isso inclui métodos chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador.
+Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() for chamado. Isso inclui métodos chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador.
 
 **Definir seu inicializador**
 
@@ -715,7 +715,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
  * **ID**: um valor gerado que correlaciona eventos diferentes, para que quando você inspecionar qualquer evento no diagnóstico de pesquisa, você pode localizar "itens relacionados"
  * **Nome**: a URL da solicitação HTTP
  * **SyntheticSource**: se não for nula ou vazia, essa cadeia de caracteres indica que a origem da solicitação foi identificada como um teste de robô ou web. Por padrão, elas são excluídas de cálculos no Metrics Explorer.
-* As **Propriedades** que são enviadas com todos os dados de telemetria. Pode ser substituído nas chamadas individuais de Track\*.
+* As **Propriedades** que são enviadas com todos os dados de telemetria. Pode ser substituído nas chamadas individuais de Track*.
 * **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
 * **Usuário** permite que os usuários sejam contados. Em um aplicativo da web, se houver um cookie, a ID de usuário será removido dele. Se não houver, será gerado um novo. Se os usuários tiverem que fazer logon em seu aplicativo, você pode definir a ID de sua identificação autenticada, para fornecer uma contagem mais confiável e correta, mesmo que o usuário faça logon em uma máquina diferente. 
 
@@ -744,7 +744,7 @@ Há alguns limites no número de métricas você pode usar.
 
 ## Perguntas
 
-* *Que exceções podem acionar chamadas Track \*?*
+* *Que exceções podem acionar chamadas Track *?*
     
     Nenhum. Você não precisa encapsulá-los em cláusulas catch.
 
@@ -758,6 +758,8 @@ Há alguns limites no número de métricas você pode usar.
 
 
 [Pesquisar eventos e logs][diagnostic]
+
+[Exemplos e explicações passo a passo](app-insights-code-samples.md)
 
 [Solucionar problemas][qna]
 
@@ -779,4 +781,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

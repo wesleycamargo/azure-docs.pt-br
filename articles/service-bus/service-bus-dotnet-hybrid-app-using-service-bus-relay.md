@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -91,7 +91,7 @@ Você pode gerenciar namespaces e entidades de mensagens do Barramento de Servi�
 
     IMPORTANTE: selecione a **mesma região** que você pretende escolher para implantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
-6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+6.	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada Padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
 	![][38]
 
@@ -122,7 +122,7 @@ Para executar operações de gerenciamento no novo namespace, como a criação d
 
 Primeiro você criará um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
 
-Esse projeto é iniciado como um aplicativo de console do Visual Studio. O projeto utiliza o pacote NuGet de Barramento de Serviço para incluir as bibliotecas de Barramento de Serviço e as definições de configuração. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. Para obter mais detalhes sobre como usar o NuGet e o pacote de Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][].
+Esse projeto é iniciado como um aplicativo de console do Visual Studio. O projeto utiliza o pacote NuGet de Barramento de Serviço para incluir as bibliotecas de Barramento de Serviço e as definições de configuração. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. Para obter mais detalhes sobre como usar o pacote NuGet e do Barramento de Serviço, consulte [Utilizando o pacote NuGet de Barramento de Serviço][].
 
 ### Criar o projeto
 
@@ -132,13 +132,13 @@ Esse projeto é iniciado como um aplicativo de console do Visual Studio. O proje
 
     ![][10]
 
-3.  Em **Modelos instalados**, abaixo de **Visual C#**, clique em **Aplicativo de console**. Na caixa **Nome**, digite o nome **ProductsServer**:
+3.  Em **Modelos Instalados**, abaixo de **Visual C#**, clique em **Aplicativo de Console**. Na caixa **Nome**, digite o nome **ProductsServer**:
 
     ![][11]
 
 4.  Clique em **OK** para criar o projeto **ProductsServer**.
 
-5.  Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **ProductsServer** e, em seguida, clique em **Propriedades**.
+5.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ProductsServer** e, em seguida, clique em **Propriedades**.
 
 6.  Clique na guia **Aplicativo** à esquerda, e certifique-se de que o **.NET Framework 4** ou o **.NET Framework 4.5** aparece no menu suspenso **Estrutura de destino:**. Caso contrário, selecione-o na lista suspensa e, em seguida, clique em **Sim** quando for solicitado para recarregar o projeto.
 
@@ -146,7 +146,7 @@ Esse projeto é iniciado como um aplicativo de console do Visual Studio. O proje
 
 7.  Se você já tiver instalado o Gerenciador de Pacotes NuGet para Visual Studio, vá para a próxima etapa. Caso contrário, visite [NuGet][] e clique em [Instalar o NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Siga os prompts para instalar o Gerenciador de Pacotes NuGet e, em seguida, reinicie o Visual Studio.
 
-7.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**...
+7.  No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 
 8.  Na coluna à esquerda da caixa de diálogo NuGet, clique em **Online**.
 
@@ -156,7 +156,7 @@ Esse projeto é iniciado como um aplicativo de console do Visual Studio. O proje
 
     Observe que os assemblies do cliente necessários agora são referenciados.
 
-9.  Adicione uma nova classe para seu contrato de produto. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ProductsServer** e clique em **Adicionar** e, em seguida clique em **Classe**.
+9.  Adicione uma nova classe para seu contrato de produto. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ProductsServer**, clique em **Adicionar** e clique em **Classe**.
 
     ![][14]
 
@@ -288,7 +288,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 
 ### Criar o projeto
 
-1.  Certifique-se de que o Visual Studio está sendo executado com os privilégios de administrador. Se não estiver, inicie o Visual Studio com privilégios de administrador, clique com o botão direito em **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Microsoft Azure, abordado mais à frente neste guia, exige que o Visual Studio seja iniciado com privilégios de administrador.
+1.  Certifique-se de que o Visual Studio está sendo executado com os privilégios de administrador. Se não tiver feito isso, inicie o Visual Studio com privilégios de administrador, clique com o botão direito em **Microsoft Visual Studio 2013 (ou Microsoft Visual Studio Express)** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Microsoft Azure, abordado mais à frente neste guia, exige que o Visual Studio seja iniciado com privilégios de administrador.
 
 2.  No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
 
@@ -344,7 +344,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 
     ![][18]
 
-4.  Em seguida, clique duas vezes em _Layout.cshtml para abri-lo no editor do Visual Studio.
+4.  Em seguida, clique duas vezes em \_Layout.cshtml para abri-lo no editor do Visual Studio.
 
 5.  Altere todas as ocorrências de **Meu aplicativo ASP.NET** para **Produtos da LITWARE**.
 
@@ -391,7 +391,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 		</table>
 
 
-9.  Para verificar a precisão de seu trabalho até o momento, você pode pressionar **F6** ou **Ctrl+Shift+B**para compilar o projeto.
+9.  Para verificar a precisão de seu trabalho até o momento, você pode pressionar **F6** ou **Ctrl+Shift+B** para compilar o projeto.
 
 
 ### Execute seu aplicativo localmente
@@ -406,7 +406,7 @@ Execute o aplicativo para verificar se ele funciona.
 
 ## Tornar seu aplicativo pronto para implantação no Azure
 
-É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta seção contém etapas detalhadas para implantar o aplicativo em um serviço de nuvem do Azure.
+É possível implantar seu aplicativo em um serviço de nuvem do Azure ou em um site do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de Execução do Azure][executionmodels]. Para saber como implantar o aplicativo em um site do Azure, consulte [Implantando um aplicativo Web ASP.NET em um site do Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta seção contém etapas detalhadas para implantar o aplicativo em um serviço de nuvem do Azure.
 
 Para implantar seu aplicativo em um serviço de nuvem, você adicionará um projeto de implantação de projeto de serviço de nuvem à solução. O projeto de implantação contém as informações de configuração necessárias para executar corretamente o aplicativo na nuvem.
 
@@ -426,13 +426,13 @@ Para implantar seu aplicativo em um serviço de nuvem, você adicionará um proj
 
 A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.NET MVC.
 
-1.  Se ele ainda não estiver aberto, no Visual Studio reabra o projeto **ProductsPortal** criado na sessão “Criando um aplicativo ASP.NET MVC”.
+1.  Se ele ainda não estiver aberto, reabra o projeto **ProductsPortal** no Visual Studio criado na sessão “Criar um aplicativo ASP.NET MVC”.
 
 2.  Semelhante à etapa na seção "Criar um servidor local", adicione o pacote NuGet às referências do projeto. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 
 3.  Pesquise "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
 
-4.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProductsPortal**, depois clique em **Adicionar** e, em seguida, em **Item existente**.
+4.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProductsPortal**, depois clique em **Adicionar** e, em seguida, em **Item Existente**.
 
 5.  Navegue até o arquivo **ProductsContract.cs** do projeto de console **ProductsServer**. Clique para realçar ProductsContract.cs. Clique na seta para baixo próxima a **Adicionar** e, em seguida, clique em **Adicionar como Link**.
 
@@ -489,7 +489,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
 11. Ainda na caixa de diálogo Propriedades, clique em **ProjectDependencies** no lado esquerdo.
 
-12. Na lista suspensa **Projetos**, clique em **ProductsServer**. Certifique-se de que **ProductsPortal** está desmarcado e **ProductsPortal.Azure** está marcado. Em seguida, clique em **OK**:
+12. Na lista suspensa **Projetos**, clique em **ProductsServer**. Certifique-se de que **ProductsPortal** esteja desmarcado e **ProductsPortal.Azure** esteja marcado. Em seguida, clique em **OK**:
 
     ![][26]
 
@@ -526,7 +526,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
 Isso levará aproximadamente cinco a sete minutos. Como esta é a primeira vez que você está publicando, o Azure provisiona uma máquina virtual (VM), executa a proteção de segurança, cria uma função de Web no computador virtual para hospedar seu aplicativo, implanta seu código para a função de Web e, finalmente, configura o balanceador de carga e a rede para que seu aplicativo fique disponível para o público.
 
-11. Enquanto a publicação estiver em andamento é possível monitorar a atividade na janela **Log de atividades do Azure**, que normalmente é encaixada na parte inferior do Visual Studio ou do Visual Web Developer:
+11. Enquanto a publicação está em andamento, é possível monitorar a atividade na janela de **Log de Atividades do Azure**, que normalmente fica encaixada na parte inferior do Visual Studio ou do Visual Web Developer:
 
     ![][35]
 
@@ -620,4 +620,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

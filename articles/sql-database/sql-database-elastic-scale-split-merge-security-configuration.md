@@ -1,8 +1,9 @@
 <properties 
+    title="Elastic Scale Security Configurations" 
     pageTitle="Configurações de segurança de Escala Elástica" 
     description="Configurar certificados x409 para criptografia" 
-    services="sql-database" 
-	documentationCenter="" 
+    metaKeywords="Elastic Database certificates security" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -85,11 +86,11 @@ Certificados de cliente são necessários para autenticar solicitações ao serv
 8.    [Configurar clientes permitidos no arquivo de configuração de serviço](Configure#Allowed#Clients#in#the#Service#Configuration#File)
 
 ### Usar certificados de cliente existente
-1.    [Localizar a chave pública de AC] (Localizar a #chave pública de #AC)
+1.    [Localizar a chave pública de AC] (Localizar a \#chave pública de \#AC)
 2.    [Carregar o Certificado de Autoridade de Certificação no serviço de nuvem](Upload#CA#certificate#to#cloud#service)
 3.    [Atualizar o Certificado de Autoridade de Certificação no arquivo de configuração de serviço](Update#CA#Certificate#in#Service#Configuration#File)
 4.    [Copie as impressões digitais de certificados de cliente](Copy#Client#Certificate#Thumbprints)
-5.    [Configurar clientes permitidos no Arquivo de Configuração de Serviço] (Configurar #clientes #permitidos #no #Arquivo de #Configuração de Serviço)
+5.    [Configurar clientes permitidos no Arquivo de Configuração de Serviço] (Configurar \#clientes \#permitidos \#no \#Arquivo de \#Configuração de Serviço)
 6.    [Configurar a verificação de revogação de certificado do cliente](Configure#Client#Certificate#Revocation#Check)
 
 ## Endereços IP permitidos
@@ -196,7 +197,7 @@ Execute:
 
 Para personalizar:
 
-*    -n com a URL do serviço. Há suporte para caracteres curinga ("CN=\*.cloudapp .net") e nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
+*    -n com a URL do serviço. Há suporte para caracteres curinga ("CN=*.cloudapp .net") e nomes alternativos ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net").
 *    -e com a data de validade do certificado Criar uma senha forte e especifique-a quando solicitado.
 
 ## Criar o arquivo PFX para o certificado SSL autoassinado
@@ -205,7 +206,7 @@ Execute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Digite a senha e exporte o certificado com as seguintes opções: \* Sim, exportar a chave privada \* Exportar todas as propriedades estendidas
+Digite a senha e exporte o certificado com as seguintes opções: * Sim, exportar a chave privada * Exportar todas as propriedades estendidas
 
 ## Exportar o certificado SSL do repositório de certificados
 
@@ -213,7 +214,8 @@ Digite a senha e exporte o certificado com as seguintes opções: \* Sim, export
 * Clique em Ações -> todas as tarefas -> Exportar...
 * Exportar o certificado em um arquivo .PFX com as seguintes opções:
     * Sim, exportar a chave privada
-    * Incluir todos os certificados no caminho de certificação, se possível *Exportar todas as propriedades estendidas 
+    * Incluir todos os certificados no caminho de certificação, se possível *Exportar todas as propriedades estendidas
+
 ## Carregar certificado SSL para o serviço de nuvem
 
 Carregar certificado com o arquivo .PFX existente ou gerado com o par de chaves SSL:
@@ -345,7 +347,7 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve importar o 
     * Incluir todas as propriedades estendidas marcadas
 
 ## Copie as impressões digitais de certificados de cliente
-Cada pessoa para quem um certificado de cliente tiver sido emitido deve seguir estas etapas para obter a impressão digital do certificado que será adicionado ao arquivo de configuração de serviço: \* Execute certmgr.exe \* Selecione a guia Pessoal \* Clique duas vezes no certificado de cliente a ser usado para autenticação \* Na caixa de diálogo Certificado que é aberta, selecione a guia Detalhes \* Certifique-se que Mostrar esteja exibindo Todos \* Selecione o campo denominado Impressão Digital na lista \* Copie o valor da impressão digital \* \* Exclua os caracteres Unicode não visíveis da frente do primeiro dígito \* \* Exclua todos os espaços
+Cada pessoa para quem um certificado de cliente tiver sido emitido deve seguir estas etapas para obter a impressão digital do certificado que será adicionado ao arquivo de configuração de serviço: * Execute certmgr.exe * Selecione a guia Pessoal * Clique duas vezes no certificado de cliente a ser usado para autenticação * Na caixa de diálogo Certificado que é aberta, selecione a guia Detalhes * Certifique-se que Mostrar esteja exibindo Todos * Selecione o campo denominado Impressão Digital na lista * Copie o valor da impressão digital * * Exclua os caracteres Unicode não visíveis da frente do primeiro dígito * * Exclua todos os espaços
 
 ## Configurar clientes Permitidos no arquivo de configuração de serviço
 
@@ -369,7 +371,7 @@ Personalizando:
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Digite a senha e exporte o certificado com as seguintes opções: \* Sim, exportar a chave privada \* Exportar todas as propriedades estendidas \* Você precisará da senha para carregar o certificado para o serviço de nuvem.
+Digite a senha e exporte o certificado com as seguintes opções: * Sim, exportar a chave privada * Exportar todas as propriedades estendidas * Você precisará da senha para carregar o certificado para o serviço de nuvem.
 
 ## Exportar o certificado de criptografia do repositório de certificados
 
@@ -447,12 +449,12 @@ No Assistente para importação de certificados:
 7.     Selecione o repositório desejado.
 8.     Clique em **Concluir**.
        
-	* Se o repositório da autoridade de certificação raiz confiável foi escolhido; Clique em **Sim**.
+	* Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9.     Clique em **OK** em todas as janelas de diálogo.
 
 ## Carregar um certificado
 
-No [Portal de Gerenciamento do Azure](http://portal.azure.com/)
+No [Portal de Gerenciamento do Azure](http://portal.azure.com/).
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem.
@@ -472,4 +474,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

@@ -49,4 +49,4 @@ A seção Autenticação do Windows permite que o administrador habilite e confi
 10. Selecione Sub-rede se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa. 
 11. Clique no botão OK.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

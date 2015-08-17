@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/06/2015"
 	ms.author="bwren"/>
 
@@ -65,4 +65,4 @@ Uma variedade de recursos está disponível para você aprender mais sobre a Aut
 
 **Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

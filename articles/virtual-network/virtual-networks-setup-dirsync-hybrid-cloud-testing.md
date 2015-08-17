@@ -58,12 +58,13 @@ Esta é a configuração atual.
 
 Para iniciar sua avaliação do Office 365 FastTrack, é necessário um nome de empresa fictício e uma conta da Microsoft. É recomendável que você use, como nome da empresa, uma variante do nome da empresa Contoso, que é uma empresa fictícia usada no conteúdo de exemplo da Microsoft, mas isso não é necessário.
 
-Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse **http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
+Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse ****http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
 
 Em seguida, inscreva-se para uma nova avaliação do Office 365 FastTrack.
 
 1.	Faça logon em CLIENT1 com as credenciais da conta CORP\\User1.
-2.	Abra o Internet Explorer e acesse **http://fasttrack.office.com**. 3.	Clique em **Introdução ao FastTrack**.
+2.	Abra o Internet Explorer e acesse ****http://fasttrack.office.com**.
+3.	Clique em **Introdução ao FastTrack**.
 4.	Na página Introdução ao FastTrack, em **Primeiro, inscreva-se para uma avaliação do Office 365**, clique em **Para empresas, inscreva-se aqui**.
 5.	Na página Etapa 1, preencha a página, especificando a sua nova conta da Microsoft em **Endereço de email comercial** e clique em **Avançar**.
 6.	Na página Etapa 2, digite o nome de uma conta inicial do Office 365 no primeiro campo, o nome da empresa fictícia e uma senha. Registre o endereço de email resultante (como user123@contoso123.onmicrosoft.com) e a senha em um local seguro. Você precisará dessas informações para concluir o Assistente de Configuração da Ferramenta de Sincronização do Active Directory na Fase 3. Clique em **Próximo**.
@@ -113,7 +114,8 @@ Em seguida, instale o .NET 3.5 no DS1 com este comando no prompt de comando do W
 
 Depois, instale a Sincronização de Diretórios no DS1.
 
-1.	Execute o Internet Explorer, digite **http://go.microsoft.com/fwlink/?LinkID=278924** na barra de endereços e pressione ENTER. Quando solicitado a executar dirsync.exe, clique na seta ao lado de **Salvar**, clique em **Salvar como** e, em seguida, clique em **Salvar** para salvar o arquivo na pasta Downloads. Para obter mais informações sobre como instalar a ferramenta, consulte [Instalar ou atualizar a ferramenta Sincronização de Diretórios](http://technet.microsoft.com/library/jj151800). 2.	Abra a pasta **Downloads**, clique com o botão direito do mouse no arquivo **dirsync** e clique em **Executar como administrador**.
+1.	Execute o Internet Explorer, digite ****http://go.microsoft.com/fwlink/?LinkID=278924** na barra de endereços e pressione ENTER. Quando solicitado a executar dirsync.exe, clique na seta ao lado de **Salvar**, clique em **Salvar como** e, em seguida, clique em **Salvar** para salvar o arquivo na pasta Downloads. Para obter mais informações sobre como instalar a ferramenta, consulte [Instalar ou atualizar a ferramenta Sincronização de Diretórios](http://technet.microsoft.com/library/jj151800).
+2.	Abra a pasta **Downloads**, clique com o botão direito do mouse no arquivo **dirsync** e clique em **Executar como administrador**.
 3.	Na página de Boas-vindas do assistente de Instalação da Sincronização do Active Directory, clique em **Avançar**. 
 4.	Na página Termos de Licença, clique em **Aceito** e em **Avançar**.
 5.	Na página Selecionar Pasta de Instalação, clique em **Avançar**. Pode levar alguns minutos para concluir a instalação.
@@ -164,7 +166,8 @@ Em seguida, demonstre a sincronização de senha do Office 365 com a conta Lynda
 3.	Na guia **Atribuir Licença**, selecione um local em **Definir local do usuário** (como Estados Unidos).
 4.	Selecione **Microsoft Office 365 Plano E3** e clique em **Salvar**.
 5.	Feche o Internet Explorer.
-6.	Execute o Internet Explorer e acesse **http://portal.microsoftonline.com**. 7.	Faça logon com as credenciais do Office 365 de Lynda Meyer. Seu nome de usuário será lyndam@<\*Seu nome fictício\*>.onmicrosoft.com. A senha é a senha da conta de usuário Lynda Meyer do Active Directory.
+6.	Execute o Internet Explorer e acesse ****http://portal.microsoftonline.com**.
+7.	Faça logon com as credenciais do Office 365 de Lynda Meyer. Seu nome de usuário será lyndam@<*Seu nome fictício*>.onmicrosoft.com. A senha é a senha da conta de usuário Lynda Meyer do Active Directory.
 8.	Após o logon bem-sucedido, você verá a página do portal principal do Office 365 com **Vamos fazer a diferença hoje**.
 
 Esta é a configuração atual.
@@ -194,4 +197,4 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

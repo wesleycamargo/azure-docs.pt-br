@@ -167,8 +167,8 @@ Um pacote de suporte contém todos os logs relevantes que podem ajudar a equipe 
 
 5. Ao abrir os logs no Visualizador de Eventos, procure os seguintes logs que contêm problemas relacionados à configuração do dispositivo:
 
-  - hcs_pfconfig/Operational Log
-  - hcs_pfconfig/Config
+  - hcs\_pfconfig/Operational Log
+  - hcs\_pfconfig/Config
 
 6. Nos arquivos de log, procure cadeias de caracteres relacionadas aos cmdlets chamados pelo assistente de instalação. Consulte [Processo do assistente de instalação inicial](#first-time-setup-wizard-process) para obter uma lista desses cmdlets. 
 
@@ -575,4 +575,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -3,7 +3,7 @@
 	description="Se você não conseguir conectar sua máquina virtual do Azure baseada no Linux, use essas etapas para isolar a origem do problema."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux
 
@@ -86,7 +86,7 @@ Em todos esses casos, tente desabilitar temporariamente o software e tente estab
 Se você estiver usando autenticação de certificado, verifique se tem essas permissões para a pasta .ssh em seu diretório base:
 
 - Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/\*.pub
+- Chmod 644 \~/.ssh/*.pub
 - Chmod 600 \~/.ssh/id\_rsa (ou qualquer outro arquivo que armazene chaves privadas)
 - Chmod 644 \~/.ssh/known\_hosts (contém os hosts aos quais você se conectou via SSH)
 
@@ -165,4 +165,4 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Gerenciar a capacidade de infraestrutura
@@ -25,7 +25,7 @@ Por exemplo, uma projeção pode identificar quando a núcleos do de processador
 
 ## Painel de gerenciamento de capacidade
 
-Para poder usar o painel de gerenciamento de capacidade no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). Após a instalação da solução de planejamento de capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do Insights Operacionais.
+Para poder usar o painel de gerenciamento de capacidade no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-setup-workspace.md). Após a instalação da solução de planejamento de capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do Insights Operacionais.
 
 ![imagem do bloco Planejamento de Capacidade](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +164,4 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -170,9 +170,9 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 
 | Algoritmo | Comprimento da chave | Aplicativos/protocolos/comentários |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2.048 | RSA PKCS 1 v1.5 é usada pelo Portal de Gerenciamento para criptografar dados de configuração enviados para o dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
+| RSA | 2\.048 | RSA PKCS 1 v1.5 é usada pelo Portal de Gerenciamento para criptografar dados de configuração enviados para o dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
 | AES | 256 | AES com CBC é usado para criptografar a parte pública da chave de criptografia de dados de serviço antes de ela ser enviada para o Portal de Gerenciamento por meio do dispositivo StorSimple. Também é usado pelo dispositivo StorSimple para criptografar os dados antes sejam enviados para a conta de armazenamento em nuvem. |
-| RSA | 2.048 | RSA PKCS 1 v1.7 é usado pelo Portal de Gerenciamento para criptografar a parte pública da chave de criptografia de dados de serviço antes de armazená-la no armazenamento local de portal. |
+| RSA | 2\.048 | RSA PKCS 1 v1.7 é usado pelo Portal de Gerenciamento para criptografar a parte pública da chave de criptografia de dados de serviço antes de armazená-la no armazenamento local de portal. |
 
 
 ## Perguntas frequentes (FAQ)
@@ -246,4 +246,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Introdução ao dispositivo físico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

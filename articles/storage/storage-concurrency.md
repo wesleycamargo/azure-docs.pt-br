@@ -93,10 +93,7 @@ Get Container Properties|	Sim|	Não|
 Get Container Metadata|	Sim|	Não|
 Set Container Metadata|	Sim|	Sim|
 Get Container ACL|	Sim|	Não|
-Set Container ACL|	Sim|	Sim (*)|
-Delete Container|	Não|	Sim|
-Lease Container|	Sim|	Sim|
-Listar Blobs|	Não|	Não  
+Set Container ACL|	Sim|	Sim (*)| Delete Container| Não| Sim| Lease Container| Sim| Sim| List Blobs| Não| Não 
 
 (*) As permissões definidas por SetContainerACL são armazenadas em cache e as atualizações dessas permissões levam 30 segundos para serem propagadas, período durante o qual não há garantia de que as atualizações são consistentes.
 
@@ -110,16 +107,7 @@ Get Blob Properties|	Sim|	Sim|
 Set Blob Properties|	Sim|	Sim|
 Get Blob Metadata|	Sim|	Sim|
 Set Blob Metadata|	Sim|	Sim|
-Lease Blob (*)|	Sim|	Sim|
-Blob de instantâneo|	Sim|	Sim|
-Copiar blob|	Sim|	Sim (para o blob de origem e destino)|
-Anular copiar Blob|	Não|	Não|
-Delete Blob|	Não|	Sim|
-Put Block|	Não|	Não|
-Put Block List|	Sim|	Sim|
-Get Block List|	Sim|	Não|
-Put Page|	Sim|	Sim|
-Get Page Ranges|	Sim|	Sim
+Lease Blob (*)| Sim| Sim| Snapshot Blob| Sim| Sim| Copy Blob| Sim| Sim (para blob de origem e destino)| Abort Copy Blob| Não| Não| Delete Blob| Não| Sim| Put Block| Não| Não| Put Block List| Sim| Sim| Get Block List| Sim| Não| Put Page| Sim| Sim| Get Page Ranges| Sim| Sim
 
 (*) Lease Blob não altera a ETag em um blob.
 
@@ -205,7 +193,7 @@ Para usar a simultaneidade otimista e verificar se outro processo modificou uma 
 2.	Ao atualizar a entidade, inclua o valor da ETag recebido na etapa 1 no cabeçalho obrigatório **If-Match** da solicitação enviada para o serviço.
 3.	O serviço compara o valor da ETag na solicitação com o valor da ETag atual da entidade.
 4.	Se o valor da ETag atual da entidade for diferente da ETag no cabeçalho obrigatório **If-Match** na solicitação, o serviço retornará um erro 412 para o cliente. Isso indica para o cliente que outro processo atualizou a entidade desde que ele a recuperou.
-5.	Se o valor da ETag atual da entidade for o mesmo da ETag no cabeçalho obrigatório **If-Match** na solicitação ou o cabeçalho **If-Match** contiver o caractere curinga (*), o serviço realizará a operação solicitada e atualizará o valor da ETag atual da entidade para mostrar que ela foi atualizada.  
+5.	Se o valor da ETag atual da entidade for o mesmo da ETag no cabeçalho obrigatório **If-Match** na solicitação ou o cabeçalho **If-Match** contiver o caractere curinga (*), o serviço realizará a operação solicitada e atualizará o valor da ETag atual da entidade para mostrar que ela foi atualizada.
 
 Observe que diferente do serviço Blob, o serviço Tabela exige que o cliente inclua um cabeçalho **If-Match** em solicitações de atualização. No entanto, é possível forçar uma atualização incondicional (estratégia último a gravar vence) e ignorar as verificações de simultaneidade se o cliente definir o cabeçalho **If-Match** com o caractere curinga (*) na solicitação.
 
@@ -285,4 +273,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

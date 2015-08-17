@@ -44,4 +44,4 @@ Os relatórios do Azure AD retêm dados de um determinado número de dias, indic
 |	Uso de aplicativos habilitados para RMS |	30 dias |
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

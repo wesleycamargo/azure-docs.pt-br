@@ -3,7 +3,7 @@
 	description="Aprenda a usar o Mobile Engagement do Azure com Análises e Notificações por Push para Aplicativos iOS."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Introdução ao Azure Mobile Engagement para Aplicativos iOS em Swift
 
@@ -52,14 +52,14 @@ A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais 
 
 2. Clique em **Serviços de Aplicativo**, **Mobile Engagement**, então, em **Criar**.
 
-   	![][7]
+	![][7]
 
 3. No pop-up exibido, insira as seguintes informações:
 
-   	![][8]
+	![][8]
 
 	- **Nome do Aplicativo**: digite o nome do seu aplicativo. Fique à vontade para usar qualquer caractere.
-	- **Plataforma**: selecione a plataforma de destino (\*\*iOS\*\*) para o aplicativo (se seu aplicativo for destinado para várias plataformas, repita esse tutorial para cada uma).
+	- **Plataforma**: selecione a plataforma de destino (**iOS**) para o aplicativo (se seu aplicativo for destinado para várias plataformas, repita esse tutorial para cada uma).
 	- **Nome do Recurso do Aplicativo**: é o nome pelo qual o aplicativo poderá ser acessado via APIs e URLs. Você só deve usar caracteres URL convencionais. O nome gerado automaticamente deve fornecer uma base sólida. Você também deve acrescentar o nome da plataforma para evitar qualquer conflito de nomes, pois o nome deve ser exclusivo.
 	- **Local**: selecione o datacenter no qual o aplicativo (e o mais importante, sua Coleção) será hospedado.
 	- **Coleção**: se você já tiver criado um aplicativo, selecione uma Coleção criada anteriormente, caso contrário, selecione a Nova Coleção.
@@ -69,11 +69,11 @@ A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais 
 
 5. Clique em **Informações da Conexão** para exibir as configurações da conexão para colocar em sua integração SDK no aplicativo móvel.
 
-   	![][10]
+	![][10]
 
 6. Cópia da **Cadeia de Conexão** - isso é o que você precisará para identificar esse aplicativo no Código do aplicativo e conectar o Mobile Engagement a partir de seu Aplicativo para Telefone.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Conectando seu aplicativo ao back-end do Mobile Engagement
 
@@ -87,15 +87,15 @@ Você pode ignorar esta etapa se já tiver um aplicativo e estiver familiarizado
 
 1. Inicie o Xcode e no popup, selecione **Criar um novo projeto do Xcode**
 
-   	![][12]
+	![][12]
 
 2. Selecione **Aplicativo de Modo de Exibição Único** e clique em Próximo
 
-   	![][14]
+	![][14]
 
 3. Preencha o **Nome do Produto**, **Nome da Organização** e **Identificador da Organização**. Verifique se você selecionou **Swift** no idioma.
 
-   	![][40]
+	![][40]
 
 O Xcode criará o aplicativo de demonstração no qual integraremos o Mobile Engagement
 
@@ -184,6 +184,10 @@ Esta seção mostra como assegurar que seu aplicativo conecta o back-end do Mobi
 
 O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com Notificações por Push e Mensagens no Aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement. As seções a seguir irão configurar seu aplicativo para recebê-las.
 
+### Habilitar seu aplicativo para receber Notificações por push silenciosas
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
+
 ### Adicionar a biblioteca Reach ao seu projeto
 
 1. Clique com botão direito no projeto
@@ -249,11 +253,11 @@ O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
-3. Adicione o método `didReceiveRemoteNotification` da seguinte maneira:
+3. Adicione o método `didReceiveRemoteNotification:fetchCompletionHandler:` da seguinte maneira:
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
 		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo)
+			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
 ###Conceda acesso a seu Certificado Push para o Mobile Engagement
@@ -318,10 +322,10 @@ Agora, criaremos uma campanha de Notificação por Push simples que enviará um 
 [11]: ./media/mobile-engagement-ios-swift-get-started/app-connection-info-page.png
 [12]: ./media/mobile-engagement-ios-swift-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
-[14]: ./media/mobile-engagement-ios-swift-get-started/xcode-simple-view.png
-[17]: ./media/mobile-engagement-ios-swift-get-started/xcode-add-files.png
-[18]: ./media/mobile-engagement-ios-swift-get-started/xcode-select-engagement-sdk.png
-[19]: ./media/mobile-engagement-ios-swift-get-started/xcode-build-phases.png
+[14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
+[17]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
+[18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
+[19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
 [26]: ./media/mobile-engagement-ios-swift-get-started/engage-button.png
 [27]: ./media/mobile-engagement-ios-swift-get-started/engagement-portal.png
@@ -336,6 +340,5 @@ Agora, criaremos uma campanha de Notificação por Push simples que enviará um 
 [39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

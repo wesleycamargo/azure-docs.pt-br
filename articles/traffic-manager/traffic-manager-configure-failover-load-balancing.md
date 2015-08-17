@@ -51,4 +51,4 @@ Observe que os sites do Azure já fornecem funcionalidade de balanceamento de ca
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

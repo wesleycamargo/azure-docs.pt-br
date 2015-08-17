@@ -41,6 +41,7 @@ A maior parte do tutorial mostra como usar um script do Windows PowerShell para 
 
 Nos apêndices, você pode encontrar instruções de carregamento dos dados de atraso de voos, de criação/carregamento de cadeias de consulta do Hive e de preparação do banco de dados SQL do Azure para o trabalho do Sqoop.
 
+> [AZURE.NOTE]Embora as etapas neste documento sejam específicas aos clusters baseados no Windows. Para conhecer as etapas que funcionarão em um cluster baseado no Linux, consulte [Analisar dados de atraso de voos usando o Hive no HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 ###Pré-requisitos
 
@@ -504,11 +505,11 @@ Usando o PowerShell do Azure, você pode executar várias instruções HiveQL um
 
 O script HiveQL executará o seguinte:
 
-1. **Remova a tabela delays_raw**, caso a tabela já exista.
-2. **Crie a tabela externa do Hive delays_raw** apontando para o local do armazenamento de Blob com os arquivos de atraso de voo. Esta consulta especifica que os campos são delimitados por "," e que as linhas são finalizadas por "\\n". Isso representa um problema quando os valores dos campos contêm vírgulas porque o Hive não pode diferenciar entre uma vírgula que é um campo delimitado e uma que faz parte de um valor do campo (que é o caso nos valores de campo de ORIGIN_CITY_NAME e DEST_CITY_NAME). Para resolver isso, a consulta cria colunas TEMP para bloquear dados que estão divididos incorretamente em colunas.  
+1. **Remova a tabela delays\_raw**, caso a tabela já exista.
+2. **Crie a tabela externa do Hive delays\_raw** apontando para o local do armazenamento de Blob com os arquivos de atraso de voo. Esta consulta especifica que os campos são delimitados por "," e que as linhas são finalizadas por "\\n". Isso representa um problema quando os valores dos campos contêm vírgulas porque o Hive não pode diferenciar entre uma vírgula que é um campo delimitado e uma que faz parte de um valor do campo (que é o caso nos valores de campo de ORIGIN\_CITY\_NAME e DEST\_CITY\_NAME). Para resolver isso, a consulta cria colunas TEMP para bloquear dados que estão divididos incorretamente em colunas.  
 3. **Remova a tabela de atrasos**, caso a tabela já exista.
-4. **Crie a tabela de atrasos**. É útil limpar os dados antes de continuar o processamento. Esta consulta cria uma nova tabela, *delays* por meio da tabela delays_raw. Observe que as colunas TEMP (conforme mencionado anteriormente) não são copiadas e que a função **substring** é usada para remover marcas de aspas dos dados. 
-5. **Calcula a média de atraso de tempo e agrupa os resultados por nome de cidade.** Ela também produzirá os resultados para o armazenamento de Blob. Observe que a consulta removerá apóstrofes dos dados e excluirá linhas em que o valor de **weather_delay** é nulo. Isso é necessário porque o Sqoop, usado mais adiante neste tutorial, não trata desses valores normalmente por padrão.
+4. **Crie a tabela de atrasos**. É útil limpar os dados antes de continuar o processamento. Esta consulta cria uma nova tabela, *delays* por meio da tabela delays\_raw. Observe que as colunas TEMP (conforme mencionado anteriormente) não são copiadas e que a função **substring** é usada para remover marcas de aspas dos dados. 
+5. **Calcula a média de atraso de tempo e agrupa os resultados por nome de cidade.** Ela também produzirá os resultados para o armazenamento de Blob. Observe que a consulta removerá apóstrofes dos dados e excluirá linhas em que o valor de **weather\_delay** é nulo. Isso é necessário porque o Sqoop, usado mais adiante neste tutorial, não trata desses valores normalmente por padrão.
 
 Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Definição de Dados do Hive][hadoop-hiveql]. Cada comando HiveQL deve terminar com um ponto e vírgula.
 
@@ -880,4 +881,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

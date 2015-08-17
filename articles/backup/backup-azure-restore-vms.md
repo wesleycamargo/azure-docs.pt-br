@@ -97,9 +97,9 @@ Para a maioria dos erros, siga a ação recomendada sugerida nos detalhes do err
 
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
-| Restaurar | A restauração falhou com erro interno de nuvem | <ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem no qual você está tentando restaurar está configurado com IP Reservado e as VMs existentes no serviço de nuvem estão no estado “interrompido”.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+| Restaurar | A restauração falhou com erro interno de nuvem | <ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem no qual você está tentando restaurar está configurado com IP Reservado e as VMs existentes no serviço de nuvem estão no estado “interrompido”.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Próximas etapas
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms)
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

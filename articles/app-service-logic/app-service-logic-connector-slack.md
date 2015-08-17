@@ -36,9 +36,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Selecione **Aplicativos de API** e pesquise “Conector de margem de atraso”.
-3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades: 
-<br/> 
-![][1] 
+3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades: <br/> ![][1] 
 
 4. Clique em **Criar**.
 
@@ -50,21 +48,12 @@ Após criar o conector de margem de atraso, você poderá adicioná-lo como uma 
 
 1.	No aplicativo lógico, abra **Gatilhos e ações**. [Criar um novo aplicativo lógico](app-service-logic-create-a-logic-app.md)
 
-2.	O conector de margem de atraso é listado na galeria do lado direito: 
-<br/> 
-![][2]
+2.	O conector de margem de atraso é listado na galeria do lado direito: <br/> ![][2]
 
 3.	Selecione o conector de margem de atraso criado para adicioná-lo automaticamente ao aplicativo lógico.
-4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**: 
-<br/>
-![][3] 
-![][4] 
-![][5] 
-![][6]
+4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**: <br/> ![][3] ![][4] ![][5] ![][6]
 	
-5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar mensagem está disponível: 
-<br/> 
-![][7]
+5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar mensagem está disponível: <br/> ![][7]
 
 
 Percorramos a experiência “Postagem”. Você pode usar essa ação para postar uma mensagem em qualquer canal de margem de atraso:
@@ -76,8 +65,9 @@ Configure as propriedades de entrada da ação "Postar mensagem":
 Propriedade | Descrição
 --- | ---
 Texto | Especifique o texto da mensagem a ser postada.
-Nome do canal | Informe o canal de margem de atraso no qual a mensagem é postada. Se o canal não for especificado, a mensagem será postada em #general.
-Propriedades avançadas | <ul><li><strong>Nome de usuário de Bot</strong>: nome do bot a ser usado para esta mensagem. A mensagem será postada como "Bot" se essa propriedade não for especificada.</li><li><strong>Ícone URL</strong>: URL de imagem a ser usada como o ícone da mensagem.</li><li><strong>Emoji ícone</strong>: Emoji a ser usado como o ícone da mensagem. Essa propriedade substitui a propriedade Ícone URL.</li></ul>
+Nome do canal | Informe o canal de margem de atraso no qual a mensagem é postada. Se o canal não for especificado, a mensagem será postada em \#general.
+Propriedades avançadas | **Nome de usuário de Bot**: nome do bot a ser usado para esta mensagem. A mensagem será postada como "Bot" se essa propriedade não for especificada.<p><p>**Ícone URL**: URL de imagem a ser usada como o ícone da mensagem.<p><p>**Ícone Emoji**: Emoji a ser usado como o ícone da mensagem. Essa propriedade substitui a propriedade Ícone URL.
+
 
 O conector de atraso tem APIs REST disponíveis para que você possa usar o conector fora de um aplicativo lógico. Abra o conector de margem de atraso e selecione **Definição de API**:
 
@@ -87,7 +77,7 @@ O conector de atraso tem APIs REST disponíveis para que você possa usar o cone
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -103,4 +93,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

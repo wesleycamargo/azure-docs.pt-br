@@ -84,4 +84,4 @@ Depois que o aplicativo de API tiver sido codificado, é hora de testar o códig
 
 5. Pressione **Enter** para descartar a janela de console.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

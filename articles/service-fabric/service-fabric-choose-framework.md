@@ -36,4 +36,4 @@ Lembre-se que é perfeitamente aceitável usar diferentes estruturas para servi�
 - [Saiba mais sobre as APIs de atores confiáveis](service-fabric-reliable-actors-introduction.md)
 - [Saiba mais sobre as APIs de serviços confiáveis](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

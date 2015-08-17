@@ -44,7 +44,7 @@ Seus ativos da Web existentes podem ser executados em aplicativos Web do Serviç
 
 Proteja os ativos com criptografia, autentique usuários corporativos no local ou remotamente e autorize seu uso dos ativos.
 
-Proteja os ativos internos contra interceptadores com o [HTTPS]. O nome de domínio **\*.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web do Serviço de Aplicativo. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
+Proteja os ativos internos contra interceptadores com o [HTTPS]. O nome de domínio ***.azurewebsites.net** já vem com um certificado SSL e, se usar seu domínio personalizado, você poderá incluir seu certificado SSL para ele nos Aplicativos Web do Serviço de Aplicativo. Há uma cobrança mensal (rateada por hora) associada a cada certificado SSL. Para obter mais informações, confira [Detalhes de preços do Serviço de Aplicativos].
 
 [Autentique usuários] em relação ao diretório corporativo. Os aplicativos Web do Serviço de Aplicativo podem autenticar usuários com provedores de identidade locais, como AD FS (Serviços de Federação do Active Directory), ou com um locatário do Active Directory do Azure que foi sincronizado com sua implantação corporativa do Active Directory. Os usuários podem acessar as propriedades da Web em aplicativos Web por meio de logon único quando estão no local e quando estão em campo. Serviços existentes, como o Office 365 ou o Microsoft Intune, já usam o Active Directory do Azure. Com o recurso de [Autenticação Fácil], é muito fácil ativar a autenticação com o mesmo locatário do Active Directory do Azure para seu aplicativo Web.
 
@@ -124,4 +124,4 @@ Na camada **Padrão**, monitore a capacidade de resposta do aplicativo e receba 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

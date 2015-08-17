@@ -36,7 +36,7 @@ Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notific
 
 A primeira etapa é adicionar os elementos da interface do usuário a seu storyboard existente que permite que o usuário selecione as categorias a serem registradas. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
 
-1. No MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
+1. No MainStoryboard\_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
 	+ Um rótulo com o texto "Breaking News",
 	+ Rótulos com os textos das categorias "World", "Politics", "Business", "Technology", "Science", "Sports",
 	+ Seis comutadores, um por categoria, defina cada comutador **Estado** para estar **Desligado** por padrão.
@@ -387,4 +387,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

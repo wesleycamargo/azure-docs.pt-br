@@ -204,8 +204,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Protocolo de gerenciamento|**REST por HTTP/HTTPS**|**REST por HTTPS**|
-|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST por HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP com TLS)**|
-|API gerenciada pelo .NET|**Sim**<br/><br/>(API do Cliente de Armazenamento gerenciada pelo .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
+|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| |API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
 |C++ nativo|**Sim**|**Não**|
 |API Java|**Sim**|**Sim**|
 |API PHP|**Sim**|**Sim**|
@@ -225,7 +224,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 
 - Os nomes de fila do Azure podem ter de 3 a 63 caracteres, podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [Nomeando filas e metadados](https://msdn.microsoft.com/library/dd179349.aspx).
 
-- Os nomes de fila do Barramento de Serviço podem ter até 260 caracteres e têm menos regras restritivas de nomenclatura. Os nomes de fila do Barramento de Serviço podem conter letras, números, pontos (.), hifens (-) e sublinhados (_).
+- Os nomes de fila do Barramento de Serviço podem ter até 260 caracteres e têm menos regras restritivas de nomenclatura. Os nomes de fila do Barramento de Serviço podem conter letras, números, pontos (.), hifens (-) e sublinhados (\_).
 
 ## Desempenho
 
@@ -239,7 +238,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço de u
 
 ### Informações adicionais
 
-- Uma única fila do Azure pode processar até 2.000 transações por segundo. Uma transação é uma operação **Put**, **Get** ou **Delete**. O envio de uma única mensagem a uma fila (**Put**) é contado como uma transação, mas receber uma mensagem, muitas vezes, é um processo de duas etapas que envolve a recuperação (**Get**), seguido por uma solicitação para remover a mensagem da fila (**Delete**). Consequentemente, uma operação de remoção da fila bem-sucedida geralmente envolve duas transações. A recuperação de várias mensagens em um lote pode reduzir o impacto desse processo, pois você pode **obter** até 32 mensagens em uma única transação, seguida pela **exclusão** de cada uma delas. Para obter uma melhor taxa de transferência, é possível criar várias filas (uma conta de armazenamento pode ter um número ilimitado de filas).
+- Uma única fila do Azure pode processar até 2.000 transações por segundo. Uma transação é uma operação **Put**, **Get** ou **Delete**. O envio de uma única mensagem para uma fila (**Put**) é contado como uma transação, mas receber uma mensagem é muitas vezes um processo de duas etapas que envolve a recuperação (**Get**), seguido por uma solicitação para remover a mensagem da fila (**Delete**). Consequentemente, uma operação de remoção da fila bem-sucedida geralmente envolve duas transações. A recuperação de várias mensagens em um lote pode reduzir o impacto desse processo, pois você pode **obter** até 32 mensagens em uma única transação, seguida pela **exclusão** de cada uma delas. Para obter uma melhor taxa de transferência, é possível criar várias filas (uma conta de armazenamento pode ter um número ilimitado de filas).
 
 - Quando seu aplicativo atinge a taxa de transferência máxima para uma fila do Azure, uma resposta "Servidor HTTP 503 ocupado" é normalmente retornada do serviço de fila. Quando isso ocorre, o aplicativo deve disparar a lógica de repetição com atraso de retirada exponencial.
 
@@ -318,4 +317,4 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytic da Microsoft
@@ -29,23 +29,23 @@ Esta versão contém as atualizações a seguir.
 </tr>
 <tr>
 <td>Id da Org Power BI dissociada da Id do Azure</td>
-<td>Esse recurso permite a saída do Power BI para trabalhos ASA em qualquer tipo de conta do Azure (Live Id ou Id da Org). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.</td>
+<td>Esse recurso habilita a <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">saída do Power BI</a> para trabalhos ASA em qualquer tipo de conta do Azure (Live Id ou Id da Org). Além disso, você pode ter uma Id da Org para sua conta do Azure e usar uma diferente para autorizar a saída do Power BI.</td>
 </tr>
 <tr>
 <td>Suporte para saída de filas do barramento de serviço</td>
-<td>As Saídas de filas do barramento de serviço agora estão disponíveis em trabalhos do Stream Analytics.</td>
+<td>As saídas de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">filas do Barramento de Serviço</a> agora estão disponíveis em trabalhos do Stream Analytics.</td>
 </tr>
 <tr>
 <td>Suporte para saída de filas de tópicos do Barramento de Serviço</td>
-<td>As Saídas de tópicos do Barramento de Serviço agora estão disponíveis em trabalhos do Stream Analytics.</td>
+<td>As saídas de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">tópicos do Barramento de Serviço</a> agora estão disponíveis em trabalhos do Stream Analytics.</td>
 </tr>
 <tr>
 <td>Novas funções de matriz</td>
-<td>Adicionadas as funções de matriz GetArrayElement, GetArrayElements, GetArrayLength</td>
+<td>Adicionadas as funções de matriz <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>, <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
 </tr>
 <tr>
 <td>Novas funções de registro</td>
-<td>Adicionadas as funções de registro GetRecordProperties e GetRecordPropertyValue</td>
+<td>Adicionadas as funções de registro <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> e <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
 </tr>
 </table>
 
@@ -152,4 +152,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

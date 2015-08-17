@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Atualizar servidores com atualizações do sistema
@@ -23,7 +23,7 @@ Você pode usar a solução Atualizações do Sistema no Insights Operacionais d
 
 ## Use as atualizações do sistema para atualizar servidores
 
-Para poder usar as atualizações do sistema no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). Após a instalação, você pode exibir as atualizações que estão faltando nos seus servidores monitorados usando o bloco **Avaliação de Atualização do Sistema** na página **Visão Geral** no Insights Operacionais.
+Para poder usar as atualizações do sistema no Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-setup-workspace.md). Após a instalação, você pode exibir as atualizações que estão faltando nos seus servidores monitorados usando o bloco **Avaliação de Atualização do Sistema** na página **Visão Geral** no Insights Operacionais.
 
 ### Para trabalhar com atualizações
 
@@ -36,4 +36,4 @@ Para poder usar as atualizações do sistema no Insights Operacionais do Microso
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

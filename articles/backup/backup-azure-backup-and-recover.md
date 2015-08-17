@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client | Microsoft Azure"
-   description="Learn how to backup and restore from a Windows Server or Windows Client. Este artigo abrange a recuperação do servidor alternativa"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="Learn how to backup and restore from a Windows Server or Windows Client. Este artigo abrange a recuperação do servidor alternativa" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Backup e restauração de um computador cliente Windows ou Windows Server
 Este artigo aborda as etapas necessárias para fazer o backup de um computador cliente Windows ou Windows Server. Ele também aborda as etapas necessárias para restaurar os arquivos de backup no mesmo computador e as etapas necessárias para restaurar arquivos de backup em qualquer outro computador.
@@ -56,7 +42,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurar um arquivo/volume 
 
     ![Recuperar dados](./media/backup-azure-backup-and-recover/recover.png)
 
-3. Selecione a opção **Este servidor (\*nomedoseucomputador\*)** quando planejar restaurar o arquivo de backup no mesmo computador.
+3. Selecione a opção **Este servidor (*nomedoseucomputador*)** quando planejar restaurar o arquivo de backup no mesmo computador.
 
     ![Mesmo computador](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -85,13 +71,13 @@ Se você excluiu acidentalmente um arquivo e deseja restaurar um arquivo/volume 
 ## Recuperar em um computador alternativo
 Se o servidor inteiro for perdido, você ainda poderá recuperar o arquivo/volume em um computador diferente. As etapas a seguir ilustram o fluxo de trabalho.
 
-A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o computador original do qual o backup foi feito e que está indisponível no momento. -*computador de destino* – o computador no qual os dados estão sendo recuperados. -*cofre de exemplo* – o cofre de Backup em que o *computador de origem* e o *computador de destino* estão registrados.<br/>
+A nomenclatura usada nas etapas é a seguinte: - *Computador de origem* – o computador original do qual o backup foi feito e que está indisponível no momento. -*Computador de destino* – o computador no qual os dados estão sendo recuperados. -*Cofre de exemplo* – o cofre de Backup em que o *Computador de origem* e o *Computador de destino* estão registrados.<br/>
 
 > [AZURE.NOTE]Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, se um backup for de um computador com Windows 7, ele poderá ser restaurado em um computador com Windows 8 ou superior. No entanto, o contrário não pode ocorrer.
 
 1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
 
-2. Certifique-se de que o *computador de destino* e o *computador de origem* sejam restaurados no mesmo cofre de backup.
+2. Certifique-se de que o *Computador de destino* e o *Computador de origem* sejam restaurados no mesmo cofre de backup.
 
 3. Clique em **Recuperar Dados** para iniciar o fluxo de trabalho.
 
@@ -103,7 +89,7 @@ A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o co
 
 5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial do cofre for inválido (ou estiver expirado), baixe um novo arquivo de credencial do *Cofre de exemplo* no Portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de backup relacionado ao arquivo de credencial de cofre será exibido.
 
-6. Selecione o *computador de origem* na lista de computadores exibidos.
+6. Selecione o *Computador de origem* na lista de computadores exibidos.
 
     ![Lista de computadores](./media/backup-azure-backup-and-recover/machinelist.png)
 
@@ -119,7 +105,7 @@ A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o co
 
     ![Restaurar local](./media/backup-azure-backup-and-recover/restorelocation.png)
 
-10. Forneça a senha de criptografia que foi fornecida durante o registro do *computador de origem* no *cofre de exemplo*.
+10. Forneça a senha de criptografia que foi fornecida durante o registro do *Computador de origem* no *Cofre de exemplo*.
 
     ![Criptografia](./media/backup-azure-backup-and-recover/encryption.png)
 
@@ -128,4 +114,4 @@ A nomenclatura usada nas etapas é a seguinte: - *computador de origem* – o co
 ## Próximas etapas
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

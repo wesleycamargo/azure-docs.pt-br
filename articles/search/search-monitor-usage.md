@@ -57,4 +57,4 @@ Visite [Gerenciar o serviço de pesquisa no Microsoft Azure](search-manage.md) p
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

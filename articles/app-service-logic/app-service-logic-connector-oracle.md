@@ -57,10 +57,10 @@ Tabelas | Não | Insira as tabelas no banco de dados que podem ser modificadas p
 Procedimentos Armazenados | Não | Insira os procedimentos armazenados no banco de dados que podem ser chamados pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
 Funções | Não | Insira as funções no banco de dados que podem ser chamadas pelo conector. Por exemplo, insira *IsEmployeeEligible, CalculateOrderDiscount*.
 Entidades de Pacote | Não | Insira os pacotes no banco de dados que podem ser chamados pelo conector. Por exemplo, insira *PackageOrderProcessing.CompleteOrder, PackageOrderProcessing.GenerateBill*.
-Instrução de Dados Disponíveis | Não | Insira a instrução para determinar se há dados disponíveis para sondagem. Por exemplo, digite *SELECT * from nome_da_tabela*.
+Instrução de Dados Disponíveis | Não | Insira a instrução para determinar se há dados disponíveis para sondagem. Por exemplo, digite *SELECT * from nome\_da\_tabela*.
 Tipo de Sondagem | Não | Especifique o tipo de sondagem. Os valores permitidos são "Select", "Procedure", "Function" e "Package".
-Instrução de Sondagem | Não | Insira a instrução para sondar o banco de dados do servidor Oracle. Por exemplo, digite *SELECT * from nome_da_tabela*.
-Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executada após a sondagem. Por exemplo, insira *DELETE * from nome_da_tabela*.
+Instrução de Sondagem | Não | Insira a instrução para sondar o banco de dados do servidor Oracle. Por exemplo, digite *SELECT * from nome\_da\_tabela*.
+Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executada após a sondagem. Por exemplo, insira *DELETE * from nome\_da\_tabela*.
 
 5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
@@ -115,4 +115,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

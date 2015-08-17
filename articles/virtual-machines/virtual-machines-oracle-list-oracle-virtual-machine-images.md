@@ -1,4 +1,4 @@
-<properties 
+<properties title="List of Oracle virtual machine images"
 pageTitle="Lista de imagens de máquinas virtuais do Oracle"
 description="Obtenha a lista de imagens da Oracle na Galeria do Azure e aprenda a criar uma máquina virtual Oracle com base em uma delas."
 services="virtual-machines"
@@ -67,4 +67,4 @@ Veja a seguir uma lista das imagens pré-configuradas de máquina virtual Oracle
 
 [Imagens de máquinas virtuais Oracle — diversas considerações](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

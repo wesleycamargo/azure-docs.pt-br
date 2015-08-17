@@ -65,28 +65,11 @@ O Conector X12 pode ser usado como um gatilho ou uma ação.
 
 	![Codificação configurada][10]
 
-<table>
-	<tr>
-		<th>Parâmetro</th>
-		<th>Tipo</th>
-		<th>Descrição do parâmetro</th>
-	</tr>
-	<tr>
-		<td>Conteúdo</td>
-		<td>string</td>
-		<td>Mensagem XML</td>
-	</tr>
-	<tr>
-		<td>ID do contrato</td>
-		<td>string</td>
-		<td>ID do contrato</td>
-	</tr>
-	<tr>
-		<td>É uma mensagem em lotes</td>
-		<td>string</td>
-		<td>É uma mensagem em lotes</td>
-	</tr>
-</table>
+Parâmetro|Tipo|Descrição do parâmetro
+---|---|---
+Conteúdo|string|Mensagem XML
+ID do contrato|string|ID do contrato
+É uma mensagem em lotes|string|É uma mensagem em lotes
 
 A ação retorna um objeto que contém a carga útil do X12.
 
@@ -109,4 +92,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -80,9 +80,9 @@ Consulte [Gerenciar contas, assinaturas e funções administrativas](https://msd
 
     - **<container_name>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
 
-    - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "~/images/HelloWorld.png".
+    - **<image_to_upload>** Insira um caminho para uma imagem no computador local, como: "\~/images/HelloWorld.png".
 
-    - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “~/downloadImages”.
+    - **<destination_folder>** Insira um caminho para um diretório local onde armazenar arquivos baixados do Armazenamento do Azure, como: “\~/downloadImages”.
 
 7. Depois de atualizar as variáveis necessárias no vim, pressione as combinações de teclas “Esc, : , wq!” para salvar o script.
 
@@ -189,7 +189,7 @@ Observe que esse caminho de diretório pode incluir vários níveis, *por exempl
 
 ### Carregar um arquivo local no diretório
 
-O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
+O exemplo a seguir carrega um arquivo de **\~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

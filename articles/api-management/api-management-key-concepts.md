@@ -114,4 +114,4 @@ Você pode personalizar a aparência do portal do desenvolvedor adicionando cont
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

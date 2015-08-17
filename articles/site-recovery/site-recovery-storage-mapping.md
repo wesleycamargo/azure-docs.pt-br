@@ -61,18 +61,18 @@ Se as classificações estiverem configuradas corretamente no VMM quando você s
 
 **Localidade** | **Servidor VMM** | **Compartilhamento de arquivos (origem)** | **Classificação (origem)** | **Mapeado para** | **Compartilhamento de arquivos (destino)**
 ---|---|--- |---|---|---
-Nova Iorque | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
- | | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
- | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
-Chicago | VMM_Target | | GOLD_TARGET | Não mapeado |
-| | | SILVER_TARGET | Não mapeado |
- | | | BRONZE_TARGET | Não mapeado
+Nova Iorque | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
+ | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
+Chicago | VMM\_Target | | GOLD\_TARGET | Não mapeado |
+| | | SILVER\_TARGET | Não mapeado |
+ | | | BRONZE\_TARGET | Não mapeado
 
 Você deve configurá-los na guia **Armazenamento do Servidor**, na página **Recursos**, do portal de Recuperação de Site.
 
 ![Configurar o mapeamento de armazenamento](./media/site-recovery-storage-mapping/StorageMapping1.png)
 
-Com este exemplo: - quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD_TARGET (TargetShare1). -Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER_TARGET (TargetShare2) e assim por diante.
+Com este exemplo: - quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD\_TARGET (TargetShare1). -Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER\_TARGET (TargetShare2) e assim por diante.
 
 Os compartilhamentos de arquivo reais e suas classificações atribuídas no VMM seriam da seguinte maneira.
 
@@ -88,17 +88,17 @@ A tabela a seguir mostram como a classificação de armazenamento e os volumes c
 ---|---|---
 Nova Iorque | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
  | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-Chicago | GOLD_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
- | SILVER_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
+Chicago | GOLD\_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
+ | SILVER\_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
 
 Esta tabela resume o comportamento ao ativar a proteção para máquinas virtuais (VM1 - VM5) neste ambiente de exemplo.
 
 **Máquina virtual** | **Armazenamento de origem** | **Classificação de origem** | **Armazenamento de destino mapeado**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Ambos GOLD_TARGET</p>
-VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Ambos GOLD_TARGET</p>
+VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Ambos GOLD\_TARGET</p>
+VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Ambos GOLD\_TARGET</p>
 VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Ambos SILVER_TARGET</p>
+VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Ambos SILVER\_TARGET</p>
 VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, o local de armazenamento padrão do host Hyper-V é usado
 
 ## Próximas etapas
@@ -106,4 +106,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, 
 Agora que você tem uma compreensão melhor sobre o mapeamento de armazenamento, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

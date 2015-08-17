@@ -516,7 +516,7 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 | V | Abre o menu **Exibição**. |
 | W | Abre um novo console do StorSimple Snapshot Manager voltado para o nó **Grupos de Volumes**.|
 | F | Atualiza o console do StorSimple Snapshot Manager.|
-| L | Abre a página **Exportar Lista **. | H | Abre a Ajuda online. |
+| L | Abre a página **Exportar Lista **. | H | Abre a Ajuda online.|
  
 #### Teclas de atalho do nó Catálogo de Backups
 
@@ -538,6 +538,6 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
  
 ## Próximas etapas
 
-Saiba como [Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
+Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

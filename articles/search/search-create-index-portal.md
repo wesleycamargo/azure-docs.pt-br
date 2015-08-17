@@ -100,4 +100,4 @@ Quando você estiver familiarizado com o índice básico, considere a possibilid
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

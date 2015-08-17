@@ -204,7 +204,7 @@ A sessão do usuário expira quando a vida útil do token emitido pelo Azure AD 
 ### SPA (Aplicativo de Página Única)
 
 
-Esta seção descreve a autenticação para um aplicativo de página única que usa o Azure AD para proteger o back-end de sua API da Web. Aplicativos de página única normalmente são estruturados como uma camada de apresentação de JavaScript (front-end) que é executada no navegador e um back-end de API da Web que é executado em um servidor e implementa a lógica comercial do aplicativo. Nesse cenário, quando o usuário faz logon, o front-end de JavaScript usa a visualização da [biblioteca de autenticação do Active Directory para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e o protocolo de concessão implícita do OAuth 2.0 para obter um token de ID (id_token) do Azure AD. O token é armazenado em cache e o cliente o anexa à solicitação como o token de portador ao fazer chamadas paro o back-end de sua API da Web, que é protegido usando o middleware OWIN.
+Esta seção descreve a autenticação para um aplicativo de página única que usa o Azure AD para proteger o back-end de sua API da Web. Aplicativos de página única normalmente são estruturados como uma camada de apresentação de JavaScript (front-end) que é executada no navegador e um back-end de API da Web que é executado em um servidor e implementa a lógica comercial do aplicativo. Nesse cenário, quando o usuário faz logon, o front-end de JavaScript usa a visualização da [biblioteca de autenticação do Active Directory para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) e o protocolo de concessão implícita do OAuth 2.0 para obter um token de ID (id\_token) do Azure AD. O token é armazenado em cache e o cliente o anexa à solicitação como o token de portador ao fazer chamadas paro o back-end de sua API da Web, que é protegido usando o middleware OWIN.
 
 
 #### Diagrama
@@ -434,7 +434,7 @@ O fluxo discutido abaixo pressupõe que um usuário tenha sido autenticado em ou
 1. O aplicativo nativo envia o token de acesso à API da Web de primeira camada.
 
 
-2. A API da Web de primeira camada envia uma solicitação ao ponto de extremidade de token do Azure AD, fornecendo sua ID de cliente e as credenciais, bem como o token de acesso do usuário. Além disso, a solicitação é enviada com um parâmetro on_behalf_of que indica que a API da Web está solicitando novos tokens para chamar uma API da Web downstream em nome do usuário original.
+2. A API da Web de primeira camada envia uma solicitação ao ponto de extremidade de token do Azure AD, fornecendo sua ID de cliente e as credenciais, bem como o token de acesso do usuário. Além disso, a solicitação é enviada com um parâmetro on\_behalf\_of que indica que a API da Web está solicitando novos tokens para chamar uma API da Web downstream em nome do usuário original.
 
 
 3. O Azure AD verifica se a API da Web de primeira camada tem permissões para acessar a API da Web de segunda camada e valida a solicitação, retornando um token de acesso JWT e um token de atualização JWT para a API da Web de primeira camada.
@@ -466,4 +466,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

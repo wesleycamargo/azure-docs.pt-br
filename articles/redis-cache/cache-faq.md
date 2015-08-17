@@ -38,56 +38,15 @@ Se o cache tem uma alta taxa de transferência, escolha o tamanho de 1 GB ou mai
 
 A tabela a seguir mostra os valores de largura de banda máxima observados durante o teste de vários tamanhos de Cache Redis do Azure usando `redis-benchmark.exe` em uma VM Iaas no ponto de extremidade do Cache Redis do Azure. Observe que esses valores não são garantidos e não há nenhum SLA para esses números, mas eles devem ser típicos. Você deve realizar teste de carga em seu próprio aplicativo para determinar o tamanho de cache certo para ele.
 
-<table>
-  <tr>
-    <th>Nome do cache</th>
-    <th>Tamanho do cache</th>
-    <th>Get/s (chamadas GET simples com valores de 1 KB)</th>
-    <th>Largura de banda (MBits/s)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250 MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12.200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2,5 GB</td>
-    <td>24.300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6 GB</td>
-    <td>48.875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13 GB</td>
-    <td>61.350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26 GB</td>
-    <td>112.275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53 GB</td>
-    <td>153.219</td>
-    <td>1.000 +</td>
-  </tr>
-</table>
+Nome do cache|Tamanho do cache|Get/s (chamadas GET simples com valores de 1 KB)|Largura de banda (MBits/s)
+---|---|---|---
+C0|250 MB|610|5
+C1|1 GB|12\.200|100
+C2|2,5 GB|24\.300|200
+C3|6 GB|48\.875|400
+C4|13 GB|61\.350|500
+C5|26 GB|112\.275|1000
+C6|53 GB|153\.219|1\.000 +
 
 Para obter instruções sobre como baixar as ferramentas do Redis como `redis-benchmark.exe`, consulte a seção [Como posso executar comandos do Redis?](#cache-commands)
 
@@ -134,28 +93,11 @@ A seguir estão alguns motivos comuns para uma desconexão de cache.
 
 O StackExchange.Redis tem muitas opções. Esta seção fala sobre algumas das configurações comuns. Para obter mais informações sobre opções do StackExchange.Redis, consulte [configuração do StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>Descrição</th>
-    <th>Recomendações</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>Quando definido como true, a conexão não reconectará após uma falha de rede.</td>
-    <td>Defina como false e deixe o StackExchange.Redis reconectar-se automaticamente.</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>O número de vezes para repetir tentativas de conexão durante a conexão inicial.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>Tempo limite em ms para operações de conexão.</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|Descrição|Recomendações
+---|---|---
+AbortOnConnectFail|Quando definido como true, a conexão não reconectará após uma falha de rede.|Defina como false e deixe o StackExchange.Redis reconectar-se automaticamente.
+ConnectRetry|O número de vezes para repetir tentativas de conexão durante a conexão inicial.||
+ConnectTimeout|Tempo limite em ms para operações de conexão.|
 
 Na maioria dos casos, os valores padrão do cliente são suficientes. Você pode realizar o ajuste fino das opções com base na sua carga de trabalho.
 
@@ -209,9 +151,9 @@ Para obter instruções sobre como baixar as ferramentas do Redis, consulte a se
 <a name="cache-commands"></a>
 ## Como posso executar comandos do Redis?
 
-Você pode usar qualquer um dos comandos listados em [Comandos Redis](http://redis.io/commands#) exceto os comandos listados nos comandos Redis [não têm suporte no Cache Redis do Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para executar comandos Redis, há várias opções.
+Você pode usar qualquer um dos comandos listados em [Comandos Redis](http://redis.io/commands#), exceto os comandos listados em [Comandos Redis sem suporte no Cache Redis do Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para executar comandos Redis, há várias opções.
 
--	Se você tiver um cache padrão, você pode executar comandos do Redis usando o [Console Redis](cache-configure.md#redis-console). Isso fornece uma maneira segura para executar comandos do Redis no portal do Azure.
+-	Se você tiver um cache Standard, poderá executar comandos Redis usando o [Console Redis](cache-configure.md#redis-console). Isso fornece uma maneira segura para executar comandos do Redis no portal do Azure.
 -	Também é possível usar as ferramentas de linha de comando do Redis. Para usá-las, você executará as seguintes etapas:
 	-	Baixe as [Ferramentas de linha de comando do Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Conecte-se ao cache usando `redis-cli.exe`. Passe no ponto de extremidade de cache usando que o comutador -h e a chave usando - a, como mostrado no exemplo a seguir.
@@ -233,4 +175,4 @@ O Cache Redis do Microsoft Azure baseia-se no popular software livre Cache Redis
 
 Como cada cliente é diferente, não há não uma referência de classe centralizada no MSDN; em vez disso, cada cliente mantém sua própria documentação de referência. Além de documentação de referência, há vários tutoriais no Azure.com mostrando como começar a usar o Cache Redis do Azure usando diferentes linguagens e clientes de cache na página [Documentação do Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

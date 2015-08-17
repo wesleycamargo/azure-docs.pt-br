@@ -3,7 +3,7 @@
 	description="Criar um aplicativo de API no Microsoft Azure e conectá-lo a um banco de dados do SQL Server local"
 	services="app-service\api" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -22,7 +22,7 @@ As Conexões Híbridas podem conectar aplicativos de API do [Serviço de Aplicat
 
 Neste tutorial, você aprenderá como criar um aplicativo de API do Serviço de Aplicativo na [Visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) que se conecta a um banco de dados SQL Server local usando o novo recurso de Conexão Híbrida. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure ou com o SQL Server.
 
-[AZURE.INCLUDE app-service-web-try-app-service.md]
+>[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Pré-requisitos
 
@@ -30,9 +30,7 @@ Para concluir este tutorial, você precisará dos produtos a seguir. Todos estã
 
 - **Assinatura do Azure** - para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](/pricing/free-trial/). 
 
-- **Visual Studio**: para baixar uma versão de avaliação gratuita do Visual Studio 2013 ou do Visual Studio 2015, consulte [Downloads do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale um deles antes de continuar. (As capturas de tela neste tutorial foram feitas usando o Visual Studio 2013)
-
-- **Microsoft .NET Framework 3.5 Service Pack 1** - se o seu sistema operacional for Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 ou Windows Server 2008 R2, você pode habilitar esse item em Painel de Controle > Programas e Recursos > Ativar ou desativar recursos do Windows. Caso contrário, você pode baixá-lo do [Centro de Download da Microsoft](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
+- **Visual Studio** - para baixar uma versão de avaliação gratuita do Visual Studio 2013 ou do Visual Studio 2015, consulte [Downloads do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale um deles antes de continuar. (As capturas de tela neste tutorial foram feitas usando o Visual Studio 2013)
 
 - **SQL Server 2014 Express with Tools** - baixe o Microsoft SQL Server Express gratuitamente na [página do Banco de dados da plataforma da web da Microsoft](https://www.microsoft.com/pt-br/download/details.aspx?id=42299). Posteriormente neste tutorial, você verá como [instalar o SQL Server](#InstallSQLDB) para garantir que ele esteja configurado corretamente.
 
@@ -66,7 +64,7 @@ O computador no qual você instala o agente do Hybrid Connection Manager local:
 	</tr>
 </table>
 
-- Precisa ser capaz de acessar o *nome\_de\_host*:\*número\_de\_porta\* do seu recurso local. 
+- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
 
 As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
 
@@ -322,7 +320,7 @@ Agora que você testou o aplicativo localmente, é hora de implantar o aplicativ
 
 	![Opção de menu de publicação do projeto](./media/app-service-api-hybrid-on-premises-sql-server/publish-web.png)
 
-3. Clique em **Novo** para provisionar um novo aplicativo de API em sua assinatura do Azure.
+3. Clique em **Novo** para provisionar um novo Aplicativo de API em sua assinatura do Azure.
 
 	![Selecione a caixa de diálogo Serviços de API Existentes](./media/app-service-api-hybrid-on-premises-sql-server/publish-to-existing-api-app.png)
 
@@ -332,10 +330,10 @@ Agora que você testou o aplicativo localmente, é hora de implantar o aplicativ
 	- Se você tiver várias assinaturas do Azure, selecione a que deseja usar.
 	- Em **Plano de Serviço de Aplicativo**, selecione entre seus planos de Serviço de Aplicativo existentes ou selecione **Criar novo Plano de Serviço de Aplicativo** e digite o nome do novo plano. 
 	- Em **Grupo de Recursos**, selecione entre os grupos de recursos existentes ou selecione **Criar novo grupo de recursos** e digite um nome. O nome deve ser exclusivo. Considere usar o nome do aplicativo como prefixo e acrescentar algumas informações pessoais, como sua ID da Microsoft (sem o sinal @).  
-	- Em **Nível de Acesso**, selecione **Disponível para Qualquer Pessoa**. Esta opção tornará sua API totalmente pública, o que é adequado para este tutorial. Você pode restringir o acesso mais tarde no [Portal de Visualização do Azure](https://portal.azure.com).
+	- Em **Nível de Acesso**, selecione **Disponível para Qualquer Pessoa**. Esta opção tornará sua API totalmente pública, o que é adequado para este tutorial. Você pode restringir o acesso mais tarde no [Portal de visualização do Azure](https://portal.azure.com).
 	- Selecione uma região.
 
-	Clique em **OK** para criar o aplicativo de API em sua assinatura.
+	Clique em **OK** para criar o Aplicativo de API em sua assinatura.
 
 	![Configurar a caixa de diálogo de aplicativo Web do Microsoft Azure](./media/app-service-api-hybrid-on-premises-sql-server/publish-new-api-app.png)
 
@@ -432,4 +430,4 @@ Agora que a infraestrutura de conexão híbrida está concluída, é o momento d
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

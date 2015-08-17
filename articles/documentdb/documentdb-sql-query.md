@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consulta com SQL do Banco de Dados de Documentos | Azure" 
+	pageTitle="Consulta com SQL do Banco de Dados de Documentos | Microsoft Azure" 
 	description="O Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL, dá suporte a consultas que usam a gramática de tipo SQL hierárquica de documentos JSON sem a necessidade de explícita de um esquema ou da criação de índices secundários." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -296,7 +296,7 @@ Vejamos algumas consultas que usam valores binários.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
+Os operadores unários +,-, \~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
 
 	SELECT *
 	FROM Families.children[0] c
@@ -1185,7 +1185,7 @@ O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valor
 
 Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser qualificadas com o prefixo que diferencia maiúsculas de minúsculas "udf." quando chamadas por meio de consultas.
 
->[AZURE.NOTE]Antes de 17/03/2015, o Banco de Dados de Documentos dava suporte a chamadas a UDF sem o prefixo "udf.", como SELECT REGEX_MATCH(). Esse padrão de chamada foi preterido.
+>[AZURE.NOTE]Antes de 17/03/2015, o Banco de Dados de Documentos dava suporte a chamadas a UDF sem o prefixo "udf.", como SELECT REGEX\_MATCH(). Esse padrão de chamada foi preterido.
 
 **Consulta**
 
@@ -1651,7 +1651,7 @@ Funções de matriz podem ser usadas para manipular matrizes contidas no JSON. P
       "id": "WakefieldFamily"
     }]
 
-Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por família.
+Aqui está outro exemplo que usa ARRAY\_LENGTH para obter o número de filhos por família.
 
 **Consulta**
 
@@ -2056,9 +2056,9 @@ Os exemplos a seguir mostram um POST para uma consulta do Banco de Dados de Docu
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 2.	[Especificação da linguagem SQL do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 4.	[Níveis de consistência do Banco de Dados de Documentos][consistency-levels]
-5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

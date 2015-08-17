@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Proteger um aplicativo de API: adicionar autenticação do Active Directory do Azure ou do provedor social
@@ -268,4 +268,4 @@ Você viu como proteger um aplicativo de API do Azure exigindo autenticação do
 [Portal Azure]: https://manage.windowsazure.com/
 [Portal de visualização do Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

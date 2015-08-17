@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql_secure_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql_secure_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
+5. Aviso! Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. Ao executar o **mysql\_secure\_installation**, você será solicitado a alterar a senha raiz do MySQL, remover as contas anônimas de usuários, desabilitar os logins de raiz remota, remover bancos de dados de teste e recarregar a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz. Execute o comando a seguir para executar o script:
 
 		$ mysql_secure_installation
 
@@ -81,4 +81,4 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

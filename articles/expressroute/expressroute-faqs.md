@@ -9,7 +9,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/28/2015"
@@ -286,4 +286,4 @@ Damos suporte para conectividade com serviços do Office 365 por meio de NSPs e 
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

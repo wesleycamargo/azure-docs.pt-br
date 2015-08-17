@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
 
 # Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure
@@ -59,7 +59,7 @@ O aplicativo Web deve estar em execução no modo **Padrão** ou **Premium** par
 
 	![Fontes de configuração][MultipleConfigurationSources]
 
-5. Na folha **Slots de implantação**, clique no slot de implantação para abrir uma folha para o slot, com um conjunto de métricas e configuração como qualquer outro aplicativo Web. <strong><i>your-web-app-name</i>-<i>deployment-slot-name</i></strong> aparecerá na parte superior da folha para lembrá-lo de que você está exibindo o slot de implantação.
+5. Na folha **Slots de implantação**, clique no slot de implantação para abrir uma folha para o slot, com um conjunto de métricas e configuração como qualquer outro aplicativo Web. **nome-do-seu-aplicativo-web-nome-do-slot-de-implantação** aparecerá na parte superior da folha para lembrá-lo de que você está exibindo o slot de implantação.
 
 	![Título do slot de implantação][StagingTitle]
 
@@ -259,4 +259,4 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

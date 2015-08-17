@@ -47,10 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
-As entradas para a ação são: 
-- **expressão C#** - uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo.
-- **Objetos de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome). 
-- **Bibliotecas** - uma matriz opcional de arquivos. dll para incluir na compilação do script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
+As entradas para a ação são: - **expressão C#** - uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. -**Objetos de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome). - **Bibliotecas** - uma matriz opcional de arquivos. dll para incluir na compilação do script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -108,4 +105,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

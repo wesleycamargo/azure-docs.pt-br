@@ -148,4 +148,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -46,10 +46,10 @@ Existe muita documentação adicional na Web para tecnologias relacionadas ao Ha
 
 O HDInsight é fornecido com estas amostras:
 
-- [**A amostra do Hadoop do estimador de Pi**][hdinsight-sample-pi-estimator]: mostra como executar um programa MapReduce com o HDInsight que usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi.
-- [**Executar um exemplo de contagem de palavras do MapReduce em um cluster do Hadoop**][hdinsight-sample-wordcount]: mostra como usar um cluster HDInsight para executar um programa MapReduce que conta todas as ocorrências de palavras em um arquivo de texto.
-- [**A amostra do Hadoop Graysort de 10 GB**][hdinsight-sample-10gb-graysort]: mostra como executar um GraySort de finalidade geral em um arquivo de 10 GB usando o HDInsight. Existem três trabalhos a serem executados: Teragen, para gerar os dados, Terasort, para classificar os dados e Teravalidate, para confirmar que os dados foram classificados corretamente.
-- [**A amostra do MapReduce de contagem de streaming do C# no Hadoop**][hdinsight-sample-csharp-streaming]: mostra como usar o C# para escrever um programa MapReduce que usa a interface de streaming do Hadoop.
+- [**A amostra do Hadoop do estimador de Pi**][hdinsight-sample-pi-estimator]\: mostra como executar um programa MapReduce com o HDInsight que usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi.
+- [**Executar um exemplo de contagem de palavras do MapReduce em um cluster do Hadoop**][hdinsight-sample-wordcount]\: mostra como usar um cluster HDInsight para executar um programa MapReduce que conta todas as ocorrências de palavras em um arquivo de texto.
+- [**A amostra do Hadoop Graysort de 10 GB**][hdinsight-sample-10gb-graysort]\: mostra como executar um GraySort de finalidade geral em um arquivo de 10 GB usando o HDInsight. Existem três trabalhos a serem executados: Teragen, para gerar os dados, Terasort, para classificar os dados e Teravalidate, para confirmar que os dados foram classificados corretamente.
+- [**A amostra do MapReduce de contagem de streaming do C# no Hadoop**][hdinsight-sample-csharp-streaming]\: mostra como usar o C# para escrever um programa MapReduce que usa a interface de streaming do Hadoop.
 
 
 ## Como executar os exemplos ##
@@ -89,4 +89,4 @@ Neste artigo e nos artigos sobre cada uma das amostras, você aprendeu a executa
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

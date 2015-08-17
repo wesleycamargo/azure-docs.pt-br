@@ -74,4 +74,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -30,7 +30,7 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 - Teste apenas um push No Aplicativo e apenas um push Fora do Aplicativo para determinar se algo é um problema No Aplicativo ou Fora do Aplicativo.
 - Teste a partir da Interface do Usuário e da API como uma etapa de solução de problemas para ver quais informações de erro adicionais estão disponíveis nos dois lugares.
 - O envio fora do aplicativo não funcionará a menos que o Mobile Engagement do Azure e Reach estejam integrados no SDK.
-- Os pushes não funcionarão se os certificados não forem válidos ou estiverem usando PROD versus DEV corretamente (iOS apenas). (* * Observação: * * as notificações por push "Fora do aplicativo" não poderão ser entregues ao iOS, se você tiver as versões de desenvolvimento (DEV) e de produção (PROD) do seu aplicativo instaladas no mesmo dispositivo, uma vez que o token de segurança associado ao certificado pode ser invalidado pela Apple. Para resolver esse problema, desinstale as versões DEV e PROD do seu aplicativo e reinstale a uma versão em seu dispositivo.)
+- Os pushes não funcionarão se os certificados não forem válidos ou estiverem usando PROD versus DEV corretamente (somente iOS). (**Observação**: as notificações por push "Fora do aplicativo" não poderão ser entregues ao iOS, se você tiver as versões de desenvolvimento (DEV) e de produção (PROD) do seu aplicativo instaladas no mesmo dispositivo, uma vez que o token de segurança associado ao certificado pode ser invalidado pela Apple. Para resolver esse problema, desinstale as versões DEV e PROD do seu aplicativo e reinstale a uma versão em seu dispositivo.)
 - As contagens do push Fora do Aplicativo são tratadas de maneira diferente em diferentes plataformas (o iOS mostra menos informações que o Android, caso os pushes nativos estejam desabilitados em um dispositivo; a API pode fornecer mais informações do que a interface do usuário nas estatísticas do push).
 - Os pushes Fora do Aplicativo podem ser bloqueados pelos clientes ao nível do SO (iOS e Android).
 - Os pushes Fora do Aplicativo serão mostrados como desabilitados na interface do usuário do Mobile Engagement do Azure, caso não estejam integrados corretamente, mas poderão falhar sem aviso na API.
@@ -67,7 +67,7 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 ### Causas
 
 - Vincular a um local específico no aplicativo requer "categorias" (Android apenas).
-- Os esquemas de vinculação profundos para redirecionar os usuários para um local alternativo depois de clicarem em uma notificação por push precisam ser criados e gerenciados por seu aplicativo e o SO do dispositivo, não pelo Mobile Engagement diretamente. (* * Observação: * * As notificações fora do aplicativo não podem vincular diretamente os locais do aplicativo com o iOS, como podem com o Android.)
+- Os esquemas de vinculação profundos para redirecionar os usuários para um local alternativo depois de clicarem em uma notificação por push precisam ser criados e gerenciados por seu aplicativo e o SO do dispositivo, não pelo Mobile Engagement diretamente. (**Observação:** as notificações fora do aplicativo não podem vincular diretamente os locais do aplicativo com o iOS, como podem com o Android.)
 - Os servidores de imagem externos precisam ser capazes de usar o HTTP "GET" e "HEAD" para os pushes gerais funcionarem (Android apenas).
 - Em seu código, você pode desabilitar o agente Mobile Engagement do Azure quando o teclado é aberto e fazer com que seu código reative o agente assim que o teclado é fechado para que o teclado não afete a aparência de sua notificação (iOS apenas).
 - Alguns itens não funcionam nas simulações de teste, mas somente nas campanhas reais (notificação, toque, vibração, imagem etc.).
@@ -110,4 +110,4 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

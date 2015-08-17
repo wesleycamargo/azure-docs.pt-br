@@ -2,7 +2,7 @@ Devido ao desenvolvimento contínuo, a versão do SDK do Android instalada no Ec
 
 Dois sintomas da incompatibilidade de versão são:
 
-1. Examine o Console do Eclipse no painel inferior. Você pode ver mensagens de erro do formulário "**Não é possível resolver o destino 'android-n’**".
+1. Examine o Console do Eclipse no painel inferior. Você pode ver mensagens de erro do formulário "**Não é possível resolver o destino ' android n'**".
 
 2. Os objetos Android padrão no código que deve ser resolvido com base em instruções `import` podem gerar mensagens de erro.
 
@@ -19,4 +19,4 @@ Se um deles for exibido, a versão do SDK do Android instalado no Eclipse poder�
 	
 3. No Explorador de Pacotes do Eclipse, clique com o botão direito do mouse no nó do projeto, escolha **Propriedades** e, na coluna à esquerda, escolha **Android**. Verifique se a opção **Destino da Compilação do Projeto** está definida como a mesma versão do SDK que o **targetSdkVersion**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

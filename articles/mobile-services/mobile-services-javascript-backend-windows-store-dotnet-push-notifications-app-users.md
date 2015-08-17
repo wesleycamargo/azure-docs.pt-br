@@ -99,4 +99,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

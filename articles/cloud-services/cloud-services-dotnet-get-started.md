@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/08/2015"
 	ms.author="tdykstra"/>
 
@@ -270,7 +270,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 
 	![Configuração de nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 
-6. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (...) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento**.
+6. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (**...**) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento**.
 
 	![Abra a caixa Criar Cadeia de Conexão](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
@@ -467,7 +467,7 @@ Para adicionar arquivos a um projeto ou pasta, clique com o botão direito do mo
 
 3. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 	- *Global.asax.cs*  
-	- Na pasta *Views\\Shared*: <em>_Layout.cshtml</em>.
+	- Na pasta *Views\\Shared*: <em>\_Layout.cshtml</em>.
 	- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Controllers*: *AdController.cs*.
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
@@ -571,9 +571,9 @@ Um código similar obtém uma referência para a fila de *imagens* e cria uma no
 		var imagesQueue = queueClient.GetQueueReference("images");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - _Layout.cshtml
+### ContosoAdsWeb - \_Layout.cshtml
 
-O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Anúncios".
+O arquivo *\_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu “Anúncios".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -812,4 +812,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Armazenamento do Azure](/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

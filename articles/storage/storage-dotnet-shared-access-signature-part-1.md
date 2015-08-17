@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Assinaturas de acesso compartilhado: noções básicas sobre o Modelo SAS | Microsoft Azure" 
-	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas e tabelas, usando SAS (assinaturas de acesso compartilhado). Com as assinaturas de acesso compartilhado, você pode proteger sua chave de conta de armazenamento enquanto concede acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida." 
+	description="Saiba mais sobre como delegar acesso a recursos de Armazenamento do Azure, incluindo blobs, filas, tabelas e arquivos, usando SAS (assinaturas de acesso compartilhado). Com as assinaturas de acesso compartilhado, você pode proteger sua chave de conta de armazenamento enquanto concede acesso a recursos em sua conta a outros usuários. Você pode controlar as permissões concedidas e o intervalo no qual a SAS é válida. Se você também estabelecer uma política de acesso armazenada, pode revogar a SAS caso tema que a segurança da sua conta esteja comprometida." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,11 +22,11 @@
 
 ## Visão geral
 
-O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a blobs, tabelas e filas a outros clientes na sua conta de armazenamento, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. A [Parte 2](storage-dotnet-shared-access-signature-part-2.md) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
+O uso de SAS (assinatura de acesso compartilhado) é uma maneira eficiente de conceder acesso limitado a objetos na sua conta de armazenamento a outros clientes, sem precisar expor sua chave de conta. Na Parte 1 deste tutorial sobre assinaturas de acesso compartilhado, apresentaremos uma visão geral do modelo SAS e examinaremos as práticas recomendadas à SAS. A [Parte 2](storage-dotnet-shared-access-signature-part-2.md) do tutorial o orientará pelo processo de criação de assinaturas de acesso compartilhado com o serviço Blob.
 
 ## O que é uma assinatura de acesso compartilhado? ##
 
-Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder permissões limitadas a um cliente aos seus blobs, suas filas ou suas tabelas por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa passar a SAS ao construtor apropriado ou ao método apropriado.
 
 ## Quando você deve usar uma assinatura de acesso compartilhado? ##
 
@@ -39,11 +39,17 @@ Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem 
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\.	Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
+2\. Um serviço leve autentica o cliente, conforme necessário, e gera uma SAS. Depois que o cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS reduz a necessidade de roteamento de todos os dados por meio do serviço de proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
 Vários serviços reais podem usar uma mistura híbrida dessas duas abordagens, dependendo do cenário envolvido, com alguns dados processados e validados por meio do proxy front-end, enquanto outros dados são salvos e/ou lidos diretamente com a SAS.
+
+Além disso, você precisará usar uma SAS para autenticar o objeto de origem em uma operação de cópia em determinados cenários:
+
+- Quando você copia um blob para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autenticar o blob de origem. Opcionalmente, é possível usar uma SAS para autenticar o blob de destino, desde que você esteja usando a versão 2013-08-15 ou posterior dos serviços de armazenamento.
+- Quando você copia um arquivo para outro que reside em uma conta de armazenamento diferente, deve usar uma SAS para autenticar o arquivo de origem. Opcionalmente, você pode usar uma SAS para autenticar o arquivo de destino.
+- Quando você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma SAS para autenticar o objeto de origem, mesmo se os objetos de origem e destino residirem dentro da mesma conta de armazenamento.
 
 ## Como funciona uma assinatura de acesso compartilhado ##
 
@@ -51,146 +57,35 @@ Uma assinatura de acesso compartilhado é um URI que aponta para um recurso de a
 
 Uma assinatura de acesso compartilhado tem as seguintes restrições que a definem, cada uma das quais é representada como um parâmetro no URI:
 
-- **O recurso de armazenamento.** Os recursos de armazenamento para os quais você pode delegar acesso incluem contêineres, blobs, filas, tabelas e intervalos de entidades de tabela.
+- **O recurso de armazenamento.** Os recursos de armazenamento para os quais é possível delegar acesso incluem:
+	- Contêineres e blobs
+	- Compartilhamentos de arquivos e arquivos
+	- Filas
+	- Tabelas e intervalos de entidades de tabela.
 - **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente. 
 - **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As práticas recomendadas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada (veja mais abaixo).
 - **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. 
 
 Este é um exemplo de um URI SAS que fornece permissões de leitura e gravação para um blob. A tabela divide cada parte do URI para explicar como ele também contribui para a SAS:
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    URI do blob
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    O endereço do blob. Observe que o uso de HTTPS é altamente recomendável.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Versão dos serviços de armazenamento
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Para os serviços de armazenamento de versão 12-02-2012 e posterior, este parâmetro indica a versão a ser usada.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Hora de início
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Especificada em um formato ISO 8061. Se você quiser que a SAS seja imediatamente válida, omita a hora de início.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Hora de expiração
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Especificada em um formato ISO 8061.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Recurso
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    O recurso é um blob.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Permissões
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w).
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Assinatura
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+Nome|Seção de link|Descrição
+---|---|---
+URI do blob|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | O endereço do blob. Observe que o uso de HTTPS é altamente recomendável.
+Versão dos serviços de armazenamento|sv=2012-02-12|Para os serviços de armazenamento de versão 12-02-2012 e posterior, este parâmetro indica a versão a ser usada.
+Hora de início|st=2013-04-29T22%3A18%3A26Z|Especificada em um formato ISO 8061. Se você quiser que a SAS seja imediatamente válida, omita a hora de início.
+Hora de expiração|se=2013-04-30T02%3A23%3A26Z|Especificada em um formato ISO 8061.
+Recurso|sr=b|O recurso é um blob.
+Permissões|sp=rw|As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w).
+Assinatura|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Usada para autenticar o acesso ao blob. A assinatura é um HMAC computado em uma cadeia-para-assinar e uma chave que usa o algoritmo SHA256 e depois codificado usando a codificação Base64.
 
 ## Controlando as assinaturas de acesso compartilhado com uma política de acesso armazenada ##
 
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
-- **SAS ad hoc:** quando você cria uma SAS ad hoc, a hora de início, a hora de expiração e as permissões para a SAS são todas especificadas no URI SAS (ou implícitas, quando a hora de início é omitida). Esse tipo de SAS pode ser criado em um contêiner, um blob, uma tabela ou uma fila.
-- **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela ou uma fila - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
+- **SAS ad hoc:** quando você cria uma SAS ad hoc, a hora de início, a hora de expiração e as permissões para a SAS são todas especificadas no URI SAS (ou implícitas, quando a hora de início é omitida). Esse tipo de SAS pode ser criado em um contêiner, um blob, um compartilhamento de arquivos, um arquivo, uma tabela ou uma fila.
+- **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela, uma fila ou um compartilhamento de arquivos - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada.
 
 A diferença entre as duas formas é importante para um cenário fundamental: revogação. Uma SAS é uma URL, portanto qualquer pessoa que obtiver a SAS poderá usá-la, independentemente de quem a tiver solicitado em primeiro lugar. Se uma SAS for publicada publicamente, ela poderá ser usada por qualquer pessoa no mundo. Uma SAS distribuída será válida até que ocorra um destes quatro fatores:
 
@@ -225,17 +120,13 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 
 ## Próximas etapas ##
 
-[Assinaturas de acesso compartilhado, Parte 2: criar e usar uma SAS com o serviço Blob](../storage-dotnet-shared-access-signature-part-2/)
-
-[Gerenciar o acesso aos recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
-
-[Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Assinaturas de acesso compartilhado, Parte 2: criar e usar uma SAS com o serviço Blob](storage-dotnet-shared-access-signature-part-2.md)
+- [Como usar o armazenamento de arquivo do Azure com o PowerShell e .NET](storage-dotnet-how-to-use-files.md)
+- [Gerenciar o acesso aos recursos de Armazenamento do Azure](storage-manage-access-to-resources.md)
+- [Delegando acesso com uma assinatura de acesso compartilhado (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

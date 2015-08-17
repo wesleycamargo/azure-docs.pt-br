@@ -114,4 +114,4 @@ Use o modelo a seguir:
 - [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)
 - [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

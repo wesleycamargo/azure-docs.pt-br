@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Aprenda a usar as ferramentas do Hadoop do Visual Studio para o HDInsight | Microsoft Azure"
 	description="Saiba como instalar e usar ferramentas do Hadoop do Visual Studio para o HDInsight para se conectar a um cluster Hadoop e executar uma consulta de Hive."
-	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	authors="mumian"
@@ -67,7 +66,7 @@ As ferramentas do HDInsight para o Visual Studio permitem que você se conecte a
 2.	No menu **Exibir**, clique em **Gerenciador de Servidores** para abrir a janela Gerenciador de Servidores.
 3.	Expanda **Azure**, então expanda **HDInsight**.
 
-	>[AZURE.NOTE]**Lista de tarefas do HDInsight****Outras janelas****Exibição****Janela Lista de tarefas do HDInsight**  
+	>[AZURE.NOTE]Observe se a janela **lista de tarefas do HDInsight** está aberta. Se não estiver, ela pode ser aberta ao clicar em **Outras Janelas** do menu **Exibição** e, em seguida, clique na janela da **Lista de Tarefas do HDInsight**.  
 4.	Insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**. Isso só será necessário se você nunca tiver se conectado à assinatura do Azure pelo Visual Studio nesta estação de trabalho.
 5.	No Gerenciador de Servidores, você verá uma lista de clusters do HDInsight existentes. Se você não tiver nenhum cluster, você pode provisionar um usando o Portal do Azure, PowerShell do Azure ou o SDK do HDInsight. Para obter mais informações, consulte [Provisionar clusters do HDInsight][hdinsight-provision].
 
@@ -141,7 +140,7 @@ Há duas maneiras de criar e executar consultas Hive:
 
 	![Ferramentas Hadoop: Ferramentas do Visual Studio IntelliSense para HDInsight][14]
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]Apenas os metadados dos clusters selecionados na barra de ferramentas de HDInsight serão sugeridos.
 4. (Opcional): clique em **Validar Script** para verificar os erros de sintaxe do script.
 
 	![Ferramentas Hadoop: validação local das ferramentas do HDinsight para Visual Studio][10]
@@ -183,7 +182,7 @@ A versão mais recente da ferramenta permite que você veja o que está dentro d
 
 ### Gráfico de desempenho do trabalho do Tez Hive
 
-As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para obter informações sobre como habilitar Tez, consulte [usar Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão Atualizar para obter o status do trabalho mais recente.
+As Ferramentas do Visual Studio para HDInsight dão suporte para mostrar gráficos de desempenho para os trabalhos de Hive executados pelo mecanismo de execução Tez. Para saber mais sobre como habilitar Tez, consulte [usar Hive no HDInsight][hdinsight.hive]. Depois de enviar um trabalho do Hive no Visual Studio, o Visual Studio mostrará o gráfico quando o trabalho for concluído. Talvez seja necessário clicar no botão Atualizar para obter o status do trabalho mais recente.
 
 > [AZURE.NOTE]Esse recurso só está disponível para o cluster HDInsight versão acima de 3.2.4.593 e só pode funcionar para trabalhos concluídos. Isso funciona para clusters baseados em Windows e Linux.
 
@@ -236,4 +235,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

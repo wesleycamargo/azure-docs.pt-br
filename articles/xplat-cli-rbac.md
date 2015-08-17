@@ -18,30 +18,20 @@
 
 # Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure (CLI do Azure)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="CLI do Azure">CLI do Azure</a></div>
-
 O controle de acesso baseado em função (RBAC) no Portal do Azure e na API de Gerenciamento de Recursos do Azure permite que você gerencie o acesso à sua assinatura em um nível detalhado. Com este recurso, você pode conceder acesso aos principais usuários, grupos ou serviços do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
 Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar o RBAC. Este tutorial traz orientações passo a passo do processo de criação e verificação das atribuições de função.
 
 **Tempo estimado para conclusão:** 15 minutos
 
-## Pré-requisitos ##
+## Pré-requisitos
 
 Para poder usar a CLI do AZURE para gerenciar o RBAC, você deve ter o seguinte:
 
 - CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [instalar](xplat-cli-install.md).
 - Leia também os tutoriais a seguir para se familiarizar com a configuração e o uso do Gerenciador de Recursos do Azure na CLI do Azure: [Usando a CLI do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md)
 
-## Neste tutorial ##
-
-* [Conectar-se às suas assinaturas](#connect)
-* [Verifique as atribuições de função existente](#check)
-* [Criar uma atribuição de função](#create)
-* [Verificar permissões](#verify)
-* [Próximas etapas](#next)
-
-## <a id="connect"></a>Conectar-se a suas assinaturas ##
+## Conectar-se às suas assinaturas 
 
 Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira coisa a fazer é alternar para o modo do Gerenciador de Recursos do Azure, digite:
 
@@ -86,7 +76,7 @@ Isso retornará todas as atribuições de função para um usuário em particula
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
-## <a id="create"></a>Criar uma atribuição de função ##
+## Criar uma atribuição de função 
 
 Para criar uma atribuição de função, você precisa pensar sobre
 
@@ -118,24 +108,24 @@ Em seguida, use `azure role assignment create` para criar uma atribuição de fu
 
 - Isso criará uma atribuição de função em nível de grupo de recursos
 
-    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - Isso criará uma atribuição de função em nível de recursos
 
     `azure role assignment create --mail <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>Verificar permissões ##
+## Verificar permissões 
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
 Então quando você tenta executar outro cmdlet como `azure group create`, você receberá um erro de acesso negado se não tiver a permissão.
 
-## <a id="next"></a>Próximas etapas ##
+## Próximas etapas 
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o CLI do Azure e tópicos relacionados:
 
@@ -143,4 +133,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Usando a CLI do Azure com o Gerenciamento de Recursos](xplat-cli-azure-resource-manager.md)
 - [Usando grupos de recursos para gerenciar os recursos do Azure](resource-groups-overview.md): aprenda a criar e gerenciar grupos de recursos no Portal de Gerenciamento do Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

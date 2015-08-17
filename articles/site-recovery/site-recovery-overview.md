@@ -48,137 +48,33 @@ Armazenamento de dados secundário | Servidor VMM único | Replique as máquinas
 
 As tecnologias de replicação de ASR são compatíveis com qualquer aplicativo em execução em uma máquina virtual. Conduzimos testes adicionais em parceria com as equipes de produto do aplicativo a fim de dar mais suporte a cada aplicativo.
 
-**Carga de trabalho** | <p>**Replicar máquinas virtuais Hyper-V**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais Hyper-V**</p> <p>**(para o Azure)**</p> | <p>**Replicar máquinas virtuais VMware**</p> <p>**(para o site secundário)**</p> | <p>**Replicar máquinas virtuais VMware**</p><p>**(para o Azure)**</p>
----|---|---|---|---
-Active Directory, DNS | S | S | S | Em breve 
-Aplicativos Web (IIS, SQL) | S | S | S | Em breve
-SCOM | S | S | S | Em breve
-Sharepoint | S | S | S | Em breve
-<p>SAP</p><p>Replicar site SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve
-Exchange (não DAG) | S | Em breve | S | Em breve
-Área de Trabalho Remota/VDI | S | S | S | Em breve 
-<p>Linux</p> <p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve 
-Dynamics AX | S | S | S | Em breve
-Dynamics CRM | Em breve | Em breve | S | Em breve
-Oracle | Em breve | Em breve | Y (testado pela Microsoft) | Em breve
+**Cargas de trabalho** | <p>**Replicar máquinas virtuais Hyper-V**</p><p>**(para o site secundário)**</p>|<p>**Replicar máquinas virtuais Hyper-V**</p><p>**(para o Azure)**</p>|<p>**Replicar máquinas virtuais VMware**</p><p>**(para o site secundário)**</p>|<p>**Replicar máquinas virtuais VMware**</p><p>**(para o Azure)****</p>---|---|---|---|---Active Directory, DNS | Y | Y | Y | Em breve, aplicativos Web (IIS, SQL) | Y | Y | Y | Em breve, SCOM | Y | Y | Y | Em breve, Sharepoint | Y | Y | Y | Em breve, <p>SAP</p><p>Replicar site SAP para o Azure para não cluster</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve, Exchange (não DAG) | Y | Em breve | Y | Em breve, VDI/Área de Trabalho Remota | Y | Y | Y | Em breve, <p>Linux</p><p>(sistema operacional e aplicativos)</p> | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Y (testado pela Microsoft) | Em breve, Dynamics AX | Y | Y | Y | Em breve Dynamics CRM | Em breve | Em breve | Y | Em breve, Oracle | Em breve | Em breve | Y (testado pela Microsoft) | Em breve
 
 
 ## Recursos e requisitos 
 
 Esta tabela resume os principais recursos da Recuperação de Site e como eles são manipulados durante a replicação no Azure, replicação para um site secundário usando a replicação da Réplica do Hyper-V padrão e usando SAN.
 
-<table border="1">
-<thead>
-<tr>
-	<th>Recurso</th><th>Replicar no Azure</th>
-	<th>Replicar em um local secundário (Réplica do Hyper-V)</th>
-	<th>Replicar em um local secundário (SAN)</th>
-</tr>
-</thead>
-
-<tr>
-<td>Replicação de dados</td>
-<td><p>Metadados sobre os servidores e máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no armazenamento do Azure.</p></td>
-<td><p>Metadados sobre os servidores e máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no local especificado pelo servidor Hyper-V de destino.</p></td>
-<td><p>Metadados sobre os servidores e máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no armazenamento de matriz de destino.</p></td>
-</tr>
-
-<tr>
-<td>Requisitos de cofre</td>
-<td><p>Conta do Azure com o serviço Recuperação de Site.</p></td>
-<td><p>Conta do Azure com o serviço Recuperação de Site.</p>
-</td><td><p>Conta do Azure com o serviço Recuperação de Site.</p></td>
-</tr>
-
-<tr>
-<td>Replicação</td>
-<td>Replique a máquina virtual do host Hyper-V de origem para o armazenamento do Azure. Failback para o local de origem.</td>
-<td>Replique a máquina virtual do host Hyper-V de origem para o host Hyper-V de destino. Failback para o local de origem.</td>
-<td>Replique as máquinas virtuais de um dispositivo de armazenamento SAN de origem para um dispositivo de armazenamento SAN de destino. Failback para o local de origem.</td>
-</tr>
-
-<tr>
-<td>Máquina virtual</td>
-<td>Disco rígido de máquina virtual armazenado no armazenamento do Azure</td>
-<td>Disco rígido de máquina virtual armazenado no host Hyper-V</td>
-<td>Disco rígido de máquina virtual armazenado na matriz de armazenamento SAN</td>
-</tr>
-
-<tr>
-<td>Armazenamento do Azure</td>
-<td>Necessário para armazenar os discos rígidos de máquina virtual replicada</td>
-<td>Não aplicável</td>
-<td>Não aplicável</td>
-</tr>
-
-<tr>
-<td>Matriz de armazenamento SAN</td>
-<td><p>Não aplicável</p></td>
-<td>Não aplicável</td>
-<td>A matriz de armazenamento SAN deve estar disponível nos sites de origem e de destino e ser gerenciada pelo VMM</td>
-</tr>
-
-<tr>
-<td>Servidor VMM</td>
-<td>Servidor VMM apenas no site de origem. </td>
-<td>Recomenda-se servidores VMM nos sites de origem e destino. Você pode replicar entre nuvens em um único servidor VMM.</td>
-<td>Servidor VMM em sites VMM de origem e de destino. As nuvens devem conter pelo menos um cluster do Hyper-V.</td>
-</tr>
-
-<tr>
-<td>Versão do VMM</td>
-<td>System Center 2012 R2</td>
-<td><p>System Center 2012 com SP1</p><p>System Center 2012 R2</p></td>
-<td><p>System Center 2012 R2 com Pacote Cumulativo de Atualizações do VMM 5.0</p></td>
-</tr>
-
-<tr>
-<td>Configuração do VMM</td>
-<td><p>Configurar nuvens nos sites de origem e de destino</p><p>Configurar redes VM nos sites de origem e de destino</p><p>Configurar classificações de armazenamento nos sites de origem e de destino <p>Instalar o Provedor nos servidores VMM de origem e de destino</p></td>
-<td><p>Configurar nuvens no site de origem</p><p>Configurar o armazenamento SAN</p><p>Configurar redes VM no site de origem</p><p>Instalar o Provedor no servidor VMM de origem</p><p>Habilitar a proteção da máquina virtual</p></td>
-<td><p>Configurar nuvens nos sites de origem e de destino</p><p>Configurar redes VM nos sites de origem e destino</p><p>Instalar o Provedor no servidor VMM de origem e de destino</p><p>Habilitar a proteção da máquina virtual</p></td>
-</tr>
-
-<tr>
-<td><p>Provedor do Azure Site Recovery</p><p>Usado para conexão via HTTPS com a Recuperação de Site</p></td>
-<td>Instalar em um servidor VMM de origem</td>
-<td>Instalar em servidores VMM de origem e de destino</td>
-<td>Instalar em servidores VMM de origem e de destino</td>
-</tr>
-
-<tr>
-<td><p>Agente de Serviços de Recuperação do Azure</p><p>Usado para conexão via HTTPS com a Recuperação de Site</p></td>
-<td>Instalar em servidores host Hyper-V</td>
-<td>Não requerido</td>
-<td>Não requerido</td>
-</tr>
-
-<tr>
-<td>Pontos de recuperação de máquina virtual</td>
-<td><p>Definir pontos de recuperação por tempo.</p> <p>Especifica por quanto tempo um ponto de recuperação deve ser mantido (0 a 24 h)</p></td>
-<td><p>Definir pontos de recuperação por quantidade.</p> <p>Especifica quantos pontos de recuperação adicionais devem ser mantidos (0 a 15). Por padrão, um ponto de recuperação é criado por hora</p></td>
-<td>Definido nas configurações de armazenamento de matriz</td>
-</tr>
-
-<tr>
-<td>Mapeamento de rede</td>
-<td><p>Mapear redes de máquinas virtuais para redes do Azure.</p> <p>O mapeamento de rede assegura que todas as máquinas virtuais pertencentes à mesma rede de máquinas virtuais de origem e que sofrem failover possam se conectar após o failover. Além disso, se houver um gateway de rede na rede Azure de destino, então, as máquinas virtuais poderão se conectar às máquinas virtuais presentes no local. </p><p>Se o mapeamento não estiver habilitado, somente máquinas virtuais que falharem no mesmo plano de recuperação poderão se conectar umas às outras após o failover para o Azure.</p></td>
-<td><p>Mapeie as redes de máquinas virtuais de origem para redes de máquinas virtuais de destino.</p> <p>O mapeamento de rede é utilizado para posicionar máquinas virtuais replicadas em servidores de host Hyper-V ideais, garantindo que as máquinas virtuais associadas à rede de máquinas virtuais de origem sejam associadas à rede de destino mapeada após o failover. </p><p>Se o mapeamento não estiver habilitado, as máquinas virtuais replicadas não serão conectadas a uma rede.</p></td>
-<td><p>Mapeie as redes de máquinas virtuais de origem para redes de máquinas virtuais de destino.</p> <p>O mapeamento de rede assegura que máquinas virtuais associadas à rede VM de origem sejam associadas à rede de destino mapeada após o failover. </p><p>Se o mapeamento não estiver habilitado, as máquinas virtuais replicadas não serão conectadas a uma rede.</p></td>
-</tr>
-
-<tr>
-<td>Mapeamento de armazenamento</td>
-<td>Não aplicável</td>
-<td><p>Mapeia classificações de armazenamento em servidores VMM de origem para classificações de armazenamento em servidores VMM de destino.</p> <p>Com a habilitação do mapeamento, os discos rígidos de máquinas virtuais na classificação de armazenamento de origem estarão localizados na classificação de armazenamento de destino após o failover.</p><p>Se o mapeamento de armazenamento não estiver habilitado, os discos rígidos virtuais replicados serão armazenados em um local padrão no servidor host Hyper-V de destino.</p></td>
-<td><p>Mapeia entre matrizes de armazenamento e pools nos sites primários e secundários.</p></td>
-</tr>
-
-</table>
+Recurso|Replicar no Azure|Replicar em um local secundário (Réplica do Hyper-V)|Replicar em um local secundário (SAN)
+---|---|---|---
+Replicação de dados|Os metadados sobre os servidores e as máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no armazenamento do Azure.|Os metadados sobre os servidores e as máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no local especificado pelo servidor Hyper-V de destino.|Os metadados sobre os servidores e as máquinas virtuais locais são armazenados no cofre da Recuperação de Site.</p> <p>Os dados replicados são armazenados no armazenamento de matriz de destino.
+Requisitos de cofre|Conta do Azure com o serviço Recuperação de Site.|Conta do Azure com o serviço Recuperação de Site.|Conta do Azure com o serviço Recuperação de Site.
+Replicação|Replique a máquina virtual do host Hyper-V de origem para o armazenamento do Azure. Failback para o local de origem.|Replique a máquina virtual do host Hyper-V de origem para o host Hyper-V de destino. Failback para o local de origem.|Replique as máquinas virtuais de um dispositivo de armazenamento SAN de origem para um dispositivo de armazenamento SAN de destino. Failback para o local de origem.
+Máquina virtual|Disco rígido de máquina virtual armazenado no armazenamento do Azure|Disco rígido de máquina virtual armazenado no host Hyper-V|Disco rígido de máquina virtual armazenado na matriz de armazenamento SAN
+Armazenamento do Azure|Necessário para armazenar os discos rígidos de máquina virtual replicada|Não aplicável|Não aplicável
+Matriz de armazenamento SAN|Não aplicável|Não aplicável|A matriz de armazenamento SAN deve estar disponível nos sites de origem e de destino e ser gerenciada pelo VMM
+Servidor VMM|Servidor VMM apenas no site de origem.|Recomenda-se servidores VMM nos sites de origem e destino. Você pode replicar entre nuvens em um único servidor VMM.|Servidor VMM em sites VMM de origem e de destino. As nuvens devem conter pelo menos um cluster do Hyper-V.
+Versão do VMM|System Center 2012 R2<p>System Center 2012 com SP1|System Center 2012 R2|System Center 2012 R2 com Pacote Cumulativo de Atualizações do VMM 5.0
+Configuração do VMM|Configurar nuvens nos sites de origem e de destino</p><p>Configurar redes VM no site de origem e de destino<p>Configurar classificações de armazenamento nos sites de origem e de destino<p>Instalar o Provedor nos servidores VMM de origem e de destino|Configurar nuvens no site de origem</p><p>Configurar o armazenamento SAN</p><p>Configurar redes VM no site de origem</p><p>Instalar o Provedor no servidor VMM de origem</p><p>Habilitar proteção de máquina virtual|Configurar nuvens nos sites de origem e de destino</p><p>Configurar redes VM nos sites de origem e de destino</p><p>Instalar o Provedor no servidor VMM de origem e de destino</p><p>Habilitar a proteção de máquina virtual
+Provedor do Azure Site Recovery</p><p>Usado para conexão por HTTPS ao Site Recovery|Instalar em um servidor VMM de origem|Instalar em servidores VMM de origem e de destino|Instalar em servidores VMM de origem e de destino
+Agente de Serviços de Recuperação do Azure</p><p>Usado para se conectar por HTTPS ao Site Recovery|Instalar em servidores host Hyper-V|Não requerido|Não requerido
+Pontos de recuperação de máquina virtual|Definir pontos de recuperação por tempo.</p> <p>Especifica por quanto tempo um ponto de recuperação deve ser mantido (0 a 24 horas)|Definir pontos de recuperação por quantidade.</p> <p>Especifica quantos pontos de recuperação adicionais devem ser mantidos (0 a 15). Por padrão, um ponto de recuperação é criado por hora|Definido nas configurações de armazenamento de matriz
+Mapeamento de rede|Mapear redes VM para redes do Azure.</p> <p>O mapeamento de rede assegura que todas as máquinas virtuais com failover na mesma rede VM de origem possam se conectar após o failover. Além disso, se houver um gateway de rede na rede Azure de destino, então, as máquinas virtuais poderão se conectar às máquinas virtuais presentes no local. </p><p>Se o mapeamento não estiver habilitado, somente máquinas virtuais que falharem no mesmo plano de recuperação poderão se conectar umas às outras após o failover para o Azure.|Mapeie as redes VM de origem para as redes VM de destino.</p> <p>O mapeamento de rede é utilizado para posicionar máquinas virtuais replicadas em servidores host Hyper-V ideais, garantindo que as máquinas virtuais associadas à rede VM de origem sejam associadas à rede de destino mapeada após o failover. </p><p>Se o mapeamento não estiver habilitado, as máquinas virtuais replicadas não serão conectadas a uma rede.|Mapeie as redes VM de origem para as redes VM de destino.</p> <p>O mapeamento de rede assegura que máquinas virtuais associadas à rede VM de origem sejam associadas à rede de destino mapeada após o failover. </p><p>Se o mapeamento não estiver habilitado, as máquinas virtuais replicadas não serão conectadas a uma rede.
+Mapeamento de armazenamento|Não aplicável|Mapeia classificações de armazenamento em servidores VMM de origem para classificações de armazenamento em servidores VMM de destino.</p> <p>Com a habilitação do mapeamento, os discos rígidos de máquinas virtuais na classificação de armazenamento de origem estarão localizados na classificação de armazenamento de destino após o failover.</p><p>Se o mapeamento de armazenamento não estiver habilitado, os discos rígidos virtuais replicados serão armazenados em um local padrão no servidor host Hyper-V de destino.|Mapeia entre matrizes de armazenamento e pools nos sites primários e secundários.
 
 ## Próximas etapas
 
 Depois de concluir esta visão geral, [leia as práticas recomendadas](site-recovery-best-practices.md) para começar a planejar a implantação.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

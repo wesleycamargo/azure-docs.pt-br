@@ -20,7 +20,7 @@
 
 O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos de previsão em relação aos dados do SQL Data Warehouse e publicá-los como serviços web prontos para consumir. Você pode aprender os fundamentos da análise de previsão e aprendizado de máquina lendo [Introdução ao Aprendizado de Máquina no Azure][]. Em seguida, você pode aprender como criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando o [Criar tutorial de teste][].
 
-Neste artigo, você aprenderá a fazer o seguinte usando a [Estúdio de Aprendizado de Máquina do Azure][]: - Ler dados do seu banco de dados para criar, treinar e pontuar um modelo preditivo - Gravar dados em seu banco de dados
+Neste artigo, você aprenderá a fazer o seguinte usando a [Estúdio de Aprendizado de Máquina do Azure][]\: - Ler dados do seu banco de dados para criar, treinar e pontuar um modelo preditivo - Gravar dados em seu banco de dados
 
 
 ## Exportar dados do SQL Data Warehouse
@@ -104,4 +104,4 @@ Para obter uma visão geral da integração, consulte [Visão geral de integraç
 <!--Other Web references-->
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

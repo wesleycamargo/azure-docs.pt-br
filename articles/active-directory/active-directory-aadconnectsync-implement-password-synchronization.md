@@ -67,7 +67,7 @@ Quando você habilita a sincronização de senha, as políticas de complexidade 
  
 ### Política de expiração de senha
 
-Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como "\*Never Expire\*". Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
+Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como "*Never Expire*". Isso significa que é possível que a senha do usuário expire no ambiente local, mas ele podem continuar a fazer logon nos serviços de nuvem usando essa senha expirada.
 
 A senha de nuvem será atualizada na próxima vez que o usuário alterar a senha no ambiente local.
 
@@ -90,7 +90,7 @@ Seu locatário do Active Directory do Azure deve ser habilitado para sincroniza�
 
 Você habilita a sincronização de senha ao executar o Assistente de configuração do Azure AD Connect.
 
-Na página de diálogo **Recursos opcionais**, selecione “\*\*Sincronização de senha\*\*”.
+Na página de diálogo **Recursos opcionais**, selecione “**Sincronização de senha**”.
  
 ![Recursos opcionais][1]
 
@@ -156,4 +156,4 @@ Após a execução do Assistente de configuração, seu locatário deixará de s
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

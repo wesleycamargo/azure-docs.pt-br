@@ -1,4 +1,4 @@
-<properties pageTitle="Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure" description="Veja um exemplo de como criar uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure" description="Veja um exemplo de como criar uma máquina virtual do Oracle WebLogic Server 12c executando o Windows Server 2012 no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Criando uma Máquina Virtual do Oracle WebLogic Server 12c no Azure
 O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em uma imagem Oracle WebLogic Server 12c fornecida pela Microsoft em execução no Windows Server 2012 no Azure.
@@ -98,7 +98,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	Clique em **Próximo**.
 
-5.	Selecione I\*\*nstalar essa implantação como um aplicativo\*\* e, em seguida, clique em **Avançar**.
+5.	Selecione I**nstalar essa implantação como um aplicativo** e, em seguida, clique em **Avançar**.
 
 6.	Clique em **Concluir**.
 
@@ -154,7 +154,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 
 	8.	Especifique um nome para a regra e, opcionalmente, uma descrição e depois clique em **Concluir**.
 
-12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. (Você pode determinar o valor de <<\*unique\_domain\_name\*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server).
+12.	Para ver o aplicativo de carrinho de compras em execução na Internet, abra um navegador para a URL na forma de `http://<<unique_domain_name>>/shoppingcart`. Você pode determinar o valor de <<*unique\_domain\_name*>> dentro do [Portal do Azure](https://ms.portal.azure.com/) clicando em **Máquinas Virtuais** e, em seguida, selecionando a máquina virtual que você está usando para executar o Oracle WebLogic Server.
 
 
 ##Recursos adicionais
@@ -168,4 +168,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

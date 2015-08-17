@@ -62,4 +62,4 @@ Além disso, considere a possibilidade de obter mais informações sobre os segu
 [Scripts de servidor de armazenamento no controle do código-fonte]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -374,4 +374,4 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

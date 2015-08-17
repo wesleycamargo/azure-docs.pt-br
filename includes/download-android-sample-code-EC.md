@@ -20,4 +20,4 @@ Este tutorial é baseado no **GetStartedWithData**, que é um aplicativo do Andr
 <!-- URLs. -->
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

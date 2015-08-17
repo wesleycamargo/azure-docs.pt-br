@@ -43,4 +43,4 @@ Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de M�
 3. Por padrão, os cabeçalhos de cache de 2 segundos são aplicados ao manifesto (lista de reprodução) do streaming dinâmico, independentemente da configuração de Mídia do Azure ou do Armazenamento do Azure, e não é possível substituir esse valor.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

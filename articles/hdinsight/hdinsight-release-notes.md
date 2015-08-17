@@ -13,11 +13,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="07/30/2015"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 31/07/2015 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 2.1.10.640.1695824 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight 3.0.6.640.1695824 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight 3.1.4.640.1695824 (HDP 2.1.15.0-2334 - inalterado)
+* HDInsight 3.2.6.640.1695824 (HDP 2.2.6.1-0012 - inalterado)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Corrigir fluxo de trabalho de recriação de imagens de nó de cluster do Spark | Correção de um bug que estava fazendo com que os nós de cluster do Spark não se recuperassem depois de recriar a imagem | O Barramento de | Spark| N/D |
+
+
+## Notas da versão de 31/07/2015 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 2.1.10.635.1684502 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight 3.0.6.635.1684502 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight 3.1.4.635.1684502 (HDP 2.1.15.0-2334 - inalterado)
+* HDInsight 3.2.6.635.1684502 (HDP 2.2.6.1-0012 - inalterado)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versões atualizadas do HDInsight para todos os clusters de HDInsight | Com esta versão, as versões do HDInsight foram atualizadas | O Barramento de | Todos| N/D |
+
+
+## Notas da versão de 07/07/2015 do HDInsight ##
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight 2.1.10.610.1630216 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight 3.0.6.610.1630216 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight 3.1.4.610.1630216 (HDP 2.1.15.0-2334 - inalterado)
+* HDInsight 3.2.4.610.1630216 (HDP 2.2.6.1-0012)
+* SDK 1.5.8
+
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Atualizadas versões do HDP para clusters do HDInsight 3.2 | Com esta versão, o HDInsight 3.2 implanta o HDP 2.2.6.1-0012 | O Barramento de | Todos | N/D |
 
 
 ## Notas da versão de 26/06/2015 do HDInsight ##
@@ -1017,7 +1068,7 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 ## Notas para a versão de 07/10/2014 ##
 
-* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de somente o nome do host. Por exemplo, ao invés de retornar "**headnode0**", você obtém o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implementados em uma rede virtual. Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
+* Ao usar o ponto de extremidade do Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", o campo *host\_name* retorna o nome de domínio totalmente qualificado (FQDN) do nó em vez de somente o nome do host. Por exemplo, ao invés de retornar "**headnode0**", você obtém o FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**”. Essa alteração foi necessária para facilitar cenários em que vários tipos de cluster, como HBase e Hadoop, podem ser implementados em uma rede virtual. Isso acontece, por exemplo, ao usar HBase como uma plataforma de back-end para o Hadoop.
 
 * Fornecemos novas configurações de memória para a implantação padrão do cluster do HDInsight. As configurações de memória padrão anteriores não atentavam adequadamente às diretrizes referente ao número de núcleos de CPU implantados. Essas novas configurações de memória devem fornecer melhores padrões, de acordo com as recomendações da Hortonworks. Para alterá-las, consulte a documentação de referência do SDK sobre alteração da configuração de clusters. As novas configurações de memória usadas pelo cluster do HDInsight padrão com 4 núcleos de CPU (8 contêineres) são detalhadas na tabela a seguir. (Os valores usados anteriormente a essa versão também são fornecidos entre parênteses).
 
@@ -1027,9 +1078,9 @@ A liberação desse hotfix corrige um vazamento de memória no Templeton que afe
 
 Para obter mais informações sobre as configurações de memória usadas pelo YARN e pelo MapReduce na plataforma de dados Hortonworks usada pelo HDInsight, consulte [Determinar as configurações de memória de HDP](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html). A Hortonworks também oferece uma ferramenta para calcular as configurações adequadas de memória.
 
-Sobre o PowerShell do Azure e a mensagem de erro do SDK do HDInsight: "*O cluster não foi configurado para acessar os serviços HTTP*":
+Sobre o Azure PowerShell e a mensagem de erro do SDK do HDInsight: "*O cluster não foi configurado para acessar os serviços HTTP*":
 
-* Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK do HDInsight ou cmdlets do PowerShell do Azure (**Use-AzureHDInsightCluster**, **Invoke-Hive**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro “O cluster <clustername> não está configurado para acessar serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro como “*Não é possível se conectar ao cluster*”.
+* Esse erro é um [problema de compatibilidade](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conhecido que pode ocorrer devido a uma diferença entre a versão do SDK do HDInsight ou PowerShell do Azure e a versão do cluster. Clusters criados a partir de 15/08 dão suporte à nova funcionalidade de provisionamento em Redes Virtuais. Mas essa funcionalidade não é interpretada corretamente por versões mais antigas do SDK do HDInsight ou PowerShell do Azure. O resultado é uma falha em algumas operações de envio de trabalho. Se você usar APIs do SDK do HDInsight ou cmdlets do Azure PowerShell (**Use-AzureHDInsightCluster** ou **Invoke-Hive**) para enviar trabalhos, essas operações podem falhar com a mensagem de erro “*O cluster <clustername> não está configurado para acessar serviços HTTP*”. Ou, dependendo da operação, você pode receber outras mensagens de erro como “*Não é possível se conectar ao cluster*”.
 
 * Esses problemas de compatibilidade são resolvidos nas versões mais recentes do SDK do HDInsight e do PowerShell do Azure. Recomendamos atualizar o SDK do HDInsight para a versão 1.3.1.6 ou posterior e o Azure PowerShell Tools para a versão 0.8.8 ou posterior. Você pode obter acesso ao HDInsight SDK mais recente no [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e às Ferramentas do PowerShell do Azure em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure/).
 
@@ -1147,7 +1198,7 @@ As seguintes dependências foram acrescentadas ao HDInsight 3.x (HDP2.x):
 * javax.inject
 * activation
 * jsr305
-* geronimo-jaspic_1.0_spec
+* geronimo-jaspic\_1.0\_spec
 * jul-to-slf4j
 * java-xmlbuilder
 * ant
@@ -1174,7 +1225,7 @@ As seguintes dependências foram acrescentadas ao HDInsight 3.x (HDP2.x):
 * jpam
 * jersey-client
 * aopalliance
-* geronimo-annotation_1.0_spec
+* geronimo-annotation\_1.0\_spec
 * ant-launcher
 * jersey-guice
 * xml-apis
@@ -1182,7 +1233,7 @@ As seguintes dependências foram acrescentadas ao HDInsight 3.x (HDP2.x):
 * asm-commons
 * asm-tree
 * wadl
-* geronimo-jta_1.1_spec
+* geronimo-jta\_1.1\_spec
 * guice
 * leveldbjni-all
 * velocity
@@ -1234,7 +1285,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 * datanucleus-api-jdo: ['3.0.7'] -> ['3.2.6']
 * zookeeper: ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
 * bonecp: ['0.7.1.RELEASE'] -> ['
-* 0.8.0.RELEASE']
+* 0\.8.0.RELEASE']
 
 
 ###Drivers
@@ -1280,4 +1331,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

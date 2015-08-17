@@ -81,4 +81,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

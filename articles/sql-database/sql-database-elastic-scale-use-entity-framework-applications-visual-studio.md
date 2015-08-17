@@ -238,7 +238,7 @@ Com esses pré-requisitos, podemos criar um **SqlConnection** regular não abert
         } 
  
 
-Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (\*\*ElasticScaleContext\*\* no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
+Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (**ElasticScaleContext** no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -281,4 +281,4 @@ Aplicativos do Entity Framework podem aproveitar facilmente as ferramentas de ba
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

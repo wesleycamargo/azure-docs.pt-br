@@ -104,8 +104,9 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 	2.	Substitua **<databasename>** por **MarketingCampaigns**.
 	3.	Se você estiver usando **autenticação SQL**
 		1.	Especifique **<username>** e **<password>** na **connectionString**.
-		2.	Remova as duas últimas linhas (as propriedades **nome de usuário** e **senha** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
-		3.	Remova **, (vírgula) **no final da linha **gatewayName**. 
+		2.	Remova as duas últimas linhas (as propriedades **username** e **password** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
+		3.	Remova **, (vírgula) ** no final da linha **gatewayName**.
+
 		**Se você está usando a Autenticação do Windows:** 1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "**User ID=<username>;Password=<password>;**" da connectionString. 2. Especifique o nome do usuário que tem acesso ao banco de dados para a propriedade **nome de usuário**. 3. Especifique **senha** para a conta de usuário.   
 	4. Especifique o nome do gateway (**MeuGateway**) para a propriedade gatewayName. 		  	 
 3.	Clique em **Implantar** na barra de ferramentas para implantar o serviço vinculado. 
@@ -169,4 +170,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

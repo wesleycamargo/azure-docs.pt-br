@@ -81,4 +81,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

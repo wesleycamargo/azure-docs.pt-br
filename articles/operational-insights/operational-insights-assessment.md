@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Otimizar seu ambiente com pacotes de inteligência de avaliação
@@ -105,7 +105,7 @@ Cada recomendação feita inclui diretrizes sobre por que ela pode ser important
 
 ## Use as recomendações de área de foco de avaliação
 
-Antes de usar uma solução de avaliação do Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco de avaliação da página Visão Geral do Insights Operacionais.
+Antes de usar uma solução de avaliação do Insights Operacionais do Microsoft Azure, você deve ter a solução instalada. Para saber mais sobre a instalação de soluções, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-setup-workspace.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco de avaliação da página Visão Geral do Insights Operacionais.
 
 Você pode resumir avaliações de conformidade para sua infraestrutura e então fazer uma análise detalhada das recomendações.
 
@@ -125,4 +125,4 @@ Você pode resumir avaliações de conformidade para sua infraestrutura e então
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

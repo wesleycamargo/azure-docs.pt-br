@@ -89,4 +89,4 @@ Este trabalho agora está cancelado.
 
 [Saiba como gerenciar as políticas de backup do StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

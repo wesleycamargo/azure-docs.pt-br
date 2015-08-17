@@ -104,7 +104,7 @@ O gráfico a seguir mostra a taxa de transferência de máquinas virtuais execut
 
 ### Conclusão
 
-Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica do Hyper-V, se ajusta muito bem com uma sobrecarga mínima para um cluster grande. O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. A Réplica do Hyper-V fornece a infraestrutura necessária para o ajuste da replicação. Para planejar uma implantação ideal, sugerimos que você baixe o [Capacity Planner da Réplica Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=39057).
+Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica do Hyper-V, se ajusta muito bem com uma sobrecarga mínima para um cluster grande. O Azure Site Recovery oferece implantação, replicação, gerenciamento e monitoramento simplificado. A Réplica do Hyper-V fornece a infraestrutura necessária para o ajuste da replicação. Para planejar uma implantação ideal, sugerimos que você baixe o [Capacity Planner da Réplica Hyper-V](https://www.microsoft.com/pt-br/download/details.aspx?id=39057).
 
 ## Ambiente da implantação de teste
 
@@ -194,13 +194,7 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Processador(_Total)\% Tempo do processador|
-|Memória disponível|\\Memória\\MBytes disponíveis|
-|IOPS|\\Disco físico(_Total)\\Transferências do disco/seg|
-|Operações de leitura da VM (IOPS)/seg|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Operações de leitura/Seg|
-|Operações de gravação da VM (IOPS)/seg|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Operações de gravação/S|
-|Taxa de transferência de leitura da VM|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Bytes de leitura/seg|
-|Taxa de transferência de gravação da VM|\\Dispositivo de armazenamento virtual do Hyper-V (<VHD>)\\Bytes de gravação/seg|
+|CPU|\\Processor(\_Total)\% Processor Time| |Available memory|\\Memory\\Available MBytes| |IOPS|\\PhysicalDisk(\_Total)\\Disk Transfers/sec| |VM read (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Operations/Sec| |VM write (IOPS) operations/sec|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Operations/S| |VM read throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Read Bytes/sec| |VM write throughput|\\Hyper-V Virtual Storage Device(<VHD>)\\Write Bytes/sec|
 
 
 ## Próximas etapas
@@ -214,4 +208,4 @@ Para iniciar a implantação do ASR:
 - [Configurar a proteção com um único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

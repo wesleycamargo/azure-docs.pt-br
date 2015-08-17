@@ -59,4 +59,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo Web](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

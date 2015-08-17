@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Saiba como proteger o acesso aos dados no Banco de Dados de Documentos do Azure" 
+	pageTitle="Saiba como proteger o acesso aos dados no Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre conceitos de controle de acesso no Banco de Dados de Documentos, incluindo chaves mestras, chaves somente leitura, usuários e permissões." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -163,4 +163,4 @@ Para obter facilmente todos os recursos de permissão associados a um determinad
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

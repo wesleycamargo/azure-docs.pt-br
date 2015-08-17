@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -72,7 +72,7 @@ Para configurar a delegação, você precisa saber os nomes de servidor de nomes
 
 Usando o PowerShell do Azure, os registros NS autoritativos podem ser obtidos conforme descrito a seguir (o nome do Registro “@” é usado para fazer referência a registros no ápice da zona):
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
@@ -161,4 +161,4 @@ Da mesma forma que é feito ao delegar usando um registrador, podemos verificar 
 [Referência da API REST do Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

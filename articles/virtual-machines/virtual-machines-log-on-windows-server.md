@@ -36,4 +36,4 @@ Se houver problemas com sua senha, tente redefini-la no portal. No painel da má
 
 Se isso não funcionar, você precisará fazer uma solução de problemas mais ampla. Para obter instruções, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

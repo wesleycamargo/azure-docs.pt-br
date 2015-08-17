@@ -119,4 +119,4 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

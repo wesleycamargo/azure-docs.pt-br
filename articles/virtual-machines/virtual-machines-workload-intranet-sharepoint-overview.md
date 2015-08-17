@@ -70,4 +70,4 @@ Para iniciar a configuração dessa carga de trabalho, vá para [Fase 1: configu
 
 [Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

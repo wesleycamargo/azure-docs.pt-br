@@ -21,4 +21,4 @@
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume**.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

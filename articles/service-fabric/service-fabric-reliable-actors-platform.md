@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Como Atores de Malha usam a plataforma de Malha do Serviço"
-   description="Este artigo descreve como Atores da Malha usam os recursos da plataforma da Malha do Serviço. Ele aborda os conceitos de plataforma de Malha do Serviço do ponto de vista dos desenvolvedores de ator."
+   pageTitle="Como atores confiáveis usam a plataforma do Service Fabric"
+   description="Este artigo descreve como Atores Confiáveis usam os recursos da plataforma Service Fabric. Ele aborda os conceitos de plataforma de Malha do Serviço do ponto de vista dos desenvolvedores de ator."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Como Atores de Malha usam a plataforma de Malha do Serviço
+# Como atores confiáveis usam a plataforma do Service Fabric
 
 ## Conceitos de modelo de aplicativo de malha do serviço para atores
 Os atores usam o modelo de aplicativo de malha do serviço para gerenciar o ciclo de vida do aplicativo. Cada tipo de ator é mapeado para um [Tipo de serviço](service-fabric-application-model.md#describe-a-service) da Malha de Serviço. O código de ator é [empacotado](service-fabric-application-model.md#package-an-application) como um aplicativo de Malha do serviço e [implantado](service-fabric-deploy-remove-applications.md#deploy-an-application) no cluster.
@@ -70,7 +70,7 @@ Apresentamos a seguir uma lista parcial do local acima (listagem completa omitid
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───en-us
+    │   │   └───pt-br
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@ Apresentamos a seguir uma lista parcial do local acima (listagem completa omitid
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───en-us
+            └───pt-br
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 A listagem acima mostra os assemblies que implementam o ator VoicemailBox sendo incluído no pacote de códigos dentro do pacote de serviços dentro do pacote de aplicativos.
@@ -242,4 +242,4 @@ Observe que a alteração do provedor de estado requer que o serviço de ator se
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

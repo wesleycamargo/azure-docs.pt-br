@@ -18,9 +18,11 @@
 
 #Push Seguro dos Hubs de Notificação do Azure
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Visão geral
 
@@ -78,7 +80,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 A próxima etapa é criar o componente de segundo plano de push.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no nó do nível superior da solução (**Solução SecurePush** nesse caso), clique em **Adicionar** e em **Novo Projeto**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse no nó do nível superior da solução (**Solução SecurePush** nesse caso) e clique em **Adicionar** e em **Novo Projeto**.
 
 2. Expanda **Aplicativos da Loja** e clique em **Aplicativos do Windows Phone** e em **Componente do Tempo de Execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent** e clique em **OK** para criar o projeto.
 
@@ -185,4 +187,4 @@ Para executar o aplicativo, faça o seguinte:
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

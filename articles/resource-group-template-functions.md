@@ -388,4 +388,4 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

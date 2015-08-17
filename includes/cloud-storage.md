@@ -24,7 +24,7 @@ Para usar blobs, primeiro você deve criar uma *conta de armazenamento* do Azure
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
 
-&lt;\*Conta do Armazenamento\*&gt; será um identificador exclusivo atribuído quando uma nova conta de armazenamento for criada, enquanto &lt;\*Contêiner\*&gt; e &lt;Nome do Blob\*&gt; forem os nomes de um contêiner específico e um blob nesse contêiner.
+&lt;*Conta do Armazenamento*&gt; é um identificador exclusivo atribuído quando uma nova conta de armazenamento é criada, enquanto &lt;*Contêiner*&gt; e &lt;*Nome do Blob*&gt; são os nomes de um contêiner específico e um blob nesse contêiner.
 
 O Azure fornece dois tipos diferentes de blobs. As opções são:
 
@@ -163,7 +163,7 @@ Um aplicativo de Hadoop, normalmente chamado de um *trabalho*, utiliza um modelo
 
 No Azure, os dados com os quais um trabalho do MapReduce funciona normalmente são mantidos no armazenamento de blob. Entretanto, no Hadoop, os trabalhos do MapReduce esperam que os dados sejam armazenados no *HDFS (Hadoop Distributed File System)*. O HDFS é semelhante, de algum modo, ao armazenamento de blob; por exemplo, ele replica dados no vários servidores físicos. Em vez de duplicar essa funcionalidade, o Hadoop no Azure expõe o armazenamento de blob por meio da API do HDFS, como mostra a figura. Enquanto a lógica em um trabalho de MapReduce pensa que está acessando arquivos comuns HDFS, o trabalho, na verdade, está trabalhando com dados transmitidos para ele a partir de blobs. E para dar suporte ao caso em que vários trabalhos são executados com os mesmos dados, o Hadoop no Azure também permite copiar dados dos blobs para o HDFS executado em VMs.
 
-Atualmente, os trabalhos de MapReduce, em geral, são gravados em Java, uma abordagem a que o Hadoop no Azure oferece suporte. A Microsoft também adicionou suporte para a criação de trabalhos de MapReduce em outras linguagens, como C#, F# e JavaScript. O objetivo é tornar essa tecnologia de dados grandes mais acessível a um grupo maior de desenvolvedores.
+Atualmente, os trabalhos de MapReduce, em geral, são gravados em Java, uma abordagem a que o Hadoop no Azure oferece suporte. A Microsoft também adicionou suporte para a criação de trabalhos de MapReduce em outras linguagens, como C#, F\# e JavaScript. O objetivo é tornar essa tecnologia de dados grandes mais acessível a um grupo maior de desenvolvedores.
 
 Com HDFS e MapReduce, o Hadoop inclui outras tecnologias que permitem às pessoas analisarem dados sem gravar um trabalho de MapReduce. Por exemplo, o Pig é uma linguagem de alto nível desenvolvida para análise de dados grandes, enquanto o Hive oferece uma linguagem semelhante ao SQL chamada de HiveQL. Pig e Hive, de fato, geram trabalhos de MapReduce que processam dados HDFS, mas eles ocultam essa complexidade dos seus usuários. Ambas são fornecidas com Hadoop no Azure.
 
@@ -181,4 +181,4 @@ Mais amplamente, os dados de todos os tipos são importantes. É por isso que o 
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

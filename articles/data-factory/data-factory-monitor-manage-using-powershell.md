@@ -38,7 +38,7 @@ Etapa | Descrição
 -----| -----------
 [Etapa 1: Criar uma Azure Data Factory](#CreateDataFactory) | Nesta etapa, você criará uma Azure Data Factory denominada **ADFTutorialDataFactoryPSH**. 
 [Etapa 2: Criar serviços vinculados](#CreateLinkedServices) | Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e **AzureSqlLinkedService**. O StorageLinkedService vincula um armazenamento do Azure e o AzureSqlLinkedService vincula um banco de dados SQL do Azure à ADFTutorialDataFactoryPSH.
-[Etapa 3: Criar conjuntos de dados de entrada e saída](#CreateInputAndOutputDataSets) | Nesta etapa, você definirá dois conjuntos de dados (\*\*EmpTableFromBlob\*\* e **EmpSQLTable**) que são usados como tabelas de entrada e saída para a **Atividade de Cópia** no ADFTutorialPipeline que você criará na próxima etapa.
+[Etapa 3: Criar conjuntos de dados de entrada e saída](#CreateInputAndOutputDataSets) | Nesta etapa, você definirá dois conjuntos de dados (**EmpTableFromBlob** e **EmpSQLTable**) que são usados como tabelas de entrada e saída para a **Atividade de Cópia** no ADFTutorialPipeline que você criará na próxima etapa.
 [Etapa 4: Criar e executar um pipeline](#CreateAndRunAPipeline) | Nesta etapa, você criará um pipeline chamado **ADFTutorialPipeline** na data factory: **ADFTutorialDataFactoryPSH**. O pipeline terá uma **Atividade de Cópia** que copia dados de um blob do Azure em uma tabela de banco de dados de saída do Azure.
 [Etapa 5: Monitorar conjuntos de dados e pipeline](#MonitorDataSetsAndPipeline) | Nesta etapa, você vai monitorar os conjuntos de dados e o pipeline usando o PowerShell do Azure.
 
@@ -82,7 +82,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 		  }
 		}
 
-	Substitua **accountname** pelo nome da sua conta de armazenamento e **accountkey** pela chave da sua conta de armazenamento do Azure.
+	Substitua **nomedaconta** pelo nome da sua conta de armazenamento e **chavedaconta** pela chave da sua conta de armazenamento do Azure.
 2.	No **PowerShell do Azure**, alterne para a pasta **ADFGetStartedPSH**. 
 3.	É possível usar o cmdlet **New-AzureDataFactoryLinkedService** para criar um serviço vinculado. Esse cmdlet e outros cmdlets de Data Factory que você usa neste tutorial exigem que os valores sejam passados aos parâmetros **ResourceGroupName** e **DataFactoryName**. Como alternativa, é possível usar **Get-AzureDataFactory** para obter um objeto DataFactory e passar o objeto sem digitar ResourceGroupName e DataFactoryName toda vez que você executa um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzureDataFactory** a uma variável: **$df**. 
 
@@ -111,7 +111,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 		  }
 		}
 
-	Substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do SQL Server, banco de dados, conta de usuário e senha do Azure. 
+	Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
 
 2.	Execute o comando a seguir para criar um serviço vinculado.
 	
@@ -168,7 +168,7 @@ Você precisa realizar as etapas a seguir para preparar seu armazenamento de blo
 	Se você tiver o Visual Studio 2013 instalado no computador: no Portal de Visualização do Azure ([http://portal.azure.com](http://portal.sazure.com)), clique no hub **PROCURAR** à esquerda, clique em **Servidores SQL**, selecione o banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para se conectar ao seu servidor SQL do Azure e executar o script. Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para saber como configurar o firewall do servidor SQL do Azure.
 		
 ### Criar tabela de entrada 
-Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, você criará uma tabela denominada **EmpBlobTable** que aponta para um contêiner de blob no Armazenamento do Azure representado pelo serviço vinculado **StorageLinkedService**. Esse contêiner de blob (\*\*adftutorial\*\*) contém os dados de entrada no arquivo **emp.txt**.
+Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, você criará uma tabela denominada **EmpBlobTable** que aponta para um contêiner de blob no Armazenamento do Azure representado pelo serviço vinculado **StorageLinkedService**. Esse contêiner de blob (**adftutorial**) contém os dados de entrada no arquivo **emp.txt**.
 
 1.	Crie um arquivo JSON denominado **EmpBlobTable.json** na pasta **C:\\ADFGetStartedPSH** com o seguinte conteúdo:
 
@@ -204,14 +204,14 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	
 	Observe o seguinte:
 	
-	- O **type** do local é definido como **AzureBlob**.
+	- O **tipo** do conjunto de dados foi definido como **AzureBlob**.
 	- **linkedServiceName** é definido como **StorageLinkedService**. 
 	- **folderPath** é definido como o contêiner **adftutorial**. É possível também especificar o nome de um blob dentro da pasta. Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
 	- O **type** de formato é definido como **TextFormat**
-	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (\*\*columnDelimiter\*\*)	
-	- A **availability** é definida como **hourly** (\*\*frequency\*\* definida como **hour** e **interval** definido como **1** ), de modo que o serviço Data Factory vai procurar dados de entrada a cada hora na pasta raiz do contêiner de blob (\*\*adftutorial\*\*) especificado.
+	- Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)	
+	- A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1** ), de modo que o serviço Data Factory vai procurar dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado.
 
-	Se você não especificar um **fileName** para uma **tabela** de **entrada**, todos os arquivos/blobs da pasta de entrada (\*\*folderPath\*\*) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
+	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
  
 	Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -234,7 +234,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
 
 ### Criar tabela de saída
-Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTable** que aponta para uma tabela SQL (\*\*emp\*\*) no banco de dados SQL do Azure que é representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
+Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTable** que aponta para uma tabela SQL (**emp**) no banco de dados SQL do Azure que é representada pelo serviço vinculado **AzureSqlLinkedService**. O pipeline copia os dados do blob de entrada na tabela **emp**.
 
 1.	Crie um arquivo JSON denominado **EmpSQLTable.json** na pasta **C:\\ADFGetStartedPSH** com o conteúdo a seguir.
 		
@@ -265,11 +265,11 @@ Nesta parte da etapa, você criará uma tabela de saída denominada **EmpSQLTabl
 
      Observe o seguinte:
 	
-	* O **type** do local é definido como **AzureSqlTable**.
+	* O **tipo** do conjunto de dados foi definido como **AzureSqlTable**.
 	* **linkedServiceName** é definido como **AzureSqlLinkedService**.
 	* **tablename** está definido como **emp**.
 	* Há três colunas – **ID**, **FirstName** e **LastName** – na tabela emp no banco de dados, mas ID é uma coluna de identidade, portanto, você precisa especificar somente **FirstName** e **LastName**.
-	* A **availability** é definida como **hourly** (\*\*frequency\*\* definida como **hour** e **interval** definido como **1**). O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
+	* A **availability** é definida como **hourly** (**frequency** definida como **hour** e **interval** definido como **1**). O serviço Data Factory gera uma fatia de dados de saída a cada hora na tabela **emp** no banco de dados SQL do Azure.
 
 2.	Execute o comando a seguir para criar a tabela de Data Factory.
 	
@@ -307,7 +307,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 		          "sink": {
 		            "type": "SqlSink",
 		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "60:00:00"
+		            "writeBatchTimeout": "00:60:00"
 		          }
 		        },
 		        "Policy": {
@@ -327,13 +327,13 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que utiliza 
 
 	Observe o seguinte:
 
-	- Na seção de atividades, há apenas uma atividade cujo **type** é definido como **Copy**.
+	- Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **Cópia**.
 	- A entrada da atividade é definida como **EmpTableFromBlob** e a saída da atividade é definida como **EmpSQLTable**.
 	- Na seção **transformation**, **BlobSource** é especificado como o tipo de origem e **SqlSink** é especificado como o tipo de coletor.
 
 	Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
-	Se você não especificar o valor para a propriedade **end**, ele será calculado como "\*\*início + 48 horas\*\*". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
+	Se você não especificar o valor para a propriedade **end**, ele será calculado como "**início + 48 horas**". Para executar o pipeline indefinidamente, especifique **9/9/9999** como o valor da propriedade **end**.
 	
 	No exemplo acima, como cada fatia de dados é produzida por hora, haverá 24 fatias de dados.
 	
@@ -437,7 +437,6 @@ Artigo | Descrição
 [adf-get-started]: data-factory-get-started.md
 [azure-preview-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
-[data-factory-create-sql-database]: ../sql-database-create-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
@@ -445,4 +444,4 @@ Artigo | Descrição
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

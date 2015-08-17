@@ -57,4 +57,4 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

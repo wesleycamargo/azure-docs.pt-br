@@ -63,15 +63,17 @@ O SQL Data Warehouse é implantado facilmente em questão de segundos. Esse serv
 
 
 ## Próximas etapas
-Saiba mais sobre a [carga de trabalho do data warehouse].
+Saiba mais sobre a [carga de trabalho do data warehouse]. [Provisione] e carregue os [dados de exemplo] para começar.
 
 <!--Image references-->
 
 <!--Article references-->
 [carga de trabalho do data warehouse]: ./sql-data-warehouse-overview-workload.md
+[dados de exemplo]: ./sql-data-warehouse-get-started-load-samples.md
+[Provisione]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

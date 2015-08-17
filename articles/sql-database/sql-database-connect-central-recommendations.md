@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,7 +46,7 @@ Independentemente de qual tecnologia de conexão é usada, determinadas configur
 - [Firewall do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## Recomendação: autenticação
+## Recomendações de autenticação
 
 
 - Use a autenticação do banco de dados SQL, não a autenticação do Windows.
@@ -58,7 +58,7 @@ Independentemente de qual tecnologia de conexão é usada, determinadas configur
  - Você não pode usar a instrução Transact-SQL **USE myDatabaseName;** no Banco de Dados SQL.
 
 
-## Recomendações: conexão
+## Recomendações de conexão
 
 
 - Em sua lógica de conexão de cliente, substitua o tempo limite padrão para ser 30 segundos.
@@ -71,6 +71,12 @@ Independentemente de qual tecnologia de conexão é usada, determinadas configur
  - Um motivo persistente de falha pode ser que a cadeia de conexão está malformada.
  - Um motivo transitório para a falha poderia ser que o sistema de banco de dados SQL precisa equilibrar a carga total. O motivo transitório desaparece por si só, o que significa que o programa deve tentar novamente.
  - Ao tentar novamente uma consulta, primeiro feche a conexão e, em seguida, abra outra conexão.
+
+
+### Outras portas diferentes apenas da 1433 em V12
+
+
+Às vezes, as conexões de cliente para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. Para obter detalhes consulte:<br/> [Portas além da 1433 para ADO.NET 4.5, ODBC 11 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 A próxima seção tem muito mais a dizer sobre o tratamento de falhas transitório e de lógica de repetição.
@@ -90,10 +96,10 @@ Quando ocorre um erro com o Banco de Dados SQL, uma [SqlException](https://msdn.
 
 - [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
  - A seção **Erros transitórios, Erros de perda de conexão** é uma lista dos erros transitórios que garantem uma repetição automática.
- - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a <br/>\*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.
+ - Por exemplo, repita se o número de erro 40613 ocorrer, que informa algo semelhante a<br/>*O banco de dados 'mydatabase' no servidor 'theserver' não está disponível no momento.
 
 
-Ás vezes, os *erros* transitórios são chamados de *falhas* transitórias. Este tópico considera esses dois termos como sinônimos.
+Às vezes, os *erros* transitórios são chamados de *falhas* transitórias. Este tópico considera esses dois termos como sinônimos.
 
 
 Para obter mais ajuda ao encontrar um erro de conexão e saber se ele é ou não transitório, consulte:
@@ -111,31 +117,19 @@ Para obter links para tópicos de exemplo de código que demonstram a lógica de
 <a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
-## O gateway não fornece mais lógica de repetição em V12
+## Proxy de middleware e lógica de repetição
 
 
-Antes da versão V12, o Banco de Dados SQL do Azure tinha um gateway que atuava como um proxy para armazenar em buffer todas as interações entre o banco de dados e o programa cliente. O gateway foi um salto adicional de rede que, às vezes, aumenta a latência de acessos do banco de dados.
+O proxy de middleware atua como mediador entre o V11 e seu cliente ADO.NET 4.5 lida com um pequeno subconjunto de falhas transitórias normalmente com lógica de repetição. Em casos em que o proxy se conecta com êxito na segunda tentativa, o programa cliente não reconhece que a primeira tentativa falhou.
 
 
-A V12 eliminou o gateway. Agora:
+O proxy V12 manipula um subconjunto menor de falhas transitórias. Em outros casos do V12, o proxy é ignorado para a velocidade superior da conexão direta ao Banco de Dados SQL. Para um programa cliente ADO.NET 4.5, essas alterações fazem o Banco de Dados SQL do Azure V12 se parecer mais com o Microsoft SQL Server.
 
 
-- O programa cliente interage *diretamente* com o banco de dados, que é mais eficiente.
-- As pequenas distorções do gateway nas mensagens de erro e outras comunicações para o seu programa são eliminadas.
- - O Banco de Dados SQL e SQL Server parecem mais idênticos ao seu programa.
+Para obter exemplos de código que demonstram a lógica de repetição, consulte:<br/>[Exemplos de código de início rápido do cliente para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
-#### Lógica de repetição encerrada
-
-
-O gateway tinha a lógica de repetição que lidava com alguns erros transitórios para você. Agora, o seu programa deve tratar erros transitórios de maneira mais completa. Para ver exemplos de código sobre a lógica de repetição, consulte:
-
-
-- [Desenvolvimento do cliente e exemplos de código de início rápido para o Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
- - Contém links para exemplos de código que contém a lógica de repetição e exemplos mais simples para conexão-e-consulta.
-- [Como conectar-se de forma confiável ao Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [Como conectar-se ao Banco de Dados SQL do Azure usando o ADO.NET com a Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Exemplo de código: repetir a lógica em C# para se conectar ao Banco de Dados SQL](sql-database-develop-csharp-retry-windows.md)
+> [AZURE.TIP]Em um ambiente de produção, os clientes que se conectam ao Banco de Dados SQL do Azure V11 ou V12 são aconselhados a implementar a lógica de repetição em seu código. Pode ser um código personalizado, ou pode ser um código que utiliza uma API como a Enterprise Library.
 
 
 ## Tecnologias
@@ -174,4 +168,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

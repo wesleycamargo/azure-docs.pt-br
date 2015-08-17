@@ -9,7 +9,7 @@
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/30/2015"
@@ -41,7 +41,7 @@ Para configurar o descarregamento SSL em um Application Gateway, execute as segu
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -56,7 +56,7 @@ No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opci
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -78,7 +78,7 @@ Use `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado do s
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Substitua os valores no exemplo pelos seus próprios.
 
-	PS C:> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -90,7 +90,7 @@ Em seguida, valide o carregamento do certificado. Use `Get-AzureApplicationGatew
 
 Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
 
-	PS C:> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -177,7 +177,7 @@ Você pode construir sua configuração criando um objeto de configuração ou u
 Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou com um arquivo XML de configuração.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -193,7 +193,7 @@ Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicatio
 **Observação:** o cmdlet `Start-AzureApplicationGateway` pode levar de 15 a 20 minutos para ser concluído.
 
    
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -208,7 +208,7 @@ Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. S
 
 Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	Name          : AppGwTest2
 	Description   : 
@@ -229,4 +229,4 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 - [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

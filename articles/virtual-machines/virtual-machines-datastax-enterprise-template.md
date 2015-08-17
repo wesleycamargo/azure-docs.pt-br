@@ -500,4 +500,4 @@ Essa abordagem sugere que você:
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

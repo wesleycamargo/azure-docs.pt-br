@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/04/2015"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -28,6 +28,7 @@ Você terá acesso aos serviços do Azure em todas as regiões dentro de uma reg
 |**Região Geopolítica**|**Regiões do Azure**|**Locais de Rota Expressa**|
 |---|---|---|
 |**EUA**|Todas as regiões dos EUA - Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA|Atlanta, Chicago, Dallas, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C.|
+|**Gov. dos EUA**|Iowa, Virgínia|Ashburn, Chicago|
 |**América do Sul**|Sul do Brasil|São Paulo|
 |**Europa**|Norte da Europa, Europa Ocidental|Amsterdã, Londres|
 |**Ásia**|Ásia Oriental, Sudeste Asiático|Hong Kong, Cingapura|
@@ -76,7 +77,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Em breve | Amsterdã, Chennai (Madras), Hong Kong, Londres, Mumbai +, Cingapura |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C., Gov. dos EUA Iowa, Gov. dos EUA Virgínia |
 
  **+** indica que haverá em breve
 
@@ -115,4 +116,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Se você deseja configurar uma conexão site a site VPN e uma Rota Expressa para a mesma rede virtual, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](expressroute-coexist.md).
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=06-->

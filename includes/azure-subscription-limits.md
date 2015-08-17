@@ -78,4 +78,4 @@
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

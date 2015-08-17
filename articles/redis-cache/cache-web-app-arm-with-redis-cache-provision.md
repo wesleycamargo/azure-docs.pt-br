@@ -125,4 +125,4 @@ Observe que o aplicativo Web est√° configurado com as propriedades de configura√
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

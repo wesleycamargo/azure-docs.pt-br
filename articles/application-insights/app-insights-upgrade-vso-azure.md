@@ -43,7 +43,7 @@ Ou então, examine seu projeto no Gerenciador de Soluções do Visual Studio e, 
     ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK: clique com o botão direito do mouse no projeto e [selecione Adicionar Application Insights][greenbrown]. Isso adiciona o SDK ao seu projeto e também cria um novo recurso do Application Insights no Azure.
 5. Registro: se seu código inclui chamadas para a antiga API, como um LogEvent(), você as descobrirá quando tentar compilar a solução. Atualize-os para [usar a nova API][track].
-6. Páginas da Web: se o seu projeto inclui páginas da Web, substitua os scripts nas seções <head>. Normalmente há apenas uma cópia em uma página mestra, como Views\\Shared_Layout.cshtml. [Obtenha o novo script na folha Início Rápido em seu recurso Application Insights, no Azure][usage]. Se suas páginas da Web incluem chamadas de telemetria no corpo como logEvent ou logPage, [atualize-as para usar a nova API][api].
+6. Páginas da Web: se o seu projeto inclui páginas da Web, substitua os scripts nas seções <head>. Normalmente há apenas uma cópia em uma página mestra, como Views\\Shared\_Layout.cshtml. [Obtenha o novo script na folha Início Rápido em seu recurso Application Insights, no Azure][usage]. Se suas páginas da Web incluem chamadas de telemetria no corpo como logEvent ou logPage, [atualize-as para usar a nova API][api].
 7. Monitor do servidor: se o seu aplicativo é um serviço em execução no IIS, desinstale o Microsoft Monitoring Agent do servidor e então [instale o Monitor de Status do Application Insights][redfield].
 8. Testes da Web: se você estava usando testes de disponibilidade da Web, [recrie-os no novo portal][availability], com seus alertas.
 9. Alertas: defina [alertas em métricas][alerts] no portal do Azure.
@@ -73,4 +73,4 @@ Ou então, examine seu projeto no Gerenciador de Soluções do Visual Studio e, 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

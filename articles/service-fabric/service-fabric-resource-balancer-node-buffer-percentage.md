@@ -47,4 +47,4 @@ Se o valor não for especificado nessa seção, 0 será usado como o valor padr�
 Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

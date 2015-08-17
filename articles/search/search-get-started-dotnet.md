@@ -129,7 +129,7 @@ Cada projeto inclui os arquivos de configuração que especificam o nome do serv
 
 1. Em **DataIndexer**, substitua o App.config pelo exemplo a seguir, atualizando o [NOME DO SERVIÇO] e a [CHAVE DE SERVIÇO] com valores válidos para o seu serviço.
 
-   O nome do serviço não é a URL completa. Por exemplo, se o ponto de extremidade de serviço de Pesquisa é *https://mysearchsrv.search.microsoft.net*, o nome de serviço que você inseriria em App.config é *mysearchsrv*.
+   O nome do serviço não é a URL completa. Por exemplo, se o ponto de extremidade de serviço da Pesquisa for **https://mysearchsrv.search.microsoft.net*, o nome do serviço que você inseriria em App.config será *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -142,7 +142,7 @@ Cada projeto inclui os arquivos de configuração que especificam o nome do serv
 	      </appSettings>
 	    </configuration>
 
-2. Em **SimpleSearchMVCApp**, substitua o Web.config pelo exemplo a seguir, atualizando novamente o [NOME DO SERVIÇO] e a [CHAVE DE SERVIÇO] com valores válidos para o seu serviço.
+2. Em **SimpleSearchMVCApp**, substitua o Web.config pelo exemplo a seguir, atualizando novamente o [NOME DO SERVIÇO] e a [CHAVE DE SERVIÇO] por valores válidos para o seu serviço.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
@@ -798,4 +798,4 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

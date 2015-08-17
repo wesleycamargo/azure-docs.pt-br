@@ -28,29 +28,7 @@ Os Serviços BizTalk do Azure implementam a limitação do serviço com base em 
 
 A tabela a seguir lista os limites e origem da limitação:
 
-<table border="1">
-
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <td><strong>Descrição</strong></td>
-        <td><strong>Limite baixo</strong></td>
-        <td><strong>Limite alto</strong></td>
-</tr>
-    <tr>
-        <td>Memória</td>
-        <td>% de memória total de sistema disponível/PageFileBytes. 
-<br/><br/>
-O total de PageFileBytes disponível é aproximadamente 2 vezes a RAM do sistema.</td>
-        <td>60%</td>
-        <td>70%</td>
-    </tr>
-    <tr>
-        <td>Processamento de mensagem</td>
-        <td>Número de processamento de mensagens simultaneamente</td>
-        <td>40 vezes o número de núcleos</td>
-        <td>100 vezes o número de núcleos</td>
-    </tr>
-</table>
+||Descrição|Limite Baixo|Limite Alto| |---|---|---|---| |Memória|% do total de memória do sistema disponível/PageFileBytes. <p><p>O total de PageFileBytes disponíveis é aproximadamente 2 vezes a RAM do sistema.|60%|70%| |Processamento de Mensagem|Número de mensagens processadas simultaneamente|40 * número de núcleos|100 * número de núcleos|
 
 Quando um limite alto é atingido, os Serviços BizTalk do Azure começam a ser limitados. A limitação é interrompida quando um limite baixo é atingido. Por exemplo, seu serviço estiver usando 65% da memória do sistema. Nesta situação, o serviço não sofre limitação. Seu serviço começa usando 70% da memória do sistema. Nessa situação, o serviço começa a ser limitado e continua até que o serviço use 60% da memória do sistema (limite baixo).
 
@@ -88,4 +66,4 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 - [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

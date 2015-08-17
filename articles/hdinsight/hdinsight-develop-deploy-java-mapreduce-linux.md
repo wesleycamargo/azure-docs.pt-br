@@ -38,13 +38,13 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 As seguintes variáveis de ambiente podem ser definidas quando você instala o Java e o JDK. No entanto, você deve verificar se elas existem e se contêm os valores corretos para o seu sistema.
 
-* **JAVA_HOME** - deve apontar para o diretório onde o Java runtime environment (JRE) está instalado. Por exemplo, em um sistema OS x, Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** - deve apontar para o diretório onde o Java runtime environment (JRE) está instalado. Por exemplo, em um sistema OS x, Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** - deve conter os seguintes caminhos:
 
-	* **JAVA_HOME** (ou o caminho equivalente)
+	* **JAVA\_HOME** (ou o caminho equivalente)
 
-	* **JAVA_HOME\\bin** (ou o caminho equivalente)
+	* **JAVA\_HOME\\bin** (ou o caminho equivalente)
 
 	* O diretório onde o Maven está instalado
 
@@ -249,7 +249,7 @@ Isso copiará os arquivos do sistema local para o nó principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Isso usará o aplicativo WordCount do MapReduce para contar as palavras no arquivo davinci.txt e armazenará os resultados em __wasb:///example/data/wordcountout__. Os arquivos de entrada e saída são armazenados no armazenamento padrão do cluster.
+	Isso usará o aplicativo WordCount do MapReduce para contar as palavras no arquivo davinci.txt e armazenará os resultados em \___wasb:///example/data/wordcountout__. Os arquivos de entrada e saída são armazenados no armazenamento padrão do cluster.
 
 3. Após concluir o trabalho, use o seguinte para exibir os resultados:
 
@@ -297,4 +297,4 @@ Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Con
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

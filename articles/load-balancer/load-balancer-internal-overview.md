@@ -92,4 +92,4 @@ Outro cenário para LOB é ter uma VPN site a site na rede virtual na qual o pon
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

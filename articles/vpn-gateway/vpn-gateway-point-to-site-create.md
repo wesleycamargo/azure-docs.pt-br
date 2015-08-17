@@ -52,7 +52,7 @@ Uma conexão ponto a site requer uma rede virtual com um gateway de roteamento d
 ### Criar um gateway de roteamento dinâmico
 
 1. No **Portal de Gerenciamento**, na página **Redes**, clique na rede virtual que você acabou de criar e navegue até a página **Painel**.
-1. Clique em **Criar Gateway**, localizado na parte inferior da página Painel. Será exibida uma mensagem perguntando se **Você deseja criar um gateway para a rede virtual "sua_rede"**. Clique em **Sim** para começar a criar o gateway. Pode levar cerca de 15 minutos para que o gateway seja criado.
+1. Clique em **Criar Gateway**, localizado na parte inferior da página Painel. Será exibida uma mensagem perguntando se **Você deseja criar um gateway para a rede virtual "sua\_rede"**. Clique em **Sim** para começar a criar o gateway. Pode levar cerca de 15 minutos para que o gateway seja criado.
 
 ## Criar seus certificados
 
@@ -158,4 +158,4 @@ Você pode adicionar máquinas virtuais à sua rede virtual. Consulte [Como cria
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

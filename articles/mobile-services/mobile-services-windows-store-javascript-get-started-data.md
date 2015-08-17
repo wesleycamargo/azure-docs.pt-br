@@ -26,7 +26,7 @@ Este tópico mostra como usar os Serviços Móveis do Azure para utilizar os dad
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, o que facilita conectar seu aplicativo da Windows Store aos Serviços Móveis.
 
 ##Baixar o projeto GetStartedWithData
@@ -141,4 +141,4 @@ Este tutorial demonstrou as noções básicas sobre a ativação de um aplicativ
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

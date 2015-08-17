@@ -113,4 +113,4 @@ Você pode usar a operação REST [Baixar arquivo RDP](https://msdn.microsoft.co
 ## Próximas etapas
 Talvez você precise [empacotar](cloud-services-model-and-package.md) ou [carregar (implantar)](cloud-services-how-to-create-deploy-portal.md) seu aplicativo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

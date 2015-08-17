@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Identificar diferenças com o controle de alterações
@@ -25,7 +25,7 @@ Instale a solução para atualizar o agente do Operations Manager e o módulo de
 
 ## Use o Controle de Alterações
 
-Para poder usar o Controle de Alterações no Insights Operacionais, você deve ter a solução instalada. Para saber mais sobre a instalação de uma solução, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-add-solution.md).
+Para poder usar o Controle de Alterações no Insights Operacionais, você deve ter a solução instalada. Para saber mais sobre a instalação de uma solução, consulte [Usar a Galeria de Soluções para adicionar ou remover soluções](operational-insights-setup-workspace.md).
 
 Após a instalação, você pode exibir o resumo das alterações aos servidores monitorados usando o bloco **Controle de Alterações** na página **Visão geral** do Insights Operacionais.
 
@@ -54,4 +54,4 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

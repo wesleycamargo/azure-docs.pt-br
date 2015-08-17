@@ -111,9 +111,9 @@ Você também pode usar [Redefinir a senha e a chave SSH](#resetbothcli) para cr
 
 ### <a name="sshconfigresetcli"></a>Redefinir a configuração de SSH
 
-Se a configuração do SSH está em um estado indesejado, você também pode perder o acesso à VM. Você pode usar a extensão VMAccess para redefinir a configuração para seu estado padrão. Para fazer isso, basta definir a chave "reset_ssh" como "True". A extensão reinicia o servidor SSH, abre a porta SSH na sua VM e redefine a configuração SSH como padrão. A conta de usuário (nome, senha ou chaves SSH) não será alterada.
+Se a configuração do SSH está em um estado indesejado, você também pode perder o acesso à VM. Você pode usar a extensão VMAccess para redefinir a configuração para seu estado padrão. Para fazer isso, basta definir a chave "reset\_ssh" como "True". A extensão reinicia o servidor SSH, abre a porta SSH na sua VM e redefine a configuração SSH como padrão. A conta de usuário (nome, senha ou chaves SSH) não será alterada.
 
-> [AZURE.NOTE]O arquivo de configuração SSH está localizado em /etc/ssh/sshd_config.
+> [AZURE.NOTE]O arquivo de configuração SSH está localizado em /etc/ssh/sshd\_config.
 
 Etapa 1: Crie um arquivo chamado PrivateConf.json com esse conteúdo.
 
@@ -228,7 +228,7 @@ Execute estes comandos.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]O arquivo de configuração SSH está localizado em /etc/ssh/sshd_config.
+> [AZURE.NOTE]O arquivo de configuração SSH está localizado em /etc/ssh/sshd\_config.
 
 ### <a name="delete"></a> Excluir um usuário
 
@@ -263,4 +263,4 @@ Para exibir o status da extensão VMAccess, execute este comando.
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

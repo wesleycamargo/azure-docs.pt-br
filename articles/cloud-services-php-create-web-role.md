@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -37,7 +37,7 @@ A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar
 
 Para criar um novo projeto de serviço do Azure, execute o PowerShell do Azure como administrador e execute o seguinte comando:
 
-	PS C:>New-AzureServiceProject myProject
+	PS C:\>New-AzureServiceProject myProject
 
 Esse comando criará um novo diretório (`myProject`) ao qual você pode adicionar funções Web e de trabalho.
 
@@ -212,4 +212,4 @@ Para publicar seu aplicativo, você precisa primeiro importar suas configuraçõ
 [Como importar as configurações de publicação]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Como implantar um Serviço de Nuvem no Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

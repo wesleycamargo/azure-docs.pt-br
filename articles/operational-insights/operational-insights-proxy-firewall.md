@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ As tabelas a seguir listam as portas relacionadas a essas tarefas.
 |*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
-|*.systemcenteradvisor.com|Port 443|
+|**.systemcenteradvisor.com|Porta 443|
 
 
 |**Recurso do console do Insights Operacionais e do Operations Manager**|**Portas**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|Porta 80 e 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|**.microsoftonline.com|Portas 80 e 443| |login.windows.net|Portas 80 e 443|
 
 
 Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Operations Manager com o serviço Insights Operacionais. Se você estiver tendo problemas de comunicação entre o grupo de gerenciamento e o serviço Insights Operacionais, use os procedimentos de validação para solucionar problemas de transmissão de dados para o serviço de informações operacionais.
@@ -129,7 +129,7 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 
 3. Na exibição Conexão dos Insights Operacionais, clique em **Configurar Servidor Proxy**. ![Conexão de Insights Operacionais do Operations Manager - configurar Servidor Proxy](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. No Assistente de Configurações dos Insights Operacionais: Servidor Proxy, selecione **Usar um servidor proxy para acessar o Serviço Web de Insights Operacionais** e, em seguida, digite a URL com o número da porta, por exemplo, **http://myproxy:80**. ![Endereço de proxy dos Insights Operacionais do Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
+4. No Assistente de Configurações dos Insights Operacionais: Servidor Proxy, selecione **Usar um servidor proxy para acessar o Serviço Web dos Insights Operacionais** e, em seguida, digite a URL com o número da porta, como por exemplo, ****http://myproxy:80**. ![Endereço de proxy dos Insights Operacionais do Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### Para especificar credenciais caso o servidor proxy exija autenticação
@@ -143,8 +143,8 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 4. No Assistente Executar como Perfil, clique em **Adicionar** para usar uma conta Executar como. Você pode criar uma nova conta Executar como ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy. ![imagem do Assistente de Perfil Executar Como](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. Para definir a conta a ser gerenciada, escolha **Uma classe, grupo ou objeto selecionado** para abrir a caixa de Pesquisa de Objetos. ![imagem do Assistente de Perfil Executar Como](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. Procure e selecione **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.![imagem de caixa Pesquisa de Objetos](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. Clique em **OK** para fechar a caixa Adicionar uma conta Executar como ![imagem do Assistente de Perfil Executar Como](./media/operational-insights-proxy-firewall/proxyacct4.png)
+6. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**. ![imagem de caixa Pesquisa de Objetos](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. Clique em **OK** para fechar a caixa Adicionar uma conta Executar Como ![imagem do Assistente de Perfil Executar Como](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Conclua o assistente e salve as alterações. ![imagem do Assistente de Perfil Executar Como](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
 
@@ -166,4 +166,4 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 3. Adicione todos os contadores que começam com **HTTP**. ![adicionar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Se a sua configuração do Operations Manager for boa, você verá a atividade dos contadores do Gerenciamento do Serviço de Integridade para eventos e outros itens de dados, com base nos pacotes de gerenciamento adicionados no Insights Operacionais e a política de coleta de logs configurada. ![Atividade de exibição de Monitor de desempenho](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

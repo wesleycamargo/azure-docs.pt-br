@@ -28,13 +28,13 @@
 
 | Etapas de atualização | Captura de tela |
 | :--- | :--- |
-| 1. Entre em [http://portal.azure.com/](http://portal.azure.com/). | ![Novo Portal do Azure][1] |
-| 2. Clique em **PROCURAR**. | ![Procurar Serviços][2] |
-| 3. Clique em **Servidores SQL**. Uma lista de nomes do SQL Server é exibida. | ![Selecionar serviço do SQL Server][3] |
-| 4. Selecione o servidor que você deseja copiar para um novo servidor com a atualização do banco de dados SQL habilitada. | ![Mostra uma lista de servidores SQL][4] |
-| 5. Clique em **Configurações** ou **Versão do servidor** para atualizar o seu servidor para V12. | ![Recurso de visualização mais recente][5] |
-| 6. Clique em **UPGRADE THIS SERVER**. | ![Atualiza o SQL Server para a visualização][6] |
-| 7. Depois de clicar em **ATUALIZAR ESTE SERVIDOR**, o processo de atualização será iniciado. Em **Versão do servidor**, a notificação muda de **V2** para **Atualização agendada..**. Se você clicar na notificação **Atualização agendada..**, uma folha é aberta com o botão **Cancelar atualização** mostrado na parte superior. Clique em **Cancelar atualização** caso você decida não atualizar o servidor por algum motivo. **Observe** que o cancelamento da operação não funcionará nas últimas do processo de atualização e a atualização será concluída.|![Cancelar Atualização][9] 
+| 1\. Entre em [http://portal.azure.com/](http://portal.azure.com/). | ![Novo Portal do Azure][1] |
+| 2\. Clique em **PROCURAR**. | ![Procurar Serviços][2] |
+| 3\. Clique em **Servidores SQL**. Uma lista de nomes do SQL Server é exibida. | ![Selecionar serviço do SQL Server][3] |
+| 4\. Selecione o servidor que você deseja copiar para um novo servidor com a atualização do banco de dados SQL habilitada. | ![Mostra uma lista de servidores SQL][4] |
+| 5\. Clique em **Configurações** ou **Versão do servidor** para atualizar o seu servidor para V12. | ![Recurso de visualização mais recente][5] |
+| 6\. Clique em **UPGRADE THIS SERVER**. | ![Atualiza o SQL Server para a visualização][6] |
+| 7\. Depois de clicar em **ATUALIZAR ESTE SERVIDOR**, o processo de atualização será iniciado. Em **Versão do servidor**, a notificação muda de **V2** para **Atualização agendada..**. Se você clicar na notificação **Atualização agendada..**, uma folha é aberta com o botão **Cancelar atualização** mostrado na parte superior. Clique em **Cancelar atualização** caso você decida não atualizar o servidor por algum motivo. **Observe** que o cancelamento da operação não funcionará nas últimas do processo de atualização e a atualização será concluída.|![Cancelar Atualização][9] 
 
 
 > [AZURE.NOTE]Quando você seleciona a opção de atualização, seu servidor e os bancos de dados nesse servidor serão habilitados com recursos do Banco de Dados SQL V12, e isso não poderá ser revertido. Para atualizar servidores para o Banco de Dados SQL V12, você precisa de uma camada de serviço Basic, Standard ou Premium. Para saber mais sobre as camadas de serviço, confira [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
@@ -55,8 +55,8 @@ Depois de clicar na opção **ATUALIZAR ESTE SERVIDOR**, a folha que é aberta m
 
 | Ação | Captura de tela |
 | :--- | :--- |
-| 7. Depois de concluir as ações que preparam o servidor para a atualização, digite o nome do servidor a ser atualizado e clique em **OK**. | ![Confirmar o nome do servidor para atualização][7] |
-| 8. O processo de atualização é iniciado. A atualização pode levar até 24 horas. Durante esse tempo todos os bancos de dados neste servidor permanecerão online, mas o servidor e ações de gerenciamento de banco de dados serão restringidas. Quando o processo for concluído, o status **Habilitado** será exibido na folha do servidor. | ![Confirma se os recursos de visualização estão habilitados][8] |
+| 7\. Depois de concluir as ações que preparam o servidor para a atualização, digite o nome do servidor a ser atualizado e clique em **OK**. | ![Confirmar o nome do servidor para atualização][7] |
+| 8\. O processo de atualização é iniciado. A atualização pode levar até 24 horas. Durante esse tempo todos os bancos de dados neste servidor permanecerão online, mas o servidor e ações de gerenciamento de banco de dados serão restringidas. Quando o processo for concluído, o status **Habilitado** será exibido na folha do servidor. | ![Confirma se os recursos de visualização estão habilitados][8] |
 
 
 ## Cmdlets do Powershell
@@ -94,4 +94,4 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 [9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

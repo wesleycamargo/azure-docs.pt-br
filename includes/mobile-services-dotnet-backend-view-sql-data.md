@@ -11,6 +11,6 @@ A etapa opcional final deste tutorial é para verificar no Banco de Dados SQL as
 
     ![consulte o Banco de Dados SQL para itens armazenados](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	Observe que a tabela inclui as colunas Id, __createdAt, __updatedAt e __version. Essas colunas suportas sincronização de dados offline e são implementadas na classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para saber mais, consulte [Introdução à sincronização de dados offline].
+	Observe que a tabela inclui as colunas Id, \_\_createdAt, \_\_updatedAt e \_\_version. Essas colunas suportas sincronização de dados offline e são implementadas na classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para obter mais informações, consulte [Começar a usar a sincronização de dados offline].
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

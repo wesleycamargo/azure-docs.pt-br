@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Integrando suas identidades locais ao Active Directory do Azure." 
 	description="Este é o Azure AD Connect que descreve o que ele é e por que usá-lo." 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -78,14 +78,14 @@ Dentro do SDK, você encontrará os seguintes itens:
 
 ## Exemplo de código: verificação de telefone no modo padrão
 
-Este exemplo de código mostra como usar as APIs no SDK do Azure Multi-Factor Authentication para adicionar verificação de chamada de voz no modo padrão ao seu aplicativo. O modo padrão é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
+Este exemplo de código mostra como usar as APIs no SDK do Azure Multi-Factor Authentication para adicionar verificação de chamada de voz no modo padrão ao seu aplicativo. O modo padrão é uma chamada telefônica à qual o usuário responde pressionando a tecla \#.
 
 Este exemplo usa o SDK do Multi-Factor Authentication .NET 2.0 do C# em um aplicativo básico ASP.NET com a lógica do servidor C#, mas o processo é bastante semelhante para implementações simples em outras linguagens. Como o SDK inclui arquivos de origem, e não arquivos executáveis, você pode criar os arquivos e fazer referência a eles ou incluí-los diretamente no aplicativo.
 
 >[AZURE.NOTE]Ao implementar o Multi-Factor Authentication, use os fatores adicionais como verificação secundária ou terciária para complementar seu método de autenticação primária. Esses métodos não foram desenvolvidos para serem usados como métodos de autenticação primária.
 
 ### Visão geral do exemplo de código
-Este código de exemplo de um aplicativo de demonstração na Web bastante simples usa uma chamada telefônica com uma resposta pela tecla # para concluir a autenticação do usuário. Esse fator de chamada telefônica é conhecido no Multi-Factor Authentication como modo padrão.
+Este código de exemplo de um aplicativo de demonstração na Web bastante simples usa uma chamada telefônica com uma resposta pela tecla \# para concluir a autenticação do usuário. Esse fator de chamada telefônica é conhecido no Multi-Factor Authentication como modo padrão.
 
 O código do lado do cliente não inclui nenhum elemento específico do Multi-Factor Authentication. Como os fatores de autenticação adicionais são independentes da autenticação primária, você pode adicioná-los sem alterar a interface de logon existente. As APIs no SDK do Multi-Factor permitem personalizar a experiência do usuário, mas talvez você não precise alterar nada.
 
@@ -133,7 +133,7 @@ Veja a seguir o código do cliente Web para uma página de demonstração.
 
 ### Código do servidor
 
-No código de servidor a seguir, o Multi-Factor Authentication é configurado e executado na Etapa 2. O modo padrão (MODE\_STANDARD) é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
+No código de servidor a seguir, o Multi-Factor Authentication é configurado e executado na Etapa 2. O modo padrão (MODE\_STANDARD) é uma chamada telefônica à qual o usuário responde pressionando a tecla \#.
 
 	using System;
 	using System.Collections.Generic;
@@ -191,4 +191,4 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

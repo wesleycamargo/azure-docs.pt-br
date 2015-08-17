@@ -137,4 +137,4 @@ O script retorna listas de todos os relatórios disponíveis e retorna a saída 
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
 - Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

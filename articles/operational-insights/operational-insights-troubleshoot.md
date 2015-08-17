@@ -145,4 +145,4 @@ As análises o levam para a pesquisa de log e exibem o carimbo de data/hora dos 
 
 Essa página também apresenta informações de medição (não usa o índice de pesquisa de log, mas o sistema de cobrança, é atualizado a cada duas horas) sobre as quantidades de dados enviados ao serviço divididas por solução.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

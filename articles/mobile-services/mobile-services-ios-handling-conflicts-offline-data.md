@@ -51,7 +51,7 @@ Os recursos de sincronização offline no SDK permitem tratar de tais conflitos 
 
 ### <a name="update-list-view"></a>Atualizar o Controlador de Visualização de Lista ToDo
 
-1. Selecione **MainStoryboard_iPhone.storyboard** no Navegador de Projeto Xcode e selecione **Controlador de Visualização de Lista ToDo**. Selecione a célula de visualização de tabela e defina seu modo Acessório como **Indicador de Divulgação**. O indicador de divulgação mostra aos usuários que se eles tocarem no controlador de visualização de tabela associado, uma nova visualização será exibida. O indicador de divulgação não produz eventos.
+1. Selecione **MainStoryboard\_iPhone.storyboard** no Navegador de Projeto Xcode e selecione **Controlador de Visualização de Lista ToDo**. Selecione a célula de visualização de tabela e defina seu modo Acessório como **Indicador de Divulgação**. O indicador de divulgação mostra aos usuários que se eles tocarem no controlador de visualização de tabela associado, uma nova visualização será exibida. O indicador de divulgação não produz eventos.
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +145,7 @@ Os recursos de sincronização offline no SDK permitem tratar de tais conflitos 
 
 ### <a name="add-segue"></a>Adicionar controlador de visualização de item ToDo e Segue ao storyboard
 
-1. Volte para o arquivo **MainStoryboard_iPhone.storyboard** usando o Navegador de Projeto.
+1. Volte para o arquivo **MainStoryboard\_iPhone.storyboard** usando o Navegador de Projeto.
 
 2. Adicione um novo controlador de visualização para o Item ToDo ao storyboard, à direita do **Controlador de Visualização ToDo** existente. Definir a classe personalizada desse novo controlador de exibição como **QSItemViewController**. Para obter mais informações, consulte [Adicionando uma cena a um Storyboard].
 
@@ -171,8 +171,7 @@ Os recursos de sincronização offline no SDK permitem tratar de tais conflitos 
 
 7. Verifique se o aplicativo funciona com todas as mudanças feitas até o momento. Execute o aplicativo agora no simulador. Adicione itens à lista ToDo e então clique neles. Você verá o controlador de visualização do item (atualmente vazio).
 
-      ![][add-todo-item-view-controller-4]
-      ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Adicionar detalhes do item ao Controlador de Visualização de Item ToDo
 
@@ -264,7 +263,7 @@ Os recursos de sincronização offline no SDK permitem tratar de tais conflitos 
 
 ### <a name="service-add-conflict-handling"></a>Atualize QSTodoService para dar suporte à manipulação de conflitos
 
-1. Vamos permitir ao usuário decidir como manipular o conflito lidando com ele no cliente. Para isso, vamos implantar o protocolo **MSSyncContextDelegate**. Em **QSTodoService.h** e em **QSTodoService.m**, altere a declaração do método de fábrica **(QSTodoService *)defaultService;** para a declaração abaixo de modo a receber o delegado de contexto de sincronização como um parâmetro:
+1. Vamos permitir ao usuário decidir como manipular o conflito lidando com ele no cliente. Para isso, vamos implantar o protocolo **MSSyncContextDelegate**. Em **QSTodoService.h** e em **QSTodoService.m**, altere a declaração do método de fábrica **(QSTodoService)defaultService;** para a declaração abaixo de modo a receber o delegado de contexto de sincronização como um parâmetro:
 
         + (QSTodoService *)defaultServiceWithDelegate:(id)delegate;
 
@@ -472,4 +471,4 @@ Ao longo do caminho, adicionou uma classe auxiliar **QSUIAlertViewWithBlock** pa
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

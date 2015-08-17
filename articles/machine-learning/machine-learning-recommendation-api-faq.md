@@ -31,7 +31,7 @@ RECOMENDAÇÕES utiliza como entrada um item ou um conjunto de itens e retorna u
 
 **Há limitações de uso?**
 
-As recomendações têm as seguintes limitações de uso: * Número máximo de modelos por assinatura: 10 * Número máximo de itens que um catálogo pode conter: 100.000 * O número máximo de pontos de uso que são mantidos é de ~ 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados. * O número máximo de dados que podem ser enviados por email (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB * O número de TPS (transações por segundo) para uma compilação de modelo de Recomendações que não esteja ativa é de ~2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
+As recomendações têm as seguintes limitações de uso: * Número máximo de modelos por assinatura: 10 * Número máximo de itens que um catálogo pode conter: 100.000 * O número máximo de pontos de uso que são mantidos é de \~ 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados. * O número máximo de dados que podem ser enviados por email (por exemplo, importar dados de catálogo, importar dados de uso) é de 200 MB * O número de TPS (transações por segundo) para uma compilação de modelo de Recomendações que não esteja ativa é de \~2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
 
 ##Compra e cobrança 
 
@@ -130,4 +130,4 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

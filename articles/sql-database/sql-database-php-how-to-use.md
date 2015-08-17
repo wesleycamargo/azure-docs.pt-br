@@ -73,7 +73,7 @@ Na seção PHP da janela resultante, anote os valores de **SERVIDOR**, **BANCO D
 
 ##<a id="Connect"></a>Como: conectar-se a uma instância do Banco de Dados SQL
 
-Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV** para se conectar a um Banco de Dados SQL denominado`testdb`. Para obter informações sobre as APIs do **SQLSRV** e **PDO_SQLSRV**, consulte a [documentação de Drivers da Microsoft para PHP para o SQL Server][driver-docs]. Você precisará de informações obtidas na seção acima. Substitua `SERVER_ID` pela ID de 10 dígitos do servidor (que são os primeiros 10 caracteres do valor do SERVIDOR obtidos na seção acima) e atribua os valores corretos (seu nome de usuário e senha) às variáveis `$user` e `$pwd`.
+Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO\_SQLSRV** para se conectar a um Banco de Dados SQL denominado`testdb`. Para obter informações sobre as APIs do **SQLSRV** e **PDO\_SQLSRV**, consulte a [documentação de Drivers da Microsoft para PHP para o SQL Server][driver-docs]. Você precisará de informações obtidas na seção acima. Substitua `SERVER_ID` pela ID de 10 dígitos do servidor (que são os primeiros 10 caracteres do valor do SERVIDOR obtidos na seção acima) e atribua os valores corretos (seu nome de usuário e senha) às variáveis `$user` e `$pwd`.
 
 #####SQLSRV
 
@@ -88,7 +88,7 @@ Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV**
 		die(print_r(sqlsrv_errors()));
 	}
 
-#####PDO_SQLSRV
+#####PDO\_SQLSRV
 
 	$server = "tcp:<value of SERVER from section above>";
 	$user = "<value of USERNAME from section above>"@SERVER_ID;
@@ -105,7 +105,7 @@ Os exemplos a seguir mostram como usar as extensões **SQLSRV** e **PDO_SQLSRV**
 
 
 ##<a id="NextSteps"></a>Próximas etapas
-Como mencionado anteriormente, usar o Banco de Dados SQL é muito semelhante ao uso do SQL Server. Depois de ter estabelecido uma conexão com um Banco de Dados SQL (conforme mostrado acima), é possível usar as APIs do **SQLSRV** ou **PDO_SQLSRV** para inserir, recuperar, atualizar e excluir dados. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][limitations]
+Como mencionado anteriormente, usar o Banco de Dados SQL é muito semelhante ao uso do SQL Server. Depois de ter estabelecido uma conexão com um Banco de Dados SQL (conforme mostrado acima), é possível usar as APIs do **SQLSRV** ou **PDO\_SQLSRV** para inserir, recuperar, atualizar e excluir dados. No entanto, existem algumas diferenças entre o Banco de Dados SQL e o SQL Server que podem prejudicar seu aplicativo. Para obter mais informações, consulte [Diretrizes e limitações (Banco de Dados SQL) (a página pode estar em inglês)][limitations]
 
 Um exemplo que mostra como usar o banco de dados SQL no Azure está disponível em <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
@@ -130,4 +130,4 @@ Um exemplo que mostra como usar o banco de dados SQL no Azure está disponível 
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

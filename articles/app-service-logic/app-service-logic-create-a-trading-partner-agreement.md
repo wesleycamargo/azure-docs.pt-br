@@ -78,4 +78,4 @@ Para criar acordos entre parceiros comerciais:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

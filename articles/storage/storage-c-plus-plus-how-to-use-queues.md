@@ -63,13 +63,13 @@ Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar*
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
 ## Recuperar sua cadeia de conexão
-Você pode usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar**.
+Você pode usar a classe **cloud\_storage\_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 ## Como criar uma fila
-Um objeto **cloud_queue_client** permite que você obtenha objetos de referência para as filas. O código a seguir cria um objeto **cloud_queue_client**.
+Um objeto **cloud\_queue\_client** permite que você obtenha objetos de referência para as filas. O código a seguir cria um objeto **cloud\_queue\_client**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -77,7 +77,7 @@ Um objeto **cloud_queue_client** permite que você obtenha objetos de referênci
 	// Create a queue client.
 	azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-Use o objeto **cloud_queue_client** para obter uma referência para a fila que você deseja usar. Você poderá criar a fila se ela não existir.
+Use o objeto **cloud\_queue\_client** para obter uma referência para a fila que você deseja usar. Você poderá criar a fila se ela não existir.
 
 	// Retrieve a reference to a queue.
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
@@ -86,7 +86,7 @@ Use o objeto **cloud_queue_client** para obter uma referência para a fila que v
  	queue.create_if_not_exists();  
 
 ## Como inserir uma mensagem em uma fila
-Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud_queue_message**. Em seguida, chame o método **add_message**. Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World':
+Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud\_queue\_message**. Em seguida, chame o método **add\_message**. Uma **cloud\_queue\_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World':
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -105,7 +105,7 @@ Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud_
 	queue.add_message(message1);  
 
 ## Como inspecionar a próxima mensagem
-Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek_message**.
+Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_message**.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -147,7 +147,7 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Como remover a próxima mensagem da fila
-Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_message**, você recebe a próxima mensagem em uma fila. A mensagem retornada de **get_message** torna-se invisível para qualquer outro código que lê mensagens nessa fila. Para concluir a remoção da mensagem da fila, chame também **delete_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete_message** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get\_message**, você recebe a próxima mensagem em uma fila. A mensagem retornada de **get\_message** torna-se invisível para qualquer outro código que lê mensagens nessa fila. Para concluir a remoção da mensagem da fila, chame também **delete\_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete\_message** logo depois que a mensagem é processada.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -166,7 +166,7 @@ Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_messa
 	queue.delete_message(dequeued_message); 
 
 ## Como: aproveitar as opções adicionais para remover mensagens da fila
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for**. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages**, qualquer mensagem não excluída ficará visível novamente.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get\_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for**. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get\_messages**, qualquer mensagem não excluída ficará visível novamente.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -192,7 +192,7 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 	}
 
 ## Como obter o comprimento da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **download_attributes** solicita que o serviço de fila recupere os atributos da fila, incluindo a contagem de mensagens. O método **approximate_message_count** obtém o número aproximado de mensagens na fila.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método **download\_attributes** solicita que o serviço de fila recupere os atributos da fila, incluindo a contagem de mensagens. O método **approximate\_message\_count** obtém o número aproximado de mensagens na fila.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -213,7 +213,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
 	std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 
 ## Como excluir uma fila
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete_queue_if_exists** no objeto de fila.
+Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete\_queue\_if\_exists** no objeto de fila.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -239,4 +239,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga e
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -334,7 +334,7 @@ Cada chave no objeto deve corresponder à seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -368,7 +368,7 @@ Cada chave no objeto deve corresponder à seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (_).
+Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
 #### Tamanho
 
@@ -379,4 +379,4 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

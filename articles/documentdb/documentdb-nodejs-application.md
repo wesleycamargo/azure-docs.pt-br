@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilar um aplicativo Web Node.js usando o Banco de Dados de Documentos | Azure" 
+	pageTitle="Criar um aplicativo Web Node.js usando o Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado em sites do Azure." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
@@ -559,4 +559,4 @@ O código-fonte para o aplicativo de referência completo pode ser baixado [aqui
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -197,10 +197,12 @@ Os erros que um usuário pode encontrar no PowerShell do Azure ou no Portal do A
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descrição**: não é possível resolver o *yourDnsUrl* do DNS. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo começar com *http://* e terminar com *.com*. A URL totalmente qualificada geralmente pode ser encontrada na guia armazenamento do portal manage.windowsazure.com. 
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*. A URL totalmente qualificada geralmente pode ser encontrada na guia de armazenamento do portal manage.windowsazure.com.
+
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descrição**: não é possível verificar a localização do recurso *yourDnsUrl*. Verifique se foi fornecida a URL totalmente qualificada do ponto de extremidade do blob.  
-- **Atenuação**: forneça uma URL de blob válida. A URL deve ser totalmente válida, incluindo começar com *http://* e terminar com *.com*. A URL totalmente qualificada geralmente pode ser encontrada na guia armazenamento do portal manage.windowsazure.com. 
+- **Atenuação**: forneça uma URL de blob válida. A URL DEVE ser totalmente válida, incluindo começar com **http://* e terminar com *.com*. A URL totalmente qualificada geralmente pode ser encontrada na guia de armazenamento do portal manage.windowsazure.com.
+
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descrição**: a capacidade da versão não está disponível para a versão *specifiedVersion* e para a ID da assinatura *yourSubscriptionId*.  
 - **Atenuação**: escolha uma versão que esteja disponível e repita a operação. 
@@ -232,4 +234,4 @@ Os erros que um usuário pode encontrar no PowerShell do Azure ou no Portal do A
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

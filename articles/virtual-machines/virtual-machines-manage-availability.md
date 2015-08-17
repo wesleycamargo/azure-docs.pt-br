@@ -69,4 +69,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -34,7 +34,7 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
 1. No [Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkID=256666), clique em **Serviços de Mídia** e no nome da conta dos Serviços de Mídia para abrir o painel. 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices\_Dashboard][dashboard]
 
 2. Para monitorar seus trabalhos ou dados de codificação, basta começar a enviar trabalhos de codificação aos Serviços de Mídia ou iniciar a transmissão de conteúdo aos clientes usando o Streaming de Mídia por Demanda do Azure. Você deve começar a ver os dados de monitoramento no painel em cerca de uma hora.
 
@@ -67,4 +67,4 @@ Você pode monitorar o número de trabalhos de codificação na fila, as tarefas
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

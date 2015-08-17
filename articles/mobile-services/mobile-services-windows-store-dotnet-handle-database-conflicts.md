@@ -107,7 +107,7 @@ Agora o aplicativo grava as alterações de texto em cada item do banco de dados
 
 Dois ou mais clientes podem gravar alterações no mesmo item, ao mesmo tempo, em alguns cenários. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O [Controle de Simultaneidade Otimista] pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida. Os Serviços Móveis do Azure oferecem suporte ao controle de simultaneidade otimista acompanhando as alterações em cada item usando a coluna de propriedades do sistema `__version` que é adicionada a cada tabela. Nesta seção, habilitaremos o aplicativo para detectar esses conflitos de gravação por meio da propriedade do sistema `__version`. O aplicativo será notificado por uma `MobileServicePreconditionFailedException` durante uma tentativa de atualização, se o registro tiver sido alterado desde a última consulta. Em seguida, ele poderá optar por confirmar a alteração no banco de dados ou deixar a última alteração no banco de dados intacta. Para obter mais informações sobre as propriedades do sistema para Serviços Móveis, consulte [Propriedades do sistema].
 
-1. Abra TodoItem.cs no projeto compartilhado e atualize a definição de classe `TodoItem` com o seguinte código para incluir a propriedade do sistema `__version` __version ativando o suporte para a detecção de conflitos de gravação.
+1. Abra TodoItem.cs no projeto compartilhado e atualize a definição de classe `TodoItem` com o seguinte código para incluir a propriedade do sistema `__version` \_\_version ativando o suporte para a detecção de conflitos de gravação.
 
 		public class TodoItem
 		{
@@ -199,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 Nesta seção você criará um pacote de aplicativos da Windows Store para instalar o aplicativo em uma segunda máquina ou em uma máquina virtual. Em seguida, você executará o aplicativo nas duas máquinas gerando um conflito de gravação para testar o código. As duas instâncias do aplicativo tentarão atualizar a mesma propriedade `text` do item, exigindo que o usuário resolva o conflito.
 
 
-1. Crie um pacote de aplicativos da Windows Store para instalação na segunda máquina ou na máquina virtual. Para fazer isso, clique em **Projeto**->**Armazenamento**->**Criar Pacotes de Aplicativo** in Visual Studio.
+1. Crie um pacote de aplicativos da Windows Store para instalação na segunda máquina ou na máquina virtual. Para fazer isso, clique em **Projeto**->**Repositório**->**Criar Pacotes de Aplicativos** no Visual Studio.
 
 	![][0]
 
@@ -215,11 +215,11 @@ Nesta seção você criará um pacote de aplicativos da Windows Store para insta
 
    	![][11]
 
-5. Copie a pasta do pacote "todolist_1.0.0.0_AnyCPU_Debug_Test" na segunda máquina. Nessa máquina, abra a pasta do pacote e clique com o botão direito do mouse no script do PowerShell **Add-AppDevPackage.ps1** e clique em **Executar com o PowerShell** conforme mostrado abaixo. Siga os prompts para instalar o aplicativo.
+5. Copie a pasta do pacote "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" na segunda máquina. Nessa máquina, abra a pasta do pacote e clique com o botão direito do mouse no script do PowerShell **Add-AppDevPackage.ps1** e clique em **Executar com o PowerShell** conforme mostrado abaixo. Siga os prompts para instalar o aplicativo.
 
 	![][12]
   
-5. Execute a instância 1 do aplicativo no Visual Studio, clicando em **Depurar**->**Iniciar Depuração**. Na tela Iniciar da segunda máquina, clique na seta para baixo para ver "Aplicativos por nome". Em seguida, clique no aplicativo **todolist** para executar a instância 2 do aplicativo.
+5. Execute a instância 1 do aplicativo no Visual Studio clicando em **Depurar**->**Iniciar Depuração**. Na tela Iniciar da segunda máquina, clique na seta para baixo para ver "Aplicativos por nome". Em seguida, clique no aplicativo **todolist** para executar a instância 2 do aplicativo.
 
 	Instância do Aplicativo 1 ![][2]
 
@@ -366,4 +366,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -95,9 +95,9 @@ O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerenc
 
 > [AZURE.NOTE]Se você for sempre trabalhar com a mesma conta de armazenamento, pode definir as seguintes variáveis de ambiente em vez de especificar a conta e a chave para cada comando:
 >
-> * **AZURE_STORAGE_ACCOUNT**: o nome da conta de armazenamento
+> * **AZURE\_STORAGE\_ACCOUNT**: o nome da conta de armazenamento
 >
-> * **AZURE_STORAGE_ACCESS_KEY**: a chave da conta de armazenamento
+> * **AZURE\_STORAGE\_ACCESS\_KEY**: a chave da conta de armazenamento
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -279,4 +279,4 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

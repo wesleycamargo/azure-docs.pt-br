@@ -363,4 +363,4 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
 			}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

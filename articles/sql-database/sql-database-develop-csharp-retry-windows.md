@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ O método `Main` está em `Program.cs`. A pilha de chamadas é executada da segu
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ O método `Main` está em `Program.cs`. A pilha de chamadas é executada da segu
 ## Resumo de Program.cs
 
 
-O código-fonte desta seção é uma versão reduzida do arquivo `Program.cs` mais longo apresentado anteriormente. Toda a lógica de repetição e todo o tratamento `Exception` foram removidos.
+O código-fonte desta seção é uma versão reduzida do arquivo `Program.cs` mais longo apresentado anteriormente. Toda a lógica de repetição e todo o tratamento de exceção foram removidos.
 
 
-A versão curta facilita a visualização das chamadas ADO.NET, sabendo que elas normalmente funcionam. Normalmente, não ocorrem falhas transitórias e nenhuma `Exception` é lançada. E, normalmente, um paraquedista não precisa do paraquedas reserva.
+A versão curta facilita a visualização das chamadas ADO.NET, sabendo que elas normalmente funcionam. Normalmente, não ocorrem falhas transitórias e nenhuma exceção é lançada. E, normalmente, um paraquedista não precisa do paraquedas reserva.
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ A versão curta facilita a visualização das chamadas ADO.NET, sabendo que elas
 
 - [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

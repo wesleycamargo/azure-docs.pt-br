@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="05/19/2015"
 	ms.author="garye" />
 
@@ -25,7 +25,7 @@ Há diversos exemplos de conjuntos de dados disponíveis no Estúdio de Aprendiz
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pode antes carregar antecipadamente um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados em seu espaço de trabalho. Ou pode acessar dados de uma das várias fontes de dados online enquanto seu experimento é executado usando o módulo [Leitor][reader]:
+Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pode antes carregar antecipadamente um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados em seu espaço de trabalho. Ou pode acessar dados de uma das várias fontes de dados online enquanto seu experimento é executado usando o módulo [Leitor][reader]\:
 
 - Armazenamento BLOB, tabela ou Banco de Dados SQL do Azure
 - Hadoop usando HiveQL
@@ -143,4 +143,4 @@ Quando o salvamento for concluído, o conjunto de dados ficará disponível para
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

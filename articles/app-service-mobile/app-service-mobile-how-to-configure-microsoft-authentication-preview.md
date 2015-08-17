@@ -68,4 +68,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 [Portal de Gerenciamento do Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -236,4 +236,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows Server]
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

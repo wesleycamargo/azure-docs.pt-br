@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como escolher algoritmos de Aprendizado de Máquina | Microsoft Azure" 
-	description="Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão." 
+	description="Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão." 	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -73,7 +73,7 @@ No Aprendizado de Máquina, o problema do aprendizado não supervisionado é det
 
 No Aprendizado de Máquina do Azure, podemos executar o aprendizado supervisionado e não supervisionado por **Clustering**, **Classificação** e **Regressão**.
 
-   ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
+   ![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help2.png)
 
 <a name="anchor-4"></a>
 ##Clustering
@@ -89,7 +89,7 @@ Média K é um dos algoritmos de clustering sem supervisão mais simples que res
 
 O módulo de algoritmo [Clustering de K-Means][k-means-clustering] retorna um modelo de clustering de K-Means não treinado que pode ser passado para o módulo [Modelo de Clustering de Treinamento][train-clustering-model] para treinamento.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/k4.png)
 
 Esta figura mostra que há opções a serem configuradas ao usar Clustering de Média K. O método média K localiza um número especificado de clusters para um conjunto de pontos de dados de dimensão D. Começando com um *conjunto inicial de centroides K*, o método usa o algoritmo de Lloyd para refinar iterativamente os locais de centroides. O algoritmo é encerrado quando os centroides estabilizam ou quando um *número especificado de iterações* é concluído. O módulo inicializa uma matriz de K-por-D com os centroides finais que definem os clusters K encontrados nos pontos de dados de N. O algoritmo também usa um vetor de tamanho N com a atribuição de cada ponto de dados para um dos clusters K. Se houver um número específico de clusters (K) para localizar, o módulo atribui os pontos de dados K primeiro aos clusters K.
 
@@ -100,7 +100,7 @@ Este módulo também aceita ou gera pontos iniciais para definir sua configuraç
 ##Classificação 
 Na análise de classificação, dividimos os exemplos em classes e usamos um conjunto treinado de dados rotulados anteriormente. A técnica é usada para prever associação ao grupo para instâncias de dados. No Aprendizado de Máquina do Azure, estão disponíveis os seguintes algoritmos de classificação.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help3.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help3.png)
 
 Os *Algoritmos de Classe Dois* são usados para variáveis de resposta binária (sim ou não, 0 ou 1, verdadeiro ou falso, etc.) enquanto os *Algoritmos Multiclasse* são usados para qualquer variável de resposta nominal que classifique instâncias em mais de duas classes
 
@@ -174,7 +174,7 @@ Ao contrário de florestas, SVMs foram criadas como classificadores de duas clas
  
 Na análise de regressão, podemos prever novos valores com base na inferência passada. Os novos valores para uma variável dependente são calculados com base no valor de um ou mais atributos medidos. Os vários algoritmos de regressão disponíveis no Aprendizado de Máquina do Azure são:
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)
+![screenshot\_of\_experiment](./media/machine-learning-algorithm-choice/help4.png)
 
 Dependendo do caso de uso e dos dados em mãos, escolhemos um algoritmo em vez de outro. Abaixo descrevemos alguns algoritmos de regressão e seus casos de uso principais.
 
@@ -262,4 +262,4 @@ Veja também:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

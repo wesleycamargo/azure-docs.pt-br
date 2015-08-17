@@ -135,4 +135,4 @@ Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria n
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

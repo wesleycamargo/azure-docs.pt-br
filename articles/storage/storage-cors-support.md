@@ -134,40 +134,12 @@ O exemplo a seguir mostra um corpo de solicitação parcial para a operação pa
 
 Em seguida, considere as seguintes solicitações CORS:
 
-<table>
-<tr>
-<td colspan=3><b>Solicitação</b></td>
-<td colspan=2><b>Resposta</b></td>
-</tr>
-<tr>
-<td><b>Método</b></td>
-<td><b>Origem</b></td>
-<td><b>Cabeçalhos da solicitação</b></td>
-<td><b>Correspondência de regra</b></td>
-<td><b>Resultado</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Primeira regra</td>
-<td>Sucesso</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Segunda regra</td>
-<td>Sucesso</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Segunda regra</td>
-<td>Failure</td>
-</tr>
-</table>
+Solicitação||| Resposta||
+---|---|---|---|---
+**Método** |**Origem** |**Cabeçalhos da solicitação** |**Correspondência de regra** |**Resultado**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | Primeira regra |Sucesso
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Segunda regra |Sucesso
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Segunda regra | Failure
 
 A primeira solicitação corresponde à primeira regra – o domínio de origem corresponde às origens permitidas, o método corresponde aos métodos permitidos e o cabeçalho corresponde aos cabeçalhos permitidos – e então tem êxito.
 
@@ -185,7 +157,7 @@ Quando o navegador ou outro agente de usuário armazena em cache a resposta de u
 
 O Armazenamento do Azure define o cabeçalho *Vary* como **Origin** para solicitações GET/HEAD atuais nos seguintes casos:
 
-- Quando a origem da solicitação corresponde exatamente à origem permitida definida por uma regra CORS. Para ser uma correspondência exata, a regra CORS pode não incluir um caractere curinga '*'.
+- Quando a origem da solicitação corresponde exatamente à origem permitida definida por uma regra CORS. Para ser uma correspondência exata, a regra CORS pode não incluir um caractere curinga ' * '.
 
 - Não há nenhuma regra correspondendo com a origem da solicitação, mas CORS está habilitado para o serviço de armazenamento.
 
@@ -195,85 +167,17 @@ Observe que para solicitações que usam métodos diferentes de GET/HEAD, os ser
 
 A tabela a seguir indica como o armazenamento do Azure responderá às solicitações GET/HEAD com base nos casos previamente mencionados:
 
-<table>
-<tr>
-<td><b>Solicitação</b></td>
-<td colspan=3><b>Configuração da conta e o resultado da avaliação da regra</b></td>
-<td colspan=3><b>Resposta</b></td>
-</tr>
-<tr>
-<td><b>Cabeçalho da origem presente na solicitação</b></td>
-<td><b>Regra(s) de CORS especificada(s) para este serviço</b></td>
-<td><b>Regra de correspondência existe que permite todas as origens(*)</b></td>
-<td><b>Regra de correspondência existe para correspondência exata da origem</b></td>
-<td><b>Resposta inclui o cabeçalho Vary definido como origem</b></td>
-<td><b>Resposta inclui Access-Control-Allowed-Origin: "*"</b></td>
-<td><b>Resposta inclui Access-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-</tr>
-<tr>
-<td>Não</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-</tr>
-<tr>
-<td>Não</td>
-<td>Sim</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-<td>Sim</td>
-<td>Sim</td>
-</tr>
-<tr>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-<td>Não</td>
-</tr>
-<tr>
-<td>Sim</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Sim</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Sim</td>
-</tr>
-<tr>
-<td>Sim</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-</tr>
-<tr>
-<td>Sim</td>
-<td>Sim</td>
-<td>Sim</td>
-<td>Não</td>
-<td>Não</td>
-<td>Sim</td>
-<td>Sim</td>
-</tr>
-</table>
+Solicitação|Configuração da conta e o resultado da avaliação da regra|||Resposta|||
+---|---|---|---|---|---|---|---|---
+**Cabeçalho da origem presente na solicitação** | **Regra(s) de CORS especificada(s) para este serviço** | **Regra de correspondência existe que permite todas as origens(*)** | **Regra de correspondência existe para correspondência exata da origem** | **Resposta inclui o cabeçalho Vary definido como origem** | **Resposta inclui Access-Control-Allowed-Origin: "*"** | **Resposta inclui Access-Control-Exposed-Headers**
+Não|Não|Não|Não|Não|Não|Não
+Não|Sim|Não|Não|Sim|Não|Não
+Não|Sim|Sim|Não|Não|Sim|Sim
+Sim|Não|Não|Não|Não|Não|Não
+Sim|Sim|Não|Sim|Sim|Não|Sim
+Sim|Sim|Não|Não|Sim|Não|Não
+Sim|Sim|Sim|Não|Não|Sim|Sim
+
 
 ## Cobrança para solicitações CORS
 
@@ -292,4 +196,4 @@ Solicitações de simulação malsucedidas não serão cobradas.
 [Especificação de compartilhamento de recursos entre origens W3C](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

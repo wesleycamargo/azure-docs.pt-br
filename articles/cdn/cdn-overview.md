@@ -67,7 +67,7 @@ O cache para serviços de nuvem tem as seguintes restrições:
 
 - A CDN deve ser usada para armazenar em cache apenas conteúdo estático.
 
-	>[AZURE.WARNING]
+	>[AZURE.WARNING]O armazenamento em cache de conteúdo altamente volátil ou verdadeiramente dinâmico pode prejudicar o desempenho ou causar problemas de conteúdo, com um aumento de custo.
 - O serviço de nuvem deve ser implantado em uma implantação de produção.
 - O serviço de nuvem deve fornecer o objeto na porta 80 usando HTTP.
 - O serviço de nuvem deve colocar o conteúdo a ser armazenado em cache ou entregue na pasta /cdn do serviço de nuvem.
@@ -114,4 +114,4 @@ Para saber mais sobre como mapear um domínio personalizado, consulte [Como mape
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

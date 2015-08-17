@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Azure"
+    pageTitle="Compilar um aplicativo Web com Python e Flask usando o Banco de Dados de Documentos | Microsoft Azure"
     description="Saiba como usar o Banco de Dados de Documentos para armazenar e acessar dados de um aplicativo Web Python e Flask (MVC) hospedado no Azure."
     services="documentdb"
     documentationCenter="python"
@@ -350,4 +350,4 @@ Para adicionar funcionalidade adicional para seu aplicativo, examine as APIs dis
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

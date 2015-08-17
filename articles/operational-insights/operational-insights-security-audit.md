@@ -35,7 +35,7 @@ Neste artigo, você irá:
 3. Na página **Segurança e Auditoria**, examine as informações na folha **PROBLEMAS IMPORTANTES**. Na imagem de exemplo você verá seis problemas importantes de hoje com dois de ontem. Neste exemplo, há um executável suspeito. Clique em **Executáveis Suspeitos** na folha **PROBLEMAS IMPORTANTES** . ![Imagem da página Segurança e Auditoria](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. A pesquisa exibe a consulta e os resultados para o executável suspeito que você clicou. No exemplo, há um resultado e o hash do arquivo é exibido. Clique na ID **FILEHASH** . ![Imagem do filehash dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search01.png)
 5. A pesquisa exibe informações adicionais sobre o arquivo executável, incluindo seu nome de processo e o caminho do arquivo. Clique no **&lt;Nome do arquivo&gt; do processo**. No exemplo, isso é HEXEDIT. EXE. ![Imagem do processo dos Resultados de pesquisa](./media/operational-insights-security-audit/sec-audit-search02.png)
-6. A pesquisa anexará o nome do processo entre aspas na consulta. "* * HEXEDIT. EXE "* *, neste exemplo. ![Imagem da Consulta de pesquisa](./media/operational-insights-security-audit/sec-audit-search03.png)
+6. A pesquisa anexa o nome do processo entre aspas à consulta. "**HEXEDIT. EXE"**, neste exemplo.![Imagem da Consulta de pesquisa](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. Na caixa de Pesquisa, remova tudo menos o nome do processo e as aspas e, em seguida, clique no ícone de Pesquisa. ![Imagem das informações de pesquisa detalhada](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. A pesquisa exibe informações detalhadas sobre o processo, incluindo os computadores em que o processo é executado, a conta de usuário em que o processo é executado, e a data e hora em que um evento foi criado para o processo.
 9. Usando as informações que encontrar, você pode tomar uma ação corretiva conforme necessário. Por exemplo, se determinar que o executável é malware, em seguida, você deve agir para removê-lo de todos os sistemas de computador que ele afeta. Depois que o executável é removido e o Insights Operacionais recebe eventos de auditoria e log atualizados para os sistemas de computador, os valores na folha PROBLEMAS IMPORTANTES são alterados no dia seguinte.
@@ -56,7 +56,7 @@ Para aproveitar ao máximo a solução de Segurança e Auditoria, você deve con
 
 - [Como definir configurações de política de segurança](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
-- [Configuração avançada da política de auditoria](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
+- [Configuração Avançada da Política de Auditoria](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
 - [Recomendações de Política de Auditoria](https://technet.microsoft.com/library/dn487457.aspx)
 
@@ -100,4 +100,4 @@ Os dados de auditoria que você deseja coletar e enviar ao Insights Operacionais
 
 Além das configurações de política local, se você usar o AppLocker para coletar dados de auditoria, o Operacional Insights coletará os dados e, em seguida, você poderá exibí-los.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -75,4 +75,4 @@ Para organizar seu painel, navegue para a exibição Meu Painel e clique na engr
 ## Remover um bloco
 Para remover um bloco, navegue para a exibição Meu Painel e clique na engrenagem **personalizar** na parte inferior da página para entrar no modo de personalização. Selecione o bloco que você deseja remover, clique no painel direito e selecione **Remover Bloco**. ![Remover um Bloco](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

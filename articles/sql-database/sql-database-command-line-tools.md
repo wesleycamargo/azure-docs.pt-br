@@ -49,7 +49,7 @@ Após entrar, você verá algumas informações na tela, incluindo a ID usada pa
 
 ## Selecionar sua assinatura do Azure
 
-Para selecionar a assinatura com a qual deseja trabalhar, você precisa da ID (\*\*-SubscriptionId\*\*) ou do nome da assinatura (\*\*-SubscriptionName\*\*). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado.
+Para selecionar a assinatura com a qual deseja trabalhar, você precisa da ID (**-SubscriptionId**) ou do nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado.
 
 Execute o cmdlet a seguir com as informações da sua assinatura para definir a assinatura atual:
 
@@ -118,7 +118,7 @@ Também é possível excluir um servidor com o comando [Remove-AzureSqlServer](h
 
 Se você estiver criando novamente esses recursos do SQL do Azure ou semelhantes, é possível:
 
-- Salvar como um arquivo de script do PowerShell (\*. ps1)
+- Salvar como um arquivo de script do PowerShell (*. ps1)
 - Salvar como um runbook de automação do Azure, na seção Automação do Portal de Gerenciamento do Azure 
 
 ## Próximas etapas
@@ -137,4 +137,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 - [Cmdlets do Gerenciamento de Serviço do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

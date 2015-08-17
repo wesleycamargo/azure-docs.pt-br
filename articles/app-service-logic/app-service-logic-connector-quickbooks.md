@@ -21,12 +21,27 @@
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O Conector do QuickBooks permite criar e modificar entidades do QuickBooks diferentes. A seguir há uma lista de entidades do QuickBooks às quais o Conector do QuickBooks dá suporte.
 
-<Table>
-<TR><TD><B>Entidades</TD><TD><B>Descrição</TR> <TR> <TD> Conta </TD> <TD> Conta é um componente de um plano de contas e faz parte de um livro-razão. Usado para registrar o valor monetário total alocado em relação a um uso específico </TD> </TR> <TR> <TD> CreditMemo </TD> <TD> O CreditMemo é uma transação financeira que representa um reembolso ou crédito de pagamento ou parte de um pagamento por mercadorias ou serviços que foram vendidos. </TD> </TR> <TR> <TD> Cliente </TD> <TD> Um cliente é um consumidor do serviço ou produto que sua empresa oferece. </TD> </TR> <TR> <TD> Estimativa </TD> <TD> A Estimativa representa uma proposta para uma transação financeira de uma empresa a um cliente por mercadorias ou serviços propostos para serem vendidos, incluindo os preços propostos. </TD> </TR> <TR> <TD> Fatura </TD> <TD> Uma Fatura representa um formulário de vendas em que o cliente paga por um produto ou serviço posteriormente. Informações adicionais sobre como usar o modelo de dados de Fatura podem ser encontradas aqui. </TD> </TR> <TR> <TD> Item </TD> <TD> Um item é algo que sua empresa compra, vende ou revende, como produtos, frete e manuseio de encargos, descontos e impostos sobre vendas (caso aplicável). Um item é mostrado como uma linha em uma fatura ou outro formulário de venda. </TD> </TR> <TR> <TD> SalesReceipt </TD> <TD> Essa entidade representa o recibo de venda que é fornecido a um cliente.</TD> </TR> </Table>
+Entidades|Descrição
+---|---
+Conta|A Conta é um componente de um Plano de Contas e faz parte de um Razão. Usado para registrar um valor monetário total alocado em relação a um uso específico
+Aviso de Crédito|O Aviso de Crédito é uma transação financeira que representa um reembolso ou crédito de pagamento ou parte de um pagamento por mercadorias ou serviços que foram vendidos.
+Cliente|Um cliente é um consumidor do serviço ou produto que sua empresa oferece.
+Estimativa|A Estimativa representa uma proposta para uma transação financeira de uma empresa a um cliente por mercadorias ou serviços propostos para serem vendidos, incluindo os preços propostos.
+Fatura|Uma Fatura representa um formulário de venda em que o cliente paga por um produto ou serviço posteriormente. Informações adicionais sobre como usar o modelo de dados de Fatura podem ser encontradas aqui.
+Item|Um item é algo que sua empresa compra, vende ou revende, como produtos, frete e manuseio de encargos, descontos e impostos sobre vendas (caso aplicável). Um item é mostrado como uma linha em uma fatura ou outro formulário de venda.
+SalesReceipt|Essa entidade representa o recibo de venda que é fornecido a um cliente.
+
 
 
 ##Ações do QuickBooks ##
-A seguir estão as diferentes ações disponíveis no Conector do QuickBooks. <table> <tbody> <tr><td> <strong>Ação</strong> </td> <td> <strong>Descrição</strong> </td> </tr> <tr> <td> Entidade de Ler </td> <td> Objeto de entidade de Ler. </td> </tr> <tr> <td> Entidade de Criar ou Atualizar </td> <td> Objeto de entidade de Criar ou Atualizar. O objeto será atualizado se já existir; caso contrário, um novo objeto será criado. </td> </tr> <tr> <td> Excluir </td> <td> Essa ação exclui o objeto especificado da entidade selecionada. </td> </tr> <tr> <td> Consulta </td> <td> A operação de consulta é o método para criar uma consulta guiada em relação a uma entidade. </td> </tr> </tbody> </table>
+A seguir estão as diferentes ações disponíveis no Conector do QuickBooks.
+
+Ação|Descrição
+---|---
+Ler Entidade|Ler um objeto de entidade.
+Criar ou Atualizar Entidade|Criar ou atualizar um objeto de entidade. O objeto será atualizado se já existir; caso contrário, um novo objeto será criado.
+Excluir|Essa ação exclui o objeto especificado da entidade selecionada.
+Consultar|A operação de consulta é o método para criar uma consulta guiada em relação a uma entidade.
 
 ##Criar um aplicativo de API do Conector do QuickBooks##
 1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
@@ -119,4 +134,4 @@ Vamos criar um aplicativo lógico simples que cria uma conta no QuickBooks e atu
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

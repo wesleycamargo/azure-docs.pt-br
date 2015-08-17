@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Temporizadores e lembretes dos Atores da Malha de Serviço do Azure"
-   description="Introdução aos temporizadores e lembretes dos Atores da Malha de Serviço do Azure"
+   pageTitle="Temporizadores e lembretes de Atores Confiáveis"
+   description="Introdução a temporizadores e lembretes para Atores Confiáveis do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActorReminder`. A classe base de ator oferece suporte a um método `GetReminder`, que pode ser usado para recuperar a interface `IActorReminder` passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder` que foi retornada com a chamada do método `RegisterReminder`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

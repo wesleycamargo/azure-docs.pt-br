@@ -198,7 +198,7 @@ O elemento `Entrypoint` no arquivo de manifesto do serviço é usado para especi
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Estamos trabalhando em uma ferramenta que pode ser usada para empacotar um aplic
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

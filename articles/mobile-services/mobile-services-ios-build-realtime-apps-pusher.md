@@ -18,9 +18,6 @@
 
 
 # Crie aplicativos em tempo real com os Serviços Móveis e o Pusher
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 Este tópico mostra como adicionar funcionalidade em tempo real a seu aplicativo baseado nos Serviços Móveis do Azure. Ao concluir, os dados da TodoList estarão sincronizados, em tempo real, em todas as instâncias em execução de seu aplicativo.
 
@@ -76,11 +73,11 @@ A biblioteca [libPusher][] permite acessar o Pusher no iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Finalmente, em **Criar Configurações**, localize a configuração da compilação de destino definindo **Outros Sinalizadores do Vinculador** e adicione o sinalizador **-all_load**.
+9. Finalmente, em **Criar Configurações**, localize a configuração da compilação de destino definindo **Outros Sinalizadores do Vinculador** e adicione o sinalizador **-all\_load**.
 
 	![][add-linker-flag]
 
-	Isto mostra o sinalizador **-all_load** definido para o destino de Depurar compilação.
+	Isto mostra o sinalizador **-all\_load** definido para o destino de Depurar compilação.
 
 A biblioteca agora está instalada e pronta para uso.
 
@@ -240,7 +237,7 @@ A biblioteca agora está instalada e pronta para uso.
 		    }];
 		}
 
-11. Substitua o espaço reservado `**your_app_key**` pelo valor app_key copiado na caixa de diálogo Informações de Conexão anteriormente.
+11. Substitua o espaço reservado `**your_app_key**` pelo valor app\_key copiado na caixa de diálogo Informações de Conexão anteriormente.
 
 12. Substitua o método **onAdd** pelo seguinte código:
 
@@ -444,4 +441,4 @@ Para obter mais informações sobre como registrar e usar scripts de servidor, c
 [Referência de script do servidor de Serviços Móveis]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

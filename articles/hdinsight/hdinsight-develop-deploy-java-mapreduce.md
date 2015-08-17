@@ -26,7 +26,7 @@ Este tutorial explica um cenário completo de desenvolvimento de um trabalho de 
 
 Antes de começar este tutorial, você deve ter concluído o seguinte:
 
-- Instale o Emulador do HDInsight. Para obter instruções, consulte [Introdução ao Emulador do HDInsight][hdinsight-emulator]. Verifique se todos os serviços necessários estão em execução. No computador com o emulador do HDInsight instalado, inicie a linha de comando do Hadoop de um atalho da área de trabalho, navegue até **C:\\hdp** e execute o comando **start_local_hdp_services.cmd**.
+- Instale o Emulador do HDInsight. Para obter instruções, consulte [Introdução ao Emulador do HDInsight][hdinsight-emulator]. Verifique se todos os serviços necessários estão em execução. No computador com o emulador do HDInsight instalado, inicie a linha de comando do Hadoop de um atalho da área de trabalho, navegue até **C:\\hdp** e execute o comando **start\_local\_hdp\_services.cmd**.
 - Instale o PowerShell do Azure no computador do emulador. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
 - Instale a plataforma Java JDK 7 ou superior no computador emulador. Ela já está disponível no computador emulador.
 - Instale e configure o [Apache Maven](http://maven.apache.org/).
@@ -44,7 +44,8 @@ Crie um aplicativo MapReduce de contagem de palavras. É um aplicativo simples q
 
 **Para criar um projeto usando o Maven**
 
-1. Crie um diretório **C:\\Tutorials\\WordCountJava**.2. Na linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local criado.
+1. Crie um diretório **C:\\Tutorials\\WordCountJava**.
+2. Na linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local criado.
 3. Use o comando __mvn__, que é instalado com o Maven, para gerar o scaffolding para o projeto.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -228,7 +229,7 @@ Este tutorial usa a seguinte estrutura de pastas HDFS:
 <tr><td>/WordCount/MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr>
 </table>
 
-Este tutorial usa os arquivos .txt localizados no diretório %hadoop_home% como os arquivos de dados.
+Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home% como os arquivos de dados.
 
 > [AZURE.NOTE]Os comandos de HDFS do Hadoop diferenciam maiúsculas de minúsculas.
 
@@ -317,7 +318,7 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	A variável **$subscripionName** está associada à sua assinatura do Azure. Você deve atribuir um nome a **$storageAccountName_Data** e **$containerName_Data**. Para as restrições de nomes, consulte [Nomenclatura e referência a contêineres, Blobs e metadados](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
+	A variável **$subscripionName** está associada à sua assinatura do Azure. Você deve atribuir um nome a **$storageAccountName\_Data** e **$containerName\_Data**. Para as restrições de nomes, consulte [Nomenclatura e referência a contêineres, Blobs e metadados](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
 3. Execute os seguintes comandos para criar uma conta do Armazenamento e um contêiner de armazenamento de Blob na conta:
 
@@ -349,7 +350,7 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	As variáveis **$storageAccountName_Data** e **$containerName_Data** são as mesmas que você definiu no último procedimento.
+	As variáveis **$storageAccountName\_Data** e **$containerName\_Data** são as mesmas que você definiu no último procedimento.
 
 	Observe que a pasta do arquivo de origem é **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT**, e que a pasta de destino é **WordCount/Input**.
 
@@ -399,7 +400,7 @@ Neste tutorial, você criará um contêiner em uma conta de armazenamento separa
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	As variáveis **$storageAccountName_Data** e o **$containerName_Data** são as mesmas que você definiu no último procedimento, o que significa que você carregará o arquivo de dados e o aplicativo no mesmo contêiner da mesma conta de armazenamento.
+	As variáveis **$storageAccountName\_Data** e o **$containerName\_Data** são as mesmas que você definiu no último procedimento, o que significa que você carregará o arquivo de dados e o aplicativo no mesmo contêiner da mesma conta de armazenamento.
 
 	Observe que a pasta de destino é **WordCount/jars**.
 
@@ -527,7 +528,7 @@ Nesta seção, você criará um script do PowerShell do Azure que realize as seg
 
 3. Defina as primeiras seis variáveis no script. A variável **$stringPrefix** é usada como prefixo da cadeia especificada para o nome do cluster HDInsight, o nome da conta de armazenamento e o nome do contêiner de armazenamento de Blob. Como esses nomes devem ter de 3 a 24 caracteres, garanta que a cadeia de caracteres que você especificar e os nomes que esse script usa, juntos, não excedam o limite de caracteres para o nome. Você deve usar letras minúsculas para **$stringPrefix**.
 
-	As variáveis **$storageAccountName_Data** e **$containerName_Data** são a conta e o contêiner de armazenamento usados para armazenar os arquivos de dados e os aplicativos. A variável **$location** deve corresponder ao local da conta de armazenamento de dados.
+	As variáveis **$storageAccountName\_Data** e **$containerName\_Data** são a conta e o contêiner de armazenamento usados para armazenar os arquivos de dados e os aplicativos. A variável **$location** deve corresponder ao local da conta de armazenamento de dados.
 
 4. Verifique o restante das variáveis.
 5. Salve o arquivo de script.
@@ -609,4 +610,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

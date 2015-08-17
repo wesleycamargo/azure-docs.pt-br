@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
@@ -83,10 +83,7 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 - **Velocidade** – Não é um parâmetro configurável pelo usuário. DATA 0, DATA 1, DATA 4 e DATA 5 são sempre de 1 GbE, enquanto DATA 2 e DATA 3 são interfaces de 10 GbE.
 
-     >[AZURE.NOTE]
-     >
-     >- Velocidade e duplex são sempre negociados automaticamente.
-     >- Não há suporte para quadros jumbo.
+     >[AZURE.NOTE]> >- Velocidade e duplex são sempre negociados automaticamente.>- Não há suporte para quadros jumbo.
  
 - **Estado da interface** – Uma interface pode ser habilitada ou desabilitada. Se for habilitada, o dispositivo tentará usar a interface. É recomendável que apenas as interfaces que estejam conectadas à rede e sendo usadas sejam habilitadas. Desabilite qualquer interface que não estiver em uso.
 
@@ -97,11 +94,11 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
     É recomendável isolar o tráfego iSCSI do tráfego do armazenamento em nuvem. Também observe que, se o host estiver na mesma sub-rede que o dispositivo, não será preciso atribuir um gateway; no entanto, se o host estiver em uma sub-rede diferente de seu dispositivo, será preciso atribuir um gateway.
 
-- **Endereço IP** – Pode ser IPv4, IPv6 ou ambos. As famílias de endereço IPv4 e IPv6 são compatíveis com as interfaces de rede do dispositivo. Ao usar o IPv4, especifique um endereço IP de 32 bits (\*xxx.xxx.xxx.xxx\*) em notação de ponto decimal. Ao usar o IPv6, basta fornecer um prefixo de quatro dígitos, e um endereço de 128 bits será gerado automaticamente para a interface de rede do dispositivo com base nesse prefixo.
+- **Endereço IP** – Pode ser IPv4, IPv6 ou ambos. As famílias de endereço IPv4 e IPv6 são compatíveis com as interfaces de rede do dispositivo. Ao usar o IPv4, especifique um endereço IP de 32 bits (*xxx.xxx.xxx.xxx*) em notação de ponto decimal. Ao usar o IPv6, basta fornecer um prefixo de quatro dígitos, e um endereço de 128 bits será gerado automaticamente para a interface de rede do dispositivo com base nesse prefixo.
 
 - **Sub-rede** – Refere-se à máscara de sub-rede e é configurada por meio da interface do Windows PowerShell.
 
-- **Gateway** – Este é o gateway padrão que deve ser usado por esta interface quando ele tenta se comunicar com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
+- **Gateway** – Este é o gateway padrão que deve ser usado por esta interface durante tentativas de comunicação com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
 
 - **Endereço IP fixo** – Este campo está disponível apenas enquanto você configura a interface DATA 0. Para operações como atualizações ou solução de problemas do dispositivo, talvez seja necessário conectar diretamente ao controlador do dispositivo. O endereço IP fixo pode ser usado para acessar o controlador ativo e passivo no dispositivo.
 
@@ -127,8 +124,8 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 
 ## Próximas etapas
 
-[Configure o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
+[Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
  
      
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

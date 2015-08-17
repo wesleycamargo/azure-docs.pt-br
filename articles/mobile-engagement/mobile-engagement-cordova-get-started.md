@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/02/2015"
 	ms.author="piyushjo" />
 
@@ -30,7 +30,7 @@ Este tópico mostra como usar o Mobile Engagement do Azure para entender o uso d
 
 Neste tutorial, criamos um aplicativo do Cordova em branco usando o Mac e integramos o SDK do Mobile Engagement. Ele coleta dados de análise básica e recebe notificações por push usando o sistema de notificações de Push da Apple (APNS) para iOS e Google Cloud Messaging (GCM) para o Android. Nós implantaremos em um dispositivo iOS ou Android para teste.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
+> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
 
 Este tutorial exige o seguinte:
 
@@ -273,13 +273,13 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 
 	![][15]
 
-5. [Opcional] Você também pode fornecer uma URL de ação. Certifique-se de que ele usa um esquema de URL fornecido ao configurar o plug-in **URL de REDIRECIONAMENTO de AZME** variável de exemplo, *myapp://test*. 
+5. [Opcional] Você também pode fornecer uma URL de ação. Verifique se ele usa um esquema de URL fornecido ao configurar o plug-in **URL de REDIRECIONAMENTO de AZME** variável de exemplo, **myapp://test*.
 
-5. Você concluiu a configuração mais básica da campanha possível, agora role para baixo novamente e **crie** sua campanha para salvá-la!
+5. Você terminou a configuração da campanha mais básica possível, agora role novamente e **Crie** sua campanha para salvá-la.
 	
 	![][16]
 
-6. Última etapa, **ativar** a sua campanha
+6. Por fim, **ative** sua campanha
 	
 	![][17]
 
@@ -312,4 +312,4 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="joseidz"/>
 
@@ -63,4 +63,4 @@ Se você for um desenvolvedor de Software como um serviço (SaaS), saiba mais so
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

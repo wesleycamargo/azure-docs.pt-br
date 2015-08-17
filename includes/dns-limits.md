@@ -1,7 +1,9 @@
 
-| Resource	| Default limit 
+| Recurso | Limite padrão 
 --- | ---
-| Zones per subscription | 50
-| Record sets per zone| 1000
-| Records per record set| 20
+| Zonas por assinatura | 50
+| Conjuntos de registros por zona| 1000
+| Registros por conjunto de registros| 20
  
+
+<!---HONumber=August15_HO6-->

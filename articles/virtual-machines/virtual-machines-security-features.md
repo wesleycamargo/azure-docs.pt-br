@@ -43,4 +43,4 @@ As ACLs de rede possibilitam permitir ou negar seletivamente tráfego de entrada
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -122,4 +122,4 @@ Você pode clicar em “Executar Agora” para iniciar o aplicativo lógico manu
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

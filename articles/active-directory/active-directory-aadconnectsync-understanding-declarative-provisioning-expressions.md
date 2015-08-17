@@ -47,13 +47,14 @@ Os atributos são fortemente tipados. Uma função que espera que um atributo de
 Os operadores a seguir podem ser usados:
 
 - **Comparação**: <, <=, <>, =, >, >=
-- **Matemática**: +, -, *, - - **Cadeia de caracteres**: & (concatenado)
-- **Lógica**: & & (e), || (ou)
+- **Matemática**: +, -, *, -
+- **Cadeia de caracteres**: & (concatenado)
+- **Lógica**: && (e), || (ou)
 - **Ordem de avaliação**: ( )
 
 
 
-Os operadores são avaliados da esquerda para a direita. 2\*(5+3) não é o mesmo que 2\*5+3.<br> Os parênteses ( ) são usados para alterar a ordem de avaliação.
+Os operadores são avaliados da esquerda para a direita. 2*(5+3) não é o mesmo que 2*5+3.<br> Os parênteses ( ) são usados para alterar a ordem de avaliação.
 
 
 
@@ -107,7 +108,7 @@ Nesta expressão, caso o atributo tenha um valor, podemos levar o primeiro item 
 
 ### NULL versus IgnoreThisFlow
 
-Para Regras de Sincronização de entrada, a constante **NULL** deve sempre ser usada. Isso indica que o fluxo não tem nenhum valor com o qual contribuir e que outra regra pode contribuir com um valor. Se nenhuma regra contribuiu com um valor, o atributo metaverso é removido.
+Para Regras de Sincronização de entrada, a constante **NULL** sempre deve ser usada. Isso indica que o fluxo não tem nenhum valor com o qual contribuir e que outra regra pode contribuir com um valor. Se nenhuma regra contribuiu com um valor, o atributo metaverso é removido.
 
 Há duas constantes diferentes a usar para Regras de Sincronização de saída: NULL e IgnoreThisFlow. Ambas indicam que o fluxo de atributo não tem nada com o que contribuir, mas a diferença é o que acontece quando não há outra regra que tenha, tampouco, algo com o que contribuir. Se houver um valor existente no diretório conectado, uma constante NULL preparará uma exclusão do atributo e o removerá, enquanto IgnoreThisFlow manterá o valor existente.
 
@@ -134,4 +135,4 @@ Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: ref
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

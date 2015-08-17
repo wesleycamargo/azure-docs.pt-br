@@ -1,4 +1,3 @@
-
 #### Para criar um contêiner de volume
 
 1. Na página **Início Rápido** do dispositivo clique em **Adicionar um contêiner de volume**. A caixa de diálogo **Criar Contêiner de Volume** é exibida.
@@ -15,4 +14,4 @@
 
   O contêiner de volume recém-criado será listado na página **Contêineres de volume**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

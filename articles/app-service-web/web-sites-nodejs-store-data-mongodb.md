@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
+	ms.date="08/03/2015"
 	ms.author="mwasson"/>
 
 
@@ -91,7 +91,7 @@ Embora seja possível criar uma nova VM e, em seguida, instalar o MongoDB nela s
 
 9. Clique em **OK** duas vezes e, em seguida, clique em **Criar** para criar a VM.
 
-	Depois de criar a máquina virtual, você a verá em seu Quadro Inicial e poderá clicar nela para abrir a folha da VM. Você deverá ser capaz de abrir um navegador da Web para **http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** para verificar se o MongoDB está em execução. Na parte inferior da página deve haver um log que exibe informações sobre o serviço, semelhante ao seguinte:
+	Depois de criar a máquina virtual, você a verá em seu Quadro Inicial e poderá clicar nela para abrir a folha da VM. Você deverá ser capaz de abrir um navegador da Web para ****http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** para verificar se o MongoDB está em execução. Na parte inferior da página deve haver um log que exibe informações sobre o serviço, semelhante ao seguinte:
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -113,13 +113,13 @@ Nesta seção você criará um novo aplicativo de nó em nosso ambiente de desen
 
 1. Da linha de comando, mude os diretórios para o diretório **tasklist**. Se o diretório **tasklist** não existir, crie-o.
 
-> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **~/node/tasklist** ou **c:\\node\\tasklist**
+	> [AZURE.NOTE]Este tutorial faz referência à pasta **tasklist**. O caminho completo da pasta é omitido, pois a semântica de caminho difere entre os sistemas operacionais. Você deve criar essa pasta em um local de fácil acesso em seu sistema de arquivos local, como **\~/node/tasklist** ou **c:\\node\\tasklist**
 
 2. Digite o seguinte comando para instalar o comando Express.
 
 	npm install express-generator -g
 
-> [AZURE.NOTE]Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de ___Erro: EPERM, chmod '/usr/local/bin/express'___ e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando `sudo` para executar o npm com um nível de privilégio mais elevado.
+	> [AZURE.NOTE]Ao usar o parâmetro '-g' em alguns sistemas operacionais, você poderá receber uma mensagem de ___Erro: EPERM, chmod '/usr/local/bin/express'___ e uma solicitação para tentar executar a conta como administrador. Se isso ocorrer, use o comando `sudo` para executar o npm com um nível de privilégio mais elevado.
 
     A saída desse comando deve ser semelhante ao seguinte:
 
@@ -339,7 +339,7 @@ Nesta seção, você ampliará o aplicativo básico criado pelo comando **expres
         var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.MONGODB_URI);
 
-	Observe a segunda linha; você acessa uma variável de ambiente que você vai configurar mais tarde, que contém as informações de conexão para a instância mongo. Se você tiver uma instância local do mongo em execução para fins de desenvolvimento, é aconselhável definir temporariamente esse valor para "localhost" em vez de process.env.MONGODB_URI.
+	Observe a segunda linha; você acessa uma variável de ambiente que você vai configurar mais tarde, que contém as informações de conexão para a instância mongo. Se você tiver uma instância local do mongo em execução para fins de desenvolvimento, é aconselhável definir temporariamente esse valor para "localhost" em vez de process.env.MONGODB\_URI.
 
 3. Encontre as linhas a seguir:
 
@@ -478,13 +478,13 @@ A CLI do Azure permite que você execute operações de gerenciamento para servi
 
 	> [AZURE.NOTE> Se esse for o primeiro aplicativo Web do Serviço de Aplicativo para sua assinatura, você será instruído a usar o portal para criar o aplicativo Web. Para obter mais informações, consulte [Criar e implantar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](web-sites-nodejs-develop-deploy-mac.md).
 
-###Definir a variável de ambiente MONGODB_URI
+###Definir a variável de ambiente MONGODB\_URI
 
-O aplicativo espera a cadeia de conexão para instância do MongoDB para ficarem disponíveis na variável de ambiente do .MONGODB_URI. Para definir este valor para o aplicativo Web, use o seguinte comando:
+O aplicativo espera a cadeia de conexão para instância do MongoDB para ficarem disponíveis na variável de ambiente do .MONGODB\_URI. Para definir este valor para o aplicativo Web, use o seguinte comando:
 
 	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-Isso criará uma nova configuração de aplicativo para o aplicativo Web, que será usada para preencher a variável de ambiente do MONGODB_URI lida pelo aplicativo Web. Substitua o valor de 'mymongodb.cloudapp.net' pelo nome da máquina virtual onde o MongoDB foi instalado.
+Isso criará uma nova configuração de aplicativo para o aplicativo Web, que será usada para preencher a variável de ambiente do MONGODB\_URI lida pelo aplicativo Web. Substitua o valor de 'mymongodb.cloudapp.net' pelo nome da máquina virtual onde o MongoDB foi instalado.
 
 ###Publicar o aplicativo
 
@@ -573,4 +573,4 @@ Para saber como proteger o MongoDB, consulte [Segurança do MongoDB][mongosecuri
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

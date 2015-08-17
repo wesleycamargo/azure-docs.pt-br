@@ -1,3 +1,3 @@
 O conjunto de dados contém informações adicionais sobre cada região suspeita da imagem de raio-X. Cada exemplo fornece informações (por exemplo, rótulo, ID de paciente, coordenadas de patch em relação à imagem inteira) sobre o número da linha correspondente no conjunto de dados de recursos de câncer de mama. Cada paciente tem um número de exemplos. Para pacientes que têm um câncer, alguns exemplos são positivos e outros negativos. Para pacientes que não têm câncer, todos os exemplos são negativos. O conjunto de dados tem 102 mil exemplos. O conjunto de dados é tendencioso, 0,6% dos pontos são positivos e o restante é negativo. O conjunto de dados foi disponibilizado pela Siemens Healthcare.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

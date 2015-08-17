@@ -93,36 +93,32 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
 	![Fornecer detalhes do cluster HDInsight do Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Nome do cluster</td>
-			<td><p>Nome do cluster. </p>
-				<ul>
-				<li>O nome do DNS (Sistema de Nomes de Domínio) deve começar e terminar com caracteres alfanuméricos e pode conter traços.</li>
-				<li>O campo deve ser uma cadeia de caracteres com 3 a 63 caracteres.</li>
-				</ul></td></tr>
-		<tr><td>Tipo de cluster</td>
-			<td>Selecione <strong>Hadoop</strong>.</td></tr>
-		<tr><td>Sistema operacional</td>
-			<td>Selecione <b>Ubuntu 12.04 LTS (visualização)</b> para provisionar um cluster HDInsight no Linux. Para provisionar um cluster Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Provisionar clusters Hadoop em Windows no HDInsight</a>.</td></tr>
-		<tr><td>Versão do HDInsight</td>
-			<td>Escolha a versão. Para HDInsight em Linux, o padrão é HDInsight versão 3.2, que usa Hadoop 2.6.</td></tr>
-		</table>
-
-	Digite ou selecione os valores, como mostra a tabela, e clique na seta para a direita.
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Nome do cluster</td>
+		<td><p>Nome do cluster. </p>
+			<ul>
+			<li>O nome do DNS (Sistema de Nomes de Domínio) deve começar e terminar com caracteres alfanuméricos e pode conter traços.</li>
+			<li>O campo deve ser uma cadeia de caracteres com 3 a 63 caracteres.</li>
+			</ul></td></tr>
+	<tr><td>Tipo de cluster</td>
+		<td>Selecione <strong>Hadoop</strong>.</td></tr>
+	<tr><td>Sistema operacional</td>
+		<td>Selecione <b>Ubuntu 12.04 LTS (visualização)</b> para provisionar um cluster HDInsight no Linux. Para provisionar um cluster Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Provisionar clusters Hadoop em Windows no HDInsight</a>.</td></tr>
+	<tr><td>Versão do HDInsight</td>
+		<td>Escolha a versão. Para HDInsight em Linux, o padrão é HDInsight versão 3.2, que usa Hadoop 2.6.</td></tr>
+	</table>Digite ou selecione os valores, como mostra a tabela, e clique na seta para a direita.
 
 4. Na página **Configurar Cluster**, digite ou selecione os seguintes valores:
 
 	![Fornecer detalhes do cluster HDInsight do Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nome</th><th>Valor</th></tr>
-	<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
-	<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou anteriormente. Clusters HDInsight exigem que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</p></td></tr>
-	<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
-	<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
+<tr><th>Nome</th><th>Valor</th></tr>
+<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. Para fins de teste, crie um cluster de nó único. <br />O limite de tamanho do cluster varia para as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.</td></tr>
+<tr><td>Região/Rede virtual</td><td><p>Escolha a mesma região da conta de armazenamento que você criou anteriormente. Clusters HDInsight exigem que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</p></td></tr>
+<tr><td>Tamanho do nó principal</td><td><p>Selecione um tamanho de VM (máquina virtual) para o nó de cabeçalho.</p></td></tr>
+<tr><td>Tamanho do nó de dados</td><td><p>Selecione um tamanho de VM para os nós de dados.</p></td></tr>
+</table>>[AZURE.NOTE]O custo pode variar de acordo com sua escolha de VMs. O HDInsight usa todas as VMs de camada padrão para nós de cluster. Para obter informações sobre como os tamanhos de VM afetam os preços, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Preços do HDInsight</a>.
 
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
@@ -130,26 +126,23 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
     ![Fornecer usuário do cluster HDInsight do Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Senha HTTP</td>
-			<td>Especifique a senha do usuário HTTP padrão, <strong>admin</strong>.</td></tr>
-		<tr><td>Nome de Usuário SSH</td>
-			<td>Especifique o nome de usuário SSH. Você utilizará esse nome de usuário para iniciar uma sessão SSH remota em nós de cluster HDInsight.</td></tr>
-		<tr><td>Tipo de Autenticação SSH</td>
-			<td>Especifique se deseja usar uma senha ou uma chave SSH para autenticar um usuário SSH.</td></tr>
-		<tr><td>Senha SSH</td>
-			<td>Se você optar por uma senha como tipo de autenticação, especifique a senha SSH para autenticar um usuário SSH. Essa senha será solicitada ao tentar iniciar uma sessão SSH no computador remoto do Linux.</td></tr>
-		<tr><td>Chave Pública SSH</td>
-			<td>Se você optar por uma chave como tipo de autenticação, especifique a chave pública SSH que você já deve ter gerado. Ao iniciar uma sessão SSH com um nó no cluster do Linux, você usará a chave privada associada a esta chave pública.<br>
-			Para obter instruções sobre como gerar uma chave SSH em um computador Linux, clique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">aqui</a>. Para obter instruções sobre como gerar uma chave SSH em um computador baseado em Windows, clique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">aqui</a>.
-		</td></tr>
-		<tr><td>Inserir como metastore do Hive/Oozie</td>
-			<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído.</td></tr>
-		</td></tr>
-		</table>
-
-
-	> [AZURE.NOTE]Recomendamos usar autenticação por chave pública SSH ao utilizar SSH, pois ela é mais segura do que a autenticação por senha.
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Senha HTTP</td>
+		<td>Especifique a senha do usuário HTTP padrão, <strong>admin</strong>.</td></tr>
+	<tr><td>Nome de Usuário SSH</td>
+		<td>Especifique o nome de usuário SSH. Você utilizará esse nome de usuário para iniciar uma sessão SSH remota em nós de cluster HDInsight.</td></tr>
+	<tr><td>Tipo de Autenticação SSH</td>
+		<td>Especifique se deseja usar uma senha ou uma chave SSH para autenticar um usuário SSH.</td></tr>
+	<tr><td>Senha SSH</td>
+		<td>Se você optar por uma senha como tipo de autenticação, especifique a senha SSH para autenticar um usuário SSH. Essa senha será solicitada ao tentar iniciar uma sessão SSH no computador remoto do Linux.</td></tr>
+	<tr><td>Chave Pública SSH</td>
+		<td>Se você optar por uma chave como tipo de autenticação, especifique a chave pública SSH que você já deve ter gerado. Ao iniciar uma sessão SSH com um nó no cluster do Linux, você usará a chave privada associada a esta chave pública.<br>
+		Para obter instruções sobre como gerar uma chave SSH em um computador Linux, clique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">aqui</a>. Para obter instruções sobre como gerar uma chave SSH em um computador baseado em Windows, clique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">aqui</a>.
+	</td></tr>
+	<tr><td>Inserir como metastore do Hive/Oozie</td>
+		<td>Marque esta caixa de seleção para especificar um banco de dados SQL no mesmo datacenter que o cluster, a ser usado como metastore do Hive/Oozie. Se você marcar esta caixa de seleção, deverá especificar detalhes sobre o banco de dados SQL do Azure nas páginas seguintes do assistente. Isso será útil se você quiser reter os metadados sobre os trabalhos do Hive/Oozie após um cluster ter sido excluído.</td></tr>
+	</td></tr>
+	</table>> [AZURE.NOTE]Recomendamos usar autenticação por chave pública SSH ao utilizar SSH, pois ela é mais segura do que a autenticação por senha.
 
 	Clique na seta à direita.
 
@@ -170,31 +163,29 @@ Clusters HDInsight usam um contêiner de Armazenamento de Blob do Azure como o s
     ![Fornecer conta de armazenamento para o cluster Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-		<tr><th>Propriedade</th><th>Valor</th></tr>
-		<tr><td>Conta de armazenamento</td>
-			<td>Especifique a conta de Armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma destas três opções:
-			<ul>
-				<li><strong>Usar Armazenamento Existente</strong></li>
-				<li><strong>Criar Novo Armazenamento</strong></li>
-				<li><strong>Usar Armazenamento de Outra Assinatura</strong></li>
-			</ul>
-			</td></tr>
-		<tr><td>Nome da conta</td>
-			<td><ul>
-				<li>Se você optar por usar um armazenamento existente, para <strong>Nome da conta</strong>, selecione uma conta de Armazenamento existente. A lista suspensa lista apenas as contas do Armazenamento localizadas no mesmo datacenter que você escolheu para provisionar o cluster.</li>
-				<li>Se você escolheu a opção <strong>Criar Novo Armazenamento</strong> ou <strong>Usar Armazenamento de Outra Assinatura</strong>, forneça o nome da conta do Armazenamento.</li>
-			</ul></td></tr>
-		<tr><td>Chave de conta</td>
-			<td>Se você escolheu a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta do Armazenamento.</td></tr>
-		<tr><td>Contêiner padrão</td>
-			<td><p>Especifique o contêiner padrão da conta do Armazenamento que é utilizado como sistema de arquivos padrão para o cluster HDInsight. Se você tiver escolhido <strong>Usar Armazenamento Existente</strong> no campo <strong>Conta de Armazenamento</strong> e não existir nenhum contêiner nessa conta, por padrão, o contêiner será criado com o mesmo nome que o nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner. Por exemplo, meucontêiner1, meucontêiner2 e assim por diante. No entanto, se a conta do Armazenamento tiver um contêiner com um nome diferente do nome do cluster especificado, você poderá usar esse contêiner também.</p>
-	        <p>Se você optou por criar um novo armazenamento ou usar o armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
-	    </td></tr>
-		<tr><td>Contas de armazenamento adicionais</td>
-			<td>O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas, devido a restrições da interface do usuário. Cada conta do Armazenamento adicional que você especifica adiciona um página <strong>Conta de Armazenamento</strong> extra ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, uma conta do Armazenamento adicional está selecionada e, portanto, a página 5 é adicionada à caixa de diálogo.</td></tr>
-	</table>
-
-	Clique na seta à direita.
+	<tr><th>Propriedade</th><th>Valor</th></tr>
+	<tr><td>Conta de armazenamento</td>
+		<td>Especifique a conta de Armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma destas três opções:
+		<ul>
+			<li><strong>Usar Armazenamento Existente</strong></li>
+			<li><strong>Criar Novo Armazenamento</strong></li>
+			<li><strong>Usar Armazenamento de Outra Assinatura</strong></li>
+		</ul>
+		</td></tr>
+	<tr><td>Nome da conta</td>
+		<td><ul>
+			<li>Se você optar por usar um armazenamento existente, para <strong>Nome da conta</strong>, selecione uma conta de Armazenamento existente. A lista suspensa lista apenas as contas do Armazenamento localizadas no mesmo datacenter que você escolheu para provisionar o cluster.</li>
+			<li>Se você escolheu a opção <strong>Criar Novo Armazenamento</strong> ou <strong>Usar Armazenamento de Outra Assinatura</strong>, forneça o nome da conta do Armazenamento.</li>
+		</ul></td></tr>
+	<tr><td>Chave de conta</td>
+		<td>Se você escolheu a opção <strong>Usar Armazenamento de Outra Assinatura</strong>, especifique a chave dessa conta do Armazenamento.</td></tr>
+	<tr><td>Contêiner padrão</td>
+		<td><p>Especifique o contêiner padrão da conta do Armazenamento que é utilizado como sistema de arquivos padrão para o cluster HDInsight. Se você tiver escolhido <strong>Usar Armazenamento Existente</strong> no campo <strong>Conta de Armazenamento</strong> e não existir nenhum contêiner nessa conta, por padrão, o contêiner será criado com o mesmo nome que o nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner. Por exemplo, meucontêiner1, meucontêiner2 e assim por diante. No entanto, se a conta do Armazenamento tiver um contêiner com um nome diferente do nome do cluster especificado, você poderá usar esse contêiner também.</p>
+        <p>Se você optou por criar um novo armazenamento ou usar o armazenamento de outra assinatura do Azure, especifique o nome do contêiner padrão.</p>
+    </td></tr>
+	<tr><td>Contas de armazenamento adicionais</td>
+		<td>O HDInsight dá suporte a várias contas do Armazenamento. Não há nenhum limite quanto ao número de contas do Armazenamento que um cluster pode usar. No entanto, se criar um cluster usando o Portal do Azure, você terá um limite de sete contas, devido a restrições da interface do usuário. Cada conta do Armazenamento adicional que você especifica adiciona um página <strong>Conta de Armazenamento</strong> extra ao assistente, em que você pode especificar as informações da conta. Por exemplo, na captura de tela acima, uma conta do Armazenamento adicional está selecionada e, portanto, a página 5 é adicionada à caixa de diálogo.</td></tr>
+</table>Clique na seta à direita.
 
 7. Se você optar por configurar armazenamento adicional para o cluster, na página **Conta de Armazenamento**, insira as informações da conta de armazenamento adicional:
 
@@ -306,7 +297,8 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para instalar a CLI do Azure usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**. 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
+1.	Navegue até ****http://azure.microsoft.com/downloads/**.
+2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
 
@@ -767,4 +759,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=06-->

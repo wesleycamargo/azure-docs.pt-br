@@ -46,7 +46,7 @@ Também é possível fazer logon sem exigir uma senha com esse método.
 
 Siga estas etapas para gerar a chave de autenticação SSH.
 
-1.	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	Baixe e instale o puttygen do seguinte local: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 2.	Execute PUTTYGEN.EXE.
 3.	Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela. ![][1]
 4.	Após o processo de geração, Puttygen.exe mostrará a chave gerada. Por exemplo: ![][2]
@@ -303,4 +303,4 @@ Após conectar, você deverá ver algo semelhante ao seguinte: ![][18]
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

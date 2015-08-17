@@ -97,7 +97,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 2. Na lista de contas de armazenamento em formato de tabela, passe o mouse sobre a conta que você deseja excluir.
 
-3. Um ícone de exclusão (* * x * *) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
+3. Um ícone de exclusão (**x**) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
 
 4. Quando solicitado a confirmar, clique em **Sim** para continuar com a exclusão. A listagem de tabela será atualizada para refletir as alterações.
 
@@ -145,11 +145,11 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 3. Na caixa de diálogo, faça o seguinte:
 
   1. Selecione a conta de armazenamento com a chave que você deseja atualizar.
-  2. Você precisará atualizar a chave de acesso de armazenamento no serviço StorSimple Manager. Nesse caso, você pode ver a chave de acesso de armazenamento. Insira a nova chave na caixa **Chave de A cesso da Conta de Armazenamento**. 
+  2. Você precisará atualizar a chave de acesso de armazenamento no serviço StorSimple Manager. Nesse caso, você pode ver a chave de acesso de armazenamento. Insira a nova chave na caixa **Chave de Acesso da Conta de Armazenamento**. 
   3. Salve suas alterações. Sua chave de acesso da conta de armazenamento deve estar atualizada.
 
 ## Próximas etapas
 
-Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md)
+Saiba mais sobre a [segurança do StorSimple](storsimple-security.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

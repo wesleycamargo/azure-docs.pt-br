@@ -47,11 +47,11 @@ Para fazer uma chamada para o SharePoint, é necessário especificar os pontos d
 
 3. Na seção Código do Aplicativo Móvel do Portal de Gerenciamento, navegue até a guia Configurar e role para baixo até as Configurações do Aplicativo. Aqui você pode fornecer um par chave-valor para ajudá-lo a ter referências das credenciais necessárias.
 
-* Configure SP_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele será do formato `https://login.windows.net/contoso.onmicrosoft.com`
+* Configure SP\_Authority para ser o ponto de extremidade de autoridade para seu locatário AAD. Esse deve ser o mesmo que o valor de autoridade usado para seu aplicativo cliente. Ele será do formato `https://login.windows.net/contoso.onmicrosoft.com`
 
-* Configure SP_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
+* Configure SP\_ClientSecret para ser o valor do segredo do cliente que você obteve anteriormente.
 
-* Configure SP_SharePointURL para ser a URL de seu site do SharePoint. Ele deve ser do formato `https://contoso-my.sharepoint.com`
+* Configure SP\_SharePointURL para ser a URL de seu site do SharePoint. Ele deve ser do formato `https://contoso-my.sharepoint.com`
 
 Você poderá obter esses valores novamente no seu código usando ApiServices.Settings.
 
@@ -182,10 +182,10 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/pt-br/sharepoint/
 [Autenticar seu Aplicativo com o Logon Único da Biblioteca do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensão de Serviço de Aplicativo do back-end .NET de aplicativos móveis]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

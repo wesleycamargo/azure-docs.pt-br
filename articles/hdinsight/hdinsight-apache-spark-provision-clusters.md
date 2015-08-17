@@ -502,4 +502,4 @@ Enquanto o aplicativo estiver aberto no Visual Studio, pressione **F5** para exe
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

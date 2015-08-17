@@ -64,9 +64,9 @@ Nesta seção, você usará o Git para implantar um arquivo de script compartilh
 Se não estiver familiarizado com a implantação de scripts para seu serviço móvel com o Git, examine o tutorial [Armazenar scripts do servidor] antes de concluir esta seção.
 
 1. Crie um novo arquivo de script denominado *rbac.js* no diretório *./service/shared/* do repositório local de seu serviço móvel.
-2. Adicione o seguinte script à parte superior do arquivo que define a função `getAADToken`. Dado o *tenant_domain*, *ID do cliente* do aplicativo integrado e *chave* do aplicativo, essa função fornece um token de acesso gráfico usado para ler informações de diretório.
+2. Adicione o seguinte script à parte superior do arquivo que define a função `getAADToken`. Dado o *tenant\_domain*, *ID do cliente* do aplicativo integrado e *chave* do aplicativo, essa função fornece um token de acesso gráfico usado para ler informações de diretório.
 
-    >[AZURE.NOTE]Você deve armazenar o token em cache, em vez de criar um novo com cada verificação de acesso. Em seguida, atualize o cache ao tentar usar o resultado do token em uma resposta 401 Authentication_ExpiredToken como observado na [Referência de erro de Graph API]. Para simplificar, isso não está demonstrado no código abaixo, mas aliviará o tráfego extra na rede em seu Active Directory.
+    >[AZURE.NOTE]Você deve armazenar o token em cache, em vez de criar um novo com cada verificação de acesso. Em seguida, atualize o cache ao tentar usar o resultado do token em uma resposta 401 Authentication\_ExpiredToken como observado na [Referência de erro de Graph API]. Para simplificar, isso não está demonstrado no código abaixo, mas aliviará o tráfego extra na rede em seu Active Directory.
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -288,4 +288,4 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,7 +19,10 @@
 
 # Trabalhar com um serviço móvel de back-end do JavaScript
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title="Back-end do .NET">Back-end do .NET</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="Back-end do JavaScript" class="current">Back-end do JavaScript</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end do JavaScript nos Serviços Móveis do Azure.
 
 ##<a name="intro"></a>Introdução
@@ -77,10 +80,10 @@ Uma função de script de tabela sempre usa três argumentos.
 
 Aqui estão as assinaturas das funções principais canônicas para as operações de tabela:
 
-+ [Inserir][insert function]: `function insert (item, user, request) { ... }`
-+ [Atualizar][update function]: `function update (item, user, request) { ... }`
-+ [Excluir][delete function]: `function del (id, user, request) { ... }`
-+ [Ler][read function]: `function read (query, user, request) { ... }`
++ [Inserir][insert function]\: `function insert (item, user, request) { ... }`
++ [Atualizar][update function]\: `function update (item, user, request) { ... }`
++ [Excluir][delete function]\: `function del (id, user, request) { ... }`
++ [Ler][read function]\: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]Uma função registrada para a operação de exclusão deve ser nomeada _del_ porque delete é uma palavra-chave reservada em JavaScript.
 
@@ -155,7 +158,7 @@ Você também pode usar um script para implementar a lógica de validação que 
 	    }
 	}
 
-Neste exemplo, a solicitação é rejeitada quando o item inserido não tem uma propriedade `userId` correspondente ao `userId` do [objeto de usuário] fornecido para o cliente autenticado. Nesse caso, uma operação de banco de dados (*inserir*) não é realizada, e uma resposta que tenha um código de status HTTP 403 e uma mensagem de erro personalizada é retornada ao cliente. Para obter mais exemplos, consulte [Modificar a resposta].
+Neste exemplo, a solicitação é rejeitada quando o item inserido não tem uma propriedade `userId` correspondente ao `userId` do [objeto de usuário] fornecido para o cliente autenticado. Neste caso, uma operação de banco de dados (*inserir*) não é realizada, e uma resposta que tenha um código de status HTTP 403 e uma mensagem de erro personalizada é retornada ao cliente. Para obter mais exemplos, consulte [Modificar a resposta].
 
 ###<a name="override-success"></a>Como substituir executar êxito
 
@@ -430,7 +433,7 @@ Várias rotas são definidas através da exportação de uma função de **regis
 		    res.send(200, { result: result });
 		}
 
-O objeto **api** passado para a função **registro** expõe uma função para cada método HTTP (**get**, **post**, **put**, **patch** e **delete**). Essas funções registram uma rota para uma função definida de um método específico de HTTP. Cada função aceita dois parâmetros, o primeiro é o nome de rota e o segundo é a função registrada para a rota.
+O objeto **api** objeto passado para a função **registrar** expõe uma função para cada método HTTP (**get**, **post**, **put**, **patch**, **delete**). Essas funções registram uma rota para uma função definida de um método específico de HTTP. Cada função aceita dois parâmetros, o primeiro é o nome de rota e o segundo é a função registrada para a rota.
 
 As duas rotas no exemplo acima de API personalizada podem ser chamadas por solicitações HTTP GET da seguinte maneira (mostrada com a resposta):
 
@@ -772,38 +775,16 @@ Quando você estiver gravando scripts de servidor que usam as funções [inserir
 
 Quando você usa o [objeto de tabelas] ou o [objeto mssql], ou quando deixa os scripts de tabela em execução, os objetos JavaScript desserializados são inseridos no banco de dados SQL. Nesse processo, as propriedades do objeto são mapeadas por tipos de T-SQL:
 
-<table border="1">
-<tr>
-<td>Propriedade JavaScript</td>
-<td>Tipo T-SQL</td>
-</tr><tr>
-<td>Número</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Booliano</td>
-<td>Bit</td>
-</tr><tr>
-<td>Data</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>Cadeia de caracteres</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>Sem suporte</td>
-</tr><tr>
-<td>Objeto</td>
-<td>Sem suporte</td>
-</tr><tr>
-<td>Matriz</td>
-<td>Sem suporte</td>
-</tr><tr>
-<td>Fluxo</td>
-<td>Sem suporte</td>
-</tr>
-</table>
+Propriedade JavaScript|Tipo T-SQL
+---|---
+Número|Float(53)
+Booliano|Bit
+Data|DateTimeOffset(3)|
+Cadeia de caracteres|Nvarchar(max)
+Buffer|Sem suporte
+Objeto|Sem suporte
+Matriz|Sem suporte
+Fluxo|Sem suporte
 
 ###<a name="TSQL"></a>Usando o Transact-SQL para acessar tabelas
 
@@ -1076,4 +1057,4 @@ Para evitar sobrecarregar o log, você deve remover ou desabilitar chamadas para
 [Suporte para package.json nos Serviços Móveis do Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

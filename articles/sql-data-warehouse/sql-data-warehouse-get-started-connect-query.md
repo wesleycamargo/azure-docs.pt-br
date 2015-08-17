@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -105,9 +105,7 @@ Agora você pode ver o Pesquisador de objetos do SQL Server:
 
 3. Clique no botão "Adicionar servidor" no Pesquisador de objetos do SQL Server. Isso está realçado na imagem abaixo:
 
-4. Preencha a caixa de diálogo Conectar ao servidor
-
-Use os valores que você escolheu ao criar o servidor lógico.
+4. Preencha a caixa de diálogo Conectar ao Servidor com os valores que você escolheu ao criar o servidor lógico. Além disso, clique no botão de opções e especifique o banco de dados ao qual você está se conectando (sua instância do SQL Data Warehouse) antes de se conectar.
 
 Fique à vontade para marcar a caixa de verificação "Lembrar senha" se desejar. É uma boa economia de tempo, mas lembre-se de que isso permite que qualquer pessoa com acesso físico ao seu perfil realize consultas usando essa conta.
 
@@ -145,13 +143,13 @@ Para se conectar a uma instância específica do SQL DW usando o sqlcmd, você p
 Portanto, para se conectar a uma instância de SQL DW, digite o seguinte:
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância. Por exemplo, as instruções abaixo aproveitam a instrução [CRIAR TABELA](https://msdn.microsoft.com/library/azure/dn268335.aspx) para criar uma nova tabela
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -185,6 +183,7 @@ Agora que registramos o nosso servidor, vamos prosseguir e criar uma consulta.
 	Para executar a consulta, clique na seta verde abaixo ou use o atalho a seguir `CTRL`+`SHIFT`+`F5`:
 
 ## Próximas etapas ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

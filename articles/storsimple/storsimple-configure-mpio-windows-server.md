@@ -168,4 +168,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

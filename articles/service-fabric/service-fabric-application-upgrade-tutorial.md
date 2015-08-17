@@ -82,17 +82,17 @@ UpgradeTimeout = 3000
 
 Agora, o aplicativo está compilado e pronto para ser atualizado. Se você abrir uma janela do PowerShell como administrador e digitar **Get-ServiceFabricApplication**, você será informado o Aplicativo Tipo 1.0.0.0 do **VisualObjects** foi implantado. O pacote de aplicativo é armazenado no seguinte caminho relativo onde você descompactou o SDK de Malha do serviço - *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. Você deve localizar uma pasta de "Pacote" nesse diretório - esse é o local onde o pacote do aplicativo está armazenado. Verifique os carimbos de hora para garantir que é a compilação mais recente (e talvez seja necessário modificar os caminhos adequadamente também).
 
-Agora vamos copiar o pacote de aplicativo atualizado para o ImageStore de Malha do serviço (onde os pacotes de aplicativos são armazenados pela Malha do serviço). O parâmetro *ApplicationPackagePathInImageStore* informa à Malha de serviço onde ela pode encontrar o pacote do aplicativo. Criamos o aplicativo atualizado no "VisualObjects_V2" com o seguinte comando (talvez seja necessário modificar novamente os caminhos).
+Agora vamos copiar o pacote de aplicativo atualizado para o ImageStore de Malha do serviço (onde os pacotes de aplicativos são armazenados pela Malha do serviço). O parâmetro *ApplicationPackagePathInImageStore* informa à Malha de serviço onde ela pode encontrar o pacote do aplicativo. Criamos o aplicativo atualizado no "VisualObjects\_V2" com o seguinte comando (talvez seja necessário modificar novamente os caminhos).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects_V2"
+-ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 A próxima etapa é registrar este aplicativo com a malha de serviço, o que pode ser feito usando o seguinte comando:
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects_V2"
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
 Se o comando acima não funcionar, é provável que você precise recompilar todos os serviços. Conforme mencionado na Etapa 2, você terá que atualizar sua versão do serviço Web.
@@ -126,4 +126,4 @@ Você talvez queira tentar alterar as versões e mudar da versão 2 para a vers�
 [Solucionar problemas de atualização de aplicativo ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

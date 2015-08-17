@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -137,7 +137,7 @@ Na folha de Pesquisa de Diagnóstico, defina Filtros para Exibição da Página.
 
 Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique em "..." para ver mais detalhes.
 
-> [AZURE.NOTE]Se você usar [Pesquisar][diagnostic], observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr\*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "\*obr" não corresponde a "Sobre".
+> [AZURE.NOTE]Se você usar [Pesquisar][diagnostic], observe que precisa fazer a correspondência de palavras inteiras: "Sobr" e "obre" não correspondem a "Sobre", mas "Sobr*" corresponde a ela. E você não pode iniciar um termo de pesquisa com um curinga. Por exemplo, pesquisar por "*obr" não corresponde a "Sobre".
 
 > [Saiba mais sobre pesquisa de diagnóstico][diagnostic]
 
@@ -182,4 +182,4 @@ Se ainda não tiver feito isso, você poderá obter percepções de seu servidor
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -54,8 +54,8 @@ Portanto, é impraticável listar todos os objetos em uma única resposta. Em ve
 
 A resposta para uma operação de listagem segmentada inclui:
 
--	<i>_segment</i>, que contém o conjunto de resultados retornado para uma única chamada à API de listagem. 
--	*continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
+-	<i>\_segment</i>, que contém o conjunto de resultados retornado para uma única chamada à API de listagem. 
+-	*continuation\_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
 
 Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte trecho de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
@@ -80,15 +80,15 @@ Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pod
 	}
 	while (!token.empty());
 
-Observe que o número de resultados retornados em uma página pode ser controlado pelo parâmetro *max_results* na sobrecarga de cada API, por exemplo:
+Observe que o número de resultados retornados em uma página pode ser controlado pelo parâmetro *max\_results* na sobrecarga de cada API, por exemplo:
 	
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
 		blob_listing_details::values includes, int max_results, const continuation_token& token, 
 		const blob_request_options& options, operation_context context)
 
-Se você não especificar o parâmetro *max_results*, o valor máximo padrão de até 5.000 resultados é retornado em uma única página.
+Se você não especificar o parâmetro *max\_results*, o valor máximo padrão de até 5.000 resultados é retornado em uma única página.
 
-Observe também que uma consulta em relação ao Armazenamento de Tabela do Azure pode retornar nenhum registro ou menos registros que o valor do parâmetro *max_results* especificado, mesmo se o token de continuação não estiver vazio. Uma razão pode ser que a consulta não conseguiu concluir em cinco segundos. Desde que o token de continuação não esteja vazio, a consulta deve continuar e seu código não deve presumir o tamanho dos resultados de segmento.
+Observe também que uma consulta em relação ao Armazenamento de Tabela do Azure pode retornar nenhum registro ou menos registros que o valor do parâmetro *max\_results* especificado, mesmo se o token de continuação não estiver vazio. Uma razão pode ser que a consulta não conseguiu concluir em cinco segundos. Desde que o token de continuação não esteja vazio, a consulta deve continuar e seu código não deve presumir o tamanho dos resultados de segmento.
 
 O padrão de codificação recomendado para a maioria dos cenários é a listagem segmentada, que fornece o progresso explícito de listagem ou consulta, e o modo como o serviço responde a cada solicitação. Especificamente para aplicativos C++ ou serviços, um controle de baixo nível do progresso da listagem pode ajudar a controlar a memória e o desempenho.
 
@@ -128,7 +128,7 @@ Você deve modificar o código para usar as APIs de listagem segmentada:
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
-Ao especificar o parâmetro *max_results* do segmento, você pode equilibrar entre os números de solicitações e uso de memória para atender às considerações de desempenho do seu aplicativo.
+Ao especificar o parâmetro *max\_results* do segmento, você pode equilibrar entre os números de solicitações e uso de memória para atender às considerações de desempenho do seu aplicativo.
 
 Além disso, se você estiver usando APIs de listagem segmentada, mas armazena os dados em uma coleção local em um estilo "greedy", também recomendamos refatorar seu código para manipular o armazenamento de dados em uma coleção local cuidadosamente em grande escala.
 
@@ -138,7 +138,7 @@ Embora a listagem greedy gerasse possíveis problemas, ela é conveniente se nã
 
 Se também estiver usando SDKs C# ou Oracle Java, você deve conhecer o modelo de programação Enumerável, que oferece uma listagem do estilo lazy, onde os dados em um determinado deslocamento são buscados somente se for necessário. Em C++, o modelo com base em iterador também fornece uma abordagem semelhante.
 
-Uma API típica de listagem lenta, que usa **list_blobs** por exemplo é semelhante ao seguinte:
+Uma API típica de listagem lenta, que usa **list\_blobs** por exemplo é semelhante ao seguinte:
 
 	list_blob_item_iterator list_blobs() const;
 
@@ -184,4 +184,4 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 -	[Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

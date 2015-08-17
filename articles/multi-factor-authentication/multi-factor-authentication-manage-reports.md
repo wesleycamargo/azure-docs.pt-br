@@ -50,4 +50,4 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

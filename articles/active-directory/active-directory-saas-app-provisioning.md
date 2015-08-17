@@ -84,7 +84,7 @@ O Azure AD provisiona usuários para aplicativos SaaS conectando-se a pontos de 
  - Se um usuário tiver sido recentemente atribuído ao aplicativo e já tiver uma conta no aplicativo SaaS, essa conta será marcada como habilitada e determinadas propriedades de usuário poderão ser atualizadas se estiverem desatualizadas em relação ao diretório.
  - Se as informações de um usuário (como número de telefone, local do escritório, etc.) forem alteradas no diretório, essas informações também serão atualizadas no aplicativo SaaS.
 
-Para saber mais sobre como os atributos são mapeados entre o Azure AD e seu aplicativo SaaS, confira o artigo [Personalização de mapeamentos de atributos](https://msdn.microsoft.com/library/azure/dn872469.aspx).
+Para saber mais sobre como os atributos são mapeados entre o Azure AD e seu aplicativo SaaS, confira o artigo [Personalização de mapeamentos de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
 ##Lista de aplicativos que dão suporte a provisionamento automatizado de usuários
 
@@ -106,4 +106,6 @@ Para que um aplicativo dê suporte a provisionamento automatizado de usuários, 
 
 Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o suporte de provisionamento para mais aplicativos, envie uma mensagem no [Fórum de comentários do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO5-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

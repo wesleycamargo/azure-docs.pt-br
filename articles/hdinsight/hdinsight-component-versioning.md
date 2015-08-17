@@ -80,7 +80,7 @@ Alguns dos principais recursos da plataforma HDInsight incluem:
 
 - **Apache Phoenix** -Apache Phoenix é uma camada de consulta SQL (Structured Query Language) em HBase. Ele dá suporte a um subconjunto limitado da especificação de linguagem de consulta SQL, incluindo suporte a índices secundários. É fornecido como um driver JDBC (Java Database Connectivity) integrado ao cliente que é destinado a consultas de baixa latência sobre dados do HBase. Apache Phoenix usa a consulta SQL, compila em uma série de chamadas de verificações e coprocessadores HBase e produz regulares conjuntos de resultados do JDBC. O Apache Phoenix é uma camada de banco de dados relacional em HBase. É fornecido como um driver JDBC integrado ao cliente que é destinado a consultas de baixa latência sobre dados do HBase. O Apache Phoenix usa a sua consulta SQL, compila-a em uma série de verificações do HBase e orquestra a execução dessas verificações para produzir conjuntos resultados JDBC regulares.
 
-- **Cluster Dashboard** - um novo aplicativo Web que é implantado no seu cluster HDInsight. Use-o para executar consultas do Hive, verificar logs de trabalho e procurar armazenamento de Blob do Azure. A URL usada para acessar o aplicativo Web é <*ClusterName*>.azurehdinsight.net.
+- **Cluster Dashboard** - um novo aplicativo Web que é implantado no seu cluster HDInsight. Use-o para executar consultas do Hive, verificar logs de trabalho e procurar armazenamento de Blob do Azure. A URL usada para acessar o aplicativo Web é <*NomeCluster*>.azurehdinsight.net.
 
 - **Biblioteca Microsoft Avro** - Essa biblioteca implementa o sistema de serialização de dados Apache Avro para o ambiente Microsoft .NET. O Apache Avro fornece um formato de intercâmbio de dados binários compactos para serialização. Ele usa a JSON (JavaScript Object Notation) para definir um esquema independente de linguagem que garanta a interoperabilidade de linguagem. Os dados serializados em uma linguagem podem ser lidos em outra diferente. Atualmente, há suporte para C, C++, C#, Java, PHP, Python e Ruby. O formato de serialização Apache Avro é amplamente usado no Azure HDInsight para representar estruturas de dados complexas em um trabalho MapReduce do Hadoop.
 
@@ -161,4 +161,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

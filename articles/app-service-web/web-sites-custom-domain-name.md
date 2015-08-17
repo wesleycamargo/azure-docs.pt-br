@@ -44,7 +44,7 @@ Dentro dessa estrutura de tópicos básica, existem casos específicos a se cons
 
 - Mapeando o seu domínio raiz. O domínio raiz é aquele que você reservou com o registrador. Por exemplo, **contoso.com**.
 - Mapeando um subdomínio. Por exemplo, **blogs.contoso.com**. Você pode mapear outros subdomínios para aplicativos Web diferentes.
-- Mapeando um curinga. Por exemplo, **\*.contoso.com**. Uma entrada curinga se aplica a todos os subdomínios do seu domínio.
+- Mapeando um curinga. Por exemplo, ***.contoso.com**. Uma entrada curinga se aplica a todos os subdomínios do seu domínio.
 
 [AZURE.INCLUDE [modos](../../includes/custom-dns-web-site-modes.md)]
 
@@ -147,4 +147,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

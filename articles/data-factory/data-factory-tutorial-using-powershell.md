@@ -118,7 +118,7 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
 	
 	Alternativamente, você pode usar os arquivos na pasta: C:\\ADFWalkthrough\\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
    
-2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o **Portal de Gerenciamento do Azure** ou **sp_set_firewall_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
+2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o **Portal de Gerenciamento do Azure** ou **sp\_set\_firewall\_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
 4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\\ADFWalkthrough**)
 5. Execute **uploadSampleDataAndScripts.ps1** 
 6. Depois que o script for executado com êxito, você verá o seguinte:
@@ -296,7 +296,7 @@ O Portal do Azure não dá suporte à criação de conjuntos de dados e tabelas 
 
 ### Para criar as tabelas
 
-1.	No PowerShell do Azure, navegue até a pasta **Tabelas** (**C:\\ADFWalkthrough\\Tables**) do local onde você extraiu os exemplos. 
+1.	No PowerShell do Azure, navegue até a pasta **Tabelas** (**C:\\ADFWalkthrough\\Tables**) do local onde você extraiu os exemplos.
 2.	Use o cmdlet **New-AzureDataFactoryTable** para criar as tabelas conforme descrito a seguir para **RawGameEventsTable**.json	
 
 
@@ -434,7 +434,7 @@ Para especificar o período ativo para o pipeline, você pode usar o cmdlet Set-
 
 	![Folha FATIA DE DADOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se houver um erro, você verá um **status **Falha aqui. Você também pode ver as duas fatias com status **Pronto** ou com status **PendingValidation**, dependendo da rapidez com que as fatias são processadas.
+	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com status **Pronto** ou com status **PendingValidation**, dependendo da rapidez com que as fatias são processadas.
  
 	Consulte a [Referência do Desenvolvedor do Azure Data Factory][developer-reference] para obter uma compreensão de todos os status possíveis da fatia.
 
@@ -559,4 +559,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

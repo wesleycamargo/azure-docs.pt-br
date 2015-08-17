@@ -25,7 +25,8 @@ Para usar o balanceamento de carga para serviços em nuvem e sites (pontos de ex
 2. No Portal de Gerenciamento, no painel do Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar e, em seguida, clique na seta à direita do nome do perfil. Isso abrirá a página de configurações do perfil.
 3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes. Para obter as etapas para adicionar ou remover pontos de extremidade de seu perfil, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
 4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
-5. Em **Configurações de Método de Balanceamento de Carga**, verifique se o método de balanceamento de carga é **Desempenho*. Se não for, clique em **Desempenho** na lista suspensa.6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, você deve especificar um caminho e um nome de arquivo. Observe que uma barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). Para obter mais informações sobre o monitoramento, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
+5. Em **Configurações de Método de Balanceamento de Carga**, verifique se o método de balanceamento de carga é **Desempenho*. Se não for, clique em **Desempenho** na lista suspensa.
+6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, você deve especificar um caminho e um nome de arquivo. Observe que uma barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). Para obter mais informações sobre o monitoramento, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 7. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
 8. Teste as alterações em sua configuração. Para obter mais informações, consulte [Testando as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
 9. Depois que seu perfil do Gerenciador de Tráfego estiver configurado e funcionando, edite o registro de DNS em seu servidor DNS autoritativo para apontar o nome de domínio de sua empresa para o nome de domínio do Gerenciador de Tráfego. Para obter mais informações sobre como fazer isso, consulte [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md).
@@ -48,4 +49,4 @@ Para usar o balanceamento de carga para serviços em nuvem e sites (pontos de ex
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

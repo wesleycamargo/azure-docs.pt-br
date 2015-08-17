@@ -34,10 +34,10 @@ O esquema de dados de entrada do serviço Web é mostrado na tabela a seguir. S�
 
 - trainingdata - uma cadeia de caracteres. As linhas são separadas por vírgulas; as colunas são separadas por ponto e vírgula. Cada linha inclui a dimensão de "tempo", a dimensão de "evento" e as variáveis do preditor.
 - testingdata - Uma linha de dados que contém variáveis de previsão para um determinado objeto.
-- time_of_interest - O tempo de interesse decorrido n.
-- index_time - O índice da coluna da dimensão de "tempo" (a partir de 1).
-- index_event - O índice da coluna da dimensão de "evento" (a partir de 1).
-- variable_types - Uma cadeia de caracteres com ponto e vírgula como separador. 0 representa variáveis contínuas e 1 representa variáveis de fator.
+- time\_of\_interest - O tempo de interesse decorrido n.
+- index\_time - O índice da coluna da dimensão de "tempo" (a partir de 1).
+- index\_event - O índice da coluna da dimensão de "evento" (a partir de 1).
+- variable\_types - Uma cadeia de caracteres com ponto e vírgula como separador. 0 representa variáveis contínuas e 1 representa variáveis de fator.
 
 
 A saída é a probabilidade de um evento ocorrer em um determinado tempo.
@@ -87,7 +87,7 @@ A interpretação desse teste é a seguinte: Supondo que o objetivo dos dados se
 
 >Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 
-De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida.
+De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival\_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida.
 
 ###Fluxo de teste:
 
@@ -207,4 +207,4 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

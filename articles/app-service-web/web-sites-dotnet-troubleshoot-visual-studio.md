@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar um aplicativo Web enquanto ele é executado em um [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotamente ou então exibindo logs do aplicativo e do servidor Web.
+Este tutorial mostra como usar ferramentas do Visual Studio que ajudam a depurar um aplicativo Web enquanto ele é executado em um [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), seja executando-o no [modo de depuração](http://www.visualstudio.com/pt-br/get-started/debug-your-app-vs.aspx) remotamente ou então exibindo logs do aplicativo e do servidor Web.
 
 O que você aprenderá:
 
@@ -69,7 +69,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento e
    
 	Para saber mais sobre as caixas Configurações do Aplicativo e Cadeias de Conexão nessa janela, confira [Aplicativos Web do Azure: como as cadeias de caracteres do aplicativo e as cadeias de conexão funcionam](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Se você desejar executar uma tarefa de gerenciamento de aplicativo Web que não possa ser executada nessa janela, pode clicar em **Configurações Completas de Aplicativos Web** para abrir uma janela do navegador para o portal de gerenciamento. Para saber mais, confira [Como configurar Aplicativos Web](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Se você desejar executar uma tarefa de gerenciamento de aplicativo Web que não possa ser executada nessa janela, pode clicar em **Configurações Completas de Aplicativos Web** para abrir uma janela do navegador para o portal de gerenciamento. Para saber mais, confira [Como configurar Aplicativos Web](/pt-br/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Acessar arquivos de aplicativo Web no Gerenciador de Servidores
 
@@ -269,7 +269,7 @@ Se a sua função [criou logs](websites-dotnet-webjobs-sdk-storage-queues-how-to
 
 * Um timer é iniciado no servidor quando você habilita o recurso de depuração remota e, após 48 horas, o recurso é desativado automaticamente. Esse limite de 48 horas é definido por razões de segurança e desempenho. Você pode reativá-lo facilmente quantas vezes quiser. É recomendável deixá-lo desabilitado quando você não está depurando ativamente.
 
-* Você pode anexar manualmente o depurador a qualquer processo, não apenas ao processo do aplicativo Web (w3wp.exe). Para obter mais informações sobre como usar o modo de depuração no Visual Studio, consulte [Depurando no Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx).
+* Você pode anexar manualmente o depurador a qualquer processo, não apenas ao processo do aplicativo Web (w3wp.exe). Para obter mais informações sobre como usar o modo de depuração no Visual Studio, consulte [Depurando no Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Visão geral dos logs de diagnóstico
 
@@ -565,8 +565,7 @@ As contas de armazenamento oferecem mais armazenamento e retenção por mais tem
 
 1. Na janela **Aplicativo Web do Azure** do Visual Studio, clique na guia **Logs** e depois em **Configurar registro em log no portal de gerenciamento**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configurar o registro em log](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Isso abre a guia **Configurar** no portal de gerenciamento do seu aplicativo Web. Outra maneira de fazer isso é clicar na guia **Aplicativos Web**, clicar em seu aplicativo Web e, em seguida, clicar na guia **Configurar**.
 
@@ -752,7 +751,7 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 
 ### Depurando serviços de nuvem
 
-Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo Web, confira [Depurando serviços de nuvem](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
+Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo Web, confira [Depurando serviços de nuvem](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 >[AZURE.NOTE]Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
@@ -764,4 +763,4 @@ Se você quiser depurar um serviço de nuvem do Azure em vez de um aplicativo We
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

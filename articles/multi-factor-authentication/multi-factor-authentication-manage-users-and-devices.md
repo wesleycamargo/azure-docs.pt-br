@@ -80,4 +80,4 @@ Os administradores têm a capacidade de redefinir a autenticação multifator em
 <li>Na parte superior, clique em Usuários.</li>
 <li>Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator. <li>Encontre o usuário que você deseja gerenciar e marque a caixa localizada ao lado do nome. Talvez seja necessário alterar o modo de exibição na parte superior.</li> <li>Isso abrirá o link **Gerenciar configurações de usuário** à direita. Clique.</li> <li>Marque Restaurar o Multi-Factor Authentication em todos os dispositivos suspensos.</li> ![Excluir senhas de aplicativo](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Clique em Salvar.</li> <li>Clique em Fechar.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

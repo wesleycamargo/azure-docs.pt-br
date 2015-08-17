@@ -32,7 +32,7 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-store-sdk-content
 
 ##Notas de versão
 
-###3.1.0 (21/05/2015)
+###3\.1.0 (21/05/2015)
 
 -   A ID do dispositivo Mobile Engagement agora se baseia em um GUID gerado no momento da instalação
 
@@ -53,4 +53,4 @@ Esta etapa aborda apenas os recursos personalizados. Se você personalizou os re
 
 Consulte [Procedimentos de atualização](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

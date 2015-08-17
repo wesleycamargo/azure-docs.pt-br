@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao SDK do .NET do Banco de Dados de Documentos | Azure"
+	pageTitle="Introdução ao SDK do .NET do Banco de Dados de Documentos | Microsoft Azure"
 	description="Aprenda a criar e configurar uma conta do Banco de Dados de Documentos Azure, criar bancos de dados, criar coleções e armazenar documentos JSON em uma conta do banco de dados de documentos NoSQL."
 	services="documentdb"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
@@ -475,4 +475,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

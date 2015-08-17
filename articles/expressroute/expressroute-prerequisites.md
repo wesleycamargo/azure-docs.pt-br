@@ -45,4 +45,4 @@ Para se conectar aos serviços em nuvem da Microsoft usando Rota Expressa, você
 	- [Configurar uma conexão de Rota Expressa por meio de um provedor do Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

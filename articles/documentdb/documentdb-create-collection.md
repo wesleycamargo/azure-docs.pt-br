@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/08/2015" 
 	ms.author="mimig"/>
 
@@ -62,4 +62,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois de ter documentos em uma coleção, você pode usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal de visualização, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

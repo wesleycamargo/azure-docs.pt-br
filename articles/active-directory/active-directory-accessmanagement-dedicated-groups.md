@@ -33,4 +33,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

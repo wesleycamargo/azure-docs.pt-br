@@ -72,4 +72,4 @@ Consulte [Integrar com o Stream Analytics do Azure](../sql-data-warehouse-integr
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/30/2015" 
 	ms.author="szark"/>
 
 
@@ -211,7 +211,7 @@ Tipo: Padrão Booliano: y
 
 Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se o provisionamento for desabilitado, as chaves SSH de host e usuário da imagem serão preservadas e qualquer configuração especificada na API de provisionamento do Azure será ignorada.
 
-	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+**Observação:** esse parâmetro segue o padrão "n" nas imagens de nuvem do Ubuntu que usam cloud-init para provisionamento.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -317,4 +317,4 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

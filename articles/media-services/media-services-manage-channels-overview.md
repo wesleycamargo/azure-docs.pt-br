@@ -22,7 +22,7 @@
 
 Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo das seguintes maneiras:
 
-- Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Seu codificador ao vivo pode também enviar um fluxo de taxa de bits única, mas isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+- Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais** sem nenhum processamento adicional. Seu codificador ao vivo pode também enviar um fluxo de taxa de bits única, mas isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 
 O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ao vivo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
@@ -125,12 +125,12 @@ Ao se usar um codificador ao vivo local para gerar um fluxo com múltiplas taxas
 
 A tabela a seguir mostra como a duração do segmento é calculada:
 
-<table border="1">
-<tr><th>Intervalo de quadro-chave</th><th>Taxa de empacotamento de segmento HLS (FragmentsPerSegment)</th><th>Exemplo</th></tr>
-<tr><td>menor ou igual a 3 segundos</td><td>3:1</td><td>Se KeyFrameInterval (ou GOP) for de 2 segundos, a taxa de empacotamento padrão de segmento HLS será de 3 para 1, o que criará um segmento HLS de 6 segundos.</td></tr>
-<tr><td>3 a 5 segundos</td><td>2:1</td><td>Se KeyFrameInterval (ou GOP) for de 4 segundos, a taxa de empacotamento padrão de segmento HLS será de 2 para 1, o que criará um segmento HLS de 8 segundos.</td></tr>
-<tr><td>mais de 5 segundos</td><td>1:1</td><td>Se KeyFrameInterval (ou GOP) for de 6 segundos, a taxa de empacotamento padrão de segmento HLS será de 1 para 1, o que criará um segmento HLS de 6 segundos.</td></tr>
-</table>
+Intervalo de quadro-chave|Taxa de empacotamento de segmento HLS (FragmentsPerSegment)|Exemplo
+---|---|---
+menor ou igual a 3 segundos|3:1|Se KeyFrameInterval (ou GOP) for de 2 segundos, a taxa de empacotamento padrão de segmento HLS será de 3 para 1, o que criará um segmento HLS de 6 segundos.
+3 a 5 segundos|2:1|Se KeyFrameInterval (ou GOP) for de 4 segundos, a taxa de empacotamento padrão de segmento HLS será de 2 para 1, o que criará um segmento HLS de 8 segundos.
+mais de 5 segundos|1:1|Se KeyFrameInterval (ou GOP) for de 6 segundos, a taxa de empacotamento padrão de segmento HLS será de 1 para 1, o que criará um segmento HLS de 6 segundos.
+
 
 Você pode alterar a taxa de fragmentos por segmento configurando a saída do canal e definindo FragmentsPerSegment em ChannelOutputHls.
 
@@ -166,7 +166,7 @@ Você pode definir os endereços IP que têm permissão para conectar-se ao pont
 
 ###Saída do canal
 
-Para obter mais informações, consulte a seção [intervalo de quadro-chave de configuração](#keyframe_interval).
+Para saber mais, consulte a seção [intervalo de quadro-chave de configuração](#keyframe_interval).
 
 
 ###Programas do canal
@@ -201,24 +201,23 @@ O estado atual de um canal. Os valores possíveis incluem:
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
  
-<table border="1">
-<tr><th>Estado de canal</th><th>Indicadores da interface do usuário do portal</th><th>Cobrado?</th></tr>
-<tr><td>Iniciando</td><td>Iniciando</td><td>Nenhum (estado transitório)</td></tr>
-<tr><td>Executando</td><td>Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução)</td><td>Sim</td></tr>
-<tr><td>Parando</td><td>Parando</td><td>Nenhum (estado transitório)</td></tr>
-<tr><td>Parada</td><td>Parada</td><td>Não</td></tr>
-</table>
+Estado de canal|Indicadores da interface do usuário do portal|Cobrado?
+---|---|---|---
+Iniciando|Iniciando|Nenhum (estado transitório)
+Executando|Pronto (nenhum programa em execução)<p>ou<p>Streaming (pelo menos um programa em execução)|Sim
+Parando|Parando|Nenhum (estado transitório)
+Parada|Parada|Não
 
 ###Legendagem oculta e inserção de anúncios 
 
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-<table border="1">
-<tr><th>Padrão</th><th>Observações</th></tr>
-<tr><td>CEA-708 e EIA-608 (708/608)</td><td>CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<br/>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ao vivo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregarão o conteúdo com legendas inseridas a seus usuários.</td></tr>
-<tr><td>TTML em ismt (faixas de texto de Smooth Streaming)</td><td>O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: MPEG DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você só poderá entregar o fluxo a clientes de Smooth Streaming.</td></tr>
-<tr><td>SCTE-35</td><td>O sistema de sinalização digital usado para a inserção de anúncios de indicação. Receptores de downstream usam o sinal para unir a publicidade ao fluxo pelo tempo alocado. SCTE-35 deve ser enviado como uma faixa esparsa no fluxo de entrada.<br/>Observe que, no momento, o único formato de fluxo de entrada com suporte que transporta sinais de anúncios é o MP4 fragmentado (Smooth Streaming). O único formato de saída com suporte também é Smooth Streaming.</td></tr>
-</table>
+Padrão|Observações
+---|---
+CEA-708 e EIA-608 (708/608)|CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá..<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ao vivo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregarão o conteúdo com legendas inseridas a seus usuários.
+TTML em ismt (faixas de texto de Smooth Streaming)|O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: MPEG DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você só poderá entregar o fluxo a clientes de Smooth Streaming.
+SCTE-35|O sistema de sinalização digital usado para a inserção de anúncios de indicação. Receptores de downstream usam o sinal para unir a publicidade ao fluxo pelo tempo alocado. SCTE-35 deve ser enviado como uma faixa esparsa no fluxo de entrada.<p><p>Observe que, no momento, o único formato de fluxo de entrada com suporte que transporta sinais de anúncios é o MP4 fragmentado (Smooth Streaming). O único formato de saída com suporte também é Smooth Streaming.
+
 
 ##<a id="Considerations"></a>Considerações
 
@@ -263,7 +262,7 @@ Escolha **.NET** ou **API REST** para conectar-se aos Serviços de Mídia do Azu
 
 ###Criando Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
-Para obter mais informações codificadores ao vivo locais, consulte [Usando 3ª parte dos codificadores ao vivo com os serviços de mídia do Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+Para saber mais sobre codificadores locais ativos, consulte [Usando codificadores ativos de terceiros com os Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar canais e programas.
 
@@ -331,4 +330,4 @@ Para obter informações sobre unidades de streaming de dimensionamento, consult
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

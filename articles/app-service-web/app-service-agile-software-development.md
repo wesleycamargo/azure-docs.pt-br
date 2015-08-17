@@ -105,7 +105,7 @@ Em um cenário típico de DevOps, você tem um aplicativo que está em execuçã
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>\*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
+7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
  
 5.	Faça logon no [Portal de Visualização do Azure](https://portal.azure.com) e veja o que foi criado.
 
@@ -279,4 +279,4 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 -	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

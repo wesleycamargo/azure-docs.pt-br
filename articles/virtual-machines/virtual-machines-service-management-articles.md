@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
 	ms.date="07/28/2015"
@@ -150,4 +150,4 @@ Esta é uma lista de artigos para trabalhar com máquinas virtuais no Gerenciame
 
 [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

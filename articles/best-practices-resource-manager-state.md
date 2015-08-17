@@ -294,7 +294,7 @@ Se precisar de vários conjuntos de disponibilidade (por exemplo, um para nós m
 
 ##### storageSettings
 
-Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo a seguir, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
+Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo abaixo, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -306,7 +306,7 @@ Detalhes de armazenamento geralmente são compartilhados com modelos vinculados.
 
 Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil dar suporte a várias opções de sistema operacional para implantação.
 
-O exemplo a seguir mostra um objeto de *osSettings*:
+O exemplo a seguir mostra um objeto para *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -360,7 +360,7 @@ A seção de variáveis é onde você encontrará as variáveis que definem o te
 
 ## Retornando o estado de um modelo
 
-Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção de **saídas** de um modelo vinculado, você pode fornecer os pares chave-valor que podem ser consumidos pelo modelo de origem.
+Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção de **outputs** de um modelo vinculado, você pode fornecer os pares chave-valor que podem ser consumidos pelo modelo de origem.
 
 O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo vinculado.
 
@@ -381,4 +381,4 @@ No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 - [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

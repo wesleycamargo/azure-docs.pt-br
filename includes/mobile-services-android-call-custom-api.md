@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>Atualizar o aplicativo para chamar a API personalizada
 
-1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Android Studio, abra o arquivo *res\\layout\\activity_to_do.xml* do projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
+1. Adicionaremos um botão rotulado como "Tudo Completo" ao lado do botão existente e moveremos ambos os botões abaixo de uma linha. No Android Studio, abra o arquivo *res\\layout\\activity\_to\_do.xml* do projeto quickstart, localize o elemento **LinearLayout** que contém o elemento **Botão** chamado `buttonAddToDo`. Copie o **LinearLayout** e cole-o logo depois do original. Exclua o elemento **Botão** do primeiro **LinearLayout**.
 
 2. No segundo **LinearLayout**, exclua o elemento **EditText** e adicione o código a seguir imediatamente após o elemento **Botão** existente:
 
@@ -112,4 +112,4 @@
 
 	É exibida uma caixa de diálogo de mensagem que indica o número de itens marcados como concluídos, e a consulta filtrada é executada novamente, o que limpa todos os itens da lista.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

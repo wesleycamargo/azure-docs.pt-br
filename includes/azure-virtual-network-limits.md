@@ -1,40 +1,30 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Limite padrão</th>
-   <th align="left" valign="middle">Limite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Redes virtuais</a><sup>1</sup> por assinatura</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Máquinas totais<sup>2</sup> por rede virtual</p></td>
-   <td valign="middle"><p>2.048</p></td>
-   <td valign="middle"><p>2.048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Conexões TCP simultâneas para uma máquina virtual ou instância de função</p></td>
-   <td valign="middle"><p>500K</p></td>
-   <td valign="middle"><p>500K</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Listas de Controle de Acesso (ACLs) por ponto de extremidade<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Sites de rede local por rede virtual</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Cada rede virtual oferece suporte a um único [gateway de rede virtual](http://msdn.microsoft.com/library/azure/jj156210.aspx).
+| Recurso | Limite padrão
+--- | ---
+| Redes virtuais por assinatura | 10
+| Máquinas virtuais e instâncias de função por rede virtual | 2048
+| Conexões TCP simultâneas para uma máquina virtual ou instância de função | 500K
+| Listas de Controle de Acesso (ACLs) por ponto de extremidade | 50
+| Sites de rede local por rede virtual | 10
 
-<sup>2</sup>O número total de máquinas inclui máquinas virtuais e instâncias de funções de trabalho/Web.
+### Limites de Rede - Gerenciador de Recursos do Azure
 
-<sup>3</sup>Há suporte para ACL nos Pontos de Extremidade de Entrada para Máquinas Virtuais. Para funções de trabalho/Web, ACL tem suporte nos pontos de extremidade de entrada de instância e na entrada.
+Os limites a seguir aplicam-se apenas a recursos de rede gerenciados por meio do Gerenciador de Recursos do Azure.
 
-<!---HONumber=July15_HO4-->
+| Recurso | Limite padrão
+--- | ---
+| Redes virtuais por assinatura | 50 por região
+| Servidores DNS por rede virtual | 9
+| Balanceadores de carga internos por conjunto de disponibilidade | 1
+| Balanceadores de carga para Internet por conjunto de disponibilidade | 1
+| Balanceadores de carga (internos e para Internet) por assinatura | 100 por região
+| Regras de balanceador de carga por balanceador de carga | 150
+| Endereços IP públicos (dinâmicos) por assinatura | 60 por região
+| Endereços IP públicos (estáticos) por assinatura | 20 por região
+| NSG (Grupos de Segurança de Rede) por assinatura | 100 por região
+| Regras de NSG por NSG | 100
+| NIC (interfaces de rede) por assinatura | 300 por região
+
+Contate o suporte caso precise aumentar esses limites.
+
+<!---HONumber=August15_HO6-->

@@ -106,7 +106,7 @@ Ao criar um pool, você pode especificar os seguintes atributos:
 - A família do sistema operacional e a versão que é executada nos nós.
 	- Assim como acontece com funções de trabalho, a família do sistema operacional e a versão do sistema operacional podem ser configuradas.
 	- A família de sistema operacional também determina quais versões do .NET são instaladas com o sistema operacional.
-	- Da mesma forma que as funções de trabalho, para a versão do sistema operacional é recomendável que "\*" seja usado para que os nós sejam atualizados automaticamente e não haja nenhum trabalho necessário para atender as novas versões. O caso de uso principal para escolher uma versão específica do sistema operacional é garantir que a compatibilidade do aplicativo seja mantida, permitindo que seja realizado um teste de compatibilidade com versões anteriores antes de permitir que a versão seja atualizada. Uma vez validada, a versão do sistema operacional para o pool pode ser atualizada e a nova imagem do sistema operacional pode ser instalada — qualquer tarefa em execução será interrompida e colocada novamente na fila.
+	- Da mesma forma que as funções de trabalho, para a versão do sistema operacional é recomendável que "*" seja usado para que os nós sejam atualizados automaticamente e não haja nenhum trabalho necessário para atender as novas versões. O caso de uso principal para escolher uma versão específica do sistema operacional é garantir que a compatibilidade do aplicativo seja mantida, permitindo que seja realizado um teste de compatibilidade com versões anteriores antes de permitir que a versão seja atualizada. Uma vez validada, a versão do sistema operacional para o pool pode ser atualizada e a nova imagem do sistema operacional pode ser instalada — qualquer tarefa em execução será interrompida e colocada novamente na fila.
 
 - O número de destino dos nós que devem estar disponíveis para o pool.
 
@@ -385,4 +385,4 @@ Cada nó em um pool tem um nome exclusivo e o nó no qual uma tarefa é executad
 
 [Visão geral do Lote do Azure]: batch-technical-overview.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

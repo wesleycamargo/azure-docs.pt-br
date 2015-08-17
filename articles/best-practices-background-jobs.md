@@ -97,8 +97,8 @@ Você pode usar os WebJobs do Azure para executar trabalhos personalizados como 
 
 Ao configurar um WebJob:
 
-- Se desejar que o trabalho responda a um gatilho acionado por evento, ele deverá ser configurado como **Executar continuamente**. O script ou programa é armazenado na pasta chamada site/wwwroot/app_data/jobs/continuous.
-- Se você quiser que o trabalho responda a um gatilho controlado por programação, ele deve ser configurado como **Executado com agendamento**. O script ou o programa é armazenado na pasta chamada site/wwwroot/app_data/jobs/triggered.
+- Se desejar que o trabalho responda a um gatilho acionado por evento, ele deverá ser configurado como **Executar continuamente**. O script ou programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/continuous.
+- Se você quiser que o trabalho responda a um gatilho controlado por programação, ele deve ser configurado como **Executado com agendamento**. O script ou o programa é armazenado na pasta chamada site/wwwroot/app\_data/jobs/triggered.
 - Se você escolher a opção **Executar sob demanda** ao configurar um trabalho, ele executará o mesmo código que a opção **Executar em um agendamento** quando você iniciá-lo.
 
 Os WebJobs do Azure são executados na área restrita do site, o que significa que eles podem acessar variáveis de ambiente e compartilhar informações, como cadeias de conexão com o site. O trabalho tem acesso ao identificador exclusivo do computador que executa o trabalho. A cadeia de conexão chamada **AzureJobsStorage** fornece acesso a filas de armazenamento do Azure, blobs e tabelas para dados de aplicativo e o Barramento de Serviço para mensagens e comunicação. A cadeia de conexão chamada **AzureJobsDashboard** fornece acesso aos arquivos de log de ação do trabalho.
@@ -108,18 +108,18 @@ Os WebJobs do Azure têm as seguintes características:
 - **Segurança**: os WebJobs são protegidos pelas credenciais de implantação do site.
 - **Tipos de arquivo com suporte**: os WebJobs podem ser definidos usando scripts de comando (.cmd), arquivos em lotes (.bat), scripts do PowerShell (.ps1), scripts bash shell (.sh), scripts PHP (.PHP), scripts Python (.py), código JavaScript (.js) e programas executáveis (.exe, .jar e muito mais).
 - **Implantação**: os scripts e executáveis podem ser implantados usando o Portal do Azure, criado e implantado usando o suplemento [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) para o Visual Studio ou o [Visual Studio 2013, Atualização 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), usando o [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md), ou copiando-os diretamente para os seguintes locais:
-  - para a execução acionada: site/wwwroot/app_data/jobs/triggered/{nome do trabalho}
-  - para execução contínua: site/wwwroot/app_data/jobs/continuous/{nome do trabalho}
+  - para a execução acionada: site/wwwroot/app\_data/jobs/triggered/{nome do trabalho}
+  - para execução contínua: site/wwwroot/app\_data/jobs/continuous/{nome do trabalho}
 - **Registro em log**: Console.Out é tratado (marcado) como INFO e Console.Error como ERROR. As informações de monitoramento e diagnóstico podem ser acessadas usando o Portal do Azure e os arquivos de log podem ser baixados diretamente do site. Eles estão salvos nos seguintes locais:
   - para execução acionada: Vfs/data/jobs/continuous/jobName
   - para execução contínua: Vfs/data/jobs/triggered/jobName
 - **Configuração**: os WebJobs podem ser configurados usando o portal, a API REST e o PowerShell. Um arquivo de configuração chamado settings.job no mesmo diretório-raiz que o script de trabalho pode ser usado para fornecer informações de configuração para um trabalho. Por exemplo:
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### Considerações
 
-- Por padrão, o WebJobs faz escala com o site. No entanto, os trabalhos podem ser configurados para serem executados em única instância definindo a propriedade de configuração **is_singleton** como true. Os WebJobs de instância única são úteis para tarefas que você não deseja dimensionar ou executar como várias instâncias simultâneas, como reindexação, análise de dados e tarefas semelhantes.
+- Por padrão, o WebJobs faz escala com o site. No entanto, os trabalhos podem ser configurados para serem executados em única instância definindo a propriedade de configuração **is\_singleton** como true. Os WebJobs de instância única são úteis para tarefas que você não deseja dimensionar ou executar como várias instâncias simultâneas, como reindexação, análise de dados e tarefas semelhantes.
 - Para minimizar o impacto dos trabalhos no desempenho do site, considere a criação de uma instância vazia de Sites do Azure em um novo Plano de Serviço de Aplicativo para hospedar WebJobs que podem ser executados continuamente ou serem um recurso intensivo.
 
 ### Mais informações
@@ -236,9 +236,9 @@ As funções da web e de trabalho passam por um conjunto de fases distintas, com
 
 - O Azure carrega o assembly de função e ele o procura para uma classe que deriva de **RoleEntryPoint**.
 - Se ele encontrar essa classe, ele chama **RoleEntryPoint.OnStart()**. Você substitui esse método para inicializar as tarefas em segundo plano.
-- Após o método **OnStart** ser concluído, o Azure chama **Application_Start ()** no arquivo Global do aplicativo se ele estiver presente (por exemplo, Global.asax em uma função web executando ASP.NET).
+- Após o método **OnStart** ser concluído, o Azure chama **Application\_Start ()** no arquivo Global do aplicativo se ele estiver presente (por exemplo, Global.asax em uma função web executando ASP.NET).
 - As chamadas do Azure **RoleEntryPoint.Run()** em um novo thread de primeiro plano são executadas em paralelo com o **OnStart()**. Você substitui esse método para inicializar as tarefas em segundo plano.
-- Quando termina o método Run, o Azure chama primeiro **Application_End()** no arquivo Global do aplicativo se ele estiver presente e, em seguida, chama **RoleEntryPoint.OnStop()**. Você substitui o método **OnStop** para interromper as tarefas em segundo plano, limpar recursos, descartar objetos e fechar conexões que podem ter usado as tarefas.
+- Quando termina o método Run, o Azure chama primeiro **Application\_End()** no arquivo Global do aplicativo se ele estiver presente e, em seguida, chama **RoleEntryPoint.OnStop()**. Você substitui o método **OnStop** para interromper as tarefas em segundo plano, limpar recursos, descartar objetos e fechar conexões que podem ter usado as tarefas.
 - O processo de host de função de trabalho do Azure está parado. Neste ponto, a função será reciclada e reiniciada.
 
 Para obter mais detalhes e um exemplo de como usar os métodos da classe **RoleEntryPoint**, consulte [Padrão de consolidação de recursos de computação](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -290,7 +290,7 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - Onde as tarefas em segundo plano têm uma funcionalidade de desempenho diferente de outras partes de um aplicativo de Serviços de Nuvem (por exemplo, a interface do usuário ou os componentes, como a camada de acesso a dados), hospedar as tarefas em segundo plano juntas em uma função de trabalho separada permite que as a interface do usuário e as funções da tarefa de segundo plano sejam dimensionadas de forma independente para gerenciar a carga. Se várias tarefas em segundo plano tiverem recursos de desempenho significativamente diferentes umas das outras, considere dividi-las em funções de trabalho separadas e dimensionar cada tipo de função independentemente, mas observe que isso pode aumentar os custos de tempo de execução em comparação com a combinação de todas as tarefas em funções menores.
 - Simplesmente dimensionar as funções pode não ser suficiente para evitar a perda de desempenho sob carga. Talvez também seja necessário dimensionar as filas de armazenamento e outros recursos para impedir que um ponto único do canal geral de processamento se torne um afunilamento. Além disso, considere outras limitações, como a taxa de transferência máxima de armazenamento e outros serviços do aplicativo e as tarefas em segundo plano relacionadas.
 - As tarefas em segundo plano devem ser projetadas para dimensionamento. Por exemplo, eles devem ser capazes de detectar dinamicamente o número de filas de armazenamento em uso para escutar ou enviar mensagens à fila apropriada.
-- Por padrão, a escala WebJobs com sua instância associada de Sites do Azure. No entanto, se quiser que um WebJob seja executado como uma única instância, você pode criar um arquivo Settings.job que contém os dados JSON **{ "is_singleton": true }**. Isso força o Azure a executar apenas uma instância do WebJob, mesmo se houver várias instâncias do site associado, o que pode ser uma técnica útil para trabalhos agendados que devem ser executados como uma única instância.
+- Por padrão, a escala WebJobs com sua instância associada de Sites do Azure. No entanto, se quiser que um WebJob seja executado como uma única instância, você pode criar um arquivo Settings.job que contém os dados JSON **{ "is\_singleton": true }**. Isso força o Azure a executar apenas uma instância do WebJob, mesmo se houver várias instâncias do site associado, o que pode ser uma técnica útil para trabalhos agendados que devem ser executados como uma única instância.
 
 ## Padrões relacionados
 
@@ -317,4 +317,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Como habilitar o diagnóstico em um serviço de nuvem](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

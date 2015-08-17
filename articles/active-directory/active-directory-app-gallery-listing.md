@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
 
@@ -58,4 +58,4 @@ Depois que o teste for concluído, o aplicativo poderá ser listado na galeria d
 > Anexe o logotipo do aplicativo (arquivo PNG, 150px por 122px, cor de plano de fundo transparente):
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

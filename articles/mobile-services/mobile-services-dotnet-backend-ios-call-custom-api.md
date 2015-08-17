@@ -51,4 +51,4 @@ Este tópico mostrou como usar o método **invokeApi** para chamar uma API perso
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

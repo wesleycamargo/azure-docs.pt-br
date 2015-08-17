@@ -19,7 +19,7 @@
 
 #Notas de versão
 
-##4.0.0 (07/06/2015)
+##4\.0.0 (07/06/2015)
 
 -   Alterações de protocolo interno para tornar a análise e o envio mais confiáveis.
 -   O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais por push nativo para qualquer tipo de campanha de envio.
@@ -29,7 +29,7 @@
 -   Corrigir o gerenciamento de cadeia de caracteres de configuração dinâmica.
 -   Atualizar EULA.
 
-##3.0.0 (17/02/2015)
+##3\.0.0 (17/02/2015)
 
 -   Versão Inicial do Mobile Engagement do Azure
 -   A configuração do appId é substituída por uma configuração de cadeia de conexão.
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

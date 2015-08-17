@@ -125,4 +125,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -34,7 +34,7 @@ Este tutorial apresenta e explica as seguintes etapas básicas:
 
 Este tutorial requer o [Componente dos Serviços Móveis do Azure], o [XCode 6.0][Install Xcode], o [Xamarin.iOS] e o iOS 7.0 ou versões posteriores.
 
-> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT]Para concluir este tutorial, você precisa de uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-br%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F"%20target="_blank).
 
 ## <a name="download-app"></a>Baixar o projeto GetStartedWithData
 
@@ -242,4 +242,4 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

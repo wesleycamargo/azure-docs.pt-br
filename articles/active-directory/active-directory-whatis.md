@@ -12,7 +12,7 @@
                 ms.workload="identity" 
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
-                ms.topic="hero-article" 
+                ms.topic="article" 
                 ms.date="07/14/2015" 
                 ms.author="markusvi"/>
 
@@ -92,4 +92,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 - [Utilize a nuvem para aprimorar e monitorar os sistemas de identidade locais](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Plataforma baseada em padrão avançado para desenvolvedores](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

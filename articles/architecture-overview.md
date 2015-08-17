@@ -68,4 +68,4 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

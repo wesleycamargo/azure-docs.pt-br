@@ -110,16 +110,16 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
  
 5. Na seção **Post-build Actions** de configuração do trabalho, clique em **Upload artifacts to Microsoft Azure Blob storage**.
 6. Em **Nome de Conta de Armazenamento**, selecione a conta de armazenamento a ser usada.
-7. Em **Nome do Contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) É possível usar variáveis do ambiente, portanto, para este exemplo, insira **${JOB_NAME}** como o nome do contêiner.
+7. Em **Nome do Contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) É possível usar variáveis do ambiente, portanto, para este exemplo, insira **${JOB\_NAME}** como o nome do contêiner.
 
     **Dica**
     
-    Abaixo da seção **Command** em que você inseriu um script para **Execute Windows batch command**, existe um link para as variáveis de ambiente reconhecidas pelo Hudson. Clique nesse link para obter os nomes de variáveis de ambiente e as descrições. Observe que as variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD_URL**, não são permitidas como um nome de contêiner ou um caminho virtual comum.
+    Abaixo da seção **Command** em que você inseriu um script para **Execute Windows batch command**, existe um link para as variáveis de ambiente reconhecidas pelo Hudson. Clique nesse link para obter os nomes de variáveis de ambiente e as descrições. Observe que as variáveis de ambiente que contêm caracteres especiais, como a variável de ambiente **BUILD\_URL**, não são permitidas como um nome de contêiner ou um caminho virtual comum.
 
 8. Clique em **Tornar o novo contêiner público por padrão** para este exemplo. Se desejar usar um contêiner particular, você precisará criar uma assinatura de acesso compartilhado para permitir o acesso. Isso está além do escopo deste tópico. Você pode saber mais sobre assinaturas de acesso compartilhado em [Criando uma assinatura de acesso compartilhado (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=279889).
 9. [Opcional] Clique em **Limpar contêiner antes de carregar** se quiser que o contêiner seja limpo de conteúdo antes que os artefatos de compilação sejam carregados (deixe a opção desmarcada se não quiser limpar o conteúdo do contêiner).
 10. Em **Lista de artefatos a serem carregados**, insira **text/*.txt**.
-11. Em **Common virtual path for uploaded artifacts**, digite **${BUILD_ID}/${BUILD_NUMBER}**.
+11. Em **Common virtual path for uploaded artifacts**, digite **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Para salvar suas configurações, clique em **Salvar**.
 13. No painel do Hudson, clique em **Build Now** para executar **MyJob**. Examine a saída do console para o status. As mensagens de status para o armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação iniciar o carregamento dos artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você poderá examinar os artefatos de compilação abrindo o blob público.
@@ -158,7 +158,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
     
     (O formato acima aplica-se a uma nuvem pública do Azure. Se estiver usando uma nuvem do Azure diferente, use o ponto de extremidade localizado no portal de gerenciamento do Azure para determinar o ponto de extremidade de sua URL.
 
-    No formato acima, `storageaccount` representa o nome da sua conta de armazenamento, `container_name` representa o nome do seu contêiner e `blob_name` representa o nome do seu blob, respectivamente. Dentro do nome do contêiner, é possível ter vários caminhos, separados por uma barra, **/**. O exemplo de nome do contêiner neste tutorial foi **MyJob** e **${BUILD_ID}/${BUILD_NUMBER}** foi usado para o caminho virtual comum, fazendo com que o blob tivesse uma URL no seguinte formato:
+    No formato acima, `storageaccount` representa o nome da sua conta de armazenamento, `container_name` representa o nome do seu contêiner e `blob_name` representa o nome do seu blob, respectivamente. Dentro do nome do contêiner, é possível ter vários caminhos, separados por uma barra, **/**. O exemplo de nome do contêiner neste tutorial foi **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** foi usado para o caminho virtual comum, fazendo com que o blob tivesse uma URL no seguinte formato:
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -168,4 +168,4 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

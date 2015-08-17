@@ -113,4 +113,4 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

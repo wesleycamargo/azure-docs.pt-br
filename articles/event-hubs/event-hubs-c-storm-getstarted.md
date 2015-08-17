@@ -111,4 +111,4 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,4 +1,6 @@
-Resource| Default limit
----|---
-Profiles per subscription | 100
-Endpoints per profile| 200
+| Recurso | Limite padrão
+--- | ---
+| Perfis por assinatura | 100
+| Pontos de extremidade por perfil| 200
+
+<!---HONumber=August15_HO6-->

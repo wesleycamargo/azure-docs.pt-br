@@ -36,7 +36,7 @@ Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notific
 
 A primeira etapa é adicionar os elementos da interface do usuário na atividade principal existente, o que permite ao usuário selecionar categorias para o registro. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
 
-1. Abra o arquivo res/layout/activity_main.xml e substitua o conteúdo pelo seguinte:
+1. Abra o arquivo res/layout/activity\_main.xml e substitua o conteúdo pelo seguinte:
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	O layout gráfico do main_activity.xml deve ter esta aparência:
+	O layout gráfico do main\_activity.xml deve ter esta aparência:
 
 	![][A1]
 
@@ -319,4 +319,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Azure" 
+	pageTitle="Modelo e conceitos de recursos do Banco de Dados de Documentos | Microsoft Azure" 
 	description="O Banco de Dados de Documentos do Microsoft Azure é um banco de dados NoSQL totalmente gerenciado documento que usa um modelo hierárquico das contas de banco de dados, bancos de dados, coleções, procedimentos armazenados, gatilhos, UDFs, documentos, anexos, mídia, usuários e permissões para gerenciar recursos."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #Modelo e conceitos de recursos do Banco de Dados de Documentos
@@ -55,7 +55,7 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ##Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (_) na sua representação JSON.
+>[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 
 <table width="500"> 
@@ -103,24 +103,15 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
 ###Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{_rid}: 
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
 
-|Valor da _self |Descrição 
-|-------------------|----------- 
-|/dbs |Feed de banco de dados em uma conta de banco de dados 
-|/dbs/{_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {_rid-db} 
-|/dbs/{_rid-db}/colls/ |Feed de coleções em um banco de dados 
-|/dbs/{_rid-db}/colls/{_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {_rid-coll}
-|/dbs/{_rid-db}/users/ |Feed de usuários em um banco de dados 
-|/dbs/{_rid-db}/users/{_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {_rid-user} 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Feed de permissões em um banco de dados 
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {_rid-permission}. 
+|Valor da \_self |Descrição |-------------------|----------- |/dbs |Feed de banco de dados em uma conta de banco de dados |/dbs/{\_rid-db} |Banco de dados com a propriedade de ID exclusiva com o valor {\_rid-db} |/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados |/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com a propriedade de ID exclusiva com o valor {\_rid-coll}|/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com a propriedade de ID exclusiva com o valor {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um banco de dados |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com a propriedade de ID exclusiva com o valor {\_rid-permission}.
   
-Um recurso também possui um nome exclusivo definido pelo usuário exposto pela propriedade de ID do recurso. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade _rid é usada para construir o _link endereçável _self de um recurso. 
+Um recurso também possui um nome exclusivo definido pelo usuário exposto pela propriedade de ID do recurso. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
 
-Cada recurso também tem um identificador de recurso hierárquico gerado pelo sistema (também chamado de RID), que é disponibilizado pela propriedade _rid. O RID codifica a hierarquia inteira de um determinado recurso, sendo uma representação interna muito conveniente usada para impor integridade referencial de maneira distribuída. O RID é exclusivo dentro de uma conta de banco de dados, sendo usado internamente pelo Banco de Dados de Documentos para roteamento eficiente sem exigir pesquisas entre partições. 
+Cada recurso também tem um identificador de recurso hierárquico gerado pelo sistema (também chamado de RID), que é disponibilizado pela propriedade \_rid. O RID codifica a hierarquia inteira de um determinado recurso, sendo uma representação interna muito conveniente usada para impor integridade referencial de maneira distribuída. O RID é exclusivo dentro de uma conta de banco de dados, sendo usado internamente pelo Banco de Dados de Documentos para roteamento eficiente sem exigir pesquisas entre partições.
 
-Os valores das propriedades _self e _rid são representações alternativas e canônicas de um recurso. 
+Os valores das propriedades \_self e \_rid são representações alternativas e canônicas de um recurso.
 
 ##Contas de banco de dados
 Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
@@ -429,9 +420,9 @@ Considere um aplicativo de leitura social que utiliza o Banco de Dados de Docume
 -	Um aplicativo poderá armazenar os metadados de cada usuário como um documento distinto, por exemplo, os metadados de Joe para o book1 são armazenados em um documento cuja referência é /colls/joe/docs/book1. 
 -	Anexos indicando para as páginas de conteúdo de um determinado livro de um usuário são armazenados no documento correspondente, p. ex., /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2, etc. 
 
-Observe que os exemplos utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivas.
+Observe que os exemplos utilizam IDs amigáveis para transmitir a hierarquia de recursos. Os recursos são acessados por meio das APIs REST usando IDs de recurso exclusivos.
 
-Para a mídia que é gerenciada pelo Banco de Dados de Documentos, a propriedade _mídia do anexo fará referência à mídia por seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo quando você carrega a nova mídia e popula a _mídia para apontar para a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e populará a propriedade _mídia. 
+Para a mídia gerenciada pelo Banco de Dados de Documentos, a propriedade \_media do anexo fará referência à mídia por meio de seu URI. O Banco de Dados de Documentos irá garantir que a mídia será jogada na lixeira quando todas as referências pendentes forem ignoradas. O Banco de Dados de Documentos gera automaticamente o anexo ao fazer o upload da nova mídia e preencher \_media para indicar a mídia recém-adicionada. Se escolher armazenar a mídia em um armazenamento de blob remoto por conta própria (p. ex., OneDrive, Azure Storage, DropBox, etc.), você ainda poderá usar os anexos para fazer referência à mídia. Nesse caso, você criará o anexo por conta própria e preencherá a propriedade its \_media.
 
 Assim como todos os outros recursos, os anexos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. Assim como com os documentos, o nível de consistência de leitura dos anexos segue a política de consistência na conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar anexos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida.
 ##Usuários
@@ -468,4 +459,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

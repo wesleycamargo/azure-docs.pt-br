@@ -42,4 +42,4 @@ No arquivo App.config do seu projeto, o `AzureWebJobsStorage` e o `AzureWebJobsD
 
 Para obter mais informações, consulte [Recursos Recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

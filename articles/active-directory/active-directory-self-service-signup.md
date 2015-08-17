@@ -167,7 +167,7 @@ Por exemplo:
 
 3. Em seguida, execute o cmdlet Get-MsolDomainVerificationDns para criar um desafio:
 
-	Get-MsolDomainVerificationDns –DomainName *seu_nome_de_domínio* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *seu\_nome\_de\_domínio* –Mode DnsTxtRecord
 
 	Por exemplo:
 
@@ -185,7 +185,7 @@ Por exemplo:
 
 6. Execute o cmdlet Confirm-MsolDomain para verificar o desafio:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *seu_nome_de_domínio*
+	Confirm-MsolEmailVerifiedDomain -DomainName *seu\_nome\_de\_domínio*
 
 	por exemplo:
 
@@ -236,4 +236,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

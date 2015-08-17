@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Limites e cotas do Banco de Dados de Documentos | Azure" 
+	pageTitle="Limites e cotas do Banco de Dados de Documentos | Microsoft Azure" 
 	description="Saiba mais sobre os limites e imposições de cota do Banco de Dados de Documentos." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -23,4 +23,4 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

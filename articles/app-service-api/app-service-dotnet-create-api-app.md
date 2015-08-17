@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
@@ -50,4 +50,4 @@ Quando houver instruções para inserir um nome para o projeto, digite *Contacts
 Seu aplicativo de API está pronto para ser implantado, e você pode seguir o tutorial [Implantar um Aplicativo de API](app-service-dotnet-deploy-api-app.md) para fazer isso.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

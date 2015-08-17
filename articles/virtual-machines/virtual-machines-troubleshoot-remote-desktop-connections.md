@@ -3,7 +3,7 @@
 	description="Se você não conseguir conectar sua máquina virtual do Azure baseada no Windows, use esse diagnóstico e as etapas para isolar a origem do problema."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows
 
@@ -72,7 +72,7 @@ Soluções possíveis para esse problema:
 
 Causa: a máquina virtual à qual você está se conectando não pode localizar a autoridade de segurança indicada na parte do nome de usuário de suas credenciais.
 
-Quando seu nome de usuário estiver no formato *AutoridadeDeSegurança*\\*NomeDeUsuário* (exemplo: CORP\\User1),a porção *AutoridadeDeSegurança* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *AutoridadeDeSegurança*\*NomeDeUsuário* (exemplo: CORP\\User1),a porção *AutoridadeDeSegurança* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis para esse problema:
 
@@ -86,8 +86,8 @@ Causa: o nome da conta e a senha que você enviou não podem ser validados pela 
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta baseada em domínio.
 
-- Para contas locais, use a sintaxe *NomeDoComputador*\\*NomeDeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *NomeDeDomínio*\\*NomeDeUsuário* (exemplo: CONTOSO\\johndoe).
+- Para contas locais, use a sintaxe *NomeDoComputador*\*NomeDeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *NomeDeDomínio*\*NomeDeUsuário* (exemplo: CONTOSO\\johndoe).
 
 Para computadores promovidos a controladores de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado ao realizar a promoção é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta de administrador local anterior é excluída. Por exemplo, se você estiver conectado à conta de administrador local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio (CORP\\DCAdmin) será criada com a mesma senha.
 
@@ -184,13 +184,13 @@ Se você puder criar uma Conexão de Área de Trabalho Remota com uma máquina v
 - A configuração de ponto de extremidade para o tráfego de Área de Trabalho Remota na máquina virtual de destino. A porta TCP privada do ponto de extremidade deve corresponder à porta TCP em que os Serviços de Área de Trabalho Remota na máquina virtual estão escutando, que, por padrão, é 3389.
 - A ACL para o ponto de extremidade de tráfego de Área de Trabalho Remota na máquina virtual de destino. As ACLs permitem que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de Área de Trabalho Remota para o ponto de extremidade. Examine suas ACLs para verificar se o tráfego de entrada dos endereços IP públicos de seu proxy ou outro servidor de borda é permitido. Para obter mais informações, consulte [O que é uma lista de controle de acesso (ACL) de rede?](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
-Para eliminar o ponto de extremidade como a fonte do problema, remova o ponto de extremidade atual e crie um novo ponto de extremidade, escolhendo uma porta aleatória no intervalo 49152-65535 para o número da porta externa. Para obter mais informações, consulte [Como configurar pontos de extremidade para uma máquina virtual](virtual-machines-set-up-endpoints.md).
+Para eliminar o ponto de extremidade como a fonte do problema, remova o ponto de extremidade atual e crie um novo ponto de extremidade, escolhendo uma porta aleatória no intervalo 49152-65535 para o número da porta externa. Para obter mais informações, confira [Como configurar pontos de extremidade para uma máquina virtual](virtual-machines-set-up-endpoints.md).
 
 ### <a id="nsgs"></a>Fonte 4: grupos de segurança de rede
 
 Os grupos de segurança de rede lhe proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego de Área de Trabalho Remota da Internet é permitido.
 
-Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
+Para obter mais informações, consulte [O que é um NSG (Grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md).
 
 ### Fonte 5: máquina virtual do Azure baseada no Windows
 
@@ -287,4 +287,4 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

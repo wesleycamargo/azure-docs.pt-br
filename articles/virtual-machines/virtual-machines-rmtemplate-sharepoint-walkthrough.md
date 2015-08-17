@@ -3,15 +3,14 @@
 	description="Percorra a estrutura do modelo do Gerenciador de Recursos do Azure para o farm do SharePoint de três servidores."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
@@ -33,7 +32,7 @@ Abra o modelo azuredeploy.json em um editor de texto ou na ferramenta de sua esc
 
 ## Seção "parâmetros"
 
-A seção "parâmetros" especifica os parâmetros que são usados para inserir dados nesse modelo. Podem ser definidos no máximo 50 parâmetros. Aqui está um exemplo de um parâmetro para o local do Azure:
+A seção **"parâmetros"** especifica os parâmetros que são usados para inserir dados em um modelo. Você deve fornecer os dados quando o modelo é executado. Podem ser definidos no máximo 50 parâmetros. Aqui está um exemplo de um parâmetro para o local do Azure:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@ A seção "parâmetros" especifica os parâmetros que são usados para inserir d
 
 ## Seção "variáveis"
 
-A seção "variáveis" especifica variáveis que podem ser usadas em todo esse modelo. Podem ser definidas no máximo 100 variáveis. Estes são alguns exemplos:
+A seção **"variáveis"** especifica variáveis e os valores que o modelo usa. Valores de variáveis podem ser definidos explicitamente ou ser derivados dos valores de parâmetro. Ao contrário dos parâmetros, você não os especifica ao executar o modelo. Podem ser definidas no máximo 100 variáveis. Estes são alguns exemplos:
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -110,7 +109,7 @@ Essas seções criam três conjuntos de disponibilidade, um para cada camada da 
 - Cluster do SQL Server
 - Servidores SharePoint
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 	{
 		"type": "Microsoft.Compute/availabilitySets",
@@ -121,7 +120,7 @@ Veja um exemplo:
 
 ### Microsoft.Network/virtualNetworks
 
-Essa seção cria uma rede virtual somente em nuvem com três sub-redes (um para cada camada da implantação), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
+Essas seções criam uma rede virtual somente em nuvem com três sub-redes (um para cada camada da implantação), em que as máquinas virtuais são colocadas. Aqui está o código JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -141,7 +140,7 @@ Essa seção cria uma rede virtual somente em nuvem com três sub-redes (um para
 
 ### Microsoft.Network/loadBalancers
 
-Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e, para o servidor do SharePoint, uma regra para permitir o tráfego da Web de entrada (porta TCP 80) da Internet. Aqui está o exemplo do servidor do SharePoint:
+Essas seções criam instâncias do balanceador de carga para cada máquina virtual para fornecer filtragem de tráfego e NAT (conversão de endereços de rede) para o tráfego de entrada da Internet. Para cada balanceador de carga, as configurações definem regras de NAT de entrada, back-end e front-end. Por exemplo, há regras de tráfego de Área de Trabalho Remota para cada máquina virtual e, para o SharePoint Server, uma regra para permitir o tráfego da Web de entrada (porta TCP 80) da Internet. Aqui está o exemplo do SharePoint Server:
 
 
 	{
@@ -243,9 +242,9 @@ Essas seções criam e configuram as três máquinas virtuais na implantação.
 
 A primeira seção cria e configura o controlador de domínio que:
 
-- Especifica a conta de armazenamento, o conjunto de disponibilidade, a interface de rede e a instância do balanceador de carga
-- Adiciona mais um disco
-- Executa um script do PowerShell para configurar o controlador de domínio
+- Especifica a conta de armazenamento, o conjunto de disponibilidade, a interface de rede e a instância do balanceador de carga.
+- Adiciona mais um disco.
+- Executa um script do PowerShell para configurar o controlador de domínio.
 
 Aqui está o código JSON:
 
@@ -346,8 +345,8 @@ Uma seção adicional para o controlador de domínio iniciando com **"nome": "Up
 
 A próxima seção **"tipo": "Microsoft.Compute/virtualMachines"** cria máquinas virtuais do SQL Server na implantação e:
 
-- Especifica a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede
-- Adiciona mais um disco
+- Especifica a conta de armazenamento, o conjunto de disponibilidade, o balanceador de carga, a rede virtual e a interface de rede.
+- Adiciona mais um disco.
 
 Seções adicionais **"Microsoft.Compute/virtualMachines/extensions"** chamam o script do PowerShell para configurar o SQL Server.
 
@@ -355,26 +354,24 @@ A próxima seção **"tipo": "Microsoft.Compute/virtualMachines"** cria a máqui
 
 Observe a organização geral das subseções da seção **"recursos"** do arquivo JSON:
 
-1.	Crie os elementos da infraestrutura do Azure que são necessários para dar suporte a várias máquinas virtuais (uma conta de armazenamento, endereços IP públicos, conjuntos de disponibilidade, uma rede virtual, interfaces de rede, instâncias de balanceador de carga).
+1.	Crie os elementos da infraestrutura do Azure que são necessários para dar suporte a várias máquinas virtuais (uma conta de armazenamento, endereços IP públicos, conjuntos de disponibilidade, uma rede virtual, interfaces de rede e instâncias de balanceador de carga).
 2.	Crie a máquina virtual do controlador de domínio, que usa elementos comuns e específicos criados anteriormente de infraestrutura do Azure, adiciona um disco de dados e executa um script do PowerShell. Além disso, atualize a rede virtual para usar o endereço IP estático do controlador de domínio.
 3.	Crie a máquina virtual do SQL Server, que usa elementos comuns criados anteriormente e elementos específicos da infraestrutura do Azure criados para o controlador de domínio, adiciona discos de dados e executa um script do PowerShell para configurar o SQL Server.
-4.	Crie a máquina virtual de servidor SharePoint, que usa elementos comuns criados anteriormente e elementos específicos da infraestrutura do Azure e executa um script do PowerShell para configurar o farm do SharePoint.
+4.	Crie a máquina virtual do SharePoint Server, que usa elementos comuns criados anteriormente e elementos específicos da infraestrutura do Azure e executa um script do PowerShell para configurar o farm do SharePoint.
 
 Seu próprio modelo JSON para criar uma infraestrutura de várias camadas no Azure deve seguir as mesmas etapas:
 
-1.	Crie os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjuntos de disponibilidade) e específicos da máquina virtual (endereços IP públicos, conjuntos de disponibilidade, interfaces de rede e instâncias do balanceador de carga) da infraestrutura do Azure que são necessários para sua implantação.
+1.	Crie os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjuntos de disponibilidade) e específicos da máquina virtual (endereços IP públicos, conjuntos de disponibilidade, interfaces de rede, instâncias do balanceador de carga) da infraestrutura do Azure que são necessários para sua implantação.
 2.	Para cada camada em seu aplicativo (por exemplo, autenticação, banco de dados, Web), crie e configure os servidores nessa camada usando os elementos comuns (conta de armazenamento, rede virtual), específicos da camada (conjunto de disponibilidade) e específicos da máquina virtual (endereços IP públicos, interfaces de rede, instâncias do balanceador de carga).
 
 Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 ## Recursos adicionais
 
-[Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Computação do Azure, provedores de rede e armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md) [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
-
-[Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
+[Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

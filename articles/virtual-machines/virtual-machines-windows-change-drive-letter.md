@@ -64,4 +64,4 @@ Se você quiser usar um disco de dados existente na unidade D, verifique se que 
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

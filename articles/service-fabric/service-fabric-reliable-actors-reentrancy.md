@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reentrância de Atores da Malha de Serviço do Azure"
-   description="Introdução à Reentrância de Atores de Malha de Serviço do Azure"
+   pageTitle="Reentrada de Atores Confiáveis"
+   description="Introdução à reentrada para Atores Confiáveis do Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-# Reentrância de Ator
+# Reentrada de Ator Confiável
 Por padrão, os Atores de Malha permitem reentrância baseada no contexto de chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um ator A envia a mensagem para o ator B, que envia a mensagem para o ator C. Como parte do processamento da mensagem no caso de o ator C chamar o ator A, a mensagem é reentrante e será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
 
 Os atores que não querem permitir a reentrância baseada no contexto de chamada lógica podem desabilitá-la decorando a classe do ator com `ReentrantAttribute(ReentrancyMode.Disallowed)`.
@@ -39,6 +39,5 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

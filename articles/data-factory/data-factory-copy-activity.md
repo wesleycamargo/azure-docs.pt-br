@@ -162,7 +162,7 @@ O script JSON a seguir define uma tabela de entrada que se refere a uma tabela S
  		}
 	}
 
-O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela (**MyOnPremTable**) em uma data factory do Azure: **CopyFactory**.
+O exemplo de comando do Azure PowerShell a seguir usa a **New-AzureDataFactoryTable** que utiliza um arquivo JSON com o script acima para criar uma tabela (**MyOnPremTable**) em um data factory do Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -198,7 +198,7 @@ O script JSON a seguir define uma tabela de saída: **MyDemoBlob**, que se refer
    		}
 	}
 
-O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela (**MyDemoBlob**) em uma data factory do Azure: **CopyFactory**.
+O exemplo de comando do Azure PowerShell usa a **New-AzureDataFactoryTable** que usa um arquivo JSON que contém o script acima para criar uma tabela (**MyDemoBlob**) em um data factory do Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
@@ -207,8 +207,8 @@ O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactor
 Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as seguintes propriedades:
 
 - A propriedade **tipo** é definida como **CopyActivity**.
-- **MyOnPremTable** é especificado como a entrada (marca de **entradas**).
-- **MyAzureBlob** é especificado como a saída (marca de **saídas**)
+- **MyOnPremTable** é especificada como a entrada (marca **inputs**).
+- **MyAzureBlob** é especificado como a saída (marca **outputs**)
 - A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON][json-script-reference].
 
          
@@ -243,7 +243,7 @@ Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as segui
 		}
 
 
- O seguinte exemplo de comando do PowerShell do Azure usa a **New-AzureDataFactoryPipeline** que usa um arquivo JSON que contém o script acima para criar um pipeline (**CopyActivityPipeline**) em um data factory do Azure: **CopyFactory**.
+ O exemplo de comando do Azure PowerShell a seguir usa **New-AzureDataFactoryPipeline**, que usa um arquivo JSON contendo o script acima para criar um pipeline (**CopyActivityPipeline**) em um data factory do Azure: **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -299,4 +299,4 @@ Consulte [Habilitar pipelines para trabalhar com dados locais][use-onpremises-da
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -26,4 +26,4 @@ Para informações sobre preços de replicação de conta de armazenamento, conf
 
 Para obter detalhes arquitetônicos sobre a durabilidade com o armazenamento do Azure, confira o [Artigo de SOSP do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

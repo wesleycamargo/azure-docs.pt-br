@@ -76,9 +76,9 @@ Antes de usar o Banco de Dados SQL do Azure no código Java, você deverá criar
     ![Determinar a cadeia de conexão JDBC][get_jdbc_connection_string]
 
 6. Clique com o botão direito do mouse no conteúdo realçado da cadeia de conexão **JDBC** e clique em **Copiar**.
-7. Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.) 
+7. Agora, você pode colar esse valor em seu arquivo de código para criar uma cadeia de conexão do formulário a seguir. Substitua *your\_server* (em dois lugares) pelo texto que você copiou na etapa anterior e substitua *your\_password* pelo valor da senha especificado quando você criou sua conta do Banco de Dados SQL. (Substitua também os valores atribuídos a **database=** e **user=** se você não tiver usado **gettingstarted** e **MySQLAdmin**, respectivamente.) 
 
-    Cadeia connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your_server*" + ";" + "password=*your_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
+    Cadeia connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*your\_server*" + ";" + "password=*your\_password*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por enquanto, você deve conhecer as etapas para determinar a cadeia de conexão. Além disso, dependendo das necessidades de seu aplicativo, você talvez não precise usar as configurações **encrypt** e **hostNameInCertificate** e talvez precise modificar a configuração **loginTimeout**.
 
@@ -117,7 +117,7 @@ Nós realmente usaremos essa cadeia de caracteres posteriormente neste guia. Por
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Especifique sua cadeia de conexão. A seguir está um exemplo. Conforme mostrado acima, substitua *your_server* (em dois lugares), *your_user* e *your_password* pelos valores apropriados para seu servidor do Banco de Dados SQL.
+5. Especifique sua cadeia de conexão. A seguir está um exemplo. Conforme mostrado acima, substitua *your\_server* (em dois lugares), *your\_user* e *your\_password* pelos valores apropriados para seu servidor do Banco de Dados SQL.
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -726,4 +726,4 @@ Para saber mais sobre o Microsoft JDBC Driver para SQL Server, consulte [Visão 
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

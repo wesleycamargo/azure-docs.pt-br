@@ -53,7 +53,7 @@ Essas tecnologias podem ser usadas separadamente ou combinadas, conforme a neces
 
 ### Máquinas Virtuais do Azure
 
-![Máquinas Virtuais do Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
+![Máquinas Virtuais do Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figura: máquinas virtuais do Azure oferecem controle total de instâncias de máquina virtual na nuvem.*
 
 A capacidade de criar uma máquina virtual sob demanda, seja de uma imagem padrão ou de uma fornecida por você, pode ser bastante útil. Essa abordagem, geralmente conhecida como Infraestrutura como Serviço (IaaS), é fornecida pelas Máquinas Virtuais do Azure. A figura 2 mostra uma combinação de como uma Máquina Virtual (VM) é executada e criada a partir de um VHD.
 
@@ -75,7 +75,7 @@ Essa abordagem geral para computação em nuvem pode ser usada para solucionar m
 
 ### Aplicativos Web
 
-![Aplicativos Web do Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: os Aplicativos Web do Azure executam um aplicativo de site na nuvem sem precisar gerenciar o servidor Web subjacente.*
+![Aplicativos Web do Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figura: os Aplicativos Web do Azure executam um aplicativo de site na nuvem sem precisar gerenciar o servidor Web subjacente.*
 
 Uma das tarefas mais comuns que as pessoas fazem em nuvem é executar sites e aplicativos web. As Máquinas Virtuais do Azure permitem isso, porém, ainda deixam você com a responsabilidade de administrar uma ou mais VMs e os sistemas operacionais subjacentes. As funções web dos serviços de nuvem podem fazer isso, mas implantá-las e mantê-las ainda exige trabalho administrativo. E se você apenas quisesse um site no qual alguma outra pessoa cuidasse do trabalho administrativo para você?
 
@@ -592,4 +592,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

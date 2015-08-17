@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Atualizar o dispositivo StorSimple
@@ -58,7 +58,7 @@ Você pode usar o Portal de Gerenciamento para aplicar atualizações ao disposi
 
 Como alternativa, você pode usar o Windows PowerShell para StorSimple para aplicar atualizações regulares (modo Normal).
 
-> [AZURE.IMPORTANT]Embora seja possível instalar atualizações regulares usando o Windows PowerShell para StorSimple, é altamente recomendável que você instale atualizações regulares pelo portal de gerenciamento. A partir da Atualização 1, as verificações prévias são executadas antes de instalar atualizações por meio do Portal que vai prever falhas e garantir uma experiência mais suave.
+> [AZURE.IMPORTANT]Embora seja possível instalar atualizações regulares usando o Windows PowerShell para StorSimple, é altamente recomendável que você instale atualizações regulares pelo Portal de Gerenciamento. A partir da atualização 1, serão executadas verificações prévias antes da instalação de atualizações pelo Portal. Essas verificações evitarão falhas e garantirão uma experiência mais uniforme.
 
 [AZURE.INCLUDE [storsimple-instalar-atualizações-regulares-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +119,4 @@ Se um dispositivo for redefinido para as configurações de fábrica, então tod
 Saiba mais sobre o [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

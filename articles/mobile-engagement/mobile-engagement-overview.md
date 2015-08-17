@@ -50,4 +50,4 @@ A Microsoft tem um compromisso de longo prazo com a privacidade, que é parte in
 [Guia de Introdução (Desenvolvedores)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

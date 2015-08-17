@@ -278,16 +278,16 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 ####Fluxo de vídeo de saída
 
-<table border="1">
-<tr><th>Taxa de bits</th><th>Largura</th><th>Altura</th><th>MáxFPS</th><th>Perfil</th><th>Nome do fluxo de saída</th></tr>
-<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>Alto</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>Principal</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>Principal</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Principal</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Principal</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Linha de base</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Linha de base</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+Taxa de bits|Largura|Altura|MáxFPS|Perfil|Nome do fluxo de saída
+---|---|---|---|---|---
+3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
+2200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
+1350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
+550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
+350|340|192|30|Linha de base|Video\_340x192\_30fps\_350kbps
+200|340|192|30|Linha de base|Video\_340x192\_30fps\_200kbps
+
 
 ####Fluxo de áudio de saída
 
@@ -314,7 +314,7 @@ Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo down
 
 ###Mostrar slate
 
-Opcional. Sinaliza o codificador ao vivo para alternar para a imagem de [slate padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
+Opcional. Sinaliza o codificador ao vivo para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar a transmissão de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**.
  
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição.
 
@@ -333,15 +333,16 @@ A duração do slate em segundos. Isso deve ser um valor positivo diferente de z
 
 Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true.
 
-###<a id="default_slate"></a>ID de ativo de slate padrão
+###<a id="default_slate"></a>ID de ativo de imagem fixa padrão
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo.
 
-**Observação**: antes de criar o canal, a imagem slate, com as seguintes restrições deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
+**Observação**: antes de criar o canal, a imagem fixa com as restrições a seguir deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo).
 
 - No máximo 1920x1080 na resolução.
 - No máximo 3 megabytes de tamanho.
-- O nome do arquivo deve ter uma *extensão .jpg. - A imagem deve ser carregada em um ativo como o único AssetFile que ativo e esse AssetFile deve ser marcado como o arquivo primário. Esse ativo não pode ser armazenado criptografado.
+- O nome do arquivo deve ter uma extensão *.jpg.
+- A imagem deve ser carregada em um ativo como o único AssetFile que ativo e esse AssetFile deve ser marcado como o arquivo primário. Esse ativo não pode ser armazenado criptografado.
 
 Se a **ID padrão do ativo do slate** não for especificada, e **Inserir slate no marcador de anúncio** for definido como **true**, uma imagem padrão dos Serviços de Mídia do Azure será usada para ocultar o fluxo de entrada de vídeo. O áudio também é desligado durante o slate.
 
@@ -383,13 +384,12 @@ O estado atual de um canal. Os valores possíveis incluem:
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
  
-<table border="1">
-<tr><th>Estado de canal</th><th>Indicadores da interface do usuário do portal</th><th>Cobrado?</th></tr>
-<tr><td>Iniciando</td><td>Iniciando</td><td>Nenhum (estado transitório)</td></tr>
-<tr><td>Executando</td><td>Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução)</td><td>Sim</td></tr>
-<tr><td>Parando</td><td>Parando</td><td>Nenhum (estado transitório)</td></tr>
-<tr><td>Parada</td><td>Parada</td><td>Não</td></tr>
-</table>
+Estado de canal|Indicadores da interface do usuário do portal|Cobrado?
+---|---|---
+Iniciando|Iniciando|Nenhum (estado transitório)
+Executando|Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (pelo menos um programa em execução)|Sim
+Parando|Parando|Nenhum (estado transitório)
+Parada|Parada|Não
 
 
 >[AZURE.NOTE]Atualmente na visualização, a inicialização do canal pode levar até mais de 20 minutos. A redefinição de canal pode levar até 5 minutos.
@@ -407,8 +407,8 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 ##Problemas conhecidos
 
 - A inicialização do canal pode levar mais de 20 minutos.
-- O suporte RTP é fornecido na para difusores profissionais. Leia as notas de RTP [nesse](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
-- As imagens slate devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
+- O suporte RTP é fornecido na para difusores profissionais. Leia as notas de RTP [neste](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- As imagens fixas devem estar de acordo com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um Canal com um slate padrão que seja maior que 1920 x 1080, a solicitação será um erro.
 
 
 ##<a id="tasks"></a>Tarefas relacionadas ao streaming ao vivo
@@ -505,4 +505,4 @@ Para obter informações sobre unidades de streaming de dimensionamento, consult
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

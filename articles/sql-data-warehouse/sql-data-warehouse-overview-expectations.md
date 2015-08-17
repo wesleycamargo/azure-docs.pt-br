@@ -78,4 +78,4 @@ Durante a visualização, o SQL Data Warehouse pode ter até 4 eventos de manute
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

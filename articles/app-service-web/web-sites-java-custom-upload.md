@@ -46,7 +46,7 @@ Exemplos (mostrados com **processPath** incluído):
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
 **processPath** - Caminho para o arquivo executável ou script que iniciará um processo de escuta de solicitações HTTP.
@@ -125,7 +125,7 @@ Como no caso do Tomcat, os clientes podem carregar suas próprias instâncias de
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -224,7 +224,7 @@ No mesmo nível de diretório que a pasta tomcat-7.0.40, crie um arquivo chamado
 
 Sob o bloco **httpPlatform**, o **requestTimeout** é definido como "00:10:00". Pode ser reduzido, mas você provavelmente verá alguns erros de tempo limite enquanto o Liferay estiver inicializando. Se esse valor for alterado, o **connectionTimeout** no server.xml do tomcat também deverá ser modificado.
 
-É importante observar que a variável de ambiente JRE_HOME é especificada no web.config acima para apontar para o JDK de 64 bits. O padrão é 32 bits, mas como o Liferay pode exigir altos níveis de memória, é recomendável usar o JDK de 64 bits.
+É importante observar que a variável de ambiente JRE\_HOME é especificada no web.config acima para apontar para o JDK de 64 bits. O padrão é 32 bits, mas como o Liferay pode exigir altos níveis de memória, é recomendável usar o JDK de 64 bits.
 
 Depois de fazer essas alterações, reinicie seu aplicativo Web executando o Liferay. Em seguida, abra http://yourwebapp. O portal do Liferay está disponível na raiz do aplicativo Web.
 
@@ -236,4 +236,4 @@ Para obter mais informações sobre o Liferay, consulte [http://www.liferay.com]
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

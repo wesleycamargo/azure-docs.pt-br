@@ -71,7 +71,7 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
 
 Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem quando ao trabalhar com um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. A vantagem dessa abordagem é mover ou bifurcar o modelo, pois você precisa alterar a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
 
-O exemplo a seguir mostra como usar uma URL de base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
+O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
 
     "variables": {
         "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -94,10 +94,10 @@ O exemplo a seguir mostra como usar uma URL de base para criar duas URLs para mo
 
 ## Passando valores de um modelo vinculado
 
-Se você precisar passar um valor de modelo vinculado ao modelo principal, poderá criar um valor na seção **outputs** do modelo vinculado. Para obter um exemplo, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **outputs** do modelo vinculado. Para obter um exemplo, consulte [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
 ## Próximas etapas
 - [Criação de modelos](./resource-group-authoring-templates.md)
 - [Implantação de modelos](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=06-->

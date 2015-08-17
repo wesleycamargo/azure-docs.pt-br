@@ -113,4 +113,4 @@ A renderização de descrição avançada não está disponível para todos os u
 **[LEVE-ME À GALERIA >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

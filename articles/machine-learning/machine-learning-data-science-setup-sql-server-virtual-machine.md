@@ -61,7 +61,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
     -   Na caixa **CONJUNTO DE DISPONIBILIDADE**, selecione **(nenhum)**.
     -   Leia e aceite as informações de preços.
 
-6.	Na seção **PONTOS DE EXTREMIDADE**, clique na lista suspensa vazia em **NAME** e selecione **MSSQL**, em seguida, digite o número da porta da instância do mecanismo de banco de dados (\*\*1433\*\* para a instância padrão).
+6.	Na seção **PONTOS DE EXTREMIDADE**, clique na lista suspensa vazia em **NAME** e selecione **MSSQL**, em seguida, digite o número da porta da instância do mecanismo de banco de dados (**1433** para a instância padrão).
 
 7.  A sua VM do SQL Server também pode funcionar como um IPython Notebook Server, que será configurado em uma etapa posterior. Adicione um novo ponto de extremidade para especificar a porta a ser usada para o IPython Notebook Server. Insira um nome na coluna **NAME**, selecione um número da porta de sua preferência para a porta pública e 9999 para a porta privada.
 
@@ -225,7 +225,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 1.  No Portal de Gerenciamento do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

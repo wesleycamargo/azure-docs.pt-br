@@ -78,7 +78,7 @@ Atualmente, a afinidade de serviço tem as seguintes limitações:
 - Não pode ser usada entre serviços com e sem estado.
 - Não pode ser usada entre serviços sem estado com diferentes contagens de instância; por exemplo, ambos os serviços sem estado devem ter a mesma propriedade InstanceCount quando são criados.
 - Não pode ser usada entre serviços com estado voláteis ou persistentes com diferentes números de réplicas; por exemplo, ambos os serviços devem ter os mesmos valores ReplicaSetSizes de Destino e Mínimo especificados.
-- Não pode ser usada com serviços particionados. Cada serviço deve ter um esquema de partição FABRIC_PARTITION_SCHEME_SINGLETON.
+- Não pode ser usada com serviços particionados. Cada serviço deve ter um esquema de partição FABRIC\_PARTITION\_SCHEME\_SINGLETON.
 - As relações de afinidade, assim como outras propriedades da descrição do serviço, são definidas quando o serviço é criado e não podem ser modificadas.
 - Cadeias de serviços não são permitidas. Se vários serviços devem ser colocados em uma relação de afinidade, eles devem usar um modelo de "estrela".
 
@@ -229,4 +229,4 @@ Para obter mais informações: [Arquitetura do Balanceador de Recursos](service-
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

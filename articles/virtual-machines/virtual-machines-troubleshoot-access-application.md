@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure" 
+<properties
+	pageTitle="Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure"
 	description="Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, use essas etapas para isolar a origem do problema."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2015"
+	ms.author="dkshir"/>
 
 # Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure
 
@@ -26,7 +26,7 @@ Se você não conseguir acessar um aplicativo em execução em uma máquina virt
 Há quatro áreas principais nas quais é possível solucionar problemas de acesso de um aplicativo que está sendo executado em uma máquina virtual do Azure.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
- 
+
 1.	O aplicativo em execução na máquina virtual do Azure.
 2.	A máquina virtual do Azure.
 3.	Pontos de extremidade do Azure para o serviço de nuvem que contém a máquina virtual (para máquinas virtuais criadas no Gerenciador de Serviços), regras NAT de entrada (para máquinas virtuais criadas no Gerenciador de Recursos) e Grupos de segurança de rede.
@@ -37,7 +37,7 @@ Para computadores cliente que acessam o aplicativo em uma conexão VPN site a si
 ## Etapa 1: Você consegue acessar o aplicativo na máquina virtual de destino?
 
 Tente acessar o aplicativo com o programa cliente apropriado na máquina virtual na qual o aplicativo está em execução. Use o nome de host local, o endereço IP local ou o endereço de loopback (127.0.0.1).
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access2.png)
 
 Por exemplo, se o aplicativo for um servidor Web, execute um navegador na máquina virtual e tente acessar uma página da Web hospedada na máquina virtual.
@@ -54,7 +54,7 @@ Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat - a**
 ## <a id="step2"></a>Etapa 2: Você consegue acessar o aplicativo em outra máquina virtual na mesma rede virtual?
 
 Tente acessar o aplicativo por meio de uma máquina virtual diferente na mesma rede virtual da máquina virtual em que o aplicativo está sendo executado usando o nome do host da máquina virtual ou seu endereço IP do provedor, público ou provado atribuído pelo Azure. Para máquinas virtuais criadas no Gerenciador de Serviços, não use o endereço IP público do serviço de nuvem.
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
 Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da Web em um navegador em uma máquina virtual diferente da mesma rede virtual.
@@ -75,7 +75,7 @@ Em uma máquina virtual baseada no Windows, use o Firewall do Windows com Segura
 Tente acessar o aplicativo em um computador fora da rede virtual em que está a máquina virtual na qual o aplicativo está sendo executado, mas que não esteja na mesma rede que o computador cliente original.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access4.png)
- 
+
 Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da Web em um navegador em execução em um computador que não está na rede virtual.
 
 Se não conseguir acessar o aplicativo, verifique o seguinte:
@@ -110,4 +110,4 @@ Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada no Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

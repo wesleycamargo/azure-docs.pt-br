@@ -83,12 +83,12 @@ O SQL Data Warehouse padroniza algumas configurações durante a conexão e a cr
 
 | Configuração de banco de dados | Valor |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | ATIVADO |
-| QUOTED_IDENTIFIERS | ATIVADO |
-| NO_COUNT | DESATIVADO |
+| ANSI\_NULLS | ATIVADO |
+| QUOTED\_IDENTIFIERS | ATIVADO |
+| NO\_COUNT | DESATIVADO |
 | DATEFORMAT | mdy |
 | DATEFIRST | 7 |
-| Agrupamento de banco de dados | SQL_Latin1_General_CP1_CI_AS |
+| Agrupamento de banco de dados | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## Sessões e solicitações
 Quando uma conexão é criada e uma sessão foi estabelecida, você está pronto para escrever e enviar consultas para o SQL Data warehouse.
@@ -158,4 +158,4 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

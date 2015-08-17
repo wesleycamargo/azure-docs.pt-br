@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Padrões de consulta do Stream Analytics do Azure | Microsoft Azure"
-	description="Guia de Linguagem de Consulta de amostra do Stream Analytics do Azure"
+	description="Padrões de consulta comuns do Stream Analytics"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Guia de Linguagem de Consulta de amostra do Stream Analytics do Azure #
+# Padrões de consulta comuns do Stream Analytics  #
 
 ## Introdução ##
 As consultas na Stream Analytics do Azure são expressas em uma linguagem de consulta do tipo SQL, que está documentada [aqui](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este documento descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
@@ -454,4 +454,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

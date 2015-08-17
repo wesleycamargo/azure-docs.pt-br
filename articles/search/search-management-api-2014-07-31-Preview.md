@@ -4,7 +4,7 @@
 
 # Gerenciamento de API: versão 2014-07-31-Visualização
 
-Este documento descreve a versão **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure. Ela foi substituída pela versão disponível, a [API REST de Gerenciamento da Pesquisa do Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN. ________________________________________
+Este documento descreve a versão **2014-07-31-Visualização** da API REST do Serviço de Pesquisa do Azure. Ela foi substituída pela versão disponível, a [API REST de Gerenciamento da Pesquisa do Azure 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) no MSDN. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ## Operações de gerenciamento de serviço
 
@@ -815,4 +815,4 @@ Nenhum.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

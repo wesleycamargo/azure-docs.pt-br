@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -66,9 +66,9 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 ## Tutorial: Criar um serviço de nuvem com a Criação Rápida
 
-1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Novo**>**Calcular**>**Serviço de nuvem**>**Criação rápida**.
+1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Novo**>**Computar**>**Serviço de Nuvem**>**Criação Rápida**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. Em **URL**, digite um nome do subdomínio para usar na URL pública para acessar o serviço de nuvem em implantações de produção. O formato da URL para implantações de produção é: http://*myURL*.cloudapp.net.
 
@@ -76,20 +76,20 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 4. Clique em **Criar Serviço de Nuvem**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	Você pode monitorar o status do processo na área de mensagem na parte inferior da janela.
 
 	A área **Serviços de Nuvem** é aberta, com o novo serviço de nuvem sendo exibido. Quando o status mudar para Criado, a criação do serviço de nuvem terá sido concluída com êxito.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Tutorial: Carregar um certificado para um serviço de nuvem
 
 1. No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em **Serviços de Nuvem** e no nome do serviço de nuvem e depois em **Certificados**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Clique em **Carregar um certificado** ou **Carregar**.
@@ -100,11 +100,11 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 5. Clique em **OK** (marca de seleção).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	Você pode observar o progresso do carregamento na área de mensagem, mostrada abaixo. Quando o carregamento for concluído, o certificado será adicionado à tabela. Na área de mensagem, clique em OK para fechar a mensagem.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## Tutorial: Implantar um serviço de nuvem
 
@@ -127,11 +127,11 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 6. Clique em **OK** (marca de seleção) para iniciar a implantação do serviço de nuvem.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	Você pode monitorar o status da implantação na área de mensagem. Clique em OK para ocultar a mensagem.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Verifique se a implantação foi concluída com êxito
 
@@ -141,10 +141,10 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 
 2. Em **visão rápida**, clique na URL do site para abrir o serviço de nuvem em um navegador.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

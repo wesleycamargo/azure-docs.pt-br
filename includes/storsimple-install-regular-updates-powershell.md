@@ -13,11 +13,11 @@
 
      `Start-HcsUpdate`
 
-    O processo de atualização com início.
+    O processo de atualização será iniciado.
 
 > [AZURE.IMPORTANT]
 >
 > - Este comando se aplica somente a hotfixes regulares. Executar esse comando em apenas um controlador, mas ambos os controladores serão atualizados. 
 > - Você pode perceber um failover de controlador durante o processo de atualização; no entanto, o failover não afetará a disponibilidade ou operação do sistema.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -195,7 +195,7 @@ Como Hive e Pig precisam invocar o aplicativo em tempo de execução, o modelo *
 
 1. O streaming do Pig espera que o aplicativo seja local no sistema de arquivos de cluster. Habilite a área de trabalho remota para o cluster HDInsight, então conecte-o seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-2. Uma vez conectado, copie **PigUDF.exe** do diretório **bin/debug** para o projeto PigUDF em seu computador local e cole-o no diretório **%PIG_HOME%** no cluster.
+2. Uma vez conectado, copie **PigUDF.exe** do diretório **bin/debug** para o projeto PigUDF em seu computador local e cole-o no diretório **%PIG\_HOME%** no cluster.
 
 ###Usar o aplicativo por meio de Pig Latin
 
@@ -240,4 +240,4 @@ Para outras maneiras de usar o Pig e o Hive e para saber como usar o MapReduce, 
 
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

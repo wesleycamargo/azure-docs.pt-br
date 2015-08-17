@@ -164,4 +164,4 @@ Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissã
 
 [Saiba mais sobre o Active Directory do Azure](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

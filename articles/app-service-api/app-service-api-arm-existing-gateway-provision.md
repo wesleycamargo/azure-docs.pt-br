@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionar um aplicativo de API com um gateway existente
@@ -40,7 +40,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 ### hostingPlanId
 
-O identificador do plano de hospedagem existente.
+O identificador do plano de hospedagem Serviço de Aplicativo existente.
 
     "hostingPlanId": {
       "type": "string"
@@ -65,7 +65,7 @@ Esse modelo define uma variável que é usada ao implantar os recursos.
       "packageId": "Microsoft.ApiApp"
     }
     
-O valor é usado abaixo como **variables('packageId')**.
+O valor é usado abaixo como **variables('packageId')**. Ele contém a ID do pacote do NuGet para aplicativos da API.
 
 ## Recursos a implantar
 
@@ -73,7 +73,7 @@ O valor é usado abaixo como **variables('packageId')**.
 
 Cria um aplicativo Web que hospeda o aplicativo de API.
 
-Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um gateway. O portal ocultará o aplicativo Web da folha Procurar aplicativo Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API.
+Observe que o parâmetro **kind** (tipo) é definido como **apiApp**, que notifica o portal do Azure que esse aplicativo Web está hospedando um aplicativo de API. O portal ocultará o aplicativo Web da folha Procurar aplicativos Web. O aplicativo inclui uma extensão para instalar o pacote do aplicativo de API vazio padrão. Um link é definido entre o aplicativo de API e o aplicativo da Web que o hospeda. A seção de configurações do aplicativo inclui os valores necessários para hospedar o aplicativo de API. A propriedade **serverFarmId** é definida como o valor fornecido no parâmetro **hostingPlanId**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -191,4 +191,4 @@ Observe que os nomes do aplicativo Web responsável pela hospedagem e do gateway
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

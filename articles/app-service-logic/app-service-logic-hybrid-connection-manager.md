@@ -84,7 +84,7 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
  - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução. 
  - Esse site usa o ***HybridListenerAppPool*** executado como a conta interna de usuário local *NetworkService*. Esse AppPool também deve ser iniciado.
 3. No servidor IIS, confirme se o conector está instalado e em execução: 
- - Um site é criado para o conector do Serviço de Aplicativo. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado. 
+ - Um site é criado para o conector do Serviço de Aplicativo. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado. 
  - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService*. Esse site e o AppPool devem ser iniciados. 
  - Procure o conector local. Por exemplo, se o site do seu conector usar a porta 6569, navegue até http://localhost:6569. Como não há documento padrão configurado, espera-se um `HTTP Error 403.14 - Forbidden error`.
 4. Em seu firewall, confirme se as portas TCP listadas neste tópico estão abertas.
@@ -133,4 +133,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

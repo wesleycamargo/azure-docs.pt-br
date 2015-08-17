@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Como usar Hubs de notificação do Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Python/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE]Isso é uma implementação de referência de exemplo para implementar o envia notificação em Python e não é oficialmente suportada notificações Hub Python SDK.
@@ -222,7 +224,7 @@ Inicialize seu cliente dos Hubs de Notificação (substitua a cadeia de conexão
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino. Este exemplo também adiciona métodos de nível superiores para habilitar as notificações de envio baseadas na plataforma send_windows_notification por exemplo, para windows e send_apple_notification (para a apple) etc.
+Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino. Este exemplo também adiciona métodos de nível superiores para habilitar as notificações de envio baseadas na plataforma send\_windows\_notification por exemplo, para windows e send\_apple\_notification (para a apple) etc.
 
 ### Windows Store e Windows Phone 8.1 (não Silverlight)
 
@@ -351,4 +353,4 @@ Neste tópico, mostramos como criar um cliente REST do Python para Hubs de notif
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

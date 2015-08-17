@@ -501,4 +501,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

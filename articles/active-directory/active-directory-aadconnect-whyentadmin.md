@@ -33,4 +33,4 @@ Para configurações expressas e atualização de DirSync | <li>Para Configuraç
 * [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect no MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

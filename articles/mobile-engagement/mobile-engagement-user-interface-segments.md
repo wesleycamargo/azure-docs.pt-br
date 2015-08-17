@@ -188,4 +188,4 @@ Quando você terminar de configurar o critério, ele aparecerá no funil do segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

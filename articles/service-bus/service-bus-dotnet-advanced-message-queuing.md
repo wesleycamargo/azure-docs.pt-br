@@ -308,4 +308,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

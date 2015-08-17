@@ -180,4 +180,4 @@ Este artigo pressupõe que você já instalou um sistema operacional SUSE ou ope
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

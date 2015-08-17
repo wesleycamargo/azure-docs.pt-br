@@ -82,7 +82,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
 * **Logs do aplicativo** - /LogFiles/Application/. Essa pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log do aplicativo.
 
-* **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
+* **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
 
 * **Logs de erro do aplicativo** - /LogFiles/DetailedErrors/. Esta pasta contém um ou mais arquivos .htm que fornecem informações exaustivas para quaisquer erros de HTTP.
 
@@ -135,7 +135,7 @@ Ao desenvolver um aplicativo, é sempre útil visualizar informações de regist
 
 > [AZURE.NOTE]Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos com problemas na transmissão. Por exemplo, uma entrada para log de aplicativo, que ocorre quando um usuário visita uma página, pode ser exibida durante a transmissão antes da entrada de log HTTP correspondente para a solicitação da página.
 
-> [AZURE.NOTE]O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles\\**.
+> [AZURE.NOTE]O streaming de log também transmitirá informações gravadas em qualquer arquivo de texto armazenado na pasta **D:\\home\\LogFiles\**.
 
 ### O streaming realizado com o PowerShell do Azure
 
@@ -197,107 +197,35 @@ __Armazenamento de tabela__
 
 Ao registrar no armazenamento de tabela, propriedades adicionais são usadas para facilitar a busca de dados armazenados na tabela e de informações mais granulares sobre o evento. As seguintes propriedades (colunas) são usadas para cada entidade (linha) armazenada na tabela.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nome da propriedade</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valor/formato</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Data/hora do evento no formato aaaaMMddHH</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Um valor de GUID que identifica exclusivamente esta entidade</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">A data e hora em que o evento ocorreu</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A data e hora em que o evento ocorreu, em formato de escala (maior precisão)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">O nome do aplicativo Web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nível</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nível de evento (por exemplo, erro, aviso ou informação)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">A ID de evento deste evento<br>A ID assume o valor 0 como padrão, se nenhum valor for especificado</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A instância do aplicativo Web onde o evento ocorreu</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID do Processo</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A ID do thread que produziu o evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Mensagem</td>
-<td style="border:1px solid black;vertical-align:top">A mensagem com detalhes do evento</td>
-</tr>
-</table>
+Nome da propriedade|Valor/formato
+---|---
+PartitionKey|Data/hora do evento no formato aaaaMMddHH
+RowKey|Um valor de GUID que identifica exclusivamente esta entidade
+Timestamp|A data e hora em que o evento ocorreu
+EventTickCount|A data e hora em que o evento ocorreu, em formato de escala (maior precisão)
+ApplicationName|O nome do aplicativo Web
+Nível|Nível de evento (por exemplo, erro, aviso ou informação)
+EventId|A ID deste evento<p><p>terá como padrão 0, caso nada seja especificado
+InstanceId|A instância do aplicativo Web onde o evento ocorreu
+Pid|ID do Processo
+Tid|A ID do thread que produziu o evento
+Mensagem|A mensagem com detalhes do evento
 
 __Armazenamento de blob__
 
 Ao registrar o log no armazenamento de blob, os dados serão armazenados em um formato de valores separados por vírgulas (CSV). Semelhante ao armazenamento de tabela, campos adicionais são registrados para fornecer informações mais granulares sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nome da propriedade</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valor/formato</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Data</td>
-<td style="border:1px solid black;vertical-align:top">A data e hora em que o evento ocorreu</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nível</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nível de evento (por exemplo, erro, aviso ou informação)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">O nome do aplicativo Web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A instância do aplicativo Web onde o evento ocorreu</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A data e hora em que o evento ocorreu, em formato de escala (maior precisão)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">A ID de evento deste evento<br>A ID assume o valor 0 como padrão, se nenhum valor for especificado</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">ID do Processo</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A ID do thread que produziu o evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Mensagem</td>
-<td style="border:1px solid black;vertical-align:top">A mensagem com detalhes do evento</td>
-</tr>
-</table>
+Nome da propriedade|Valor/formato
+---|---
+Data|A data e hora em que o evento ocorreu
+Nível|Nível de evento (por exemplo, erro, aviso ou informação)
+ApplicationName|O nome do aplicativo Web
+InstanceId|A instância do aplicativo Web onde o evento ocorreu
+EventTickCount|A data e hora em que o evento ocorreu, em formato de escala (maior precisão)
+EventId|A ID deste evento<p><p>terá como padrão 0, caso nada seja especificado
+Pid|ID do Processo
+Tid|A ID do thread que produziu o evento
+Mensagem|A mensagem com detalhes do evento
 
 Os dados armazenados em um blob deverão ser semelhantes ao seguinte:
 
@@ -308,7 +236,7 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte:
 
 ### Rastreamento de solicitação falha
 
-O rastreamento de solicitações falhas é armazenado em arquivos XML chamados __fr######.xml__. Para facilitar a visualização das informações registradas, uma folha de estilos XML chamada __freb.xsl__ é fornecida no mesmo diretório dos arquivos XML. A abertura de um dos arquivos XML no Internet Explorer usará a folha de estilos XSL para fornecer uma exibição de formato da informação rastreada. Isto aparecerá semelhante ao seguinte:
+O rastreamento de solicitações falhas é armazenado em arquivos XML chamados __fr\#\#\#\#\#\#.xml__. Para facilitar a visualização das informações registradas, uma folha de estilos XML chamada __freb.xsl__ é fornecida no mesmo diretório dos arquivos XML. A abertura de um dos arquivos XML no Internet Explorer usará a folha de estilos XSL para fornecer uma exibição de formato da informação rastreada. Isto aparecerá semelhante ao seguinte:
 
 ![solicitação falha visualizada no navegador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -335,4 +263,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

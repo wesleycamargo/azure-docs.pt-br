@@ -235,7 +235,7 @@ O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos ríg
 
     ![Mensagem de conversão de disco dinâmico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. No Gerenciamento de Disco, verifique se que os Discos 1 e 2 são mostrados como volumes dinâmicos espelhados. (\*\*Dinâmico\*\* deve aparecer na coluna de status e a cor da barra de capacidade muda para vermelho, indicando um volume espelhado.)
+10. No gerenciamento de disco, verifique se os discos 1 e 2 são mostrados como volumes dinâmicos espelhados. **Dinâmico** deve aparecer na coluna de status, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado.
 
     ![Discos dinâmicos espelhados do Gerenciamento de Disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -270,4 +270,4 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

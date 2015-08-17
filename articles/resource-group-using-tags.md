@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tomfitz"/>
 
 
 # Usando marcas para organizar os recursos do Azure
 
-O portal do Azure e o Gerenciador de Recursos subjacente são ferramentas que organizam seus recursos e personalizam sua experiência, tornando-a sob medida para você.
+O Gerenciador de Recursos permite que você organize os recursos logicamente por meio da aplicação de marcas. As marcas consistem em pares de chave/valor que identificam recursos com propriedades definidas por você. Para marcar recursos como pertencentes à mesma categoria, aplique a mesma marca a esses recursos.
 
-No portal clássico do Azure, as assinaturas são a única maneira de classificar e agrupar recursos. Com o portal do Azure, [apresentamos os grupos de recursos](./resource-group-portal.md), que permitem agrupar entidades relacionadas. Isso se tornou ainda mais valioso quando [introduzimos o acesso baseado em função](./role-based-access-control-configure.md). Agora, no mesmo espírito, você pode marcar seus recursos com pares de chave/valor para exibir os recursos e categorizá-los ainda mais em grupos e, dentro do portal, em assinaturas.
+Quando você exibir os recursos com uma determinada marca, verá os recursos de todos os grupos de recursos. Você não está limitado aos recursos no mesmo grupo de recursos, o que permite que você organize seus recursos de forma independente das relações de implantação. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
 
-Agrupe os recursos por equipe, projeto ou até mesmo ambiente para concentrar-se exatamente no que você deseja ver, quando você precisa vê-lo.
+> [AZURE.NOTE]Você só pode aplicar marcas em recursos com suporte a operações do Gerenciador de Recursos. Se você tiver criado uma Máquina Virtual, uma Rede Virtual ou um Armazenamento por meio do modelo de implantação clássica (como por meio do portal do Azure ou da [API de Gerenciamento de Serviço](https://msdn.microsoft.com/library/azure/dn948465.aspx)), não poderá aplicar uma marca a esse recurso. Será necessário implantar esses recursos novamente por meio do Gerenciador de Recursos para dar suporte à marcação. Todos os outros recursos oferecem suporte à marcação.
 
+## Marcas no portal de visualização
 
-## Marcas no portal do Azure
-
-Marcar recursos e grupos de recursos no portal é fácil. Use o hub Procurar para navegar até o recurso ou o grupo de recursos que você gostaria de marcar e clique na parte de Marcas na seção Visão geral, na parte superior da lâmina.
+Marcar recursos e grupos de recursos no portal de visualização é fácil. Use o hub Procurar para navegar até o recurso ou o grupo de recursos que você gostaria de marcar e clique na parte de Marcas na seção Visão geral, na parte superior da lâmina.
 
 ![Parte de marcas nas folhas de recurso e grupo de recursos](./media/resource-group-using-tags/rgblade.png)
 
@@ -62,7 +61,7 @@ O processo é o mesmo para os recursos, exceto pelo fato de que você usará os 
 ![Obtendo recursos e grupos de recursos marcados com Get-AzureResource e Get-AzureResourceGroup no PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## Marcação com o Gerenciador de Recursos
+## Marcação com a API REST
 
 O portal e o PowerShell usam a [API REST do Gerenciador de Recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx) em segundo plano. Se você precisar integrar a marcação a outro ambiente, você pode obter marcas com um GET na ID do recurso e atualizar o conjunto de marcas com uma chamada de PATCH.
 
@@ -99,26 +98,12 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 ![Ver as marcas de cobranças](./media/resource-group-using-tags/billing_csv.png)
 
 ## Próximas etapas
-Introdução
 
-- [Visão Geral do Gerenciador de Recursos do Azure](./resource-group-overview.md)  
-- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md)  
-- [Usando o Portal do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
-  
-Criação e implantação de aplicativos
-  
-- [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md)  
-- [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md)  
-- [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-group-deploy-debug.md)  
-- [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md)  
-- [Operações avançadas de modelo](./resource-group-advanced-template.md)  
-  
-Gerenciar e auditar o acesso
-  
-- [Gerenciar e auditar o acesso a recursos](./resource-group-rbac.md)  
-- [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md)  
-- [Criar uma nova entidade de serviço do Azure usando o portal clássico do Azure](./resource-group-create-service-principal-portal.md)  
+- Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, consulte [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](./powershell-azure-resource-manager.md).
+- Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
+- Para obter uma introdução ao uso do portal de visualização, consulte [Usando o portal de visualização do Azure para gerenciar os recursos do Azure](./resource-group-portal.md)  
   
 
-<!---HONumber=July15_HO5-->
+  
+
+<!---HONumber=August15_HO6-->

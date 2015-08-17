@@ -437,4 +437,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

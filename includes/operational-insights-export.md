@@ -8,4 +8,4 @@ Você pode exportar os resultados da pesquisa para o Excel salvando um arquivo .
 2. Em seu navegador, você receberá uma solicitação para salvar o arquivo .csv. Abra ou salve o arquivo.
 3. Abra o arquivo no Excel ou em outro aplicativo. Revise e personalize os dados como quiser. ![Resultados do Excel](./media/operational-insights-export/export-excel.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

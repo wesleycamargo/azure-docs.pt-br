@@ -91,4 +91,4 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

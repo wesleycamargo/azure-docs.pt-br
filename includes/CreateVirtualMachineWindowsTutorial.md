@@ -126,4 +126,4 @@ Para saber mais sobre a configuração de máquinas virtuais do Windows no Azure
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

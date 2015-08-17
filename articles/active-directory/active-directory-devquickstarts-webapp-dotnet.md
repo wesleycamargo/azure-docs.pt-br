@@ -124,7 +124,7 @@ public void SignOut()
 }
 ```
 
--	Agora, abra `Views\Shared_LoginPartial.cshtml`. É aqui que você vai mostrar ao usuário links de entrada e saída do seu aplicativo e imprimir o nome do usuário em uma exibição.
+-	Agora, abra `Views\Shared\_LoginPartial.cshtml`. É aqui que você vai mostrar ao usuário links de entrada e saída do seu aplicativo e imprimir o nome do usuário em uma exibição.
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -149,7 +149,7 @@ else
 ```
 
 ## *4. Exibir informações do usuário*
-Ao autenticar usuários com o OpenID Connect, o AD do Azure retorna um id_token para o aplicativo que contém "declarações" ou afirmações sobre o usuário. Você pode usar essas declarações para personalizar seu aplicativo:
+Ao autenticar usuários com o OpenID Connect, o AD do Azure retorna um id\_token para o aplicativo que contém "declarações" ou afirmações sobre o usuário. Você pode usar essas declarações para personalizar seu aplicativo:
 
 - Abra o arquivo `Controllers\HomeController.cs`. Você pode acessar as declarações do usuário em seus controladores por meio do objeto principal de segurança `ClaimsPrincipal.Current`.
 
@@ -177,4 +177,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

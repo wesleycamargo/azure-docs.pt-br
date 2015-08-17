@@ -94,4 +94,4 @@ Para criar serviços realmente em nuvem, é muito importante garantir que esses 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

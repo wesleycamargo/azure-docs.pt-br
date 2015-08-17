@@ -20,7 +20,13 @@ O serviço Blob contém os seguintes componentes:
 
 -   **Contêiner:** um contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
 
--   **Blob:** um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos e blobs de páginas (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+-   **Blob:** um arquivo de qualquer tipo e tamanho. O armazenamento do Azure oferece três tipos de blobs: blob de blocos, blob de páginas e blob de anexo.
+    
+	*Blobs de blocos* são ideais para armazenar arquivos de texto ou binários, como documentos e arquivos de mídia. *Blobs de anexo* são semelhantes aos blobs de blocos, pois são constituídos de blocos, mas são otimizados para anexas operações. Portanto, são úteis em cenários de registro em log. Um único blob de blocos ou acrescentar blob pode conter até 50.000 blocos de até 4 MB cada um, para um tamanho total de um pouco mais de 195 GB (4 MB X 50.000).
+    
+	*Blobs de páginas* podem ter até 1 TB e são mais eficientes para operações frequentes de leitura/gravação. Máquinas virtuais do Azure usam blobs de páginas como sistema operacional e discos de dados.
+
+	Para obter mais informações sobre blobs, consulte [Noções gerais sobre blobs de blocos, blobs de páginas de blobs de anexo](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Nomeando e referenciando contêineres e blobs
 
@@ -63,4 +69,4 @@ Você pode usar o caractere delimitador para listar blobs hierarquicamente.
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

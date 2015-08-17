@@ -69,47 +69,9 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 ### Descrição dos valores de relatório
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Coluna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valores permitidos e seus significados</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Dados Registrados</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Email Alternativo</strong> – email alternativo ou email de autenticação usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefone Comercial</strong> – telefone comercial usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Celular</strong> – celular ou telefone de autenticação usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Perguntas de Segurança</strong> – perguntas de segurança usadas pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)</strong> – ocorre quando uma política de duas portas é especificada e mostra os dois métodos usados pelo usuário para autenticação de sua solicitação de redefinição de senha.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Coluna|Valores permitidos e seus significados
+---|---
+Dados Registrados| **Email alternativo**– email alternativo do usuário usado ou email de autenticação para autenticar o<p><p>**Telefone do Office**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar as<p>**Perguntas de segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email alternativo + Celular)** – ocorre quando uma política de 2 acessos for especificada e mostra quais os dois métodos usados pelo usuário para autenticação da solicitação de redefinição de sua senha.
 
 ## Exibir atividade de redefinição de senha
 
@@ -134,394 +96,53 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 ### Descrição dos valores de relatório
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Coluna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valores permitidos e seus significados</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Métodos usados</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Email Alternativo</strong> – email alternativo ou email de autenticação usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Telefone Comercial</strong> – telefone comercial usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Celular</strong> – celular ou telefone de autenticação usado pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Perguntas de Segurança</strong> – perguntas de segurança usadas pelo usuário para se autenticar<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)</strong> – ocorre quando uma política de duas portas é especificada e mostra os dois métodos usados pelo usuário para autenticação de sua solicitação de redefinição de senha.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Result</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Abandonado</strong> – redefinição de senha iniciada pelo usuário mas, em seguida, interrompida pela metade sem ser concluída<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Bloqueado</strong> – a conta do usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou uma porta única de redefinição de senha muitas vezes em um período de 24 horas<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Cancelado</strong> – redefinição de senha iniciada pelo usuário, mas o botão Cancelar foi clicado para cancelar a sessão pela metade <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Administrador Contatado</strong> – o usuário teve um problema durante a sessão que ele não pôde resolver, assim, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Falha</strong> – o usuário não pôde redefinir uma senha, provavelmente porque o usuário não foi configurado para usar o recurso (por exemplo, nenhuma licença, informações de autenticação ausentes, senha gerenciada no local, mas o write-back está desativado).<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Êxito</strong> – a redefinição de senha foi bem-sucedida.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Detalhes</p>
-              </td>
-              <td>
-                <p>Consulte a tabela abaixo.</p>
-              </td>
-            </tr>
-          </tbody></table>
+
+Coluna|Valores permitidos e seus significados
+---|---
+Métodos usados|**Email alternativo**– email alternativo do usuário usado ou email de autenticação para autenticar o<p>**Telefone do Office**– telefone comercial usado pelo usuário para autenticar<p>**Celular** - celular usado pelo usuário ou telefone de autenticação para autenticar as<p>**Perguntas de segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email alternativo + Celular)** – ocorre quando uma política de 2 acessos for especificada e mostra quais os dois métodos usados pelo usuário para autenticação da solicitação de redefinição de sua senha.
+Result|**Abandonado**– usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição devido à tentativa de uso da página de redefinição de senha ou do acesso de redefinição da senha muitas vezes em um período de 24 horas<p>**Cancelado** – usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão de Cancelar no meio do processo<p>**Administrador contatado** – o usuário teve um problema durante a sessão que não foi possível resolver , então o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – usuário não foi capaz de redefinir uma senha, provavelmente porque o usuário não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas gravação desativada).<p>** Bem-sucedida** – a redefinição de senha foi bem-sucedida.
+Detalhes|Consulte a tabela abaixo.
 
 ### Valores permitidos para a coluna de detalhes
 Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Detalhes</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Tipo de resultado</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de concluir a opção de verificação de email</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz comercial</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de concluir a opção de perguntas de segurança</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de inserir sua ID de usuário</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de iniciar a opção de verificação de email</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de iniciar a opção de verificação de SMS móvel</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz móvel</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz comercial</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário depois de iniciar a opção de perguntas de segurança</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário antes de selecionar uma nova senha</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Abandonado pelo usuário ao selecionar uma nova senha</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário inseriu muitos códigos de verificação de email inválidos e está bloqueado para 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário inseriu muitos códigos de verificação de SMS inválidos e está bloqueado para 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário tentou muitas vezes a verificação de voz por telefone celular e está bloqueado por 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário tentou muitas vezes a verificação de voz comercial e está bloqueado por 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário tentou responder às perguntas de segurança muitas vezes e está bloqueado por 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário tentou verificar um número de telefone muitas vezes e está bloqueado por 24 horas</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário fez o cancelamento antes de passar pelos métodos de autenticação obrigatórios</p>
-              </td>
-              <td>
-                <p>Cancelado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário fez o cancelamento antes de enviar uma nova senha</p>
-              </td>
-              <td>
-                <p>Cancelado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário contatou um administrador depois de tentar a opção de verificação de email</p>
-              </td>
-              <td>
-                <p>Administrador contatado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário contatou um administrador depois de tentar a opção de verificação de SMS móvel</p>
-              </td>
-              <td>
-                <p>Administrador contatado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz móvel</p>
-              </td>
-              <td>
-                <p>Administrador contatado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz comercial</p>
-              </td>
-              <td>
-                <p>Administrador contatado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário contatou um administrador depois de tentar a opção de verificação de pergunta de segurança</p>
-              </td>
-              <td>
-                <p>Administrador contatado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>A redefinição de senha não está habilitada para este usuário. Habilite a redefinição de senha na guia Configurar para resolver o problema</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário não tem uma licença. Você pode adicionar uma licença para o usuário para resolver o problema</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário tentou redefinir em um dispositivo sem cookies habilitados</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>A conta do usuário tem métodos de autenticação insuficiente definidos. Adicione informações de autenticação para resolver esse problema</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back de Senha para resolver o problema</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema.</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>A redefinição de senha foi desabilitada inteiramente para este locatário. Consulte <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a> para resolver o problema.</p>
-              </td>
-              <td>
-                <p>Falha</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>O usuário redefiniu a senha com êxito</p>
-              </td>
-              <td>
-                <p>Bem-sucedido</p>
-              </td>
-            </tr>
-          </tbody></table>
-
-<br/> <br/> <br/>
+Detalhes | Tipo de resultado 
+----|----
+Abandonado pelo usuário depois de concluir a opção de verificação de email | Abandonado
+Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel|Abandonado 
+Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel | Abandonado 
+Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz comercial | Abandonado
+Abandonado pelo usuário depois de concluir a opção de perguntas de segurança|Abandonado 
+Abandonado pelo usuário depois de inserir sua ID de usuário| Abandonado 
+Abandonado pelo usuário depois de iniciar a opção de verificação de email|Abandonado
+Abandonado pelo usuário depois de iniciar a opção de verificação de SMS móvel|Abandonado
+Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz móvel|Abandonado
+Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz comercial|Abandonado
+Abandonado pelo usuário depois de iniciar a opção de perguntas de segurança| Abandonado
+Abandonado pelo usuário antes de selecionar uma nova senha| Abandonado
+Abandonado pelo usuário ao selecionar uma nova senha| Abandonado
+O usuário inseriu muitos códigos de verificação de SMS inválidos e está bloqueado para 24 horas|Bloqueado
+O usuário tentou muitas vezes a verificação de voz por telefone celular e está bloqueado por 24 horas|Bloqueado
+O usuário tentou muitas vezes a verificação de voz comercial e está bloqueado por 24 horas |Bloqueado
+O usuário tentou responder às perguntas de segurança muitas vezes e está bloqueado por 24 horas| Bloqueado
+O usuário tentou verificar um número de telefone muitas vezes e está bloqueado por 24 horas|Bloqueado
+O usuário fez o cancelamento antes de passar pelos métodos de autenticação obrigatórios|Cancelado
+O usuário fez o cancelamento antes de enviar uma nova senha|Cancelado
+O usuário contatou um administrador depois de tentar a opção de verificação de email |Administrador contatado
+O usuário contatou um administrador depois de tentar a opção de verificação de SMS móvel|Administrador contatado
+O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz móvel|Administrador contatado
+O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz comercial |Administrador contatado
+O usuário contatou um administrador depois de tentar a opção de verificação de pergunta de segurança|Administrador contatado
+A redefinição de senha não está habilitada para este usuário. Habilite a redefinição de senha na guia Configurar para resolver o problema| Falha
+O usuário não tem uma licença. Você pode adicionar uma licença para o usuário para resolver o problema|Falha
+O usuário tentou redefinir em um dispositivo sem cookies habilitados| Falha
+A conta do usuário tem métodos de autenticação insuficiente definidos. Adicione informações de autenticação para resolver esse problema|Falha
+A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back de Senha para resolver o problema|Falha
+Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização|Falha
+Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização | Falha
+Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema.|Falha
+A redefinição de senha foi desabilitada inteiramente para este locatário. Consulte[aqui](http://aka.ms/ssprtroubleshoot)para resolver o problema. | Falha 
+O usuário redefiniu a senha com êxito|Bem-sucedido
 
 **Recursos adicionais**
 
@@ -543,4 +164,4 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

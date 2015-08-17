@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurar uma máquina virtual como um servidor do IPython Notebook | Microsoft Azure"
 	description="Configure uma Máquina Virtual do Azure para uso em um ambiente de ciência de dados com o IPython Server para análise avançada."
-	services="machine-learning" 
+	services="machine-learning"
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -66,7 +66,7 @@ Se a máquina virtual já existir e você precisar adicionar um ponto de extremi
 
 ## <a name="run-commands"></a>Etapa 3: instalar o IPython Notebook e outras ferramentas de suporte
 
-Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines-log-on-windows-server.md). Abra o **Prompt de Comando** (\*\*não a janela de comando do Powershell\*\*) como **Administrador** e execute o comando a seguir.
+Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines-log-on-windows-server.md). Abra o **Prompt de Comando** (**Não a janela de comando do Powershell**) como **Administrador** e execute o comando a seguir.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -77,13 +77,13 @@ Quando a instalação for concluída, o servidor do IPython Notebook será inici
 Quando solicitado, digite uma senha para o IPython Notebook e a senha de administrador do computador. Isso permite que o IPython Notebook seja executado como um serviço no computador.
 
 ## <a name="access"></a>Etapa 4: acesse o IPython Notebooks usando um navegador da Web
-Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
+Para acessar o servidor do IPython Notebook, abra um navegador da Web e insira *https://&#60;virtual nome DNS do computador>:&\#60;número da porta pública>* na caixa de texto da URL. Aqui, o *&\#60;número da porta pública>* deve ser o número da porta especificado quando o ponto de extremidade do IPython Notebook foi adicionado.
 
-O *&#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
+O *&\#60;nome DNS da máquina virtual>* pode ser encontrado no portal de gerenciamento do Azure. Depois de fazer logon no portal de gerenciamento, clique em **MÁQUINAS VIRTUAIS**, selecione a máquina que você criou e, em seguida, selecione **PAINEL**, o nome DNS será mostrado da seguinte maneira:
 
 ![Criar espaço de trabalho][19]
 
-Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;\*Nome DNS\*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
+Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &\#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
 
 Internet Explorer: ![Criar espaço de trabalho][20]
 
@@ -143,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

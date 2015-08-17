@@ -22,6 +22,10 @@ Aplicativos normalmente são compostos por vários componentes, como um aplicati
 
 O Gerenciador de Recursos do Azure nativamente integra o controle de acesso à plataforma de gerenciamento para que você possa especificar as ações que um usuário da sua organização pode utilizar em um grupo de recursos.
 
+Veja uma demonstração desta visão geral.
+
+[AZURE.VIDEO azure-resource-manager-overview]
+
 > [AZURE.NOTE]Este tópico descreve os recursos, grupos e modelos usando o portal de visualização para demonstrar os conceitos. No entanto, você pode também criar, gerenciar e excluir recursos do Azure usando a [CLI do Azure para Mac, Linux e Windows](virtual-machines/xplat-cli-azure-resource-manager.md), bem como o [PowerShell](powershell-azure-resource-manager.md).
 
 ## Grupos de recursos
@@ -46,7 +50,7 @@ Um grupo de recursos também pode ser vinculado a um recurso em outro grupo de r
 
 Para obter mais informações sobre a vinculação de recursos, consulte [Vinculação de recursos no Gerenciador de Recursos do Azure](resource-group-link-resources.md)
 
-Se você precisar mover um recurso para um novo grupo de recursos, consulte [Mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
+Se você precisar mover um recurso para um novo grupo de recursos, consulte [Mover recursos para um novo grupo de recursos ou uma assinatura](resource-group-move-resources.md).
 
 No portal de visualização, é possível exibir custos, monitorar eventos e gerenciar alertas com facilidade. A imagem a seguir mostra a cobrança consolidada para um grupo.
 
@@ -116,13 +120,13 @@ Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure p
 
 Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para obter informações sobre o uso do portal de visualização, consulte [Como usar o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
+Para obter informações sobre o uso do portal de visualização, consulte [Usando o Portal de Visualização do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
 ## Próximas etapas
 
 - Para saber mais sobre a criação de modelos, consulte [Criando modelos](./resource-group-authoring-templates.md)
 - Para implantar o modelo criado, consulte [Implantando modelos](azure-portal/resource-group-template-deploy.md)
 - Para entender as funções que você pode usar em um modelo, consulte [Funções de modelo](./resource-group-template-functions.md)
-- Para obter orientações sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
+- Para obter orientação sobre como criar seus modelos, consulte [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

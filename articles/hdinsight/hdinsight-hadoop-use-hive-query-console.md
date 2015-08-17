@@ -35,7 +35,8 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 ##<a id="run"></a> Executar consultas Hive usando o Console de Consulta
 
-1. Abra um navegador da Web e navegue até __https://CLUSTERNAME.azurehdinsight.net__, em que __CLUSTERNAME__ é o nome do seu cluster do HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
+1. Abra um navegador da Web e navegue até \_\___https://CLUSTERNAME.azurehdinsight.net__, em que __CLUSTERNAME__ é o nome do seu cluster do HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
+
 
 2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight.
 
@@ -119,4 +120,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

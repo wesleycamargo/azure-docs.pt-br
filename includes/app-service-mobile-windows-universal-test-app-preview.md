@@ -31,4 +31,4 @@ Volte ao Visual Studio e selecione o projeto de aplicativo de cliente de código
 
 	Observe que os dados salvos da etapa anterior são carregados por meio do aplicativo móvel após o aplicativo do Windows ser iniciado.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

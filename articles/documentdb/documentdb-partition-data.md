@@ -1,9 +1,9 @@
 <properties      
-    pageTitle="Particionando dados no Banco de Dados de Documentos | Azure"      
+    pageTitle="Particionando dados no Banco de Dados de Documentos | Microsoft Azure"      
     description="Saiba como particionar dados no Banco de Dados de Documentos e quando usar particionamento hash, por intervalos e por pesquisa."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
     documentationCenter=""/> <tags      
     ms.service="documentdb"      
@@ -113,4 +113,4 @@ Neste artigo, apresentamos algumas técnicas comuns para particionar dados com o
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -151,17 +151,17 @@ Anúncios não lineares também são especificados em um elemento de <Creative>.
 	</Creative>
 
  
-O elemento de **<NonLinearAds>** pode conter um ou mais elementos de **<NonLinear>**, cada um deles pode descrever um anúncio não linear. O elemento de **<NonLinear>** especifica o recurso para o anúncio não linear. O recurso pode ser um **<StaticResouce>**, um **<IFrameResource>**, ou uma **<HTMLResouce>**. \* \*<StaticResource>\* \* descreve um recurso não HTML e define um atributo creativeType que especifica como o recurso é exibido:
+O elemento de **<NonLinearAds>** pode conter um ou mais elementos de **<NonLinear>**, cada um deles pode descrever um anúncio não linear. O elemento de **<NonLinear>** especifica o recurso para o anúncio não linear. O recurso pode ser um **<StaticResouce>**, um **<IFrameResource>** ou um **<HTMLResouce>**.**<StaticResource>** descreve um recurso não HTML e define um atributo creativeType que especifica como o recurso é exibido:
 
 Image/gif, image/jpeg, image/png – o recurso é exibido em uma marca HTML **<img>**.
 
-Application/x-javascript – o recurso é exibido em uma marca HTML <\*\*script\*\*>.
+Application/x-javascript – o recurso é exibido em uma marca HTML <**script**>.
 
 Application/x-shockwave-flash – o recurso é exibido em um Flash player.
 
-**<IFrameResource>** descreve um recurso HTML que pode ser exibido em um IFrame. **<HTMLResource>** descreve um trecho de código HTML que pode ser inserido em uma página da web. **<TrackingEvents>** especifica eventos de rastreamento e o URI de solicitação quando o evento ocorre. Neste exemplo, os eventos acceptInvitation e collapse são rastreados. Para obter mais informações sobre o elemento **<NonLinearAds>** e seus filhos, consulte IAB.NET/VAST. Observe que o elemento **<TrackingEvents>** está localizado dentro do elemento \*\* <NonLinearAds>\*\* em vez do elemento **<NonLinear>**.
+**<IFrameResource>** descreve um recurso HTML que pode ser exibido em um IFrame. **<HTMLResource>** descreve um trecho de código HTML que pode ser inserido em uma página da web. **<TrackingEvents>** especifica eventos de rastreamento e o URI de solicitação quando o evento ocorre. Neste exemplo, os eventos acceptInvitation e collapse são rastreados. Para saber mais sobre o elemento **<NonLinearAds>** e seus filhos, consulte IAB.NET/VAST. Observe que o elemento **<TrackingEvents>** está localizado dentro do elemento ** <NonLinearAds>** em vez do elemento **<NonLinear>**.
 
-Anúncios complementares são definidos dentro de um elemento de <CompanionAds>. O elemento de <CompanionAds> pode conter um ou mais elementos de <Companion>. Cada elemento de <Companion> descreve um anúncio complementar e pode conter um <StaticResource>, <IFrameResource>, ou <HTMLResource> que são especificados da mesma maneira que um anúncio não linear. Um arquivo VAST pode conter diversos anúncios complementares e o aplicativo de player pode escolher o anúncio mais apropriado a ser exibido. Para obter mais informações sobre VAST, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Anúncios complementares são definidos dentro de um elemento de <CompanionAds>. O elemento <CompanionAds> pode conter um ou mais elementos de <Companion>. Cada elemento de <Companion> descreve um anúncio complementar e pode conter um <StaticResource>, <IFrameResource>, ou <HTMLResource> que são especificados da mesma maneira que um anúncio não linear. Um arquivo VAST pode conter diversos anúncios complementares e o aplicativo de player pode escolher o anúncio mais apropriado a ser exibido. Para saber mais sobre VAST, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
 ###Usando um arquivo VMAP (Digital Video Multiple Ad Playlist)
 
@@ -219,23 +219,23 @@ Um arquivo VMAP começa com um elemento de <VMAP> que contém um ou mais element
 1. Tempo – em formato hh:mm:ss ou hh:mm:ss.mmm em que .mmm são milissegundos. O valor deste atributo especifica o tempo desde o início da linha do tempo de vídeo para o início do intervalo de anúncio.
 1. Porcentagem – em formato %n, em que n é a porcentagem da linha do tempo de vídeo a ser executado antes da execução do anúncio
 1. Início/fim – especifica que um anúncio deve ser exibido antes ou depois que o vídeo foi exibido
-1. Posição – especifica a ordem dos intervalos dos anúncios quando o tempo dos intervalos dos anúncios é desconhecido, como na transmissão ao vivo. A ordem de cada intervalo de anúncio é especificada no formato #n, onde n é um inteiro 1 ou maior. 1 significa que o anúncio deve ser reproduzido na primeira oportunidade, 2 significa que o anúncio deve ser reproduzido na segunda oportunidade e assim por diante.
+1. Posição – especifica a ordem dos intervalos dos anúncios quando o tempo dos intervalos dos anúncios é desconhecido, como na transmissão ao vivo. A ordem de cada intervalo de anúncio é especificada no formato \#n, onde n é um inteiro 1 ou maior. 1 significa que o anúncio deve ser reproduzido na primeira oportunidade, 2 significa que o anúncio deve ser reproduzido na segunda oportunidade e assim por diante.
 
-Dentro do elemento <\*\*AdBreak\*\*> pode ser um elemento <\*\*AdSource\*\*>. O elemento <\*\*AdSource\*\*> contém os seguintes atributos:
+Dentro do elemento <**AdBreak**> pode ser um elemento <**AdSource**>. O elemento <**AdSource**> contém os seguintes atributos:
 
 1. Id – especifica um identificador para a origem do anúncio
 1. allowMultipleAds – um valor booleano que especifica se vários anúncios podem ser exibidos durante o intervalo de anúncio
 1. followRedirects – um valor booleano opcional que especifica se o player de vídeo deve usar redirecionamentos dentro de uma resposta de anúncio
 
-O elemento <\*\*AdSource\*\*> fornece ao player uma resposta embutida de anúncio ou uma referência a uma resposta de anúncio. Ele pode conter um dos seguintes elementos:
+O elemento <**AdSource**> fornece ao player uma resposta embutida de anúncio ou uma referência a uma resposta de anúncio. Ele pode conter um dos seguintes elementos:
 
 - <VASTAdData> indica que uma resposta de anúncio VAST está incorporada no arquivo VMAP
 - <AdTagURI> um URI que faz referência a uma resposta de anúncio de outro sistema
 - <CustomAdData> -uma cadeia de caracteres arbitrária que representa uma resposta não VAST
 
-Neste exemplo, uma resposta embutida de anúncio é especificada com um elemento <VASTAdData> que contém uma resposta de anúncio VAST. Para obter mais informações sobre os outros elementos, consulte [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Neste exemplo, uma resposta embutida de anúncio é especificada com um elemento <VASTAdData> que contém uma resposta de anúncio VAST. Para saber mais sobre os outros elementos, consulte [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-O elemento <\*\*AdBreak\*\*> também pode conter um elemento <\*\*TrackingEvents\*\*>. O elemento <\*\*TrackingEvents\*\*> permite que você rastreie o início ou término de um intervalo de anúncio ou se ocorreu um erro durante o intervalo de anúncio. O elemento <\*\*TrackingEvents\*\*> contém um ou mais elementos <\*\*Tracking\*\*>, cada um deles especifica um evento de rastreamento e um URI de rastreamento. Os eventos de rastreamento possíveis são:
+O elemento <**AdBreak**> também pode conter um elemento <**TrackingEvents**>. O elemento <**TrackingEvents**> permite que você rastreie o início ou término de um intervalo de anúncio ou se ocorreu um erro durante o intervalo de anúncio. O elemento <**TrackingEvents**> contém um ou mais elementos <**Tracking**>, cada um deles especifica um evento de rastreamento e um URI de rastreamento. Os eventos de rastreamento possíveis são:
 
 1. breakStart – rastreia o início de um intervalo de anúncio
 1. breakEnd – rastreia a conclusão de um intervalo de anúncio
@@ -264,7 +264,7 @@ O exemplo a seguir mostra um arquivo VMAP que especifica os eventos de rastreame
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 
-Para obter mais informações sobre o elemento <\*\*TrackingEvents\*\*> e seus filhos, consulte http://iab.org/VMAP.pdf
+Para saber mais sobre o elemento <**TrackingEvents**> e seus filhos, consulte http://iab.org/VMAP.pdf
 
 ###Usando um arquivo MAST (Media Abstract Sequencing Template)
 
@@ -352,13 +352,13 @@ Um anúncio executável é criado no código que deve ser executado em um ambien
 	</MediaFiles>
  
 
-Um anúncio executável pode ser inicializado usando o elemento <AdParameters> dentro dos elementos <Linear> ou <NonLinear> em um resposta VAST. Para obter mais informações sobre o elemento <AdParameters>, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Para obter mais informações sobre o VPAID API, consulte [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Um anúncio executável pode ser inicializado usando o elemento <AdParameters> dentro dos elementos <Linear> ou <NonLinear> em um resposta VAST. Para saber mais sobre o elemento <AdParameters>, consulte [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Para saber mais sobre o VPAID API, consulte [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ##Implementação de um player no Windows ou Windows Phone 8 com suporte a anúncios
 
 A Plataforma de Mídia da Microsoft: Player Framework para Windows 8 e Windows Phone 8 contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Player Framework para Windows 8 e Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214).
 
-Para obter mais informações sobre como inserir anúncios, consulte [Inserir anúncios em sua mídia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+Para saber mais sobre como inserir anúncios, consulte [Inserir anúncios em sua mídia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 Quando você abrir a solução Microsoft.PlayerFramework.Xaml.Samples, verá um número de pastas dentro do projeto. A pasta Anúncios contém o código de exemplo relevante para a criação de um player de vídeo com suporte para anúncios. Dentro da pasta Anúncios há vários arquivos XAML/cs, cada um dos quais mostra como inserir anúncios de maneira diferente. A lista a seguir descreve cada:
 
@@ -396,7 +396,7 @@ Este exemplo usa o AdSchedulerPlugin para definir quando exibir um anúncio. Nes
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
-Para obter mais informações sobre o AdSchedulerPlugin, consulte [Anunciando no Player Framework no Windows 8 e Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Para saber mais sobre o AdSchedulerPlugin, consulte [Anunciando no Player Framework no Windows 8 e Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ###AdSchedulingPage
 
@@ -573,7 +573,7 @@ Esse exemplos usam o VmapSchedulerPlugin para agendar anúncios usando um arquiv
 
 A Plataforma de Mídia da Microsoft: Player Framework para iOS contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos de [Media Player Framework do Azure](https://github.com/Azure/azure-media-player-framework). A página do github tem um link para um Wiki que contém informações adicionais sobre a estrutura de player e uma introdução à amostra do player: [Wiki do Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-Para obter mais informações sobre como inserir anúncios, consulte [Inserir anúncios em sua mídia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+Para saber mais sobre como inserir anúncios, consulte [Inserir anúncios em sua mídia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 ###Agendando anúncios com VMAP
 
@@ -804,4 +804,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md) [Introdução ao Media Player Framework do Azure para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

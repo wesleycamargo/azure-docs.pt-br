@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
@@ -246,7 +246,7 @@ Nesta seção, você criará várias páginas que exibem seu aplicativo.
 
 7.  Clique em **Adicionar**.
 
-8.  Agora, altere o nome exibido do seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\_Layout.cshtml** para abrir no editor do Visual Studio.
+8.  Agora, altere o nome exibido do seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\\Shared\\\_Layout.cshtml** para abrir no editor do Visual Studio.
 
 9.  Altere todas as ocorrências de **Meu aplicativo ASP.NET** para **Produtos da LITWARE**.
 
@@ -335,7 +335,7 @@ Agora, você adicionará o código para enviar itens para uma fila. Primeiro, vo
 
 4.  Agora, você garantirá que o método **Initialize** seja chamado. No **Gerenciador de Soluções**, clique duas vezes em **Global.asax\\Global.asax.cs**.
 
-5.  Adicione a linha a seguir na parte inferior do método **Application_Start**:
+5.  Adicione a linha a seguir na parte inferior do método **Application\_Start**:
 
         FrontendWebRole.QueueConnector.Initialize();
 
@@ -539,4 +539,4 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

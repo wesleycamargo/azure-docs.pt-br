@@ -49,26 +49,12 @@ O computador no qual você instala o agente do Hybrid Connection Manager local:
 
 - Deve ter conectividade de saída com o Azure por:
 
-> <table border="1">
-    <tr>
-       <th><strong>Porta</strong></th>
-        <th>Porque</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>Necessária</strong> para porta HTTP para validação de certificado e, opcionalmente, para conectividade de dados.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>Opcional</strong> para conectividade de dados. Se a conectividade de saída para 443 estiver indisponível, a porta TCP 80 é usada.</td>
-    </tr>
-	<tr>
-        <td>5671 e 9352</td>
-        <td><strong>Recomendada</strong>, mas opcional para conectividade de dados. Observe que esse modo costuma produzir uma taxa de transferência maior. Se a conectividade de saída para essas portas estiver indisponível, a porta TCP 443 é usada.</td>
-	</tr>
-</table>
-
-- Precisa ser capaz de acessar o *nome_de_host*:*número_de_porta* do seu recurso local. 
+Porta|Porque
+---|---
+80|**Necessária** para porta HTTP para validação de certificado e, opcionalmente, para conectividade de dados.
+443|**Opcional** para conectividade de dados. Se a conectividade de saída para 443 estiver indisponível, a porta TCP 80 é usada.
+5671 e 9352|**Recomendada**, mas opcional para conectividade de dados. Observe que esse modo costuma produzir uma taxa de transferência maior. Se a conectividade de saída para essas portas estiver indisponível, a porta TCP 443 é usada.
+- Precisa ser capaz de atingir o *hostname*:*portnumber* do seu recurso local. 
 
 As etapas neste artigo pressupõem que você está utilizando o navegador a partir do computador que hospedará o agente local de conexão híbrida.
 
@@ -81,7 +67,7 @@ Esta seção mostra a você como instalar o SQL Server Express, habilitar TCP/IP
 
 ### Instalar SQL Server Express ###
 
-1. Para instalar o SQL Server Express, execute o arquivo **SQLEXPRWT_x64_ENU.exe** ou **SQLEXPR_x86_ENU.exe** que você baixou. O assistente do Centro de Instalação do SQL Server é exibido.
+1. Para instalar o SQL Server Express, execute o arquivo **SQLEXPRWT\_x64\_ENU.exe** ou **SQLEXPR\_x86\_ENU.exe** que você baixou. O assistente do Centro de Instalação do SQL Server é exibido.
 	
 	![Instalar SQL Server][SQLServerInstall]
 	
@@ -378,4 +364,4 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

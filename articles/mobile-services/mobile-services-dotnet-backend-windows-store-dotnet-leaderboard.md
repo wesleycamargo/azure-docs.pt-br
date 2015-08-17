@@ -139,7 +139,7 @@ Esta etapa adiciona um arquivo chamado PlayerController.cs ao projeto.
 
 O controlador deriva do **TableController<T>**. Essa classe é herdeira do **ApiController**, mas é especializada para os Serviços Móveis do Azure.
  
-- Roteamento: a rota padrão para um **TableController** é `/tables/{table_name}/{id}`, em que o *table_name* corresponde ao nome da entidade. Assim, a rota para o controlador do Jogador é */tables/player/{id}*. Essa convenção de roteamento deixa o **TableController** consistente com os Serviços Móveis do [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx).
+- Roteamento: a rota padrão para um **TableController** é `/tables/{table_name}/{id}`, em que o *table\_name* corresponde ao nome da entidade. Assim, a rota para o controlador do Jogador é */tables/player/{id}*. Essa convenção de roteamento deixa o **TableController** consistente com os Serviços Móveis do [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx).
 - Acesso a dados: para operações de banco de dados, a classe **TableController** usa a interface **IDomainManager**, que define uma abstração para acesso a dados. O scaffolding usa **EntityDomainManager**, que é uma implementação concreta de **IDomainManager** que encapsula um contexto EF. 
 
 Agora, adicione um segundo controlador às entidades do PlayerRank. Siga as mesmas etapas, mas escolha o PlayerRank para a classe do modelo. Use a mesma classe de contexto de dados; não crie uma nova. Nomeie o controlador “PlayerRankController”.
@@ -762,4 +762,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

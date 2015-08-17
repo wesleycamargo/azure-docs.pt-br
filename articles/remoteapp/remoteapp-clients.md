@@ -207,4 +207,4 @@ Depois de instalar o aplicativo de Área de Trabalho Remota da Microsoft a parti
 	![Feed de demonstração do Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -34,7 +34,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 |![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png)**Risco de choque elétrico** |Alta tensão|
 |![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **Peso pesado**| |
 |![Ícone de nenhuma peça operada pelo usuário](./media/storsimple-safety/IC740879.png) **Nenhuma peça é operada pelo usuário**|Não acesse a menos que seja devidamente treinado.|
-|![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png)\*\*Leia todas as instruções primeiro \*\*| |
+|![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png)**Leia todas as instruções primeiro **| |
 |![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **Risco de tombamento**| |
 
 
@@ -179,4 +179,4 @@ Depois de revisar esses avisos de segurança, as próximas etapas serão desemba
 
 - Para um dispositivo 8600, vá para [Desempacotar, montar no rack e cabear o dispositivo 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

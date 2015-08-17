@@ -260,4 +260,4 @@ Esses são alguns dos recursos disponíveis que você pode usar para aprender a 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

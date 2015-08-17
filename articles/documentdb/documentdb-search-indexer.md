@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores | Azure" 
+    pageTitle="Conectando o Banco de Dados de Documentos à Pesquisa do Azure usando indexadores | Microsoft Azure" 
     description="Este artigo mostra como usar o indexador da Pesquisa do Azure com o Banco de Dados de Documentos como uma fonte de dados."
     services="documentdb" 
     documentationCenter="" 
@@ -132,50 +132,16 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 
 ###Figura A: Mapeamento entre tipos de dados JSON e tipos de dados da Pesquisa do Azure
 
-<table style="font-size:12">
-    <tr>
-        <th>Tipo de dados JSON</th>
-        <th>Tipos de campos de índice de destino compatíveis</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Números que se parecem com inteiros</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Números que se parecem com pontos flutuantes</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Cadeia de caracteres</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Matrizes de tipos primitivos<br/>
-            como ["a", "b", "c"]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Cadeias de caracteres que se parecem com datas</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Objetos GeoJSON<br/>
-            como {"type": "Point", "coordenadas": [long, lat]}
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Outros objetos JSON</td>
-        <td>N/D</td>
-    </tr>
-</table>
+| TIPO DE DADOS JSON|	TIPOS DE CAMPOS DE ÍNDICE DE DESTINO COMPATÍVEIS|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|Números que se parecem com inteiros|Edm.Int32, Edm.Int64, Edm.String|
+|Números que se parecem com pontos flutuantes|Edm.Double, Edm.String|
+|Cadeia de caracteres|Edm.String|
+|Matrizes de tipos primitivos, por exemplo, "a", "b", "c" |Collection(Edm.String)|
+|Cadeias de caracteres que se parecem com datas| Edm.DateTimeOffset, Edm.String|
+|Objetos GeoJSON, por exemplo, { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|Outros objetos JSON|N/D|
 
 ###<a id="CreateIndexExample"></a>Exemplo de corpo de solicitação
 
@@ -304,4 +270,4 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
  - Para saber mais sobre a Pesquisa do Azure, clique [aqui](/services/search/).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

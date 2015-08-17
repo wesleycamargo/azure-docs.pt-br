@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Este tutorial orienta você pelas etapas de implementação de um aplicativo streaming ao vivo básico dos Serviços de Mídia, onde um **Canal** recebe uma transmissão ao vivo de múltiplas taxas de bits de um codificador ao vivo local. Para uma visão mais detalhada de como trabalhar com canais e componentes relacionados, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](../media-services-channels-overview.md).
+Este tutorial orienta você pelas etapas de implementação de um aplicativo streaming ao vivo básico dos Serviços de Mídia, onde um **Canal** recebe uma transmissão ao vivo de múltiplas taxas de bits de um codificador ao vivo local. Para uma visão mais detalhada de como trabalhar com canais e componentes relacionados, consulte [Trabalhando com canais que recebem fluxo ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
 
 Neste tutorial, o Portal de Gerenciamento é usado para realizar as seguintes tarefas:
 
@@ -210,4 +210,4 @@ Saiba mais sobre a compilação de aplicativos de transmissão ao vivo em [Compi
 
 <!-- Images -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

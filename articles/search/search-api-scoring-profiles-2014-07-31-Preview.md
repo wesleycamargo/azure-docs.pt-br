@@ -321,7 +321,6 @@ A tabela a seguir fornece vários exemplos.
 Criação de Índice da API de REST do Serviço de Pesquisa do Azure (API de Pesquisa do Azure)
 ______________________________________
 
-
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

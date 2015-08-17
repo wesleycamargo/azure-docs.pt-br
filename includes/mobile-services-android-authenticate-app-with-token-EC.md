@@ -87,4 +87,4 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 
 6. Compile o aplicativo e teste a autenticação usando uma conta válida. Execute pelo menos uma vez. Durante a primeira execução, você deverá ser solicitado a fazer logon e criar o cache do token. Depois disso, cada execução tentará carregar o cache de token para autenticação e você não deverá precisar fazer logon.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

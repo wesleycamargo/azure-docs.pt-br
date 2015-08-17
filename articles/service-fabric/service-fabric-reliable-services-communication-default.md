@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]A estrutura de comunicação trata de propagar as exceções geradas no serviço para o cliente. Dessa forma, a lógica de manipulação de exceção no cliente que usa o ServiceProxy pode tratar diretamente das exceções potencialmente geradas pelo serviço.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

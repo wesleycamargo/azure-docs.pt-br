@@ -365,7 +365,7 @@ Execute as etapas a seguir para cabear a porta serial.
 4. Instale os drivers de USB seriais (fornecidos com o dispositivo) em seu computador.
 
 5. Configure a conexão serial como se segue:
-   - 115.200 bauds
+   - 115\.200 bauds
    - 8 bits de dados
    - 1 bit de parada
    - Sem paridade
@@ -382,4 +382,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

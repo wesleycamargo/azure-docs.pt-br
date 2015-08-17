@@ -454,4 +454,4 @@ A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

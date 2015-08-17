@@ -41,4 +41,4 @@ Um arquivo de configuração de serviço pode conter um elemento DnsServers com 
 
 [Sobre as configurações de rede virtual no Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

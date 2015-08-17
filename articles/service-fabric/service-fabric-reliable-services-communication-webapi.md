@@ -449,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-É aí que o *aplicativo* do API Web e o *host* OWIN finalmente se encontram: o *host* (\*\*OwinCommunicationListener\*\*) recebe uma instância do *aplicativo* (API Web por meio de **Startup**), e a Malha de Serviços gerencia o ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
+É aí que o *aplicativo* da API Web e o *host* OWIN finalmente se encontram: o *host* (**OwinCommunicationListener**) recebe uma instância do *aplicativo* (API Web por meio de **Startup**), e o Service Fabric gerencia o ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
 
 ## Juntando as peças
 
@@ -570,7 +570,7 @@ Com todas as peças no lugar, seu projeto agora deve se parecer com um aplicativ
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deve ver uma mensagem indicando o servidor Web aberto em **http://localhost:80/api**
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em ****http://localhost:80/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -614,4 +614,4 @@ No ASP.NET 5, o conceito e o modelo de programação de separação do *aplicati
 
 [Depurando seu aplicativo da Malha do Serviço no Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

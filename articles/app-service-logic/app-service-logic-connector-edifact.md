@@ -65,68 +65,19 @@ O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 
 	![Codificação configurada][10]
 
-<table>
-	<tr>
-		<th>Parâmetro</th>
-		<th>Tipo</th>
-		<th>Descrição do parâmetro</th>
-	</tr>
-	<tr>
-		<td>Conteúdo</td>
-		<td>string</td>
-		<td>Mensagem XML</td>
-	</tr>
-	<tr>
-		<td>ID do contrato</td>
-		<td>inteiro</td>
-		<td>ID do contrato</td>
-	</tr>
-	<tr>
-		<td>É uma mensagem em lotes</td>
-		<td>boolean</td>
-		<td>É uma mensagem em lotes</td>
-	</tr>
-	<tr>
-		<td>Separador de elemento de dados</td>
-		<td>string</td>
-		<td>Separador de elemento de dados</td>
-	</tr>
-	<tr>
-		<td>Separador de componente</td>
-		<td>string</td>
-		<td>Separador de componente</td>
-	</tr>
-	<tr>
-		<td>Terminador de segmento</td>
-		<td>string</td>
-		<td>Terminador de segmento</td>
-	</tr>
-	<tr>
-		<td>Indicador de ponto decimal</td>
-		<td>string</td>
-		<td>Indicador de ponto decimal</td>
-	</tr>
-	<tr>
-		<td>Separador de repetição</td>
-		<td>string</td>
-		<td>Separador de repetição</td>
-	</tr>
-	<tr>
-		<td>Caractere de escape</td>
-		<td>string</td>
-		<td>Caractere de escape</td>
-	</tr>
-	<tr>
-		<td>Caractere de substituição</td>
-		<td>string</td>
-		<td>Caractere de substituição</td>
-	</tr>
-	<tr>
-		<td>Sufixo do terminador de segmento</td>
-		<td>string</td>
-		<td>Sufixo do terminador de segmento</td>
-	</tr>
-</table>
+Parâmetro|Tipo|Descrição do parâmetro
+---|---|---
+Conteúdo|string|Mensagem XML
+ID do contrato|inteiro|ID do contrato
+É uma mensagem em lotes|boolean|É uma mensagem em lotes
+Separador de elemento de dados|string|Separador de elemento de dados
+Separador de componente|string|Separador de componente
+Terminador de segmento|string|Terminador de segmento
+Indicador de ponto decimal|string|Indicador de ponto decimal
+Separador de repetição|string|Separador de repetição
+Caractere de escape|string|Caractere de escape
+Caractere de substituição|string|Caractere de substituição
+Sufixo do terminador de segmento|string|Sufixo do terminador de segmento
 
 A ação retorna um objeto que contém a carga útil EDIFACT mediante a conclusão bem-sucedida.
 
@@ -148,4 +99,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

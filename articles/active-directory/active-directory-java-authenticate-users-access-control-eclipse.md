@@ -76,9 +76,9 @@ Para concluir as tarefas deste guia, você precisará do seguinte:
 - Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. 
 - Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 - Uma assinatura do Azure, a qual pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-- O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+- O plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies), lançamento de abril de 2014. Para obter mais informações, consulte [Instalando o plug-in do Azure para Eclipse com Java (da Microsoft Open Technologies (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
-- Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+- Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Criar um namespace do ACS
 
@@ -114,7 +114,9 @@ Nesta tarefa, você configura o ACS para reconhecer seu aplicativo web Java como
 3.  Na página **Adicionar aplicativos de terceiras partes confiáveis**, faça o seguinte:
     1.  Em **Nome**, digite o nome do RP. Para fins desse tutorial, digite **Aplicativo Web do Azure**.
     2.  Em **Modo**, selecione **Inserir as configurações manualmente**.
-    3.  Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para esta tarefa, digite **http://localhost:8080/**. ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator] 4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp** ![A terceira parte confiável retorna a URL para uso no emulador de computação][relying_party_return_url_emulator] 5.  Aceite os valores padrão no restante dos campos.
+    3.  Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para essa tarefa, digite * ***http://localhost:8080/**. ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator]
+4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para essa tarefa, digite ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![A terceira parte confiável retorna a URL para uso no emulador de computação][relying_party_return_url_emulator]
+5.  Aceite os valores padrão no restante dos campos.
 
 4.  Clique em **Salvar**.
 
@@ -203,7 +205,7 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
 
 1. No Explorador de Projeto do Eclipse, clique com o botão direito do mouse em **MyACSHelloWorld**, clique em **Azure** e, em seguida, clique em **Pacote para Azure**.
 2. Para o **Nome do Projeto**, digite **MyAzureACSProject** e clique em **Avançar**.
-3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente no tutorial [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx)).
+3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente no tutorial [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 4. Clique em **Concluir**.
 5. Clique no botão **Executar no emulador do Azure**.
 6. Depois de iniciar seu aplicativo web Java no emulador de computação, feche todas as instâncias do seu navegador (para que nenhuma sessão atual do navegador interfira em seu teste de logon do ACS).
@@ -237,11 +239,11 @@ Para implantar no Azure, você precisará alterar o realm da terceira parte conf
 
 13. Clique em **Concluir** para fechar a caixa de diálogo **Editar Biblioteca**.
 14. Clique em **OK** para fechar a caixa de diálogo **Propriedades de MyACSHelloWorld**.
-15. No Eclipse, clique no botão **Publicar na Nuvem do Azure**. Responda às solicitações, de maneira semelhante ao que foi feito na seção **Para implantar seu aplicativo no Azure** do tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). 
+15. No Eclipse, clique no botão **Publicar na Nuvem do Azure**. Responda às solicitações, de maneira semelhante ao que foi feito na seção **Para implantar seu aplicativo no Azure** do tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). 
 
 Após a implantação do seu aplicativo web, feche todas as sessões abertas do navegador e execute seu aplicativo web. Você deverá ser solicitado a entrar com as credenciais do Windows Live ID que, em seguida, serão enviadas para a URL de retorno de seu aplicativo de terceira parte confiável.
 
-Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx)).
+Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Próximas etapas
@@ -250,7 +252,7 @@ Para obter um exame da marcação linguagem SAML (Security Assertion) retornada 
 
 Além disso, esse exemplo usou a opção **Incorporar o certificado no arquivo WAR**. Essa opção simplifica a implantação do certificado. Se, em vez disso, você desejar manter seu certificado de autenticação separado do seu arquivo WAR, você poderá usar a seguinte técnica:
 
-1. Na seção **Segurança** da caixa de diálogo **Filtro dos Access Control Services do Azure**, digite **${env.JAVA_HOME}/mycert.cer** e desmarque a opção **Incorporar o certificado no arquivo WAR**. (Ajuste mycert.cer se o nome do arquivo do certificado for diferente). Clique em **Concluir** para fechar a caixa de diálogo.
+1. Na seção **Segurança** da caixa de diálogo **Filtro dos Access Control Services do Azure**, digite **${env.JAVA\_HOME}/mycert.cer** e desmarque a opção **Incorporar o certificado no arquivo WAR**. (Ajuste mycert.cer se o nome do arquivo do certificado for diferente). Clique em **Concluir** para fechar a caixa de diálogo.
 2. Copie o certificado como um componente em sua implantação: no Explorador de Projeto do Eclipse, expanda **MyAzureACSProject**, clique com o botão direito do mouse em **WorkerRole1**, clique em **Propriedades**, expanda **Função do Azure**, e clique em **Componentes**.
 3. Clique em **Adicionar**.
 4. Na caixa de diálogo **Adicionar Componente**:
@@ -260,7 +262,7 @@ Além disso, esse exemplo usou a opção **Incorporar o certificado no arquivo W
     2. Para **Como Nome**, clique na caixa de texto e aceite o nome padrão.
     3. Na seção **Implantar**:
         1. Para **Método**, selecione **copiar**.
-        2. Para **Para o diretório**, digite **%JAVA_HOME%**.
+        2. Para **Para o diretório**, digite **%JAVA\_HOME%**.
     4. Sua caixa de diálogo **Adicionar Componente** deverá ser semelhante à seguinte.
 
         ![Adicionar componente de certificado][add_cert_component]
@@ -285,7 +287,7 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [site do projeto]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Como exibir SAML retornado pelo Access Control Service do Azure]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Como exibir SAML retornado pelo Access Control Service do Azure]: /pt-br/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Serviço de Controle de Acesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
@@ -308,4 +310,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

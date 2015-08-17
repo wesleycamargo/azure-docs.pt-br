@@ -52,44 +52,42 @@ Verifique se o SQL Server está acessível por meio do computador em que o gatew
 
 ## Problema: Fatias de entrada estão permanentemente no estado PendingExecution ou PendingValidation
 
-As fatias poderiam estar no estado **PendingExecution** ou **PendingValidation** devido a vários motivos e uma das razões mais comuns é que a propriedade **waitOnExternal** não é especificada na seção **disponibilidade** da primeira tabela/conjunto de dados no pipeline. Qualquer conjunto de dados que é produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **waitOnExternal** na seção **disponibilidade**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
+As fatias poderiam estar no estado **PendingExecution** ou **PendingValidation** devido a vários motivos, e um dos mais comuns é que a propriedade **external** não é especificada como **true**. Qualquer conjunto de dados que é produzido fora do escopo da Azure Data Factory deve ser marcado com a propriedade **external**. Isso indica que os dados são externos e não têm suporte por quaisquer pipelines dentro da data factory. As fatias de dados são marcadas como **Pronto** depois que os dados estão disponíveis no respectivo armazenamento.
 
-Consulte o exemplo a seguir para o uso da propriedade **waitOnExternal**. Você pode especificar **waitOnExternal{}** sem definir valores para as propriedades na seção, de modo que os valores padrão são usados.
+Consulte o exemplo a seguir para o uso da propriedade **external**. Como opção, você pode especificar **externalData*** quando definir external como true.
 
 Consulte o tópico Tabelas na [Referência de script JSON][json-scripting-reference] para obter mais detalhes sobre essa propriedade.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- Para resolver o erro, adicione a seção **waitOnExternal** à definição da tabela de entrada JSON e recrie a tabela.
+ Para resolver o erro, adicione a propriedade **external** e a seção opcional **externalData** à definição de JSON da tabela de entrada e recrie a tabela.
 
 ## Problema: Falha na operação de cópia híbrida
 Para obter mais detalhes:
@@ -131,7 +129,7 @@ Para enumerar e ler os logs para uma determinada atividade personalizada, você 
 
 Um **erro comum** de uma atividade personalizada é Execução do pacote falhou com código de saída “1”. Consulte “wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr“ para obter mais detalhes.
 
-Para ver mais detalhes sobre esse tipo de erro, abra o arquivo **stderr**. Um erro comum visto lá é uma condição de tempo limite como esta: INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 expirou após 600 s
+Para ver mais detalhes sobre esse tipo de erro, abra o arquivo **stderr**. Um erro comum visto lá é uma condição de tempo limite como esta: INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 expirou após 600 s
 
 Esse mesmo erro pode aparecer várias vezes, se foram realizadas 3 tentativas para o trabalho por exemplo, ao longo do período de 30 minutos ou mais.
 
@@ -386,4 +384,4 @@ Nesse cenário, o conjunto de dados está em um estado de erro devido a uma falh
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

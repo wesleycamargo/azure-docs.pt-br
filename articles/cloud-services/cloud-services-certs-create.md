@@ -49,7 +49,7 @@ Você pode usar qualquer ferramenta disponível para criar um certificado autoas
 * Contém uma chave privada.
 * Criado para troca de chaves (arquivo. pfx).
 * O nome de assunto deve corresponder ao domínio usado para acessar o serviço de nuvem.
-    > **contoso.net****contoso.cloudapp.net**
+    > Você não pode adquirir um certificado SSL para o domínio cloudapp.net (ou para qualquer um relacionado ao Azure); o nome de assunto do certificado deve corresponder ao nome do domínio personalizado usado para acessar o aplicativo. Por exemplo, **contoso.net** e não **contoso.cloudapp.net**.
 * Mínimo de criptografia de 2048 bits.
 * **Apenas Certificado de Serviço**: o certificado do cliente deve residir no repositório de certificados *Pessoal*.
 
@@ -57,7 +57,7 @@ Há duas maneiras fáceis de criar um certificado no Windows, com o utilitário 
 
 ### Makecert.exe
 
-Esse utilitário é instalado com o Visual Studio 2013/2015. Trata-se de um utilitário de console que permite criar e instalar certificados. Se você iniciar o atalho **Prompt de Comando do Desenvolvedor para VS2015** que é criado quando você instala o Visual Studio, será exibido um prompt de comando esta ferramenta no caminho.
+Esse utilitário é instalado com o Visual Studio 2013/2015. Trata-se de um utilitário de console que permite criar e instalar certificados. Se você iniciar o atalho **Prompt de Comando do Desenvolvedor para VS2015** criado quando você instala o Visual Studio, será exibido um prompt de comando com esta ferramenta no caminho.
 
     makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
 
@@ -71,10 +71,10 @@ Você pode usar o Java para [criar um certificado](../app-service-web/java-creat
 
 ## Próximas etapas
 
-[Carregar seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e [configurá-lo](cloud-services-xml-certs.md) para o serviço de nuvem.
+[Carregue seu certificado de serviço no Portal do Azure](cloud-services-configure-ssl-certificate.md) (ou no [Portal de Visualização](cloud-services-configure-ssl-certificate-portal.md)) e [configure-o](cloud-services-xml-certs.md) para o serviço de nuvem.
 
-Carregar um [certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal do Azure.
+Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.md) no Portal do Azure.
 
 >[AZURE.NOTE]O Portal de Visualização do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

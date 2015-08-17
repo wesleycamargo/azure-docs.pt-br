@@ -14,8 +14,8 @@ Nesta seção você usará o Visual Studio para hospedar o aplicativo e o servi�
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png)
 
-5. No Visual Studio, você pode exibir as alterações no banco de dados criado para o serviço de back-end abrindo o Gerenciador de Servidores e expandindo as Conexões de Dados. Clique com o botão direito do mpuse na tabela TodoItems em **MS_TableConnectionString** e clique em **Mostrar Dados da Tabela**
+5. No Visual Studio, você pode exibir as alterações no banco de dados criado para o serviço de back-end abrindo o Gerenciador de Servidores e expandindo as Conexões de Dados. Clique com o botão direito do mpuse na tabela TodoItems em **MS\_TableConnectionString** e clique em **Mostrar Dados da Tabela**
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -170,4 +170,4 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [Extensão Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

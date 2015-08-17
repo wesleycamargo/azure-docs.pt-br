@@ -433,4 +433,4 @@ Para obter tutoriais que descrevam outros exemplos e que forneçam instruções 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

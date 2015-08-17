@@ -251,7 +251,7 @@ Uma das construções fundamentais no pipeline de autenticação dos Serviços M
 
 	Este método converte um [ClaimsIdentity] em um objeto [ProviderCredentials] que é usado na fase de emissão do token de autenticação. Novamente, você pode desejar capturar declarações adicionais neste método.
 	
-6. Abra o arquivo de projeto WebApiConfig.cs na pasta App_Start e a seguinte linha de código após a **ConfigOptions** é criada:
+6. Abra o arquivo de projeto WebApiConfig.cs na pasta App\_Start e a seguinte linha de código após a **ConfigOptions** é criada:
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
@@ -346,7 +346,7 @@ No seu aplicativo cliente, será necessário desenvolver uma tela de entrada per
 
 	Isso inicia uma nova instância de depuração do projeto de back-end do serviço móvel. Após o serviço ser iniciado com êxito, você verá uma página inicial afirmando que **Este serviço móvel está em execução**.
 
-2. Na página de início do serviço, clique em **Experimentar** e, em seguida, digite a senha que você definiu para a configuração de aplicativo **MS_ApplicationKey** no arquivo web.config com um nome de usuário em branco na caixa de diálogo de autenticação.
+2. Na página de início do serviço, clique em **Experimentar** e, em seguida, digite a senha que você definiu para a configuração de aplicativo **MS\_ApplicationKey** no arquivo web.config com um nome de usuário em branco na caixa de diálogo de autenticação.
 
 3. Na página de ajuda, clique no ponto de extremidade **CustomRegistration** e, em seguida, clique em **Experimentar isso**.
 
@@ -420,4 +420,4 @@ Assim, concluímos este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

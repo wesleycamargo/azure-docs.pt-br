@@ -30,7 +30,6 @@ Você também pode criar VMs usando suas próprias imagens, com modelos do Geren
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## Selecionar a imagem
 
 Vá para o Azure Marketplace no portal de visualização para localizar a imagem de VM do Windows Server desejada.
@@ -55,7 +54,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Configurar os aspectos básicos da VM](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]O \*\*Nome de usuário\*\* se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha que seja difícil para outras pessoas adivinharem mas da qual você possa se lembrar. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
+	>[AZURE.NOTE]O **Nome de usuário** se refere à conta administrativa que você usa para gerenciar o servidor. Crie uma senha que seja difícil para outras pessoas adivinharem mas da qual você possa se lembrar. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
 
 2. Clique em **Tamanho** e selecione um tamanho de VM apropriado para suas necessidades. Cada tamanho especifica o número de núcleos de computação, memória e outros recursos, como suporte para Armazenamento Premium, o que afetará o preço. O Azure recomenda automaticamente determinados tamanhos, dependendo da imagem escolhida.
 
@@ -102,4 +101,4 @@ Após criar a VM, você pode fazer logon nela para que possa gerenciar as config
 * Use o Azure PowerShell e a CLI do Azure para [localizar e selecionar imagens da VM](resource-groups-vm-searching.md).
 * Automatize a implantação e o gerenciamento de VM e de carga de trabalho com o [Gerenciador de Recursos do Azure](virtual-machines-how-to-automate-azure-resource-manager.md) e os [modelos do Gerenciador de Recursos do Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

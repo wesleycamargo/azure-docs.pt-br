@@ -63,4 +63,4 @@ Para configurar o cliente LDAP, use as diretrizes:
 - Configure o tempo limite LDAP para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário com o diretório LDAP, executar a autenticação de dois fatores, receber a resposta e responder à solicitação de acesso LDAP. 
 - Se estiver usando LDAPS, o dispositivo ou o servidor que faz as consultas LDAP deve confiar no certificado SSL instalado no servidor Azure Multi-Factor Authentication.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

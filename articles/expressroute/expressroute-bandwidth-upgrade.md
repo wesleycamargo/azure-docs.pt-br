@@ -42,15 +42,15 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 	Você pode obter detalhes do circuito da Rota Expressa usando o seguinte Commandlet do PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Esse comando retornará uma lista de todos os circuitos que você criou na assinatura. Você pode usar o comando a seguir para obter os detalhes de um circuito da Rota Expressa específico se tiver a chave de serviço em mãos:
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Substitua o <skey> pela chave de serviço real.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 	
 	Verifique a página [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para ver as opções de largura de banda com suporte para o seu provedor. Você pode escolher qualquer tamanho maior do que o tamanho do circuito existente. Depois de decidir de qual tamanho precisa, você pode usar o seguinte comando para redimensionar o circuito.
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ O Windows PowerShell é um ambiente de script poderoso que você pode usar para 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

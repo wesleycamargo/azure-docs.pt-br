@@ -410,7 +410,7 @@ Depois de registrar o provedor de identidade, basta chamar o método [LoginAsync
 
 Se estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método `login` acima para um dos seguintes: `microsoftaccount`, `facebook`, `twitter`, `google` ou `windowsazureactivedirectory`
 
-Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login], quando concluída, retorna um objeto JSON (\*\*user\*\*) que expõe a ID do usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte Armazenando o [token de autenticação em cache].
+Nesse caso, os Serviços Móveis gerenciam o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação dos Serviços Móveis depois de um logon bem-sucedido com o provedor de identidade. A função [login], quando concluída, retorna um objeto JSON (**user**) que expõe o ID do usuário e o token de autenticação dos Serviços Móveis nos campos **userId** e **authenticationToken**, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte Armazenando o [token de autenticação em cache].
 
 > [AZURE.NOTE]**Aplicativo da Windows Store** Ao usar o provedor de logon da Conta da Microsoft para autenticar usuários de seu aplicativo da Windows Store, você também deve registrar o pacote de aplicativos nos Serviços Móveis. Ao registrar as informações do pacote de aplicativos da Windows Store com Serviços Móveis, o cliente é capaz de reutilizar as credenciais de login da conta da Microsoft para obter uma experiência de logon única. Se você não fizer isso, os usuários de login da conta da Microsoft serão apresentados com uma solicitação de logon toda vez que o método de logon for chamado. Para saber como registrar seu pacote de aplicativos da Windows Store, consulte [Registrar seu pacote de aplicativos da Windows Store para a autenticação da Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Após as informações do pacote serem registradas nos Serviços Móveis, chame o método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") fornecendo um valor de **true** para o parâmetro <em>useSingleSignOn</em> para reutilizar as credenciais.
 
@@ -608,4 +608,4 @@ Para controlar quais sites podem interagir e enviar solicitações para o seu se
 [Chamar uma API personalizada do cliente]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

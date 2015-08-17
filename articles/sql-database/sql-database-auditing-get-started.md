@@ -182,4 +182,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -96,4 +96,4 @@ Na comparação de esquemas abaixo, o banco de dados Adventure Works 2014 no Ban
 
 ![texto alt](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

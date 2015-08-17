@@ -58,4 +58,4 @@ No elemento `<version>`, substitua os números de versão neste exemplo por núm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

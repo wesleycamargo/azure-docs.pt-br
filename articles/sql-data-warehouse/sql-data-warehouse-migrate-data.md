@@ -191,6 +191,6 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 
 [versão de produção]: http://aka.ms/downloadazcopy/
 [versão de visualização]: http://aka.ms/downloadazcopypr/
-[documentação do SSIS]: https://msdn.microsoft.com/en-us/library/ms141026.aspx
+[documentação do SSIS]: https://msdn.microsoft.com/pt-br/library/ms141026.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

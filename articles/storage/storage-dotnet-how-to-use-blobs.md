@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar o Armazenamento de Blob do .NET | Microsoft Azure";"
+	pageTitle="Como usar o Armazenamento de Blob do .NET | Microsoft Azure&quot;"
 	description="Saiba mais sobre o armazenamento de Blob do Azure e como criar um contêiner e carregar, baixar, listar e excluir conteúdo blob."
 	services="storage"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="07/06/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@
 
 Este guia demonstra como executar cenários comuns usando o Serviço de armazenamento de blob do Azure. Os exemplos são escritos em C# e usam a biblioteca do cliente de armazenamento do Azure para .NET. Os cenários cobertos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs.
 
-> [AZURE.NOTE]Este guia tem como alvo a Biblioteca do Cliente de Armazenamento .NET do Azure, versão 2.x e superior. A versão recomendada é a Biblioteca do Cliente de Armazenamento 4.x que está disponível via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) ou como parte do [SDK do Azure para .NET](/downloads/). Consulte [Acessar programaticamente o armazenamento de blobs](#programmatically-access-blob-storage) abaixo para mais detalhes sobre como obter a biblioteca do cliente de armazenamento.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -84,7 +84,9 @@ Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você 
 
 O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a ser usado.
 
-Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Quando tiver uma referência de blob, poderá transferir qualquer fluxo de dados para ele, chamando o método **UploadFromStream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
+Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Quando tiver uma referência de blob, poderá transferir qualquer fluxo de dados para ele, chamando o método **UploadFromStream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista.
+
+O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -287,6 +289,53 @@ Como o método de amostra chama um método assíncrono, ele deve ser precedido p
         while (continuationToken != null);
     }
 
+## Gravar um blob de anexo
+
+Um blob de anexo é um novo tipo de blob, introduzido com a versão 5.x da biblioteca de cliente de armazenamento do Azure para .NET. Um blob de anexo é otimizado para operações de anexo, como registro em log. Como um blob de blocos, um blob de anexo é composto de blocos; no entanto, quando você adiciona um novo bloco a um blob de anexo, ele sempre é acrescentado ao fim do blob. Não é possível atualizar ou excluir um bloco existente em um blob de anexo. As IDs de bloco para um blob de anexo não ficam expostas como para um blob de blocos.
+ 
+Cada bloco em um blob de anexo pode ter um tamanho diferente, até no máximo 4 MB, e um blob de anexo pode incluir no máximo 50.000 blocos. O tamanho máximo de um blob de anexo, portanto, é de pouco mais de 195 GB (4 MB x 50.000 blocos).
+
+O exemplo a seguir cria um novo blob de anexo e acrescenta alguns dados a ele, simulando uma operação simples de registro em log.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
+
+    //Create the container if it does not already exist. 
+    container.CreateIfNotExists();
+
+    //Get a reference to an append blob.
+    CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
+
+    //Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+    //You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+    appendBlob.CreateOrReplace();
+
+    int numBlocks = 10;
+
+    //Generate an array of random bytes.
+    Random rnd = new Random();
+    byte[] bytes = new byte[numBlocks];
+    rnd.NextBytes(bytes);
+        
+    //Simulate a logging operation by writing text data and byte data to the end of the append blob.
+    for (int i = 0; i < numBlocks; i++)
+    {
+        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
+            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+    }
+
+    //Read the append blob to the console window.
+    Console.WriteLine(appendBlob.DownloadText());
+
+Para obter mais informações sobre as diferenças entre os três tipos de blobs, consulte [Noções gerais sobre blobs de blocos, blobs de páginas de blobs de anexo](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+
 ## Próximas etapas
 
 Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber mais sobre tarefas de armazenamento mais complexas. <ul> <li>Exibir a documentação de referência do serviço Blob para obter detalhes completos sobre as APIs disponíveis: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Biblioteca de cliente de armazenamento para referência .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">referência da API REST</a></li> </ul> </li> <li>Conheça tarefas mais avançadas que você pode executar com o armazenamento do Azure em <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Armazenando e acessando dados no Azure</a>.</li> <li>Saiba como simplificar o código que você escreve para trabalhar com o armazenamento do Azure usando o <a href="../websites-dotnet-webjobs-sdk/">SDL WebJobs do Azure.</li> <li>Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure. <ul> <li>Usar o <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Armazenamento de Tabela</a> para armazenar dados estruturados.</li> <li>Usar<a href="/documentation/articles/storage-dotnet-how-to-use-queues/"> o Armazenamento de blobs</a> para armazenar dados não estruturados.</li> <li>Usar o <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Banco de Dados SQL</a> para armazenar dados relacionais.</li> </ul> </li> </ul>
@@ -297,11 +346,11 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

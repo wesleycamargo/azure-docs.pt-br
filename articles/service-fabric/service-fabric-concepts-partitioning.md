@@ -54,4 +54,4 @@ Para obter informações sobre os conceitos de malha do serviço, consulte:
 - [Escalabilidade dos serviços da malha de serviço](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -55,7 +55,7 @@ Adicione o cabeçalho de autorização:
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
 	
-Converta em Base64 (c#)
+Converta em Base64 (c\#)
 
 	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
@@ -88,9 +88,7 @@ Criar uma solicitação "criar modelo":
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 20 |
-|	apiVersion | 1.0 |
-||| | Corpo da Solicitação | NENHUM |
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -141,9 +139,7 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_) são permitidos.<br>Comprimento máximo: 50 |
-|	apiVersion | 1.0 |
-||| | Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Resposta**:
@@ -189,9 +185,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_) são permitidos.<br>Comprimento máximo: 50 |
-|	apiVersion | 1.0 |
-||| | Corpo da Solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -236,7 +230,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 ||| | Corpo da Solicitação | Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.)|
 
 
@@ -326,7 +320,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 |:--------			|:--------								|
 | modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||| | Corpo da Solicitação | NENHUM |
 
 **Resposta**:
@@ -401,7 +395,7 @@ XML de OData
 |:--------			|:--------								|
 |	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 |	onlyLastBuild |	Indica se é necessário retornar todo o histórico de compilação do modelo ou apenas o status da compilação mais recente. |
-|	apiVersion |	1.0 |
+|	apiVersion |	1\.0 |
 
 
 **Resposta**:
@@ -478,7 +472,7 @@ XML de OData
 | itemIds | Lista separada por vírgulas dos itens a serem recomendados.<br>Comprimento máximo: 1024 |
 | numberOfResults | Número de resultados necessários |
 | includeMetatadata | Uso futuro, sempre falso |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Resposta:**
 
@@ -657,7 +651,7 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||| | Corpo da Solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas XML ActiveBuildId e Descrição são opcionais. Se você não quiser definir a Descrição ou ActiveBuildId, remova a marca inteira.|
 
 **Resposta**:
@@ -679,4 +673,4 @@ XML de OData
 Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -53,4 +53,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

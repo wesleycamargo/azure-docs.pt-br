@@ -70,4 +70,4 @@
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

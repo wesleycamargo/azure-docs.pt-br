@@ -562,7 +562,7 @@ No painel do SDK de Trabalhos Web, as 100 linhas da saída do console mais recen
  
 ![Clique em Alternar Saída](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/continuous/*{webjobname}*/job_log.txt no sistema de aplicativo web.
+Em um trabalho Web contínuo, logs de aplicativo são mostrados em /data/jobs/continuous/*{webjobname}*/job\_log.txt no sistema de aplicativo web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ E em uma tabela do Azure, os logs `Console.Out` e `Console.Error` têm esta apar
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

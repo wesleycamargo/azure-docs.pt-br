@@ -51,9 +51,9 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
 
 	* Calcule um hash HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **returnUrl** e **salt** ([código de exemplo fornecido abaixo]):
-        > **returnUrl**
+        > HMAC(**salt**+ '\\n' +**returnUrl**)
 		 
-	* Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse a solicitação.
+	* Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
 
 2. Verifique se que você está recebendo uma solicitação de entrada/inscrição: o parâmetro de consulta **operation** será definido como "**SignIn**".
 
@@ -107,7 +107,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
 2. Confirme que a solicitação está vindo do Gerenciamento de API do Azure (opcional, mas altamente recomendado por segurança)
 
 	* Calcule um hash HMAC-SHA512 de uma cadeia baseada nos parâmetros de consulta **productId**, **userId** e **salt**:
-		> **productId****userId**
+		> HMAC(**salt**+ '\\n' +**productId**+ '\\n' +**userId**)
 		 
 	* Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
 	
@@ -168,4 +168,4 @@ Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -104,10 +104,10 @@ Em vez de:
 - **image**, **text**, **ntext** quando tiver base em texto, use varchar/nvarchar (quanto menor, melhor)
 - **nvarchar(max)**, use varchar(4000) ou menor para obter o melhor desempenho
 - **numeric**, use decimais
-- **sql_variant**, divida a coluna em várias colunas fortemente tipadas
+- **sql\_variant**, divida a coluna em várias colunas fortemente tipadas
 - **sysname**, use nvarchar(128)
 - **table**, converta em tabelas temporárias
-- **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que não é possível ter current_timestamp como uma restrição padrão, e o valor não será atualizado automaticamente. Se você precisar migrar valores de rowversion de uma coluna tipada como timestamp, use BINARY(8) ou VARBINARY(8) para valores de versão de linha NOT NULL ou NULL.
+- **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que não é possível ter current\_timestamp como uma restrição padrão, e o valor não será atualizado automaticamente. Se você precisar migrar valores de rowversion de uma coluna tipada como timestamp, use BINARY(8) ou VARBINARY(8) para valores de versão de linha NOT NULL ou NULL.
 - **varchar(max)**, use varchar(8000) ou menor para obter o melhor desempenho
 - **uniqueidentifier**, use varbinary(8)
 - **tipos definidos pelo usuário**, converta de volta para os tipos nativos sempre que possível
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

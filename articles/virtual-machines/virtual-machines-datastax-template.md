@@ -368,7 +368,7 @@ Em particular, os seguintes modelos vinculados serão usados para essa implanta�
 -	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do sistema operacional da VM e redes virtuais.
 -	**opscenter-resources.json**: implanta uma VM OpsCenter e todos os recursos relacionados, incluindo uma interface de rede e endereço IP público.
 -	**opscenter-install-resources.json**: implanta a extensão de VM OpsCenter (script personalizado para Linux) que invocará o arquivo de script bash específico (**opscenter.sh**) necessário para configurar o serviço OpsCenter na VM.
--	**ephemeral-nodes-resources.json**: implanta todas as VMs de nó de cluster e recursos conectados (placas de rede, IPs privados etc.). Esse modelo também implanta extensões de VM (scripts personalizados para Linux) e invoca um script bash (**dsenode.sh**) para instalar fisicamente partes do Apache Cassandra em cada nó.
+-	**ephemeral-nodes-resources.json**: implanta todas as VMs de nó de cluster e recursos conectados (placas de rede, IPs privados etc.). Esse modelo também implantará extensões de VM (scripts personalizados para Linux) e invoca um script bash (**dsenode.sh**) para instalar fisicamente partes do Apache Cassandra em cada nó.
 
 Vejamos detalhadamente como este último modelo é usado, pois ele é um dos mais interessantes em termos de desenvolvimento de modelo. Um conceito importante a ser realçado é como um único arquivo de modelo pode implantar várias cópias de um único tipo de recurso e, para cada instância, pode definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **Loop de Recursos**.
 
@@ -439,7 +439,7 @@ Os discos anexados são formatados como parte das atividades de preparação do 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh faz parte da pasta **shared_scripts\\ubuntu**, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
+vm-disk-utils-0.1.sh faz parte da pasta **shared\_scripts\\ubuntu**, no repositório do github azure-quickstart-templates, e contém funções muito úteis para a montagem formatação e distribuição de discos. Essas funções podem ser usadas em todos os modelos no repositório.
 
 Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada nó de cluster (e a instância OpsCenter). Elas usam o mesmo mecanismo de loop de recursos descrito para máquinas virtuais:
 
@@ -482,4 +482,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 Para obter mais informações, consulte [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

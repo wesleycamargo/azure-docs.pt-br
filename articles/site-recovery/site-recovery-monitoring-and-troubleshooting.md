@@ -142,7 +142,7 @@ Para gerar um tíquete de suporte para o ASR, acesse o Suporte do Azure usando a
 ## Artigos da Base de Dados de Conhecimento
 
 -   [Como preservar a letra da unidade para máquinas virtuais
-    > http://support.microsoft.com/kb/3031135
+    > com failover ou migrados para o Azure] (http://support.microsoft.com/kb/3031135)
 
 -   [Como solucionar problemas dos Serviços de Recuperação
     > do Azure](http://support.microsoft.com/kb/3005185)
@@ -222,4 +222,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 ### Solução de problemas da área de trabalho remota após failover
 Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. Use o documento de solução de problemas para fazer o RDP na VM. [Link do documentos](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

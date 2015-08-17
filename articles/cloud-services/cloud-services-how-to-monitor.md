@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="08/04/2014" 
 	ms.author="robb"/>
 
 
@@ -179,7 +179,7 @@ onde:
 
 - *deploymentID* é a GUID atribuída à implantação do serviço de nuvem
 
-- *aggregation_interval* = 5M, 1H ou 12H
+- *aggregation\_interval* = 5M, 1H ou 12H
 
 - agregações de nível de função = R
 
@@ -192,4 +192,4 @@ Por exemplo, as tabelas a seguir armazenariam os dados agregados do monitorament
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -144,4 +144,4 @@ A versão de API `2015-02-28` está sob SLA. Use as opções de suporte e os lin
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -270,4 +270,4 @@ Os recursos principais do IPython também estão disponíveis no Visual Studio p
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

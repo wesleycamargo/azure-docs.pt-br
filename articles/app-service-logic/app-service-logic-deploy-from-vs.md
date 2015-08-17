@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 	
 # Implantar com o Visual Studio
@@ -23,7 +23,7 @@ Embora o [Portal do Azure](https://portal.azure.com) lhe ofereça uma ótima man
 - Armazenar seu aplicativo lógico junto com os outros ativos em sua solução, de modo que ele possa conter todos os aspectos do seu aplicativo
 - Manter sua definição de aplicativo lógico marcada no controle do código-fonte para que você possa usar o TFS ou Git para controlar revisões feitas a ele 
 
-Você precisa ter o SDK do Azure 2.6 instalado para poder seguir as etapas abaixo. Encontre [o SDK mais recente para VS](http://azure.microsoft.com/downloads/) aqui.
+Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as etapas abaixo. Encontre [o SDK mais recente para VS](http://azure.microsoft.com/downloads/) aqui.
 
 ## Criar um projeto
 
@@ -45,7 +45,7 @@ Recomenda-se para usar **parâmetros** em toda a sua definição. Isso será út
 
 Hoje, o Visual Studio não tem um designer interno, portanto, se você quiser usar uma interface gráfica (em vez de escrever JSON), você precisará usar o Portal do Azure.
 
-Se você criou um aplicativo lógico anteriormente no Portal do Azure e agora deseja verificá-lo no controle do código-fonte, você pode: - Navegar até **Visualização de código** no portal e copiar a definição. - Usar a [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) dos aplicativos lógicos para obter a definição. - Usar o [Powershell do Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md), especificamente o [comando `Get-AzureResource`](https://msdn.microsoft.com/library/dn654579.aspx), para baixar a definição.
+Se você criou um aplicativo lógico anteriormente no Portal do Azure e agora deseja verificá-lo no controle do código-fonte, você pode fazê-lo de três maneiras diferentes: - Navegar até **Visualização de código** no portal e copiar a definição. - Usar a [API REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) dos aplicativos lógicos para obter a definição. - Usar o [Powershell do Gerenciador de recursos do Azure](../powershell-azure-resource-manager.md), especificamente o [`Get-AzureResource` comando](https://msdn.microsoft.com/library/dn654579.aspx), para baixar a definição.
 
 ## Implantação de seu aplicativo lógico
 
@@ -65,4 +65,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 
 Se você não deseja usar o Visual Studio, mas ainda deseja ter ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, você pode sempre utilizar diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

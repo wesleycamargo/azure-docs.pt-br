@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ A Automação do Microsoft Azure fornece uma maneira para os usuários automatiz
 ## Tutorial
 Este tutorial orienta você pela criação de uma conta de automação, importação de um runbook "Hello World" de exemplo na Automação do Azure, execução desse runbook e, em seguida, pela visualização de sua saída.
 
-Para concluir este tutorial, você precisará de uma assinatura do Azure. Se ainda não tiver uma, você poderá <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">ativar os benefícios de assinante do MSDN </a> ou <a href="/pricing/free-trial/" target="_blank">inscrever-se para uma avaliação gratuita</a>.
+Para concluir este tutorial, você precisará de uma assinatura do Azure. Se ainda não tiver uma, você poderá [ativar os benefícios de assinante do MSDN](../pricing/member-offers/msdn-benefits-details/) ou [inscrever-se para uma avaliação gratuita](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ A Microsoft e a comunidade da Automação do Azure fornecem runbooks de exemplo,
 
 ## Comentários
 
-<strong>Enviar comentários</strong> Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
+**Fornecer comentários** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado!
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

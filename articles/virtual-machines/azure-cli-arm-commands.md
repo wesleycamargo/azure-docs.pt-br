@@ -24,7 +24,7 @@ O gerenciamento de recursos do Azure permite que você crie um grupo de recursos
 
 ## Abordagens imperativas e declarativas
 
-Assim como acontece com o [modo de gerenciamento de serviço (* * asm * *)](../virtual-machines-command-line-tools.md), o modo **arm** da CLI do Azure fornece comandos que criam recursos de forma imperativa na linha de comando. Por exemplo, se você digitar `azure group create <groupname> <location>` você está solicitando o Azure para criar um grupo de recursos e com `azure group deployment create <resourcegroup> <deploymentname>` você está instruindo o Azure a criar uma implantação de qualquer número de itens e colocá-los em um grupo. Como cada tipo de recurso tem comandos imperativos, é possível encadeá-los para criar implantações bastante complexas.
+Assim como acontece com o [modo de gerenciamento de serviço (**asm**)](../virtual-machines-command-line-tools.md), o modo **arm** da CLI do Azure fornece comandos que criam recursos de forma imperativa na linha de comando. Por exemplo, se você digitar `azure group create <groupname> <location>` você está solicitando o Azure para criar um grupo de recursos e com `azure group deployment create <resourcegroup> <deploymentname>` você está instruindo o Azure a criar uma implantação de qualquer número de itens e colocá-los em um grupo. Como cada tipo de recurso tem comandos imperativos, é possível encadeá-los para criar implantações bastante complexas.
 
 No entanto, usar os _modelos_ do grupo de recursos que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](resource-groups-overview).
 
@@ -305,7 +305,7 @@ Opções de parâmetro:
 Permite que o comando liste todas as redes virtuais em um grupo de recursos.
 
 
-	C:>azure network vnet list myresourcegroup
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Opções de parâmetro:
 Define uma sub-rede de rede virtual específica dentro de um grupo de recursos.
 
 
-	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Opções de parâmetro
 
 Lista as propriedades de teste para um conjunto de balanceadores de carga.
 
-	C:>azure network lb probe list -g myresourcegroup -l mylb
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -1737,4 +1737,4 @@ Opções de parâmetro:
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

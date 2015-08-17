@@ -48,7 +48,7 @@ A política em si não é o token de acesso para o Barramento de Serviço. Ela �
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-Em que `signature-string` é o hash SHA-256 do escopo do token (\*\*escopo\*\* conforme descrito na seção anterior) com um CRLF anexado e uma hora de validade (em segundos desde: `00:00:00 UTC` em 1º de janeiro de 1970).
+Em que `signature-string` é o hash SHA-256 do escopo do token (**escopo** como descrito na seção anterior) com um CRLF anexado e uma hora de validade (em segundos desde: `00:00:00 UTC` em 1º de janeiro de 1970).
 
 O hash é semelhante ao seguinte pseudocódigo e retorna 32 bytes.
 
@@ -56,7 +56,7 @@ O hash é semelhante ao seguinte pseudocódigo e retorna 32 bytes.
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Os valores não hash estão na cadeia de caracteres **SharedAccessSignature** para que o destinatário possa computar o hash com os mesmos parâmetros, para garantir que o mesmo resultado seja retornado. O URI especifica o escopo e o nome da chave identifica a política a ser usada para computar o hash. Isso é importante de um ponto de vista de segurança. Se a assinatura não coincidir com aquela que o destinatário (Barramento de Serviço) calcula, o acesso é negado. Nesse ponto, podemos ter certeza de que o remetente tinha acesso à chave e deve ter os direitos especificados na política.
+Os valores não hash estão na cadeia de caracteres **SharedAccessSignature** para que o destinatário possa calcular o hash com os mesmos parâmetros para garantir que o mesmo resultado seja retornado. O URI especifica o escopo e o nome da chave identifica a política a ser usada para computar o hash. Isso é importante de um ponto de vista de segurança. Se a assinatura não coincidir com aquela que o destinatário (Barramento de Serviço) calcula, o acesso é negado. Nesse ponto, podemos ter certeza de que o remetente tinha acesso à chave e deve ter os direitos especificados na política.
 
 ## Gerando uma assinatura por meio de uma política
 
@@ -149,7 +149,7 @@ return $token;
 }
 ```
  
-### C&#35;
+### C&\#35;
 
 ```
 private static string createToken(string resourceUri, string keyName, string key)
@@ -165,7 +165,7 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## Usando a assinatura de acesso compartilhado
+## Usando a Assinatura de Acesso Compartilhado (no nível do HTTP)
  
 Agora que sabe como criar Assinaturas de acesso compartilhado para qualquer entidade no Barramento de Serviço, você está pronto para executar um HTTP POST:
 
@@ -176,14 +176,81 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 	
-Lembre-se de que isso funciona para tudo. Você pode criar uma SAS para uma fila, tópico, assinatura, Hub de eventos ou retransmissão. Se você usar identidades por editor para Hubs de eventos, basta acrescentar `/publishers/< publisherid>`.
+Lembre-se de que isso funciona para tudo. Você pode criar uma SAS para uma fila, tópico, assinatura, Hub de eventos ou retransmissão. Se você usar identidades por editor para Hubs de Eventos, bastará acrescentar `/publishers/< publisherid>`.
 
 Se você fornecer a um remetente ou um cliente um token SAS, eles não têm a chave diretamente e não podem reverter o hash para obtê-la. Dessa forma, você tem controle sobre o que eles podem acessar e por quanto tempo. É importante se lembrar de que se você alterar a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
 
+## Usando a Assinatura de Acesso Compartilhado (no nível do AMQP)
+
+Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP POST para envio dos dados ao Barramento de Serviço. Como você sabe, é possível acessar o Barramento de Serviço usando o protocolo AMQP (Advanced Message Queue Protocol), que é o protocolo principal e preferido por motivos de desempenho em muitos cenários. O uso de tokens SAS com AMQP está descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc), em estado de rascunho funcional desde 2013, mas que conta com amplo suporte do Azure no momento.
+
+Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **"$cbs"** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor precisa especificar o campo **"ReplyTo"** dentro da mensagem AMQP; esse é o nó onde o serviço responderá ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
+
+As etapas a seguir mostrarão como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](http://amqpnetlite.codeplex.com), muito útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&\#35;. Obviamente, essa biblioteca é útil para entender como a Segurança Baseada em Declarações funciona no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). No entanto, não se preocupe! Se você não precisar desse conhecimento avançado sobre AMQP, poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que fará exatamente isso para você, ou a biblioteca [Azure SB Lite](http://azuresblite.codeplex.com) para todas as outras plataformas (veja acima).
+
+### C&\#35;
+
+```
+/// <summary>
+/// Send Claim Based Security (CBS) token
+/// </summary>
+/// <param name="shareAccessSignature">Shared access signature (token) to send</param>
+private bool PutCbsToken(Connection connection, string sasToken)
+{
+    bool result = true;
+    Session session = new Session(connection);
+
+    string cbsClientAddress = "cbs-client-reply-to";
+    var cbsSender = new SenderLink(session, "cbs-sender", "$cbs");
+    var cbsReceiver = new ReceiverLink(session, cbsClientAddress, "$cbs");
+
+    // construct the put-token message
+    var request = new Message(sasToken);
+    request.Properties = new Properties();
+    request.Properties.MessageId = "1";
+    request.Properties.ReplyTo = cbsClientAddress;
+    request.ApplicationProperties = new ApplicationProperties();
+    request.ApplicationProperties["operation"] = "put-token";
+    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
+    cbsSender.Send(request);
+
+    // receive the response
+    var response = cbsReceiver.Receive();
+    if (response == null || response.Properties == null || response.ApplicationProperties == null)
+    {
+        result = false;
+    }
+    else
+    {
+        int statusCode = (int)response.ApplicationProperties["status-code"];
+        if (statusCode != (int)HttpStatusCode.Accepted && statusCode != (int)HttpStatusCode.OK)
+        {
+            result = false;
+        }
+    }
+
+    // the sender/receiver may be kept open for refreshing tokens
+    cbsSender.Close();
+    cbsReceiver.Close();
+    session.Close();
+
+    return result;
+}
+```
+
+O método *PutCbsToken()* acima recebe a *connection* (instância da classe Connection AMQP, como fornecida pela biblioteca AMQP .Net Lite), que representa a conexão TCP com o serviço, e o parâmetro *sasToken*, que é o token SAS a ser enviado. OBSERVAÇÃO: é importante que a conexão seja criada com o **mecanismo de autenticação SASL definido como EXTERNAL** (e não o padrão PLAIN com nome de usuário e senha usados quando você não precisa enviar o token SAS).
+
+Em seguida, o editor cria dois links AMQP para enviar o token SAS e receber a resposta (resultado da validação do token) do serviço.
+
+A mensagem AMQP é um pouco complexa, com muitas propriedades e mais informações do que uma mensagem simples. O token SAS é colocado como o corpo da mensagem (usando o construtor). A propriedade **"ReplyTo"** é definida como o nome do nó para receber o resultado da validação no link receptor (você pode alterar nome dele como quiser e ele será criado dinamicamente pelo serviço). As três últimas propriedades application/custom são usadas pelo serviço para entender o tipo de operação que ele deve executar. Como descrito pela especificação de rascunho CBS, elas devem ser o **nome da operação** ("put-token"), o **tipo de token** colocado ("servicebus.windows.net:sastoken") e, por fim, o **"nome" da audiência** à qual o token se aplica (toda a entidade).
+
+Depois de enviar o token SAS pelo link do remetente, o editor precisará ler a resposta no link receptor. A resposta é uma mensagem AMQP simples com propriedades de aplicativo chamadas **"código de status"**, que podem conter os mesmos valores que um código de status HTTP.
+
 ## Próximas etapas
 
-Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para obter mais informações sobre o que você pode fazer com esses tokens SAS.
+Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para saber mais sobre o que você pode fazer com esses tokens SAS.
 
-Para obter mais informações sobre a SAS, consulte o nó [Autenticação do Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) no MSDN.
+Para saber mais sobre a SAS, consulte o nó [Autenticação do Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) no MSDN.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

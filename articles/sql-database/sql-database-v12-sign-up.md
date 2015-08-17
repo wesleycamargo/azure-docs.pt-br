@@ -67,4 +67,4 @@ Os tópicos a seguir explicam como você pode usar o Banco de Dados SQL V12.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

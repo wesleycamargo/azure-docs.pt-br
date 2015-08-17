@@ -25,21 +25,21 @@ Em um alto nível, o diagrama a seguir mostra o cluster de HPC Pack que você cr
 
 ## Implantar um cluster de HPC Pack com nós de computação Linux
 
-Você usará o script de implantação do Microsoft HPC Pack IaaS (\*\*New-HpcIaaSCluster.ps1\*\*) para automatizar a implantação de cluster nos serviços de infraestrutura do Azure (IaaS). Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para tornar a implantação fácil e flexível. Você pode usar o script para implantar a rede virtual do Azure, contas de armazenamento, serviços de nuvem, controlador de domínio, servidor de banco de dados do SQL Server separado opcional, nó principal do cluster, nós de computação, nós de computação, nós do agente, nós do Azure PaaS ("disparar") e nós de computação Linux (suporte para Linux introduzido no [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Você usará o script de implantação do Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) para automatizar a implantação do cluster nos serviços de infraestrutura do Azure (IaaS). Esse script do Azure PowerShell usa uma imagem de VM do HPC Pack no Azure Marketplace para implantação rápida e fornece um conjunto abrangente de parâmetros de configuração para tornar a implantação fácil e flexível. Você pode usar o script para implantar a rede virtual do Azure, contas de armazenamento, serviços de nuvem, controlador de domínio, servidor de banco de dados do SQL Server separado opcional, nó principal do cluster, nós de computação, nós do agente, nós do Azure PaaS ("disparar") e nós de computação Linux (suporte para Linux introduzido no [HPC Pack 2012 R2 Atualização 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
-Para obter uma visão geral das opções de implantação de cluster de HPC Pack, consulte o [Guia de Introdução do for HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
+Para obter uma visão geral das opções de implantação de cluster do HPC Pack, consulte o [Guia de introdução do HPC Pack 2012 R2 e HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
 ### Pré-requisitos
 
-* **Computador cliente** - você precisará de um computador cliente baseado em Windows para executar o script de implantação do cluster.
+* **Computador cliente** - Você precisará de um computador cliente com Windows para executar o script de implantação do cluster.
 
-* **Azure PowerShelle** - [Instale e configure o Azure PowerShell](../powershell-install-configure.md) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](../powershell-install-configure.md) (versão 0.8.10 ou posterior) no computador cliente.
 
 * **Script de implantação do HPC Pack IaaS**- Baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 ou posterior do script.
 
-* **Assinatura do Azure** - você pode usar a assinatura no serviço Azure Global ou Azure China. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Assinatura do Azure** - Você pode usar a assinatura no serviço Azure Global ou Azure China. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* **Cota de núcleos** - talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para o exemplo neste artigo, você precisará de pelo menos 24 núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para o exemplo neste artigo, você precisará de pelo menos 24 núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ### Criar o arquivo de configuração
 O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML como entrada que descreve a infraestrutura do cluster do HPC. Para implantar um cluster pequeno que consiste em um nó principal e dois nós de computação Linux, substitua os valores para o seu ambiente no seguinte arquivo de configuração de exemplo. Para obter mais informações sobre o arquivo de configuração, consulte o arquivo Manual.rtf na pasta de script ou a [documentação do script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
@@ -82,9 +82,9 @@ O script de implantação do HPC Pack IaaS usa um arquivo de configuração XML 
 
 Aqui estão as breves descrições dos elementos no arquivo de configuração.
 
-* **IaaSClusterConfig** - o elemento raiz do arquivo de configuração.
+* **IaaSClusterConfig** - O elemento raiz do arquivo de configuração.
 
-* **Assinatura** - assinatura do Azure usada para implantar o cluster de HPC Pack. Use o comando abaixo para verificar se o nome da assinatura do Azure está configurado e é exclusivo em seu computador cliente. Neste exemplo, usamos a assinatura do Azure "Assinatura-1".
+* **Assinatura** - A assinatura do Azure usada para implantar o cluster de HPC Pack. Use o comando abaixo para verificar se o nome da assinatura do Azure está configurado e é exclusivo em seu computador cliente. Neste exemplo, usamos a assinatura do Azure "Assinatura-1".
 
     ```
     PS > Get-AzureSubscription –SubscriptionName <SubscriptionName>
@@ -92,17 +92,17 @@ Aqui estão as breves descrições dos elementos no arquivo de configuração.
 
     >[AZURE.NOTE]Como alternativa, você pode usar a ID da assinatura para especificar a assinatura que deseja usar. Consulte o arquivo Manual.rtf na pasta do script.
 
-* **StorageAccount** - todos os dados persistentes para o cluster HPC Pack serão armazenados na conta de armazenamento especificada (allvhdsje neste exemplo). Se a conta de armazenamento não existir, o script irá criá-la na região especificada em **Local**.
+* **StorageAccount** - Todos os dados persistentes para o cluster HPC Pack serão armazenados na conta de armazenamento especificada (allvhdsje neste exemplo). Se a conta de armazenamento não existir, o script vai criá-la na região especificada em **Local**.
 
-* **Local** - região do Azure onde você implantará o cluster HPC Pack (Leste do Japão neste exemplo).
+* **Local** - Região do Azure onde você implantará o cluster HPC Pack (Leste do Japão neste exemplo).
 
-* **VNet** - configurações de rede virtual e sub-rede onde o cluster HPC será criado. Você pode criar a rede virtual e sub-redes por conta própria antes de executar esse script ou o script cria uma rede virtual com espaço de endereço 192.168.0.0/20 e sub-rede com espaço de endereço 192.168.0.0/23. Neste exemplo, o script cria a rede virtual centos7rdmavnetje e a sub-rede CentOS7RDMACluster.
+* **VNet** - Configurações de rede virtual e sub-rede onde o cluster HPC será criado. Você pode criar a rede virtual e sub-redes por conta própria antes de executar esse script ou o script cria uma rede virtual com espaço de endereço 192.168.0.0/20 e sub-rede com espaço de endereço 192.168.0.0/23. Neste exemplo, o script cria a rede virtual centos7rdmavnetje e a sub-rede CentOS7RDMACluster.
 
-* **Domínio** - configurações de domínio do Active Directory para o cluste HPC Pack. Todas as VMs do Windows criadas pelo script ingressarão no domínio. Atualmente, o script oferece suporte a três opções de domínio: ExistingDC, NewDC e HeadNodeAsDC. Neste exemplo, configuraremos o nó principal como controlador de domínio. O nome de domínio totalmente qualificado é hpc.local.
+* **Domínio** - Configurações de domínio do Active Directory para o cluste HPC Pack. Todas as VMs do Windows criadas pelo script ingressarão no domínio. Atualmente, o script oferece suporte a três opções de domínio: ExistingDC, NewDC e HeadNodeAsDC. Neste exemplo, configuraremos o nó principal como controlador de domínio. O nome de domínio totalmente qualificado é hpc.local.
 
-* **Banco de dados** - configurações do banco de dados para o cluster de HPC Pack. Atualmente, o script oferece suporte a três opções de banco de dados: ExistingDB, NewRemoteDB e LocalDB. Neste exemplo, criaremos um banco de dados local no nó principal.
+* **Banco de dados** - Configurações do banco de dados para o cluster de HPC Pack. Atualmente, o script oferece suporte a três opções de banco de dados: ExistingDB, NewRemoteDB e LocalDB. Neste exemplo, criaremos um banco de dados local no nó principal.
 
-* **HeadNode** - configurações para o nó principal do HPC Pack. Neste exemplo, criaremos um nó principal de tamanho A7 chamado CentOS7RDMA-HN no serviço de nuvem centos7rdma-je. Para oferecer suporte ao envio de trabalho do HPC de computadores cliente remotos (sem domínio), o script permitirá que a API REST do agendador de trabalhos HPC e o portal Web HPC.
+* **HeadNode** - Configurações para o nó principal do HPC Pack. Neste exemplo, criaremos um nó principal de tamanho A7 chamado CentOS7RDMA-HN no serviço de nuvem centos7rdma-je. Para oferecer suporte ao envio de trabalho do HPC de computadores cliente remotos (sem domínio), o script permitirá que a API REST do agendador de trabalhos HPC e o portal Web HPC.
 
 * **LinuxComputeNodes** - Configurações para os nós de computação HPC Pack Linux. Neste exemplo, criaremos dois nós de computação Linux CentOS 7 tamanho A7 (CentOS7RDMA-LN1 e CentOS7RDMA-LN2) no serviço de nuvem centos7rdma-je.
 
@@ -142,7 +142,7 @@ cd E:\IaaSClusterScript
 
     O script gera um arquivo de log automaticamente, pois o parâmetro **-LogFile** não está especificado. Os logs não são gravados em tempo real, mas coletados no final da validação e da implantação. Portanto, se o processo do PowerShell for interrompido enquanto o script está sendo executado, alguns registros serão perdidos.
 
-    a. Como a **AdminPassword** não é especificado no comando acima, você será solicitado a inserir a senha para o usuário *MyAdminName*.
+    a. Como a **AdminPassword** não é especificada no comando acima, você precisará inserir a senha para o usuário *MyAdminName*.
 
     b. Em seguida, o script começa a validar o arquivo de configuração. Demora de dezenas de segundos a vários minutos dependendo da conexão de rede.
 
@@ -168,11 +168,11 @@ cd E:\IaaSClusterScript
 
 Você tem várias opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Aqui estão três métodos comuns.
 
-* **Arquivo azure** - expõe um compartilhamento de arquivos para armazenar arquivos de dados no armazenamento do Azure. Os nós de Windows e do Linux podem montar um compartilhamento de Arquivos do Azure como uma unidade ou pasta ao mesmo tempo, mesmo se eles estiverem implantados em diferentes redes virtuais.
+* **Arquivos do Azure** - Expõe um compartilhamento de arquivos para armazenar arquivos de dados no armazenamento do Azure. Os nós de Windows e do Linux podem montar um compartilhamento de Arquivos do Azure como uma unidade ou pasta ao mesmo tempo, mesmo se eles estiverem implantados em diferentes redes virtuais.
 
-* **Compartilhamento do nó principal do SMB** - monta uma pasta compartilhada do nó principal em nós do Linux.
+* **Compartilhamento do nó principal do SMB** - Monta uma pasta compartilhada do nó principal em nós do Linux.
 
-* **Servidor NFS do nó principal** - fornece uma solução de compartilhamento de arquivos para um ambiente misto de Windows e Linux.
+* **Servidor NFS do nó principal** - Fornece uma solução de compartilhamento de arquivos para um ambiente misto de Windows e Linux.
 
 ### Arquivos do Azure
 
@@ -189,7 +189,7 @@ Neste exemplo, criamos um compartilhamento de Arquivos do Azure chamado rdma em 
 
 Neste exemplo, allvhdsje é o nome da conta de armazenamento, storageaccountkey é a chave da conta de armazenamento e o rdma é o nome do compartilhamento de Arquivos do Azure. O compartilhamento de Arquivos do Azure será montado em z: no seu nó principal.
 
-Para montar o compartilhamento de Arquivos do Azure em nós Linux, execute um comando **clusrun** no nó principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** é uma ferramenta útil de HPC Pack para executar tarefas administrativas em vários nós. Consulte também[CLusrun para nós Linux](#CLusrun-for-Linux-nodes)neste artigo.
+Para montar o compartilhamento de Arquivos do Azure em nós Linux, execute um comando **clusrun** no nó principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** é uma ferramenta útil de HPC Pack para executar tarefas administrativas em vários nós. Consulte também [CLusrun para nós Linux](#CLusrun-for-Linux-nodes) neste artigo.
 
 Abra uma janela do Windows PowerShell e digite os seguintes comandos:
 
@@ -266,7 +266,7 @@ Para enviar trabalhos por meio da API REST, consulte [Criar e enviar trabalhos u
 
 ## ClusRun para nós Linux
 
-A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em nós Linux por meio de uma janela de Comando ou do Gerenciador de Cluster de HPC. Estes são alguns exemplos:
+A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em nós Linux por meio de uma janela Comando ou do Gerenciador de Cluster de HPC. Estes são alguns exemplos:
 
 * Mostrar nomes de usuário atuais de todos os nós no cluster
 
@@ -311,4 +311,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n�
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

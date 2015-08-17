@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Introdução à configuração do balanceador de carga para a Internet
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Os serviços de balanceamento de carga no Microsoft Azure funcionam com todos os tipos de locatário (IaaS ou PaaS) e todas os tipos de sistema operacional (Windows ou qualquer sistema operacional baseado em Linux com suporte).
 
@@ -135,4 +139,4 @@ No exemplo a seguir, você irá adicionar um balanceador de carga chamado "webfa
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

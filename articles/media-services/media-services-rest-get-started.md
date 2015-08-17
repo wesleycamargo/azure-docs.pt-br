@@ -113,9 +113,9 @@ O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado par
 	
 **Corpo**:
 
-Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
+Você precisa provar os valores de client\_id e client\_secret no corpo dessa solicitação. O client\_id e client\_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
 
-Observe que o AccountKey da sua conta de serviços de mídia deve ser codificado de URL ao usá-lo como o valor de client_secret na sua solicitação de token de acesso.
+Observe que o AccountKey da sua conta de serviços de mídia deve ser codificado de URL ao usá-lo como o valor de client\_secret na sua solicitação de token de acesso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -146,9 +146,9 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 	}
 	
 
->[AZURE.NOTE]É recomendável armazenar em cache os valores "access_token" e "expires_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+>[AZURE.NOTE]É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 
-Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
+Certifique-se de monitorar o valor "expires\_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
 ###Conectando o URI dos serviços de mídia
 
@@ -497,8 +497,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: 
-	HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
 
 ## Excluir o AccessPolicy e localizador 
 
@@ -549,7 +548,7 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você dis
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-- obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming **por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
+- obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming** por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
 - codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
 
 Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
@@ -829,10 +828,10 @@ Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 - As tarefas não devem formar um ciclo.
 - O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa. 
 
->[AZURE.NOTE]Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "__metadata : uri".
+>[AZURE.NOTE]Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "\_\_metadata : uri".
 
 - Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)_NewJob". 
+- Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
 
 	O exemplo a seguir mostra como definir o atributo assetName:
 	
@@ -1089,8 +1088,7 @@ O exemplo a seguir mostra como especificar o AccessPolicy para permissões de le
 
 Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade AccessPolicy que você criou. Em seguida, você usará a ID do AccessPolicy com a ID do ativo que contém o arquivo que você deseja fornecer (como um ativo de saída) para criar a entidade do localizador.
 
->[AZURE.NOTE]
->Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir ativos (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+>[AZURE.NOTE]Esse fluxo de trabalho básico é o mesmo utilizado para carregar um arquivo ao ingerir ativos (como foi discutido neste tópico). Além disso, como o carregamento de arquivos, se você (ou seus clientes) precisarem acessar os arquivos imediatamente, defina o valor StartTime para cinco minutos antes da hora atual Essa ação é necessária porque pode haver uma defasagem horária entre o cliente e os serviços de mídia. O valor de StartTime deve estar no seguinte formato de DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
 
 
 ###Criando uma URL SAS para download de conteúdo 
@@ -1144,20 +1142,19 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"/Date(1337049393000)/",
+	      "ExpirationDateTime":"\/Date(1337049393000)\/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"/Date(1337031393000)/"
+	      "StartTime":"\/Date(1337031393000)\/"
 	   }
 	}
 
 
 A propriedade **Path** retornada contém a URL de SAS.
 
->[AZURE.NOTE]
->Se você baixar o conteúdo de armazenamento criptografado, deverá manualmente descriptografá-lo antes de renderizá-lo ou usar o MediaProcessor de descriptografia de armazenamento em uma tarefa de processamento para arquivos processados de saída de modo transparente para um OutputAsset e, em seguida, fazer o download deste ativo. Para saber mais sobre processamento, consulte Criar um trabalho de codificação com a API REST dos serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, você não pode reutilizar o mesmo localizador com um valor StartTime atualizado. Isso é devido ao modo como as URLs SAS são criadas. Se você quiser acessar um ativo para baixar após um localizador ter expirado, você deve criar um novo com um novo StartTime.
+>[AZURE.NOTE]Se você baixar o conteúdo de armazenamento criptografado, deverá manualmente descriptografá-lo antes de renderizá-lo ou usar o MediaProcessor de descriptografia de armazenamento em uma tarefa de processamento para arquivos processados de saída de modo transparente para um OutputAsset e, em seguida, fazer o download deste ativo. Para saber mais sobre processamento, consulte Criar um trabalho de codificação com a API REST dos serviços de mídia. Além disso, os localizadores URL SAS não podem ser atualizados depois que eles foram criados. Por exemplo, você não pode reutilizar o mesmo localizador com um valor StartTime atualizado. Isso é devido ao modo como as URLs SAS são criadas. Se você quiser acessar um ativo para baixar após um localizador ter expirado, você deve criar um novo com um novo StartTime.
 
 ###Baixar arquivos
 
@@ -1237,12 +1234,12 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"/Date(1337049395000)/",
+	      "ExpirationDateTime":"\/Date(1337049395000)\/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"/Date(1337031395000)/"
+	      "StartTime":"\/Date(1337031395000)\/"
 	   }
 	}
 
@@ -1285,4 +1282,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

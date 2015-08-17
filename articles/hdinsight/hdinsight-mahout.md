@@ -78,9 +78,9 @@ Convenientemente, a [GroupLens Research][movielens] oferece dados de classifica�
 
 3. Carregue o arquivo __u.data__ em __example/data/u.data__ no seu cluster HDInsight. Se você tem o [PowerShell do Azure][aps], pode usar o módulo [HDInsight-Tools][tools] para carregar o arquivo. Para obter outros meios de carregar arquivos, consulte [Carregar dados para trabalhos do Hadoop no HDInsight][upload]. O comando a seguir usa `Add-HDInsightFile` para carregar o arquivo:
 
-    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    Isso carregará o arquivo __u.data__ para __example/data/u.data__ no armazenamento padrão em seu cluster. Então, você poderá acessar esses dados usando o __wasb:///example/data/u.data__ URI de trabalhos do HDInsight.
+    Isso carregará o arquivo __u.data__ para __example/data/u.data__ no armazenamento padrão em seu cluster. Então, você poderá acessar esses dados usando o URI \_\___wasb:///example/data/u.data__ de trabalhos do HDInsight.
 
 ###Executar o trabalho
 
@@ -92,7 +92,7 @@ Use o script do Windows PowerShell a seguir para executar um trabalho usando o m
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -234,7 +234,7 @@ Apesar de a saída gerada talvez ser adequada para uso em um aplicativo, ela nã
 
 Para usar este script, você precisa ter extraído a pasta __ml-100k__ anteriormente, junto com uma cópia local do arquivo de saída __part-r-00000__ gerado pelo trabalho do Mahout. A seguir está um exemplo de execução do script:
 
-	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 A saída deve ter aparência similar à exibida a seguir:
 
@@ -291,7 +291,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 
 	![hadoop cli][hadoopcli]
 
-3. Use o comando a seguir para gerar o descritor do arquivo (\_\_KDDTrain+.info\_\_), que usa o Mahout.
+3. Use o comando a seguir para gerar o descritor do arquivo (__KDDTrain+.info__), que usa o Mahout.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -301,7 +301,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    A saída dessa operação está armazenada no diretório __nsl-forest__, que está localizado no armazenamento de seu cluster HDInsight em __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. O &lt;username> é o nome de usuário usado para a sua sessão da área de trabalho remota. Esse arquivo não pode ser lido por pessoas.
+    A saída dessa operação está armazenada no diretório __nsl-forest__, que está localizado no armazenamento de seu cluster HDInsight em \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. O &lt;username> é o nome de usuário usado para a sua sessão da área de trabalho remota. Esse arquivo não pode ser lido por pessoas.
 
 5. Teste a floresta classificando o conjunto de dados __KDDTest+.arff__. Use o seguinte comando:
 
@@ -333,7 +333,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Esse trabalho também produz um arquivo localizado em __wasb:///example/data/predictions/KDDTest+.arff.out__. Todavia, esse arquivo não pode ser lido por pessoas.
+  Esse trabalho também produz um arquivo localizado em \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Todavia, esse arquivo não pode ser lido por pessoas.
 
 > [AZURE.NOTE]Trabalhos do Mahout não sobrescrevem arquivos. Se você deseja executar esses trabalhos novamente, é preciso excluir os arquivos criados pelos trabalhos anteriores.
 
@@ -345,7 +345,7 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 1. A versão do Mahout a ser usada depende da versão do HDInsight do seu cluster. Você pode encontrar a versão do cluster usando o seguinte com o [PowerShell do Azure][aps]\:
 
-    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __Para HDInsight 2.1__, você pode baixar um arquivo do arquivo JAR (Java) que contém o [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
@@ -360,7 +360,7 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 2. Carregue o arquivo jar no __exemplo/jars__, no armazenamento padrão para seu cluster. O exemplo a seguir usa add-hdinsightfile de [HDInsight-Tools][tools] para carregar o arquivo:
 
-    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Não foi possível sobrescrever arquivos
 
@@ -373,7 +373,7 @@ Para evitar erros ao executar trabalhos do Mahout, exclua arquivos temporários 
 Clusters de HDInsight 3.1 incluem o Mahout. O caminho e o nome de arquivo incluem o número de versão do Mahout instalado no cluster. O script de exemplo do Windows PowerShell neste tutorial usa um caminho válido desde julho de 2014, mas o número de versão mudará em atualizações futuras do HDInsight. Para determinar o caminho atual para o arquivo JAR do Mahout para seu cluster, use os comandos do Windows PowerShell a seguir, então, modifique o script para fazer referência ao caminho de arquivo que ele retorna como resultado:
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Classes que não funcionam com o Windows PowerShell
 
@@ -421,4 +421,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

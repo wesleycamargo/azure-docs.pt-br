@@ -109,4 +109,4 @@ Use a API REST para executar a restauração do banco de dados de modo programá
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado para ser usado de acordo com o guia [Finalizar um banco de dados recuperado](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

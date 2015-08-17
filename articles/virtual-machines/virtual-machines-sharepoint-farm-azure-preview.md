@@ -45,7 +45,7 @@ Para criar seu farm do SharePoint farm com o modelo de Farm do SharePoint Server
 4. Se desejar um farm de alta disponibilidade, clique em **Habilitar alta disponibilidade**.
 5. Para configurar os seus controladores de domínio, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o nome do domínio raiz de floresta (o padrão é contoso.com) e o tamanho dos seus controladores de domínio (o padrão é A1).
 6. Para configurar os seus servidores SQL, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SQL (o padrão é A5), um nome e uma senha da conta de acesso do banco de dados (o padrão é usar a conta do administrador) e um nome da conta de serviço do SQL Server (o padrão é sqlservice) e a senha (o padrão é usar a mesma senha da conta do administrador).
-7. Para configurar os seus servidores SharePoint, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SharePoint (o padrão é A2), uma conta do usuário do SharePoint (o padrão é sp_setup) e a senha, um nome da conta farm do SharePoint (o padrão é sp_farm) e a senha e um passphase de farm do SharePoint. O padrão é usar a senha do administrador para a conta do usuário do SharePoint, a conta do farm e o passphrase.
+7. Para configurar os seus servidores SharePoint, clique na seta. É possível especificar um prefixo de nome do host (o padrão é o nome do grupo de recursos), o tamanho dos seus servidores SharePoint (o padrão é A2), uma conta do usuário do SharePoint (o padrão é sp\_setup) e a senha, um nome da conta farm do SharePoint (o padrão é sp\_farm) e a senha e um passphase de farm do SharePoint. O padrão é usar a senha do administrador para a conta do usuário do SharePoint, a conta do farm e o passphrase.
 8. Para configurar os parâmetros de configuração opcionais de rede virtual, conta de armazenamento ou diagnóstico, clique na seta correspondente.
 9. Para especificar a assinatura, clique na seta.
 10. Quando tiver concluído, clique em **Criar**.
@@ -95,4 +95,4 @@ O recurso de Farm do SharePoint Server do Portal de Visualização do Azure cria
 
 [Farms do SharePoint hospedados nos serviços de infraestrutura do Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

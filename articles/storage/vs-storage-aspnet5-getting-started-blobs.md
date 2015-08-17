@@ -1,47 +1,47 @@
-<properties 
-	pageTitle="Introdução ao Armazenamento do Azure" 
-	description="Como começar a usar o armazenamento de blobs do Azure em um projeto ASP.NET 5 no Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Introdução ao armazenamento de blobs do Azure e serviços conectados do Visual Studio"
+	description="Como começar a usar o armazenamento de blob do Azure em um projeto ASP.NET 5 do Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
-# Introdução ao Armazenamento do Azure (Projetos ASP.NET 5)
+# Introdução ao armazenamento de blobs do Azure e serviços conectados do Visual Studio
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
-> - [What Happened](vs-storage-aspnet5-what-happened.md)
+> - [Getting started](vs-storage-aspnet5-getting-started-blobs.md)
+> - [What happened](vs-storage-aspnet5-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
+##Visão geral
+
+Este artigo descreve como começar a usar o armazenamento de blob do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET 5 usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio.
+
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos. Este artigo descreve como começar a usar o armazenamento de blob depois de criar uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio em um projeto do ASP.NET 5.
 
-Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um armazenamento, crie um ou mais contêineres no armazenamento. Por exemplo, em um armazenamento chamado "Scrapbook", você pode criar contêineres no armazenamento chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos de blob individuais para eles. Confira [Como usar o Armazenamento de Blob do .NET](storage-dotnet-how-to-use-blobs.md "Como usar o Armazenamento de Blob no .NET") para obter mais informações sobre como manipular blobs programaticamente.
-
-##Criar contêineres de blob no Gerenciador de servidores do Visual Studio
-
-[AZURE.INCLUDE [vs-create-blob-container-in-server-explorer](../../includes/vs-create-blob-container-in-server-explorer.md)]
+Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um armazenamento, crie um ou mais contêineres no armazenamento. Por exemplo, em um armazenamento chamado "Scrapbook", você pode criar contêineres no armazenamento chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos de blob individuais para eles. Confira [Como usar o armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md "Como usar o armazenamento de blob no .NET") para obter mais informações sobre como manipular blobs programaticamente.
 
 
 
-##Acessar contêineres de blob em código 
+##Acessar contêineres de blob em código
 
 Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adicionar os itens a seguir, se eles ainda não existirem.
 
-1. Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você queira acessar o Armazenamento do Azure por meio de programação.
+1. Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você queira acessar o armazenamento do Azure por meio de programação.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -49,15 +49,15 @@ Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adi
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
+2. Obtenha um objeto `CloudStorageAccount` que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     **OBSERVAÇÃO:** use todo esse código acima antes do código nas seções a seguir.
 
 
-3. Use um objeto **CloudBlobClient** para obter uma referência **CloudBlobContainer** a um contêiner existente na sua conta de armazenamento.
+3. Use um objeto `CloudBlobClient` para obter uma referência `CloudBlobContainer` para um contêiner existente na sua conta de armazenamento.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -69,7 +69,7 @@ Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adi
 
 ##Criar um contêiner no código
 
-Você também pode usar o **CloudBlobClient** para criar um contêiner na sua conta de armazenamento. Basta adicionar uma chamada para `CreateIfNotExistsAsync()`, como no código a seguir:
+Você também pode usar `CloudBlobClient` para criar um contêiner na sua conta de armazenamento. Basta adicionar uma chamada para `CreateIfNotExistsAsync`, como no código a seguir:
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -78,7 +78,7 @@ Você também pode usar o **CloudBlobClient** para criar um contêiner na sua co
     CloudBlobContainer container = blobClient.GetContainerReference("my-new-container");
 
     // If “mycontainer” doesn’t exist, create it.
-    await container.CreateIfNotExistsAsync();    
+    await container.CreateIfNotExistsAsync();
 
 
 **OBSERVAÇÃO:** as APIs que executam chamadas para o armazenamento do Azure no ASP.NET 5 são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
@@ -92,10 +92,10 @@ Se quiser tornar os arquivos dentro do contêiner disponíveis a todos, basta de
 
 ##Carregar um blob em um contêiner
 
-Para carregar um arquivo de blob para um contêiner, obtenha uma referência de contêiner e use-a para obter uma referência de blob. Quando tiver uma referência de blob, poderá transferir qualquer fluxo de dados para ele chamando o método **UploadFromStreamAsync()**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
+Para carregar um arquivo de blob para um contêiner, obtenha uma referência de contêiner e use-a para obter uma referência de blob. Depois de ter uma referência de blob, você pode carregar qualquer fluxo de dados nele chamando o método `UploadFromStreamAsync`. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
 
 	// Get a reference to a blob named "myblob".
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");            
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
     // Create or overwrite the "myblob" blob with the contents of a local file
     // named “myfile”.
@@ -105,7 +105,7 @@ Para carregar um arquivo de blob para um contêiner, obtenha uma referência de 
     }
 
 ##Listar os blobs em um contêiner
-Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Em seguida você pode usar o método **ListBlobsSegmentedAsync()** do contêiner para recuperar os blobs e/ou diretórios nele contidos. Para acessar o avançado conjunto de propriedades e métodos para um **IListBlobItem** retornado, você deve convertê-lo em um objeto **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Se o tipo de blob for desconhecido, você poderá usar uma verificação de tipo para determinar em qual convertê-lo. O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no contêiner.
+Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode chamar o método `ListBlobsSegmentedAsync` do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o conjunto avançado de propriedades e métodos de um `IListBlobItem` retornado, você deve convertê-lo em um objeto `CloudBlockBlob`, `CloudPageBlob` ou `CloudBlobDirectory`. Se o tipo de blob for desconhecido, você poderá usar uma verificação de tipo para determinar em qual convertê-lo. O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no contêiner.
 
 	BlobContinuationToken token = null;
         do
@@ -137,10 +137,10 @@ Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêin
             }
         } while (token != null);
 
-Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o Armazenamento de Blob do .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para obter mais informações.
+Existem outras maneiras de listar o conteúdo de um contêiner de blob. Consulte [Como usar o armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para obter mais informações.
 
 ##Baixar um blob
-Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o método **DownloadToStreamAsync()**. O exemplo a seguir usa o método **DownloadToStreamAsync()** para transferir o conteúdo do blob para um objeto de fluxo que pode então ser salvo como arquivo local.
+Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o método `DownloadToStreamAsync`. O exemplo a seguir usa o método `DownloadToStreamAsync` para transferir o conteúdo do blob para um objeto de fluxo que você pode salvar como um arquivo local.
 
 	// Get a reference to a blob named "photo1.jpg".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
@@ -151,10 +151,10 @@ Para baixar um blob, primeiramente obtenha uma referência para o blob e chame o
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o Armazenamento de Blob do .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs) para obter mais informações.
+Existem outras maneiras de salvar blobs como arquivos. Consulte [Como usar o armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs) para obter mais informações.
 
 ##Excluir um blob
-Para excluir um blob, primeiramente obtenha uma referência para o blob e chame o método **DeleteAsync()** nele.
+Para excluir um blob, primeiramente obtenha uma referência para o blob e chame o método `DeleteAsync` nele.
 
 	// Get a reference to a blob named "myblob.txt".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -166,9 +166,4 @@ Para excluir um blob, primeiramente obtenha uma referência para o blob e chame 
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-
-
- 
-[Image1]: ./media/vs-storage-aspnet5-getting-started-blobs/vs-storage-create-blob-containers-in-Server-Explorer.png
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=06-->

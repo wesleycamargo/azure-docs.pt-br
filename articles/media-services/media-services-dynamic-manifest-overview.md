@@ -163,7 +163,7 @@ Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posiç
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###Combinar várias regras em um único filtro
@@ -209,4 +209,4 @@ O tópico a seguir discute entidades de serviços de mídia relacionadas a filtr
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

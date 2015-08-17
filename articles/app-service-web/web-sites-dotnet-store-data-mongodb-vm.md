@@ -326,7 +326,7 @@ abra o arquivo * Controllers\\HomeController.cs* no **Gerenciador de soluções*
 	}
 
 ## Configurar os estilos ##
-Para alterar o título na parte superior da página, abra o arquivo *Views\\Shared\_Layout.cshtml* no **Gerenciador de soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
+Para alterar o título na parte superior da página, abra o arquivo *Views\\Shared\\\_Layout.cshtml* no **Gerenciador de Soluções** e substitua "Nome do aplicativo" no cabeçalho da barra de navegação por "Aplicativo Minha Lista de Tarefas" de forma que ele seja semelhante a:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -499,4 +499,4 @@ Para obter mais informações sobre como desenvolver aplicativos do C# para Mong
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -99,7 +99,7 @@ Você pode criar um banco de dados com um plano grátis seguindo estas etapas.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Digite de "**de mysql**" na caixa de pesquisa, clique em **Banco de dados MySQL**, e, em seguida, clique em **Criar**.
+1.  Digite "**mysql**" na caixa de pesquisa, então clique em **Banco de Dados MySQL** e clique em **Criar**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -134,7 +134,7 @@ Nesta seção, configuraremos nosso aplicativo Web para usar o banco de dados My
 
 1.  No Gerenciador de Soluções, em **Ambientes Python**, clique com o botão direito do mouse no ambiente virtual e selecione **Instalar Pacote Python**.
 
-1. Instale o pacote `mysql-python` usando **easy_install**.
+1. Instale o pacote `mysql-python` usando **easy\_install**.
 
   	![Caixa de diálogo Instalar Pacote](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +211,4 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 [MySQL]: http://www.mysql.com/
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

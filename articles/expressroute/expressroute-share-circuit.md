@@ -35,7 +35,7 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 
 1. O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) permite que o administrador de outra assinatura (Vendas da Contoso), ao especificar sua ID da Microsoft (Live), vincule até 2 VNETs ao circuito. O cmdlet não envia um email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização for concluída.
 
-		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
+		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
 		Description         : SalesTeam 
 		Limit               : 2 
@@ -45,7 +45,7 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 
 1. Após ser notificado pelo proprietário do circuito, o administrador da assinatura autorizada pode executar o seguinte cmdlet para recuperar a chave de serviço do circuito. Neste exemplo, o administrador de Vendas da Contoso deverá entrar usando a ID da Microsoft especificada, salesadmin@contoso.com.
 
-		PS C:> Get-AzureAuthorizedDedicatedCircuit
+		PS C:\> Get-AzureAuthorizedDedicatedCircuit
 		
 		Bandwidth                        : 100
 		CircuitName                      : ContosoIT
@@ -59,7 +59,7 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 
 1. O administrador da assinatura autorizado executa o cmdlet a seguir para concluir a operação de vinculação.
 
-		PS C:> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
+		PS C:\> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
 		
 			State VnetName 
 			----- -------- 
@@ -71,7 +71,7 @@ E isso é tudo. A VNet das Vendas da Contoso no Azure agora está vinculada a um
 
 O proprietário do circuito pode compartilhar um circuito com até 10 assinaturas do Azure. O proprietário do circuito pode ver que foi autorizado para o circuito. O proprietário pode revogar a autorização a qualquer momento. Quando o proprietário do circuito revoga uma autorização, identificada por LinkAuthorizationId, todos os links permitidos pela autorização serão excluídos imediatamente. As VNETs vinculadas perderão a conectividade com a rede local por meio do circuito Rota Expressa.
 
-	PS C:> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
+	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
 	
 	Description         : EngineeringTeam 
 	Limit               : 3 
@@ -91,7 +91,7 @@ O proprietário do circuito pode compartilhar um circuito com até 10 assinatura
 	MicrosoftIds        : salesadmin@contoso.com 
 	Used                : 2 
 	
-	PS C:> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
+	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
 
 
 O diagrama a seguir mostra o Fluxo de trabalho de autorização:
@@ -102,4 +102,4 @@ O diagrama a seguir mostra o Fluxo de trabalho de autorização:
 
 Para obter mais informações sobre a Rota Expressa, consulte [Visão geral da Rota Expressa](expressroute-introduction.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -206,4 +206,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

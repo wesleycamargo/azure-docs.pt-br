@@ -95,7 +95,7 @@ Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobr
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc\~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
 
 #### Não há dados?
 
@@ -220,4 +220,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -5,15 +5,16 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Fase 4 da carga de trabalho do farm de intranet do SharePoint: configurar servidores do SharePoint
@@ -95,7 +96,7 @@ Quando você tiver fornecido a todos os valores adequados, execute o bloco resul
 
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Use o [Procedimento para fazer logon em uma máquina virtual com uma Conexão de Área de Trabalho Remota](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatro vezes, uma para cada um dos servidores do SharePoint, para fazer logon usando as credenciais da conta [Domínio]\\sp_farm_db. Você criou essas credenciais na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Use o [Procedimento para fazer logon em uma máquina virtual com uma Conexão de Área de Trabalho Remota](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatro vezes, uma para cada um dos servidores do SharePoint, para fazer logon usando as credenciais da conta [Domínio]\\sp\_farm\_db. Você criou essas credenciais na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Use o [procedimento para testar a conectividade](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) uma vez para cada um dos quatro servidores do SharePoint para testar a conectividade para os locais na rede da sua organização.
 
@@ -109,8 +110,8 @@ Use estas etapas para configurar o primeiro servidor do SharePoint no farm:
 4.	Na página **Conectar a um farm de servidores**, selecione **Criar um novo farm de servidores** e clique em **Avançar**.
 5.	Na página **Especificar as configurações do banco de dados de configurações**:
  - Em **Servidor de banco de dados**, digite o nome do servidor de banco de dados primário.
- - Em **Nome de usuário**, digite [Domínio]**\\sp_farm_db** (criado na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Lembre-se de que a conta sp_farm_db tem privilégios no servidor de banco de dados.
- - Em **Senha**, digite a senha da conta sp_farm_db.
+ - Em **Nome de usuário**, digite [Domínio]**\\sp\_farm\_db** (criado na [Fase 2: configurar controladores de domínio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Lembre-se de que a conta sp\_farm\_db tem privilégios no servidor de banco de dados.
+ - Em **Senha**, digite a senha da conta sp\_farm\_db.
 6.	Clique em **Próximo**.
 7.	Na página **Especificar as Configurações de Segurança do Farm**, digite uma senha duas vezes. Registre a senha e armazene-a em um local seguro para referência futura. Clique em **Próximo**.
 8.	Na página **Configurar Aplicativo Web da Administração Central do SharePoint**, clique em **Avançar**.
@@ -126,7 +127,7 @@ Execute o procedimento a seguir no segundo servidor de aplicativos do SharePoint
 3.	A caixa de diálogo **Assistente de Configuração de Produtos do SharePoint** será exibida, avisando que os serviços (como o IIS) serão reiniciados ou redefinidos. Clique em **Sim**.
 4.	Na página **Conectar a um farm de servidores**, clique em **Conectar-se a um farm de servidores existente** e clique em **Avançar**.
 5.	Na página **Especificar as Configurações do Banco de Dados de Configurações**, digite o nome do servidor de banco de dados primário em **Servidor de banco de dados** e, em seguida, clique em **Recuperar Nomes de Bancos de Dados**.
-6.	Clique em **SharePoint_Config** na lista de nomes no banco de dados e, em seguida, clique em **Avançar**.
+6.	Clique em **SharePoint\_Config** na lista de nomes no banco de dados e, em seguida, clique em **Avançar**.
 7.	Na página **Especificar as Configurações de Segurança do Farm**, digite a senha do procedimento anterior. Clique em **Próximo**.
 8.	A página **Concluindo o Assistente de Configuração de Produtos do SharePoint** é exibida. Clique em **Próximo**.
 9.	Na página **Configuração Bem-sucedida**, clique em **Concluir**.
@@ -190,4 +191,4 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

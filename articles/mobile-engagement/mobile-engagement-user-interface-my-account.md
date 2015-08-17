@@ -44,7 +44,7 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 3. De um aviso Reach, se a URL da ação associada ao comunicado contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo disparando a ação. http://<example>.com/registeruser? deviceid = {deviceid} & otherparam = myparamdata será substituído por: http://<example>.com/registeruser? deviceid = XXXXXXXXXXXXXXXX & otherparam = myparamdata 
 4. De um aviso Reach, se o código HTML do anúncio contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo exibindo o anúncio da web. Este é o identificador do dispositivo: {deviceid} será substituído por: Este é o identificador do dispositivo: XXXXXXXXXXXXXXXX
 5.  Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado. A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista. Clique para esse evento no Monitor. Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento. Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
->
+>(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

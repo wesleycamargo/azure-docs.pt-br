@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # Implantar um Aplicativo de API no Serviço de Aplicativo do Azure 
 
@@ -92,4 +92,4 @@ Nesta seção, você exibirá as configurações básicas disponíveis para apli
 Você viu como os recursos de implantação direta do Visual Studio facilitam o processo de iteração e implantação rapidamente e testam se sua API funciona corretamente. No [próximo tutorial](../app-service-dotnet-remotely-debug-api-app.md), você verá como depurar seu aplicativo de API enquanto ele é executado no Azure.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

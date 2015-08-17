@@ -74,4 +74,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

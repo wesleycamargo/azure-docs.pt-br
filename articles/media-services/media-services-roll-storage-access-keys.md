@@ -43,7 +43,7 @@ Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento sec
 
 - Use a API REST de gerenciamento dos Serviços de Mídia.
 
-	O exemplo de código a seguir mostra como criar a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, consulte [Como: Use a API REST de gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/en-us/library/azure/dn167656.aspx).
+	O exemplo de código a seguir mostra como criar a solicitação https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key para sincronizar a chave de armazenamento especificada com os Serviços de Mídia. Nesse caso, o valor da chave de armazenamento secundária é usado. Para obter mais informações, consulte [Como: Use a API REST de gerenciamento dos Serviços de Mídia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@ Para atualizar a data de validade em um localizador, use as APIs [REST](http://m
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

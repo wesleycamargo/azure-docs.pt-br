@@ -106,4 +106,4 @@ Após a conclusão da execução do modelo, você terá uma nova configuração 
 
 [Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

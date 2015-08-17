@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="08/03/2015"
 	ms.author="mwasson" />
 
 # Como usar io.js com Aplicativos Web do Serviço de Aplicativo do Azure
@@ -61,4 +61,4 @@ Neste artigo, você aprendeu a usar io.js com Aplicativos Web do Serviço de Apl
 [Script de Implantação io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

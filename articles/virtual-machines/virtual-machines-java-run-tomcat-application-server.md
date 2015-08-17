@@ -40,20 +40,20 @@ Neste tutorial, um servidor de aplicativos Apache Tomcat será instalado em uma 
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**. Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
 4. Clique em **Próximo**.
-5. Na caixa de diálogo <strong>Configuração da máquina virtual</strong>:
+5. Na caixa de diálogo **Configuração da máquina virtual**:
     1. Especifique um nome para a máquina virtual.
     2. Especifique o tamanho a ser usado para a máquina virtual.
     3. Digite um nome para o administrador no campo **Nome do Usuário**. Lembre-se do nome e da senha inseridos a seguir, você irá usá-los ao entrar remotamente na máquina virtual.
     4. Digite uma senha no campo **Nova senha** e insira-a novamente no campo **Confirmar**. Esta é a senha da conta do Administrador.
     5. Clique em **Próximo**.
-6. Na próxima caixa de diálogo <strong>Configuração da máquina virtual</strong>:
+6. Na próxima caixa de diálogo **Configuração da máquina virtual**:
     1. Para **Serviço de Nuvem**, use o padrão **Criar um novo serviço de nuvem**.
     2. O valor de **Nome DNS do Serviço de Nuvem** deve ser exclusivo no cloudapp.net. Se necessário, modifique esse valor para que o Azure indique que ele é exclusivo.
     2. Especifique uma região, um grupo de afinidade ou uma rede virtual. Neste tutorial, especifique uma região, como **Oeste dos Estados Unidos**.
     2. Para **Conta de Armazenamento**, selecione **Usar uma conta de armazenamento gerada automaticamente**.
     3. Para **Conjunto de Disponibilidade**, selecione **(Nenhuma)**.
     4. Clique em **Próximo**.
-7. Na caixa de diálogo <strong>Configuração da máquina virtual</strong> final:
+7. Na caixa de diálogo **Configuração da máquina virtual** final:
     1. Aceite as entradas de ponto de extremidade padrão.
     2. Clique em **Concluído**.
 
@@ -91,7 +91,7 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 4. Clique em **Pontos de Extremidade**.
 5. Clique em **Adicionar**.
 6. Na caixa de diálogo **Adicionar ponto de extremidade**, verifique se a opção **Adicionar ponto de extremidade autônomo** está selecionada e clique em **Avançar**.
-7. Na caixa de diálogo <strong>Detalhes do novo ponto de extremidade</strong>:
+7. Na caixa de diálogo **Detalhes do novo ponto de extremidade**:
     1. Especifique um nome para o ponto de extremidade. Por exemplo, **HttpIn**.
     2. Especifique **TCP** para o protocolo.
     3. Especifique **80** para a porta pública.
@@ -103,31 +103,14 @@ Para ver o Tomcat em execução em máquinas externas, você precisará criar um
 2. Clique em **Iniciar do Windows**.
 3. Clique em **Painel de Controle**.
 4. Clique em **Sistema e Segurança**, clique em **Firewall do Windows** e, em seguida, clique em **Configurações Avançadas**.
-5. Clique em **Regras de Entrada** e, em seguida, clique em **Nova Regra**.
+5. Clique em **Regras de Entrada** e, em seguida, clique em **Nova Regra**. ![Nova regra de entrada][NewIBRule]
+6. Para o **Tipo de Regra**, selecione **Porta** e, em seguida, clique em **Avançar**. ![Nova porta de regra de entrada][NewRulePort]
+7. Na tela **Protocolo e Portas**, selecione **TCP**, especifique **8080** como a **Porta local específica** e, em seguida, clique em **Avançar**. ![Nova regra de entrada][NewRuleProtocol]
+8. Na tela **Ação**, selecione **Permitir a conexão** e clique em **Avançar**. ![Nova ação de regra de entrada][NewRuleAction]
+9. Na tela **Perfil**, certifique-se de que **Domínio**, **Particular** e **Público** estejam selecionados e, em seguida, clique em **Avançar**. ![Novo perfil de regra de entrada][NewRuleProfile]
+10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**. ![Nome da nova regra de entrada][NewRuleName]
 
- ![Nova regra de entrada][NewIBRule]
-
-6. Para o **Tipo de Regra**, selecione **Porta** e, em seguida, clique em **Avançar**.
-
- ![Nova porta de regra de entrada][NewRulePort]
-
-7. Na tela **Protocolo e Portas**, selecione **TCP**, especifique **8080** como a **Porta local específica** e, em seguida, clique em **Avançar**.
-
- ![Nova regra de entrada][NewRuleProtocol]
-
-8. Na tela **Ação**, selecione **Permitir a conexão** e clique em **Avançar**.
-
- ![Nova ação de regra de entrada][NewRuleAction]
-
-9. Na tela **Perfil**, certifique-se de que **Domínio**, **Particular** e **Público** estejam selecionados e, em seguida, clique em **Avançar**.
-
- ![Novo perfil de regra de entrada][NewRuleProfile]
-
-10. Na tela **Nome**, especifique um nome para a regra, como **HttpIn** (no entanto, o nome da regra não precisa corresponder ao nome do ponto de extremidade) e clique em **Concluir**.  
-
- ![Nome da nova regra de entrada][NewRuleName]
-
-Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato **http://*your\_DNS\_name*.cloudapp.net**, em que ***seu\_nome\_DNS*** é o nome DNS que você especificou ao criar a máquina virtual.
+Neste ponto, o site do Tomcat deverá ser visto de um navegador externo usando uma URL no formato ****http://*your\_DNS\_name*.cloudapp.net**, em que ***seu\_nome\_DNS*** é o nome DNS que você especificou ao criar a máquina virtual.
 
 ## Considerações sobre o ciclo de vida do aplicativo
 * Você pode criar o próprio arquivo web do aplicativo (WAR) e adicioná-lo à pasta **webapps**. Por exemplo, crie um projeto Web dinâmico JSP (página de serviço Java) básico e o exporte como um arquivo WAR, copie o WAR para a pasta **webapps** do Apache Tomcat na máquina virtual e o execute em um navegador.
@@ -159,4 +142,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o Barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

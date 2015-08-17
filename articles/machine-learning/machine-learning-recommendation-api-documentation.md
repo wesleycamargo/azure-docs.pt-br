@@ -33,7 +33,7 @@ A API de Recomendações do Aprendizado de Máquina do Azure pode ser dividida e
 3.	<ins>Modelo de Regras de Negócio</ins> – APIs que permitem gerenciar regras comerciais dos resultados de recomendação do modelo.
 4.	<ins>Catálogo</ins> – APIs que permitem executar operações básicas em um catálogo de modelo. Um catálogo contém informações de metadados sobre os itens dos dados de uso.
 5.	<ins>Recurso</ins> - APIs que permitem obter informações no item presente no catálogo e como usar essas informações para criar recomendações melhores.
-6.	<ins>Dados de uso</ins> – APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &#60;usuárioId&#62;,&#60;itemId&#62;.
+6.	<ins>Dados de uso</ins> – APIs que permitem executar operações básicas com os dados de uso do modelo. Os dados de uso no formulário básico são formados por linhas que incluem pares de &\#60;usuárioId&\#62;,&\#60;itemId&\#62;.
 7.	<ins>Compilação</ins> – APIs que permitem disparar uma compilação de modelo e realizam operações básicas relacionadas a essa compilação. Você pode iniciar uma compilação de modelo uma vez que você tenha dados de uso valiosos.
 8.	<ins>Recomendação</ins> – após a compilação de um modelo terminar, você pode consumir recomendações usando essas APIs.
 9.	<ins>Dados de usuário</ins> - APIs que permitem que você busque informações sobre os dados de uso do usuário.
@@ -88,9 +88,7 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_).<br>Comprimento máximo: 20 |
-|	apiVersion | 1\.0 |
-||| | Corpo da Solicitação | NENHUM |
+|	modelName |	Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -937,15 +935,11 @@ Os dados do catálogo devem seguir o seguinte formato:
 
 Observação: o tamanho máximo do arquivo é de 200 MB.
 
-\*\* Detalhes de formato \*\*
+** Detalhes de formato **
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador exclusivo de um item |
-| Nome do Item | Sim | Qualquer caractere alfanumérico<br> Comprimento máximo: 255 | Nome do item. | 
-| Categoria do Item | Sim | Qualquer caractere alfanumérico <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de Culinária, Drama...); pode estar vazia. |
-| Descrição | Não, a menos que os recursos estejam presentes (mas pode estar vazia) | Qualquer caractere alfanumérico <br> Comprimento máximo: 4000 | Descrição deste item. |
-| Lista de recursos | Não | Qualquer caractere alfanumérico <br> Comprimento máximo: 4000 | Lista separada por vírgulas de nome do recurso = valor do recurso que pode ser usada para aperfeiçoar a recomendação de modelo; consulte a seção [Tópicos avançados](#2-advanced-topics). |
+| Id do item |Sim | [A-z], [a-z], [0-9] [\_]& \#40; Sublinhado&\#41;, [-] &\#40;Traço&\#41;<br>Comprimento máximo: 50 | Identificador exclusivo de um item. | | Nome do Item | Sim | Todos os caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item. | | Categoria do Item | Sim | Todos os caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de culinária, Drama...); pode estar vazio. | | Descrição | Não, a menos que existam recursos (mas pode estar vazio) | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Descrição deste item. | | Lista de recursos | Não | Todos os caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas de nome do recurso=valor do recurso que pode ser usada para aprimorar a recomendação de modelo; consulte a seção [Tópicos avançados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
@@ -955,9 +949,7 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
-|	apiVersion | 1\.0 |
-||| | Corpo da Solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | ||| | Corpo da Solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Resposta**:
@@ -1156,9 +1148,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
-|	apiVersion | 1\.0 |
-||| | Corpo da Solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [\_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>ID do item</td><td>Sim</td><td>[A-z], [a-z], [0-9], &#95; &#40;Sublinhado&#41;&#40;Traço&#41;<br>Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (ex.: 2013/06/20T10:00:00)</td><td>Horário dos dados.</td></tr><tr><td>Evento</td><td>Não; se fornecido, também deverá incluir a data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e o sublinhado (_) são permitidos. <br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &\#40;Sublinhado&\#41;, [-] &\#40;Traço&\#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&\#95;] &\#40;Sublinhado&\#41;, [-] &\#40;Traço&\#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -1676,7 +1666,7 @@ OData
 
   Esta seção explica as diferentes APIs relacionadas a compilações. Existem 3 tipos de compilações: uma compilação de recomendação, uma compilação de classificação e uma compilação FBT (frequentemente comprada junto).
 
-A compilação de recomendação tem o objetivo de gerar um modelo de recomendação usado para previsões. As previsões (para esse tipo de compilação) vêm em duas versões: também conhecido como \* I2I Recomendações de Item a Item - ao receber um item ou uma lista de itens, essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse. Também conhecido como \* U2I Recomendações do Usuário ao Item - ao receber uma ID de usuário (e, opcionalmente, uma lista de itens), essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse para o usuário especificado (e suas opções adicionais de itens). As recomendações de U2I são baseadas no histórico de itens que foram de interesse do usuário até o momento em que o modelo foi criado.
+A compilação de recomendação tem o objetivo de gerar um modelo de recomendação usado para previsões. As previsões (para esse tipo de compilação) vêm em duas versões: também conhecido como * I2I Recomendações de Item a Item - ao receber um item ou uma lista de itens, essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse. Também conhecido como * U2I Recomendações do Usuário ao Item - ao receber uma ID de usuário (e, opcionalmente, uma lista de itens), essa opção poderá prever uma lista de itens que provavelmente serão de grande interesse para o usuário especificado (e suas opções adicionais de itens). As recomendações de U2I são baseadas no histórico de itens que foram de interesse do usuário até o momento em que o modelo foi criado.
 
 Uma compilação de classificação é uma compilação técnica que permite que você saiba mais sobre a utilidade dos seus recursos. Geralmente, para obter o melhor resultado para um modelo de recomendação envolvendo recursos, siga as seguintes etapas: - Dispare uma compilação de classificação (a menos que a pontuação dos seus recursos seja estável) e espere até obter a pontuação de recurso. - Recupere a posição de seus recursos chamando a API [Obter informações de recursos](#101-get-features-info-for-last-rank-build). - Configure uma compilação de recomendação com os seguintes parâmetros: - `useFeatureInModel` - Definido como Verdadeiro. - `ModelingFeatureList` - Defina uma lista separada por vírgulas dos recursos com pontuação de 2.0 ou mais (de acordo com as classificações obtidas na etapa anterior). - `AllowColdItemPlacement` - Definido como Verdadeiro. - Opcionalmente, você pode definir `EnableFeatureCorrelation` como Verdadeiro e `ReasoningFeatureList` à lista de recursos que você deseja usar para obter explicações (normalmente a mesma lista de recursos usados na modelagem ou um sublista). - Dispare a compilação de recomendação com os parâmetros configurados.
 
@@ -2871,4 +2861,4 @@ Código de status HTTP: 200
 Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

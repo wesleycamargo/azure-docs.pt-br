@@ -152,4 +152,4 @@ Na página **Painel**, você pode examinar informações sobre máquinas virtuai
 
   ![Painel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

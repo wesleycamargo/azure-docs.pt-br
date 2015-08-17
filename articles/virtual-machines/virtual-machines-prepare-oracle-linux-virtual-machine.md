@@ -1,4 +1,4 @@
-<properties pageTitle="Preparar uma máquina virtual Oracle Linux para o Azure" description="Percorra a configuração de uma máquina virtual do Oracle com Linux no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Preparar uma máquina virtual Oracle Linux para o Azure" description="Percorra a configuração de uma máquina virtual do Oracle com Linux no Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Preparar uma máquina virtual Oracle Linux para o Azure
 -   [Preparar uma máquina virtual do Oracle Linux 6.4 e versões posteriores para o Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -162,9 +162,9 @@ A preparação de uma Máquina virtual Oracle Linux 7 para o Azure é muito pare
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.  Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto e edite o parâmetro GRUB_CMDLINE_LINUX. Por exemplo:
+9.  Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto e edite o parâmetro GRUB\_CMDLINE\_LINUX. Por exemplo:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
 	Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, recomendamos que você *remova* os seguintes parâmetros:
 
@@ -202,4 +202,4 @@ A preparação de uma Máquina virtual Oracle Linux 7 para o Azure é muito pare
 
 15.  Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

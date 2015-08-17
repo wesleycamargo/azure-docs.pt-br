@@ -104,7 +104,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 ##<a id="results"></a>Exibir a saída do trabalho
 
-O trabalho MapReduce armazenou os resultados da operação para o Armazenamento de Blob do Azure, no caminho **wasb:///example/data/WordCountOutput** especificado como um argumento para o trabalho. O Armazenamento de Blob do Azure é acessível pelo PowerShell do Azure, mas você deve saber o nome da conta de armazenamento, a chave e um contêiner que é usado pelo seu cluster HDInsight para acessar diretamente os arquivos.
+O trabalho MapReduce armazenou os resultados da operação para o Armazenamento de Blob do Azure, no caminho ****wasb:///example/data/WordCountOutput** especificado como um argumento para o trabalho. O Armazenamento de Blob do Azure é acessível pelo Azure PowerShell, mas você deve saber o nome da conta de armazenamento, a chave e um contêiner que é usado pelo seu cluster HDInsight para acessar diretamente os arquivos.
 
 Felizmente, você pode obter essas informações usando os seguintes cmdlets do PowerShell do Azure:
 
@@ -113,7 +113,7 @@ Felizmente, você pode obter essas informações usando os seguintes cmdlets do 
 * **Get-AzureStorageBlob**: após receber um objeto de contexto e o nome do contêiner, retorna uma lista de blobs dentro do contêiner.
 * **Get-AzureStorageBlobContent**: após receber um objeto de contexto, um caminho de arquivo e nome e um nome de contêiner (retornado por **Get-AzureHDinsightCluster**), baixa um arquivo do Armazenamento de Blob do Azure.
 
-O exemplo a seguir recupera as informações de armazenamento, em seguida baixa a saída por meio **wasb:///example/data/WordCountOutput**. Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
+O exemplo a seguir recupera as informações de armazenamento, em seguida baixa a saída por meio ****wasb:///example/data/WordCountOutput**. Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -143,7 +143,7 @@ O exemplo a seguir recupera as informações de armazenamento, em seguida baixa 
 
 > [AZURE.NOTE]Este exemplo armazenará os arquivos baixados na pasta **example/data/WordCountOutput**, no diretório no qual você executa o script.
 
-A saída do trabalho MapReduce é armazenada em arquivos com o nome *part-r-#####*. Abra o arquivo **example/data/WordCountOutput/part-r-00000** em um editor de texto para ver as palavras e contagens produzidas pelo trabalho.
+A saída do trabalho MapReduce é armazenada em arquivos com o nome *part-r-\#\#\#\#\#*. Abra o arquivo **example/data/WordCountOutput/part-r-00000** em um editor de texto para ver as palavras e contagens produzidas pelo trabalho.
 
 > [AZURE.NOTE]Os arquivos de saída de um trabalho MapReduce são imutáveis. Portanto, se você executar esse exemplo novamente, será necessário alterar o nome do arquivo de saída.
 
@@ -173,4 +173,4 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -90,7 +90,7 @@ Para ser capaz de armazenar dados de aplicativo no novo serviço móvel, primeir
 
 4. Clique na nova tabela **TodoItem** e verifique se não há linhas de dados.
 
-	>[AZURE.NOTE]Novas tabelas são criadas com as colunas Id, __createdAt, __updatedAt, e __versão. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>[AZURE.NOTE]Novas tabelas são criadas com as colunas Id, \_\_createdAt, \_\_updatedAt e \_\_version. Quando o esquema dinâmico está habilitado, os Serviços Móveis geram automaticamente novas colunas com base em um objeto JSON na solicitação de inserção ou atualização. Para obter mais informações, consulte [Esquema dinâmico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. Na guia **Configurar**, verifique se `localhost` já está relacionado na lista **Permitir solicitações de nomes de host** em **Compartilhamento de Recursos entre Origens (CORS)**. Se ele não estiver, digite `localhost` no campo **Nome do host** e clique em **Salvar**.
 
@@ -257,4 +257,4 @@ Este tutorial demonstrou as noções básicas de como habilitar um aplicativo HT
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

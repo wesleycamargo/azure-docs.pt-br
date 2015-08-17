@@ -114,4 +114,4 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo W
 [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

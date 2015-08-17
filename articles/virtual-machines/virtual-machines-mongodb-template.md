@@ -655,7 +655,7 @@ Os discos anexados são formatados como parte das atividades de preparação do 
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** faz parte da pasta **shared_scripts\\ubuntu**, no repositório github azure-quickstart-templates, e contém funções muito úteis para a montagem de discos, a formatação e a distribuição, que podem ser reutilizadas sempre que você precisar executar tarefas semelhantes como parte da criação do modelo.
+**vm-disk-utils-0.1.sh** faz parte da pasta **shared\_scripts\\ubuntu**, no repositório github azure-quickstart-templates, e contém funções muito úteis para a montagem de discos, a formatação e a distribuição, que podem ser reutilizadas sempre que você precisar executar tarefas semelhantes como parte da criação do modelo.
 
 Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo separado de recurso, com uma dependência em cada modelo de implantação do nó de cluster, consulte este fragmento no final de cada arquivo **member-resources-Dx.json**:
 
@@ -692,4 +692,4 @@ Essencialmente, essa abordagem sugere o seguinte:
 Para saber mais, confira [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

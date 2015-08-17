@@ -23,7 +23,7 @@
 
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
-[Pesquise a KB (Base de Dados de Conhecimento) da Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Pesquise a KB (Base de Dados de Conhecimento) da Microsoft](https://www.microsoft.com/pt-br/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 - Pesquise a KB (Base de Dados de Conhecimento) da Microsoft para obter soluções técnicas de conserto de problemas comuns de suporte ao Azure AD Connect.
 
@@ -40,4 +40,4 @@
 
 Use as diretrizes descritas no artigo [aqui](active-directory-aadconnect-o365-certs.md) para resolver os problemas referentes à renovação do certificado.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

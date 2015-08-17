@@ -54,7 +54,7 @@ Se as ferramentas de linha de comando do Azure estiverem instaladas em seu ambie
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Enquanto loggingEnabled e devErrorsEnabled são os mais usados IISNode.yml opções de configuração para a captura de informações de diagnóstico, IISNode.yml pode ser usado para configurar uma variedade de opções para seu ambiente de hospedagem. Para obter uma lista completa das opções de configuração, consulte o arquivo [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE]Enquanto loggingEnabled e devErrorsEnabled são os mais usados IISNode.yml opções de configuração para a captura de informações de diagnóstico, IISNode.yml pode ser usado para configurar uma variedade de opções para seu ambiente de hospedagem. Para obter uma lista completa das opções de configuração, consulte o arquivo [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Acessando os logs
@@ -125,4 +125,4 @@ Para obter informações sobre como especificar uma versão do Node. js para seu
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

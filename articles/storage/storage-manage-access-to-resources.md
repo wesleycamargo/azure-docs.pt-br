@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/04/2015" 
 	ms.author="micurd;tamram"/>
 
 # Gerenciar o acesso aos recursos de Armazenamento do Azure
@@ -22,11 +22,11 @@
 
 Por padrão, somente o proprietário da conta de armazenamento pode acessar os recursos de armazenamento nessa conta. Se seu serviço ou aplicativo precisar tornar esses recursos disponíveis para outros clientes sem compartilhar sua chave de acesso, você tem as seguintes opções para permitir acesso:
 
-- Definir permissões do contêiner para permitir o acesso de leitura anônimo para o contêiner e seus blobs. Isso não é permitido para tabelas ou filas.
+- Definir permissões do contêiner para permitir o acesso de leitura anônimo para o contêiner e seus blobs. O acesso de leitura anônimo está disponível apenas para contêineres e blobs. 
 
-- Você pode expor um recurso através de uma assinatura de acesso compartilhado, que permite que você delegue acesso restrito a um contêiner, blob, tabela ou recurso de fila, especificando o intervalo no qual os recursos estarão disponíveis e as permissões que um cliente terá.
+- É possível expor um recurso através de uma assinatura de acesso compartilhado, que permite que você delegue acesso restrito a um contêiner, um blob, uma tabela, uma fila, um compartilhamento de arquivos ou um arquivo, especificando o intervalo no qual os recursos estarão disponíveis e as permissões que um cliente terá.
 
-- Você pode usar uma política de acesso armazenado para gerenciar assinaturas de acesso compartilhado para um contêiner ou seus blobs, uma fila ou uma tabela. A política de acesso armazenado fornece uma medida adicional de controle sobre suas assinaturas de acesso compartilhado e também fornece um meio simples de revogá-los.
+- É possível usar uma política de acesso armazenado para gerenciar assinaturas de acesso compartilhado para um contêiner ou seus blobs, uma fila, uma tabela ou um compartilhamento de arquivos ou seus arquivos. A política de acesso armazenado fornece uma medida adicional de controle sobre suas assinaturas de acesso compartilhado e também fornece um meio simples de revogá-los.
 
 ## Restringir o acesso aos contêineres e blobs
 
@@ -74,25 +74,18 @@ A tabela a seguir mostra quais operações podem ser chamadas por usuários anô
 | Get Page Ranges | Todos | Todos |
 
 ## Criar e usar uma assinatura de acesso compartilhado
-Uma assinatura de acesso compartilhado é um URI que concede direitos de acesso restrito para contêineres, blobs, filas e tabelas por um intervalo de tempo específico. Fornecendo um cliente com uma assinatura de acesso compartilhado, você poderá habilitá-los a acessar recursos na sua conta de armazenamento sem compartilhar sua chave de conta com eles.
+Uma assinatura de acesso compartilhado (SAS) é um URI que concede direitos de acesso restrito a um recurso de armazenamento por um intervalo de tempo específico. É possível criar uma SAS nestes recursos de armazenamento:
 
->[AZURE.NOTE]Para uma visão geral conceitual e um tutorial detalhado sobre assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md).
+- Contêineres e blobs
+- Filas
+- Tabelas
+- Compartilhamentos de arquivos e arquivos 
 
-As operações com suporte para uso de assinaturas de acesso compartilhado incluem:
+Fornecendo um cliente com uma assinatura de acesso compartilhado, você poderá habilitá-los a acessar recursos na sua conta de armazenamento sem compartilhar sua chave de conta com eles.
 
-- Ler e gravar o conteúdo de blob de páginas ou de blocos, listas de blocos, propriedades e metadados
+>[AZURE.NOTE]Para obter uma visão geral conceitual e um tutorial detalhado sobre assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md).
 
-- Exclusão, aluguel e criação de um instantâneo de um blob
-
-- Listagem de blobs em um contêiner
-
-- Adicionar, remover, atualizar e excluir mensagens da fila (na Biblioteca Cliente de Armazenamento 2.0 e mais recente)
-
-- Obter metadados de fila, incluindo a contagem de mensagens (na Biblioteca Cliente de Armazenamento 2.0 e mais recente)
-
-- Consultar, adicionar, atualizar, excluir e inserir entidades de tabela (na Biblioteca Cliente de Armazenamento 2.0 e mais recente)
-
-Os parâmetros de consulta URI de assinatura de acesso compartilhado incorporam todas as informações necessárias para conceder acesso controlado a um recurso de armazenamento. Os parâmetros de consulta URI especificam o intervalo de tempo no qual a assinatura de acesso compartilhado é válida, as permissões concedidas por ela, o recurso que deve ser disponibilizado e a assinatura que os serviços de armazenamento devem usar para autenticar a solicitação.
+Os parâmetros de consulta URI de assinatura de acesso compartilhado incorporam todas as informações necessárias para conceder acesso controlado a um recurso de armazenamento. Os parâmetros de consulta URI em uma SAS incluem o intervalo de tempo no qual a assinatura de acesso compartilhado é válida, as permissões concedidas por ela, o recurso que deve ser disponibilizado, a versão a ser usada para executar a solicitação e a assinatura que os serviços de armazenamento usarão para autenticar a solicitação.
 
 Além disso, o URI da assinatura de acesso compartilhado pode fazer referência a uma política de acesso armazenado que fornece um nível adicional de controle sobre um conjunto de assinaturas, incluindo a capacidade de modificar ou revogar acesso ao recurso, se necessário.
 
@@ -178,18 +171,18 @@ Um cliente que recebe uma assinatura de acesso compartilhado pode usá-la no seu
 ## Usar uma política de acesso armazenado
 Uma política de acesso armazenado fornece um nível adicional de controle sobre assinaturas de acesso compartilhado no lado do servidor. Estabelecer uma política de acesso armazenado serve para agrupar assinaturas de acesso compartilhado e fornecer restrições adicionais para assinaturas que são associadas pela política. Você pode usar uma política de acesso armazenada para alterar a hora de início, a hora de término ou as permissões para uma assinatura ou para revogá-la depois que tiver sido emitida.
 
-Uma política de acesso armazenado proporciona maior controle sobre assinaturas de acesso compartilhado que você lançou. Em vez de especificar as permissões e o tempo de vida da assinatura na URL, você pode especificar esses parâmetros dentro da política de acesso armazenado no blob, contêiner, fila ou tabela que está sendo compartilhada. Para alterar esses parâmetros para uma ou mais assinaturas, você pode modificar a política de acesso armazenado, em vez de emitir novamente as assinaturas. Você também pode revogar rapidamente a assinatura modificando a política de acesso armazenado.
+Uma política de acesso armazenado proporciona maior controle sobre assinaturas de acesso compartilhado que você lançou. Em vez de especificar as permissões e o tempo de vida da assinatura na URL, é possível especificar esses parâmetros em uma política de acesso armazenada que é armazenada no contêiner, no compartilhamento de arquivos, na fila ou na tabela que contém o recurso que está sendo compartilhado. Para alterar esses parâmetros para uma ou mais assinaturas, você pode modificar a política de acesso armazenado, em vez de emitir novamente as assinaturas. Você também pode revogar rapidamente a assinatura modificando a política de acesso armazenado.
 
 Por exemplo, suponha que você tenha emitido uma assinatura de acesso compartilhado associada a uma política de acesso armazenado. Se você tiver especificado o tempo de término na política de acesso armazenado, é possível modificar a política de acesso para aumentar a vida da assinatura, sem precisar reemitir uma nova assinatura.
 
 Práticas recomendadas aconselham especificar uma política de acesso armazenado para qualquer recurso assinado para o qual você esteja emitindo uma assinatura de acesso compartilhado, porque a política armazenada pode ser usada para modificar ou revogar a assinatura depois que ela tiver sido emitida. Se você não especificar uma política armazenada, é recomendável que você limite o tempo de vida da sua assinatura para minimizar qualquer risco aos seus recursos da conta de armazenamento.
 
 ### Associar uma assinatura de acesso compartilhado a uma política de acesso armazenado
-Uma política de acesso armazenado inclui um nome de até 64 caracteres que é exclusivo dentro do contêiner, fila ou tabela. Para associar uma assinatura de acesso compartilhado com uma política de acesso armazenado, você especificar esse identificador ao criar a assinatura de acesso compartilhado. No URI de assinatura de acesso compartilhado, o campo *signedidentifier* especifica o identificador da política de acesso armazenado.
+Uma política de acesso armazenada inclui um nome de até 64 caracteres que seja exclusivo dentro do contêiner, do compartilhamento de arquivos, da fila ou da tabela. Para associar uma assinatura de acesso compartilhado com uma política de acesso armazenado, você especificar esse identificador ao criar a assinatura de acesso compartilhado. No URI de assinatura de acesso compartilhado, o campo *signedidentifier* especifica o identificador da política de acesso armazenado.
 
-Um contêiner, fila ou tabela pode incluir até 5 políticas de acesso armazenado. Cada política pode ser usada por qualquer número de assinaturas de acesso compartilhado.
+Um contêiner, um compartilhamento de arquivos, uma fila ou uma tabela pode incluir até 5 políticas de acesso armazenado. Cada política pode ser usada por qualquer número de assinaturas de acesso compartilhado.
 
->[AZURE.NOTE]Quando você estabelece uma política de acesso armazenado em um contêiner, fila ou tabela, ela pode levar até 30 segundos para entrar em vigor. Durante esse intervalo, uma assinatura de acesso compartilhado que está associada com a política de acesso armazenado falhará com o código de status 403 (proibido) até que a política de acesso se torne ativa.
+>[AZURE.NOTE]Quando você estabelece uma política de acesso armazenado em um contêiner, um compartilhamento de arquivos, uma fila ou uma tabela, ela pode levar até 30 segundos para entrar em vigor. Durante esse intervalo, uma assinatura de acesso compartilhado que está associada com a política de acesso armazenado falhará com o código de status 403 (proibido) até que a política de acesso se torne ativa.
 
 ### Especificando parâmetros da política de acesso para uma política de acesso compartilhado
 A política de acesso armazenado pode especificar os seguintes parâmetros da política de acesso para as assinaturas às quais ela está associada:
@@ -214,4 +207,4 @@ Para revogar o acesso a assinaturas de acesso compartilhado que usam a mesma pol
 - [Assinaturas de acesso compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
