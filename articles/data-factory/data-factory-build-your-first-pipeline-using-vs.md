@@ -68,7 +68,9 @@ Nas etapas subsequentes, você aprenderá a criar serviços vinculados, conjunto
 
 ### Pré-requisitos
 
-Você deve ter os seguintes itens instalados no computador: - Visual Studio 2013 - Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [Página de download do Azure](http://azure.microsoft.com/downloads/) e clique em **Instalar VS 2013** na seção **.NET**.
+Você deve ter os seguintes itens instalados no computador: 
+- Visual Studio 2013
+- Baixe o SDK do Azure para Visual Studio 2013. Navegue até a [página de download do Azure](http://azure.microsoft.com/downloads/) e clique em **instalar VS 2013** na seção **.NET**.
 
 
 ### Criar o projeto do Visual Studio 
@@ -244,4 +246,4 @@ Consulte [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-p
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

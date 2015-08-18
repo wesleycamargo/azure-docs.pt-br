@@ -301,7 +301,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    A saída dessa operação está armazenada no diretório __nsl-forest__, que está localizado no armazenamento de seu cluster HDInsight em \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. O &lt;username> é o nome de usuário usado para a sua sessão da área de trabalho remota. Esse arquivo não pode ser lido por pessoas.
+    A saída dessa operação está armazenada no diretório __nsl-forest__, que está localizado no armazenamento de seu cluster HDInsight em __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. O &lt;username> é o nome de usuário usado para a sua sessão da área de trabalho remota. Esse arquivo não pode ser lido por pessoas.
 
 5. Teste a floresta classificando o conjunto de dados __KDDTest+.arff__. Use o seguinte comando:
 
@@ -333,7 +333,7 @@ Um dos métodos de classificação disponíveis com o Mahout é criar uma [flore
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Esse trabalho também produz um arquivo localizado em \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Todavia, esse arquivo não pode ser lido por pessoas.
+  Esse trabalho também produz um arquivo localizado em __wasb:///example/data/predictions/KDDTest+.arff.out__. Todavia, esse arquivo não pode ser lido por pessoas.
 
 > [AZURE.NOTE]Trabalhos do Mahout não sobrescrevem arquivos. Se você deseja executar esses trabalhos novamente, é preciso excluir os arquivos criados pelos trabalhos anteriores.
 
@@ -345,7 +345,7 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 1. A versão do Mahout a ser usada depende da versão do HDInsight do seu cluster. Você pode encontrar a versão do cluster usando o seguinte com o [PowerShell do Azure][aps]\:
 
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __Para HDInsight 2.1__, você pode baixar um arquivo do arquivo JAR (Java) que contém o [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
@@ -354,9 +354,9 @@ O Mahout é instalado nos clusters do HDInsight 3.1 e pode ser instalado manualm
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	Após a conclusão da compilação, você encontrará o arquivo JAR em __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] No lançamento do Mahout 1.0, você poderá usar os pacotes de pré-compilação com o HDInsight 3.0.
 
 2. Carregue o arquivo jar no __exemplo/jars__, no armazenamento padrão para seu cluster. O exemplo a seguir usa add-hdinsightfile de [HDInsight-Tools][tools] para carregar o arquivo:
 
@@ -421,4 +421,4 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

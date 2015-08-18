@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Implantar e gerenciar o backup no Azure para Windows Server/Windows Client usando o Azure PowerShell
@@ -28,7 +35,7 @@ Antes de instalar o agente de Backup do Azure, você precisa ter o instalador ba
 Para instalar o agente, execute o seguinte comando em um console do Azure PowerShell com privilégios elevados:
 
 ```
-PS C:\> MARSAgentInstaller.exe /q
+PS C:> MARSAgentInstaller.exe /q
 ```
 
 Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu*, a janela do **Windows Update** será aberta no final da instalação para verificar se há atualizações. Uma vez instalado, o agente será exibido na lista de programas instalados.
@@ -42,14 +49,23 @@ Para ver a lista de programas instalados, vá para **Painel de controle** > **Pr
 Para ver todas as opções disponíveis por meio da linha de comando, use o seguinte comando:
 
 ```
-PS C:\> MARSAgentInstaller.exe /?
+PS C:> MARSAgentInstaller.exe /?
 ```
 
 As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | | /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Inscreva no Microsoft Update | - | | /nu | Não verificar se há atualizações após a conclusão da instalação | - | | /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | | /Ph | Endereço de Host do Proxy | - | | /po | Número da porta do Host do Proxy | - | | /pu | Nome de usuário do Host do Host | - | | /pw | Senha do Proxy | - |
+| /q | Instalação silenciosa | - |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | Inscreva no Microsoft Update | - |
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
+| /ph | Endereço de Host do Proxy | - |
+| /po | Número da porta do Host do Proxy | - |
+| /pu | Nome de usuário do Host do Host | - |
+| /pw | Senha do Proxy | - |
 
 
 ### Registrando-se no serviço de Backup do Azure
@@ -436,4 +452,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

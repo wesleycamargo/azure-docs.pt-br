@@ -205,7 +205,7 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-```
+  ```
 
 Métodos com suporte: GET, PUT e DELETE
 
@@ -300,7 +300,8 @@ As informações a seguir descrevem os parâmetros opcionais disponíveis.
 
 O parâmetro "Highlight" é um parâmetro opcional que você pode usar para solicitar que o subsistema de pesquisa inclua um conjunto de marcadores em sua resposta.
 
-Esses marcadores indicam o início e término do texto realçado que coincide com os termos fornecidos na consulta de pesquisa. Você pode especificar os marcadores de início e término que serão usados pela pesquisa para encapsular o termo realçado.
+Esses marcadores indicam o início e término do texto realçado que coincide com os termos fornecidos na consulta de pesquisa.
+Você pode especificar os marcadores de início e término que serão usados pela pesquisa para encapsular o termo realçado.
 
 **Exemplo de consulta de pesquisa**
 
@@ -345,4 +346,4 @@ Esses marcadores indicam o início e término do texto realçado que coincide co
 
 Observe que o resultado acima contém uma mensagem de erro que foi acrescida de um prefixo e anexada.
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
