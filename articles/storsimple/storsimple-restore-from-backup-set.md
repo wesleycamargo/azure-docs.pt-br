@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Restaurar um volume StorSimplede um cojunto de backups |do Microsoft Azure" 
+	pageTitle="Restaurar um volume StorSimplede um cojunto de backups |do Microsoft Azure." 
 	description="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." 
 	services="storsimple" 
 	documentationCenter="NA" 
