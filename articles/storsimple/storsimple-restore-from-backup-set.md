@@ -1,11 +1,11 @@
 ﻿<properties 
-pageTitle="Restaurar um volume StorSimplede um cojunto de backups |do Microsoft Azure" 
-description ="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." 
-services="storsimple" 
-documentationCenter="NA" 
-authors="SharS" 
-manager="carolz" 
-editor="" />
+	pageTitle="Restaurar um volume StorSimplede um cojunto de backups |do Microsoft Azure" 
+	description ="Explica como usar o catálogo de backup para restaurar um volume StorSimple de um conjunto de backups." 
+	services="storsimple" 
+	documentationCenter="NA" 
+	authors="SharS" 
+	manager="carolz" 
+	editor=""/>
 
 <tags
    ms.service="storsimple"
@@ -14,7 +14,7 @@ editor="" />
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
    ms.date="06/25/2015"
-   ms.author="v-sharos" />
+   ms.author="v-sharos"/>
 
 # Restaurar um volume do StorSimple de um conjunto de backup
 
