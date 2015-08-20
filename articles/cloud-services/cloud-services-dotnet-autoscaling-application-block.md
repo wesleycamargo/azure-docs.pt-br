@@ -28,7 +28,15 @@ Este guia demonstrará como executar cenários comuns usando o Bloco de Aplicati
 
 ## Sumário
 
-[O que é o Bloco de Aplicativos de Dimensionamento Automático?][] [Conceitos][] [Coletar dados de contador de desempenho do aplicativo do Azure de destino][] [Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático][] [Como instanciar e executar o dimensionador automático][] [Como definir o modelo de serviço][] [Como definir suas regras de dimensionamento automático][] [Como configurar um bloco de aplicativo de dimensionamento automático][] [Próximas etapas][]
+[O que é o Bloco de Aplicativos de Dimensionamento Automático?][]   
+[Conceitos][]   
+[Coletar dados de contador de desempenho do aplicativo do Azure de destino][]   
+[Configurar um aplicativo host para o bloco de aplicativo de dimensionamento automático][]   
+[Como instanciar e executar o dimensionador automático][]   
+[Como definir o modelo de serviço][]   
+[Como definir suas regras de dimensionamento automático][]   
+[Como configurar um bloco de aplicativo de dimensionamento automático][]   
+[Próximas etapas][]   
 
 ## <a id="WhatIs"> </a>O que é o Bloco de Aplicativos de Dimensionamento Automático?
 
@@ -126,14 +134,31 @@ No Visual Studio, você deve garantir que o arquivo de modelo de serviço seja c
 
 	O exemplo de código a seguir mostra um modelo de serviço de exemplo em um arquivo **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Você deve substituir os valores entre colchetes com valores específicos ao seu ambiente e ao aplicativo de destino. Para localizar muitos desses valores, você precisará efetuar logon no [Portal de Gerenciamento do Azure][].
 
@@ -262,23 +287,27 @@ Por padrão, o Bloco de Aplicativos de Dimensionamento Automático espera que as
 
 1.  Clique com o botão direito do mouse no arquivo **App.config** no Gerenciador de Soluções e, em seguida, clique em **Editar o Arquivo de Configuração**.
 
-2.  No menu **Blocos**, clique em **Adicionar Configurações de Ajuste de Escala Automático**: ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  No menu **Blocos**, clique em **Adicionar Configurações de Ajuste de Escala Automático**:  
+	![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  Expanda as **Configurações de Dimensionamento Automático** e, em seguida, clique nas reticências (...) ao lado de **Conta de Armazenamento do Repositório de Pontos de Dados**, adicione o **Nome da conta** e a **Chave da conta** da conta do armazenamento do Azure, onde o bloco armazenará os pontos de dados que coleta (consulte [Como definir seu modelo de serviço][] se não tiver certeza sobre onde localizar esses valores) e, em seguida, clique em **OK**:
 
 	![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Expanda a seção **Configurações do Dimensionamento Automático** para revelar as seções **Repositório de Regras** e **Repositório de Informações do Serviço**. Por padrão, eles são configurados para usar o armazenamento de blob do Azure: ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  Expanda a seção **Configurações do Dimensionamento Automático** para revelar as seções **Repositório de Regras** e **Repositório de Informações do Serviço**. Por padrão, eles são configurados para usar o armazenamento de blob do Azure:  
+	![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  Clique no sinal de adição (+) ao lado de **Repositório de Regras**, aponte para **Definir Repositório de Regras**, clique em **Usar Repositório de Regras de Arquivo Local** e, em seguida, clique em **Sim**.
 
-6.  Na caixa **Nome do Arquivo**, digite **rules.xml**. Esse é o nome do arquivo que contém as regras de dimensionamento automático: ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  Na caixa **Nome do Arquivo**, digite **rules.xml**. Esse é o nome do arquivo que contém as regras de dimensionamento automático:  
+	![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  Clique no sinal de adição (+) ao lado de **Repositório de Informações de Serviço**, aponte para **Definir Repositório de Informações de Serviço**, clique em **Usar Repositório de Informações de Serviço de Arquivo Local** e, em seguida, clique em **Sim**.
 
-8.  Na caixa **Nome do Arquivo**, digite **services.xml**. Esse é o nome do arquivo que contém as regras de dimensionamento automático: ![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  Na caixa **Nome do Arquivo**, digite **services.xml**. Esse é o nome do arquivo que contém as regras de dimensionamento automático:  
+	![imagem](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  Na janela Configuração da Enterprise Library, no menu **Arquivo**, clique em **Salvar** para salvar as alterações na configuração. Em seguida, na janela Configuração da Enterprise Library, no menu **Arquivo**, clique em **Sair**.
@@ -382,4 +411,4 @@ Agora que você aprendeu os conceitos básicos de como usar o Bloco de Aplicativ
   [Reduzindo os custos de hospedagem do TechNet e do MSDN e o impacto ambiental com dimensionamento automático no Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

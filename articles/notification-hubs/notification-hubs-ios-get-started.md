@@ -504,11 +504,11 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Introdução às notificações por push nos Serviços Móveis]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Usar Hubs de Notificação para enviar notificações por push aos usuários]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Usar Hubs de Notificação para enviar notícias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [Guia de Programação Local e de Notificação por Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
