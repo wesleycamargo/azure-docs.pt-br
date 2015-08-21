@@ -626,4 +626,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=06-->
+<!---HONumber=August15_HO6-->
