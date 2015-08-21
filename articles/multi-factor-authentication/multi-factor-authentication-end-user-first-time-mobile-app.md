@@ -45,7 +45,7 @@ O aplicativo Azure Authenticator está disponível para [Windows Phone](http://w
 
 - Clique em Fechar. Nesse ponto, sua verificação deve ter sido bem-sucedida.
 - Agora é recomendável inserir o número do celular, caso você perca o acesso ao aplicativo móvel.
-- Especifique o seu país na lista suspensa e insira o número do celular na caixa próxima ao país. Clique em Avançar.
+- Especifique o seu país/região na lista suspensa e insira o número do celular na caixa próxima ao país/região.. Clique em Avançar.
 - Até aqui, você configurou o método de contato e agora é hora de configurar as senhas de aplicativo para aplicativos que não usam navegador, como o Outlook 2010 ou anterior. Se você não usa esses aplicativos, clique em **Concluído**. Caso contrário, passe para a próxima etapa.
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
@@ -73,4 +73,4 @@ Se você estiver usando uma conta de terceiros com o aplicativo móvel, insira o
 >[AZURE.NOTE]Se você vir "Adicionar conta de trabalho", isso é para a Junção de Local de Trabalho, e não para autenticação multifator. Você pode ignorar isso.
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
