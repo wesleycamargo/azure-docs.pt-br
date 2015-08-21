@@ -133,7 +133,7 @@ Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** 
 | @ | 137\.135.70.239 |
 
 
-Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '\_\_*\_\_' como o subdomínio.
+Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
 
 >[AZURE.WARNING]Endereços IP no Azure são dinâmicos por padrão. Provavelmente, você desejará usar um [endereço IP reservado](..\virtual-network\virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
 
@@ -153,4 +153,4 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você d
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
