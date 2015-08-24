@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução dos Atores Confiáveis do Service Fabric a padrões e antipadrões"
-   description="Saiba mais sobre o modelo de programação dos Atores Confiáveis do Service Fabric e os padrões de design que funcionam bem com Atores."
+   pageTitle="Introdução de Atores de Malha do Serviço do Azure para padrões e antipadrões"
+   description="padrões de projeto que funcionam bem com Atores de Malha do Serviço"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Introdução aos padrões de design de Atores Confiáveis
@@ -70,4 +70,4 @@ Os principais benefícios de Atores de Malha do Azure são: 1) **produtividade d
 
 * *Assincronismo explícito.* O modelo de programação de Atores de Malha do Azure torna explícita a natureza assíncrona de um aplicativo distribuído e orienta os programadores a produzirem códigos assíncronos sem bloqueio. Isso permite um alto grau de paralelismo distribuído e produtividade geral sem o uso explícito de vários threads.
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

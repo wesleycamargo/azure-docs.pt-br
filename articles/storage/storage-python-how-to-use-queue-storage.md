@@ -112,4 +112,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [Pacote do Python Azure]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

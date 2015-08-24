@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Usar o SQL Azure Migration Wizard | Microsoft" 
+   pageTitle="Usar o SQL Azure Migration Wizard | Microsoft Azure" 
    description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, exportar banco de dados, assistente de migração" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@ Você pode baixar o SQL Azure Migration Wizard do CodePlex:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

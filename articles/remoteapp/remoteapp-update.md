@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/09/2015"
+   ms.date="08/12/2015"
    ms.author="elizapo"/>
 
 # Criar uma coleção de RemoteApp do Azure
@@ -36,4 +36,4 @@ Então, como você para atualizar sua coleção? É bem simples:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

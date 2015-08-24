@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como dimensionar um serviço de nuvem | Azure" 
+	pageTitle="Como dimensionar um serviço de nuvem | Microsoft Azure" 
 	description="Saiba como dimensionar um serviço de nuvem e os recursos vinculados no Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

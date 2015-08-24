@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando dados offline no seu aplicativo universal Windows | Serviços Móveis do Azure" 
+	pageTitle="Usando dados offline no seu aplicativo universal Windows | Microsoft Azure" 
 	description="Aprenda a usar os Serviços Móveis do Azure para armazenar em cache e sincronizar dados offline no seu aplicativo universal Windows." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -284,4 +284,4 @@ Nesta seção você reconecta o aplicativo ao serviço móvel. Isso simula o apl
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

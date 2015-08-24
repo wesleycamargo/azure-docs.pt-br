@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Escalar serviços móveis com suporte pelo Banco de Dados SQL do Azure - Serviços Móveis do Azure" 
+	pageTitle="Dimensionar serviços móveis com suporte pelo Banco de Dados SQL do Azure | Microsoft Azure" 
 	description="Saiba como diagnosticar e corrigir problemas de escalabilidade em seus serviços móveis com o apoio de banco de dados SQL" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Escalar serviços móveis suportados pelo Banco de Dados SQL do Azure
@@ -41,18 +41,18 @@ Se alguma das opções acima não for verdadeira, considere ajustar suas configu
 
 ### Escolhendo a camada certa do Banco de Dados SQL 
 
-É importante entender as diferentes camadas de banco de dados que você tem a sua disposição para garantir que você escolha a camada certa para atender às necessidades de seu aplicativo. O Banco de Dados SQL do Azure oferece duas edições de banco de dados diferentes com camadas diferentes:
+É importante entender as diferentes camadas de banco de dados que você tem a sua disposição para garantir que você escolha a camada certa para atender às necessidades de seu aplicativo. O Banco de Dados SQL do Azure oferece duas edições de banco de dados diferentes e três camadas de serviço diferentes:
 
-- Web e Business Edition (descontinuadas)
-- Edições Básica, Padrão e Premium 
+- Web e Business Editions (descontinuadas)
+- Camadas de serviço Basic, Standard e Premium
 
-Embora as edições Web e Business sejam totalmente suportadas, elas serão desativadas até 24 de abril de 2015, conforme abordado em [Perguntas frequentes da desativação das Edições Web e Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). Encorajamos os clientes novos para começar a usar a Basic, a Standard e a Premium Edition em preparação para essa alteração. Esta nova edição fornece uma variedade de novas camadas e recursos de monitoramento que facilitam a compreensão e solução de problemas de desempenho do banco de dados. Todos os novos serviços móveis são criados usando a nova edição.
+Embora as edições Web e Business tenham suporte total, elas serão desativadas até 12 de setembro de 2015, conforme abordado em [Perguntas frequentes da desativação da Web e Business Edition](http://msdn.microsoft.com/library/azure/dn741330.aspx). Encorajamos que os clientes novos comecem a usar as camadas de serviço Basic, Standard e Premium em preparação para essa alteração. Elas fornecem uma variedade de recursos de monitoramento que facilitam ainda mais a compreensão e solução de problemas de desempenho do banco de dados. Todos os novos serviços móveis são criados usando uma das novas camadas de serviço.
 
-Para converter um Serviço Móvel usando a Web e a Business Edition para uma entre a Basic, a Standard e a Premium Edition, siga essas etapas.
+Para converter um serviço móvel usando a Web e a Business Edition para as camadas de serviço Basic, Standard e Premium, siga essas etapas.
 
 1. Inicie o [Portal de Gerenciamento do Azure][].
 2. Selecione **+NOVO** na barra de ferramentas e escolha **Serviços de Dados**, **Banco de Dados SQL**, **Criação Rápida**.
-3. Insira um nome de banco de dados e selecione **Novo servidor de Banco de Dados SQL** no campo **Servidor**. Isso criará um servidor que esteja usando as novas Edições Basic, Standard e Premium. 
+3. Insira um nome de banco de dados e selecione **Novo servidor de Banco de Dados SQL** no campo **Servidor**. Isso criará um servidor que esteja usando a nova camada de serviço Basic, Standard ou Premium. 
 4. Preencha o restante dos campos e selecione **Criar Banco de Dados SQL**. Isso criará um banco de dados de 100 MB usando uma camada Basic.
 5. Configure seu serviço móvel para usar o banco de dados que você acabou de criar. Navegue até a guia **Configurar** para o serviço e selecione **Alterar o Banco de Dados** na barra de ferramentas. Na tela seguinte, selecione **Usar um banco de dados SQL existente** no campo **Banco de Dados SQL** e selecione **Avançar**. Na tela seguinte, certifique-se de escolher o banco de dados criado na etapa 5 e selecione **OK**.
 
@@ -476,4 +476,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de versão do SDK do Application Insights para .NET
@@ -36,7 +36,7 @@ Consulte [Introdução ao Application Insights para .NET](app-insights-start-mon
 
 - Inicializadores de telemetria que não têm dependências em bibliotecas do ASP.NET foram movidos de `Microsoft.ApplicationInsights.Web` para o novo nuget de dependência `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` foi renomeado para `Microsoft.AI.Web.dll`.
-- O NuGet `Microsoft.Web.TelemetryChannel` foi renomeado em `Microsoft.WindowsServer.TelemetryChannel`. O assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. A classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- `Microsoft.ApplicationInsights.Web.TelemetryChannel` o nuget foi renomeado em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` o assembly foi renomeado em `Microsoft.AI.ServerTelemetryChannel.dll`. `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a classe foi renomeada em `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Todos os namespaces que fazem parte do Web SDK foram alterados para excluir a parte `Extensibility`. Isso inclui todos os inicializadores de telemetria em Applicationinsights. config e o módulo `ApplicationInsightsWebTracking` no web.config.
 - As dependências são coletadas usando o agente de instrumentação do tempo de execução (habilitado por meio da extensão do Monitor de Status ou do Site do Azure) não serão marcadas como assíncronas se não houver nenhum HttpContext.Current no thread.
 - A Propriedade `SamplingRatio` de `DependencyTrackingTelemetryModule` não faz nada e foi marcado como obsoleto.
@@ -86,4 +86,4 @@ Não há notas de versão disponíveis para versões anteriores.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

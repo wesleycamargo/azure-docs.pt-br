@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar a Retransmissão do Barramento de Serviço (.NET) - Azure" 
+	pageTitle="Como usar a retransmissão do barramento de serviço (.NET) | Microsoft Azure" 
 	description="Saiba como usar o serviço de Retransmissão do Barramento de Serviço do Azure para conectar dois aplicativos hospedados em locais diferentes." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -268,4 +268,4 @@ Agora que você já aprendeu os conceitos básicos do serviço de **retransmiss�
   [MSDN]: https://msdn.microsoft.com/pt-br/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

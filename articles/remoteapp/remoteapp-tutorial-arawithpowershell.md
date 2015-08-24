@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## Obtenha os cmdlets 
 -------------
 Primeiro é necessário baixar os cmdlets do Powershell do Azure [aqui](http://go.microsoft.com/?linkid=9811175), os do RemoteApp estão incluídos nele.
+
+Confira a ajuda dos cmdlets do RemoteApp do Azure [aqui](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configurar os cmdlets do Azure para usar sua assinatura
 ------------------
@@ -99,4 +101,4 @@ Outros cmdlets do RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

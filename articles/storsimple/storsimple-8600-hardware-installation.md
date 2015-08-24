@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Instalar o dispositivo StorSimple 8600"
+   pageTitle="Instalar o dispositivo StorSimple 8600 | Microsoft Azure"
    description="Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8600."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Instalar o dispositivo StorSimple 8600
@@ -44,7 +44,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 
     ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
-    **Figura 1: Exibição do dispositivo de armazenamento desempacotado**
+    **Exibição do dispositivo de armazenamento desempacotado**
 
      Rótulo | Descrição 
      ----- | -------------
@@ -114,7 +114,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 
     ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Figura 2: Fixando corrediças às laterais do compartimento**
+    **Fixando corrediças do trilho às laterais do compartimento**
 
     Rótulo | Descrição
     ----- | -----------
@@ -131,7 +131,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
 
      ![Fixando as corrediças do trilho no gabinete do rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figura 3: Fixando os conjuntos de trilhos ao rack**
+    **Fixando os conjuntos de trilhos ao rack**
 
      Rótulo | Descrição
      ----- | -----------
@@ -153,7 +153,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
     ![Inserindo o dispositivo no rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figura 4: Montando o compartimento no rack**
+    **Montando o compartimento no rack**
 
 3. Prenda o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
 
@@ -161,7 +161,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
      ![Instalando as tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
-    **Figura 5: Instalando as tampas do flange**
+    **Instalando as tampas do flange**
  
      Rótulo | Descrição
      ----- | -----------
@@ -196,110 +196,17 @@ Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 - Cabos seriais fornecidos
 - Conversor USB-serial com o driver apropriado instalado em seu computador (se necessário)
 - Adaptadores exclusivos QSFP para SFP+ fornecidos para serem usados com interfaces de rede de 10 GbE
-- [Transceptores, cabos e comutadores compatíveis para interfaces de rede de 10 GbE](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
+- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
 
-### Cabeamento SAS
+### Cabeamento de energia e SAS
 
-O dispositivo tem um compartimento principal e EBOD. Esses compartimentos precisam ser conectados usando cabos SAS.
+O dispositivo tem um compartimento principal e um compartimento EBOD. Isso requer que as unidades sejam conectadas juntas para a conectividade e energia do SAS (Serial Attached SCSI).
 
-Em seguida, identifique o compartimento principal e o compartimento EBOD.
+Ao configurar este dispositivo pela primeira vez, execute as etapas para o cabeamento SAS primeiro e, em seguida, conclua as etapas do cabeamento de energia.
 
-#### Para identificar os compartimentos principal e EBOD
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
 
-1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a figura abaixo para se orientar.
-
-    ![Compartimentos principal e EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
-
-    **Figura 6: Parte posterior dos compartimentos principal e EBOD**
-
-     Rótulo | Descrição
-     ----- | -----------
-     1 | Compartimento principal
-     2 | Compartimento EBOD
-
-
-2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. Contate o Suporte da Microsoft imediatamente se os números de série não corresponderem. Consulte a figura a seguir para saber como localizar os números de série.
-
-    ![Local do número de série](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
-
-    **Figura 7: Visão traseira do compartimento mostrando o local do número de série**
-
-     Rótulo | Descrição
-     ----- | -----------
-     1 | Orelha do compartimento
-
-
-Use os cabos SAS fornecidos para conectar o compartimento EBOD ao compartimento principal.
-
-#### Para conectar os compartimento principal e EBOD
-
-1. Identifique as quatro portas SAS (Serial Attached SCSI) no compartimento principal e no compartimento EBOD. As portas SAS são rotuladas como EBOD no compartimento principal e CTRL no compartimento EBOD, conforme mostrado na Figura 8.
-
-    ![Local das portas SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
-
-    **Figura 8: Local das portas SAS nos compartimentos principal e EBOD**
-
-     Rótulo | Descrição
-     ----- | -----------
-     Uma | Compartimento principal
-     B | Compartimento EBOD
-     1 | Controlador 0
-     2 | Controlador 1
-     3 | Controlador 0 do EBOD
-     4 | Controlador 1 do EBOD
-     5,6 | Portas SAS no compartimento principal (rotuladas como EBOD)
-     7,8 | Portas SAS no compartimento EBOD (rotuladas como CTRL)
-
-2. Use os cabos SAS fornecidos para conectar as portas EBOD às portas CTRL.
-
-    A porta EBOD no controlador 0 deve ser conectada à porta CTRL no controlador 0 do EBOD. A porta EBOD no controlador 1 deve ser conectada à porta CTRL no controlador 1 do EBOD. Consulte a Figura 8 para se orientar.
-
-### Cabeamento de energia
-
-Os compartimentos principal e EBOD incluem PCMs (Módulos de Energia e Refrigeração) redundantes. Em cada compartimento, cada PCM deve ser instalado e conectado a uma fonte de energia diferente para garantir alta disponibilidade.
-
-Execute as etapas a seguir para cabear o dispositivo para recebimento de energia.
-
-#### Para cabear o recebimento de energia
-
-1. Verifique se os comutadores de energia em todos os PCMs estão na posição DESLIGADO.
-
-2. No compartimento principal, conecte os cabos de energia a ambos os PCMs. Os cabos de energia são identificados em vermelho no diagrama a seguir.
-
-3. Verifique se os dois PCMs do compartimento principal usam fontes de energia separadas.
-
-4. Conecte os cabos de energia às unidades de distribuição de energia do rack, conforme mostrado na figura a seguir.
-
-5. Repita as etapas de 2 a 4 para o compartimento EBOD.
-
-6. Ligue o compartimento EBOD invertendo cada comutador de energia PCM para a posição LIGADO.
-
-7. Verifique se o compartimento EBOD está ligado observando se os LEDs do controlador do EBOD (LEDs verdes na parte de trás dos chassis) ACENDERAM.
-
-8. Agora, ligue o compartimento principal invertendo cada comutador PCM para a posição LIGADO.
-
-9. Verifique se o sistema está funcionando garantindo que os LEDs do controlador do dispositivo ACENDERAM.
-
-10. Verifique se a conexão entre o controlador do EBOD e o controlador do dispositivo está ativa observando os LEDs do SAS (4 LEDs próximos à porta SAS) no controlador do EBOD. Os LEDs do SAS devem estar verdes.
-
-> [AZURE.IMPORTANT]Para garantir a alta disponibilidade do sistema, é recomendável que você siga fielmente o esquema de cabeamento de energia mostrado no diagrama que se segue.
-
-   ![Diagrama do cabeamento de energia](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
-
-   **Figura 9: Cabeamento de energia para o dispositivo**
-
-     Label | Description
-     ----- | -----------
-     1     | Primary enclosure
-     2     | PCM 0
-     3     | PCM 1
-     4     | Controller 0
-     5     | Controller 1
-     6     | EBOD controller 0
-     7     | EBOD controller 1
-     8     | EBOD enclosure
-     9     | PDUs
- 
+[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### Cabeamento de rede
 
@@ -313,7 +220,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
      ![Backplane do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figura 10: Parte de trás do dispositivo mostrando as portas de dados**
+    **Parte de trás do dispositivo mostrando as portas de dados**
  
      Rótulo | Descrição
      ------- | -----------
@@ -334,7 +241,7 @@ No mínimo, configure uma interface de rede para acesso à nuvem e uma para iSCS
 
 ![Cabear o dispositivo 4U para rede](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Figura 11: Cabeamento de rede para o dispositivo**
+**Cabeamento de rede para o dispositivo**
 
 Rótulo | Descrição
 ----- | -----------
@@ -356,7 +263,7 @@ Execute as etapas a seguir para cabear a porta serial.
 
 #### Para cabear a conexão serial
 
-1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Consulte a Figura 10 para localizar as portas seriais no backplane do seu dispositivo.
+1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Para localizar as portas seriais, consulte a ilustração que mostra as portas de dados na parte traseira do dispositivo.
 
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 
@@ -382,4 +289,4 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

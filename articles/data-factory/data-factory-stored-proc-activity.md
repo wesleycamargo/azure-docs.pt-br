@@ -29,8 +29,8 @@ Você pode usar a atividade de procedimento armazenado do SQL Server em um [pipe
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,6 +72,8 @@ Datetime | Data e hora em que a ID correspondente foi gerada
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado na atividade JSON abaixo. Na definição do procedimento armazenado, certifique-se de que **@** é usado como um prefixo para o parâmetro.
+
 Para executar esse procedimento armazenado em um pipeline de Data Factory, você precisa fazer o seguinte:
 
 1.	Crie um [serviço vinculado](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) para registrar a cadeia de conexão do banco de dados SQL do Azure em que o procedimento armazenado deve ser executado.
@@ -86,19 +88,19 @@ Para executar esse procedimento armazenado em um pipeline de Data Factory, você
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	Implante o [pipeline](data-factory-create-pipelines.md).
@@ -121,9 +123,9 @@ Agora, vamos considerar adicionar outra coluna denominada 'Cenário' na tabela q
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedimento armazenado. A seção typeproperties no exemplo acima tem essa aparência:
+Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedimento armazenado. A seção typeProperties no exemplo acima tem a aparência a seguir:
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

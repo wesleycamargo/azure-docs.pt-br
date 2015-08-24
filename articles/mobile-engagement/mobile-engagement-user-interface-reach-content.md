@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Como gerenciar o conteúdo exclusivo dos diferentes tipos de campanhas de notificação por push
@@ -230,4 +230,4 @@ A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em disposit
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

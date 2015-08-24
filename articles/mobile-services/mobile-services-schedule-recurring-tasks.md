@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Agendar tarefas de back-end com o Agendador - Serviços Móveis" 
+	pageTitle="Agendar tarefas de back-end com o Agendador | Microsoft Azure" 
 	description="Use o Agendador dos serviços móveis do Azure para agendar trabalhos para seu aplicativo móvel." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ Parabéns, você criou com êxito um novo trabalho agendado em seu serviço móv
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

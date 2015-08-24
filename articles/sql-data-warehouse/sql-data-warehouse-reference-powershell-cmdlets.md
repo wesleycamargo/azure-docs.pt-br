@@ -67,7 +67,14 @@ Este exemplo recupera um banco de dados denominado “Database02” de um servid
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-Esse cmdlet lista os pontos de restauração de backup para um banco de dados SQL do Azure. Os pontos de restauração são usados para restaurar o banco de dados. As propriedades do objeto retornado são como se segue. <table> <tr> <td>Propriedade</td> <td>Descrição</td> </tr> <tr> <td>RestorePointType</td> <td>DISCRETO/CONTÍNUO. Os pontos de restauração discretos descrevem os possíveis pontos no tempo para os quais um banco de dados SQL do Azure podem ser restaurados. Os pontos de restauração contínuos descrevem os possíveis pontos no tempo mais antigos para os quais um banco de dados SQL do Azure pode ser restaurado. O banco de dados pode ser restaurado para qualquer ponto no tempo após o ponto mais antigo.</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>Tempo de restauração mais antigo (Populado quando restorePointType = CONTÍNUO)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>Tempo do Instantâneo do Backup (Populado quando restorePointType = DISCRETO)</td> </tr> </table>
+Esse cmdlet lista os pontos de restauração de backup para um banco de dados SQL do Azure. Os pontos de restauração são usados para restaurar o banco de dados. As propriedades do objeto retornado são como se segue.
+
+Propriedade|Descrição
+---|---
+RestorePointType|DISCRETOS / CONTÍNUOS. Os pontos de restauração discretos descrevem os possíveis pontos no tempo para os quais um banco de dados SQL do Azure podem ser restaurados. Os pontos de restauração contínuos descrevem os possíveis pontos no tempo mais antigos para os quais um banco de dados SQL do Azure pode ser restaurado. O banco de dados pode ser restaurado para qualquer ponto no tempo após o ponto mais antigo.
+EarliestRestoreDate|Tempo de restauração mais antigo (preenchido quando restorePointType = CONTÍNUO)
+RestorePointCreationDate |Tempo do instantâneo de backup (preenchido quando restorePointType = DISCRETO)
+
 ### Exemplo 1: Recuperando pontos de restauração de um banco de dados por nome em um servidor
 Este exemplo recupera os pontos de restauração para um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”.
 
@@ -99,4 +106,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

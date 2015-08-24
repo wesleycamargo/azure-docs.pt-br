@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#Criar um novo aplicativo lógico
+# Criar um novo aplicativo lógico
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado a uma pasta do Dropbox.
 
 Para usar esse cenário, você precisará de:
@@ -27,7 +27,7 @@ Para usar esse cenário, você precisará de:
 
 <!--- TODO: Add try it now information here -->
 
-##Obtendo seus conectores
+## Obtendo seus conectores
 
 Primeiro, você precisa criar os dois conectores que usará: [**Conector do Dropbox**](app-service-logic-connector-dropbox.md) e [**Conector do Twitter**](app-service-logic-connector-twitter.md). Para criá-los:
 
@@ -59,7 +59,7 @@ Primeiro, você precisa criar os dois conectores que usará: [**Conector do Drop
 
 9. Agora, repita o processo com o [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-##Iniciando o aplicativo lógico
+## Iniciando o aplicativo lógico
 
 Agora, você precisa criar um novo aplicativo lógico:
 
@@ -106,6 +106,8 @@ As ações são o que seu fluxo de trabalho faz. Você pode ter qualquer quantid
 	Isso concede ao conector acesso à sua conta do Twitter. Uma lista de possíveis operações fornecidas pelo conector do Twitter é exibida.
 
 	![Ações](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE]O botão **Autorizar** usa segurança OAuth para se conectar aos serviços SaaS, como o Twitter. Mais informações sobre OAuth em [OAUTH Security (Segurança OAuth)](app-service-logic-oauth-security.md).
 
 3. Clique em **Pesquisar tweets**, e em **Especificar uma consulta**, digite algo como `#MicrosoftAzure` e clique na marca de seleção verde.
 
@@ -172,4 +174,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Usar os recursos de aplicativos lógicos]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

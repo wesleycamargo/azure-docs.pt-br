@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use o Gerenciador de Recursos para alocar recursos para o cluster do Apache Spark no HDInsight| Azure" 
+	pageTitle="Use o Gerenciador de Recursos para alocar recursos para o cluster do Apache Spark no HDInsight | Microsoft Azure" 
 	description="Saiba como usar o Gerenciador de Recursos para clusters do Spark no HDInsight para melhorar o desempenho." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -79,4 +79,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

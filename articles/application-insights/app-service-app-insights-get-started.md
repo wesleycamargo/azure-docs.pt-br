@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
@@ -74,4 +74,4 @@ O que você deseja | O que fazer | O que você ganha
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

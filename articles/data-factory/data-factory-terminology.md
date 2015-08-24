@@ -46,7 +46,7 @@ Uma etapa um processamento de dados em um pipeline que usa um ou mais conjuntos 
 
 O serviço de Fábrica de Dados do Azure dá suporte às seguintes atividades em um pipeline:
 
-- **Atividade de Cópia** copia os dados de um repositório de dados para outro. Consulte [Copiar dados com a Azure Data Factory][copy-data-with-adf] para obter detalhes sobre quais repositórios de dados dão suporte à Atividade de Cópia. 
+- **Atividade de Cópia** copia os dados de um repositório de dados para outro.  
 - A **Atividade de HDInsight** processa dados executando scripts Hive/Pig ou programas MapReduce em um cluster HDInsight. Consulte [Usar Pig e Hive com Data Factory][use-pig-hive] e [Invocar programas MapReduce por meio da Data Factory][run-map-reduce] para obter detalhes. 
 - A **Atividade de contagem em lotes do Aprendizado de Máquina do Azure** invoca a API de pontuação em lotes do Aprendizado de Máquina do Azure. Consulte [Criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure][azure-ml-adf] para obter detalhes. 
 - A **Atividade de Procedimento Armazenado** invoca um procedimento armazenado em um Banco de Dados SQL do Azure. Consulte a [Atividade de Procedimento Armazenado][msdn-stored-procedure-activity] na biblioteca MSDN para obter detalhes.   
@@ -82,7 +82,6 @@ Uma característica importante do Hub é que um pipeline é executado em um úni
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@ Uma característica importante do Hub é que um pipeline é executado em um úni
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

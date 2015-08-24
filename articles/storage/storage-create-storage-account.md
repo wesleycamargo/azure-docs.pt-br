@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como criar, gerenciar ou excluir uma conta de armazenamento | Azure"
+	pageTitle="Como criar, gerenciar ou excluir uma conta de armazenamento | Microsoft Azure"
 	description="Aprenda a criar, gerenciar ou excluir uma conta de armazenamento no portal de gerenciamento do Azure."
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

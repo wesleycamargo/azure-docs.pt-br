@@ -18,11 +18,11 @@
 
 # Visão geral da biblioteca de cliente do Banco de Dados Elástico
 
-A **biblioteca de cliente do Banco de Dados Elástico** ajuda a desenvolver facilmente aplicativos fragmentados usando centenas, ou até mesmo milhares, de bancos de dados SQL do Azure hospedados no Microsoft Azure. Esses designs costumam ser usados para aplicativos de Software como Serviço (SaaS), que tipicamente são arquiteturas de locatário único, em que cada locatário é provisionado com um banco de dados. Criar e gerenciar um aplicativo assim são os objetivos da biblioteca.  A biblioteca de cliente é uma biblioteca do .NET Framework que pode ser instalada em qualquer projeto de aplicativo usando [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). A biblioteca de cliente faz parte das ferramentas de Banco de Dados Elástico, que é especificamente um [recurso de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
+A **biblioteca de cliente do Banco de Dados Elástico** ajuda a desenvolver facilmente aplicativos fragmentados usando centenas, ou até mesmo milhares, de bancos de dados SQL do Azure hospedados no Microsoft Azure. Esses designs costumam ser usados para aplicativos de Software como Serviço (SaaS), que tipicamente são arquiteturas de locatário único, em que cada locatário é provisionado com um banco de dados. Criar e gerenciar um aplicativo assim são os objetivos da biblioteca. A biblioteca de cliente é uma biblioteca do .NET Framework que pode ser instalada em qualquer projeto de aplicativo usando [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) e [Nuget](http://go.microsoft.com/?linkid=9862605). A biblioteca de cliente faz parte das ferramentas de Banco de Dados Elástico, que é especificamente um [recurso de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
 ## Recursos do cliente
 
-Desenvolver, dimensionar e gerenciar aplicativos de expansão usando *fragmentação* (discutida a seguir) apresentam desafios para o desenvolvedor e para o administrador. A biblioteca de cliente torna a vida mais fácil para ambas essas funções. Os números na figura a seguir descrevem os principais recursos fornecidos pela biblioteca de cliente do banco de dados elástico e ferramenta de divisão/mesclagem. A figura ilustra um ambiente com muitos bancos de dados e cada banco de dados corresponde a um fragmento. As ferramentas facilitam o desenvolvimento de aplicativos do Banco de Dados SQL do Azure fragmentados por meio dos seguintes recursos específicos:
+Desenvolver, dimensionar e gerenciar aplicativos de expansão usando *fragmentação* (discutida a seguir) apresentam desafios para o desenvolvedor e para o administrador. A biblioteca de cliente torna a vida mais fácil para ambas essas funções. Os números abaixo descrevem os principais recursos fornecidos pela biblioteca de cliente do Banco de Dados Elástico. A figura ilustra um ambiente com muitos bancos de dados e cada banco de dados corresponde a um fragmento. Neste exemplo, muitos clientes co estão localizados no mesmo banco de dados usando um mapa de intervalo, embora o mesmo se aplique se houver um banco de dados por cliente (locatário). As ferramentas facilitam o desenvolvimento de aplicativos do Banco de Dados SQL do Azure fragmentados por meio dos seguintes recursos específicos:
 
 Para obter definições dos termos usados aqui, consulte o [Glossário de ferramentas do banco de dados elástico](sql-database-elastic-scale-glossary.md).
 
@@ -51,4 +51,4 @@ Para instruções sobre como usar a ferramenta de mesclagem e divisão, consulte
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

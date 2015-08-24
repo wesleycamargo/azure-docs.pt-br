@@ -229,6 +229,7 @@ Habilitar o modo de preparação | Isso permite que você prepare as informaçõ
 ### Documentação adicional
 Para obter documentação adicional sobre como trabalhar com o Azure AD Connect, consulte a seguir:
 
+- [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md) 
 - [Alterando a configuração padrão do Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Usando o editor de regras de sincronização do Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Usando provisionamento declarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -248,7 +249,7 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - Monitore a integridade de sua infraestrutura AD FS local.
 
-[Perguntas Frequentes do Azure AD Connect](active-directory-aadconnect-faq.md) - perguntas frequentes sobre o Azure AD Connect.
+[Perguntas frequentes sobre o Azure AD Connect](active-directory-aadconnect-faq.md) — Perguntas frequentes sobre o Azure AD Connect.
 
 
 
@@ -257,4 +258,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

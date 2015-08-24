@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -66,4 +66,4 @@ Para abrir um tíquete de suporte, faça o seguinte:
 1. Clique em Enviar para abrir o tíquete.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

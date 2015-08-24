@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector do Dropbox"
-	description="Introdução ao conector do Dropbox"
+	pageTitle="Usando o Conector do Dropbox no aplicativo lógico no Serviço de Aplicativo do Azure"
+	description="Introdução ao Conector do Dropbox em um aplicativo lógico no Serviço de Aplicativo"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,52 +13,56 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/09/2015"
 	ms.author="sameerch"/>
 
-# Usando o conector do Dropbox em seu aplicativo lógico #
-
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
+# Conector do Dropbox
 
 O Conector do Dropbox permite que você carregue ou baixe arquivos de sua conta do Dropbox.
 
-## Criando um conector do Dropbox para seu aplicativo lógico ##
-Para usar o conector do Dropbox, primeiro você precisa criar uma instância do aplicativo de API do conector do Dropbox. Isso pode ser feito da seguinte maneira:
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
-1.	Abra o Azure Marketplace usando a opção +NOVO na parte inferior esquerda do Portal do Azure.
-2.	Navegue até "Web e Dispositivos Móveis --> Azure Marketplace" e pesquise "Conector do dropbox".
-3.	Configure o Conector do Dropbox da seguinte maneira:
- 
+## Gatilhos e Ações
+
+Um Gatilho inicia uma nova instância com base em um evento específico, como a chegada de uma nova mensagem. Uma Ação é o resultado, como ocorre após receber uma nova mensagem e depois carregar o arquivo no Dropbox.
+
+O conector do Dropbox pode ser usado como uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. O conector do Chatter tem os seguintes Gatilhos e Ações disponíveis:
+
+Gatilhos | Ações
+--- | ---
+Nenhum | <ul><li>Excluir Arquivo</li><li>Obter Arquivo</li><li>Carregar Arquivo</li><li>Listar Arquivos</li></ul>
+
+
+## Criar um conector do Dropbox para o aplicativo lógico
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
+
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do Dropbox", selecione-o e selecione **Criar**.
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
 	![][1]
-	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
+	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
-	- **Plano de Serviço de Aplicativo** - selecione ou crie um plano de hospedagem na Web
+	- **Plano do Serviço de Aplicativo** - selecione ou crie um plano de hospedagem na Web
 	- **Camada de preços** - escolha uma camada de preços para o conector
-	- **Nome** - dê um nome para o conector do Dropbox
-4. Clique em Criar. Será criado um novo Conector do Dropbox.
-5. Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do Dropbox.
+	- **Nome** - dê um nome ao Conector do Dropbox  
+4. Selecione **Criar**.
 
-## Usando o Conector do Dropbox em seu aplicativo lógico ##
-Depois que o aplicativo de API for criado, você poderá usar o Conector do Dropbox como uma ação para seu aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Dropbox.
+## Usando o Conector do Dropbox em seu aplicativo lógico
+Depois que o aplicativo de API for criado, você poderá usar o Conector do Dropbox como uma ação para seu aplicativo lógico. Para fazer isso:
 
-	![][2]
-2.	Abrir "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo.
-
+1.	No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: 
 	![][3]
-3.	O conector do Dropbox será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
-
+2.	O conector do Dropbox está listado na galeria: 
 	![][4]
-4.	Você pode soltar o aplicativo de API do Conector do Dropbox no editor clicando em "Conector do Dropbox". Clique no botão Autorizar. Forneça suas credenciais do Dropbox. Clique em "Permitir"
-
+3.	Selecione o conector do Dropbox para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: 
 	![][5]
-	![][6]
+	![][6] 
 	![][7]
-6.	Agora você pode usar o conector do Dropbox no fluxo. Você pode usar a ação do Dropbox "Carregar Arquivo" para carregar um arquivo para sua conta do Dropbox.
 
-	![][8]
+Agora você pode usar o conector do Dropbox no fluxo. Você pode usar a ação do Dropbox "Carregar Arquivo" para carregar um arquivo para sua conta do Dropbox: 
+	![][8] 
 	![][9]
 
 Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguinte maneira:
@@ -68,6 +72,12 @@ Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguint
 - **Codificação de Transferência de Conteúdo** - especifique nenhuma ou base64.
 - **Substituir** - especifique "true" para substituir o arquivo, se ele já existir.
 
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-dropbox/img1.PNG
@@ -80,4 +90,4 @@ Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguint
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

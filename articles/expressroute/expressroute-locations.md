@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -77,7 +77,7 @@ Consulte [Configurar sua conexão EXP](expressroute-configuring-exps.md) para ve
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Em breve | Amsterdã, Chennai (Madras), Hong Kong, Londres, Mumbai +, Cingapura |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Suportado | Sem suporte | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C., Gov. dos EUA Iowa, Gov. dos EUA Virgínia |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Suportado | Sem suporte | Londres, Hong Kong, Vale do Silício, Washington, D.C. |
 
  **+** indica que haverá em breve
 
@@ -116,4 +116,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Se você deseja configurar uma conexão site a site VPN e uma Rota Expressa para a mesma rede virtual, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](expressroute-coexist.md).
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

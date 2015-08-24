@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criando um aplicativo de placar de líderes da Windows Store com o back-end .NET | Serviços Móveis do Azure" 
+	pageTitle="Criando um aplicativo de placar de líderes da Windows Store com o back-end .NET | Microsoft Azure" 
 	description="Saiba como criar um aplicativo de placar de líderes da Windows Store usando os Serviços Móveis do Azure com um back-end .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -762,4 +762,4 @@ Agora, quando executar o aplicativo, ele se comunicará com o serviço real.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

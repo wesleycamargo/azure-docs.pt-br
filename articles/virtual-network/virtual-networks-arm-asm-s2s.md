@@ -202,7 +202,7 @@ Para criar a rede virtual ARM, com duas sub-redes, e uma rede local para a rede 
 
 	>[AZURE.NOTE]Essa operação pode demorar alguns minutos.
 
-7. No navegador, navegue até https://ms.portal.azure.com/ e insira suas credenciais, se for necessário.
+7. A partir do seu navegador, navegue até https://portal.azure.com/ e insira as suas credenciais, se necessário.
 8. Clique no bloco do grupo de recursos **RG1** no Portal do Azure, conforme mostrado abaixo.
 
 	![Painel Rede Virtual](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -317,7 +317,7 @@ Agora que o gateway da rede virtual clássica está configurado, é hora de esta
 
 	![Painel Rede Virtual](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. Embora seja possível gerenciar a rede virtual clássica e sua conexão no portal clássico, recomendamos o uso do novo Portal do Azure. Para abrir o novo portal, navegue até https://ms.portal.azure.com.
+5. Embora seja possível gerenciar a rede virtual clássica e sua conexão no portal clássico, recomendamos o uso do novo Portal do Azure. Para abrir o novo portal, navegue até https://portal.azure.com.
 6. No novo portal, clique em **PROCURAR TUDO** e clique em **Redes virtuais (clássica)** e clique em **vnet01**. Observe que o painel **Conexões VPN** é exibido abaixo.
 
 	![Painel Rede Virtual](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
@@ -363,4 +363,4 @@ Agora que as duas redes virtuais estão conectadas, é hora de testar a conectiv
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](../resource-groups-networking.md).
 - Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

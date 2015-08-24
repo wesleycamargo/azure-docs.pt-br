@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção híbrida para o Azure RemoteApp
@@ -78,7 +78,7 @@ Você pode encontrar mais informações sobre a criação de máquinas virtuais 
 4. Escolha o plano que você deseja usar - standard ou basic.
 5. Clique em **Criar coleção de RemoteApp**.
 
-Após a criação da coleção de RemoteApp, vá para a página **Início Rápido** do RemoteApp para continuar as etapas de configuração.
+Após sua coleção do RemoteApp ter sido criada, clique duas vezes no nome da coleção. Isso abrirá a página **Início Rápido** - é nela que você terminará de configurar a coleção.
 
 ## Etapa 3: Vincular a sua coleção à rede virtual ##
 
@@ -136,4 +136,4 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

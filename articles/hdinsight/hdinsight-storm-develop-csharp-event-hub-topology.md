@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Processar eventos de Hubs de Eventos com o Storm no HDInsight | Azure"
+   pageTitle="Processar eventos de Hubs de Eventos com o Storm no HDInsight | Microsoft Azure"
    description="Saiba como processar dados de Hubs de Eventos com uma topologia Storm C# criada no Visual Studio usando as Ferramentas do HDInsight para Visual Studio."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -557,4 +557,4 @@ Neste documento, você aprendeu a usar o Bolt e o Spout dos Hub de Eventos Java 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

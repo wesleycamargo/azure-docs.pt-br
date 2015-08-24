@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução aos Serviços Móveis para aplicativos Xamarin Android - Serviços Móveis do Azure" 
+	pageTitle="Introdução aos Serviços Móveis para aplicativos Xamarin Android | Microsoft Azure" 
 	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo Android Xamarin" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -75,4 +75,4 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

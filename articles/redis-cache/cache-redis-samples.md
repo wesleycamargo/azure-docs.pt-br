@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Exemplos do Cache Redis do Azure 
@@ -37,10 +37,6 @@ Este exemplo mostra como:
 -	Usar conjuntos do Redis para implementar a marcação
 
 Para obter mais informações, consulte a documentação do [Stackexchange](https://github.com/StackExchange/StackExchange.Redis) no github e, para obter mais cenários de uso, consulkte os testes de unidade de [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
-
-[Como usar o Cache Redis do Azure com o Node.js](cache-nodejs-get-started.md) mostra como começar a usar o Cache Redis do Azure usando Node.js e o cliente [node\_redis](https://github.com/mranney/node_redis).
-
-[Como usar o Cache Redis do Azure com Java](cache-java-get-started.md) mostra como começar a usar o Cache Redis do Azure usando Java e o cliente [Jedis](https://github.com/xetorthio/jedis).
 
 [Como usar o Cache Redis do Azure com Python](cache-python-get-started.md) mostra como começar a usar o Cache Redis do Azure usando Python e o cliente [redis py](https://github.com/andymccurdy/redis-py).
 
@@ -79,4 +75,4 @@ O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Hello Wor
 
 O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite que você monitore a largura de banda usada no cliente. Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas ao cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar tópicos do Barramento de Serviço (Ruby) - Azure"
+	pageTitle="Como usar os tópicos de Barramento de Serviço (Ruby) | Microsoft Azure"
 	description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Exemplos de código são escritos para aplicativos Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -218,4 +218,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -	Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

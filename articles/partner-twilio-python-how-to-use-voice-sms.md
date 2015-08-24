@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar o Twilio para voz e SMS (PHP) - Azure"
+	pageTitle="Como usar o Twilio para voz e SMS (PHP) | Microsoft Azure"
 	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de código escritos em PHP."
 	services=""
 	documentationCenter="python"
@@ -268,4 +268,4 @@ Agora que você aprendeu as noções básicas do serviço Twilio, siga estes lin
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Microsoft Azure"
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -65,4 +65,4 @@ No próximo tutorial, [Autorização de serviço de usuários dos Serviços Móv
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Aviso de desativação da família 1 sistemas operacionais convidados | Azure" 
+   pageTitle="Aviso de desativação da família 1 de SOs convidados | Microsoft Azure" 
    description="Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -78,4 +78,4 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 ## O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

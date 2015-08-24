@@ -1,44 +1,43 @@
 <properties
-	pageTitle="Consultas de lista eficientes"
-	description="Saiba como reduzir o número de itens retornados em uma lista, bem como reduzir a quantidade de informações retornadas para cada item"
+	pageTitle="Consultas de lista eficientes no lote do Azure | Microsoft Azure"
+	description="Saiba como reduzir o número de itens do lote do Azure retornados em uma lista, bem como reduzir a quantidade de informações retornadas para cada item"
 	services="batch"
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor="tysonn"
+	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
-	ms.devlang="na"
+	ms.service="Batch"
+	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
-	ms.workload="multiple"
-	ms.date="07/28/2015"
+	ms.workload="big-compute"
+	ms.date="08/04/2015"
 	ms.author="davidmu"/>
 
-# Consultas de lista eficientes
+# Consultas de lista de lote eficientes
 
 Os métodos a seguir são exemplos de operações que praticamente todos os aplicativos que usam o Azure Batch devem executar, geralmente com frequência:
 
-- [ListTasks](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.iworkitemmanager.listtasks.aspx)
-- [ListJobs](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.iworkitemmanager.listjobs.aspx)
-- [ListWorkitems](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.iworkitemmanager.listworkitems.aspx)
-- [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.ipoolmanager.listpools.aspx)
-- [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icertificatemanager.listcertificates.aspx)
+- [ListTasks](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx)
+- [ListJobs](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx)
+- [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listpools.aspx)
+- [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.listcertificates.aspx)
 
-O monitoramento é um caso de uso comum; determinar a capacidade e o status de um pool requer que todas as VMs do pool sejam consultadas, por exemplo. Outro exemplo seria consultar as tarefas de um trabalho para determinar se tarefas ainda estão na fila. Em alguns casos, um conjunto avançado de dados é necessário, mas em outros, apenas uma contagem do número total de itens ou de itens em um determinado estado será necessária.
+O monitoramento é um caso de uso comum; determinar a capacidade e o status de um pool requer que todos os nós de computação (VMs) em um pool sejam consultadas, por exemplo. Outro exemplo é consultar as tarefas de um trabalho para determinar se alguma tarefa ainda está na fila. Em alguns casos, um conjunto avançado de dados é necessário, mas em outros, apenas uma contagem do número total de itens ou de itens em um determinado estado será necessária.
 
-É importante observar que o número de itens que podem ser retornados pode ser muito grande e o tamanho dos dados necessários para representar a lista de itens também pode ser muito grande. Simplesmente consultar muitos itens que resultam em respostas grandes pode levar a uma série de problemas:
+É importante observar que o número de itens que podem ser retornados pode e o tamanho dos dados necessários para representar a lista de itens podem ser muito grandes. Simplesmente consultar muitos itens que resultam em respostas grandes pode levar a uma série de problemas:
 
-- Os tempos de resposta da API do Batch podem se tornar muito lentos. Quanto maior o número de itens, maior o tempo de consulta necessário para o serviço de Batch. Grandes números de itens devem ser divididos em partes e, portanto, várias chamadas de API de serviço podem ser feitas pela biblioteca de cliente para o serviço a fim de obter todos os itens de uma lista.
-- O processamento da API pelo aplicativo que chama o Batch levará mais tempo conforme houver mais itens a serem processados.
+- Os tempos de resposta da API do Batch podem se tornar muito lentos. Quanto maior o número de itens maior o tempo de consulta necessário para o serviço em Lotes. Grandes números de itens devem ser divididos em partes e, portanto, é possível que a biblioteca do cliente tenha que fazer várias chamadas de API de serviço para o serviço a fim de obter todos os itens de uma lista.
+- O processamento da API pelo aplicativo que chama o Lote levará mais tempo conforme houver mais itens a serem processados.
 - Mais memória será consumida no aplicativo que chama o Batch, pois há mais itens e/ou itens maiores.
 - Mais itens e/ou itens maiores resultarão em maior tráfego de rede. Isso levará mais tempo para transferir e, dependendo da arquitetura do aplicativo, pode resultar em cobranças de rede maiores para dados transferidos fora da região da conta do Batch.
 
-A API do Batch fornece a capacidade de reduzir o número de itens retornados em uma lista, bem como de reduzir a quantidade de informações retornadas para cada item. Um parâmetro do tipo [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) pode ser especificado para operações de lista. DetailLevel é uma classe base abstrata e um objeto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) realmente precisa ser criado e passado como parâmetro.
+A API de Lote fornece a capacidade de reduzir o número de itens retornados em uma lista, bem como de reduzir a quantidade de informações retornadas para cada item. Um parâmetro do tipo [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) pode ser especificado para operações de lista. DetailLevel é uma classe de base abstrata, e um objeto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) realmente precisa ser criado e passado como o parâmetro.
 
-Para todas as API, o seguinte se aplica:
+Para todas as APIs, o seguinte se aplica:
 
 - Cada nome de propriedade é uma cadeia de caracteres que é mapeada para a propriedade do objeto
 - Todos os nomes de propriedade diferenciam maiúsculas de minúsculas, mas valores de propriedade não diferenciam maiúsculas de minúsculas
@@ -47,7 +46,7 @@ Para todas as API, o seguinte se aplica:
 	- RFC1123 (por exemplo, creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’)
 - Cadeias de caracteres boolianas são "verdadeiro" ou "falso"
 - Se uma propriedade ou um operador inválido for especificado, uma exceção será criada com uma exceção interna "400 (Solicitação Incorreta)".
-- O parâmetro DetailLevel com cláusulas Select e Expand também pode ser passado para métodos "Get" apropriados; por exemplo, IPoolManager.GetPool()
+- O parâmetro DetailLevel com cláusulas Select e Expand também pode ser passado para métodos "Get" apropriados; por exemplo, PoolOperations.GetPool()
 
 O objeto ODataDetailLevel tem três propriedades públicas que podem ser especificadas no construtor ou definidas diretamente. As três propriedades são todas cadeias de caracteres:
 
@@ -57,7 +56,7 @@ O objeto ODataDetailLevel tem três propriedades públicas que podem ser especif
 
 ### <a id="filter"></a> FilterClause
 
-O número de itens retornados pode ser reduzido por uma cadeia de caracteres de filtro. Um ou mais valores de propriedade podem ser especificados para garantir que somente os itens necessários sejam retornados. Por exemplo, listar somente itens de trabalho ativos, listar somente tarefas em execução de um trabalho, listar apenas VMs prontas para executar tarefas.
+O número de itens retornados pode ser reduzido por uma cadeia de caracteres de filtro. Um ou mais valores de propriedade podem ser especificados para garantir que somente os itens necessários sejam retornados. Aqui há um par de exemplos: listar somente tarefas em execução de um trabalho, listar apenas nós de computação prontos para executar tarefas.
 
 Um [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) é uma cadeia de caracteres que consiste em uma ou mais expressões, em que uma expressão consiste em um nome de propriedade, um operador e um valor. As propriedades que podem ser especificadas são específicas para cada chamada de API, assim como os operadores com suporte para cada propriedade. Várias expressões podem ser combinadas usando operadores lógicos "e" e "ou".
 
@@ -77,8 +76,8 @@ Um [SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 O número de chamadas de API pode ser reduzido com uma cadeia de caracteres de expansão. Informações mais detalhadas sobre cada item de lista podem ser obtidas com uma chamada de API de lista em vez de obter a lista e, em seguida, fazer uma chamada para cada item na lista.
 
-Um [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) é semelhante à cláusula Select, a cláusula Expand controla se determinados dados são retornados nos resultados. A cláusula Expand tem suporte apenas para lista de itens de trabalho, lista de tarefas, lista de pools e lista de trabalhos; atualmente, ela dá suporte apenas a informações estatísticas. Quando todas as propriedades são necessárias e não houver uma cláusula select, a cláusula de expansão deverá ser usada para obter informações estatísticas. Se uma cláusula select for usada para obter um subconjunto de propriedades, então as estatísticas poderão ser especificadas na cláusula select e a cláusula expand poderá ser deixada como nula.
+Um [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) é semelhante à cláusula Select, porque controla se determinados dados são retornados nos resultados. A cláusula Expand tem suporte apenas para lista de tarefas, lista de pools e lista de trabalhos; atualmente, ela dá suporte apenas a informações estatísticas. Quando todas as propriedades são necessárias e não houver uma cláusula select, a cláusula de expansão deverá ser usada para obter informações estatísticas. Se uma cláusula select for usada para obter um subconjunto de propriedades, então as estatísticas poderão ser especificadas na cláusula select e a cláusula expand poderá ser deixada como nula.
 
 > [AZURE.NOTE]É recomendável que você sempre use cláusulas filter e select para suas chamadas de API de lista para garantir o máximo de eficiência e o melhor desempenho para o seu aplicativo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Especificações técnicas e conformidade para o dispositivo StorSimple"
-    description="Descreve as especificações técnicas e as informações de conformidade de padrões normativos para o dispositivo StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="Especificações técnicas e conformidade para o dispositivo StorSimple | Microsoft Azure"
+   description="Descreve as especificações técnicas e as informações de conformidade de padrões normativos para o dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # Especificações técnicas e conformidade para o dispositivo StorSimple
 
@@ -168,8 +168,8 @@ O plugue e o conjunto completo do cabo de alimentação devem atender aos padrõ
 
 ## Cabos de rede com suporte  
 
-Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](https://msdn.microsoft.com/library/dn891474.aspx).
+Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Procedimentos de atualização do SDK do Windows Phone Silverlight
@@ -142,4 +142,4 @@ Observe que renomear também afeta métodos substituídos.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

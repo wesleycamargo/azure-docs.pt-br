@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrar para autenticação no Twitter - Serviços Móveis" 
+	pageTitle="Registrar-se para autenticação do Facebook | Microsoft Azure" 
 	description="Aprenda a usar a autenticação do Facebook em seu aplicativo de Serviços Móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@ Agora você está pronto para usar um logon do Facebook para autenticação em s
 [Serviços Móveis do Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

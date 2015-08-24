@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Criar uma máquina virtual que executa o Windows no Azure"
-	description="Crie uma VM (máquina virtual) do Windows no portal do Azure."
+	description="Crie uma máquina virtual do Windows no Portal do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 # Criar uma máquina virtual executando o Windows no portal do Azure
@@ -41,7 +42,7 @@ Aqui está um passo a passo deste tutorial.
 
 Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para criar a máquina virtual. Esta opção fornece mais escolhas de configuração que a opção **Criação rápida**. Por exemplo, se desejar entrar em uma máquina virtual em uma rede virtual, será necessário usar a opção **Da galeria**.
 
-> [AZURE.NOTE]Você também pode experimentar o [Portal de Visualização do Azure](https://portal.azure.com), mais avançado e personalizável, para criar uma máquina virtual, automatizar a implantação de modelos de aplicativo de várias máquinas virtuais, usar os recursos de diagnóstico e monitoramento de VM aperfeiçoados e muito mais. Os opções de configuração da VM disponível nos dois Portais sobrepõem-se bastante, mas não são idênticos.
+> [AZURE.NOTE]Você também pode experimentar usar o [Portal de Visualização do Azure](https://portal.azure.com), que é mais sofisticado e personalizável, para criar uma máquina virtual, usar monitoramento avançado e diagnóstico, usar armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal de visualização para configurar uma máquina virtual com armazenamento Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -53,6 +54,6 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 ## Recursos adicionais
 
-Para saber mais sobre o que você pode configurar para uma VM e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
+Para saber mais sobre o que você pode configurar para uma máquina virtual e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

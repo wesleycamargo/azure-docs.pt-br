@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Estrutura de integração de plataforma de nuvem - padrões de arquitetura do Azure" 
+   pageTitle="Estrutura de integração de plataforma de nuvem | Microsoft Azure" 
    description="A Estrutura de integração da plataforma de nuvem fornece diretrizes de integração de carga de trabalho para integração de aplicativos em uma solução de nuvem da Microsoft que consiste em padrões de arquitetura para o Microsoft Azure" 
    services="" 
    documentationCenter="" 
@@ -59,4 +59,4 @@ Para dar suporte ao desenvolvimento de arquiteturas de solução no Azure, uma s
 
 [Pesquisa do Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

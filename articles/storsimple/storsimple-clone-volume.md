@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Clonar seu volume StorSimple"
+   pageTitle="Clonar o volume StorSimple | Microsoft Azure"
    description="Descreve os tipos diferentes de clone e quando usá-los, e explica como você pode usar um conjunto de backups para clonar um volume individual."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Clonar um volume StorSimple
@@ -91,4 +91,4 @@ Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](s
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

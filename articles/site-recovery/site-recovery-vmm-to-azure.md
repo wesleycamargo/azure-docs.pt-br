@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  Configurar a proteção entre um site VMM local e o Azure
@@ -321,4 +321,4 @@ Para executar um failover de teste, faça o seguinte:
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

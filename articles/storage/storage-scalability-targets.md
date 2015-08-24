@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/30/2015"
+   ms.date="08/07/2015"
    ms.author="tamram" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -27,7 +27,7 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 >Quando seu aplicativo atingir o limite de uma partição, o Armazenamento do Azure passará a retornar respostas com o código de erro 503 (servidor ocupado) ou o código de erro 500 (tempo limite da operação). Quando isso ocorre, o aplicativo deve usar uma política de retirada exponencial para repetições. A retirada exponencial permite que a carga na partição diminua e afasta os picos de tráfego nessa partição.
 
-Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Uma única assinatura do Azure pode ter 100 contas de armazenamento. Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
+Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Detalhes de preços de armazenamento](http://azure.microsoft.com/pricing/details/storage/) para obter informações sobre o preço por volume.
 
 ## Metas de escalabilidade para contas de armazenamento padrão
 
@@ -50,6 +50,8 @@ A tabela exibida acima, em [Metas de escalabilidade para contas de armazenamento
 As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
 
 - **Blobs**: a chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
+
+- **Arquivos**: a chave da partição de um arquivo é o nome da conta + nome do compartilhamento de arquivo. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
 
 - **Mensagens**: a chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
 
@@ -74,4 +76,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

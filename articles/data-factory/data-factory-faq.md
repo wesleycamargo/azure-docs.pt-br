@@ -20,7 +20,7 @@
 
 ## Perguntas gerais
 
-### P: O que é o Azure Data Factory?
+### O que é o Data Factory do Azure?
 
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Assim como uma fábrica que usa equipamentos para pegar matérias-primas e transformá-las em produtos, o Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato.
 
@@ -28,11 +28,11 @@ O Data Factory funciona com fontes de dados e SaaS locais e na nuvem para ingeri
 
 Consulte [Visão geral e principais conceitos](data-factory-introduction.md) para obter mais detalhes.
  
-### P: Qual desafio do cliente é resolvido pelo Data Factory?
+### Qual desafio do cliente é resolvido pelo Data Factory?
 
 O Azure Data Factory equilibra a agilidade de armazenamento de dados aprimorados diversificados, serviços de processamento e movimentação através do armazenamento relacional tradicional junto com dados não estruturados, com o controle e o monitoramento de recursos de um serviço totalmente gerenciado.
 
-### P: Quais são os públicos-alvo do Data Factory?
+### Quem é o público-alvo do Data Factory?
 
 
 - Desenvolvedores de Dados: são responsáveis por criar serviços de integração entre o Hadoop e outros sistemas:
@@ -44,31 +44,31 @@ O Azure Data Factory equilibra a agilidade de armazenamento de dados aprimorados
 	- Deve gerenciar recursos de computação e armazenamento para o contabilização de custo e escala local e na nuvem
 	- Deve adicionar rapidamente o processamento e origens diversas para direcionar as necessidades dos novos negócios, mantendo a visibilidade em todos os ativos de computação e armazenamento
 
-###  P: Onde posso encontrar detalhes de preços do Azure Data Factory?
+### Onde posso encontrar detalhes de preços do Data Factory do Azure?
 
 Confira a [página de Detalhes de Preços do Data Factory][adf-pricing-details] para os detalhes de preços para o Azure Data Factory.
 
-### P. Como faço para começar a utilizar o Azure Data Factory?
+### Como faço para começar a utilizar o Azure Data Factory?
 
 - Para obter uma visão geral do Azure Data Factory, confira [Introdução ao Azure Data Factory][adf-introduction].
 - Para obter um tutorial rápido, confira [Introdução ao Azure Data Factory][adfgetstarted].
 - Para obter a documentação abrangente, confira a [Documentação do Azure Data Factory][adf-documentation-landingpage].
 
   
-### P: Como os clientes podem acessar o Data Factory?
+### Como os clientes podem acessar o Data Factory?
 
 Os clientes podem obter acesso ao Data Factory por meio do [Portal de Visualização do Azure][azure-preview-portal].
 
-### P: Qual é a disponibilidade regional do Data Factory?
+### Qual é a disponibilidade regional do Data Factory?
 
 O Data Factory está disponível no Oeste dos EUA e no Norte da Europa. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões.
  
-### P: Quais são os limites de número de fábricas de dados/pipelines/atividades/conjuntos de dados?
+### Quais são os limites de número de fábricas/pipelines/atividades/conjuntos de dados?
  
-Consulte a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e restrições da assinatura e do serviço do Azure](azure-subscription-service-limits.md/#data-factory-limits).
+Consulte a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e restrições da assinatura e do serviço do Azure](../azure-subscription-service-limits.md#data-factory-limits).
 
 
-### P: O que é a experiência de criação/desenvolvedor com o serviço Azure Data Factory?
+### O que é a experiência de criação/desenvolvedor com o serviço Azure Data Factory?
 
 Você pode criar fábricas de dados usando um dos seguintes itens:
 
@@ -78,11 +78,11 @@ Você pode criar fábricas de dados usando um dos seguintes itens:
 - **Biblioteca de classes do .NET**. Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Fábrica de Dados. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET][create-factory-using-dotnet-sdk] para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.  
 - **API REST**. Você também pode usar a API REST exposta pelo serviço de Fábrica de Dados do Azure para criar e implantar fábricas de dados. Confira a [Referência da API REST de Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST de Data Factory. 
 
-### P: Posso renomear um Data Factory?
+### Posso renomear um Data Factory?
 Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ## Atividades - Perguntas frequentes
-### P: Quais são as fontes de dados e atividades com suporte?
+### Quais são as fontes de dados e atividades com suporte?
 
 Consulte os artigos [Atividades de movimentação de dados](data-factory-data-movement-activities.md) e [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para obter as fontes de dados e atividades com suporte.
 
@@ -90,7 +90,7 @@ Consulte os artigos [Atividades de movimentação de dados](data-factory-data-mo
 A configuração **disponibilidade** na tabela de dados de saída determina quando a atividade é executada. A atividade verifica se todas as dependências de dados de entrada foram atendidas (ou seja, estado **Pronto**) antes de começar a ser executada.
 
 ## Atividade de Cópia - Perguntas frequentes
-### P: Quais as regiões têm suporte pela Atividade de Cópia?
+### Quais as regiões com suporte para a Atividade de Cópia?
 
 A Atividade de Cópia dá suporte a cópia de dados nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Região Central dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Europa do Norte, Europa Ocidental, Sudeste Asiático, Leste do Japão e Sul do Brasil.
 
@@ -106,15 +106,15 @@ Pipelines devem agrupar atividades relacionadas. Logicamente, você pode manter 
 
 ## Atividade de HDInsight - Perguntas frequentes
 
-### P: Quais regiões têm suporte do HDInsight?
+### O HDInsight dá suporte a quais regiões?
 
 Confira a seção de Disponibilidade Geográfica no artigo a seguir, ou em [Detalhes de Preços do HDInsight][hdinsight-supported-regions].
 
-### P: Qual região é utilizada por um cluster HDInsight sob demanda?
+### Qual região é utilizada por um cluster HDInsight sob demanda?
 
 O cluster HDInsight sob demanda é criado na mesma região onde existe o armazenamento especificado para ser utilizado com o cluster existente.
 
-### P: Como associar contas de armazenamento adicionais ao cluster HDInsight?
+### Como associar contas de armazenamento adicionais ao cluster HDInsight?
 
 Se você estiver usando seu próprio cluster HDInsight (BYOC - traga seu próprio Cluster), confira os tópicos a seguir:
 
@@ -192,4 +192,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

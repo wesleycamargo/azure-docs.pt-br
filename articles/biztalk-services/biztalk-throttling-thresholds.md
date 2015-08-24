@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Saiba mais sobre a Limitação nos Serviços BizTalk | Azure" 
+	pageTitle="Saiba mais sobre a limitação nos Serviços BizTalk | Microsoft Azure" 
 	description="Saiba mais sobre os limites de limitação e comportamentos de tempo de execução resultantes para os serviços BizTalk. A limitação é baseada no uso de memória e número de mensagens. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -70,4 +70,4 @@ Quando os Serviços BizTalk do Azure entram em estado de limitação, o seguinte
 - [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

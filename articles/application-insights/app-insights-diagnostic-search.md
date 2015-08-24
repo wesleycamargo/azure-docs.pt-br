@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Uso de Pesquisa de diagnóstico no Application Insights
@@ -34,6 +34,8 @@ Por exemplo, se seu aplicativo for um serviço Web, a folha “Visão geral” m
 
 
 O corpo principal da Pesquisa de diagnóstico é uma lista de itens de telemetria - solicitações ao servidor, visualizações de página, eventos personalizados que você codificou e assim por diante. Na parte superior da lista, há um gráfico de resumo mostrando contagens de eventos ao longo do tempo.
+
+Normalmente, os eventos aparecem na pesquisa de diagnóstico antes de aparecerem no gerenciador de métricas. Embora a folha seja atualizada em intervalos, você pode clicar em Atualizar se estiver esperando um evento específico.
 
 
 ## Inspecionar itens individuais
@@ -198,4 +200,4 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

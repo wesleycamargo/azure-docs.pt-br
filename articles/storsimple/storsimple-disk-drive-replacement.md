@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Substituir uma unidade de disco em seu dispositivo StorSimple
@@ -124,4 +124,4 @@ Após uma falha de unidade em seu dispositivo Microsoft Azure StorSimple e depoi
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="Usar um grupo para gerenciar o acesso a aplicativos SaaS| Microsoft Azure" 
-	description="Um tópico que explica como usar grupos no Azure AD Premium para atribuir acesso a aplicativos SaaS que estão integradas ao AD do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="Usar um grupo para gerenciar o acesso a aplicativos SaaS| Microsoft Azure"
+	description="Como usar grupos no Azure AD Premium ou Basic para atribuir acesso a aplicativos SaaS que estão integrados ao AD do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,9 +38,9 @@ Esse recurso pode ser usado com centenas de aplicativos que você adiciona na Ga
 4. Você também pode ver quais usuários são atribuídos ao aplicativo, diretamente ou por associação em um grupo. Para fazer isso, altere **Mostrar lista suspensa de "Grupos"**para**"Todos usuários"**. A lista mostra usuários no diretório e se cada usuário está ou não atribuído ao aplicativo. A lista também mostra se os usuários atribuídos estão atribuídos diretamente ao aplicativo (tipo de atribuição mostrado como "Direto"), ou por meio de associação de grupo (tipo de atribuição mostrado como "Herdado".)
 
 
-> [AZURE.NOTE]Você verá a guia Usuários e Grupos somente se tiver habilitado o Azure AD Premium.
+> [AZURE.NOTE]Você verá a guia Usuários e Grupos somente depois que tiver habilitado Azure AD Premium e Azure AD Basic.
 
-Estes são alguns tópicos que fornecem informações adicionais sobre o Active Directory do Azure
+Estes são alguns tópicos que fornecerão informações adicionais sobre o Active Directory do Azure
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 
@@ -49,4 +48,4 @@ Estes são alguns tópicos que fornecem informações adicionais sobre o Active 
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

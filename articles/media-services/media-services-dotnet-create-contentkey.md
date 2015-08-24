@@ -13,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #Criar ContentKeys com .NET
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
 
-Os serviços de mídia permitem que você crie ativos e forneça ativos criptografados. O **ContentKey** fornece acesso seguro aos seus **ativo**s.
+Os serviços de mídia permitem que você crie ativos e forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus ativos (**Asset**s).
 
 Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**.
 
-Quando você fornece ativos para seus clientes, você pode [configurar para que os ativos sejam criptografados](media-services-dotnet-configure-asset-delivery-policy.md) dinamicamente com uma das duas criptografias seguintes: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quando você fornece ativos para seus clientes, você pode [configurar para que os ativos sejam criptografados](media-services-dotnet-configure-asset-delivery-policy.md) dinamicamente com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
->[AZURE.NOTE]Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, o **ContentKey** é automaticamente criado e vinculado ao ativo.
+>[AZURE.NOTE]Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.
 
 ##ContentKeyType
 
@@ -133,4 +135,4 @@ chamada
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

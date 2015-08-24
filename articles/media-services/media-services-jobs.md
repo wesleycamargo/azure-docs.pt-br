@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Trabalhando com trabalhos do Serviços de Mídia do Azure
@@ -60,4 +60,4 @@ Monitore o progresso do trabalho usando o **Portal de Gerenciamento do Azure**, 
 [Cotas e limitações](media-services-quotas-and-limitations.md)– Descreve as cotas usadas e limitações do Codificador dos Serviços de Mídia
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

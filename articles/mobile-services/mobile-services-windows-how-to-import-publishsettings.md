@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Importar seu arquivo de configurações de publicação no Visual Studio 2013 | Serviços Móveis" 
+	pageTitle="Importar seu arquivo de configurações de publicação no Visual Studio 2013 | Microsoft Azure" 
 	description="Saiba como importar um arquivo de configurações de publicação de assinatura para seu aplicativo de serviços móveis do Azure no Visual Studio 2013." 
 	documentationCenter="" 
 	services="mobile-services" 
@@ -62,4 +62,4 @@ Antes de criar o serviço móvel, você deve importar o arquivo de configuraçõ
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

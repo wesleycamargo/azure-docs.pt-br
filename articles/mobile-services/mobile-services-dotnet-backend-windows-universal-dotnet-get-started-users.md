@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Adicionar autenticação ao seu aplicativo universal para Windows 8.1 | Serviços Móveis do Azure" 
+	pageTitle="Adicionar autenticação ao seu aplicativo universal para Windows 8.1 | Microsoft Azure" 
 	description="Saiba como usar os Serviços Móveis para autenticar usuários do seu aplicativo universal para Windows 8.1 usando vários provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -97,4 +97,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

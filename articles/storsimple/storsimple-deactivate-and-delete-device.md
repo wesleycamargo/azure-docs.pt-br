@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/12/2015"
    ms.author="v-sharos" />
 
 # Desativar e excluir um dispositivo StorSimple
@@ -47,7 +47,7 @@ Se você desejar excluir o dispositivo, mas quiser manter os dados do dispositiv
 
 1. Desative o dispositivo. Todos os contêineres de volume e os instantâneos do dispositivo serão mantidos. Vá para [Etapas para desativar](#steps-to-deactivate) para obter instruções.
 
-2. Agora é possível realizar failover dos contêineres de volume e dos instantâneos associados. Para procedimentos, vá para [Failover e recuperação de desastres para seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)
+2. Agora é possível realizar failover dos contêineres de volume e dos instantâneos associados. Para procedimentos, vá para [Failover e recuperação de desastres para o seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 3. Após a desativação e failover, você poderá excluir o dispositivo completamente. Acesse [Excluir um dispositivo](#delete-a-device) para obter instruções.
 
@@ -87,8 +87,8 @@ Você pode excluir apenas os dispositivos que foram desativados. Excluir um disp
 Pode levar alguns minutos para o serviço ser excluído.
 
 ## Próximas etapas
-Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](https://msdn.microsoft.com/library/dn772373.aspx).
+Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Para obter assistência técnica, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

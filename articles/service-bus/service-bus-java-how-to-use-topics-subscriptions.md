@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar tópicos do barramento de serviço (Java) - Azure"
+	pageTitle="Como usar os tópicos de Barramento de Serviço (Java) | Microsoft Azure"
 	description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Exemplos de código são escritos para aplicativos Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -247,4 +247,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
   [Filas, tópicos e assinaturas do Barramento de Serviço]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

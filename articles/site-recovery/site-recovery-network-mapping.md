@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 
@@ -136,4 +136,4 @@ O mapeamento de rede de VMNetwork1-Chicago é alterado | A VM-1 será conectada 
 Agora que você compreende melhor o mapeamento de rede, comece a ler as [práticas recomendadas](site-recovery-best-practices.md) para se preparar para a implantação.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

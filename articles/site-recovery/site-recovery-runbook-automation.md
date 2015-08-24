@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -134,9 +134,19 @@ Veja abaixo um exemplo da aparência da variável de contexto.
         }
 
 
-A tabela a seguir contém o nome e uma descrição de cada variável no contexto.
-  
-<table border="1"> <tr><th>Nome da variável</th><th>Descrição da variável</th></tr> <tr><td>RecoveryPlanName</td><td>Nome do plano de recuperação que está sendo executado. <p> Essa variável pode ajudar você a executar ações diferentes com base no nome do Plano de Recuperação usando o mesmo script.</td></tr> <tr><td>FailoverType</td><td>Especifica se a execução e de **Teste**, **Planejada** ou **Não planejada**. <p> Essa variável ajuda você a executar ações diferentes com base no tipo de failover. </td></tr> <tr><td>FailoverDirection</td><td>Especifica se a recuperação ocorre do lado primário para recuperação ou vice-versa. <p>Os dois valores possíveis são **PrimaryToSecondary** e **SecondaryToPrimary** </td></tr> <tr><td>GroupId</td><td> Identifica o número do grupo no plano de recuperação no qual o runbook está sendo executado. <p> Por exemplo, se o runbook for posterior ao grupo 2, o GroupId será 2. </td></tr> <tr><td>VmMap</td><td> Essa é uma matriz de todas as máquinas virtuais no grupo. </td></tr> <tr><td>Chave VmMap</td><td>Cada máquina virtual tem uma chave exclusiva identificada por um GUID. Esse GUID é igual à ID do VMM da máquina virtual. <p> Você pode usar esse GUID para especificar de forma determinista qual máquina virtual você deseja operar. </td></tr> <tr><td>RoleName</td><td>Especifica o nome da máquina virtual do Azure que está sendo recuperada.</td></tr> <tr><td>CloudServiceName</td><td> Especifica o nome do Serviço de Nuvem do Azure sob o qual a máquina virtual está sendo criada. </td></tr> </table><br />
+A tabela a seguir contém o nome e uma descrição para cada variável no contexto.
+
+**Nome da variável** | **Descrição**
+---|---
+RecoveryPlanName | Nome do plano de execução. Ajuda você a agir com base no nome usando o mesmo script
+FailoverType | Especifica se o failover é de teste, planejado ou não planejado. 
+FailoverDirection | Especifica se a recuperação é para o principal ou secundário
+GroupID | Identifica o número de grupo no plano de recuperação quando o plano está em execução
+VmMap | Matriz de todas as máquinas virtuais do grupo
+Chave VMMap | Chave exclusiva (GUID) para cada VM. É igual à ID do VMM da máquina virtual onde aplicável. 
+RoleName | Nome da VM do Azure que está sendo recuperada
+CloudServiceName | Nome do serviço de nuvem do Azure sob o qual a máquina virtual é criada.
+
 
 Para identificar a Chave de VmMap no contexto, também é possível acessar a página de propriedades da VM no ASR e examinar a propriedade VM GUID.
 
@@ -303,4 +313,4 @@ Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normal
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

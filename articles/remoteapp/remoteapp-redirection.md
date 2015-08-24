@@ -2,17 +2,17 @@
     pageTitle="Usando o redirecionamento no RemoteApp do Azure" 
     description="Saiba como configurar e usar o redirecionamento no RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
 # Usando o redirecionamento no RemoteApp do Azure
@@ -76,7 +76,9 @@ Se você quiser usar o redirecionamento de USB em um computador que se conecta a
 > [AZURE.NOTE]O redirecionamento de USB com o RemoteApp do Azure só tem suporte para computadores com Windows.
 
 ### Habilitar o redirecionamento de USB para a coleção do RemoteApp
-Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível de coleção: Set-AzureRemoteAppCollection - CollectionName <collection_name> - CustomRdpProperty "nusbdevicestoredirect:s:*"
+Use o cmdlet a seguir para habilitar o redirecionamento de USB no nível da coleção:
+
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Habilitar o redirecionamento de US para o computador cliente
 
@@ -88,7 +90,7 @@ Para definir as configurações de redirecionamento de USB em seu computador:
 4. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 5. Abra um prompt de comando com permissões administrativas e execute o seguinte comando: 
 
-    gpupdate /force
+		gpupdate /force
 6. Reinicie o computador.
 
 Você também pode usar a ferramenta Gerenciamento de Política de Grupo para criar e aplicar a política de redirecionamento de USB a todos os computadores no seu domínio:
@@ -102,4 +104,4 @@ Você também pode usar a ferramenta Gerenciamento de Política de Grupo para cr
 7. Selecione **Habilitado** e, em seguida, selecione **Administradores e Usuários nos Direitos de Acesso de Redirecionamento de USB RemoteFX**.
 8. Clique em **OK**.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Casos de uso comuns do Banco de Dados de Documentos | Azure" 
+    pageTitle="Casos de uso comuns do Banco de Dados de Documentos | Microsoft Azure" 
     description="Saiba mais sobre os principais cinco casos de uso para o Banco de Dados de Documentos: conteúdos gerados pelo usuário, registros de log de eventos, dados de catálogo, dados de preferências do usuário e IoT (Internet of Things, Internet das Coisas)." 
     services="documentdb" 
     authors="h0n" 
@@ -79,4 +79,4 @@ Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Docu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

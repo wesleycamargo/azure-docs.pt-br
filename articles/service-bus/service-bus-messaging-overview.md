@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visão geral de mensagens do Barramento de Serviço - Azure"
+	pageTitle="Visão geral de mensagens do Barramento de Serviço | Microsoft Azure"
 	description="Mensagens do Barramento de Serviço: entrega de dados flexível na nuvem"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópico
 - [Como usar tópicos do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

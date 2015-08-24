@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # O que é o Application Insights?
@@ -103,10 +103,12 @@ O impacto sobre o desempenho é muito pequeno. As chamadas de rastreamento não 
 
 Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra de navegação à esquerda desta página.
 
-## Exemplos
+## Código
 
 
 [Exemplos e explicações passo a passo](app-insights-code-samples.md)
+
+[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) - Pacotes NuGet que você pode instalar ou desinstalar como adições ao SDK do Application Insights. Experimente-os e forneça comentários!
 
 
 ## Suporte e comentários
@@ -150,4 +152,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

@@ -55,11 +55,9 @@ Execute as etapas a seguir para exibir o status de hardware de um componente de 
 3. Se você encontrar um componente que não está em um estado **Íntegro**, entre em contato com o Suporte da Microsoft. Se os alertas forem habilitados no seu dispositivo, você receberá um alerta por email. Se você precisar substituir um componente de hardware com falha, consulte o[Guia de substituição de componentes de hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 
-## Lista de componentes para o dispositivo StorSimple
+## Lista de componentes para o compartimento primário do dispositivo StorSimple
 
-A tabela a seguir descreve os componentes físicos e lógicos contidos no dispositivo StorSimple no local. O dispositivo tem dois compartimentos: o primário e o EBOD. As listas de dois compartimentos são tabuladas separadamente.
-
-### Lista de componentes para o compartimento primário
+A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento primário do dispositivo StorSimple local.
 
 |Componente|Módulo|Tipo|Local|Unidade renovável (FRU)?|Descrição|
 |---|---|---|---|---|---|
@@ -99,7 +97,9 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 |Ethernet|E/S|Físico|Controller|Não|Indica o estado de cada uma das interfaces de rede, ou seja, o gerenciamento e as portas de dados fornecidas no controlador.|
 |NVRAM|E/S|Físico|Controller|Não|Indica o estado da NVRAM, uma memória de acesso aleatório não volátil com a bateria de reserva que serve para guardar informações importantes de aplicativos em caso de falha de energia.|
 
-### Lista de componentes para o compartimento EBOD
+## Lista de componentes para o compartimento EBOD do dispositivo StorSimple
+
+A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento EBOD do dispositivo StorSimple local.
 
 |Componente|Módulo|Tipo|Local|FRU?|Descrição|
 |---|---|---|---|---|---|
@@ -124,11 +124,11 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no dispos
 |Diagnósticos de eletrônicos do compartimento|E/S|Físico|Controller|Não|Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador.|
 |Conexão com o controlador de dispositivo|E/S|Físico|Controller|Não|Indica o estado da conexão entre o módulo E/S do EBOD e o controlador do dispositivo.|
 
-## Próxima etapa
+## Próximas etapas
 Se você precisar solucionar problemas de um componente de dispositivo que tem um status degradado ou com falha, consulte [Solucionar problemas com indicadores de monitoramento](storsimple-monitoring-indicators).
 
 Se você precisar substituir um componente de hardware com falha, consulte o [Guia de substituição de componentes de hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 Se você continuar tendo problemas de dispositivo, [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

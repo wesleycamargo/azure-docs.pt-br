@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ A seguir está uma lista de pontos importantes a considerar antes ou quando usar
 
 - Atualmente, o Armazenamento Premium está disponível no [Portal de Visualização do Microsoft Azure](https://portal.azure.com/) e pode ser acessado por meio das bibliotecas SDK: [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior e [Azure PowerShell](../install-configure-powershell.md) versão 0.8.10 ou posterior.
 
-- O Armazenamento Premium está disponível nas seguintes regiões: Oeste dos EUA, Leste dos EUA 2, Europa Ocidental, Leste da China, Sudeste da Ásia, Oeste do Japão e Leste da Austrália.
+- Para obter uma lista de regiões que atualmente dão suporte ao Armazenamento Premium, consulte [Serviços do Azure por região](http://azure.microsoft.com/regions/#services).
 
 - O Armazenamento Premium oferece suporte a página de blobs somente do Azure, que são usados para manter discos persistentes para máquinas virtuais do Azure (VM). Para saber mais sobre os blobs da página do Azure, consulte [Compreendendo os blobs de blocos e os blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx). O Armazenamento Premium não oferece suporte aos Blocos de Blobs do Azure, arquivos do Azure, tabelas do Azure ou filas do Azure.
 
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

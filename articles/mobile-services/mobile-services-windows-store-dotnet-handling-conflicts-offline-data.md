@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tratar conflitos de dados offline em aplicativos universais do Windows | Serviços Móveis do Azure" 
+	pageTitle="Tratar conflitos de dados offline em aplicativos universais do Windows | Microsoft Azure" 
 	description="Saiba como usar o manipulador de conflitos dos Serviços Móveis do Azure ao sincronizar dados offline em seu aplicativo universal do Windows" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Exemplo de serviços móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

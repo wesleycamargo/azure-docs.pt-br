@@ -143,7 +143,7 @@ A atividade de cópia no pipeline abaixo copiará os dados do SQL Azure para o a
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -290,7 +290,7 @@ Um pipeline está ativo somente entre sua hora de início e de término. Ele nã
 Na verdade, não é o pipeline que é executado. São as atividades no pipeline que são executadas. Entretanto, elas fazem isso no contexto geral do pipeline. Consulte [Agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona a programação e a execução no Azure Data Factory.
 
 ## Gerenciar e monitorar  
-Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e gerenciar pipelines](data-factory-monior-manage-pipelines.md).
+Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline, divisões e execuções. Leia mais sobre isso aqui: [Monitorar e Gerenciar Pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Próximas etapas
 
@@ -324,4 +324,4 @@ Quando um pipeline é implantado, você pode gerenciar e monitorar seu pipeline,
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

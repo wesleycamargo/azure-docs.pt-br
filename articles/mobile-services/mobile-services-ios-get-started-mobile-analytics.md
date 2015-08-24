@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à Análise Móvel | Mobile Dev Center" 
+	pageTitle="Introdução à Análise Móvel | Microsoft Azure" 
 	description="Introdução à Análise Móvel." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@ Saiba mais sobre o que o Capptain pode fazer em seu aplicativo em [http://www.ca
 [Serviços Móveis camada Padrão]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

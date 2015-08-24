@@ -5,13 +5,13 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 1. Navegue até o local onde você salvou os arquivos compactados do projeto, expanda os arquivos em seu computador e abra o arquivo da solução no Visual Studio.
 
-2. Pressione a tecla **F5** para recompilar o projeto e iniciar o serviço móvel localmente.
+2. No Gerenciador de Soluções no Visual Studio, clique com o botão direito do mouse no seu projeto de serviço, clique em **Definir como projeto de inicialização** e, em seguida, pressione a tecla **F5** para compilar o projeto e iniciar o serviço móvel localmente.
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	Uma página da Web é exibida depois que o serviço móvel é iniciado com êxito.
+	Uma página da web é exibida depois que o serviço móvel é iniciado com êxito.
 
-3. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse em seu projeto de aplicativo cliente e clique em **Definir como Projeto de Inicialização** e, em seguida, pressione a chave **F5** para recompilar o projeto e iniciar o aplicativo.
+3. Para testar o aplicativo de armazenamento, clique com o botão direito do mouse em seu projeto de aplicativo cliente, clique em **Definir como Projeto de Inicialização** e, em seguida, pressione a chave **F5** para recompilar o projeto e iniciar o aplicativo.
 
 	Isso inicia o aplicativo que se conecta à instância local do serviço móvel.
 
@@ -19,4 +19,4 @@ Nesta seção, você testará seu novo aplicativo no serviço móvel em execuç�
 
 	Isso envia uma solicitação POST ao serviço móvel local. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo serviço móvel, e os dados são exibidos na segunda coluna do aplicativo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

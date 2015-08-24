@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como criar e implantar um serviço de nuvem - Azure"
+	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
 	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -108,4 +108,4 @@ Se o pacote de implantação foi [configurado para usar certificados](cloud-serv
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -31,7 +31,23 @@ Você pode abrir a folha de Cota + Preços nas Configurações do recurso do apl
 
 ![Escolha Configurações, Cota + Preços.](./media/app-insights-pricing/01-pricing.png)
 
-## Como funciona a cota?
+A sua opção de esquema de preços afeta à:
+
+* [Cota mensal](#monthly-quota) - a quantidade de telemetria que você pode analisar a cada mês.
+* [Taxa de dados](#data-rate) - a taxa máxima em que os dados do seu aplicativo podem ser processados.
+* [Retenção](#data-retention) - quanto tempo os dados são mantidos no portal do Application Insights para exibição.
+* [Exportação contínua](#continuous-export)- se que você pode exportar dados para outras ferramentas e serviços.
+
+Esses limites são definidos separadamente para cada recurso do Application Insights.
+
+### Avaliação gratuita Premium
+
+Quando você cria um novo recurso do Application Insights pela primeira vez, ele começa na camada Gratuita.
+
+A qualquer momento, você pode alternar para a avaliação Premium gratuita de 30 dias. Isso concede a você os benefícios da camada Premium. Após 30 dias, ela será revertida automaticamente para a camada anterior, a menos que você escolha explicitamente outra camada. Você pode selecionar a camada que você deseja a qualquer momento durante o período de avaliação, mas você ainda terá a avaliação gratuita até o término do período de 30 dias.
+
+
+## Cota mensal
 
 * Em cada mês corrido, o aplicativo pode enviar no máximo quantidade especificada de telemetria ao Application Insights. Consulte o [esquema de preços][pricing] para ver os números reais. 
 * A cota depende da camada de preços que você escolheu.
@@ -41,7 +57,7 @@ Você pode abrir a folha de Cota + Preços nas Configurações do recurso do apl
 * *Dados da sessão* não são contados na cota. Isso inclui contagens de usuários, sessões, ambiente e os dados do dispositivo.
 
 
-## Excedente
+### Excedente
 
 Se seu aplicativo enviar mais do que a cota mensal, você pode:
 
@@ -49,20 +65,52 @@ Se seu aplicativo enviar mais do que a cota mensal, você pode:
 * Atualize sua camada de preços.
 * Não faça nada. Dados de sessão continuarão a ser gravados, mas outros dados não aparecerão na pesquisa de diagnóstico ou no Metrics Explorer.
 
-## Avaliação gratuita Premium
 
-Quando você cria um novo recurso do Application Insights pela primeira vez, ele começa na camada Gratuita.
+### Quantos dados estou enviando?
 
-A qualquer momento, você pode alternar para a avaliação Premium gratuita de 30 dias. Isso concede a você os benefícios da camada Premium. Após 30 dias, ela será revertida automaticamente para a camada anterior, a menos que você escolha explicitamente outra camada. Você pode selecionar a camada que você deseja a qualquer momento durante o período de avaliação, mas você ainda terá a avaliação gratuita até o término do período de 30 dias.
-
-
-## Como minha cota foi usada?
-
-O gráfico na parte inferior da folha dos preços mostra o uso de ponto de dados do aplicativo, agrupados por tipo de ponto de dados.
+O gráfico na parte inferior da folha de preços mostra o volume de ponto de dados do aplicativo, agrupados por tipo de ponto de dados. (Você também pode criar esse gráfico no Gerenciador de métricas).
 
 ![Na parte inferior da folha de preços](./media/app-insights-pricing/03-allocation.png)
 
 Clique no gráfico para obter mais detalhes ou percorra os detalhes de um intervalo de tempo.
+
+
+## Taxa de dados
+
+Além de cota mensal, existe limitação na taxa de dados. Para a [camada de preços][pricing] gratuita o limite é de 200 dados de pontos/segundo na média em 5 minutos e para as camadas pagas, ele é 500/s na média depois de 1 minuto.
+
+Há três classificações que são contados separadamente:
+
+* [Chamadas do TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [logs capturados](app-insights-asp-net-trace-logs.md)
+* [Exceções](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 pontos/s.
+* Todos os outros dados de telemetria (exibições de página, sessões, solicitações, dependências, métricas, eventos personalizados).
+
+Se seu aplicativo envia mais do que o limite, alguns dados serão descartados. Você verá um aviso de notificação que isso aconteceu.
+
+### Dicas para reduzir a sua taxa de dados
+
+Se você encontrar as limitações, aqui há algumas coisas que você pode fazer:
+
+* Desative os módulos de coleção que não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
+* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou você pode usar um[pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+
+
+### Limites de nome
+
+1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os[ nomes de propriedades e métricas][api] são globais por chave de instrumentação, mas não têm escopo definido segundo o tipo de dados.
+2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
+3.	As propriedades padrão como Solicitar Nome e URL da Página são limitadas a 1.000 valores exclusivos por semana. Após 1.000 valores exclusivos, os valores adicionais serão marcados como “Outros valores”. O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
+
+## Retenção de dados
+
+A camada de preços determina quanto tempo os dados são mantidos no portal e, portanto, quanto você pode definir para atrás os intervalos de tempo.
+
+
+* Pontos de dados brutos (ou seja, instâncias que você pode inspecionar na pesquisa de diagnóstico): entre 7 e 30 dias.
+* Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Metric Explorer) são mantidos em um detalhamento de 1 minuto por 30 dias, e 1 hora ou 1 dia (dependendo do tipo) por 13 meses.
+
+
+
 
 ## Examine a conta da sua assinatura do Azure
 
@@ -75,10 +123,11 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
 <!--Link references-->
 
-
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-get-started.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

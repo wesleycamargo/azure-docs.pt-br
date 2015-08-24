@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar Cofre da Chave usando a CLI | Visão geral"
+	pageTitle="Gerenciar o Cofre da Chave usando CLI | Microsoft Azure"
 	description="Use este tutorial para automatizar tarefas comuns no Cofre da Chave usando a CLI"
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Referência da API REST do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) e [Referência da API Cliente C# do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

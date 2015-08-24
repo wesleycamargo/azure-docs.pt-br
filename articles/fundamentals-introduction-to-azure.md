@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução ao Azure - Conceitos básicos do Azure" 
+	pageTitle="Introdução ao Azure | Microsoft Azure" 
 	description="Novo no Microsoft Azure? Obtenha uma visão geral básica dos serviços que ele oferece com exemplos de como são úteis." 
 	services=" " 
 	documentationCenter=".net" 
@@ -261,8 +261,8 @@ Ela inclui um sistema de controle do código-fonte hospedado chamado Team Founda
 
 O Visual Studio Online fornece um serviço de teste de carga. Você pode executar testes de carga criados no Visual Studio nas VMs presentes na nuvem. Você especifica o número total de usuários com os quais você deseja realizar teste de carga, sendo que o Visual Studio Online determinará automaticamente quantos agentes são necessários, criar as máquinas virtuais necessárias e executar os seus testes de carga. Se você é um assinante do MSDN, você recebe milhares de minutos de usuário para teste de carga a cada mês.
 
-O Visual Studio Online também oferece um serviço chamado Application Insights, que fornece a você uma análise de todo o seu aplicativo. Ele fornece estatísticas sobre desempenho e sobre como o seu aplicativo está sendo utilizado. Se você já está utilizando o System Center Operations Manager, ele também pode ligar-se a ele e emitir alertas quando quaisquer problemas surgirem.
-
+O Visual Studio Online também oferece um serviço chamado Application Insights, que fornece a você uma análise de todo o seu aplicativo. Ele fornece estatísticas sobre desempenho e sobre como o seu aplicativo está sendo utilizado. Se você já estiver usando o System Center Operations Manager, ele também pode conectar-se ao aplicativo e gerar alertas quando surgirem problemas. +O Visual Studio Online também oferece suporte para desenvolvimento ágil, com recursos como compilações de integração contínua, blocos Kanban e salas de equipe virtual.
+	
 Além disso, há suporte para desenvolvimento rápido com recursos como compilações de integração contínua, planilhas Kanban e locais para equipes virtuais.
 
 **Cenários do Visual Studio Online**
@@ -592,4 +592,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

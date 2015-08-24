@@ -1,21 +1,25 @@
-<properties 
-   pageTitle="Limites de Recurso de Banco de Dados SQL do Azure"
-   description="Esta página descreve alguns limites de recursos comuns para o banco de dados SQL do Azure."
-   services="sql-database"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
-<tags 
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="07/24/2015"
-   ms.author="jroth" />
+<properties
+	pageTitle="Limites de Recurso de Banco de Dados SQL do Azure"
+	description="Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" />
+
+
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/10/2015"
+	ms.author="jroth" />
+
 
 # Limites de Recurso de Banco de Dados SQL do Azure
+
 
 O Banco de Dados SQL do Azure monitora a utilização dos recursos compartilhados, como o log de transações, E/S e muitos outros recursos. Isso habilita o banco de dados SQL do Azure para manter os bancos de dados dentro dos limites do conjunto de recursos. Esse limite de recursos ou limite é chamado de limite de recursos. Quando o uso de recursos pelos clientes excede esses limites, tanto em nível de nó físico ou locatário, o banco de dados SQL do Azure responde ao gerenciar o uso de recursos, o que resulta em perdas de conexão ou negações de solicitação.
 
@@ -23,7 +27,7 @@ O Banco de Dados SQL do Azure monitora a utilização dos recursos compartilhado
 
 ## Tabela de resumo de limites de recursos
 
-A tabela a seguir fornece um resumo dos limites para cada recurso além dos quais o banco de dados SQL do Azure nega a solicitação ou encerra as conexões com os recursos afetados e um código de erro é retornado. Em alguns casos, a camada de serviço (Basic, Standard e Premium) e o nível de desempenho determinam o limite exato. Nesses casos, consulte [Camadas de serviço de banco de dados SQL do Azure e níveis de desempenho](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+A tabela a seguir fornece um resumo dos limites para cada recurso além dos quais o banco de dados SQL do Azure nega a solicitação ou encerra as conexões com os recursos afetados e um código de erro é retornado. Em alguns casos, a [camada de serviço (Basic, Standard e Premium)](sql-database-service-tiers.md) e o nível de desempenho determinam o limite exato. Nesses casos, consulte [Camadas de serviço de banco de dados SQL do Azure e níveis de desempenho](https://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 [AZURE.INCLUDE [azure-sql-database-limits](../../includes/azure-sql-database-limits.md)]
 
@@ -93,9 +97,9 @@ O restante deste tópico explica os possíveis códigos de erro mais detalhadame
 
 | &nbsp; | Mais informações |
 | :--- | :--- |
-| **Condição** | Suas solicitações no tempdb podem ser negadas devido a qualquer uma das três condições a seguir:<br><br>** Estado 1: ** quando uma sessão usa mais de 5 GB de espaço em tempdb, a sessão é encerrada.<br><br>** Estado 2: ** as transações no tempdb com logs além do tamanho de 2 GB são truncadas. Operações de exemplo que podem consumir o espaço de log em tempdb: inserir, atualizar, excluir, mesclar, criar índice.<br><br>** Estado 3:** as transações não confirmadas no tempdb podem bloquear o truncamento dos arquivos de log. Para evitar isso, a distância do número da sequência de log da transação ativa mais antiga (LSN) até o final do log (LSN atual) em tempdb não pode exceder 20% do tamanho do arquivo de log. Quando violada, a transação incorreta no tempdb é encerrada e revertida de modo que o log possa ser truncado. |
+| **Condição** | Suas solicitações no tempdb podem ser negadas devido a qualquer uma das três condições a seguir:<br><br>** Estado 1:** quando uma sessão usa mais de 5 GB de espaço em tempdb, a sessão é encerrada.<br><br>** Estado 2:** as transações no tempdb com logs cujo tamanho é superior a 2 GB são truncadas. Operações de exemplo que podem consumir o espaço de log em tempdb: inserir, atualizar, excluir, mesclar, criar índice.<br><br>**Estado 3:** as transações não confirmadas no tempdb podem bloquear o truncamento dos arquivos de log. Para evitar isso, a distância do número da sequência de log da transação ativa mais antiga (LSN) até o final do log (LSN atual) em tempdb não pode exceder 20% do tamanho do arquivo de log. Quando violada, a transação incorreta no tempdb é encerrada e revertida de modo que o log possa ser truncado. |
 | **Código do erro** | **40551**: a sessão foi encerrada devido ao uso excessivo de tempdb. Tente modificar sua consulta para reduzir o uso de espaço de tabela temporária. |
-| **Limite** | **Estado 1:** 5 GB de espaço em tempdb <br><br>**Estado 2:** 2 GB por transação em tempdb <br><br>** Estado 3: ** 20% do espaço total de log em tempdb |
+| **Limite** | **Estado 1:** 5 GB de espaço em tempdb <br><br> **Estado 2:** 2 GB por transação em tempdb <br><br>**Estado 3:** 20% do espaço total de log em tempdb |
 | **Tipo de solicitações negadas** | Algumas instruções DDL ou DML em tempdb. |
 | **Recomendações** | Modifique as consultas para reduzir o uso de espaço de tabela temporária, descarte os objetos temporários depois que eles não são mais necessários, trunque as tabelas ou remova tabelas não usadas. Reduza o tamanho dos dados na sua transação no tempdb reduzindo o número de linhas ou dividindo a operação em várias transações. |
 
@@ -104,8 +108,8 @@ O restante deste tópico explica os possíveis códigos de erro mais detalhadame
 | &nbsp; | Mais informações |
 | :--- | :--- |
 | **Condição** | As transações solicitam bloqueios em recursos, como linhas, páginas ou tabelas, em que a transação é dependente e, então, liberam os bloqueios quando não têm uma dependência dos recursos bloqueados. Suas solicitações podem ser negadas devido a qualquer uma das seguinte duas condições: Estado 1: se uma transação estiver sendo executada por mais de 24 horas, ela será encerrada. Estado 2: se uma transação bloquear um recurso exigido por uma tarefa do sistema subjacente por mais de 20 segundos, ela será encerrada. |
-| **Código do erro** | **40549**: sessão é encerrada porque você tem uma transação de longa duração. Tente encurtar a transação. |
-| **Limite** | **Estado 1:** 24 horas<br><br>**Estado 2: ** 20 segundos se uma transação bloquear um recurso exigido por um sistema subjacente de tarefa |
+| **Código do erro** | **40549**: a sessão é encerrada porque você tem uma transação de longa duração. Tente encurtar a transação. |
+| **Limite** | **Estado 1:** 24 horas<br><br>**Estado 2:** 20 segundos se uma transação bloquear um recurso exigido por uma tarefa do sistema subjacente |
 | **Tipo de solicitações negadas** | Qualquer transação que tenha sido executada por mais de 24 horas ou quaisquer instruções DDL ou DML que usam um bloqueio, o que resulta em bloqueio de uma tarefa do sistema. |
 | **Recomendações** | Operações no banco de dados SQL não devem bloquear a entrada do usuário ou ter outras dependências que resultam em transações de longa execução. |
 
@@ -114,18 +118,25 @@ O restante deste tópico explica os possíveis códigos de erro mais detalhadame
 | &nbsp; | Mais informações |
 | :--- | :--- |
 | **Condição** | As sessões que consomem mais de um milhão de bloqueios são encerradas. |
-| **Código do erro** | **40550**: a sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação. |
+| **Código do erro** | **40550**: a sessão foi encerrada porque adquiriu um número excessivo de bloqueios. Tente ler ou modificar menos linhas em uma única transação. |
 | **Limite** | 1 milhão de bloqueios por transação |
 | **Tipo de solicitações negadas** | Algumas instruções DDL ou DML. |
-| **Recomendações** | Os DMVs a seguir podem ser usados para monitorar transações: **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** e **sys.dm\_tran\_session\_transactions**. Dependendo do tipo de aplicativo, talvez seja possível usar dicas de bloqueio de granulação mais espessa, como **PAGLOCK** ou **TABLOCK** para reduzir o número de bloqueios em uma determinada instrução/transação. Observe que isso pode afetar negativamente a simultaneidade do aplicativo. |
+| **Recomendações** | Os DMVs a seguir podem ser usados para monitorar transações: **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** e **sys.dm\_tran\_session\_transactions**. Dependendo do tipo de aplicativo, talvez seja possível usar dicas de bloqueio de granulação mais espessa, como **PAGLOCK** ou **TABLOCK**, para reduzir o número de bloqueios adquiridos em uma determinada instrução/transação. Observe que isso pode afetar negativamente a simultaneidade do aplicativo. |
+
 
 ## Comprimento do log de transação
 
+
+Na versão V12 do Banco de Dados SQL do Azure nas faixas de preço Standard ou Premium, o tamanho máximo do log de transação não é mais limitado a 2 GB.
+
+A tabela a seguir descreve o limite do log de transação para a versão V11.
+
+
 | &nbsp; | Mais informações |
 | :--- | :--- |
-| **Condição** | Suas solicitações podem ser negadas devido a alguma destas duas condições a seguir: <br><br>** Estado 1: ** banco de dados SQL dá suporte a transações que geram logs de até 2 GB de tamanho. As transações com logs além desse limite serão truncadas. Operações de exemplo que podem consumir o espaço de log em tempdb: inserir, atualizar, excluir, mesclar, criar índice.<br><br>** Estado 2:** as transações não confirmadas no tempdb podem bloquear o truncamento dos arquivos de log. Para evitar isso, a distância do número da sequência de log da transação ativa mais antiga (LSN) até o final do log (LSN atual) não pode exceder 20% do tamanho do arquivo de log. Quando violada, a transação incorreta é encerrada e revertida de modo que o log possa ser truncado. |
+| **Condição** | Suas solicitações podem ser negadas devido a qualquer uma das duas condições a seguir:<br><br>**Estado 1:** o Banco de Dados SQL dá suporte a transações que geram logs com tamanho de até 2 GB. As transações com logs além desse limite serão truncadas. Operações de exemplo que podem consumir o espaço de log neste volume: inserir, atualizar, excluir, mesclar, criar índice.<br><br>**Estado 2:** as transações não confirmadas podem bloquear o truncamento dos arquivos de log. Para evitar isso, a distância do número da sequência de log da transação ativa mais antiga (LSN) até o final do log (LSN atual) não pode exceder 20% do tamanho do arquivo de log. Quando violada, a transação incorreta é encerrada e revertida de modo que o log possa ser truncado. |
 | **Código do erro** | **40552**: a sessão foi encerrada devido a uso excessivo do espaço de log de transação. Tente modificar menos linhas em uma única transação. |
-| **Limite** | **Estado 1:** 2 GB por transação<br><br>** Estado 2: ** 20% do espaço total de log |
+| **Limite** | **Estado 1:** 2 GB por transação<br><br>**Estado 2:** 20% do espaço total de log |
 | **Tipo de solicitações negadas** | Algumas instruções DDL ou DML. |
 | **Recomendações** | Para operações de linha, reduza o tamanho dos dados na sua transação, por exemplo, reduzindo o número de linhas ou dividindo a operação em várias transações. Para operações de tabela/índice que exigem uma única transação, certifique-se de que a fórmula a seguir está em conformidade com: número de linhas afetadas na tabela * (tamanho médio do campo que está sendo atualizado em bytes + 80) < 2 GB (no caso de recriação de índice, o tamanho médio do campo que está sendo atualizado deve ser substituído pelo tamanho médio do índice). |
 
@@ -134,7 +145,7 @@ O restante deste tópico explica os possíveis códigos de erro mais detalhadame
 | &nbsp; | Mais informações |
 | :--- | :--- |
 | **Condição** | O banco de dados SQL gerencia o limite no número de threads de trabalho (solicitações simultâneas) para um banco de dados. Qualquer banco de dados com mais do que o limite permitido de solicitações simultâneas receberá o erro 10928, e solicitações adicionais neste banco de dados podem ser negadas. |
-| **Códigos do Erro** | **10928**: ID de recurso: 1. O limite de %s para o banco de dados é %d e foi atingido. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obter assistência.<br><br>** 10929**: ID de recurso: 1. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obter assistência. Caso contrário, tente novamente mais tarde. |
+| **Códigos do Erro** | **10928**: ID de recurso: 1. O limite de %s para o banco de dados é %d e foi atingido. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obter assistência.<br><br>**10929**: ID de recurso: 1. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obter assistência. Caso contrário, tente novamente mais tarde. |
 | **Limite** | Para as camadas Basic, Standard e Premium, isso depende do [nível de desempenho](https://msdn.microsoft.com/library/azure/dn741336.aspx). Para bancos de dados de Web/Business Edition antigos, o limite máximo de solicitações simultâneas é 180 e pode ser menor, dependendo da atividade do sistema. |
 | **Recomendações** | Verifique dm\_exec\_requests para exibir quais solicitações de usuário estão em execução atualmente.<br><br>Retire e repita a solicitação depois de 10 segundos. |
 
@@ -152,4 +163,4 @@ Em determinados cenários, como o uso do recurso de banco de dados agrupado, é 
 
 [Práticas recomendadas do banco de dados SQL do Azure para evitar negações de solicitação ou encerramento da conexão](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Criar e implantar um aplicativo de API Java no Serviço de Aplicativo do Azure
@@ -270,4 +270,4 @@ Você pode experimentar esse aplicativo de API de exemplo no [Serviço TryApp](h
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

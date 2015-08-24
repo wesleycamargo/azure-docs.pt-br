@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar filas do barramento de serviço (PHP) - Azure" 
+	pageTitle="Como usar as filas de Barramento de Serviço (PHP) | Microsoft Azure" 
 	description="Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

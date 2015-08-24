@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Aplicativo Java que requer muitos recursos computacionais em uma máquina virtual — Azure" 
-	description="Saiba como criar uma máquina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java." 
-	services="virtual-machines" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Aplicativo Java que requer muitos recursos computacionais em uma VM | Microsoft Azure"
+	description="Saiba como criar uma máquina virtual do Azure que execute aplicativos Java que requerem muitos recursos computacionais e podem ser monitorados por outro aplicativo Java."
+	services="virtual-machines"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
 # Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 
-Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Na conclusão deste guia, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
+Com o Azure, você pode usar uma máquina virtual para lidar com tarefas de computação intensiva. Por exemplo, uma máquina virtual pode lidar com tarefas e fornecer resultados às máquinas dos clientes ou aos aplicativos móveis. Depois de ler este artigo, você terá um entendimento de como criar uma máquina virtual que executa um aplicativo Java de computação intensiva que pode ser monitorado por outro aplicativo Java.
 
-Este tutorial supõe que você sabe como criar aplicativos de console Java, importar bibliotecas para o seu aplicativo Java e gerar um arquivo Java (JAR). Nenhum conhecimento do Azure é assumido.
+Este tutorial supõe que você sabe como criar aplicativos de console Java, pode importar bibliotecas para o seu aplicativo Java e pode gerar um arquivo Java (JAR). Nenhum conhecimento do Microsoft Azure é assumido.
 
 Você aprenderá a:
 
-* Como criar uma máquina virtual com um JDK já instalado.
+* Como criar uma máquina virtual que já tenha um JDK (Java Development Kit) instalado.
 * Fazer logon remotamente na máquina virtual.
 * Como criar um espaço de nomes de barramento de serviço.
 * Como criar um aplicativo Java que executa uma tarefa de computação intensiva.
@@ -32,11 +32,11 @@ Você aprenderá a:
 * Como executar os aplicativos Java.
 * Como parar os aplicativos Java.
 
-Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo Java que executa a tarefa de computação intensiva:
+Este tutorial usará o problema do Caixeiro Viajante para a tarefa de computação intensiva. Este é um exemplo do aplicativo Java que executa a tarefa de computação intensiva.
 
 ![Solucionador de problemas do Caixeiro Viajante][solver_output]
 
-Este é um exemplo do aplicativo Java que monitora a tarefa de computação intensiva:
+Este é um exemplo do aplicativo Java que monitora a tarefa de computação intensiva.
 
 ![Cliente de problemas do Caixeiro Viajante][client_output]
 
@@ -73,7 +73,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 4. Clique em **Conectar**.
 5. Responda às solicitações conforme necessário para se conectar à máquina virtual. Quando for solicitado o nome do administrador e a senha, use os valores que você forneceu quando criou a máquina virtual.
 
-Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no JRE usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionar um certificado no armazenamento de certificados de autoridade de certificação Java][add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
+Observe que a funcionalidade do Service Bus do Azure requer que o certificado de Baltimore CyberTrust Root seja instalado como parte do armazenamento **cacerts** do JRE. Este certificado é automaticamente incluído no Java Runtime Environment (JRE) usado por este tutorial. Se você não tem este certificado no armazenamento **cacerts** do JRE, consulte [Adicionar um certificado no armazenamento de certificados de autoridade de certificação Java][add_ca_cert] para obter informações sobre como adicioná-lo (bem como informações sobre como exibir os certificados no seu armazenamento cacerts).
 
 ## Como criar um namespace do barramento de serviço
 
@@ -82,33 +82,33 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 Para criar um namespace de serviço:
 
 1.  Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
-2.  No painel de navegação esquerdo inferior do Portal de Gerenciamento, clique em **Service Bus, Caching e Access Control**.
+2.  No painel de navegação esquerdo inferior do Portal de Gerenciamento, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
 3.  No painel superior esquerdo do Portal de Gerenciamento, clique no nó do **Barramento de Serviço** e, em seguida, clique no botão **Novo**.![Captura de tela do nó do Barramento de Serviço][svc_bus_node]
-4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para certificar-se de que ele é exclusivo, clique no botão **Verificar disponibilidade**. ![Criar uma captura de tela do novo Namespace][create_namespace]
+4.  Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para certificar-se de que ele seja exclusivo, clique no botão **Verificar disponibilidade**. ![Criar uma captura de tela do novo Namespace][create_namespace]
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace**.  
-      
+
     O namespace que você criou aparece no Portal de Gerenciamento e demora algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
-## Obter as Credenciais de Gerenciamento Padrão para o Namespace
+## Obter as Credenciais de gerenciamento padrão do namespace
 
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![Captura de tela de namespaces disponíveis][avail_namespaces]
-2.  Selecione o namespace que você acabou de criar na lista abaixo: ![Captura de tela da lista de namespaces][namespace_list]
-3.  O painel direito **Propriedades** listará as propriedades para o novo namespace: ![Captura de tela do painel Propriedades][properties_pane]
-4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança: ![Captura de tela da chave padrão][default_key]
-5.  Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace. 
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis. ![Captura de tela de namespaces disponíveis][avail_namespaces]
+2.  Selecione o namespace que você acabou de criar na lista abaixo. ![Captura de tela da lista de namespaces][namespace_list]
+3.  O painel direito **Propriedades** listará as propriedades para o novo namespace. ![Captura de tela do painel Propriedades][properties_pane]
+4.  A **Chave padrão** está oculta. Clique no botão **Exibir** para exibir as credenciais de segurança. ![Captura de tela da chave padrão][default_key]
+5.  Anote o **Emissor Padrão** e a **Chave Padrão**, pois você usará essas informações abaixo para executar operações com o namespace.
 
 ## Como criar um aplicativo Java que executa uma tarefa de computação intensiva
 
 1. Na sua máquina de desenvolvimento (que não tem de ser a máquina virtual que você criou), faça o download do [Azure SDK para Java](http://azure.microsoft.com/develop/java/).
-2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos **TSPSolver.java** como o nome de arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
+2. Crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPSolver.java** como o nome do arquivo Java. Modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
+3. Depois de codificar, exporte o aplicativo para um arquivo executável Java (JAR) e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos o **TSPSolver.jar** como o nome do arquivo JAR gerado.
 
 <p/>
 
 	// TSPSolver.java
-	
+
 	import com.microsoft.windowsazure.services.core.Configuration;
 	import com.microsoft.windowsazure.services.core.ServiceException;
 	import com.microsoft.windowsazure.services.serviceBus.*;
@@ -119,20 +119,20 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	import java.util.ArrayList;
 	import java.util.Date;
 	import java.util.List;
-	
+
 	public class TSPSolver {
-	
+
 	    //  Value specifying how often to provide an update to the console.
 	    private static long loopCheck = 100000000;  
-	
+
 	    private static long nTimes = 0, nLoops=0;
-	
+
 	    private static double[][] distances;
 	    private static String[] cityNames;
 	    private static int[] bestOrder;
 	    private static double minDistance;
 	    private static ServiceBusContract service;
-	
+
 	    private static void buildDistances(String fileLocation, int numCities) throws Exception{
 	        try{
 	            BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
@@ -141,7 +141,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	                String[] line = file.readLine().split(", ");
 	                cityNames[i] = line[0];
 	                cityLocs[i][0] = Double.parseDouble(line[1]);
-	                cityLocs[i][1] = Double.parseDouble(line[2]);               
+	                cityLocs[i][1] = Double.parseDouble(line[2]);
 	            }
 	            for (int i = 0; i<numCities; i++){
 	                for (int j = i; j<numCities; j++){
@@ -153,9 +153,9 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities) throws Exception {
-	
+
 	        try
 	        {
 	            nTimes++;
@@ -168,7 +168,7 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	                System.out.print("Current time is " + dateFormat.format(date) + ". ");
 	                System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
 	            }
-	    
+
 	            if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
 	                startCities.add(restCities.get(0));
 	                newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
@@ -189,9 +189,9 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void newBestDistance(List<Integer> cities, double distance) throws ServiceException, Exception {
-	        try 
+	        try
 	        {
 		        minDistance = distance;
 		        String cityList = "Shortest distance is "+minDistance+", with route: ";
@@ -203,61 +203,61 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 		        }
 		        System.out.println(cityList);
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            throw se;
 	        }
-	        catch (Exception e) 
+	        catch (Exception e)
 	        {
 	            throw e;
 	        }
 	    }
-	
+
 	    public static void main(String args[]){
-	
+
 	        try {
-	
+
 	            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                    "your_service_bus_namespace", "your_service_bus_owner",
                         "your_service_bus_key",
                         ".servicebus.windows.net",
                         "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	            service = ServiceBusService.create(config);
-	
-	            int numCities = 10;  // Use as the default, if no value is specified at command line. 
-	            if (args.length != 0) 
+
+	            int numCities = 10;  // Use as the default, if no value is specified at command line.
+	            if (args.length != 0)
 	            {
 	                if (args[0].toLowerCase().compareTo("createqueue")==0)
 	                {
 	                    // No processing to occur other than creating the queue.
 	                    QueueInfo queueInfo = new QueueInfo("TSPQueue");
-	
+
 	                    service.createQueue(queueInfo);
-	
+
 	                    System.out.println("Queue named TSPQueue was created.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                if (args[0].toLowerCase().compareTo("deletequeue")==0)
 	                {
 	                    // No processing to occur other than deleting the queue.
 	                    service.deleteQueue("TSPQueue");
-	
+
 	                    System.out.println("Queue named TSPQueue was deleted.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                // Neither creating or deleting a queue.
 	                // Assume the value passed in is the number of cities to solve.
 	                numCities = Integer.valueOf(args[0]);  
 	            }
-	
+
 	            System.out.println("Running for " + numCities + " cities.");
-	
+
 	            List<Integer> startCities = new ArrayList<Integer>();
 	            List<Integer> restCities = new ArrayList<Integer>();
 	            startCities.add(0);
@@ -271,98 +271,98 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	            permutation(startCities, 0, restCities);
 	            System.out.println("Final solution found!");
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            System.out.println(se.getMessage());
 	            se.printStackTrace();
 	            System.exit(-1);
-	        }        
-	        catch (Exception e) 
+	        }
+	        catch (Exception e)
 	        {
 	            System.out.println(e.getMessage());
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
 	    }
-	
+
 	}
 
 
 
 ## Como criar um aplicativo Java que monitora o andamento da tarefa de computação intensiva
 
-1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Para fins deste tutorial, usaremos o **TSPClient.java** como o nome do arquivo Java. Como acima, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
-2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Para fins deste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
+1. Na sua máquina de desenvolvimento, crie um aplicativo de console Java usando o código de exemplo no final desta seção. Neste tutorial, usaremos **TSPClient.java** como o nome do arquivo Java. Conforme mostrado anteriormente, modifique os espaços reservados **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** e **your\_service\_bus\_key** para usar o **namespace** do barramento de serviço e os valores **Emissor Padrão** e **Chave Padrão**, respectivamente.
+2. Exporte o aplicativo para um JAR executável e empacote as bibliotecas necessárias para o JAR gerado. Neste tutorial, usaremos o **TSPClient.jar** como o nome do arquivo JAR gerado.
 
 <p/>
 
 	// TSPClient.java
-	
+
 	import java.util.Date;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
 	import com.microsoft.windowsazure.services.serviceBus.*;
 	import com.microsoft.windowsazure.services.serviceBus.models.*;
 	import com.microsoft.windowsazure.services.core.*;
-	
-	public class TSPClient 
+
+	public class TSPClient
 	{
-	
-	    public static void main(String[] args) 
+
+	    public static void main(String[] args)
 	    {
 	            try
 	            {
-	
+
 	                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	                Date date = new Date();
 	                System.out.println("Starting at " + dateFormat.format(date) + ".");
-	
+
 	                String namespace = "your_service_bus_namespace";
 	                String issuer = "your_service_bus_owner";
 	                String key = "your_service_bus_key";
-	
+
 	                Configuration config;
 	                config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                        namespace, issuer, key,
                             ".servicebus.windows.net",
                             "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	                ServiceBusContract service = ServiceBusService.create(config);
-	
+
 	                BrokeredMessage message;
-	
-	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
-	                if (args.length != 0) 
+
+	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
+	                if (args.length != 0)
 	                {
 	                    waitMinutes = Integer.valueOf(args[0]);  
 	                }
-	
+
 	                String waitString;
-	
-	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
-	
+
+	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes.";
+
 	                // This queue must have previously been created.
 	                service.getQueue("TSPQueue");
-	
+
 	                int numRead;
-	
+
 	                String s = null;
-	
+
 	                while (true)
 	                {
-	
+
 	                    ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
 	                    message = resultQM.getValue();
-	
+
 	                    if (null != message && null != message.getMessageId())
-	                    {                        
-	
+	                    {
+
 	                        // Display the queue message.
 	                        byte[] b = new byte[200];
-	
+
 	                        System.out.print("From queue: ");
-	
+
 	                        s = null;
 	                        numRead = message.getBody().read(b);
 	                        while (-1 != numRead)
@@ -387,8 +387,8 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	                        System.out.println("Queue is empty. Sleeping for another " + waitString);
 	                        Thread.sleep(60000 * waitMinutes);
 	                    }
-	                } 
-	
+	                }
+
 	        }
 	        catch (ServiceException se)
 	        {
@@ -402,20 +402,20 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
-	
+
 	    }
-	    
+
 	}
- 
+
 ## Como executar os aplicativos Java.
 Execute o aplicativo que exija muita computação, primeiro para criar a fila, depois para solucionar o Problema do Caixeiro Viajante, que adicionará a melhor rota atual para a fila do barramento de serviço. Enquanto o aplicativo que exige muita computação está em execução (ou depois), execute o cliente para exibir os resultados da fila do barramento de serviço.
 
-### Como executar o aplicativo que exige muita computação
+### Executar o aplicativo exige computação intensiva
 
 1. Faça logon na máquina virtual.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\\TSP**.
 3. Copie **TSPSolver.jar** em **c:\\TSP**,
-4. Crie um arquivo chamado **c:\\TSP\\cities.txt** com o seguinte conteúdo:
+4. Crie um arquivo chamado **c:\\TSP\\cities.txt** com o seguinte conteúdo.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -467,10 +467,10 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
 		City_48, 363.68, 768.21
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
-	
+
 5. Em um prompt de comando, altere os diretórios para c:\\TSP.
 6. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
-7. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço:
+7. Você precisará criar a fila do barramento de serviço antes de executar as permutas de solver TSP. Execute o seguinte comando para criar a fila do barramento de serviço.
 
         java -jar TSPSolver.jar createqueue
 
@@ -481,22 +481,22 @@ Execute o aplicativo que exija muita computação, primeiro para criar a fila, d
  Se você não especificar um número, ele será executado para 10 cidades. Como localiza rotas atuais mais curtas, o solver as adicionará à fila.
 
 > [AZURE.NOTE]Quanto maior o número que você especificar, por mais tempo o solver será executado. Por exemplo, a execução de 14 cidades pode levar vários minutos, e a execução de 15 cidades pode levar várias horas. Aumentar para 16 ou mais cidades pode resultar em dias de tempo de execução (acabando em semanas, meses e anos). Isso ocorre porque o rápido aumento do número de permutas avaliadas pelo solver, como o número de cidades, aumenta.
- 
+
 ### Como executar o aplicativo cliente de monitoramento
 1. Faça logon no computador onde você executará o aplicativo cliente. Ele não precisa estar na mesma máquina executando o aplicativo **TSPSolver**, embora possa ser.
 2. Crie uma pasta onde você executará seu aplicativo. Por exemplo, **c:\\TSP**.
 3. Copie **TSPClient.jar** em **c:\\TSP**,
 4. Certifique-se de que a pasta da lixeira do JRE está na variável de ambiente PATH.
 5. Em um prompt de comando, altere os diretórios para c:\\TSP.
-6. Execute o comando a seguir:
+6. Execute o comando a seguir.
 
         java -jar TSPClient.jar
 
-    Como opção, especifique o número de minutos de espera entre a verificação da fila, passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de 3 minutos, que serve para que nenhum argumento de linha de comando seja passado para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, por exemplo, um minuto, execute:
+    Como opção, especifique o número de minutos de suspensão entre a verificação da fila passando um argumento de linha de comando. O período de suspensão padrão para a verificação da fila é de três minutos, que será usado se nenhum argumento de linha de comando for passado para **TSPClient**. Se você quiser usar um valor diferente para o intervalo de suspensão, como um minuto, por exemplo, execute o comando a seguir.
 
 	    java -jar TSPClient.jar 1
 
-    O cliente será executado até ver a mensagem de uma fila "Concluído". Observe que, se executar várias ocorrências do solver sem executar o cliente, você precisará executar o cliente várias vezes para esvaziar completamente a fila. Também é possível excluir a fila e depois criá-la novamente. Para excluir a fila, execute o seguinte comando **TSPSolver** (não **TSPClient**):
+    O cliente será executado até ver a mensagem de uma fila "Concluído". Observe que, se executar várias ocorrências do solver sem executar o cliente, você precisará executar o cliente várias vezes para esvaziar completamente a fila. Também é possível excluir a fila e depois criá-la novamente. Para excluir a fila, execute o comando do **TSPSolver** (não **TSPClient**) a seguir.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -516,7 +516,4 @@ Para os aplicativos solver e de cliente, é possível pressionar **Ctrl+C** para
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

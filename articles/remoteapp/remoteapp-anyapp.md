@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/03/2015"
+   ms.date="08/10/2015"
    ms.author="elizapo"/>
 
-# Execute qualquer aplicativo do Windows em qualquer dispositivo com o RemoteApp
+# Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
 
 Este tutorial mostra como executar aplicativos do Windows em qualquer lugar em qualquer dispositivo, agora, de verdade. Seja o Internet Explorer 6, um aplicativo personalizado escrito há 10 anos ou um aplicativo do Office, os usuários não precisam mais estar vinculados a um sistema operacional específico (como o Windows XP) para esses poucos aplicativos.
 
@@ -106,4 +106,4 @@ Agora que você já dominou a criação de uma coleção, tente criar uma [cole�
 
 <!--Image references-->
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

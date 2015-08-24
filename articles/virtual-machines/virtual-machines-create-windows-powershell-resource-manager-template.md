@@ -19,7 +19,7 @@
 
 # Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
 
-Você pode criar facilmente uma nova VM (máquina virtual) do Azure baseada no Windows usando um modelo do Gerenciador de Recursos com o PowerShell do Azure ou a CLI do Azure. Este modelo cria uma única máquina virtual que executa o Windows em uma nova rede virtual com uma única sub-rede em um novo grupo de recursos.
+Você pode criar facilmente uma nova máquina virtual do Azure baseada no Windows usando um modelo do Gerenciador de Recursos com o Azure PowerShell ou a CLI do Azure. Este modelo cria uma única máquina virtual que executa o Windows em uma nova rede virtual com uma única sub-rede em um novo grupo de recursos.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
@@ -29,11 +29,11 @@ Antes de mergulhar de cabeça, verifique se você tem o PowerShell e a CLI do Az
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Criar uma VM do Windows com um modelo do Gerenciador de Recursos usando o PowerShell do Azure
+## Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos usando o Azure PowerShell
 
-Siga estas etapas para criar uma VM do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com o PowerShell do Azure.
+Siga estas etapas para criar uma máquina virtual do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com o Azure PowerShell.
 
-### Etapa 1: examine o arquivo JSON do modelo.
+### Etapa 1: examinar o arquivo JSON do modelo
 
 Aqui está o conteúdo do arquivo JSON para o modelo.
 
@@ -75,7 +75,7 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -214,9 +214,9 @@ Aqui está o conteúdo do arquivo JSON para o modelo.
 	}
 
 
-### Etapa 2: crie a máquina virtual com o modelo.
+### Etapa 2: criar a máquina virtual com o modelo.
 
-Preencha um nome de implantação do Azure, o nome do grupo de recursos e o local do data center do Azure e, em seguida, execute estes comandos.
+Preencha um nome de implantação do Azure, o nome do grupo de recursos e o local do datacenter do Azure e, em seguida, execute estes comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -276,9 +276,9 @@ Você verá algo semelhante a:
 
 Agora você tem uma nova máquina virtual do Windows chamada MyWindowsVM em seu novo grupo de recursos.
 
-## Criar uma VM do Windows com um modelo do Gerenciador de Recursos usando o a CLI do Azure
+## Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos usando o CLI do Azure
 
-Siga estas etapas para criar uma VM do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com comandos da CLI do Azure.
+Siga estas etapas para criar uma máquina virtual do Windows usando um modelo do Gerenciador de Recursos no repositório de modelos do Github com os comandos do CLI do Azure.
 
 Preencha o nome de um grupo de recursos e local do Azure (como westus para Oeste dos EUA; remova os colchetes) e, em seguida, execute estes comandos.
 
@@ -323,7 +323,7 @@ Você verá algo semelhante a:
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
+[Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md)
 
 [Criar uma máquina virtual do Windows com o Gerenciador de Recursos e o PowerShell do Azure](virtual-machines-create-windows-powershell-resource-manager.md)
 
@@ -333,4 +333,4 @@ Você verá algo semelhante a:
 
 [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

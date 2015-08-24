@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Anexar um disco a uma máquina virtual | Azure"
+	pageTitle="Anexar um disco a uma máquina virtual | Microsoft Azure"
 	description="Saiba como anexar um disco de dados a uma máquina virtual Azure e inicializá-lo para que ele fique pronto para uso."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

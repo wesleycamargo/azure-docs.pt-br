@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Como criar uma coleção na nuvem do RemoteApp" 
-	description="Saiba como criar uma implantação de nuvem do RemoteApp que salva dados na nuvem do Azure." 
+	pageTitle="Como criar uma coleção na nuvem do Azure RemoteApp" 
+	description="Saiba como criar uma implantação de nuvem do RemoteApp do Azure que salva dados na nuvem do Azure." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma coleção na nuvem do Azure RemoteApp
@@ -34,12 +34,12 @@ Este tutorial explica o processo de criação de uma implantação de nuvem. Há
 
 Você precisa fazer o seguinte antes de criar a coleção:
 
-- [Inscrever-se](http://azure.microsoft.com/services/remoteapp/) no RemoteApp. 
+- [Inscreva-se](http://azure.microsoft.com/services/remoteapp/) no RemoteApp do Azure. 
 - Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
 - Este procedimento pressupõe que usará ou uma das imagens de modelo fornecidas como parte de sua assinatura ou que você já carregou a imagem do modelo que deseja usar. Se desejar fazer o upload da imagem do modelo, é possível fazer isso na página Imagens do modelo. Apenas clique em **Fazer o upload de uma imagem do modelo** e siga as etapas do assistente. 
 - Deseja fornecer aplicativos personalizados ou programas LOB? Crie uma nova [imagem](remoteapp-imageoptions.md) e use-a em sua coleção de nuvem.
 
-## Etapa 1: Criar uma coleção de RemoteApp ##
+## Etapa 1: criar uma coleção ##
 
 
 
@@ -56,7 +56,7 @@ Você precisa fazer o seguinte antes de criar a coleção:
 	
 	**Importante:** pode levar até 30 minutos para provisionar sua coleção.
 
-Após a criação da coleção de RemoteApp, vá para a página **Início Rápido** do RemoteApp para continuar as etapas de configuração.
+Após sua coleção do RemoteApp ter sido criada, clique duas vezes no nome da coleção. Isso abrirá a página **Início Rápido** - é nela que você terminará de configurar a coleção.
 
 
 ## Etapa 2: Configurar a sincronização de diretório do Active Directory (opcional) ##
@@ -93,4 +93,4 @@ Agora que você criou sua coleção de RemoteApp, você precisa adicionar os usu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

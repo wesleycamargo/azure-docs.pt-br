@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Barramento de serviço do Azure - conceitos básicos do Azure" 
+	pageTitle="Barramento de Serviço do Azure | Microsoft Azure" 
 	description="Introdução às maneiras diferentes de poder usar o Barramento de Serviço para conectar os aplicativos do Azure com outro software." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -130,4 +130,4 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Componentes da Recuperação de Site" 
-	description="Este artigo fornece uma visão geral dos componentes da Recuperação de Site e como gerenciá-los" 
+	pageTitle="Componentes da Recuperação de Site"
+	description="Este artigo fornece uma visão geral dos componentes da Recuperação de Site e como gerenciá-los"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="08/10/2015"
 	ms.author="raynew"/>
 
 # Componentes da Recuperação de Site
@@ -53,7 +53,7 @@ Implante o Azure Site Recovery para replicar máquinas virtuais entre um datacen
 
 ![VMM local para o Azure](./media/site-recovery-components/Components_OnpremHyperVSite2Azure.png)
 
-### Proteção entre um servidor físico local ou máquina virtual VMWare e o Azure 
+### Proteção entre um servidor físico local ou máquina virtual VMWare e o Azure
 
 Neste cenário a replicação pode ocorrer de duas maneiras:
 
@@ -74,11 +74,11 @@ Todas as comunicações de servidores locais são direcionadas para pontos de ex
 
 #### Portas
 
-**Componente** | **Porta** | **Detalhes** 
+**Componente** | **Porta** | **Detalhes**
 --- | --- | --- | ---
 **Servidor de processo** |9080 | As máquinas protegidas enviam dados para replicação ao servidor de processo pela porta TCP 9080.
 **Servidor de configuração** | HTTPS/443 | O Serviço de Mobilidade em execução em máquinas protegidas envia metadados de replicação ao servidor de configuração na porta 443.
- | HTTPS/443 | O servidor de configuração coordena e orquestra a proteção da máquina. O servidor do processo se comunica com o servidor de configuração pela porta 443 ou com o ponto de extremidade público mapeado para receber informações de gerenciamento e controle. 
+ | HTTPS/443 | O servidor de configuração coordena e orquestra a proteção da máquina. O servidor do processo se comunica com o servidor de configuração pela porta 443 ou com o ponto de extremidade público mapeado para receber informações de gerenciamento e controle.
  | 9443 | Na direção do failback, a ferramenta vContinuum solicita controle e metadados do servidor de configuração na porta 9443 (não exibida no diagrama)
  | 5986 | O gerenciamento remoto com o PowerShell usa a porta 5986 (não exibida no diagrama)
  | 3389 | Conexão RDP com o servidor de configuração usando 3389 (não exibida no diagrama)
@@ -93,7 +93,7 @@ Todas as comunicações de servidores locais são direcionadas para pontos de ex
 **Componente** | **Detalhes** | **Instalação** | **Cenário de implantação**
 --- | --- | --- | ---
 **Provedor do Azure Site Recovery para VMM** | Gerencia a comunicação entre o servidor VMM e o serviço de Recuperação de Site. | Instalado em um servidor VMM | Usado quando você configura a proteção entre dois sites VMM ou entre um site VMM e o Azure
-**Provedor do Azure Site Recovery para Hyper-V** | Gerencia a comunicação entre o host Hyper-V e o serviço de Recuperação de Site quando a VMM não está implantada. | Instalado em servidores de host Hyper-V | Usado quando você configura a proteção entre um site do Hyper-V e o Azure   
+**Provedor do Azure Site Recovery para Hyper-V** | Gerencia a comunicação entre o host Hyper-V e o serviço de Recuperação de Site quando a VMM não está implantada. | Instalado em servidores de host Hyper-V | Usado quando você configura a proteção entre um site do Hyper-V e o Azure
 **Agente dos Serviços de Recuperação da Microsoft** | Gerencia a comunicação entre o servidor de host Hyper-V e o serviço de Recuperação de Site | Instalado no servidor de host Hyper-V | <p>Usado quando você configura a proteção entre um site do Hyper-V e o Azure.</p><p>Baixe um único provedor que inclui o Provedor do Azure Site Recovery para Hyper-V e o agente dos Serviços de Recuperação da Microsoft.</p>
 **Servidor de processo/servidor de processo de failback** | <p>Otimiza os dados de máquinas VMware protegidas ou do servidor físico com Windows/Linux antes de enviá-los ao servidor de destino mestre no Azure</p><p>Realiza a instalação por push do Serviço de mobilidade em máquinas virtuais VMWare ou servidores físicos</p><p>Realiza a descoberta automática de máquinas virtuais VMware.</p> <p>Servidor de processo de failback: somente o primeiro ponto na otimização de dados antes da replicação é aplicável ao servidor de processo de failback</p> | <p>Instalado em um servidor local executando, no mínimo, o Windows Server 2012 R2</p><p>Servidor de processo de Failback: é executado em uma máquina virtual do Azure de tamanho A4 padrão</p> | <p>Usado quando você configura a proteção entre um servidor físico local ou máquinas virtuais VMware e o Azure.</p><p>Servidor de processo de failback: usado para failback do Azure para o local</p>
 **Serviço de mobilidade** | Captura as alterações nas máquinas protegidas e as comunica ao servidor de processo local para a replicação no Azure. | Instalado em máquinas virtuais VMware locais ou em servidores físicos que você deseja proteger| Usado quando você configura a proteção entre um servidor físico local ou máquinas virtuais VMWare e o Azure
@@ -115,7 +115,7 @@ O provedor é executado nos servidores VMM, em servidores de host Hyper-V se voc
 -  .backup.windowsazure.com
 	-  **.blob.core.windows.net
 -  **.store.core.windows.net
-	
+
 - Se você tiver regras baseadas no endereço IP em seu firewall, certifique-se de que elas permitam a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e com HTTPS (443). Você precisará incluir em uma lista válida os intervalos de endereços IP da região do Azure que você pretende usar e do Oeste dos EUA.
 - Se você estiver implantando a Recuperação de Site com o VMM e usar um proxy personalizado, uma conta de RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas nas configurações personalizadas de proxy no portal de Recuperação de Site. Será necessário configurar o servidor proxy para que essa conta possa ser autenticada.
 - Se você estiver usando um tráfego de proxy enviado do provedor instalado em um servidor de host Hyper-V para o proxy será necessário enviar por HTTP.
@@ -134,7 +134,7 @@ O agente se conecta ao serviço de Recuperação de Site pela Internet usando um
 - Um servidor de destino mestre de tamanho D14 padrão é necessário apenas se você quiser proteger um servidor que tenha mais de 15 discos anexados a ele; para todas as outras configurações, você pode implantar servidores de destino mestre de tamanho A4 padrão.
 - Observe que um disco conectado ao servidor de destino mestre é reservado como uma unidade de retenção. O Azure Site Recovery permite que você defina janelas de retenção e recupere máquinas protegidas em um ponto de recuperação dentro dessa janela. A unidade de retenção mantém um diário com as alterações realizadas no disco durante a janela. Isso reduz o máximo de discos disponível para replicação em um A4 para 15 e em um D14 para 31.
 
-#### Servidor de processo 
+#### Servidor de processo
 
 - O servidor em processo usa o cache baseado em disco. Verifique se há espaço livre suficiente em C:/ para o cache. O dimensionamento de cache será afetado pela taxa de alteração de dados dos computadores que você está protegendo. Em geral, recomendamos um tamanho de diretório de cache de 600 GB para implantações de médio porte.
 - Você deverá implantar um servidor em processo adicional se a taxa de alteração de dados de computadores protegidos exceder a capacidade de um servidor em processo existente.
@@ -168,14 +168,14 @@ Para obter informações detalhadas sobre o planejamento desses componentes leia
 
 ## Manter componentes atualizados
 
-**Componente** | **Como atualizar** 
---- | --- 
+**Componente** | **Como atualizar**
+--- | ---
 <p>**Provedor do Azure Site Recovery para VMM**</p><p>**Agente dos Serviços de Recuperação do Azure**</p> | <p></p>**Primeira instalação**: baixe a versão mais recente da página de Início Rápido<p></p>**Contínuo**: você pode baixar as versões mais recentes (e anteriores) do Painel na Recuperação de Site. Como alternativa se você optar pelo Microsoft Updates as versões mais recentes do Provedor e do agente serão instaladas automaticamente no servidor.
-<p>**Servidor de processo**</p><p>**Servidor de configuração**</p><p>**Servidor de destino mestre**</p> | Confira as atualizações no Painel de Recuperação de Site. 
+<p>**Servidor de processo**</p><p>**Servidor de configuração**</p><p>**Servidor de destino mestre**</p> | Confira as atualizações no Painel de Recuperação de Site.
 **Serviço de mobilidade** | <p>Verifique se você tem as atualizações mais recentes do Serviço de mobilidade em cada computador que deseja proteger:<p><p>Você pode baixar as atualizações mais recentes:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>Como alternativa, depois de garantir que o servidor de processo está atualizado, você pode baixar a versão mais recente do Serviço de mobilidade da pasta C:\\pushinstallsvc\\repository no servidor de processo</p>  
 
 ## Próximas etapas
 
 Comece a configurar os componentes para seu cenário de implantação. [Saiba mais](site-recovery-overview.md).
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

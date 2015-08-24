@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Adicionar um usuário no RemoteApp" 
-    description="Saiba como adicionar usuários no RemoteApp" 
+    pageTitle="Adicionar um usuário à sua coleção do RemoteApp do Azure" 
+    description="Saiba como adicionar usuários à sua coleção do RemoteApp do Azure" 
     services="remoteapp" 
 	documentationCenter="" 
     authors="lizap" 
@@ -12,18 +12,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# Como adicionar um usuário no RemoteApp
+# Como adicionar um usuário à sua coleção do RemoteApp do Azure
 
-Antes que os usuários possam ver e usar os aplicativos no RemoteApp, você precisa conceder acesso à sua coleção a eles. Essa é a parte fácil: na guia **Acesso de usuário**, insira as informações da conta para o usuário e clique na marca de seleção.
+Antes que os usuários possam ver e usar seus aplicativos no RemoteApp do Azure, você precisa conceder acesso à sua coleção a eles. Essa é a parte fácil: na guia **Acesso de Usuário**, insira as informações da conta para o usuário e depois clique na marca de seleção.
 
 Quais informações da conta são necessárias? Isso depende do tipo de coleção criada (nuvem ou híbrida) e se você estiver usando Office 365 ProPlus nessa coleção.
 
 ## Identidades de usuário com suporte
 
-Os tipos de coleção diferentes (nuvem versus híbridos) são compatíveis com o uso de identidades de usuário diferentes para acesso dos usuários aos aplicativos.
+Os tipos de coleção diferentes (nuvem versus híbridos) são compatíveis com o uso de identidades de usuário diferentes para acesso aos aplicativos.
 
 Para obter uma coleção híbrida do RemoteApp, você precisa configurar uma infraestrutura de domínio do Active Directory local e um locatário do Active Directory do Azure com a Integração de diretório (e opcionalmente logon único). Além disso, você precisa criar alguns objetos do Active Directory no diretório local.
 
@@ -53,4 +53,4 @@ Verifique [obter mais informações](remoteapp-ad.md) sobre a configuração do 
 Se você estiver usando a imagem do modelo do Office 365 ProPlus em sua coleção *ou* se você criou uma imagem personalizada que usa o Office 365, é possível adicionar apenas usuários do Active Directory do Azure que têm assinaturas do Office 365 para o domínio padrão da sua assinatura. Consulte [Usando o Office 365 com o Azure RemoteApp](remoteapp-o365.md) para obter mais informações.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

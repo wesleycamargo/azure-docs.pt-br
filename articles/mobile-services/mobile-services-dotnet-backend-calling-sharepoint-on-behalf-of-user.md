@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Acessar o SharePoint em nome do usuário | Mobile Dev Center" 
+	pageTitle="Acessar o SharePoint em nome do usuário | Microsoft Azure" 
 	description="Saiba como fazer chamadas para o SharePoint em nome do usuário" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Acessar o SharePoint em nome do usuário
@@ -219,4 +219,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

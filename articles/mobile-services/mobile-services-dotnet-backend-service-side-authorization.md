@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorização no lado do serviço de usuários em um serviço móvel de back-end do .NET | Serviços Móveis do Azure"
+	pageTitle="Autorização de usuários no lado do serviço em um serviço móvel de back-end do .NET | Microsoft Azure"
 	description="Aprenda a restringir o acesso para autorizar usuários em um serviço móvel de back-end do .NET"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -81,4 +81,4 @@ Esse tutorial se baseia no Início Rápido dos Serviços Móveis e elabora o tut
 [Adicionar autenticação ao aplicativo de serviços móveis existente]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

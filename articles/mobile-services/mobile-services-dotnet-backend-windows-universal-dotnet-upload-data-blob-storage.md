@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo Windows universal | Serviços Móveis do Azure" 
+	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo universal do Windows | Microsoft Azure" 
 	description="Saiba como usar um serviço móvel de back-end do .NET para carregar imagens no armazenamento de blob do Azure e acessar imagens em seu aplicativo Windows universal." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

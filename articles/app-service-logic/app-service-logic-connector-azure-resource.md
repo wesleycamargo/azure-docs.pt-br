@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="08/09/2015"
    ms.author="stepsic"/>
 
-#Conector de recursos do Azure
+# Conector de recursos do Azure
 O conector de recursos do Azure oferece uma maneira fácil de gerenciar os recursos do Azure dentro de seu aplicativo lógico.
 
-##Criando o aplicativo de API
+## Criar o conector de recursos do Azure
 Para usar o aplicativo de API do Conector de recursos do Azure, você precisa primeiro criar uma instância dele. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou selecionando o aplicativo de API do Conector do Gerenciador de recursos do Azure no Azure Marketplace.
 
 Para configurá-lo, você precisa definir a uma entidade de serviço com permissões para fazer tudo o que você deseja fazer no Azure. Todas as chamadas serão feitas em nome dessa entidade de serviço que você configurou. Isso permite que você defina o escopo do conector para usar somente exatamente o que você deseja que ele faça e nada mais.
 
 David Ebbo escreveu [uma postagem de blog excelente](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sobre como fazer essa configuração. Siga todas as instruções e obtenha sua **ID do locatário**, **ID do cliente** e **Senha**. Esses três campos, mais a **ID da assinatura**, são o que é necessário para configurar o conector.
 
-##Usando o Conector de recursos do Azure na superfície do designer de aplicativos lógicos
-###Gatilho
+## Usando o Conector de Recursos do Azure no designer de Aplicativos Lógicos
+### Gatilho
 Há dois gatilhos que têm suporte no Conector:
 
 Nome | Descrição 
@@ -35,7 +35,7 @@ Nome | Descrição
 Evento ocorre | Gatilho quando ocorre um evento para um recurso em sua assinatura. 
 A métrica cruza o limite | Gatilho quando uma métrica atinge um determinado limite.
 
-###Ação
+### Ação
 
 Da mesma forma, você pode fornecer um grande número de ações dentro de sua assinatura do Azure:
  
@@ -94,4 +94,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

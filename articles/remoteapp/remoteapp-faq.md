@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/06/2015" 
 	ms.author="elizapo"/>
 
 # Perguntas frequentes sobre o RemoteApp do Azure
@@ -22,13 +22,13 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 ## O que é o RemoteApp do Azure? ##
 
 
-- **O que é o RemoteApp do Azure?** O RemoteApp é um serviço do Azure que fornece a funcionalidade do Microsoft RemoteApp local, composto pelos Serviços de Área de Trabalho Remota do Azure. O RemoteApp o ajudará a fornecer acesso remoto seguro aos aplicativos de vários dispositivos de usuário diferentes. Saiba mais sobre o [RemoteApp do Azure](remoteapp-whatis.md).
+- **O que é o RemoteApp do Azure?** O RemoteApp é um serviço do Azure que o ajudará a fornecer acesso remoto seguro aos aplicativos de vários dispositivos de usuário diferentes. Saiba mais sobre o [RemoteApp do Azure](remoteapp-whatis.md).
 - **Quais são os dois tipos de opções de implantação?** Há dois tipos de implantações de RemoteApp (ou coleções): híbrido e nuvem. Descubra qual [Opção de implantação](remoteapp-whatis.md) funciona melhor para a sua organização.
 
 ## Configurações com suporte ##
 
-- **Quais são os limites de serviço?** Acabamos de adicionar um novo tópico que abrange todos os [limites de serviço e padrões](remoteapp-servicelimits.md). Avise-nos se você tiver mais dúvidas.
-- **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. Verifique outros [limites de usuário e padrões](remoteapp-servicelimits.md) aqui.
+- **Quais são os limites de serviço?** Você pode aprender sobre as configurações padrão e os limites de serviço do RemoteApp do Azure em [Assinatura do Azure e limite de serviços, cotas e restrições](.\azure-subscription-service-limits.md). Avise-nos se você tiver mais dúvidas.
+- **Quantos usuários é preciso ter?** Há um mínimo de 20 usuários. Vou repetir para que seja totalmente claro: o MÍNIMO é 20. Você será cobrado por 20. 
 - **Há suporte para aplicativos personalizados da linha de negócios (LOB)?** Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md) e, em seguida, carregue-a para a coleção do RemoteApp.
 - **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Examine os [requisitos de compatibilidade do aplicativo](http://www.microsoft.com/download/details.aspx?id=18704) e verifique o [Centro de compatibilidade de área de trabalho remota](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Qual método de implantação (nuvem ou híbrido) é o melhor para a minha organização?** As coleções híbridas fornecem a experiência mais completa se você deseja integração total com o logon único (SSO) e conectividade segura de rede local. As coleções de nuvem fornecem uma maneira fácil e ágil de isolar a sua implantação usando vários métodos de autenticação. Leia mais sobre as [Opções de implantação](remoteapp-whatis.md).
@@ -82,4 +82,4 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral de Conexões Híbridas | Azure" 
+	pageTitle="Visão geral de Conexões Híbridas | Microsoft Azure" 
 	description="Saiba mais sobre conexões híbridas, incluindo segurança, portas TCP e configurações com suporte. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@ Porta | Por que você precisa disto
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

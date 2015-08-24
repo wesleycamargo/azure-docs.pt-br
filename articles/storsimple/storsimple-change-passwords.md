@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/17/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Usar o serviço StorSimple Manager para alterar suas senhas StorSimple
@@ -26,7 +26,7 @@ A página **Configurar** do Portal de Gerenciamento contém todos os parâmetros
 
 O software Gerenciador de Instantâneos StorSimple software reside no host Windows e permite que os administradores gerenciem backups do seu dispositivo StorSimple na forma de instantâneos locais e de nuvem.
 
-Ao configurar um dispositivo no StorSimple Snapshot Manager, será solicitado que você forneça o endereço IP e a senha do dispositivo para autenticar o dispositivo de armazenamento. Essa senha será configurada primeiro por meio da interface do Windows PowerShell. Para obter mais informações, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device) em [Implantação do seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+Ao configurar um dispositivo no StorSimple Snapshot Manager, será solicitado que você forneça o endereço IP e a senha do dispositivo para autenticar o dispositivo de armazenamento. Essa senha será configurada primeiro por meio da interface do Windows PowerShell. Para obter mais informações, consulte [Etapa 3: configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) em [Implantação do seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
 A senha que foi definida pela primeira vez por meio da interface do Windows PowerShell durante o registro pode ser alterada no Portal de Gerenciamento. Execute as etapas a seguir para alterar a senha do StorSimple Snapshot Manager.
 
@@ -44,7 +44,7 @@ A senha do StorSimple Snapshot Manager agora deve ser atualizada.
  
 ## Alterar a senha de administrador do dispositivo
 
-Quando você usar a interface do Windows PowerShell para acessar o dispositivo StorSimple, será solicitada a inserção de uma senha de administrador do dispositivo. Quando o primeiro dispositivo StorSimple é registrado em um serviço, a senha padrão para essa interface é *Password1*. Para a segurança de seus dados, você deve alterar essa senha no fim do processo de registro. Não é possível sair do processo de registro sem alterar essa senha. Para obter mais informações, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device) em [Implantação do seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+Quando você usar a interface do Windows PowerShell para acessar o dispositivo StorSimple, será solicitada a inserção de uma senha de administrador do dispositivo. Quando o primeiro dispositivo StorSimple é registrado em um serviço, a senha padrão para essa interface é *Password1*. Para a segurança de seus dados, você deve alterar essa senha no fim do processo de registro. Não é possível sair do processo de registro sem alterar essa senha. Para obter mais informações, consulte [Etapa 3: configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) em [Implantação do seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
 A senha que foi definida pela primeira vez por meio da interface do Windows PowerShell durante o registro pode ser alterada no Portal de Gerenciamento. Execute as etapas a seguir para alterar a senha de administrador do dispositivo.
 
@@ -66,4 +66,4 @@ A senha do administrador do dispositivo agora deve estar atualizada. Você pode 
 
 [Saiba mais sobre como modificar a configuração do dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

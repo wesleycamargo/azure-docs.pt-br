@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrar o usuário atual para notificações por push usando a API Web - Hubs de notificação" 
+	pageTitle="Registrar o usuário atual para notificações por push usando a API da Web | Microsoft Azure" 
 	description="Saiba como solicitar registro de notificação por push em um aplicativo iOS com Hubs de notificação do Azure quando o registro é executado pela API Web ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -240,4 +240,4 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar os usuár
 [Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

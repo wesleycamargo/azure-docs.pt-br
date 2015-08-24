@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o CDN ‒ guia de recursos do Azure" 
+	pageTitle="Como usar a CDN | Microsoft Azure" 
 	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -120,4 +120,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

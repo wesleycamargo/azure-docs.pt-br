@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Criar e gerenciar o Banco de Dados SQL com a Biblioteca de Banco de Dados SQL do Azure para .NET" 
-   description="Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure usando a Biblioteca de Banco de Dados SQL do Azure para .NET." 
+   pageTitle="Criar e gerenciar Banco de Dados SQL do Azure com C#" 
+   description="Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# Criar e gerenciar o Banco de Dados SQL com a Biblioteca de Banco de Dados SQL do Azure para .NET
+# Criar e gerenciar Banco de Dados SQL com C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Visão geral
 
-Este artigo fornece comandos para a execução de várias tarefas de gerenciamento do Banco de Dados SQL do Azure usando C#. Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
+Este artigo fornece comandos para a execução de várias tarefas de gerenciamento do Banco de Dados SQL do Azure com C# usando a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 
-A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos.
+Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
 
-
-O Gerenciador de Recursos exige grupos de recursos e a autenticação no [Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos. O Gerenciador de Recursos exige grupos de recursos e autenticação no AAD ([Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx)).
 
 <br>
 
@@ -82,16 +81,16 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Adicionar aplicativo][7]
 
-6. Forneça um **URI de REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
+6. Forneça um **URI DE REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
 
     ![Adicionar aplicativo][8]
 
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID do CLIENTE** (você precisará da ID de cliente em seu código).
+7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você precisará da ID do cliente em seu código).
 
     ![obter id do cliente][9]
 
 
-1. Na parte inferior da página, clique em **Adicionar um aplicativo**.
+1. Na parte inferior da página, clique em **Adicionar aplicativo**.
 1. Selecione **Aplicativos da Microsoft**.
 1. Selecione **API de Gerenciamento de Serviços do Azure** e conclua o assistente.
 2. Com a API selecionada, você precisa conceder as permissões específicas necessárias para acessar essa API selecionando **Acessar o Gerenciamento de Serviço do Azure (visualização)**.
@@ -250,7 +249,7 @@ O comando a seguir criará um novo banco de dados Basic se não existir um banco
 
 ## Atualizar um banco de dados 
 
-Para atualizar um banco de dados (por exemplo, alterando o nível de desempenho e da camada de serviço), chame o método **Databases.CreateOrUpdate** assim como ao criar ou atualizar um banco de dados acima. Defina as propriedades **Edition** e **RequestedServiceObjectiveName** para o nível de desempenho e da camada de serviço desejado. Observe que ao alterar a edição de ou para **Premium**, a atualização poderá demorar um pouco, dependendo do tamanho do banco de dados.
+Para atualizar um banco de dados (por exemplo, alterando o nível de desempenho e da camada de serviço), chame o método **Databases.CreateOrUpdate** assim como faria ao criar ou atualizar um banco de dados acima. Defina as propriedades **Edition** e **RequestedServiceObjectiveName** para a camada de serviço e o nível de desempenho desejados. Observe que, ao alterar a edição de ou para **Premium**, a atualização poderá demorar um pouco, dependendo do tamanho do banco de dados.
 
 A seguir, uma atualização do banco de dados SQL para o nível Standard (S0):
 
@@ -795,4 +794,4 @@ Para excluir um grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

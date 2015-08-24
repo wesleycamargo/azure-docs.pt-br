@@ -33,17 +33,19 @@ Você pode usar o Data Factory sempre que precisar coletar dados de diferentes f
 
 O Azure Data Factory tem algumas entidades principais que trabalham juntas para definir os dados de entrada e saída, eventos de processamento e o cronograma e os recursos necessários para executar o fluxo de dados desejado.
 
-![Principais Conceitos](./media/data-factory-introduction/key-concepts.png) **Figura 2.** Relações entre o Conjunto de dados, Atividade, Pipeline e Serviço vinculado
+![Principais Conceitos](./media/data-factory-introduction/key-concepts.png)
+
+**Figura 2.** Relações entre o Conjunto de dados, Atividade, Pipeline e Serviço vinculado
 
 
 ### Atividades
-As Atividades definem as ações a serem realizadas em seus dados. Cada atividade obtém nenhum ou mais [conjuntos de dados](data-factory-create-datasets.md) como entrada e produz um ou mais conjuntos de dados como saída. Uma atividade é uma unidade de orquestração no Azure Data Factory. Por exemplo, você pode usar uma [atividade de Cópia](data-factory-data-movement-activities.md) para orquestrar a cópia de dados de um conjunto de dados para outro. Da mesma forma, você pode usar uma [atividade do Hive](data-factory-data-transformation-activities.md) que executará uma consulta de Hive em um cluster do Azure HDInsight para transformar ou analisar seus dados. O Azure Data Factory fornece uma ampla gama de atividades de movimentação, análise e transformação de dados.
+As Atividades definem as ações a serem realizadas em seus dados. Cada atividade obtém nenhum ou mais [conjuntos de dados](data-factory-create-datasets.md) como entrada e produz um ou mais conjuntos de dados como saída. Uma atividade é uma unidade de orquestração no Azure Data Factory. Por exemplo, você pode usar uma [Atividade de cópia](data-factory-data-movement-activities.md) para coordenar a cópia de dados de um conjunto de dados para outro. De modo similar, você pode usar uma [Atividade do Hive](data-factory-data-transformation-activities.md), que executará uma consulta de Hive em um cluster do Azure HDInsight para transformar ou analisar seus dados. O Azure Data Factory fornece uma ampla gama de atividades de movimentação, análise e transformação de dados.
 
 ### Pipelines
 [Pipelines](data-factory-create-pipelines.md) são um agrupamento lógico de Atividades. Eles são usados para agrupar atividades em uma unidade que, em conjunto, executam uma tarefa. Por exemplo, uma sequência de várias Atividades de transformação poderá ser necessária para limpar dados do arquivo de log. Essa sequência pode ter um cronograma complexo e as dependências que precisam ser coordenadas e automatizadas. Todas essas atividades poderiam ser agrupadas em um único Pipeline chamado "CleanLogFiles". "CleanLogFiles", em seguida, poderia ser implantado, agendado ou excluído como uma única unidade em vez de gerenciar cada atividade individual de forma independente.
 
 ### Conjunto de dados
-[Conjuntos de dados](data-factory-create-datasets.md) são referências/ponteiros nomeados para os dados que você deseja usar como uma entrada ou uma saída de uma atividade. Conjuntos de dados identificam estruturas de dados em armazenamentos de dados diferentes, inclusive tabelas, arquivos, pastas e documentos.
+[Conjuntos de dados](data-factory-create-datasets.md) são referências/ponteiros nomeados para os dados que você deseja usar como uma entrada ou uma saída de uma Atividade. Conjuntos de dados identificam estruturas de dados em armazenamentos de dados diferentes, inclusive tabelas, arquivos, pastas e documentos.
 
 ### Serviço vinculado
 Serviços vinculados definem as informações necessárias para o Data Factory se conectar a recursos externos. Serviços vinculados são usados para duas finalidades no Data Factory:
@@ -51,6 +53,6 @@ Serviços vinculados definem as informações necessárias para o Data Factory s
 - Para representar um armazenamento de dados, incluindo, mas não se limitando a um SQL Server local, banco de dados Oracle, compartilhamento de arquivos ou uma conta de Armazenamento de Blobs do Azure. Conforme discutido anteriormente, conjuntos de dados representam as estruturas nos armazenamentos de dados conectados ao Data Factory por meio de um Serviço vinculado.
 - Para representar um recurso de computação que pode hospedar a execução de uma Atividade. Por exemplo, a "Atividade HDInsightHive" é executada em um cluster Hadoop do HDInsight.
 
-Com os quatro conceitos simples de conjuntos de dados, atividades, pipelines e serviços vinculados, você está pronto para começar! Você pode [criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) desde o início ou implantar uma amostra pronta seguindo as instruções em nosso artigo com [Exemplos de Data Factory](data-factory-samples.md).
+Com os quatro conceitos simples de conjuntos de dados, atividades, pipelines e serviços vinculados, você está pronto para começar! Você pode [criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) desde o início ou implantar uma amostra pronta seguindo as instruções em nosso artigo [Exemplos de Data Factory](data-factory-samples.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

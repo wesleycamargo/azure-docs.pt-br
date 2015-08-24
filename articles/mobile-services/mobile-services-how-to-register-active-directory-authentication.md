@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrar-se para autenticação do Active Directory do Azure | Serviços Móveis do Azure" 
+	pageTitle="Registrar-se para autenticação do Active Directory do Azure | Microsoft Azure" 
 	description="Saiba como se registrar para a autenticação do Active Directory do Azure em seu aplicativo de serviços móveis." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@ Agora você está pronto para usar um Active Directory do Azure para autenticaç
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

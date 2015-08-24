@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="08/06/2015" 
 	ms.author="riande"/>
 
 
@@ -41,39 +41,35 @@ Além de realizar referências do assembly para o Cache, o pacote NuGet adiciona
 
 1. Abra o *web.config* e localize o elemento **sessionState**.
 
-1. Insira os valores de `host`, `accessKey`, `port` (a porta SSL deve ser 6380) e defina `SSL` como `true`. Você pode obter esses valores na folha do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) da sua instância de cache. Para saber mais, confira [Conectar ao cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observe que a porta que não é do tipo SSL é desabilitada por padrão para novos caches. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de Acesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) no tópico [Configurar um cache no Cache Redis do Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). A marcação a seguir mostra as alterações no arquivo *web.config*.
+1. Insira os valores de `host`, `accessKey`, `port` (a porta SSL deve ser 6380) e defina `SSL` como `true`. Você pode obter esses valores na folha do [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) da sua instância de cache. Para saber mais, confira [Conectar ao cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Observe que a porta que não é do tipo SSL é desabilitada por padrão para novos caches. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de Acesso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) no tópico [Configurar um cache no Cache Redis do Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). A marcação a seguir mostra as alterações do arquivo *Web. config*, especificamente as alterações na *porta*, *host*, accessKey* e *ssl*.
 
-
-```  
-    &lt;system.web&gt;
-    &lt;customErrors mode="Off" /&gt;
-    &lt;authentication mode="None" /&gt;
-    &lt;compilation debug="true" targetFramework="4.5" /&gt;
-    &lt;httpRuntime targetFramework="4.5" /&gt;
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
-      &lt;providers&gt;  
-          &lt;!--&lt;add name="RedisSessionProvider" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-          /&gt;--&gt;
-         &lt;add name="RedisSessionProvider" 
-              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
-              <mark>port="6380"
-              host="movie2.redis.cache.windows.net" 
-              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> /&gt;
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
-      &lt;/providers&gt;
-    &lt;/sessionState&gt;
-  &lt;/system.web&gt;
-```
-
+		  <system.web>;
+		    <customErrors mode="Off" />;
+		    <authentication mode="None" />;
+		    <compilation debug="true" targetFramework="4.5" />;
+		    <httpRuntime targetFramework="4.5" />;
+		    <sessionState mode="Custom" customProvider="RedisSessionProvider">;
+		      <providers>;  
+		          <!--<add name="RedisSessionProvider" 
+		            host = "127.0.0.1" [String]
+		            port = "" [number]
+		            accessKey = "" [String]
+		            ssl = "false" [true|false]
+		            throwOnError = "true" [true|false]
+		            retryTimeoutInMilliseconds = "0" [number]
+		            databaseId = "0" [number]
+		            applicationName = "" [String]
+		          />;-->;
+		         <add name="RedisSessionProvider" 
+		              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+		              port="6380"
+		              host="movie2.redis.cache.windows.net" 
+		              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+		              ssl="true" />;
+		      <!--<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />;-->;
+		      </providers>;
+		    </sessionState>;
+		  </system.web>;
 
 
 ##<a id="usesessionobject"></a> Usar o objeto da sessão em código
@@ -111,4 +107,4 @@ Você também pode usar o Cache de Redis para armazenar em cache objetos no seu 
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

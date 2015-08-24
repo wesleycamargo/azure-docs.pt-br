@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Crie um Serviço que usa o armazenamento em tabela em vez de um Banco de Dados SQL | Serviços Móveis do Azure" 
+	pageTitle="Crie um Serviço que usa o armazenamento em tabela em vez de um Banco de Dados SQL | Microsoft Azure" 
 	description="Aprenda a usar o armazenamento de tabela do Azure com seu serviço móvel de back-end do .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

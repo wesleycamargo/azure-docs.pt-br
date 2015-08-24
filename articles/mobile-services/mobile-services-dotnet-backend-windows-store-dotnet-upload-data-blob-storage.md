@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Serviços Móveis para carregar imagens para o armazenamento de blob (Windows Store) | Serviços Móveis" 
+	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Store) | Microsoft Azure" 
 	description="Aprenda a usar os Serviços Móveis para carregar imagens no Armazenamento de blobs do Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ Em seguida, você atualizará o aplicativo quickstart para capturar e carregar i
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

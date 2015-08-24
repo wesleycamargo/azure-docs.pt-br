@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data Factory - Cria pipelines de previsão usando o Data Factory e o Aprendizado de Máquina | Azure" 
+	pageTitle="Data Factory - Cria Pipelines de Previsão usando o Data Factory e o Aprendizado de Máquina | Microsoft Azure" 
 	description="Descreve como criar pipelines de previsão usando a Azure Data Factory e o Aprendizado de Máquina do Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -199,7 +199,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -327,4 +327,4 @@ Artigo | Descrição
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

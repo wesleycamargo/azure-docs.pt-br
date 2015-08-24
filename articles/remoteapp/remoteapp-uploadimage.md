@@ -3,7 +3,7 @@
     pageTitle="Carregar uma imagem personalizada para o RemoteApp do Azure"
     description="Saiba como criar uma imagem personalizada para o RemoteApp do Azure." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 4.      Insira um nome amigável para a imagem e especifique o local da conta de armazenamento. Certifique-se de que o local seja o mesmo que o da sua coleção do RemoteApp ou um local em que você deseja criar uma. 
 5.      Quando solicitado, baixe o script para seu computador local.
 6.      Copie os parâmetros de comando na caixa de texto para a área de transferência.
-7.      Abra uma janela elevada do Windows PowerShell  
+7.      Abra uma janela elevada do Windows PowerShell.
 8.      Na janela do Windows PowerShell com privilégios elevados, navegue para o mesmo diretório para o qual você baixou o script.
 9.      Cole o comando copiado e pressione **Enter**.
 
@@ -52,4 +52,4 @@ Agora que você criou sua imagem de modelo personalizada ou atualizou-a com as a
 - Se o arquivo vhd for bloqueado durante o carregamento, copie o arquivo ou mova-o para um novo local e tente novamente. Pode haver algum processo do Windows impedindo o carregamento.  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

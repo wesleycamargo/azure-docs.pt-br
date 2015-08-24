@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Definir alertas no Application Insights
@@ -44,9 +44,11 @@ Observe as unidades quando você for solicitado para inserir o valor de limite.
 
 ## Ver seus alertas
 
-Os alertas são enviados a você por email.
+Você recebe um email quando o estado de um alerta é mudado de inativo para ativo.
 
-Eles também são exibidos no log de Eventos de Operações:
+O estado atual de cada alerta é mostrado na folha de regras de Alerta.
+
+O histórico das alterações de estado está no log de Eventos de operações:
 
 ![Na folha Visão geral, próximo à parte inferior, clique em 'Eventos da semana anterior'](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Alguns alertas populares são:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

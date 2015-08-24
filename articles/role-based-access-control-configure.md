@@ -55,7 +55,7 @@ O acesso não precisa ser concedido para toda a assinatura. As funções podem s
 
 Os administradores e coadministradores de assinatura continuarão a ter acesso completo aos portais do Azure e as APIs de gerenciamento. No modelo RBAC, eles recebem a função de Proprietário no nível de assinatura. No entanto, há suporte para o novo modelo RBAC apenas no Portal do Azure e nas APIs do Gerenciador de Recursos do Azure. Os usuários e serviços que são atribuídos às funções RBAC não podem acessar o Portal de Gerenciamento do Azure e as APIs de Gerenciamento de serviços. Ao adicionar um usuário a função de Proprietário de uma assinatura no Portal do Azure não torna aquele usuário um coadministrador da assinatura no portal completo do Azure.
 
-Se você deseja permitir acesso a um usuário para um recurso do Azure que ainda não está disponível para ser gerenciado por meio do Portal de Gerenciamento, você deve adicioná-los aos coadministradores de assinatura usando o portal completo de Gerenciamento do Azure. O Barramento de Serviço e os Serviços de Nuvem são exemplo de recursos que hoje não podem ser gerenciados usando o RBAC.
+Se você deseja permitir acesso a um usuário para um recurso do Azure que ainda não está disponível para ser gerenciado por meio do Portal de Gerenciamento, você deve adicioná-los aos coadministradores de assinatura usando o portal completo de Gerenciamento do Azure. O Barramento de Serviço e o StorSimple são exemplos de recursos que, atualmente, não podem ser gerenciados usando o RBAC.
 
 ## Autorização para o gerenciamento versus operações de dados
 
@@ -1293,4 +1293,4 @@ Veja alguns recursos adicionais para ajudar você a usar o controle de acesso co
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

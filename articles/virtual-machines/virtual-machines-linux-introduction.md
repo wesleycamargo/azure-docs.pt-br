@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao Linux no Azure - Tutorial do Azure"
+	pageTitle="Introdução ao Linux no Azure | Microsoft Azure"
 	description="Saiba como usar máquinas virtuais Linux no Azure."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -110,4 +110,4 @@ No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os us
  - **Consulte também:** [configurar RAID de software no Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

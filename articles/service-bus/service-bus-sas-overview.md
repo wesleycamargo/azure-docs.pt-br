@@ -149,7 +149,7 @@ return $token;
 }
 ```
  
-### C&\#35;
+### C&#35;
 
 ```
 private static string createToken(string resourceUri, string keyName, string key)
@@ -186,9 +186,9 @@ Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP 
 
 Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **"$cbs"** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor precisa especificar o campo **"ReplyTo"** dentro da mensagem AMQP; esse é o nó onde o serviço responderá ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
 
-As etapas a seguir mostrarão como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](http://amqpnetlite.codeplex.com), muito útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&\#35;. Obviamente, essa biblioteca é útil para entender como a Segurança Baseada em Declarações funciona no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). No entanto, não se preocupe! Se você não precisar desse conhecimento avançado sobre AMQP, poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que fará exatamente isso para você, ou a biblioteca [Azure SB Lite](http://azuresblite.codeplex.com) para todas as outras plataformas (veja acima).
+As etapas a seguir mostrarão como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](http://amqpnetlite.codeplex.com), muito útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&#35;. Obviamente, essa biblioteca é útil para entender como a Segurança Baseada em Declarações funciona no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). No entanto, não se preocupe! Se você não precisar desse conhecimento avançado sobre AMQP, poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que fará exatamente isso para você, ou a biblioteca [Azure SB Lite](http://azuresblite.codeplex.com) para todas as outras plataformas (veja acima).
 
-### C&\#35;
+### C&#35;
 
 ```
 /// <summary>
@@ -251,6 +251,6 @@ Depois de enviar o token SAS pelo link do remetente, o editor precisará ler a r
 
 Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para saber mais sobre o que você pode fazer com esses tokens SAS.
 
-Para saber mais sobre a SAS, consulte o nó [Autenticação do Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) no MSDN.
+Para saber mais sobre a SAS, consulte o nó [Autenticação do Barramento de Serviço](https://msdn.microsoft.com/library/azure/dn155925.aspx) no MSDN. Mais exemplos sobre SAS em C# e Java Script no [blog de Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

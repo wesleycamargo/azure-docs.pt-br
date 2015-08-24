@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como gerenciar um serviço de nuvem - Azure" 
+	pageTitle="Como gerenciar um serviço de nuvem | Microsoft Azure" 
 	description="Saiba como gerenciar serviços de nuvem no Portal de Visualização do Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
 [Portal de Visualização do Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

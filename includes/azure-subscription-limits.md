@@ -1,81 +1,20 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Limite padrão</th>
-   <th align="left" valign="middle">Limite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">assinatura</a><sup>1</sup></p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>10.000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coadministradores</a> por assinatura</p></td>
-   <td valign="middle"><p>200</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Contas de armazenamento</a> por assinatura</p></td>
-   <td valign="middle"><p>100</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Serviços de nuvem</a> por assinatura</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Redes locais</a> por assinatura</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Servidores de banco de dados SQL por assinatura</p></td>
-   <td valign="middle"><p>6</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Bancos de dados SQL por servidor</p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Servidores DNS por assinatura</p></td>
-   <td valign="middle"><p>9</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>IPs reservados por assinatura</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Circuitos dedicados da Rota Expressa por assinatura</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Certificados de serviço hospedado por assinatura</p></td>
-   <td valign="middle"><p>400</p></td>
-   <td valign="middle"><p>400</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Grupos de afinidade</a> por assinatura</p></td>
-   <td valign="middle"><p>256</p></td>
-   <td valign="middle"><p>256</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Contas do <a href="http://azure.microsoft.com/services/batch/">Lote</a> por região, por assinatura</p></td>
-   <td valign="middle"><p>1</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Regras de alerta por assinatura</p></td>
-   <td valign="middle"><p>250</p></td>
-   <td valign="middle"><p>250</p></td>
-</tr>
-</table>
+Recurso|Limite padrão|Limite máximo
+---|---|---
+Núcleos por [assinatura](http://msdn.microsoft.com/library/azure/hh531793.aspx)<sup>1</sup>|20|10\.000
+[Coadministradores](http://msdn.microsoft.com/library/azure/gg456328.aspx) por assinatura|200|200
+[Contas de armazenamento](storage-create-storage-account.md) por assinatura|100|100
+[Serviços de nuvem](cloud-services-what-is.md) por assinatura|20|200
+[Redes locais](http://msdn.microsoft.com/library/jj157100.aspx) por assinatura|10|500
+Servidores de banco de dados SQL por assinatura|6|150
+Bancos de dados SQL por servidor|150|500
+Servidores DNS por assinatura|9|100
+IPs reservados por assinatura|20|100
+Circuitos dedicados da Rota Expressa por assinatura|10|25
+Certificados de serviço hospedado por assinatura|400|400
+[Grupos de afinidade](http://msdn.microsoft.com/library/azure/jj156085.aspx) por assinatura|256|256
+Contas do [Lote](http://azure.microsoft.com/services/batch/) por região, por assinatura|1|50
+Regras de alerta por assinatura|250|250
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

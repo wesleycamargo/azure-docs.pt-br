@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurar SSL para um serviço de nuvem (Node.js) - Azure" 
+	pageTitle="Configurar SSL para um serviço de nuvem (Node.js) | Microsoft Azure" 
 	description="Defina um ponto de extremidade HTTPS para uma função web do Node.js e carregue um certificado SSL para proteger seu aplicativo." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -192,4 +192,4 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
   [Configurando o SSL para um aplicativo Node.js em uma função de trabalho do Azure]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

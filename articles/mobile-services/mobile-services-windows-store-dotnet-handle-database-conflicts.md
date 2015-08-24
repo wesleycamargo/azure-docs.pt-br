@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tratar conflitos de gravação do banco de dados com simultaneidade otimista (Windows Store) | Centro de desenvolvimento móvel" 
+	pageTitle="Tratar conflitos de gravação do banco de dados com simultaneidade otimista (Windows Store) | Microsoft Azure" 
 	description="Saiba como tratar conflitos de gravação do banco de dados no servidor e em seu aplicativo da Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -366,4 +366,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

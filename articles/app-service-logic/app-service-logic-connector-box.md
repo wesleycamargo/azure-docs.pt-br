@@ -1,6 +1,6 @@
 <properties
    pageTitle="Usando o Conector do Box em seu aplicativo lógico"
-   description="Usando o Conector do Box em seu aplicativo lógico"
+   description="Como usar o Conector do Box em seu aplicativo lógico"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
@@ -13,151 +13,89 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/10/2015"
    ms.author="andalmia"/>
 
-# Usando o Conector do Box em seu aplicativo lógico
+# Conector do Box
+
+Você pode ter situações em que talvez precise trabalhar com o Box, que permite compartilhar dados com qualquer pessoa de maneira segura – mesmo que a pessoa esteja fora do seu firewall. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
 
-
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode ter situações em que talvez precise trabalhar com o Box, que permite compartilhar dados com qualquer pessoa de maneira segura – mesmo que a pessoa esteja fora do seu firewall.
-
-
-
+## Gatilhos e Ações
 O aplicativo de galeria do Box fornece a você Ações como mecanismos para interagir com o Box:
 
+**Ações**: as ações permitem que você execute ações predefinidas na conta do Box, configurada com o aplicativo lógico. A seguir, ações que podem ser executadas na conta do Box usando o conector do Box:
+
+a. *Listar Arquivos:* esta operação retorna as informações de todos os arquivos em uma pasta. Lista de parâmetros necessários para a ação:
+
+Nome do Parâmetro | Descrição | Obrigatório
+--- | --- | ---
+Caminho da pasta | Caminho da pasta para a lista. | Sim
+
+> [AZURE.NOTE]Ela não retorna nenhum conteúdo de arquivo.
+
+b. *Obter Arquivo:* essa operação recupera um arquivo, incluindo conteúdo e propriedades. Lista de parâmetros necessários para a ação:
+
+Nome do Parâmetro | Descrição | Obrigatório
+--- | --- | ---
+Caminho do arquivo | Caminho da pasta na qual o arquivo reside. | Sim
+Tipo de arquivo | Especifica se o arquivo é de Texto ou Binário. | Não
+
+> [AZURE.NOTE]Esta operação não exclui o arquivo depois de lê-lo.
 
 
-1. **Ações**: as ações permitem que você execute ações predefinidas na conta do Box, configurada com o aplicativo lógico. A seguir, ações que podem ser executadas na conta do Box usando o conector do Box:
+c. *Carregar Arquivo*: como o nome sugere, a ação carrega o arquivo na conta do Box. Se o arquivo já existir, ele não será substituído e um erro será gerado. Lista de parâmetros necessários para a ação:
 
-	a. *Listar Arquivos:* Esta operação retorna as informações de todos os arquivos em uma pasta. A seguir, a lista de parâmetros necessários para a ação:
+Nome do Parâmetro | Descrição | Obrigatório
+--- | --- | ---
+Caminho do arquivo | Caminho para o arquivo. | Sim
+Conteúdo do arquivo | Conteúdo do arquivo a ser carregado. | Sim
+Codificação de transferência de conteúdo | Tipo de codificação do conteúdo: Base64 ou Nenhum. | 
 
-	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho da pasta</td>
-	    <td>Caminho da pasta na qual lista deve ser feita.</td>
-	    <td>Sim</td>
-	  </tr>
-	</table>
+d. *Excluir Arquivo*: a ação exclui o arquivo especificado de uma pasta. Se o arquivo/pasta não for encontrado, uma exceção será gerada. Lista de parâmetros necessários para a ação:
 
-	>[AZURE.NOTE]Ela não retorna nenhum conteúdo de arquivo.
+Nome do Parâmetro | Descrição | Obrigatório
+--- | --- | ---
+Caminho do arquivo | Caminho Completo do Arquivo, incluindo Pastas. | Sim
 
 
+## Criar um Conector do Box para o aplicativo lógico
 
-    b. *Obter Arquivo:* essa operação recupera um arquivo, incluindo conteúdo e propriedades. A seguir, a lista de parâmetros necessários para a ação:
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do arquivo</td>
-	    <td>Caminho da pasta na qual o arquivo está presente.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Tipo de arquivo</td>
-	    <td>Especifica se o arquivo é de Texto ou Binário.</td>
-	    <td>Não</td>
-	  </tr>
-	</table>
-	>[AZURE.NOTE]Esta operação não exclui o arquivo depois de lê-lo.
-
-
-
-    c. Carregar Arquivo: como o nome sugere, a ação carrega o arquivo na conta do Box. Se o arquivo já existir, ele não será substituído e um erro aparecerá. A seguir, a lista de parâmetros necessários para a ação:
-
-	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do arquivo</td>
-	    <td>Caminho para o arquivo.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Conteúdo do arquivo</td>
-	    <td>Conteúdo do arquivo a ser carregado.</td>
-	    <td>Sim</td>
-	  </tr>
-	  <tr>
-	    <td>Codificação de transferência de conteúdo</td>
-	    <td>O tipo de codificação do conteúdo pode ser Base64 ou Nenhum.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-
-	d. Excluir Arquivo: a ação exclui o arquivo especificado de uma pasta. Se o arquivo/pasta não for encontrado uma exceção será lançada. A seguir, a lista de parâmetros necessários para a ação:
-
- 	<table>
-	  <tr>
-	    <td><b>Nome do parâmetro</b></td>
-	    <td><b>Descrição</b></td>
-	    <td><b>Obrigatório</b></td>
-	  </tr>
-	  <tr>
-	    <td>Caminho do arquivo</td>
-	    <td>Caminho Completo do Arquivo, incluindo Pastas.</td>
-	    <td>Sim</td>
-	  </tr>
-	</table>
-
-
-
-
-## Criando um Conector do Box para seu Aplicativo Lógico
-
-Para usar o Conector do Box, você precisa primeiro criar uma instância do aplicativo de API para o Conector do Box. Você pode fazer isso de dentro do designer de Aplicativo lógico ou também fora dele. Criá-la fora do designer pode ser feito da seguinte maneira:
-
-1. Abra o Azure Marketplace na home page do Portal do Azure.
-
-2. Em "Tudo", pesquise "Conector do Box".
-
-3. Configure o conector do Box e clique em Criar:
-
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do Box", selecione-o e selecione **Criar**.
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
 	![][1]
-
-4. Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do Box.
+4. Selecione **Criar**.
 
 
 ## Usando o Conector do Box em seu Aplicativo Lógico
 
-Depois de criar seu aplicativo de API, você pode usar o Conector do Box como uma ação para seu Aplicativo Lógico. Para fazer isso, você precisa:
+Depois de criar o aplicativo de API, você pode usar o Conector do Box como uma ação em seu aplicativo lógico. Para fazer isso:
 
+1. No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo. O Conector do Box está listado na galeria. Selecione-o para adicioná-lo automaticamente ao seu designer de aplicativos lógicos.
 
-1. Criar um novo aplicativo lógico e escolher o mesmo grupo de recursos que tem o Conector do Box.
+	> [AZURE.NOTE]Se o conector do Box é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações podem ser executadas na conta do Box usando o conector. O Conector do Box não tinha nenhum gatilho na data de criação deste artigo.
 
-2. Abrir "Gatilhos e Ações" para abrir o Designer de aplicativos lógicos e configurar seu fluxo. O Conector do Box apareceria na seção "Usado Recentemente" na galeria do lado direito. Selecione-o.
-
-3. Se o Conector do Box tiver sido selecionado no início do aplicativo lógico, ele age como gatilho. Caso contrário, ações poderiam ser executadas na conta do Box usando o conector. Observe que o conector do Box não tem nenhum gatilho na data de criação deste artigo.
-
-4. A primeira etapa seria autenticar e autorizar aplicativos lógicos a executarem operações em seu nome. Para iniciar a autorização, clique em Autorizar no Conector do Box.
-
+2. Autentique e autorize os aplicativos lógicos a executarem operações em seu nome. Selecione **Autorizar** no Conector do Box: 
 	![][2]
 
-5. O clique em Autorizar abre a caixa de diálogo de autenticação do Box. Forneça os detalhes de logon da conta do Box na qual você deseja executar as operações.
-
+3. Insira os detalhes de conexão da conta do Box na qual você deseja executar as operações: 
 	![][3]
 
-6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome.
-
+4. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: 
 	![][4]
 
-7. A lista de ações é exibida e você pode escolher a operação apropriada que deseja executar.
-
+5. A lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: 
 	![][5]
 
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Crie aplicativos de API usando APIs REST. Consulte [Connectors and API Apps Reference (Referência de conectores e de aplicativos de API)](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-box/image_0.jpg
@@ -166,4 +104,4 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Box como um
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

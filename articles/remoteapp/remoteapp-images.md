@@ -1,21 +1,21 @@
 <properties
-    pageTitle="O que são as imagens de modelo do RemoteApp?"
-    description="Saiba mais sobre as imagens de modelo incluídas no RemoteApp."
+    pageTitle="O que são as imagens de modelo do RemoteApp do Azure?"
+    description="Saiba mais sobre as imagens de modelo incluídas no RemoteApp do Azure."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
-    ms.workload="tbd"
+    ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015" 
+    ms.topic="get-started-article"
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# O que são as imagens de modelo do RemoteApp?
+# O que são as imagens de modelo do RemoteApp do Azure?
 
 Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 
@@ -26,7 +26,7 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 
 > [AZURE.IMPORTANT]Sua assinatura do Azure RemoteApp concede o acesso ao software nas imagens, com exceção do Office 365 ProPlus, que requer uma assinatura separada, e o Office 2013, que não pode ser usado na produção. Isso significa que você pode compartilhar os programas ou aplicativos nas imagens de modelo com seus usuários. Por exemplo, se você criar uma coleção que usa a imagem do Windows Server 2012 R2, poderá publicar o System Center Endpoint Protection para que os usuários acessem por meio do RemoteApp.
 > 
-> Confira os [Detalhes de licenciamento do RemoteApp](remoteapp-licensing.md) para obter mais informações.
+> Confira os [Detalhes de licenciamento do RemoteApp](remoteapp-licensing.md) para obter mais informações. Consulte também [Usando o Office com o RemoteApp do Azure](remoteapp-o365.md) para obter informações de licenciamento do Office.
 
 Leia mais para obter detalhes sobre o que cada imagem contém.
 
@@ -100,7 +100,7 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 - Word
 - Revisores de texto do Microsoft Office
 
-> [AZURE.IMPORTANT]**Importantes informações legais:** Esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o Azure RemoteApp](remoteapp-o365.md)
+> [AZURE.IMPORTANT]**Importantes informações legais:** Esta imagem não inclui uma licença do Microsoft Office e *não pode ser usada para a produção*. A imagem do Office 2013 Professional Plus é destinada apenas ao uso para avaliação. Se quiser usar os aplicativos do Office no RemoteApp do Azure para produção, você precisará usar a imagem do Office 365 ProPlus. Para obter mais detalhes sobre licenciamento do Office, consulte [Usar o Office 365 com o RemoteApp do Azure](remoteapp-o365.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

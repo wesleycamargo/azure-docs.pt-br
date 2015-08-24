@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar filas do barramento de serviço (Python) - Azure" 
+	pageTitle="Como usar as filas de Barramento de Serviço (Python) | Microsoft Azure" 
 	description="Saiba como usar as filas do barramento de serviço do Azure do Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -98,4 +98,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 [Filas, tópicos e assinaturas]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

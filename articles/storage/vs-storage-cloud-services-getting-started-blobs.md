@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introdução ao armazenamento de blobs do Azure e serviços conectados do Visual Studio" 
-	description="Como começar a usar o armazenamento de blob do Azure em um projeto de serviço de nuvem no Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Introdução ao armazenamento de blobs do Azure e serviços conectados do Visual Studio"
+	description="Como começar a usar o armazenamento de blob do Azure em um projeto de serviço de nuvem no Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # Introdução ao armazenamento de blobs do Azure e serviços conectados do Visual Studio
@@ -262,10 +262,10 @@ Como o método de amostra chama um método assíncrono, ele deve ser precedido p
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## Próximas etapas
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

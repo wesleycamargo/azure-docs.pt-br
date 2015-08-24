@@ -135,4 +135,4 @@ Para obter uma lista completa de funções, consulte [Azure AD Connect Sync: ref
  
 <!--Image references-->
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

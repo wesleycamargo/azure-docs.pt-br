@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gerenciar um banco de dados SQL com o SSMS - Azure" 
+	pageTitle="Gerenciar um banco de dados SQL com o SSMS | Microsoft Azure" 
 	description="Aprenda a usar o SQL Server Management Studio para gerenciar bancos de dados e servidores de banco de dados SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -186,4 +186,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

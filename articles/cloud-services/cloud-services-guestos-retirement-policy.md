@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Guia de capacidade de suporte e política de desativação para sistema operacional convidado do Azure | Azure" 
+   pageTitle="Guia de capacidade de suporte e política de desativação para SO convidado do Azure | Microsoft Azure" 
    description="Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -88,4 +88,4 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

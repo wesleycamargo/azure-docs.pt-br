@@ -220,14 +220,14 @@ Neste tutorial, você usará o comando **copyFromLocal** do HDFS para carregar o
 
 Este tutorial usa a seguinte estrutura de pastas HDFS:
 
-<table border="1">
-<tr><td>Pasta</td><td>Observação</td></tr>
-<tr><td>/WordCount</td><td>A pasta raiz do projeto de contagem de palavras. </td></tr>
-<tr><td>/WordCount/Apps</td><td>A pasta dos executáveis do mapeador e do redutor.</td></tr>
-<tr><td>/WordCount/Input</td><td>A pasta do arquivo de origem do MapReduce.</td></tr>
-<tr><td>/WordCount/Output</td><td>A pasta do arquivo de saída do MapReduce.</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr>
-</table>
+Pasta|Observação
+---|---
+/WordCount|A pasta raiz do projeto de contagem de palavras. 
+/WordCount/Apps|A pasta dos executáveis do mapeador e do redutor.
+/WordCount/Input|A pasta do arquivo de origem do MapReduce.
+/WordCount/Output|A pasta do arquivo de saída do MapReduce.
+/WordCount/MRStatusOutput|A pasta de saída do trabalho.
+
 
 Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home% como os arquivos de dados.
 
@@ -610,4 +610,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar tópicos do Barramento de Serviço (Python) - Azure" 
+	pageTitle="Como usar os tópicos de Barramento de Serviço (Python) | Microsoft Azure" 
 	description="Saiba como usar tópicos do barramento de serviço do Azure e assinaturas do Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -158,4 +158,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

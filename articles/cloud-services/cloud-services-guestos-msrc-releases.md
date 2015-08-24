@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Lista de atualizações aplicadas ao SO convidado do Azure | Azure" 
+   pageTitle="Lista de atualizações aplicadas ao SO convidado do Azure | Microsoft Azure" 
    description="Lista de atualizações aplicadas a versões do SO convidado" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -239,4 +239,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

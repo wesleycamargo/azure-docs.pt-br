@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # Usando as credenciais do cofre para autenticação no serviço Backup do Azure
 O servidor local (cliente Windows, Windows Server ou servidor do SCDPM) precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é feita com as "credenciais do cofre". O conceito de credenciais do cofre é semelhante ao conceito de um arquivo de "configurações de publicação" que é usado no Azure PowerShell.
@@ -32,7 +32,6 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 5.  O portal gerará uma credencial de cofre usando uma combinação do nome do cofre e a data atual. Clique em **Salvar** para baixar as credenciais do cofre para a pasta de downloads da conta local ou selecione Salvar Como no menu Salvar para especificar um local para as credenciais do cofre.
 
 ## Observações
-- Desde março de 2015, os usuários não têm uma forma programática (por exemplo: PowerShell) de baixar credenciais de cofre.
 - Certifique-se de que as credenciais do cofre sejam salvas em um local que pode ser acessado no seu computador. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - O arquivo de credenciais do cofre é usado somente durante o fluxo de trabalho de registro.
 - O arquivo de credenciais do cofre expira após 48 horas e pode ser baixado no portal.
@@ -41,4 +40,4 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 ## Próximas etapas
 [Baixar, registrar e instalar o Agente de Backup do Azure](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

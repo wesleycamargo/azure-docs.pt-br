@@ -1,8 +1,8 @@
 <properties
-    pageTitle="O que vem pela frente no RemoteApp"
-    description="Saiba sobre os novos recursos para o RemoteApp"
+    pageTitle="O que vem pela frente no RemoteApp do Azure"
+    description="Saiba quando novos recursos para o RemoteApp do Azure estarão disponíveis"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
-# O que vem pela frente no RemoteApp
+# O que vem pela frente no RemoteApp do Azure
 
-Estamos sempre trabalhando para melhorar o RemoteApp com base em seu feedback. Aqui estão as linhas de tempo aproximadas para disponibilidade de recursos.
+Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus comentários. Aqui estão as linhas de tempo aproximadas para disponibilidade futura de recursos.
 
 |Recurso|mar-jan 2015|abr-jun 2015|jul-set 2015|out-dez 2015|
 |-----------|-------|-------|-------|-------|
@@ -39,4 +39,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

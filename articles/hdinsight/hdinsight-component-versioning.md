@@ -23,22 +23,21 @@
 O HDInsight do Azure dá suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão provisiona uma versão específica da distribuição de HDP (HortonWorks Data Platform) e um conjunto de componentes contidos nessa distribuição. As versões do componente associadas às versões do cluster HDInsight são detalhadas na tabela a seguir. Observe que a versão padrão do cluster usada pelo Azure HDInsight atualmente é a 3.1 e, a partir de 07/11/2014, baseada em HDP 2.1.7.
 
 
-<table border="1">
-<tr><th>Componente</th><th>HDInsight versão 3.2</th><th>HDInsight versão 3.1 (padrão)</th><th>HDInsight versão 3,0</th><th>HDInsight versão 2.1</th></tr>
-<tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2,0</td><td>1,3</td></tr>
-<tr><td>Apache Hadoop e YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
-<tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>Apache Hive e HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
-</table>
+Componente|HDInsight versão 3.2|HDInsight versão 3.1 (padrão)|HDInsight versão 3,0|HDInsight versão 2.1
+---|---|---|---|---
+Hortonworks Data Platform|2\.2|2\.1.7|2,0|1,3
+Apache Hadoop e YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
+Tez|0\.5.2|0\.4.0||
+Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
+Apache Hive e HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
+HBase |0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
+Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Storm|0\.9.3|0\.9.1||
+Mahout|0\.9.0|0\.9.0||
+Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark|1\.3.1|||
 
 
 **Obter informações atuais sobre a versão do componente**
@@ -105,7 +104,13 @@ A tabela a seguir lista as versões do HDInsight disponíveis no momento, as ver
 * Clusters altamente disponíveis com dois headnodes são implantados por padrão para clusters HDInsight 2.1 e superiores. Eles não estão disponíveis para clusters HDInsight 1.6.
 * Depois que o suporte expirar para uma determinada versão, ele poderá não estar disponível pelo portal do Azure. A tabela a seguir indica quais versões estão disponíveis no portal do Azure. As versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) e o SDK .NET até sua data de substituição.
 
-<table border="1"> <tr><th>HDInsight Versão</th><th>HDP Versão</a><th>Alta Disponibilidade</th></th><th>Data da Liberação</th><th>Disponível no Portal do Azure</th><th>Data de expiração do suporte</th><th>Data de descontinuação</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sim</td><td>18/2/2015</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sim</td><td>24/6/2014</td><td>Sim</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sim</td><td>11/02/2014</td><td>Sim</td><td>17/09/2014</td><td>06/30/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sim</td><td>28/10/2013</td><td>Não</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>Não</td><td>28/10/2013</td><td>Não</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
+Versão do HDInsight|Versão do HDP|Alta Disponibilidade|Data do lançamento|Disponível no Portal do Azure|Data de validade do suporte|Data de reprovação
+---|---|---|---|---|---|---
+HDI 3.2|HDP 2.2|Sim|18/02/2015|Sim||
+HDI 3,1|HDP 2,1|Sim|24/06/2014|Sim||
+HDI 3,0|HDP 2,0|Sim|11/02/2014|Sim|17/09/2014|30/06/2015
+HDI 2,1|HDP 1,3|Sim|28/10/2013|Não|12/05/2014|31/05/2015
+HDI 1.6|HDP 1.1|Não|28/10/2013|Não|26/04/2014|31/05/2015
 
 **Implantação de clusters não padrão**
 
@@ -161,4 +166,4 @@ A **Data de Reprovação** é a data após a qual a versão do cluster não pode
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

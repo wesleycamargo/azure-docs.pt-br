@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Usando o Office 365 com o RemoteApp do Azure" 
-    description="Saiba como o Office 365 e o Azure RemoteApp funcionam juntos" 
-    services="remoteapp"  
-	documentationCenter="" 
+    pageTitle="Usando o Office com o RemoteApp do Azure" 
+    description="Saiba como o Office e o RemoteApp do Azure funcionam juntos" 
+    services="remoteapp" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# Usando o Office 365 com o RemoteApp do Azure
+# Usando o Office com o RemoteApp do Azure
 
-Você tem duas opções para hospedar aplicativos do Office no RemoteApp: Office 365 ProPlus ou Office 2013 Professional Plus Trial.
+Você tem duas opções para hospedar aplicativos do Office no RemoteApp do Azure: Office 365 ProPlus ou Office 2013 Professional Plus Trial.
 
 ## Office 365 ProPlus 
 Você pode criar uma coleção de RemoteApp usando a imagem de modelo do Office 365 ProPlus. Esta opção permite estender o serviço Office 365 para o RemoteApp. Você deve ter um plano de assinatura existente e seus usuários devem ser licenciados para o serviço Office 365 ProPlus, sozinhos ou planos de serviço por meio do Office 365.
@@ -48,4 +48,4 @@ Quando você ativar sua conta, isso afetará todas as coleções de RemoteApp em
 Se você não fizer a transição para o modo de produção até a expiração da sua avaliação, as coleções de RemoteApp serão desabilitadas. Não se preocupe – suas configurações e dados de usuários serão salvas por outros 90 dias para que você ainda possa ativar o serviço e alternar para o modo de produção sem qualquer perda de dados.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

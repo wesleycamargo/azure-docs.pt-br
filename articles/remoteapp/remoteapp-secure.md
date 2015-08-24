@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Outro exemplo é se você quiser bloquear o acesso à Internet para um aplicativ
 - [Políticas do Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluindo [como personalizar a barra de ferramentas do Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

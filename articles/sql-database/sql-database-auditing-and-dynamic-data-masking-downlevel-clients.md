@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Suporte a clientes de versão anterior do banco de dados SQL para auditoria e mascaramento de dados dinâmicos | Azure" 
+	pageTitle="Suporte a clientes de versão anterior do banco de dados SQL para auditoria e mascaramento de dados dinâmicos | Microsoft Azure" 
 	description="Suporte a clientes de versão anterior do banco de dados SQL para auditoria e mascaramento de dados dinâmicos" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -40,4 +40,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

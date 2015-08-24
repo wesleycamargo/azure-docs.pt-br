@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar os tópicos AMQP 1.0 com A API do Barramento de Serviço em .NET - Azure" 
+	pageTitle="Como usar o AMPQ 1.0 com a API do Barramento de Serviço em .NET | Microsoft Azure" 
 	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 com a API de barramento de serviço .NET do Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -308,4 +308,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Como usar as filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

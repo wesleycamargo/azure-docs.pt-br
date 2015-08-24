@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar o armazenamento do Azure em aplicativos da Windows Store | Azure" 
+	pageTitle="Usar o armazenamento do Azure em aplicativos da Windows Store | Microsoft Azure" 
 	description="Saiba como usar blobs, filas e tabelas do Azure para armazenar dados de aplicativos da Windows Store." 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@ Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.T
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

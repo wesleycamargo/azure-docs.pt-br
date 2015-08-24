@@ -4,15 +4,15 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/06/2015"
 	ms.author="awills"/>
 
 # Análise de uso com o Application Insights
@@ -21,11 +21,39 @@ Saber como as pessoas usam seu aplicativo permite a você concentrar o trabalho 
 
 O Application Insights pode fornecer uma visão clara do uso do seu aplicativo, ajudando a melhorar sua experiência de usuário e atingir suas metas comerciais.
 
+O Application Insights funciona tanto para aplicativos autônomos (no iOS, Android e Windows) quanto para aplicativos web (hospedados no .NET ou J2EE)
+
+## Adicione o Application Insights ao seu projeto
+
+Para começar, você precisa de uma assinatura do [Microsoft Azure](https://azure.com). (Há uma avaliação gratuita e após o período de avaliação, você pode continuar com a camada gratuita do serviço).
+
+No [Portal do Azure](https://portal.azure.com), crie um recurso do Application Insights. É aqui onde verá seu uso e dados de performance sobre seu aplicativo.
+
+![No Azure, clique em Novo, Serviços de Desenvolvedor, Application Insights](./media/app-insights-overview-usage/01-create.png)
+
+**Se seu aplicativo for um aplicativo de dispositivo,**, adicione o SDK do Application Insights ao projeto. O procedimento exato varia dependendo de sua [IDE e plataforma](app-insights-platforms.md). Para aplicativos do Windows, clique com o botão direito do mouse no Visual Studio e selecione “Adicionar Application Insights”.
+
+**Se for um aplicativo web,**abrir a folha de início rápido e obter o trecho de código para adicionar a páginas da web. Publicá-los novamente com este trecho de código.
+
+![Abra o Início Rápido e clique em Obter código para monitorar minhas páginas na Web. Copie o script no cabeçalho da página da web mestra.](./media/app-insights-overview-usage/02-monitor-web-page.png)
+
+Você também pode adicionar o Application Insights ao seu código de servidor [ASP.NET](app-insights-start-monitoring-app-health-usage.md)ou[J2EE](app-insights-java-get-started.md) para combinar telemetria a partir do cliente e servidor.
+
+
+### Execute seu projeto e veja os primeiros resultados
+
+Execute seu projeto no modo de depuração por alguns minutos e, em seguida, vá para o[portal do Azure](http://portal.azure.com)e vá para o recurso de projeto no Application Insights.
+
+![No Azure, clique em Navegar, Application Insights e selecione seu projeto.](./media/app-insights-overview-usage/00-start.png)
+
+Publique seu aplicativo para obter mais telemetria e descubra o que os usuários estão fazendo com seu aplicativo.
+
+
 ## Análise imediata
 
-Adicione o [Application Insights][start] ao seu projeto e, sem nenhum esforço adicional, são fornecidos gráficos mostrando quantos usuários você tem e outras informações.
+Clique no bloco de visualizações de página para ver os detalhes de uso.
 
-![No Azure, selecionar Navegar > Application Insights > o nome do seu projeto e rolar para baixo](./media/app-insights-overview-usage/01-overview.png)
+![No Azure, selecionar Navegar > Application Insights > o nome do seu projeto e rolar para baixo até o bloco de Visualizações de Página](./media/app-insights-overview-usage/01-overview.png)
 
 Passe o mouse na parte em branco acima de um gráfico para ver as contagens em um ponto específico. Caso contrário, os números mostram o valor acumulado ao longo do período, como uma média, um total ou uma contagem de usuários distintos.
 
@@ -54,7 +82,7 @@ Dados de grupo (segmento) segundo uma propriedade, como Navegador, Sistema Opera
 
 ## Uso da página
 
-Clique no gráfico de modos de exibição de página para obter uma versão mais ampliada juntamente com uma análise das suas páginas mais populares:
+Clique no bloco de visualizações de página para obter uma análise das suas páginas mais populares:
 
 
 ![Na folha Visão Geral, clicar no gráfico Visualizações de página](./media/app-insights-overview-usage/05-games.png)
@@ -248,6 +276,11 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 * Teste de canário. Configure um comutador de recurso que permita a você tornar um novo recurso visível apenas para alguns usuários. Use o Application Insights para ver se o novo recurso está sendo usado do modo que você previu. Faça ajustes, então libere-o para um público maior.
 * Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
 
+## Saiba mais
+
+* [Detecte, realize triagem e diagnostique as falhas e problemas de desempenho em seu aplicativo](app-insights-detect-triage-diagnose.md)
+* [Introdução ao Application Insights em várias plataformas](app-insights-detect-triage-diagnose.md).
+
 
 ## Vídeo
 
@@ -259,4 +292,4 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -134,7 +134,7 @@ No Gerenciador de Soluções, clique com o botão direito do mouse em seu projet
  * EntityFramework 6.1.2 ou posterior - Usaremos isso para gerar o esquema da tabela de banco de dados rapidamente, com base no conteúdo do JSON no blob.
  * JsonFx - Usaremos isso para mesclar o JSON com propriedades de classe de C#.
 
-Use essa ferramenta para gerar a classe c\# do nosso único documento JSON. Ele requer algumas pequenas alterações como o nivelamento de matrizes JSON em uma única propriedade de C# na coluna única da tabela do banco de dados (ex. urlData\_port)
+Use essa ferramenta para gerar a classe c# do nosso único documento JSON. Ele requer algumas pequenas alterações como o nivelamento de matrizes JSON em uma única propriedade de C# na coluna única da tabela do banco de dados (ex. urlData\_port)
 
  * [Gerador de classe C# JSON](http://jsonclassgenerator.codeplex.com/)
 
@@ -531,4 +531,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

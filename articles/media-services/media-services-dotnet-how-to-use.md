@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Desenvolvimento de serviços de mídia com o .NET 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Este tópico discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET.
 
@@ -56,7 +58,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 
 	4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
 
-3. Adicione uma referência ao assembly do **System.Configuration**. Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
+3. Adicione uma referência ao assembly do **System.Configuration**. Este assembly contém a classe System.Configuration.**ConfigurationManager**, que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
 
 	Para adicionar referências usando a caixa de diálogo Gerenciar Referências, proceda da maneira a seguir:
 
@@ -98,4 +100,4 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
 Neste ponto, você está pronto para começar a desenvolver um aplicativo de Serviços de Mídia.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

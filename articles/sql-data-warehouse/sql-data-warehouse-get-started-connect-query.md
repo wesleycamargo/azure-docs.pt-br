@@ -183,7 +183,9 @@ Agora que registramos o nosso servidor, vamos prosseguir e criar uma consulta.
 	Para executar a consulta, clique na seta verde abaixo ou use o atalho a seguir `CTRL`+`SHIFT`+`F5`:
 
 ## Próximas etapas ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+Agora que é possível conectar-se e consultar, tente [carregar dados da amostra][] ou [códigos de desenvolvimento][].
 
-<!---HONumber=August15_HO6-->
+[carregar dados da amostra]: ./sql-data-warehouse-get-started-load-samples.md
+[códigos de desenvolvimento]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Apresentando o Banco de Dados de Documentos - Um banco de dados NoSQL para Microsoft Azure | Azure" 
+	pageTitle="Apresentando o Banco de Dados de Documentos - Um banco de dados NoSQL para o Microsoft Azure | Microsoft Azure" 
 	description="Baixe um White Paper de David Chappell sobre o Banco de Dados de Documentos, um banco de dados NoSQL gerenciado no Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -31,4 +31,4 @@ Este white paper também explica o seguinte:
 **Download do PDF**: [Apresentando o Banco de Dados de Documentos ‒ um banco de dados NoSQL para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

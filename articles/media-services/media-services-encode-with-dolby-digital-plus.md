@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codificando sua mídia com Dolby Digital Plus
@@ -651,4 +651,4 @@ Cada atributo é descrito abaixo.
 **TruePeak**: esse resultado contém o maior valor absoluto true‐peak em qualquer canal desde que a medição foi redefinida. Para obter uma descrição de true-peak, consulte ITU‐R BS.1770‐2. Os valores podem variar de -70 a 12.04 dBTP.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

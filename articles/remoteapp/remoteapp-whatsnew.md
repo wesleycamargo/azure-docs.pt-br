@@ -3,7 +3,7 @@
     pageTitle="O que há de novo no Azure RemoteApp?"
     description="Saiba mais sobre alterações e aprimoramentos feitos ao Azure RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 Uma das vantagens do RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
 
+## 2015 de julho
+
+Julho prepara o terreno para mudanças planejadas em agosto, portanto, não há muito sobre o que discorrer no momento; o que há são principalmente atualizações de documento. Essas são as alterações mais recentes:
+
+- Uma guia **suporte** foi adicionada ao portal para que você possa acessar mais facilmente os recursos de suporte, como os fóruns.
+- As informações de solução de problemas foram reformuladas para a criação de uma coleção híbrida. Confira as dicas [mais recentes e melhores](remoteapp-hybridtrouble.md) de solução de problemas, por exemplo, como identificar as portas corretas para configurar sua VNET.
+- O modo como os [dados de usuário](remoteapp-upd.md) são criados e salvos no RemoteApp do Azure foi documentado.
+- A maneira de [bloquear aplicativos](remoteapp-secure.md) foi documentada.
+- Os [cmdlets do RemoteApp do Azure](https://msdn.microsoft.com/library/mt428031.aspx) foram publicados.
+- E, finalmente, começamos uma conversa sobre terminologia com alguns usuários de RemoteApp do Azure. Procure por alterações no modo como fazemos referência às diferentes opções de coleção.
 
 ## Junho de 2015
 
@@ -51,4 +61,4 @@ Precisa ver o Azure RemoteApp no mundo real? Confira o tutorial [Executar qualqu
 
 Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

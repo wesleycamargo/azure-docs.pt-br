@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
-	ms.author="sidneyh"/>
+	ms.date="07/21/2015"
+	ms.author="ddove; sidneyh"/>
 
-# Criando e gerenciando trabalhos de banco de dados elástico
+# Criar e gerenciar trabalhos de Banco de Dados SQL elástico com o Portal (visualização)
 
-O **pool de bancos de dados elástico** fornece um modelo previsível para implantação de uma grande quantidade de bancos de dados. Você pode definir as DTUs (Unidades de Taxa de Transferência de Dados) para cada banco de dados a um custo de conjunto. O gerenciamento de objetos comuns nesses bancos de dados pode ser realizado mais facilmente usando **trabalhos de banco de dados elástico**. O serviço permite que você execute scripts T-SQL em todos os bancos de dados no pool em uma única operação. Por exemplo, você pode definir a política em cada banco de dados para permitir que somente uma pessoa com as credenciais corretas exiba os dados confidenciais.
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [PowerShell](sql-database-elastic-jobs-powershell.md)
+
+
+A opção **trabalhos de Banco de Dados Elástico** permite gerenciamento fácil e confiável de um grupo de bancos de dados, simplificando a execução de operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta de dados de desempenho ou coleta de telemetria do locatário (cliente). Trabalhos de Banco de Dados Elástico está disponível atualmente por meio de cmdlets do PowerShell e do Portal do Azure. No entanto, o portal do Azure revela funcionalidade reduzida limitada a execução em todos os bancos de dados em um [Pool de Banco de Dados Elástico (visualização)](sql-database-elastic-pool.md). Para acessar recursos adicionais e execução de scripts em um grupo de bancos de dados, incluindo uma coleção definida de modo personalizado ou um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)), consulte [Criando e gerenciando trabalhos usando o PowerShell](sql-database-elastic-jobs-powershell.md). Para saber mais, confira [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md).
 
 ## Pré-requisitos
 
@@ -28,7 +33,7 @@ O **pool de bancos de dados elástico** fornece um modelo previsível para impla
 
 ## Criando trabalhos
 
-1. Na folha do pool de trabalhos de bancos de dados elásticos, clique em **Criar trabalho**.
+1. Usando o [Portal do Azure](https://portal.azure.com), de um pool de trabalho de banco de dados elástico existente, clique em **Criar trabalho**.
 2. Digite o nome de usuário e a senha do administrador do banco de dados (criado na instalação dos Trabalhos) para o banco de dados de controle de trabalhos (armazenamento de metadados para trabalhos).
 
 	![Nomeie o trabalho, digite ou cole o código e clique em Executar][1]
@@ -110,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Requisitos do sistema do StorSimple" 
+   pageTitle="Requisitos do sistema do StorSimple | Microsoft Azure" 
    description="Descreve os requisitos de sistema e práticas recomendadas para software, alta disponibilidade e rede para uma solução do Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # Requisitos do sistema do StorSimple
@@ -96,7 +96,7 @@ Cada módulo de controlador do dispositivo StorSimple tem quatro interfaces de r
 
 - Quando possível, use o MPIO em servidores para garantir que os servidores possam tolerar um link, rede ou falha de interface.
 
-Para saber mais sobre como colocar o dispositivo em rede para proporcionar alta disponibilidade e desempenho, acesse [Cabeamento do dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) ou [Cabeamento do dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+Para saber mais sobre como colocar o dispositivo em rede para proporcionar alta disponibilidade e desempenho, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSDs e HDDs
 
@@ -138,7 +138,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 
 Leia com atenção estes requisitos e práticas recomendadas para garantir a alta disponibilidade dos hosts conectados ao dispositivo StorSimple.
 
-- Configure StorSimple com [configurações de cluster de servidor de arquivos com 2 nós] (https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
+- Configure o StorSimple com [configurações de cluster de servidores de arquivos com dois nós][1]. Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
 
 - Use compartilhamentos CA (disponíveis continuamente) disponíveis no Windows Server 2012 (SMB 3.0) para alta disponibilidade durante o failover dos controladores de armazenamento. Para obter informações adicionais sobre a configuração de clusters de servidor de arquivos e compartilhamentos Disponíveis Continuamente com o Windows Server 2012, consulte esta [demonstração em vídeo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,12 +184,14 @@ Além dos requisitos de rede acima, para obter o desempenho ideal de sua soluç�
 
 - Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
 
-- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para saber mais, veja como [Configurar as interfaces de rede](https://msdn.microsoft.com/library/dn772371.aspx) em seu dispositivo StorSimple.
+- Isole o tráfego iSCSI e o tráfego de nuvem com interfaces de rede dedicadas em seu dispositivo para acesso iSCSI e à nuvem. Para obter mais informações, veja como [modificar as interfaces de rede](storsimple-modify-device-config.md#modify-network-interfaces) em seu dispositivo StorSimple.
 
 ## Próximas etapas
 
-- [Limites do StorSimple](storsimple-limits.md)
-- [Implantar sua solução de StorSimple](storsimple-deployment-walkthrough.md)
+- Saiba sobre os [limites do StorSimple](storsimple-limits.md).
+- [Implantar sua solução de StorSimple](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

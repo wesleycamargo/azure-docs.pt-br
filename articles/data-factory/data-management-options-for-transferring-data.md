@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Opções para transferir dados armazenados para a nuvem | Azure" 
+	pageTitle="Opções para transferir dados armazenados para a nuvem | Microsoft Azure" 
 	description="Diretrizes para escolher a melhor opção para transferir dados de locais que não fontes de nuvem para o Microsoft Azure para análise avançada." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
@@ -65,7 +65,6 @@ O Azure Data Factory é um serviço completamente gerenciado para compor serviç
 
 Os desenvolvedores podem compilar fluxos de trabalho orientados por dados que adicionam, agregam e transformam dados estruturados, semiestruturados e não estruturados obtidos dos serviços locais (por meio do Gateway de gerenciamento de dados), baseados em nuvem e de Internet e configurar processamento de dados complexo por meio de scripts JSON simples. Os dados resultantes podem ser armazenados no Armazenamento do Azure ou no Banco de Dados SQL do Azure para análises avançadas.
 
-Especificamente, um desenvolvedor pode coordenar atividades regulares de cópia entre várias fontes e destinos mostrados na seção "[Origens e coletores com suporte](data-factory-copy-activity.md#SupportedSourcesAndSinks)" de [Copiar dados com o Azure Data Factory](data-factory-copy-activity.md), que também inclui propriedades para diferentes tipos de armazenamento de dados, mapeamento de coluna, formatos de serialização e manipulação de tipo.
 
 O serviço pode tratar falhas de reinício automático e permitir a conversão de formato ao mover dados de um formato para outro. Para definir uma atividade de cópia, consulte [Introdução ao Data Factory][start]. As experiências do registro do armazenamento de dados e da instalação do gateway são descritas em [Habilitar pipelines para trabalhar com dados locais][pipelines].
 
@@ -254,7 +253,6 @@ Observações sobre a árvore de decisão:
 [install]: ../install-configure-powershell.md
 [start]: data-factory-get-started.md
 [pipelines]: data-factory-use-onpremises-datasources.md
-[copy]: data-factory-copy-activity.md
 [intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
@@ -270,4 +268,4 @@ Observações sobre a árvore de decisão:
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

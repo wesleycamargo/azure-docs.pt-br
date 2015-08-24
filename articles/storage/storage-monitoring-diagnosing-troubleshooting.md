@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitoramento, diagnóstico e solução de problemas de Armazenamento | Azure" 
+	pageTitle="Monitoramento, diagnóstico e solução de problemas de Armazenamento | Microsoft Azure" 
 	description="Use recursos como análise de armazenamento, registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure." 
 	services="storage" 
 	documentationCenter="" 
@@ -516,7 +516,7 @@ ID de solicitação | Texto de operação
 07b26a5d-...|Iniciando a solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
 07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 07b26a5d-...|Esperando uma resposta.
-07b26a5d-... | Resposta recebida. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot;.
+07b26a5d-... | Resposta recebida. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag = ";0x8D14D2DC63D059B";.
 07b26a5d-... | Cabeçalhos da resposta foram processados com êxito, procedendo com o resto da operação.
 07b26a5d-... | Baixar o corpo da resposta.
 07b26a5d-... | Operação concluída com sucesso.
@@ -915,4 +915,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

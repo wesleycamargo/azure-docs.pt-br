@@ -4,7 +4,7 @@
 	tags="azure-classic-portal"
 	services="app-service\web, virtual-machines"
 	documentationCenter="nodejs"
-	authors="chrisckchang"
+	authors="tdykstra"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/20/2014"
+	ms.date="08/10/2014"
 	ms.author="mwasson"/>
 
 
@@ -25,7 +25,7 @@
 # Criar um aplicativo Web do Node.js no Azure com o MongoDB usando o complemento MongoLab
 
 
-<p><em>Por Eric Sedor, MongoLab</em></p>
+*Por Eric Sedor, MongoLab*
 
 Saudações, aventureiros! Bem-vindos ao MongoDB como serviço. Neste tutorial, você irá:
 
@@ -575,4 +575,4 @@ Parabéns! Você acabou de lançar um aplicativo Node. js apoiado por um banco d
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enviar notificações por push aos usuários autenticados do aplicativo do Windows Phone Silvernight | Serviços Móveis do Azure" 
+	pageTitle="Enviar notificações por push aos usuários autenticados do aplicativo do Windows Phone Silvernight | Microsoft Azure" 
 	description="Aprenda a enviar notificações por push dos Serviços Móveis do Azure para usuários específicos do seu aplicativo do Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -95,4 +95,4 @@ Depois de ter concluído ambos os tutoriais, você pode evitar que usuários nã
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

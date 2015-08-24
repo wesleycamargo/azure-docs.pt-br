@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##Visão geral
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
@@ -79,6 +79,8 @@ O tópico mostra como fazer o seguinte:
 1. Mostrar e ocultar slates. Iniciar e parar anúncios. São usadas APIs de execução longa.
 1. Limpe seu canal e todos os recursos associados.
 
+>[AZURE.NOTE]Enquanto esse recurso estiver no modo de Visualização, o máximo recomendado durante um evento ao vivo é 8 horas.
+>
 ##Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
 
@@ -501,4 +503,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

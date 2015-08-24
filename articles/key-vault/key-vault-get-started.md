@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao Cofre da Chave do Azure | Visão Geral"
+	pageTitle="Introdução ao Cofre da Chave do Azure | Microsoft Azure"
 	description="Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure para criar um contêiner de proteção avançado no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@ Para obter uma lista dos cmdlets do Windows PowerShell para o Cofre da Chave do 
 Para referências de programação, consulte [Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903625.aspx) na biblioteca de documentação do Microsoft Azure no MSDN.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

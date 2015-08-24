@@ -2,7 +2,7 @@
 
 Ao copiar os dados de outros repositórios de dados para o Azure SQL/SQL Server, a pessoa precisa manter em mente a capacidade de repetição para evitar desfechos não intencionais.
 
-Ao copiar dados para o banco de dados SQL do Azure, a atividade de cópia vai, por padrão, ACRESCENTAR o conjunto de dados à tabela do coletor. Por exemplo, ao copiar dados de uma fonte de arquivo CSV (dados com valores separados por vírgulas) contendo dois registros de banco de dados do SQL do Azure/SQL Server, a aparência da tabela é semelhante à seguinte:
+Ao copiar dados ao Azure SQL/Banco de dados do servidor do SQL, a atividade de cópia vai, por padrão, ACRESCENTAR o conjunto de dados à tabela de coletor por padrão. Por exemplo, ao copiar dados de uma fonte de arquivo CSV (dados com valores separados por vírgulas) contendo dois registros de banco de dados do SQL do Azure/SQL Server, a aparência da tabela é semelhante à seguinte:
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -20,7 +20,7 @@ Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade 
 
 Para evitar isso, você precisará especificar a semântica UPSERT, aproveitando um dos 2 mecanismos descritos abaixo.
 
-> [AZURE.NOTE]Uma fatia pode ser reexecutada automaticamente no Azure Data Factory também, de acordo com a política de repetição especificada.
+> [AZURE.NOTE]Uma fatia pode ser reexecutada automaticamente no Azure Data Factory, de acordo com a política de repetição especificada.
 
 ### Mecanismo 1
 
@@ -29,10 +29,10 @@ Você pode aproveitar a propriedade **sqlWriterCleanupScript** para executar pri
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \'{0:yyyy-MM-dd HH:mm}\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	}
 
-O script de limpeza deve ser executado primeiro durante a cópia para uma determinada fatia que excluiria os dados da tabela SQL correspondente a essa fatia. A atividade de cópia vai inserir, subsequentemente, os dados na tabela SQL.
+O script de limpeza deve ser executado primeiro durante a cópia para uma determinada fatia que excluiria os dados da tabela SQL correspondente a essa fatia. A atividade vai inserir, subsequentemente, os dados na tabela SQL.
 
 Se a fatia for executada novamente, você verá que a quantidade é atualizada conforme desejado.
 	
@@ -45,9 +45,9 @@ Suponha que o registro Flat Washer é removido do csv original. Nesse caso, reex
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
-	8 	Down Tube	4			2015-05-01 00:00:00
+	7 	Down Tube	4			2015-05-01 00:00:00
 
-Não era necessário fazer nada de novo. A atividade de cópia executou o script de limpeza para excluir os dados correspondentes àquela fatia. Em seguida, leia a entrada do csv (que agora continha apenas 1 registro) e insira-a na tabela.
+Não era necessário fazer nada de novo. A atividade de cópia executou o script de limpeza para excluir os dados correspondentes àquela fatia. Em seguida, lê a entrada do csv (que continha apenas 1 registro) e insere-a na tabela.
 
 ### Mecanismo 2
 
@@ -68,4 +68,4 @@ A Azure Data Factory vai popular essa coluna para garantir que a origem e destin
 
 Semelhante ao mecanismo 1, a atividade de cópia limpará primeiro automaticamente os dados para a fatia determinada da tabela SQL de destino e, em seguida, executará a atividade de cópia normalmente para inserir os dados da origem para o destino, nessa fatia.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

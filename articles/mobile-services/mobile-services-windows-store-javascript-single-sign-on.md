@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Autenticar seu aplicativo da Windows Store com autenticação gerenciada do cliente usando a conta da Microsoft
@@ -114,7 +114,7 @@ Por fim, você adiciona o Live SDK e o utiliza para autenticar usuários em seu 
 
     Isso inicializa o cliente do Live Connect, envia uma nova solicitação de logon à conta da Microsoft, envia o token de autenticação retornado aos Serviços Móveis e, em seguida, exibe informações sobre o usuário conectado.
 
-	>[AZURE.NOTE]Idealmente, você não deve solicitar os tokens de autenticação do Live Connection ou tokens de autenticação dos Serviços Móveis todas as vezes que o seu aplicativo executar. Além disto ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache os tokens e primeiro tentar usar o token dos Serviços Móveis em cache antes de chamar **LoginWithMicrosoftAccountAsync**. Para obter um exemplo de como armazenar em cache este token, consulte [Introdução à autenticação](mobile-services-windows-store-javascript-get-started-users.md#tokens)
+	>[AZURE.NOTE]Idealmente, você não deve solicitar os tokens de autenticação do Live Connection ou tokens de autenticação dos Serviços Móveis todas as vezes que o seu aplicativo executar. Além disto ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache os tokens e primeiro tentar usar o token dos Serviços Móveis em cache antes de chamar **LoginWithMicrosoftAccountAsync**. Para obter um exemplo de como armazenar em cache este token, consulte [Introdução à autenticação](mobile-services-windows-store-javascript-get-started-users.md#tokens).
 	
 7. Substitua o valor `<yourClient>` na primeira linha do código acima pela variável definida no arquivo .js adicionado quando você conecta seu projeto ao serviço móvel.
 		
@@ -145,4 +145,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

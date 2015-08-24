@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Como criar rotas e habilitar o encaminhamento IP no Azure
 Você pode usar dispositivos virtuais no Azure para lidar com o tráfego na rede virtual do Azure. No entanto, você precisa criar rotas que permitam que VMs e serviços de nuvem em sua rede virtual enviem pacotes ao dispositivo virtual, em vez do destino desejado para o pacote. Também é necessário habilitar o encaminhamento IP na VM do dispositivo virtual para que possa receber e encaminhar pacotes que não são endereçados à VM do dispositivo virtual real.
 
-##Como gerenciar rotas
+## Como gerenciar rotas
 Você pode adicionar, remover e alterar rotas no Azure usando o PowerShell. Para criar uma rota, primeiro você deve criar uma tabela de rotas para hospedar a rota.
 
 ### Como criar uma tabela de rotas
@@ -144,10 +144,6 @@ Para exibir o status do encaminhamento IP em uma VM denominada *FWAppliance1*, e
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## Consulte também
-
-[Visão geral sobre encaminhamento IP e rotas definidas pelo usuário](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

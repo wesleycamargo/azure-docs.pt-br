@@ -3,7 +3,7 @@
 	description="Conceitos do Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Conceitos do Azure Mobile Engagement
 
@@ -79,4 +79,4 @@ Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de
 A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento “SciFi fans” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content\_viewed" com a chave extra "content\_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

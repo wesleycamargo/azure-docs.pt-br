@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de governança de recursos de Atores Confiáveis"
-   description="O padrão de design de como os Atores Confiáveis podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
+   pageTitle="Padrão de design de Controle de Recursos dos Atores da Malha do Serviço do Azure"
+   description="O padrão de design de como os Atores da Malha do Serviço podem ser usados para modelar aplicativos que precisam ser dimensionados, mas usam recursos restritos"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Padrão de design de Atores Confiáveis: governança de recursos
@@ -417,4 +417,4 @@ Esse padrão é muito comum em cenários onde os desenvolvedores têm recursos r
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

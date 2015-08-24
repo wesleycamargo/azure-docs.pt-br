@@ -3,7 +3,7 @@
     description="Descreve os novos recursos, problemas e soluções alternativas da Atualização 1 do StorSimple série 8000."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # Notas de versão da Atualização 1 do StorSimple série 8000  
 
@@ -115,4 +115,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. No entanto, os
 - [Instalar a Atualização 1 no dispositivo](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

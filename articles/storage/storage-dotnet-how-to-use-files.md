@@ -225,11 +225,11 @@ Execute o aplicativo de console para ver a saída.
 
 ## Definir o tamanho máximo de um compartilhamento de arquivos
 
-A partir da versão 5.x da biblioteca de cliente do Armazenamento do Azure, você pode definir a cota (ou tamanho máximo) de um compartilhamento, em gigabytes. Ao definir a cota para um compartilhamento, você pode limitar o tamanho total dos arquivos armazenados no compartilhamento.
+A partir da versão 5.x da biblioteca de cliente do armazenamento do Azure, você pode definir a cota (ou tamanho máximo) de um compartilhamento de arquivo, em gigabytes. Você também pode verificar a quantidade de dados atualmente armazenada no compartilhamento.
 
-Se o tamanho total dos arquivos no compartilhamento ultrapassar a cota definida no compartilhamento, os clientes poderão aumentar o tamanho dos arquivos existentes ou criar novos arquivos, a menos que eles estejam vazios.
+Ao definir a cota para um compartilhamento, você pode limitar o tamanho total dos arquivos armazenados no compartilhamento. Se o tamanho total dos arquivos no compartilhamento ultrapassar a cota definida no compartilhamento, os clientes não poderão aumentar o tamanho dos arquivos existentes ou criar novos arquivos, a menos que eles estejam vazios.
 
-O exemplo a seguir mostra como definir a cota para um compartilhamento de arquivos.
+O exemplo a seguir mostra como verificar o uso atual de um compartilhamento e como definir a cota para o compartilhamento.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -244,12 +244,20 @@ O exemplo a seguir mostra como definir a cota para um compartilhamento de arquiv
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-Para obter o valor de qualquer cota existente para o compartilhamento, chame o método **FetchAttributes()** para recuperar as propriedades do compartilhamento.
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## Gerar uma assinatura de acesso compartilhado para um arquivo ou compartilhamento de arquivos
 
@@ -299,7 +307,7 @@ O exemplo a seguir cria uma política de acesso compartilhado em um compartilham
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para saber mais sobre como criar e usar assinaturas de acesso compartilhado, consulte [Assinaturas de acesso compartilhado: noções básicas sobre o modelo de SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o serviço Blob](storage-dotnet-shared-access-signature-part-2.md).
+Para saber mais sobre como criar e usar assinaturas de acesso compartilhado, consulte [Assinaturas de acesso compartilhado: Noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o serviço Blob](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Copiar arquivos
 
@@ -404,11 +412,11 @@ Você pode copiar um blob em um arquivo da mesma maneira. Se o objeto de origem 
 
 ## Usar o Armazenamento de arquivos com o Linux
 
-Para criar e gerenciar um compartilhamento de arquivos do Linux, use a CLI do Azure. Consulte [Usando a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md#create-and-manage-file-shares) para saber mais sobre como usar a CLI do Azure com o Armazenamento de arquivos.
+Para criar e gerenciar um compartilhamento de arquivos do Linux, use a CLI do Azure. Consulte [Usando a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md#create-and-manage-file-shares) para saber mais sobre como usar a CLI do Azure com o armazenamento de arquivos.
 
 Você pode montar o compartilhamento de arquivo do Azure a partir de uma máquina virtual executando o Linux Quando você cria sua máquina virtual do Azure, pode especificar uma imagem do Linux que oferece suporte a SMB 2.1 da Galeria de imagens do Azure, como a versão mais recente do Ubuntu. No entanto, qualquer distribuição do Linux que ofereça suporte ao SMB 2.1 pode montar um compartilhamento de arquivos do Azure.
 
-Para saber como montar um compartilhamento de arquivos do Azure no Linux, consulte [Armazenamento compartilhado em Linux por meio da visualização de arquivos do Azure - parte 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) no Channel 9.
+Para saber como montar um compartilhamento de arquivos do Azure no Linux, consulte [Shared storage on Linux via Azure Files Preview - Part 1 (Armazenamento compartilhado no Linux por meio da visualização dos Arquivos do Azure - parte 1)](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) no Channel 9.
 
 ## Próximas etapas
 
@@ -428,4 +436,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

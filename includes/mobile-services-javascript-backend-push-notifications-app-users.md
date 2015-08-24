@@ -1,11 +1,11 @@
 
 1. Faça logon no [Portal de Gerenciamento do Azure], clique em **Serviços Móveis** e, em seguida, clique em seu serviço móvel.
 
-2. Clique na guia **Push**, selecione **Apenas usuários autenticados** para **Permissões** e, em seguida, clique em **Editar script**.
+2. Clique na guia **Push**, selecione **Apenas usuários autenticados** para **Permissões**, clique em **Salvar** e, em seguida, clique em **Editar script**.
 	
 	Isso permite que você personalize a função de retorno de chamada do registro da notificação por push. Se você usar o Git para editar seu código-fonte, a mesma função de registro é encontrada em `.\service\extensions\push.js`.
 
-3. Substitua a função **registrar** existente por este código:
+3. Substitua a função existente **registrar** como o seguinte código e, em seguida, clique em **Salvar**:
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -42,4 +42,4 @@
 
 4. Clique na seta para voltar, clique na guia **Dados**, clique no **TodoItem**, clique no **Script** e selecione **Insertar**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Preparar uma implantação do serviço de nuvem (Node.js) - Azure" 
+	pageTitle="Preparar uma implantação do serviço de nuvem (Node.js) | Microsoft Azure" 
 	description="Saiba como implantar seu aplicativo Azure para um ambiente de preparo e depois implantar em um ambiente de produção usando a permuta do IP Virtual (VIP)." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 # Preparando um aplicativo no Azure
 
 Um aplicativo empacotado pode ser implantado no ambiente de preparo no Azure para ser testado antes de movê-lo para o ambiente de produção onde o aplicativo pode ser acessado na Internet. O ambiente de preparo é exatamente igual ao ambiente de produção, exceto que você só poderá acessar o aplicativo preparado com uma URL ofuscada que é gerada pelo Azure. Após verificar que seu aplicativo está funcionando corretamente, ele pode ser implantado no ambiente de produção executando uma permuta do VIP (IP Virtual).
@@ -33,7 +29,7 @@ Esta tarefa inclui as seguintes etapas:
 -   [Etapa 1: Preparar um aplicativo]
 -   [Etapa 2: Implantar um aplicativo na produção permutando VIPs]
 
-<h2><a id="step1"></a>Etapa 1: Preparar um aplicativo</h2>
+## Etapa 1: Preparar um aplicativo
 
 Esta tarefa aborda como preparar um aplicativo usando o **PowerShell do Microsoft Azure**.
 
@@ -57,7 +53,7 @@ Agora você pode verificar que o aplicativo está funcionando corretamente no am
 
 Para um cenário de atualização, no qual o aplicativo de preparo é uma versão atualizada de uma que já foi implantada na produção, você pode [atualizar o aplicativo no ambiente de produção trocando os VIPs][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<h2><a id="step2"></a>Etapa 2: Atualizar um aplicativo em produção permutando VIPs</h2>
+## Etapa 2: Atualizar um aplicativo em produção permutando VIPs
 
 Após verificar a versão atualizada de um aplicativo no ambiente de preparo, você pode rapidamente torná-lo disponível em produção permutando os VIPs (IPs virtuais) do ambiente de preparo e de produção.
 
@@ -90,4 +86,4 @@ Você preparou uma implantação e atualizou uma implantação em produção com
   [Visão geral do gerenciamento de implantações no Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

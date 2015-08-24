@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Fornecimento contínuo com o Visual Studio Online no Azure" 
-	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para serem compilados e implantados automaticamente no recurso Aplicativo Web nos Serviços de Aplicativo do Azure ou serviços de nuvem." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Fornecimento contínuo com o Visual Studio Online no Azure"
+	description="Saiba como configurar seus projetos de equipe do Visual Studio Online para serem compilados e implantados automaticamente no recurso Aplicativo Web nos Serviços de Aplicativo do Azure ou serviços de nuvem."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -189,7 +189,7 @@ Esta etapa se aplica somente aos aplicativo Web, não serviços de nuvem. Para c
 
 		using System;
 		using Microsoft.VisualStudio.TestTools.UnitTesting;
-		
+
 		namespace UnitTestProject1
 		{
 		    [TestClass]
@@ -304,6 +304,5 @@ Para saber mais, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

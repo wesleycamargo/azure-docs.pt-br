@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tomfitz"/>
 
 # Bloquear recursos com o Gerenciador de Recursos do Azure
@@ -83,15 +83,16 @@ Para obter exemplos, consulte [API REST para bloqueios de gerenciamento](https:/
 
 ## Criando um bloqueio com o Azure PowerShell
 
-Você pode bloquear recursos implantados com o Azure PowerShell usando o **New-AzureResourceLock** conforme mostrado abaixo.
+Você pode bloquear recursos implantados com o Azure PowerShell usando o **New-AzureResourceLock** conforme mostrado abaixo. Por meio do PowerShell, você só pode definir o **LockLevel** como **CanNotDelete**.
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
-O PowerShell fornece outros comandos para bloqueios de trabalho, tais como **Set-AzureResourceLock** para atualizar um bloqueio e **Remove-AzureResourceLock** para excluir um bloqueio.
+O PowerShell fornece outros comandos para trabalhar com bloqueios, tais como **Set-AzureResourceLock** para atualizar um bloqueio e **Remove-AzureResourceLock** para excluir um bloqueio.
 
 ## Próximas etapas
 
-- [Usando marcas para organizar os recursos](resource-group-using-tags.md)
-- [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
+- Para obter mais informações sobre como trabalhar com bloqueios de recursos, consulte [Bloquear os recursos do Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+- Para saber mais sobre a organização lógica de recursos, consulte [Usando marcas para organizar os recursos](resource-group-using-tags.md)
+- Para alterar o grupo de recursos no qual um recurso está alocado, consulte [Mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

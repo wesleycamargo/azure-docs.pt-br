@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como criar uma imagem de modelo personalizado para o Azure RemoteApp"
-	description="Saiba como criar uma imagem de modelo personalizado para o RemoteApp. Você pode usar este modelo de implantação de uma nuvem ou híbrida."
+	description="Saiba como criar uma imagem de modelo personalizado para o RemoteApp do Azure. Você pode usar este modelo com uma coleção de nuvem ou híbrida."
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Como criar uma imagem de modelo personalizado para o Azure RemoteApp
@@ -22,7 +22,7 @@ O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hos
 
 - O tamanho da imagem dever ser um múltiplo de MBs. Se você tentar carregar uma imagem que não é um múltiplo exato, o carregamento falhará.
 - O tamanho da imagem deve ser de 127 GB ou menor.
-- Deve estar em um arquivo VHD (arquivos VHDX atualmente não têm suporte).
+- Ela deve estar em um arquivo VHD (não há suporte atualmente para arquivos VHDX [discos rígidos virtuais Hyper-V]).
 - O VHD não deve ser uma máquina virtual de geração 2.
 - O VHD podem ter tamanho fixo ou expandir dinamicamente. O VHD de expansão dinâmica é recomendado, pois demora menos para fazer o upload do Azure que o arquivo VHD de tamanho fixo.
 - O disco deve ser inicializado usando o estilo de particionamento do Registro mestre de inicialização (MBR). O estilo de particionamento da tabela de partição GUID (GPT) não tem suporte.
@@ -49,7 +49,7 @@ O RemoteApp do Azure usa uma imagem do modelo do Windows Server 2012 R2 para hos
 
 ## Criar uma imagem do modelo ##
 
-Para criar uma nova imagem do modelo do zero:
+Estas são as etapas de alto nível para criar uma nova imagem do modelo do zero:
 
 1.	Localize um DVD de atualização do Windows Server 2012 R2 ou a imagem ISO.
 2.	Crie um arquivo VHD.
@@ -109,8 +109,8 @@ As etapas detalhadas para a criação de uma nova imagem são:
  	**Importante:**
 
 
-	- A Microsoft recomenda instalar a função RDSH antes da instalação dos aplicativos para garantir que quaisquer problemas de compatibilidade do aplicativo sejam descobertos antes de fazer o upload da imagem no RemoteApp.
-	- Verifique se o seu aplicativo aparece no menu Iniciar. Além disso, certifique-se de que o ícone visto no menu Iniciar é o que você deseja que os usuários vejam. Caso contrário, altere-o. (Você não *precisa* adicionar o aplicativo no menu Iniciar, mas ele torna muito mais fácil publicar o aplicativo no RemoteApp. Caso contrário, você precisa fornecer o caminho de instalação para o aplicativo ao publicá-lo.)
+	- Instale a função RDSH antes da instalação dos aplicativos para garantir que quaisquer problemas de compatibilidade do aplicativo sejam descobertos antes de fazer o upload da imagem no RemoteApp.
+	- Certifique-se de que o seu aplicativo aparece no menu **Iniciar**. Além disso, certifique-se de que o ícone visto no menu **Iniciar** é o que você deseja que os usuários vejam. Caso contrário, altere-o. (Você não *precisa* adicionar o aplicativo no menu Iniciar, mas ele torna muito mais fácil publicar o aplicativo no RemoteApp. Caso contrário, você precisa fornecer o caminho de instalação para o aplicativo ao publicá-lo.)
 
 8.	Execute quaisquer configurações adicionais do Windows necessárias para os seus aplicativos.
 9.	Desabilite o Encrypting File System (EFS). Execute o comando a seguir em uma janela de comandos com privilégios elevados:
@@ -137,4 +137,4 @@ Agora que você tem a sua imagem de modelo personalizada, você precisará atual
 - [Como criar uma coleção na nuvem do RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

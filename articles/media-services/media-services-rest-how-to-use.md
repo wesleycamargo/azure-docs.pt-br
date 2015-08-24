@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral da API de REST de serviços de mídia - Azure" 
+	pageTitle="Visão geral da API de REST de Serviços de Mídia | Microsoft Azure" 
 	description="Visão geral da API de REST de serviços de mídia" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 # Visão geral da API de REST de serviços de mídia 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitações HTTP com base em OData e pode responder em verbose JSON ou atom+pub. Como os serviços de mídia estão em conformidade com as diretrizes de design do Azure, há um conjunto de cabeçalhos HTTP necessários que cada cliente deve usar ao se conectar aos serviços de mídia, bem como um conjunto de cabeçalhos opcionais que podem ser usados. As seções a seguir descrevem os cabeçalhos e verbos HTTP que podem ser usados ao criar solicitações e receber respostas dos serviços de mídia.
 
@@ -43,13 +45,13 @@ Este é um conjunto de cabeçalhos opcional:
 Cabeçalho|Tipo|Valor
 ---|---|---
 Data|Data do RFC 1123|Carimbo de hora da solicitação
-Aceitar|Tipo de conteúdo|O conteúdo solicitado para a resposta, como o seguinte: <p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter diferentes tipos de conteúdo, como uma busca de blob, onde uma resposta bem-sucedida irá conter o fluxo de blob como carga.
+Aceitar|Tipo de conteúdo|O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida conterá o fluxo de blob como carga.
 Codificação aceita|Gzip, deflate|Codificar GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados.
 Idioma aceito|"en", "es", e assim por diante.|Especifica o idioma preferencial para a resposta.
 Conjunto de caracteres aceito|Tipo de conjunto de caracteres como "UTF-8"|Padrão é UTF-8.
 Método X-HTTP|Método HTTP|Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET.
 Tipo de conteúdo|Tipo de conteúdo|Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST.
-ID da solicitação de cliente|Cadeia de caracteres|Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação.<p><p>**Importante**<p>Os valores devem ser limitados em 2096b (2k).
+ID da solicitação de cliente|Cadeia de caracteres|Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p> Os valores devem ser limitados em 2096b (2k).
 
 ## Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 
@@ -97,4 +99,4 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

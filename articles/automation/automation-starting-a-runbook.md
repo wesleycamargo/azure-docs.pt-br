@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="08/11/2015"
    ms.author="bwren" />
 
 # Como iniciar um Runbook na Automação do Azure
@@ -232,4 +232,4 @@ Supondo que o nome de usuário nas credenciais foi *vmonte*, isso resulta na sa�
 
 - [Iniciando um runbook de outro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

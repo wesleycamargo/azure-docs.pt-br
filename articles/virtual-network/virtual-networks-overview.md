@@ -57,7 +57,7 @@ Você pode dividir a sua VNet em várias sub-redes para fins de organização e 
 
 ## Endereços IP
 
-Há dois tipos de endereços IP atribuídos aos componentes no Azure: público e privado. VMs de IaaS e instâncias de função de PaaS implantadas em uma sub-rede do Azure recebem automaticamente um endereço IP privado em cada uma das suas NICs com base nos blocos de endereços CIDR atribuídos a suas sub-redes. Também é possível atribuir um endereço IP público para suas VMs de IaaS e instâncias de função de PaaS.
+Há dois tipos de endereços IP atribuídos aos componentes no Azure: público e privado. As VMs de IaaS e instâncias de função de PaaS implantadas em uma sub-rede do Azure recebem automaticamente um endereço de IP privado em cada uma das suas NICs com base nos blocos de endereços CIDR atribuídos a suas sub-sedes. Também é possível atribuir um endereço IP público para suas VMs de IaaS e instâncias de função de PaaS.
 
 Esses endereços IP são dinâmicos, o que significa que eles podem mudar a qualquer momento. Convém garantir que o endereço IP para determinados serviços permaneçam o mesmo, o tempo todo. Para isso, você pode reservar um endereço IP, tornando-o estático.
 
@@ -93,4 +93,4 @@ Dispositivos virtuais dependem de [encaminhamento IP e rotas definidas pelo usu�
 - [Reservar um endereço IP público](../virtual-networks-reserved-public-ip.md).
 - Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

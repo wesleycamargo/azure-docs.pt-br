@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Substituir um módulo de controlador em seu dispositivo StorSimple
@@ -240,7 +240,7 @@ No Portal de Gerenciamento, navegue até **Dispositivos** > **Manutenção** e r
 
 Quando você acessar o dispositivo por meio do console serial, será apresentada uma mensagem de cabeçalho. A mensagem de cabeçalho contém informações de dispositivo básicas, como modelo, nome, versão do software instalado e status do controlador que você está acessando. A imagem a seguir mostra um exemplo de uma mensagem de cabeçalho:
 
-![Mensagem de cabeçalho serial](./media/storsimple-controller-replacement/IC741098.png)
+![Mensagem da faixa serial](./media/storsimple-controller-replacement/IC741098.png)
 
 **Figura 7** Mensagem de cabeçalho mostrando o controlador 0 como ativo
 
@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

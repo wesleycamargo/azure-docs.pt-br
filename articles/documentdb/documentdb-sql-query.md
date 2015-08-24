@@ -3,7 +3,7 @@
 	description="O Banco de Dados de Documentos, um serviço de banco de dados de documentos NoSQL, dá suporte a consultas que usam a gramática de tipo SQL hierárquica de documentos JSON sem a necessidade de explícita de um esquema ou da criação de índices secundários." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-#Consulta ao Banco de Dados de Documentos
+# Consulta ao Banco de Dados de Documentos
 O Banco de Dados de Documentos do Microsoft Azure tem suporte para a realização da consulta de documentos utilizando uma SQL (Structured Query Language) em documentos hierárquicos JSON. O Banco de Dados de Documentos é verdadeiramente livre de esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
 
 Ao criar a linguagem de consulta para o Banco de Dados de Documentos, tínhamos dois objetivos em mente:
 
--	<strong>Adotar a SQL</strong> – Em vez de inventar uma nova linguagem para consulta, desejávamos adotar a linguagem SQL. Afinal, a SQL é uma das linguagens de consulta mais familiares e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
--	<strong>Estender a SQL</strong> – Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como alicerce para nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+-	**Adotar a SQL** – em vez de inventar uma nova linguagem para consulta, desejávamos adotar a linguagem SQL. Afinal, a SQL é uma das linguagens de consulta mais familiares e populares. A SQL de Banco de Dados de Documentos fornece um modelo de programação formal para consultas avançadas em documentos JSON.
+-	**Estender a SQL** – como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como alicerce para nossa linguagem de consulta. A SQL de Banco de Dados de Documentos é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
 
@@ -161,7 +161,7 @@ Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem d
 -	O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
 -	Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
-##Indexação do Banco de Dados de Documentos
+## Indexação do Banco de Dados de Documentos
 
 Antes de passarmos à gramática da SQL do Banco de Dados de Documentos, vale explorar o design da indexação no Banco de Dados de Documentos.
 
@@ -182,7 +182,7 @@ Portanto, quando criamos o subsistema de indexação do Banco de Dados de Docume
 Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da gramática da SQL do Banco de Dados de Documentos.
 
 
-##Conceitos básicos da consulta do Banco de Dados de Documentos
+## Noções básicas sobre a consulta do Banco de Dados de Documentos
 Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
     
     SELECT <select_list> 
@@ -190,7 +190,7 @@ Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opciona
     [WHERE <filter_condition>]    
 
 
-##Cláusula FROM
+## Cláusula FROM
 A cláusula `FROM <from_specification>` é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Normalmente, a coleção inteira é a fonte, mas é possível também especificar um subconjunto da coleção.
 
 Uma consulta como `SELECT * FROM Families` indica que a coleção Families inteira é a fonte a ser enumerada. Um identificador especial ROOT pode ser usado para representar a coleção em vez de usar o nome da coleção. A lista a seguir contém as regras que são impostas por uma consulta:
@@ -201,7 +201,7 @@ Uma consulta como `SELECT * FROM Families` indica que a coleção Families intei
 
 -	Todas as propriedades que precisam ser referidas devem ser completamente qualificadas. Na falta de aderência a um esquema rígido, esta regra é aplicada para evitar associações ambíguas. Portanto, `SELECT id FROM Families f` é sintaticamente inválido, pois a propriedade `id` não está vinculada.
 	
-###Subdocumentos
+### Subdocumentos
 A fonte também pode ser reduzida a um subconjunto menor. Por exemplo, para enumerar somente uma subárvore de cada documento, a sub-raiz pode, então, se tornar a fonte, como no exemplo a seguir.
 
 **Consulta**
@@ -255,7 +255,7 @@ Embora o exemplo acima tenha usado uma matriz como fonte, um objeto também pode
 	]
 
 
-##Cláusula WHERE
+## Cláusula WHERE
 A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ela especifica as condições que os documentos JSON fornecidos pela fonte devem satisfazer para serem incluídas como parte dos resultados. Qualquer documento JSON deve avaliar as condições especificadas como “verdadeiras” para serem consideradas para os resultados. A cláusula WHERE é usada pela camada do índice para determinar o subconjunto absolutamente menor de documentos fonte que pode fazer parte do resultado.
 
 A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro documento que não tiver uma propriedade de nome ou cujo valor não corresponder a `AndersenFamily` será excluído.
@@ -279,7 +279,7 @@ A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo
 
 O exemplo anterior mostrou uma consulta de igualdade simples. O SQL do Banco de Dados de Documentos também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas.
 
-Atualmente há suporte para os operadores binários a seguir, que podem ser usados em consultas conforme mostrado nos seguintes exemplos: <table> <tr> <td>Aritméticos</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bitwise</td> <td>|, &, ^, <<, >>, >>> (deslocamento à direita do preenchimento zero) </td> </tr> <tr> <td>Lógicos</td> <td>AND, OR</td> </tr> <tr> <td>Comparação</td> <td>=, !=, >, >=, <, <=, <></td> </tr> <tr> <td>Cadeia de caracteres</td> <td>|| (concatenar)</td> </tr> </table>
+Atualmente há suporte para os operadores binários a seguir, que podem ser usados em consultas conforme mostrado nos seguintes exemplos: <table> <tr> <td>Aritmético</td> <td>+,-,*,/,%</td> </tr> <tr> <td>Bit a bit</td> <td>|, &, ^, <<, >>, >>> (deslocamento à direita sem preenchimento) </td> </tr> <tr> <td>Lógico</td> <td>E, OU, NÃO</td> </tr> <tr> <td>Comparação</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>Cadeia de caracteres</td> <td>|| (concatenar)</td> </tr> </table>
 
 Vejamos algumas consultas que usam valores binários.
 
@@ -310,7 +310,7 @@ Os operadores unários +,-, \~ e NOT também têm suporte e podem ser usados den
 
 Além de operadores binários e unários, as referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o documento JSON que contém a propriedade `isRegistered`, em que o valor da propriedade é igual ao valor JSON `true`. Todos os outros valores (false, null, Indefinido, `<number>`, `<string>`, `<object>`, `<array>` etc.) levam ao documento de origem que está sendo excluído do resultado.
 
-###Operadores de igualdade e comparação
+### Operadores de igualdade e de comparação
 A tabela a seguir mostra o resultado de comparações de igualdade na SQL do Banco de Dados de Documentos entre dois tipos JSON quaisquer. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Indefinido</strong> </td> <td valign="top"> <strong>Nulo</strong> </td> <td valign="top"> <strong>Booliano</strong> </td> <td valign="top"> <strong>Número</strong> </td> <td valign="top"> <strong>Cadeia de caracteres</strong> </td> <td valign="top"> <strong>Objeto</strong> </td> <td valign="top"> <strong>Matriz</strong> </td> </tr> <tr> <td valign="top"> <strong>Indefinido<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Nulo<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Booliano<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Número<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Cadeia de caracteres<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Objeto<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Indefinido </td> </tr> <tr> <td valign="top"> <strong>Matriz<strong> </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> Indefinido </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
 
 Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:
@@ -320,7 +320,7 @@ Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as se
 
 Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
 
-###Palavra-chave BETWEEN
+### Palavra-chave BETWEEN
 Você também pode usar a palavra-chave BETWEEN para expressar consultas a intervalos de valores, como na ANSI SQL. BETWEEN Pode ser usado em qualquer tipo de JSON primitivo (números, cadeias de caracteres, boolianos e nulos).
 
 Por exemplo, esta consulta retorna todos os documentos de família nos quais a série do primeiro filho vai de 1 a 5 (incluindo ambos).
@@ -338,249 +338,28 @@ Para que os tempos de execução das consultas sejam menores, lembre-se de criar
 
 A principal diferença entre usar BETWEEN no Banco de Dados de Documentos e na ANSI SQL é que você pode expressar consultas de intervalo de tipos mistos. Por exemplo, você pode designar "série" como um número (5) em alguns documentos e como cadeias de caracteres em outros ("grade4"). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
 
-###Operadores lógicos (AND, OR e NOT)
+### Operadores lógicos (AND, OR e NOT)
 Operadores lógicos funcionam em valores booleanos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>OR</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    <strong>Indefinido</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Indefinido</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+OU|Verdadeiro|Falso|Indefinido
+---|---|---|---
+Verdadeiro|Verdadeiro|Verdadeiro|Verdadeiro
+Falso|Verdadeiro|Falso|Indefinido
+Indefinido|Verdadeiro|Indefinido|Indefinido
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>AND</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    <strong>Indefinido</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Indefinido</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+E|Verdadeiro|Falso|Indefinido
+---|---|---|---
+Verdadeiro|Verdadeiro|Falso|Indefinido
+Falso|Falso|Falso|Falso
+Indefinido|Indefinido|Falso|Indefinido
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>NOT</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong></strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Falso
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Verdadeiro
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Indefinido</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Indefinido
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+NÃO| |
+---|---
+Verdadeiro|Falso
+Falso|Verdadeiro
+Indefinido|Indefinido
 
-###Palavra-chave IN
+### Palavra-chave IN
 A palavra-chave IN pode ser usada para verificar se um valor especificado corresponde a qualquer dos valores em uma lista. Por exemplo, esta consulta retorna todos os documentos de família cuja ID é "WakefieldFamily" ou então "AndersenFamily".
  
     SELECT *
@@ -595,7 +374,7 @@ Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores 
 
 A palavra-chave IN é equivalente a encadeamento várias cláusulas OR; no entanto, já que ela pode ser atendida pelo uso de um único índice, o Banco de Dados de Documentos dá suporte a um [limite](documentdb-limits.md) maior para o número de argumentos especificados dentro de uma cláusula IN.
 
-###Operadores Ternário (?) e de União (??):
+### Operadores Ternário (?) e de União (??):
 Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript.
 
 O operador Ternário (?) pode ser muito útil para construir novas propriedades JSON com muita rapidez. Por exemplo, agora você pode criar consultas para classificar os níveis de classe em um formato legível, como Iniciante/Intermediário/Avançado, como é mostrado abaixo.
@@ -615,7 +394,7 @@ O operador de União (??) pode ser usado para verificar de modo eficaz a presen�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-###Acessador de propriedade entre aspas
+### Acessador de propriedade entre aspas
 Você também pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisa substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
 
     SELECT f["lastName"]
@@ -623,7 +402,7 @@ Você também pode acessar propriedades usando o operador de propriedade entre a
     WHERE f["id"] = "AndersenFamily"
 
 
-##Cláusula SELECT
+## Cláusula SELECT
 A cláusula SELECT (**`SELECT <select_list>`**) é obrigatória e especifica quais valores serão recuperados da consulta, exatamente como ocorre em ANSI-SQL. O subconjunto que foi filtrado sobre os documentos fonte é passado à fase de projeção, em que os valores JSON especificados são recuperados e um novo objeto JSON é construído, para cada entrada passada a ele.
 
 O exemplo a seguir mostra uma consulta SELECT típica.
@@ -645,7 +424,7 @@ O exemplo a seguir mostra uma consulta SELECT típica.
 	}]
 
 
-###Propriedades aninhadas
+### Propriedades aninhadas
 No exemplo a seguir, estamos projetando duas propriedades aninhadas, `f.address.state` e `f.address.city`.
 
 **Consulta**
@@ -703,7 +482,7 @@ Vejamos a função de `$1` aqui. A cláusula `SELECT` precisa criar um objeto JS
 	}]
 
 
-###Atribuição de alias
+### Atribuição de alias
 Agora, vamos estender o exemplo acima com a atribuição explícita de alias aos valores. AS é a palavra-chave usada para a atribuição de alias. Observe que ela é opcional, conforme mostrado ao projetar o segundo valor como `NameInfo`.
 
 Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de alias deve ser usada para renomear uma ou as duas propriedades para que elas não sejam ambíguas no resultado projetado.
@@ -729,7 +508,7 @@ Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de al
 	}]
 
 
-###Expressões escalares
+### Expressões escalares
 Além de referências de propriedade, a cláusula SELECT dá suporte também a expressões escalares como constantes, expressões aritméticas, expressões lógicas etc. Por exemplo, vejamos uma consulta simples do tipo "Olá mundo".
 
 **Consulta**
@@ -775,7 +554,7 @@ No exemplo a seguir, o resultado da expressão escalar é um booliano.
 	]
 
 
-###Criação de objeto e matriz
+### Criação de objeto e de matriz
 Outro recurso fundamental da SQL do Banco de Dados de Documentos é a criação de matriz/objeto. Observe que, no exemplo anterior, criamos um novo objeto JSON. De forma semelhante, é possível construir matrizes, como demonstrado a seguir.
 
 **Consulta**
@@ -800,7 +579,7 @@ Outro recurso fundamental da SQL do Banco de Dados de Documentos é a criação 
 	  }
 	]
 
-###Palavra-chave VALUE
+### Palavra-chave VALUE
 A palavra-chave **VALUE** é uma forma de retornar valores JSON. Por exemplo: a consulta mostrada abaixo retorna o `"Hello World"` escalar, em vez de `{$1: "Hello World"}`.
 
 **Consulta**
@@ -880,8 +659,8 @@ O operador especial (*) é suportado para projetar o documento da forma que ele 
 	    "isRegistered": true
 	}]
 
-##Cláusula ORDER BY
-Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados. Para obter uma visão mais detalhada de Ordenar por, consulte [Passo a passo de Ordenar por no Banco de Dados de Documentos](documentdb-orderby.md).
+## Cláusula ORDER BY
+Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados. Para obter uma visão mais detalhada de Order By, consulte [Passo a passo de Order By no Banco de Dados de Documentos](documentdb-orderby.md).
 
 Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome da cidade do residente.
 
@@ -925,8 +704,8 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
 	  }
 	]
 	
-##Conceitos avançados
-###Iteração
+## Conceitos avançados
+### Iteração
 Uma nova construção por meio da palavra-chave **IN** na SQL do Banco de Dados de Documentos, para dar suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
 
 **Consulta**
@@ -1005,7 +784,7 @@ Isto pode ser usado mais amplamente para filtrar cada entrada individual da matr
 	  "givenName": "Lisa"
 	}]
 
-###Junções
+### Junções
 Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, o Banco de Dados de Documentos lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
 
 A sintaxe que ofereça suporte a linguagem é JOIN <from_source1> JOIN <from_source2>... JUNÇÃO <from_sourceN>. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
@@ -1154,7 +933,7 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
 	]
 
 
-##Integração JavaScript
+## Integração do JavaScript
 O Banco de Dados de Documentos oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. Isso possibilita:
 
 -	Capacidade de realizar operações CRUD transacional de alto desempenho e consultas documentos em uma coleção em virtude da profunda integração do tempo de execução do JavaScript diretamente com o mecanismo do banco de dados. 
@@ -1269,14 +1048,14 @@ A SQL do Banco de Dados de Documentos fornece os argumentos às UDFs para cada d
 
 Em resumo, as UDFs são ótimas ferramentas para realizar lógicas de negócios complexas como parte da consulta.
 
-###Avaliação de operador
+### Avaliação de operador
 O Banco de Dados de Documentos, em virtude se ser um banco de dados JSON, tem paralelos com operadores JavaScript em sua semântica de avaliação. Embora o Banco de Dados de Documentos tente preservar a semântica do JavaScript em termos de suporte ao JSON, a avaliação da operação desvia em alguns casos.
 
 Na SQL do Banco de Dados de Documentos, ao contrário do que ocorre na SQL tradicional, é frequente que os tipos de valores não sejam conhecidos até que os valores sejam recuperados do banco de dados. Para executar consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo.
 
 A SQL do Banco de Dados de Documentos não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices na SQL do Banco de Dados de Documentos.
 
-##SQL parametrizada
+## SQL parametrizada
 O Banco de Dados de Documentos dá suporte a consultas com parâmetros expressados com a familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL.
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
@@ -1313,14 +1092,19 @@ O Banco de Dados de Documentos também dá suporte a várias funções internas 
 <td>Funções de cadeia de caracteres</td>	
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING e UPPER</td>
 </tr>
+<tr>
 <td>Funções de matriz</td>	
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE</td>
+</tr>
+<tr>
+<td>Funções espaciais</td>	
+<td>ST_DISTANCE, ST_WITHIN, ST_ISVALID e ST_ISVALIDDETAILED</td>
 </tr>
 </table>
 
 Se estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, você deverá usar a função interna correspondente, pois ela será executada de forma mais rápida e mais eficiente.
 
-###Funções matemáticas
+### Funções matemáticas
 As funções matemáticas executam um cálculo, normalmente com base em valores de entrada que são fornecidos como argumentos, e retornam um valor numérico. Aqui está uma tabela de funções matemáticas internas com suporte.
 
 <table>
@@ -1436,7 +1220,7 @@ Por exemplo, agora você pode executar consultas como as seguintes:
 
 A principal diferença entre as funções do Banco de Dados de Documentos em comparação com o ANSI SQL é que elas são criadas para funcionar bem com dados de esquemas mistos e sem esquema. Por exemplo, se você tem um documento em que a propriedade Tamanho está ausente ou tem um valor não numérico, como "desconhecido", o documento é ignorado, em vez de retornar um erro.
 
-###Funções de verificação de tipo
+### Funções de verificação de tipo
 As funções de verificação de tipo permitem que você verifique o tipo de uma expressão em consultas SQL. As funções de verificação de tipo podem ser usadas para determinar o tipo de propriedades em documentos imediatamente quando ele é desconhecido ou variável. Aqui está uma tabela de funções de verificação de tipo internas com suporte.
 
 <table>
@@ -1489,79 +1273,27 @@ Usando essas funções, agora você pode executar consultas como as seguintes:
 
     [true]
 
-###Funções de Cadeia de Caracteres
+### Funções de cadeia de caracteres
 As funções escalares a seguir executam uma operação em um valor de cadeia de caracteres de entrada e retornam uma cadeia de caracteres, um valor numérico ou um valor booliano. Aqui temos uma tabela de funções de cadeia de caracteres internas:
 
-<table>
-<tr>
-  <td><strong>Uso</strong></td>
-  <td><strong>Descrição</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LENGTH (str_expr)</a></td>
-  <td>Retorna o número de caracteres da expressão de cadeia de caracteres especificada.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
-  <td>Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
-  <td>Retorna parte de uma expressão de cadeia de caracteres.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
-  <td>Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
-  <td>Retorna a posição inicial da primeira ocorrência da segunda expressão de cadeia de caracteres dentro da primeira expressão de cadeia de caracteres especificada, ou -1 se a cadeia de caracteres não for encontrada.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
-  <td>Retorna a parte esquerda de uma cadeia de caracteres com o número especificado de caracteres.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
-  <td>Retorna a parte direita de uma cadeia de caracteres com o número especificado de caracteres.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
-  <td>Retorna uma expressão de cadeia de caracteres após remover os espaços em branco iniciais.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
-  <td>Retorna uma expressão de cadeia de caracteres após truncar todos os espaços em branco finais.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">LOWER (str_expr)</a></td>
-  <td>Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">UPPER (str_expr)</a></td>
-  <td>Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">REPLACE (str_expr, str_expr, str_expr)</a></td>
-  <td>Substitui todas as ocorrências de um valor de cadeia de caracteres especificado por outro valor de cadeia de caracteres.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
-  <td>Repete um valor de cadeia de caracteres por um número de vezes especificado.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
-  <td>Retorna a ordem inversa de um valor de cadeia de caracteres.</td>
-</tr>
-</table>
+Uso|Descrição
+---|---
+[LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|Retorna o número de caracteres da expressão de cadeia de caracteres especificada
+[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.
+[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|Retorna parte de uma expressão de cadeia de caracteres.
+[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda
+[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda
+[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda.
+[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|Retorna a posição inicial da primeira ocorrência da segunda expressão de cadeia de caracteres dentro da primeira expressão de cadeia de caracteres especificada, ou -1 se a cadeia de caracteres não for encontrada.
+[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|Retorna a parte esquerda de uma cadeia de caracteres com o número especificado de caracteres.
+[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|Retorna a parte direita de uma cadeia de caracteres com o número especificado de caracteres.
+[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|Retorna uma expressão de cadeia de caracteres após remover os espaços em branco iniciais.
+[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|Retorna uma expressão de cadeia de caracteres após truncar todos os espaços em branco finais.
+[LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos.
+[UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos.
+[REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|Substitui todas as ocorrências de um valor de cadeia de caracteres especificado por outro valor de cadeia de caracteres.
+[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|Repete um valor de cadeia de caracteres por um número de vezes especificado.
+[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|Retorna a ordem inversa de um valor de cadeia de caracteres.
 
 Usando essas funções, agora você pode executar consultas como as descritas a seguir. Por exemplo, você pode retornar o sobrenome em caracteres maiúsculos, da seguinte maneira:
 
@@ -1611,31 +1343,15 @@ Funções de cadeia de caracteres também podem ser usadas na cláusula WHERE pa
       "city": "NY"
     }]
 
-###Funções de Matriz
+### Funções de matriz
 As funções escalares a seguir executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz. Aqui temos uma tabela de funções de matriz internas:
 
-<table>
-<tr>
-  <td><strong>Uso</strong></td>
-  <td><strong>Descrição</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
-  <td>Retorna o número de elementos da expressão de matriz especificada.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
-  <td>Retorna uma matriz que é o resultado da concatenação de dois ou mais valores de matriz.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
-  <td>Retorna um valor booliano que indica se a matriz contém o valor especificado.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
-  <td>Retorna parte de uma expressão de matriz.</td>
-</tr>
-</table>
+Uso|Descrição
+---|---
+[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|Retorna o número de elementos da expressão de matriz especificada.
+[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|Retorna uma matriz que é o resultado da concatenação de dois ou mais valores de matriz.
+[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|Retorna um valor booliano que indica se a matriz contém o valor especificado.
+[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|Retorna parte de uma expressão de matriz.
 
 Funções de matriz podem ser usadas para manipular matrizes contidas no JSON. Por exemplo, aqui está uma consulta que retorna todos os documentos nos quais um dos pais é "Robin Wakefield".
 
@@ -1671,8 +1387,102 @@ Aqui está outro exemplo que usa ARRAY\_LENGTH para obter o número de filhos po
 
 Com isso, concluímos o conteúdo de gramática SQL e funções internas para Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a gramática que vimos até agora.
 
+### Funções espaciais
 
-##LINQ para SQL do Banco de Dados de Documentos
+O Banco de Dados de Documentos dá suporte às seguintes funções internas do Open Geospatial Consortium (OGC) para consultas geoespaciais. Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, consulte [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md).
+
+<table>
+<tr>
+  <td><strong>Uso</strong></td>
+  <td><strong>Descrição</strong></td>
+</tr>
+<tr>
+  <td>ST_DISTANCE (point_expr, point_expr)</td>
+  <td>Retorna a distância entre as duas expressões de ponto GeoJSON.</td>
+</tr>
+<tr>
+  <td>ST_WITHIN (point_expr, polygon_expr)</td>
+  <td>Retorna uma expressão Booliana que indica se o ponto GeoJSON especificado no primeiro argumento fica dentro do polígono GeoJSON no segundo argumento.</td>
+</tr>
+<tr>
+  <td>ST_ISVALID</td>
+  <td>Retorna um valor Booliano que indica se a expressão especificada de ponto ou polígono GeoJSON é válida.</td>
+</tr>
+<tr>
+  <td>ST_ISVALIDDETAILED</td>
+  <td>Retorna um valor JSON que contém um valor Booliano caso a expressão de ponto ou polígono GeoJSON especificada é válida e, se for inválida, adicionalmente o motivo como um valor de cadeia de caracteres.</td>
+</tr>
+</table>
+
+As funções espaciais podem ser usadas para executar consultas espaciais em consultas de proximidade. Por exemplo, veja uma consulta que retorna todos os documentos de família que estejam em um raio de 30 km do local especificado usando a função interna ST\_DISTANCE.
+
+**Consulta**
+
+    SELECT f.id 
+    FROM Families f 
+    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+
+**Resultados**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais detalhes sobre a indexação espacial, consulte a seção abaixo. Se você não tiver um índice espacial para os caminhos especificados, ainda poderá executar consultas espaciais especificando o cabeçalho da solicitação `x-ms-documentdb-query-enable-scan` com o valor definido como "true". No .NET, isso pode ser feito passando o argumento **FeedOptions** opcional para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true.
+
+ST\_WITHIN pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas “internas" serão servidas com eficiência por meio do índice.
+
+Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) para o número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
+
+**Consulta**
+
+    SELECT * 
+    FROM Families f 
+    WHERE ST_WITHIN(f.location, {
+    	'type':'Polygon', 
+    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+    })
+
+**Resultados**
+
+    [{
+      "id": "WakefieldFamily",
+    }]
+    
+>[AZURE.NOTE]Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, então ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
+
+ST\_ISVALID e ST\_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST\_ISVALID retorna um valor Booliano e ST\_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
+
+**Consulta**
+
+    SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
+
+**Resultados**
+
+    [{
+      "$1": false
+    }]
+
+Essas funções também podem ser usadas para validar polígonos. Por exemplo, ST\_ISVALIDDETAILED é usado aqui para validar um polígono que não está fechado.
+
+**Consulta**
+
+    SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
+    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+    	]]})
+
+**Resultados**
+
+    [{
+       "$1": { 
+      	  "valid": false, 
+      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+      	}
+    }]
+    
+Com isso, concluímos o conteúdo de gramática SQL e funções internas para Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a gramática que vimos até agora.
+
+## LINQ para SQL do Banco de Dados de Documentos
 O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Banco de Dados de Documentos oferece uma biblioteca cliente para realizar a interface com o LINQ facilitando a conversão entre objetos JSON e .NET e mapeando por meio de um subconjunto de consultas do LINQ para consultas do Banco de Dados de Documentos.
 
 A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos. Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta de Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
@@ -1681,7 +1491,7 @@ A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Ban
  
 
 
-###Mapeamento .NET e JSON
+### Mapeamento de .NET e JSON
 O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, em que o nome do campo é mapeado para a parte “chave” do objeto e a parte do “valor” é mapeada recursivamente para a parte de valor do objeto. Considere o exemplo a seguir. O objeto Família criado é mapeado para o documento JSON conforme mostrado abaixo. E vice-versa, o documento JSON é mapeado para um objeto .NET.
 
 **Classe C#**
@@ -1763,7 +1573,7 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
 
 
 
-###Tradução de LINQ para SQL
+### Tradução de LINQ em SQL
 O provedor de consultas do Banco de Dados de Documentos realiza um mapeamento de melhor esforço de uma consulta do LINQ para uma consulta da SQL do Banco de Dados de Documentos. Na descrição a seguir, presumimos uma familiaridade básica do leitor com o LINQ.
 
 Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSON primitivos - tipos numéricos, boolianos, cadeia de caracteres e nulo. Somente esses tipos de JSON têm suporte. As expressões escalares são suportadas.
@@ -1793,13 +1603,13 @@ Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSO
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-###Operadores de consulta
+### Operadores de consulta
 Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta padrão do LINQ são traduzidos para consultas do Banco de Dados de Documentos.
 
-####Operador Select
+#### Operador Select
 A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Select(family => family.parents[0].familyName);
 
@@ -1810,7 +1620,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Select(family => family.children[0].grade + c); // c is an int variable
 
@@ -1822,7 +1632,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Select(family => new
 	{
@@ -1839,10 +1649,10 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 
 
-####Operador SelectMany
+#### Operador SelectMany
 A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar que retorna um tipo de coleção.
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.SelectMany(family => family.children);
 
@@ -1853,10 +1663,10 @@ A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar
 
 
 
-####Operador Where
+#### Operador Where
 A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que retorna um valor booliano.
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Where(family=> family.parents[0].familyName == "Smith");
 
@@ -1868,7 +1678,7 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Where(
 	    family => family.parents[0].familyName == "Smith" && 
@@ -1882,15 +1692,15 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 	AND f.children[0].grade < 3
 
 
-###Consultas compostas
+### Consultas compostas
 Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Banco de Dados de Documentos oferece suporte para coleções aninhadas, a composição pode ser concatenada ou aninhada.
 
-####Concatenação 
+#### Concatenação 
 
 A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode ser iniciada por uma consulta `SelectMany` opcional, seguida por múltiplos operadores `Select` ou `Where`.
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Select(family=>family.parents[0])
 	    .Where(familyName == "Smith");
@@ -1903,7 +1713,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Where(family => family.children[0].grade > 3)
 	    .Select(family => family.parents[0].familyName);
@@ -1916,7 +1726,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.Select(family => new { grade=family.children[0].grade}).
 	    Where(anon=> anon.grade < 3);
@@ -1929,7 +1739,7 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.SelectMany(family => family.parents)
 	    .Where(parent => parents.familyName == "Smith");
@@ -1942,13 +1752,13 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 
 
-####Aninhamento
+#### Aninhamento
 
 A sintaxe é `input.SelectMany(x=>x.Q())`, em que Q é um operador `Select`, `SelectMany` ou `Where`.
 
 Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da coleção externa. Um recurso importante é que a consulta interna pode se referir aos campos dos elementos na coleção exterior, como autojunções.
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.SelectMany(family=> 
 	    family.parents.Select(p => p.familyName));
@@ -1960,7 +1770,7 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 	JOIN p IN f.parents
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
 
 	input.SelectMany(family => 
 	    family.children.Where(child => child.familyName == "Jeff"));
@@ -1974,7 +1784,7 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 
 
-**Expressão Lambda do LINQ**
+**Expressão lambda do LINQ**
             
 	input.SelectMany(family => family.children.Where(
 	    child => child.familyName == family.parents[0].familyName));
@@ -1987,11 +1797,12 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 	WHERE c.familyName = f.parents[0].familyName
 
 
-##Executando consultas
+## Executando consultas
 O Banco de Dados de Documentos expõe recursos pode meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Banco de Dados de Documentos oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
 
 Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Banco de Dados de Documentos.
-###API REST
+
+### API REST
 O Banco de Dados de Documentos oferece um modelo de programação RESTful em vez do HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. O modelo de recursos do Banco de Dados de Documentos consiste em um conjunto de recursos em uma conta do banco de dados, cada um acessível usando um URI lógico e estável. Um conjunto de recursos é referido como um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
 
 O modelo de interação básico com esses recursos é por meio dos verbos HTTP GET, PUT, POST e DELETE, com sua interpretação padrão. O verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta do Banco de Dados de Documentos. As consultas sempre são operações somente leitura, sem efeitos colaterais.
@@ -2125,7 +1936,7 @@ Para gerenciar a política de consistência de dados para consultas, use o cabe�
 
 Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, “Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
-###SDK C# (.NET)
+### SDK C# (.NET)
 O SDK .NET suporta consultas LINQ e SQL. O exemplo a seguir mostra como realizar a consulta de filtro simples mencionada no início deste documento.
 
 
@@ -2219,7 +2030,7 @@ Os desenvolvedores também podem controlar explicitamente as páginas criando `I
 
 Consulte [Amostras .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) para ver mais amostras contendo consultas.
 
-###API do servidor JavaScript 
+### API do lado servidor do JavaScript 
 O Banco de Dados de Documentos um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. A lógica de JavaScript registrada no nível da coleção pode então emitir operações do banco de dados nas operações dos documentos da coleção determinada. Essas operações são encapsuladas em transações ACID ambiente.
 
 O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaScript para realizar consultas de dentro de procedimentos e gatilhos armazenados.
@@ -2277,4 +2088,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

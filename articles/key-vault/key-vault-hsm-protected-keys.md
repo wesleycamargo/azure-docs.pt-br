@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure | Microsoft Azure"
+	pageTitle="Como gerar e transferir chaves protegidas por HSM para o Cofre da Chave do Azure | Microsoft Azure"
 	description="Use este artigo para ajudá-lo a planejar, gerar e transferir as suas próprias chaves de HSM protegido para usar com o Cofre da Chave do Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -306,4 +306,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um Módulo de segurança de hardware (HSM)** no tutorial [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

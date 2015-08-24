@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Adicionar os Serviços Móveis a um aplicativo existente (Xamarin.iOS) - Serviços Móveis do Azure"
+	pageTitle="Adicionar os Serviços Móveis a um aplicativo existente (Xamarin.iOS) | Microsoft Azure"
 	description="Saiba como armazenar e acessar dados do seu aplicativo iOS Xamarin de serviços móveis do Azure."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -242,4 +242,4 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

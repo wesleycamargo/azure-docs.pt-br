@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Como usar filas do Barramento de Serviço (.NET) - Azure"
+    pageTitle="Como usar as filas do Barramento de Serviço (.NET) | Microsoft Azure"
     description="Aprenda a usar as filas do barramento de serviço no Azure. Amostras de código escrito em C# usando a API .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -245,4 +245,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

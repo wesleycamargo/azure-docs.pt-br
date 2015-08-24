@@ -13,17 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Introdução aos cmdlets do PowerShell para o Azure Batch
 Este artigo é uma breve introdução aos cmdlets do PowerShell do Azure que você pode usar para gerenciar suas contas do Lote e obter informações sobre os trabalhos e tarefas do Lote e outros detalhes.
 
-Para obter a sintaxe detalhada do cmdlet, digite `get-help <Cmdlet_name>` ou consulte a [Referência de cmdlet do Lote do Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Para obter a sintaxe detalhada do cmdlet, digite `get-help <Cmdlet_name>` ou consulte a [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 ## Pré-requisitos
 
-* **PowerShell do Azure** - consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para conhecer os pré-requisitos e as instruções de download e de instalação. Os cmdlets do Batch foram introduzidos na versão 0.8.10 e em versões posteriores.
+* **PowerShell do Azure** - consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para conhecer os pré-requisitos e as instruções de download e de instalação. Os cmdlets do Batch foram introduzidos na versão 0.8.10 e em versões posteriores. Os cmdlets do lote foram atualizados para usar o API de disponibilidade geral na versão 0.9.6.
 
 ## Usar os cmdlets do Batch
 
@@ -112,24 +112,24 @@ Get-AzureBatchPool -BatchContext $context
 ```
 ### Usar um filtro OData
 
-Você pode fornecer um filtro OData usando o parâmetro **Filter** para localizar apenas os objetos de seu interesse. Por exemplo, você pode localizar todos os pools com nomes que começam com "myPool":
+Você pode fornecer um filtro OData usando o parâmetro **Filter** para localizar apenas os objetos de seu interesse. Por exemplo, você pode localizar todos os pools com ids que começam com "myPool":
 
 ```
-$filter = "startswith(name,'myPool')"
+$filter = "startswith(id,'myPool')"
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 Esse método não é tão flexível quanto usar "Where-Object" em um pipeline local. No entanto, a consulta é enviada para o serviço Batch diretamente para que toda a filtragem ocorra no servidor, poupando largura de banda de Internet.
 
-### Usar o parâmetro Name
+### Use o parâmetro de Id
 
-Uma alternativa a um filtro OData é usar o parâmetro **Name**. Para consultar um pool específico chamado "myPool":
-
-```
-Get-AzureBatchPool -Name "myPool" -BatchContext $context
+Uma alternativa a um filtro OData é usar o parâmetro **Id**. Para consultar um pool específico com id "myPool":
 
 ```
-O parâmetro **Name** dá suporte apenas à pesquisa de nome completo, não a curingas ou filtros de estilo OData.
+Get-AzureBatchPool -Id "myPool" -BatchContext $context
+
+```
+O parâmetro **Id** dá suporte apenas à pesquisa de id completo, não a curingas ou filtros de estilo OData.
 
 ### Usar o pipeline
 
@@ -156,4 +156,4 @@ Para remover o limite superior, defina **MaxCount** como 0 ou menos.
 * [Referência de cmdlet do Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficientes](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
-	ms.author="apwestgarth"/>
+	ms.author="anwestg"/>
 
 # White paper Ofertas de Aplicativos Web do Serviço de Aplicativo do Azure para Enterprise #
 
@@ -153,4 +153,4 @@ Para saber mais sobre o serviço Aplicativos Web do Serviço de Aplicativo do Az
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

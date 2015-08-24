@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics: fazer a rotação de credenciais de logon para entradas e saídas | Azure" 
+	pageTitle="Stream Analytics: alternar as credenciais de logon para entradas e saídas | Microsoft Azure" 
 	description="Saiba como atualizar as credenciais para as entradas e saídas do Stream Analytics." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

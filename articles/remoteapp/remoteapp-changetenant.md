@@ -3,7 +3,7 @@
     pageTitle="Alterar o locatário do Active Directory do Azure no RemoteApp do Azure"
     description="Saiba como alterar o locatário do Active Directory do Azure associado ao RemoteApp do Azure"
     services="remoteapp"
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/24/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 O RemoteApp do Azure usa o Active Directory do Azure (Azure AD) para permitir o acesso do usuário. O único locatário do AD do Azure que você pode usar é aquele associado à assinatura do Azure. Você pode exibir a assinatura associada na página Configurações no portal. Examine a coluna Diretório na guia Assinaturas.
 
-> [AZURE.NOTE]Para que a alteração do Active Directory do Azure possa ser bem-sucedida, primeiro você deve remover todos os usuários do locatário existente do Active Directory do Azure de todas as coleções de RemoteApp do Azure. Para isso, acesse o Portal do Azure, vá para a guia RemoteApp do Azure e abra cada coleção de RemoteApp do Azure. Vá para a guia **Usuários** e remova usuários que pertencem ao seu locatário atual do Active Directory do Azure. Repita para todas as coleções de RemoteApp do Azure existentes. Sem isso, você não poderá criar ou aplicar patches em coleções.
+> [AZURE.NOTE]Para que essa alteração seja bem-sucedida, primeiro remova todos os usuários do locatário existente do Active Directory do Azure de todas as coleções do RemoteApp do Azure. Para isso, acesse o Portal do Azure, vá para a guia RemoteApp do Azure e abra cada coleção de RemoteApp do Azure. Vá para a guia **Usuários** e remova usuários que pertencem ao seu locatário atual do Active Directory do Azure. Repita para todas as coleções de RemoteApp do Azure existentes. Sem isso, você não poderá criar ou aplicar patches em coleções.
 
 Se você quiser usar um locatário diferente, siga estas etapas para alterar a associação à sua assinatura:
 
@@ -48,4 +48,4 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no RemoteApp do Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

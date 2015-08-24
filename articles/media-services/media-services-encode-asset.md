@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codificando conteúdo sob demanda com os Serviços de Mídia do Azure
@@ -48,30 +48,35 @@ Para saber mais, confira [este blog](http://azure.microsoft.com/blog/2015/07/16/
 
 O **Codificador de Mídia do Azure** é configurado usando uma das cadeias de caracteres predefinidas de codificador descritas [aqui](https://msdn.microsoft.com/library/azure/dn619392.aspx). Você também pode obter os arquivos de predefinição reais do Codificador de Mídia do Azure [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
+###Exemplo
+
 Codifique-os com o **Codificador de Mídia do Azure** usando o **Portal de Gerenciamento**, o **.NET** ou **API REST**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ####Outros tópicos relacionados
 
-[Empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx): descreve como codificar como MP4s de taxa de bits adaptável e fornecer dinamicamente Smooth Streaming, Apple HLS ou MPEG-DASH.
+[Empacotamento dinâmico](https://msdn.microsoft.com/library/azure/jj889436.aspx) - descreve como codificar como MP4s de taxa de bits adaptável e fornecer dinamicamente Smooth Streaming, Apple HLS ou MPEG-DASH.
 
-[Controlando nomes de arquivo de saída do Codificador dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn303341.aspx): descreve a convenção de nomenclatura de arquivos usada pelo Codificador de Mídia do Azure e como modificar os nomes de arquivos de saída.
+[Controlando nomes de arquivo de saída do Codificador dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn303341.aspx) - descreve a convenção de nomenclatura de arquivos usada pelo Codificador de Mídia do Azure e como modificar os nomes de arquivos de saída.
 
-[Codificando sua mídia com Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md): descreve como codificar faixas de áudio usando a codificação Dolby Digital Plus.
+[Codificando sua mídia com Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) - descreve como codificar faixas de áudio usando a codificação Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Fluxo de trabalho do Codificador de Mídia Premium 
+##<a id="media_encoder_premium_wokrflow"></a>Fluxo de trabalho do Media Encoder Premium 
 
 **Observação** o processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
 
-[Formatos com suporte pelo Fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md): discute os formatos de arquivo e codecs com suporte do **Fluxo de trabalho do Media Encoder Premium**.
+[Formatos com suporte pelo Fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md) - discute os formatos de arquivo e codecs com suporte do **Fluxo de trabalho do Media Encoder Premium**.
+
+### Designer de Fluxo de Trabalho
 
 O **fluxo de trabalho do Media Encoder Premium** é configurado usando fluxos de trabalho complexos. Os arquivos de fluxo de trabalho podem ser criados usando a ferramenta [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
 
-Você pode obter arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
+Você pode obter os arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
 
-Codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando **.NET**. Para saber mais, confira [Codificação avançada com fluxo de trabalho do Media Encoder Premium](media-services-encode-with-premium-workflow.md).
+###Exemplo
+Codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando **.NET**. Para saber mais, confira [Codificação avançada com Fluxo de Trabalho do Media Encoder Premium](media-services-encode-with-premium-workflow.md).
  
 
 ##<a id="compare_encoders"></a>Comparar os codificadores
@@ -80,10 +85,10 @@ Codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando **.NET**. 
 
 Nome do processador de mídia|Preços aplicáveis|Observações
 ---|---|---
-**Codificador de Mídia do Microsoft Azure** |CODIFICADOR HERDADO|As tarefas de codificação serão cobradas de acordo com a soma dos tamanhos de ativos de entrada e saída, em GB, a uma taxa especificada [aqui][1], abaixo da coluna CODIFICADOR HERDADO.
-**Codificador de Mídia do Azure** |CODIFICADOR|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1], abaixo da coluna CODIFICADOR.
-**Media Encoder Standard** |CODIFICADOR|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1], abaixo da coluna CODIFICADOR.
-**Fluxo de trabalho do Media Encoder Premium** |CODIFICADOR PREMIUM|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1] abaixo da coluna CODIFICADOR PREMIUM.
+**Codificador de Mídia do Microsoft Azure** |CODIFICADOR HERDADO|As tarefas de codificação serão cobradas de acordo com a soma dos tamanhos de ativos de entrada e saída, em GB, a uma taxa especificada [aqui][1], na coluna CODIFICADOR HERDADO.
+**Codificador de Mídia do Azure** |CODIFICADOR|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1], na coluna CODIFICADOR.
+**Media Encoder Standard** |CODIFICADOR|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1], na coluna CODIFICADOR.
+**Fluxo de trabalho do Media Encoder Premium** |CODIFICADOR PREMIUM|As tarefas de codificação serão cobradas de acordo com o tamanho do ativo de saída, em GB, na taxa especificada [aqui][1], na coluna CODIFICADOR PREMIUM.
 
 
 
@@ -191,4 +196,4 @@ MP3 (MPEG-1 Audio Layer 3)|Sim|Não|Não
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

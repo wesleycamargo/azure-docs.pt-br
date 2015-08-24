@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administrando um Serviço móvel na linha de comando | Serviços Móveis do Azure" 
+	pageTitle="Administrando um Serviço móvel na linha de comando | Microsoft Azure" 
 	description="Aprenda a criar, implantar e gerenciar seu serviço móvel do Azure usando as ferramentas de linha de comando." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -184,4 +184,4 @@ Para obter mais informações sobre como registrar scripts, consulte [Referênci
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

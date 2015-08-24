@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
 
 
@@ -29,6 +29,9 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 
 - Filtrado para o [Serviço de Banco de Dados SQL](http://azure.microsoft.com/updates/?service=sql-database).
 - Filtrado para disponibilidade geral [Anúncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para recursos do Banco de Dados SQL.
+
+
+As informações mais recentes sobre os limites de recurso para o Banco de Dados SQL estão documentadas em:<br/>[Limites de Recurso de Banco de Dados SQL do Azure](sql-database-resource-limits.md).
 
 
 ## Maior compatibilidade do aplicativo com o SQL Server
@@ -109,17 +112,6 @@ Existem vários bons motivos pelos quais os clientes devem atualizar agora da V1
 - A maioria dos novos recursos é lançada na V12 do Banco de dados SQL antes de eles serem lançados para o Microsoft SQL Server.
 
 
-## O gateway não fornece mais lógica de repetição na V12
-
-
-Antes da versão V12, o Banco de Dados SQL do Azure tinha um gateway que atuava como um proxy para armazenar em buffer todas as interações entre o banco de dados e o programa cliente. O gateway fornecia *lógica de repetição* automatizada para alguns*erros transitórios*.
-
- A V12 eliminou o gateway. Agora, o seu programa deve tratar erros transitórios de maneira mais completa. Para obter mais informações, consulte:
-
-
-- [Conectando-se ao Banco de Dados SQL: links, práticas recomendadas e diretrizes de design](sql-database-connect-central-recommendations.md#gatewaynoretry)
-
-
 ## Você já está usando a V12?
 
 
@@ -147,17 +139,12 @@ Um banco de dados V12 pode ser hospedado somente em um servidor lógico V12. E u
 Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico seguindo as etapas em [Atualizar para o Banco de Dados SQL V12 in-loco](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Visualizar regiões
+## <a name="V12AzureSqlDbPreviewGaTable"></a> Regiões de Disponibilidade Geral
 
 
-A V12 foi lançada em dezembro de 2014, mas apenas com o status de Visualização.
+- Em 31 de julho de 2015, todas as regiões tinham foi promovidas para Disponibilidade Geral (GA).
+- A V12 foi lançada em dezembro de 2014, mas apenas com o status de Visualização.
 
+[Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- [Termos de Uso Adicionais para Visualizações do Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Em 31 de julho de 2015, todas as regiões tinham foi promovidas para Disponibilidade Geral (GA).
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

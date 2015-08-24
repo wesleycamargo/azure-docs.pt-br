@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ Se você tiver várias guias contidas em diferentes páginas HTML, você pode es
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Exibições de páginas temporizadas
-
-Usando esse par de chamadas de métodos em vez de trackPageView, você pode analisar por quanto tempo os usuários permanecem em suas páginas.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use a mesma cadeia de caracteres como o primeiro parâmetro nas chamadas de início e parada.
-
-Examine a métrica de Duração de Página no [Metrics Explorer][metrics].
 
 
 ## Acompanhar solicitação
@@ -420,7 +407,7 @@ Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de cham
             }
 ```
 
-Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha automaticamente determinadas chamadas de dependência - por exemplo em bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
+Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-dependencies.md) que descobre e acompanha automaticamente determinadas chamadas de dependência - por exemplo, em bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Se você desejar controlar chamadas que não são detectadas pelo acompanhamento automatizado, ou se você não quiser instalar o agente, você usaria essa chamada.
 
 Para desativar o módulo padrão de acompanhamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -781,4 +768,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

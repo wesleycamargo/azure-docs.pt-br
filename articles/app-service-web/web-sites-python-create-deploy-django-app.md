@@ -36,7 +36,7 @@ Você criará um aplicativo usando a estrutura da Web Django (consulte versões 
 - Python 2.7 ou 3.4
 - setuptools, pip, virtualenv (somente Python 2.7)
 - Git
-- [Python Tools 2.1 para Visual Studio](optional)
+- [Python Tools 2.1 para Visual Studio] - Isso é opcional
 
 **Observação**: atualmente não há suporte à a publicação do TFS em projetos de Python.
 
@@ -515,4 +515,4 @@ Para obter informações sobre como usar o MySQL e banco de dados SQL:
 [Documentação do Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

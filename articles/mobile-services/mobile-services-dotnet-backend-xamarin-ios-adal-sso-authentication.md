@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (Xamarin.iOS) | Mobile Dev Center" 
+	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (Xamarin.iOS) | Microsoft Azure" 
 	description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo iOS Xamarin." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -141,4 +141,4 @@ Este tutorial exige o seguinte:
 [extensão Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

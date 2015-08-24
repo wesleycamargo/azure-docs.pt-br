@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o cliente Componente Xamarin - Guia de recursos dos Serviços Móveis do Azure" 
+	pageTitle="Como usar a biblioteca de cliente Componente Xamarin | Microsoft Azure" 
 	description="Aprenda a usar o cliente componente Xamarin para os serviços móveis do Azure." 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -472,4 +472,4 @@ Agora que você concluiu as instruções deste tópico de referência conceitual
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

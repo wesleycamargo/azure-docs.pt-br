@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Exemplos para usar a atividade de cópia na Azure Data Factory
-Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. Este tópico fornece alguns exemplos para usar a atividade de cópia em um pipeline da Data Factory. Para obter uma visão geral detalhada da atividade de cópia e cenários principais aos quais ele dá suporte, consulte [Copiar dados com o Azure Data Factory][adf-copyactivity].
+Você pode usar a **Atividade de cópia** em uma pipeline para copiar dados de uma fonte para um coletor (destino) em um lote. Este tópico fornece alguns exemplos para usar a atividade de cópia em um pipeline da Data Factory.
 
 ## Copie os dados de um banco de dados de SQL Server local para um blob do Azure
 Neste exemplo, uma tabela de entrada e uma tabela de saída são definidas e as tabelas são utilizadas em uma Atividade de cópia em uma pipeline que copia dados de um banco de dados SQL Server local para um blob do Azure.
@@ -45,7 +45,7 @@ Nesta etapa, você cria um serviço vinculado denominado **MyOnPremisesSQLDB** q
 
 Observe o seguinte:
 
-- **type** é definido como **OnPremisesSqlServerTableLocation**.
+- **type** é definido como **OnPremisesSqlServer**.
 - **connectionString** é definido como a cadeia de conexão para um banco de dados do SQL Server. 
 - **gatewayName** é definido como o nome do Gateway de gerenciamento de dados instalado no computador local e registrado com o portal de serviços da Azure Data Factory. 
 
@@ -137,8 +137,8 @@ Consulte [Propriedades de tipo de blob do Azure](https://msdn.microsoft.com/libr
 Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as seguintes propriedades:
 
 - A propriedade **tipo** é definida como **CopyActivity**.
-- **MyOnPremTable** é especificado como a entrada (marca **inputs**).
-- **MyAzureBlob** é especificado como a saída (marca **outputs**)
+- **MyOnPremTable** é especificada como a entrada (marca **inputs**).
+- **MyAzureBlob** é especificada como a saída (marca **outputs**)
 - A seção **Transformação** contém duas subseções: **fonte** e **coletor**. O tipo de fonte é configurado como **SqlSource** e o tipo de coletor como **BlobSink**. O **sqlReaderQuery** define a transformação (projeção) a ser realizada na fonte. Para obter detalhes sobre todas as propriedades, consulte a [Referência de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
@@ -175,7 +175,7 @@ Neste exemplo, um pipeline: **CopyActivityPipeline** está definido com as segui
 		  }
 		}
 
-Consulte [Referência JSON de pipeline](https://msdn.microsoft.com/library/dn834988.aspx) para obter detalhes sobre os elementos JSON para definir um pipeline do Data Factory e [Origens e coletores com suporte](https://msdn.microsoft.com/library/dn894007.aspx) para propriedades de SqlSource (por exemplo: **sqlReaderQuery** no exemplo) e BlobSink.
+Consulte [Referência JSON de pipeline](https://msdn.microsoft.com/library/dn834988.aspx) para obter detalhes sobre os elementos JSON para definir um pipeline do Data Factory e [Origens e coletores com suporte](https://msdn.microsoft.com/library/dn894007.aspx) para propriedades de SqlSource (p. ex., **sqlReaderQuery** nesse exemplo) e BlobSink.
 
 
 ## Copie os dados de um sistema de arquivos local para um blob do Azure
@@ -188,7 +188,7 @@ Esse exemplo pressupõe o seguinte:
 - **Pasta** - o nome da pasta que contém os arquivos de entrada é: marketingcampaign\\regionaldata\\{slice}, onde os arquivos são particionados em uma pasta chamada {slice} como, por exemplo, 2014121112 (ano de 2014, mês 12, dia 11, hora 12).
 
 ### Criar um serviço vinculado de sistema de arquivos local
-O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denominado **FolderDataStore** do tipo **OnPremisesFileServer**.
+O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denominado **FolderDataStore**, do tipo **OnPremisesFileServer**.
 
 	{
 	  "name": "FolderDataStore",
@@ -334,7 +334,7 @@ Observe que apenas **folderPath** é especificado no JSON de exemplo.
 	}
  
 #### Copiar todos os arquivos CSV na pasta específica
-Observe que o **fileFilter** foi definido como ****.csv**.
+Observe que o **fileFilter** é definido como ****.csv**.
 
     "typeProperties": {
         "folderPath": "marketingcampaign\\regionaldata\\na",
@@ -353,7 +353,7 @@ Observe que o **fileFiter** é definido como um arquivo específico: **201501.cs
 Você pode usar a atividade de cópia para copiar arquivos de um banco de dados do Oracle local para um Blob do Azure.
 
 ### Criar um serviço vinculado para um banco de dados Oracle local
-O JSON a seguir pode ser usado para criar um serviço vinculado que aponta para um banco de dados Oracle local. Observe que o **type** foi definido como **OnPremisesOracle**.
+O JSON a seguir pode ser usado para criar um serviço vinculado que aponta para um banco de dados Oracle local. Observe que o **type** é definido como **OnPremisesOracle**.
 
 	{
 	    "name": "OnPremOracleSource",
@@ -385,7 +385,7 @@ O JSON de exemplo a seguir pode ser usado para criar um serviço vinculado denom
 Consulte [Serviço vinculado de armazenamento do Azure](https://msdn.microsoft.com/library/dn893522.aspx) para obter detalhes sobre os elementos JSON para definir um serviço vinculado de armazenamento do Azure.
 
 ### Criar a tabela de entrada
-O JSON de exemplo a seguir pode ser usado para criar uma tabela da Azure Data Factory que se refere a uma tabela em um banco de dados Oracle local. Observe que o **type** foi definido como **OracleTable**.
+O JSON de exemplo a seguir pode ser usado para criar uma tabela da Azure Data Factory que se refere a uma tabela em um banco de dados Oracle local. Observe que o **type** é definido como **OracleTable**.
 
 	{
 	  "name": "TableOracle",
@@ -458,7 +458,7 @@ O pipeline de exemplo a seguir tem uma atividade de cópia que copia dados de um
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\\'{0:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\') AND "Timestamp" < to_date(\\'{1:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\')', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -480,12 +480,9 @@ Consulte [Referência de JSON de pipeline](https://msdn.microsoft.com/library/dn
 
 ## Consulte também
 
-- [Copiar dados com o Azure Data Factory][adf-copyactivity]
 - [Atividade de Cópia - Referência de Scripting JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Vídeo: apresentando a atividade de cópia do Azure Data Factory][copy-activity-video]
 
-
-[adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,21 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #Criar ContentKeys com REST
 
-Este artigo faz parte das séries de [Vídeo de serviços de mídia no fluxo de trabalho sob demanda](media-services-video-on-demand-workflow.md) e [Fluxo de trabalho da transmissão ao vivo dos serviços de mídia](media-services-live-streaming-workflow.md).
 
-Os serviços de mídia permitem que você crie novos ativos e forneça ativos criptografados. O **ContentKey** fornece acesso seguro aos seus **ativo**s.
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
+
+
+Os serviços de mídia permitem que você crie novos ativos e forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus ativos (**Asset**s).
 
 Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services-rest-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**.
 
-Quando você fornece ativos para seus clientes, você pode [configurar para que os ativos sejam criptografados](media-services-rest-configure-asset-delivery-policy.md) dinamicamente com uma das duas criptografias seguintes: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quando você fornece ativos para seus clientes, você pode [configurar para que os ativos sejam criptografados](media-services-rest-configure-asset-delivery-policy.md) dinamicamente com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Os ativos criptografados precisam ser associados ao **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
 A seguir estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que você deseja que sejam criptografados.
 
@@ -37,8 +41,8 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 2.	Chame os métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
 3.	Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
 
-	O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia. Você pode ver um exemplo em [EncryptSymmetricKeyData função](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4.	Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady localizado [aqui](http://www.microsoft.com/playready/documents/).
+	O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia. Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4.	Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](http://www.microsoft.com/playready/documents/).
 
 	O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
 	
@@ -59,8 +63,8 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 		    return Convert.ToBase64String(array2);
 		}
 
-5. Criar a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
-6. Associar a entidade **ContentKey** com sua entidade **ativos** por meio da operação $links.
+5. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
+6. Associe a entidade **ContentKey** com sua entidade **Asset** por meio da operação $links.
 
 Observe que os exemplos que geram uma chave AES, criptografam a chave e calculam a soma de verificação foram omitidos deste tópico. Somente os exemplos que mostram como interagir com os serviços de mídia são fornecidos.
 
@@ -173,7 +177,7 @@ Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. 
     }
 
 
-O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.
+O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0", para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.
 
 
 Solicitação
@@ -247,4 +251,4 @@ Resposta:
 
 	HTTP/1.1 204 No Content 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

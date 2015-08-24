@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Publicar um aplicativo no RemoteApp"
-    description="Saiba como publicar aplicativos e recursos no RemoteApp."
+    pageTitle="Publicar um aplicativo no RemoteApp do Azure"
+    description="Saiba como publicar aplicativos e recursos no RemoteApp do Azure."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -24,7 +24,7 @@ Depois de criar sua coleção RemoteApp, você precisa publicar os aplicativos o
 
 Na guia **Publicação** no portal, clique em **Publicar**. Você pode adicionar um aplicativo da imagem do modelo do menu **Iniciar** ou fornecer o caminho onde o aplicativo está instalado na imagem do modelo. Se você optar por adicionar a partir do menu Iniciar, escolha o aplicativo para publicar. Se você optar por fornecer o caminho para o aplicativo, digite um nome para o aplicativo e o caminho para o aplicativo. Use variáveis no caminho - por exemplo, "%systemdrive%" em vez de "c:".
 
-> [AZURE.NOTE]Se deseja adicionar o seu aplicativo ao menu Iniciar, você precisa ter *adicionado tal aplicativo ao menu Iniciar em sua imagem de modelo.* Caso contrário, o RemoteApp verá somente o que *está* no menu Iniciar e você ficará confuso. Se você se esqueceu de adicionar o aplicativo ao menu **Iniciar** quando criou o modelo, opte por adicionar o caminho ao aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
+> [AZURE.NOTE]Se deseja adicionar o seu aplicativo ao menu **Iniciar**, você precisa ter *adicionado tal aplicativo ao menu **Iniciar** em sua imagem de modelo.* Caso contrário, o RemoteApp verá somente o que *está* no menu **Iniciar** e você ficará confuso. Se você se esqueceu de adicionar o aplicativo ao menu **Iniciar** quando criou o modelo, opte por adicionar o caminho ao aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

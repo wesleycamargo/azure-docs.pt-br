@@ -378,4 +378,4 @@ Este tópico lista os atributos que são sincronizados pelo Azure AD Connect Syn
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

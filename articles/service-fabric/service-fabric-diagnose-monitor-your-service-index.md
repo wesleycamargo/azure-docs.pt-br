@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/21/2015"
+   ms.date="08/04/2015"
    ms.author="ryanwi"/>
 
 # Diagnosticar e monitorar um serviço da Malha do Serviço
@@ -40,4 +40,4 @@ A Malha do Serviço apresenta um modelo de integridade que fornece uma funcional
 - [Adicionando relatórios de integridade personalizados da Malha do Serviço](service-fabric-report-health.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

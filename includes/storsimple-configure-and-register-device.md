@@ -30,7 +30,7 @@
    
       >[AZURE.NOTE]Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você vir a mensagem de erro “O dispositivo não está pronto”, verifique a conexão física da rede na interface de rede DADOS 0 de seu controlador ativo.
 
-8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). Se você tiver algum problema durante esta etapa, consulte a guia de solução de problemas para [Erros durante a configuração do proxy da web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
       >[AZURE.NOTE]Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. As configurações aplicadas antes de você dar esse comando serão mantidas.
@@ -41,11 +41,17 @@
 
     ![Dispositivo de registro do StorSimple 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    Você pode redefinir a senha do Gerenciador de Instantâneos StorSimple na interface de serviço Gerenciador StorSimple.
+    Você pode redefinir a senha do Gerenciador de Instantâneos StorSimple na interface de serviço Gerenciador StorSimple. Para obter etapas detalhadas, vá para[alterar as senhas do StorSimple usando o serviço de Gerenciador de StorSimple](storsimple-change-passwords.md).
+
+	Para solucionar qualquer tipo de problemas nesta etapa, consulte a guia de solução de problemas para [Erros relacionados à senhas](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
 11. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na etapa 2. Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
 
-12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
+	Para solucionar quaisquer falhas possíveis de registro de dispositivo, consulte [Erros durante o registro de dispositivo](storsimple-troubleshoot-deployment.md#errors-during-device-registration). Para a solução de problemas detalhada, você também pode consultar[exemplo passo a passo de solução de problemas](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+
+12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro.
+	
+	> [AZURE.WARNING]Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple. Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
 
      ![Dispositivo de registro do StorSimple 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -56,10 +62,12 @@
 14. Volte para o Portal de Gerenciamento e conclua as seguintes etapas:
   1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página**Início Rápido**.
   2. Clique em **Exibir dispositivos conectados**.
-  3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
+  3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**. Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
    
     ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.NOTE]Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
+      >[AZURE.IMPORTANT]Depois que o dispositivo estiver online, conecte os cabos de rede que você tinha desconectado no início desta etapa.
 
-<!---HONumber=August15_HO6-->
+Assim que o dispositivo for registrado com êxito e não fica online, você pode executar o `Test-HcsmConnection -Verbose` para garantir que a conectividade de rede esteja íntegra. Para o uso detalhado desse cmdlet, vá para[referência do cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
+
+<!---HONumber=August15_HO7-->

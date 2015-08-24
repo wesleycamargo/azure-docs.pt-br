@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,12 @@
 
 #Como dimensionar a codificação com o SDK do .NET
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
 ##Visão geral
 
 Uma conta de serviços de mídia está associada a um tipo de unidade reservada que determina a velocidade com que seus trabalhos de codificação são processados. Você pode escolher entre os seguintes tipos de unidade reservada: Basic, Standard ou Premium. Por exemplo, o mesmo trabalho de codificação é executado mais rápido quando se usa o tipo de unidade reservada Standard em comparação com aquela do tipo Básico. Para saber mais, consulte o blog "Encoding Reserved Unit Types”, escrito por [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
@@ -70,4 +74,4 @@ Para abrir um tíquete de suporte, faça o seguinte:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

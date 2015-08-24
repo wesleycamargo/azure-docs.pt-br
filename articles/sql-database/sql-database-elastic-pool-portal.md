@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL (visualização)" 
+	pageTitle="Criar e gerenciar um pool de banco de dados elástico de Banco de Dados SQL" 
 	description="Criar um pool de recursos único para compartilhar em um grupo de Bancos de Dados SQL do Azure." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -10,41 +10,42 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="08/12/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar e gerenciar um pool elástico do Banco de Dados SQL (visualização)
+# Criar e gerenciar um pool de banco de dados elástico de Banco de Dados SQL
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-Este artigo mostra como criar um pool elástico com o [Portal do Azure](https://portal.azure.com).
+Este artigo mostra como criar um pool de banco de dados elástico com o [Portal de Visualização](https://portal.azure.com).
 
-Os pools elásticos simplificam o processo de criação, manutenção e gerenciamento do desempenho e do custo de uma grande quantidade de bancos de dados.
+Os pools de banco de dados elástico simplificam o processo de criação, manutenção e gerenciamento do desempenho e também do custo para grandes quantidades de bancos de dados.
  
 
-> [AZURE.NOTE]No momento, os pools elásticos estão em versão de visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL.
+> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com servidores V12 do Banco de Dados SQL.
 
  
 
 
 ## Pré-requisitos
 
-Para criar um pool elástico, você precisa do seguinte:
+Para criar um pool de banco de dados elástico, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em AVALIAÇÃO GRATUITA na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um servidor do Banco de Dados SQL versão 12. Se você não tiver um servidor V12, crie um seguindo as etapas: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 
 
 
-## Criar um pool elástico
+## Criar um pool de banco de dados elástico
 
-Crie um pool elástico adicionando um novo pool a um servidor. Você pode adicionar vários pools a um servidor, mas apenas um servidor pode ser associado a cada pool. Além disso, é possível adicionar todos os bancos de dados em um servidor, ou alguns deles, a um pool.
+Crie um pool de banco de dados elástico adicionando um novo pool a um servidor. Você pode adicionar vários pools a um servidor, mas apenas um (1) servidor pode ser associado a cada pool. Além disso, é possível adicionar todos os bancos de dados em um servidor, ou alguns deles, a um pool.
 
 
 1.	Selecione um servidor V12 de Banco de Dados SQL que contenha os bancos de dados que você deseja adicionar ao pool.
@@ -52,7 +53,7 @@ Crie um pool elástico adicionando um novo pool a um servidor. Você pode adicio
 
    ![Criar Pool Elástico][1]
 
-## Configurar um pool elástico
+## Configurar um pool de banco de dados elástico
 
 Configure o pool definindo a camada de preços, adicionando bancos de dados e configurando as características de desempenho do pool.
 
@@ -61,15 +62,35 @@ Configure o pool definindo a camada de preços, adicionando bancos de dados e co
    ![Configurar pool elástico][2]
 
 
-### Camada de preços
+## Configurar a camada de preços
 
-A camada de preços de um pool elástico é um pouco parecida com a camada de serviços do banco de dados SQL. A camada de preços determina os recursos disponíveis para os bancos de dados flexível no pool, o número máximo de DTUs (MÁX. DE DTUs) e armazenamento (GB) disponível para cada banco de dados.
+A camada de preços de um pool de banco de dados elástico determina os recursos disponíveis para os bancos de dados elásticos no pool, o número máximo de eDTUs (eDTU MAX) e o armazenamento (GB) disponíveis para cada banco de dados. Para obter detalhes, consulte [Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-> [AZURE.NOTE]Atualmente, a versão de visualização está limitada à camada de preços **Padrão**.
+>[AZURE.NOTE]Atualmente na visualização, você não pode alterar a camada de preços de um pool de banco de dados elástico após a sua criação. Para alterar a camada de preços para um pool elástico existente, crie um novo pool elástico na camada de preços desejada e migre os bancos de dados elásticos para esse novo pool.
 
-| Camada de Preços | MÁX. DE DTUs por banco de dados |
-| :--- | :--- |
-| Padrão | MÁX. de 100 DTUs por banco de dados |
+   ![Camada de preços][9]
+
+
+## Recomendações para camada de preços de pool de banco de dados elástico
+
+O serviço de Banco de Dados SQL avalia o histórico de utilização e recomenda um ou mais pools de banco de dados elástico quando essa alternativa é mais econômica do que o uso de bancos de dados individuais. Camadas de preços com uma estrela (![estrela][10]) são recomendadas com base nas cargas de trabalho de seus bancos de dados.
+
+Se mais de uma camada de preços é recomendada, isso indica que vários pools de banco de dados elástico devem ser criados. Cada recomendação é configurada com um subconjunto exclusivo dos bancos de dados do servidor que melhor se enquadram no pool.
+
+Além de simplesmente sugerir uma camada de preços de pool de banco de dados elástico, cada recomendação de pool contém o seguinte:
+
+- Camada de preços para o pool (Basic, Standard ou Premium).
+- Quantidade apropriada de eDTUs do pool.
+- As configurações de limite mínimo/máximo de eDTUs no banco de dados.  
+- Lista de bancos de dados recomendados.
+
+O serviço leva os últimos 30 dias de telemetria em conta ao recomendar pools de banco de dados elástico. Para que um banco de dados seja considerado como candidato para um pool de banco de dados elástico, ele deve existir há pelo menos 7 dias. Bancos de dados que já estão em um pool de banco de dados elástico não são considerados candidatos para as recomendações de pool de banco de dados elástico.
+
+O serviço avalia as os recursos necessários e o custo-benefício de mover os bancos de dados individuais em cada camada de serviço para pools de banco de dados elástico pertencentes ao mesmo nível. Por exemplo, todos os bancos de dados padrão em um servidor são avaliados para sua adaptação em um pool elástico Standard. Isso significa que o serviço não faz recomendações entre camadas diferentes, como mover um banco de dados Standard para um pool Premium.
+
+>[AZURE.NOTE]Bancos de dados da Web e comerciais são mapeados para uma das novas camadas Basic, Standard ou Premium com base em seu tamanho de banco de dados e histórico de utilização. O mapeamento para as novas camadas recomenda bancos de dados da Web e comerciais para o pool apropriado.
+
+<br><br>
 
 ### Adicionar bancos de dados
 
@@ -79,7 +100,7 @@ Você pode selecionar, a qualquer momento, os bancos de dados específicos para 
 
 Ao selecionar um banco de dados para adição a um pool, as condições a seguir devem ser atendidas:
 
-- O pool deve ter espaço para o banco de dados (não pode conter o número máximo de bancos de dados). Mais especificamente, o pool deve ter DTUs suficientes disponíveis para cobrir a garantia de DTUs por banco de dados (por exemplo, se a garantia de DTUs para o grupo for de 400, e a garantia de DTUs para cada banco de dados for de 10, o número máximo de bancos de dados permitidos no pool será de 40 (400 DTUs/10 DTUs garantidos por banco de dados = Máx. de 40 bancos de dados).
+- O pool deve ter espaço para o banco de dados (não pode conter o número máximo de bancos de dados). Mais especificamente, o pool deve ter eDTUs suficientes disponíveis para cobrir a garantia de eDTUs por banco de dados (por exemplo, se a garantia de eDTUs para o grupo for de 400, e a garantia de eDTUs para cada banco de dados for de 10, o número máximo de bancos de dados permitidos no pool será de 40 (400 eDTUs/10 eDTUs garantidos por banco de dados = Máx. de 40 bancos de dados).
 - Os recursos atuais usados pelo banco de dados devem estar disponíveis no pool. 
 
 
@@ -89,27 +110,27 @@ Você pode configurar o desempenho do pool definindo os parâmetros de desempenh
 
    ![Configurar Pool Elástico][3]
 
-Três parâmetros podem ser configurados para definir o desempenho do pool; a Garantia de DTUs para o pool, o MÍN. DE DTUs e MÁX. DE DTUs para os bancos de dados elásticos no pool. A tabela a seguir descreve cada um deles e fornece orientações sobre como configurá-los.
+Três parâmetros podem ser configurados para definir o desempenho do pool; a Garantia de eDTUs para o pool, o MÍN. DE eDTUs e MÁX. DE eDTUs para os bancos de dados elásticos no pool. A tabela a seguir descreve cada um deles e fornece orientações sobre como configurá-los. Para configurações de valor específicas disponíveis, consulte [referência de pool de banco de dados elástico](sql-database-elastic-pool-reference.md).
 
 | Parâmetro de desempenho | Descrição |
 | :--- | :--- |
-| **DTU DE POOL/GB** - garantia de DTUs para o pool | A garantia de DTUs para o pool é o número garantido de DTUs disponíveis e compartilhados por todos os bancos de dados no pool. <br> Atualmente, você pode definir esse valor como 100, 200, 400, 800 ou 1200. <br> O tamanho específico da garantia de DTUs de um grupo deve ser fornecido levando em consideração a utilização histórica de DTUs do grupo. Como alternativa, esse tamanho pode ser definido pela garantia desejada de DTUs por banco de dados e pela utilização de bancos de dados ativos simultaneamente. A garantia de DTUs para o pool também está correlacionada à quantidade de armazenamento disponível para o pool. Para cada DTU alocado para o pool, você obtém 1 GB de armazenamento no banco de dados (1 DTU = 1 GB de armazenamento). <br> **Com qual valor eu devo definir a garantia de DTUs do pool?** <br>No mínimo, você deve definir a garantia de DTUs do pool como ([Nº de bancos de dados] x [utilização média de DTUs por banco de dados]) |
-| **MÍN. DE DTUs** - garantia de DTUs para cada banco de dados | A garantia de DTUs por banco de dados é o número de DTUs garantidos para um único banco de dados no pool. No momento, você pode definir essa garantia como 0, 10, 20 ou 50 DTUs, ou você pode optar por não fornecer uma garantia aos bancos de dados no grupo (MÍN. DE DTUs = 0). <br> **Com qual valor eu devo definir a garantia de DTUs por banco de dados?** <br> No mínimo, você deve definir a garantia de DTUs por banco de dados (MÍN. DE DTUs) de acordo com a ([utilização média por banco de dados]). A garantia DTU por banco de dados é uma configuração global que define a garantia de DTUs para todos os bancos de dados no pool. |
-| **MÁX. DE DTUs** - Limite de DTUs por banco de dados | O MÁX. DE DTUs por banco de dados é o número máximo de DTUs que podem ser usados por um único banco de dados no pool. Defina o limite de DTUs por banco de dados com um valor alto o suficiente para lidar com picos máximos que seus bancos de dados podem enfrentar. Você pode definir esse limite até o limite do sistema, o que depende da camada de preços do pool (100 DTUs para Padrão). O tamanho específico deste limite deve acomodar padrões de pico de utilização de bancos de dados dentro do grupo. Espera-se algum grau de sobrecarga do grupo, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente.<br> **Com qual valor eu devo definir o limite de DTUs por banco de dados?** <br> Defina o MÁX. DE DTUs, ou limite de DTUs por banco de dados, como ([pico de utilização de banco de dados]). Por exemplo, suponha que o pico de utilização por banco de dados seja de 50 DTUs e apenas 20% dos 100 bancos de dados no grupo atinjam o pico simultaneamente. Se o limite de DTUs por banco de dados for definido como 50 DTUs, será razoável sobrecarregar o grupo em cinco vezes e definir a garantia de DTUs para o grupo como 1000 DTUs. Também vale a pena observar que o limite de DTUs não é uma garantia de recursos para um banco de dados, mas sim um teto de DTUs que pode ser atingido se estiver disponível. |
+| **eDTU DE POOL** - garantia de eDTUs para o pool | A garantia de eDTUs para o pool é o número garantido de eDTUs disponíveis e compartilhados por todos os bancos de dados no pool. <br> O tamanho específico da garantia de eDTUs de um grupo deve ser fornecido levando em consideração o histórico de utilização de eDTUs do grupo. Como alternativa, esse tamanho pode ser definido pela garantia desejada de eDTUs por banco de dados e pela utilização de bancos de dados ativos simultaneamente. A garantia de eDTUs para o pool também está correlacionada à quantidade de armazenamento disponível para o pool. Para cada DTU alocado para o pool, você obtém uma quantidade fixa de armazenamento no banco de dados. <br> **Com que valor eu devo definir a garantia de eDTUs do pool?** <br>No mínimo, você deve definir a garantia de eDTUs do pool como ([Nº de bancos de dados] x [utilização média de DTUs por banco de dados]) |
+| **MÍN. DE eDTUs** - garantia de eDTUs para cada banco de dados | A garantia de eDTUs por banco de dados é o número de eDTUs garantidos para um único banco de dados no pool. Por exemplo, em pools Standard, você pode definir essa garantia como 0, 10, 20, 50 ou 100 eDTUs, ou você pode optar por não fornecer uma garantia aos bancos de dados no grupo (MÍN. DE eDTUs = 0). <br> **Com qual valor eu devo definir a garantia de eDTUs por banco de dados?** <br> Normalmente, a garantia de eDTU por banco de dados (MÍN. DE eDTUs) é definida como qualquer valor entre 0 e a ([utilização média por banco de dados]). A garantia eDTU por banco de dados é uma configuração global que define a garantia de eDTUs para todos os bancos de dados no pool. |
+| **MÁX. DE eDTUs** - Limite de eDTUs por banco de dados | O MÁX. DE eDTUs por banco de dados é o número máximo de eDTUs que podem ser usados por um único banco de dados no pool. Defina o limite de eDTUs por banco de dados com um valor alto o suficiente para lidar com picos máximos que seus bancos de dados podem enfrentar. Você pode definir esse limite até o limite do sistema, o que depende da camada de preços do pool (1.000 eDTUs para Premium). O tamanho específico deste limite deve acomodar padrões de pico de utilização de bancos de dados dentro do grupo. Espera-se algum grau de sobrecarga do grupo, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente.<br> **Com qual valor eu devo definir o limite de eDTUs por banco de dados?** <br> Defina o MÁX. DE eDTUs, ou limite de eDTUs por banco de dados, como ([pico de utilização de banco de dados]). Por exemplo, suponha que o pico de utilização por banco de dados seja de 50 DTUs e apenas 20% dos 100 bancos de dados no grupo atinjam o pico simultaneamente. Se o limite de eDTUs por banco de dados for definido como 50 eDTUs, será razoável sobrecarregar o grupo em cinco vezes e definir a garantia de eDTUs para o grupo (eDTUs do POOL) como 1.000 eDTUs. Também vale a pena observar que o limite de eDTUs não é uma garantia de recursos para um banco de dados, mas sim um teto de eDTUs que pode ser atingido se estiver disponível. |
 
 
-## Adicionando bancos de dados a um pool elástico
+## Adicionando bancos de dados a um pool de banco de dados elástico
 
-Após a criação do pool, você pode adicionar ou remover bancos de dados do pool
+Depois que o pool é criado, você pode adicionar ou remover bancos de dados dentro e fora do pool, marcando ou desmarcando bancos de dados na página **Adicionar Bancos de Dados**.
 
 
-## Monitorar e gerenciar um pool elástico
+## Monitorar e gerenciar um pool de banco de dados elástico
 
-Depois de criar um pool elástico, você pode monitorar e gerenciar o pool no portal navegando até a lista de pools existentes e selecionando o pool desejado.
+Depois de criar um pool de banco de dados elástico, você pode monitorar e gerenciar o pool no portal navegando até a lista de pools existentes e selecionando o pool desejado.
 
 Depois de criar um pool, você pode:
 
-- Selecionar **Configurar pool** para alterar as configurações de DTU do pool e de DTU por banco de dados.
+- Selecionar **Configurar pool** para alterar as configurações de eDTU do pool e de eDTU por banco de dados.
 - Selecionar **Criar trabalho** e gerenciar os bancos de dados no pool, criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 - Selecionar **Gerenciar trabalhos** para administrar os trabalhos elásticos existentes.
 
@@ -135,13 +156,8 @@ Clique em **Editar gráfico** para adicionar parâmetros de modo que você possa
 
 
 
-
-
-
 ## Próximas etapas
-Após a criação de um pool elástico, você pode gerenciar os bancos de dados no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool.
-
-Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
+Depois de criar um pool de banco de dados elástico, você pode gerenciar os bancos de dados no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 
 
 
@@ -149,6 +165,7 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 
 - [Pool elástico de Banco de Dados SQL](sql-database-elastic-pool.md)
 - [Criar um pool elástico de Banco de Dados SQL com o PowerShell](sql-database-elastic-pool-powershell.md)
+- [Criar e gerenciar Banco de Dados SQL com C#](sql-database-client-library.md)
 - [Referência de banco de dados elástico](sql-database-elastic-pool-reference.md)
 
 
@@ -161,5 +178,7 @@ Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
+[9]: ./media/sql-database-elastic-pool-portal/pricing-tier.png
+[10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

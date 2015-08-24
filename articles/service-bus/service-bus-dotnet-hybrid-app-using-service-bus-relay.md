@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicativo local/na nuvem híbrido (.NET) - Azure"
+	pageTitle="Aplicativo local/na nuvem híbrido (.NET) | Microsoft Azure"
 	description="Aprenda a criar um aplicativo .NET local/na nuvem híbrida usando a Retransmissão do Barramento de Serviço do Azure."
 	services="service-bus"
 	documentationCenter=".net"
@@ -620,4 +620,4 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

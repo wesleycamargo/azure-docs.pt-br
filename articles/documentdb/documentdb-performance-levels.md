@@ -33,30 +33,11 @@ Cada coleção do Banco de Dados de Documentos criada em uma conta padrão é pr
 
 Cada nível de desempenho tem um limite de RU (unidade de solicitação) associado. Trata-se do limite que será reservado para uma coleção com base em seu nível de desempenho, e fica disponível para ser usado apenas por essa coleção. As coleções podem ser criadas por meio do [Portal do Azure](http://portal.azure.com) ou por qualquer um dos [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). As APIs do Banco de Dados de Documentos permitem especificar o nível de desempenho de uma coleção.
 
-<table> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nível de desempenho da coleção</b></p></td>
-<td valign="top" ><p><b>Taxa de transferência reservada</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S1</p></td>
-<td valign="top" ><p>250 RU/s</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S2</p></td>
-<td valign="top" ><p>1000 RU/s</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S3</p></td>
-<td valign="top" ><p>2500 RU/s</p></td>
-</tr>
-
-</tbody>
-</table>
+Nível de desempenho da coleção|Produtividade reservada
+---|---
+S1|250 RU/s
+S2|1000 RU/s
+S3|2500 RU/s
 
 O Banco de Dados de Documentos possibilita um amplo conjunto de operações de banco de dados, incluindo consultas, consultas com UDFs (funções definidas pelo usuário), gatilhos e procedimentos armazenados. O custo de processamento associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para realizar a operação. Em vez de gerenciar e pensar em recursos de hardware, você pode pensar em uma unidade de solicitação como uma unidade que mede os recursos necessários para realizar várias operações de bancos de dados e para atender a uma solicitação do aplicativo.
 
@@ -141,4 +122,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

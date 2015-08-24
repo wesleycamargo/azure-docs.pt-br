@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Como verificar o andamento do trabalho
 
-Este artigo faz parte da série do [Fluxo de trabalho do Vídeo sob demanda dos Serviços de Mídia](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento [definindo um manipulador de eventos StateChanged](#statechange_event_handler) ou [usando o armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia](#check_progress_with_queues). Ambos os métodos são descritos neste tópico.
 
@@ -427,4 +430,4 @@ O exemplo acima produziu a saída a seguir. Os valores variarão.
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

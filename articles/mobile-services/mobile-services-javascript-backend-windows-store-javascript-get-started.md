@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução aos Serviços Móveis para aplicativos da Windows Store | Centro de Desenvolvimento de Serviços Móveis" 
+	pageTitle="Introdução aos Serviços Móveis para aplicativos da Windows Store | Microsoft Azure" 
 	description="Siga este tutorial para começar a usar os serviços móveis do Azure para desenvolvimento da Windows Store em C# ou JavaScript." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -93,4 +93,4 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

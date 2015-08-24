@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="07/28/2015"
+   ms.date="08/12/2015"
    ms.author="adamkr; sstein"/>
 
-# Criar e gerenciar um pool de banco de dados elástico do Banco de Dados SQL com PowerShell
+# Criar e gerenciar um pool elástico de bancos de dados de Banco de Dados SQL usando PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
@@ -32,7 +33,7 @@ As etapas individuais para criar um pool de banco de dados elástico com o Azure
 
 Este artigo mostrará como criar tudo o que você precisa para criar e configurar um pool de banco de dados elástico, exceto pela assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 
-> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL.
+> [AZURE.NOTE]No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com servidores V12 do Banco de Dados SQL.
 
 
 ## Pré-requisitos
@@ -50,7 +51,7 @@ Para obter informações detalhadas, confira [Usando o Windows PowerShell com o 
 
 ## Configurar suas credenciais e selecionar sua assinatura
 
-Agora que você está executando o módulo do gerenciador de recursos do Azure, terá acesso a todos os cmdlets necessários para criar e configurar um pool. Primeiro você deve estabelecer o acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
+Agora que você está executando o módulo do Gerenciador de Recursos do Azure, terá acesso a todos os cmdlets necessários para criar e configurar um pool de banco de dados elástico. Primeiro você deve estabelecer o acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal do Azure.
 
 	Add-AzureAccount
 
@@ -66,7 +67,7 @@ Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**
 
 ## Criar um grupo de recursos, servidor e regra de firewall
 
-Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
+Agora que você tem acesso para executar cmdlets em sua assinatura do Azure, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o pool de banco de dados elástico será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
 
 Se você já tiver um grupo de recursos, poderá ir até a próxima etapa ou executar o comando a seguir para criar um novo grupo de recursos:
 
@@ -74,7 +75,7 @@ Se você já tiver um grupo de recursos, poderá ir até a próxima etapa ou exe
 
 ### Criar um servidor 
 
-Os pools de banco de dados elástico são criados nos servidores do Banco de Dados SQL do Azure. Se você já tiver um servidor, vá para a próxima etapa ou execute o seguinte comando para criar um novo servidor V12. Substitua ServerName pelo nome do servidor. Esse nome deve ser exclusivo para Servidores SQL do Azure. Você poderá receber um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Os detalhes do servidor e o prompt do PowerShell serão exibidos após a criação do servidor. Você pode editar o comando a fim de usar qualquer local válido de sua escolha.
+Os pools de banco de dados elástico são criados nos servidores do Banco de Dados SQL do Azure. Se você já tiver um servidor, vá para a próxima etapa ou execute o seguinte comando para criar um novo servidor V12. Substitua ServerName pelo nome do servidor. Esse nome deve ser exclusivo para Servidores do SQL do Azure. Você poderá receber um erro se o nome do servidor já existir. Também vale a pena observar que esse comando pode demorar alguns minutos para ser concluído. Os detalhes do servidor e o prompt do PowerShell serão exibidos após a criação do servidor. Você pode editar o comando a fim de usar qualquer local válido de sua escolha.
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -94,15 +95,15 @@ Para saber mais, confira [Firewall do Banco de Dados SQL do Azure](https://msdn.
 
 ## Criar um pool de banco de dados elástico e bancos de dados elásticos
 
-Agora que você tem um grupo de recursos, um servidor e uma regra de firewall configurados, é possível acessar o servidor. O comando a seguir criará o pool. Esse comando cria um pool que compartilha um total de 400 DTUs. É garantido que cada banco de dados no pool terá sempre 10 DTUs disponíveis (DatabaseDtuMin). Os bancos de dados individuais no pool podem consumir no máximo 100 DTUs (DatabaseDtuMax). Para obter explicações detalhadas sobre o parâmetro, confira [Pools elásticos do Banco de Dados SQL do Azure](sql-database-elastic-pool.md).
+Agora que você tem um grupo de recursos, um servidor e uma regra de firewall configurados, é possível acessar o servidor. O comando a seguir criará o pool de banco de dados elástico. Esse comando cria um pool que compartilha um total de 400 eDTUs. É garantido que cada banco de dados no pool terá sempre 10 eDTUs disponíveis (DatabaseDtuMin). Os bancos de dados individuais no pool podem consumir no máximo 100 eDTUs (DatabaseDtuMax). Para obter explicações detalhadas sobre o parâmetro, confira [Pools elásticos do Banco de Dados SQL do Azure](sql-database-elastic-pool.md).
 
 
 	New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-### Criar ou adicionar bancos de dados elásticos em um pool
+### Criar ou adicionar bancos de dados elásticos em um pool de banco de dados elástico
 
-O pool criado na etapa anterior está vazio, não contém bancos de dados. As seções a seguir mostram como criar novos bancos de dados dentro do pool e também como adicionar bancos de dados existentes ao pool.
+O pool criado na etapa anterior está vazio, ele não contém bancos de dados elásticos. As seções a seguir mostram como criar novos bancos de dados elásticos dentro do pool e também como adicionar bancos de dados existentes ao pool.
 
 
 ### Criar um novo banco de dados elástico dentro de um pool de banco de dados elástico
@@ -123,15 +124,21 @@ Para a demonstração, crie um banco de dados que não esteja em um pool de banc
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
-Mova o banco de dados existente para o pool.
+Mova o banco de dados existente para o pool de banco de dados elástico.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Alterar as configurações de desempenho de um pool de banco de dados elástico
+
+
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+
 
 ## Monitorando bancos de dados elásticos e pools de banco de dados elástico
 
 ### Obter o status de operações do pool de banco de dados elástico
 
-Você pode acompanhar o status das operações de pool, incluindo criação e atualizações.
+Você pode acompanhar o status das operações de pool de banco de dados elástico, incluindo a criação e as atualizações.
 
 	Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
@@ -142,16 +149,16 @@ Você pode acompanhar o status das operações de pool, incluindo criação e at
 
 ### Obter métricas de consumo de recursos para um pool de banco de dados elástico
 
-Métricas que podem ser recuperadas como um percentual do limite do pool:
+Métricas que podem ser recuperadas como uma porcentagem do limite do pool de recursos:
 
 * Utilização média da CPU - cpu\_percent 
 * Utilização média de ES - data\_io\_percent 
 * Utilização média de log - log\_write\_percent 
 * Utilização média da memória - memory\_percent 
-* Utilização média de DTU (como um valor máximo de utilização de CPU/ES/Log) – DTU\_percent 
+* Utilização média de eDTU (como um valor máximo de utilização de CPU/ES/Log) – DTU\_percent 
 * Número máximo de solicitações de usuário simultâneas (operadores) – max\_concurrent\_requests 
 * Número máximo de sessões de usuário simultâneas – max\_concurrent\_sessions 
-* Tamanho total de armazenamento para o pool – storage\_in\_megabytes 
+* Tamanho total de armazenamento para o pool elástico – storage\_in\_megabytes 
 
 
 Períodos de retenção/granularidade das métricas:
@@ -183,7 +190,7 @@ Exporte para um arquivo CSV:
 
 Essas APIs são as mesmas que as APIs (V12) atuais usadas para monitorar a utilização de recursos de um banco de dados autônomo, exceto para as seguintes diferenças semânticas
 
-* Para essa API, as métricas recuperadas são expressadas como um percentual do databaseDtuMax (ou capacidade equivalente para a métrica subjacente, como CPU, ES, etc.) definida para esse pool. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool pai. 
+* Para essa API as métricas recuperadas são expressas como um percentual do databaseDtuMax (ou limite equivalente para a métrica subjacente, como CPU, ES etc) definido para esse pool de banco de dados elástico. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool de banco de dados elástico pai. 
 
 Obtenha as métricas: $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
@@ -211,7 +218,7 @@ Exporte para um arquivo CSV:
     New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
     New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
     New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    
+    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -225,13 +232,11 @@ Exporte para um arquivo CSV:
 
 ## Próximas etapas
 
-Depois de criar um pool de banco de dados elástico, você pode gerenciar os bancos de dados elásticos no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados elásticos no pool.
-
-Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
+Depois de criar um pool de banco de dados elástico, você pode gerenciar os bancos de dados elásticos no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 
 
 ## Referência de banco de dados elástico
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

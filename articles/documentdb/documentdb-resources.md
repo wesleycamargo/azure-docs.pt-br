@@ -58,46 +58,9 @@ Recursos como contas do banco de dados, bancos de dados, coleções, usuários, 
 >[AZURE.NOTE]Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Propriedade </b></p></td>
-<td valign="top" ><p><b>Configurável pelo usuário ou gerada pelo sistema?</b></p></td>
-<td valign="top" ><p><b>Finalidade</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>Gerada pelo sistema</p></td>
-<td valign="top" ><p>Identificador hierárquico e exclusivo do recurso, gerado pelo sistema.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>Gerada pelo sistema</p></td>
-<td valign="top" ><p>etag do recurso necessário para controle de simultaneidade otimista.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>Gerada pelo sistema</p></td>
-<td valign="top" ><p>Último carimbo de data/hora atualizado do recurso.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>Gerada pelo sistema</p></td>
-<td valign="top" ><p>URI endereçável exclusivo do recurso.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>ID</p></td>
-<td valign="top" ><p>Configurável pelo usuário</p></td>
-<td valign="top" ><p>Nome exclusivo do recurso, definido pelo usuário.</p></td>
-</tr>
-
-</tbody>
-</table>
+Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
+---|---|---
+_\_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso. \_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista. \_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso. \_self|Gerado pelo sistema|URI endereçável exclusivo do recurso. id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário.
 
 ###Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
@@ -121,37 +84,12 @@ Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Docu
 ###Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nome da propriedade</b></p></td>
-<td valign="top" ><p><b>Descrição</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Política de Consistência</p></td>
-<td valign="top" ><p>Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. No futuro, poderemos dar suporte à substituição do nível de consistência com base na coleção. </p>
-
-<p>Observe que essa propriedade somente se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma coerência forte.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Chave primária e Chave secundária</p></td>
-<td valign="top" ><p>Essas são as chaves primária e secundária, que oferecem acesso administrativo a todos os recursos na conta de banco de dados.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (LEITURA)</p></td>
-<td valign="top" ><p>Quantidade máxima de armazenamento de mídia disponível para a conta de banco de dados.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
-<td valign="top" ><p>Uso atual do armazenamento de mídia para a conta de banco de dados.</p></td>
-</tr>
-
-</tbody>
-</table>
+Nome da Propriedade|Descrição
+---|---
+Política de Consistência|Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. No futuro, poderemos dar suporte à substituição do nível de consistência com base na coleção. <p><p>Observe que esta propriedade só se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma coerência forte.
+Chave primária e Chave secundária|Essas são as chaves primária e secundária, que oferecem acesso administrativo a todos os recursos na conta de banco de dados.
+MaxMediaStorageUsageInMB (LEITURA)|Quantidade máxima de armazenamento de mídia disponível para a conta de banco de dados.
+MediaStorageUsageInMB (READ)|Uso atual do armazenamento de mídia para a conta de banco de dados.
 
 Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados por meio do Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos por meio das [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e das [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -459,4 +397,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

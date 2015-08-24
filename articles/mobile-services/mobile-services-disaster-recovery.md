@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Recuperar o serviço móvel em caso de desastre - Serviços Móveis do Azure"
+	pageTitle="Recuperar o serviço móvel em caso de desastre | Microsoft Azure"
 	description="Saiba como recuperar o serviço móvel em caso de desastre."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # Recuperar o serviço móvel em caso de desastre
@@ -108,4 +108,4 @@ Agora você deve estar em um estado onde o serviço móvel foi recuperado para u
 [Automatizar serviços móveis com a CLI do Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

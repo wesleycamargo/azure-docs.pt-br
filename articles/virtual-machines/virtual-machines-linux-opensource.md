@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -120,7 +120,7 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 6. [Noções básicas: faça logon em uma VM do Linux usando o Portal do Azure](virtual-machines-linux-how-to-log-on.md)
 7. [Noções básicas: SSH](virtual-machines-linux-use-ssh-key.md)
 8. [Noções básicas: como redefinir uma senha ou propriedades SSH para Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Noções básicas: usando a raiz](virtual-machines-linux-use-root-privileges.md)
+9. [Noções básicas: usando Root](virtual-machines-linux-use-root-privileges.md)
 10. [Noções básicas: anexando um disco de dados a uma VM do Linux](virtual-machines-linux-how-to-attach-disk.md)
 11. [Noções básicas: desanexando um disco de dados de uma VM do Linux](virtual-machines-linux-how-to-detach-disk.md)
 12. [Noções básicas de blogs: otimizando o armazenamento, os discos e o desempenho com o Linux e o Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
@@ -130,7 +130,7 @@ CoreOS é uma distribuição pequena e otimizada para escala de computação pur
 16. [Noções básicas: recursos e extensões de VM do Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
 17. [Noções básicas: injetando dados personalizados em uma VM para usar com Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Noções básicas de blogs: criando Linux altamente disponível no Azure em 12 etapas](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Noções básicas de blogs: automatizar provisionamento Linux no Azure com CLI do Azure, Node. js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+19. [Noções básicas de blogs: automatizar provisionamento Linux no Azure com CLI do Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Criar uma implantação de várias VMs usando a CLI do Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
 20. [Noções básicas: extensão Docker Azure da VM](virtual-machines-docker-vm-extension.md)
 23. Referência [API REST do Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
@@ -238,7 +238,16 @@ Autenticação e criptografia são tópicos importantes no desenvolvimento de so
 4. [Noções básicas: gerenciamento e uso de certificados](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [Noções básicas: SSH](virtual-machines-linux-use-ssh-key.md)
 8. [Noções básicas: como redefinir uma senha ou propriedades SSH para Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Noções básicas: usando a raiz](virtual-machines-linux-use-root-privileges.md)
+9. [Noções básicas: usando Root](virtual-machines-linux-use-root-privileges.md)
+
+## Computação de alto desempenho do Linux (HPC)
+
+Execute cargas de trabalho do HPC em clusters de VM Linux criados com ferramentas de software livre ou com o Microsoft HPC Pack.
+
+1.	[Modelo de início rápido: criar um cluster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (e [postagem de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[Modelo de início rápido: criar um cluster de Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[Tutorial: Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-cluster-hpcpack.md)
+4.	[Tutorial: configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-cluster-rdma.md)
 
 ## Desenvolvimentos, gerenciamento e otimização
 
@@ -294,6 +303,5 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

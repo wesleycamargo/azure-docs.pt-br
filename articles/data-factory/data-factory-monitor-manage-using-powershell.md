@@ -409,22 +409,7 @@ Nesta etapa, você usará o PowerShell do Azure para monitorar o que está acont
 
 Consulte [Referência de cmdlet de Data Factory][cmdlet-reference] para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 
-## Próximas etapas
 
-Artigo | Descrição
------- | ---------------
-[Copiar dados com a Azure Data Factory — Atividade de Cópia][copy-activity] | Este artigo fornece uma descrição detalhada da **Atividade de Cópia** utilizada neste tutorial. 
-[Habilitar seus pipelines para trabalhar com dados locais][use-onpremises-datasources] | Este artigo apresenta um passo a passo que mostra como copiar dados de um **banco de dados de SQL Server local** em um blob do Azure. 
-[Usar o Pig e o Hive com a Data Factory][use-pig-and-hive-with-data-factory] | Este artigo apresenta um passo a passo que mostra como usar a **Atividade de HDInsight** para executar um script do **hive/pig** para processar dados de entrada a fim de gerar dados de saída.
-[Tutorial: Mover e processar arquivos de log usando a Data Factory][adf-tutorial] | Este artigo fornece um **passo a passo completo** que mostra como implantar um **cenário do mundo real** usando a Azure Data Factory para transformar dados de arquivos de log em informações.
-[Usar atividades personalizadas em uma Data Factory][use-custom-activities] | Este artigo fornece um passo a passo com instruções para criar uma **atividade personalizada** e usá-la em um pipeline. 
-[Solucionar problemas da Data Factory][troubleshoot] | Este artigo descreve como **solucionar problemas** da Azure Data Factory. Você pode testar o passo a passo neste artigo no ADFTutorialDataFactory introduzindo um erro (excluindo a tabela no Banco de Dados SQL do Azure). 
-[Referência de cmdlet da Azure Data Factory][cmdlet-reference] | Este conteúdo de referência apresenta detalhes sobre todos os **cmdlets da Data Factory**.
-[Referência do desenvolvedor da Azure Data Factory][developer-reference] | A Referência do Desenvolvedor tem o conteúdo de referência abrangente de cmdlets, script JSON, funções, etc… 
-
-[copy-activity]: data-factory-copy-activity.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -444,4 +429,4 @@ Artigo | Descrição
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

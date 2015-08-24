@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectores entre empresas e aplicativos da API no Serviço de Aplicativo do Microsoft Azure | Azure" 
+	pageTitle="Conectores entre empresas e aplicativos de API no Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
 	description="Saiba como criar e configurar conectores EDIFACT, EDI, AS2 e TPM; arquitetura de microsserviços" 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

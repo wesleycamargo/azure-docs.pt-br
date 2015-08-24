@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/10/2015"
+   ms.date="08/12/2015"
    ms.author="mbaldwin"/>
 
 
@@ -67,6 +67,7 @@ Esses artigos descrevem como executar tarefas específicas usando o Azure Active
 - [Como listar seu aplicativo na galeria de aplicativos do Azure Active Directory](active-directory-app-gallery-listing.md)
 - [Introdução às APIs do Office 365 em aplicativos](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Como enviar aplicativos Web para o Office 365 para o Painel do Vendedor](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Visualização: como criar aplicativos que conectam usuários com as contas pessoais e corporativas ou de estudante](active-directory-appmodel-v2-overview.md)
 
 
 ## Referência
@@ -132,4 +133,4 @@ Essas apresentações de visão geral sobre aplicativos de desenvolvimento com o
 
 - **[Azure AD no Twitter](https://twitter.com/azuread)**: anúncios do Azure AD em 140 caracteres ou menos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

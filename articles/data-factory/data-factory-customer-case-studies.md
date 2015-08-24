@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Estudos de caso de cliente | Azure Data Factory" 
+	pageTitle="Estudos de Caso de Cliente | Microsoft Azure" 
 	description="Saiba mais sobre como alguns de nossos clientes estão usando o Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -48,4 +48,4 @@ O Data Factory é um serviço de gerenciamento de informações baseado em nuvem
 
 [Encontrando uma conexão mais adequada com os clientes por meio de Aprendizado de Máquina na Nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

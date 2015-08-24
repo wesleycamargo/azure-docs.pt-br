@@ -13,26 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
-	ms.author="sidneyh"/>
+	ms.date="08/09/2015" 
+	ms.author="ddove; sidneyh"/>
 
-# Como desinstalar os componentes de trabalho do banco de dados elástico
+#Desinstalar componentes de trabalhos de banco de dados elástico
+Componentes de **trabalhos do banco de dados elástico** podem ser desinstalados usando o Portal ou o PowerShell.
 
-Se ocorrer uma falha ao tentar instalar o serviço do trabalho de banco de dados elástico, exclua o grupo de recursos do serviço.
+##Desinstalar componentes de trabalhos de banco de dados elástico usando o Portal do Azure
 
-## Para desinstalar os componentes do serviço
-
-1. Abra o [portal de visualização do Azure](https://ms.portal.azure.com/).
-2. Navegue até a assinatura que contém o trabalho elástico.
+1. Abra o [Portal do Azure](https://ms.portal.azure.com/).
+2. Navegue até a assinatura que contém os componentes de **trabalhos do banco de dados elástico**, ou seja, a assinatura na qual os componentes do banco de dados elástico foram instalados.
 3. Clique em **Procurar** e clique em **Grupos de recursos**.
 4. Selecione o grupo de recursos chamado "\_\_ElasticDatabaseJob".
 5. Exclua o grupo de recursos.
 
-Como alternativa, use este script do PowerShell:
+##Desinstalar componentes de trabalhos de banco de dados elástico usando o PowerShell
 
-1. Inicie uma [janela do PowerShell do Microsoft Azure](../powershell-install-configure.md). 
-2. Verifique se você está usando o SDK do PowerShell versão 0.8.10 ou posterior.
-3. Execute o script:
+1.	Inicie uma janela de comando do Microsoft Azure PowerShell e navegue até o subdiretório ferramentas, na pasta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: digite cd ferramentas
+
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
+2.	Execute o script do PowerShell .\\UninstallElasticDatabaseJobs.ps1.
+
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+
+Ou simplesmente execute o script a seguir, presumindo valores padrão em que os valores são usados na instalação dos componentes:
 
 		$ResourceGroupName = "__ElasticDatabaseJob"
 		Switch-AzureMode AzureResourceManager
@@ -40,22 +46,22 @@ Como alternativa, use este script do PowerShell:
 		$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
 		if(!$resourceGroup)
 		{
-		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job is uninstalled."
+		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
 		    return
 		}
 		
 		Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
 		Remove-AzureResourceGroup -Name $ResourceGroupName -Force
-		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job is now uninstalled."
+		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
 ## Próximas etapas
 
-Para reinstalar os trabalhos do banco de dados elástico, confira [Instalando o serviço de trabalho do banco de dados elástico](sql-database-elastic-jobs-service-installation.md)
+Para reinstalar trabalhos de banco de dados elástico, confira [Instalando o serviço de trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md)
 
-Para uma visão geral do serviço de trabalho do banco de dados elástico, confira [Visão geral dos trabalhos elásticos](sql-database-elastic-jobs-overview.md).
+Para uma visão geral de trabalhos de banco de dados elástico, consulte [Visão geral de trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

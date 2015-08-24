@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à auditoria do banco de dados SQL | Azure" 
+	pageTitle="Introdução à auditoria do banco de dados SQL | Microsoft Azure" 
 	description="Introdução à auditoria do banco de dados SQL" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -182,4 +182,4 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

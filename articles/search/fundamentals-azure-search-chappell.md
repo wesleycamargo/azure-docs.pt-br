@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à pesquisa do Azure | Azure" 
+	pageTitle="Introdução à Pesquisa do Azure | Microsoft Azure" 
 	description="Saiba como a Pesquisa do Azure pode ajudá-lo a criar aplicativos avançados de pesquisa." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@ Este artigo é uma visão geral da tecnologia e quais recursos e cenários que e
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Apresentando a Pesquisa do Azure" (em PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Apresentando a Pesquisa do Azure" (no Microsoft Word)</a> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

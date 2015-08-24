@@ -163,29 +163,12 @@ O Azure fornece um modelo global de autorização baseado em funções para todo
 
 Em termos de Pesquisa do Azure, controles de acesso baseados em função determinam as seguintes tarefas administrativas:
 
-<table>
-<tr>
-<td>Proprietário</td>
-<td>
-Iniciar, interromper ou excluir o serviço.</br>
-Gerar e exibir chaves de administração e de consulta.</br>
-Exibir o status do serviço, incluindo a contagem de índice, nomes de índice, contagem de documentos e tamanho de armazenamento.</br>
-Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).</br>
-</br>
-Os administradores de serviço e assinatura têm associação automática na função Proprietários.
-</td>
-</tr>
-<tr>
-<td>Colaborador</td>	
-<td>Tem o mesmo nível de acesso que o Proprietário, com exceção de gerenciamento de função. Por exemplo, um Colaborador pode exibir e gerar novamente a 'chave api', mas não pode modificar as associações de função.
-</td>
-</tr>
-<tr>
-<td>Leitor</td>
-<td>Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem iniciar ou parar um serviço, nem exibir chaves de administração.
-</td>
-</tr>
-</table>
+
+Função|Tarefa
+---|---
+Proprietário|Iniciar, interromper ou excluir o serviço.<p>Gerar e exibir as chaves do administrador e as chaves de consulta.<p>Exibir o status do serviço, incluindo a contagem de índice, nomes de índice, contagem de documentos e tamanho de armazenamento.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de serviço e assinatura têm associação automática na função Proprietários.
+Colaborador|Tem o mesmo nível de acesso que o Proprietário, com exceção de gerenciamento de função. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função.
+Leitor|Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem iniciar ou parar um serviço, nem exibir chaves de administração.
 
 Observe que as funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Consulte "Autorização para gerenciamento versus operações de dados" no [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control-configure.md) para obter mais informações.
 
@@ -210,4 +193,4 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

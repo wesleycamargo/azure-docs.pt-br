@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Como usar os tópicos do Barramento de Serviço (.NET) - Azure"
+    pageTitle="Como usar os tópicos de Barramento de Serviço (.NET) | Microsoft Azure"
     description="Aprenda a usar assinaturas e tópicos do barramento de serviço no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -301,4 +301,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

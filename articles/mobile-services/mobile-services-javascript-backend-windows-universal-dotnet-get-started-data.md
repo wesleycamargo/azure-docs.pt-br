@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Adicionar Serviços Móveis a um aplicativo universal do Windows existente - Serviços Móveis do Azure" 
+	pageTitle="Adicionar Serviços Móveis a um aplicativo universal do Windows existente | Microsoft Azure" 
 	description="Aprenda a conectar seu aplicativo universal do Windows existente aos Serviços Móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@ Este tutorial demonstrou os conceitos básicos de como habilitar um aplicativo W
 [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

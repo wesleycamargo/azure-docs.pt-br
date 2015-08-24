@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Codecs e formatos de fluxo de trabalho do Media Encoder Premium
@@ -127,4 +127,4 @@ Observação: nem todos os formatos de saída acima têm suporte para fornecimen
 
 Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída ainda conterá um arquivo TTML vazio.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

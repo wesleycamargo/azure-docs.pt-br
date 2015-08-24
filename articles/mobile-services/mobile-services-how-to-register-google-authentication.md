@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registrar para autenticação no Google - Serviços Móveis" 
+	pageTitle="Registrar-se para autenticação do Google | Microsoft Azure" 
 	description="Saiba como registrar seus aplicativos para usar o Google para autenticar com os Serviços Móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@ Agora você está pronto para configurar seu serviço móvel para usar o logon d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

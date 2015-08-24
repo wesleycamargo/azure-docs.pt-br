@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="IP público em nível de instância (ILPIP)"
+   pageTitle="IP Público em Nível de Instância (ILPIP)"
    description="Noções básicas sobre ILPIP (PIP) e como gerenciá-los"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Visão geral de IP público em nível de instância
-Um IP público em nível de instância (ILPIP) é um endereço IP que você pode atribuir diretamente à sua VM ou instância de função, e não ao serviço de nuvem no qual a sua máquina virtual ou instância de função residem. Isso não substitui o VIP (IP Virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
+Um IP público em nível de instância (ILPIP) é um endereço de IP que você pode atribuir diretamente à sua VM ou instância da função, e não ao serviço de nuvem no qual a sua máquina virtual ou instância de função residem. Isso não substitui o VIP (IP Virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
 >[AZURE.NOTE]No passado, o ILPIP era conhecido como PIP, que significa IP público.
 
@@ -125,4 +125,4 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

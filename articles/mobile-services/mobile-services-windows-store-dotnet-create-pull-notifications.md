@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Definir uma API personalizada que ofereça suporte a notificações por pull - Serviços Móveis do Azure" 
+	pageTitle="Definir uma API personalizada que dê suporte a notificações pull | Microsoft Azure" 
 	description="Saiba como definir uma API personalizada que dá suporte a notificações periódicas em aplicativos da Windows Store que usam serviços móveis do Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Definir uma API personalizada que dá suporte a notificações periódicas
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="C# da Windows Store" class="current">C# da Windows Store</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="JavaScript da Windows Store">JavaScript da Windows Store</a>
-</div>
 
 Este tópico mostra como usar uma API personalizada para oferecer suporte a notificações periódicas em um aplicativo da Windows Store. Com as notificações periódicas habilitadas, o Windows acessará periodicamente o ponto de extremidade da API personalizada e usará o XML retornado em um formato específico de bloco para atualizar o bloco do aplicativo no menu Iniciar. Para obter mais informações, consulte [Notificações periódicas].
 
@@ -167,4 +163,4 @@ Agora que você criou uma notificação periódica, considere a possibilidade de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

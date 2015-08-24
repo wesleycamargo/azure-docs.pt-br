@@ -468,33 +468,25 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 
 Agora que já vimos como especificar caminhos, vamos examinar as opções que podemos usar para configurar a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
-- Tipo de dados: **String** ou **Number** (pode conter somente uma entrada por tipo de dados por caminho)
-- Tipo de índice: **Hash** (consultas de igualdade) ou **Intervalo** (consultas de igualdade, de intervalo ou Ordenar por)
+- Tipo de dados: **String**, **Number** ou **Point** (pode conter somente uma entrada por tipo de dados por caminho)
+- Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais) 
 - Precisão: 1 a 8 ou -1 (precisão máxima) para os números de 1 a 100 (precisão máxima) para a cadeia de caracteres
 
 #### Tipo de índice
 
-O Banco de Dados de Documentos dá suporte a dois tipos de Índice para todos os pares de caminhos e de tipos de dados.
+O Banco de Dados de Documentos dá suporte a tipos de índice Hash e Intervalo para todos os caminhos (que possam ser configurados para cadeias de caracteres, números ou ambos).
 
 - **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes.
-- **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Ordenar por. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1).
+- **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Order By. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1).
+
+O Banco de Dados de Documentos também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para o tipo de dados Point. O valor no caminho especificado deve ser um ponto GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+
+- **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes.
 
 Estes são os tipos de índice com suporte e exemplos de consultas que eles podem usar para servir:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipo de índice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrição/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -531,16 +523,32 @@ Estes são os tipos de índice com suporte e exemplos de consultas que eles pode
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    O intervalo em /prop/? (ou /*) pode ser usado para servir estas consultas de forma eficiente: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) &lt; 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scans na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver qualquer outro filtro na consulta que o Banco de Dados de Documentos possa usar para filtrar o índice, nenhum erro será retornado.
 
+As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro será retornado para consultas espaciais se não houver nenhum índice espacial. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
+
 #### Precisão de índice
 
-A precisão de índice permite definir um equilíbrio entre a sobrecarga de armazenamento de índice e o desempenho da consulta. Para números, recomendamos usar a configuração de precisão padrão de -1 (“máximo”). Como os números são 8 bytes em JSON, isso é equivalente a uma configuração de 8 bytes. Escolher um valor mais baixo para precisão, como 1 a 7, significa que os valores dentro de alguns intervalos podem ser mapeados para a mesma entrada de índice. Portanto, você reduzirá o espaço de armazenamento do índice, mas a execução da consulta talvez precise processar mais documentos e, como consequência, consumirá mais taxa de transferência, ou seja, unidades de solicitação.
+A precisão de índice permite definir um equilíbrio entre a sobrecarga de armazenamento de índice e o desempenho da consulta. Para números, recomendamos usar a configuração de precisão padrão -1 (“máximo”). Como os números são 8 bytes em JSON, isso é equivalente a uma configuração de 8 bytes. Escolher um valor mais baixo para precisão, como 1 a 7, significa que os valores dentro de alguns intervalos podem ser mapeados para a mesma entrada de índice. Portanto, você reduzirá o espaço de armazenamento do índice, mas a execução da consulta talvez precise processar mais documentos e, como consequência, consumirá mais taxa de transferência, ou seja, unidades de solicitação.
 
 A configuração de precisão do índice é mais útil com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser executar consultas Ordenar por em propriedades de cadeia de caracteres, então deverá especificar uma precisão de -1 para os caminhos correspondentes.
+
+Os índices espaciais sempre usam a precisão de índice padrão para pontos e não podem ser substituídos.
 
 O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. Observe que isso usa o caminho padrão "/*".
 
@@ -650,7 +658,7 @@ Você pode remover o índice de uma coleção mudando para o modo de indexação
 Quando você faria alterações na política de indexação para suas coleções do Banco de Dados de Documentos? A seguir, os casos de uso mais comuns:
 
 - Fornecer resultados consistentes durante a operação normal, mas fazer fallback para a indexação lenta durante importações de dados em massa
-- Começar a usar novos recursos de indexação em suas atuais coleções do Banco de Dados de Documentos, como Ordenar por e consultas de intervalos de cadeias de caracteres, que exigem o recém-lançado tipo de índice Intervalo de cadeias de caracteres
+- Começar a usar novos recursos de indexação em suas atuais coleções do Banco de Dados de Documentos, como consultas geoespaciais que exigem o tipo de índice Espacial ou consultas de intervalo Order By/cadeia de caracteres, que exigem o tipo de índice Intervalo de cadeia de caracteres
 - Selecionar manualmente as propriedades a serem indexadas e alterá-las ao longo do tempo
 - Ajustar a precisão da indexação para melhorar o desempenho da consulta ou reduzir o armazenamento consumido
 
@@ -758,4 +766,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

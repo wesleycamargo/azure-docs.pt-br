@@ -22,27 +22,27 @@ Ao criar um projeto Web para um site do Azure, você pode provisionar uma máqui
 
 Para criar uma máquina virtual ao criar um site, siga estas etapas:
 
-1. No Visual Studio, escolha **Arquivo**, **Novo Projeto**, escolha **Web**, e, em seguida, escolha **Aplicativo Web ASP.NET** (sob os nós **Visual C#** ou **Visual Basic**).
+1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto** > **Web** e, em seguida, escolha **Aplicativo Web ASP.NET** (sob os nós **Visual C#** ou **Visual Basic**).
 2. Na caixa de diálogo **Novo Projeto do ASP.NET**, selecione o tipo de aplicativo Web desejado e, na seção Azure da caixa de diálogo (no canto inferior direito), não se esqueça de marcar a caixa de seleção **Hospedar na nuvem** (ela é rotulada como **Criar recursos remotos** em algumas instalações).
 
 	![][0]
 
-3. Na caixa de listagem suspensa sob o Microsoft Azure, escolha **Máquina Virtual** e, em seguida, escolha o botão **OK**.
+3. Na lista suspensa no Microsoft Azure, escolha **Máquina Virtual** e, em seguida, clique no botão **OK**.
 4. Conecte-se ao Azure, se for solicitado. A caixa de diálogo **Criar Máquina Virtual** é exibida.
 
 	![][2]
 
-5. Na caixa de nome DNS, digite um nome para a máquina virtual. O nome DNS deve ser exclusivo no Azure. Se o nome inserido não estiver disponível, um ponto de exclamação vermelho será exibido.
-6. Na lista **Imagem**, escolha a imagem da VM em que você deseja basear a máquina virtual. É possível escolher qualquer uma das imagens padrão da VM do Azure ou a sua própria imagem carregada no Azure.
+5. Na caixa **nome DNS**, insira um nome para a máquina virtual. O nome DNS deve ser exclusivo no Azure. Se o nome inserido não estiver disponível, um ponto de exclamação vermelho será exibido.
+6. Na lista **Imagem**, escolha a imagem em que você deseja basear a máquina virtual. É possível escolher qualquer uma das imagens padrão da máquina virtual do Azure ou a sua imagem carregada no Azure.
 7. Deixe a caixa de seleção **Habilitar IIS e Implantação da Web** marcada, a menos que você pretenda instalar um servidor Web diferente. Você não poderá publicar usando o Visual Studio se desabilitar a Implantação da Web. É possível adicionar IIS e Implantação da Web a qualquer uma das imagens do Windows Server no pacote, inclusive as próprias imagens.
 8. Na lista **Tamanho**, escolha o tamanho da máquina virtual.
-9. Especifique as credenciais de logon da máquina virtual. Anote-as porque você precisará delas para acessar a máquina por meio da Área de Trabalho Remota.
-10. Na lista **Local**, escolha a região na qual hospedar a máquina virtual.
-11. Escolha o botão **OK** para começar a criar a máquina virtual. Você pode acompanhar o progresso da operação na janela **Saída **.
+9. Especifique as credenciais para entrar nesta máquina virtual. Anote-as porque você precisará delas para acessar a máquina por meio da Área de Trabalho Remota.
+10. Na lista **Local**, escolha a região para hospedar a máquina virtual.
+11. Clique no botão **OK** para começar a criar a máquina virtual. Você pode acompanhar o progresso da operação na janela **Saída**.
 
 	![][3]
 
-12. Quando a máquina virtual está provisionada, os scripts de publicação são criados em um nó **PublishScripts** da solução. O script de publicação é executado e provisiona uma máquina virtual no Azure. A janela **Saída** mostra o status. O script realiza as seguintes ações para configurar a máquina virtual:
+12. Quando a máquina virtual está provisionada, os scripts publicados são criados em um nó **PublishScripts** da solução. O script publicado é executado e provisiona uma máquina virtual no Azure. A janela **Saída** mostra o status. O script realiza as seguintes ações para configurar a máquina virtual:
 
 	* Cria a máquina virtual, caso ela ainda não exista.
 	* Cria uma conta de armazenamento com um nome começando por `devtest`, mas apenas se ainda não houver uma conta de armazenamento assim na região especificada.
@@ -59,7 +59,7 @@ Para criar uma máquina virtual ao criar um site, siga estas etapas:
 
 ## Próximas etapas
 
-Se você quiser personalizar os scripts de publicação criados, veja informações mais aprofundadas [aqui](http://msdn.microsoft.com/library/dn642480.aspx).
+Se você quiser personalizar os scripts publicados que criou, leia informações mais detalhadas em [Usando Scripts do Windows PowerShell para publicar para ambientes de teste e desenvolvimento](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG
@@ -68,4 +68,4 @@ Se você quiser personalizar os scripts de publicação criados, veja informaç�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

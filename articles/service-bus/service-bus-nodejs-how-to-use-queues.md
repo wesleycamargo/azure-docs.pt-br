@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar filas do barramento de serviço (Node.js) - Azure" 
+	pageTitle="Como usar as filas de Barramento de Serviço (Node.js) | Microsoft Azure" 
 	description="Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -190,4 +190,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [Aplicativo Node.js na Web com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

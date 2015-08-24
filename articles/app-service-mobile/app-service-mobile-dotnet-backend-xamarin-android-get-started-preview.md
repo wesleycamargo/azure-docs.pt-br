@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Aplicativos Móveis do Azure para aplicativos Xamarin Android - Aplicativo Móvel do Azure"
+	pageTitle="Introdução aos aplicativos móveis do Azure para aplicativos Xamarin Android | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os Aplicativos Móveis do Azure para desenvolvimento Android Xamarin"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -110,4 +110,4 @@ O estágio final deste tutorial é compilar e executar seu novo aplicativo.
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

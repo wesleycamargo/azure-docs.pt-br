@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat em uma máquina virtual — tutoria do Azure"
+	pageTitle="Tomcat em uma máquina virtual | Microsoft Azure"
 	description="Saia como criar uma máquina virtual Windows e configurá-la para executar um servidor de aplicativos Apache Tomcat."
 	services="virtual-machines"
 	documentationCenter="java"
@@ -142,4 +142,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o Barramento d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

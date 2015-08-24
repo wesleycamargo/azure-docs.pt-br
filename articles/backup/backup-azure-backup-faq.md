@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Backup do Azure - Perguntas frequentes
 Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se você tiver perguntas adicionais sobre o Backup do Azure, vá para o [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -141,4 +141,29 @@ Veja a seguir uma lista de perguntas frequentes sobre o Backup do Azure. Se voc�
 
 **P4. O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados ou a Microsoft pode recuperar os dados?** <br/> R4. A chave usada para criptografar os dados de backup está presente apenas nas instalações do cliente. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se o cliente inserir a chave incorretamente, a Microsoft não poderá recuperar os dados de backup.
 
-<!---HONumber=August15_HO6-->
+## Cache de backup
+
+**P1. Como posso alterar o local de cache especificado para o agente de Backup do Azure?**
+
++ Parar o OBEngine executando o comando abaixo em um prompt de comando elevado:
+
+  ```PS C:\> Net stop obengine```
+
++ Copie a pasta de espaço de cache para outra unidade com espaço suficiente. Recomendamos que você copie os arquivos da pasta de espaço de cache em vez de movê-los; o espaço de cache original poderá ser removido após a confirmação de que os backups estão funcionando com o novo espaço de cache.
+
++ Atualize as entradas do registro a seguir com o caminho para a nova pasta de espaço de cache:
+
+
+	| Caminho do registro | Chave do Registro | Valor |
+	| ------ | ------- | ------ |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Azure Backup\\Config | ScratchLocation | <i>Novo local da pasta de cache</i> |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Novo local da pasta de cache</i> |
+
+
++ Inicie o OBEngine executando o comando abaixo em um prompt de comando elevado:
+
+  ```PS C:\> Net start obengine```
+
+Assim que os backups começarem a ser executados com êxito com o novo local de cache, você poderá remover a pasta de cache original.
+
+<!---HONumber=August15_HO7-->

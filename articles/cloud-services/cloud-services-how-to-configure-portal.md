@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como configurar um serviço de nuvem - Azure" 
+	pageTitle="Como configurar um serviço de nuvem | Microsoft Azure" 
 	description="Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ O acesso remoto não pode ser configurado usando o **Portal de Visualização do
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

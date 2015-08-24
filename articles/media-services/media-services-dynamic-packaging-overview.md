@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -97,4 +97,4 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 - Arquivos mp4 Dolby digital plus.
 - Dolby digital mais arquivos smooth. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

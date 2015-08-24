@@ -35,7 +35,7 @@ No [Portal do Azure][portal], crie um novo recurso do Application Insights. Sele
 
 A folha que será aberta é o local em que você verá os dados de uso e desempenho sobre seu aplicativo. Para retornar a ela na próxima vez em que fizer logon no Azure, você deverá encontrar um bloco para ela na tela inicial. Como alternativa, clique em Procurar para localizá-la.
 
-## Baixar o Application Insights para Mac
+## Baixar o Application Insights para iOS
 
 (Se você ainda não fez isso.)
 
@@ -141,4 +141,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

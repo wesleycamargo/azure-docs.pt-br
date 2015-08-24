@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fazer uma chamada telefônica do Twilio (Java) - Azure" 
+	pageTitle="Como fazer uma chamada telefônica do Twilio (Java) | Microsoft Azure" 
 	description="Saiba como fazer uma chamada telefônica de uma página da Web usando o Twilio em um aplicativo Java no Azure." 
 	services="" 
 	documentationCenter="java" 
@@ -209,4 +209,4 @@ Para obter informações adicionais sobre a Twilio, consulte [https://www.twilio
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

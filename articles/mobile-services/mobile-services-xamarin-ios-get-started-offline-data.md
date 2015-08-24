@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando dados offline nos serviços móveis (Xamarin iOS) | Centro de desenvolvimento de Serviços Móveis" 
+	pageTitle="Usando dados offline nos Serviços Móveis (Xamarin iOS) | Microsoft Azure" 
 	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no aplicativo iOS Xamarin" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -185,4 +185,4 @@ Nesta seção você reconectará o aplicativo ao serviço móvel. Isso simula o 
 [extensão Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

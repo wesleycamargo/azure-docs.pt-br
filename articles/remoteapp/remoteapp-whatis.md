@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="O que é o RemoteApp?" 
+	pageTitle="O que é o RemoteApp do Azure?" 
 	description="Saiba mais sobre o Azure RemoteApp." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # O que é o RemoteApp do Azure?
@@ -94,4 +94,4 @@ Vá! Experimente! Esses artigos ajudam a começar com o RemoteApp:
 - [Perguntas frequentes sobre o RemoteApp do Azure](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

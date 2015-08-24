@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Processo e Tecnologia de Análises Avançadas em Ação: usando clusters Hadoop do Azure HDInsight em um conjunto de dados da Criteo de 1 TB | Azure" 
+	pageTitle="Processo e Tecnologia de Análise Avançada em Ação: usando clusters Hadoop do HDInsight em um conjunto de dados da Criteo de 1 TB | Microsoft Azure" 
 	description="Usando o ADAPT (Processo e Tecnologia de Análises Avançadas) para um cenário de ponta a ponta empregando um cluster Hadoop do HDInsight para criar e implantar um modelo usando um grande conjunto de dados (1 TB) disponível publicamente" 
 	services="machine-learning,hdinsight" 
 	documentationCenter="" 
@@ -656,4 +656,4 @@ Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na es
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

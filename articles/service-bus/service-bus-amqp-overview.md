@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral do Barramento de Serviço AMQP - Azure" 
+	pageTitle="Visão geral do Barramento de Serviço AMQP| Microsoft Azure" 
 	description="Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -98,4 +98,4 @@ Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Se
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [Guia do desenvolvedor do Barramento de Serviço do AMQP]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

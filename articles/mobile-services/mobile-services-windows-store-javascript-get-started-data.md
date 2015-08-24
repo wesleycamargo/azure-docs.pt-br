@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Adicionar Serviços Móveis a um aplicativo existente (JavaScript da Windows Store) | Centro de Desenvolvimento Móvel" 
+	pageTitle="Adicionar Serviços Móveis a um aplicativo existente (JavaScript da Windows Store) | Microsoft Azure" 
 	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo JavaScript da Windows Store." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -141,4 +141,4 @@ Este tutorial demonstrou as noções básicas sobre a ativação de um aplicativ
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Criar um serviço usando um repositório de dados não relacional | Serviços Móveis do Azure" 
+	pageTitle="Criar um serviço usando um repositório de dados não relacional | Microsoft Azure" 
 	description="Aprenda a usar um armazenamento de dados não relacionais, como o MongoDB ou armazenamento de tabela do Azure com seu serviço móvel baseado em .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Criar um Serviço Móvel de back-end .NET que usa o MongoDB em vez de um Banco de Dados SQL para armazenamento
@@ -121,4 +121,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [Página do complemento MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

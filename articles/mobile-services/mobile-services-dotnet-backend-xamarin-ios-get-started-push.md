@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução aos serviços móveis para aplicativos Xamarin iOS - Serviços Móveis do Azure" 
+	pageTitle="Introdução aos Serviços Móveis para aplicativos iOS do Xamarin | Microsoft Azure" 
 	description="Saiba como usar os serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo iOS Xamarin" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="lindydonna"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -23,4 +23,4 @@
 [AZURE.INCLUDE [mobile-services-content-not-ready](../../includes/mobile-services-content-not-ready.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

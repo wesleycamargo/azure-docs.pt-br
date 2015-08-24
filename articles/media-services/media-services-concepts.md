@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Conceitos de serviços de mídia do Azure 
 
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
-##<a id="assets"></a>Ativos\\Armazenamento
+##<a id="assets"></a>Ativos e armazenamento
 
 ###Ativos
 
@@ -79,7 +79,7 @@ Observe que a permissão de lista (AccessPermissions.List) não deve ser usada a
 
 Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Uma conta do Serviço de Mídia pode ser associada a uma ou mais contas de armazenamento. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total esteja abaixo de 500 TB por conta de armazenamento. Os Serviços de Mídia fornecem ferramentas de nível de SDK que permitem a você gerenciar várias contas de armazenamento e balancear a carga da distribuição de seus ativos durante o carregamento nessas contas com base em métricas ou na distribuição aleatória. Para saber mais, consulte Trabalhando com [Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-##Trabalhos \\ tarefas
+##Trabalhos e tarefas
 
 Um [trabalho](https://msdn.microsoft.com/library/azure/hh974289.aspx) normalmente é usado para processar (por exemplo, indexar ou codificar) uma apresentação de áudio/vídeo. Se você estiver processando vários vídeos, crie um trabalho para cada vídeo a ser codificado.
 
@@ -242,4 +242,4 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

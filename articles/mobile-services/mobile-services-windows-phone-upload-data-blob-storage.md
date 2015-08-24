@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Carregar imagens no Armazenamento do Azure de um aplicativo Silverlight do Windows Phone | Serviços Móveis do Azure" 
+	pageTitle="Carregar imagens no Armazenamento do Azure de um aplicativo Silverlight do Windows Phone | Microsoft Azure" 
 	description="Aprenda a usar os Serviços Móveis para carregar imagens de um aplicativo Silverlight do Windows Phone para o Armazenamento de Blob do Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -103,4 +103,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

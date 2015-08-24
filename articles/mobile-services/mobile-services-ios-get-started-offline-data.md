@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução à sincronização de dados Offline nos Serviços Móveis (iOS) | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Introdução à sincronização de dados Offline nos Serviços Móveis (iOS) | Microsoft Azure"
 	description="Saiba como usar serviços móveis do Azure para cache e sincronização de dados offline no seu aplicativo iOS"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -271,4 +271,4 @@ Para sincronizar o repositório local com o servidor, você usou `MSSyncTable.pu
 
 [tutorial de Início Rápido dos Serviços Móveis]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

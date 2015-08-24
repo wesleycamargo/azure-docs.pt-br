@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ Um arquivo VMAP começa com um elemento de <VMAP> que contém um ou mais element
 1. Tempo – em formato hh:mm:ss ou hh:mm:ss.mmm em que .mmm são milissegundos. O valor deste atributo especifica o tempo desde o início da linha do tempo de vídeo para o início do intervalo de anúncio.
 1. Porcentagem – em formato %n, em que n é a porcentagem da linha do tempo de vídeo a ser executado antes da execução do anúncio
 1. Início/fim – especifica que um anúncio deve ser exibido antes ou depois que o vídeo foi exibido
-1. Posição – especifica a ordem dos intervalos dos anúncios quando o tempo dos intervalos dos anúncios é desconhecido, como na transmissão ao vivo. A ordem de cada intervalo de anúncio é especificada no formato \#n, onde n é um inteiro 1 ou maior. 1 significa que o anúncio deve ser reproduzido na primeira oportunidade, 2 significa que o anúncio deve ser reproduzido na segunda oportunidade e assim por diante.
+1. Posição – especifica a ordem dos intervalos dos anúncios quando o tempo dos intervalos dos anúncios é desconhecido, como na transmissão ao vivo. A ordem de cada intervalo de anúncio é especificada no formato #n, onde n é um inteiro 1 ou maior. 1 significa que o anúncio deve ser reproduzido na primeira oportunidade, 2 significa que o anúncio deve ser reproduzido na segunda oportunidade e assim por diante.
 
 Dentro do elemento <**AdBreak**> pode ser um elemento <**AdSource**>. O elemento <**AdSource**> contém os seguintes atributos:
 
@@ -804,4 +804,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md) [Introdução ao Media Player Framework do Azure para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

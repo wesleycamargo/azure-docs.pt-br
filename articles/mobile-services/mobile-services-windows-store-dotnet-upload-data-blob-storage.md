@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Serviços Móveis para carregar imagens para o armazenamento de blob (Windows Store) | Serviços Móveis" 
+	pageTitle="Use Serviços Móveis para carregar imagens no armazenamento de blob (Windows Store) | Microsoft Azure" 
 	description="Aprenda a usar os serviços móveis para carregar imagens no armazenamento de Blob do Azure e acessar as imagens do seu aplicativo da Windows Store." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -103,4 +103,4 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

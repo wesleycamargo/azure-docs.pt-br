@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Azure" 
+	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Microsoft Azure" 
 	description="Instruções passo a passo sobre como enviar dados de um fluxo para o Hub de Eventos do Azure e receber esses eventos no Spark usando um bloco de notas Zeppelin" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

@@ -13,70 +13,77 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
-# Usando o Conector do Chatter em seu aplicativo lógico #
+# Usando o Conector do Chatter em seu aplicativo lógico
 
-Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
+O Conector do Chatter permite que você se conecte ao Chatter e execute tarefas comuns, como postar uma mensagem. Por exemplo, você pode pesquisar um feed do Chatter e ao encontrar algo específico, é possível postar a mensagem do Chatter em um grupo de Vendas.
 
-O Conector do Chatter permite que você se conecte ao Chatter e executar várias ações, como Postar Mensagem e Pesquisar, e fornece um gatilho para recuperar novas mensagens.
+Você pode adicionar o conector do Chatter aos seu fluxo de trabalho comercial e processar dados como parte desse fluxo de trabalho.
 
-## Criando um conector do Chatter para seu aplicativo lógico ##
-Para usar o conector do Chatter, primeiro você precisa criar uma instância do aplicativo de API do conector do Chatter. Isso pode ser feito da seguinte maneira:
+## Gatilhos e Ações
 
-1.	Abra o Azure Marketplace usando a opção +NOVO na parte inferior esquerda do Portal do Azure.
-2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "Conector do Chatter".
-3.	Configure o Conector do Chatter da seguinte maneira:
+Um Gatilho inicia uma nova instância com base em um evento específico, como a chegada de uma nova mensagem do Chatter. Uma Ação é o resultado, como ocorre após receber uma nova mensagem do Chatter e depois postá-la em outro grupo do Chatter ou em outro site de mídia social, como o Facebook ou o Twitter.
 
-	![][1]
-	- **Local** - escolha o local geográfico onde quer que o conector seja implantado
+O Conector do Chatter pode ser usado como gatilho ou ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. O conector do Chatter tem os seguintes Gatilhos e Ações disponíveis:
+
+Gatilhos | Ações
+--- | ---
+Nova Mensagem | <ul><li>Postar Mensagem</li><li>Pesquisar</li></ul>
+
+
+## Criar um conector do Chatter para o aplicativo lógico
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
+
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do Chatter", selecione-o e selecione **Criar**.
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+	![][1]  
+	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Grupo de recursos** - selecione ou crie um grupo de recursos onde o conector deve residir
-	- **Plano de hospedagem na Web** - selecione ou crie um plano de hospedagem na Web
+	- **Plano de hospedagem na Web** - selecione ou crie uma plano de hospedagem na Web
 	- **Camada de preços** - escolha uma camada de preços para o conector
-	- **Nome** - dê um nome para o conector do Chatter
+	- **Nome** - dê um nome ao Conector do Chatter
 
-4.	Clique em Criar. Será criado um novo Conector do Chatter.
-5.	Após criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o conector do Chatter.
+4. Selecione **Criar**.
 
-## Usando o Conector do Chatter em seu aplicativo lógico ##
-Depois de criar seu aplicativo de API, você pode usar o conector do Chatter como gatilho/ação para seu aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o Conector do Chatter.
+## Usando o Conector do Chatter em seu aplicativo lógico
+Depois de criar seu aplicativo de API, você pode usar o conector do Chatter como gatilho ou ação em seu aplicativo lógico. Para fazer isso:
 
-	![][2]
-2.	Abra "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo.
+1. No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo.
 
-3.	O conector do Chatter será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
-
+2. O conector do Chatter está listado na galeria: 
 	![][4]
-4. Você pode soltar o aplicativo de API do Conector do Chatter no editor clicando em "Conector do Chatter". Clique no botão Autorizar. Forneça suas credenciais. Clique em "Permitir"
-
-	![][5]
-	![][6]
+3. Selecione o conector do Chatter para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: 
+	![][5] 
+	![][6] 
 	![][7]
-5.	Agora você pode usar o conector do Chatter no fluxo. Você pode usar a nova mensagem recuperada do gatilho do Chatter ("Nova Mensagem") em outras ações no fluxo. Configure as propriedades de entrada de gatilho do Chatter da seguinte maneira:
-	- **ID do Grupo** - especifique a ID do grupo por meio do qual a nova mensagem deve ser recuperada. Se não for fornecida uma ID de grupo, a nova mensagem será recuperada do Feed do Usuário.
 
-  ![][8]
-  ![][9]
+Agora você pode usar o conector do Chatter no fluxo. Você pode usar a nova mensagem recuperada do gatilho do Chatter ("Nova Mensagem") em outras ações no fluxo. Configure as propriedades de entrada de gatilho do Chatter da seguinte maneira:
 
-6. De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:
-	- **Texto da Mensagem** - conteúdo do texto da mensagem a ser postada
-	- **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário.
-	- 	**Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem
-	- 	**Dados de Conteúdo** - dados de conteúdo do anexo
-	- 	**Tipo de Conteúdo** - tipo de conteúdo do anexo
-	- 	**Codificação de Transferência de Conteúdo** - Codificação de Transferência de Conteúdo do anexo ("nenhuma"|"base64")
-	- 	**Menções** - matriz de nomes de usuário a serem marcados nessa mensagem
-	- 	**Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem
+**ID do Grupo** - insira a ID do grupo do qual a nova mensagem deve ser recuperada. Se a ID do Grupo não for fornecida, a nova mensagem será recuperada do Feed do Usuário: 
+	![][8] 
+	![][9]
+
+
+De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:- **Texto da Mensagem** - conteúdo de texto da mensagem a ser postada - **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário. - **Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem - **Dados de Conteúdo** - dados de conteúdo do anexo - **Tipo de Conteúdo** - tipo de conteúdo do anexo - **Codificação de Transferência de Conteúdo** - codificação de transferência de conteúdo do anexo ("nenhuma"|"base64") - **Menções** - matriz de nomes de usuário a serem marcados nessa mensagem - **Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem
 
 	![][10]
 	![][11]
 
-	<!--Image references-->
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Crie aplicativos de API usando APIs REST. Consulte [Connectors and API Apps Reference (Referência de conectores e de aplicativos de API)](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+
+
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
 [2]: ./media/app-service-logic-connector-chatter/img2.PNG
 [3]: ./media/app-service-logic-connector-chatter/img3.png
@@ -89,4 +96,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Chatter com
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

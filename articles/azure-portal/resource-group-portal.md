@@ -3,7 +3,7 @@
 	description="Agrupe vários recursos como um grupo lógico que se torna o limite do ciclo de vida para recursos contidos nele." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,4 +75,4 @@ Introdução
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

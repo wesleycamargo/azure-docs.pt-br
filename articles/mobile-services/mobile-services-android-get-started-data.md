@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução aos dados (Android) | Mobile Dev Center" 
+	pageTitle="Introdução aos dados (Android) | Microsoft Azure" 
 	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -41,7 +41,7 @@
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
+- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
 
 
 - o [SDK do Android dos Serviços Móveis do Azure];
@@ -156,4 +156,4 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

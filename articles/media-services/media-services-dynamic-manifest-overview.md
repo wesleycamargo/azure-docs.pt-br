@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Filtros e manifestos dinâmicos
@@ -209,4 +209,4 @@ O tópico a seguir discute entidades de serviços de mídia relacionadas a filtr
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

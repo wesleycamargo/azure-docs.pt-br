@@ -3,7 +3,7 @@
 	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Como integrar o GCM ao Mobile Engagement
 
@@ -123,4 +123,4 @@ Agora, verifique sua integração lendo Como testar a integração do Engagement
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

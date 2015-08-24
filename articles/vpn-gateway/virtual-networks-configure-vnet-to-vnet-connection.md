@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="08/11/2015"
    ms.author="cherylmc"/>
 
 
-# Configurar uma conexão VNet a VNet
+# Configurar uma conexão de VNet a VNet
+
+Este artigo orientará você para a conexão de redes virtuais juntas que foram criadas no modo de implantação clássica. Atualmente, o Azure tem dois modelos de implantação: o modelo de implantação clássico e o modelo de implantação do Gerenciador de Recursos do Azure. As etapas de configuração diferem dependendo do modo que foi usado para implantar sua rede virtual. Se você quiser se conectar a uma rede virtual que foi criada no modo clássico a uma rede virtual criada no Gerenciador de Recursos, consulte [Como conectar VNets clássicas se a VNets novas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
 
 Conectar uma VNet (rede virtual) do Azure a outra rede virtual do Azure é muito semelhante a conectar uma rede virtual a um site local. Os dois tipos de conectividade usam um gateway de rede virtual para fornecer um túnel seguro usando IPsec/IKE. As VNets que você conecta podem estar em regiões e assinaturas diferentes. Você pode até possível combinar a comunicação VNet a VNet com configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir:
 
@@ -102,7 +105,7 @@ VNet2: Espaço de Endereço = 10.2.0.0/16; Região=Leste do Japão
 
 2. No canto inferior esquerdo da tela, clique em **Nova**. No painel de navegação, clique em **Serviços de Rede** e, em seguida, clique em **Rede Virtual**. Clique em **Criação Personalizada** para iniciar o assistente de configuração.
 
-Na página **Detalhes da Rede Virtual**, insira as informações a seguir.
+**Na página Detalhes da Rede Virtual**, insira as informações a seguir.
 
   ![Detalhes de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -111,7 +114,7 @@ Na página **Detalhes da Rede Virtual**, insira as informações a seguir.
 
 
 
-Na página **Servidores DNS e Conectividade de VPN**, insira as seguintes informações e, em seguida, clique na seta avançar no canto inferior direito.
+**Na página Servidores DNS e Conectividade de VPN**, insira as seguintes informações e, em seguida, clique na seta avançar no canto inferior direito.
 
   ![Conectividade de VPN e servidores DNS](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -120,7 +123,7 @@ Na página **Servidores DNS e Conectividade de VPN**, insira as seguintes inform
 
   - Não marque nenhuma das caixas de seleção. Basta clicar na seta no canto inferior direito para se mover para a próxima tela.
 
-Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de endereços que você deseja usar para a rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
+**Na página Espaços de Endereço de Rede Virtual**, especifique o intervalo de endereços que você deseja usar para sua rede virtual. Esses são os DIPS (endereços IP dinâmicos) que serão atribuídos às VMs e a outras instâncias de função que você implantar nessa rede virtual. É particularmente importante selecionar um intervalo que não se sobreponha a nenhum dos intervalos usados para sua rede local. Você precisará realizar a coordenação com o administrador da rede, que pode precisar reservar um intervalo de endereços IP de seu espaço de endereço de rede local para que você possa usar para sua rede virtual.
 
 
   ![Página Espaços de endereço de rede virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -130,14 +133,14 @@ Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de
   - **Espaço de endereço** – incluindo o IP Inicial e a Contagem de Endereços. Verifique se que os espaços de endereço que você especificar não se sobrepõem a nenhum espaço de endereço que você tem em sua rede local. Para este exemplo, vamos usar 10.1.0.0/16 para VNet1.
   - **Adicionar sub-rede** – incluindo o IP Inicial e a Contagem de Endereços. Sub-redes adicionais não são necessárias, mas convém criar uma sub-rede separada para VMs que terão DIPS estáticos. Ou então, você pode colocar suas VMs em uma sub-rede separada das outras instâncias de função.
 
-**Clique na marca de seleção** no canto inferior direito da página, e começará a criação da rede virtual. Quando ela for concluída, você verá a indicação *Criada* listada em *Status* na página *Redes* no Portal de Gerenciamento.
+**Clique na marca de seleção** no canto inferior direito da página, e a criação da sua rede virtual será iniciada. Quando ela for concluída, você verá a indicação *Criada* listada em *Status* na página *Redes* no Portal de Gerenciamento.
 
 ## Crie outra rede virtual
 
 Em seguida, repita as etapas anteriores para criar outra rede virtual. Neste exercício, você conectará posteriormente essas duas redes virtuais. Observe que é muito importante não ter espaços de endereço sobrepostos ou duplicados. Para os fins deste tutorial, use estes valores:
 
 - **VNet2**: espaço de endereço = 10.2.0.0/16
-- **Região**= leste do Japão
+- **Região**= Leste do Japão
 
 ## Adicionar redes locais
 
@@ -210,11 +213,11 @@ Aguarde até que as conexões sejam inicializadas. Depois que o Gateway for inic
 Você pode saber mais sobre a conectividade entre locais da Rede Virtual neste artigo: [Sobre conectividade segura entre locais da rede virtual](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
 
-Se você quiser configurar uma conexão VPN site a site, confira [Configurar uma conexão VPN site a site](vpn-gateway-site-to-site-create.md)
+Se você quiser configurar uma conexão VPN site a site, confira [Configurar uma conexão VPN site a site](vpn-gateway-site-to-site-create.md).
 
 Se quiser adicionar máquinas virtuais à sua rede virtual, consulte [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Se você quiser configurar uma conexão rede virtual usando o RRAS, consulte [Configurar uma VPN site a site usando o Serviço de Roteamento e Acesso Remoto (RRAS) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
+Se você quiser configurar uma conexão VNet usando o RRAS, consulte [Configurar uma VPN site a site usando o RRAS (Serviço de Roteamento e Acesso Remoto) do Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
 
 Para saber mais sobre o esquema de configuração, consulte [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -223,4 +226,4 @@ Para saber mais sobre o esquema de configuração, consulte [Esquema de configur
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Requisitos do aplicativo para o RemoteApp"
-    description="Saiba mais sobre os requisitos para aplicativos que você deseja usar no RemoteApp" 
+    pageTitle="Requisitos de aplicativo para o RemoteApp do Azure"
+    description="Saiba mais sobre os requisitos para aplicativos que você deseja usar no RemoteApp do Azure" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # Requisitos de aplicativo
-O RemoteApp dá suporte a streaming de aplicativos baseados em Windows 32 bits ou 64 bits de uma instalação do Windows Server 2012 R2. A maioria dos aplicativos baseados em Windows de 32 bits ou 64 bits é executada "como está" no ambiente RemoteApp (Serviços de Área de Trabalho Remota, anteriormente conhecido como Serviços de Terminal). No entanto, há uma diferença entre executar e executar bem – alguns aplicativos funcionam corretamente e executam bem, enquanto outros, não. As informações a seguir fornecem diretrizes para o desenvolvimento de aplicativos em um ambiente de Serviços de Área de Trabalho Remota e os testes para garantir a compatibilidade.
+O RemoteApp do Azure dá suporte a streaming de aplicativos baseados em Windows 32 bits ou 64 bits de uma imagem do Windows Server 2012 R2. A maioria dos aplicativos baseados em Windows de 32 bits ou 64 bits é executada "como está" no ambiente RemoteApp do Azure (Serviços de Área de Trabalho Remota, anteriormente conhecido como Serviços de Terminal). No entanto, há uma diferença entre executar e executar bem – alguns aplicativos funcionam corretamente e executam bem, enquanto outros, não. As informações a seguir fornecem diretrizes para o desenvolvimento de aplicativos em um ambiente de Serviços de Área de Trabalho Remota e os testes para garantir a compatibilidade.
 
-Dica: estamos trabalhando na criação de alguns exemplos práticos dos aplicativos para você. No final do mês, você verá os novos tópicos que abordam o uso do Microsoft Access, do QuickBooks e do App-V no RemoteApp.
+Dica: estamos trabalhando na criação de alguns exemplos práticos dos aplicativos para você. Você verá os novos tópicos que abordam o uso do Microsoft Access, QuickBooks e App-V no RemoteApp.
 
 ## Requisitos
 Esses três requisitos, se seguidos, ajudam o aplicativo a ser executado corretamente no RemoteApp:
@@ -56,4 +56,4 @@ Siga as diretrizes apresentadas para desenvolver aplicativos para o RemoteApp.
 - Para otimizar o desempenho, é recomendável que os aplicativos [detectem](https://msdn.microsoft.com/library/aa380798.aspx) se estão sendo executados em uma sessão de cliente. 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

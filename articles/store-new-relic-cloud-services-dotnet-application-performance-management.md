@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando o New Relic com o Azure — guias de recursos do Azure" 
+	pageTitle="Usando o New Relic com o Azure | Microsoft Azure" 
 	description="Saiba como usar o serviço New Relic para gerenciar e monitorar seu aplicativo do Azure." 
 	services="" 
 	documentationCenter=".net" 
@@ -176,4 +176,4 @@ Confira estes recursos adicionais para obter mais informações:
  * [Monitoramento real de usuários](https://newrelic.com/docs/features/real-user-monitoring): Visão geral de como o RUM detalha o tempo que leva para os navegadores de seus usuários carregarem as suas páginas da Web, de onde eles vêm e quais navegadores usam
  * [Encontrar Ajuda](https://newrelic.com/docs/site/finding-help): recursos disponíveis por meio do Centro de ajuda online do New Relic
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

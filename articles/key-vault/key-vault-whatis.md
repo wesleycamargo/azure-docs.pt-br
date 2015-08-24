@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="O que é o Cofre da Chave do Azure? | Visão geral" 
+	pageTitle="O que é o Cofre da Chave do Azure? | Microsoft Azure" 
 	description="O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os clientes podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware)." 
 	services="key-vault" 
 	documentationCenter="" 
@@ -68,4 +68,4 @@ Para saber mais sobre o uso de chaves e segredos com o Cofre da Chave do Azure, 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

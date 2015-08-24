@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # Integrado aos Insights Operacionais em minutos
@@ -97,4 +97,4 @@ Com o Operations Management Suite, você pode rapidamente pesquisar eventos e lo
 - Familiarize-se com a [pesquisa](operational-insights-search.md)
 - Use [painéis](operational-insights-use-dashboards.md) para salvar e exibir suas pesquisas personalizadas
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

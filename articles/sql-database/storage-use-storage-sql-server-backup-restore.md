@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Azure"
+	pageTitle="Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Microsoft Azure"
 	description="Backup do SQL Server e banco de dados SQL no armazenamento do Azure. Explica os benefícios do backup de bancos de dados SQL para o armazenamento do Azure, no qual os componentes do SQL Server e do armazenamento do Azure são necessários"
 	services="sql-database, virtual-machines"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 ## Visão geral
 
-O recurso que fornece a capacidade de gravar backups do SQL Server no serviço de armazenamento de blobs do Azure foi lançado no SQL Server 2012 SP1 CU2. Você pode usar essa funcionalidade para fazer backup e restauração do serviço Blob do Azure por meio de um banco de dados local do SQL Server ou um banco de dados do SQL Server em uma máquina virtual do Azure. Backup em nuvem oferece benefícios de disponibilidade, armazenamento externo replicados geo ilimitado e facilidade de migração de dados para e da nuvem. Nesta versão, você pode emitir declarações de BACKUP ou restauração usando T-SQL ou o SMO.
+O recurso que fornece a capacidade de gravar backups do SQL Server no serviço de armazenamento de blobs do Azure foi lançado no SQL Server 2012 SP1 CU2. Você pode usar essa funcionalidade para fazer backup e restauração do serviço Blob do Azure por meio de um banco de dados local do SQL Server ou um banco de dados do SQL Server em uma máquina virtual do Azure. Backup em nuvem oferece benefícios de disponibilidade, armazenamento externo replicados geo ilimitado e facilidade de migração de dados para e da nuvem. Nesta versão, você pode emitir declarações de BACKUP ou RESTAURAÇÃO usando Transact-SQL ou o SMO.
 
 ## Vantagens de usar o serviço Blob Azure para Backups do SQL Server
 
@@ -73,4 +73,4 @@ Para uma explicação completa da criação de uma conta de armazenamento e real
 
 [Práticas recomendadas de backup e restauração (Serviço de armazenamento de blob do Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Padrão de design de gráficos e de redes distribuídos de Atores Confiáveis"
-   description="O padrão de projeto de como os Atores Confiáveis do Service Fabric podem ser usados para modelar os aplicativos como redes e gráficos distribuídos"
+   pageTitle="Padrão de projeto de redes e gráficos distribuídos dos Atores da Malha de Serviço do Azure"
+   description="O padrão de projeto de como os atores de malha do serviço pode ser usado para modelar o aplicativos como redes distribuídas e gráficos"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Padrão de design de Atores Confiáveis: gráficos e redes distribuídos
@@ -224,4 +224,4 @@ Tudo o que ele realmente faz é aproveitar a capacidade dos atores confiáveis p
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o Cache na Função (.NET) - Guia de recursos do Azure" 
+	pageTitle="Como usar o Cache na Função (.NET) | Microsoft Azure" 
 	description="Saiba como usar o Cache na Função do Azure. Os exemplos são escritos em código C# e utilizam a API .NET." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -412,4 +412,4 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Qual oferta do Cache Azure é a correta para mim?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

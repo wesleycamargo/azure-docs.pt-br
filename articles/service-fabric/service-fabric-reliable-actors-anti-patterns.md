@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Antipadrões de Atores Confiáveis"
-   description="Algumas armadilhas em potencial para os clientes que estão aprendendo sobre Atores Confiável do Service Fabric."
+   pageTitle="Alguns antipadrões de Atores da Malha do Serviço do Azure"
+   description="Algumas possíveis armadilhas para clientes que estão aprendendo sobre os Atores da Malha do Serviço do Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Padrão de design de atores confiáveis: alguns antipadrões
@@ -30,4 +30,4 @@ Identificamos as seguintes armadilhas possíveis para clientes que estão aprend
 
 * Mapear modelos de entidade cegamente. Isso acontece com desenvolvedores que estão vindo de um universo relacional, onde os problemas são modelados usando entidades e seus relacionamentos. Embora essa abordagem ainda seja útil para entender o domínio do assunto, ela deve ser unida ao pensamento orientado ao serviço e combinada com o comportamento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

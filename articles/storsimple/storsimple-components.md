@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Quais são os componentes do StorSimple?" 
+   pageTitle="Quais são os componentes do StorSimple? | Microsoft Azure" 
    description="Descreve o dispositivo, os serviços e as tecnologias de gerenciamento do StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 
@@ -110,7 +110,11 @@ O Windows PowerShell para StorSimple fornece uma interface de linha de comando q
 
 Você pode acessar o Windows PowerShell para StorSimple em um console serial (em um computador host conectado diretamente ao dispositivo) ou remotamente usando o Windows PowerShell. Observe que algumas tarefas do Windows PowerShell para StorSimple, como registro de dispositivo inicial, só podem ser feitas no console serial.
 
-Para obter mais informações, consulte [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+Para obter mais informações, consulte [Usar o Windows PowerShell para StorSimple para administrar o dispositivo](storsimple-windows-powershell-administration.md).
+
+## Cmdlets do Azure PowerShell StorSimple
+
+Os cmdlets do Azure PowerShell StorSimple são um conjunto de cmdlets do Windows PowerShell que permite automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
 
 ## Serviço StorSimple Manager
 
@@ -142,7 +146,7 @@ Backups são capturados como instantâneos, que registram apenas as alterações
 
 Se ocorrer um desastre ou precisar restaurar dados por outro motivo, o Gerenciador de instantâneos do StorSimple restaurará de forma incremental conforme necessário. A Restauração de dados não requer que você desligue o sistema inteiro ao restaurar um arquivo, substituir equipamentos ou mover operações para outro site.
 
-Para obter mais informações, consulte [O que é o gerenciador de instantâneos do StorSimple](storsimple-what-is-snapshot-manager.md).
+Para obter mais informações, consulte [O que é o StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md).
 
 ## Adaptador do StorSimple para SharePoint
 
@@ -182,7 +186,7 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 | espelhamento de disco dinâmico | Replicação de volumes de disco lógico em discos dinâmicos.|
 | discos dinâmicos | Um formato de volume de disco que usa o gerenciador de discos lógicos (LDM) para armazenar e gerenciar dados em vários discos físicos. Discos dinâmicos podem ser ampliados para fornecer mais espaço livre.|
 | Compartimento estendido de vários discos (EBOD) | Um compartimento secundário do dispositivo Microsoft Azure StorSimple que contém discos rígidos adicionais de armazenamento.|
-| provisionamento FAT | Um provisionamento de armazenamento convencional no qual o espaço de armazenamento é alocado com base em necessidades antecipadas (e geralmente está além da necessidade atual). Consulte também *provisionamento dinâmico*.|
+| provisionamento FAT | Um provisionamento de armazenamento convencional no qual o espaço de armazenamento é alocado com base em necessidades antecipadas (e geralmente está além da necessidade atual). Consulte também o *provisionamento dinâmico*.|
 | unidade de disco rígido (HDD) | Uma unidade que utiliza placas giratórias para armazenar dados.|
 | armazenamento em nuvem híbrida | Uma arquitetura de armazenamento que usa os recursos locais e externos, incluindo armazenamento em nuvem.|
 | Internet Small Computer System Interface (iSCSI) | Um padrão de rede de armazenamento baseado no protocolo de internet (IP) para vincular equipamentos ou instalações de armazenamento de dados.|
@@ -215,11 +219,11 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 
 ## Próximas etapas
 
-Examine as [notas de versão do StorSimple](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Saiba sobre a [segurança do StorSimple](storsimple-security.md).
 
 
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

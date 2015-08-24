@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Habilitar seus pipelines para trabalhar com dados locais | Data Factory do Azure" 
+	pageTitle="Habilitar seus pipelines para trabalhar com dados locais | Microsoft Azure" 
 	description="Saiba como registrar uma fonte de dados local com uma fábrica de dados do Azure e copiar dados de/para a fonte de dados." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -113,7 +113,7 @@ Nesta etapa, você pode usar o Portal de Gerenciamento do Azure para criar uma i
 
 3. Na folha **Configurar**, clique em **Instalar diretamente neste computador**. Isso baixará o pacote de instalação para o gateway, instalar, configurar e registrar o gateway no computador.
 
-	> [AZURE.NOTE] Use o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce.
+	> [AZURE.NOTE]Use o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce.
 
 	![Folha Gateway - Configurar][image-data-factory-gateway-configure-blade]
 
@@ -123,7 +123,7 @@ Nesta etapa, você pode usar o Portal de Gerenciamento do Azure para criar uma i
 	
 	Consulte a seção [Gateway de Gerenciamento de Dados](#DMG) para obter detalhes sobre o gateway, incluindo as práticas recomendadas e considerações importantes.
 
-	>[AZURE.NOTE] Você deve ser um administrador no computador local para instalar e configurar com êxito o Gateway de gerenciamento de dados. Você pode acrescentar usuários adicionais para o grupo local de usuários do Gateway de gerenciamento de dados do Windows. Os membros desse grupo poderão usar a ferramenta Gerenciador de configuração de Gateway de gerenciamento de dados para configurar o gateway.
+	>[AZURE.NOTE]Você deve ser um administrador no computador local para instalar e configurar com êxito o Gateway de gerenciamento de dados. Você pode acrescentar usuários adicionais para o grupo local de usuários do Gateway de gerenciamento de dados do Windows. Os membros desse grupo poderão usar a ferramenta Gerenciador de configuração de Gateway de gerenciamento de dados para configurar o gateway.
 
 4. Clique no hub **NOTIFICAÇÕES** à esquerda. Aguarde até que você veja a mensagem **Instalação expressa de “adftutorialgateway” bem-sucedida** na folha **Notificações**.
 
@@ -396,7 +396,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção atividades, há somente a atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**.
-	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -626,4 +626,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

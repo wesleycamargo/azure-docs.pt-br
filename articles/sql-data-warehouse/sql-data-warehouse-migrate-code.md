@@ -28,7 +28,6 @@ A lista a seguir resume os principais recursos que não têm suporte no SQL Data
 - Junções ANSI em exclusões
 - instrução merge
 - junções entre bancos de dados
-- [instruções pivot e unpivot][]
 - [cursores][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ Para obter orientação sobre como desenvolver seu código, confira a [visão ge
 <!--Image references-->
 
 <!--Article references-->
-[instruções pivot e unpivot]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [cursores]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [cláusula group by com as opções rollup/cube/grouping sets]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ Para obter orientação sobre como desenvolver seu código, confira a [visão ge
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

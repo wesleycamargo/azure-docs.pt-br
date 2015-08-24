@@ -159,7 +159,7 @@ Observe que a **frequência** é definida como **Hora** e o **intervalo** é def
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "SqlSource",
-	                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -538,7 +538,7 @@ No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atri
 	
 	{
 	    "Type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \'{0:yyyyMMdd-HH}\'', WindowStart)"
+	    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 	}
 
 ### Funções
@@ -575,7 +575,7 @@ Texto | Format(X) | X: variável de cadeia de caracteres | Formata o texto.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \'my\_pkey\_filter\_value\' e RowKey ge \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
+> [AZURE.NOTE]Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' e RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**.
   
 
 ## Grande aprofundamento em dependência de dados
@@ -676,4 +676,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

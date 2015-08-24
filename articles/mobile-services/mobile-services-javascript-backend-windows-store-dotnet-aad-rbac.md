@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure (Windows Store) | Mobile Dev Center" 
+	pageTitle="Controle de acesso baseado em função nos Serviços Móveis e Active Directory do Azure (Windows Store) | Microsoft Azure" 
 	description="Saiba como controlar o acesso com base em funções do Active Directory do Azure em seu aplicativo da Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -288,4 +288,4 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

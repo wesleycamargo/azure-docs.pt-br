@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como criar e implantar um serviço de nuvem - Azure"
+	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
 	description="Saiba como criar e implantar um serviço de nuvem usando o método de Criação Rápida no Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -147,4 +147,4 @@ Três recursos de serviço de nuvem precisam de configurações especiais antes 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

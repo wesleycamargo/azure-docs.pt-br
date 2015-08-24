@@ -18,10 +18,11 @@
 
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Aplicativos Web">Comprar Domínio para Aplicativos Web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Aplicativos Web" class="current">Aplicativos Web com Domínios Externos</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Aplicativos Web com o Gerenciador de Tráfego">Aplicativos Web com o Gerenciador de Tráfego</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-
-</div>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -71,7 +72,7 @@ Ignore este passo se você estiver criando um registro CNAME. Para criar um regi
 4.	Clique no nome do seu aplicativo Web.
 5.	Na página **Informações Gerais**, clique em **Todas as Configurações**.
 6.	Clique em **Domínios personalizados e SSL**. 
-7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos**. O endereço IP está localizado na parte inferior dessa parte.
+7.	Na folha **Domínios personalizados e SSL**, clique em **Trazer domínios externos”**. O endereço IP está localizado na parte inferior dessa parte.
 
 ## Criar os registros DNS
 
@@ -147,4 +148,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

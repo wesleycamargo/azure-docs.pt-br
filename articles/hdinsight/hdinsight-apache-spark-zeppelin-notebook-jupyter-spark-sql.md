@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provisionar um cluster do Spark no HDInsight e usar o Spark SQL por meio do Zeppelin e do Jupyter para análise interativa | Azure" 
+	pageTitle="Provisionar um cluster do Spark no HDInsight e usar o Spark SQL por meio do Zeppelin e do Jupyter para análise interativa | Microsoft Azure" 
 	description="Instruções passo a passo sobre como provisionar rapidamente um cluster do Apache Spark no HDInsight e depois usar o Spark SQL por meio dos blocos de anotações do Zeppelin e do Jupyter para executar consultas interativas." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -243,4 +243,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (iOS) | Mobile Dev Center" 
+	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (iOS) | Microsoft Azure" 
 	description="Saiba como autenticar usuários para logon único com ADAL no seu aplicativo iOS." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -121,4 +121,4 @@ Este tutorial exige o seguinte:
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

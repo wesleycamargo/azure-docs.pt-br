@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar uma implantação de várias VMs usando a CLI do Azure | Azure"
+   pageTitle="Criar uma implantação de várias VMs usando a CLI do Azure | Microsoft Azure"
    description="Saiba como criar uma implantação de VM múltipla usando a CLI do Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -67,4 +67,4 @@ Embora você possa encontrar mais informações usando a opção -help em qualqu
 * [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

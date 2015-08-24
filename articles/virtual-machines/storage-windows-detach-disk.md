@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Desanexar um disco de uma máquina virtual Windows | Azure"
+	pageTitle="Desanexar um disco de uma máquina virtual Windows | Microsoft Azure"
 	description="Saiba como desanexar um disco de uma máquina virtual no Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -29,4 +29,4 @@
 
 [Como anexar um disco de dados a uma máquina virtual Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/07/2015" 
+	ms.date="07/29/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -363,4 +363,4 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

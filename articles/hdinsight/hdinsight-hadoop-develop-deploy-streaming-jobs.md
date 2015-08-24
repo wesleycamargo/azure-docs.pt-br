@@ -41,7 +41,7 @@ Antes de começar este tutorial, você deve ter feito o seguinte:
 - Obtenha uma assinatura do Azure. Para obter instruções, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Desenvolver um programa C&\#35 de streaming do Hadoop para a contagem de palavras
+##<a name="develop"></a>Desenvolver um programa C&#35 de streaming do Hadoop para a contagem de palavras
 
 A solução de contagem de palavras contém dois projetos de aplicativo de console: mapeador e redutor. O aplicativo mapeador transmite cada palavra no console e o aplicativo redutor conta o número de palavras que são transmitidas de um documento. Tanto o mapeador, quanto o redutor leem caracteres, linha por linha, do fluxo de entrada padrão (stdin) e gravam no fluxo de saída padrão (stdout).
 
@@ -51,13 +51,13 @@ A solução de contagem de palavras contém dois projetos de aplicativo de conso
 2. Clique em **ARQUIVO**, depois em **Novo** e clique em **Projeto**.
 3. Digite ou selecione os valores a seguir:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valor</td></tr>
-<tr><td>Modelo</td><td>Visual C#/Windows/Aplicativo de Console</td></tr>
-<tr><td>Nome</td><td>WordCountMapper</td></tr>
-<tr><td>Local padrão</td><td>C:\Tutorials</td></tr>
-<tr><td>Nome da solução</td><td>WordCount</td></tr>
-</table>
+Campo|Valor
+---|---
+Modelo|Visual C#/Windows/Aplicativo de Console
+Nome|WordCountMapper
+Local padrão|C:\\Tutorials
+Nome da solução|WordCount
+
 	
 4. Clique em **OK** para criar o projeto.
 
@@ -100,12 +100,12 @@ A solução de contagem de palavras contém dois projetos de aplicativo de conso
 1. No Visual Studio 2013, clique em **ARQUIVO**, depois em **Adicionar** e clique em **Novo Projeto**.
 2. Digite ou selecione os valores a seguir:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valor</td></tr>
-<tr><td>Modelo</td><td>Visual C#/Windows/Aplicativo de Console</td></tr>
-<tr><td>Nome</td><td>WordCountReducer</td></tr>
-<tr><td>Local padrão</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+Campo|Valor
+---|---
+Modelo|Visual C#/Windows/Aplicativo de Console
+Nome|WordCountReducer
+Local padrão|C:\\Tutorials\\WordCount
+	
 3. Desmarque a caixa de seleção **Criar diretório para a solução** e clique em **OK** para criar o projeto.
 4. No Gerenciador de Soluções, clique com o botão direito do mouse em **Program.cs** e em **Renomear**.
 5. Renomeie o arquivo como **WordCountReducer.cs** e pressione **ENTER**.
@@ -167,7 +167,14 @@ Por padrão, o emulador do HDInsight usa o HDFS (Sistema de Arquivos Distribuíd
 
 Este tutorial usa a seguinte estrutura de pastas:
 
-<table border="1"> <tr><td>Pasta</td><td>Observação</td></tr> <tr><td>\\WordCount</td><td>A pasta raiz do projeto de contagem de palavras. </td></tr> <tr><td>\\WordCount\\Apps</td><td>A pasta dos executáveis do mapeador e do redutor.</td></tr> <tr><td>\\WordCount\\Input</td><td>A pasta do arquivo de origem do MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>A pasta do arquivo de saída do MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>A pasta de saída do trabalho.</td></tr> </table></br>
+Pasta|Observação
+---|---
+\\WordCount|A pasta raiz do projeto de contagem de palavras. 
+\\WordCount\\Apps|A pasta dos executáveis do mapeador e do redutor.
+\\WordCount\\Input|A pasta do arquivo de origem do MapReduce.
+\\WordCount\\Output|A pasta do arquivo de saída do MapReduce.
+\\WordCount\\MRStatusOutput|A pasta de saída do trabalho.
+
 
 Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home%.
 
@@ -263,7 +270,7 @@ Este tutorial usa os arquivos .txt localizados no diretório %hadoop\_home%.
 
 **Para verificar o status do trabalho**
 
-1. Na área de trabalho, clique em **Status do Hadoop YARN** ou navegar até ****http://localhost:50030/jobtracker.jsp**.
+1. Na área de trabalho, clique em **Status do Hadoop YARN** ou navegue até ****http://localhost:50030/jobtracker.jsp**.
 2. Localize o trabalho usando a ID do trabalho em uma categoria **EM EXECUÇÃO** ou **CONCLUÍDO**. 
 3. Se um trabalho falhar, você poderá encontrá-lo na categoria **COM FALHA**. Você também poderá abrir os detalhes do trabalho e localizar informações úteis para depuração.
 
@@ -552,4 +559,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce de streaming 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

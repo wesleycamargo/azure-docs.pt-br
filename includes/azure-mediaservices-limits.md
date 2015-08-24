@@ -1,73 +1,18 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Limite padrão</th>
-   <th align="left" valign="middle">Limite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>AMS (Contas de Serviços de Mídia) do Azure em uma única assinatura</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Ativos por conta AMS</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>1.000.000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Tarefas encadeadas por trabalho</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>30</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Ativos por tarefa</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Ativos por trabalho</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Trabalhos por conta AMS </p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>50.000<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Localizadores exclusivos associados a um ativo simultaneamente</p></td>
-   <td valign="middle"><p></p></td>
-   <td valign="middle"><p>5<sup>4</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Canais ao vivo por conta AMS </p></td>
-   <td valign="middle"><p>5</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Programas no estado “interrompido” por canal </p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Programas no estado “executando” por canal </p></td>
-   <td valign="middle"><p>3</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr><tr>
-   <td valign="middle"><p>Pontos de extremidade de streaming no estado “executando” por conta AMS</p></td>
-   <td valign="middle"><p>2</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Unidades de streaming por ponto de extremidade de streaming </p></td>
-   <td valign="middle"><p>10 </p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Unidades de codificação por conta AMS </p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>N/A<sup>1</sup></p></td>
-</tr>
-</table>
+Recurso|Limite padrão|Limite máximo
+---|---|---
+AMS (Contas de Serviços de Mídia) do Azure em uma única assinatura||25
+Ativos por conta AMS||1\.000.000
+Tarefas encadeadas por trabalho||30
+Ativos por tarefa||50
+Ativos por trabalho||100
+Trabalhos por conta AMS ||50\.000<sup>2</sup>
+Localizadores exclusivos associados a um ativo simultaneamente||5<sup>4</sup>
+Canais ao vivo por conta AMS</p></td>|5</p></td>|N/A<sup>1</sup>
+Programas no estado “interrompido” por canal</p></td>|50</p></td>|N/A<sup>1</sup>
+Programa no estado “executando” por canal </p></td>|3</p></td>|N/A<sup>1</sup>
+Pontos de extremidade de streaming no estado “executando” por conta AMS</p></td>|2</p></td>|N/A<sup>1</sup>
+Unidades de streaming por ponto de extremidade de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
+Unidades de codificação por conta AMS</p></td>|25</p></td>|N/A<sup>1</sup>
 
 <sup>1</sup> Você pode solicitar para atualizar os limites para essa cota abrindo um tíquete de suporte. Não crie mais contas AMS para aumentar os limites; em vez disso, envie um tíquete de suporte.
 
@@ -77,4 +22,4 @@
 
 <sup>4</sup> Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de gerenciamento de direitos digitais (DRM).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

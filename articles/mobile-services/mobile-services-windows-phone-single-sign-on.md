@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticar seu aplicativo com o Live Connect (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
+	pageTitle="Autenticar seu aplicativo com o Live Connect (Windows Phone) | Microsoft Azure" 
 	description="Saiba como usar o logon único do Live Connect nos serviços móveis do Azure de um aplicativo do Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -142,4 +142,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

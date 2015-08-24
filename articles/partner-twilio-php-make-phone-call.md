@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fazer uma chamada telefônica do Twilio (PHP) - Azure" 
+	pageTitle="Como fazer uma chamada telefônica do Twilio (PHP) | Microsoft Azure" 
 	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos são para o aplicativo PHP." 
 	documentationCenter="php" 
 	services="" 
@@ -143,4 +143,4 @@ Para obter informações adicionais sobre a Twilio, consulte [https://www.twilio
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

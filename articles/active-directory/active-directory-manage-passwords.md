@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Gerenciar senhas no AD do Azure| Microsoft Azure"
-	description="Um tópico que explica como gerenciar senhas no AD do Azure."
+	description="Como gerenciar senhas no AD do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Gerenciar senhas no AD do Azure
@@ -33,18 +32,20 @@ O restante deste tópico aborda o conjunto completo de recursos de gerenciamento
 
 Use os links a seguir para ir para a documentação na qual você está mais interessado:
 
-- [Visão geral: gerenciamento de senhas no AD do Azure](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Redefinição de senha por autoatendimento no AD do Azure: como habilitar, configurar e testar a redefinição de senha por autoatendimento](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Redefinição de senha por autoatendimento no AD do Azure: como personalizar a redefinição de senha para atender às suas necessidades](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Redefinição de senha por autoatendimento no AD do Azure: práticas recomendadas de implantação e gerenciamento](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Relatórios de gerenciamento de senhas no AD do Azure: como exibir a atividade de gerenciamento de senha em seu locatário](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Write-back de senha: como configurar o AD do Azure para gerenciar senhas locais](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Perguntas Frequentes/solução de problemas do AD do Azure para gerenciamento de senhas](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Visão geral: gerenciamento de senhas no AD do Azure](active-directory-passwords-how-it-works.md)
+- [Redefinição de senha por autoatendimento no AD do Azure: como habilitar, configurar e testar a redefinição de senha por autoatendimento](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Redefinição de senha por autoatendimento no AD do Azure: como personalizar a redefinição de senha para atender às suas necessidades](active-directory-passwords-customize.md)
+- [Redefinição de senha por autoatendimento no AD do Azure: práticas recomendadas de implantação e gerenciamento](active-directory-passwords-best-practices.md)
+- [Relatórios de gerenciamento de senhas no AD do Azure: como exibir a atividade de gerenciamento de senha em seu locatário](active-directory-passwords-get-insights.md)
+- [Write-back de senha: como configurar o AD do Azure para gerenciar senhas locais](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Solucionando problemas de gerenciamento de senha do AD do Azure](active-directory-passwords-troubleshoot.md)
+- [Perguntas frequentes sobre o gerenciamento de senha do AD do Azure](active-directory-passwords-faq.md)
 
-## O que vem a seguir
+
+## O que vem a seguir?
 
 - [Administrando o AD do Azure](active-directory-administer.md)
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

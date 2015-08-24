@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Adicionar Serviços Móveis a um aplicativo existente (Windows Phone) | Centro de Desenvolvimento de Serviços Móveis" 
+	pageTitle="Adicionar Serviços Móveis a um aplicativo existente (Windows Phone) | Microsoft Azure" 
 	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo do Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -195,7 +195,7 @@ Nesta seção você usará o Visual Studio para testar o aplicativo e o serviço
 
 9. Digite um novo texto de todoitem. Em seguida, clique em **Salvar**. Isso insere um novo todoItem no banco de dados criado pelo serviço móvel hospedado localmente no IIS Express. Clique na caixa de seleção de um dos itens para marcá-lo como concluído.
 
-10. No Visual Studio, pare a depuração do aplicativo. Você pode exibir as alterações no banco de dados criado para o serviço de back-end abrindo o Gerenciador de Servidores e expandindo as Conexões de Dados. Clique com o botão direito do mpuse na tabela TodoItems em **MS_TableConnectionString** e clique em **Mostrar Dados da Tabela**
+10. No Visual Studio, pare a depuração do aplicativo. Você pode exibir as alterações no banco de dados criado para o serviço de back-end abrindo o Gerenciador de Servidores e expandindo as Conexões de Dados. Clique com o botão direito do mpuse na tabela TodoItems em **MS\_TableConnectionString** e clique em **Mostrar Dados da Tabela**
 
     ![Mostrar dados na tabela]([14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png)
 
@@ -272,4 +272,4 @@ Este tutorial demonstrou as noções básicas de como habilitar um aplicativo Wi
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

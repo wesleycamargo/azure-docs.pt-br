@@ -94,7 +94,7 @@ Neste exemplo, o serviço de nuvem tem 3 VIPs:
 >[AZURE.NOTE]Sua assinatura só será cobrada por VIPs extras quando eles estiverem associados a um ponto de extremidade. Para obter mais informações sobre preços, consulte [Preços de endereço IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Como associar um VIP a um ponto de extremidade
-Para associar um VIP em um serviço de nuvem a um ponto de extremidade, execute o seguinte comando PowerShell:
+Para associar um VIP em um serviço de nuvem a um ponto de extremidade, execute o seguinte comando do PowerShell:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
     | Add-AzureEndpoint -Name myEndpoint -Protocol tcp -LocalPort 8080 -PublicPort 80 -VirtualIPName Vip2 `
@@ -155,4 +155,4 @@ Você também pode atualizar o balanceador de carga para usar um VIP diferente. 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

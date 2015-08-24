@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 #  Visão geral sobre a Recuperação de Site
@@ -77,4 +77,4 @@ Mapeamento de armazenamento|Não aplicável|Mapeia classificações de armazenam
 Depois de concluir esta visão geral, [leia as práticas recomendadas](site-recovery-best-practices.md) para começar a planejar a implantação.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

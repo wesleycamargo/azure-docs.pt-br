@@ -108,4 +108,4 @@ Se você estiver tendo problemas ao configurar a sincronização de diretórios,
 Agora, inicie a ferramenta de Sincronização de Diretório do Azure e use as credenciais ****myAzureSyncUser@mydomain.com** para o primeiro prompt (Credenciais de Administrador do Active Directory do Microsoft Azure) e use ****myDomainSyncUser@mydomain.com** para o segundo prompt.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

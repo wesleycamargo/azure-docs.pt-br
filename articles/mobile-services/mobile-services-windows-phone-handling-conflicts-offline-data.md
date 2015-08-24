@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tratar conflitos de dados offline nos Serviços Móveis (Windows Phone) | Centro de desenvolvimento de Serviços Móveis" 
+	pageTitle="Tratar conflitos de dados offline nos Serviços Móveis (Windows Phone) | Microsoft Azure" 
 	description="Saiba como usar o manipulador de conflitos dos serviços móveis do Azure ao sincronizar dados offline em seu aplicativo para Windows Phone" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -241,4 +241,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

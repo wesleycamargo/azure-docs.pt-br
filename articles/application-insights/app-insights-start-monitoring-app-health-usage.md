@@ -118,7 +118,7 @@ Quando você executa no modo de depuração, a telemetria é expressa através d
 
 * Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
-* Aguarde alguns segundos e clique em Atualizar.
+* Aguarde alguns segundos e clique em Atualizar. Os gráficos se atualizam periodicamente, mas você pode atualizá-los manualmente se estiver aguardando para alguns dados serem exibidos.
 * Consulte [Solucionar problemas][qna].
 
 #### Problemas no servidor de compilação?
@@ -243,4 +243,4 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

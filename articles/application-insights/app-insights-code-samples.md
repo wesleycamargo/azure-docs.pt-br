@@ -21,6 +21,10 @@
 
 Esta é uma compilação de exemplos de código que mostram como usar o [Visual Studio Application Insights](app-insights-get-started.md).
 
+## SDK Labs
+
+Os [SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) são uma coleção de pacotes NuGet experimentais que você pode instalar e desinstalar como adições ao SDK do Application Insights. Experimente-os e faça seus comentários!
+
 ## Serviços Web
 
 * [Adicionar telemetria a funções Web e de trabalho do Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService).
@@ -49,4 +53,4 @@ Para analisar os dados de telemetria com suas próprias ferramentas, [exporte-os
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

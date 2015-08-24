@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à autenticação em Serviços Móveis para aplicativos Xamarin iOS - Serviços Móveis do Azure" 
+	pageTitle="Introdução à autenticação em Serviços Móveis para aplicativos iOS Xamarin | Microsoft Azure" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS Xamarin por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -136,4 +136,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

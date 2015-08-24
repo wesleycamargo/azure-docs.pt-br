@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -212,7 +212,7 @@ Nesta etapa, você criará seu primeiro pipelines.
   
 1. Na área da barra de ferramentas, clique com o botão direito e selecione **Data Factory** para habilitar a barra de ferramentas de Data Factory se ela ainda não estiver habilitada. 
 19. Na **barra de ferramentas de Data Factory**, clique na **caixa suspensa** para ver todas as fábricas de dados na sua assinatura do Azure. Se você vir a caixa de diálogo **Entrar no Visual Studio**: 
-	20. Insira a **conta de email** associada à assinatura do Azure na qual você deseja criar a fábrica de dados, digite **Senha** e clique em **Entrar**.
+	20. Insira a **conta de email** associada à assinatura do Azure na qual você deseja criar a data factory, digite **Senha** e clique em **Entrar**.
 	21. Quando a entrada for bem-sucedida, você deverá ver todas as data factories na assinatura do Azure. Neste tutorial, você criará uma nova data factory.       
 22. Na lista suspensa, selecione **DataFactoryMyFirstPipeline** e clique no botão **Publicar** para implantar/publicar os serviços vinculados, conjuntos de dados e o pipeline.    
 
@@ -246,4 +246,4 @@ Consulte [Monitorar conjuntos de dados e pipeline](data-factory-monitor-manage-p
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados de um Blob do Azure para o SQL Azure, consulte [Tutorial: Copiar dados de um blob do Azure para o SQL Azure](data-factory-get-started.md).
   
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

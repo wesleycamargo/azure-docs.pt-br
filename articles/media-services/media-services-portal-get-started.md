@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -226,9 +226,6 @@ Algumas considerações se aplicam:
 ![AMSPlayer][AMSPlayer]
 
 
-##Próxima etapa
-
-Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicativos VoD](media-services-video-on-demand-workflow.md)
 
 ###Recursos adicionais
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Serviços de Mídia do Azure 101 - Coloque seu vídeo online agora!</a>
@@ -256,4 +253,4 @@ Saiba mais sobre como criar aplicativos de Vídeo sob Demanda em [Criar aplicati
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

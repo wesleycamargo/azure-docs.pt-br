@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos back-ends de aplicativo móvel para aplicativos da Windows Store | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Introdução aos back-ends de aplicativo móvel para aplicativos da Windows Store | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os back-ends de aplicativo móvel do Azure para desenvolvimento da Windows Store em C#, VB ou JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -88,4 +88,4 @@ Agora que o back-end de aplicativo móvel está publicado e o cliente está cone
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o AMQP 1.0 com a API de barramento de serviço do Java - Azure" 
+	pageTitle="Como usar o AMQP 1.0 com o API do Barramento de Serviço em Java | Microsoft Azure" 
 	description="Saiba como usar o Java Message Service (JMS) com o barramento de serviço do Azure e Advanced Message Queuing Protocol (AMQP) 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
@@ -338,4 +338,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

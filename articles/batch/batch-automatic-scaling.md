@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
 # Dimensionar automaticamente nós de computação em um pool do Lote do Azure
@@ -23,7 +23,7 @@ O dimensionamento automático de nós de computação em um pool do Lote do Azur
 
 O dimensionamento automático ocorre quando ele está habilitado em um pool e uma fórmula é associada ao pool. A fórmula é usada para determinar o número de nós de computação que são necessários para processar o aplicativo. O dimensionamento automático pode ser configurado quando o pool é criado, ou você pode fazer isso posteriormente em um pool existente. A fórmula também pode ser atualizada em um pool no qual o dimensionamento automático foi habilitado.
 
-Quando o dimensionamento automático está habilitado, o número de nós de computação disponíveis é ajustado a cada 15 minutos com base na fórmula. A fórmula atua em amostras que são coletadas a cada 5 segundos, mas há um atraso de 75 segundos entre o momento em que uma amostra é coletada e quando ela é disponibilizada para a fórmula. Esses fatores de tempo devem ser considerados ao usar o método GetSample descrito abaixo.
+Quando o dimensionamento automático está habilitado, o número de nós de computação disponíveis é ajustado a cada 15 minutos com base na fórmula. A fórmula atua em amostras que são coletados periodicamente, mas há um atraso entre o momento que a amostra é coletada e quando ela é disponibilizada para a fórmula. Isso deve ser considerado ao usar o método GetSample descrito abaixo.
 
 É sempre uma boa prática avaliar a fórmula antes de atribuí-la a um pool, e é importante monitorar o status das execuções de dimensionamento automático.
 
@@ -56,7 +56,7 @@ Variáveis definidas pelo sistema e variáveis definidas pelo usuário podem ser
     <td>O número de destino de nós de computação dedicados para o pool. O valor pode ser alterado com base no uso real para as tarefas.</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:
       <br/>
       <ul>
@@ -115,7 +115,7 @@ Você só pode ler os valores dessas variáveis definidas pelo sistema para faze
     <td>O número de bytes de saída</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>A contagem de nós de computação</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@ Estas funções predefinidas estão disponíveis para definir uma fórmula de di
     <td>double val(doubleVec v, double i)</td>
     <td>O valor do elemento no local i do vetor v com um índice inicial de zero.</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>Cria explicitamente um único doubleVec de doubleVecList.</td>
-  </tr>
 </table>
 
 Algumas das funções descritas na tabela podem aceitar uma lista como argumento. A lista separada por vírgulas é qualquer combinação de double e doubleVec. Por exemplo:
@@ -392,7 +388,7 @@ Essas métricas podem ser definidas em uma fórmula.
     <td><p>Com base no uso da CPU, uso de largura de banda, uso de memória e número de nós de computação. As variáveis de sistema descritas acima são usadas em fórmulas para gerenciar os nós de computação em um pool:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>Essas variáveis de sistema são usados para fazer ajustes com base nas métricas de nó:</p>
     <p><ul>
@@ -424,7 +420,7 @@ Essas métricas podem ser definidas em uma fórmula.
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Este exemplo mostra uma fórmula que detecta se 70% das amostras foram registradas nos últimos 15 minutos. Caso contrário, ele usa a última amostra. Ele tenta aumentar o número de nós de computação para corresponder ao número de tarefas ativas, com um máximo de 3. Ele define o número de nós para um quarto do número de tarefas ativas porque a propriedade MaxTasksPerVM do pool está definida como 4. Ele também define a opção de Desalocação como "taskcompletion" para manter o computador até a conclusão das tarefas.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +472,4 @@ Você deve verificar periodicamente os resultados das execuções automáticas d
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – este cmdlet obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
 2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

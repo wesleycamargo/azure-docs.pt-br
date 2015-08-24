@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
 
 Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
-> [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure. O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Já no Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`. Quando for esse o caso, você precisará dividir, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agent] para obter detalhes.
+> [AZURE.NOTE]É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure. O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agent] para obter detalhes.
 
-[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Como: inicializar um novo disco de dados no Linux
 
@@ -30,33 +30,59 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 
 
 
-2. Na janela SSH, digite o seguinte comando e, em seguida, digite a senha para a conta criada para gerenciar a máquina virtual:
+2. Em seguida, você precisa localizar o identificador de dispositivo para inicializar o disco de dados. Há duas maneiras de fazer isso:
 
-		# sudo grep SCSI /var/log/messages
+	a) Na janela SSH, digite o seguinte comando e, em seguida, insira a senha para a conta criada para gerenciar a máquina virtual:
 
-	>[AZURE.NOTE]Para distribuições Ubuntu recentes, você talvez precise usar `sudo grep SCSI /var/log/syslog` pois o logon em `/var/log/messages` pode estar desabilitado por padrão.
+			$sudo grep SCSI /var/log/messages
+
+	Para distribuições Ubuntu recentes, você talvez precise usar `sudo grep SCSI /var/log/syslog` pois o logon em `/var/log/messages` pode estar desabilitado por padrão.
 
 	Você pode localizar o identificador do último disco de dados que foi adicionado nas mensagens que são exibidas.
 
-
-
 	![Obter as mensagens do disco](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	OU
 
+	b) Use o comando `lsscsi` para descobrir a ID do dispositivo. `lsscsi` pode ser instalado por um `yum install lsscsi` (no Red Hat com base em distribuições) ou `apt-get install lsscsi` (no Debian com base em distribuições). Você pode encontrar o disco que está procurando pelo seu _lun_ ou **número de unidade lógica**. Por exemplo, o _lun_ para os discos que você anexou pode ser facilmente visto de `azure vm disk list <virtual-machine>` como:
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	Compare isso com a saída de `lsscsi` para o mesmo exemplo de máquina virtual:
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	O último número na tupla em cada linha é o _lun_. Consulte `man lsscsi` para obter mais informações.
 
 3. Na janela SSH, digite o seguinte comando para criar um novo dispositivo e, em seguida, digite a senha da conta:
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE]Neste exemplo, você talvez precisará usar `sudo -i` em algumas distribuições, se /sbin ou /usr/sbin não estiverem em seu `$PATH`.
 
 
-4. Digite **n** para criar uma nova partição.
+4. Quando solicitado, digite **n** para criar uma nova partição.
 
 
 	![Criar novo dispositivo](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Digite **p** para definir a partição como primária, digite **1** para torná-la a primeira partição e clique enter para aceitar o valor padrão para o cilindro.
+5. Quando solicitado, digite **p** para definir a partição primária, digite **1** para torná-la a primeira partição e digite enter para aceitar o valor padrão para o cilindro.
 
 
 	![Criar partição](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -136,9 +162,12 @@ Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos 
 ## Recursos adicionais
 [Como fazer logon em uma máquina virtual que executa o Linux][Logon]
 
+[Como desanexar um disco de uma máquina virtual Linux ](virtual-machines-linux-how-to-detach-disk.md)
+
+[Usando a CLI do Azure com o Gerenciamento de Serviços do Microsoft Azure](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

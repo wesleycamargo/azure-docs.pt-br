@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Segurança StorSimple" 
+   pageTitle="Segurança de StorSimple | Microsoft Azure" 
    description="Descreve os recursos de segurança e privacidade que protegem o serviço, os dispositivos e os dados StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/19/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 # Segurança StorSimple 
@@ -50,13 +50,12 @@ O dispositivo StorSimple é um dispositivo de armazenamento híbrido local que c
 
 Apenas dispositivos StorSimple autorizados têm permissão para ingressar no serviço do Gerenciador do StorSimple que você criou na sua assinatura do Azure.
 
-Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal. Para saber como obter uma chave de registro de serviço, vá para a [Etapa 2: Obter chave de registro do serviço](https://msdn.microsoft.com/library/azure/dn772346.aspx).
+Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal. Para saber como obter uma chave de registro de serviço, acesse a [Etapa 2: Obter a chave de registro do serviço](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
 > [AZURE.NOTE]A chave de registro de serviço é uma chave longa que contém 100 caracteres. Recomendamos copiar a chave e salvá-la em um arquivo de texto em um local seguro para poder usá-la para autorizar dispositivos adicionais conforme necessário.
 > 
 > * Se a chave de registro do serviço for perdida depois de registrar o primeiro dispositivo, você pode gerar uma nova chave usando o serviço do Gerenciador do StorSimple. Isso não afetará a operação dos dispositivos existentes. 
 > * Depois que um dispositivo é registrado, ele usa tokens para se comunicar com o Microsoft Azure. A chave de registro de serviço não é usada depois do registro do dispositivo.
-
 
 ## Proteja sua solução StorSimple por meio de senhas
 
@@ -93,13 +92,15 @@ O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para va
 > * Você não pode usar a mesma senha para o iniciador do CHAP e o destino do CHAP.
 > * Depois de definir a senha, ela pode ser alterada, mas não recuperada. Se a senha for alterada, certifique-se de notificar todos os usuários de acesso remoto para que eles possam se conectar com sucesso ao dispositivo StorSimple.
 
+Para obter mais informações e configurar o CHAP, acesse [Configure o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md)
+
 ### Senha do Gerenciador de instantâneos do StorSimple
 
 O Gerenciador de instantâneos do StorSimple é um snap-in do MMC (Console de Gerenciamento Microsoft) que usa grupos de volume e o serviço de cópias de sombra de volume do Windows para gerar backups consistentes com o aplicativo. Além disso, você pode usar o Gerenciador de instantâneos do StorSimple para criar o clone e agendamentos de backup ou restaurar volumes.
 
 Ao configurar um dispositivo para usar o Gerenciador de instantâneos do StorSimple, forneça a senha do Gerenciador de instantâneos do StorSimple. Esta senha é definida pela primeira vez no Windows PowerShell para StorSimple durante o registro. A senha também pode ser definida e alterada usando o serviço do Gerenciador do StorSimple. Essa senha autentica o dispositivo com o Gerenciador de instantâneos do StorSimple.
 
-> [AZURE.IMPORTANT]<ul><li>A senha deve ter de 14 a 15 caracteres e deve conter 3 ou mais de uma combinação de caracteres maiúsculos, minúsculos, numéricos e especiais.</li><li>Depois de definir a senha do gerenciador de instantâneos do StorSimple, ela poderá ser alterada, mas não recuperada. Se você alterar a senha, certifique-se de notificar todos os usuários remotos.</li></ul>
+> [AZURE.IMPORTANT]<ul><li>A senha deve ter de 14 a 15 caracteres e deve conter 3 ou mais de uma combinação de caracteres maiúsculos, minúsculos, numéricos e especiais.</li><li>Depois de definir a senha do StorSimple Snapshot Manager, ela pode ser alterada, mas não recuperada. Se você alterar a senha, certifique-se de notificar todos os usuários remotos.</li></ul>
 
 
 ### Práticas recomendadas de senha
@@ -107,7 +108,7 @@ Ao configurar um dispositivo para usar o Gerenciador de instantâneos do StorSim
 É recomendável usar as seguintes diretrizes para ajudar a garantir que as senhas do Azure StorSimple sejam fortes e bem protegidas:
 
 - Altere suas senhas a cada três meses.
-- Use uma senha forte. Para obter mais informações, consulte Criar senhas fortes.
+- Use uma senha forte. Para obter mais informações, acesse [Create stronger passwords and protect them (Criar senhas fortes e protegê-las)](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Sempre use senhas diferentes para diferentes mecanismos de acesso; cada uma das senhas especificadas deve ser exclusiva.
 - Não compartilhe senhas com ninguém que não esteja autorizado a acessar o dispositivo StorSimple.
 - Não fale sobre uma senha na frente de outras pessoas nem dê dicas do formato de uma senha.
@@ -134,9 +135,9 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 > [AZURE.IMPORTANT]
 > 
 > * A chave da criptografia de dados do serviço é gerada apenas no primeiro dispositivo registrado com o serviço. Todos os dispositivos subsequentes registrados com o serviço devem usar a mesma chave de criptografia de dados de serviço. É muito importante fazer uma cópia dessa chave e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
-> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção Alterar chave de criptografia de dados de serviço no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para obter mais informações, acesse o [Painel de serviço](https://msdn.microsoft.com/library/azure/dn772326.aspx).
+> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados de serviço** no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para obter mais informações, acesse [Usar o painel de serviço](storsimple-service-dashboard.md).
 > * Para garantir que a segurança dos dados não seja comprometida, use um dispositivo StorSimple físico para alterar a chave de criptografia de dados de serviço.
-> * Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, acesse [Alterar a chave de criptografia de dados de serviço](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01).
+> * Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, acesse [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, é recomendável alterar a chave de criptografia de dados de serviço regularmente para ajudar a impedir o comprometimento da chave.</li></ul>
 
 
@@ -149,6 +150,14 @@ O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e n
 - Ao inserir a chave de criptografia de armazenamento em nuvem no serviço do Gerenciador do StorSimple, ela criptografada usando a parte pública da chave de criptografia de dados de serviço e, em seguida, enviada para o dispositivo.
 - A chave de criptografia de armazenamento em nuvem não é armazenada em qualquer lugar no serviço e é conhecida apenas para o dispositivo.
 - Especificar uma chave de criptografia de armazenamento em nuvem é opcional. Você pode enviar dados que foram criptografados no host para o dispositivo.
+
+### Práticas recomendadas de segurança adicionais
+
+- Para implementar a redundância, use múltiplos caminhos (MPIO) para evitar um ponto único de falha na rede SAN do iSCSI. Para obter instruções detalhadas, acesse [Configurar o MPIO para seu dispositivo StorSimple](#storsimple-configure-mpio-windows-server.md).
+
+- Dividir o tráfego: isolar a rede SAN do iSCSI do tráfego do usuário em uma LAN corporativa implantando uma rede totalmente separada e usando VLANs em que o isolamento físico não é uma opção. Uma rede dedicada para o armazenamento iSCSI garantirá a segurança e o desempenho de seus dados essenciais aos negócios. Misturar o tráfego de armazenamento e o de usuário em uma LAN corporativa não é recomendado e pode aumentar a latência e causar falhas de rede.
+
+- Para a segurança de rede do lado do host, use as interfaces de rede que dão suporte a TOE (TCP/IP Offload Engine). O TOE reduz a carga de CPU processando TCP no adaptador de rede.
 
 ## Proteger dados por meio de contas de armazenamento
 
@@ -181,69 +190,67 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Meu serviço está comprometido. Qual deve ser minhas próximas etapas?
 
-**R:** Você deve alterar a chave de criptografia de dados de serviço e as chaves de conta de armazenamento para a conta de armazenamento que está sendo usada para dados em camadas. Para obter instruções, vá para:
+**R:** Você deve alterar imediatamente a chave de criptografia de dados de serviço e as chaves de conta de armazenamento para a conta de armazenamento que está sendo usada para dados em camadas. Para obter instruções, vá para:
 
-- [Alterar a chave de criptografia de dados do serviço](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
-- [Rotação de chave de contas de armazenamento](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#rotate)
+- [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Rotação de chave de contas de armazenamento](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **P:** Eu tenho um dispositivo StorSimple novo que está solicitando a chave de registro. Como recuperá-la?
 
-**R:** Esta chave foi criada quando você criou o serviço Gerenciador do StorSimple. Quando você usa o serviço Gerenciador do StorSimple para se conectar ao dispositivo, pode usar a página de início rápido do serviço para exibir ou gerar nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
+**R:** Esta chave foi criada quando você criou o serviço StorSimple Manager. Quando você usa o serviço Gerenciador do StorSimple para se conectar ao dispositivo, pode usar a página de início rápido do serviço para exibir ou gerar nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
 
-- [Exibir ou gerar novamente a chave de registro](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#BKMK_viewsrk)
+- [Exibir ou gerar novamente a chave de registro](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Entrar em contato com o Suporte da Microsoft. Ele podem fazer logon em uma sessão de suporte no seu dispositivo e ajudá-lo a recuperar a chave. Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
+**R:** Entre em contato com o Suporte da Microsoft. Ele podem fazer logon em uma sessão de suporte no seu dispositivo e ajudá-lo a recuperar a chave. Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
 
-- [Alterar a chave de criptografia de dados do serviço](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
+- [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
 **P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
 
-**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados do serviço e reiniciar o processo.
+**R:** Se o tempo limite tiver expirado, você precisará autorizar novamente o dispositivo para a alteração da chave de criptografia de dados do serviço e reiniciar o processo.
 
-**P:** Alterei a chave de criptografia de dados de serviço, mas não consegui atualizar outros dispositivos em 4 horas. É necessário iniciar novamente?
+**P:** Alterei a chave de criptografia de dados de serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
 
-**R:** O período de 4 horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
+**R:** O período de quatro horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
 
 **P:** Nosso administrador StorSimple saiu da empresa. O que devo fazer?
 
 **R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados do serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
 
-- [Configurar o gerenciador de instantâneos do StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Configurar a senha do administrador do dispositivo](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [Configurar o gerenciamento remoto](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec10)
-- [Configurar o iniciador CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
-- [Configurar o destino CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
+- [Usar o serviço StorSimple Manager para alterar suas senhas StorSimple](storsimple-change-passwords.md)
+- [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Configure o CHAP para o seu dispositivo StorSimple](storsimple-configure-chap.md)
 
-**P:** Desejo fornecer a senha do gerenciador de instantâneos do StorSimple para um host que está se conectando ao dispositivo StorSimple, mas a senha não está disponível. O que posso fazer?
+**P:** Desejo fornecer a senha do StorSimple Snapshot Manager para um host que está se conectando ao dispositivo StorSimple, mas a senha não está disponível. O que posso fazer?
 
-**R:** se você tiver esquecido a senha, deve criar uma nova. Em seguida, informe todos os usuários existentes de que a senha foi alterada e eles devem atualizar seus clientes para usar a nova senha. Para obter instruções, vá para:
+**R:** Se você tiver esquecido a senha, deve criar uma nova. Em seguida, informe todos os usuários existentes de que a senha foi alterada e eles devem atualizar seus clientes para usar a nova senha. Para obter instruções, vá para:
 
-- [Configurar o gerenciador de instantâneos](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Autenticar um dispositivo](https://msdn.microsoft.com/library/azure/dn790537.aspx)
+- [Alterar a senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Autenticar um dispositivo](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**P:** O certificado para o acesso remoto ao Windows PowerShell para o StorSimple foi alterado no dispositivo. Como atualizar meus clientes de acesso remoto?
+**P:** O certificado para o acesso remoto ao Windows PowerShell para StorSimple foi alterado no dispositivo. Como atualizar meus clientes de acesso remoto?
 
-**R:** Você pode baixar o novo certificado de serviço do gerenciador do StorSimple e depois fornecê-lo para ser instalado no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
+**R:** Você pode baixar o novo certificado do serviço StorSimple Manager e depois fornecê-lo para ser instalado no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
 - [Certificado de importação de cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
 
-**P:** Meus dados ficarão protegidos se o serviço do gerenciador do StorSimple estiver comprometido?
+**P:** Meus dados ficarão protegidos se o serviço StorSimple Manager estiver comprometido?
 
 **R:** Os dados de configuração de serviço são sempre criptografados com a chave pública quando exibidos em um navegador da Web. Como o serviço não tem acesso à chave privada, o serviço não poderá ver os dados. Se o serviço de gerenciador do StorSimple estiver comprometido, há haverá impacto, pois não há nenhuma chave armazenada no serviço de gerenciador do StorSimple.
 
 **P:** Se alguém obtiver acesso ao certificado de criptografia de dados, meus dados serão comprometidos?
 
-**R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo. pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
+**R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo .pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
 
-**PQ:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
+**P:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
 
 **R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente.
 
 ## Próximas etapas
 
-[Introdução ao dispositivo físico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
+[Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

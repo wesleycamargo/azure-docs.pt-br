@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Serviços vinculados de computação | Azure Data Factory" 
+	pageTitle="Serviços Vinculados de Computação | Microsoft Azure" 
 	description="Aprenda sobre ambientes de computação que você pode usar em pipelines do Azure Data Factory para transformar/processar dados." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -208,7 +208,7 @@ poolName | Nome do pool de máquinas virtuais. | Sim
 linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure associado ao serviço vinculado de Lote do Azure. Esse serviço vinculado é usado para arquivos de teste necessários para executar a atividade e armazenar os logs de execução da atividade. | Sim
 
 
-## Serviço vinculado de Lote do Azure
+## Serviço Vinculado de Aprendizado de Máquina do Azure
 
 Criar um serviço vinculado de Aprendizado de Máquina do Azure para registrar um ponto de extremidade de pontuação do lote de Aprendizado de Máquina a uma fábrica de dados.
 
@@ -234,7 +234,9 @@ mlEndpoint | A URL de pontuação do lote. | Sim
 apiKey | A API do modelo de espaço de trabalho publicada. | Sim
 
 
+## Serviço Vinculado do SQL do Azure
 
+Você pode criar um serviço vinculado do SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline de Data Factory. Consulte o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 
   
@@ -245,4 +247,4 @@ apiKey | A API do modelo de espaço de trabalho publicada. | Sim
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

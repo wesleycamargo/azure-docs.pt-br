@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de arma
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
 ### Existe uma avaliação gratuita disponível?
-Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pt-br/pricing/free-trial/), que lhe dá 30 dias e US $200 para experimentar todos os serviços do Azure. Se tiver uma assinatura do MSDN, você está qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) para usar em qualquer serviço do Azure. Se você quiser experimentar Banco de Dados de Documentos gratuitamente por 30 dias, sem precisar de nenhum cartão de crédito, envie um email para askdocdb@microsoft.com com a linha do assunto ”Documentation FAQ, Azure Trial” e nós responderemos com um código de promoção enquanto os estoques durarem.
+Se for novo no Azure, você pode se inscrever para uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US $200 para experimentar todos os serviços do Azure. Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. Se você quiser experimentar o Banco de Dados de Documentos gratuitamente por 30 dias, sem precisar de nenhum cartão de crédito, envie um email para askdocdb@microsoft.com com o assunto ”Documentation FAQ, Azure Trial” e nós responderemos com um código de promoção enquanto os estoques durarem.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
 Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou marque um [chat com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
@@ -67,7 +67,7 @@ Você pode criar bancos de dados usando o [Portal de Visualização do Azure]() 
 ### O que é uma coleção?
 Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. As consultas e transações estão dentro do escopo das coleções. Você pode armazenar um conjunto de documentos JSON heterogêneos em uma única coleção, sendo todos eles indexados automaticamente.
 
-As coleções também são as entidades de cobrança para o Banco de Dados de Documentos. Os encargos mensais pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](https://azure.microsoft.com/pt-br/pricing/details/documentdb/).
+As coleções também são as entidades de cobrança para o Banco de Dados de Documentos. Os encargos mensais pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### Há limites para os bancos de dados e coleções?
 Cada coleção vem com uma alocação de armazenamento do banco de dados e uma taxa de transferência em um dos [níveis de desempenho](documentdb-performance-levels.md) com suporte. Também há cotas para cada recurso gerenciado pelo serviço. Para obter uma lista de todos os limites, consulte [Limites do Banco de Dados de Documentos](documentdb-limits.md). Para solicitar uma alteração em seus limites de conta, consulte [Solicitar maiores limites de conta do Banco de Dados de Documentos](documentdb-increase-limits.md).
@@ -111,4 +111,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

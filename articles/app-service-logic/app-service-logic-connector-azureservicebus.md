@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/29/2015"
+   ms.date="08/09/2015"
    ms.author="andalmia"/>
 
 
@@ -36,40 +36,44 @@ Mensagem disponível | Enviar mensagem
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
-2. Selecione **Aplicativos de API**e pesquise "Conector do Barramento de Serviço do Azure".
-3. Digite o nome, o plano do Serviço de Aplicativo e outras propriedades: <br/> ![][1]
+2. Pesquise "Conector do Barramento de Serviço do Azure", selecione-o e selecione **Criar**.
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+![][1]
 
 4. Insira as seguintes configurações de pacote:
 
 	Nome | Descrição
 --- | ---
-Cadeia de conexão | A cadeia de conexão do Barramento de Serviço do Azure. Por exemplo, digite: *Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[nome];SharedAccessKey=[chave]*.
+Cadeia de conexão | A cadeia de conexão do Barramento de Serviço do Azure. Por exemplo, insira: *Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[nome];SharedAccessKey=[chave]*.
 Nome da entidade | Digite o nome da fila ou do tópico.
 Nome da assinatura | Digite o nome da assinatura da qual receber mensagens.
 
 5. Clique em **Criar**.
 
-Após criar o conector, você pode adicioná-lo a um aplicativo lógico no mesmo grupo de recursos.
-
 ## Usando o conector do Barramento de Serviço em seu aplicativo lógico
 Após criar o conector, você pode usar o conector do Barramento de Serviço do Azure como gatilho ou ação para seu aplicativo lógico. Para fazer isso:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure: <br/> ![][2]
+1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector do Barramento de Serviço do Azure: ![][2]
 
-2.	Abra “Gatilhos e ações” para abrir o designer de aplicativos lógicos e configurar seu fluxo de trabalho: <br/> ![][3]
+2.	Abra "Gatilhos e Ações" para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho: ![][3]
 
-3. O conector do Barramento de Serviço do Azure é exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito: <br/> ![][4]
+3. O conector do Barramento de Serviço do Azure aparece na seção "Aplicativos de API neste grupo de recursos" na galeria do lado direito: ![][4]
 
 4. Você pode soltar o conector do Barramento de Serviço do Azure no editor clicando em "Conector do Barramento de Serviço do Azure".
 
-5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem disponível") em outras ações no fluxo: <br/> ![][5] <br/> ![][6]
+5.	Agora você pode usar o conector do Barramento de Serviço do Azure no fluxo de trabalho. Você pode usar a mensagem recuperada do gatilho do Barramento de Serviço do Azure ("Mensagem Disponível") em outras ações no fluxo: ![][5]
 
-Você também pode usar a ação “Enviar mensagem” do Barramento de Serviço do Azure: <br/> ![][7] <br/> ![][8]
+	![][6]
+
+Você também pode usar a ação "Enviar Mensagem" do Barramento de Serviço do Azure: 
+![][7]
+
+![][8]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Crie aplicativos de API usando APIs REST. Consulte [Connectors and API Apps Reference (Referência de conectores e de aplicativos de API)](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -84,4 +88,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

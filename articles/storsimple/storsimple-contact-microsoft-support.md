@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -25,22 +25,21 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 
 #### Para criar uma solicitação de suporte
 
-1. Uma solicitação de Suporte pode ser criada por meio do [Portal de Gerenciamento](http://manage.windowsazure.com/). No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em seu **Nome de Conta** e, em seguida, clique em **Contatar o Suporte da Microsoft**.
+1. Uma solicitação de suporte pode ser criada por meio do [Portal de Gerenciamento](http://manage.windowsazure.com/). No [Portal de Gerenciamento](http://manage.windowsazure.com/), clique em seu **Nome de Conta** e, em seguida, clique em **Contatar o Suporte da Microsoft**.
 
 	![Contate o Suporte da MS por meio do Portal de Gerenciamento](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-1. Na caixa de diálogo **Contatar o Suporte da Microsoft**:
+2. Na caixa de diálogo **Contatar o Suporte da Microsoft**:
 
+	1. Na lista suspensa, selecione a **Assinatura** de destino associada ao serviço StorSimple Manager. Especifique **Tipo de Suporte** como **Técnico**. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
 
-	- No menu suspenso, selecione o destino **Assinatura** associado ao serviço StorSimple Manager. Especifique **Tipo de Suporte** como **Técnico**. É necessário um plano de Suporte pago para habilitar o Suporte Técnico.
+	2. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-contact-microsoft-support/IC740895.png) para **Criar Tíquete**.
 
-	1. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-contact-microsoft-support/IC740895.png) para **Criar Tíquete**.
-
-1. Na janela **Suporte da Microsoft**, no menu suspenso **Produto**, escolha **StorSimple**.
+3. Na janela **Suporte da Microsoft**, na lista suspensa **Produto**, escolha **StorSimple**.
 
 	![Contatar o Suporte da Microsoft - Produto](./media/storsimple-contact-microsoft-support/IC777288.png)
 
-1. Siga as instruções na tela para classificar corretamente sua solicitação e forneça uma descrição clara e específica do problema.
+4. Siga as instruções na tela para classificar corretamente sua solicitação e forneça uma descrição clara e específica do problema.
 
 Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
@@ -52,24 +51,24 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 #### Para iniciar uma sessão de suporte
 
-1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, siga as etapas em [Usar PuTTY para se conectar ao console serial do dispositivo](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, siga as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
+2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
 
-1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
+3. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
 
-1. No prompt, digite a seguinte senha:
+4. No prompt, digite a seguinte senha:
 
 	`Password1`
 
-1. No prompt, digite o seguinte comando:
+5. No prompt, digite o seguinte comando:
 
 	`Enable-HcsSupportAccess`
 
-1. Uma cadeia de caracteres criptografada será apresentada a você. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
+6. Uma cadeia de caracteres criptografada será apresentada a você. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
 
-1. Salve a cadeia de caracteres e envie-a em uma mensagem de email ao Suporte da Microsoft.
+7. Salve a cadeia de caracteres e envie-a em uma mensagem de email ao Suporte da Microsoft.
 
 > [AZURE.IMPORTANT]Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

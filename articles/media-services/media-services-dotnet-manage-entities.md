@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 Este tópico mostra como realizar as seguintes tarefas de gerenciamento de serviços de mídia:
 
@@ -324,4 +330,4 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

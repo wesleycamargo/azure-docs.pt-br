@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Criar uma máquina virtual com várias NICs"
+   pageTitle="Criar uma VM com diversos NICs"
    description="Saiba como criar e configurar máquinas virtuais com várias placas de rede"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
-# Criar uma máquina virtual com várias NICs
+# Criar uma VM com diversos NICs
 
-O recurso de várias NICs permite criar e gerenciar várias placas de interface de rede virtual (NICs) nas máquinas virtuais (VMs) do Azure. Várias NICs é um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Ter várias NICs também agrega mais funcionalidade de gerenciamento tráfego da rede, incluindo isolamento do tráfego entre uma NIC de front-end e as NICs de back-end ou a separação do tráfego do plano de dados do tráfego do plano de gerenciamento.
+O recurso de várias NICs permite criar e gerenciar várias placas de interface de rede virtual (NICs) nas máquinas virtuais (VMs) do Azure. Várias NICs são um requisito para muitos aplicativos virtuais de rede, como soluções de distribuição de aplicativos e de otimização de WAN. Ter várias NICs também agrega mais funcionalidade de gerenciamento de tráfego da rede, incluindo isolamento do tráfego entre uma NIC de front-end e as NICs de back-end ou a separação do tráfego do plano de dados do tráfego do plano de gerenciamento.
 
 ![Várias NICs da VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -78,7 +78,7 @@ Neste momento, o recurso de várias NICs tem os seguintes requisitos e restriç�
 |G5|16|
 |Todos os outros tamanhos|1|
 
-## Grupos de segurança de rede
+## Grupos de segurança de rede (NSG)
 Qualquer NIC em uma máquina virtual pode ser associada a um grupo de segurança de rede (NSG), incluindo todas as NICs de uma VM que seja habilitada para várias NICs. Se uma NIC tiver um endereço atribuído em uma sub-rede que esteja associada a um NSG, as regras do NSG da sub-rede também se aplicarão à NIC. Além de associar sub-redes a NSGs, você também pode associar uma NIC a um NSG.
 
 Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na "**ordem de fluxo**" de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
@@ -249,4 +249,4 @@ Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 
 Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, recomendamos que as NICs secundárias sejam restritas a fluxos de tráfego somente dentro da mesma sub-rede. No entanto, se determinados cenários exigirem conectividade fora da sub-rede, os usuários devem habilitar a política com base em roteamento para garantir que o tráfego de entrada e saída use a mesma NIC.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

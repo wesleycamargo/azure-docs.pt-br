@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Adicionar autenticação ao aplicativo Serviços Móveis do Azure (iOS) existente | Microsoft Azure"
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@ Em seguida, aprenda [como usar o valor da ID de usuário para filtrar dados reto
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

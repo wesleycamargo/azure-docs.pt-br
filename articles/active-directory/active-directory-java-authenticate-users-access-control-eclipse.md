@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Como usar o Controle de Acesso (Java) - guia de recursos do Azure"
+    pageTitle="Como usar o Controle de Acesso (Java) | Microsoft Azure"
     description="Aprenda a desenvolver e usar o controle de acesso com Java no Azure."
 	services="active-directory" 
     documentationCenter="java"
@@ -310,4 +310,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

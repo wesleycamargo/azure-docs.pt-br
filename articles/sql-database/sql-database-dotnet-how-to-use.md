@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o banco de dados SQL (.NET) - guia de recursos do Azure" 
+	pageTitle="Como usar o banco de dados SQL (.NET) | Microsoft Azure" 
 	description="Introdução ao banco de dados SQL. Saiba como criar uma instância do banco de dados SQL e conectá-la usando o ADO.NET, ODBC e provedor EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte [EntityClient Provider para o Entity Fra
 Agora que você aprendeu as noções básicas de conexão ao banco de dados SQL, consulte [Desenvolvimento: tópicos de instruções (banco de dados SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

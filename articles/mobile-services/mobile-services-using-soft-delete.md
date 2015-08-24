@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usando exclusão reversível nos Serviços Móveis (Windows Store) | Mobile Dev Center" 
+	pageTitle="Usando exclusão reversível nos Serviços Móveis (Windows Store) | Microsoft Azure" 
 	description="Saiba como usar o recurso de exclusão reversível dos Serviços Móveis do Azure no seu aplicativo" 
 	documentationCenter="" 
 	authors="wesmc7777" 
@@ -163,4 +163,4 @@ Para saber mais sobre os trabalhos agendados com Serviços Móveis de back-end d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

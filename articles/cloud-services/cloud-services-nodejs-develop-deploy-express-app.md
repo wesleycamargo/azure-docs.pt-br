@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aplicativo Web com Express (Node.js) - Tutorial do Azure" 
+	pageTitle="Aplicativo Web com Express (Node.js) | Microsoft Azure" 
 	description="Um tutorial que complementa o tutorial de serviço de nuvem e demonstra como usar o módulo Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como fazer uma chamada telefônica do Twilio (.NET) - Azure" 
+	pageTitle="Como fazer uma chamada telefônica do Twilio (.NET) | Microsoft Azure" 
 	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Amostras de código gravadas no .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -192,4 +192,4 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

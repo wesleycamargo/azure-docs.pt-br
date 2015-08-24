@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicativo multicamada .NET - tutorial do Azure"
+	pageTitle="Aplicativo multicamada .NET | Microsoft Azure"
 	description="Um tutorial que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas. Amostras no .NET."
 	services="service-bus"
 	documentationCenter=".net"
@@ -539,4 +539,4 @@ Para saber como implantar o front-end em um site do Azure, consulte [Implantando
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -22,7 +22,7 @@
 
 O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web de Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
-> [AZURE.NOTE]Este artigo usa o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o PowerShell do Azure e a interface de linha de comando do Azure (Azure CLI) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]Este artigo usa o [portal de visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o PowerShell do Azure e a interface de linha de comando do Azure (Azure CLI) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnóstico de servidor Web e diagnóstico de aplicativos
 
@@ -38,11 +38,11 @@ Você pode habilitar ou desabilitar os seguintes tipos de logs:
 
 ### Diagnóstico de aplicativo
 
-O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
+O diagnóstico de aplicativo permite que você capture informações produzidas por um aplicativo da Web. Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](http://msdn.microsoft.com/pt-br/library/36hhw2t6.aspx) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Em tempo de execução, você pode recuperar esses logs para ajudar na solução de problemas. Para obter mais informações, consulte [Solucionando problemas de aplicativos Web do Azure no Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+Em tempo de execução, você pode recuperar esses logs para ajudar na solução de problemas. Para obter mais informações, consulte [Solucionando problemas de aplicativos Web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 Os aplicativos Web do Serviço de Aplicativo também registram informações de implantação quando você publica o conteúdo em um aplicativo Web. Isto acontece automaticamente e não há definições de configuração para log de implantação. O log de implantação permite que você determine por que uma implantação falhou. Por exemplo, se está usando um script de implantação personalizado, você poderá usar o log de implantação para determinar por que o script está falhando.
 
@@ -82,7 +82,7 @@ A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
 * **Logs do aplicativo** - /LogFiles/Application/. Essa pasta contém um ou mais arquivos de texto que contêm informações produzidas pelo log do aplicativo.
 
-* **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
+* **Rastreamento de Solicitação Falha** - /LogFiles/W3SVC#########/. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Baixe o arquivo XSL no mesmo diretório que o(s) arquivo(s) XML, pois o arquivo XSL fornece funcionalidade para formatar e filtrar o conteúdo do(s) arquivo(s) XML quando visualizado(s) no Internet Explorer.
 
 * **Logs de erro do aplicativo** - /LogFiles/DetailedErrors/. Esta pasta contém um ou mais arquivos .htm que fornecem informações exaustivas para quaisquer erros de HTTP.
 
@@ -236,7 +236,7 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte:
 
 ### Rastreamento de solicitação falha
 
-O rastreamento de solicitações falhas é armazenado em arquivos XML chamados __fr\#\#\#\#\#\#.xml__. Para facilitar a visualização das informações registradas, uma folha de estilos XML chamada __freb.xsl__ é fornecida no mesmo diretório dos arquivos XML. A abertura de um dos arquivos XML no Internet Explorer usará a folha de estilos XSL para fornecer uma exibição de formato da informação rastreada. Isto aparecerá semelhante ao seguinte:
+O rastreamento de solicitações falhas é armazenado em arquivos XML chamados __fr######.xml__. Para facilitar a visualização das informações registradas, uma folha de estilos XML chamada __freb.xsl__ é fornecida no mesmo diretório dos arquivos XML. A abertura de um dos arquivos XML no Internet Explorer usará a folha de estilos XSL para fornecer uma exibição de formato da informação rastreada. Isto aparecerá semelhante ao seguinte:
 
 ![solicitação falha visualizada no navegador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -263,4 +263,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

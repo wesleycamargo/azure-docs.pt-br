@@ -25,7 +25,7 @@ Coleções de trabalho são a entidade faturável no Agendador do Azure. As cole
 |:---|:---|:---|:---|:---|
 |**Gratuito**|5 trabalhos por coleção de trabalhos|Uma vez por hora. Não é possível executar trabalhos com uma frequência maior do que uma vez por hora|É permitida até 1 coleção de trabalho gratuita por assinatura|Não é possível usar [objeto de saída de autorização HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 100 coleções de trabalho standard por assinatura|Acesso ao conjunto completo de recursos do Agendador|
-|**Premium**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|Não há limite no número de coleções de trabalhos premium em uma assinatura|Acesso ao conjunto completo de recursos do Agendador|
+|**Premium**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 10.000 coleções de trabalhos premium por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
 
 ## Atualizações e Downgrades de Planos de Coleção de Trabalhos
 
@@ -87,4 +87,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](http://azure.m
  [Autenticação de saída do Agendador](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

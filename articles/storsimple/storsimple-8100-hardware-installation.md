@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Instalar o dispositivo StorSimple 8100"
+   pageTitle="Instalar o dispositivo StorSimple 8100 | Microsoft Azure"
    description="Descreve como desempacotar, montar em rack e cabear o dispositivo StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Instalar o dispositivo StorSimple 8100
@@ -47,7 +47,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 
      ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **Figura 1: Exibição do dispositivo de armazenamento desempacotado**
+    **Exibição do dispositivo de armazenamento desempacotado**
 
      Rótulo | Descrição 
      ----- | -------------
@@ -115,7 +115,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **Figura 2: Fixando corrediças às laterais do compartimento**
+   **Fixando corrediças do trilho às laterais do compartimento**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
      ![Fixando as corrediças do trilho no gabinete do rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figura 3: Fixando os conjuntos de trilhos ao rack**
+    **Fixando os conjuntos de trilhos ao rack**
 
      Rótulo | Descrição
      ----- | -----------
@@ -154,7 +154,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
     ![Inserindo o dispositivo no rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figura 4: Montando o dispositivo no rack**
+    **Montando o dispositivo no rack**
 
 3. Fixe o compartimento no rack usando um parafuso Phillips fornecido em cada flange, esquerdo e direito.
 
@@ -162,7 +162,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
      ![Instalando as tampas do flange](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figura 5: Instalando as tampas do flange**
+    **Instalando as tampas do flange**
 
      Rótulo | Descrição
      ----- | -----------
@@ -192,7 +192,7 @@ Antes de começar o cabeamento do dispositivo, você precisará dos seguintes it
 
 - Adaptadores exclusivos QSFP para SFP+ fornecidos para serem usados com interfaces de rede de 10 GbE
 
-- [Transceptores, cabos e comutadores compatíveis para interfaces de rede de 10 GbE](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Cabeamento de energia
@@ -201,29 +201,7 @@ Seu dispositivo inclui PCMs (Módulos de Energia e Refrigeração) redundantes. 
 
 Execute as etapas a seguir para cabear o dispositivo para recebimento de energia.
 
-#### Para cabear o recebimento de energia
-
-1. Verifique se os interruptores em cada um dos PCMs estão na posição DESLIGADO.
-
-2. Conecte os cabos de energia a ambos os PCMs no compartimento principal.
-
-3. Conecte os cabos de energia às PDUs, conforme mostrado na ilustração a seguir. Verifique se os dois PCMs usam fontes de energia separadas.
-
-4. Ative o sistema invertendo os comutadores de energia em ambos os PCMs para a posição LIGADO.
-
-    >[AZURE.NOTE]Para garantir a alta disponibilidade do seu sistema, você deve seguir fielmente o esquema de cabeamento de energia mostrado no diagrama que se segue.
-
-    ![Cabear o dispositivo 2U para recebimento de energia](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figura 6: Cabeamento de energia para o dispositivo**
-
-     Rótulo | Descrição
-     ----- | -----------
-     1 | PCM 0
-     2 | Controlador 1
-     3 | Controlador 0
-     4 | PCM 1
-     5 | PDUs
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Cabeamento de rede
 
@@ -237,7 +215,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     ![Backplane do dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figura 7: Parte traseira do dispositivo mostrando as portas de dados**
+    **Parte traseira do dispositivo mostrando as portas de dados**
  
      Rótulo | Descrição
      ------- | -----------
@@ -258,7 +236,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     ![Cabear o dispositivo 2U para rede](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figura 8: Cabeamento de rede para o dispositivo**
+    **Cabeamento de rede para o dispositivo**
 
     Rótulo | Descrição
     ----- | -----------
@@ -276,7 +254,7 @@ Execute as etapas a seguir para cabear a porta serial.
 
 #### Para cabear a conexão serial
 
-1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Consulte a Figura 7 para localizar as portas seriais no backplane do seu dispositivo. 
+1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Consulte a ilustração na seção [Cabeamento de rede](#network-cabling) para localizar as portas seriais no backplane do dispositivo. 
 
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 
@@ -297,4 +275,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

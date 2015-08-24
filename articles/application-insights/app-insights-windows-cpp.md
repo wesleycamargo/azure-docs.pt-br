@@ -19,6 +19,7 @@ Você precisará de:
 
 * Uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços em nuvem da Microsoft.
 * Visual Studio 2015 ou posterior.
+* Aplicativo universal do Windows 10
 
 ## Criar um recurso do Application Insights
 
@@ -139,4 +140,4 @@ Clique em qualquer gráfico para obter mais detalhes. Por exemplo, falhas:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar tópicos do Barramento de Serviço (PHP) - Azure" 
+	pageTitle="Como usar os tópicos de Barramento de Serviço (PHP) | Microsoft Azure" 
 	description="Saiba como usar tópicos do barramento de serviço com PHP no Azure." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@ Agora que você aprendeu as noções básicas sobre filas do Barramento de Servi
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

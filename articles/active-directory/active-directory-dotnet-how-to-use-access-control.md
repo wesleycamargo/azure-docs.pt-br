@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar o Controle de Acesso (.NET) - guia de recursos do Azure" 
+	pageTitle="Como usar o Controle de Acesso (.NET) | Microsoft Azure" 
 	description="Saiba como usar o ACS (Serviço de Controle de Acesso) em seu aplicativo do Azure para autenticar os usuários quando eles tentarem obter acesso a um aplicativo da web." 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -403,4 +403,4 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários, cons
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

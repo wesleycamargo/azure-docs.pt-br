@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis - Serviços Móveis do Azure" 
+	pageTitle="Compilar um serviço usando um banco de dados SQL existente com o back-end do .NET dos Serviços Móveis | Microsoft Azure" 
 	description="Aprenda a usar uma nuvem existente ou banco de dados SQL local com seu serviço móvel baseado em .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -615,4 +615,4 @@ Observe que as duas implementações do controlador tornam exclusivo o uso dos D
 
 Como uma próxima etapa, agora você pode compilar o aplicativo cliente para acessar o serviço. Para saber mais, consulte [Adicionar Serviços Móveis a um aplicativo existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

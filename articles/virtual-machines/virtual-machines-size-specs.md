@@ -5,7 +5,9 @@
  documentationCenter=""
  authors="KBDAzure"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
+
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -134,4 +136,4 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas por cada um.
 
 [Sobre as instâncias A8, A9, A10 e A11 com uso intensivo de computação](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

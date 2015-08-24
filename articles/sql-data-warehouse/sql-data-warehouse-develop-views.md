@@ -26,11 +26,27 @@ Este artigo destaca alguns exemplos de como aprimorar sua solução implementand
 ## Abstração de arquitetura
 Um padrão de aplicativo muito comum é recriar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido por um objeto de renomeação do padrão durante o carregamento dos dados.
 
-O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como um novo objeto, DimDate\_New, é criado pela primeira vez e, em seguida, renomeado para substituir a versão original do objeto.``` CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
+O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como um novo objeto, DimDate\_New, é criado pela primeira vez e, em seguida, renomeado para substituir a versão original do objeto.
 
-RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
+```
+CREATE TABLE dbo.DimDate_New
+WITH (DISTRIBUTION = REPLICATE
+, CLUSTERED INDEX (DateKey ASC)
+)
+AS 
+SELECT *
+FROM   dbo.DimDate  AS prod
+UNION ALL
+SELECT *
+FROM   dbo.DimDate_stg AS stg
+;
 
-``` No entanto, isso pode resultar em objetos de tabela que aparecem e desaparecem da exibição do usuário no SSDT SQL Server Object Explorer. As exibições podem ser usadas para fornecer aos consumidores de data warehouse uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados. O fornecimento de acesso aos dados através de uma exibição significa que os usuários não precisam ter visibilidade das tabelas subjacentes. Isso fornece uma experiência de usuário consistente ao mesmo tempo que garante que os designers do data warehouse possam aprimorar o modelo de dados e também maximizar o desempenho usando CTAS durante o processo de carregamento de dados.
+RENAME OBJECT DimDate TO DimDate_Old;
+RENAME OBJECT DimDate_New TO DimDate;
+
+```
+
+No entanto, isso pode resultar em objetos de tabela que aparecem e desaparecem da exibição do usuário no Gerenciador de Objetos do SQL Server do SSDT. As exibições podem ser usadas para fornecer aos consumidores de data warehouse uma camada de apresentação consistente enquanto os objetos subjacentes são renomeados. O fornecimento de acesso aos dados através de uma exibição significa que os usuários não precisam ter visibilidade das tabelas subjacentes. Isso fornece uma experiência de usuário consistente ao mesmo tempo que garante que os designers do data warehouse possam aprimorar o modelo de dados e também maximizar o desempenho usando CTAS durante o processo de carregamento de dados.
 
 ## Otimização do desempenho
 Os modos de exibição são uma forma de impor as junções de desempenho otimizado entre as tabelas. Por exemplo, o modo de exibição pode incorporar uma chave de distribuição redundante como parte dos critérios de junção para minimizar a movimentação de dados. Outra razão pode ser forçar uma consulta específica ou dica de junção. Isso garante que a junção seja sempre executada de forma ideal e não seja dependente do usuário, lembre-se de construir a junção corretamente.
@@ -53,4 +69,4 @@ Para obter mais dicas de desenvolvimento, consulte a [Visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

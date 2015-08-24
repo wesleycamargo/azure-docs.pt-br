@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução aos dados (Android) | Mobile Dev Center" 
+	pageTitle="Introdução aos dados (Android) | Microsoft Azure" 
 	description="Saiba como começar a usar os serviços móveis para utilizar dados em seu aplicativo Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -134,4 +134,4 @@ Tente um destes outros tutoriais:
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

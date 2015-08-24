@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Usando dados offline com o aplicativo móvel do Azure (Windows Store) | Centro de desenvolvimento móvel"
+	pageTitle="Usando dados offline com o aplicativo móvel do Azure (Windows Store) | Microsoft Azure"
 	description="Saiba como usar o aplicativo móvel do Azure para cache e sincronização de dados offline no seu aplicativo da Windows Store"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

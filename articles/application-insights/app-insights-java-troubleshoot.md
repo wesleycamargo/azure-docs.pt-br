@@ -30,7 +30,7 @@ Dúvidas ou problemas com o [Visual Studio Application Insights em Java][java]? 
 
 *Adicionei o Application Insights com êxito e executei meu aplicativo, mas nunca vi dados no portal.*
 
-* Espere um minuto e clique em Atualizar. Atualmente, a atualização não é automática.
+* Espere um minuto e clique em Atualizar. Os gráficos são atualizados periodicamente, mas você também pode atualizá-los manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
 * Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto)
 * Verifique se não há um nó `<DisableTelemetry>true</DisableTelemetry>` no arquivo xml.
 * Em seu firewall, você terá que abrir as portas TCP 80 e 443 para tráfego de saída de dc.services.visualstudio.com e f5.services.visualstudio.com.
@@ -138,4 +138,4 @@ Consulte [Privacidade e retenção de dados][data].
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

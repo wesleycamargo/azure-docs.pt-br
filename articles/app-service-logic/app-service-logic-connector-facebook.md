@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aplicativo de API do Conector do Facebook"
-   description="Como usar o Conector do Facebook"
+   pageTitle="Usando o conector do Facebook no aplicativo lógico no Serviço de Aplicativo do Azure"
+   description="Como usar o Conector do Facebook em um aplicativo lógico"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,63 +13,54 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/10/2015"
    ms.author="andalmia"/>
 
 
-# Usando o conector do Facebook em seu aplicativo lógico #
+# Conector do Facebook
 
-Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de dados e oferecem conectores para obter e processar dados como uma parte do fluxo.
-
-O Conector do Facebook permite recuperar "Nova Postagem na Linha do Tempo do Usuário", "Nova Postagem na Página", "Publicar Postagem", "Publicar Fotos" e assim por diante de sua conta do Facebook.
+Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo.
 
 - O gatilho do conector do Facebook recupera “Nova Postagem na Linha do Tempo do Usuário” ou “Nova Postagem na Página”. Quando um novo tweet é recuperado, ele dispara uma nova instância do fluxo e transmite os dados recebidos na solicitação para o fluxo de processamento.
 - As ações de conector do Facebook permitem "Publicar Postagem", "Publicar Fotos" e assim por diante. Essas ações obtêm uma resposta e a disponibilizam para uso pelas ações no fluxo.
 
-## Criando um conector do Facebook para seu aplicativo lógico ##
+## Gatilhos e Ações
+
+Gatilhos | Ações
+--- | ---
+<ul><li>Nova Postagem na Linha do Tempo do Usuário</li><li>Nova Postagem em Página</li></ul> | <ul><li>Publicar Postagem</li>Publicar foto<li></li></ul>
+
+
+
+## Criar um conector do Facebook para o aplicativo lógico
 Para usar o conector do Facebook, você precisa primeiro criar uma instância do aplicativo de API do Conector do Facebook. Isso pode ser feito da seguinte maneira:
 
-1.	Abra o Azure Marketplace usando a opção +NOVO na parte inferior esquerda do Portal do Azure.
-2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e pesquise "Conector do Facebook".
-3.	Configure o Conector do Facebook da seguinte maneira:
-
-	![][1]
-4.	Clique em OK para criar.
-5.	Depois de criar a instância do aplicativo de API, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do Facebook.
-	- A instância do aplicativo de API do Conector do Facebook também pode ser criada no aplicativo lógico.
-	- Abra o editor do aplicativo lógico e clique no Conector do Facebook disponível na galeria do lado direito
-	- Isso criará uma instância do aplicativo de API do Conector do Facebook no mesmo grupo de recursos no qual o aplicativo lógico foi criado.
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do Facebook", selecione-o e selecione **Criar**.
+3. Insira o Nome, o Plano do Serviço de Aplicativo e outras propriedades: ![][1]
+4.	Selecione **Criar**.
 
 
-## Usando o Conector do Facebook em seu aplicativo lógico ##
+## Usando o Conector do Facebook em seu aplicativo lógico
 Depois de criar seu aplicativo de API, você pode usar o Conector do Facebook como ação/gatilho para seu aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Criar um novo aplicativo lógico e escolher o mesmo grupo de recursos que contém o Conector do Facebook.
+1.	No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: ![][3]
+2.	O conector do Facebook está listado na galeria: ![][4]
+3. Selecione o conector do Facebook para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: ![][5] ![][6] ![][7] ![][8]
+4.	Selecione um gatilho: ![][9]
 
-	![][2]
-2.	Abrir "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo.
+Agora, você pode usar as postagens recuperadas do gatilho do Facebook em outras ações. No fluxo abaixo, sempre que ocorre uma nova postagem na linha de tempo do Facebook do usuário, a mesma postagem é tuitada na linha do tempo do Twitter do usuário: ![][10]
 
-	![][3]
-3.	O Conector do Facebook apareceria na seção “Usados Recentemente" na galeria à direita. Selecione-o.
+De maneira semelhante, você pode criar fluxos usando as ações do Conector do Facebook. O fluxo abaixo recupera novas mensagens postadas no grupo do Yammer e publica a mesma postagem na página do Facebook gerenciada pelo usuário: ![][11]
 
-	![][4]
-4.	Você pode soltar o aplicativo de API do Conector do Facebook no editor clicando em “Conector do Facebook”, em "Usados Recentemente”, na galeria à sua direita. Clique no botão Autorizar. Forneça suas credenciais do Facebook.
+> [AZURE.TIP]Para obter a ID da Página do Facebook ou a ID do Grupo do Yammer, procure o código numérico na URL.
 
-	![][5]
-5.	Permitir "Aplicativos Lógicos do Serviço de Aplicativo do Azure"
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-	![][6] ![][7] ![][8]
-6.	Selecionar um gatilho.
+Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-	![][9]
-7.	Agora, você pode usar as postagens recuperadas do gatilho do Facebook em outras ações. No fluxo abaixo, sempre que uma nova postagem é postada na linha de tempo do usuário do Facebook, a mesma postagem é publicada na linha do tempo do usuário no Twitter.
-
-	![][10]
-8.	De maneira semelhante, você pode criar fluxos usando as ações do Conector do Facebook. O fluxo abaixo recupera novas mensagens publicadas no grupo do Yammer e as posta na página do Facebook gerenciada pelo usuário
-
-	![][11]
-
-**DICA** - para obter a ID de página do Facebook ou a ID do grupo Yammer, procure o código numérico na url.
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
@@ -84,4 +75,4 @@ Depois de criar seu aplicativo de API, você pode usar o Conector do Facebook co
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

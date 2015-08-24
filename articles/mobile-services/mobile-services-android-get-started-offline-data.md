@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Adicione a sincronização de dados Offline para seu aplicativo de serviços móveis Android | Mobile Dev Center"
+	pageTitle="Adicione a sincronização de dados Offline para seu aplicativo de Serviços Móveis Android | Microsoft Azure"
 	description="Saiba como usar os serviços móveis do Azure para cache e sincronização de dados offline no seu aplicativo Android"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Tutorial de Início Rápido dos Serviços Móveis]: mobile-services-android-get-started.md
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

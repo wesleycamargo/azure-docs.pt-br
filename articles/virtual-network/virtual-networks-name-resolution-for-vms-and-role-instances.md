@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # Resolução de nomes de máquinas virtuais e instâncias de função
@@ -21,9 +21,9 @@ Dependendo de como você usar o Azure para hospedar o IaaS, o PaaS e as soluçõ
 
 Quando as instâncias de função e as VMs hospedadas no Azure precisarem resolver nomes de hosts e nomes de domínio para endereços IP internos, elas podem usar um dos dois métodos:
 
-- [Resolução de nomes fornecida pelo Azure](azure-provided-name-resolution)
+- [Resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution)
 
-- [Resolução de nome usando o seu próprio servidor DNS](name-resolution-using-your-own-DNS-server)
+- [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server)
 
 O tipo de resolução de nome que você usa depende de como as suas VMs e instâncias de função precisam se comunicar no seu serviço de nuvem e com outros serviços de nuvem.
 
@@ -108,7 +108,7 @@ Você pode especificar vários servidores DNS a serem usados por suas VMs e inst
 
 ### Especificar um servidor DNS usando o Portal de Gerenciamento
 
-Ao criar a sua rede virtual usando o Portal de Gerenciamento, você pode especificar o endereço IP e o nome do servidor DNS (ou servidores) que você deseja usar. Depois de criar a rede virtual, as máquinas virtuais e as instâncias de função implantadas na rede virtual são configuradas automaticamente com as configurações DNS especificadas, a menos que você especifique quais servidores DNS devem ser usados para a implantação. Para obter mais informações sobre como definir configurações de Rede Virtual do Azure, consulte [Sobre como configurar uma Rede Virtual no Portal de Gerenciamento](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Ao criar a sua rede virtual usando o Portal de Gerenciamento, você pode especificar o endereço IP e o nome do servidor DNS (ou servidores) que você deseja usar. Depois de criar a rede virtual, as máquinas virtuais e as instâncias de função implantadas na rede virtual são configuradas automaticamente com as configurações DNS especificadas, a menos que você especifique quais servidores DNS devem ser usados para a implantação. Para obter mais informações sobre como definir configurações de Rede Virtual do Azure, consulte [Sobre como configurar uma Rede Virtual no Portal de Gerenciamento](virtual-networks-settings.md)
 
 > [AZURE.NOTE]Você só pode usar até 9 servidores DNS.
 
@@ -123,8 +123,14 @@ O arquivo de configuração de serviço é criado para cada serviço de nuvem qu
 > [AZURE.NOTE]As configurações no arquivo de configuração de serviço substituem as configurações no arquivo de configuração de rede. Por exemplo, se uma VM for adicionada a um serviço de nuvem que faz parte de uma rede virtual, e o arquivo de configuração de rede e o arquivo de configuração de serviço têm configurações DNS, as configurações DNS no arquivo de configuração de serviço serão aplicadas à VM.
 
 
-## Consulte também
+## Próximas etapas
 
-[Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710) [Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100) [Sobre como definir configurações de Rede Virtual no Portal de Gerenciamento](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurar uma Rede Virtual usando um arquivo de configuração de rede](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tarefas de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Esquema de configuração de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758710)
 
-<!---HONumber=August15_HO6-->
+[Esquema de configuração de Rede Virtual](https://msdn.microsoft.com/library/azure/jj157100)
+
+[Sobre definir as configurações de rede virtual no Portal de Gerenciamento](virtual-networks-settings.md)
+
+[Configurar uma rede virtual usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
+
+<!---HONumber=August15_HO7-->

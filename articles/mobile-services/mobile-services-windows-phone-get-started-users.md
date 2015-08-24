@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introdução à autenticação (Windows Phone) | Centro de desenvolvimento móvel" 
+	pageTitle="Introdução à autenticação (Windows Phone) | Microsoft Azure" 
 	description="Aprenda a usar os serviços móveis para autenticar usuários de seu aplicativo do Windows Phone por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -80,4 +80,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Logon único para aplicativos do Windows Phone usando o Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

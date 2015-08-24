@@ -42,10 +42,10 @@ Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o
 Conclua as etapas a seguir para preparar o ambiente de Automação do Azure para Runbook Workers Híbridos.
 
 #### 1\. Criar um espaço de trabalho do Azure Operational Insights
-Se você não tiver um espaço de trabalho do Operational Insights em sua conta do Azure, crie um usando as instruções em [Configurar seu espaço de trabalho do Operational Insights](../operational-insights-setup-workspace). Você pode usar um espaço de trabalho existente se já tiver um.
+Se você não tiver um espaço de trabalho do Operational Insights em sua conta do Azure, crie um usando as instruções em [Configurar seu espaço de trabalho do Operational Insights](../operational-insights/operational-insights-setup-workspace.md). Você pode usar um espaço de trabalho existente se já tiver um.
 
 #### 2\. Implantar Solução de automação
-A Solução de automação no Operational Insights envia os componentes necessários para configurar e dar suporte ao ambiente de runbook. Siga as instruções em [Soluções do Operational Insights](../operational-insights-add-solution) para instalar o pacote de **Automação do Azure**.
+A Solução de automação no Operational Insights envia os componentes necessários para configurar e dar suporte ao ambiente de runbook. Siga as instruções em [Soluções do Operational Insights](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) para instalar o pacote de **Automação do Azure**.
 
 ### Configurar computadores locais
 Conclua as etapas a seguir para cada uma das máquinas locais que atuarão como um Runbook Worker Híbrido.
@@ -136,4 +136,4 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 - [Como editar um Runbook na Automação do Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

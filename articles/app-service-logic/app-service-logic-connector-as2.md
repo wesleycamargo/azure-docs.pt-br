@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
 
 # Conector do Microsoft AS2
@@ -42,7 +42,7 @@ Contêiner do Armazenamento de Blob do Azure | Armazena propriedades das mensage
 Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
-2. Selecione **Aplicativos de API** e pesquise “Conector do AS2”.
+2. Pesquise "Conector do AS2", selecione-o e selecione **Criar**.
 3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades.
 4. Insira as seguintes configurações de pacote:
 
@@ -61,30 +61,30 @@ As etapas envolvidas na criação de um contrato de parceiro comercial são docu
 
 ## Usar o Conector como um Gatilho
 
-1. Ao criar ou editar um aplicativo de lógica, selecione o Conector do AS2 criado no painel à direita: <br/>![Configurações do gatilho][3]
+1. Ao criar ou editar um aplicativo lógico, selecione o Conector do AS2 criado no painel à direita: ![Configurações do gatilho][3]
 
-2. Clique na seta à direita →: <br/> ![Opções do gatilho][4]
+2. Clique na seta para a direita →: ![Opções do gatilho][4]
 
-3. O Conector do AS2 expõe um único gatilho. Selecione *Receber e Decodificar*: <br/> ![Receber e decodificar dados][5]
+3. O Conector do AS2 expõe um único gatilho. Selecione *Receber e Decodificar*: ![Receber e decodificar dados][5]
 
-4. Esse gatilho não tem entradas. Clique na seta à direita →: <br/> ![Receber e decodificar configurados][6]
+4. Esse gatilho não tem entradas. Clique na seta para a direita →: ![Receber e decodificar configurados][6]
 
 Como parte da saída, o conector retorna a carga do AS2, bem como os metadados específicos do AS2.
 
-O gatilho é acionado quando uma carga do AS2 é como uma POSTAGEM para https://{Host URL}/decode. Você pode encontrar a URL do Host nas configurações do Aplicativo de API. Talvez você precise alterar o nível de acesso do Aplicativo de API nas configurações do aplicativo para Público (autenticado ou anônimo).
+O Gatilho é disparado quando uma Carga do AS2 é como uma POSTAGEM para https://{Host URL}/decode. Você pode encontrar a URL do Host nas configurações do Aplicativo de API. Talvez você precise alterar o nível de acesso do Aplicativo de API nas configurações do aplicativo para Público (autenticado ou anônimo).
 
 ## Usar o Conector como uma Ação
-1. Após o gatilho (ou escolha “executar esta lógica manualmente”), adicione o conector do AS2 criado no painel à direita: <br/> ![Configurações de ação][7]
+1. Após o gatilho (ou escolha "executar esta lógica manualmente"), adicione o conector do AS2 criado no painel à direita: ![Configurações de ação][7]
 
-2. Clique na seta à direita →: <br/> ![Lista de ações][8]
+2. Clique na seta para a direita →: ![Lista de ações][8]
 
-3. O conector do AS2 dá suporte a apenas uma ação. Selecione *Codificar e Enviar*: <br/> ![Codificar e enviar entrada][9]
+3. O conector do AS2 dá suporte a apenas uma ação. Selecione *Codificar e Enviar*: ![Codificar e enviar entrada][9]
 
-4. Forneça as entradas para a ação e configure-a: <br/> ![Codificar e enviar configurado][10]
+4. Insira as entradas para a ação e configure-a: ![Codificar e enviar configurado][10]
 
-Os parâmetros incluem:
+	Os parâmetros incluem:
 
-Parâmetro | Tipo | Descrição
+	Parâmetro | Tipo | Descrição
 --- | --- | ---
 Carga útil | objeto| O conteúdo da carga para codificar e enviar para o ponto de extremidade configurado. A carga deve ser fornecida como um objeto JSON.
 AS2 de | string | A identidade AS2 do remetente da mensagem AS2. Esse parâmetro é usado para pesquisar o contrato adequado para enviar a mensagem.
@@ -95,9 +95,9 @@ Habilitar arquivamento | boolean | Determina se a mensagem de saída deve ser ar
 A ação retorna um código de resposta HTTP 200 à conclusão bem-sucedida.
 
 ## Faça mais com seu Conector
-Mais informações sobre aplicativos lógicos em [O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md)
+Mais informações sobre aplicativos lógicos em [O que são aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Criar os aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Criar os aplicativos de API usando APIs REST. Consulte [Connectors and API Apps Reference (Referência de conectores e de aplicativos de API)](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -113,4 +113,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

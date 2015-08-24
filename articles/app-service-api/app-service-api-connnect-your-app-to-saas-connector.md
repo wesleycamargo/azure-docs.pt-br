@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/06/2015" 
 	ms.author="tdykstra"/>
 
 # Implantar e configurar um aplicativo de API de conector SaaS em um Serviço de Aplicativo do Azure
@@ -24,7 +24,7 @@ Este tutorial mostra como instalar, configurar e testar um [conector de SaaS (So
 
 Por exemplo, para codificar solicitações de HTTP com a finalidade de ler e gravar arquivos em sua conta do Dropbox, o processo de autenticação para trabalhar diretamente com Dropbox é complicado. Um conector de Dropbox cuida da complexidade da autenticação para que você possa se concentrar em escrever seu código específico ao negócio.
 
-> [AZURE.NOTE]Não é requerido seguir as instruções expostas aqui se você quiser usar um conector de SaaS em um aplicativo lógico. Consulte [Criar um novo aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) para obter informações sobre como usar conectores de SaaS em aplicativos lógicos.
+> [AZURE.NOTE]Não é requerido seguir as instruções expostas aqui se você quiser usar um conector de SaaS em um aplicativo lógico. Para obter informações sobre como usar conectores de SaaS em aplicativos lógicos, consulte [Criar um novo aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) e [Using custom OAuth Application in Connectors (Usando aplicativo OAuth personalizado em conectores)](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Este tutorial usa um conector de DropBox como um exemplo e orienta você durante as etapas a seguir:
 
@@ -179,7 +179,7 @@ A solicitação HTTP Post para o gateway deve incluir o token de autenticação 
 
 	![Enviar para a URL de autorização](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	A resposta inclui uma URL a ser usada para iniciar o processo de logon do usuário no Dropbox (se você receber uma resposta de erro que indica que não há suporte ao método Get, embora o menu suspenso do método esteja definido como **Post**, verifique se a URL do gateway é HTTPS, não HTTP).
+	A resposta inclui uma URL a ser usada para iniciar o processo de logon do usuário no Dropbox (Se você receber uma resposta de erro indicando que não há suporte ao método Get, ainda que o menu suspenso do método esteja definido como **Post**, verifique se a URL do gateway é HTTPS, e não HTTP).
 
 	![URL de autorização](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -187,7 +187,7 @@ A solicitação HTTP Post para o gateway deve incluir o token de autenticação 
 
 	A resposta para essa URL redireciona o navegador para o site do Dropbox, onde o usuário faz logon e concede permissão para o aplicativo acessar a conta do usuário.
 	
-	Quando o processo de logon e consentimento for concluído, o Dropbox redirecionará o navegador para a URL de redirecionamento especificada (por exemplo, o Portal de Visualização do Azure se você tiver seguido o exemplo e usado https://portal.azure.com)). Se a chamada fosse realizada de um aplicativo Web, seria a próxima página a ser exibida nesse aplicativo. O aplicativo deve verificar a URL, porque, se ocorrer um erro no processo de logon ou de consentimento, a URL de redirecionamento poderá incluir uma variável de cadeia de consulta `error`.
+	Quando o processo de logon e de consentimento for concluído, o Dropbox redirecionará o navegador para a URL de redirecionamento especificada (por exemplo, o Portal de Visualização do Azure se você tiver seguido o exemplo e usado https://portal.azure.com). Se a chamada fosse realizada de um aplicativo Web, seria a próxima página a ser exibida nesse aplicativo. O aplicativo deve verificar a URL, porque, se ocorrer um erro no processo de logon ou de consentimento, a URL de redirecionamento poderá incluir uma variável de cadeia de consulta `error`.
 
 3. Mantenha esta janela do navegador aberta, já que você o usará na seção a seguir.
 
@@ -236,4 +236,4 @@ Você viu como instalar, configurar e testar um conector de SaaS. Para obter mai
 [Portal Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

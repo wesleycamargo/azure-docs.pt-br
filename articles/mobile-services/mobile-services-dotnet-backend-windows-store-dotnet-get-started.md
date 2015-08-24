@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução aos Serviços Móveis para aplicativos Windows Universal | Centro de Desenvolvimento de Serviços Móveis"
+	pageTitle="Introdução aos Serviços Móveis para aplicativos Windows Universal | Microsoft Azure"
 	description="Siga este tutorial para começar a usar os Serviços Móveis do Azure para desenvolvimento de aplicativos universais do Windows no C#."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -126,4 +126,4 @@ Para obter mais informações sobre os aplicativos universais do Windows, consul
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

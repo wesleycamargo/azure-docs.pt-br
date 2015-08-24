@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Passo a passo: monitorar o Microsoft CRM com o Application Insights" 
-	description="Obtenha a telemetria do Microsoft CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação." 
+	pageTitle="Passo a passo: monitorar o Microsoft Dynamics CRM com o Application Insights" 
+	description="Obtenha a telemetria do Microsoft Dynamics CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -15,11 +15,11 @@
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
-# Passo a passo: habilitando a telemetria do Microsoft CRM Online usando o Application Insights
+# Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
 
-Este artigo mostra como obter dados de telemetria do [Microsoft CRM Online](https://www.dynamics.com/) usando o [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
+Este artigo mostra como obter dados de telemetria do [Microsoft Dhynamics CRM Online](https://www.dynamics.com/) usando o [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
 
->[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
+>[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/).
 
 ## Adicionar o Application Insights a uma instância nova ou existente do CRM Online 
 
@@ -149,9 +149,9 @@ Clique no gráfico para obter mais detalhes:
 
 Você pode fazer análises ainda mais profundas se [exportar os dados para o Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Exemplo de Solução CRM
+## Solução do exemplo do Dynamics CRM
 
-Aqui está o exemplo implementado da solução de CRM para iniciar a captura de Telemetria.https://dynamicsandappinsights.codeplex.com/
+[Aqui está a solução do exemplo implementada no Dynamics CRM](https://dynamicsandappinsights.codeplex.com/)
 
 ## Saiba mais
 
@@ -161,4 +161,4 @@ Aqui está o exemplo implementado da solução de CRM para iniciar a captura de 
 
  
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO7-->

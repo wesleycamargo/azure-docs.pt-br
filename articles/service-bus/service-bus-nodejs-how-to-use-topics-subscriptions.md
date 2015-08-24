@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Como usar tópicos do Barramento de serviço (Node.js) - Azure" 
+	pageTitle="Como usar os tópicos de Barramento de Serviço (Node.js) | Microsoft Azure" 
 	description="Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure a partir de um aplicativo Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Node.js na Web com armazenamento]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

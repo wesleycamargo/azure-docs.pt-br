@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aplicativo Node.js usando Socket.io - tutorial do Azure" 
+	pageTitle="Aplicativo Node.js usando Socket.io | Microsoft Azure" 
 	description="Saiba como usar socket.io em um aplicativo node.js hospedado no Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -158,4 +158,4 @@ Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedad
   
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Visão geral sobre a proteção de conteúdo
@@ -141,4 +141,4 @@ Configure a política de fornecimento de ativos usando **.NET** ou **API REST**.
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
