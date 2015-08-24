@@ -56,8 +56,6 @@ Os diagramas ilustram o que você está fazendo nas etapas de criação e implan
 
 ![Criar](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![Implantar](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. Abra o Visual Studio 2015 ou Visual Studio 2013. 
 
 	Se você usar o Visual Studio 2013, as telas serão um pouco diferentes das capturas de tela, mas os procedimentos são essencialmente os mesmos.
@@ -303,4 +301,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
