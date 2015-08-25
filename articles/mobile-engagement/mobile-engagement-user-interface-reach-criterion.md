@@ -71,7 +71,7 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 - Loja: loja, indefinido
 - Fonte: fonte, indefinido
 - **Perfil do usuário**     
-- Sexo: masculino ou feminino, indefinido
+- Gênero: masculino ou feminino, indefinido
 - Data de nascimento: operador, data, indefinido
 - Aceitação: verdadeiro ou falso, indefinido
 - **Informações do aplicativo**      

@@ -149,7 +149,7 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | LB | Líbano | |
 | LS | Lesoto | |
 | LR | Libéria | |
-| LY | Jamahiriya Árabe da Líbia | |
+| LY | Líbia | |
 | LI | Liechtenstein | |
 | LT | Lituânia | |
 | LU | Luxemburgo | |
@@ -193,7 +193,7 @@ O recurso **Filtragem de País** usa códigos de país para definir os países n
 | OM | Omã | |
 | PK | Paquistão | |
 | PW | Palau | |
-| PS | Território Palestino | |
+| PS | Autoridade Palestina | |
 | PA | Panamá | |
 | PG | Papua-Nova Guiné | |
 | PY | Paraguai | |

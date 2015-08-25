@@ -272,7 +272,7 @@ Assim como os extras de evento, a classe de pacote é usada para abstrair as inf
 
 ### Exemplo
 
-Aqui está um exemplo de código para enviar a data de nascimento e sexo do usuário:
+Aqui está um exemplo de código para enviar a data de nascimento e gênero do usuário:
 
 			Bundle appInfo = new Bundle();
 			appInfo.putString("status", "premium");
