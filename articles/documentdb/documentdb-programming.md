@@ -49,7 +49,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
 	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
 	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
+A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o** **[SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
 
 ## Procedimentos armazenados
 
@@ -641,4 +641,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
