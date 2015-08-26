@@ -134,7 +134,9 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - Em aplicativos Web, o ADAL tem um cache de token extensível que pode ser usado para armazenar tokens. Este exemplo implementa o `NaiveSessionCache`, que usa o armazenamento de sessão http para tokens de cache.
 
@@ -205,4 +207,4 @@ Para obter recursos adicionais, confira:
 - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
