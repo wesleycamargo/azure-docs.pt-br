@@ -18,7 +18,8 @@
 
 # Visualização do modelo de aplicativo v2.0: chamando uma API Web de um aplicativo Web .NET
 
-> [AZURE.NOTE]Essas informações se aplicam à visualização pública do ponto de extremidade v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Essas informações se aplicam à visualização pública do ponto de extremidade v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
 Com o modelo de aplicativo v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte para contas pessoais da Microsoft e contas corporativas ou de estudante. Aqui, vamos criar um aplicativo Web do MVC que:
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrar um aplicativo
+## 1. Registrar um aplicativo
 Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md). Não se esqueça de:
 
 - Anotar a **Id do aplicativo** atribuída ao aplicativo; você precisará dela em breve.
@@ -113,7 +114,7 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usar o ADAL para obter um token de acesso quando o usuário se conecta
+## 3. Usar o ADAL para obter um token de acesso quando o usuário se conecta
 Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization\_code de um token de acesso para o Serviço Lista de Tarefas. O ADAL pode facilitar esse processo para você:
 
 - Primeiramente, instale a versão de visualização do ADAL:
@@ -123,7 +124,12 @@ Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjun
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
@@ -135,7 +141,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Chamar a API Web da Lista de Tarefas
+## 4. Chamar a API Web da Lista de Tarefas
 Agora é hora de usar de fato o access\_token que você acabou de adquirir na etapa 3. Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas.
 
 - Aqui, você pode usar o ADAL novamente para buscar access\_tokens no cache do ADAL. Primeiramente, adicione uma instrução `using` para ADAL a este arquivo.
@@ -195,6 +201,8 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 
 ## Próximas etapas
 
-Para obter recursos adicionais, confira: - [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) — [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obter recursos adicionais, confira:
+- [A visualização do modelo de aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Marca "adal" da StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
