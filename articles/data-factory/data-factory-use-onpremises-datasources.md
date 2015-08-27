@@ -161,7 +161,9 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 
 	![Botão Novo repositório de dados do editor][image-editor-newdatastore-onpremsql-button]
     
-3.	Você deve ver o modelo JSON para criar um serviço local do SQL Server vinculado no painel direito. ![Serviço vinculado SQL local - configurações][image-editor-newdatastore-onpremsql-settings]
+3.	Você deve ver o modelo JSON para criar um serviço local do SQL Server vinculado no painel direito.
+
+	![Serviço vinculado SQL local - configurações][image-editor-newdatastore-onpremsql-settings]
 
 4.	No painel JSON, faça o seguinte:
 	1.	Para a propriedade **gatewayName**, digite **adftutorialgateway** para substituir todo o texto dentro das aspas duplas.  
@@ -396,7 +398,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção atividades, há somente a atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformação**, **SqlSource** é especificado como o **tipo de fonte** e **BlobSink **é especificado como o **tipo de coletor**.
-- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
@@ -626,4 +628,4 @@ Você pode remover um gateway usando o cmdlet **Remove-AzureDataFactoryGateway**
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

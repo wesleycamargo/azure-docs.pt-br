@@ -10,7 +10,7 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-  ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="08/12/2015"
@@ -22,4 +22,4 @@
 
   >[AZURE.NOTE]Essas informações se aplicam à visualização pública do modelo de aplicativo v2.0. Para obter instruções sobre como integrar-se ao serviço AD do Azure disponível ao público geral, consulte o [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

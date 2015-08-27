@@ -96,16 +96,17 @@ Ao provisionar um cluster HDInsight, você provisiona recursos de computação d
 4. Digite ou selecione os valores a seguir:
 
 	<table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
-<tr><td>Nome do cluster</td><td>Nome do cluster.</td></tr>
-<tr><td>Tamanho do cluster</td><td>Número de nós de dados que você deseja implantar. O valor padrão é 4. No entanto, a opção de usar 1 ou 2 nós de dados também está disponível no menu suspenso. Qualquer número de nós do cluster pode ser especificado ao utilizar a opção <strong>Criação Personalizada</strong>. Detalhes de preço nas taxas de cobrança para diversos tamanhos de cluster estão disponível. Clique no símbolo <strong>?</strong> acima da caixa suspensa e siga o link no pop-up.</td></tr>
-<tr><td>Senha</td><td>A senha da conta <i>HTTP</i> (nome de usuário padrão: admin) e da conta <i>SSH</i> (nome de usuário padrão: hdiuser). Observe que NÃO são as contas de administrador das máquinas virtuais em que os clusters são provisionados. </td></tr>
+	<tr><th>Nome</th><th>Valor</th></tr>
+	<tr><td>Nome do cluster</td><td>Nome do cluster.</td></tr>
+	<tr><td>Tamanho do cluster</td><td>Número de nós de dados que você deseja implantar. O valor padrão é 4. No entanto, a opção de usar 1 ou 2 nós de dados também está disponível no menu suspenso. Qualquer número de nós do cluster pode ser especificado ao utilizar a opção <strong>Criação Personalizada</strong>. Detalhes de preço nas taxas de cobrança para diversos tamanhos de cluster estão disponível. Clique no símbolo <strong>?</strong> acima da caixa suspensa e siga o link no pop-up.</td></tr>
+	<tr><td>Senha</td><td>A senha da conta <i>HTTP</i> (nome de usuário padrão: admin) e da conta <i>SSH</i> (nome de usuário padrão: hdiuser). Observe que NÃO são as contas de administrador das máquinas virtuais em que os clusters são provisionados. </td></tr>
 
-<tr><td>Conta de armazenamento</td><td>Na caixa suspensa, selecione a conta do Armazenamento que você criou. <br/>
+	<tr><td>Conta de armazenamento</td><td>Na caixa suspensa, selecione a conta do Armazenamento que você criou. <br/>
 
-Depois de escolhida a conta do Armazenamento, ela não pode mais ser alterada. Se a conta do Armazenamento for removida, o cluster ficará indisponível para uso. O cluster HDInsight está localizado no mesmo datacenter que a conta do Armazenamento.
-</td></tr>
-</table>Mantenha uma cópia do nome do cluster. Você precisará dela mais tarde no tutorial.
+	Depois de escolhida a conta do Armazenamento, ela não pode mais ser alterada. Se a conta do Armazenamento for removida, o cluster ficará indisponível para uso. O cluster HDInsight está localizado no mesmo datacenter que a conta do Armazenamento.
+	</td></tr>
+	</table>
+	Mantenha uma cópia do nome do cluster. Você precisará dela mais tarde no tutorial.
 
 
 5. Clique em **CRIAR CLUSTER HDINSIGHT**. Quando o provisionamento termina, a coluna de tus mostra **Em execução**.
@@ -271,4 +272,4 @@ Neste tutorial do Linux, você aprendeu a provisionar um cluster do Hadoop no Li
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
