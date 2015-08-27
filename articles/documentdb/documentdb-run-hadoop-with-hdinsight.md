@@ -228,7 +228,9 @@ Este tutorial usa a ação de script do portal de gerenciamento do Azure para pe
  
 3.  Em seguida, vamos criar uma tabela Hive para a coleção de saída. As propriedades do documento de saída serão o mês, dia, hora, minuto e o número total de ocorrências.
 
-	> [AZURE.NOTE]**Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br> '*DocumentDB.outputCollections*' = '*<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br> Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+	> [AZURE.NOTE]**Mais uma vez, ter nomeado DocumentDB.outputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma saída: </br>
+    '*DocumentDB.outputCollections*' = '*<Nome 1 de Coleção de Saída de Banco de Dados de Documentos>*,*<Nome 2 de Coleção de Saída de Banco de Dados de Documentos>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br>
+    Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -470,4 +472,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
