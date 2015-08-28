@@ -3,7 +3,8 @@
 #Tutorial: integração do Active Directory do Azure ao Egnyte
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=528188).
   
-O objetivo deste tutorial é mostrar a integração do Azure ao Egnyte. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure ao Egnyte. 
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Uma assinatura habilitada para logon único do Egnyte
@@ -51,7 +52,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Egnyte com a própria conta do Azure AD usando a federação baseada no protocolo SAML. Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base-64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Egnyte com a própria conta do Azure AD usando a federação baseada no protocolo SAML. 
+Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base-64. 
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
