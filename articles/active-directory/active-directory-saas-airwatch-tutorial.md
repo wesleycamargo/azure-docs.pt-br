@@ -114,13 +114,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
 
-    1.  Na caixa de texto **Identificador de Objeto**, digite ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-2.  Na caixa de texto **Nome de usuário**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-3.  Na caixa de texto **Nome de Exibição**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-4.  Na caixa de texto **Nome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-5.  Na caixa de texto **Sobrenome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-6.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Clique em **Salvar**.
+    1.  Na caixa de texto **Identificador de Objeto**, digite **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    2.  Na caixa de texto **Nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  Na caixa de texto **Nome de Exibição**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  Na caixa de texto **Nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  Na caixa de texto **Sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Clique em **Salvar**.
 
 14. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar Logon Único**.
 
@@ -168,4 +168,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

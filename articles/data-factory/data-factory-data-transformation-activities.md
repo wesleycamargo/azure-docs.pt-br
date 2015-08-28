@@ -22,7 +22,11 @@ As atividades de transformação no Azure Data Factory transformam e processam o
 
 Atividade de transformação | Ambiente de computação 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Streaming do Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [Pontuação de Lote de Aprendizado de Máquina](data-factory-create-predictive-pipelines.md) | VM do Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Streaming do Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[Pontuação de Lote de Aprendizado de Máquina](data-factory-create-predictive-pipelines.md) | VM do Azure 
 [Procedimento armazenado](data-factory-stored-proc-activity.md) | SQL Azure | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Lote do Azure    
 
@@ -33,4 +37,4 @@ Atividade de transformação | Ambiente de computação
 
 Consulte o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md) para saber mais sobre os serviços vinculados de computação com suporte do Data Factory.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

@@ -51,7 +51,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML. Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML.
+Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado.
+Se você não estiver familiarizado com esse procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -67,8 +69,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo NetDocuments (por exemplo: "**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-2.  Na caixa de texto **URL de Resposta do NetDocuments**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**.  
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo NetDocuments (por exemplo: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  Na caixa de texto **URL de Resposta do NetDocuments**, digite o mesmo valor que você digitou na caixa de texto **URL de Logon**.  
 
         >[AZURE.NOTE]Você pode encontrar o valor correto no fim da caixa de diálogo**Identidade Federada** (consulte a captura de tela da etapa 9).
 
@@ -143,4 +145,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

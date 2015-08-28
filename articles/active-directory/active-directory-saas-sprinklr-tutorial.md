@@ -3,7 +3,8 @@
 #Tutorial: Integração do Active Directory do Azure com o Sprinklr
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Sprinklr. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+O objetivo deste tutorial é mostrar a integração do Azure com o Sprinklr.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 -   Uma assinatura válida do Azure
 -   Um locatário do Sprinklr
@@ -53,7 +54,9 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sprinklr com sua conta do AD do Azure usando federação baseada no protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sprinklr com sua conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
+Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
@@ -96,7 +99,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     3.  Selecione **Usar o novo Certificado de SSO**.
     4.  Crie um arquivo **codificado em base 64** do seu certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     5.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado do Provedor de Identidade**
     6.  No portal do Azure, na página da caixa de diálogo **Configurar logon único no Sprinklr**, copie o valor de **ID de Provedor de Entidade** e cole-o na caixa de texto **ID de Entidade**.
@@ -142,7 +145,7 @@ Para que os usuários do AAD possam fazer logon, eles deverão ser provisionados
     4.  Selecione um **Tipo de Usuário**.
     5.  Clique em **Atualizar**.
 
-    >[AZURE.IMPORTANT]**Senha Desabilitada** deve ser selecionada para permitir que um usuário faça logon por meio de um provedor de identidade.
+    >[AZURE.IMPORTANT] **Senha Desabilitada** deve ser selecionada para permitir que um usuário faça logon por meio de um provedor de identidade.
 
 6.  Vá para **Função** e execute as seguintes etapas:
 
@@ -151,7 +154,7 @@ Para que os usuários do AAD possam fazer logon, eles deverão ser provisionados
     1.  Na lista **Global**, selecione **ALL\_Permissions**.
     2.  Clique em **Atualizar**.
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do Sprinklr ou APIs fornecidas pelo Sprinklr para provisionar contas de usuário do AD do Azure.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do Sprinklr ou APIs fornecidas pelo Sprinklr para provisionar contas de usuário do AD do Azure.
 
 ##Atribuindo usuários
   
@@ -171,4 +174,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

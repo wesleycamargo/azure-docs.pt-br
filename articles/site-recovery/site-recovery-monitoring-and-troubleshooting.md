@@ -141,20 +141,15 @@ Para gerar um tíquete de suporte para o ASR, acesse o Suporte do Azure usando a
 
 ## Artigos da Base de Dados de Conhecimento
 
--   [Como preservar a letra da unidade para máquinas virtuais
-    > com failover ou migrados para o Azure] (http://support.microsoft.com/kb/3031135)
+-   [Como preservar a letra da unidade para máquinas virtuais > com failover ou migrados para o Azure](http://support.microsoft.com/kb/3031135)
 
--   [Como solucionar problemas dos Serviços de Recuperação
-    > do Azure](http://support.microsoft.com/kb/3005185)
+-   [Como solucionar problemas dos Serviços de Recuperação > do Azure](http://support.microsoft.com/kb/3005185)
 
--   [Como habilitar o log de depuração do Azure Site Recovery na
-    > Proteção de Site do Hyper-V](http://support.microsoft.com/kb/3033922)
+-   [Como habilitar o log de depuração do Azure Site Recovery na > Proteção de Site do Hyper-V](http://support.microsoft.com/kb/3033922)
 
--   [ASR: erro "O recurso de cluster não foi encontrado" quando você tenta
-    > habilitar a proteção para uma máquina virtual]http://support.microsoft.com/kb/3010979)
+-   [ASR: erro "O recurso de cluster não foi encontrado" quando você tenta > habilitar a proteção para uma máquina virtual](http://support.microsoft.com/kb/3010979)
     
--   [Guia para compreender e solucionar problemas da Réplica do Hyper-V]
-    > (http://www.microsoft.com/en-in/download/details.aspx?id=29016)
+-   [Guia para compreender e solucionar problemas da Réplica do Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 	
 	
 	
@@ -223,4 +218,4 @@ Servidor de Configuração (CS), Servidor de Processo (PS), Destino Mestre (MT)
 ### Solução de problemas da área de trabalho remota após failover
 Muitos clientes têm enfrentado problemas para conexão com a VM com failover no Azure. Use o documento de solução de problemas para fazer o RDP na VM. [Link do documentos](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
