@@ -39,7 +39,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ##Criar um projeto que ofereça suporte ao Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Configurar um Novo Hub de Notificação
@@ -62,7 +62,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Incluir código
 
@@ -511,4 +511,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Usar Hubs de Notificação para enviar notícias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

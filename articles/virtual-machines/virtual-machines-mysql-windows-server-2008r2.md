@@ -34,7 +34,7 @@ Este tutorial mostra como:
 
 ## Criar uma máquina virtual na qual o Windows Server está em execução
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Anexar um disco de dados
 
@@ -128,4 +128,4 @@ Para testar sua conexão remota com o serviço do servidor MySQL em execução n
 
 Para obter informações sobre o MySQL, confira a [Documentação do MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

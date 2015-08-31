@@ -42,7 +42,7 @@ Completar este tutorial é um pré-requisito para todos os outros tutoriais de h
 
 ##<a name="register"></a>Habilitar as mensagens em nuvem do Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a name="configure-hub"></a>Configurar seu Hub de Notificação
 
@@ -497,4 +497,4 @@ Neste simples exemplo, você envia notificações para todos os seus dispositivo
 [Componente de mensagens do Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
