@@ -25,6 +25,10 @@ Saiba mais sobre o desempenho e o uso de sua página da Web. Adicione o Applicat
 
 Se já configurou telemetria do servidor para seu aplicativo Web [ASP.NET][greenbrown] ou [Java][java], você obterá a imagem dos ângulos do cliente e servidor. Os dois fluxos serão integrados no portal do Application Insights.
 
+#### Demonstração rápida
+
+Se você não tem uma assinatura do Azure e deseja experimentar o Application Insights em sua página da Web, visite [Experimentar o Application Insights](http://aka.ms/ainow).
+
 ## Criar um recurso do Application Insights
 
 O recurso Application Insights é onde os dados sobre o desempenho e o uso da página são exibidos. (Se você já criou um recurso, talvez para coletar dados de seu servidor Web, ignore essa etapa.)
@@ -182,4 +186,4 @@ Se ainda não tiver feito isso, você poderá obter percepções de seu servidor
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gerenciar pontos de extremidade no Gerenciador de Tráfego"
+   pageTitle="Gerenciar pontos de extremidade no Gerenciador de Tráfego | Microsoft Azure"
    description="Este artigo o ajudará a adicionar, remover, habilitar e desabilitar pontos de extremidade do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
-Os sites do Azure já fornecem failover e funcionalidade de balanceamento de carga de round-robin para sites em um data center, independentemente do modo do site. O Gerenciador de Tráfego permite que você especifique o failover e o balanceamento de carga round-robin para sites e serviços de nuvem em data centers diferentes. A primeira etapa necessária fornecer essa funcionalidade é adicionar o serviço de nuvem ou ponto de extremidade de site ao Gerenciador de Tráfego.
+Os Sites do Azure já fornecem failover e funcionalidade de roteamento de tráfego de round robin para sites em um datacenter, independentemente do modo do site. O Gerenciador de Tráfego permite que você especifique o failover e o roteamento de tráfego para sites e serviços de nuvem em datacenters diferentes. A primeira etapa necessária fornecer essa funcionalidade é adicionar o serviço de nuvem ou ponto de extremidade de site ao Gerenciador de Tráfego.
 
 >[AZURE.NOTE]Você não pode adicionar locais externos ou perfis do Gerenciador de Tráfego como pontos de extremidade usando o Portal de Gerenciamento. Você deve usar a API REST [Criar definição](http://go.microsoft.com/fwlink/p/?LinkId=400772) ou o Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
@@ -36,7 +36,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 6. Selecione os sites na lista para adicioná-los como pontos de extremidade a esse perfil. Limpar o nome do site o remove da lista de pontos de extremidade. Observe que você só pode selecionar um único site por data center do Azure (também conhecido como região). Se você selecionar um site em um data center que hospeda vários sites, quando selecionar o primeiro site, os outros no mesmo data center ficarão indisponíveis para seleção. Observe também que apenas sites padrão são listados.
 7. Depois que você selecionar os pontos de extremidade para esse perfil, clique na marca de seleção no canto inferior direito para salvar suas alterações.
 
->[AZURE.NOTE]Se você estiver usando o método de balanceamento de carga de *Failover*, depois de adicionar ou remover um ponto de extremidade, não deixe de ajustar a Lista de Prioridade de Failover na página Configuração para refletir a ordem de failover que você deseja para sua configuração. Para obter mais informações, consulte [Configurar o balanceamento de carga de failover](traffic-manager-configure-failover-load-balancing.md).
+>[AZURE.NOTE]Se você estiver usando o método de roteamento de tráfego de *Failover*, depois de adicionar ou remover um ponto de extremidade, não deixe de ajustar a Lista de Prioridade de Failover na página Configuração para refletir a ordem de failover que você deseja para sua configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](traffic-manager-configure-failover-load-balancing.md).
 
 ## Para desabilitar um ponto de extremidade
 
@@ -68,7 +68,9 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
-[Tarefas de Configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
+
+[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -77,4 +79,4 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 [Sites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

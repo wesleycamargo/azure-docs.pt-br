@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -29,92 +29,58 @@ Aplicativos lógicos podem ser disparados com base em uma variedade de fontes de
 - Enviar Evento
 - Adicionar Contato
 
-##Criar o aplicativo de API do conector O365##
-Para criar o aplicativo de API do conector O365, execute as seguintes etapas:
+## Criar o aplicativo de API do conector O365
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-1.	Abra o Azure Marketplace usando a opção + NOVO na parte inferior direita do Portal do Azure.
-2.	Navegue até "Web e Dispositivos Móveis > Aplicativos de API" e procure por “Office365”.
-3.	Configure o Conector do Office 365 fornecendo os detalhes do Plano de Hospedagem e o grupo de recursos e selecionando o nome do aplicativo de API.
-
-	![][21]
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do Office 365", selecione-o e selecione **Criar**.
+3.	Configure o Conector do Office 365 fornecendo os detalhes do Plano de Hospedagem e o grupo de recursos e selecionando o nome do aplicativo de API: ![][21]
 
 
-##Criar um aplicativo lógico##
+## Criar um aplicativo lógico
 Vamos criar um aplicativo lógico simples que é disparado quando um email é recebido (em sua ID de email de consulta de vendas - digamos sales@contoso.com). Ele cria um evento, adiciona um contato com os detalhes do remetente, envia um email à sua conta pessoal e, por fim, envia uma resposta com um reconhecimento.
 
-1.	Faça logon no Portal do Azure e clique em “Novo -> Web + Móvel -> Aplicativo Lógico”
+1.	Entre no Portal do Azure e clique em ‘Novo -> Web + Móvel -> Aplicativo Lógico’: ![][1]
 
-	![][1]
+2.	Na página “Criar aplicativo lógico”, forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local: ![][2]
 
-2.	Na página “Criar aplicativo lógico”, forneça os detalhes necessários, como nome, plano de serviço de aplicativo e local.
+3.	Clique em “Gatilhos e Ações” e a tela do editor do Aplicativo Lógico é aberta: ![][3]
 
-	![][2]
+4.	Selecione o gatilho do Office 365 na seção “Aplicativos de API neste grupo de recursos” na galeria para adicioná-lo ao fluxo: ![][4]
 
-3.	Clique em “Gatilhos e Ações” e a tela do editor do Aplicativo Lógico aparecerá.
+6.	A conexão com o Office 365 exige que você autorize o aplicativo lógico a ser capaz de acessar sua conta. Clique em “Autorizar” para fornecer as credenciais de logon do Office 365: ![][5]
 
-	![][3]
+7.	Você é redirecionado à página de entrada do Office 365 e poderá ser autenticado com suas credenciais de conta do Office 365: ![][6] ![][7]
 
-4.	Selecione o gatilho do Office 365 na seção “Aplicativos de API neste grupo de recursos” na galeria para adicioná-lo ao fluxo.
-
-	![][4]
-
-6.	A conexão com o Office 365 exige que você autorize o aplicativo lógico a ser capaz de acessar sua conta. Clique em “Autorizar” para fornecer as credenciais de logon do Office 365.
-
-	![][5]
-
-7.	Você será redirecionado à página de logon do Office 365 e poderá ser autenticado com suas credenciais de conta do Office 365.
-
-	![][6]
-
-	![][7]
-
-8.	Quando a autorização for concluída, os gatilhos do Office 365 serão exibidos.
-
-	![][8]
+8.	Quando a autorização for concluída, os gatilhos do Office 365 serão exibidos: ![][8]
 
 9.	Selecione o gatilho “Novo Email” e os parâmetros de entrada serão exibidos.
 
 
-10.	Mude a frequência do gatilho para “Minutos” e clique em ✓.
+10.	Mude a frequência do gatilho para “Minutos” e clique em ✓: ![][9]
 
-	![][9]
-
-11. O gatilho “Novo Email” do Office 365 é configurado e você pode ver que os parâmetros de saída também são exibidos.
-
-	![][10]
+11. O gatilho “Novo Email” do Office 365 é configurado e você pode ver que os parâmetros de saída também são exibidos: ![][10]
 
 12.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
-13.	Selecione "Enviar Evento" na lista de ações e os parâmetros de entrada da ação "Enviar Evento" serão exibidos.
+13.	Selecione "Enviar Evento" na lista de ações e os parâmetros de entrada da ação "Enviar Evento" serão exibidos: ![][11]
 
-	![][11]
-
-14.	Especifique os detalhes do evento e clique em ✓.
-
-	![][12]
+14.	Especifique os detalhes do evento e clique em ✓: ![][12]
 
 15.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
-16.	Selecione “Adicionar Contato” na lista de ações e os parâmetros de entrada da ação "Adicionar Contato" serão exibidos.
+16.	Selecione “Adicionar Contato” na lista de ações e os parâmetros de entrada da ação "Adicionar Contato" serão exibidos: ![][13]
 
-	![][13]
+17.	Clique em “+” ao lado do campo “Endereço de Email” e selecione o valor do campo de saída do gatilho: ![][14]
 
-17.	Clique em “+” ao lado do campo “Endereço de Email” e selecione o valor do campo de saída do gatilho.
-
-	![][14]
-
-18. Clique em ✓ e a configuração da ação será concluída.
-
-	![][15]
+18. Clique em ✓ e a configuração da ação será concluída: ![][15]
 
 19.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
 
-20.	Selecione “Enviar Email” na lista de ações e os parâmetros de entrada da ação 'Enviar Email' serão exibidos.
+20.	Selecione “Enviar Email” na lista de ações e os parâmetros de entrada da ação 'Enviar Email' serão exibidos: ![][19]
 
-	![][19]
-
-21.	Forneça os detalhes necessários para enviar o email. Você pode criar uma mensagem digitando algo como o que está abaixo. Uma vez que a ação estiver configurada, clique em ✓.
+21.	Forneça os detalhes necessários para enviar o email. Você pode criar uma mensagem digitando algo como o que está abaixo. Uma vez que a ação estiver configurada, clique em ✓:
 
 		Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
 
@@ -122,17 +88,20 @@ Vamos criar um aplicativo lógico simples que é disparado quando um email é re
 22.	Selecione "Conector do Office 365" na seção “Usados Recentemente” da galeria e uma nova ação do "Office 365" é adicionada.
 
 
-23.	Selecione “Responder” na lista de ações e os parâmetros de entrada da ação “Responder” serão exibidos.
+23.	Selecione “Responder” na lista de ações e os parâmetros de entrada da ação “Responder” serão exibidos: ![][16]
 
-	![][16]
-
-24.	Clique em “+” ao lado do campo e selecione o valor da ID da mensagem de saída do gatilho e clique em ✓.
-
-	![][17]
+24.	Clique em “+” ao lado do campo e selecione o valor da ID da mensagem de saída do gatilho e clique em ✓: ![][17]
 
 25. Clique em OK na tela do editor do aplicativo lógico e clique em “Criar”. Serão necessários cerca de 30 segundos para a conclusão da criação.
 
 26. Envie um email para a conta em que você configurou o gatilho e verá um email na sua conta de email pessoal e um evento de calendário e contato em sua conta de email profissional. Além disso, você deve obter uma resposta confirmando que a consulta de venda será respondida em breve.
+
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png
@@ -157,4 +126,4 @@ Vamos criar um aplicativo lógico simples que é disparado quando um email é re
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

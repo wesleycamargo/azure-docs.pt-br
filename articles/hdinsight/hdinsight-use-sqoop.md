@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 #Use Sqoop com Hadoop no HDInsight (Windows)
@@ -57,7 +58,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 <tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
 <tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
 <tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no Portal do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
 * **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
 
@@ -220,7 +221,7 @@ Você criará duas tabelas no banco de dados SQL ou no SQL Server. Elas são usa
 		Write-Host "Done" -ForegroundColor Green
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar as tabelas e os índices clusterizados.
+6. Use o [portal de visualização][azure-management-portal] para examinar as tabelas e os índices clusterizados.
 
 **Para SQL Server**
 
@@ -343,7 +344,7 @@ Isso está correto para outros exemplos que usam esses dados, mas é preciso rem
 		$destBlob.UploadFromStream($memStream)
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Para examinar o arquivo de dados modificado, você pode usar o Portal do Azure, uma ferramenta de exploração do Armazenamento do Azure ou o PowerShell do Azure. A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
+6. Para examinar o arquivo de dados modificado, você poderá usar o portal de visualização, uma ferramenta de exploração do Armazenamento do Azure ou o Azure PowerShell. A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell para baixar um arquivo e exibir o conteúdo do arquivo.
 
 
 ##Usar o PowerShell para executar a exportação do Sqoop
@@ -408,7 +409,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 	Observe que o delimitador de campo é **\\0x20**, que é o espaço. O delimitador é definido no script do PowerShell do Azure de pré-processamento do arquivo sample.log. Para obter informações sobre **-m 1**, confira o [Guia do usuário do Sqoop][sqoop-user-guide-1.4.4].
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar os dados exportados.
+6. Use o [portal de visualização][azure-management-portal] para examinar os dados exportados.
 
 **Para exportar a tabela Hive hivesampletable**
 
@@ -459,7 +460,7 @@ Nesta seção, você usará o PowerShell do Azure para executar o comando de exp
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Use o [Portal do Azure][azure-management-portal] para examinar os dados exportados.
+6. Use o [portal de visualização][azure-management-portal] para examinar os dados exportados.
 
 
 
@@ -611,7 +612,7 @@ Nesta seção, você importará os logs log4j (que você exportou para o banco d
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Clique em **Executar Script** ou pressione **F5** para executar o script.
-6. Para examinar o arquivo de dados modificado, você pode usar o Portal do Azure, uma ferramenta de exploração do Armazenamento do Azure ou o PowerShell do Azure. A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell do Azure para baixar um arquivo e exibir o conteúdo do arquivo.
+6. Para examinar o arquivo de dados modificado, você poderá usar o portal de visualização, uma ferramenta de exploração do Armazenamento do Azure ou o Azure PowerShell. A [Introdução ao HDInsight][hdinsight-get-started] tem um código de exemplo sobre como usar o PowerShell do Azure para baixar um arquivo e exibir o conteúdo do arquivo.
 
 ##Próximas etapas
 
@@ -624,7 +625,7 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -643,6 +644,5 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

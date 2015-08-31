@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Gerenciar as políticas de backup StorSimple | Microsoft Azure"
-   description="Explica como é possível usar o serviço Gerenciador do StorSimple para criar e gerenciar trabalhos de backup e agendamentos de backup."
+   description="Explica como você pode usar o serviço StorSimple Manager para criar e gerenciar backups manuais, agendas de backup e retenção de backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # Gerenciar políticas de backup do StorSimple
@@ -82,6 +82,6 @@ Execute as etapas a seguir no Portal de Gerenciamento para criar uma política d
 
 ## Próximas etapas
 
-Saiba como gerenciar backups do StorSimple com o [Gerenciador de Instantâneos do StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

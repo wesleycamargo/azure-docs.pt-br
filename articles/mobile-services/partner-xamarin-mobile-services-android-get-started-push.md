@@ -32,7 +32,7 @@ Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do A
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurar o serviço móvel para enviar solicitações por push
 
@@ -87,4 +87,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

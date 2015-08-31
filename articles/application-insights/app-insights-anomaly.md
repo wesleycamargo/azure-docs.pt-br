@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: Detecção de anomalias pró-ativa
@@ -67,7 +67,11 @@ Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 * *É necessário assinar este serviço para receber notificações?*
  * Não. Nosso bot periodicamente pesquisa os dados de todos os usuários do Application Insights e envia notificações se detectar problemas.
 * *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
- * Clique no link que está no alerta ou no email. Abra as configurações de anomalias. ![](./media/app-insights-anomaly/01.png) No momento, elas são enviadas para aqueles que têm [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
+ * Clique no link que está no alerta ou no email. Abra as configurações de anomalias.
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    No momento, elas são enviadas para aqueles que têm [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
 * *Não quero ser inundado com essas mensagens.*
  * Elas são limitados a três por dia. Você não receberá nenhuma mensagem repetida.
 * *Se eu não fizer nada, posso receber um lembrete?*
@@ -82,4 +86,4 @@ Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

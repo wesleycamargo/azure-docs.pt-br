@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/18/2015" 
 	ms.author="paulettm"/>
 
 #Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
@@ -176,7 +176,7 @@ Não atualmente, mas com o módulo Python padrão ou um conjunto deles, o mesmo 
 
 **Há um ambiente REPL para Python?**
 
-Não, não há um ambiente REPL para Python no estúdio.
+Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquina. Para obter mais informações, consulte [Introdução aos blocos de notas Jupyter no Estúdio AM do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Serviço Web
 ###Treinando modelos programaticamente
@@ -201,6 +201,8 @@ O RRS (Serviço de Resposta de Solicitação) é um serviço Web de baixa latên
 
 Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o experimento usado para criar e salvar o modelo treinado. Uma vez que tiver uma nova versão do modelo treinado disponível, o Estúdio AM perguntará se você deseja atualizar seu serviço Web de preparação. Depois que a atualização é aplicada ao serviço Web de preparo, a mesma atualização ficará disponível para ser aplicada também ao serviço Web de produção. Consulte [Publicar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
 
+Você também pode usar as APIs de novos treinamentos. O código de exemplo está disponível [aqui](https://azuremlretrain.codeplex.com/).
+
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
@@ -208,15 +210,16 @@ Após um modelo de previsão ser colocado em produção, você pode monitorá-lo
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Sim, você deve fornecer um local de armazenamento de blob e a saída do RRS/BES será colocada nele.
-
-
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
+ 
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ 
 
 ##Escalabilidade 
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o máximo é de 20 solicitações simultâneas por ponto de extremidade, embora ele possa ser escalonado para 80 pontos de extremidade. Isso se traduz em 4.800 solicitações simultâneas se usarmos todos os recursos (300 operadores).
+Atualmente, o máximo é de 20 solicitações simultâneas por ponto de extremidade, embora ele possa ser dimensionado para 10.000 pontos de extremidade. Isso se traduz em 4.800 solicitações simultâneas se usarmos todos os recursos (300 operadores).
 
 
 **Trabalhos em R são distribuídos entre nós?**
@@ -258,7 +261,8 @@ Nº
 
 **Quem tem acesso ao ponto de extremidade http para o serviço Web implantado na produção por padrão? Como fazer para restringir o acesso ao terminal?**
 
-Uma vez que um modelo preditivo foi colocado em produção, o Portal do Azure lista a URL para os serviços Web implantados. URLs do serviço de preparo são acessíveis no Ambiente do Estúdio de Aprendizado de Máquina na seção de serviços Web. As URLs do serviço de produção são acessíveis no Portal do Azure, na seção Aprendizado de Máquina. As chaves de acesso são fornecidas para serviços Web de Preparo e Produção por meio do painel do serviço Web nos ambientes do Estúdio de Aprendizado de Máquina e do portal do Azure respectivamente. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Depois que um serviço Web é publicado, podemos criar um ponto de extremidade padrão para o serviço. O ponto de extremidade padrão é implantado na produção e pode ser chamado usando sua chave de API. Pontos de extremidade extras podem ser adicionados com suas próprias chaves do Portal do Azure ou programaticamente usando as APIs de gerenciamento de serviço Web. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
 
 **O que acontece se minha Conta de Armazenamento não puder ser encontrada?**
 
@@ -302,4 +306,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Conector de margem de atraso
@@ -65,7 +65,7 @@ Configure as propriedades de entrada da ação "Postar mensagem":
 Propriedade | Descrição
 --- | ---
 Texto | Especifique o texto da mensagem a ser postada.
-Nome do canal | Informe o canal de margem de atraso no qual a mensagem é postada. Se o canal não for especificado, a mensagem será postada em \#general.
+Nome do canal | Informe o canal de margem de atraso no qual a mensagem é postada. Se o canal não for especificado, a mensagem será postada em #general.
 Propriedades avançadas | **Nome de usuário de Bot**: nome do bot a ser usado para esta mensagem. A mensagem será postada como "Bot" se essa propriedade não for especificada.<p><p>**Ícone URL**: URL de imagem a ser usada como o ícone da mensagem.<p><p>**Ícone Emoji**: Emoji a ser usado como o ícone da mensagem. Essa propriedade substitui a propriedade Ícone URL.
 
 
@@ -77,7 +77,7 @@ O conector de atraso tem APIs REST disponíveis para que você possa usar o cone
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência de conectores e aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -93,4 +93,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
-# <a name="getting-started"> </a>O que são os Aplicativos Móveis
+# <a name="getting-started"> </a>O que são os Aplicativos Móveis?
 
->[AZURE.NOTE]**A documentação dos Serviços Móveis está [aqui](http://azure.microsoft.com/documentation/services/mobile-services/).**
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-O Serviço de Aplicativo do Azure é uma oferta de plataforma como serviço (PaaS) totalmente gerenciada para desenvolvedores profissionais que traz um conjunto rico de recursos para cenários Web, móvel e de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para aplicativos móveis.
+O Serviço de Aplicativo do Azure é uma oferta de plataforma como serviço (PaaS) totalmente gerenciada para desenvolvedores profissionais que traz um conjunto rico de recursos para cenários Web, móvel e de integração. Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis.
 
 ![Aplicativos Móveis](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##Por que os aplicativos móveis?
-Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para aplicativos móveis. Com Aplicativos Móveis, você pode:
+Os *Aplicativos Móveis* no *Serviço de Aplicativo do Azure* oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente dimensionável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis. Com Aplicativos Móveis, você pode:
 
 - **Criar aplicativos nativos e multiplataforma** – quer você esteja criando aplicativos nativos iOS, Android e Windows ou aplicativos Xamarin ou Cordova (Phonegap) multiplataforma, você pode aproveitar o Serviço de Aplicativo usando SDKs nativos.  
 - **Conectar-se a seus sistemas corporativos** - com Aplicativos Móveis, você pode adicionar logon corporativo em minutos e conectar-se aos recursos locais ou de nuvem de sua empresa.
@@ -44,6 +44,7 @@ Para começar com aplicativos móveis, siga o tutorial [Introdução].
 
 Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
 
+>[AZURE.NOTE]Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md
@@ -56,4 +57,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

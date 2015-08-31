@@ -18,6 +18,12 @@
 
 # Implantar e gerenciar máquinas virtuais usando modelos do PowerShell e do Gerenciador de Recursos do Azure
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 Este artigo mostra como usar modelos do Gerenciador de Recursos e o PowerShell do Azure para automatizar tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](http://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos](virtual-machines-app-frameworks.md).
 
 - [Implantar uma máquina virtual do Windows](#windowsvm)
@@ -41,16 +47,16 @@ A maioria dos aplicativos implantados e executados no Microsoft Azure é criada 
 
 Depois de definir um modelo de recurso com base em JSON, você poderá executá-lo e usar um comando PowerShell para implantar os recursos definidos no Azure. Você pode executar esses comandos separadamente no shell de comando do PowerShell ou integrá-los a um script que contenha lógica de automação adicional.
 
-Os recursos que você criar usando modelos do Gerenciador de Recursos do Azure serão implantados em um grupo de recursos novo ou existente do Azure. Um *grupo de recursos do Azure* permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso permite que você gerencie o ciclo de vida total do grupo/aplicativo e fornece APIs de gerenciamento que lhe permitem:
+Os recursos que você criar usando modelos do Gerenciador de Recursos do Azure serão implantados em um grupo de recursos novo ou existente do Azure. Um *grupo de recursos do Azure* permite que você gerencie vários recursos implantados juntos como um grupo lógico. Isso permite gerenciar o ciclo de vida total do grupo/aplicativo e fornece APIs de gerenciamento que lhe permitem:
 
 - Parar, iniciar ou excluir todos os recursos do grupo de uma só vez.
 - Aplicar regras de RBAC (Controle de Acesso Baseado em Função) para bloquear permissões de segurança em relação a eles.
 - Auditar operações.
 - Marcar recursos com metadados extras para ter melhor acompanhamento.
 
-Você pode saber mais sobre o Gerenciador de Recursos do Azure [aqui](virtual-machines-azurerm-versus-azuresm.md). Se você se interessar na criação de modelos, confira a seção [Criando Modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+Você pode saber mais sobre o Gerenciador de Recursos do Azure [aqui](virtual-machines-azurerm-versus-azuresm.md). Se você se interessar na criação de modelos, consulte [Como criar Modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>TAREFA: implantação de uma máquina virtual do Windows
+## <a id="windowsvm"></a>TAREFA: implantar de uma máquina virtual do Windows
 
 Use as instruções nesta seção para implantar uma nova máquina virtual do Azure usando um Modelo do Gerenciador de Recursos e o Azure PowerShell. Este modelo cria uma única máquina virtual em uma nova rede virtual com uma única sub-rede.
 
@@ -796,7 +802,7 @@ Você verá informações como estas:
 
 ## <a id="logon"></a>TAREFA: entrar em uma máquina virtual do Windows
 
-Para obter as etapas detalhadas, confira a seção [Como fazer logon em uma máquina virtual que executa o Windows Server](virtual-machines-log-on-windows-server.md).
+Para obter as etapas detalhadas, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](virtual-machines-log-on-windows-server.md).
 
 ## <a id="displayvm"></a>TAREFA: Exibir informações sobre uma máquina virtual
 
@@ -956,4 +962,4 @@ Você verá informações como estas:
 
 [Como instalar e configurar o PowerShell do Azure](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

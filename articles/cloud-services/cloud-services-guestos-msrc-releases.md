@@ -20,12 +20,27 @@
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
+## SO convidado de agosto
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-079 | [3082442] | Atualização de segurança cumulativa do Internet Explorer | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-080 | [3078662] | Vulnerabilidades no componente gráfico da Microsoft poderiam permitir a execução remota de código | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-082 | [3080348] | Vulnerabilidades no RDP poderiam permitir a execução remota de código | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-084 | [3080129] | Vulnerabilidades no XML Core Services poderiam permitir a divulgação de informações | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-085 | [3082487] | Vulnerabilidade no Gerenciador de Montagem pode permitir a elevação de privilégio | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-088 | [3082458] | Passagem de parâmetros de linha de comando não segura pode permitir a divulgação de informações | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-089 | [3060716] | Vulnerabilidades no Microsoft Windows poderiam permitir a elevação de privilégio | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-090 | [3076949] | Vulnerabilidade no WebDAV poderia permitir a divulgação de informações | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-092 | [3086251] | Vulnerabilidades no .NET Framework podem permitir a elevação de privilégio | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+
+
 ## SO convidado - julho
 
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-065 | [3076321] | Atualização de segurança cumulativa do Internet Explorer | 4\.22, 3.29, 2.41 | 14 de julho de 2015 |
-| MS15-066 | [3072604] | A vulnerabilidade no VBScript poderia permitir a execução remota de código | 4\.22, 3.29, 2.41 | 14 de julho de 2015 |
+| MS15-066 | [3072604] | A vulnerabilidade no VBScript poderia permitir a execução remota de código | 2\.41 | 14 de julho de 2015 |
 | MS15-067 | [3073094] | A vulnerabilidade no RDP poderia permitir a execução remota de código | 4\.22, 3.29, 2.41 | 14 de julho de 2015 |
 | MS15-068 | [3072000] | A vulnerabilidade no Windows Hyper-V poderia permitir a execução remota de código | 4\.22, 3.29, 2.41 | 14 de julho de 2015 |
 | MS15-069 | [3072631] | Vulnerabilidades no Windows poderiam permitir a execução remota de código | 4\.22, 3.29, 2.41 | 14 de julho de 2015 |
@@ -143,6 +158,17 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+[3082442]: http://support.microsoft.com/kb/3082442
+[3078662]: http://support.microsoft.com/kb/3078662
+[3080348]: http://support.microsoft.com/kb/3080348
+[3080129]: http://support.microsoft.com/kb/3080129
+[3082487]: http://support.microsoft.com/kb/3082487
+[3082458]: http://support.microsoft.com/kb/3082458
+[3060716]: http://support.microsoft.com/kb/3060716
+[3076949]: http://support.microsoft.com/kb/3076949
+[3086251]: http://support.microsoft.com/kb/3086251
+
+
 [3076321]: http://support.microsoft.com/kb/3076321
 [3072604]: http://support.microsoft.com/kb/3072604
 [3073094]: http://support.microsoft.com/kb/3073094
@@ -239,4 +265,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

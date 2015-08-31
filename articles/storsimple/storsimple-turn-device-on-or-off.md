@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # Ativar e desativar o dispositivo StorSimple 
@@ -28,7 +28,7 @@ A tabela a seguir lista vários cenários para ligar e desligar o dispositivo St
 |Ativar um novo dispositivo|[Ativar um novo dispositivo](#turn-on-a-new-device)<ul><li>[Novo dispositivo com apenas o compartimento primário](#new-device-with-primary-enclosure-only)</li><li>[Novo dispositivo com o compartimento EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Ativar um dispositivo após o desligamento|[Ativar um dispositivo após o desligamento](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo com apenas o compartimento primário](#device-with-primary-enclosure-only)</li><li>[Dispositivo com o compartimento EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Ativar um dispositivo após uma queda de energia|[Ativar um dispositivo após uma queda de energia](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo com apenas o compartimento primário](#8100)</li><li>[Dispositivo com o compartimento EBOD](#8600)</li></ul>|
-|Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida|[Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida|[Ativar um dispositivo após a conexão do compartimento primário e EBOD ser perdida](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Desligar um dispositivo em execução|[Desativar um dispositivo em execução](#turn-off-a-running-device)<ul><li>[Dispositivo com apenas o compartimento primário](#8100a)</li><li>[Dispositivo com o compartimento EBOD](#8600a)</li></ul>|
 
 ## Ativar um novo dispositivo
@@ -37,7 +37,7 @@ As etapas para ativar um dispositivo Microsoft Azure StorSimple pela primeira ve
 
 - [Novo dispositivo com apenas o compartimento primário](#new-device-with-primary-enclosure-only)
 
-- [Novo dispositivo com o compartimento EBOD](#new-device-with-EBOD-enclosure)
+- [Novo dispositivo com o compartimento EBOD](#new-device-with-ebod-enclosure)
 
 ### Novo dispositivo com apenas o compartimento primário
 
@@ -241,4 +241,4 @@ Você pode se conectar ao Windows PowerShell para StorSimple por meio do console
 
 [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se você encontrar problemas ao ativar ou desligar um dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

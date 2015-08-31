@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/13/2015"
+   ms.date="08/04/2015"
    ms.author="larryfr"/>
 
 #Desenvolver programas de transmissão do Python para HDInsight
 
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapeamento e redução em outras linguagens além do Java. Neste artigo, você aprenderá como usar o Python para executar operações de MapReduce.
 
-> [AZURE.NOTE]Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (Gravando um programa MapReduce do Hadoop em Python).
+> [AZURE.NOTE]Embora o código Python neste documento possa ser usado com um cluster HDInsight baseado no Windows, as etapas neste documento são específicas de clusters baseados em Linux.
+
+Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] (Gravando um programa MapReduce do Hadoop em Python).
 
 ##Pré-requisitos
 
@@ -133,7 +136,7 @@ Crie um novo arquivo chamado **reducer.py** e use o seguinte código como o cont
 
 ##Carregar os arquivos
 
-Ambos **mapper.py** e **reducer.py** devem estar no nó principal do cluster antes que o cluster possa executá-los. A maneira mais fácil para carregá-los é usando **scp** (ou **pscp** se você estiver usando um cliente Windows.)
+Ambos **mapper.py** e **reducer.py** devem estar no nó principal do cluster antes que o cluster possa executá-los. A maneira mais fácil de carregá-los é usando **scp** (**pscp** se você estiver usando um cliente Windows).
 
 No cliente, no mesmo diretório do **mapper.py** e **reducer.py**, use o comando a seguir. Substitua **username** com um usuário SSH e **clustername** com o nome do cluster.
 
@@ -202,4 +205,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

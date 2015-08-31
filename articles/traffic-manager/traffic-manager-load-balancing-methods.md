@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Métodos de roteamento do Gerenciador de Tráfego"
+   pageTitle="Gerenciador de Tráfego - métodos de roteamento de tráfego - | Microsoft Azure"
    description="Este artigo o ajudará a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego"
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Métodos de roteamento do Gerenciador de Tráfego
 
-Há três métodos de roteamento disponíveis no Gerenciador de Tráfego. Cada perfil do Gerenciador de Tráfego pode usar apenas um método de roteamento por vez, embora você possa selecionar um método de roteamento diferente para seu perfil a qualquer momento.
+Há três métodos de roteamento de tráfego disponíveis no Gerenciador de Tráfego. Cada perfil do Gerenciador de Tráfego pode usar apenas um método de roteamento por vez, embora você possa selecionar um método de roteamento diferente para seu perfil a qualquer momento.
 
-É importante observar que todos os métodos de roteamento incluem monitoramento de ponto de extremidade. Depois de configurar seu perfil do Gerenciador de Tráfego para especificar o método de roteamento que atenda melhor às suas necessidades, defina as configurações de monitoramento. Quando o monitoramento estiver configurado corretamente, o Gerenciador de Tráfego monitorará o estado de seus pontos de extremidade, consistindo em serviços de nuvem e sites, e não enviará tráfego a pontos de extremidade que ele achar que não estão disponíveis. Para obter mais informações sobre o monitoramento do Gerenciador de Tráfego, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
+É importante observar que todos os métodos de roteamento incluem monitoramento de ponto de extremidade. Depois de configurar seu perfil do Gerenciador de Tráfego para especificar o método de roteamento de tráfego que atenda melhor às suas necessidades, defina as configurações de monitoramento. Quando o monitoramento estiver configurado corretamente, o Gerenciador de Tráfego monitorará o estado de seus pontos de extremidade, consistindo em serviços de nuvem e sites, e não enviará tráfego a pontos de extremidade que ele achar que não estão disponíveis. Para obter mais informações sobre o monitoramento do Gerenciador de Tráfego, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 
-Os três métodos de roteamento do Gerenciador de Tráfego são:
+Os três métodos de roteamento de tráfego do Gerenciador de Tráfego são:
 
 - **Failover**: selecione Failover quando houver pontos de extremidade nos mesmos datacenters do Azure ou em data centers diferentes (conhecidos como regiões no Portal de Gerenciamento) e você quiser usar um ponto de extremidade primário para todo o tráfego, mas fornecer backups caso os pontos de extremidade primários ou de backup estejam indisponíveis. Para obter mais informações, consulte [Método de roteamento de tráfego de failover](#failover-traffic-routing-method).
 
@@ -123,7 +123,7 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 ## Próximas etapas
 
-[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
 [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
@@ -137,4 +137,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,7 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
 ## Próximas etapas
 
-[Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md)
+[Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +129,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

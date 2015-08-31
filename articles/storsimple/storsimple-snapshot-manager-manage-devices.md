@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
@@ -65,7 +65,7 @@ Este tutorial explica como usar o StorSimple Snapshot Manager para conectar e ge
 - Alterar uma senha de dispositivo expirada
 - Substituir um dispositivo com falha
 
->[AZURE.NOTE]Para obter informações gerais sobre o uso da interface do StorSimple Snapshot Manager, vá até [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
+>[AZURE.NOTE]Para obter informações gerais sobre o uso da interface do StorSimple Snapshot Manager, acesse [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 
 
 ## Adicionar ou substituir um dispositivo
@@ -252,9 +252,9 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 5. Inicie o StorSimple Snapshot Manager.
 
-6. Para configurar o novo dispositivo StorSimple, realize as etapas na [Etapa 2: Conectar um dispositivo StorSimple](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device) em [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+6. Para configurar o novo dispositivo StorSimple, execute as etapas da Etapa 2: conectar a um dispositivo StorSimple em [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-7. Clique com o botão direito no nó de nível superior no painel **Escopo** (StorSimple Snapshot Manager no exemplo) e clique em **Alternar Exibição de Importações**.
+7. Clique com o botão direito do mouse no nó de nível superior no painel **Escopo** (StorSimple Snapshot Manager no exemplo) e clique em **Alternar Exibição de Importações**.
 
 8. Uma mensagem é exibida quando os grupos de volumes e backups importados ficam visíveis no StorSimple Snapshot Manager. Clique em **OK**.
 
@@ -262,4 +262,4 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
 
 [Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

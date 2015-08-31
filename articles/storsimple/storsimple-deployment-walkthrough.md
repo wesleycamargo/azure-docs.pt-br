@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Implantação do seu dispositivo StorSimple local
@@ -123,15 +123,15 @@ Antes de configurar o dispositivo, verifique se:
 
 - Seu dispositivo está totalmente desembalado, montado em um rack e cabeado para energia, rede e acesso serial conforme descrito em:
 
-	-  [Desempacotar seu dispositivo 8100](storsimple-8100-hardware-installation.md)
-	-  [Desempacotar seu dispositivo 8600](storsimple-8600-hardware-installation.md)
+	-  [Desembalar, montar em rack e cabear o dispositivo 8100](storsimple-8100-hardware-installation.md)
+	-  [Desembalar, montar em rack e cabear o dispositivo 8600](storsimple-8600-hardware-installation.md)
 
 
 ### Para a rede no datacenter
 
 Antes de começar, verifique se:
 
-- As portas no firewall do seu datacenter são abertas para permitir tráfego de nuvem e iSCSI, conforme descrito em [Requisitos de rede para o dispositivo StorSimple]().
+- As portas no firewall do seu datacenter são abertas para permitir tráfego de nuvem e iSCSI, conforme descrito em [Requisitos de rede para o dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 - O dispositivo no seu datacenter pode se conectar à rede externa. Execute os cmdlets do [Windows PowerShell 4.0](http://www.microsoft.com/download/details.aspx?id=40855) a seguir (tabulados abaixo) para validar a conectividade com a rede externa. Execute essa validação em um computador (na rede do datacenter) que tenha conectividade com o Azure e em que você implantará seu dispositivo StorSimple.  
 
 | Para este parâmetro... | Para verificar a validade... | Execute estes comandos/cmdlets. |
@@ -139,14 +139,14 @@ Antes de começar, verifique se:
 | **IP**</br>**Sub-rede**</br>**Gateway** | É um endereço IPv4 ou IPv6 válido?</br>É uma sub-rede válida?</br>É um gateway válido?</br>Este é um IP duplicado na rede? | `ping ip`</br>`arp -a`</br>Os comandos `ping` e `arp` devem falhar indicando que não há nenhum dispositivo na rede do datacenter usando esse IP.
 | | | |
 | **DNS** | É um DNS válido e pode resolver URLs do Azure? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>`</br>Um comando alternativo que pode ser usado é:</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
-| | Verifique se a porta 53 está aberta. Isso é aplicável somente se você estiver usando um DNS externo para o seu dispositivo. O DNS interno deve resolver automaticamente a URL externa. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Mais informações sobre esse cmdlet]()|
+| | Verifique se a porta 53 está aberta. Isso é aplicável somente se você estiver usando um DNS externo para o seu dispositivo. O DNS interno deve resolver automaticamente as URLs externas. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Mais informações sobre esse cmdlet](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
-| **NTP** | Disparamos uma sincronização de horário assim que o servidor NTP é inserido. Verifique se a porta UDP 123 está aberta ao inserir `time.windows.com` ou servidores de tempo públicos. | [Baixar e usar esse script](). |
+| **NTP** | Disparamos uma sincronização de horário assim que o servidor NTP é inserido. Verifique se a porta UDP 123 está aberta ao inserir `time.windows.com` ou servidores de tempo públicos. | [Baixar e usar esse script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | `wget http://bing.com % {$_.StatusCode}`</br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado 200, isso indica que a conexão foi bem-sucedida. |
+| **Proxy (opcional)** | É uma porta e um URI de proxy válido? </br> O modo de autenticação está correto? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Esse comando deve ser executado imediatamente depois de configurar o proxy web. Se for retornado um código de status 200, isso indica que a conexão foi bem-sucedida. |
 | | O tráfego é roteável por meio do proxy? | Execute a validação de DNS, verifique o NTP ou o HTTP uma vez após configurar o proxy no seu dispositivo. Isso lhe fornecerá uma visão clara de se o tráfego está sendo bloqueado no proxy ou em outro lugar. |
 | | | |
-| **Registro** | Verifique se as portas TCP de saída 443, 80 e 9354 estão abertas. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mais informações sobre o cmdlet Test-NetConnection]() |
+| **Registro** | Verifique se as portas TCP de saída 443, 80 e 9354 estão abertas. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Mais informações sobre o cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx) |
 
 ## Implantação passo a passo
 
@@ -164,7 +164,7 @@ Execute as seguintes etapas para criar uma nova instância do serviço StorSimpl
 
 > [AZURE.IMPORTANT]Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
-> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#Configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
+> Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas. Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2:-get-the-service-registration-key).
 
 ## Etapa 2: Obter a chave de registro do serviço
 
@@ -257,12 +257,12 @@ Para se conectar ao Windows PowerShell para StorSimple, você precisa usar um so
 
 Atualizar seu dispositivo pode levar de 1 a 4 horas. Execute as etapas a seguir para verificar e aplicar atualizações em seu dispositivo.
 
-> [AZURE.NOTE]Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá em **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.
+> [AZURE.NOTE]Se você tiver um gateway configurado em uma interface de rede que não seja Data 0, você precisará desabilitar as interfaces de rede Data 2 e Data 3 antes de instalar a atualização. Vá para **Dispositivos > Configurar** e desabilite as interfaces Data 2 e Data 3. Você deve reabilitar essas interfaces depois que o dispositivo for atualizado.
 
 #### Para atualizar seu dispositivo
 1.	Na página **Início Rápido** do dispositivo, clique em **Dispositivos**. Selecione o dispositivo físico, clique em **Manutenção** e em **Verificar Atualizações**.  
 2.	É criado um trabalho para verificar se há atualizações disponíveis. Se houver atualizações disponíveis, **Verificar Atualizações** muda para **Instalar Atualizações**. Clique em **Instalar Atualizações**. Pode ser solicitado que você desabilite a Data 2 e a Data 3 antes de instalar as atualizações. Você deve desabilitar essas interfaces de rede ou as atualizações podem falhar.
-3.	Será criado um trabalho de atualização. Monitore o status da atualização navegando até **Trabalhos**.
+3.	Será criado um trabalho de atualização. Monitore o status da sua atualização navegando até **Trabalhos**.
 
 	> [AZURE.NOTE]Quando o trabalho de atualização é iniciado, ele imediatamente exibe o status como 50%. Em seguida, o status muda para 100% somente após o trabalho de atualização ser concluído. Não há nenhum status em tempo real para o processo das atualizações.
 
@@ -290,4 +290,4 @@ Execute as etapas a seguir no portal do Azure para criar um backup manual sob de
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

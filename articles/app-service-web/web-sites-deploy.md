@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
 #Implantar um aplicativo Web no Serviço de Aplicativo do Azure
@@ -135,7 +135,6 @@ Para obter informações sobre como implantar aplicativos Web por meio do WebMat
 Para obter mais informações, consulte os recursos a seguir:
 
 * [Criar um aplicativo Web do PHP-MySQL e implantá-lo usando o FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [Como gerenciar Aplicativos Web](web-sites-manage.md#ftp-credentials). Inclui informações adicionais não inseridas no tutorial do PHP sobre como configurar as credenciais de FTP.
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
@@ -178,8 +177,11 @@ Para obter mais informações, consulte o recurso a seguir:
 
 Você pode executar funções de implantação do MSBuild ou de FTP a partir do [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Se fizer isso, você também poderá usar uma coleção de cmdlets do Windows PowerShell que facilitam chamar a API de gerenciamento do REST do Azure.
 
-Para obter mais informações, consulte o recurso a seguir:
+Para saber mais, consulte os recursos a seguir:
 
+* [Implantar um aplicativo Web vinculado a um repositório GitHub](app-service-web-arm-from-github-provision.md)
+* [Provisionar um aplicativo Web com um banco de dados SQL](app-service-web-arm-with-sql-database-provision.md)
+* [Provisionar e implantar microsserviços previsíveis no Azure](app-service-deploy-complex-application-predictably.md)
 * [Compilando aplicativos de nuvem do mundo real com o Azure - automatizar tudo](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de livro eletrônico que explica como o aplicativo de amostra mostrado no livro eletrônico usa scripts do Windows PowerShell para criar um ambiente de teste do Azure e implantá-lo. Consulte a seção [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para obter links para a documentação adicional do PowerShell do Azure.
 * [Usando scripts do Windows PowerShell para publicar em ambientes de desenvolvimento e de teste](http://msdn.microsoft.com/library/dn642480.aspx). Como usar os scripts de implantação do Windows PowerShell gerados pelo Visual Studio.
 
@@ -226,4 +228,4 @@ Para obter mais informações sobre outros tópicos de implantação, consulte a
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

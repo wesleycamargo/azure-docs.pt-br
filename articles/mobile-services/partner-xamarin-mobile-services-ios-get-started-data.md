@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -240,6 +240,5 @@ Depois de ter concluído a série de dados, tente estes outros tutoriais do iOS:
 
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

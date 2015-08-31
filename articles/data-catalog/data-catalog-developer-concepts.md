@@ -1,20 +1,20 @@
 <properties
    pageTitle="Conceitos de desenvolvedor do Catálogo de Dados do Azure"
-   description="Conceitos de desenvolvedor no Catálogo de Dados do Azure: catálogo, usuários, ativos e crowdsourcing."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Conceitos de desenvolvedor no Catálogo de Dados do Azure: catálogo, usuários, ativos e crowdsourcing."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags 
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Conceitos de desenvolvedor do Catálogo de Dados do Azure
 
@@ -46,19 +46,19 @@ O Catálogo de Dados do Azure usa o Active Directory do Azure para gerenciar ide
 
 ### Ativos
 
-Um **Catálogo** contém ativos de dados. **Ativos** são a unidade do item gerenciado pelo catálogo.
+Um **Catálogo** contém ativos de dados. **Ativos** são a unidade de granularidade gerenciada pelo catálogo.
 
-A granularidade de um ativo varia de acordo com a fonte de dados. Para SQL Server ou Banco de Dados Oracle, um ativo pode ser uma Tabela ou Exibição. Para o SQL Server Analysis Services, um ativo pode ser Medidas, Dimensões ou um KPI (Indicador Chave de Desempenho). Para SQL Server Reporting Services, um ativo pode ser um Relatório.
+A granularidade de um ativo varia de acordo com a fonte de dados. Para SQL Server ou Banco de Dados Oracle, um ativo pode ser uma Tabela ou Exibição. Para o SQL Server Analysis Services, um ativo pode ser uma Medida, uma Dimensão ou um KPI (Indicador de Chave de Desempenho). Para SQL Server Reporting Services, um ativo é um Relatório.
 
 Um **Ativo** é o item que você adiciona ou remove de um Catálogo. Ele é a unidade do resultado obtido pela **Pesquisa**.
 
-Um **Ativo** é composto pelas informações básicas, sua localização e seu tipo, bem como as anotações que melhor a descrevem.
+Um **Ativo** é composto de seu nome, local e tipo, bem como anotações que o descrevem melhor.
 
 ### Anotações
 
 As anotações são itens que representam os metadados sobre os Ativos.
 
-Exemplos de anotações são Descrição, marcas, esquema, documentação, etc... Uma lista completa dos tipos de ativos e de anotações está na seção de modelo de Objeto de Ativo.
+Exemplos de anotações são descrição, marcas, esquema, documentação, etc... Uma lista completa dos tipos de ativos e de anotações está na seção de modelo de Objeto de Ativo.
 
 ## Anotações de crowdsourcing e perspectiva do usuário (multiplicidade de opinião)
 
@@ -80,25 +80,11 @@ A UX pode escolher como exibir a combinação. Existem três padrões diferentes
 
 -	O padrão mais simples é "Mostrar tudo". Neste padrão de todos os objetos são mostrados em algum tipo de exibição de lista. Isso é que o UX do portal de Catálogo de Dados do Azure faz para descrição.
 -	Outro padrão é "Mesclar". Neste padrão, todos os valores dos diferentes usuários são mesclados, removendo valores duplicados. Exemplos desse padrão no UX do portal do Catálogo de Dados do Azure são as propriedades de marcas e especialistas.
--	Um terceiro padrão é "último editor vence". Nesse padrão é mostrado apenas o valor digitado mais recente. friendlyName é um exemplo desse padrão. Alguns tipos não podem ter várias instâncias.
-
-Abaixo está uma lista de tipos que podem ou não ter várias instâncias:
-
-Os seguintes tipos podem ter várias instâncias:
-
-- Descrição
-- Especialistas
-- Descrição de esquema
-
-Os seguintes tipos **não** podem ter várias instâncias:
-
-- Tipos de raiz
-- Esquema
-- Visualização
+-	Um terceiro padrão é "último editor vence". Nesse padrão é mostrado apenas o valor digitado mais recente. friendlyName é um exemplo desse padrão.
 
 ## Modelo de objeto de ativo
 
-Como a apresentado na seção Conceitos Principais, o modelo de objeto **Catálogo de Dados do Azure** inclui itens que podem ser ativos ou anotações. Itens têm propriedades que podem ser obrigatórias ou opcionais. Algumas propriedades se aplicam a todos os itens. Algumas propriedades se aplicam a todos os ativos. Algumas propriedades se aplicam somente alguns tipos específicos de ativo.
+Como apresentado na seção Conceitos Principais, o modelo de objeto **Catálogo de Dados do Azure** inclui itens que podem ser ativos ou anotações. Itens têm propriedades que podem ser obrigatórias ou opcionais. Algumas propriedades se aplicam a todos os itens. Algumas propriedades se aplicam a todos os ativos. Algumas propriedades se aplicam somente alguns tipos específicos de ativo.
 
 ### Propriedades comuns
 
@@ -151,13 +137,13 @@ O Catálogo de Dados do Azure usa dois mecanismos de autorização:
 
 ### Funções
 
-Há três funções:**Administrador**, **Proprietário** e **Colaborador**. Cada função tem seu escopo e direitos que são resumidos na tabela a seguir.
+Há três funções: **Administrador**, **Proprietário** e **Colaborador**. Cada função tem seu escopo e direitos que são resumidos na tabela a seguir.
 
 <table><tr><td><b>Função</b></td><td><b>Escopo</b></td><td><b>Direitos</b></td></tr><tr><td>Administrador</td><td>Catálogo (ou seja, todos os ativos/anotações no catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Proprietário</td><td>Cada ativo (ou seja, também conhecido como item de raiz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada ativo e anotação individuais</td><td>Read Update Delete ViewRoles Note: todos os direitos são revogados se Read à direita do item for revogado do Colaborador</td></tr></table>
 
 > [AZURE.NOTE]Os direitos **Read**, **Update**, **Delete** e **ViewRoles** são aplicáveis a qualquer item (ativo ou anotação) enquanto **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** e **ViewPermissions** só são aplicáveis ao ativo de raiz.
 >
->O direito **Delete** aplica-se a um item, bem como qualquer subelemento ou item único abaixo dele. Por exemplo, excluir um ativo também excluirá todas as anotações desse ativo.
+>O direito **Delete** aplica-se a um item, bem como qualquer subitem ou item único abaixo dele. Por exemplo, excluir um ativo também excluirá todas as anotações desse ativo.
 
 ### Permissões
 
@@ -165,7 +151,7 @@ A permissão funciona como uma lista de entradas de controle de acesso. Cada ent
 
 Durante a visualização do **Catálogo de Dados do Azure**, somente o direito **Read** tem suporte na lista de permissões para permitir que o cenário restrinja a visibilidade de um ativo.
 
-Por padrão qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
+Por padrão, qualquer usuário autenticado tem o direito **Read** para qualquer item do catálogo, a menos que a visibilidade esteja restrita ao conjunto de entidades nas permissões.
 
 ## API REST
 
@@ -245,4 +231,4 @@ As solicitações de exibição de item **PUT** e **POST** podem ser usadas para
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

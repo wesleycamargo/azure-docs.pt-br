@@ -116,9 +116,13 @@ Finalmente, você precisa informar o SDK do Engagement quando seu aplicativo rec
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]O método acima foi introduzido no iOS 7. Se você estiver direcionando para o iOS < 7, implemente o método `application:applicationDidReceiveRemoteNotification:` em seu representante do aplicativo e chame `applicationDidReceiveRemoteNotification` no EngagementAgent, passando nulo em vez do argumento `handler`:
+> [AZURE.NOTE]O método acima foi introduzido no iOS 7. Se você estiver direcionando para o iOS <7, implemente o método `application:didReceiveRemoteNotification:` em seu representante do aplicativo e chame `applicationDidReceiveRemoteNotification` no EngagementAgent passando nulo, em vez do argumento `handler`:
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT]Por padrão, Engagement Reach controla o completionHandler. Se você quiser responder manualmente para o bloco `handler`em seu código, passe nulo o argumento `handler` e controle você mesmo o bloco de conclusão. Consulte o tipo `UIBackgroundFetchResult` para obter uma lista de valores possíveis.
 
@@ -412,4 +416,4 @@ Como para personalização da notificação avançada, é recomendável examinar
 
 	@end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

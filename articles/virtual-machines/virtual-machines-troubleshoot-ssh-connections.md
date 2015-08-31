@@ -108,7 +108,7 @@ Trabalhe com o administrador da rede para corrigir as configurações dos dispos
 
 ### Fonte 3: ponto de extremidade de serviço de nuvem e ACL
 
-Para eliminar o ponto de extremidade de serviço de nuvem e a ACL como a fonte dos problemas ou erros de configuração para máquinas virtuais criadas no gerenciamento de serviços, verifique se outra máquina virtual do Azure que está na mesma rede virtual pode estabelecer conexões SSH com sua máquina virtual do Azure.
+Para eliminar o ponto de extremidade do serviço de nuvem e a ACL como a fonte dos problemas ou má configuração das máquinas virtuais criadas na API de Gerenciamento de Serviços, verifique se outra máquina virtual do Azure, que esteja na mesma rede virtual, pode estabelecer conexões SSH com sua máquina virtual do Azure.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -165,4 +165,4 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

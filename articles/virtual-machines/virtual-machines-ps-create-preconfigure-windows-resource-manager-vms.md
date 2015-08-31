@@ -104,9 +104,11 @@ Para testar se um rótulo de nome de domínio escolhido é globalmente exclusivo
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 Se DNSNameAvailability for "True", o nome proposto será globalmente exclusivo.
+
+>[AZURE.NOTE]O cmdlet Test-AzureDnsAvailability era chamado de Get-AzureCheckDnsAvailability em versões anteriores à versão 0.9.5 do Azure PowerShell. Se você estiver usando a versão 0.9.4 ou anterior, substitua Test-AzureDnsAvailability por Get-AzureCheckDnsAvailability no comando mostrado acima.
 
 Máquinas virtuais baseadas no Gerenciador de Recursos podem ser colocadas em um conjunto de disponibilidade baseado no Gerenciador de Recursos. Se for necessário, crie um novo conjunto de disponibilidade para a nova máquina virtual usando estes comandos.
 
@@ -119,7 +121,7 @@ Use este comando para listar os conjuntos de disponibilidade existentes.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-As máquinas virtuais baseadas no Gerenciador de Recursos podem ser configuradas com regras NAT de entrada para permitirem o tráfego de entrada da Internet e serem colocadas em um conjunto balanceado por carga. Em ambos os casos, você deve especificar uma instância do balanceador de carga e outras configurações. Para obter mais informações, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
+As máquinas virtuais baseadas no Gerenciador de Recursos podem ser configuradas com regras NAT de entrada para permitirem o tráfego de entrada da Internet e serem colocadas em um conjunto balanceado por carga. Em ambos os casos, você deve especificar uma instância do balanceador de carga e outras configurações. Para obter mais informações, consulte [Criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Máquinas virtuais baseadas no Gerenciador de Recursos exigem uma rede virtual baseada no Gerenciador de Recursos. Se for necessário, crie uma nova rede virtual baseada no Gerenciador de Recursos com pelo menos uma sub-rede para a nova máquina virtual. Veja um exemplo de uma nova rede virtual com duas sub-redes denominadas frontendSubnet e backendSubnet.
 
@@ -211,7 +213,7 @@ Copie estas linhas em seu conjunto de comandos e especifique os nomes e números
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 A cadeia de caracteres $nicName deve ser exclusiva para o grupo de recursos. É uma prática recomendada incorporar o nome da máquina virtual na cadeia de caracteres, como "LOB07 NIC".
@@ -223,14 +225,14 @@ Para criar uma NIC e adicioná-la a uma instância do balanceador de carga para 
 - Do nome de uma instância do balanceador de carga criada anteriormente que tenha uma regra para o tráfego balanceado por carga.
 - Do número de índice do pool de endereços back-end da instância do balanceador de carga para atribuir à NIC.
 
-Para obter informações sobre como criar uma instância do balanceador de carga com regras para tráfego balanceado por carga, consulte [Como criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
+Para obter informações sobre como criar uma instância do balanceador de carga com regras para tráfego balanceado por carga, consulte [Criar um balanceador de carga usando o Gerenciador de Recursos do Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copie estas linhas em seu conjunto de comandos e especifique os nomes e números de índice necessários.
 
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Em seguida, crie um objeto de VM local e, opcionalmente, adicione-o a um conjunto de disponibilidade. Copie uma das duas opções a seguir para seu conjunto de comandos e preencha o nome, o tamanho e o nome do conjunto de disponibilidade.
@@ -387,4 +389,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

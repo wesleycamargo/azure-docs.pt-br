@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Disponibilidade dos clusters Hadoop no HDInsight | Microsoft Azure" 
-	description="O HDInsight implanta clusters altamente disponíveis e confiáveis com um nó principal adicional." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="Disponibilidade dos clusters Hadoop no HDInsight | Microsoft Azure"
+	description="O HDInsight implanta clusters altamente disponíveis e confiáveis com um nó principal adicional."
+	services="hdinsight"
+	tags="azure-portal"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -37,7 +38,7 @@ O HDInsight permite que os clientes implantem uma variedade de tipos de cluster,
 	- Nós Nimbus (2 nós)
 	- Servidores de Supervisor (pelo menos 1 nó)
 	- Nós Zookeeper (3 nós)
- 
+
 Implementações padrão de clusters Hadoop normalmente têm um único nó principal. O HDInsight remove esse único ponto de falha com a adição de um nó principal secundário/servidor principal/nó Nimbus para aumentar a disponibilidade e a confiabilidade do serviço necessário para gerenciar cargas de trabalho. Esses nós principais/servidores principais/nós Nimbus são projetados para gerenciar sem problemas eventuais falha de nós de trabalho, mas qualquer interrupção dos serviços mestres em execução no nó principal fará com que o cluster pare de funcionar.
 
 
@@ -49,7 +50,7 @@ Nós [ZooKeeper](http://zookeeper.apache.org/) (ZKs) foram adicionados e são us
 
 
 ## Verificar o status de serviço do nó principal ativo
-Para determinar qual nó principal está ativo e verificar o estado dos serviços em execução no nó principal, você deve se conectar ao cluster Hadoop usando o protocolo RDP. Para obter instruções de RDP, consulte [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Depois de acessar remotamente o cluster, clique duas vezes no ícone**Disponível do Serviço Hadoop** localizado na área de trabalho para obter status sobre qual nó principal os serviços Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 estão executando; ou então, para o HDI 3.0, os serviços Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
+Para determinar qual nó principal está ativo e verificar o estado dos serviços em execução no nó principal, você deve se conectar ao cluster Hadoop usando o protocolo RDP. Para obter instruções sobre RDP, confira [Gerenciar clusters Hadoop no HDInsight usando o portal de visualização do Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Depois de acessar remotamente o cluster, clique duas vezes no ícone**Disponível do Serviço Hadoop** localizado na área de trabalho para obter status sobre qual nó principal os serviços Namenode, Jobtracker, Templeton, Oozieservice, Metastore e Hiveserver2 estão executando; ou então, para o HDI 3.0, os serviços Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore e Hiveserver2.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -95,14 +96,6 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
 - [ZooKeeper](http://zookeeper.apache.org/)
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
-- [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk) 
+- [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

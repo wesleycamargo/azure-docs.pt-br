@@ -22,8 +22,8 @@
 > [AZURE.SELECTOR]
 - [Azure preview portal](virtual-machines-windows-tutorial.md)
 - [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource management](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 Este tutorial mostra como é fácil criar uma VM (máquina virtual) do Azure no Portal do Azure. Vamos usar uma imagem do Windows Server como exemplo, mas ela é apenas uma das muitas imagens que o Azure oferece. Observe que as opções de imagem dependem de sua assinatura. Por exemplo, imagens de desktop podem estar disponíveis para assinantes do MSDN.
@@ -44,7 +44,7 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 > [AZURE.NOTE]Você também pode experimentar usar o [Portal de Visualização do Azure](https://portal.azure.com), que é mais sofisticado e personalizável, para criar uma máquina virtual, usar monitoramento avançado e diagnóstico, usar armazenamento Premium e muito mais. As opções disponíveis para configurar uma máquina virtual nos dois portais se repetem, mas não são as mesmas. Por exemplo, use o portal de visualização para configurar uma máquina virtual com armazenamento Premium.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Próximas etapas
 
@@ -56,4 +56,4 @@ Esta seção mostra como usar a opção **Da Galeria** no portal do Azure para c
 
 Para saber mais sobre o que você pode configurar para uma máquina virtual e quando pode fazê-lo, consulte [Sobre definições de configuração de VM do Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

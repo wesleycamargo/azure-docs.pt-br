@@ -26,7 +26,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,7 +49,7 @@
 
 	>[AZURE.NOTE]A classe **GcmServiceBase** implementa os métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** e **OnError()**. Você deve substituir esses métodos na classe **PushHandlerService**.
 
-5. Adicione o código a seguir à classe **ToDoBroadcastReceiver** que substitui o manipulador de eventos **OnRegistered**.
+5. Adicione o código a seguir à classe **PushHandlerService** que substitui o manipulador de eventos **OnRegistered**.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -116,7 +116,7 @@
             }
         }
 
-12. Adicione as substituições de método a seguir para **OnUnRegistered()** e **OnError()**, necessárias à compilação do projeto.
+12. Substitua os métodos **OnUnRegistered()** e **OnError()** pelo código a seguir.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -129,4 +129,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao Backup do Azure"
+	pageTitle="Introdução ao Backup do Azure | Microsoft Azure"
 	description="Este artigo fornece uma visão geral do serviço de Backup do Azure, que permite aos clientes fazer backup de dados no Azure e para o Azure"
 	services="backup"
 	documentationCenter=""
@@ -7,33 +7,24 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Introdução ao Backup do Azure
-Este artigo fornece uma visão geral ampla da solução integrada de backup em nuvem da Microsoft que permite aos clientes fazer backup de seus dados locais ou no Azure.
+Este artigo fornece uma visão geral ampla da solução integrada de backup em nuvem da Microsoft que habilita os clientes a fazer backup de seus dados locais ou no Azure.
 
 ## O que é o Backup do Azure?
-O Backup do Azure é um serviço multilocatário do Azure que permite fazer backup de seus dados presentes em qualquer lugar: localmente ou no Azure. Ele substitui a solução de backup local ou externa existente por uma oferta em nuvem confiável, segura e econômica. Ele também oferece a flexibilidade de proteger ativos que estão em execução na nuvem. O Backup do Azure foi desenvolvido em uma infraestrutura de excelência internacional que é escalonável, durável e altamente disponível. Com essa solução, você pode fazer backup de dados e aplicativos de seus servidores do SCDPM (System Center Data Protection Manager), servidores Windows, máquinas cliente Windows ou máquinas virtuais de IaaS do Azure. O Backup do Azure e o SCDPM são as tecnologias fundamentais que compõem a solução de backup integrada na nuvem da Microsoft.
+O Backup do Azure é um serviço multilocatário do Azure que permite fazer backup de seus dados presentes em qualquer lugar: localmente ou no Azure. Ele substitui a solução de backup local ou externa existente por uma oferta em nuvem confiável, segura e econômica. Ele também fornece a flexibilidade de proteger ativos que estão em execução na nuvem. O Backup do Azure foi desenvolvido em uma infraestrutura de excelência internacional que é escalonável, durável e altamente disponível. Com essa solução, você pode fazer backup de dados e aplicativos de seus servidores do SCDPM (System Center Data Protection Manager), servidores Windows, computadores cliente Windows ou máquinas virtuais de IaaS do Azure. O Backup do Azure e o SCDPM são as tecnologias fundamentais que compõem a solução de backup integrada na nuvem da Microsoft.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
 ## Ponto de design em nuvem
-As soluções tradicionais de backup foram desenvolvidas para tratar a nuvem como um ponto de extremidade semelhante a disco ou fita. Embora essa abordagem seja simples, fácil de implantar e forneça uma experiência consistente, ela tem usos limitados e não aproveita a plataforma subjacente. Isso se traduz em uma solução ineficiente e cara para os clientes finais. Tratando o Azure como "apenas um ponto de extremidade de armazenamento", as soluções de backup são incapazes de aproveitar os avanços e a eficiência da plataforma de nuvem pública. O Backup do Azure, por outro lado, oferece um serviço real que utiliza construções de nuvem para oferecer uma solução eficiente e econômica de backup. Ele se integra à sua solução de backup local (SCDPM) para fornecer uma solução híbrida completa.
+As soluções tradicionais de backup foram desenvolvidas para tratar a nuvem como um ponto de extremidade semelhante a disco ou fita. Embora essa abordagem seja simples, fácil de implantar e forneça uma experiência consistente, ela tem usos limitados e não aproveita a plataforma subjacente. Isso se traduz em uma solução ineficiente e cara para os clientes finais. Tratando o Azure como "apenas um ponto de extremidade de armazenamento", as soluções de backup são incapazes de aproveitar os avanços e a eficiência da plataforma de nuvem pública. O Backup do Azure, por outro lado, oferece um serviço real que utiliza a nuvem para oferecer uma solução de backup eficiente e econômica. Ele se integra à sua solução de backup local (SCDPM) para fornecer uma solução híbrida completa.
 
 As vantagens dessa abordagem são:
 
-+ Arquitetura de armazenamento eficiente em nuvem que fornece armazenamento de dados de baixo custo e resiliente
-
-+ Dimensionamento automático não intrusivo do serviço com garantias de alta disponibilidade
-
-+ Modo consistente de backup local, híbrido e implantações de IaaS
+- Arquitetura de armazenamento eficiente em nuvem que fornece armazenamento de dados de baixo custo e resiliente
+- Dimensionamento automático não intrusivo do serviço com garantias de alta disponibilidade
+- Modo consistente de backup local, híbrido e implantações de IaaS
 
 Os principais recursos dessa solução são:
 
@@ -49,7 +40,7 @@ Os principais recursos dessa solução são:
 
 6. **Econômico**: os preços do Backup do Azure incluem uma taxa de gerenciamento de backup por instância e o custo do armazenamento (preço do blob de blocos) consumido no Azure. Ao contrário de outra oferta de backup em nuvem, o Backup do Azure não cobra seus clientes por qualquer operação de restauração. Além disso, os clientes não são cobrados por nenhuma transferência de dados de saída durante uma operação de restauração.
 
-7. **Backup na nuvem**: o Backup do Azure fornece backup consistente com aplicativos, baseado de máquinas virtuais de IaaS do Azure em execução, sem a necessidade de desligar a máquina virtual. Ele também pode fazer backup de máquinas virtuais Linux no Azure com consistência de sistema de arquivos.
+7. **Backup na nuvem**: o Backup do Azure fornece backup das máquinas virtuais de IaaS do Azure consistentes com aplicativos com base em VSS em execução sem a necessidade de desligar a máquina virtual. Ele também pode fazer backup de máquinas virtuais Linux no Azure com consistência de sistema de arquivos.
 
 
 ## Aplicativos e cargas de trabalho
@@ -66,7 +57,8 @@ Os principais recursos dessa solução são:
 | VMs de IaaS do Azure (Windows) | - | Backup do Azure | | VMs de IaaS do Azure (Linux) | - | Backup do Azure |
 
 ## Próximas etapas
-+ As perguntas frequentes sobre o serviço de Backup do Azure estão listadas [aqui](backup-azure-backup-faq.md).
-+ Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
+- As perguntas frequentes sobre o serviço de Backup do Azure estão listadas [aqui](backup-azure-backup-faq.md).
+- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

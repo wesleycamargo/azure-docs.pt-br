@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/14/2015" 
 	ms.author="femila"/>
 
 
@@ -90,6 +90,8 @@ Estes são alguns tópicos que fornecerão informações adicionais sobre o Acti
 
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 
-* [Integração das identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+* [Referência de Graph API para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+
+<!---HONumber=August15_HO8-->

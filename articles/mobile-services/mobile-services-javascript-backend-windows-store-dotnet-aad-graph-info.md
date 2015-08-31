@@ -182,4 +182,4 @@ No próximo tutorial, [Controle de acesso baseado em função com o AAD em Servi
 [Controle de acesso baseado em função com o AAD em Serviços Móveis]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Blog da equipe do Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

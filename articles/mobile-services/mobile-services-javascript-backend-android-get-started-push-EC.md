@@ -18,7 +18,7 @@
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações por push a um aplicativo Android usando o serviço de Mensagens de Nuvem do Google (GCM). Neste tutorial, você habilita as notificações por push usando os Hubs de Notificação do Azure para o projeto de início rápido. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
 
@@ -35,11 +35,11 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 ##Pré-requisitos
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-ec.md)]
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
-[AZURE.INCLUDE [Habilite o GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Habilite o GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
 
@@ -49,7 +49,7 @@ Este tutorial explica as etapas básicas para habilitar as notificações por pu
 
 ###Verificar Versão de SDK do Android
 
-[AZURE.INCLUDE [Verifique o SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Verifique o SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
 
@@ -57,11 +57,11 @@ Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Incluir código
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 
 ##<a id="update-scripts"></a>Atualizar o script de inserção registrados no Portal de Gerenciamento
@@ -190,7 +190,7 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introdução aos Serviços Móveis]: mobile-services-android-get-started.md
+[Get started with Mobile Services]: mobile-services-android-get-started.md
 [Introdução aos dados]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
@@ -212,4 +212,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

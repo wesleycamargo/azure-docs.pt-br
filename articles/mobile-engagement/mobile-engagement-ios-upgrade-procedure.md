@@ -25,9 +25,9 @@ Para cada nova versão do SDK, você deve primeiro substituir (remover e importa
 ##De 2.0.0 a 3.0.0
 Se você estiver usando o Reach em seu aplicativo, deverá adicionar o valor `remote-notification` à matriz `UIBackgroundModes` no arquivo Info.plist para receber notificações remotas.
 
-O método `application:applicationDidReceiveRemoteNotification:` precisa ser substituído por `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
+O método `application:didReceiveRemoteNotification:` precisa ser substituído por `application:didReceiveRemoteNotification:fetchCompletionHandler:` em seu representante de aplicativo.
 
-Os seguintes métodos de representante foram preteridos, e você precisará removê-los do seu representante de aplicativo:
+"AEPushDelegate.h" é uma interface preterida e você precisa remover todas as referências. Isso inclui remover `[[EngagementAgent shared] setPushDelegate:self]` e os métodos representantes do seu representante de aplicativo:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +70,4 @@ Exemplos:
 -   A classe `CapptainUtils` foi renomeada para `EngagementUtils`.
 -   A classe `CapptainViewController` foi renomeada para `EngagementViewController`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

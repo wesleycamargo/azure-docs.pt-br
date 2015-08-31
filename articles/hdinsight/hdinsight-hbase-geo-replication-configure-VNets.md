@@ -29,7 +29,7 @@ A conectividade de site a site de rede virtual do Azure usa um gateway VPN para 
 - Aplicativos multicamadas regionais com limite de isolamento forte 
 - Comunicação entre organizações e assinaturas no Azure
 
-Para obter mais informações, consulte [Configurar uma conexão VNet com VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Para obter mais informações, consulte [Configurar uma conexão VNet com VNet](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 Para ver em vídeo:
 
@@ -256,8 +256,7 @@ Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 
@@ -271,4 +270,4 @@ Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

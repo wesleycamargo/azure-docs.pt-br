@@ -411,9 +411,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabelas, siga
 -	[Como usar o Armazenamento de Blobs do C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Como usar o Armazenamento de Filas do C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
--	[Biblioteca do Cliente de Armazenamento para C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Referência do MSDN de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentação do Armazenamento do Azure](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

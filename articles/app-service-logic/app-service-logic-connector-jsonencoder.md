@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
-#Codificador JSON do BizTalk
+# Codificador JSON do BizTalk
 O conector de Codificação e Decodificação do BizTalk JSON ajuda na interoperabilidade do aplicativo entre dados JSON e XML. Pode converter uma determinada instância JSON para XML e vice-versa.
 
-##Usando o codificador JSON do BizTalk
+## Usando o codificador JSON do BizTalk
 Para usar o Codificador de Arquivo Simples JSON, primeiro você precisa criar uma instância do aplicativo de API do Codificador de Arquivo Simples JSON. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou com a seleção do aplicativo de API do Codificador JSON do BizTalk no Azure Marketplace.
 
-##Usando o Codificador JSON do BizTalk na superfície do designer de Aplicativos Lógicos
+## Usando o Codificador JSON do BizTalk na superfície do designer de Aplicativos Lógicos
 Siga as etapas em [Criando um aplicativo lógico]. O Codificador JSON do BizTalk pode ser usado como uma ação. Ele não tem gatilhos.
 
-###Ação
+### Ação
 - Clique no Codificador JSON do BizTalk no painel à direita
 
 	![Configurações de ação][3]
@@ -49,6 +49,8 @@ A ação retorna uma representação json do conteúdo da entrada.
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
 
 <!--References -->
@@ -62,4 +64,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--Links -->
 [Criando um aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

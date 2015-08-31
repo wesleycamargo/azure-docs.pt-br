@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Usar Hubs de notificação para enviar as últimas notícias (Windows Phone)" 
-	description="Use Hubs de notificação do Azure para usar a etiqueta (tag) nos registros e para enviar as últimas notícias para um aplicativo do Windows Phone." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Usar Hubs de notificação para enviar as últimas notícias (Windows Phone)"
+	description="Use Hubs de notificação do Azure para usar a etiqueta (tag) nos registros e para enviar as últimas notícias para um aplicativo do Windows Phone."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Usar hubs de notificação para enviar notícias recentes
@@ -36,7 +36,7 @@ Este tópico se baseia no aplicativo criado em [Introdução aos Hubs de Notific
 A primeira etapa é adicionar os elementos da interface do usuário na página principal existente que permitem ao usuário selecionar categorias para o registro. As categorias selecionadas por um usuário são armazenadas no dispositivo. Quando o aplicativo é iniciado, o registro do dispositivo é criado no seu hub de notificação com as categorias selecionadas como rótulos.
 
 1. Abra o arquivo de projeto MainPage.xaml e substitua os elementos **Grid** chamados `TitlePanel` e `ContentPanel` pelo seguinte código:
-			
+
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
             <TextBlock Text="Categories" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
@@ -76,7 +76,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 		{
 		    hub = new NotificationHub("<hub name>", "<connection string with listen access>");
 		}
-		
+
 		public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
 		{
 		    var categoriesAsString = string.Join(",", categories);
@@ -90,21 +90,21 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 		        settings["categories"] = categoriesAsString;
 		    }
 		    settings.Save();
-		
+
 		    await SubscribeToCategories(categories);
 		}
-		
+
 		public async Task SubscribeToCategories(IEnumerable<string> categories)
 		{
 		    var channel = HttpNotificationChannel.Find("MyPushChannel");
-		
+
 		    if (channel == null)
 		    {
 		        channel = new HttpNotificationChannel("MyPushChannel");
 		        channel.Open();
 		        channel.BindToShellToast();
 		    }
-		
+
 		    await hub.RegisterNativeAsync(channel.ChannelUri.ToString(), categories);
 		}
 
@@ -135,12 +135,12 @@ A primeira etapa é adicionar os elementos da interface do usuário na página p
 		    if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
 		    if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
 		    if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-		
+
 		    await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-		
+
 		    MessageBox.Show("Subscribed to: " + string.Join(",", categories));
 		}
-	
+
 	Esse método cria uma lista de categorias e usa a classe **Notificações** para armazenar a lista no armazenamento local e registrar os rótulos correspondentes com o hub de notificação. Quando as categorias são alteradas, o registro é recriado com as novas categorias.
 
 Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e registrar com o hub de notificação, sempre que o usuário alterar a seleção de categorias.
@@ -174,7 +174,7 @@ Estas etapas registram com o hub de notificação na inicialização, usando as 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 		    var categories = ((App)Application.Current).notifications.RetrieveCategories();
-		
+
 		    if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
 		    if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
 		    if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
@@ -223,7 +223,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 + [Use Notification Hubs to broadcast localized breaking news]
 
-	Learn how to expand the breaking news app to enable sending localized notifications. 
+	Learn how to expand the breaking news app to enable sending localized notifications.
 
 + [Notify users with Notification Hubs]
 
@@ -254,9 +254,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

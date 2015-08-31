@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Como criar um balanceador de carga usando o gerenciador de recursos do Azure
+# Introdução à configuração de um balanceador de carga interno usando o Gerenciador de Recursos do Azure
 
 
 > [AZURE.SELECTOR]
@@ -245,4 +245,4 @@ Você pode encontrar o passo a passo para criar uma máquina virtual e atribuir 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

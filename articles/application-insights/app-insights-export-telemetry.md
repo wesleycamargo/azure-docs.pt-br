@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
@@ -55,12 +55,9 @@ Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclu
 
 ## <a name="analyze"></a> Quais eventos você recebe?
 
-Os dados exportados são a telemetria bruta que recebermos do seu aplicativo, exceto:
+Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente.
 
-* Resultados de teste da Web não estão incluídos no momento. 
-* Podemos adicionar dados de localização que calculamos por meio do endereço IP do cliente.  
-
-Métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
+Outras métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
 ## <a name="get"></a> Inspecionar os dados
 
@@ -85,7 +82,7 @@ As durações de tempo são em tiques, em que 10.000 tiques = 1 ms. Por exemplo,
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 ## Processamento dos dados
 
@@ -185,6 +182,13 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
     Sim. Clique em Desabilitar.
 
+## Exemplos de código
+
+* [Transmitir Application Insights para o Power BI](app-insights-export-power-bi.md)
+* [Analisar o JSON exportado usando uma função de trabalho][exportcode]
+* [Exportar para o SQL usando o Stream Analytics][exportasa]
+
+* [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@ Em escalas maiores, considere usar o [HDInsight](http://azure.microsoft.com/serv
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

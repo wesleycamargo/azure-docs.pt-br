@@ -1,6 +1,6 @@
 <properties
    pageTitle="Conector do HDInsight"
-   description="Como usar o conector do HDInsight"
+   description="Usando o conector de HDInsight no Serviço de Aplicativo do Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -21,7 +21,7 @@
 
 Conectores podem ser usados em aplicativos de lógicos para obter, processar ou enviar dados como parte de um fluxo. O Conector do HDInsight permite criar clusters do Hadoop no Azure e enviar vários trabalhos do Hadoop, como trabalhos de Pig, Hive, MapReduce e Streaming MapReduce. O serviço Azure HDInsight implanta e provisiona clusters do Apache Hadoop na nuvem, fornecendo uma estrutura de software criada para gerenciar, analisar e relatar Big Data. O núcleo do Hadoop fornece armazenamento de dados confiável com o HDFS (Sistema de Arquivos Distribuído Hadoop) e um modelo de programação simples MapReduce para processar e analisar, paralelamente, os dados armazenados nesse sistema distribuído. Usando o conector do HDInsight, você pode criar ou excluir um cluster, enviar um trabalho e aguardar sua conclusão.
 
-###Ações básicas
+### Ações básicas
 
 - Criar Cluster
 - Aguardar a Criação do Cluster
@@ -32,83 +32,64 @@ Conectores podem ser usados em aplicativos de lógicos para obter, processar ou 
 - Excluir Cluster
 
 
-## Criar uma instância do Aplicativo de API do Conector do HDInsight ##
+## Criar o Aplicativo de API do Conector do HDInsight ##
 
-Para usar o Conector do HDInsight, você precisa criar uma instância do Aplicativo de API para o Conector do HDInsight. Isso pode ser feito da seguinte maneira:
+Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
-1. Abra o Azure Marketplace usando a opção + NEW no lado esquerdo do Portal do Azure e selecione “Marketplace”.
-2. Navegue até “Aplicativos de API” e pesquise por “Conector do HDInsight”; selecione essa opção e clique em “Criar”.
-3. Forneça os detalhes genéricos, como Nome, Plano de serviço de aplicativo e assim por diante na primeira folha.
-4. Como parte das configurações de Pacote, forneça o nome de usuário e a senha do cluster HDInsight e clique em “OK”.
-5. Clique em “Criar”.
-
-
- ![][1]
+1. No quadro inicial do Azure, selecione **Marketplace**.
+2. Pesquise "Conector do HDInsight", selecione-o e selecione **Criar**.
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades.
+4. Nas configurações de pacote, insira o nome de usuário e a senha do cluster do HDInsight Selecione **OK**.
+5. Selecione **Criar**: ![][1]  
 
 ## Configuração do certificado (opcional) ##
 
-Observação: essa etapa será necessária apenas se você quiser realizar operações de gerenciamento (criar e excluir clusters) no aplicativo lógico.
+> [AZURE.NOTE]essa etapa será necessária apenas se você quiser realizar operações de gerenciamento (criar e excluir clusters) no aplicativo lógico.
 
-Navegue até o aplicativo de API de conector HDInsight recém-criado e você verá que o componente “Segurança” mostra 0 – que significa que nenhum certificado de gerenciamento é carregado.
+Navegue até o aplicativo de API de conector HDInsight recém-criado e você verá que o componente “Segurança” mostra 0 – que significa que nenhum certificado de gerenciamento é carregado: ![][2]
 
-![][2]
+Para carregar o certificado de gerenciamento para seu Aplicativo de API:
 
-Para carregar o certificado de gerenciamento para seu Aplicativo de API, você precisa fazer o seguinte: 1. Clique no componente “Segurança”. 2. Na folha “Segurança”, clique em “CARREGAR CERTIFICADO”. 3. Navegue e selecione o arquivo de certificado na folha seguinte. 4. Quando o certificado for selecionado, clique em OK.
+1. Selecione o componente ‘Segurança’.
+2. Na folha “Segurança”, selecione **CARREGAR CERTIFICADO**.
+3. Navegue e selecione o arquivo de certificado na folha seguinte.
+4. Quando o certificado for selecionado, selecione **OK**.
 
-Depois que o certificado for carregado com êxito, os detalhes do certificado serão mostrados.
+Depois que o certificado for carregado com êxito, os detalhes do certificado serão mostrados: ![][3]
 
-![][3]
+> [AZURE.NOTE]Caso deseje alterar o certificado, você poderá carregar outro certificado; que substitui o certificado existente.
 
-Observação: Caso deseje alterar o certificado, você poderá carregar outro certificado, que substituirá o existente.
-
-## Uso em um aplicativo lógico ##
+## Usando o conector em um aplicativo lógico ##
 
 O Conector do HDInsight pode ser usado apenas como uma ação no aplicativo lógico. Vamos falar sobre um aplicativo lógico simples que cria um cluster, executa um trabalho “Hive” e exclui o cluster no fim da conclusão do trabalho.
 
 
-- No cartão “Iniciar lógica”, clique em “Executar essa lógica manualmente”.
-- Selecione o aplicativo de API de conector HDInsight criado da galeria e ele mostra todas as ações disponíveis.
+1. No cartão “Iniciar lógica”, clique em “Executar essa lógica manualmente”.
+2. Selecione o aplicativo de API de conector HDInsight criado da galeria. As ações disponíveis estão listadas: ![][5]
 
-![][5]
+3. Selecione “Criar Cluster”, insira todos os parâmetros de cluster necessários e selecione ✓:![][6]
 
+4. A ação agora aparece conforme configurado no aplicativo lógico. A(s) saída()s da ação é(são) mostrada(s) e pode(m) ser usada(s) como entrada(s) em quaisquer ações posteriores: ![][7]
 
-- Selecione “Criar Cluster”, forneça todos os parâmetros de cluster necessários e clique em ✓.
+5. Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação ‘Esperar a Criação de Cluster’, forneça todos os parâmetros necessários e selecione ✓:![][8]
 
-![][6]
+6. Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação ‘Enviar trabalho de Hive’, insira todos os parâmetros necessários e selecione ✓:![][9]
 
+7. Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação ‘Esperar conclusão do trabalho’, insira todos os parâmetros necessários e selecione ✓:![][10]
 
+8. Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação ‘Excluir cluster’, insira todos os parâmetros necessários e selecione ✓:![][11]
 
-- A ação aparecerá conforme configurado no aplicativo lógico. A(s) saída()s da ação será(ão) mostrada(s) e pode(m) ser usada(s) como entrada(s) em ações posteriores.
+9. Salve o aplicativo lógico usando o comando salvar na parte superior do designer.
 
-![][7]
+Para testar o cenário, selecione **Executar Agora** para iniciar o aplicativo lógico manualmente.
 
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-- Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação “Esperar a Criação de Cluster”, forneça todos os parâmetros necessários e clique em ✓.
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
-![][8]
-
-
-
-- Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação “Enviar Trabalho de Hive”, forneça todos os parâmetros necessários e clique em ✓.
-
-![][9]
-
-
-
-- Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação “Esperar a Conclusão do Trabalho”, forneça todos os parâmetros necessários e clique em ✓.
-
-![][10]
-
-
-
-- Selecione o mesmo conector do HDInsight da galeria como uma ação. Selecione a ação “Excluir Cluster”, forneça todos os parâmetros necessários e clique em ✓.
-
-![][11]
-
-- Salve o aplicativo lógico usando o comando salvar na parte superior da superfície do designer.
-
-Você pode clicar em “Executar Agora” para iniciar o aplicativo lógico manualmente, para testar o cenário.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
@@ -122,4 +103,4 @@ Você pode clicar em “Executar Agora” para iniciar o aplicativo lógico manu
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

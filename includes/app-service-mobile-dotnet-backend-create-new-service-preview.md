@@ -1,44 +1,38 @@
 
 
-Siga estas etapas para criar um novo aplicativo móvel.
+Siga estas etapas para criar um novo back-end de aplicativo móvel.
 
-1. Faça logon no [Portal do Azure]. Na parte inferior esquerda da janela, clique em **+NOVO**. Role até ver o item **Aplicativo Móvel**.
+1. Faça logon no [Portal do Azure].
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
+2. Na parte superior esquerda da janela, clique no botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel**, em seguida, forneça um nome ao back-end do aplicativo móvel.
 
-    Isso exibe a folha **Novo Aplicativo Móvel**.
+3. Na caixa **Grupo de Recursos**, digite o mesmo nome do aplicativo.
 
-2. Digite um nome para o seu aplicativo móvel. Esse nome deve ter pelo menos 8 caracteres e ser composto por letras minúsculas de "a" a "z".
+4. O plano Serviço de Aplicativo Padrão será selecionado. Para alterar seu plano de Serviço do Aplicativo, clique em Plano de Serviço de Aplicativo > **+ Criar Novo**. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado. Clique em Camada de Preços e selecione uma camada de preços apropriada para o serviço. Selecione **Exibir tudo** para exibir mais opções de preço, como **Gratuito** e **Compartilhado**. Depois de selecionar a camada de preços, clique no botão **Selecionar**. De volta à folha **Plano do Serviço de Aplicativo**, clique em **OK**.
 
-7. Selecione uma região. Neste tutorial, usamos a região **Centro-Sul dos EUA**.
+5. Clique em **Criar**. Isso cria um back-end de aplicativo móvel onde você, mais tarde, implantará o projeto do servidor. O provisionamento de um back-end de aplicativo móvel pode levar alguns minutos. Depois que o back-end do aplicativo móvel é provisionado, o portal abre a folha **Configurações** para o back-end do aplicativo móvel. Na próxima etapa, você criará um novo banco de dados SQL.
 
-    > [AZURE.NOTE]Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância do Banco de Dados SQL. Se você já tiver um banco de dados na mesma região como novo back-end de aplicativo móvel, você poderá escolher **Usar o banco de dados existente** e, em seguida, selecionar esse banco de dados. O uso de um banco de dados em uma região diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
+    > [AZURE.NOTE]Como parte deste tutorial, você criará um novo servidor e uma nova instância do Banco de Dados SQL. Você pode reutilizar este novo banco de dados e administrá-lo como faria com qualquer outra instância de Banco de Dados SQL. Se já houver um banco de dados no mesmo local do novo back-end do aplicativo móvel, você poderá escolher **Usar um banco de dados existente** e selecionar esse banco de dados. O uso de um banco de dados em um local diferente não é recomendado devido a latências maiores e aos custos adicionais de largura de banda.
 
-3. Selecione sua assinatura.
+6. No novo back-end do aplicativo móvel, clique em **Configurações** > **Aplicativo Móvel** > **Dados** > **+ Adicionar**.
 
-4. Crie um novo grupo de recursos com o mesmo nome que o aplicativo móvel.
+7. Na folha **Adicionar conexão de dados**, clique em **Banco de Dados SQL - Definir configurações necessárias** > **Criar um novo banco de dados**. Digite o nome do novo banco de dados no campo **Nome**.
 
-5. Em **Configurações do pacote**, selecione **USERDATABASE**; você pode escolher um banco de dados existente ou criar um novo. Para criar um novo banco de dados, digite o nome do novo **banco de dados**, crie um novo **servidor**, digite o nome desse servidor e escolha um **nome de logon**, que é o nome de logon de administrador para o novo servidor de banco de dados SQL; digite e confirme a senha, então clique no botão Ok para concluir o processo. Se você selecionar um banco de dados existente, você precisará fornecer uma **Senha de Administrador do Servidor**.
+8. Clique em **Servidor**. Na folha **Novo servidor**, insira um nome de servidor exclusivo no campo **Nome do servidor** e forneça um **Logon de administração de servidor** e **Senha**adequados. Verifique se **Permitir que os serviços do Azure acessem o servidor** está marcado. Clique em **OK**.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-6. Crie um novo plano de hospedagem Web com o mesmo nome que o aplicativo móvel.
+9. Na folha **Novo banco de dados**, clique em **OK**.
 
-    > [AZURE.NOTE]Digite o nome do plano de hospedagem Web, não tente copiar/colar. Haverá validação de nome neste campo que falha se você não digitar o nome. Ele não precisa ter exatamente o mesmo nome do site (mas precisa seguir as mesmas regras).
+10. De volta à folha **Adicionar conexão de dados**, selecione **Cadeia de conexão**, insira o logon e a senha que você forneceu ao criar o banco de dados. Se você usar um banco de dados existente, forneça as credenciais de logon desse banco de dados. Depois de inserir, clique em **OK**.
 
-8. Selecione uma faixa de preço. Neste tutorial, usamos **Padrão 1**.
+11. De volta novamente à folha **Adicionar conexão de dados**, clique em **OK** para criar o banco de dados.
 
-    A nova página de configurações do aplicativo móvel agora terá uma aparência semelhante a essa:
+A criação do banco de dados pode levar alguns minutos. Use a área **Notificações** para monitorar o progresso da implantação. Não siga adiante enquanto o banco de dados não tiver sido implantado com êxito.
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
-
-9. Clique no botão **Criar** na parte inferior da folha e você verá essa folha iniciar a implantação na janela de notificações.
-
-Você criou um novo back-end de aplicativo móvel que pode ser usado por seus aplicativos móveis.
-
-> [AZURE.NOTE]Após a criação do seu aplicativo móvel, navegue no portal para o SQL Server que você acabou de criar (certifique-se de selecionar o servidor e não o banco de dados SQL do Azure). Em seguida clique na parte de configurações, expanda a parte de firewall e altere "Permitir acesso aos serviços do Azure". Se você não fizer isso, seu aplicativo não funcionará.
+Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode ser usado pelos aplicativos móveis clientes. Em seguida, você baixará um projeto do servidor para um back-end simples da "lista de tarefas" e o publicará no Azure.
 
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

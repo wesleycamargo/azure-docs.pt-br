@@ -3,7 +3,7 @@
 	description="Saiba como usar um nome de domínio do GoDaddy com Aplicativos Web do Azure"
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="erikre"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="erikre"/>
 
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure (adquirido diretamente do GoDaddy)
 
@@ -89,4 +89,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

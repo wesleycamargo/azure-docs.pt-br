@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,11 +24,13 @@ O gerenciador de recursos é um componente do painel de cluster do Spark que per
 
 ## <a name="launchrm"></a>Como iniciar o Gerenciador de Recursos?
 
-1. Selecione o cluster do Spark no portal do Azure e, da barra de tarefas do portal na parte inferior, clique em **Painel do Sparks**.
+1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
+ 
+2. Na folha do cluster Spark, clique em **Painel**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-2. No painel superior no painel, clique na guia **Gerenciador de Recursos**.
+	![Inicializar Gerenciador de Recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Iniciar Gerenciador de Recursos")
 
-##<a name="scenariosrm"></a>Como corrigir esses problemas ao usar o Gerenciador de Recursos?
+##<a name="scenariosrm"></a>Como posso corrigir estes problemas usando o Gerenciador de Recursos?
 
 Aqui estão alguns cenários comuns que você pode executar com o cluster do Spark e as instruções sobre como tratar os que usam o Gerenciador de Recursos.
 
@@ -49,13 +52,13 @@ O cluster do Apache Spark no HDInsight foi projetado para multilocação, para q
 	![Aplicativos em execução](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Running.Apps.png "Aplicativos em execução no cluster")
 
 	
-2. No painel HDInsight Spark, clique na guia **Gerenciador de Recursos** e especifique os valores para a **Contagem de núcleo do aplicativo padrão** e **Memória do executor padrão por nó de trabalhador**. Defina outras propriedades como 0.
+2. No painel Spark HDInsight, clique na guia **Gerenciador de Recursos** e especifique os valores para **Contagem de núcleos do aplicativo padrão** e **Memória do executor padrão por nó de trabalhador**. Defina outras propriedades como 0.
 
 	![Alocação de recurso](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Allocate.Resources.png "Alocar recursos para seus aplicativos")
 
 ### Não uso ferramentas de BI com cluster do Spark. Como posso retornar os recursos? 
 
-Especifique a contagem do núcleo de servidor de Thrift e memória de executor do servidor Thrift como 0. Sem núcleo ou memória alocada, o servidor Thrift entrará em um estado **ESPERANDO**.
+Especifique a contagem do núcleo de servidor de Thrift e memória de executor do servidor Thrift como 0. Sem núcleo ou memória alocados, o servidor Thrift entrará em um estado **AGUARDANDO**.
 
 ![Alocação de recurso](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.No.Thrift.png "Não há recursos no servidor Thrift")
 
@@ -79,4 +82,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # Segurança StorSimple 
@@ -92,7 +92,7 @@ O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para va
 > * Você não pode usar a mesma senha para o iniciador do CHAP e o destino do CHAP.
 > * Depois de definir a senha, ela pode ser alterada, mas não recuperada. Se a senha for alterada, certifique-se de notificar todos os usuários de acesso remoto para que eles possam se conectar com sucesso ao dispositivo StorSimple.
 
-Para obter mais informações e configurar o CHAP, acesse [Configure o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md)
+Para obter mais informações e configurar o CHAP, acesse [Configurar o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md).
 
 ### Senha do Gerenciador de instantâneos do StorSimple
 
@@ -135,7 +135,7 @@ Conforme descrito em outras seções, as senhas são usadas para autorizar e aut
 > [AZURE.IMPORTANT]
 > 
 > * A chave da criptografia de dados do serviço é gerada apenas no primeiro dispositivo registrado com o serviço. Todos os dispositivos subsequentes registrados com o serviço devem usar a mesma chave de criptografia de dados de serviço. É muito importante fazer uma cópia dessa chave e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
-> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados de serviço** no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para obter mais informações, acesse [Usar o painel de serviço](storsimple-service-dashboard.md).
+> * Você pode alterar a chave de criptografia de dados de serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados de serviço** no painel de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para obter mais informações, acesse [Usar o painel de serviço do StorSimple Manager](storsimple-service-dashboard.md).
 > * Para garantir que a segurança dos dados não seja comprometida, use um dispositivo StorSimple físico para alterar a chave de criptografia de dados de serviço.
 > * Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, acesse [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, é recomendável alterar a chave de criptografia de dados de serviço regularmente para ajudar a impedir o comprometimento da chave.</li></ul>
@@ -153,7 +153,7 @@ O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e n
 
 ### Práticas recomendadas de segurança adicionais
 
-- Para implementar a redundância, use múltiplos caminhos (MPIO) para evitar um ponto único de falha na rede SAN do iSCSI. Para obter instruções detalhadas, acesse [Configurar o MPIO para seu dispositivo StorSimple](#storsimple-configure-mpio-windows-server.md).
+- Para implementar a redundância, use múltiplos caminhos (MPIO) para evitar um ponto único de falha na rede SAN do iSCSI. Para obter instruções detalhadas, consulte [Configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - Dividir o tráfego: isolar a rede SAN do iSCSI do tráfego do usuário em uma LAN corporativa implantando uma rede totalmente separada e usando VLANs em que o isolamento físico não é uma opção. Uma rede dedicada para o armazenamento iSCSI garantirá a segurança e o desempenho de seus dados essenciais aos negócios. Misturar o tráfego de armazenamento e o de usuário em uma LAN corporativa não é recomendado e pode aumentar a latência e causar falhas de rede.
 
@@ -250,7 +250,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 ## Próximas etapas
 
-[Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md)
+[Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

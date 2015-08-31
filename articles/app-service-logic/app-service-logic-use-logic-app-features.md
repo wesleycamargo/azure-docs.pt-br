@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -26,6 +26,15 @@ No [tópico anterior][Create a new logic app], você criou seu primeiro aplicati
 - Opções para iniciar um fluxo de trabalho.
 
 Antes de concluir este tópico, você deve concluir as etapas em [Criar um novo aplicativo lógico]. No [Portal do Azure], navegue até o aplicativo lógico e clique em **Gatilhos e Ações** em resumo para editar a definição de aplicativo lógico.
+
+## Material de referência
+
+Os documentos a seguir podem ser úteis:
+
+- [Gerenciamento e APIs REST de tempo de execução](https://msdn.microsoft.com/library/azure/dn948513.aspx) - incluindo como chamar aplicativos de lógica diretamente
+- [Referência de linguagem](https://msdn.microsoft.com/library/azure/dn948512.aspx) - uma lista abrangente de todas as expressões/funções com suporte
+- [Tipos ação e gatilho](https://msdn.microsoft.com/library/azure/dn948511.aspx) - os diferentes tipos de ações e as entradas que aceitam
+- [Visão geral do serviço de aplicativo](app-service-value-prop-what-is.md) - descrição de quais componentes podem ser escolhidos ao criar uma solução
 
 ## Adicionando lógica condicional e uma repetição
 
@@ -112,8 +121,9 @@ Os serviços podem chamar um ponto de extremidade do aplicativo lógico para ini
 
 Você pode usar esse retorno de chamada para invocar um aplicativo lógico de dentro de seu aplicativo personalizado. Você precisa usar autenticação **Básica**. O nome de usuário de `default` é criado para você, e a senha é o campo **Chave de Acesso Primária** na folha **Propriedades**. Por exemplo:
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@ Para iniciar o aplicativo lógico sob demanda, clique no botão **Executar agora
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

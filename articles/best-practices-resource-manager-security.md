@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="08/13/2015"
 	ms.author="georgem"/>
 
 
@@ -22,6 +22,8 @@
 Ao examinar os aspectos de segurança dos modelos do Gerenciador de Recursos do Azure, existem várias áreas a considerar: chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede.
 
 Este tópico pressupõe que você esteja familiarizado com o RBAC (controle de acesso baseado em função) no Gerenciador de Recursos do Azure. Para obter mais informações, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md) e [Gerenciar e auditar o acesso a recursos](resource-group-rbac.md)
+
+Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Segredos e certificados
 
@@ -45,7 +47,7 @@ Uma prática recomendada é manter modelos separados para:
 
 Um cenário corporativo típico é ter um pequeno grupo de operadores confiáveis que têm acesso aos segredos críticos nas cargas de trabalho implantadas, juntamente com um grupo mais amplo de desenvolvedores/operadores que podem criar ou atualizar implantações de VM. Veja abaixo um modelo de exemplo do ARM que cria e configura um novo cofre no contexto da identidade do usuário atualmente autenticada no Active Directory do Azure. Esse usuário teria permissão padrão para criar, excluir, listar, atualizar, fazer backup, restaurar e obter a metade pública das chaves no novo cofre da chave.
 
-Embora a maioria dos campos do modelo seja autoexplicativa, a configuração **enableVaultForDeployment** merece mais explicações: os cofres não têm acesso permanente padrão por meio de nenhum outro componente da infraestrutura do Azure. Ao definir esse valor, ele permite que os componentes da infraestrutura de Computação do Azure tenham acesso somente leitura a esse cofre nomeado específico. Portanto, uma prática recomendada adicional é não misturar dados corporativos confidenciais no mesmo cofre como segredos de máquina virtual.
+Embora a maioria dos campos desse modelo seja autoexplicativa, a configuração **enableVaultForDeployment** merece mais explicações: os cofres não têm acesso permanente padrão por meio de nenhum outro componente da infraestrutura do Azure. Ao definir esse valor, ele permite que os componentes da infraestrutura de Computação do Azure tenham acesso somente leitura a esse cofre nomeado específico. Portanto, uma prática recomendada adicional é não misturar dados corporativos confidenciais no mesmo cofre como segredos de máquina virtual.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -168,7 +170,7 @@ Uma combinação de uma entidade de serviço e o RBAC pode ser usada para atende
 
 Muitos cenários terão requisitos que especificam como o tráfego para uma ou mais instâncias de VM em sua rede virtual é controlado. Você pode usar um NSG (grupo de segurança de rede) para fazer isso como parte de uma implantação de modelo do ARM.
 
-Um grupo de segurança de rede é um objeto de nível superior associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para as instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma rede virtual associada a uma região (local). Os NSGs não são compatíveis com as redes virtuais associadas a um grupo de afinidades. Se você não tiver uma rede virtual regional e quiser controlar o tráfego para os pontos de extremidade, consulte [Sobre ACLs (listas de controle de acesso) de rede](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+Um grupo de segurança de rede é um objeto de nível superior associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para as instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma rede virtual associada a uma região (local). Os NSGs não são compatíveis com as redes virtuais associadas a um grupo de afinidades. Se você não tiver uma rede virtual regional e quiser controlar o tráfego para os pontos de extremidade, consulte [Sobre as ACLs (Listas de Controle de Acesso) de rede](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Você pode associar um NSG a uma VM ou a uma sub-rede em uma rede virtual. Quando associado a uma máquina virtual, o NSG se aplica a todo o tráfego que é enviado e recebido pela instância de VM. Quando aplicado a uma sub-rede na rede virtual, ele se aplica a todo o tráfego que é enviado e recebido por todas as instâncias de VM na sub-rede. Uma VM ou sub-rede pode ser associada a apenas um NSG, no entanto, cada NSG pode conter até 200 regras. Você pode ter 100 NSGs por assinatura.
 
@@ -222,8 +224,8 @@ NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR
 
 As regras NSG são explícitas. Nenhum tráfego é permitido ou negado além do que é especificado nas regras de NSG. No entanto, dois tipos de tráfego são sempre permitidos, independentemente da especificação do grupo de segurança de rede. Estes provisionamentos são feitos para dar suporte à infraestrutura:
 
-- **IP virtual do nó do host:** serviços básicos de infraestrutura, como DHCP, DNS e monitoramento de integridade, são fornecidos pelo endereço IP virtualizado do host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
-- **Licenciamento (Serviço de Gerenciamento de Chaves):** as imagens do Windows em execução nas VMs devem ser licenciadas. Para fazer isso, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. Isso sempre será na porta de saída 1688.
+- **IP Virtual do Nó do Host:** os serviços básicos de infraestrutura, como DHCP, DNS e monitoramento de integridade, são fornecidos pelo endereço IP virtualizado do host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
+- **Licenciamento (Serviço de Gerenciamento de Chaves)**: as imagens do Windows em execução nas VMs devem ser licenciadas. Para fazer isso, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. Isso sempre será na porta de saída 1688.
 
 ### Marcas padrão
 
@@ -259,7 +261,7 @@ Você pode associar um NSG a uma VM e a outro NSG com a sub-rede na qual a VM re
 
 ![Associando um NSG a uma sub-rede e a uma VM](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
 
-Quando um NSG está associado a uma VM ou sub-rede, as regras de controle de acesso de rede se tornam bastante explícitas. A plataforma não irá inserir regras implícitas para permitir o tráfego em uma porta específica. Nesse caso, se criar um ponto de extremidade na VM, você também deverá criar uma regra para permitir o tráfego da Internet. Se você não fizer isso, o *VIP: {Port}* não poderá ser acessada de fora.
+Quando um NSG está associado a uma VM ou sub-rede, as regras de controle de acesso de rede se tornam bastante explícitas. A plataforma não irá inserir regras implícitas para permitir o tráfego em uma porta específica. Nesse caso, se criar um ponto de extremidade na VM, você também deverá criar uma regra para permitir o tráfego da Internet. Se você não fizer isso, *VIP:{Port}* não poderá ser acessado de fora.
 
 Por exemplo, você cria uma nova VM e um novo NSG. Você associa o NSG à VM. A VM pode se comunicar com outras VMs na rede virtual por meio da regra PERMITIR A ENTRADA DA VNET. A VM também pode fazer conexões de saída com a Internet usando a regra PERMITIR SAÍDA DA INTERNET. Posteriormente, você cria um ponto de extremidade na porta 80 para receber o tráfego para o site em execução na VM. Os pacotes destinados à porta 80 no VIP (endereço IP virtual público) da Internet não chegarão à VM até que você adicione uma regra semelhante à tabela a seguir para o NSG.
 
@@ -302,7 +304,7 @@ Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabe
 
 ### Rotas BGP
 
-No momento da redação deste artigo, a [Rota Expressa](expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](expressroute/expressroute-introduction.md).
+No momento em que este artigo foi escrito, a [Rota Expressa](expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE]Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 
@@ -315,7 +317,7 @@ Não é possível exibir as rotas padrão especificadas acima em seu ambiente do
 
 Nos cenários acima, você precisará criar uma tabela de rotas e adicionar rotas definidas pelo usuário a ela. Você pode ter várias tabelas de rotas, e a mesma tabela de rotas pode ser associada a uma ou mais sub-redes. Cada sub-rede só pode ser associada a uma única tabela de rotas. Todas as VMs e serviços em nuvem em uma sub-rede usam a tabela de rotas associada a essa sub-rede.
 
-As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando existe uma associação, o roteamento é feito com base em [LPM (Correspondência de Prefixo mais Longo)](https://en.wikipedia.org/wiki/Longest_prefix_match) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando houver uma associação, o roteamento será feito com base em [LPM (Correspondência de Prefixo mais Longo)](https://en.wikipedia.org/wiki/Longest_prefix_match) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
 
 1.	Rota definida pelo usuário
 2.	Rota BGP (quando o ExpressRoute é usado)
@@ -330,9 +332,9 @@ Conforme descrito acima, uma das principais razões para criar uma rota definida
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP na VM.
 
 ## Próximas etapas
-- Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
+- Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
 - Se precisar bloquear o acesso a um recurso, você pode usar bloqueios de gerenciamento. Consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md)
-- Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md). 
-- Para uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md).
+- Para configurar o roteamento e o encaminhamento IP, consulte [Como criar rotas e habilitar o encaminhamento IP no Azure](virtual-network/virtual-networks-udr-how-to.md) 
+- Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -19,7 +19,7 @@
 
 # Como criar uma máquina virtual personalizada que executa Linux no Azure
 
-Este tópico descreve como criar uma máquina virtual *personalizada* usando a CLI do Azure para Mac, Linux e Windows no modo de Gerenciamento de Serviços do Azure. Vamos usar uma imagem do Linux das **IMAGENS ** disponíveis no Azure. Os comandos da CLI do Azure oferecem estas opções de configuração, entre outras:
+Este tópico descreve como criar uma máquina virtual *personalizada* com a CLI do Azure usando o modelo de implantação clássica. Vamos usar uma imagem do Linux das **IMAGENS ** disponíveis no Azure. Os comandos da CLI do Azure oferecem estas opções de configuração, entre outras:
 
 - Conectar a VM a uma rede virtual
 - Adicionar a VM a um serviço de nuvem existente
@@ -34,8 +34,8 @@ Este tópico descreve como criar uma máquina virtual *personalizada* usando a C
 - [Criar uma máquina virtual que executa Linux](virtual-machines-linux-tutorial.md)
 
 
-## Como criar uma máquina virtual Linux com Gerenciamento de Serviços do Azure
+## Como criar uma máquina virtual do Linux usando o modelo de implantação clássica
 
-[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

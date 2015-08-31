@@ -122,6 +122,8 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=06-->
+[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

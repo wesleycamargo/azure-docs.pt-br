@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
-#Usando o Conector do SugarCRM em seu aplicativo lógico#
+# Usando o Conector do SugarCRM em seu aplicativo lógico
 
 Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. O conector do SugarCRM permite criar e modificar entidades diferentes, como Contas, Clientes Potenciais, Contatos, etc. A seguir, os cenários de integração comum que envolvem o SugarCRM.
 
@@ -30,7 +30,7 @@ Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e
 
 Como parte das configurações do pacote do conector, o usuário pode especificar entidades que o conector pode gerenciar e os parâmetros de ações, entrada e saída são preenchidos dinamicamente.
 
-##Ações do Conector do SugarCRM##
+## Ações do Conector do SugarCRM
 A seguir estão as diferentes ações disponíveis no Conector do SugarCRM.
 
 - Criar Módulo - use essa ação para criar um novo registro para o módulo do SugarCRM, como Contas, Clientes Potenciais e Contatos.
@@ -47,55 +47,28 @@ A seguir estão as diferentes ações disponíveis no Conector do SugarCRM.
 
 - Verificar Módulos Duplicados - use essa ação para verificar se há registros duplicados em um módulo.
 
-*Observação*: para obter mais detalhes sobre os argumentos com suporte na consulta, consulte a documentação da API REST do SugarCRM.
+*Observação*: para obter mais detalhes sobre os argumentos com suporte em uma consulta, consulte a documentação da [API REST do SugarCRM](https://msdn.microsoft.com/library/dn705870).
 
-##Criar um aplicativo de API do Conector do SugarCRM##
+## Criar um aplicativo de API do Conector do SugarCRM
 1.	Navegue até portal.azure.com. Abra o Azure Marketplace usando a opção +NOVO na parte superior esquerda do Portal do Azure.
 2.	Vá para "Marketplace > Tudo" e procure "SugarCRM".
 3.	Configure o Conector do SugarCRM fornecendo os detalhes do Plano de Serviço de Aplicativo e o grupo de recursos inserindo o nome do Aplicativo de API.
 4. Defina as configurações do pacote do Conector do SugarCRM. A seguir estão as configurações de pacote que você precisa fornecer para criar o conector:
 
-	<table>
-  <tr>
-    <td><b>Nome</b></td>
-    <td><b>Obrigatório</b></td>
-    <td><b>Descrição</b></td>
-  </tr>
-  <tr>
-    <td>URL do site</td>
-    <td>Sim</td>
-    <td>Especifique a URL da sua instância do SugarCRM Ex: https://abcde1234.sugarcrm.com</td>
-  </tr>
-  <tr>
-    <td>Id do Cliente</td>
-    <td>Sim</td>
-    <td>Especifique a chave do consumidor da chave oauth 2.0 no SugarCRM </td>
-  </tr>
-  <tr>
-    <td>Segredo do Cliente</td>
-    <td>Sim</td>
-    <td>Especifique p segredo do consumidor da chave oauth 2.0 no SugarCRM </td>
-  </tr>
-<tr>
-    <td>Nome de Usuário</td>
-    <td>Sim</td>
-    <td>Especifique o nome do usuário do SugarCRM</td>
-  </tr>
-	<tr>
-    <td>Senha</td>
-    <td>Sim</td>
-    <td>Especifique a senha do usuário do SugarCRM</td>
-  </tr>
-  <tr>
-    <td>Nomes de Módulo</td>
-    <td>Sim</td>
-    <td>Especifique os módulos do SugarCRM, como Contas, Contatos, Produtos etc., em que você deseja realizar a operação<br><br>Ex. Contas,Clientes Potenciais,Contatos</td>
-  </tr>
-</table>![][9]
+	Nome | Obrigatório | Descrição
+--- | --- | ---
+URL do site | Sim | Insira a URL de sua instância do SugarCRM. Por exemplo, insira https://abcde1234.sugarcrm.com.
+Id do Cliente | Sim | Insira a chave do consumidor da chave OAUTH 2.0 no SugarCRM. 
+Segredo do Cliente | Sim | Digite o segredo do consumidor do OAUTH.
+Nome de Usuário | Sim | Digite o nome do usuário do SugarCRM.
+Senha | Sim | DIgite a senha do usuário do SugarCRM.
+Nomes de Módulo | Sim | Insira os módulos do SugarCRM (como Contas, Contatos, Produtos) em que você deseja realizar a operação<br><br>Por exemplo: Contas, Clientes Potenciais, Contatos  
+  
+![][9]
 
 
 
-##Criar um aplicativo lógico##
+## Criar um aplicativo lógico
 Vamos criar um aplicativo lógico simples que cria uma conta no SugarCRM e atualiza os detalhes do endereço de cobrança da mesma conta.
 
 1.	Faça logon no Portal do Azure e clique em “Novo -> Web + Móvel -> Aplicativo Lógico”
@@ -142,6 +115,13 @@ Vamos criar um aplicativo lógico simples que cria uma conta no SugarCRM e atual
 
 19. Você pode verificar se uma nova conta com o nome “Conta da Microsoft” foi criada em sua conta do SugarCRM e se a mesma conta também foi atualizada com as informações do endereço de cobrança.
 
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sugarcrm/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-sugarcrm/2_Logic_App_Settings.png
@@ -153,4 +133,4 @@ Vamos criar um aplicativo lógico simples que cria uma conta no SugarCRM e atual
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados| Microsoft Azure" 
-	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDF) nativamente em JavaScript." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+	pageTitle="Programação no Banco de Dados de Documentos: UDFs, gatilhos e procedimentos armazenados| Microsoft Azure"
+	description="Saiba como usar o Banco de Dados de Documentos do Microsoft Azure para escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDF) nativamente em JavaScript."
+	services="documentdb"
+	documentationCenter=""
+	authors="aliuy"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2015"
+	ms.author="andrl"/>
 
 # Programação no Banco de Dados de Documentos no servidor: UDFs, gatilhos e procedimentos armazenados
 
@@ -49,7 +49,7 @@ Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores
 	-	Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
 	-	Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o** **[SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
+A criação e execução de gatilhos, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) e dos [SDKs clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx) em diversas plataformas, incluindo .NET, Node.js e JavaScript. **Esse tutorial utiliza o [SDK Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
 
 ## Procedimentos armazenados
 
@@ -471,6 +471,90 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 	    console.log("Error" , error);
 	});
 
+## API de consulta integrada da linguagem JavaScript
+Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
+
+> [AZURE.NOTE]`__` (double-underscore) é um alias para `getContext().getCollection()`. <br/> Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
+
+As funções com suporte incluem: <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> Inicia uma chamada encadeada que deve ser terminada com value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL. </li> </ul> </li> </ul>
+
+
+Quando incluídas em funções de predicado e/ou do seletor, as construções do JavaScript a seguir são automaticamente otimizadas para serem executadas de forma direta em índices do Banco de Dados de Documentos:
+
+* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Literais, incluindo o literal de objeto: {}
+* var, return
+
+As seguintes construções do JavaScript não são otimizadas para índices do Banco de Dados de Documentos:
+
+* Fluxo de controle (por exemplo,. if, for, while)
+* Chamadas de função
+
+Para obter mais informações, consulte nossos [JSDocs no servidor](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+
+### Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
+
+O exemplo de código a seguir mostra como a API de Consulta JavaScript pode ser usada no contexto de um procedimento armazenado. O procedimento armazenado insere um documento, fornecido por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()` com minSize, maxSize e totalSize baseados na propriedade de tamanho do documento de entrada.
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## Folha de respostas rápidas do SQL para Javascript
+A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript correspondentes.
+
+Assim como acontece com consultas SQL, as chaves de propriedade do documento (por exemplo, `doc.id`) diferenciam maiúsculas de minúsculas.
+
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de Consulta JavaScript</th> <th>Detalhes</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>Resulta em todos os documentos (paginados com o token de continuação) como estão.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Projeta a id, a mensagem (com o alias msg) e ação de todos os documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta documentos com o predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consultas para documentos que tenham a propriedade Tags e Tags é uma matriz com o valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta documentos com um predicado, id = "X998\_Y998" e projeta a id e a mensagem (com o alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra documentos com uma propriedade de matriz, Tags e classifica os documentos resultantes pela propriedade do sistema \_ts timestamp, depois projeta e nivela a matriz Tags.</td> </tr> </tbody> </table>
+
 ## Suporte de tempo de execução
 O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](documentdb-interactions-with-resources.md).
 
@@ -641,4 +725,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 -	[Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

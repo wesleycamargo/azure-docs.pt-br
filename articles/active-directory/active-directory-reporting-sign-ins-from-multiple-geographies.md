@@ -1,4 +1,11 @@
-<properties pageTitle="Entradas de várias regiões geográficas" description="Um relatório que indica aos usuários duas entradas que pareceram se originar de diferentes regiões e cujo tempo entre elas tornou impossível que o usuário tivesse viajado entre essas regiões."" services="active-directory" documentationCenter="" authors="kenhoff" manager="ilanas" editor=""/>
+<properties
+	pageTitle="Entradas de várias regiões geográficas"
+	description="Um relatório que indica aos usuários quando duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Entradas de várias regiões geográficas
 
@@ -17,4 +24,4 @@
 
 ![Entradas de várias regiões geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

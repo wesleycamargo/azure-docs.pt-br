@@ -1,22 +1,24 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ Os limites dependem da [camada de preços](http://azure.microsoft.com/pricing/details/application-insights/) que você escolher.
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Recurso** | **Limite padrão** | **Limite máximo**
 -------- | ------------- | -------------
-Session data points<sup>1</sup> per month | unlimited | unlimited
-Other data points per month | 5 million | 50 million<sup>2</sup>
-Trace or Log data rate | 200 dp/s | 500 dp/s
-Exception data rate | 50 dp/s | 50 dp/s
-Other telemetry data rate | 200 dp/s | 500 dp/s
-Raw  data retention |7 days| 30 days
-Aggregated data retention | 13 months | unlimited
-Property name count across the app | 100 | 100
-Property name length | 100 | 100
-Property value length | 1000 | 1000
-Trace and Exception message length | 10000 | 10000
-Metric name length |  100 | 100
+Pontos de dados da sessão<sup>1</sup> por mês | ilimitado | ilimitado
+Outros pontos de dados por mês | 5 milhões | 50 milhões<sup>2</sup>
+Taxa de dados de rastreamento ou log | 200 dp/s | 500 dp/s
+Taxa de dados de exceção | 50 dp/s | 50 dp/s
+Outras taxas de dados de telemetria | 200 dp/s | 500 dp/s
+Retenção de dados brutos |7 dias| 30 dias
+Retenção de dados agregados | 13 meses | ilimitado
+Contagem do nome de propriedade no aplicativo | 100 | 100
+Comprimento do nome da propriedade | 100 | 100
+Comprimento do valor da propriedade | 1000 | 1000
+Comprimento da mensagem de rastreamento e exceção | 10000 | 10000
+Comprimento do nome da métrica | 100 | 100
 
-<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
+<sup>1</sup> Um ponto de dados é um valor ou evento de métrica individual, com propriedades e medidas anexadas.
 
-<sup>2</sup> You can purchase additional capacity beyond 50 million.
+<sup>2</sup> Você pode adquirir capacidade adicional além 50 milhões.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[Sobre cotas e preços no Application Insights](app-insights-pricing.md)
+
+<!---HONumber=August15_HO8-->

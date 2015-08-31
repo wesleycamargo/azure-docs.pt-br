@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="O que é o HBase no HDInsight? | Microsoft Azure" 
-	description="Uma introdução ao Apache HBase no HDInsight, uma compilação de banco de dados NoSQL no Hadoop. Aprenda sobre casos de uso e compare HBase com outros clusters Hadoop." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="O que é o HBase no HDInsight? | Microsoft Azure"
+	description="Uma introdução ao Apache HBase no HDInsight, uma compilação de banco de dados NoSQL no Hadoop. Aprenda sobre casos de uso e compare HBase com outros clusters Hadoop."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +35,7 @@ A implementação do HDInsight utiliza a arquitetura de expansão do HBase para 
 ## Como os dados no HBase do HDInsight são gerenciados?
 
 Os dados podem ser gerenciados no HBase usando os comandos `create`, `get`, `put` e `scan` do shell do HBase. Os dados são gravados no banco de dados usando `put` e lidos usando `get`. O comando `scan` é utilizado para obter dados de múltiplas linhas em uma tabela. Os dados também podem ser gerenciados utilizando a API C# do HBase, que oferece uma biblioteca de cliente sobre a API REST do HBase. Um banco de dados HBase também pode ser consultado usando o Hive. Para ver uma introdução a esses modelos de programação, consulte [Introdução ao HBase com o Hadoop no HDInsight][hbase-get-started]. Também estão disponíveis coprocessadores, que permitem o processamento de dados em nós que hospedam o banco de dados.
- 
+
 
 ## Cenários: casos de uso para o HBase
 O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi criado era a pesquisa na Web. Os mecanismos de pesquisa criam índices que mapeiam termos nas páginas da web que os contêm. Mas há muitos outros casos de uso aos quais o HBase se ajusta, muitos dos quais são descritos nesta seção.
@@ -60,7 +61,7 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 
 - [Introdução ao uso do HBase com Hadoop no HDInsight][hbase-get-started]
 - [Provisionar clusters do HDInsight na Rede Virtual do Azure][hbase-provision-vnet]
-- [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md) 
+- [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md)
 - [Analisar dados de sentimento no Twitter com o HBase no HDInsight][hbase-twitter-sentiment]
 - [Utilizar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight (Hadoop)][hbase-build-java-maven]
 
@@ -87,20 +88,9 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

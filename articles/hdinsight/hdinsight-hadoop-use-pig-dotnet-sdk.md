@@ -5,7 +5,8 @@
    documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
@@ -23,6 +24,10 @@
 Este documento fornece um exemplo de uso do SDK do .NET para Hadoop para enviar trabalhos do Pig para um Hadoop no cluster HDInsight.
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight no .NET. O Pig permite que você crie operações MapReduce ao modelar uma série de transformações de dados. Você aprenderá como usar um aplicativo C# básico para enviar um trabalho do Pig para um cluster HDInsight.
+
+[AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
+
+* [Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -36,7 +41,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 Para autenticar o aplicativo no Azure HDInsight, você deve criar um certificado autoassinado, instalá-lo em sua estação de trabalho de desenvolvimento e também carregá-lo em sua assinatura do Azure.
 
-Para obter instruções sobre como fazer isso, consulte [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138).
+Para obter instruções sobre como fazer isso, confira [Criar um certificado autoassinado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 > [AZURE.NOTE]Ao criar o certificado, certifique-se de observar o nome amigável usado, pois ele será usado posteriormente.
 
@@ -44,11 +49,11 @@ Para obter instruções sobre como fazer isso, consulte [Criar um certificado au
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o [Console de gerenciamento do Azure](https://manage.windowsazure.com/).
+1. Visite o [portal de visualização do Azure] [portal de visualização].
 
-2. Na barra à esquerda do portal, selecione **Configurações**.
+2. Na barra à esquerda do portal, selecione __PROCURAR TUDO__ e selecione __Assinaturas__ na folha __Procurar__.
 
-3. Nas informações apresentadas à direita da página, localize a assinatura que deseja usar e observe o valor na coluna **ID da Assinatura**.
+3. Nas informações apresentadas na folha __Assinaturas__, localize a assinatura que deseja usar e observe o valor na coluna **ID da Assinatura**.
 
 Salve a ID da assinatura, que será usada mais tarde.
 
@@ -227,6 +232,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md) [portal-de-visualização]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

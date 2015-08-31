@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Testando as configurações do Gerenciador de Tráfego
 
@@ -54,7 +54,7 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 
 ## Consulte também
 
-[Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Tarefas de configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Gerenciador de Tráfego](../traffic-manager.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Gerenciador de Tráfego](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

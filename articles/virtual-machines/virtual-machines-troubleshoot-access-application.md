@@ -29,7 +29,7 @@ Há quatro áreas principais nas quais é possível solucionar problemas de aces
 
 1.	O aplicativo em execução na máquina virtual do Azure.
 2.	A máquina virtual do Azure.
-3.	Pontos de extremidade do Azure para o serviço de nuvem que contém a máquina virtual (para máquinas virtuais criadas no Gerenciador de Serviços), regras NAT de entrada (para máquinas virtuais criadas no Gerenciador de Recursos) e Grupos de segurança de rede.
+3.	Pontos de extremidade do Azure para o serviço de nuvem que contém a máquina virtual (para máquinas virtuais criadas usando a API de Gerenciamento de Serviços), regras NAT de entrada (para máquinas virtuais criadas no Gerenciador de Recursos) e Grupos de Segurança de Rede.
 4.	Seu dispositivo de borda da Internet.
 
 Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou da Rota Expressa, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure. Para determinar a origem do problema e sua correção, siga estas etapas.
@@ -53,7 +53,7 @@ Em máquinas virtuais baseadas em Linux e Windows, use o comando **netstat - a**
 
 ## <a id="step2"></a>Etapa 2: Você consegue acessar o aplicativo em outra máquina virtual na mesma rede virtual?
 
-Tente acessar o aplicativo por meio de uma máquina virtual diferente na mesma rede virtual da máquina virtual em que o aplicativo está sendo executado usando o nome do host da máquina virtual ou seu endereço IP do provedor, público ou provado atribuído pelo Azure. Para máquinas virtuais criadas no Gerenciador de Serviços, não use o endereço IP público do serviço de nuvem.
+Tente acessar o aplicativo por meio de uma máquina virtual diferente na mesma rede virtual da máquina virtual em que o aplicativo está sendo executado usando o nome do host da máquina virtual ou seu endereço IP do provedor, público ou provado atribuído pelo Azure. Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, não use o endereço IP público do serviço de nuvem.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
@@ -80,9 +80,9 @@ Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da W
 
 Se não conseguir acessar o aplicativo, verifique o seguinte:
 
-- Para máquinas virtuais criadas no Gerenciador de Serviços, que a configuração do ponto de extremidade da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
-- Para máquinas virtuais criadas no Gerenciador de Serviços, que as ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego de entrada da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
-- Para máquinas virtuais criadas no Gerenciador de Recursos, que a configuração da regra NAT de entrada da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. 
+- Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, cuja configuração do ponto de extremidade da máquina virtual está permitindo tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
+- Para máquinas virtuais criadas usando a API de Gerenciamento de Serviços, as ACLs (Listas de Controle de Acesso) no ponto de extremidade não estão impedindo o tráfego de entrada da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-set-up-endpoints.md)
+- Para máquinas virtuais criadas no Gerenciador de Recursos, que a configuração da regra NAT de entrada da máquina virtual está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
 - Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de segurança de rede)?](virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
@@ -110,4 +110,4 @@ Se tiver executado as etapas de 1 a 3 neste artigo e precisar de mais ajuda para
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada no Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

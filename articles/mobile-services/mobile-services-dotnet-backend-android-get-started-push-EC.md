@@ -18,7 +18,7 @@
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 ##Visão geral
 
@@ -28,7 +28,7 @@ Este tutorial baseia-se no início rápido dos Serviços Móveis. Antes de inici
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
-[AZURE.INCLUDE [Habilite o GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Habilite o GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Configurar Serviços Móveis para enviar solicitações de push
@@ -99,7 +99,7 @@ Seu serviço móvel agora está configurado para trabalhar com o GCM e Hubs de N
 
 ###Verificar Versão de SDK do Android
 
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
@@ -108,11 +108,11 @@ Se você for testar com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Incluir código
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 ##<a name="test-app"></a>Testar o aplicativo no serviço móvel publicado
 
@@ -237,4 +237,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

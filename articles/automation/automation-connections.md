@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ativos de conexão na Automação do Azure"
+   pageTitle="Ativos de conexão na Automação do Azure | Microsoft Azure"
    description="Ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Ativos de conexão na Automação do Azure
@@ -120,4 +120,4 @@ A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de par
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

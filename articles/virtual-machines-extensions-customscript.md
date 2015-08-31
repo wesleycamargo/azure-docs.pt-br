@@ -36,7 +36,7 @@ A extensão do script personalizado do Windows permite que você execute scripts
 
 ## Cenários de extensão do script personalizado:
 
- ### Carregue arquivos no contêiner padrão: se você tiver scripts no contêiner de armazenamento da conta padrão de sua assinatura, o trecho de cmdlet abaixo mostra como você pode executá-los na VM. O ContainerName no exemplo abaixo é onde você carrega os scripts. A conta de armazenamento padrão pode ser verificada usando o cmdlet ‘Get-AzureSubscription –Default’
+ \#\#\# Carregue arquivos no contêiner padrão: se você tiver scripts no contêiner de armazenamento da conta padrão de sua assinatura, o trecho de cmdlet abaixo mostra como você pode executá-los na VM. O ContainerName no exemplo abaixo é onde você carrega os scripts. A conta de armazenamento padrão pode ser verificada usando o cmdlet ‘Get-AzureSubscription –Default’
 
 Observação: esse caso de uso cria uma nova VM, mas as mesmas operações podem ser feitas em uma VM existente também.
 
@@ -58,7 +58,7 @@ Observação: esse caso de uso cria uma nova VM, mas as mesmas operações podem
 Este caso de uso mostra como usar um armazenamento fora do padrão dentro da mesma assinatura ou em uma assinatura diferente para carregar arquivos/scripts. Aqui, usaremos uma máquina virtual existente, mas as mesmas operações podem ser feitas durante a criação de uma nova VM.
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
-  ### Carregue scripts para vários contêineres em diferentes contas de armazenamento. Se os arquivos de script são armazenados em vários contêineres, para executar esses scripts no momento, você precisa fornecer a URL de SAS completa desses arquivos.
+  \#\#\# Carregue scripts para vários contêineres em diferentes contas de armazenamento. Se os arquivos de script são armazenados em vários contêineres, para executar esses scripts no momento, você precisa fornecer a URL de SAS completa desses arquivos.
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
@@ -66,7 +66,7 @@ Este caso de uso mostra como usar um armazenamento fora do padrão dentro da mes
 ### Adicione extensão de script personalizado pelo Portal.
 Navegue até a máquina virtual no <a href="https://portal.azure.com/ " target="_blank">Portal de Visualização do Azure</a> e adicione a extensão especificando o arquivo de script a ser executado. ![][5]
 
-  ### Desinstalando a extensão de script personalizado.
+  \#\#\# Desinstalando a extensão de script personalizado.
 
 A extensão de script personalizado pode ser desinstalada da VM usando o cmdlet abaixo
 
@@ -79,4 +79,4 @@ Para aprender sobre como usar a Extensão do Script Personalizado com modelos, c
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

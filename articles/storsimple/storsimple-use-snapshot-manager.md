@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/11/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Interface do usuário do StorSimple Snapshot Manager
@@ -51,7 +51,7 @@ A interface do usuário do StorSimple Snapshot Manager dá suporte aos recursos 
 
 ## Barra de menus
 
-A barra de menus na parte superior da janela do console contém os menus [**Arquivo**](#file-menu), [**Ação**](#action-menu), [**Exibição**](#view-menu), [**Favoritos**](#favorites-menu), [**Janela**](#window-menu) e [**Ajuda**](#help-menu).
+A barra de menus na parte superior da janela do console contém os menus [Arquivo](#file-menu), [Ação](#action-menu), [Exibição](#view-menu), [Favoritos](#favorites-menu), [Janela](#window-menu) e [Ajuda](#help-menu).
 
 Clique em qualquer item na barra de menus para ver uma lista dos comandos disponíveis nesse menu. O exemplo a seguir mostra o menu **Exibição** selecionado na barra de menus.
 
@@ -80,7 +80,7 @@ A tabela a seguir descreve os itens que aparecem no menu **Arquivo**.
 | Novo | Clique em **Novo** para criar um novo console com base no StorSimple Snapshot Manager. |
 | Aberto | Clique em **Abrir** para abrir um console existente. |
 | Salvar | Clique em **Salvar** para salvar o console atual. |
-| Salvar como | Clique em **Salvar como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
+| Salvar como | Clique em **Salvar Como** para criar uma nova instância renomeada do console atual. Use a opção **Salvar Como** para personalizar uma exibição e salvá-la para recuperação posterior. Por exemplo, você pode criar snap-ins do StorSimple Snapshot Manager que apontem para servidores específicos. |
 | Adicionar/Remover Snap-in | Clique em **Adicionar/Remover Snap-in** para adicionar ou remover snap-ins e organizar nós no painel **Escopo**. Para obter mais informações, vá para [Adicionar, Remover e Organizar Snap-ins e Extensões no MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
 | Opções | Clique em **Opções** para alterar o ícone do console, especificar permissões e modos de acesso do usuário ou excluir arquivos de console para aumentar o espaço em disco disponível. |
 | Lista de caminhos de arquivo | Clique em um caminho na lista numerada para reabrir um arquivo que você abriu recentemente. |
@@ -94,11 +94,11 @@ Use o menu **Ação** para selecionar uma das ações disponíveis. Os itens dis
 
 Para exibir o menu **Ação**, siga um destes procedimentos:
 
-- Clique com o botão direito em um item do painel **Escopo** ou do painel **Resultados**.
+- Clique com o botão direito do mouse em um item no painel **Escopo** ou no painel **Resultados**.
 
 - Selecione um item no painel **Escopo** ou no painel **Resultados** e clique em **Ação** na barra de menus.
 
-Por exemplo, se você selecionar o nó superior do painel **Escopo** e depois clicar em **Ação** na barra de menus, o seguinte menu aparece.
+Por exemplo, se você selecionar o nó superior do painel **Escopo** e depois clicar com o botão direito do mouse em **Ação** na barra de menus, o seguinte menu aparece.
  
 ![Menu Ação do StorSimple Snapshot Manager](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
@@ -124,24 +124,24 @@ A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimp
  
 | Ação | Navegação | Descrição |
 |:--------|:------------|:-------------|
-| Autenticar | Clique no nó **Dispositivos** e clique com o botão direito em um dispositivo no painel **Resultados**. | Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
+| Autenticar | Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Autenticar** para digitar a senha que você configurou para o dispositivo. |
 | Clone | Expanda **Catálogo de Backups**, expanda **Instantâneos em Nuvem**, clique em um backup com data e selecione um volume no painel **Resultados**. | Clique em **Clone** para criar uma cópia de um instantâneo de nuvem e armazená-la em um local que você designar. |
-| Configurar um Dispositivo | Clique com o botão direito no nó **Dispositivos**. | Clique em **Configurar um Dispositivo** para configurar um ou vários dispositivos para se conectar ao host do Windows. |
-| Criar Política de Backup | Execute uma das seguintes opções: <ul><li>Clique com o botão direito em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de Volumes** e clique com o botão direito em um grupo de volumes. </li><li>Clique ou expanda **Catálogo de Backups** e clique com o botão direito em um grupo de volumes.</li></ul> | Clique em **Criar Política de Backup** para configurar um backup agendado para um grupo de volumes. |
-| Criar Grupo de Volumes | Execute uma das seguintes opções: <ul><li>Clique no nó **Volumes** e clique com o botão direito em um volume no painel **Resultados**. </li><li>Clique com o botão direito no nó **Grupos de Volumes**.</li></ul> | Clique em **Criar Grupo de Volumes** para atribuir volumes a um grupo de volumes. |
-| Excluir | Clique em um nó ou resultado (esse item aparece em vários menus de **Ação** e nos painéis de **Ações**.) | Clique em **Excluir** para excluir o nó ou resultado que você selecionou. Quando a caixa de diálogo de confirmação aparecer, confirme ou cancele a exclusão. |
-| Detalhes | Clique no nó **Dispositivos** e, em seguida, clique com o botão direito em um dispositivo no painel **Resultados**. | Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
-| Editar | Clique em **Políticas de Backup** e clique com o botão direito em uma política no painel **Resultados**. | Clique em **Editar** para alterar o agendamento de backup de um grupo de volumes. |
-| Exportar Lista | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) | Clique em **Exportar Lista** para salvar uma lista em um arquivo CSV (valores separados por vírgulas). Em seguida, você pode importar esse arquivo para um aplicativo de planilha para análise. |
+| Configurar um Dispositivo | Clique com o botão direito do mouse no nó **Dispositivos**. | Clique em **Configurar um Dispositivo** para configurar um ou vários dispositivos para se conectar ao host do Windows. |
+| Criar Política de Backup | Execute uma das seguintes opções: <ul><li>clique com o botão direito do mouse em **Políticas de Backup**.</li><li>Clique ou expanda **Grupos de Volumes** e clique com o botão direito do mouse em um grupo de volumes. </li><li>Clique ou expanda **Catálogo de Backups** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> | Clique em **Criar Política de Backup** para configurar um backup agendado para um grupo de volumes. |
+| Criar Grupo de Volumes | Execute uma das seguintes opções: <ul><li>clique no nó **Volumes** e clique com o botão direito do mouse em um volume no painel **Resultados**. </li><li>Clique com o botão direito no nó **Grupos de Volumes**.</li></ul> | Clique em **Criar Grupo de Volumes** para atribuir volumes a um grupo de volumes. |
+| Excluir | Clique em um nó ou resultado (esse item aparece em vários menus de **Ação** e nos painéis de **Ações**). | Clique em **Excluir** para excluir o nó ou o resultado que você selecionou. Quando a caixa de diálogo de confirmação aparecer, confirme ou cancele a exclusão. |
+| Detalhes | Clique no nó **Dispositivos** e, em seguida, clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Detalhes** para ver os detalhes da configuração de um dispositivo. |
+| Editar | Clique em **Políticas de Backup** e clique com o botão direito do mouse em uma política no painel **Resultados**. | Clique em **Editar** para alterar o agendamento de backup de um grupo de volumes. |
+| Exportar Lista | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Exportar Lista** para salvar uma lista em um arquivo CSV (valores separados por vírgulas). Em seguida, você pode importar esse arquivo para um aplicativo de planilha para análise. |
 | Ajuda | Clique em qualquer nó ou resultado. (Esse item aparece em todos os menus de **Ação** e painéis de **Ações**.) | Clique em **Ajuda** para abrir a Ajuda online em uma janela separada do navegador. |
-| Nova Janela a Partir Daqui | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) | Clique em **Nova Janela a Partir Daqui** para abrir uma nova janela do StorSimple Snapshot Manager.|
-| Atualizar | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**.) | Clique em **Atualizar** para atualizar a janela StorSimple Snapshot Manager exibida atualmente. |
-| Atualizar Dispositivo | Clique no nó **Dispositivos** e clique com o botão direito em um dispositivo no painel **Resultados**. | Clique em **Atualizar Dispositivo** para sincronizar um dispositivo específico conectado ao StorSimple Snapshot Manager. |
-| Atualizar Dispositivos | Clique com o botão direito no nó **Dispositivos**. | Clique em **Atualizar Dispositivos** para sincronizar sua lista de dispositivos conectados com o StorSimple Snapshot Manager. |
-| Examinar volumes novamente | Clique com o botão direito no nó **Volumes**. | Clique em **Examinar volumes novamente** para atualizar a lista de volumes que aparece no painel **Resultados**. |
-| Restaurar | Expanda **Catálogo de Backups**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito em um backup. | Clique em **Restaurar** para substituir os dados do grupo de volumes atual pelos dados do backup selecionado. |
-| Fazer Backup | Execute uma das seguintes opções: <ul><li>Expanda **Grupos de Volumes** e clique com o botão direito em um grupo de volumes. </li><li>Expanda **Catálogo de Backups** e clique com o botão direito em um grupo de volumes.</li></ul> | Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
-| Alternar Exibição de Importações | Clique com o botão direito no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). | Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do StorSimple Manager. |
+| Nova Janela a Partir Daqui | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Nova Janela a Partir Daqui** para abrir uma nova janela do StorSimple Snapshot Manager.|
+| Atualizar | Clique em um nó ou resultado (esse item aparece em todos os menus de **Ação** e nos painéis de **Ações**). | Clique em **Atualizar** para atualizar a janela do StorSimple Snapshot Manager exibida atualmente. |
+| Atualizar Dispositivo | Clique no nó **Dispositivos** e clique com o botão direito do mouse em um dispositivo no painel **Resultados**. | Clique em **Atualizar Dispositivo** para sincronizar um dispositivo específico conectado ao StorSimple Snapshot Manager. |
+| Atualizar Dispositivos | Clique com o botão direito do mouse no nó **Dispositivos**. | Clique em **Atualizar Dispositivos** para sincronizar sua lista de dispositivos conectados com o StorSimple Snapshot Manager. |
+| Examinar volumes novamente | Clique com o botão direito do mouse no nó **Volumes**. | Clique em **Examinar volumes novamente** para atualizar a lista de volumes que aparece no painel **Resultados**. |
+| Restaurar | Expanda **Catálogo de Backups**, expanda um grupo de volumes, expanda **Instantâneos Locais** ou **Instantâneos em Nuvem** e clique com o botão direito do mouse em um backup. | Clique em **Restaurar** para substituir os dados do grupo de volumes atual pelos dados do backup selecionado. |
+| Fazer Backup | Execute uma das seguintes opções: <ul><li>Expanda **Grupos de Volumes** e clique com o botão direito do mouse em um grupo de volumes. </li><li>Expanda **Catálogo de Backups** e clique com o botão direito do mouse em um grupo de volumes.</li></ul> | Clique em **Fazer Backup** para iniciar um trabalho de backup imediatamente. |
+| Alternar Exibição de Importações | Clique com o botão direito do mouse no nó superior do painel **Escopo** (o nó **StorSimple Snapshot Manager** nos exemplos). | Clique em **Alternar Exibição de Importações** para mostrar ou ocultar os grupos de volumes e backups associados que foram importados do painel de serviço do StorSimple Manager. |
 
 ### Menu Exibir
 
@@ -293,7 +293,7 @@ O nó **Dispositivos** representa os dispositivos do StorSimple e os dispositivo
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Dispositivos**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Dispositivos** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Dispositivos** ou em qualquer um de nós que aparecem na exibição expandida.
 
 - Para ver uma lista dos dispositivos configurados, clique em **Dispositivos** no painel **Escopo**. A lista de dispositivos, com informações sobre cada dispositivo, aparece no painel **Resultados**.
 
@@ -303,7 +303,7 @@ O nó **Volumes** representa as unidades que correspondem aos volumes montados p
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Volumes**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de volumes, clique em **Volumes** no painel **Escopo**. A lista de volumes, com informações sobre cada volume, aparece no painel **Resultados**.
 
@@ -313,7 +313,7 @@ Grupos de volumes também são conhecidos como grupos de consistência. Cada gru
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Grupos de Volumes**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Grupos de Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Grupos de Volumes** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de grupos de volumes, clique em **Grupos de Volumes** no painel **Escopo**. A lista de grupos de volumes, com informações sobre cada grupo de volumes, aparece no painel **Resultados**.
 
@@ -323,7 +323,7 @@ Políticas de backup são agendas de trabalhos para instantâneos locais e na nu
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Políticas de Backup**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Políticas de Backup** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Políticas de Backup** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de políticas de backup, clique em **Políticas de Backup** no painel **Escopo**. A lista de políticas de backup, com informações sobre cada política, aparece no painel **Resultados**.
 
@@ -336,7 +336,7 @@ O nó **Catálogo de Backups** contém listas de backups locais e externos de vo
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Catálogo de Backups**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Catálogo de Backups** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Catálogo de Backups** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de instantâneos de backup, clique em **Catálogo de Backups** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados**.
 
@@ -346,7 +346,7 @@ O nó **Instantâneos Locais** relaciona os instantâneos locais para um grupo d
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Instantâneos Locais**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Instantâneos Locais** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Instantâneos Locais** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de instantâneos locais, clique em **Instantâneos Locais** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados**.
 
@@ -356,7 +356,7 @@ O nó **Instantâneos de Nuvem** lista os instantâneos locais para um grupo de 
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Instantâneos de Nuvem**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Instantâneos de Nuvem** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Instantâneos de Nuvem** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista de instantâneos de nuvem, clique em **Instantâneos de Nuvem** no painel **Escopo**. A lista de instantâneos, com informações sobre cada um deles, aparece no painel **Resultados**.
 
@@ -366,7 +366,7 @@ O nó **Trabalhos** contém informações sobre trabalhos de backup agendados, e
 
 - Para expandir o nó, clique no ícone de seta ao lado de **Trabalhos**.
 
-- Para ver um menu das ações disponíveis, clique com o botão direito no nó **Trabalhos** ou em qualquer um dos nós que aparecem na exibição expandida.
+- Para ver um menu das ações disponíveis, clique com o botão direito do mouse no nó **Trabalhos** ou em qualquer um dos nós que aparecem na exibição expandida.
 
 - Para ver uma lista dos trabalhos agendados, expanda o nó **Trabalhos** e clique em **Agendado**. A lista de trabalhos configurados anteriormente e informações sobre cada trabalho aparecem no painel **Resultados**.
 
@@ -386,7 +386,7 @@ Para ver o exemplo a seguir, clique no nó **Grupos de Volumes** no painel **Esc
 
 **Figura 11: Painel Resultados do StorSimple Snapshot Manager**
 
-Você pode configurar os detalhes mostrados no painel **Resultados**: clique com o botão direito em um nó no painel **Escopo**, clique em **Exibir** e clique em **Adicionar/Remover Colunas**.
+Você pode configurar os detalhes mostrados no painel **Resultados**: clique com o botão direito do mouse em um nó no painel **Escopo**, clique em **Exibir** e clique em **Adicionar/Remover Colunas**.
 
 ## Painel Ações
 
@@ -434,14 +434,14 @@ A tabela a seguir descreve as teclas que você pode usar para navegar pela inter
 
 ### Teclas de atalho da barra de menus
 
-A tabela a seguir descreve as combinações de teclas de atalho da barra de menus. Após você pressionar as teclas de atalho e o menu abrir, você pode usar teclas de atalho do menu (as chaves sublinhadas no menu). Para obter mais informações sobre a barra de menus, vá até a [Barra de Menus](#menu-bar).
+A tabela a seguir descreve as combinações de teclas de atalho da barra de menus. Após você pressionar as teclas de atalho e o menu abrir, você pode usar teclas de atalho do menu (as chaves sublinhadas no menu). Para obter mais informações sobre a barra de menus, acesse [Barra de menus](#menu-bar).
 
 | Atalho | Result | Tecla de atalho do menu | Result |
 |:---------|:--------------------------|:------------------|:----------------|
 | ALT + F | Abre o menu **Arquivo**. | N | Abre uma nova instância do console. |
 | | | O | Abre a página **Ferramentas Administrativas**. |
 | | | S | Salva o console do StorSimple Snapshot Manager.|
-| | | Uma | Abre a página **Salvar como**. |
+| | | Uma | Abre a página **Salvar Como**. |
 | | | M | Abre a página **Adicionar/Remover Snap-in**.|
 | | | P | Abre a página **Opções**. |
 | | | H | Abre a Ajuda online.|
@@ -451,7 +451,7 @@ A tabela a seguir descreve as combinações de teclas de atalho da barra de menu
 | | | L | Abre a página **Exportar Lista**. 
 | | | H | Abre a Ajuda online.|
 | ALT+V | Abre o menu **Exibição**. | Uma | Abre a página **Adicionar/Remover Colunas**. |
-| | | U | Abre a página **Personalizar Modo de Exibição**. |
+| | | U | Abre a página **Personalizar Exibição**. |
 | ALT+O | Abre o menu **Favoritos**. | Uma | Abre a página **Adicionar aos Favoritos**. |
 | | | O | Abre a página **Organizar Favoritos**.|
 | ALT+W | Abre o menu **Janela**.| N | Abre outra janela do StorSimple Snapshot Manager.|
@@ -538,6 +538,6 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
  
 ## Próximas etapas
 
-Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
+[Saiba como usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

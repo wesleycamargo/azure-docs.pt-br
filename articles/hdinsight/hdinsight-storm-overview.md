@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -141,7 +142,7 @@ Para obter mais informações sobre os componentes do Storm, consulte o [Tutoria
 
 O Storm no cluster HDInsight dá suporte para C#, Java e Python.
 
-### C&#35;
+### C&\#35;
 
 As Ferramentas do HDInsight para Visual Studio permitem que os desenvolvedores do .NET projetem e implementem uma topologia em C#. Você também pode criar topologias híbridas que usam componentes Java e C#.
 
@@ -206,4 +207,4 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

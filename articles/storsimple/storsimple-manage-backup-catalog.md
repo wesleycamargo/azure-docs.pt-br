@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/24/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 # Gerenciar catálogo de backup do StorSimple
@@ -109,7 +109,7 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
     Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 
-3. Selecione e expanda um conjunto de backups. As opções **Restaurar e Excluir** são exibidas na parte inferior da página. Clique em **Excluir**. Excluir conjunto de backups
+3. Selecione e expanda um conjunto de backups. As opções **Restaurar e Excluir** são exibidas na parte inferior da página. Clique em **Excluir**.
 
 4. Você será notificado quando a exclusão estiver em andamento e quando ela for concluída com êxito. Após a exclusão, atualize a consulta nesta página. O conjunto de backup excluído não aparecerá mais na lista de conjuntos de backup.
 
@@ -117,4 +117,4 @@ Exclua um backup quando você não quiser mais manter os dados associados a ele.
 
 Saiba como usar o catálogo de backup para [restaurar seu dispositivo por meio de um conjunto de backup](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

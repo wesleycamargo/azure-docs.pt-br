@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 # Usando o Conector do SharePoint em seu aplicativo lógico
@@ -56,7 +56,8 @@ Senha | Não | Especifique uma senha válida para se conectar ao site do SharePo
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][2]
+5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes: 
+	![][2]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Server.
 
@@ -71,13 +72,22 @@ Depois de criar seu aplicativo de API, agora você pode usar o conector do Share
 
 3. Se o conector do SharePoint é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações poderiam ser realizadas na conta do SharePoint usando o conector.
 
-4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint: <br/> ![][3]
+4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint: 
+	![][3]
 
-5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações: <br/> ![][4]
+5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações: 
+	![][4]
 
-6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: <br/> ![][5]
+6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: 
+	![][5]
 
-7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, é exibida uma lista de ações e você pode escolher a operação apropriada que você deseja executar: <br/> ![][6] <br/> **URL relativa configurada para a biblioteca de documentos** <br/> ![][7] <br/> **URL relativa configurada para a lista de documentos**
+7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, uma lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: 
+	![][6]
+  
+**URL relativa configurada para a biblioteca de documentos** 
+	![][7]
+
+**URL relativa configurada para a lista de documentos**
 
 > [AZURE.NOTE]Para os gatilhos a seguir, supõe-se que você especificou “Documentos compartilhados, Listas/Tarefa” na configurações de Pacote do Conector, em que “Documentos Compartilhados” é uma biblioteca de documentos e “Listas/Tarefa” é uma Lista.
 
@@ -451,7 +461,10 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](app-service-api-manage-in-portal.md).
+
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -462,4 +475,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

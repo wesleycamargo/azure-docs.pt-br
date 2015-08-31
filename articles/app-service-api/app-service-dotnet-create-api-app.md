@@ -13,25 +13,24 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/19/2015"
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015"
+	ms.author="tdykstra"/>
 
 # Criar um aplicativo de API ASP.NET no Serviço de Aplicativo do Azure
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Visão geral
 
-Este tutorial mostra como criar um projeto de API Web ASP.NET usando um modelo Visual Studio 2013 que configura o projeto para implantação na nuvem como um [aplicativo de API](app-service-api-apps-why-best-platform.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Para obter informações sobre como configurar um projeto de API da Web existente para implantação como um aplicativo de API, consulte [Configurar um projeto de API Web como um aplicativo de API](app-service-dotnet-create-api-app-visual-studio.md).
+Este tutorial mostra como criar um projeto de API Web ASP.NET configurado para implantação na nuvem como um [aplicativo de API no Serviço de Aplicativo do Azure](app-service-api-apps-why-best-platform.md). Para obter informações sobre como configurar um projeto de API da Web existente para implantação como um aplicativo de API, consulte [Configurar um projeto de API Web como um aplicativo de API](app-service-dotnet-create-api-app-visual-studio.md).
 
 Tutoriais subsequentes na série mostram como [implantar](app-service-dotnet-deploy-api-app.md) e [depurar](../app-service-dotnet-remotely-debug-api-app.md) o projeto de aplicativo de API que você cria neste tutorial.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-Este tutorial requer a versão 2.5.1 ou posterior do SDK do Azure para .NET.
+Este tutorial requer a versão 2.6 ou posterior do SDK do Azure para .NET.
 
 ## Criar um pacote de aplicativos de API
 
@@ -50,4 +49,4 @@ Quando houver instruções para inserir um nome para o projeto, digite *Contacts
 Seu aplicativo de API está pronto para ser implantado, e você pode seguir o tutorial [Implantar um Aplicativo de API](app-service-dotnet-deploy-api-app.md) para fazer isso.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

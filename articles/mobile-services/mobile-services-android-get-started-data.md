@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 # Adicionar Serviços Móveis a um aplicativo Android existente
@@ -41,7 +41,7 @@
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
+- uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Avaliação Gratuita do Azure</a>.
 
 
 - o [SDK do Android dos Serviços Móveis do Azure];
@@ -101,7 +101,7 @@ Isso conclui o tutorial **Introdução aos dados** para Android.
 
 ## Versões mais antigas do código
 
-Para ver a versão Eclipse deste tutorial, vá para [Introdução aos dados usando o Eclipse](mobile-services-android-get-started-data-EC.md).
+Para ver a versão Eclipse deste tutorial, vá para [Introdução aos dados usando o Eclipse](mobile-services-android-get-started-data-ec.md).
 
 Você pode ver uma versão completa do código-fonte em um projeto do Eclipse <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">aqui</a>.
 
@@ -156,4 +156,4 @@ Depois de ter concluído a série de dados, tente um destes outros tutoriais do 
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

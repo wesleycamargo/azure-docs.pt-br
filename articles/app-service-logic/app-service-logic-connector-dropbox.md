@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # Conector do Dropbox
@@ -57,7 +57,7 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do Drop
 2.	O conector do Dropbox está listado na galeria: 
 	![][4]
 3.	Selecione o conector do Dropbox para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**: 
-	![][5]
+	![][5] 
 	![][6] 
 	![][7]
 
@@ -75,7 +75,7 @@ Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguint
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Crie aplicativos de API usando APIs REST. Consulte [Referência a aplicativos de API e conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
@@ -90,4 +90,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

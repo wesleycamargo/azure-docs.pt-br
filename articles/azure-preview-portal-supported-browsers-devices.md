@@ -3,7 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="micflan" 
+	authors="flanakin" 
 	manager="lwelicki" 
 	editor=""/>
 
@@ -32,4 +32,4 @@ Há suporte para as versões mais recentes dos navegadores a seguir:
 
 *Não há suporte para o Safari 6 e inferior. Se você estiver usando OS X, poderá usar o Chrome, o Firefox, ou atualizar para OS X Mavericks para obter o Safari 7.*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

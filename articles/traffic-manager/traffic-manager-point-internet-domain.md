@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego"
+   pageTitle="Apontar uma domínio de Internet da empresa para um domínio do Gerenciador de Tráfego | Microsoft Azure"
    description="Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego
 
@@ -27,13 +27,15 @@ Todas as solicitações de tráfego para *www.contoso.com* agora serão direcion
 
 >[AZURE.IMPORTANT]Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Essa é uma limitação do protocolo DNS, que não permite registros CNAME para nomes de domínio de segundo nível.
 
-## Consulte também
+## Próximas etapas
 
-[Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
 
-[Tarefas de Configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
-[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
+[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
+
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

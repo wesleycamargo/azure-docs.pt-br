@@ -21,9 +21,9 @@
 
 ## Visão geral
 
-Bem-vindo aos **Discos do Armazenamento Premium do Azure** para as máquinas virtuais mais rápidas.
+Bem-vindo aos **Discos do Armazenamento Premium do Azure** para máquinas virtuais mais rápidas.
 
-Agora, com a introdução do novo Armazenamento Premium, o Microsoft Azure oferece dois tipos de armazenamento durável: **Armazenamento Premium** e **Armazenamento Padrão**. O Armazenamento Premium armazena dados utilizando a mais recente tecnologia de unidades de estado sólido (SSD), enquanto o armazenamento padrão armazena dados em unidades de disco rígido (HDD).
+Agora, com a introdução do Armazenamento Premium, o Microsoft Azure oferece dois tipos de armazenamento durável: **Armazenamento Premium** e **Armazenamento Padrão**. O Armazenamento Premium armazena dados utilizando a mais recente tecnologia de unidades de estado sólido (SSD), enquanto o armazenamento padrão armazena dados em unidades de disco rígido (HDD).
 
 O Armazenamento Premium oferece suporte de disco de alto desempenho e baixa latência para cargas de trabalho intensivas para entradas e saídas em execução nas máquinas virtuais do Azure. Você pode anexar vários discos de Armazenamento Premium a uma máquina virtual (VM). Com o Armazenamento Premium, seus aplicativos podem ter até 32 TB de armazenamento por VM e alcançar 64.000 IOPS (operações de entrada/saída por segundo) por VM com latências muito mais baixas por operações de leitura.
 
@@ -51,7 +51,7 @@ A seguir está uma lista de pontos importantes a considerar antes ou quando usar
 
 - Uma conta de Armazenamento Premium não pode ser mapeada para um nome de domínio personalizado.
 
-- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux.
+- Não há suporte atualmente para a análise de armazenamento para Armazenamento Premium. Para analisar as métricas de desempenho de VMs usando discos em contas de Armazenamento Premium, use as ferramentas baseados no sistema operacional, por exemplo, [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs do Windows e [IOSTAT](http://linux.die.net/man/1/iostat) para VMs do Linux. Você também pode habilitar o diagnóstico de VM do Azure no Portal de visualização do Azure. Consulte o [Monitoramento de máquina virtual do Microsoft Azure com extensão de diagnóstico do Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes.
 
 ## Usando o Armazenamento Premium para discos
 Você pode usar o Armazenamento Premium para discos de uma das seguintes maneiras:
@@ -130,7 +130,7 @@ Para aproveitar os benefícios do Armazenamento Premium, crie uma conta de Armaz
 </tbody>
 </table>
 
-	Para ver as informações mais atualizadas, consulte [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para saber sobre os discos de armazenamento Premium e seus IOPs e limites de produtividade, consulte a tabela na seção [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) neste artigo.
+	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whpt-bring-premium-storage) section in this article.
 
 > [AZURE.NOTE]Os acertos de cache não são limitados pelo IOPS/Taxa de transferência alocada do disco. Ou seja, quando você usa um disco de dados com a configuração de cache ReadOnly em uma VM da série DS, as Leituras realizadas a partir do cache não estão sujeitas aos limites de disco do Armazenamento Premium. Assim, você pode obter uma taxa de transferência muito alta de um disco se a carga de trabalho for composta predominantemente de Leituras. Observe que o cache está sujeito a limites separados de IOPS/Taxa de transferência no nível da VM, com base no tamanho da VM. As VMs da Série DS têm aproximadamente 4000 IOPS e 33 MB/s por núcleo para IOs SSD em cache e local.
 
@@ -246,10 +246,9 @@ Se um disco estiver anexado a uma VM, determinadas operações de API não são 
 
 ### Observações importantes:
 
-- Se a operação de cópia de blob no armazenamento Premium substituir um blob existente no destino, o blob que está sendo substituído não deve ter todos os instantâneos. Uma cópia em ou entre contas de armazenamento Premium exigem que o blob de destino não tenha instantâneos ao iniciar a cópia.
 - O número de instantâneos para um único blob é limitado a 100. Um instantâneo pode ser criado a cada 10 minutos no máximo.
-- 10 TB é a capacidade máxima para instantâneos por conta de Armazenamento Premium. Observe que a capacidade do instantâneo são os únicos dados que existem nos instantâneos. Em outras palavras, a capacidade do instantâneo não inclui o tamanho do blob de base.
-- Para copiar um instantâneo de uma conta de armazenamento premium para outra conta, primeiro você precisa fazer um CopyBlob do instantâneo para criar um novo blob na mesma conta de armazenamento premium. Em seguida, você pode copiar o novo blob para outras contas de armazenamento. Você pode excluir o blob intermediário após a cópia. Siga este procedimento para copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para saber mais, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md) e [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+- A capacidade máxima para instantâneos por conta de Armazenamento Premium é de 10 TB. Observe que a capacidade de instantâneo se refere apenas à quantidade total de dados em instantâneos, não inclui dados no blob base.
+- Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para saber mais, consulte [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md) e [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 - Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, consulte [Usando operações de Serviço de Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969) na biblioteca MSDN.
 
 ## Usando VMs do Linux com Armazenamento Premium
@@ -401,4 +400,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

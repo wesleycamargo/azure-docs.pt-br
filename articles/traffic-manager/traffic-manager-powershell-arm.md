@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
-
 
 
 
@@ -205,11 +204,11 @@ Essa sequência também pode ser transferida:
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
-## Veja também
+## Consulte também
 
-[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
 [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

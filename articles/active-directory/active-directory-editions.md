@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Edições do Active Directory do Azure"
+	pageTitle="Edições do Active Directory do Azure | Microsoft Azure"
 	description="Um tópico que explica as opções para as edições pagas e para a edição gratuita do Active Directory do Azure."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Edições do Active Directory do Azure
@@ -66,6 +66,7 @@ A edição Active Directory Premium é uma oferta paga do Active Directory do Az
 
 - **Redefinição de senha com write-back** - o retorno da redefinição de senha por autoatendimento pode ser gravado em diretórios locais.
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitore a integridade de sua infraestrutura local do Active Directory e obtenha a análise de uso.
 
 
 
@@ -98,6 +99,7 @@ A edição Active Directory Premium é uma oferta paga do Active Directory do Az
 - Relatórios avançados sobre uso de aplicativos
 - Serviço Multi-Factor Authentication para usuários de nuvem
 - Servidor Multi-Factor Authentication para usuários locais
+- Azure Active Directory Connect Health
 
 ## Recursos atualmente em visualização pública
 
@@ -105,7 +107,6 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 
 - [Unidades administrativas](https://msdn.microsoft.com/library/azure/dn832057.aspx): um novo contêiner de recursos do Active Directory do Azure que pode ser usados para delegar permissões administrativas em subconjuntos de usuários e aplicar políticas a um subconjunto de usuários.
 - [Adicione seus próprios aplicativos SaaS](https://msdn.microsoft.com/library/azure/dn893637.aspx) ao Active Directory do Azure.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitore a integridade de sua infraestrutura local do Active Directory e obtenha a análise de uso.
 - Substituição de senha para LinkedIn, Facebook e Twitter. Para obter mais informações, leia [este artigo](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Associação de grupo dinâmico. Para obter mais informações, consulte [este artigo](https://msdn.microsoft.com/library/azure/dn913807.aspx).
 - [Acesso condicional](https://msdn.microsoft.com/library/azure/dn906877.aspx): autenticação multifator por aplicativo.
@@ -119,7 +120,6 @@ Os recursos a seguir estão atualmente em visualização pública e serão adici
 
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
-- [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
- 
+- [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

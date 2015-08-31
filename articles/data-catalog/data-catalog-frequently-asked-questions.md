@@ -1,19 +1,20 @@
 <properties
    pageTitle="Perguntas frequentes sobre o Catálogo de Dados do Azure"
-   description="Catálogo de Dados do Azure: perguntas frequentes do Catálogo"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/> <tags
+	description="Catálogo de Dados do Azure: perguntas frequentes do Catálogo"
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
+<tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/19/2015"
+	ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
 
@@ -61,16 +62,18 @@ Durante a visualização, o Catálogo de Dados do Azure dá suporte aos seguinte
 - Exibição do SQL Server
 - Dimensão do SQL Server Analysis Services
 - Medida do SQL Server Analysis Services
-- KPI do SQL Server Analysis Services 
+- KPI do SQL Server Analysis Services
 - Tabela do SQL Server Analysis Services
 - Relatório do SQL Server Reporting Services  
 - Tabela do Oracle Database
 - Exibição do Oracle Database
+- Blob de Armazenamento do Azure
+- Diretório de Armazenamento do Azure
 
 ## P.: Como posso solicitar suporte para outra fonte de dados?
 
 Solicitações de recursos e outros comentários podem ser enviados no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
- 
+
 ## P.: Como faço para começar a utilizar o Catálogo de Dados do Azure?
 
 O melhor lugar para começar é seguindo as instruções no guia de Introdução ao Catálogo de Dados. Este artigo é um tour de ponta a ponta dos recursos da visualização pública.
@@ -86,7 +89,7 @@ As propriedades específicas serão diferentes conforme a fonte de dados, porém
 - Nome do ativo
 - Tipo de Ativo
 - Descrição do ativo
-- Nomes do atributo/coluna 
+- Nomes do atributo/coluna
 - Tipos de dados do atributo/coluna
 - Descrição do atributo/coluna
 
@@ -108,7 +111,7 @@ Você também pode fornecer alguns metadados, como marcas e especialistas, duran
 
 ## P.: Como posso excluir meus objetos de dados registrados?
 
-Você pode excluir um objeto do **Catálogo de Dados do Azure** selecionando o objeto no portal e, em seguida, clicando o botão **Excluir**. Isso removerá os metadados para o objeto do **Catálogo de Dados do Azure**, mas não afetará a fonte de dados subjacente real.
+Você pode excluir um objeto do **Catálogo de Dados do Azure** selecionando o objeto no portal e, em seguida, clicando no botão **Excluir**. Isso removerá os metadados para o objeto do **Catálogo de Dados do Azure**, mas não afetará a fonte de dados subjacente real.
 
 ## P.: O que é um especialista?
 
@@ -120,9 +123,9 @@ Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum con
 
 ## P.: Como posso compartilhar informações com a equipe do Catálogo de Dados do Azure se eu encontrar problemas?
 
-Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. Ele encontra-se em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. Ele se encontra em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
-##P.: O Catálogo de Dados do Azure funciona com essa outra fonte de dados na qual estou interessado? 
+##P.: O Catálogo de Dados do Azure funciona com essa outra fonte de dados na qual estou interessado?
 Estamos trabalhando ativamente para adicionar mais fontes de dados ao **Catálogo de Dados do Azure**. Se houver uma fonte de dados que você gostaria que tivesse suporte, sugira-a (ou apoie a sugestão, caso já exista) no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P.: Como o Catálogo de Dados do Azure se relaciona com o Catálogo de Dados no Power BI para Office 365?
@@ -139,7 +142,7 @@ O **Catálogo de Dados do Azure** é um serviço de nuvem que pode trabalhar com
 
 ##P.: É possível extrair mais metadados/metadados mais detalhados das fontes de dados que registramos?
 
-Estamos trabalhando ativamente para expandir as capacidades do **Catálogo de Dados do Azure**. Se houver metadados adicionais que você gostaria de extrair da fonte de dados durante o registro, sugira-a (ou vote nela caso já tenha sido sugerida) no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). No futuro, permitiremos que terceiros adicionem novos tipos de fonte de dados por meio de uma API de extensibilidade.
+Estamos trabalhando ativamente para expandir os recursos do **Catálogo de Dados do Azure**. Se houver metadados adicionais que você gostaria de extrair da fonte de dados durante o registro, sugira-a (ou vote nela caso já tenha sido sugerida) no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). No futuro, permitiremos que terceiros adicionem novos tipos de fonte de dados por meio de uma API de extensibilidade.
 
 ## P.: Como posso restringir a visibilidade dos ativos de dados registrado para que apenas determinadas pessoas possam descobri-los?
 
@@ -157,4 +160,4 @@ Se você tiver problemas ou precisar de ajuda com a visualização do Catálogo 
 
 Vá diretamente para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

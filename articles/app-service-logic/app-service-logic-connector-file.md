@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Usando o conector de Arquivo em seu aplicativo lógico #
@@ -27,9 +27,7 @@ Para usar o conector de Arquivo, primeiro você precisa criar uma instância do 
 
 1.	Abra o Azure Marketplace usando a opção + NEW no lado esquerdo do Portal do Azure.
 2.	Navegue até “Marketplace > Aplicativos de API” e pesquise por “Conector de Arquivo”.
-3.	Configure o Conector de Arquivo da seguinte maneira:
-
-	![][1]
+3.	Configure o conector de Arquivo da seguinte maneira:![][1]
 
 	- **Nome** - dê um nome para o seu Conector de Arquivo
 	- **Configurações do pacote**
@@ -55,24 +53,25 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector de Arqu
 
 3.	O Conector de Arquivo será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
 
-4.	Você pode soltar o aplicativo de API do Conector de Arquivo no editor clicando em "Conector de Arquivo". O Conector de Arquivo expõe um gatilho e quatro ações.
+4.	Você pode soltar o aplicativo de API do Conector de Arquivo no editor clicando em "Conector de Arquivo". O Conector de Arquivo expõe um gatilho e quatro ações: ![][5]
 
-	![][5]
-
-6.	Cada um deles expõe determinadas propriedades. A imagem a seguir lista as propriedades do gatilho e a Ação Obter Arquivo
-
-	![][6]
+6.	Cada um deles expõe determinadas propriedades. A imagem a seguir lista as propriedades do gatilho e a Ação Obter Arquivo: ![][6]
 
 7. Depois que eles forem configurados, o Gatilho e a Ação poderão ser usados no seu fluxo. Da mesma forma, outras ações também podem ser configuradas.
 
 > [AZURE.NOTE]O gatilho do arquivo excluirá o arquivo após este ser lido com êxito na pasta.
 
 ## Conector de arquivo de APIs REST ##
-Para usar o conector fora de um aplicativo lógico, as APIs REST expostas pelo conector podem ser utilizadas. Você exibir essas definições da API usando Procurar -> Aplicativo de Api -> Conector de Arquivo. Agora clique na lente Definição de API na seção Resumo para exibir todas as APIs expostas por esse conector.
-
-  ![][7]
+Para usar o conector fora de um aplicativo lógico, as APIs REST expostas pelo conector podem ser utilizadas. Você exibir essas definições da API usando Procurar -> Aplicativo de Api -> Conector de Arquivo. Agora clique na lente Definição de API na seção Resumo para exibir todas as APIs expostas por esse conector: ![][7]
 
 Detalhes das APIs podem ser encontrados em [Definição da API do Conector de Arquivo].
+
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -82,7 +81,7 @@ Detalhes das APIs podem ser encontrados em [Definição da API do Conector de Ar
 
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
-[Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

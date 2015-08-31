@@ -62,4 +62,4 @@ Agora você está pronto para configurar seu serviço móvel para usar o logon d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

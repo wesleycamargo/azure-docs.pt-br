@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Sobre o monitoramento do Gerenciador de Tráfego
 
@@ -27,7 +27,7 @@ O Gerenciador de Tráfego do Azure monitora seus pontos de extremidade, incluind
 
 ## Sobre monitoramento do status de integridade
 
-O Gerenciador de Tráfego do Azure exibe a integridade do serviço de ponto de extremidade e de perfil no Portal de Gerenciamento. A coluna de status tanto para o perfil quanto para o ponto de extremidade exibe o status do monitor mais recente. Você pode usar esse status para compreender a integridade dos perfis de acordo com suas configurações de monitoramento do Gerenciador de Tráfego. Quando seu perfil está íntegro, as consultas DNS serão distribuídas aos serviços com base nas configurações de balanceamento de carga para o perfil (Round Robin, Desempenho ou Failover). Depois que o sistema de monitoramento do Gerenciador de Tráfego detecta uma alteração no status do monitor, ele atualiza a entrada de status no Portal de Gerenciamento. Pode levar até cinco minutos para que a alteração de estado seja atualizada.
+O Gerenciador de Tráfego do Azure exibe a integridade do serviço de ponto de extremidade e de perfil no Portal de Gerenciamento. A coluna de status tanto para o perfil quanto para o ponto de extremidade exibe o status do monitor mais recente. Você pode usar esse status para compreender a integridade dos perfis de acordo com suas configurações de monitoramento do Gerenciador de Tráfego. Quando seu perfil está íntegro, as consultas DNS são distribuídas aos serviços com base nas configurações de roteamento de tráfego para o perfil (Round Robin, Desempenho ou Failover). Depois que o sistema de monitoramento do Gerenciador de Tráfego detecta uma alteração no status do monitor, ele atualiza a entrada de status no Portal de Gerenciamento. Pode levar até cinco minutos para que a alteração de estado seja atualizada.
 
 ### Status do monitor de ponto de extremidade
 
@@ -89,7 +89,7 @@ Um cronograma de exemplo que ilustra o processo de monitoramento com um único s
 
 ## Status de pontos de extremidade pai e filho para perfis aninhados
 
-A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tráfego para perfis pai e filho de um perfil aninhado e a configuração minChildEndpoints. Para obter mais informações, consulte [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md).
+A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tráfego para perfis pai e filho de um perfil aninhado e a configuração minChildEndpoints. Para obter mais informações, consulte [o que é o Gerenciador de Tráfego?](traffic-manager-overview.md).
 
 |Status do Monitor de perfil filho|Status do monitor de ponto de extremidade pai|Observações|
 |---|---|---|
@@ -108,9 +108,9 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 
 ## Consulte também
 
-[Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
-[Sobre os métodos de balanceamento de carga do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Sobre os Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -119,4 +119,4 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -46,4 +46,4 @@
 
 7. A conta de armazenamento recém-criada será exibida na página **Configurar** em **Contas de armazenamento**. Clique em **Salvar** para salvar a nova conta de armazenamento. Clique em **OK** quando solicitado para confirmar.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

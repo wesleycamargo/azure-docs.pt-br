@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -52,13 +53,16 @@ O FQDN (nome de domínio totalmente qualificado) a usar ao se conectar ao cluste
 	>
 	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para a conexão ao headnode0, enquanto a 23 é usada para a conexão ao headnode1. Para obter mais informações sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE]Você só pode acessar o nó de cabeçalho do cluster via SSH por um computador cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
+	> [AZURE.NOTE]Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
 
 ## Locais de arquivos
 
-Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp/current`.
+Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
+
+* __2.2.4.9-1__: este diretório é nomeado de acordo com a versão do Hortonworks Data Platform usada pelo HDInsight e, portanto, o número em seu cluster pode ser diferente do listado aqui.
+* __atual__: este diretório contém links para diretórios sob o diretório __2.2.4.9-1__ e existe para que você não precise digitar um número de versão (que pode ser alterado) sempre que quiser acessar um arquivo.
 
 Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distribuído do Hadoop) ou no armazenamento de Blob do Azure em '/example' ou 'wasb:///example'.
 
@@ -139,4 +143,4 @@ Diferente do comando Hadoop do cluster, há várias maneiras de acessar blobs:
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

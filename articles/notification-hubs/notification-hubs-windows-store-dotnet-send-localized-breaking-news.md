@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação" 
-	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Tutorial de últimas notícias localizadas dos Hubs de Notificação"
+	description="Saiba como usar Hubs de notificação do barramento de serviço do Azure para enviar notificações localizadas de últimas notícias."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Usar Hubs de Notificação para enviar últimas notícias localizadas
@@ -29,7 +29,7 @@ Este tópico mostra como usar o recurso **template** dos Hubs de Notificação d
 
 Há duas partes que compõem esse cenário:
 
-- o aplicativo da Windows Store permite que dispositivos cliente especifiquem um idioma e se inscrevam em diferentes categorias de últimas notícias; 
+- o aplicativo da Windows Store permite que dispositivos cliente especifiquem um idioma e se inscrevam em diferentes categorias de últimas notícias;
 
 - o back-end transmite as notificações usando os recursos **tag** e **template** dos Hubs de Notificação do Azure.
 
@@ -146,7 +146,7 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
 3. No MainPage.xaml.cs, atualize o manipulador de clique de botão recuperando o valor atual da caixa de combinação de localidade e fornecendo-o à chamada para a classe Notifications, conforme mostrado:
 
 		 var locale = (string)Locale.SelectedItem;
-            
+
          var categories = new HashSet<string>();
          if (WorldToggle.IsOn) categories.Add("World");
          if (PoliticsToggle.IsOn) categories.Add("Politics");
@@ -231,6 +231,5 @@ Para obter mais informações sobre como usar modelos, consulte [Notificar usuá
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instruções dos Hubs de Notificação para a Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -141,4 +141,4 @@ Este tutorial demonstrou as noções básicas sobre a ativação de um aplicativ
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

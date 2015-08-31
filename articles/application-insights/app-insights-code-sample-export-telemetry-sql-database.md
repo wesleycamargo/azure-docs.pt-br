@@ -105,6 +105,8 @@ Verifique se o servidor de banco de dados permite o acesso aos serviços do Azur
 
 Agora podemos escrever [código](https://sesitai.codeplex.com/) para analisar o JSON em blobs exportados e criar registros no banco de dados. Como o repositório de exportação e o banco de dados estão no Azure, vamos executar o código em uma função de trabalho do Azure.
 
+Esse código extrai automaticamente quaisquer propriedades que estejam presentes no JSON. Para obter descrições das propriedades, confira [Modelo de exportação de dados](app-insights-export-data-model.md).
+
 
 #### Criar projeto de função de trabalho
 
@@ -356,6 +358,8 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
 
 #### Arquivo de classe PageViewPerformance gerado fora do documento JSON
 
+
+
     public class PageViewPerformance
     {
     	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -511,7 +515,7 @@ Este é o esquema para a tabela que será gerada para a PageView.
     GO
 
 
-Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o código de trabalho completo, altere as `app.config` Configurações e publique a função de trabalho no Azure.
+Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o código de trabalho completo, altere as configurações `app.config` e publique a função de trabalho no Azure.
 
 
 ## Artigos relacionados
@@ -519,6 +523,7 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 * [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportação Contínua no Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Exportar modelo de dados](app-insights-export-data-model.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

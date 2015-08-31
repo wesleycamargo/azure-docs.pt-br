@@ -1,6 +1,6 @@
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto, clique em **Publicar** > **Publicar para a Web** > **Aplicativos Web do Microsoft Azure**.
+1. No Visual Studio, clique com o botão direito do mouse no projeto, clique em **Publicar** > **Publicar na Web** > **Aplicativos Web do Microsoft Azure** e (se necessário), entre com suas credenciais do Azure. Quando você entra, o Visual Studio baixa e armazena suas configurações de publicação diretamente do Azure.
 
-2. Entre com credenciais do Azure e selecione seu serviço em **Aplicativos Web Existentes** (seu serviço pode ter um sufixo “-code”). O Visual Studio baixa suas configurações de publicação diretamente do Azure. Por fim, clique em **Publicar**.
+2. Selecione o serviço em **Aplicativos Web Existentes** e clique em **OK**. Verifique as informações de publicação e clique em **Publicar**. Quando o back-end do aplicativo móvel foi publicado com êxito, você verá uma página de aterrissagem indicando êxito.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Use o painel de serviço do StorSimple Manager
@@ -51,7 +51,7 @@ Clicar em **chave do registro** (na parte inferior da página) abre a caixa de d
 
 Regenerar a chave não afeta os dispositivos registrados anteriormente: afeta apenas os dispositivos registrados com o serviço depois que a chave é regenerada.
 
-Para obter mais informações sobre como exibir e gerar a chave de registro de serviço, vá para [Obter a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key)
+Para obter mais informações sobre como exibir e gerar a chave de registro de serviço, vá para [Obter a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key).
 
 ## Alterar a chave de criptografia de dados do serviço
 
@@ -74,6 +74,6 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 ## Próximas etapas
 
-Saiba como [solucionar problemas de um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
+[Saiba como solucionar problemas de um dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

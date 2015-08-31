@@ -1,4 +1,5 @@
 
+
 #### Para adicionar um contêiner de volume
 
 1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de volume**.
@@ -21,4 +22,4 @@
 O contêiner de volume será salvo, e o contêiner de volume recém-criado será listado na página **Contêiner de volume**.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

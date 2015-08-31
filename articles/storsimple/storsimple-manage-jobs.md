@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Exibir e gerenciar trabalhos do StorSimple | Microsoft Azure"
-   description="Descreve a página Trabalhos do serviço StorSimple Manager e como usá-la."
+   description="Descreve a página de Trabalhos do serviço StorSimple Manager e como usá-la para controlar os trabalhos de backup recentes, atuais e agendados."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Exibir e gerenciar trabalhos do StorSimple
@@ -89,4 +89,4 @@ Este trabalho agora está cancelado.
 
 [Saiba como gerenciar as políticas de backup do StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

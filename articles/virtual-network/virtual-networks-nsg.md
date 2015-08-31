@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # O que é um NSG (grupo de segurança de rede)?
 
 Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de máquina virtual (VM) em sua rede virtual. Um grupo de segurança de rede é um objeto de nível superior que está associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma VNet associada a uma região (local).
 
->[AZURE.WARNING]Os NSGs não são compatíveis com VNets que estão associadas a um grupo de afinidades. Se você não tiver uma VNet regional e quiser controlar o tráfego para os pontos de extremidade, confira [O que é uma lista de controle de acesso (ACL) de rede?](../virtual-networks-acl).
+>[AZURE.WARNING]Os NSGs não são compatíveis com VNets que estão associadas a um grupo de afinidades. Se você não tiver uma VNet regional e quiser controlar o tráfego para os pontos de extremidade, confira [O que é uma lista de controle de acesso (ACL) de rede?](./virtual-networks-acl.md). Você também pode [migrar sua VNet para uma VNet regional](./virtual-networks-migrate-to-regional-vnet.md).
 
 Você pode associar um NSG a uma máquina virtual ou a uma sub-rede em uma VNet. Quando associado a uma máquina virtual, o NSG se aplica a todo o tráfego que é enviado e recebido pela instância de VM. Quando aplicado a uma sub-rede em sua VNet, ele se aplica a todo o tráfego que é enviado e recebido por todas as instâncias de VM na sub-rede. Uma VM ou sub-rede pode ser associada a apenas um NSG e cada NSG pode conter até 200 regras. Você pode ter 100 NSGs por assinatura.
 
@@ -149,6 +149,7 @@ Em vez de usar uma regra de negação, considere o uso de uma regra para permiti
 |TO INTERNET|100| REDE\_VIRTUAL|&#42;|INTERNET|&#42;|TCP|PERMITIR|
 |FROM INTERNET|110| INTERNET|&#42;|REDE\_VIRTUAL|&#42;|TCP|NEGAR| 
 
+>[AZURE.WARNING]O Azure usa uma sub-rede especial conhecida como **Gateway** para manipular gateway de VPN para outras VNets e redes locais. A associação de um NSG a essa sub-rede fará com que o gateway de VPN pare de funcionar como esperado. NÃO associe NSGs a sub-redes de gateway!
 
 ## Planejamento: fluxo de trabalho de grupo de segurança de rede
 
@@ -248,4 +249,4 @@ Nesse momento, os NSGs somente podem ser configurados e modificados usando cmdle
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

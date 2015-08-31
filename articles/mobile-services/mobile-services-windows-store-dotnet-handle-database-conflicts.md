@@ -366,4 +366,4 @@ Este tutorial demonstrou como habilitar um aplicativo da Windows Store para trat
 [Propriedades do sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

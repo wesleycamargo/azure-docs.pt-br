@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # Migração de federações 
 
-O recurso de Federações do Banco de dados SQL do Azure será descontinuado junto com as edições Web/Business em setembro de 2015. Então, os aplicativos que utilizem o recurso Federações pararão de executar. Para garantir uma migração bem-sucedida, é altamente incentivado que os esforços de migração comecem assim que possível para permitir planejamento e execução suficientes. Este documento fornece o contexto, exemplos e introdução ao Utilitário de emigração Federações que ilustra como migrar um aplicativo federações atual diretamente para as APIs da [Biblioteca de cliente do banco de dados elástico](http://go.microsoft.com/?linkid=9862592) para fragmentação. O objetivo do documento é apresentar as etapas sugeridas para migrar um aplicativo de Federações sem qualquer movimentação de dados.
+O recurso de Federações do Banco de dados SQL do Azure será descontinuado junto com as edições Web/Business em setembro de 2015. Então, os aplicativos que utilizem o recurso Federações pararão de executar. Para garantir uma migração bem-sucedida, é altamente incentivado que os esforços de migração comecem assim que possível para permitir planejamento e execução suficientes.
+
+Se seu aplicativo ainda não estiver pronto para funcionar sem federações, contate o Suporte da Microsoft usando as instruções mencionadas [aqui](https://support.microsoft.com/kb/3087180).
+
+Este documento fornece o contexto, exemplos e introdução ao Utilitário de emigração Federações que ilustra como migrar um aplicativo federações atual diretamente para as APIs da [Biblioteca de cliente do banco de dados elástico](http://go.microsoft.com/?linkid=9862592) para fragmentação. O objetivo do documento é apresentar as etapas sugeridas para migrar um aplicativo de Federações sem qualquer movimentação de dados.
 
 Há três etapas principais para migrar um aplicativo de Federações existente para um que use ferramentas de banco de dados elástico.
 
@@ -129,6 +133,9 @@ Embora as ferramentas de banco de dados elástico ofereçam muitos recursos adic
 
 * Realizar a instrução SWITCH OUT em um membro da federação possibilita ao banco de dados resultante aproveitar todos os recursos do banco de dados SQL do Azure (ou seja, novas edições, backup, PITR, auditoria, etc.)
 
+##Precisa de mais tempo para a migração? 
+Se seu aplicativo ainda não estiver pronto para funcionar sem federações, contate o Suporte da Microsoft usando as instruções mencionadas [aqui](https://support.microsoft.com/kb/3087180).
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
@@ -143,4 +150,4 @@ Embora as ferramentas de banco de dados elástico ofereçam muitos recursos adic
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

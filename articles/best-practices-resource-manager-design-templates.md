@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure
 
 Em nosso trabalho com empresas, SIs (integradores de sistemas), CSVs (fornecedores de serviço de nuvem) e equipes de projeto de OSS (software livre), muitas vezes é necessário implantar rapidamente ambientes, cargas de trabalho ou unidades de escala. É necessário que haja suporte para essas implantações, que elas sigam práticas comprovadas e cumpram as políticas identificadas. Usando uma abordagem flexível com base em modelos do Gerenciador de Recursos do Azure, você pode implantar topologias complexas rápida e consistentemente e adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem, ou para acomodar grades para cenários de exceção ou clientes.
+
+Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Modelos combinam os benefícios do Gerenciador de Recursos do Azure subjacente com a capacidade de adaptação e legibilidade de JSON (JavaScript Object Notation). Usando modelos, você pode:
 
@@ -143,7 +145,7 @@ Você pode pensar inicialmente que um modelo deve fornecer a máxima flexibilida
 
 À primeira vista, configurações de forma livre parecem ideais. Elas permitem que você selecione um tipo de VM e forneça um número arbitrário de nós e discos para os nós conectados — e faça isso como parâmetros para um modelo. No entanto, quando você examinar de perto e considerar modelos que implantarão várias máquinas virtuais de tamanhos diferentes, surgem considerações adicionais que tornam essa escolha menos apropriada em vários cenários.
 
-No artigo [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) no site do Azure, são identificados os diferentes tipos de VM e os tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
+No artigo [Tamanhos de máquinas virtuais e de serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx), no site do Azure, são identificados os diferentes tipos de VM e os tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
 
 Uma configuração de forma livre permite a seleção de um número de instâncias de VM, um número de diferentes tipos e tamanhos de VM para essas instâncias, um número de discos que pode variar com base no tipo de máquina virtual e um ou mais scripts para configurar o conteúdo da VM.
 
@@ -335,7 +337,7 @@ Para os nós no cluster, há duas etapas para configurar o estado, representadas
 
 ### Suporte a implantações de tamanho diferente
 
-Nas variáveis, o modelo de tamanho de camiseta especifica o número de nós de cada tipo a implantar para o tamanho especificado (*large*). Em seguida, implanta esse número de instâncias de VMs usando loops de recursos, fornecendo nomes exclusivos para recursos ao acrescentar um nome de nó com um número de sequência numérica de *copyIndex()*. Ele faz isso tanto para VMs de zona temperada quanto de zona quente, conforme definido no modelo de nome de camiseta
+Nas variáveis, o modelo de tamanho de camiseta especifica o número de nós de cada tipo a ser implantado para o tamanho especificado (*large*). Em seguida, implanta esse número de instâncias de VM usando loops de recursos, fornecendo nomes exclusivos para recursos ao acrescentar um nome de nó com um número de sequência numérica de *copyIndex()*. Ele faz isso tanto para VMs de zona temperada quanto de zona quente, conforme definido no modelo de nome de camiseta
 
 ## Modelos com escopo de solução de ponta a ponta e decomposição
 
@@ -378,7 +380,7 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 ## Próximas etapas
 
 - Para ver exemplos contextuais de como implementar os princípios de design apresentados neste tópico, consulte [Exemplos contextuais de práticas recomendadas para a implementação de modelos](best-practices-resource-manager-examples.md).
-- Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
-- Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+- Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
+- Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=06-->
+<!---HONumber=August15_HO8-->

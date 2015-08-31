@@ -171,7 +171,7 @@ Trabalhe com o administrador da rede para corrigir as configurações do disposi
 
 ### Fonte 3: ponto de extremidade de serviço de nuvem e ACL
 
-Para eliminar o ponto de extremidade de serviço de nuvem e a ACL como a fonte dos problemas ou erros de configuração para máquinas virtuais criadas no Gerenciador de Serviços, verifique se outra máquina virtual do Azure que está no mesmo serviço de nuvem ou rede virtual pode estabelecer conexões de Área de Trabalho Remota com sua máquina virtual do Azure.
+Para eliminar o ponto de extremidade do serviço de nuvem e a ACL como a fonte dos problemas ou má configuração das máquinas virtuais criadas usando a API de Gerenciamento de Serviços, verifique se outra máquina virtual do Azure que está no mesmo serviço de nuvem ou rede virtual pode estabelecer conexões da Área de Trabalho Remota com sua máquina virtual do Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
@@ -210,7 +210,7 @@ Tente estabelecer a conexão de seu computador novamente. Se você não tiver ê
 - O Firewall do Windows ou outro firewall local tem uma regra de saída que está impedindo o tráfego de Área de Trabalho Remota.
 - Um software de detecção de intrusão ou monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de Área de Trabalho Remota.
 
-Para corrigir esses possíveis problemas para máquinas virtuais criadas no Gerenciador de Serviços, você pode usar uma sessão remota do Azure PowerShell para a máquina virtual do Azure. Primeiro, você deve instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Vá para [Configurar o acesso remoto seguro do PowerShell para máquinas virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para uma pasta no computador local.
+Para corrigir esses possíveis problemas de máquinas virtuais criadas na API de Gerenciamento de Serviços, você pode usar uma sessão remota do Azure PowerShell com a máquina virtual do Azure. Primeiro, você deve instalar um certificado para o serviço de nuvem de hospedagem da máquina virtual. Vá para [Configurar o acesso remoto seguro do PowerShell para máquinas virtuais do Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) e baixe o arquivo de script **InstallWinRMCertAzureVM.ps1** para uma pasta no computador local.
 
 Em seguida, instale o PowerShell do Azure, se ainda não tiver feito isso. Consulte [Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md).
 
@@ -287,4 +287,4 @@ Para obter informações sobre como usar o Suporte do Azure, consulte as [Pergun
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

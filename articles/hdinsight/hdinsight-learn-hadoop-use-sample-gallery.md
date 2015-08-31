@@ -3,6 +3,7 @@
    description="Aprenda Hadoop rapidamente executando exemplos de aplicativos na galeria de introdução do HDInsight. Use dados de exemplo ou forneça seus próprios dados."
    services="hdinsight"
    documentationCenter=""
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
@@ -12,7 +13,7 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.date="07/09/2015"
    ms.author="jgao"/>
 
@@ -29,20 +30,24 @@ A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de a
 	- Análise de log do Website
 	- Recomendação de filme do Mahout
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
+
 ![Soluções de Hadoop do HDInsight, Storm e Galeria de Introdução ao HBase, incluindo dados de exemplo.][hdinsight.sample.gallery]
 
 O clipe de vídeo a seguir mostra como executar o exemplo de análise de tendência do Twitter:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
+Você pode acessar o Painel ao navegar até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou do portal de visualização do Azure.
 
 **Para executar um exemplo da Galeria de Introdução**
 
-1.	Entre no [Portal do Azure][azure.portal].
-2.	Clique em **HDInsight** no menu à esquerda. Você verá uma lista de clusters HDInsight existentes, incluindo clusters Hadoop, Storm e HBase.
-3.	Clique no cluster onde você deseja executar o exemplo.
-4.	Na parte inferior da página, selecione **CONSOLE DE CONSULTA**.
-5.	Insira o nome de usuário do Hadoop e a senha para o cluster.
+1. Entre no [portal de visualização do Azure][azure.portal].
+2. Clique em **Procurar Tudo** no menu à esquerda, clique em **Clusters HDInsight**, clique no nome do cluster.
+3. Clique em **Painel** no menu superior.
+4. Insira o usuário HTTP (ele também é chamado de usuário do cluster), o nome de usuário e a senha.
 6.	Clique em **Galeria de Introdução** no topo da página.
 7.	Clique em um dos exemplos. Cada exemplo fornece etapas detalhadas para executá-lo. A imagem a seguir mostra o exemplo de análise de tendência do Twitter:
 
@@ -61,7 +66,6 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 <!--Link references-->
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://manage.windowsazure.com
- 
+[azure.portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -88,11 +88,13 @@ O recurso de consulta de banco de dados elástico depende dessas quatro instruç
 Uma credencial representa a ID de usuário e senha que a consulta de banco de dados elástico usará para se conectar ao seu mapa de fragmentos de escala elástica e seus bancos de dados remotos no Banco de Dados SQL do Azure. Você pode criar a chave mestra necessária e uma credencial usando a seguinte sintaxe:
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE CREDENTIAL <credential_name> ON DATABASE
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
 Verifique se o & lt; nome\_de\_usuário\_do\_mapa\_de\_fragmentos > não tem nenhum sufixo "@servername".
+
+As informações sobre as credenciais estão visíveis no modo de exibição de catálogo sys.database\_scoped.credentials.
 
 Você pode usar a sintaxe a seguir para remover a chave mestra e as credenciais:
 
@@ -155,7 +157,7 @@ A política de fragmentação controla se uma tabela é tratada como uma tabela 
 
     DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
 
-As permissões para **CRIAR/REMOVER TABELA EXTERNA**: ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias também para consultar a fonte de dados subjacente.
+As permissões para **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE são necessárias também para consultar a fonte de dados subjacente.
 
 **Exemplo**: o exemplo a seguir ilustra como criar uma tabela externa:
 
@@ -185,7 +187,7 @@ O exemplo a seguir mostra como recuperar a lista de tabelas externas do banco de
 ## Relatórios e consultas
 
 ### Consultas
-Depois de definir a fonte de dados externa e suas tabelas externas, você pode usar cadeias de conexão do Banco de Dados SQL familiares para se conectar ao banco de dados que tem o recurso de consulta de Banco de Dados Elástico habilitado. Agora você poderá executar consultas somente leitura completas nas suas tabelas externas, com certas limitações explicadas na [seção limitações](#preview-limitations) abaixo.
+Depois de definir a fonte de dados externa e suas tabelas externas, você pode usar cadeias de conexão do Banco de Dados SQL familiares para se conectar ao banco de dados que tem o recurso de consulta de Banco de Dados Elástico habilitado. Agora você pode executar consultas somente leitura completas nas suas tabelas externas, com algumas limitações explicadas na [seção limitações](#preview-limitations) a seguir.
 
 **Exemplo**: a consulta a seguir executa uma junção de três vias entre depósitos, pedidos e linhas da pedido e usa várias agregações e um filtro seletivo. Supondo que os warehouses, pedidos e linhas de pedido sejam particionadas pela coluna de ID do warehouse, uma consulta de banco de dados elástico pode colocar as junções nos bancos de dados remotos e expandir o processamento da parte cara da consulta.
 
@@ -210,9 +212,9 @@ SP\_EXECUTE\_FANOUT é um procedimento armazenado que fornece acesso aos bancos 
 
 -    **Nome do servidor** (nvarchar): o nome totalmente qualificado do servidor lógico que hospeda o mapa de fragmentos.
 -    **Nome de banco de dados do mapa de fragmentos** (nvarchar): o nome do banco de dados do mapa de fragmentos.
--    **Nome de usuário** (nvarchar): o nome de usuário para fazer logon em bancos de dados remotos e no banco de dados do mapa de fragmentos.
+-    **Nome de usuário** (nvarchar): o nome de usuário para fazer logon no banco de dados do mapa de fragmentos e em bancos de dados remotos.
 -    **Senha** (nvarchar): senha do usuário.
--    **Nome de mapa de fragmentos** (nvarchar): o nome do mapa de fragmentos a ser usado para a consulta.
+-    **Nome do mapa de fragmentos** (nvarchar): o nome do mapa de fragmentos a ser usado para a consulta.
 -    **Consulta**: a consulta a ser executada em cada fragmento.
 
 Ela usa as informações do mapa de fragmentos fornecidas nos parâmetros de invocação para executar a instrução em todos os fragmentos registrados com o mapa de fragmentos. Todos os resultados são mesclados usando a semântica de UNION ALL semelhante às consultas de vários fragmentos. O resultado também inclui a coluna adicional 'virtual' com o nome do banco de dados remoto.
@@ -252,7 +254,7 @@ Há alguns pontos que devem ser considerados na visualização:
 Envie para nós seus comentários sobre sua experiência com Disqus ou Stackoverflow. Estamos interessados em todos os tipos de comentários sobre o serviço (defeitos, pontos em aberto, lacunas do recurso).
 
 ## Próximas etapas
-Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tutorial passo a passo para ver um exemplo completo em funcional em execução em minutos: [Introdução à consulta de Banco de Dados Elástico](sql-database-elastic-query-getting-started.md).
+Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tutorial passo a passo para ver um exemplo completo e funcional em execução em minutos: [Introdução à consulta de Banco de Dados Elástico](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -263,4 +265,4 @@ Para começar a explorar a consulta de Banco de Dados Elástico, siga nosso tuto
 
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # Visão geral de IPs reservados
@@ -32,8 +32,6 @@ Para evitar que endereços IP sejam alterados, é possível reservar um endereç
   - Neste momento, todas as assinaturas do Azure estão autorizadas a usar 20 IPs reservados. No entanto, você pode solicitar IPs reservados adicionais. Veja a página [Limites de assinatura e de serviço](../azure-subscription-service-limits/) para obter mais informações.
 1. Há uma cobrança para IPs reservados? 
   - Veja [Detalhes sobre preços de endereços IP reservados](http://go.microsoft.com/fwlink/?LinkID=398482) para obter informações sobre preços.
-1. Quantos IPs reservados eu posso atribuir a um serviço de nuvem? 
-  - Apenas um endereço IP é permitido por ponto de extremidade em um serviço de nuvem, independentemente de o endereço IP estar reservado ou não. Reservar um endereço IP não permite que você adicione outros endereços IP a um serviço de nuvem.
 1. Como eu reservo um endereço IP? 
   - Você pode usar o PowerShell ou a [API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) para solicitar um IP reservado de uma região específica. O Azure reservará um endereço IP dessa região e fará a correlação com a sua assinatura. Você então poderá usar o IP reservado nessa região. Não é possível reservar um endereço IP usando o Portal de Gerenciamento.
 1. Posso usar isso com redes virtuais baseadas em grupos de afinidade? 
@@ -115,10 +113,10 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 ## Próximas etapas
 
-- Saiba mais sobre [reservado de endereços IP privados](../virtual-networks-reserved-private-ip).
+- Saiba mais sobre [endereços IP privados reservados](../virtual-networks-reserved-private-ip).
 
-- Saiba mais sobre[endereços de IP públicos em Nível de Instância (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Saiba mais sobre [endereços ILPIP (IP Público de Nível de Instância)](../virtual-networks-instance-level-public-ip).
 
-- Verifique o [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- Verifique as [APIs REST do IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

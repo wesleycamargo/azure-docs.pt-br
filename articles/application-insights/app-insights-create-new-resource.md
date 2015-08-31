@@ -83,6 +83,8 @@ Se você estiver esperando mais dados, clique em Atualizar depois de alguns segu
 Você pode escrever um [script do PowerShell](app-insights-powershell-script-create-resource.md) para criar um recurso automaticamente.
 
 
+
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -92,4 +94,4 @@ Você pode escrever um [script do PowerShell](app-insights-powershell-script-cre
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

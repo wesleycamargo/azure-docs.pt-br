@@ -189,6 +189,8 @@ Para continuar com a configuração dessa carga de trabalho, vá para a [Fase 5:
 
 [Arquiteturas do Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

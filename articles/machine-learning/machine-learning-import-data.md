@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
+# Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
 
 Ao desenvolver uma solução de análise preditiva no Estúdio de Aprendizado de Máquina do Azure, você treina seu modelo usando dados que representam seu espaço de problema. Este tutorial mostra como importar dados de várias fontes de dados para treinamento de seu modelo no Estúdio de Aprendizado de Máquina. Você também aprenderá quais formatos de dados têm suporte.
 
@@ -34,7 +34,7 @@ Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pod
 
 O Estúdio de Aprendizado de Máquina foi criado para trabalhar com dados tabulares ou retangulares, como dados de texto delimitados ou dados estruturados de um banco de dados, embora em algumas circunstâncias seja possível usar dados não retangulares.
 
-O ideal é que seus dados estejam relativamente limpos. Ou seja, você deve cuidar de problemas como cadeias de caracteres sem aspas antes de carregar os dados para seu experimento.
+É melhor se os dados estiverem relativamente limpos. Ou seja, você deve cuidar de problemas como cadeias de caracteres sem aspas antes de carregar os dados para seu experimento.
 
 No entanto, há módulos disponíveis no Estúdio de Aprendizado de Máquina que permitem fazer alguma manipulação de dados dentro do experimento. Dependendo dos algoritmos de aprendizado de máquina que for usar, talvez seja necessário decidir como você lidará com problemas estruturais dos dados, como valores ausentes e dados esparsos, e há módulos que podem ajudar com isso. Veja a seção **Transformação de Dados** da paleta de módulos para ver os módulos que executam essas funções.
 
@@ -141,6 +141,5 @@ Quando o salvamento for concluído, o conjunto de dados ficará disponível para
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

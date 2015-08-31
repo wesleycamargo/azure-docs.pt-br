@@ -219,4 +219,4 @@ Para criar um documento no Word, você usará o pacote OpenXML NuGet. Instale es
 [Autenticar seu aplicativo com Logon Único da Biblioteca de Autenticação do Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,9 +1,5 @@
 
-1. Abra o arquivo do projeto MainPage.cs compartilhado e adicione a seguinte instrução usando:
-
-        using Windows.UI.Popups;
-
-2. Adicione o seguinte snippet de código para a classe MainPage:
+1. Abra o arquivo de projeto MainPage.xaml.cs compartilhado e adicione o seguinte trecho de código à classe MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    Esse usuário é autenticado usando um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
+    Esse código autentica o usuário com um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
 
 3. Comente ou exclua a chamada para o método **RefreshTodoItems** na substituição do método **OnNavigatedTo** existente.
 
-	Isso evita que os dados sejam carregados antes que o usuário seja autenticado.
-
-	>[AZURE.NOTE]Para autenticar com êxito de um aplicativo da Loja do Windows Phone 8.1, você deverá chamar LoginAsync depois que o método **OnNavigated** tiver sido chamado e depois que o evento **Loaded** da página tiver sido gerado. Nesse tutorial, esse esclarecimento é feito pela adição de um botão **Entrar** ao aplicativo.
+	Isso evita que os dados sejam carregados antes que o usuário seja autenticado. Em seguida, você adicionará um botão **Entrar** ao aplicativo que dispara a autenticação.
 
 4. Adicione o seguinte snippet de código para a classe MainPage:
 
@@ -60,16 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. No projeto do aplicativo da Loja do Windows Phone, adicione o elemento **Button** a seguir ao **ContentPanel** após o elemento **TextBlock**:
+6. No projeto do aplicativo Loja do Windows Phone, adicione o elemento **Botão** a **ContentPanel** após o elemento **TextBox**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-7. Abra o arquivo de projeto App.xaml.cs compartilhado e adicione a seguinte instrução em uso, se ela já não existe:
-
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. No arquivo de projeto App.xaml.cs, adicione o seguinte código:
+8. Abra o arquivo de projeto compartilhado App.xaml.cs e adicione o seguinte código:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -94,4 +84,4 @@
 
 10. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

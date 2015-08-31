@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Importar seu arquivo de configurações de publicação no Visual Studio 2013 | Microsoft Azure" 
-	description="Saiba como importar um arquivo de configurações de publicação de assinatura para seu aplicativo de serviços móveis do Azure no Visual Studio 2013." 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Importar seu arquivo de configurações de publicação no Visual Studio 2013 | Microsoft Azure"
+	description="Saiba como importar um arquivo de configurações de publicação de assinatura para seu aplicativo de serviços móveis do Azure no Visual Studio 2013."
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Importar seu arquivo de configurações de assinatura no Visual Studio 2013
@@ -22,7 +22,7 @@ Antes de criar o serviço móvel, você deve importar o arquivo de configuraçõ
 
 >[AZURE.NOTE]A partir do Visual Studio 2013 Update 2, você não precisa usar um arquivo de configurações de publicação. O Visual Studio é capaz de conectar diretamente ao Azure usando as credenciais que você fornece.
 
-1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito no projeto, clique em **Adicionar** e, em seguida, em **Serviço Conectado**. 
+1. No Visual Studio 2013, abra o Gerenciador de Soluções, clique com o botão direito no projeto, clique em **Adicionar** e, em seguida, em **Serviço Conectado**.
 
 	![adicionar serviço conectado](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@ Antes de criar o serviço móvel, você deve importar o arquivo de configuraçõ
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -122,6 +122,13 @@ Se você ainda não utilizou o PowerShell do Azure com o Gerenciador de recursos
 7. Para obter informações detalhadas sobre falhas de implantação.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Vídeo
+
+Aqui está um vídeo que demonstra como trabalhar com modelos do Gerenciador de Recursos com o PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Implantar a CLI do Azure para Mac, Linux e Windows
 
@@ -250,11 +257,11 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro para
     }
 
 ## Próximas etapas
-- Para obter um exemplo da implantação de recursos por meio da biblioteca cliente .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, consulte [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, consulte [Criando modelos](../resource-group-authoring-templates.md)
-- Para ver uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, consulte [Funções do modelo](../resource-group-template-functions.md).
+- Para obter um exemplo da implantação de recursos por meio da biblioteca de cliente .NET, confira [Implantar recursos usando bibliotecas .NET e um modelo](../arm-template-deployment.md)
+- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de modo previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para saber mais sobre as seções do modelo do Gerenciador de Recursos do Azure, confira [Criando modelos](../resource-group-authoring-templates.md)
+- Para ver uma lista das funções que você pode usar em um modelo do Gerenciador de Recursos do Azure, confira [Funções do modelo](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

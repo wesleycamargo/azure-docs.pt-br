@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Como as assinaturas do Azure estão associadas ao Azure AD" 
-	description="Um tópico sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o AD do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Como as assinaturas do Azure estão associadas ao Azure AD"
+	description="Um tópico sobre como entrar no Microsoft Azure e problemas relacionados, como a relação entre uma assinatura do Azure e o AD do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015" 
+	ms.author="curtand"/>
 
 # Como as assinaturas do Azure estão associadas ao Azure AD
 
@@ -88,7 +88,7 @@ Se em algum momento no passado você criou uma conta de consumidor Microsoft usa
 
 ![][3]
 
-Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, consulte [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Você tem contas de usuário com o mesmo nome, uma no AD do Azure e outra no sistema de conta de consumidor da Microsoft. Você deve selecionar a conta que está associada à assinatura do Azure que você deseja usar. Se você receber um erro informando que não existe uma assinatura para este usuário, provavelmente você escolheu a opção errada. Saia e tente novamente. Para obter mais informações sobre erros que podem impedir que você entre, consulte [Solucionando erros do tipo "Não foi possível encontrar nenhuma assinatura associada à sua conta"](https://social.msdn.microsoft.com/Forums/pt-br/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gerenciar o diretório para sua assinatura do Office 365 no Azure
 
@@ -124,6 +124,4 @@ Para gerenciar ambos os diretórios no Portal de Gerenciamento, execute essas et
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

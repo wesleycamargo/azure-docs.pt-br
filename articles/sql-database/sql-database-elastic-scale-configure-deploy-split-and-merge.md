@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
-
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -13,7 +11,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico
@@ -46,7 +44,11 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 
 2. Abra o ServiceConfiguration.cscfg no seu editor de texto favorito. É recomendável usar o Visual Studio pois ele validará as entradas, como o formato de impressões digitais de certificados.
 
-3. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados. Com o Banco de Dados SQL do Azure, a cadeia de caracteres de conexão normalmente tem o seguinte formato:
+3. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados.
+
+	**Importante** Neste momento, o banco de dados de status deve usar o agrupamento latino (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, consulte [Nome do agrupamento do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	Com o Banco de Dados SQL do Azure, a cadeia de caracteres de conexão normalmente tem o seguinte formato:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Insira essa cadeia de conexão no arquivo cscfg nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração de ElasticScaleMetadata.
@@ -117,7 +119,7 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 ### Implantando seu serviço de Divisão-Mesclagem
 
-1. Faça logon no [portal do Azure](https://manage.windowsazure.com).
+1. Vá para o [portal do Azure](https://manage.windowsazure.com).
 2. Clique na guia **Serviços de nuvem** à esquerda e selecione o serviço de nuvem que você criou anteriormente.
 3. Clique em **Painel**.
 4. Escolha o ambiente de preparo e clique em **Carregar uma nova implantação de preparo**.
@@ -143,14 +145,14 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Certifique-se de que o nome do servidor não começa com ****https://**.
+* Certifique-se de que o nome do servidor não comece com ****https://**.
 * Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra https://manage.windowsazure.com, clique em “Bancos de dados SQL” à esquerda, clique em “Servidores” na parte superior e selecione seu servidor. Clique em **Configurar** na parte superior e verifique se a configuração dos **Serviços do Azure** estão definidas como “Sim”. (Consulte a seção Pré-requisitos na parte superior deste artigo).
 
 ## Testando sua implantação do serviço de Divisão-Mesclagem
 
 ### Conectar-se com um navegador da web
 
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal de gerenciamento do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://** desde que as configurações de segurança padrão desabilitem o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal de gerenciamento do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### Testando com scripts do PowerShell
 
@@ -330,4 +332,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

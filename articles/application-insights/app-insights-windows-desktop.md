@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Application Insights para serviços e aplicativos da Área de Trabalho do Windows" 
-	description="Analise a utilização e o desempenho do aplicativo da área de trabalho do Windows com o Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+	pageTitle="Application Insights para serviços e aplicativos da Área de Trabalho do Windows"
+	description="Analise a utilização e o desempenho do aplicativo da área de trabalho do Windows com o Application Insights."
+	services="application-insights"
+	documentationCenter="windows"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2015"
 	ms.author="awills"/>
 
-# Application Insights em serviços e aplicativos da Área de Trabalho do Windows
+# Application Insights em serviços e funções de trabalho da Área de Trabalho do Windows
 
 *O Application Insights está em modo de visualização.*
 
@@ -23,7 +23,7 @@
 
 O Application Insights permite que você monitore seu aplicativo implantado quanto à utilização e ao desempenho.
 
-Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecido pelo SDK principal do Application Insights. Esse SDK fornece suporte completo à API para todos os dados de telemetria, mas não oferece nenhuma coleta automática de telemetria.
+Todos os aplicativos do Windows, incluindo aplicativos de área de trabalho, serviços em segundo plano e funções de trabalho, podem usar o núcleo SDK do Application Insights para enviar telemetria ao Application Insights. O núcleo SDK fornece apenas uma API: diferentemente dos SDKs Web ou de dispositivo, ele não inclui módulos que coletam dados automaticamente; portanto, você precisa escrever o código para enviar sua própria telemetria.
 
 
 ## <a name="add"></a> Criar um recurso do Application Insights
@@ -42,11 +42,15 @@ Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecid
 ## <a name="sdk"></a>Instalar o SDK no seu aplicativo
 
 
-1. No Visual Studio, edite os pacotes do NuGet do seu projeto de aplicativo de área de trabalho. ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-windows-desktop/03-nuget.png)
+1. No Visual Studio, edite os pacotes do NuGet do seu projeto de aplicativo de área de trabalho.
+
+    ![Clique com o botão direito no projeto e selecione Gerenciar Pacotes Nuget](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Instale o pacote API principal do Application Insights.
 
     ![Pesquise “Application Insights”](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    Você pode instalar outros pacotes, como o Contador de Desempenho ou pacotes de captura de log se quiser usar suas instalações.
 
 3. Defina seu InstrumentationKey no código, por meio em ().
 
@@ -55,16 +59,17 @@ Suporte para serviços e aplicativos da Área de Trabalho do Windows é fornecid
 *Por que não existe um ApplicationInsights.config?*
 
 * O arquivo. config não é instalado pelo pacote de API principal, que só é usado para configurar os coletores de telemetria. Então você escreve seu próprio código para definir a chave de instrumentação e enviar telemetria.
+* Se você instalou um dos outros pacotes, terá um arquivo. config. Você pode inserir a chave de instrumentação lá, em vez de defini-la no código.
 
 *Poderia eu usar um pacote NuGet diferente?*
 
-* Sim, você poderia usar o pacote de servidor web, que instalaria coletores para contadores de desempenho. Você precisaria [ desabilitar o coletor de solicitação HTTP](app-insights-configuration-with-applicationinsights-config.md). Ele instalaria um arquivo. config, onde você colocaria sua chave de instrumentação.
+* Sim, você poderia usar o pacote do servidor Web (Microsoft.ApplicationInsights.Web), que instalaria coletores para uma variedade de módulos de coleção, como contadores de desempenho. Ele instalaria um arquivo. config, onde você colocaria sua chave de instrumentação. Use [ApplicationInsights.config para desabilitar os módulos que você não quer](app-insights-configuration-with-applicationinsights-config.md), como o Coletor de solicitação HTTP. 
+* Se você quiser usar os [pacotes de log ou coletores de rastreamento](app-insights-asp-net-trace-logs.md), comece com o pacote do servidor Web. 
 
 ## <a name="telemetry"></a>Inserir chamadas de telemetria
 
 Crie uma instância `TelemetryClient` e, em seguida, [use-a para enviar telemetria][api].
 
-Use `TelemetryClient.Flush()` para enviar mensagens antes de fechar o aplicativo. O SDK do Core utiliza um buffer na memória. O método flush garantirá que esse buffer seja esvaziado, ajudando a garantir que não haja perda de dados no encerramento do processo. (Isso não é recomendado para outros tipos de aplicativo. Os SDKs da plataforma implementam esse comportamento automaticamente.)
 
 Por exemplo, em um Aplicativo Windows Forms, você poderia escrever:
 
@@ -108,6 +113,10 @@ Use qualquer uma das [APIs do Application Insights][api] para enviar telemetria.
 * TrackMetric (nome, valor) em uma tarefa em segundo plano para enviar relatórios regulares de métricas não anexadas a eventos específicos.
 * TrackTrace(logEvent) para [registro de diagnóstico][diagnostic]
 * TrackException(exception) para cláusulas catch
+
+
+Para verificar se toda a telemetria foi enviada antes de fechar o aplicativo, use `TelemetryClient.Flush()`. Normalmente, a telemetria é feita em lotes e enviada em intervalos regulares. (O alinhamento é recomendado somente se você estiver usando apenas a API principal. Os SDKs Web e de dispositivo implantam esse comportamento automaticamente.)
+
 
 #### Inicializadores de contexto
 
@@ -181,4 +190,4 @@ Se você usou o TrackMetric ou o parâmetro de medidas do TrackEvent, abra o [Me
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

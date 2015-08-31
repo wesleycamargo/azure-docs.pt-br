@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para administrar o seu dispositivo StorSimple
@@ -71,8 +71,8 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 |Se você quiser fazer isso...|Vá para a página da interface do usuário...|Utilize este procedimento.|
 |---|---|---|
 |Criar um serviço </br>Excluir um serviço</br>Obter chave de registro do serviço</br>Regenerar chave de registro do serviço|Serviço StorSimple Manager|[Implantar um serviço StorSimple Manager](storsimple-manage-service.md)
-|Alterar a chave de criptografia de dados do serviço</br>Exibir os logs operacionais|Serviço StorSimple Manager → Painel|[Use o painel do serviço StorSimple Manager](storsimple-service-dashboard.md)|
-|Desativar um dispositivo</br>Excluir um dispositivo|Serviço StorSimple Manager → Dispositivos|[Desativar ou excluir um dispositivo]()|
+|Alterar a chave de criptografia de dados do serviço</br>Exibir os logs operacionais|Serviço StorSimple Manager → Painel|[Use o painel de serviço do StorSimple Manager](storsimple-service-dashboard.md)|
+|Desativar um dispositivo</br>Excluir um dispositivo|Serviço StorSimple Manager → Dispositivos|[Desativar ou excluir um dispositivo](storsimple-deactivate-and-delete-device.md)|
 |Saiba mais sobre o failover de dispositivo e a recuperação de desastres</br>Failover para um dispositivo físico</br>Failover para um dispositivo virtual</br>Recuperação de desastres de continuidade de negócios (BCDR)|Serviço StorSimple Manager → Dispositivos|[Failover e recuperação de desastres para o seu dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)|
 |Lista de backups para um volume</br>Selecionar um conjunto de backup</br>Excluir um conjunto de backup|Serviço StorSimple Manager → Catálogo de backup|[Gerenciar backups](storsimple-manage-backup-catalog.md)|
 |Clonar um volume|Serviço StorSimple Manager → Catálogo de backup|[Clonar um volume](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 |Exibir detalhes do trabalho</br>Cancelar um trabalho|Serviço StorSimple Manager → Trabalhos|[Gerenciar trabalhos](storsimple-manage-jobs.md)
 |Receber notificações de alerta</br>Gerenciar alertas</br>Revisar alertas|Serviço StorSimple Manager → Alertas|[Exibir e gerenciar alertas do StorSimple](storsimple-manage-alerts.md)
 |Exibir iniciadores conectados</br>Localizar o número de série do dispositivo</br>Localizar o IQN de destino|Serviço StorSimple Manager → Dispositivos → Painel|[Usar o painel do dispositivo StorSimple Manager](storsimple-device-dashboard.md)|
-|Criar gráficos de monitoramento|Serviço StorSimple Manager → Dispositivos → Monitor|[Monitorar o dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|Criar gráficos de monitoramento|Serviço StorSimple Manager → Dispositivos → Monitor|[Monitorar o dispositivo StorSimple](storsimple-monitor-device.md)|
 |Adicionar um contêiner de volume</br>Modificar um contêiner de volume</br>Excluir um contêiner de volume|Serviço StorSimple Manager → Dispositivos → Contêineres de volume|[Gerenciar contêineres de volume](storsimple-manage-volume-containers.md)|
 |Adicionar um volume</br>Modificar um volume</br>Colocar um volume offline</br>Excluir um volume</br>Monitorar um volume|Serviço StorSimple Manager → Dispositivos → Contêineres de volume → Volumes|[Gerenciar volumes](storsimple-manage-volumes.md)|
 |Modificar as configurações do dispositivo</br>Modificar as configurações de tempo</br>Modificar as configurações de DNS.md</br>Configurar interfaces de rede|Serviço StorSimple Manager → Dispositivos → Configurar|[Modificar a configuração do dispositivo para seu dispositivo StorSimple](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ Se você tiver problemas com a operação diária do seu dispositivo StorSimple 
 
 Se você não conseguir resolver os problemas e precisar criar uma solicitação de serviço, consulte:
 
--  [Contatar Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Contatar Suporte da Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

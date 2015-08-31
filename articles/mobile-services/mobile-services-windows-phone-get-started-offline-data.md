@@ -290,4 +290,4 @@ Nesta seção você testará as operações de push e pull para sincronizar o re
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

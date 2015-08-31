@@ -164,4 +164,4 @@ Quando um push é cancelado, `PushAsync` lançará uma `MobileServicePushFailedE
 [Exemplo de serviços móveis offline de tarefas pendentes]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

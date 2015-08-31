@@ -84,4 +84,4 @@ Em seguida, aprenda [como usar o valor da ID de usuário para filtrar dados reto
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

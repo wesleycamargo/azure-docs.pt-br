@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Desabilitar, habilitar ou excluir um perfil do Gerenciador de Tráfego"
+   pageTitle="Desabilitar, habilitar ou excluir um perfil do Gerenciador de Tráfego| Microsoft Azure"
    description="Este artigo o ajudará a trabalhar com os perfis do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Desabilitar, habilitar ou excluir um perfil
@@ -31,7 +31,7 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 1. Selecione o perfil que você deseja habilitar. Para selecionar o perfil, na página do Gerenciador de Tráfego, realce o perfil clicando na coluna ao lado do nome do perfil. Não clique no nome do perfil ou na seta ao lado do nome, pois você será levado para a página de configurações do perfil.
 1. Depois de selecionar o perfil, clique em Habilitar na parte inferior da página.
-1. Modifique o registro de recurso DNS no servidor DNS da Internet para usar o tipo de registro CNAME, que mapeia o nome de domínio da empresa para o nome de domínio de seu perfil do Gerenciador de Tráfego. Para obter mais informações, consulte [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](../point-a-company-internet-domain-to-a-traffic-manager-domain.md).
+1. Modifique o registro de recurso DNS no servidor DNS da Internet para usar o tipo de registro CNAME, que mapeia o nome de domínio da empresa para o nome de domínio de seu perfil do Gerenciador de Tráfego. Para obter mais informações, consulte [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md).
 1. O tráfego começará a ser direcionado para os pontos de extremidade novamente.
 
 ## Excluir um perfil
@@ -44,11 +44,10 @@ Você pode desabilitar um perfil existente do Gerenciador de Tráfego para que e
 
 ## Próximas etapas
 
-[Gerenciador de Tráfego](../traffic-manager.md)
+[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[Tarefas de Configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

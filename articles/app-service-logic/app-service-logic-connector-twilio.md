@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -63,13 +63,17 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 	- **Do Número de Telefone** - Insira um número de telefone do Twilio habilitado para o tipo de mensagem que você deseja enviar. Somente números de telefone ou códigos curtos adquiridos do Twilio funcionarão com esse conector.
 	- **Para o Número de Telefone** - O número de telefone de destino. O formato aceito é: +, seguido do código do país e do número de telefone. Por exemplo, +16175551212 Se você omitir o +, o Twilio usará o código do país que você inseriu no número ‘De’.
 	- **Texto** - O texto da mensagem que você deseja enviar.
- 
+
 	![][5]
 	![][6]
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twilio/img1.PNG
 [2]: ./media/app-service-logic-connector-twilio/img2.PNG
 [3]: ./media/app-service-logic-connector-twilio/img3.png
@@ -77,4 +81,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector do Twilio como
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

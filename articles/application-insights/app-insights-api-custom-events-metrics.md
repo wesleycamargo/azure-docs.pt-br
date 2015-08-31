@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -728,12 +728,25 @@ Há alguns limites no número de métricas você pode usar.
 * [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Referência do Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [Referência do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [SDK do Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [SDK do iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## Código do SDK
+
+* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [SDK do Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
+* [SDK do iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Perguntas
 
-* *Que exceções podem acionar chamadas Track *?*
+* *Que exceções podem acionar chamadas Track\_()?*
     
-    Nenhum. Você não precisa encapsulá-los em cláusulas catch.
+    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará em log mensagens que você verá na saída do console de depuração, e, se as mensagens forem exibidas, na pesquisa de diagnóstico.
 
 
 
@@ -768,4 +781,4 @@ Há alguns limites no número de métricas você pode usar.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

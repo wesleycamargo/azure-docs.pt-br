@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="shkurhek"/>
 
 # Camadas de serviço
@@ -68,16 +68,16 @@ A camada Premium foi desenvolvida para aplicativos críticos. Ela oferece o melh
 **Desempenho e tamanho**
 
 
-| Camada de serviço | Premium P1 | Premium P2 | Premium P6 (anteriormente, P3) |
-| :-- | :-- | :-- | :-- |
-| DTUs (Unidades de Taxa de Transferência de Banco de Dados) | 125 | 250 | 1000 |
-| Tamanho máximo do banco de dados | 500 GB | 500 GB | 500 GB |
+| Camada de serviço | Premium P1 | Premium P2 | Premium P4 | Premium P6 (anteriormente, P3) |
+| :-- | :-- | :-- | :-- | :-- |
+| DTUs (Unidades de Taxa de Transferência de Banco de Dados) | 125 | 250 | 500 | 1000 |
+| Tamanho máximo do banco de dados | 500 GB | 500 GB | 500 GB | 500 GB |
 
 
 **Recursos**
 
 
-| Camada de serviço | Premium (P1, P2, P6) |
+| Camada de serviço | Premium (P1, P2, P4, P6) |
 | :-- | :-- |
 | PITR (Restauração Pontual) | Até milissegundos nos últimos 35 dias |
 | Recuperação de desastre | Replicação geográfica ativa, até 4 secundárias legíveis online |
@@ -89,4 +89,4 @@ Saiba mais sobre os preços para essas camadas em [Preços de Banco de Dados SQL
 Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

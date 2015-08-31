@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Agendas na Automação do Azure"
+   pageTitle="Agendas na Automação do Azure | Microsoft Azure"
    description="As agendas de automação são usadas para agendar o início automático de runbooks na Automação do Azure. Este artigo descreve como criar agendas."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Agendas na Automação do Azure
@@ -66,4 +66,4 @@ O cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn69027
 - [Agendar um runbook na Automação do Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

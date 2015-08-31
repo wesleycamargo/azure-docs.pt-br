@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="08/14/2015"
 	ms.author="yuaxu"/>
 
 # Enviar notificações entre plataformas para um usuário específico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../../includes/app-service-mobile-selector-push-users-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Este tópico mostra como enviar notificações para todos os dispositivos registrados de um usuário específico por meio do back-end móvel. Ele introduziu o conceito de [modelos], que oferece a aplicativos cliente a liberdade de especificar formatos de carga útil e espaços reservados de variáveis no momento do registro. Então o envio chega a todas as plataformas com esses espaços reservados, habilitando notificações entre plataformas.
 
@@ -107,4 +107,4 @@ Publique novamente o projeto do back-end móvel e execute qualquer aplicativo cl
 [modelos]: https://msdn.microsoft.com/pt-br/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

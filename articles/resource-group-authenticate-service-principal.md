@@ -13,30 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/14/2015"
    ms.author="tomfitz"/>
 
 # Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure
 
 Este tópico mostra como permitir que uma entidade de serviço (como um processo automatizado, aplicativo ou serviço) acesse outros recursos em sua assinatura. Com o Gerenciador de Recursos do Azure, você pode usar o controle de acesso baseado em função para conceder ações permitidas para uma entidade de serviço e autenticar essa entidade de serviço. Este tópico mostra como usar o PowerShell e CLI do Azure para atribuir uma função à entidade de serviço e autenticar essa entidade.
 
+Ele mostra como autenticar com um nome de usuário e uma senha ou um certificado.
+
+Você pode usar o Azure PowerShell ou a CLI do Azure para Mac, Linux e Windows. Se você não tem o Azure PowerShell instalado, consulte [Como instalar e configurar o Azure PowerShell](./powershell-install-configure.md). Se você não tiver a CLI do Azure instalada, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md).
 
 ## Conceitos
 1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso para a nuvem. Para obter mais informações, consulte [O que é o Active Directory do Azure](active-directory/active-directory-whatis.md)
 2. Entidade de serviço - uma instância de um aplicativo em um diretório que precisa acessar outros recursos.
 3. Aplicativo do AD - registro de diretório que identifica um aplicativo ao AAD. Para obter mais informações, consulte [Noções básicas de autenticação no AD do Azure](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
-## Conceder acesso e autenticar uma entidade de serviço usando o PowerShell
+## Autenticar a entidade de serviço com senha — PowerShell
 
-Se você não tem o Azure PowerShell instalado, consulte [Como instalar e configurar o Azure PowerShell](./powershell-install-configure.md).
-
-Você começará criando uma entidade de serviço. Para fazer isso, devemos usar a opção criar um aplicativo no diretório. Esta seção nos guiará pela criação de um novo aplicativo no diretório.
+Nesta seção, você executará as etapas para criar uma entidade de serviço para um aplicativo do Active Directory do Azure, atribuir uma função à entidade de serviço e autenticar como a entidade de serviço ao fornecer o identificador do aplicativo e a senha.
 
 1. Criar um novo aplicativo AAD executando o comando **New-AzureADApplication**. Forneça um nome de exibição para seu aplicativo, o URI para uma página que descreve o aplicativo (o link não é verificado), os URIs que identificam seu aplicativo e a senha para a identidade do seu aplicativo.
 
         PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
-     O aplicativo do Azure AD é retornado. A propriedade **ApplicationId** é necessária para criar entidades de serviço, atribuições de função e aquisição de tokens JWT. Salve a saída ou capture-a em uma variável.
+     Examine o novo objeto de aplicativo. A propriedade **ApplicationId** é necessária para criar entidades de serviço, atribuições de função e aquisição de tokens JWT.
+
+        PS C:\> $azureAdApplication
 
         Type                    : Application
         ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
@@ -44,10 +47,9 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
         AvailableToOtherTenants : False
         AppPermissions          : {{
                             "claimValue": "user_impersonation",
-                            "description": "Allow the application to access My
-                              Application on behalf of the signed-in user.",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in user.",
                             "directAccessGrantTypes": [],
-                            "displayName": "Access <<Your Application Display Name>>",
+                            "displayName": "Access <Your Application Display Name>",
                             "impersonationAccessGrantTypes": [
                               {
                                 "impersonated": "User",
@@ -56,12 +58,10 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
                             ],
                             "isDisabled": false,
                             "origin": "Application",
-                            "permissionId":
-                            "b866ef28-9abb-4698-8c8f-eb4328533831",
+                            "permissionId": "b866ef28-9abb-4698-8c8f-eb4328533831",
                             "resourceScopeType": "Personal",
-                            "userConsentDescription": "Allow the application
-                             to access <<Your Application Display Name>> on your behalf.",
-                            "userConsentDisplayName": "Access <<Your Application Display Name>>",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
                             "lang": null
                           }}
 
@@ -99,9 +99,111 @@ Você começará criando uma entidade de serviço. Para fazer isso, devemos usar
      Agora, você deve ser autenticado como a entidade de serviço para o aplicativo AAD que você criou.
 
 
-## Conceder acesso e autenticar uma entidade de serviço usando o CLI do Azure
+## Autenticar a entidade de serviço com certificado - PowerShell
 
-Se você não tiver CLI do Azure para Mac, Linux e Windows instalada, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md)
+Nesta seção, você executará as etapas para criar uma entidade de serviço para um aplicativo do Active Directory do Azure, atribuir uma função à entidade de serviço e autenticar como a entidade de serviço ao fornecer um certificado. Este tópico pressupõe que um certificado tenha sido emitido para você.
+
+Ele mostra duas maneiras de trabalhar com certificados - credenciais de chave e valores de chave. Você pode usar uma das duas abordagens.
+
+Primeiramente, você deve configurar alguns valores no PowerShell que usará mais tarde ao criar o aplicativo.
+
+1. Em ambas as abordagens, crie um objeto X509Certificate do seu certificado e recupere o valor da chave. Use o caminho para seu certificado e a senha do certificado.
+
+        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+2. Se estiver usando credenciais de chave, crie o objeto de credenciais de chave e defina seu valor como o `$keyValue` da etapa anterior.
+
+        $currentDate = Get-Date
+        $endDate = $currentDate.AddYears(1)
+        $keyId = [guid]::NewGuid()
+        $keyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+        $keyCredential.StartDate = $currentDate
+        $keyCredential.EndDate= $endDate
+        $keyCredential.KeyId = $keyId
+        $keyCredential.Type = "AsymmetricX509Cert"
+        $keyCredential.Usage = "Verify"
+        $keyCredential.Value = $keyValue
+
+3. Crie um aplicativo no diretório. O primeiro comando mostra como usar os valores de chave.
+
+        $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
+        
+    Ou use o segundo exemplo para atribuir credenciais de chave.
+
+         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
+
+    Examine o novo objeto de aplicativo. A propriedade **ApplicationId** é necessária para criar entidades de serviço, atribuições de função e aquisição de tokens JWT.
+
+        PS C:\> $azureAdApplication
+
+        Type                    : Application
+        ApplicationId           : 76fa8d97-f07e-4b9a-b871-a57a7acd777a
+        ApplicationObjectId     : c36b7b57-a949-4401-b381-18a5210aff10
+        AvailableToOtherTenants : False
+        AppPermissions          : {{
+                            "claimValue": "user_impersonation",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in
+                          user.",
+                            "directAccessGrantTypes": [],
+                            "displayName": "Access <Your Application Display Name>",
+                            "impersonationAccessGrantTypes": [
+                              {
+                                "impersonated": "User",
+                                "impersonator": "Application"
+                              }
+                            ],
+                            "isDisabled": false,
+                            "origin": "Application",
+                            "permissionId": "9f13c6c6-35ba-43d6-b8b3-6a87aa641388",
+                            "resourceScopeType": "Personal",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
+                            "lang": null
+                          }}
+
+4. Crie uma entidade de serviço para seu aplicativo.
+
+        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+    Você criou uma entidade de serviço no diretório, mas o serviço não tem quaisquer permissões ou escopo atribuídos. Você precisará conceder explicitamente à entidade de serviço permissões para executar operações em algum escopo.
+
+5. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça um dos parâmetros **ApplicationId** ou **IdentifierUris** que você usou ao criar o aplicativo. Para obter mais informações sobre controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](azure-portal/resource-group-rbac.md)
+
+        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+
+6. Para autenticar de um aplicativo, inclua o código a seguir. Depois de recuperar o cliente, você poderá acessar recursos na assinatura.
+
+        string clientId = "<Client ID for your AAD app>"; 
+        var subscriptionId = "<Your Azure SubscriptionId>"; 
+        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+
+        var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
+
+        X509Certificate2 cert = null; 
+        X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
+        string certName = "examplecert"; 
+        try 
+        { 
+            store.Open(OpenFlags.ReadOnly); 
+            var certCollection = store.Certificates; 
+            var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
+            cert = certs[0]; 
+        } 
+        finally 
+        { 
+            store.Close(); 
+        }        
+
+        var certCred = new ClientAssertionCertificate(clientId, cert); 
+        var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
+        var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+        var client = new ResourceManagementClient(creds); 
+        
+
+## Autenticar a entidade de serviço com senha — CLI do Azure
+
+Você começará criando uma entidade de serviço. Para fazer isso, devemos usar a opção criar um aplicativo no diretório. Esta seção nos guiará pela criação de um novo aplicativo no diretório.
 
 1. Crie um novo aplicativo AAD executando o comando **azure ad app create**. Forneça um nome de exibição para seu aplicativo, o URI para uma página que descreve o aplicativo (o link não é verificado), os URIs que identificam seu aplicativo e a senha para a identidade do seu aplicativo.
 
@@ -151,11 +253,11 @@ Se você não tiver CLI do Azure para Mac, Linux e Windows instalada, consulte [
 ## Próximas etapas
   
 - Para obter uma visão geral sobre o controle de acesso baseado em função, consulte [Gerenciando e auditando o acesso a recursos](azure-portal/resource-group-rbac.md)  
-- Para obter informações sobre como usar o portal com entidades de serviço, consulte [Criar uma nova entidade de serviço do Azure usando o Portal do Azure](./resource-group-create-service-principal-portal.md)  
-- Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
+- Para saber mais sobre como usar o portal com entidades de serviço, consulte [Criar uma nova entidade de serviço do Azure usando o portal do Azure](./resource-group-create-service-principal-portal.md)  
+- Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -158,4 +158,4 @@ Agora que você viu como é fácil usar o armazenamento de tabela com o back-end
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

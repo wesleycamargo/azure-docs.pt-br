@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/13/2015"
+	ms.date="08/18/2015"
 	ms.author="yuaxu"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -397,6 +397,5 @@ Este tutorial foi concluído com êxito.
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

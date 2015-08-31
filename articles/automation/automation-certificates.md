@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ativos de certificado na Automação do Azure"
+   pageTitle="Ativos de certificados na Automação do Azure | Microsoft Azure"
    description="Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados por runbooks para autenticação em relação a recursos do Azure e de terceiros. Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Ativos de certificado na Automação do Azure
@@ -107,4 +107,4 @@ Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade 
 
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

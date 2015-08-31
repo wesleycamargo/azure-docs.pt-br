@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Autenticar seu aplicativo com logon único da biblioteca de autenticação do Active Directory (Windows Store) | Microsoft Azure" 
-	description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo da Windows Store." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Autenticar seu aplicativo com logon único da biblioteca de autenticação do Active Directory (Windows Store) | Microsoft Azure"
+	description="Saiba como autenticar usuários para logon único com ADAL em seu aplicativo da Windows Store."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo
@@ -37,7 +37,7 @@ Este tutorial exige o seguinte:
 * Visual Studio 2013 em execução no Windows 8.1.
 * Conclusão do tutorial [Introdução aos Serviços Móveis] ou [Introdução aos Dados].
 * Pacote NuGet do SDK de Serviços Móveis do Microsoft Azure
-* Pacote NuGet da biblioteca de autenticação do diretório ativo 
+* Pacote NuGet da biblioteca de autenticação do diretório ativo
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
@@ -134,12 +134,12 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 
 5. Adicione o código a seguir para a classe MainPage, que declara o método `AuthenticateAsync`.
 
-        private MobileServiceUser user; 
+        private MobileServiceUser user;
         private async Task AuthenticateAsync()
         {
             string authority = "<INSERT-AUTHORITY-HERE>";
             string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+            string clientID = "<INSERT-CLIENT-ID-HERE>";
             while (user == null)
             {
                 string message;
@@ -155,11 +155,11 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
                 catch (InvalidOperationException)
                 {
                   message = "You must log in. Login Required";
-                } 
+                }
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
-            } 
+            }
         }
 
 6. No código para o método `AuthenticateAsync` acima, substitua **INSERIR-AUTORIDADE-AQUI** pelo nome do locatário em que você provisionou seu aplicativo, o formato deve ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal de Gerenciamento do Azure].
@@ -216,4 +216,4 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

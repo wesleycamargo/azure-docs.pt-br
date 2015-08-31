@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Desabilitar ou habilitar um ponto de extremidade do Gerenciador de Tráfego"
+   pageTitle="Desabilitar ou habilitar um ponto de extremidade do Gerenciador de Tráfego| Microsoft Azure"
    description="Este artigo ajudará a desabilitar ou habilitar os pontos de extremidade de perfil do Gerenciador de Tráfego."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Desabilitar ou habilitar um ponto de extremidade do Gerenciador de Tráfego
@@ -38,9 +38,9 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## Próximas etapas
 
-[Tarefas de Configuração do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
 
-[Visão geral do Gerenciador de Tráfego](../traffic-manager.md)
+[O que é o Gerenciador de Tráfego?](../traffic-manager.md)
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

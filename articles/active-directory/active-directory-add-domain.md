@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Adicionar seu nome de domínio ao AD do Azure" 
-	description="Um tópico que explica como adicionar seu próprio nome de domínio ao AD do Azure e informações relacionadas." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Adicionar seu nome de domínio ao AD do Azure | Microsoft Azure"
+	description="Um tópico que explica como adicionar seu próprio nome de domínio ao AD do Azure e informações relacionadas."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="msStevenPo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/12/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Adicionar seu nome de domínio ao AD do Azure
 
@@ -41,7 +41,7 @@ Se sua organização já tiver um nome de domínio personalizado, como um admini
 Você pode adicionar até 900 nomes de domínio ao locatário do AD do Azure usando:
 
 - O Portal de Gerenciamento do Azure, o portal do Office 365 ou o portal do Microsoft Intune.
-- Módulo do Active Directory do Azure para Windows PowerShell. Para obter mais informações sobre qual cmdlet você pode usar para isso, consulte [Gerenciar domínios](https://msdn.microsoft.com/library/azure/dn919677.aspx).
+- Módulo do Active Directory do Azure para Windows PowerShell. Para obter mais informações sobre qual cmdlet você pode usar para isso, consulte [Gerenciar domínios](https://msdn.microsoft.com/library/azure/dn919677.aspx) no Azure AD.
 
 Você já deve ter registrado um nome de domínio e tem as credenciais de entrada necessárias para o registrador de nome de domínio (por exemplo, Go Daddy ou Register.com).
 
@@ -62,11 +62,11 @@ Se você planeja usar o logon único com o serviço de nuvem, é recomendável q
 2. Clique em **Domínios** e, em seguida, clique em **Adicionar um domínio de cliente** ou no botão **Adicionar**.
 2. Na página **Adicionar domínio**, digite o nome de domínio que você deseja adicionar e execute uma das seguintes ações:
     1. Se você não planeja integrar o Active Directory local com o AD do Azure, faça o seguinte:
-        1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** desmarcada e clique no botão **Adicionar**.
+        1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** desmarcada e, em seguida, clique no botão **Adicionar**.
         2. Depois de ver a mensagem de que o domínio foi adicionado com êxito ao AD do Azure, clique na seta para ir para a próxima página e verificar seu domínio.
         3. Siga as instruções na próxima página para verificar se o nome de domínio que você adicionou nas etapas anteriores pertence a você. Para instruções passo a passo, consulte Verificar um domínio em qualquer registrador de nome de domínio.
     2. Se você quiser integrar o Active Directory local com AD do Azure, faça o seguinte:
-        1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** marcada e clique no botão **Adicionar**.
+        1. Deixe a caixa de seleção **Eu planejo configurar este domínio para logon único com o Active Directory local** selecionada e clique no botão **Adicionar**.
         2. Depois de ver a mensagem de que o domínio foi adicionado com êxito ao AD do Azure, clique na seta para ir para a próxima página e, em seguida, siga as instruções na página para configurar o domínio adicionado para logon único.
 
 > [AZURE.NOTE]Depois de adicionar seu nome de domínio ao AD do Azure, você pode alterar o nome de domínio padrão para novos endereços de email. Para obter mais informações, consulte [Como alterar o nome de domínio primário para os usuários?](#how-can-i-change-the-primary-domain-name-for-users?) Você também pode editar o perfil de uma conta de usuário existente para atualizar o endereço de email (que também é a ID de usuário) para usar o nome de domínio personalizado em vez do domínio onmicrosoft.com.
@@ -96,7 +96,7 @@ Se você já tiver um domínio registrado com um registrador de nome de domínio
 
 Antes que você possa verificar seu domínio, deve adicionar um domínio personalizado ao AD do Azure. Quando você adiciona um domínio personalizado, mas o domínio ainda não foi verificado, o status mostrará **Clique para verificar o domínio** ou **Não verificado**.
 
-#### Coletar informações de domínio 
+#### Coletar informações de domínio
 
 Com base no portal que você está usando para administrar o diretório do AD do Azure, você precisará coletar algumas informações sobre seu domínio para que, mais tarde, possa criar um registro DNS que será usado durante o processo de verificação.
 
@@ -112,12 +112,12 @@ Se você estiver usando o Microsoft Intune ou o Portal de Conta do Azure:
 
 Se você estiver usando o Portal de Gerenciamento do Azure:
 
-1. No portal, clique em **Active Directory**, clique no nome do diretório, clique em **Domínios**. 
+1. No portal, clique em **Active Directory**, clique no nome do diretório, clique em **Domínios**.
 2. Na página **Domínios**, na lista de nomes de domínio, clique no domínio que você quer verificar e, em seguida, clique em **Verificar**.
 2. Na página **Verificar**, na lista suspensa **Tipo de Registro**, escolha **Registro TXT** ou **Registro MX**.
 3. Copie ou registre as informações abaixo dele.
 
-#### Adicionar um registro DNS ao seu registrador de nome de domínio 
+#### Adicionar um registro DNS ao seu registrador de nome de domínio
 
 O AD do Azure usa um registro DNS que você cria no seu registrador de nome de domínio para confirmar que possui o domínio. Use as instruções a seguir para criar o tipo de registro TXT ou MX para um domínio que está registrado no seu registrador.
 
@@ -131,7 +131,7 @@ Para obter instruções gerais, siga estas etapas para adicionar um registro TXT
 2. Na área de gerenciamento do DNS de sua conta, selecione a opção para adicionar um TXT ou MX ao domínio.
 3. Na caixa **TXT** ou **MX** do domínio, digite o seguinte: @
 4. Na caixa **Nome de domínio totalmente qualificado (FQDN)** ou **Pontos para**, digite ou cole o **Destino ou Pontos para endereçamento** que você registrou na etapa anterior.
-5. Para um registro TXT, ele pede informações de **TTL**. Digite **1** para definir o TTL como uma hora. 
+5. Para um registro TXT, ele pede informações de **TTL**. Digite **1** para definir o TTL como uma hora.
 
     Para um registro MX, ele solicita uma prioridade (ou preferência). Digite um número que seja maior do que o número especificado para os registros MX existentes. Isso pode ajudar a impedir que o novo registro MX interfira no roteamento de email para o domínio. Em vez de uma prioridade, você verá as seguintes opções: **Baixa**, **Média**, **Alta**. Nesse caso, escolha **Baixa**.
 
@@ -139,7 +139,7 @@ Para obter instruções gerais, siga estas etapas para adicionar um registro TXT
 
 Depois de criar o registro TXT ou MX e sair do site, retorne ao serviço de nuvem para verificar o domínio. Geralmente, leva cerca de 15 minutos para que as alterações entrem em vigor. Mas pode levar até 72 horas para que o registro que você criou se propague no sistema DNS.
 
-#### Verifique o seu domínio 
+#### Verifique o seu domínio
 
 Depois que o registro que você criou para seu domínio se propagar com êxito no sistema DNS, faça o seguinte para concluir a verificação do domínio com o AD do Azure.
 
@@ -165,7 +165,7 @@ Depois de adicionar seu nome de domínio ao AD do Azure, você pode alterar o no
 
 Antes de remover um nome de domínio, recomendamos que você leia as seguintes informações:
 
-- O nome de domínio contoso.onmicrosoft.com original que foi fornecido ao diretório quando você se inscreveu não pode ser removido. 
+- O nome de domínio contoso.onmicrosoft.com original que foi fornecido ao diretório quando você se inscreveu não pode ser removido.
 - Qualquer domínio de nível superior que tenha subdomínios associados a ele não pode ser removido até que os subdomínios sejam removidos. Por exemplo, não é possível remover o adatum.com se você tiver o corp.adatum.com ou outro subdomínio que usa o nome de domínio de nível superior. Para obter mais informações, consulte o [Artigo de suporte](https://support.microsoft.com/kb/2787792/).
 - Você ativou a sincronização do diretório? Se ativou, um domínio semelhante a este foi adicionado automaticamente à sua conta: contoso.mail.onmicrosoft.com. Esse nome de domínio não pode ser removido.
 - Antes de remover um nome de domínio, você deve primeiro remover o nome de domínio de todas as contas de usuário ou de email associadas ao domínio. Você pode remover todas as contas, ou você pode editar contas de usuário em massa para alterar informações de nomes de domínio e endereços de email. Para obter mais informações, consulte [Criar ou editar usuários no AD do Azure](active-directory-create-users.md).
@@ -179,7 +179,7 @@ Para remover um nome de domínio:
 
 Se seu nome de domínio não puder ser removido neste momento, o status do nome de domínio será mostrado como Remoção pendente na página Domínios. Se você continuar vendo esse status, tente novamente remover o nome do domínio.
 
-## Solucionando problemas após a alteração do nome de domínio 
+## Solucionando problemas após a alteração do nome de domínio
 
 ### Fiz alterações no meu domínio, mas ele ainda não mostra as alterações.
 
@@ -189,19 +189,19 @@ Além disso, as edições feitas no registrador de domínio devem ser exatamente
 
 Quanto tempo levará? Depende em parte da configuração do TTL (Vida Útil) que você especificou para o registro DNS que está substituindo ou atualizando. Até que o TTL expire, os servidores de Internet que armazenaram em cache os dados anteriores não consultarão o servidor de nome autoritativo para solicitar o novo valor.
 
-### Eu adicionei um domínio, verifiquei e configurei os registros DNS no site do registrador de domínio. Por que as novas contas de email ainda não estão recebendo emails? 
+### Eu adicionei um domínio, verifiquei e configurei os registros DNS no site do registrador de domínio. Por que as novas contas de email ainda não estão recebendo emails?
 
 Depois de adicionar ou atualizar registros DNS para o domínio, pode levar até 72 horas para que as alterações entrem em vigor.
 
 Além disso, as informações de configuração devem ser exatamente corretas no site do registrador de domínio. Verifique atentamente suas configurações e certifique-se de ter permitido tempo suficiente para que os registros DNS alterados se propaguem no sistema.
 
-### Não consigo verificar meu nome de domínio. Como descobrir o que está errado? 
+### Não consigo verificar meu nome de domínio. Como descobrir o que está errado?
 
 Uma maneira de rastrear problemas é usar o assistente de solução de problemas de domínios. Para iniciar o assistente, faça o seguinte: no portal do serviço de nuvem, na página de administração, clique em **Domínios** e depois clique duas vezes no nome de domínio que você quer verificar. Em seguida, em **Solucionando problemas**, clique em **Solucionar problemas do domínio**.
 
 O assistente de solução de problemas solicita informações sobre onde você está no processo de verificação e fornece informações para ajudá-lo a concluir a verificação.
 
-### Eu adicionei e verifiquei meu domínio, mas o novo nome de domínio não está funcionando para endereços de email de usuários existentes. 
+### Eu adicionei e verifiquei meu domínio, mas o novo nome de domínio não está funcionando para endereços de email de usuários existentes.
 
 Se você adicionar seu nome de domínio personalizado ao serviço de nuvem depois de adicionar as contas de usuário, terá de fazer atualizações para usar o novo nome de domínio. Por exemplo, você precisará editar suas contas de usuários para definir seus endereços de email para usar seu domínio personalizado.
 
@@ -210,6 +210,6 @@ Se você adicionar seu nome de domínio personalizado ao serviço de nuvem depoi
 - [Fórum do AD do Azure](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-- [Gerenciar domínios no AD do Azure](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
+- [Gerenciar domínios no AD do Azure](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

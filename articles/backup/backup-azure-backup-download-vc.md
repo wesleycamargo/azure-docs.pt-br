@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # Usando as credenciais do cofre para autenticação no serviço Backup do Azure
 O servidor local (cliente Windows, Windows Server ou servidor do SCDPM) precisa ser autenticado em um cofre de backup antes de poder fazer backup de dados no Azure. A autenticação é feita com as "credenciais do cofre". O conceito de credenciais do cofre é semelhante ao conceito de um arquivo de "configurações de publicação" que é usado no Azure PowerShell.
@@ -37,7 +37,13 @@ O arquivo de credencial do cofre é baixado por meio de um canal seguro no Porta
 - O arquivo de credenciais do cofre expira após 48 horas e pode ser baixado no portal.
 - Consulte as [Perguntas frequentes](backup-azure-backup-faq.md) do Backup do Azure em caso de dúvidas sobre o fluxo de trabalho.
 
+##Passo a passo em vídeo
+
+Aqui está um passo a passo em vídeo deste tutorial.
+
+[AZURE.VIDEO using-vault-credentials-to-authenticate-with-the-azure-backup-service]
+
 ## Próximas etapas
 [Baixar, registrar e instalar o Agente de Backup do Azure](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

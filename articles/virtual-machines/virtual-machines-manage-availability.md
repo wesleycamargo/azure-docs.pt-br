@@ -60,7 +60,7 @@ Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para o
 Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e Conjunto de Disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância.
 
 ### Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade
-Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilidade. As máquinas virtuais com esta configuração não se qualificam para a garantia de SLA e enfrentarão tempo de inatividades durante os eventos de manutenção planejada do Azure. Além disso, se você implantar uma única instância de máquina virtual em um conjunto de disponibilidade, você não receberá nenhum alerta ou notificação antecipada de manutenção de plataforma. Nessa configuração, a instância de sua única máquina virtual pode e será reinicializada sem nenhum alerta antecipado quando a manutenção da plataforma acontecer.
+Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilidade. As máquinas virtuais com esta configuração não se qualificam para a garantia de SLA e enfrentarão tempo de inatividades durante os eventos de manutenção planejada do Azure. Observe que uma instância única de máquina virtual dentro de um conjunto de disponibilidade também receberá notificações por email avançadas em notificações de manutenção planejada de máquinas virtuais de várias instâncias.
 
 <!-- Link references -->
 [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
@@ -69,4 +69,4 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

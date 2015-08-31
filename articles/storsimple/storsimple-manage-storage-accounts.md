@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gerenciamento da sua conta de armazenamento StorSimple"
+   pageTitle="Gerenciar sua conta de armazenamento do StorSimple Microsoft Azure | Microsoft Azure"
    description="Explica como você pode usar a página Configurar para adicionar, editar, excluir ou alternar entre as chaves de segurança para uma conta de armazenamento."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Gerenciamento da sua conta de armazenamento StorSimple
@@ -50,7 +50,7 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
-- **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como esta conta de armazenamento é criada, consulte a Etapa 1: criação de um novo serviço, em [Implantação do seu dispositivo StorSimple](storsimple-deployment-walkthrough.md). 
+- **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: Criar um novo serviço](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service), em [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md). 
 - **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md). 
 - **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
 
@@ -97,7 +97,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 2. Na lista de contas de armazenamento em formato de tabela, passe o mouse sobre a conta que você deseja excluir.
 
-3. Um ícone de exclusão (**x**) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
+3. Um ícone de exclusão (**x**) será exibido na coluna bem à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
 
 4. Quando solicitado a confirmar, clique em **Sim** para continuar com a exclusão. A listagem de tabela será atualizada para refletir as alterações.
 
@@ -150,6 +150,6 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 
 ## Próximas etapas
 
-Saiba mais sobre a [segurança do StorSimple](storsimple-security.md)
+Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

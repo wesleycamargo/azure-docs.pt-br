@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # Usando o Conector de SFTP em seu aplicativo lógico #
@@ -79,7 +79,7 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 	- **Caminho da Pasta** - especifique o caminho da pasta da qual os arquivos precisam ser recuperados.
 	- **O tipo de arquivo: texto ou binário** - selecione o tipo do arquivo.
 	- **Máscara de arquivo** - especifique a máscara de arquivo a ser aplicada para a recuperação de arquivos. ' *' recupera todos os arquivos na pasta especificada.
-	- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
+- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
 
 
 	![][9]
@@ -91,14 +91,18 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 	- **Codificação de Transferência de Conteúdo** - especifique nenhuma ou Base64
 	- **Caminho do Arquivo** - especifique o caminho do arquivo a ser carregado
 	- **Substituir** - especifique "true" para substituir o arquivo se ele já existir
-	- **Anexar Se Existir ** - especifique "true" ou "false". Quando definido como "true", os dados serão anexados ao arquivo, se ele existir. Quando definido como "false", o arquivo será substituído, se ele existir
-	- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
+	- ****Anexar Se Existir** - especifique "true" ou "false". Quando definido como "true", os dados serão anexados ao arquivo, se ele existir. Quando definido como "false", o arquivo será substituído, se ele existir
+- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
 
 	![][11]
 	![][12]
 
+## Faça mais com seu Conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!-- Image reference -->
@@ -115,4 +119,4 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

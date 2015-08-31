@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 
@@ -117,7 +117,7 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Introdução (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
+[Introdução (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Introdução à autenticação]: mobile-services-dotnet-backend-android-get-started-users.md
 [Introdução às notificações por push]: mobile-services-dotnet-backend-android-get-started-push.md
@@ -129,4 +129,4 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Portal de Gerenciamento]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

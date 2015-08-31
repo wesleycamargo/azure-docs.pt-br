@@ -107,11 +107,11 @@ Para obter detalhes sobre esse relatório, verifique [Entradas de fontes desconh
 
 ### Entradas após várias falhas
 
-Para obter detalhes sobre esse relatório, verifique [Entradas após várias falhas](active-directory-sign-ins-after-multiple-failures.md).
+Para obter detalhes sobre esse relatório, verifique [Entradas após várias falhas](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Entradas de várias regiões geográficas
 
-Para obter detalhes sobre esse relatório, verifique [Entradas de várias regiões geográficas](active-directory-sign-ins-from-multiple-geographies.md).
+Para obter detalhes sobre esse relatório, verifique [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Entradas de endereços IP com atividade suspeita
 
@@ -302,4 +302,4 @@ Para obter mais informações sobre as notificações de relatórios do AD do Az
 - [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

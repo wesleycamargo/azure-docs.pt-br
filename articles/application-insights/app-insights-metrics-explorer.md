@@ -21,7 +21,7 @@ Métricas no [Application Insights][start] são contagens e valores medidos de e
 
 Contagens de métricas e eventos são exibidas em gráficos de valores agregados como somas, médias ou contagens.
 
-Por exemplo, se você adicionar o Application Insights a um aplicativo Web, aqui está o que você vê próximo à parte superior da visão geral:
+Aqui está um exemplo do gráfico:
 
 ![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -40,12 +40,13 @@ Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qua
 
 Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. No modo de liberação, pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
 
-Na folha visão geral, arraste uma parte do gráfico para ampliá-la em um novo gráfico.
-
+Para ampliar uma parte de um gráfico, arraste sobre ele e clique no símbolo de lente de aumento:
 
 ![Arraste por parte de um gráfico.](./media/app-insights-metrics-explorer/12-drag.png)
 
-## Valores de intervalo e ponto
+
+
+## Valores de granularidade e ponto
 
 Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
 
@@ -53,15 +54,15 @@ Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determ
 
 O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior.
 
-O intervalo de amostragem ou "intervalo" é mostrado na parte superior da folha.
+O intervalo de amostragem ou "granularidade" é mostrado na parte superior da folha.
 
 ![O cabeçalho de uma folha.](./media/app-insights-metrics-explorer/11-grain.png)
 
-Você pode ajustar o intervalo na folha Intervalo de tempo:
+Você pode ajustar a granularidade na folha Intervalo de tempo:
 
 ![O cabeçalho de uma folha.](./media/app-insights-metrics-explorer/grain.png)
 
-Os intervalos disponíveis depende do intervalo de tempo selecionado. Os intervalos explícitos são alternativas ao intervalo “automático” para o intervalo de tempo.
+As granularidades disponíveis dependem do intervalo de tempo selecionado. As granularidades explícitas são alternativas à granularidade "automática" para o intervalo de tempo.
 
 ## Metrics Explorer
 
@@ -76,7 +77,7 @@ Por exemplo, clique no gráfico de Solicitações com falha do aplicativo Web:
 
 A legenda na lateral mostra, por padrão, o valor agregado durante o período do gráfico.
 
-Cada ponto de dados no gráfico também é um acumulado dos valores de dados recebidos no intervalo de amostragem anterior, ou "intervalo". O intervalo é mostrado na parte superior da folha e varia de acordo com a escala de tempo total do gráfico.
+Cada ponto de dados no gráfico também é um acumulado dos valores de dados recebidos no intervalo de amostragem anterior, ou "granularidade". A granularidade é mostrada na parte superior da folha e varia de acordo com a escala de tempo total do gráfico.
 
 Métricas diferentes são agregadas de maneiras diferentes:
 
@@ -197,8 +198,8 @@ Se desejar exibições ainda mais avançadas, você pode [exportar para o Power 
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

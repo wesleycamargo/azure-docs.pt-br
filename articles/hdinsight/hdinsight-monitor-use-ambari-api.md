@@ -3,6 +3,7 @@
 	description="Use as APIs do Apache Ambari para provisionar, gerenciar e monitorar clusters do Hadoop. As APIs e ferramentas intuitivas do operador do ocultam a complexidade do Hadoop."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
 	manager="paulettm"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # Monitorar clusters Hadoop no HDInsight usando a API da Ambari
@@ -146,7 +147,7 @@ Obter informações de configuração.|`/api/v1/clusters/&lt;ClusterName&gt;.azu
 
 Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para obter mais informações, consulte:
 
-- [Gerenciar clusters HDInsight usando o Portal de Gerenciamento][hdinsight-admin-portal]
+- [Gerenciar clusters HDInsight usando o portal de visualização do Azure][hdinsight-admin-portal]
 - [Gerenciar clusters HDInsight usando o PowerShell do Azure][hdinsight-admin-powershell]
 - [Gerenciar clusters HDInsight usando a interface de linha de comando][hdinsight-admin-cli]
 - [Documentação do HDInsight][hdinsight-documentation]
@@ -173,6 +174,5 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

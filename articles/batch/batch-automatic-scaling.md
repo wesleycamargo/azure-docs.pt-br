@@ -147,7 +147,14 @@ Esses tipos têm suporte em uma fórmula:
 - double
 - doubleVec
 - string
-- timestamp
+- timestamp. timestamp é uma estrutura composta que contém os números a seguir.
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (no formato numérico. Por exemplo 1 para segunda-feira)
+	- hour (no formato numérico de 24 horas. Por exemplo 13 significa 13:00)
+	- minute (00-59)
+	- second (00-59)
 - timeinterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -428,7 +435,7 @@ Essas métricas podem ser definidas em uma fórmula.
 
 É sempre uma boa prática avaliar uma fórmula antes de usá-la em seu aplicativo. A fórmula é avaliada por meio de uma execução de teste em um pool existente. Faça isso usando um destes métodos:
 
-- [Método IPoolManager.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/dn931617.aspx) ou [Método IPoolManager.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/dn931545.aspx) – estes métodos .NET requerem o nome de um pool existente e a cadeia de caracteres que contém a fórmula de dimensionamento automático. Os resultados da chamada são contidos em uma instância da [Classe AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
+- [Método IPoolManager.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/dn931617.aspx) ou [Método IPoolManager.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/dn931545.aspx) – esses métodos .NET exigem o nome de um pool existente e a cadeia de caracteres que contém a fórmula de dimensionamento automático. Os resultados da chamada estão contidos em uma instância da [Classe AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
 - [Avaliar uma fórmula de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn820183.aspx) – nesta operação REST, o nome do pool é especificado no URI e a fórmula de dimensionamento automático é especificada no elemento autoScaleFormula do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
 
 ## Criar um pool com o dimensionamento automático habilitado
@@ -445,7 +452,7 @@ Crie um pool de uma das seguintes maneiras:
 
 Se já tiver configurado um pool com um número especificado de nós de computação usando o parâmetro targetDedicated, você pode atualizar o pool existente em um momento posterior para dimensionar automaticamente. Você faz isso de uma das seguintes maneiras:
 
-- [Método IPoolManager.EnableAutoScale](https://msdn.microsoft.com/library/azure/dn931709.aspx) – este método .NET requer o nome de um pool existente e a fórmula de dimensionamento automático.
+- [Método IPoolManager.EnableAutoScale](https://msdn.microsoft.com/library/azure/dn931709.aspx) – esse método .NET exige o nome de um pool existente e a fórmula de dimensionamento automático.
 - [Habilitar/desabilitar dimensionamento automático](https://msdn.microsoft.com/library/azure/dn820173.aspx) – esta API REST requer o nome de pool existente no URI e a fórmula de dimensionamento automático no corpo da solicitação.
 
 > [AZURE.NOTE]O valor especificado para o parâmetro targetDedicated quando o pool foi criado é ignorado quando a fórmula de dimensionamento automático é avaliada.
@@ -454,22 +461,52 @@ Se já tiver configurado um pool com um número especificado de nós de computa�
 
 Você deve verificar periodicamente os resultados das execuções automáticas de dimensionamento. Faça isso de uma das seguintes maneiras:
 
-- [Propriedade ICloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) – ao usar a biblioteca .NET, esta propriedade de um pool fornece uma instância da [Classe AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), que fornece uma [Propriedade AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), uma [Propriedade AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) e uma [Propriedade AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
+- [Propriedade ICloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) – ao usar a biblioteca .NET, essa propriedade de um pool fornece uma instância da [Classe AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), que fornece uma [Propriedade AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), uma [Propriedade AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) e uma [Propriedade AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
 - [Obter informações sobre um pool](https://msdn.microsoft.com/library/dn820165.aspx) – esta API REST retorna informações sobre o pool, que incluem a execução mais recente de dimensionamento automático.
+
+## Exemplos
+
+### Exemplo 1.
+
+Você deseja ajustar o tamanho do pool com base na hora da semana.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+Esta fórmula detectará a hora atual. Se for um dia da semana (1..5) e hora útil (8:00 .. 18: 00), o tamanho do pool de destino será definido como 20. Caso contrário, o tamanho do pool será definido como 10.
+
+### Exemplo 2.
+
+Outro exemplo para ajustar o tamanho do pool com base em tarefas na fila.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
 
 ## Próximas etapas
 
 1.	Talvez seja necessário acessar o nó de computação para avaliar completamente a eficiência de seu aplicativo. Para se beneficiar do acesso remoto, uma conta de usuário deve ser adicionada ao nó de computação que você deseja acessar e um arquivo RDP deve ser recuperado desse nó. Adicione a conta de usuário de uma das seguintes maneiras:
 
-	- [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) – este cmdlet obtém o nome do pool, o nome do nó de computação, o nome da conta e a senha como parâmetros.
-	- [Método IVM.CreateUser](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.createuser.aspx) – este método .NET cria uma instância da [Interface do Usuário](https://msdn.microsoft.com/library/microsoft.azure.batch.iuser.aspx) na qual é possível definir o nome da conta e a senha para o nó de computação.
-	- [Adicionar uma conta de usuário a um nó](https://msdn.microsoft.com/library/dn820137.aspx) – o nome do pool e o nó de computação são especificados no URI e o nome da conta e a senha são enviados para o nó no corpo da solicitação dessa API REST.
+	- [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) – esse cmdlet obtém o nome do pool, o nome do nó de computação, o nome da conta e a senha como parâmetros.
+	- [Método IVM.CreateUser](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.createuser.aspx) – esse método .NET cria uma instância da [Interface do Usuário](https://msdn.microsoft.com/library/microsoft.azure.batch.iuser.aspx) na qual é possível definir o nome da conta e a senha para o nó de computação.
+	- [Adicionar uma conta de usuário a um nó](https://msdn.microsoft.com/library/dn820137.aspx) – o nome do pool e o nó de computação são especificados no URI e o nome da conta e a senha são enviados para o nó no corpo da solicitação desta API REST.
 
 		Obtenha o arquivo RDP:
 
-	- [Método IVM.GetRDPFile](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx) – este método .NET requer o nome do arquivo RDP a ser criado.
+	- [Método IVM.GetRDPFile](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx) – esse método .NET requer o nome do arquivo RDP a ser criado.
 	- [Obter um arquivo de protocolo RDP de um nó](https://msdn.microsoft.com/library/dn820120.aspx) – esta API REST requer o nome do pool e o nome do nó de computação. A resposta tem o conteúdo do arquivo RDP.
-	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – este cmdlet obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
+	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – esse cmdlet obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
 2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Uma forma de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

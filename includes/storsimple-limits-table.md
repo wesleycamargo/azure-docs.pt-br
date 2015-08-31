@@ -1,10 +1,8 @@
-
 | Identificador de limite | Limite | Comentários |
 |----------------- | ------|--------- |
 | Número máximo de credenciais de conta de armazenamento | 64 | |
 | Número máximo de contêineres de volume | 64 | |
 | Número máximo de volumes | 255 | |
-| Número máximo de modelos de largura de banda | 25 | |
 | Número máximo de agendas por modelo de largura de banda | 168 | Uma agenda para cada hora, cada dia da semana (24x7). |
 | Tamanho máximo de um volume | 64 TB | |
 | Número máximo de conexões iSCSI | 512 | |
@@ -22,6 +20,6 @@
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada HDD)* | 120/250 MB/s |
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada de nuvem)* | 11/41 MB/s | A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. |
 
-&#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
+&\#42; A taxa de transferência máxima por tipo de E/S foi medida com cenários 100% de gravação e 100% de leitura. A taxa de transferência real pode ser menor e depende da combinação de E/S e das condições da rede.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introdução ao Banco de Dados SQL"
+	pageTitle="Introdução ao banco de dados SQL | Microsoft Azure"
 	description="Crie em questão de minutos seu primeiro banco de dados de nuvem com o Banco de Dados SQL do Azure, o serviço de gerenciamento de bando de dados relacional da Microsoft (RDBMS) na nuvem, usando o Portal do Azure e o exemplo de banco de dados AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
@@ -29,7 +29,7 @@ Este artigo mostra como criar um exemplo de Banco de Dados SQL do Azure em menos
 - Definir uma regra de firewall para o banco de dados a fim de configurar quais endereços IP poderão acessar o banco de dados.
 
 
-Este tutorial presume que você tem uma Assinatura do Azure. Se não tiver, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Este tutorial presume que você tenha uma Assinatura do Azure. Se não tiver, inscreva-se em uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Etapa 1: Entrar
@@ -46,7 +46,7 @@ Este tutorial presume que você tem uma Assinatura do Azure. Se não tiver, insc
 
 
 
-1. Na folha Banco de Dados SQL, escolha um **Nome** para seu banco de dados; neste exemplo **AdventureWorks**.
+1. Na folha **Banco de Dados SQL**, escolha um **Nome** para seu banco de dados; neste exemplo **AdventureWorks**.
 2. Para criar o servidor lógico do banco de dados, clique em **Servidor** e, em seguida, em **Criar um novo servidor**.
 
 
@@ -66,7 +66,7 @@ Este tutorial presume que você tem uma Assinatura do Azure. Se não tiver, insc
 ## Etapa 4: Criar o banco de dados
 
 
-1. Na folha Banco de Dados SQL, especifique a origem do banco de dados clicando em **Selecionar Origem**.
+1. Na folha **Banco de Dados SQL**, especifique a origem do banco de dados clicando em **Selecionar Origem**.
  - Se você ignorar esta etapa, um banco de dados vazio será criado.
 2. Selecione **Amostra**.
  - Isso cria um banco de dados que é uma cópia do banco de dados de exemplo padrão chamado **AdventureWorks**.
@@ -85,8 +85,8 @@ As etapas a seguir demonstram como especificar quais intervalos de endereços IP
 
 1. Na faixa de opções à esquerda da tela, clique em **Procurar** e em **Servidores SQL**.
 2. Nas opções disponíveis, clique no servidor SQL criado anteriormente.
-3. Clique em **Configurações** e, em seguida, em **Firewall**.
-4. Clique neste link para obter seu endereço IP atual no [Bing](http://www.bing.com/search?q=my%20ip%20address).
+3. Clique em **Configurações** e, em seguida, clique em **Firewall**.
+4. Obtenha seu endereço IP atual do [Bing](http://www.bing.com/search?q=my%20ip%20address).
 5. Nas Configurações do Firewall, insira um **Nome de Regra** e cole o endereço IP público da etapa anterior nos campos **IP Inicial** e **IP Final**.
 6. Após a conclusão, clique em **Salvar** na parte superior da página.
 
@@ -109,6 +109,5 @@ Agora você está pronto para escrever um pequeno programa cliente que pode se c
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

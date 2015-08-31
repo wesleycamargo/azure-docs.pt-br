@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Adicionar notificações por push a seu aplicativo Xamarin iOS com o Serviço de Aplicativo do Azure" 
-	description="Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo iOS" 
+	description="Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo Xamarin.iOS" 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
-	authors="ysxu"
+	authors="normesta"
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,199 +13,77 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="06/18/2015" 
+	ms.date="07/29/2015" 
 	ms.author="yuaxu"/>
 
-# Adicionar notificações por push a seu aplicativo Xamarin iOS
+# Adicionar notificações por push a seu aplicativo Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Este tópico mostra como usar o Serviço de Aplicativo do Azure para enviar notificações por push para um aplicativo Xamarin.iOS 8. Neste tutorial você adiciona notificações por push usando o APNS (serviço de Notificação por Push da Apple) ao projeto de [Introdução a aplicativos móveis do Serviço de Aplicativo]. Ao concluir, o back-end móvel enviará uma notificação por push sempre que um registro for inserido.
+##Visão geral
 
-Este tutorial exige o seguinte:
+Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Xamarin.iOS] de forma que sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial se baseia no tutorial de [Início Rápido de Xamarin.iOS] , que você deve concluir primeiro. O [simulador de iOS não dá suporte a notificações de push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html); portanto, você deve usar um dispositivo físico com iOS. Você também precisará de uma [assinatura do programa de desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
 
-+ Um dispositivo iOS 8
-+ Associação no Programa de Desenvolvedores de iOS
-+ [Xamarin.iOS Studio]
-+ [Componente dos Serviços Móveis do Azure]
+##Pré-requisitos
 
-   >[AZURE.NOTE]Devido aos requisitos de configuração das notificações por push, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad) em vez de usar o emulador.
+Para concluir este tutorial, você precisará do seguinte:
 
-O APNS (Serviço de Notificação por Push da Apple) usa certificados para autenticar seu aplicativo móvel. Siga estas instruções para criar os certificados necessários e carregá-los no seu aplicativo móvel. Para a documentação oficial do recurso APNS, consulte [Serviço de Notificação por Push da Apple].
+* Uma conta ativa do Azure.
+
+    Se você ainda não tiver uma conta, inscreva-se para uma avaliação do Azure e obtenha até 10 aplicativos móveis grátis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+
+    >[AZURE.NOTE]Se você deseja começar a usar aplicativos móveis antes de inscrever-se em uma conta do Azure, vá para [Experimentar o serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Você pode criar um aplicativo móvel inicial de curta duração imediatamente. Nenhum cartão de crédito é exigido, sem compromissos.
+
+* Um Mac com [Xamarin Studio] e [Xcode] v 4.4 ou posterior instalado.
+
+    >[AZURE.NOTE]É mais fácil de executar seu aplicativo Xamarin.iOS em um Mac usando o Xamarin Studio. Você pode executar o aplicativo Xamarin.iOS usando o Visual Studio no computador com o Windows se quiser, mas é um pouco mais complicado porque você precisa se conectar a um MAC em rede. Se você estiver interessado em fazer isso, consulte [Installing Xamarin.iOS on Windows].
+
+* Um dispositivo físico iOS
+
+* Concluir o [tutorial de início rápido](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
+
+## <a id="register"></a>Registre o aplicativo para notificações por push
+
+[AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
 
 ##<a name="review"></a>Examine a configuração do projeto do servidor (opcional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-## <a name="certificates"></a>Gerar o arquivo de Solicitação de Assinatura de Certificado
-
-Primeiro, gere o arquivo CSR (Solicitação de Assinatura de Certificado), que é usado pela Apple para gerar um certificado assinado.
-
-1. Em utilitários, execute a **ferramenta Acesso do Conjunto de Chaves**.
-
-2. Clique em **Acesso do Conjunto de Chaves**, expanda **Assistente de Certificado** e clique em **Solicitar um Certificado de uma Autoridade de Certificação...**.
-
-    ![][5]
-
-3. Digite seu **Endereço de Email de Usuário**, digite um valor de **Nome Comum**, certifique-se de que a opção **Salvar em disco** esteja selecionada e clique em **Continuar**.
-
-    ![][6]
-
-4. Digite um nome para o arquivo CSR (Solicitação de Assinatura de Certificado) em **Salvar como**, selecione o local em **Onde** e, em seguida, clique em **Salvar**.
-
-    ![][7]
-  
-    Lembre-se do local escolhido.
-
-Em seguida, você registrará seu aplicativo na Apple, habilitará as notificações por push e carregará esse CSR exportado para criar um certificado de push.
-
-## <a name="register"></a>Registrar seu aplicativo para notificações por push
-
-Para poder enviar notificações por push para um dispositivo iOS do seu aplicativo móvel, você deve registrar seu aplicativo na Apple e se registrar para notificações por push.
-
-1. Se você ainda não registrou seu aplicativo, navegue até o Portal de Provisionamento do iOS</a> no Centro de Desenvolvedores da Apple. Faça logon com sua ID da Apple, clique em **Identificadores** e clique em **IDs de Aplicativo**. Por fim, clique no sinal **+** para criar uma ID para seu aplicativo.
-    
-    ![][102]
-
-2. Digite um nome para seu aplicativo em **Descrição**, insira e lembre-se do **Identificador de pacote** exclusivo, marque a opção "Notificações por Push" na seção "Serviços de Aplicativos" e, em seguida, clique em **Continuar**. Este exemplo usa a ID **MobileServices.Quickstart**, mas você não pode reutilizar essa mesma ID, pois as IDs de aplicativo devem ser exclusivas para todos os usuários. Portanto, recomenda-se acrescentar o nome completo ou as iniciais após o nome do aplicativo.
-
-    ![][103]
-   
-    Isso gerará sua ID de aplicativo e solicitará a você para **Enviar** as informações. Clique em **Enviar**.
-   
-    ![][104]
-   
-    Após clicar em **Enviar**, você verá a tela **Registro concluído**, conforme mostrado abaixo. Clique em **Concluído**.
-   
-    ![][105]
-
-3. Localize a ID de aplicativo que acabou de criar e clique na respectiva linha.
-
-    ![][106]
-   
-    Clicar na ID do aplicativo faz com que os detalhes sobre o aplicativo e a ID do aplicativo sejam exibidos. Clique no botão **Configurações**.
-   
-    ![][107]
-   
-4. Role até a parte inferior da tela e clique no botão **Criar Certificado...** na seção **Certificado SSL por Push para Desenvolvimento**.
-
-    ![][108]
-
-    Isso exibirá o assistente "Adicionar Certificado de iOS".
-   
-    Nota: Este tutorial usa um certificado de desenvolvimento. O mesmo processo é usado para registrar um certificado de produção. Apenas certifique-se de que você definiu o mesmo tipo de certificado ao carregar o certificado para o seu aplicativo móvel.
-
-5. Clique em **Escolher arquivo**, navegue para o local em que você salvou o arquivo CSR anteriormente e clique em **Gerar**.
-
-    ![][110]
-  
-6. Depois que o certificado for criado pelo portal, clique no botão **Baixar** e, em seguida, clique em **Concluído**.
- 
-    ![][111]
-
-    Isso baixará o certificado de assinatura e salvará esse certificado no seu computador, na pasta Downloads.
-
-    ![][9]
-
-    Nota: por padrão, o arquivo baixado, um certificado de desenvolvimento, é denominado <strong>aps\_development.cer</strong>.
-
-7. Clique duas vezes no certificado de push baixado, **aps\_development.cer**.
-
-    Isso instalará o novo certificado no Conjunto de Chaves, conforme mostrado abaixo:
-
-    ![][10]
-
-    Nota: o nome no seu certificado pode ser diferente, mas ele será prefixado com <strong>Serviços de Notificação por Push do iOS para Desenvolvimento da Apple:</strong>.
-
-Posteriormente, você usará esse certificado para gerar um arquivo .p12 e vai carregá-lo para o seu aplicativo móvel para habilitar a autenticação com APNS.
-
-## <a name="profile"></a>Criar um perfil de provisionamento para o aplicativo
- 
-1. De volta ao <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de Provisionamento do iOS</a>, selecione **Perfis de Provisionamento**, escolha **Tudo** e clique no botão **+** para criar um novo perfil. Isso iniciará o Assistente **Adicionar Perfil de Provisionamento do iOS**.
-
-    ![][112]
-
-2. Selecione **Desenvolvimento de Aplicativos do iOS** em **Desenvolvimento** como o tipo de perfil de provisionamento e clique em **Continuar**.
-
-3. Em seguida, selecione a ID do aplicativo de Guia de Início Rápido do Aplicativo Móvel na lista suspensa **ID do Aplicativo** e clique em **Continuar**.
-
-    ![][113]
-
-4. Na tela **Selecionar certificados**, selecione o certificado criado anteriormente e clique em **Continuar**.
-
-    ![][114]
-
-5. Em seguida, selecione os **Dispositivos** a serem usados no teste e clique em **Continuar**.
-  
-    ![][115]
-
-6. Finalmente, selecione um nome para o perfil em **Nome do Perfil**, clique em **Gerar** e, em seguida, clique em **Concluído**.
-
-    ![][116]
-
-    Isso criará um novo perfil de provisionamento.
-
-    ![][117]
-
-## <a name="configure-appServiceMobile"></a>Configurar o back-end móvel do Serviço de Aplicativo para enviar solicitações por push
+## Configure o Azure para enviar notificações por push
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>Atualizar o servidor para enviar notificações por push
+##<a id="update-server"></a>Atualize o projeto de servidor para enviar notificações por push
 
-1. No Visual Studio, clique com o botão direito do mouse na solução e, em seguida, clique em **Gerenciar Pacotes NuGet**.
+[AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-2. Pesquise por **Microsoft.Azure.NotificationHubs** e clique em **Instalar** para todos os projetos na solução.
-
-3. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controladores** no projeto do back-end móvel. Abra o TodoItemController.cs. Na parte superior do arquivo, adicione as seguintes instruções `using`:
-
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-
-4. Adicione o seguinte fragmento ao método `PostTodoItem` após a chamada **InsertAsync**:
-
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
-
-        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-
-    Esse código informa o hub de notificação associado a esse aplicativo móvel para enviar uma notificação por push após uma inserção de item de tarefa.
-
-
-## <a name="publish-the-service"></a>Publicar o back-end móvel no Azure
+## <a name="publish-the-service"></a>Implante o projeto de servidor no Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## <a name="configure-app"></a>Configurar seu aplicativo Xamarin.iOS
+## <a name="configure-app"></a>Configurar seu projeto Xamarin.iOS
 
-1. No Xamarin.Studio, abra **Info.plist** e atualize o **Identificador de Pacote** com a ID que você criou anteriormente.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-    ![][121]
+## <a name="add-push"></a>Adicionar notificações de push para seu aplicativo
 
-2. Role para baixo até **Modos de Tela de Fundo** e marque a caixa **Habilitar Modos de Plano de Fundo** e a caixa **Notificações remotas**.
-
-    ![][122]
-
-3. Clique duas vezes em seu projeto no Painel de Solução para abrir **Opções de Projeto**.
-
-4.  Escolha **Assinatura do Pacote iOS** em **Compilar** e selecione a **Identidade** e o **Perfil de provisionamento** correspondente que você acabou de configurar para este projeto.
-
-    ![][120]
-
-    Isso garantirá que o projeto Xamarin use o novo perfil para a assinatura de código. Para obter a documentação oficial de provisionamento do dispositivo Xamarin, consulte [Provisionamento do dispositivo Xamarin].
-
-## <a name="add-push"></a>Adicionar notificações por push ao seu aplicativo
-
-1. Em **QSTodoService**, substitua a declaração do cliente existente para que **AppDelegate** possa adquirir o cliente móvel:
+1. Em **QSTodoService**, adicione a seguinte propriedade para que **AppDelegate** possa adquirir o cliente móvel:
         
-        public MobileServiceClient client { get; private set; }
+            public MobileServiceClient GetClient {
+            get
+            {
+                return client;
+            }
+            private set
+            {
+                client = value;
+            }
+        }
+
+1. Adicione a seguinte declaração `using` no topo do arquivo **AppDelegate.cs**.
+
+        using Microsoft.WindowsAzure.MobileServices;
 
 2. Em **AppDelegate**, substitua o evento **FinishedLaunching**:
 
@@ -255,11 +133,6 @@ Posteriormente, você usará esse certificado para gerar um arquivo .p12 e vai c
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-
-## <a name="publish-the-service"></a>Publicar o back-end móvel no Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
-
 ## <a name="test"></a>Testar notificações por push no seu aplicativo
 
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
@@ -277,7 +150,8 @@ Este tutorial foi concluído com êxito.
 <!-- Images. -->
 
 [24]: ./media/mobile-services-ios-get-started-push/mobile-services-quickstart-push2-ios.png
-[Introdução a aplicativos móveis do Serviço de Aplicativo]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Início Rápido de Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[início rápido do Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [5]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-step5.png
 [6]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-step6.png
@@ -318,26 +192,30 @@ Este tutorial foi concluído com êxito.
 [120]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-20.png
 [121]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-21.png
 [122]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-22.png
+[123]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-23.png
+[124]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/mobile-services-ios-push-24.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
+[Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Serviço de Notificação por Push da Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: /pt-br/develop/mobile/tutorials/get-started-xamarin-ios
 [Get started with data]: /pt-br/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Get started with authentication]: /pt-br/develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [Get started with push notifications]: /pt-br/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 [Push notifications to app users]: /pt-br/develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /pt-br/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Provisionamento do dispositivo Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-[Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

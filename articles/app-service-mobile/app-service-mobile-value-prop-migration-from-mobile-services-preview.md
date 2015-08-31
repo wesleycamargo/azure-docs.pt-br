@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/05/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
@@ -35,10 +35,12 @@ Seu serviço móvel existente é seguro e permanecerá com suporte. No entanto, 
 ## Novos recursos de hospedagem
 Em *Serviço de Aplicativo do Azure*, o código de back-end *Aplicativo Móvel* é executado no mesmo contêiner como Aplicativo Web e Aplicativo de API. Desse modo você pode tirar proveito de todos os recursos nesse contêiner, incluindo alguns que não estão atualmente presentes nos serviços móveis:
 
-- adicionar lógica de back-end em execução contínua por meio de trabalhos da Web
-- assegurar que seu código de back-end esteja sempre em execução
-- usar CNames personalizado para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móveis de back-end
-- realizar o geodimensionamento de seu aplicativo com o Gerenciador de Tráfego
+- Adicionar lógica de back-end em execução contínua por meio de trabalhos da Web
+- Assegurar que seu código de back-end esteja sempre em execução
+- Usar CNames personalizado para fornecer nomes amigáveis e estáveis para seus pontos de extremidade móveis de back-end
+- Realizar o geodimensionamento de seu aplicativo com o Gerenciador de Tráfego
+- Inclua os pacotes e bibliotecas que desejar. Em .NET, os assemblies que você implanta são os assemblies usados em tempo de execução; nunca há um conflito com as versões no ambiente de hospedagem.
+- (Para .NET) Utilizar qualquer recurso do ASP.NET, inclusive MVC
 
 
 ##Conectar seu *aplicativo móvel* à API SaaS
@@ -67,4 +69,4 @@ Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambiente
 Até que o recurso *Aplicativo Móvel do Serviço de Aplicativo do Azure* fique disponível, forneceremos uma experiência de migração perfeita para seus serviços móveis existentes para o serviço de aplicativo, se você optar por migrar. Enquanto isso, você pode começar a explorar o *Serviço de Aplicativo* e tirar proveito do *Serviço de Aplicativo* para seu serviço móvel existente seguindo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

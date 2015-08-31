@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Gerenciamento dos seus volumes do StorSimple"
+   pageTitle="Gerenciar seus volumes do StorSimple | Microsoft Azure"
    description="Explica como adicionar, modificar e monitorar os volumes StorSimple e como colocá-los offline, se necessário."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Gerenciamento dos seus volumes do StorSimple
@@ -21,7 +21,7 @@
 
 Este tutorial explica como usar o serviço StorSimple Manager para criar e gerenciar volumes no dispositivo StorSimple e dispositivo virtual StorSimple.
 
-O serviço StorSimple Manager é uma extensão do Portal de gerenciamento do Azure que permite que você gerencie sua solução de StorSimple a partir de uma única interface da web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
+O serviço StorSimple Manager é uma extensão do Portal do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
 
 > [AZURE.NOTE]O Azure StorSimple pode criar somente volumes pequenos de provisionamento. Não é possível criar volumes parcialmente ou totalmente provisionados em um sistema do Azure StorSimple.
 >
@@ -55,7 +55,7 @@ As tarefas mais comuns associadas a um volume são:
 
 ## Adicionar um volume
 
-Você [criou um volume](storsimple-deployment-walkthrough.md#to-create-a-volume) durante a implantação da solução StorSimple. Adicionar um volume é um procedimento semelhante.
+Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) durante a implantação da solução StorSimple. Adicionar um volume é um procedimento semelhante.
 
 ### Para adicionar um volume
 
@@ -148,7 +148,7 @@ Conclua as seguintes etapas para excluir um volume.
 
 2. Selecione o contêiner de volume que possui o volume que você deseja excluir. Clique no contêiner de volume para acessar a página **Volumes**.
 
-3. Todos os volumes associados a este contêiner são exibidos em formato de tabela. Verifique o status do volume que deseja excluir. Se o volume que você deseja excluir não estiver offline, coloque-o offline em primeiro lugar, seguindo as etapas em [Colocar um volume offline](#Take-a-volume-offline).
+3. Todos os volumes associados a este contêiner são exibidos em formato de tabela. Verifique o status do volume que deseja excluir. Se o volume que você deseja excluir não estiver offline, coloque-o offline em primeiro lugar, seguindo as etapas em [Colocar um volume offline](#take-a-volume-offline).
 
 4. Depois que o volume estiver offline, clique em **Excluir** na parte inferior da página.
 
@@ -181,4 +181,4 @@ Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

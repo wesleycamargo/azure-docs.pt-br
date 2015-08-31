@@ -40,16 +40,24 @@ Há três buckets que são contados separadamente:
 
 * [Chamadas do TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [logs capturados](app-insights-asp-net-trace-logs.md)
 * [Exceções](app-insights-api-custom-events-metrics.md#track-exception), sujeitas ao limite inferior de 50/s.
-* Todos os outros dados de telemetria (exibições de página, solicitações, dependências, métricas, eventos personalizados).
+* Toda a outra telemetria (modos de exibição de página, solicitações, dependências, métricas, eventos personalizados e resultados de teste da Web).
 
 **Mensal**: entre 5 e 15 milhões de pontos de dados por mês, dependendo de seu [plano de preços](http://azure.microsoft.com/pricing/details/application-insights/). Com exceção da [faixa de preços][pricing] gratuita, você pode adquirir capacidade adicional se tiver atingido o limite.
 
 
-Um *ponto de dados* é um item de telemetria, tal como:
+Um *ponto de dados* é um item de telemetria enviado ao portal do Azure sobre seu aplicativo. Ele pode ser enviado por:
 
-* Chamadas `Track...` de API, como `TrackEvent` ou `trackPageView`.
-* Itens de telemetria enviados por módulos do SDK, por exemplo, para relatar uma solicitação ou falha.
-* Dados do contador de desempenho - um ponto para cada medida.
+* [Módulos SDK](app-insights-configuration-with-applicationinsights-config.md) que coletam dados automaticamente, por exemplo, para relatar uma solicitação ou falha ou para medir o desempenho.
+* Chamadas à [API](app-insights-api-custom-events-metrics.md) `Track...` que você escreveu, como `TrackEvent` ou `trackPageView`.
+* [Testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
+
+Os dados de telemetria incluem:
+
+* Cada linha na [pesquisa de diagnóstico](app-insights-diagnostic-search.md)
+* Os dados brutos dos quais os gráficos no [gerenciador de métricas](app-insights-metrics-explorer.md) são agregados. Dados de métrica, como dados de contador de desempenho, geralmente não aparecem como pontos individuais no gerenciador de métricas.
+* Cada resultado de teste da Web em um relatório de [disponibilidade](app-insights-monitor-web-app-availability.md).
+
+Contagens de usuário e de sessão não são incluídas na cota para fins de preços.
 
 *Como posso saber quantos pontos de dados meu aplicativo está enviando?*
 
@@ -202,7 +210,7 @@ Dependências|Tipo (SQL, HTTP,...), cadeia de conexão ou URI, síncrono/assínc
 Falhas | ID do processo, ID do processo-pai, ID de thread de falha; patch do aplicativo, ID de compilação; tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços binários de início e término, nome e caminho binários, tipo de CPU
 Rastreamento | **Mensagem** e nível de severidade
 Contadores de desempenho | Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações
-Disponibilidade | Código de resposta de teste da Web, duração de cada etapa de teste
+Disponibilidade | Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste
 Diagnóstico do SDK | Mensagem de rastreamento ou exceção 
 
 Você pode [desativar alguns dos dados editando ApplicationInsights.config][config]
@@ -242,4 +250,4 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

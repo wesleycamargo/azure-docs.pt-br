@@ -3,8 +3,8 @@
 	description="Um relatório que inclui tentativas de entrada realizadas de endereços IP em que atividades suspeitas foram observadas."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah; kenhoff"/>
 
 # Entradas de endereços IP com atividade suspeita
 
@@ -24,4 +24,4 @@
 
 ![Entradas de endereços IP com atividade suspeita](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

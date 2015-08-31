@@ -10,4 +10,4 @@
 A página **Políticas de Backup** será atualizada para exibir a nova lista de políticas.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

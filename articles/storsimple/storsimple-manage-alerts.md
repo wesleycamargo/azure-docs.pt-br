@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Exibir e gerenciar alertas do StorSimple"
+   pageTitle="Exibir e gerenciar alertas do StorSimple | Microsoft Azure"
    description="Descreve os alertas do StorSimple e como usar o serviço StorSimple Manager para exibi-los e limpá-los."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Exibir e gerenciar alertas do StorSimple
@@ -137,39 +137,55 @@ As tabelas a seguir listam alguns dos alertas do Microsoft Azure StorSimple que 
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|A conectividade com <*nome de credencial da nuvem*> não pode ser estabelecida.|Não é possível conectar-se à conta de armazenamento.|Parece que pode haver um problema de conectividade com o seu dispositivo. Execute o cmdlet **Test-HcsmConnection** a partir da Interface do Windows PowerShell para StorSimple em seu dispositivo para identificar e corrigir o problema. Se as configurações estiverem corretas, o problema pode ser com as credenciais da conta de armazenamento para o qual o alerta foi gerado. Nesse caso, use o cmdlet **Test-HcsStorageAccountCredential** para determinar se há problemas que você pode resolver.<ul><li>Verifique suas configurações de rede.</li><li>Verifique suas credenciais de conta de armazenamento.</li></ul>|
-|Não recebemos uma pulsação do dispositivo para os últimos <*número*> minutos.|Não é possível conectar-se ao dispositivo.|Parece que há um problema de conectividade com o seu dispositivo. Execute o cmdlet **Test-HcsmConnection** a partir da Interface do Windows PowerShell para StorSimple em seu dispositivo para identificar e corrigir o problema ou entre em contato com o seu administrador de rede.|
+|A conectividade com <*nome de credencial da nuvem*> não pode ser estabelecida.|Não é possível conectar-se à conta de armazenamento.|Parece que pode haver um problema de conectividade com o seu dispositivo. Execute o cmdlet `Test-HcsmConnection` na Interface do Windows PowerShell para StorSimple em seu dispositivo para identificar e corrigir o problema. Se as configurações estiverem corretas, o problema pode ser com as credenciais da conta de armazenamento para o qual o alerta foi gerado. Nesse caso, use o cmdlet `Test-HcsStorageAccountCredential` para determinar se há problemas que você possa resolver.<ul><li>Verifique suas configurações de rede.</li><li>Verifique suas credenciais de conta de armazenamento.</li></ul>|
+|Não recebemos uma pulsação do dispositivo para os últimos <*número*> minutos.|Não é possível conectar-se ao dispositivo.|Parece que há um problema de conectividade com o seu dispositivo. Use o cmdlet `Test-HcsmConnection` na Interface do Windows PowerShell para StorSimple em seu dispositivo para identificar e corrigir o problema, ou entre em contato com o seu administrador de rede.|
+
+### Comportamento de StorSimple quando a conectividade de nuvem falha
+
+O que acontece se a conectividade de nuvem falhar para o dispositivo StorSimple que está em execução na produção?
+
+Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimple, dependendo do estado do seu dispositivo, poderá ocorrer o seguinte:
+
+- **Para os dados locais em seu dispositivo**: não haverá interrupção e as leituras continuarão a ser atendidas. No entanto, conforme o número de E/Ss pendentes aumenta e excede um limite, as leituras podem começar a falhar. 
+
+	Dependendo da quantidade de dados nas camadas locais do seu dispositivo, as gravações também continuarão a ocorrer para as primeiras horas após a interrupção na conectividade de nuvem. As gravações então desacelerarão e acabarão por começar a falhar se a conectividade de nuvem for interrompida por várias horas.
+
+ 
+- **Para os dados na nuvem**: para a maioria dos erros de conectividade de nuvem, é retornado um erro. Quando a conectividade for restaurada, as E/Ss são reiniciadas sem que o usuário precise colocar o volume online. Em casos raros, pode haver necessidade de intervenção do usuário para deixar o volume online novamente no Portal do Azure.
+ 
+- **Para instantâneos de nuvem em andamento**: a operação é repetida algumas vezes dentro de 4 a 5 horas e, se a conectividade não for restaurada, os instantâneos de nuvem falharão.
+
 
 ### Alertas de cluster
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|Dispositivo falhou para <*nome do dispositivo*>.|Dispositivo em modo de manutenção.|Dispositivo falhou após entrar ou sair do modo de manutenção. Isso é normal e nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
-|Dispositivo falhou para <*nome do dispositivo*>.|Firmware ou software do dispositivo atualizado.|Ocorreu um failover de cluster devido a uma atualização. Isso é normal e nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
-|Dispositivo falhou para <*nome do dispositivo*>.|Controlador desligado ou reiniciado.|Dispositivo falhou porque o controlador ativo foi desligado ou reiniciado por um administrador. Nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
-|Dispositivo falhou para <*nome do dispositivo*>.|Failover planejado.|Verifique se esse foi um failover planejado. Após a execução da ação adequada, exclua este alerta da página de alertas.|
-|Dispositivo falhou para <*nome do dispositivo*>.|Failover não planejado.|O StorSimple foi criado para se recuperar automaticamente de failovers não planejados. Se você vir um grande número desses alertas, entre em contato com o Suporte da Microsoft.|
-|Dispositivo falhou para <*nome do dispositivo*>.|Outro/causa desconhecida.|Se você vir um grande número desses alertas, entre em contato com o Suporte da Microsoft. Depois que o problema for resolvido, exclua este alerta da página de alertas.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Dispositivo em modo de manutenção.|Dispositivo falhou após entrar ou sair do modo de manutenção. Isso é normal e nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Firmware ou software do dispositivo atualizado.|Ocorreu um failover de cluster devido a uma atualização. Isso é normal e nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Controlador desligado ou reiniciado.|Dispositivo falhou porque o controlador ativo foi desligado ou reiniciado por um administrador. Nenhuma ação é necessária. Após a confirmação deste alerta, exclua-o da página de alertas.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Failover planejado.|Verifique se esse foi um failover planejado. Após a execução da ação adequada, exclua este alerta da página de alertas.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Failover não planejado.|O StorSimple foi criado para se recuperar automaticamente de failovers não planejados. Se você vir um grande número desses alertas, entre em contato com o Suporte da Microsoft.|
+|Dispositivo realizou failover para <*nome do dispositivo*>.|Outro/causa desconhecida.|Se você vir um grande número desses alertas, entre em contato com o Suporte da Microsoft. Depois que o problema for resolvido, exclua este alerta da página de alertas.|
 
 ### Alertas de recuperação de desastres
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|As operações de recuperação não puderam restaurar todas as configurações para esse serviço. Os dados de configuração do dispositivo estão em um estado inconsistente para alguns dispositivos.|Inconsistência de dados detectada após a recuperação de desastres.|Os dados criptografados no serviço não estão sincronizados com os do dispositivo. Autorizar o dispositivo <*nome do dispositivo*> do StorSimple Manager para iniciar o processo de sincronização. Use a Interface do Windows PowerShell para StorSimple para executar o cmdlet **Restore-HcsmEncryptedServiceData no dispositivo <*nome do dispositivo*>**, fornecendo a senha antiga como entrada para este cmdlet para restaurar o perfil de segurança. Em seguida, execute o cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** para atualizar a chave de criptografia de dados de serviço. Após a execução da ação adequada, exclua este alerta da página de alertas.|
-|O serviço falhou para um data center secundário devido a uma falha inesperada.|Outro/causa desconhecida.|É necessário verificar as configurações no Gerenciador do StorSimple para continuar. Após a execução da ação adequada, exclua este alerta da página de alertas. Para obter mais informações sobre o StorSimple Manager, confira o[Guia do Administrador do Gerenciador de StorSimple](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|As operações de recuperação não puderam restaurar todas as configurações para esse serviço. Os dados de configuração do dispositivo estão em um estado inconsistente para alguns dispositivos.|Inconsistência de dados detectada após a recuperação de desastres.|Os dados criptografados no serviço não estão sincronizados com os do dispositivo. Autorizar o dispositivo <*nome do dispositivo*> do StorSimple Manager a iniciar o processo de sincronização. Use a Interface do Windows PowerShell para StorSimple para executar o cmdlet `Restore-HcsmEncryptedServiceData` no dispositivo <*nome do dispositivo*>, fornecendo a senha antiga como entrada para este cmdlet para restaurar o perfil de segurança. Em seguida, execute o cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` para atualizar a chave de criptografia de dados de serviço. Após a execução da ação adequada, exclua este alerta da página de alertas.|
+|O serviço falhou para um data center secundário devido a uma falha inesperada.|Outro/causa desconhecida.|É necessário verificar as configurações no Gerenciador do StorSimple para continuar. Após a execução da ação adequada, exclua este alerta da página de alertas. Para obter mais informações sobre o StorSimple Manager, consulte [Usar o serviço StorSimple Manager para administrar o dispositivo StorSimple](storsimple-manager-service-administration.md).|
 
 ### Alertas de hardware
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|Componente de hardware <*ID do componente*> relata o status como <*status*>.||Condições temporárias, às vezes, podem causar esses alertas. Nesse caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft.|
+|O componente de hardware <*ID do componente*> relata o status como <*status*>.||Condições temporárias, às vezes, podem causar esses alertas. Nesse caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft.|
 |Controlador passivo funcionando incorretamente.|O controlador (secundário) passivo não está funcionando.|O dispositivo está funcionando, mas um dos controladores está funcionando incorretamente. Tente reiniciar o controlador em questão. Se o problema não for resolvido, contate o Suporte da Microsoft.|
 
 ### Alertas de falha nos trabalhos
 
 |Texto de alerta|Evento|Mais informações / ações recomendadas|
 |:---|:---|:---|
-|O backup da <*ID do grupo de volumes de origem*> falhou.|Falha no trabalho de backup.|Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Se não houver nenhum problema de conectividade, talvez você tenha atingido o número máximo de backups. Exclua todos os backups que não são mais necessários e repita a operação. Após a execução da ação adequada, exclua este alerta da página de alertas.|
+|O backup de <*ID do grupo de volumes de origem*> falhou.|Falha no trabalho de backup.|Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Se não houver nenhum problema de conectividade, talvez você tenha atingido o número máximo de backups. Exclua todos os backups que não são mais necessários e repita a operação. Após a execução da ação adequada, exclua este alerta da página de alertas.|
 |A clonagem de <*IDs do elemento de backup da fonte*> para <*números de série do volume de destino*> falhou.|Falha no trabalho de clone.|Atualize a lista de backup para verificar se o backup ainda é válido. Se o backup for válido, é possível que problemas de conectividade de nuvem estejam impedindo a operação de clonagem de ser concluída com êxito. Se não houver nenhum problema de conectividade, talvez você tenha atingido o limite de armazenamento. Exclua todos os backups que não são mais necessários e repita a operação. Depois que você executou a ação apropriada para resolver o problema, exclua este alerta da página de alertas.|
 |A restauração de <*IDs de elemento de backup da fonte*> falhou.|Falha no trabalho de restauração.|Atualize a lista de backup para verificar se o backup ainda é válido. Se o backup for válido, é possível que problemas de conectividade de nuvem estejam impedindo a operação de restauração de ser concluída com êxito. Se não houver nenhum problema de conectividade, talvez você tenha atingido o limite de armazenamento. Exclua todos os backups que não são mais necessários e repita a operação. Depois que você executou a ação apropriada para resolver o problema, exclua este alerta da página de alertas.|
 
@@ -186,8 +202,8 @@ As tabelas a seguir listam alguns dos alertas do Microsoft Azure StorSimple que 
 |Sessão do Suporte da Microsoft iniciada.|Terceiros acessaram a sessão de suporte.|Confirme se este acesso é autorizado. Após a execução da ação adequada, exclua este alerta da página de alertas.|
 |A senha para <*elemento*> expirará em <*período de tempo*>.||Altere sua senha antes que ela expire.|
 |Informações de configuração de segurança ausentes para <*ID do elemento*>.||Os volumes associados a esse contêiner de volume não podem ser usados para replicar a configuração do StorSimple. Para garantir que seus dados são armazenados com segurança, recomendamos que você exclua o contêiner de volume e todos os volumes associados ao contêiner de volume. Após a execução da ação adequada, exclua este alerta da página de alertas.|
-|<*número*> tentativas de logon falharam para <*ID do elemento*>.|Falha após várias tentativas de logon.|O dispositivo pode estar sendo atacado ou um usuário autorizado está tentando se conectar com uma senha incorreta.<ul><li>Entre em contato com os usuários autorizados e verifique se essas tentativas foram de uma origem legítima. Se você continuar vendo um grande número de falhas nas tentativas de logon, considere desabilitar o gerenciamento remoto e entrar em contato com o administrador da rede. Após a execução da ação adequada, exclua este alerta da página de alertas.</li><li>Verifique se as instâncias do Snapshot Manager estão configuradas com a senha correta. Após a execução da ação adequada, exclua este alerta da página de alertas.</li></ul>|
-|Uma ou mais falhas ocorreram ao alterar a chave de criptografia de dados de serviço.||Ocorreram erros durante a alteração da chave de criptografia de dados de serviço. Depois de resolver as condições de erro, execute o cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** da Interface do Windows PowerShell para StorSimple em seu dispositivo para atualizar o serviço. Se esse problema persistir, entre em contato com o suporte da Microsoft. Depois de resolver o problema, exclua este alerta da página de alertas.|
+|<*número*> tentativas de logon falharam para <*ID do elemento*>.|Falha após várias tentativas de logon.|O dispositivo pode estar sendo atacado ou um usuário autorizado está tentando se conectar com uma senha incorreta.<ul><li>Entre em contato com os usuários autorizados e verifique se essas tentativas foram de uma origem legítima. Se você continuar vendo um grande número de falhas nas tentativas de logon, considere desabilitar o gerenciamento remoto e entrar em contato com o administrador da rede. Depois de tomar as medidas adequadas, exclua este alerta da página de alertas.</li><li>Verifique se as instâncias do Snapshot Manager estão configuradas com a senha correta. Após a execução da ação adequada, exclua este alerta da página de alertas.</li></ul>|
+|Uma ou mais falhas ocorreram ao alterar a chave de criptografia de dados de serviço.||Ocorreram erros durante a alteração da chave de criptografia de dados de serviço. Depois de resolver as condições de erro, execute o cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` da Interface do Windows PowerShell para StorSimple no dispositivo para atualizar o serviço. Se esse problema persistir, entre em contato com o suporte da Microsoft. Depois de resolver o problema, exclua este alerta da página de alertas.|
 
 ### Alertas do pacote de suporte
 
@@ -207,14 +223,14 @@ As tabelas a seguir listam alguns dos alertas do Microsoft Azure StorSimple que 
 |:---|:---|:---|
 |Hotfix instalado.|Atualização de software/firmware concluída.|O hotfix foi instalado com êxito em seu dispositivo.|
 |Atualizações manuais disponíveis.|Notificação de atualizações disponíveis.|Use a Interface do Windows PowerShell para StorSimple em seu dispositivo para instalar essas atualizações.|
-|Novas atualizações disponíveis.|Notificação de atualizações disponíveis.|Você pode instalar essas atualizações a partir da página **Manutenção** ou usando a Interface do Windows PowerShell para StorSimple em seu dispositivo.|
-|Falha ao instalar atualizações.|As atualizações não foram instaladas com êxito.|O sistema não pôde instalar as atualizações. Você pode instalar essas atualizações a partir da página **Manutenção** ou usando a Interface do Windows PowerShell para StorSimple em seu dispositivo. Se o problema persistir, contate o Suporte da Microsoft.|
+|Novas atualizações disponíveis.|Notificação de atualizações disponíveis.|Você pode instalar essas atualizações na página **Manutenção** ou usando a Interface do Windows PowerShell para StorSimple no dispositivo.|
+|Falha ao instalar atualizações.|As atualizações não foram instaladas com êxito.|O sistema não pôde instalar as atualizações. Você pode instalar essas atualizações na página **Manutenção** ou usando a Interface do Windows PowerShell para StorSimple no dispositivo. Se o problema persistir, contate o Suporte da Microsoft.|
 |Não é possível verificar novas atualizações automaticamente.|Falha na verificação automática.|Você pode verificar manualmente se há novas atualizações na página **Manutenção**.|
 |Novo agente WUA disponível.|Notificação de atualização disponível.|Baixe o Windows Update Agent mais recente e instale-o a partir da interface do Windows PowerShell.|
-|Versão do componente de firmware <* ID do componente*> não corresponde ao hardware.|As atualizações de firmware não foram instaladas com êxito.|Entre em contato com o Suporte da Microsoft.|
+|A versão do componente de firmware <*ID do componente*> não corresponde ao hardware.|As atualizações de firmware não foram instaladas com êxito.|Entre em contato com o Suporte da Microsoft.|
 
 ## Próximas etapas
 
-[Saiba mais sobre erros do StorSimple](storsimple-troubleshoot-operational-device.md)
+[Saiba mais sobre erros do StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -43,16 +43,19 @@ As seções a seguir analisarão cada etapa com mais detalhes e fornecerão exem
 
 Para preparar os arquivos para a movimentação para o Azure, você precisará exportá-los para arquivos simples. A melhor maneira de fazer isso é usar o Utilitário de Linha de Comando BCP. Se você ainda não tiver o utilitário, ele poderá ser baixado com os [Utilitários de linha de comando da Microsoft para SQL Server][]. Veja a seguir um exemplo parecido de comando BCP:
 
-	bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 Esse comando pegará os resultados de uma consulta e os exportará para um arquivo no diretório de sua escolha. Você consegue paralelizar o processo executando ao mesmo tempo vários comandos BCP para tabelas separadas. Isso permitirá a execução de até um processo BCP por núcleo do servidor, nosso conselho é testar algumas operações menores em configurações diferentes para ver o que funciona melhor para seu ambiente.
 
 Além disso, como carregaremos usando PolyBase, observe que PolyBase ainda não dá suporte a UTF-16, e todos os arquivos devem estar em UTF-8. Isso pode ser feito facilmente, incluindo o sinalizador '-c' em seu comando BCP, ou você também pode converter arquivos simples de UTF-16 para UTF-8 com o código abaixo:
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 Depois de exportar os dados para os arquivos, é hora de movê-los para o Azure. Isso pode ser feito com o AZCopy ou com o serviço de Importação/Exportação, conforme descrito na próxima seção.
-
 
 ## Carregando no Azure com AZCopy ou Importação/Exportação
 Se você estiver movendo dados no intervalo de 5 a 10 terabytes ou mais, recomendamos o uso do serviço de envio de disco [Importação/Exportação][] para realizar a movimentação. No entanto, em nossos estudos, fomos capazes de mover confortavelmente os dados no intervalo de TB com um único dígito usando a Internet pública com AZCopy. Esse processo também pode ser acelerado ou estendido com o ExpressRoute.
@@ -63,7 +66,9 @@ As etapas a seguir detalharão como mover dados do local para uma conta de armaz
 
 Agora, com base em um conjunto de arquivos criados usando o BCP, o AzCopy pode simplesmente ser executado do powershell do Azure ou por meio da execução de um script do powershell. Em um alto nível, o prompt necessário para executar o AZCopy assumirá o formato:
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 Além do básico, recomendamos as seguintes práticas para carregar com o AZCopy:
 
@@ -87,31 +92,38 @@ Agora que os dados residem em blobs de armazenamento do Azure, importaremos esse
 
 4. **Criar uma fonte de dados externa.** Ao apontar para uma conta de armazenamento, será possível usar uma fonte de dados externa durante o carregamento do mesmo contêiner. Para o parâmetro 'LOCATION', use um local no formato: 'wasbs://meucontêiner@ test.blob.core.windows.net/caminho'.
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 Agora que sua conta de armazenamento foi configurada corretamente, é possível continuar a carregar os dados no SQL Data Warehouse.
 
@@ -120,26 +132,36 @@ Depois de configurar o PolyBase, você pode carregar dados diretamente no SQL Da
 
 1. Use o comando 'CRIAR TABELA EXTERNA' para definir a estrutura dos dados. Para capturar o estado dos dados de forma rápida e eficiente, recomendamos a criação de um script da tabela do SQL Server no SSMS, e o ajuste manual para considerar as diferenças da tabela externa. Depois de criar uma tabela externa no Azure, ele continuará a apontar para o mesmo local, mesmo se os dados forem atualizados ou outros dados forem adicionados.  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
-2. Carregar dados com uma instrução 'CREATE TABLE... AS SELECT'.
+2. Carregar dados com uma instrução 'CREATE TABLE... AS SELECT'. 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	Observe que você também pode carregar uma subseção das linhas de uma tabela usando uma instrução SELECT mais detalhada. No entanto, como o PolyBase não envia computações adicionais às contas de armazenamento no momento, se você carregar uma subseção com uma instrução SELECT isso não será mais rápido do que carregar todo o conjunto de dados.
+Observe que você também pode carregar uma subseção das linhas de uma tabela usando uma instrução SELECT mais detalhada. No entanto, como o PolyBase não envia computações adicionais às contas de armazenamento no momento, se você carregar uma subseção com uma instrução SELECT isso não será mais rápido do que carregar todo o conjunto de dados.
 
-Além da instrução 'CREATE TABLE... AS SELECT', você também pode carregar dados de tabelas externas em tabelas preexistentes com uma instrução 'INSERT...INTO'.
+Além da instrução `CREATE TABLE...AS SELECT`, você também pode carregar dados de tabelas externas em tabelas preexistentes com uma instrução 'INSERT...INTO'.
 
 ## Próximas etapas
 Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvolvimento][].
@@ -167,4 +189,4 @@ Para obter mais dicas de desenvolvimento, confira a [visão geral sobre desenvol
 [Documentação do armazenamento do Azure]: https://azure.microsoft.com/pt-br/documentation/articles/storage-create-storage-account/
 [Documentação da Rota Expressa]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

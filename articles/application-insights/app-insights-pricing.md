@@ -53,7 +53,10 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * A cota depende da camada de preços que você escolheu.
 * A cota é contada a partir de meia-noite UTC até o primeiro dia de cada mês.
 * O gráfico de pontos de dados mostra o quanto da sua cota foi usada neste mês.
-* A cota é medida em *pontos de dados.* Um único ponto de dados é uma chamada para um dos métodos de Rastreamento, seja chamado explicitamente no seu código ou por um dos módulos padrão de telemetria. Cada linha exibida na pesquisa de diagnóstico é um ponto de dados. Cada medida de uma métrica, como um contador de desempenho, é um ponto de dados. 
+* A cota é medida em *pontos de dados.* Um único ponto de dados é uma chamada para um dos métodos de Rastreamento, seja chamado explicitamente no seu código ou por um dos módulos padrão de telemetria. Os pontos de dados incluem:
+ * Cada linha que você vê na [pesquisa de diagnóstico](app-insights-diagnostic-search.md). 
+ * Cada medida bruta de uma [métrica](app-insights-metrics-explorer.md), como um contador de desempenho. (Os pontos que você vê nos gráficos normalmente são agregados de vários pontos de dados brutos.)
+ * Cada ponto nos gráficos de [teste da Web (disponibilidade)](app-insights-monitor-web-app-availability.md). 
 * *Dados da sessão* não são contados na cota. Isso inclui contagens de usuários, sessões, ambiente e os dados do dispositivo.
 
 
@@ -72,7 +75,7 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 
 ![Na parte inferior da folha de preços](./media/app-insights-pricing/03-allocation.png)
 
-Clique no gráfico para obter mais detalhes ou percorra os detalhes de um intervalo de tempo.
+Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
 
 
 ## Taxa de dados
@@ -83,7 +86,7 @@ Há três classificações que são contados separadamente:
 
 * [Chamadas do TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [logs capturados](app-insights-asp-net-trace-logs.md)
 * [Exceções](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 pontos/s.
-* Todos os outros dados de telemetria (exibições de página, sessões, solicitações, dependências, métricas, eventos personalizados).
+* Todos os outros dados de telemetria (exibições de página, sessões, solicitações, dependências, métricas, eventos personalizados, resultados de teste da Web).
 
 Se seu aplicativo envia mais do que o limite, alguns dados serão descartados. Você verá um aviso de notificação que isso aconteceu.
 
@@ -91,8 +94,8 @@ Se seu aplicativo envia mais do que o limite, alguns dados serão descartados. V
 
 Se você encontrar as limitações, aqui há algumas coisas que você pode fazer:
 
-* Desative os módulos de coleção que não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
-* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou você pode usar um[pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
+* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
 ### Limites de nome
@@ -118,7 +121,9 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
 ![No menu lateral, escolha Cobrança.](./media/app-insights-pricing/02-billing.png)
 
+## Resumo de limites
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

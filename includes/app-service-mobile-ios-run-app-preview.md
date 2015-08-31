@@ -1,18 +1,12 @@
 
+1. Em seu Mac, visite o [Portal do Azure]. Clique em **Procurar Tudo** > **Aplicativos Móveis** > o back-end que você acabou de criar. Nas configurações do aplicativo móvel, clique em **Início Rápido** > **iOS (Objective-C)**. Se você preferir Swift, clique em **Início Rápido** > **iOS (Swift)** em vez disso. Em **Baixar e executar seu projeto iOS**, clique em **Baixar**. Isso baixa um projeto completo do Xcode para um aplicativo previamente configurado, para conexão com o back-end. Abra o projeto usando Xcode.
 
+2. Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no simulador de iOS.
 
-O estágio final deste tutorial é compilar e executar seu novo aplicativo.
-
-1. Navegue até o local onde você salvou os arquivos compactados do projeto, expanda os arquivos em seu computador e abra o arquivo do projeto usando o Xcode.
-
-2. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo no emulador do iPhone.
-
-3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (**+**).
+3. No aplicativo, digite um texto significativo, como _Concluir o tutorial_ e clique no ícone de adição (**+**). Isso envia uma solicitação POST para o back-end do Azure implantado anteriormente. Os back-end insere dados da solicitação na tabela TodoItem SQL e retorna informações sobre os itens armazenados recentemente no aplicativo móvel. O aplicativo móvel exibe esses dados na lista.
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	Isso envia uma solicitação de POST para o novo aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo aplicativo móvel e os dados são exibidos na lista.
+[Portal do Azure]: https://portal.azure.com/
 
- 	</div>
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

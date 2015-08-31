@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Microsoft Azure" 
-	description="Instruções passo a passo sobre como enviar dados de um fluxo para o Hub de Eventos do Azure e receber esses eventos no Spark usando um bloco de notas Zeppelin" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Usar Hubs de Eventos do Azure com o Apache Spark no HDInsight para processar dados de streaming | Microsoft Azure"
+	description="Instruções passo a passo sobre como enviar dados de um fluxo para o Hub de Eventos do Azure e receber esses eventos no Spark usando um bloco de notas Zeppelin"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -23,14 +24,16 @@ Streaming Spark estende a API de núcleo do Spark para criar aplicativos de proc
 
 Neste tutorial, você aprenderá como criar um Hub de Eventos do Azure, como ingerir mensagens em um Hub de Eventos usando um aplicativo de console em C# e recuperá-los em paralelo usando um bloco de notas Zeppelin configurado para Apache Spark no HDInsight.
 
+> [AZURE.NOTE]Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
 - Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Um cluster do Apache Spark. Para obter instruções, consulte [Provisionar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- Um cluster do Apache Spark. Para obter instruções, confira [Provisionar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Um [Hub de Eventos do Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
-- Uma estação de trabalho com o Microsoft Visual Studio 2013. Para obter instruções, consulte [Instalar o Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- Uma estação de trabalho com o Microsoft Visual Studio 2013. Para obter instruções, confira [Instalar Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Criar Hub de Eventos do Azure
 
@@ -61,7 +64,7 @@ Você deve ter o seguinte:
 
 	![chaves de política](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Salvar chaves de política")
 
-6. Na página **Painel**, clique em **Informações de Conexão** do botão para recuperar e salvar as cadeias de conexão para o Hub de Eventos usando as duas políticas.
+6. Na página **Painel**, clique em **Informações de Conexão** na parte inferior para recuperar e salvar as cadeias de conexão para o Hub de Eventos usando as duas políticas.
 
 	![chaves de política](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Salvar cadeias de conexão de política")
 
@@ -71,13 +74,15 @@ Você deve ter o seguinte:
 
 Nesta seção, você criará um bloco de notas [Zeppelin](https://zeppelin.incubator.apache.org) para receber mensagens do Hub de Eventos no cluster Spark no HDInsight.
 
-1. Inicie o bloco de anotações do Zeppelin. Selecione o cluster Spark no portal do Azure e na barra de tarefas do portal, na parte inferior, clique em **Bloco de Notas Zeppelin**. Quando solicitado, insira as credenciais de administrador para o cluster Spark. Siga as instruções na página que é aberta para iniciar o bloco de anotações.
+1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
-2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Notas** e na lista suspensa, clique em **Criar Nova Nota**.
+2. Inicie o bloco de anotações do Zeppelin. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de notas Zeppelin**. Quando solicitado, insira as credenciais de administrador para o cluster. Siga as instruções na página que se abre para iniciar o bloco de anotações.
+
+2. Crie um novo bloco de anotações. No painel de cabeçalho, clique em **Bloco de Anotações** e na lista suspensa, clique em **Criar Nova Anotação**.
 
 	![Criar um novo bloco de anotações do Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Criar um novo bloco de anotações do Zeppelin")
 
-	Na mesma página, sob o título **Notebook**, você verá um novo bloco de anotações com nomes começando com **Anotação XXXXXXXXX**. Clique no novo bloco de anotações.
+	Na mesma página, sob o título **Bloco de Anotações**, você verá um novo bloco de anotações com nomes começando com **Anotação XXXXXXXXX**. Clique no novo bloco de anotações.
 
 3. Na página da Web para o novo bloco de anotações, clique no título e altere o nome do bloco de anotações, se desejar. Pressione ENTER para salvar a alteração do nome. Além disso, verifique se o cabeçalho do bloco de anotações mostra um status **Conectado** no canto superior direito.
 
@@ -122,7 +127,8 @@ Nesta seção, você criará um bloco de notas [Zeppelin](https://zeppelin.incub
 
 3. No bloco de notas Zeppelin, em um novo parágrafo, insira o trecho a seguir para ler as mensagens recebidas no Spark.
 
-		%sql select * from mytemptable limit 10
+		%sql 
+		select * from mytemptable limit 10
 
 	A captura de tela a seguir mostra as mensagens recebidas em **mytemptable**.
 
@@ -148,7 +154,7 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 
 
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Início rápido: provisionar o Apache Spark no HDInsight e executar consultas interativas usando SQL do Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Início rápido: provisionar o Apache Spark no HDInsight e executar consultas interativas usando o Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Usar o Spark no HDInsight para criar aplicativos de aprendizado de máquina](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
@@ -164,4 +170,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

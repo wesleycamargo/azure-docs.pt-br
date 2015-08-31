@@ -1,20 +1,20 @@
 <properties
    pageTitle="O que é o Catálogo de Dados do Azure"
-   description="O Catálogo de Dados do Microsoft Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="O Catálogo de Dados do Microsoft Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/31/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/19/2015"
+	ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
 
@@ -71,28 +71,30 @@ O processo de registro envolve três etapas básicas:
 - KPI multidimensional do SQL Server Analysis Services
 - Tabela tabular do SQL Server Analysis Services
 - Relatório do SQL Server Reporting Services
+- Blob de Armazenamento do Azure
+- Diretório de Armazenamento do Azure
 
 As fontes de dados adicionais e os tipos de ativos serão adicionados durante a visualização do **Catálogo de Dados do Azure**.
 
-> [AZURE.IMPORTANT]O registro de uma fonte de dados no **Catálogo de Dados do Azure** não copiará os dados da fonte de dados, a menos que você selecione "Incluir Visualização" na ferramenta de registro de fonte de dados. O registro copia os metadados da fonte de dados, não os dados. Exemplos de metadados incluem nomes das tabelas e outros objetos de fonte de dados, juntamente com tipos de dados e nomes de colunas e outros atributos da fonte de dados. Os metadados também incluem o local da fonte de dados, de forma que os usuários que descobrirem a fonte de dados usando o **Catálogo de Dados do Azure** possam se conectar à fonte de dados. Se você selecionar "Incluir Visualização", a ferramenta de registro da fonte de dados também copiará para o **Catálogo de Dados do Azure** um pequeno conjunto de registros que será exibido aos usuários que descobrirem a fonte de dados no portal do **Catálogo de Dados do Azure**.
+> [AZURE.IMPORTANT]O registro de uma fonte de dados no **Catálogo de Dados do Azure** não copiará os dados da fonte de dados, a menos que você selecione "Incluir Visualização" na ferramenta de registro de fonte de dados. O registro copia os metadados da fonte de dados, não os dados. Exemplos de metadados incluem nomes das tabelas e outros objetos de fonte de dados, juntamente com tipos de dados e nomes de colunas e outros atributos da fonte de dados. Os metadados também incluem o local da fonte de dados, para que os usuários que descobrirem as fontes de dados usando o **Catálogo de Dados do Azure** possam se conectar à fonte de dados. Se você selecionar "Incluir Visualização", a ferramenta de registro da fonte de dados também copiará para o **Catálogo de Dados do Azure** um pequeno conjunto de registros que serão exibidos aos usuários que descobrirem a fonte de dados no portal do **Catálogo de Dados do Azure**.
 
 ## Aprimore os metadados da fonte de dados
 
-Quando o registro for concluído, as fontes de dados poderão ser descobertas e consumidas, mas o verdadeiro valor do **Catálogo de Dados do Azure** provém de metadados de negócios descritivos na mesma experiência que os metadados estruturais extraídos da fonte de dados. Esses metadados adicionais oferecem três benefícios significativos:
+Quando o registro for concluído, as fontes de dados poderão ser descobertas e consumidas, mas o verdadeiro valor do **Catálogo de Dados do Azure** provém do fato de haver metadados de negócios descritivos na mesma experiência que os metadados estruturais extraídos da fonte de dados. Esses metadados adicionais oferecem três benefícios significativos:
 
 -	As fontes de dados registrados são mais facilmente identificáveis. Os metadados fornecidos pelo usuário são adicionados ao índice de pesquisa do **Catálogo de Dados do Azure**. Isso permite aos usuários localizar dados usando termos e conceitos que podem não estar presentes na fonte de dados original. Por exemplo, se uma tabela de banco de dados que contém dados do cliente for denominada "tbl\_c45", fornecer um nome amigável de "Cliente" facilitará a descoberta pelos usuários que procuram dados de cliente. Da mesma forma, fornecer uma descrição que inclui nomes de relatórios, painéis ou processos que usam dados facilitará a descoberta da fonte de dados pelos usuários que usam esses artefatos downstream como termos de pesquisa.
--	As fontes de dados registradas são mais facilmente compreendidas uma vez descobertas. Os metadados fornecidos pelo usuário são apresentados a qualquer usuário do **Catálogo de Dados do Azure** que exiba a fonte de dados anotada, o que ajuda a fornecer contexto e informações adicionais. A maioria das fontes de dados geralmente não inclui descrições significativas ou documentação, e aquelas que o fazem são geralmente voltadas ao público técnico de desenvolvedores de DBA ou banco de dados. Ao aprimorar fontes de dados no **Catálogo de Dados do Azure** com descrições e marcas adequadas ao público, os usuários poderão ajudar a garantir que aqueles que descobrirem os dados possam entender os detalhes e o uso pretendido.
+-	As fontes de dados registradas são mais facilmente compreendidas uma vez descobertas. Os metadados fornecidos pelo usuário são apresentados a qualquer usuário do **Catálogo de Dados do Azure** que exiba a fonte de dados com anotações, o que ajuda a fornecer contexto e informações adicionais. A maioria das fontes de dados geralmente não inclui descrições significativas ou documentação, e aquelas que o fazem são geralmente voltadas ao público técnico de desenvolvedores de DBA ou banco de dados. Aprimorando as fontes de dados no **Catálogo de Dados do Azure** com descrições e marcas apropriadas ao público-alvo, os usuários podem ajudar a garantir que aqueles que descobrirem os dados possam entender seus detalhes e o uso pretendido.
 -  Cada fonte de dados registrada pode incluir informações de acesso de solicitação, para que os usuários possam compreender com facilidade e seguir os processos existentes para a solicitação de acesso à fonte de dados e a seus dados.
 
-> [AZURE.NOTE]Cada usuário do **Catálogo de Dados do Azure** pode adicionar suas próprias marcas e descrições a ativos de dados e atributos. O **Catálogo de Dados do Azure** controlará o valor e a origem de cada anotação e exibirá o usuário e a data em que a anotação foi adicionada. Essa abordagem crowdsourcing aos metadados garante que cada usuário com uma perspectiva dos dados e seu uso possa compartilhar suas opiniões e recursos com a comunidade de usuários em geral.
+> [AZURE.NOTE]Cada usuário do **Catálogo de Dados do Azure** pode adicionar suas próprias marcas e descrições dos ativos de dados e atributos. O **Catálogo de Dados do Azure** acompanhará o valor e a fonte de cada anotação e exibirá o usuário e a data em que a anotação foi adicionada. Essa abordagem crowdsourcing aos metadados garante que cada usuário com uma perspectiva dos dados e seu uso possa compartilhar suas opiniões e recursos com a comunidade de usuários em geral.
 
 ## Explorar, descobrir e entender
 
-O objetivo de registrar e de enriquecer fontes de dados no **Catálogo de Dados do Azure** é que elas possam ser descobertas, compreendidas e usadas por usuários em toda a empresa. O portal do **Catálogo de Dados do Azure** é a principal ferramenta para este processo.
+O objetivo de registrar e enriquecer as fontes de dados no **Catálogo de Dados do Azure** é para que elas possam ser descobertas, compreendidas e usadas por usuários em toda a empresa. O portal do **Catálogo de Dados do Azure** é a principal ferramenta para esse processo.
 
-O portal do **Catálogo de Dados do Azure** oferece dois mecanismos principais para a exploração e a descoberta dos dados: pesquisa e filtragem.
+O portal do **Catálogo de Dados do Azure** fornece dois mecanismos primários para exploração e descoberta: pesquisa e filtragem.
 
-Para pesquisar fontes de dados no **Catálogo de Dados do Azure**, basta inserir um termo de pesquisa na caixa de pesquisa do portal do **Catálogo de Dados do Azure**. O portal exibirá um bloco para cada fonte de dados registrada que corresponda ao termo da pesquisa; os blocos conterão o nome, a descrição e as marcas atribuídas à fonte de dados, juntamente com outras informações de alto nível.
+Para pesquisar o **Catálogo de Dados do Azure** em busca de fontes de dados, basta digitar um termo de pesquisa na caixa de pesquisa no portal do **Catálogo de Dados do Azure**. O portal exibirá um bloco para cada fonte de dados registrada que corresponda ao termo da pesquisa; os blocos conterão o nome, a descrição e as marcas atribuídas à fonte de dados, juntamente com outras informações de alto nível.
 
 Para filtrar o conteúdo do **Catálogo de Dados do Azure**, basta selecionar um ou mais filtros apresentados no portal do **Catálogo de Dados do Azure**. Isso restringirá os blocos exibidos no portal a apenas aqueles que correspondem aos critérios de filtro especificados. Você pode filtrar fontes de dados sem pesquisar ou filtrar os resultados de uma pesquisa.
 
@@ -101,17 +103,17 @@ Para exibir informações mais completas para uma fonte de dados e entender se e
 Na parte superior do painel Propriedades, haverá botões adicionais:
 
 1.	Visualização: a seleção deste botão exibirá o conjunto estático de registros de visualização da fonte de dados, se a visualização foi selecionada durante o registro da fonte de dados.
-2.	Esquema: a seleção deste botão exibirá o esquema da fonte de dados, incluindo nomes de colunas e tipos de dados, além de todos os metadados no nível de coluna do **Catálogo de Dados do Azure**.
+2.	Esquema: se esse botão for selecionado, será exibido o esquema da fonte de dados, incluindo nomes de colunas e tipos de dados e todos os metadados em nível de coluna no **Catálogo de Dados do Azure**.
 
-> [AZURE.NOTE]É importante lembrar que a experiência de **Descobrir** pode ser um ponto de entrada para a experiência de **Enriquecer** e não apenas para a experiência de **Consumir**. A abordagem crowdsourcing que o **Catálogo de Dados do Azure** traz significa que qualquer usuário que descobrir uma fonte de dados registrada poderá compartilhar suas opiniões sobre os dados, além de usá-los.
+> [AZURE.NOTE]É importante lembrar que a experiência de **Descoberta** pode ser um ponto inicial para a experiência de **Enriquecimento**, e não apenas para a experiência de **Consumo**. A abordagem de crowdsourcing que o **Catálogo de Dados do Azure** traz significa que qualquer usuário que descobre uma fonte de dados registrada pode compartilhar suas opiniões sobre os dados, além de usar os dados que descobriu.
 
 ## Remover metadados da fonte de dados
 
-Depois que uma fonte de dados for registrada, às vezes, poderá ser necessário remover a referência da fonte de dados do **Catálogo de Dados do Azure**. Isso pode ser em razão de exigências comerciais ou desativação do sistema de origem. Independentemente do motivo, o **Catálogo de Dados do Azure** facilita a remoção de fontes de dados; você só precisa selecioná-las para exclusão para que elas não possam mais ser descobertas e consumidas.
+Depois que uma fonte de dados é registrada, às vezes, pode ser necessário remover a referência de fonte de dados do **Catálogo de Dados do Azure**. Isso pode ser em razão de exigências comerciais ou desativação do sistema de origem. Independentemente do motivo, o **Catálogo de Dados do Azure** facilita a remoção de fontes de dados; você só precisa selecioná-las para exclusão para que elas não possam mais ser descobertas e consumidas.
 
 > [AZURE.IMPORTANT]A exclusão de uma fonte de dados do **Catálogo de Dados do Azure** só exclui os metadados armazenados no serviço do **Catálogo de Dados do Azure**. A fonte de dados original não é afetada de nenhuma maneira.
 
-## Consumir fontes de dados 
+## Consumir fontes de dados
 
 O objetivo final da descoberta de dados é localizar os dados necessários e usá-los na ferramenta de dados de sua escolha. A experiência de consumo de dados no Catálogo de Dados do Azure permite essa funcionalidade de duas maneiras.
 
@@ -120,4 +122,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
 
 > [AZURE.NOTE]Para obter a visualização do Catálogo de Dados do Azure, somente o Microsoft Excel e o Gerenciador de Relatórios do SQL Server Reporting Services terão suporte direto e estarão disponíveis no menu **Abrir no**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

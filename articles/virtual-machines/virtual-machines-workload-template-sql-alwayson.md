@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure"
-	description="Implante facilmente cinco servidores compatíveis com o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos e o Portal de Visualização do Azure, Azure PowerShell ou CLI do Azure."
+	pageTitle="Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure| Microsoft Azure"
+	description="Implante facilmente cinco servidores que ofereçam suporte ao SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure e o portal de visualização do Azure, Azure PowerShell ou CLI do Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -19,15 +19,15 @@
 
 # Implantar o SQL Server AlwaysOn com um modelo do Gerenciador de Recursos do Azure
 
-Use as instruções nesta seção para implantar o SQL Server AlwaysOn usando um modelo do Gerenciador de Recursos. Este modelo cria cinco máquinas virtuais em uma nova rede virtual em duas sub-redes diferentes.
+Use as instruções deste artigo para implantar o SQL Server AlwaysOn usando um modelo do Gerenciador de Recursos do Azure. Este modelo cria cinco máquinas virtuais em uma nova rede virtual em duas sub-redes diferentes.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-Você pode executar o modelo com o Portal de Visualização do Azure, o Azure PowerShell ou a CLI do Azure.
+Você pode executar o modelo com o portal de visualização do Azure, o Azure PowerShell ou CLI do Azure.
 
-## Portal de Visualização do Azure
+## Portal de visualização do Azure
 
-Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos e o portal de Visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Para implantar essa carga de trabalho usando um modelo do Gerenciador de Recursos do Azure e o portal de visualização do Azure, clique [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -95,14 +95,14 @@ Quando a execução do modelo for concluída, você terá uma nova configuraçã
 
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e o Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Computação do Azure, provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Documentação de máquinas virtuais](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Como instalar e configurar o Azure PowerShell](../install-configure-powershell.md)
+[Como instalar e configurar o PowerShell do Azure](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

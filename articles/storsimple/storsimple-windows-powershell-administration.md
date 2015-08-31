@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Administre o seu dispositivo usando o Windows PowerShell para StorSimple"
+   pageTitle="Usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple | Microsoft Azure"
    description="Aprenda a gerenciar o seu dispositivo StorSimple usando o Windows PowerShell para StorSimple"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/04/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli@microsoft.com" />
 
 # Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -37,15 +37,13 @@ Neste artigo, você aprenderá a:
 
 >- Os cmdlets do Azure PowerShell StorSimple são um conjunto diferente de cmdlets que permite automatizar tarefas de nível de serviço e migração do StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá para [referência do cmdlet do Azure StorSimple](https://msdn.microsoft.com/library/azure/dn920427.aspx).
 
-
-
 É possível acessar o Windows PowerShell para StorSimple através de um dos seguintes métodos:
 
-- [Conecte-se ao console serial do dispositivo StorSimple](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [Conecte-se ao console serial do dispositivo StorSimple](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Conectar-se remotamente ao StorSimple usando o Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
-## Conecte-se ao Windows PowerShell para StorSimple por meio do console serial.
+## Conectar ao Windows PowerShell para StorSimple por meio do console serial
 
 Você pode [baixar o PuTTY](http://www.putty.org/) ou um software de emulação de terminal similar para se conectar ao Windows PowerShell para StorSimple. Você precisa configurar o PuTTY especificamente para acessar o dispositivo Microsoft Azure StorSimple. Os tópicos a seguir contêm as etapas detalhadas sobre como configurar o PuTTy e conectar-se ao dispositivo. Diversas opções de menu do console serial também são explicadas.
 
@@ -55,7 +53,7 @@ Ao acessar a interface do Windows PowerShell do dispositivo StorSimple por meio 
 
 A mensagem de cabeçalho contém informações de dispositivo StorSimple básicas, como modelo, nome, versão do software instalado e status do controlador que você está acessando. A imagem a seguir mostra um exemplo de uma mensagem de cabeçalho.
 
-![Mensagem de cabeçalho serial](./media/storsimple-windows-powershell-administration/IC741098.png)
+![Mensagem da faixa serial](./media/storsimple-windows-powershell-administration/IC741098.png)
 
 
 
@@ -64,7 +62,7 @@ A mensagem de cabeçalho contém informações de dispositivo StorSimple básica
 
 A imagem a seguir mostra as várias opções de espaço de execução disponíveis no menu console serial.
 
-![Registre seu dispositivo 2](./media/storsimple-windows-powershell-administration/IC740906.png)
+![Registrar seu dispositivo 2](./media/storsimple-windows-powershell-administration/IC740906.png)
 
 É possível escolher um das seguintes configurações:
 
@@ -159,7 +157,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 |Parar um controlador </br> Reiniciar ou desligar um controlador </br> Desligar um dispositivo </br> Redefinir o dispositivo para as configurações padrão de fábrica|[Gerenciar os controladores do dispositivo](storsimple-manage-device-controller.md)|
 |Instalar atualizações e hotfixes no modo de manutenção|[Atualizar seu dispositivo](storsimple-update-device.md)|
 |Entrar no modo de manutenção </br> Sair do modo de manutenção|[Modos de dispositivo StorSimple](storsimple-device-modes.md)|
-|Criar um pacote de suporte </br> Descriptografar e editar um pacote de suporte|[Criar e gerenciar pacotes de suporte](storsimple-create-manage-support-package.md)|
+|Criar um pacote de Suporte</br>Descriptografar e editar um pacote de suporte|[Criar e gerenciar pacotes de suporte](storsimple-create-manage-support-package.md)|
 |Iniciar uma sessão de suporte</br>|[Iniciar uma sessão de suporte no Windows PowerShell para StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)
  
 
@@ -194,9 +192,9 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 1. Depois que os arquivos de ajuda forem instalados, digite: `Get-Help Get-Command`. Isso exibirá uma lista dos cmdlets para os quais a Ajuda está disponível.
 
 
->[AZURE.NOTE]**Para obter uma lista de todos os cmdlets disponíveis em qualquer um dos espaços de execução, faça logon na opção de menu correspondente e execute o `Get-Command`cmdlet.**
+>[AZURE.NOTE]Para obter uma lista de todos os cmdlets disponíveis em qualquer runspace, faça logon na opção de menu correspondente e execute o cmdlet `Get-Command`.
 
 ## Próximas etapas
-Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [solução de problemas com os cmdlets](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting).
+Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

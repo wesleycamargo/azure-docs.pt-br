@@ -1,20 +1,20 @@
 <properties
    pageTitle="Como usar o Cache Redis do Azure com Java"
-   description="Introdução ao Cache Redis do Azure usando o Java"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	description="Introdução ao Cache Redis do Azure usando o Java"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="java"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Java
 
@@ -87,4 +87,4 @@ Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente 
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

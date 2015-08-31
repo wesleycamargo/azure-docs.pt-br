@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Desanexar um disco de uma máquina virtual do Linux no Azure"
-	description="Saiba como desanexar um disco de dados de uma máquina virtual do Azure."
+	description="Saiba como desanexar um disco de dados de uma máquina virtual do Azure criada usando o modelo de implantação clássica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,6 +26,6 @@
 
 [Como anexar um disco de dados na máquina virtual Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-[Usando a CLI do Azure com o Gerenciamento de Serviços do Microsoft Azure](virtual-machines-command-line-tools.md)
+[Usar a CLI do Azure com a API de Gerenciamento de Serviço](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

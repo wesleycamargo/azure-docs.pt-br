@@ -122,4 +122,6 @@ Uma vez configurado, você pode expandir esse farm do SharePoint com a orientaç
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

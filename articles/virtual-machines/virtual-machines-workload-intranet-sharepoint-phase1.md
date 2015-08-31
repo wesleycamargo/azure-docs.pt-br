@@ -169,4 +169,6 @@ Para configurar a configuração dessa carga de trabalho, vá para [Fase 2: Conf
 
 [Diretrizes de implementação dos Serviços de Infraestrutura do Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=06-->
+[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

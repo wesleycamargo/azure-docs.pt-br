@@ -103,8 +103,23 @@ Antes de instalar o Azure AD Connect com configurações expressas, há algumas 
 - O Azure AD Connect deve ser instalado no Windows Server 2008 ou posterior. Esse servidor pode ser um controlador de domínio ou um servidor membro.
 - O nível de floresta e a versão de esquema do AD devem ser para Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
 - Se os Serviços de Federação do Active Directory estão sendo implantados, os servidores em que os AD FS serão instalados devem ser Windows Server 2012 ou posterior.
+- O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão light do SQL Server Express) é instalado e a conta de serviço para o serviço é criada no computador local. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos.
+- Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o processo de instalação para uma versão diferente do SQL Server. O Azure Connect AD oferece suporte a todos as versões do Microsoft SQL Server do SQL Server 2008 (com SP4) para o SQL Server 2014.
 - Uma conta de administrador corporativo para o Active Directory local
-- Opcional: uma conta de usuário de teste para verificar a sincronização. 
+- Se você estiver usando um proxy de saída, a seguinte configuração no arquivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** deve ser adicionada para concluir a instalação. <code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code> Esse texto deve ser inserido na parte inferior do arquivo. Neste código, &lt;PROXYIP&gt; representa o endereço IP real do proxy.
+
+- Opcional: uma conta de usuário de teste para verificar a sincronização.
 
 #### Requisitos de hardware para o Azure AD Connect
 A tabela a seguir mostra os requisitos mínimos para o computador do Azure AD Connect.
@@ -258,4 +273,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

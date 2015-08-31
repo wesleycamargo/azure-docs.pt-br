@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backups | Microsoft Azure"
-   description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para criar e gerenciar as políticas de backup que controlam os backups agendados."
+   description="Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar o catálogo de backup."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
@@ -205,6 +205,6 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 
 ## Próximas etapas
 
-Consulte os [Fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows) disponíveis.
+[Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -52,7 +52,7 @@
 + [SharePoint](app-insights-sharepoint.md)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
-+ [Serviços e aplicativos de área de trabalho do Windows](app-insights-windows-desktop.md)
++ [Funções de trabalho, serviços e aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Qualquer outra coisa](#projects)
 
@@ -77,4 +77,4 @@ Se não há ainda um SDK para sua linguagem ou plataforma, talvez você deseje c
 
 <!--Link references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

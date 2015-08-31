@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/08/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
@@ -92,7 +92,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 O registro da máquina no cofre é feito usando o [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet:
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
 
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
@@ -309,25 +309,25 @@ A confirmação do objeto de política é realizada usando o cmdlet [Set-OBPolic
 ```
 PS C:\> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
-BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) 
+BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
-         DatasourceId:4508156004108672185 
-         Name:C:\ 
-         FileSpec:FileSpec 
-         FileSpec:C:\ 
+         DatasourceId:4508156004108672185
+         Name:C:\
+         FileSpec:FileSpec
+         FileSpec:C:\
          IsExclude:False
          IsRecursive:True,
-         
-         FileSpec 
-         FileSpec:C:\windows 
-         IsExclude:True 
+
+         FileSpec
+         FileSpec:C:\windows
+         IsExclude:True
          IsRecursive:True,
-         
-         FileSpec 
-         FileSpec:C:\temp 
-         IsExclude:True 
+
+         FileSpec
+         FileSpec:C:\temp
+         IsExclude:True
          IsRecursive:True,
-         
+
          DataSource
          DatasourceId:4508156005178868542
          Name:D:\
@@ -336,7 +336,7 @@ DsList : {DataSource
          IsExclude:False
          IsRecursive:True
 	}
-PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac 
+PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
               Weekly schedule is not set
@@ -353,39 +353,39 @@ Você pode exibir os detalhes da política de backup existente usando o cmdlet [
 
 ```
 PS C:\> Get-OBPolicy | Get-OBSchedule
-SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a 
-ScheduleRunDays : {Saturday, Sunday} 
-ScheduleRunTimes : {16:00:00} 
+SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
+ScheduleRunDays : {Saturday, Sunday}
+ScheduleRunTimes : {16:00:00}
 State : Existing
 
 PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
-RetentionDays : 7 
-RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e 
+RetentionDays : 7
+RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
 
 PS C:\> Get-OBPolicy | Get-OBFileSpec
-FileName : * 
-FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-FileSpec : D:\ 
-IsExclude : False 
+FileName : *
+FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+FileSpec : D:\
+IsExclude : False
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ 
-FileSpec : C:\ 
-IsExclude : False 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\
+FileSpec : C:\
+IsExclude : False
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows 
-FileSpec : C:\windows 
-IsExclude : True 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows
+FileSpec : C:\windows
+IsExclude : True
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp 
-FileSpec : C:\temp 
-IsExclude : True 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp
+FileSpec : C:\temp
+IsExclude : True
 IsRecursive : True
 ```
 
@@ -394,13 +394,13 @@ Depois de definir uma política de backup, os backups ocorrerão de acordo com o
 
 ```
 PS C:\> Get-OBPolicy | Start-OBBackup
-Taking snapshot of volumes... 
-Preparing storage... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Transferring data... 
-Verifying backup... 
-Job completed. 
+Taking snapshot of volumes...
+Preparing storage...
+Estimating size of backup items...
+Estimating size of backup items...
+Transferring data...
+Verifying backup...
+Job completed.
 The backup operation completed successfully.
 ```
 
@@ -417,13 +417,13 @@ Para restaurar um item por meio do Backup do Azure, é necessário primeiro iden
 
 ```
 PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source 
-FriendlyName : C:\ 
-RecoverySourceName : C:\ 
+PS C:\> $source
+FriendlyName : C:\
+RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
 
-FriendlyName : D:\ 
-RecoverySourceName : D:\ 
+FriendlyName : D:\
+RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
@@ -432,26 +432,26 @@ A lista de pontos de backup pode ser recuperada executando o cmdlet [Get-OBRecov
 
 ```
 PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
-IsDir : False 
-ItemNameFriendly : D:\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : D:\ 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+IsDir : False
+ItemNameFriendly : D:\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : D:\
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime :
 
-IsDir : False 
-ItemNameFriendly : D:\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : D:\ 
-PointInTime : 17-Jun-15 6:31:31 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+IsDir : False
+ItemNameFriendly : D:\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : D:\
+PointInTime : 17-Jun-15 6:31:31 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime :
 ```
 O objeto ```$rps``` é uma matriz de pontos de backup. O primeiro elemento é o ponto mais recente e o enésimo elemento é o ponto mais antigo. Para escolher o último ponto, usaremos ```$rps[0]```.
@@ -463,40 +463,40 @@ Neste exemplo, se quisermos restaurar o arquivo *finances.xls*, podemos fazer re
 
 ```
 PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders 
-IsDir : True 
-ItemNameFriendly : D:\MyData\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : MyData 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+PS C:\> $filesFolders
+IsDir : True
+ItemNameFriendly : D:\MyData\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : MyData
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
 
 PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders 
-IsDir : False 
-ItemNameFriendly : D:\MyData\screenshot.oxps 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : screenshot.oxps 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 228313 
+PS C:\> $filesFolders
+IsDir : False
+ItemNameFriendly : D:\MyData\screenshot.oxps
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : screenshot.oxps
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize : 228313
 ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
 
-IsDir : False 
-ItemNameFriendly : D:\MyData\finances.xls 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : finances.xls 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 96256 
+IsDir : False
+ItemNameFriendly : D:\MyData\finances.xls
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : finances.xls
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
@@ -516,12 +516,12 @@ PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -Over
 Agora dispare a restauração usando o comando [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) no ```$item``` selecionado da saída do cmdlet ```Get-OBRecoverableItem```:
 
 ```
-PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Job completed. 
+PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
+Estimating size of backup items...
+Estimating size of backup items...
+Estimating size of backup items...
+Estimating size of backup items...
+Job completed.
 The recovery operation completed successfully.
 ```
 
@@ -580,4 +580,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

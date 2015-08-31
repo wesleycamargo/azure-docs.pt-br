@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Enviar notificações entre plataformas a usuários com Hubs de Notificação (ASP.NET)" description="Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma que se destina a todas as plataformas." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Enviar notificações entre plataformas a usuários com Hubs de Notificação (ASP.NET)" description="Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma que se destina a todas as plataformas."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Enviar notificações entre plataformas a usuários com Hubs de Notificação
@@ -24,7 +24,7 @@ No tutorial anterior [Notificar usuários com Hubs de Notificação], você apre
 
 Conclua as etapas a seguir para enviar notificações entre plataformas usando modelos:
 
-1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controllers** e, em seguida, abra o arquivo RegisterController.cs. 
+1. No Gerenciador de Soluções do Visual Studio, expanda a pasta **Controllers** e, em seguida, abra o arquivo RegisterController.cs.
 
 2. Localize o bloco do código no método **Post** que cria um novo registro e substitui o conteúdo `switch` pelo seguinte código:
 
@@ -54,7 +54,7 @@ Conclua as etapas a seguir para enviar notificações entre plataformas usando m
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	Esse código chama o método da plataforma específica para criar um registro de modelo em vez de um registro nativo. Os registros existentes não precisam ser modificados porque os registros de modelo derivam de registros nativos.
 
 3. No controlador **Notificações**, substituir o método **sendNotification** com o seguinte código:
@@ -65,7 +65,7 @@ Conclua as etapas a seguir para enviar notificações entre plataformas usando m
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@ Conclua as etapas a seguir para enviar notificações entre plataformas usando m
 
 Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e modelos nestes tópicos:
 
-+ **[Usar Hubs de Notificação para enviar as notícias mais recentes]** <br/>Demonstra outro cenário para a utilização de modelos 
++ **[Usar Hubs de Notificação para enviar as notícias mais recentes]** <br/>Demonstra outro cenário para a utilização de modelos
 
 +  **[Visão geral de Hubs de Notificação do Azure][Templates]**<br/>O tópico Visão Geral tem informações mais detalhadas sobre modelos.
 
@@ -110,6 +110,5 @@ Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e
 [Notificar usuários com Hubs de Notificação]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Instruções sobre Hub de Notificação para a Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

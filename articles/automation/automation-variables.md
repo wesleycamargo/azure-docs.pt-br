@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ativos variáveis na Automação do Azure"
+   pageTitle="Ativos de variáveis na Automação do Azure | Microsoft Azure"
    description="Ativos variáveis são valores que estão disponíveis para todos os runbooks na Automação do Azure. Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Ativos variáveis na Automação do Azure
@@ -188,4 +188,4 @@ A imagem a seguir mostra como filtrar os objetos que são armazenados em uma var
 - [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

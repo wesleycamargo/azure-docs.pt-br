@@ -81,4 +81,4 @@ Para poder usar um SAS para fazer upload de imagens de seu aplicativo no armazen
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

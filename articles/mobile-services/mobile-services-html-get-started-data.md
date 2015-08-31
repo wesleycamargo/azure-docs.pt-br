@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Adicionar Serviços Móveis a um aplicativo existente
@@ -133,7 +133,7 @@ Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo
 
    	Esse código criará um objeto proxy (**todoItemTable**) para o Banco de Dados SQL **TodoItem**.
 
-7. Substitua o manipulador de eventos **$('#add-item').submit** pelo seguinte código:
+7. Substitua o manipulador de eventos **$('\#add-item').submit** pelo seguinte código:
 
 		$('#add-item').submit(function(evt) {
 			var textbox = $('#new-item-text'),
@@ -257,4 +257,4 @@ Este tutorial demonstrou as noções básicas de como habilitar um aplicativo HT
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

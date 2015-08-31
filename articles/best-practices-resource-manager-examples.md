@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Exemplos contextuais de práticas recomendadas para a implementação de modelos
 
 Este tópico fornece sete exemplos contextuais de como implementar os modelos do Gerenciador de Recurso do Azure. Para obter uma visão geral dos princípios ilustrados nesses exemplos, consulte [Best practices for designing Azure Resource Manager templates (Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure)](best-practices-resource-manager-design-templates.md).
+
+Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Movendo um modelo com escopo de funcionalidade para um modelo com escopo de solução de ponta a ponta
 
@@ -212,7 +214,7 @@ Uma organização com um aplicativo de monitoramento pode exigir acesso somente 
 
 #### Implementando com o Gerenciador de Recursos do Azure
 
-Os detalhes sobre como implementar isso são fornecidos em detalhes significativos no “Developers Guide to Auth with the Azure Resource Manager API” (“Guia de Desenvolvedores para a Autenticação com a API de Gerenciador de Recursos do Azure”) que pode ser encontrado [aqui](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). Esse documento fornece instruções passo a passo da implementação, bem como um código de exemplo.
+Os detalhes sobre a implementação disso são fornecidos de forma significativa no "Guia de desenvolvedores para a autenticação com a API do Gerenciador de Recursos do Azure", que pode ser encontrado [aqui](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). Esse documento fornece instruções passo a passo da implementação, bem como um código de exemplo.
 
 ### Habilitando o acesso de terceiros para uma implantação única de software
 
@@ -249,7 +251,7 @@ Por fim, pode haver um desejo de garantir que determinados recursos não sejam e
 ## Próximas etapas
 
 - Para saber mais sobre a criação de modelos, consulte [Criando modelos](resource-group-authoring-templates.md).
-- Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Security considerations for Azure Resource Manager (Considerações de segurança do Gerenciador de Recursos do Azure)](best-practices-resource-manager-security.md).
-- Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Sharing state in Azure Resource Manager templates (Compartilhando estado em modelos do Gerenciador de Recursos do Azure)](best-practices-resource-manager-state.md).
+- Para obter recomendações de como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
+- Para saber mais sobre o estado de compartilhamento dentro e fora dos modelos, consulte [O estado de compartilhamento em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

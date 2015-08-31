@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (iOS) | Microsoft Azure" 
-	description="Saiba como autenticar usuários para logon único com ADAL no seu aplicativo iOS." 
-	documentationCenter="ios" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do Active Directory (iOS) | Microsoft Azure"
+	description="Saiba como autenticar usuários para logon único com ADAL no seu aplicativo iOS."
+	documentationCenter="ios"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="mahender"/>
 
 # Autenticar o seu aplicativo com Logon Único da biblioteca de autenticação do diretório ativo
@@ -119,6 +119,5 @@ Este tutorial exige o seguinte:
 [Como se registrar com o Active Directory do Azure]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de Gerenciamento do Azure]: https://manage.windowsazure.com/
 [Biblioteca de Autenticação do Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

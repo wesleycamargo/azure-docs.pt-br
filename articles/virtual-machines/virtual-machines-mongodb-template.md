@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Criar um cluster MongoDB no Ubuntu usando um Modelo do Gerenciador de Recursos"
-  description="Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos por meio do PowerShell ou da CLI do Azure"
+  pageTitle="Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure"
+  description="Crie um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure por meio do Azure PowerShell ou da CLI do Azure"
   services="virtual-machines"
   documentationCenter=""
   authors="karthmut"
@@ -16,17 +16,17 @@
   ms.date="04/29/2015"
   ms.author="karthmut"/>
 
-# Criar um cluster MongoDB no Ubuntu usando um Modelo do Gerenciador de Recursos
+# Criar um cluster MongoDB no Ubuntu usando um modelo do Gerenciador de Recursos do Azure
 
-O MongoDB é um banco de dados de software livre que oferece alto desempenho, alta disponibilidade e dimensionamento automático. Você pode instalar o MongoDB de modo autônomo ou em um cluster aproveitando os recursos internos de replicação. Em alguns casos, você pode usar a replicação para aumentar a capacidade de leitura. Os clientes têm a capacidade de enviar operações de leitura e gravação a servidores diferentes. Você também pode manter cópias em data centers diferentes para aumentar a localidade e a disponibilidade dos dados para aplicativos distribuídos. Com o MongoDB, a replicação também fornece redundância e aumenta a disponibilidade de dados. Com várias cópias de dados em servidores de bancos de dados diferentes, a replicação protege um banco de dados contra a perda de um único servidor. A replicação também permite recuperar-se de falhas de hardware e interrupções de serviço. Com as cópias adicionais dos dados, você pode dedicar um deles para recuperação de desastre, relatórios ou backup.
+O MongoDB é um banco de dados de software livre que oferece alto desempenho, alta disponibilidade e dimensionamento automático. Você pode instalar o MongoDB como um banco de dados autônomo ou em um cluster aproveitando os recursos internos de replicação. Em alguns casos, você pode usar a replicação para aumentar a capacidade de leitura. Os clientes têm a capacidade de enviar operações de leitura e gravação a servidores diferentes. Você também pode manter cópias em data centers diferentes para aumentar a localidade e a disponibilidade dos dados para aplicativos distribuídos. Com o MongoDB, a replicação também fornece redundância e aumenta a disponibilidade de dados. Com várias cópias de dados em servidores de bancos de dados diferentes, a replicação protege um banco de dados contra a perda de um único servidor. A replicação também permite recuperar-se de falhas de hardware e interrupções de serviço. Com as cópias adicionais dos dados, você pode dedicar um deles para recuperação de desastre, relatórios ou backup.
 
-Além de vários tipos que já estavam disponíveis no Azure Marketplace, agora você pode facilmente implantar um novo cluster MongoDB em VMs do Ubuntu usando um modelo do Gerenciador de Recursos implantado por meio do [PowerShell do Azure](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
+Além dos vários tipos que já estavam disponíveis no Azure Marketplace, agora você pode facilmente implantar um novo cluster MongoDB em VMs do Ubuntu usando um modelo do Gerenciador de Recursos implantado por meio do [Azure PowerShell](../powershell-install-configure.md) ou da [CLI do Azure](../xplat-cli.md).
 
-Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas personalizando-se o modelo apresentado neste artigo:
+Clusters recém-implantados com base nesse modelo terão a topologia descrita no diagrama a seguir, embora outras topologias possam ser facilmente obtidas por meio da personalização do modelo apresentado neste artigo.
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-Por meio de um parâmetro, você pode definir o número de nós que serão implantados no novo cluster MongoDB e, com base em outro parâmetro, uma instância de VM (Jumpbox) com um endereço IP público também pode ser implantada na mesma VNET, dando a você a capacidade de conectar-se ao cluster de Internet pública e realizar qualquer tipo de tarefa administrativa relacionada a esse cluster. Outra opção disponível como um parâmetro é a capacidade de adicionar um nó Arbiter ao conjunto de réplicas, que normalmente é sugerido quando ele tem um número par de membros. Para saber mais sobre topologias de replicação e detalhes do MongoDB, confira a [documentação do MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) oficial.
+Por meio de um parâmetro, você pode definir o número de nós que serão implantados no novo cluster MongoDB e, com base em outro parâmetro, uma instância VM (Jumpbox) com um endereço IP público também pode ser implantada na mesma VNET, dando a você a capacidade de conectar-se ao cluster de Internet pública e realizar qualquer tipo de tarefa administrativa relacionada a esse cluster. Outra opção disponível como um parâmetro é a capacidade de adicionar um nó Arbiter ao conjunto de réplicas, que normalmente é sugerido quando ele tem um número par de membros. Para saber mais sobre topologias de replicação e detalhes do MongoDB, confira a [documentação do MongoDB](http://docs.mongodb.org/manual/core/replication-introduction/) oficial.
 
 Depois que a implantação for concluída, você poderá acessar o Jumpbox usando o endereço DNS configurado na porta SSH 22.
 
@@ -44,7 +44,7 @@ Siga estas etapas para criar um cluster MongoDB usando um modelo do Gerenciador 
 
 Crie uma pasta local para o modelo JSON e outros arquivos associados (por exemplo, C:\\Azure\\Templates\\MongoDB).
 
-Substitua o nome da pasta local e execute os seguintes comandos:
+No exemplo a seguir, substitua o nome da pasta de sua pasta local e execute os comandos.
 
     $folderName="C:\Azure\Templates\MongoDB"
     $webclient = New-Object System.Net.WebClient
@@ -99,17 +99,17 @@ Substitua o nome da pasta local e execute os seguintes comandos:
 
 ### Etapa 1-b: baixar os arquivos de modelo usando a CLI do Azure
 
-Clone todo o repositório de modelos usando um cliente git de sua escolha, por exemplo:
+O exemplo a seguir mostra como clonar todo o repositório do modelo usando um cliente Git de sua escolha.
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quando terminar, procure a pasta **mongodb-high-availability** no diretório C:\\Azure\\Templates.
+Quando terminar, procure a pasta mongodb-high-availability no diretório C:\\Azure\\Templates.
 
-### Etapa 2 (opcional): Compreender os parâmetros de modelo
+### Etapa 2 (opcional): compreender os parâmetros do modelo
 
-Ao implantar soluções não triviais, como um cluster MongoDB, você deve especificar um conjunto de parâmetros de configuração para lidar com várias configurações necessárias. Declarando esses parâmetros na definição do modelo, você pode especificar valores durante a implantação por meio de um arquivo externo ou na linha de comando.
+Ao implantar soluções não triviais, como um cluster MongoDB, você deve especificar um conjunto de parâmetros de configuração para lidar com as várias configurações necessárias. Declarando esses parâmetros na definição do modelo, você pode especificar valores durante a implantação por meio de um arquivo externo ou na linha de comando.
 
-Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encontrará o conjunto de parâmetros necessários ao modelo para configurar um cluster MongoDB. Veja um exemplo da seção de parâmetros desse arquivo de modelo azuredeploy.json:
+Na seção "parâmetros" no início do arquivo azuredeploy.json, você encontrará o conjunto de parâmetros necessários para o modelo configurar um cluster MongoDB. O exemplo a seguir mostra a seção de parâmetros de arquivo azuredeploy.json desse modelo.
 
     "parameters": {
       "adminUsername": {
@@ -128,7 +128,7 @@ Na seção "parâmetros" no início do arquivo **azuredeploy.json**, você encon
           "type": "string",
           "defaultValue": "",
           "metadata": {
-            "Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
+            "Description": "Unique namespace for the storage account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
           }
         },
         "region": {
@@ -236,7 +236,7 @@ Cada parâmetro tem detalhes como tipo de dados e valores permitidos. Isso permi
 
 Prepare um arquivo de parâmetros para a sua implantação criando um arquivo JSON que contém os valores de tempo de execução para todos os parâmetros. Em seguida, esse arquivo será passado como uma única entidade para o comando de implantação. Se você não incluir um arquivo de parâmetros, o PowerShell usará qualquer valor padrão especificado no modelo e solicitará que você preencha os valores restantes.
 
-Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.json**:
+O exemplo a seguir mostra o conjunto de parâmetros do arquivo azuredeploy-parameters.json.
 
     {
       "adminUsername": {
@@ -286,7 +286,7 @@ Veja um exemplo de conjunto de parâmetros do arquivo **azuredeploy parameters.j
       }
     }
 
-Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta em que você salvou os arquivos de implantação JSON. Em seguida, execute estes comandos:
+Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local do Azure e a pasta em que você salvou os arquivos de implantação JSON. Em seguida, execute o comando a seguir.
 
     $deployName="<deployment name>"
     $RGName="<resource group name>"
@@ -299,7 +299,7 @@ Preencha o nome da implantação do Azure, o nome do grupo de recursos, o local 
 
     New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, Teste, Produção etc.) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
+Quando você executar o comando **New-AzureResourceGroupDeployment**, isso extrairá valores de parâmetros do arquivo de parâmetros JSON e iniciará a execução do modelo de forma adequada. A definição e o uso de vários arquivos de parâmetros com seus diferentes ambientes (por exemplo, Teste ou Produção) promoverão a reutilização do modelo e simplificarão soluções complexas com vários ambientes.
 
 Ao implantar, tenha em mente que uma nova Conta de Armazenamento do Azure precisará ser criada. Portanto, o nome fornecido como o parâmetro de conta de armazenamento precisa ser exclusivo e atender a todos os requisitos para uma Conta de Armazenamento do Azure (somente letras minúsculas e números).
 
@@ -307,46 +307,45 @@ Durante e após a implantação, você pode verificar todas as solicitações fe
 
 Para fazer isso, acesse o [Portal do Azure](https://portal.azure.com) e siga este procedimento:
 
-- Clique em "Procurar" na barra de navegação à esquerda, role para baixo e clique em "Grupos de Recursos".
-- Depois que você clicar no Grupo de Recursos que acabou de criar, será mostrada a folha "Grupo de Recursos".
-- Clicando no gráfico de barras "Eventos" na parte "Monitoramento" da folha "Grupo de Recursos", você poderá ver os eventos de sua implantação:
-- Se clicar em eventos individuais, você poderá fazer uma busca detalhada dos detalhes de cada operação individual feita em nome do modelo
+- Clique em **Procurar** na barra de navegação à esquerda, role para baixo e clique em **Grupos de Recursos**.
+- Depois que você clicar no grupo de recursos que acabou de criar, a folha Grupo de Recursos será mostrada.
+- Ao clicar no gráfico de barras “Eventos” na parte “Monitoramento” da folha Grupo de Recursos, você poderá ver os eventos da sua implantação. Clicar em eventos individuais permite aprofundar-se ainda mais nos detalhes de cada operação individual feita em nome do modelo.
 
-Depois dos testes, se você precisar remover esse grupo de recursos e todos os seus recursos (a conta de armazenamento, a máquina virtual e a rede virtual), use este comando:
+Depois dos testes, se você precisar remover esse grupo de recursos e todos os seus recursos (a conta de armazenamento, a máquina virtual e a rede virtual), use o comando a seguir.
 
     Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### Etapa 3-b: Implantar um cluster MongoDB com um modelo usando a CLI do Azure
 
-Para implantar um cluster MongoDB pela CLI do Azure, primeiro crie um Grupo de Recursos, especificando um nome e um local:
+Para implantar um cluster MongoDB pela CLI do Azure, primeiro crie um Grupo de Recursos,especificando um nome e um local com o comando a seguir.
 
     azure group create mdbc "West US"
 
-Passe o nome desse Grupo de Recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell para saber mais) no comando abaixo:
+Passe o nome desse grupo de recursos, o local do arquivo de modelo JSON e o local do arquivo de parâmetros (consulte a seção acima sobre o PowerShell para saber mais) no comando a seguir.
 
     azure group deployment create mdbc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-Você pode verificar o status das implantações de recursos individuais com o seguinte comando:
+Você pode verificar o status das implantações de recursos individuais com o seguinte comando.
 
     azure group deployment list mdbc
 
 ## Um tour da estrutura do modelo do MongoDB e da organização de arquivos
 
-Para criar um modelo robusto e reutilizável do Gerenciador de Recursos, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o MongoDB. Aproveitando a **vinculação de modelos** e os **loops de recursos** do AR,M além da execução de scripts por meio de extensões relacionadas, você pode implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
+Para criar um modelo robusto e reutilizável do Gerenciador de Recursos do Azure, é preciso realizar preparação adicional para organizar a série de tarefas complexas e inter-relacionadas necessárias durante a implantação de uma solução complexa como o MongoDB. Aproveitando os *loops de recursos* e a *vinculação de modelos* do Gerenciador de Recursos do Azure, além da execução de scripts por meio de extensões relacionadas, é possível implementar uma abordagem modular que pode ser reutilizada com praticamente qualquer implantação complexa com base no modelo.
 
-Este diagrama descreve as relações entre todos os arquivos baixados do GitHub para essa implantação:
+O diagrama a seguir descreve as relações entre todos os arquivos baixados do GitHub para essa implantação.
 
 ![mongodb-files](media/virtual-machines-mongodb-template/mongodb-files.png)
 
-Esta seção percorre a estrutura do arquivo **azuredeploy.json** para o cluster MongoDB.
+Esta seção percorre a estrutura do arquivo azuredeploy.json para o cluster MongoDB.
 
-### Seção "parâmetros"
+### Seção Parâmetros
 
-A seção "parâmetros" do arquivo **azuredeploy.json** especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo **azuredeploy-parameters.json** descrito anteriormente neste artigo é usado para passar valores para a seção "parâmetros" de azuredeploy.json durante a execução do modelo.
+A seção de parâmetros do arquivo azuredeploy.json especifica os parâmetros modificáveis que são usados nesse modelo. O arquivo azuredeploy-parameters.json descrito anteriormente neste artigo é usado para passar valores para a seção de parâmetros de azuredeploy.json durante a execução do modelo.
 
-### Seção "variáveis"
+### Seção Variáveis
 
-A seção "variáveis" especifica variáveis que podem ser usadas em todo esse modelo. Ela contém vários campos (fragmentos ou tipos de dados JSON) que serão definidos como constantes ou valores calculados em tempo de execução. Aqui está a seção "variáveis" desse modelo MongoDB:
+A seção de variáveis especifica as variáveis que podem ser usadas em todo esse modelo. Ela contém vários campos (fragmentos ou tipos de dados JSON) que serão definidos como constantes ou valores calculados em tempo de execução. O exemplo a seguir mostra a seção variáveis desse modelo do MongoDB.
 
     "variables": {
           "_comment0": "/* T-shirt sizes may vary for different reasons, and some customers may want to modify these - so feel free to go ahead and define your favorite t-shirts */",
@@ -517,7 +516,7 @@ A seção "variáveis" especifica variáveis que podem ser usadas em todo esse m
           "storageAccountForXXLarge_15": "7"
       },
 
-Fazendo uma busca detalhada neste exemplo, você pode ver as duas abordagens diferentes. No primeiro fragmento, a variável "osFamilyUbuntu" será definida como um elemento JSON que contém seis pares de chave-valor:
+No exemplo anterior, você pode ver as duas abordagens diferentes. No primeiro fragmento, a variável "osFamilyUbuntu" será definida como um elemento JSON que contém seis pares de chave-valor.
 
     "osFamilyUbuntu": {
       "osName": "ubuntu",
@@ -528,7 +527,7 @@ Fazendo uma busca detalhada neste exemplo, você pode ver as duas abordagens dif
       "imageSKU": "14.04.2-LTS"
     },
 
-No segundo fragmento, a variável "vmScripts" é atribuída a uma matriz JSON em que elementos únicos serão calculados em tempo de execução usando uma função de linguagem de modelo (concat) e o valor de outra variável mais constantes de cadeia de caracteres:
+No segundo fragmento, a variável "vmScripts" é atribuída a uma matriz JSON em que elementos únicos serão calculados em tempo de execução usando uma função de linguagem de modelo (concat) e o valor de outra variável mais constantes de cadeia de caracteres.
 
     "vmScripts": {
       "scriptsToDownload": [
@@ -536,7 +535,7 @@ No segundo fragmento, a variável "vmScripts" é atribuída a uma matriz JSON em
       "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
     ],
 
-Um conceito importante nesse modelo é a maneira como “tamanhos de camisetas” diferentes são definidos para clusters do MongoDB. Examinando uma das variáveis "tshirtSizeXXXX", você pode perceber que ela descreve características importantes do modo de implantação de um cluster. Vamos usar o tamanho Médio como exemplo:
+Um conceito importante nesse modelo é a maneira como “tamanhos de camisetas” diferentes são definidos para clusters do MongoDB. Examinando uma das variáveis "tshirtSizeXXXX", você pode perceber que ela descreve características importantes do modo de implantação de um cluster. No exemplo a seguir, usamos o tamanho Médio como um exemplo.
 
     "tshirtSizeMedium": {
       "vmSizeMember": "Standard_D2",
@@ -549,11 +548,11 @@ Um conceito importante nesse modelo é a maneira como “tamanhos de camisetas�
       "dataDiskSize": 250
     },
 
-Um cluster MongoDB "Médio" usará D2 como Tamanho da VM para os três nós do MongoDB que hospedam dados, além de uma 4º VM A1 que será usada como arbitrador para fins de replicação. O submodelo correspondente invocado para implantar nós de dados será **member-resources-D2.json** e arquivos de dados (250 GB cada) serão armazenados em duas contas de armazenamento. Essa variáveis serão usadas na seção "recursos" para orquestrar as implantações de nó e outras tarefas.
+Um cluster MongoDB "Médio" usará D2 como Tamanho da VM para os três nós do MongoDB que hospedam dados, além de uma quarta VM A1 que será usada como arbitrador para fins de replicação. O submodelo correspondente invocado para implantar nós de dados poderá ser `member-resources-D2.json` e os arquivos de dados (250 GB cada) serão armazenados em duas contas de armazenamento. Essa variáveis serão usadas na seção de recursos para orquestrar as implantações de nó e outras tarefas.
 
-### Seção "recursos"
+### Seção Recursos
 
-A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), você pode especificar um arquivo de modelo vinculado que é invocado passando um conjunto de parâmetros como entrada, como visto neste fragmento:
+A seção de recursos é onde acontece a maior parte da ação. Analisando cuidadosamente essa seção, você pode identificar imediatamente dois casos diferentes: o primeiro é um elemento definido do tipo `Microsoft.Resources/deployments` que, basicamente, significa a invocação de uma implantação aninhada dentro da principal. Por meio do elemento "templateLink" (e da propriedade de versão relacionada), é possível especificar um arquivo de modelo vinculado que será invocado passando um conjunto de parâmetros como entrada, como mostrado no próximo exemplo.
 
     {
       "name": "shared-resources",
@@ -579,23 +578,23 @@ A seção **"recursos"** é onde acontece a maior parte da ação. Analisando cu
       }
     },
 
-Neste primeiro exemplo, fica claro como **azuredeploy.json** nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
+No exemplo anterior, fica claro como azuredeploy.json nesse cenário foi organizado como um mecanismo de orquestração, invocando vários outros arquivos de modelo, cada um deles responsável por parte das atividades de implantação necessárias.
 
 Em particular, os seguintes modelos vinculados serão usados para essa implantação:
 
--	**shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do sistema operacional da VM e redes virtuais.
--	**jumpbox-resources.json**: quando habilitado, é responsável pela implantação de todos os recursos relacionados à VM Jumpbox, com um endereço IP público que pode ser usado para acessar o cluster MongoDB da rede pública.
--	**arbiter-resources.json**: quando habilitado, esse modelo implanta um membro arbitrador no cluster MongoDB. Um arbitrador não contêm dados, mas é usado quando um conjunto de réplicas contém um número par de nós para gerenciar eleições primárias.
--	**member-resources-Dx.json**: os modelos de recursos efetivamente implantam nós do MongoDB. O arquivo específico será usado com base na definição do tamanho de camiseta selecionada, onde cada arquivo só será diferente pelo número de discos conectados para cada nó.
--	**mongodb-ubuntu-install.sh**: um arquivo de script bash invocado pela extensão CustomScriptForLinux em todos os nós no cluster. Responsável pela montagem e formatação de discos de dados e instalação de bits do MongoDB no nó.
+-	**Shared-resource.json**: contém a definição de todos os recursos que serão compartilhados na implantação. Os exemplos são contas de armazenamento usadas para armazenar os discos do sistema operacional da VM e redes virtuais.
+-	**Jumpbox-resources.json**: quando habilitado, é responsável pela implantação de todos os recursos relacionados à VM Jumpbox, com um endereço IP público que pode ser usado para acessar o cluster MongoDB da rede pública.
+-	**Arbiter-resources.json**: quando habilitado, esse modelo implanta um membro arbitrador no cluster MongoDB. Um arbitrador não contêm dados, mas é usado quando um conjunto de réplicas contém um número par de nós para gerenciar eleições primárias.
+-	**Member-resources-Dx.json**: especifica os modelos de recursos que efetivamente estão implantando os nós MongoDB. Um arquivo específico será usado com base na definição do tamanho de camiseta selecionada, em que cada arquivo só será diferente pelo número de discos conectados para cada nó.
+-	**Mongodb-ubuntu-install.sh**: um arquivo de script bash invocado pela extensão CustomScriptForLinux em todos os nós no cluster. Responsável pela montagem e formatação de discos de dados e instalação de bits do MongoDB no nó.
 
-Para implantar um cluster MongoDB, uma lógica específica é necessária para poder configurar corretamente um conjunto de réplicas. A sequência específica que você precisa usar durante a implantação é a seguinte:
+Para implantar um cluster MongoDB, uma lógica específica é necessária para poder configurar corretamente um conjunto de réplicas. O exemplo a seguir mostra a sequência específica que você precisa usar durante a implantação.
 
 IMPLANTAR MEMBROS DE DADOS (em paralelo) => IMPLANTAR ÚLTIMO MEMBRO DE DADOS => (opcional) IMPLANTAR ARBITRADOR
 
 Nessa sequência, a implantação de vários nós de dados ocorrerá em paralelo, com exceção do último nó. É aí que o cluster será formado e o novo conjunto de réplicas será implantado, de modo que todos os nós anteriores deverão estar em execução antes desse momento. A última etapa será implantar o nó opcional do Arbitrador (apenas para os tamanhos de camiseta onde for necessário).
 
-Olhando novamente dentro do nosso modelo principal (azuredeploy.json), vamos ver como essa lógica é implementada, a partir de todos os membros de dados:
+Observando novamente nosso modelo principal (azuredeploy.json), vamos ver como essa lógica é implementada, começando com todos os membros de dados no exemplo a seguir.
 
     {
       "type": "Microsoft.Resources/deployments",
@@ -645,19 +644,19 @@ Olhando novamente dentro do nosso modelo principal (azuredeploy.json), vamos ver
       }
     },
 
-Um conceito importante a ser realçado é como é possível implantar várias cópias de um único tipo de recurso e, para cada instância, poder definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como **Loop de Recursos**.
+Um conceito importante a ser destacado é como é possível implantar várias cópias de um único tipo de recurso e, para cada instância, poder definir valores exclusivos para as configurações necessárias. Esse conceito é conhecido como *Loop de Recursos*.
 
-No fragmento anterior, um parâmetro (número de nós que devem ser implantados no cluster) será usado para definir uma variável ("numberOfMembers"), que será passada para o elemento **"copy"** para disparar um número (loop) de implantações filho, sendo que cada uma deles resultará na instanciação do modelo para cada membro do cluster. Para poder definir todas as configurações onde são necessários valores exclusivos entre instâncias, a função **copyindex()** função pode ser usada para obter um valor numérico que indica o índice nessa criação de loop de recurso em particular.
+No exemplo anterior, um parâmetro (número de nós que devem ser implantados no cluster) será usado para definir uma variável ("numberOfMembers"), que será passada para o elemento **"copy"** para disparar um número (loop) de implantações filho, sendo que cada uma delas resultará na instanciação do modelo para cada membro do cluster. Para poder definir todas as configurações onde são necessários valores exclusivos entre instâncias, a função **copyindex()** função pode ser usada para obter um valor numérico que indica o índice nessa criação de loop de recurso em particular.
 
 Outro conceito importante na criação de recursos é a capacidade de especificar dependências e precedências entre recursos, como você pode observar na matriz JSON **dependsOn**. Neste modelo específico, a implantação de cada nó depende da implantação bem-sucedida anterior de **recursos compartilhados**.
 
-Os discos anexados são formatados como parte das atividades de preparação do nó disparadas pela execução do arquivo de script **mongodb-ubuntu-install.sh**. Dentro desse arquivo, na verdade, você encontrará uma instância desta chamada:
+Os discos anexados são formatados como parte das atividades de preparação do nó disparadas pela execução do arquivo de script mongodb-ubuntu-install.sh. Na verdade, dentro deste arquivo você encontrará uma instância de chamada a seguir.
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** faz parte da pasta **shared\_scripts\\ubuntu**, no repositório github azure-quickstart-templates, e contém funções muito úteis para a montagem de discos, a formatação e a distribuição, que podem ser reutilizadas sempre que você precisar executar tarefas semelhantes como parte da criação do modelo.
+vm-disk-utils-0.1.sh faz parte da pasta shared\_scripts\\ubuntu, no repositório Github azure-quickstart-templates, e contém funções muito úteis para a montagem, formatação e distribuição de discos, que podem ser reutilizados sempre que você precisar executar tarefas semelhantes como parte da criação do modelo.
 
-Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo separado de recurso, com uma dependência em cada modelo de implantação do nó de cluster, consulte este fragmento no final de cada arquivo **member-resources-Dx.json**:
+Outro fragmento interessante para explorar é aquele relacionado às extensões de VM CustomScriptForLinux. Elas são instaladas como um tipo de recurso separado, com uma dependência em cada modelo de implantação de nó de cluster. Por exemplo, consulte o seguinte fragmento no final de cada arquivo member-resources-Dx.json.
 
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -677,19 +676,18 @@ Outro fragmento interessante para explorar é aquele relacionado às extensões 
       }
     }
 
-Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme realçado pelo seguinte diagrama:
+Familiarizando-se com os outros arquivos incluídos nessa implantação, você poderá compreender todos os detalhes e as práticas recomendadas necessárias para organizar e orquestrar estratégias de implantação complexas para soluções com vários nós, com base em qualquer tecnologia, utilizando modelos do Gerenciador de Recursos do Azure. Embora não seja obrigatório, uma abordagem recomendada é estruturar seus arquivos de modelos conforme mostrado no diagrama a seguir.
 
 ![mongodb-template-structure](media/virtual-machines-mongodb-template/mongodb-template-structure.png)
 
-Essencialmente, essa abordagem sugere o seguinte:
+Essencialmente, essa abordagem sugere que você:
 
--	Definir o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de modelos de sub-rotina
--	Criar arquivos de modelos específicos que implantarão todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (por exemplo, contas de armazenamento, configuração de vnet etc.). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
--	Incluir modelos de recursos opcionais para requisitos de spot específicos de determinado recurso
--	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas
--	Para todas as tarefas pós-implantação (por exemplo, instalação de produtos, configurações etc.), use extensões de implantação de scripts e crie scripts específicos para cada tecnologia
+-	Defina o arquivo de modelo principal como um ponto central de orquestração para todas as atividades de implantação específicas, aproveitando a vinculação de modelos para invocar execuções de submodelos.
+-	Crie arquivos de modelo específicos que implantarão todos os recursos compartilhados entre todas as outras tarefas de implantação específicas (por exemplo, contas de armazenamento e configuração de vnet, entre outros). Isso pode ser amplamente reutilizado entre implantações que tenham requisitos semelhantes em termos de infraestrutura comum.
+-	Inclua modelos de recursos opcionais para requisitos de spot específicos de determinado recurso.
+-	Para membros de um grupo de recursos idênticos (nós em um cluster etc.), crie modelos específicos que usam o loop de recursos para implantar várias instâncias com propriedades exclusivas.
+-	Para todas as tarefas de pós-implantação (por exemplo, instalação de produtos e configurações, entre outros), aproveite as extensões de implantação de scripts e crie scripts específicos para cada tecnologia.
 
-Para saber mais, confira [Linguagem de Modelo do Gerenciador de Recursos do Azure (a página pode estar em inglês)](https://msdn.microsoft.com/library/azure/dn835138.aspx).
- 
+Para obter mais informações, consulte [Linguagem de modelo do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

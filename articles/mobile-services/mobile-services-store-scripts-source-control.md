@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Armazenar código de projeto no controle do código-fonte | Microsoft Azure" 
-	description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Armazenar código de projeto no controle do código-fonte | Microsoft Azure"
+	description="Saiba como armazenar seus arquivos de script de servidor e módulos em um repositório Git local no computador."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # Armazenar código de projeto no controle do código-fonte
@@ -32,7 +32,7 @@ Para concluir este tutorial, você deve já ter criado um serviço móvel ao con
 
 ##<a name="clone-repo"></a>Instalar o Git e criar o repositório local
 
-1. Instale o Git no seu computador local. 
+1. Instale o Git no seu computador local.
 
 	As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Consulte [Instalando o Git] para distribuições específicas de sistemas operacionais e orientações de instalação.
 
@@ -75,13 +75,13 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	Esse código simplesmente grava o item inserido no log. Se esse arquivo já contiver código, basta adicionar um código JavaScript válido a ele, por exemplo, uma chamada para `console.log()`, e salvar as alterações.
 
 3. No prompt de comando do Git, digite o comando a seguir para iniciar o acompanhamento do novo arquivo de script:
 
 		$ git add .
-	
+
 
 4. Digite o comando a seguir para confirmar as alterações:
 
@@ -90,12 +90,11 @@ Agora que criou seu repositório local, você pode fazer alterações nos script
 5. Digite o comando a seguir para carregar as alterações para o repositório remoto:
 
 		$ git push origin master
-	
+
 	Uma série de comandos deverão ser exibidos indicando que a confirmação foi implantada no serviço móvel.
 
-6. De volta ao Portal de Gerenciamento, clique na guia **Dados**; em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**.
-7. 
-	Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
+6. De volta ao Portal de Gerenciamento, clique na guia **Dados**; em seguida, clique na tabela **TodoItem**, em **Script** e selecione a operação **Inserir**. 
+7. Observe que o script da operação de inserção exibido é o mesmo do código JavaScript que você acabou de carregar para o repositório.
 
 ##<a name="use-npm"></a>Aproveitar o código compartilhado e os módulos do Node.js nos seus scripts de servidor
 
@@ -125,7 +124,7 @@ A maneira recomendada para adicionar módulos Node.js ao seu serviço móvel é 
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	Isso adicionará o novo arquivo, confirmará suas alterações e enviará o novo módulo node-uuid e as alterações por push ao script todoitem.insert.js para o seu serviço móvel.
 
 ## <a name="next-steps"> </a>Próximas etapas
@@ -158,6 +157,5 @@ Agora que concluiu este tutorial, você sabe como armazenar seus scripts no cont
 [Chamar uma API personalizada do cliente]: mobile-services-ios-call-custom-api.md
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

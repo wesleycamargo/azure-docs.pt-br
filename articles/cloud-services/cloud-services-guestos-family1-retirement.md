@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
 
-# Aviso de desativação da família 1 sistemas operacionais convidados
+# Aviso de desativação da família 1 de SO convidados
 
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
 
@@ -78,4 +78,7 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 ## O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.
 
-<!---HONumber=August15_HO7-->
+## Próximas etapas
+Examinar as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
+
+<!---HONumber=August15_HO8-->

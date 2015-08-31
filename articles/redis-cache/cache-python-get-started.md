@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Como usar o Cache Redis do Azure com Python"
-   description="Introdução ao Cache Redis do Azure usando Python"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Como usar o Cache Redis do Azure com Python | Microsoft Azure"
+	description="Introdução ao Cache Redis do Azure usando Python"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="python"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Python
 
@@ -36,7 +36,7 @@ Insira um nome de host DNS. Ele terá o formato `<name>.redis.cache.windows.net`
 
   ![][2]
 
-Depois que o cache for criado, clique nele no portal para exibir as configurações de cache. Você precisará do seguinte:
+Depois de criar o cache, clique nele no portal do Azure para exibir as configurações do cache. Você precisará do seguinte:
 
 - **Nome do host.** Esse é o nome que você inseriu ao criar o cache.
 - **Porta.** Clique no link em **Portas** para exibir as portas. Use a porta SSL.
@@ -59,4 +59,4 @@ Substitua *&lt;name&gt;* pelo nome do cache e *&lt;key&gt;* por sua chave de ace
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

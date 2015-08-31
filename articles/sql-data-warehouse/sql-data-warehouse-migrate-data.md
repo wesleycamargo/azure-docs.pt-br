@@ -37,7 +37,7 @@ O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, T
 
 > [AZURE.NOTE]O SSIS pode exportar para UTF-8 sem a marca de ordem de byte no arquivo. Para configurar isso, primeiramente você deve usar o componente de coluna derivada para converter os dados de caractere no fluxo de dados para usar a página de código 65001 UTF-8. Depois que as colunas forem convertidas, grave os dados no adaptador de destino do arquivo simples, garantindo que 65001 também tenha sido selecionado como a página de código para o arquivo.
 
-O SSIS conecta-se ao SQL Data Warehouse da mesma forma que se conecta a uma implantação do SQL Server. No entanto, suas conexões precisarão usar um gerenciador de conexão ADO.NET. Você também deve ter cuidado ao definir a configuração “” para maximizar a taxa de transferência.
+O SSIS conecta-se ao SQL Data Warehouse da mesma forma que se conecta a uma implantação do SQL Server. No entanto, suas conexões precisarão usar um gerenciador de conexão ADO.NET. Você também deve ter cuidado para definir a configuração "Usar inserção em massa quando disponível" para maximizar a taxa de transferência. Consulte o artigo do [Adaptador de destino ADO.NET][] para saber mais sobre essa propriedade
 
 > [AZURE.NOTE]Não há suporte para a conexão com o SQL Data Warehouse usando o OLEDB.
 
@@ -191,6 +191,7 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 
 [versão de produção]: http://aka.ms/downloadazcopy/
 [versão de visualização]: http://aka.ms/downloadazcopypr/
+[Adaptador de destino ADO.NET]: https://msdn.microsoft.com/pt-br/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/pt-br/library/ms141026.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

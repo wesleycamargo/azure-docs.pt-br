@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Introdução ao Active Directory Premium do Azure" 
-	description="Um tópico que explica como inscrever-se no Azure Active Directory Premium Edition." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Introdução ao Active Directory Premium do Azure"
+	description="Um tópico que explica como inscrever-se no Azure Active Directory Premium Edition."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo" 
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="markvi"/>
 
 # Introdução ao Active Directory Premium do Azure
 
@@ -121,7 +121,4 @@ A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

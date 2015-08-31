@@ -3,7 +3,7 @@
 	description="Use o Power BI para monitorar o desempenho e o uso de seu aplicativo." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -118,7 +118,7 @@ Neste exemplo:
 
 * `webapplication27` é o nome do recurso do Application Insights. 
 * `1000...` é a chave de instrumentação do recurso do Application Insights. 
-* `PageViews` é o tipo de dados que desejamos analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examine os dados exportados para ver os outros tipos disponíveis.
+* `PageViews` é o tipo de dados que desejamos analisar. Os tipos disponíveis dependem do filtro definido na Exportação Contínua. Examine os dados exportados para ver os outros tipos disponíveis e veja o [modelo de exportação de dados](app-insights-export-data-model.md).
 * `/{date}/{time}` um padrão escrito literalmente.
 
 Para obter o nome e iKey do seu recurso do Application Insights, abra Essentials na sua página de visão geral ou abra as Configurações.
@@ -197,4 +197,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

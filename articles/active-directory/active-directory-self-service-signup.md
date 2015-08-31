@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="O que é a inscrição no Azure por autoatendimento?" 
-	description="Uma visão geral da inscrição por autoatendimento no Azure, como gerenciar o processo de inscrição e como ." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="O que é a inscrição no Azure por autoatendimento?"
+	description="Uma visão geral da inscrição por autoatendimento no Azure, como gerenciar o processo de inscrição e como ."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # O que é a inscrição no Azure por autoatendimento?
@@ -26,12 +26,12 @@ Este tópico explica o processo de inscrição por autoatendimento (também conh
 - Obtenha mais rápido os serviços que os clientes desejam.
 - Crie ofertas baseadas em email (virais) para um serviço.
 - Crie fluxos de inscrição baseados em email que permitem aos usuários criar rapidamente identidades usando seus aliases de email de trabalho, fáceis de lembrar.
-- Locatários do Azure não gerenciados podem crescer, tornarem-se locatários gerenciados posteriormente e serem reutilizados para outros serviços. 
+- Locatários do Azure não gerenciados podem crescer, tornarem-se locatários gerenciados posteriormente e serem reutilizados para outros serviços.
 
 ## Termos e definições
 
-+ **Inscrição por autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade automaticamente criada para ele no Active Directory do Azure, com base no seu domínio de email. 
-+ **Locatário do Azure não gerenciado**: este é o diretório onde essa identidade é criada. Um locatário não gerenciado é um diretório sem nenhum administrador global. 
++ **Inscrição por autoatendimento**: esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade automaticamente criada para ele no Active Directory do Azure, com base no seu domínio de email.
++ **Locatário do Azure não gerenciado**: este é o diretório onde essa identidade é criada. Um locatário não gerenciado é um diretório sem nenhum administrador global.
 + **Usuário verificado por email**: Este é um tipo de conta de usuário no AD do Azure. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
 
 ## Experiência do cliente
@@ -46,8 +46,8 @@ Se Dan for o primeiro usuário com um endereço de email de BellowsCollege.com a
 
 Um administrador que possui o nome de domínio DNS de um locatário do Azure não gerenciado pode assumir ou mesclar o locatário depois de comprovar a propriedade. As próximas seções explicam a experiência de administração mais detalhadamente, mas aqui está um resumo:
 
-- Ao assumir um locatário não gerenciado do Azure, você simplesmente se torna o administrador global do locatário não gerenciado. Isso às vezes é chamado de uma tomada de controle interna. 
-- Quando você mescla um locatário do Azure não gerenciado, você adiciona o nome de domínio DNS do locatário não gerenciado em seu locatário gerenciado do Azure e um mapeamento de usuários a recursos é criado, assim os usuários podem continuar acessar os serviços sem interrupção. Isso às vezes é chamado de uma tomada de controle externa. 
+- Ao assumir um locatário não gerenciado do Azure, você simplesmente se torna o administrador global do locatário não gerenciado. Isso às vezes é chamado de uma tomada de controle interna.
+- Quando você mescla um locatário do Azure não gerenciado, você adiciona o nome de domínio DNS do locatário não gerenciado em seu locatário gerenciado do Azure e um mapeamento de usuários a recursos é criado, assim os usuários podem continuar acessar os serviços sem interrupção. Isso às vezes é chamado de uma tomada de controle externa.
 
 ### O que é criado no diretório Microsoft Azure?
 
@@ -103,13 +103,13 @@ Digamos que um administrador de TI na faculdade Bellows descobre que os usuário
 Em um controle externo, você já tem um locatário gerenciado e deseja que todos os usuários e grupos de um locatário não gerenciado participem desse locatário gerenciado, em vez de ter dois locatários separados.
 
 Como administrador de um locatário gerenciado, você adiciona um domínio que tem um locatário não gerenciado associado a ele.
-	
+
 Por exemplo, digamos que você é um administrador de TI e você já tem um locatário gerenciado para Contoso.com, um nome de domínio registrado em sua organização. Você descobre que os usuários da sua organização executaram inscrição por autoatendimento para uma oferta usando o nome de domínio de email user@contoso.co.uk, que é outro nome de domínio possuído por sua organização. Atualmente, esses usuários têm contas em um locatário não gerenciado para contoso.co.uk.
 
 Você não quer gerenciar dois locatários separados, portanto, você mescla o locatário não gerenciado para contoso.co.uk com seu locatário gerenciado por TI existente para contoso.com.
-	
+
 A tomada de controle externa segue o mesmo processo de validação de DNS que a tomada de controle interna. A diferença é: os usuários e serviços são remapeados para o locatário gerenciado por TI.
-	
+
 #### Qual é o impacto de uma tomada de controle externa?
 
 Com uma tomada de controle externa, um mapeamento de usuários a recursos é criado para que os usuários possam continuar a acessar os serviços sem interrupção. Muitos aplicativos, incluindo o RMS para indivíduos, lidam bem com o mapeamento de usuários a recursos, e os usuários podem continuar a acessar esses serviços sem alterações. Se um aplicativo não lida com eficiência com o mapeamento de usuários a recursos, a tomada de controle externa pode ser explicitamente bloqueada para impedir que usuários tenham uma experiência ruim.
@@ -160,7 +160,7 @@ Você tem algumas opções para realizar uma validação de domínio (e uma toma
 Por exemplo:
 
 1. Conectar-se ao AD do Azure usando as credenciais que foram usadas para responder à oferta por autoatendimento: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. Obter uma lista de domínios:
 
 	Get-MsolDomain
@@ -205,8 +205,8 @@ Os administradores têm dois controles de autoatendimento atualmente. Eles podem
 
 Um administrador pode configurar esses recursos usando esses parâmetros do cmdlet Set-MsolCompanySettings do AD do Azure:
 
-+ O **AllowEmailVerifiedUsers** controla se um usuário pode ou não criar ou ingressar em um locatário não gerenciado. Se você definir esse parâmetro como $false, nenhum usuário verificado por email poderá ingressar no locatário. 
-+ **AllowAdHocSubscriptions** controla a capacidade dos usuários de executarem a assinatura por autoatendimento. Se você definir esse parâmetro como $false, nenhum usuário poderá realizar inscrição por autoatendimento. 
++ O **AllowEmailVerifiedUsers** controla se um usuário pode ou não criar ou ingressar em um locatário não gerenciado. Se você definir esse parâmetro como $false, nenhum usuário verificado por email poderá ingressar no locatário.
++ **AllowAdHocSubscriptions** controla a capacidade dos usuários de executarem a assinatura por autoatendimento. Se você definir esse parâmetro como $false, nenhum usuário poderá realizar inscrição por autoatendimento.
 
 
 ### Como os controles funcionam juntos?
@@ -234,6 +234,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -351,8 +351,8 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
 
 - Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
-- Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](www.documentdb.com/sql/demo)
+- Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

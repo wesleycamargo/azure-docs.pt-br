@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/19/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
-# Suporte do sistema operacional convidado do Azure e política de desativação
+# Capacidade de suporte e política de desativação do SO convidado do Azure
 As informações nesta página se relacionam ao sistema operacional convidado do Azure [(SO Convidado)](https://msdn.microsoft.com/library/azure/ff729422.aspx) para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
 
 A Microsoft tem uma [política de suporte para o SO convidado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq) publicada. A página que você está lendo agora descreve como a política é implementada.
@@ -87,5 +87,7 @@ Você deve usar a família mais recente do sistema operacional convidado para cr
 
 Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sistema operacional subjacente, use os recursos de suporte de plataforma como "[Tarefas de Inicialização](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" ou outros mecanismos de extensibilidade que possam existir no futuro. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
  
+## Próximas etapas
+Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

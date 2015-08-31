@@ -45,7 +45,7 @@ Verifique se estes pré-requisitos estão em vigor:
 - Você precisará de pelo menos uma nuvem no servidor VMM que deseja proteger. A nuvem deve conter:
 	- Um ou mais grupos de hosts do VMM
 	- Um ou mais servidores host Hyper-V ou clusters em cada grupo de hosts.
-	- Uma ou mais máquinas virtuais no servidor Hyper-V de origem. As máquinas virtuais devem ser de geração 1.
+	- Uma ou mais máquinas virtuais no servidor Hyper-V de origem.
 - Saiba mais sobre como configurar nuvens VMM:
 	- Leia mais sobre nuvens VMM privadas em [Novidades na nuvem privada com o System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e em [VMM 2012 e as nuvens](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
@@ -104,7 +104,7 @@ No PowerShell, substitua os elementos dentro de "< >" por informações específ
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<C:\>"
+	$OutputPathForSettingsFile = "<c:>"
 
 ```
 
@@ -125,7 +125,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<C:\>"
+		$OutputPathForSettingsFile = "<c:>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Em caso de dúvidas, visite o <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Fórum dos Serviços de Recuperação do Azure</a>.</LI> </UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

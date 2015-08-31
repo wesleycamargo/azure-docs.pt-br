@@ -52,9 +52,9 @@ Neste vídeo, Scott Hanselman mostra como é fácil inscrever-se para uma avalia
 
 A primeira etapa é criar um projeto Web no Visual Studio e um aplicativo Web no serviço de aplicativo do Azure. Quando isso for feito, você implantará o projeto para o aplicativo Web para disponibilizá-lo na Internet.
 
-Os diagramas ilustram o que você está fazendo nas etapas de criação e implantação.
+O diagrama ilustra o que você está fazendo nas etapas de criação e implantação.
 
-![Criar](./media/web-sites-dotnet-get-started/Create_App.png)
+![Criar e implantar](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Abra o Visual Studio 2015 ou Visual Studio 2013. 
 
@@ -188,7 +188,7 @@ Os diagramas ilustram o que você está fazendo nas etapas de criação e implan
 
 ## Fazer uma alteração e reimplantar
 
-Esta seção do tutorial é opcional. Faça o seguinte: altere o título **h1** da home page, execute o projeto localmente no seu computador de desenvolvimento para verificar a alteração e, em seguida, implante a alteração no Azure.
+Esta seção do tutorial é opcional. Faça o seguinte: altere o título **h1** da home page, execute o projeto localmente em seu computador de desenvolvimento para verificar a alteração e, em seguida, implante a alteração no Azure.
 
 2. Abra os arquivos *Views/Home/Index.cshtml* ou *.vbhtml* no **Gerenciador de Soluções**, altere o título **h1** de "ASP.NET" para "ASP.NET e Azure" e salve o arquivo.
 
@@ -281,7 +281,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como evitar tempo de espera para voltar ao funcionamento após intervalos em ociosidade
 
-	Por padrão, os aplicativos Web serão descarregados se estiverem ociosos durante determinado período de tempo. A primeira solicitação após um aplicativo Web ter sido descarregado precisa esperar que o aplicativo Web seja recarregado. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, consulte as opções de configuração em [Como configurar os aplicativos Web](web-sites-configure.md).
+	Por padrão, os aplicativos Web serão descarregados se estiverem ociosos durante determinado período de tempo. A primeira solicitação após um aplicativo Web ter sido descarregado precisa esperar que o aplicativo Web seja recarregado. Para evitar esse tempo de espera, você pode habilitar o recurso AlwaysOn. Para obter mais informações, confira as opções de configuração em [Como configurar os aplicativos Web](web-sites-configure.md).
 
 * Como adicionar recursos em tempo real como chat
 
@@ -289,7 +289,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Como escolher entre o Serviço de Aplicativo, os Serviços de Nuvem e VMs para aplicativos Web
 
-	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, ou em Serviços de Nuvem ou Máquinas Virtuais. Para obter mais informações, consulte [Aplicativos Web do Azure, serviços de nuvem e VMs: quando usar o quê?](/manage/services/web-sites/choose-web-app-service/).
+	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, ou em Serviços de Nuvem ou Máquinas Virtuais. Para obter mais informações, confira [Aplicativos Web do Azure, serviços de nuvem e VMs: quando usar o quê?](/manage/services/web-sites/choose-web-app-service/).
 
 * [Como escolher ou criar um plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -301,4 +301,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

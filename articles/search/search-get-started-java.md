@@ -1,24 +1,24 @@
 <properties
-	pageTitle="Introdução à Pesquisa do Azure em Java"
-	description="Percorra a criação de um aplicativo de Pesquisa do Azure personalizado usando Java como sua linguagem de programação."
+	pageTitle="Introdução à Pesquisa do Azure no Java | Microsoft Azure"
+	description="Como criar um aplicativo de Pesquisa do Azure personalizado usando Java como linguagem de programação."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
-#Introdução à Pesquisa do Azure em Java#
+# Introdução à Pesquisa do Azure em Java
 
-Aprenda a criar um aplicativo de pesquisa Java personalizado que usa a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e operações usados neste exercício.
+Aprenda a criar um aplicativo de pesquisa Java personalizado que usa a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
@@ -28,7 +28,7 @@ Para compilar e testar este exemplo, usamos o seguinte software:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Para executar esse exemplo você deve ter um serviço de Pesquisa do Azure, no qual você pode se inscrever pelo [Portal de Gerenciamento do Azure](https://portal.azure.com).
+Para executar esse exemplo, você precisará de um serviço de Pesquisa do Azure, para o qual você pode se inscrever pelo [Portal de gerenciamento do Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Baixe o código-fonte deste tutorial em [Demonstração do Java da Pesquisa do Azure](http://go.microsoft.com/fwlink/p/?LinkId=530197) no Github.
 
@@ -57,7 +57,7 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Na barra de navegação rápida, clique em **Novo** | **Dados + armazenamento** | **Pesquisa**.
+2. Na barra de navegação rápida, clique em **Novo** > **Dados + armazenamento** > **Pesquisa**.
 
      ![][1]
 
@@ -80,7 +80,7 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
 4. Clique em **Criar** para provisionar o serviço.
 
-Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço fica pronto para uso.
+Observe as notificações na barra de navegação rápida. Um aviso é exibido quando o serviço está pronto para uso.
 
 <a id="sub-2"></a>
 ## Localizar o nome do serviço e a chave de Api do serviço de Pesquisa do Azure
@@ -107,7 +107,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 ## Projeto de importação
 
-1. No Eclipse, escolha **Arquivo** | **Importação** | **Geral** | **Projetos existentes no espaço de trabalho**.
+1. No Eclipse, escolha **Arquivo** > **Importação** > **Geral** > **Projetos Existentes no Espaço de Trabalho**.
 
     ![][4]
 
@@ -117,9 +117,9 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 3. Clique em **Concluir**.
 
-4. Use o **Gerenciador de Projetos** para exibir e editar os arquivos. Se não ainda estiver aberto, clique em **Janela** | **Exibição** | **Gerenciador de Projetos** ou use o atalho para abri-lo.
+4. Use o **Gerenciador de Projetos** para exibir e editar os arquivos. Se não ainda estiver aberto, clique em **Janela** > **Exibição** > **Gerenciador de Projetos** ou use o atalho para abri-lo.
 
-## Configurar a URL de serviço e a chave de Api
+## Configurar a URL de serviço e a chave de API
 
 1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
 
@@ -131,7 +131,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 ## Configurar ambientes de projeto, compilação e tempo de execução
 
-1. No Eclipse, no Gerenciador de Projetos, clique com botão direito no projeto | **Propriedades** | **Facetas do projeto**.
+1. No Eclipse, no Gerenciador de Projetos, clique com o botão direito do mouse no projeto > **Propriedades** > **Facetas do Projeto**.
 
 2. Selecione **Módulo da Web dinâmico**, **Java** e **JavaScript**.
 
@@ -139,7 +139,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 3. Clique em **Aplicar**.
 
-4. Selecione **Janela** | **Preferências** | **Servidor** | **Ambientes de tempo de execução** | **Adicionar..**.
+4. Selecione **Janela** > **Preferências** > **Servidor** > **Ambientes de Tempo de Execução** > **Adicionar..**.
 
 5. Expanda o Apache e selecione a versão do servidor Apache Tomcat instalado anteriormente. Em nosso sistema, instalamos a versão 8.
 
@@ -149,7 +149,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 6. Clique em **Concluir**.
 
-7. Selecione **Janela** | **Preferências** | **Java** | **JREs instalado** | **Adicionar**.
+7. Selecione **Janela** > **Preferências** > **Java** > **JREs instalado** > **Adicionar**.
 
 8. Em **Adicionar JRE**, selecione **VM padrão**.
 
@@ -157,13 +157,13 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 11. Na Definição do JRE, na página inicial do JRE, clique em **Diretório**.
 
-12. Navegue até **Arquivos de Programas** | **Java** e selecione o JDK instalado anteriormente. É importante selecionar o JDK como o JRE.
+12. Navegue até **Arquivos de Programas** > **Java** e selecione o JDK instalado anteriormente. É importante selecionar o JDK como o JRE.
 
 13. Em JREs instalados, escolha o **JDK**. Suas configurações devem ter aparência semelhante à captura de tela a seguir.
 
     ![][9]
 
-14. Opcionalmente, selecione **Janela** | **Navegador da Web** | **Internet Explorer** para abrir o aplicativo em uma janela do navegador externo. Usar um navegador externo oferece uma melhor experiência de aplicativo Web.
+14. Opcionalmente, selecione **Janela** > **Navegador da Web** > **Internet Explorer** para abrir o aplicativo em uma janela do navegador externo. Usar um navegador externo oferece uma melhor experiência de aplicativo Web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ Agora, você concluiu as tarefas de configuração. Em seguida, você compilará
 
 ## Compilar o projeto
 
-1. No Gerenciador de Projetos, clique no nome do projeto e escolha **Executar como** | **Compilação Maven...** para configurar o projeto.
+1. No Gerenciador de Projetos, clique com o botão direito do mouse no nome do projeto e escolha **Executar como** > **Compilação Maven...** para configurar o projeto.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Se você ainda não especificou um ambiente de tempo de execução do servidor n
 
 1. No Gerenciador de Projetos, expanda **WebContent**.
 
-5. Clique com o botão direito em **Search.jsp** | **Executar como** | **Executar no servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
+5. Clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Executar no Servidor**. Selecione o servidor Apache Tomcat e, em seguida, clique em **Executar**.
 
-> [AZURE.TIP]Se você usou um espaço de trabalho não padrão para armazenar seu projeto, você provavelmente precisará modificar **Configuração de Execução** para indicar o local do projeto, para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito em **Search.jsp** | **Executar como** | **Configurações de execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
+> [AZURE.TIP]Se você tiver usado um espaço de trabalho não padrão para armazenar seu projeto, precisará modificar a **Configuração de Execução** para indicar o local do projeto para evitar um erro de inicialização do servidor. No Gerenciador de Projetos, clique com o botão direito do mouse em **Search.jsp** > **Executar como** > **Configurações de Execução**. Selecione o servidor Apache Tomcat. Clique em **Argumentos**. Clique em **Espaço de Trabalho** ou **Sistema de Arquivos** para definir a pasta que contém o projeto.
 
 Quando você executar o aplicativo, verá uma janela do navegador, fornecendo uma caixa de pesquisa para inserir termos.
 
@@ -230,6 +230,5 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -141,4 +141,4 @@ Este tutorial exige o seguinte:
 [extensão Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

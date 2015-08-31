@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/14/2015" 
 	ms.author="juliako"/>
 
 #Introdução ao fornecimento de VoD (Vídeo sob Demanda) usando APIs REST 
@@ -40,7 +40,6 @@ As tarefas a seguir são mostradas neste guia de início rápido.
 1.  Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
 1.  Configurar unidades de streaming com API REST.
 2.  Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
-1.  Configurar a política de entrega para o ativo codificado com API REST.
 1.  Publicar o ativo e obter URLs de download progressivo e streaming com API REST. 
 1.  Reproduzir o conteúdo. 
 
@@ -908,7 +907,7 @@ Se tiver êxito, uma resposta de código 204 é retornada sem corpo de mensagem.
 
 ### Obtenha o ativo de saída 
 
-Na próxima seção, vamos configurar a política de entrega para ativo de saída do trabalho (o ativo codificado). O código a seguir mostra como solicitar a ID do ativo de saída.
+O código a seguir mostra como solicitar a ID do ativo de saída.
 
 
 **Solicitação HTTP**
@@ -956,85 +955,6 @@ Na próxima seção, vamos configurar a política de entrega para ativo de saíd
 	   ]
 	}
 
-
-## <a id="configure_delivery_method"></a>Configurar a política de entrega para o ativo codificado
-
-Uma das etapas do fluxo de trabalho de fornecimento de conteúdo de Serviços de Mídia está configurando diretivas de entrega de ativos. Algumas coisas que a configuração de diretiva de entrega de ativos inclui: quais protocolos podem ser usados para fornecer o ativo (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos), se você deseja ou não criptografar dinamicamente seu ativo e como fazê-lo (criptografia de envelope ou comum).
-
-A Solicitação HTTP **AssetDeliveryPolicies** especifica para não aplicar a criptografia (AssetDeliveryPolicyType pode ser um destes valores: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) e para fornecer o fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e Smooth Streaming (AssetDeliveryProtocol pode ser uma combinação dos seguintes valores: None = 0, SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535).
-
-
-### Criar AssetDeliveryPolicies
-
-
-**Solicitação HTTP**
-		
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 83
-	
-	{"Name":"Clear Policy", "AssetDeliveryPolicyType":"2","AssetDeliveryProtocol":"7"} 
-
-
-**Resposta HTTP**
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 361
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')
-	Server: Microsoft-IIS/8.5
-	request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	x-ms-request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 19 Jan 2015 09:13:18 GMT
-
-	{  
-	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#AssetDeliveryPolicies/@Element",
-	   "Id":"nb:adpid:UUID:ef97ae36-b898-4b8a-b427-7819ee726276",
-	   "Name":"Clear Policy",
-	   "AssetDeliveryProtocol":7,
-	   "AssetDeliveryPolicyType":2,
-	   "AssetDeliveryConfiguration":null,
-	   "Created":"2015-01-19T09:13:18.911615Z",
-	   "LastModified":"2015-01-19T09:13:18.911615Z"
-	}
-    
-
-### Vincular a política de entrega de ativos com um ativo
-
-A solicitação HTTP a seguir associa a política de entrega especificada ao ativo especificado.
-
-**Solicitação HTTP**
-
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 140
-	
-	{ "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')" }
-
-
-**Resposta HTTP**
-
-	HTTP/1.1 204 No Content
-    . . . 
 
 
 ## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
@@ -1275,4 +1195,4 @@ Para testar o download progressivo, cole uma URL em um navegador (por exemplo, I
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

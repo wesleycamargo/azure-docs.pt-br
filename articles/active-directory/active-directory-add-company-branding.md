@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso" 
-	description="Um tópico que explica como uma organização pode aplicar aparência e funcionalidade consistentes em todos os sites e serviços que gerencia para que os usuários finais não sejam confundidos quando precisarem usar esses sites." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso"
+	description="Um tópico que explica como uma organização pode aplicar aparência e funcionalidade consistentes em todos os sites e serviços que gerencia para que os usuários finais não sejam confundidos quando precisarem usar esses sites."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso
 
 > [AZURE.NOTE]
-> 
+>
 - A identidade visual da empresa é um recurso que está disponível somente se você atualizou para a edição Premium ou Basic do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 - As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato no [Fórum do Active Directory do Azure](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -44,7 +44,7 @@ O usuário verá uma página de entrada com identidade visual quando visitar um 
 Se o usuário visitar um serviço com URLs específicas de não locatário (como https://mail.office365.com) ele verá uma página de entrada sem identidade visual. A página de entrada será atualizada para mostrar a identidade visual quando os usuários tiverem inserido a ID de usuário ou selecionado uma organização lado a lado de usuário.
 
 > [AZURE.NOTE]
-> 
+>
 - O nome do domínio deve aparecer como "Ativo" na seção **Active Directory** > **Diretório** > **Domínios** do Portal de Gerenciamento do Azure onde você configurou a identidade visual.
 - A identidade visual da página de entrada não se transfere para a página de entrada do consumidor da Microsoft. Isso significa que os usuários que entram com uma conta pessoal da Microsoft (anteriormente Windows Live ID) podem ver uma lista de marcas de organização lado a lado do usuário renderizadas pelo AD do Azure, mas a identidade visual de sua organização não se aplicará à página de entrada da conta da Microsoft.
 
@@ -167,7 +167,7 @@ Logotipo de organização lado a lado | (atualmente não usado na página de ent
 Rótulo de nome de usuário da página de entrada | (atualmente não usado na página de entrada). No futuro, esse texto pode ser usado para substituir a sequência de caracteres genérico "conta corporativa ou de estudante" em diferentes locais da experiência. Você pode defini-lo para algo como "Conta Contoso" ou "ID Contoso". | <p>Texto em Unicode, até 50 caracteres</p><p>Apenas texto sem formatação (sem links ou tags HTML)</p> | <p>Mantenha-o curto e simples</p><p>Pergunte aos usuários como eles geralmente se referem à conta corporativa ou de estudante que você fornece a eles.</p>
 Texto da página de entrada | Esse texto clichê aparece abaixo do formulário da página de entrada e pode ser usado para comunicar instruções adicionais, ou onde obter ajuda e suporte. | <p>Texto em Unicode, até 256 caracteres</p><p>Apenas texto sem formatação (sem links ou tags HTML)</p> | Mantenha abaixo de 250 caracteres (aproximadamente 3 linhas de texto)
 Ilustração da página de entrada | A ilustração é uma imagem grande exibida na página de entrada à esquerda do formulário da página de entrada. | <p>JPG ou PNG</p><p>1420x1200</p><p>500 KB</p> | <p>1420 x 1200 pixels</p><p>Importante: mantenha o menor possível, idealmente abaixo de 200 KB. Se esta imagem for muito grande, ela irá impactar o desempenho da página de entrada quando a imagem não estiver armazenada em cache</p><p>Essa imagem quase sempre será cortada, para acomodar diferentes proporções de tela . Mantenha os elementos visuais primários no canto superior esquerdo (canto superior direito para idiomas RTL), pois o redimensionamento ocorrerá do canto inferior/direito para o superior/esquerdo, à medida que a janela do navegador é reduzida.</p>
-Cor da tela de fundo da página de entrada | A cor da tela de fundo da página de entrada é usada na área à esquerda do formulário da página de entrada. Isso é visível mesmo quando não existe ilustração na página de entrada. | Deve ser uma cor RGB em formato hexadecimal (exemplo: #FFFFFF) | <p>A cor da tela de fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda</p><p>Sugerimos que você escolha a cor primária do logotipo da faixa</p>
+Cor da tela de fundo da página de entrada | A cor da tela de fundo da página de entrada é usada na área à esquerda do formulário da página de entrada. Isso é visível mesmo quando não existe ilustração na página de entrada. | Deve ser uma cor RGB em formato hexadecimal (exemplo: \#FFFFFF) | <p>A cor da tela de fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda</p><p>Sugerimos que você escolha a cor primária do logotipo da faixa</p>
 
 
 ## O que vem a seguir
@@ -185,6 +185,4 @@ Cor da tela de fundo da página de entrada | A cor da tela de fundo da página d
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introdução aos Serviços Móveis para aplicativos Xamarin Android | Microsoft Azure" 
-	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo Android Xamarin" 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introdução aos Serviços Móveis para aplicativos Xamarin Android | Microsoft Azure"
+	description="Saiba como usar serviços móveis do Azure e Hubs de notificação para enviar notificações por push para seu aplicativo Android Xamarin"
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
@@ -39,7 +39,7 @@ Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do A
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
-[AZURE.INCLUDE [Habilitar o GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Habilitar o GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configurar o serviço móvel para enviar solicitações por push
 
@@ -75,4 +75,4 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

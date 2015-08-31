@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -37,7 +38,7 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
+	> [AZURE.NOTE]O Microsoft Excel é usado para visualização de dados no [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=pt-br&rs=pt-br&ad=US).
 
 * [Driver ODBC do Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -53,4 +54,4 @@ Nesta amostra, você usará o Hive para processar dados históricos produzidos p
 
 3. Siga as instruções fornecidas na página da Web para concluir a amostra.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Hubs de notificação - Arquitetura de Push Corporativo" 
-	description="Orientação sobre como usar os Hubs de Notificação do Azure em um ambiente corporativo" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Hubs de notificação - Arquitetura de Push Corporativo"
+	description="Orientação sobre como usar os Hubs de Notificação do Azure em um ambiente corporativo"
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Orientação arquitetural do push corporativo
@@ -21,7 +21,7 @@
 As empresas hoje estão gradualmente migrando para a criação de aplicativos móveis para os usuários finais (externos) ou para os funcionários (internos). Eles têm sistemas de back-end no local como mainframes ou alguns aplicativos LoB que devem ser integrados na arquitetura de aplicativos móveis. Este guia falará sobre a melhor maneira de fazer essa integração recomendado a melhor solução para cenários comuns.
 
 Um requisito frequente é enviar notificação por push para os usuários através de seus aplicativos móveis quando ocorre um evento de interesse nos sistemas de back-end. Por exemplo, um cliente bancário que tenha o aplicativo de serviços bancários do banco no seu iPhone deseja ser notificado quando um débito fica acima de um determinado valor de sua conta ou um cenário de intranet em que um funcionário do departamento financeiro com um aplicativo de aprovação de orçamento no seu Windows Phone deseja ser notificado quando ele recebe uma solicitação de aprovação.
- 
+
 A conta bancária ou o processamento de aprovação provavelmente pode ser feito em algum sistema back-end que deve iniciar um envio por push para o usuário. Pode haver vários sistemas de back-end e todos devem criar o mesmo tipo de lógica para implementar push quando um evento dispara uma notificação. A complexidade aqui reside na integração de vários back-end com um sistema de envio por push único em que os usuários finais podem se inscrever para diferentes notificações e pode até mesmo haver vários aplicativos móveis, por exemplo, no caso de aplicativos móveis de intranet onde um aplicativo móvel talvez queira receber notificações de vários sistemas de back-end. Os sistemas de back-end não sabem nem precisam saber de tecnologia/semântica de push para que uma solução comum aqui tem sido tradicionalmente para introduzir um componente que controla os sistemas de back-end para todos os eventos de interesse e é responsável por enviar as mensagens por push para o cliente. Aqui falaremos sobre uma solução ainda melhor usando o Barramento de Serviço do Azure - modelo de Tópico/Assinatura que reduzirá a complexidade, tornando a solução escalonável.
 
 Esta é a arquitetura geral da solução (generalizado com vários aplicativos móveis, mas igualmente aplicável quando há apenas um aplicativo móvel)
@@ -41,7 +41,7 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 	- Envia uma notificação para os clientes (via Hub de Notificação do Azure)
 3. Aplicativo Móvel
 	- Recebe e exibe a notificação
-		
+
 ###Benefícios:
 
 1. A separação entre o receptor (aplicativo/serviço móvel via Hub de Notificação) e o remetente (sistemas de back-end) permite que os sistemas de back-end adicionais sejam integrados com alterações mínimas.
@@ -52,19 +52,19 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 ###Pré-requisitos
 Você deve concluir os tutoriais a seguir para se familiarizar com os conceitos, bem como etapas de criação e configuração comuns:
 
-1. [Programação do Barramento de Serviço Pub/Sub] - isso explica os detalhes de como trabalhar com Tópicos/Assinaturas do Barramento de Serviço, como criar um namespace para conter tópicos/assinaturas, como enviar e receber mensagens dele. 
-2. [Hubs de Notificação - tutorial universal do Windows] - isso explica como configurar um aplicativo da Windows Store e usar Hubs de Notificação para se registrar e receber notificações. 
+1. [Programação do Barramento de Serviço Pub/Sub] - isso explica os detalhes de como trabalhar com Tópicos/Assinaturas do Barramento de Serviço, como criar um namespace para conter tópicos/assinaturas, como enviar e receber mensagens dele.
+2. [Hubs de Notificação - tutorial universal do Windows] - isso explica como configurar um aplicativo da Windows Store e usar Hubs de Notificação para se registrar e receber notificações.
 
 ###Exemplo de código
 
 O código de exemplo completo está disponível em [Exemplos do Hub de Notificação]. Ele é dividido em três componentes:
 
 1. **EnterprisePushBackendSystem**
-	
+
 	a. Esse projeto usa o pacote *WindowsAzure.ServiceBus* do Nuget e é baseado na [programação do Barramento de Serviço Pub/Sub].
 
 	b. Isso é um console de aplicativo em C# simples para simular um sistema LoB que inicia a mensagem a ser entregue ao aplicativo móvel.
-	
+
 		static void Main(string[] args)
         {
             string connectionString =
@@ -76,7 +76,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
             // Send message
             SendMessage(connectionString);
         }
-	
+
 	c. `CreateTopic` é usado para criar o tópico do Barramento de Serviço, no qual poderemos enviar mensagens.
 
         public static void CreateTopic(string connectionString)
@@ -100,7 +100,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
 
             // Sends random messages every 10 seconds to the topic
-            string[] messages = 
+            string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
@@ -133,10 +133,10 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 	    {
 	        string connectionString =
 	                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	
+
 	        // Create the subscription which will receive messages
-	        CreateSubscription(connectionString);   
-	
+	        CreateSubscription(connectionString);
+
 	        // Receive message
 	        ReceiveMessageAndSendNotification(connectionString);
 	    }
@@ -164,14 +164,14 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
                     (hubConnectionString, "enterprisepushservicehub");
-            
+
             SubscriptionClient Client =
                 SubscriptionClient.CreateFromConnectionString
                         (connectionString, sampleTopic, sampleSubscription);
 
             Client.Receive();
 
-            // Continuously process messages received from the subscription 
+            // Continuously process messages received from the subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -198,7 +198,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
                         message.Abandon();
                     }
                 }
-            } 
+            }
         }
         static async void SendNotificationAsync(string message)
         {
@@ -210,7 +210,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 	![][2]
 
 	f. Selecione o perfil de publicação e crie um novo site do Azure, se ele ainda não existir, que hospedará esse Trabalho Web e, quando tiver o site, **Publicar**.
-	
+
 	![][3]
 
 	g. Configure o trabalho para ser "Executar Continuamente" para que quando você fizer o logon no portal de gerenciamento do Azure, seja semelhante ao seguinte:
@@ -221,7 +221,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 3. **EnterprisePushMobileApp**
 
 	a. Isso é um aplicativo da Windows Store que receberá notificações do WebJob em execução como parte do back-end Móvel e exibi-lo. Isso se baseia em [Hubs de Notificação - tutorial do Windows Universal].
-	
+
 	b. Certifique-se de que seu aplicativo está habilitado para receber notificações do sistema.
 
 	c. Certifique-se de que o seguinte código de registro de Hubs de Notificação está sendo chamado no aplicativo de inicialização (depois de substituir o *HubName* e *DefaultListenSharedAccessSignature*:
@@ -244,9 +244,9 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
 ### Exemplo de execução:
 
-1. Certifique-se de que seu WebJob está em execução com êxito e programado para "Executar Continuamente". 
-2. Execute o **EnterprisePushMobileApp** que iniciará o aplicativo da Windows Store. 
-3. Execute o aplicativo de console **EnterprisePushBackendSystem** que simulará o back-end do LoB e começará a enviar mensagens e você deverá ver notificações do sistema que aparecem como o seguinte: 
+1. Certifique-se de que seu WebJob está em execução com êxito e programado para "Executar Continuamente".
+2. Execute o **EnterprisePushMobileApp** que iniciará o aplicativo da Windows Store.
+3. Execute o aplicativo de console **EnterprisePushBackendSystem** que simulará o back-end do LoB e começará a enviar mensagens e você deverá ver notificações do sistema que aparecem como o seguinte:
 
 	![][5]
 
@@ -270,6 +270,5 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Trabalho Web do Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Hubs de Notificação - tutorial do Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Hubs de Notificação - tutorial universal do Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -288,4 +288,4 @@ As etapas a seguir demonstram como implantar função com base no controle de ac
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acessar informações de Gráfico do Active Directory do Azure]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

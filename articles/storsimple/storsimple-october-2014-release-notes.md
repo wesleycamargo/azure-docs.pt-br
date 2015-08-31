@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014"
+    pageTitle="Notas de versão da Atualização 0.1 do StorSimple série 8000 – outubro de 2014 | Microsoft Azure"
     description="Descreve os novos recursos, problemas e soluções alternativas da versão de outubro de 2014 do StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 # Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014  
@@ -21,7 +21,7 @@
 
 As notas de versão a seguir identificam os problemas críticos abertos da Atualização 0.1 do StorSimple série 8000, em outubro de 2014. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a primeira versão depois que a versão de lançamento do StorSimple série 8000 foi disponibilizada em julho de 2014 e corresponde à versão de software 6.3.9600.17312.
 
-É recomendável que você procure e aplique todas as atualizações disponíveis imediatamente após a instalação do dispositivo. Você também pode ativar as atualizações automáticas para baixar e instalar atualizações de alta prioridade da Microsoft assim que elas são lançadas. Para obter mais informações, veja como instalar [Atualizações](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).
+É recomendável que você procure e aplique todas as atualizações disponíveis imediatamente após a instalação do dispositivo. Você também pode ativar as atualizações automáticas para baixar e instalar atualizações de alta prioridade da Microsoft assim que elas são lançadas. Para obter mais informações, consulte como [Atualizar seu dispositivo StorSimple](storsimple-update-device.md).
 
 Examine as informações contidas nas notas de versão antes de implantar as atualizações em sua solução do StorSimple.
 
@@ -35,16 +35,16 @@ Verifique se os seguintes pré-requisitos foram atendidos antes de atualizar seu
 
 - Verifique se ambos os controladores de dispositivo estão em execução antes de verificar se há atualizações. Se o controlador não estiver em execução, a verificação falhará. Para verificar se os controladores estão em um estado íntegro, navegue até **Status de Hardware** na página **Manutenção**. Se houver componentes que **Precisam de atenção**, contate o Suporte da Microsoft antes de avançar.  
 - Verifique se os IPs fixos para o Controlador 0 e Controlador 1 são roteáveis e podem se conectar à Internet, pois são usados para atender às atualizações para o dispositivo. Você pode usar o [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para executar o ping de um endereço conhecido fora da rede, como outlook.com, para verificar se o controlador tem conectividade com a rede externa.  
-- Certifique-se de que as portas 80 e 443 estão disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte [Requisitos de rede do dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).  
+- Certifique-se de que as portas 80 e 443 estão disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
 - Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Dados 2 e 3, se habilitadas, antes de iniciar a atualização. Se você deixar as portas de Dados 2 ou 3 habilitadas ao aplicar a atualização, isso pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e as E/Ss serão interrompidas durante a atualização.  
 
 ## O que há de novo na versão de Outubro
 
 Esta atualização inclui os seguintes aprimoramentos:
 
-- Agora você pode usar a interface do usuário do serviço StorSimple Manager para gerenciar os controladores de dispositivo. As ações de gerenciamento incluem reiniciar, desligar ou ativar um controlador. Para obter mais informações, vá para [Gerenciar controladores de dispositivo](https://msdn.microsoft.com/library/azure/3216e992-f6ae-41c9-9ca4-f671342e1ab3#ManageControllers).  
-- Você pode agendar a alocação de largura de banda WAN conforme as combinações de dia da semana e hora do dia. Isso permite fazer melhor uso da largura de banda WAN durante os horários de pico. Modelos diferentes de largura de banda são permitidos para contêineres de volume diferente. Para obter mais informações, vá para [Modelos de largura de banda](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#bt).  
-- Você pode configurar notificações por email para notificar de forma pró-ativa os administradores de TI e outros sobre problemas existentes ou possivelmente futuros. Para obter mais informações, consulte [Definir configurações de alerta](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec_11).  
+- Agora você pode usar a interface do usuário do serviço StorSimple Manager para gerenciar os controladores de dispositivo. As ações de gerenciamento incluem reiniciar, desligar ou ativar um controlador. Para obter mais informações, vá para [Gerenciar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).  
+- Você pode agendar a alocação de largura de banda WAN conforme as combinações de dia da semana e hora do dia. Isso permite fazer melhor uso da largura de banda WAN durante os horários de pico. Modelos diferentes de largura de banda são permitidos para contêineres de volume diferente. Para obter mais informações, vá para [Gerenciar seus modelos de largura de banda do StorSimple](storsimple-manage-bandwidth-templates.md).  
+- Você pode configurar notificações por email para notificar de forma pró-ativa os administradores de TI e outros sobre problemas existentes ou possivelmente futuros. Para obter mais informações, consulte [Definir configurações de alerta](storsimple-manage-alerts.md#configure-alert-settings).  
 
 ## Problema corrigidos na versão de outubro
 
@@ -80,7 +80,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 7 | Contas de armazenamento | Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | Sim | Sim |
 | 8 | Failover de dispositivo | Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. | O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal de Gerenciamento. | Sim | Não |
 | 9 | Instalação | Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | | Sim | Não |
-| 10 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações sobre como [Configurar proxy Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sim | Não |
+| 10 | Proxy Web | Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo. | Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações sobre como [Configurar proxy Web para seu dispositivo](storsimple-configure-web-proxy.md). | Sim | Não |
 | 11 | Proxy Web | Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo. | | Sim | Não |
 | 12 | Latência de nuvem alta e alta carga de trabalho de E/S | Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto". | Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação. | Sim | Não |
 
@@ -99,4 +99,4 @@ Esta versão também se aplica a uma atualização de firmware cumulativa que re
 Esta versão não contém todas as atualizações para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

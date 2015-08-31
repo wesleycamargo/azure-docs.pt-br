@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mazha"/>
 
 
@@ -32,8 +32,8 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 **Para criar uma conta de armazenamento para uma assinatura do Azure**
 
-1.  Faça logon no [Portal de Gerenciamento do Azure].
-2.  No canto inferior esquerdo, clique em **Novo**. Na caixa de diálogo **Novo**, selecione **Serviços de Dados** e, em seguida, clique em **Armazenamento** e em **Criação Rápida**.
+1.  Entre no [Portal de Gerenciamento do Azure].
+2.  No canto inferior esquerdo, selecione **Novo**. Na caixa de diálogo **Novo**, selecione **Serviços de Dados** e, em seguida, clique em **Armazenamento** e em **Criação Rápida**.
 
     A caixa de diálogo **Criar Conta de Armazenamento** é exibida.
 
@@ -120,4 +120,4 @@ A capacidade de limpar imediatamente o conteúdo não tem suporte atualmente no 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

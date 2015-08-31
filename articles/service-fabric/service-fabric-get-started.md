@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurar o ambiente de desenvolvimento da Malha do Serviço"
+   pageTitle="Configurar o ambiente de desenvolvimento da Malha do Serviço | Microsoft Azure"
    description="Instale o tempo de execução da Malha do Serviço, o SDK e as ferramentas e crie um cluster de desenvolvimento local."
    services="service-fabric"
    documentationCenter=".net"
@@ -27,7 +27,7 @@ Há suporte para as seguintes versões de sistema operacional:
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 Technical Preview
+- Windows 10
 
 ### Visual Studio 2015
 
@@ -41,7 +41,7 @@ A instalação dos componentes da Malha do Serviço é feita pelo Web Platform I
 
 1. [Baixe o SDK][3] usando o Web Platform Installer.
 
-2. Clique em Instalar para iniciar o processo de instalação.
+2. Clique em **Instalar** para iniciar o processo de instalação.
 
 3. Leia e aceite o EULA.
 
@@ -58,7 +58,7 @@ A Malha do Serviço usa scripts do Windows PowerShell para criar um cluster de d
 Um cluster local representa a topologia de vários computadores que você, no fim, usará em produção em um único computador de desenvolvimento. Para configurar o cluster local, siga estas etapas:
 
 
-1. Feche todas as outras janelas do PowerShell e inicie uma nova como administrador.
+1. Feche todas as outras janelas do PowerShell e inicie uma nova como Administrador.
 
 2. Navegue até o diretório de instalação de cluster com `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
 
@@ -72,9 +72,9 @@ Em alguns segundos, você deve ver a saída que mostra as informações do nó e
 
 Você pode verificar se o cluster foi criado com êxito usando a ferramenta Gerenciador da Malha do Serviço fornecida com o SDK.
 
-1. Iniciar o Gerenciador de Malha de Serviço executando `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
+1. Iniciar o Gerenciador de Malha de Serviço executando `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`.
 
-2. Expanda o nó Onebox/Local Cluster no canto superior esquerdo.
+2. Expanda o nó Onebox/Cluster Local no canto superior esquerdo.
 
 3. Verifique se os modos de exibição Aplicativo e Nó estão verdes.
 
@@ -93,4 +93,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Link do WebPI"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

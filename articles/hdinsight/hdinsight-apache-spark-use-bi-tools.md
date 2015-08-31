@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Usar as ferramentas de BI com o Apache Spark no HDInsight | Microsoft Azure" 
-	description="Instruções passo a passo sobre como usar blocos de anotações com o Apache Spark para criar esquemas em dados brutos, salvá-los como tabelas Hive e, em seguida, usar ferramentas de BI na tabela Hive para análise de dados," 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Usar as ferramentas de BI com o Apache Spark no HDInsight | Microsoft Azure"
+	description="Instruções passo a passo sobre como usar blocos de anotações com o Apache Spark para criar esquemas em dados brutos, salvá-los como tabelas Hive e, em seguida, usar ferramentas de BI na tabela Hive para análise de dados,"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -39,7 +40,9 @@ Nesta seção, usamos o bloco de anotações do [Jupyter](https://jupyter.org) a
 
 Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos nos conectar à tabela Hive usando ferramentas de BI como Power BI e Tableau.
 
-1. Inicie o bloco de anotações do Jupyter. Selecione o cluster do Spark no portal do Azure e, na barra de tarefas do portal na parte inferior, clique em **Bloco de notas Jupyter**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
+1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
+ 
+2. Inicie o bloco de anotações do [Jupyter](https://jupyter.org). Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de anotações Jupyter**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
 2. Crie um novo bloco de anotações. Clique em **Novo** e, em seguida, clique em **Python 2**.
 
@@ -127,7 +130,7 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 	  ![Listar tabelas Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Listar tabelas Hive")
 
-7. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para fazer isso, arraste e solte campo o **BuildingID** em **eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
+7. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para fazer isso, arraste e solte campo o **BuildingID** em **Eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
 
 	![Criar visualizações](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Criar visualizações")
 
@@ -153,7 +156,7 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 	![Conectar-se a um cluster do Spark](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Connect.png "Conectar-se a um cluster do Spark")
 
-	O menu suspenso de autenticação lista o **Serviço HDInsight do Microsoft** **Azure** como uma opção somente se você tiver instalou o [Driver ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) no computador.
+	O menu suspenso de autenticação lista o **Serviço HDInsight do Microsoft** **Azure** como uma opção somente se você tiver instalado o [Driver ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229) no computador.
 
 3. Na próxima tela, no menu suspenso **Esquema**, clique no ícone **Localizar** e clique em **padrão**.
 
@@ -205,4 +208,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

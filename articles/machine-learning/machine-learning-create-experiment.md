@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Criar uma experiência simples no Studio de Aprendizado de Máquina | Microsoft Azure"
-	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure." 
+	description="Um primeiro tutorial de aprendizado de máquina para criar uma experiência simples para treinar e testar um modelo de regressão linear no Studio de Aprendizado de Máquina do Azure."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="07/09/2015"
 	ms.author="garye"/>
 
@@ -22,9 +22,9 @@ Neste primeiro tutorial de Aprendizado de Máquina, vamos criar um modelo de reg
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Um experimento de Estúdio de Aprendizado de Máquina consiste em arrastar e soltar componentes em uma tela e conectá-los para *criar um modelo de*, *treinar o modelo* e *pontuar e testar o modelo*. O experimento usa técnicas de modelagem de previsão na forma de módulos do Studio de Aprendizado de Máquina que incluem dados, treinam um modelo em relação a ele e aplicam o modelo a novos dados. Também é possível adicionar módulos para pré-processar dados e selecionar recursos, dividir dados em conjuntos de treinamento e teste e avaliar ou cruzar a validade da qualidade de seu modelo.
+Um experimento de Estúdio de Aprendizado de Máquina consiste em arrastar componentes para uma tela, conectá-los para *criar um modelo de*, *treinar o modelo* e *pontuar e testar o modelo*. O experimento usa técnicas de modelagem de previsão na forma de módulos do Studio de Aprendizado de Máquina que incluem dados, treinam um modelo em relação a ele e aplicam o modelo a novos dados. Também é possível adicionar módulos para pré-processar dados e selecionar recursos, dividir dados em conjuntos de treinamento e teste e avaliar ou cruzar a validade da qualidade de seu modelo.
 
-Digite Estúdio de Aprendizado de Máquina: [https://studio.azureml.net](https://studio.azureml.net) e clique no botão "Iniciar". Você pode escolher o acesso de convidado ou entrar com sua conta da Microsoft.
+Digite Estúdio de Aprendizado de Máquina:: [https://studio.azureml.net](https://studio.azureml.net), e clique no botão **Introdução**. Você pode escolher Acesso de Convidado ou entrar com sua conta da Microsoft.
 
 E para obter mais informações gerais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md)
 
@@ -53,7 +53,7 @@ Neste tutorial de Aprendizado de Máquina, você seguirá cinco etapas básicas 
 
 Há uma série de conjuntos de dados de exemplo incluídos no Estúdio de Aprendizado de Máquina, e você pode importar dados de várias fontes. Para este exemplo, usaremos o conjunto de dados de amostra incluído, **Dados de preço de automóvel (Brutos)**. Esse conjunto de dados inclui entradas para uma série de automóveis individuais, incluindo informações como marca, modelo, especificações técnicas e preço.
 
-1. Inicie um novo experimento clicando em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione **EXPERIMENTO** e selecione “Experimento em branco". Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, **Previsão de preço de automóvel**.
+1. Inicie um novo experimento clicando em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina, selecione **EXPERIMENTAR** e selecione **Experimento em branco**. Selecione o nome de experimento padrão na parte superior da tela e renomeie para algo significativo, por exemplo, **Previsão de preço de automóvel**.
 
 2. À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa de pesquisa na parte superior desta paleta para localizar o conjunto de dados rotulado **Dados de preço de automóvel (Brutos)**.
 
@@ -71,18 +71,18 @@ Feche a janela de visualização clicando no "**x**" no canto superior direito.
 
 ## Etapa 2: Pré-processar dados
 
-Um conjunto de dados geralmente requer algum pré-processamento antes de poder ser analisado. Você talvez tenha observado os valores ausentes presentes nas colunas de várias linhas. Os valores ausentes precisam ser limpos para que o modelo possa analisar os dados adequadamente. Em nosso caso, vamos remover quaisquer linhas que contém valores ausentes. Além disso, a coluna **normalized-losses** tem uma grande proporção de valores ausentes, portanto excluiremos totalmente essa coluna do modelo.
+Um conjunto de dados geralmente requer algum pré-processamento antes de poder ser analisado. Você deve ter observado os valores ausentes presentes nas colunas de várias linhas. Os valores ausentes precisam ser limpos para que o modelo possa analisar os dados corretamente. Em nosso caso, vamos remover quaisquer linhas que contém valores ausentes. Além disso, a coluna **normalized-losses** tem uma grande proporção de valores ausentes, portanto excluiremos totalmente essa coluna do modelo.
 
 > [AZURE.TIP]Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos.
 
 Primeiro, removeremos a coluna **normalized-losses** e removeremos qualquer linha que tenha dados ausentes.
 
-1. Digite **colunas do projeto** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Colunas do Projeto][project-columns] e arraste-o para a tela do experimento para conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (Brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
+1. Digite **colunas do projeto** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Colunas do Projeto][project-columns] e arraste-o para a tela do experimento a fim de conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (Brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
 
-2. Selecione o módulo [Colunas do Projeto][project-columns] e clique em **Ativar seletor de coluna** no painel de propriedades.
+2. Selecione o módulo [Colunas do Projeto][project-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
 	- Certifique-se de **Todas as colunas** esteja selecionado na lista suspensa de filtros, **Começa com**. Isso instrui [Colunas do Projeto][project-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
-	- Na próxima linha, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses** e ela será adicionada à caixa de texto.
+	- Na próxima linha, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses** e a opção será adicionada à caixa de texto.
 	- Clique no botão de marca de seleção (OK) para fechar o seletor de coluna.
 
     ![Selecionar colunas][screen3]
@@ -109,7 +109,7 @@ Agora que os dados estão limpos, estamos prontos para especificar quais recurso
 
 ## Etapa 3: Definir recursos
 
-No aprendizado de máquina, *recursos* são propriedades individuais mensuráveis de algo em que você está interessado. Em nosso conjunto de dados, cada linha representa um automóvel e cada coluna é um recurso desse automóvel. Localizar um bom conjunto de recursos para criar um modelo de previsão requer experimentação e conhecimento sobre o problema que você deseja resolver. Alguns recursos são melhores para prever o destino do que outros. Além disso, alguns recursos têm uma forte correlação com outros recursos, (por exemplo, city-mpg versus highway-mpg) portanto, eles não adicionarão muitas novas informações no modelo e poderão ser removidos.
+No aprendizado de máquina, *recursos* são propriedades individuais mensuráveis de algo em que você está interessado. Em nosso conjunto de dados, cada linha representa um automóvel e cada coluna é um recurso desse automóvel. Localizar um bom conjunto de recursos para criar um modelo de previsão requer experimentação e conhecimento sobre o problema que você deseja resolver. Alguns recursos são melhores para prever o destino do que outros. Além disso, alguns recursos têm uma forte correlação com outros recursos, (por exemplo, city-mpg versus highway-mpg) portanto, eles não adicionarão muitas novas informações ao modelo e poderão ser removidos.
 
 Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de dados. É possível voltar e selecionar diferentes recursos, executar o experimento novamente e ver se você obtém melhores resultados. Como uma primeira suposição, selecionaremos os recursos (colunas) a seguir com o módulo [Colunas do Projeto][project-columns]. Observe que para treinar o modelo, precisamos incluir o valor *preço* que vamos prever.
 
@@ -147,9 +147,9 @@ Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portant
 
 	Para este experimento, selecione o módulo [Regressão Linear][linear-regression] na categoria **Regressão** (também é possível localizar o módulo digitando “Regressão Linear” na caixa de pesquisa da paleta) e arraste-o até a tela do experimento.
 
-4. Localize e arraste o módulo [Treinar Modelo][train-model] até o experimento. Conecte-se à porta de entrada à esquerda da saída do módulo [Regressão Linear][linear-regression]. Conecte-se à porta de entrada à direita dos dados de treinamento (porta esquerda) do módulo [Dividir][split].
+4. Localize e arraste o módulo [Modelo de Treinamento][train-model] até a tela do experimento. Conecte-se à porta de entrada à esquerda da saída do módulo [Regressão Linear][linear-regression]. Conecte-se à porta de entrada à direita dos dados de treinamento (porta esquerda) do módulo [Dividir][split].
 
-5. Selecione o módulo [Modelo de Treinamento][train-model], clique em **Ativar seletor de coluna** no painel **Propriedades** e selecione a coluna **preço**. Este é o valor que nosso modelo vai prever.
+5. Selecione o módulo [Modelo de Treinamento][train-model], clique em **Iniciar seletor de coluna** no painel **Propriedades** e selecione a coluna **preço**. Este é o valor que nosso modelo vai prever.
 
 	![Selecione a coluna “preço"][screen7]
 
@@ -189,7 +189,7 @@ O experimento final deve ficar assim:
 
 ![Tutorial de Aprendizado de Máquina: concluir o teste de regressão linear que usa técnicas de modelagem de previsão.][screen10]
 
-## O que vem a seguir?
+## Próximas etapas
 
 Agora que você concluiu um primeiro tutorial de aprendizado de máquina e o seu experimento foi configurado, você pode iterar para tentar melhorar o modelo. Por exemplo, é possível alterar os recursos usados em sua previsão. Ou é possível modificar as propriedades do algoritmo [Regressão Linear][linear-regression] ou tentar um algoritmo diferente. Ainda é possível adicionar vários algoritmos de Aprendizado de Máquina à sua experiência de aprendizagem e comparar dois usando o módulo [Avaliar modelo][evaluate-model].
 
@@ -201,7 +201,7 @@ Quando estiver satisfeito com seu modelo, será possível publicá-lo como um se
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Para obter uma explicação detalhada das técnicas de modelagem de previsão para criar, treinar, pontuar e publicar um modelo mais abrangente e detalhada, consulte [Desenvolver uma solução de previsão usando o Aprendizado de Máquina do Azure][walkthrough].
+Para obter uma explicação detalhada das técnicas de modelagem de previsão para criar, treinar, pontuar e publicar um modelo, consulte [Desenvolver uma solução de previsão usando o Aprendizado de Máquina do Azure][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -230,6 +230,5 @@ Para obter uma explicação detalhada das técnicas de modelagem de previsão pa
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,59 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
-#Conector do BizTalk Edifact
+# Conector do BizTalk Edifact
 O Serviço do Edifact do Microsoft Azure permite receber e enviar mensagens conforme o protocolo Edifact nas comunicações de empresas. Edifact é também conhecido como ASC Edifact ou Edifact do Accredited Standards Committee. Ele é amplamente usado em vários setores.
 
-##Pré-requisitos
-- Aplicativo de API do TPM: antes de criar um conector do Edifact, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1]
+## Pré-requisitos
+- Aplicativo de API do TPM: antes de criar um conector do Edifact, você precisa criar um [Conector de Gerenciamento de Parceiros Comerciais do BizTalk][1].
 - Banco de dados SQL do Azure: cada um dos aplicativos de API B2B requer seu próprio Banco de Dados SQL do Azure.
 - Barramento de Serviço do Azure: é opcional e usado somente no caso de envio em lote.
 
-##Usando o conector do Edifact
+## Usando o conector do Edifact
 Para usar o Conector do Edifact, você precisa primeiro criar uma instância do aplicativo de API para o Conector do AS2. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou com a seleção do aplicativo de API do Conector do AS2 do Azure Marketplace.
 
-##Configurando o conector do Edifact
+## Configurando o conector do Edifact
 Parceiros comerciais são as entidades envolvidas em comunicações B2B (business-to-business). Quando dois parceiros estabelecem uma relação, isso é chamado de um Contrato. O acordo definido se baseia na comunicação que os dois parceiros desejam atingir e é específica com relação a transporte ou protocolo.
 
-As etapas envolvidas na criação de um contrato de parceiro comercial são documentadas [aqui][2]
+As etapas envolvidas na criação de um contrato de parceiro comercial são documentadas [aqui][2].
 
-##Usando o Conector do Edifact na superfície do designer de aplicativos lógicos
+## Usando o Conector do Edifact na superfície do designer de aplicativos lógicos
 O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 
-###Gatilho
+### Gatilho
 - Iniciar o designer de fluxo de Aplicativos Lógicos do Azure
-- Clique no conector do Edifact no painel à direita
-
-	![Configurações do gatilho][3]
-- Clique em ->
-
-	![Opções do gatilho][4]
-- O Conector do EDIFACT expõe um único gatilho. Selecione *Lote da liberação*
-
-	![Entrada do lote de liberação][5]
-- Esse gatilho não tem entradas. Clique em ->
-
-	![Lote de liberação configurado][6]
+- Clique no conector do Edifact no painel à direita: ![Configurações do gatilho][3]
+- Clique em ->: ![Opções do gatilho][4]
+- O Conector do EDIFACT expõe um único gatilho. Selecione *Lote da liberação*: ![Entrada do lote de liberação][5]
+- Esse gatilho não tem entradas. Clique em ->: ![Lote de liberação configurado][6]
 - Como parte da saída, o conector retorna a carga útil do Edifact, o id do contrato, bem como informações sobre se a mensagem é feita em lotes ou não.
 
-###Ação
-- Clique no conector do Edifact no painel à direita
+### Ação
+- Clique no conector do Edifact no painel à direita: ![Configurações de ação][7]
+- Clique em ->: ![Lista de ações][8]
+- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*: ![Codificar entrada][9]
+- Fornecer as entradas para a ação e configurá-la: ![Codificação configurada][10]
 
-	![Configurações de ação][7]
-- Clique em ->
-
-	![Lista de ações][8]
-- O conector do Edifact dá suporte a várias ações. Selecione *Codificar*
-
-	![Codificar entrada][9]
-- Fornecer as entradas para a ação e configurá-la
-
-	![Codificação configurada][10]
-
-Parâmetro|Tipo|Descrição do parâmetro
+	Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---
 Conteúdo|string|Mensagem XML
 ID do contrato|inteiro|ID do contrato
@@ -84,6 +68,8 @@ A ação retorna um objeto que contém a carga útil EDIFACT mediante a conclus�
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
+Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
 
 
@@ -99,4 +85,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

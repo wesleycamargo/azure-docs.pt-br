@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Modelo de Aplicativo v2.0 | Microsoft Azure"
-	description="Como construir um aplicativo Web .NET MVC que aceita tokens de contas da Microsoft pessoais e contas corporativas ou de estudante."
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	pageTitle="Modelo de aplicativo v2.0 | Microsoft Azure"
+	description="Como criar um aplicativo Web do .NET MVC que conecte usuários com a conta pessoal da Microsoft e as contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -202,4 +201,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 Para obter recursos adicionais, confira: - [A Visualização do Modelo de Aplicativo v2.0 >>](active-directory-appmodel-v2-overview.md) - [Tag StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

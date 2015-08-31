@@ -5,15 +5,16 @@
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # Introdução ao ecossistema do Hadoop com o Emulador do HDInsight, uma área restrita do Hadoop
@@ -395,13 +396,17 @@ Antes de começar pelas instruções abaixo, você deve ter criado uma conta de 
 
 **Para criar um contêiner**
 
-1. Entre no [Portal do Azure][azure-management-portal].
-2. Clique em **ARMAZENAMENTO** à esquerda. Uma lista de contas de armazenamento aparece sob a sua assinatura.
-3. Clique na conta de armazenamento onde deseja criar o contêiner da lista.
-4. Clique em **CONTÊINERES** na parte superior da página.
-5. Clique em **ADICIONAR** na parte inferior da página.
-6. Insira o **NOME** e selecione **ACESSO**. Você pode usar qualquer um dos três níveis de acesso. O padrão é **Particular**.
-7. Clique em **OK** para salvar as alterações. Agora, o novo contêiner é listado no portal.
+1. Entre no [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+2. Clique em **NOVO** à esquerda, clique em **Dados + Armazenamento** e clique em **Armazenamento**.
+3. Na folha Conta de Armazenamento, configure as propriedades como mostrado na captura de tela abaixo.
+	
+	![Criar uma conta de armazenamento](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Selecione **Fixar no Quadro Inicial** e clique em **Criar**.
+4. Depois de criar a conta de armazenamento, da folha da conta de armazenamento nova, clique em **Contêineres** para abrir a folha de contêineres, clique em **Adicionar**.
+5. Insira o nome do contêiner e clique em **Selecionar**.
+
+	![Criar um contêiner](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Antes de poder acessar uma conta de Armazenamento do Azure, você deve adicionar o nome e a chave da conta ao arquivo de configuração.
 
@@ -448,7 +453,7 @@ Esta é uma amostra para o envio de um trabalho do Hadoop:
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster é sempre ****http://localhost:50111**.
+Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster sempre será ****http://localhost:50111**.
 
 Para obter mais informações sobre o envio de trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop programaticamente](hdinsight-submit-hadoop-jobs-programmatically.md). Para obter mais informações sobre os cmdlets do PowerShell do Azure para HDInsight, consulte [Referência de cmdlets do HDInsight][hdinsight-powershell-reference].
 
@@ -492,4 +497,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

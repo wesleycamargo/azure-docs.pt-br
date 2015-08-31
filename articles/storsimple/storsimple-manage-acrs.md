@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gerenciar registros de controle de acesso no StorSimple"
+   pageTitle="Gerenciar registros de controle de acesso no StorSimple | Microsoft Azure"
    description="Descreve como usar os ACRs (registros de controle de acesso) para determinar quais hosts podem se conectar a um volume no dispositivo StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Gerenciar registros de controle de acesso no StorSimple
@@ -94,4 +94,4 @@ Leia mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

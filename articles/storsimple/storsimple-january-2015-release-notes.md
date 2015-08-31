@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Notas de versão da Atualização 0.2 do StorSimple série 8000 - janeiro de 2015"
+    pageTitle="Notas de versão da Atualização 0.2 do StorSimple série 8000 – janeiro de 2015 | Microsoft Azure"
     description="Descreve os novos recursos, problemas e soluções alternativas da versão de Janeiro de 2015 do Microsoft Azure StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/02/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 
@@ -27,10 +27,10 @@ Esta atualização não altera a versão do software do dispositivo físico da a
 Examine as seguintes informações contidas nas notas de versão para a atualização de janeiro de 2015.
 
 > [AZURE.IMPORTANT]
-
-- Esta atualização não está disponível no Windows Update e não pode ser instalada da mesma forma que outras atualizações. O dispositivo não receberá essa atualização mesmo se você tiver aplicado as atualizações usando o Portal de Gerenciamento. Esta atualização será aplicada somente a dispositivos virtuais criados depois de 20 de Janeiro de 2015. 
- 
-- A versão de janeiro do StorSimple não contém nenhuma atualização para o dispositivo físico do StorSimple. Você ainda poderá aplicar quaisquer atualizações disponíveis do Windows para o dispositivo virtual, incluindo correções de segurança recentes, mas não verá uma alteração na versão para o dispositivo físico.
+>
+>- Esta atualização não está disponível no Windows Update e não pode ser instalada da mesma forma que outras atualizações. O dispositivo não receberá essa atualização mesmo se você tiver aplicado as atualizações usando o Portal de Gerenciamento. Esta atualização será aplicada somente a dispositivos virtuais criados depois de 20 de Janeiro de 2015. 
+> 
+>- A versão de janeiro do StorSimple não contém nenhuma atualização para o dispositivo físico do StorSimple. Você ainda poderá aplicar quaisquer atualizações disponíveis do Windows para o dispositivo virtual, incluindo correções de segurança recentes, mas não verá uma alteração na versão para o dispositivo físico.
 
 ## O que há de novo na versão de janeiro
 
@@ -60,7 +60,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 |6|	Contas de armazenamento|Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados.|| Sim |	Sim
 |7|Failover de dispositivo|	Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino.|	O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal de Gerenciamento.|Sim|Não
 |8|	Instalação|Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito.||Sim|Não
-|9|	Proxy Web|Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo.|Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações sobre como [Configurar proxy Web para seu dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).|Sim |Não
+|9|	Proxy Web|Se a configuração de proxy Web tiver HTTPS como o protocolo especificado, a comunicação de serviço do dispositivo será afetada e o dispositivo ficará offline. Pacotes de suporte também serão gerados no processo, consumindo recursos significativos em seu dispositivo.|Verifique se a URL do proxy Web possui HTTP como o protocolo especificado. Para obter mais informações sobre como [Configurar proxy Web para seu dispositivo](storsimple-configure-web-proxy.md).|Sim |Não
 |10|Proxy Web|	Ao configurar e habilitar o proxy Web em um dispositivo registrado, você precisará reiniciar o controlador ativo em seu dispositivo.||	Sim |Não
 |11|Latência de nuvem alta e alta carga de trabalho de E/S|Quando seu dispositivo StorSimple encontra uma combinação de latências de nuvem muito altas (ordem de segundos) e alta carga de trabalho de E/S, os volumes do dispositivo entram em um estado degradado e as E/Ss podem falhar com o erro "o dispositivo não está pronto".|Você precisará reiniciar os controladores de dispositivo manualmente ou executar um failover do dispositivo para se recuperar dessa situação.|Sim|Não
 
@@ -78,4 +78,4 @@ Esta versão contém uma imagem atualizada para o dispositivo virtual. Portanto,
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -102,11 +102,16 @@ Para ver o que outras métricas que você pode exibir, clique em um gráfico e, 
 
 Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer no mesmo gráfico.
 
-## Coletar mais contadores de desempenho
+## Contadores de desempenho do sistema
 
 Algumas das métricas dentre as quais você pode escolher são [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). O Windows fornece uma ampla variedade deles, mas você também pode definir seus próprios contadores de desempenho.
 
-Se os contadores que você deseja não estiverem na lista, você poderá adicioná-los ao conjunto coletado pelo SDK. Abra ApplicationInsights.config e edite a diretiva do coletor de desempenho:
+Este exemplo mostra os contadores de desempenho que estão disponíveis por padrão. [Adicionamos um gráfico separado ](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador e nomeamos o gráfico [salvando-o como um favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+Se os contadores que deseja não estiverem na lista de propriedades, você poderá adicioná-los ao conjunto coletado pelo SDK. Abra ApplicationInsights.config e edite a diretiva do coletor de desempenho:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +120,7 @@ Se os contadores que você deseja não estiverem na lista, você poderá adicion
       </Counters>
     </Add>
 
-O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias.
+O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias. Para saber quais contadores estão disponíveis em seu sistema, leia [esta introdução](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` é necessário para os nomes de contadores que contêm caracteres além dos seguintes: letras, colchetes arredondados, barras "/", hifens, sublinhados, espaços e pontos.
 
@@ -178,4 +183,4 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

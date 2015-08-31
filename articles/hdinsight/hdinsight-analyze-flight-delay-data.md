@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analisar dados de atraso de voo com Hadoop no HDInsight | Microsoft Azure" 
-	description="Saiba como usar um script do Windows PowerShell para provisionar um cluster HDInsight, executar um trabalho do Hive, executar um trabalho do Sqoop e excluir o cluster." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analisar dados de atraso de voo com Hadoop no HDInsight | Microsoft Azure"
+	description="Saiba como usar um script do Windows PowerShell para provisionar um cluster HDInsight, executar um trabalho do Hive, executar um trabalho do Sqoop e excluir o cluster."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="jgao"/>
 
 #Analisar dados de atraso de voo usando o Hadoop no HDInsight
@@ -23,7 +23,7 @@ O Hive fornece um meio para executar trabalhos MapReduce do Hadoop por meio de u
 Um dos maiores benefícios do Azure HDInsight é a separação do armazenamento e computação de dados. O HDInsight usa o armazenamento de Blob do Azure para armazenamento de dados. Um processo comum do MapReduce pode ser dividido em três partes:
 
 1. **Armazenamento de dados no repositório de blob do Azure.** Esse pode ser um processo contínuo. Por exemplo, os dados climáticos, dados do sensor, logs da Web e, nesse caso, os dados de atraso do voo são salvos no armazenamento do blob do Azure.
-2. **Executar trabalhos.** Quando for a hora de processar os dados, execute um script do Windows PowerShell (ou um aplicativo cliente) para provisionar um cluster HDInsight, executar trabalhos e excluir o cluster. Os trabalhos salvam dados de saída no armazenamento de blob do Azure. Os dados de saída são retidos mesmo depois que o cluster é excluído. Dessa forma, você só paga pelo que consumiu. 
+2. **Executar trabalhos.** Quando for a hora de processar os dados, execute um script do Windows PowerShell (ou um aplicativo cliente) para provisionar um cluster HDInsight, executar trabalhos e excluir o cluster. Os trabalhos salvam dados de saída no armazenamento de blob do Azure. Os dados de saída são retidos mesmo depois que o cluster é excluído. Dessa forma, você só paga pelo que consumiu.
 3. **Recupere a saída do armazenamento do blob** ou, neste tutorial, exporte os dados para um banco de dados SQL do Azure.
 
 O diagrama a seguir ilustra o cenário e a estrutura deste tutorial:
@@ -35,13 +35,13 @@ O diagrama a seguir ilustra o cenário e a estrutura deste tutorial:
 A maior parte do tutorial mostra como usar um script do Windows PowerShell para fazer o seguinte:
 
 - Provisionar um cluster do HDInsight.
-- Executar um trabalho do Hive no cluster para calcular a média de atrasos nos aeroportos. Os dados de atraso de voo são armazenados na conta de Armazenamento de Blob do Azure. 
+- Executar um trabalho do Hive no cluster para calcular a média de atrasos nos aeroportos. Os dados de atraso de voo são armazenados na conta de Armazenamento de Blob do Azure.
 - Executar um trabalho do Sqoop para exportar a saída do trabalho do Hive para um banco de dados SQL do Azure.
-- Excluir o cluster do HDInsight. 
+- Excluir o cluster do HDInsight.
 
 Nos apêndices, você pode encontrar instruções de carregamento dos dados de atraso de voos, de criação/carregamento de cadeias de consulta do Hive e de preparação do banco de dados SQL do Azure para o trabalho do Sqoop.
 
-> [AZURE.NOTE]Embora as etapas neste documento sejam específicas aos clusters baseados no Windows. Para conhecer as etapas que funcionarão em um cluster baseado no Linux, consulte [Analisar dados de atraso de voos usando o Hive no HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+> [AZURE.NOTE]As etapas deste documento são específicas de clusters HDInsight baseados no Windows. Para conhecer as etapas que funcionarão em um cluster baseado em Linux, confira [Analisar dados de atraso de voos usando o Hive no HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ###Pré-requisitos
 
@@ -115,7 +115,7 @@ Para obter mais informações, consulte [HDInsight: Introdução às tabelas int
 
 
 
-##Provisionar um cluster do HDInsight e executar trabalhos do Hive/Sqoop 
+##Provisionar um cluster do HDInsight e executar trabalhos do Hive/Sqoop
 
 O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de executar um trabalho do Hive é provisionar um cluster para o trabalho e excluir o trabalho após ele ser concluído. O script a seguir aborda todo o processo. Para obter mais informações sobre como provisionar um cluster HDInsight e executar trabalhos do Hive, consulte [Provisionar clusters do Hadoop no HDInsight][hdinsight-provision] e [Usar o Hive com o HDInsight][hdinsight-use-hive].
 
@@ -139,80 +139,80 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 
 		[CmdletBinding()]
 		Param(
-		
+
 		    # HDInsight cluster variables
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the HDInsight cluster name. If the cluster doesn't exist, the script will create one.")]
 		    [String]$hdinsightClusterName,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
 		    [AllowEmptyString()]
 		    [String]$storageAccountName,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
 		    [AllowEmptyString()]
 		    [String]$blobContainerName,
-		
+
 		    #SQL database server variables
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database Server Name where to export data.")]
 		    [String]$sqlDatabaseServerName,  # specify the Azure SQL database server name where you want to export data to.
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database login username.")]
 		    [String]$sqlDatabaseUsername,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database login user password.")]
 		    [String]$sqlDatabasePassword,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the database name where data will be exported to.")]
 		    [String]$sqlDatabaseName  # the default value is HDISqoop
 		)
-		
+
 		# Treat all errors as terminating
 		$ErrorActionPreference = "Stop"
-		
+
 		#region - HDInsight cluster variables
 		[int]$clusterSize = 1                # One data node is sufficient for this tutorial
 		[String]$location = "Central US"     # For better performance, choose a datacenter near you
 		[String]$hadoopUserLogin = "admin"   # Use "admin" as the Hadoop login name
 		[String]$hadoopUserpw = "Pass@word1" # Use "Pass@word1" as the Hadoop login password
-		
+
 		[Bool]$isNewCluster = $false      # Indicates whether a new HDInsight cluster is created by the script  
 		                                  # If this variable is true, then the script can optionally delete the cluster after running the Hive and Sqoop jobs
-		
+
 		[Bool]$isNewStorageAccount = $false
-		
+
 		$storageAccountName = $storageAccountName.ToLower() # Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 		#endregion
-		
+
 		#region - Hive job variables
 		[String]$hqlScriptFile = "wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql" # The HiveQL script is located in a public Blob container. Update this URI if you want to use your own script file.
-		
+
 		[String]$jobStatusFolder = "/tutorials/flightdelays/jobstatus" # The script saves both the output data and the job status file to the default container.
 		                                                               # The output data path is set in the HiveQL file.
-		
+
 		#[String]$jobOutputBlobName = "tutorials/flightdelays/output/000000_0" # This is the output file of the Hive job. The path is set in the HiveQL script.
 		#endregion
-		
+
 		#region - Sqoop job variables
-		[String]$sqlDatabaseTableName = "AvgDelays" 
+		[String]$sqlDatabaseTableName = "AvgDelays"
 		[String]$sqlDatabaseConnectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
 		#endregion Constants and variables
-		
+
 		#region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 		Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
 		if (-not (Get-AzureAccount)){ Add-AzureAccount}
 		#endregion
-		
+
 		#region - Validate user input, and provision HDInsight cluster if needed
 		Write-Host "`nValidating user input ..." -ForegroundColor Green
-		
+
 		# Both the Azure SQL database server and database must exist
 		if (-not (Get-AzureSqlDatabaseServer|Where-Object{$_.ServerName -eq $sqlDatabaseServerName})){
 		    Write-host "The Azure SQL database server, $sqlDatabaseServerName doesn't exist." -ForegroundColor Red
@@ -225,25 +225,25 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		        Exit
 		    }
 		}
-		
+
 		if (Test-AzureName -Service -Name $hdinsightClusterName)     # If it is an existing HDInsight cluster ...
 		{
 		    Write-Host "`tThe HDInsight cluster, $hdinsightClusterName, exists. This cluster will be used to run the Hive job." -ForegroundColor Cyan
-		
+
 		    #region - Retrieve the default Storage account/container names if the cluster exists
-		    # The Hive job output will be stored in the default container. The 
-		    # information is used to download a copy of the output file from 
+		    # The Hive job output will be stored in the default container. The
+		    # information is used to download a copy of the output file from
 		    # Blob storage to workstation for the validation purpose.
 		    Write-Host "`nRetrieving the HDInsight cluster default storage account information ..." `
 		                -ForegroundColor Green
-		
+
 		    $hdi = Get-AzureHDInsightCluster -Name $HDInsightClusterName
-		
+
 		    # Use the default Storage account and the default container even if the names are different from the user input
 		    $storageAccountName = $hdi.DefaultStorageAccount.StorageAccountName `
 		                            -replace ".blob.core.windows.net"
 		    $blobContainerName = $hdi.DefaultStorageAccount.StorageContainerName
-		
+
 		    Write-Host "`tThe default storage account for the cluster is $storageAccountName." `
 		                -ForegroundColor Cyan
 		    Write-Host "`tThe default Blob container for the cluster is $blobContainerName." `
@@ -255,7 +255,7 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		    if ([string]::IsNullOrEmpty($storageAccountName))
 		    {
 		        Write-Host "You must provide a storage account name" -ForegroundColor Red
-		        EXit           
+		        EXit
 		    }
 		    else
 		    {
@@ -265,7 +265,7 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		            $blobContainerName = $hdinsightClusterName
 		        }
 		        $blobContainerName = $blobContainerName.ToLower()
-		
+
 		        #region - Provision HDInsight cluster
 		        # Create an Azure Storage account if it doesn't exist
 		        if (-not (Get-AzureStorageAccount|Where-Object{$_.Label -eq $storageAccountName}))
@@ -277,11 +277,11 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		            }
 		            $isNewStorageAccount = $True
 		        }
-		
+
 		        # Create a Blob container used as the default container
 		        $storageAccountKey = get-azurestoragekey -StorageAccountName $storageAccountName | %{$_.Primary}
 		        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
+
 		        if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
 		        {
 		            Write-Host "`nCreating the Azure Blob container, $blobContainerName ..." -ForegroundColor Green
@@ -290,18 +290,18 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		                Exit
 		            }
 		        }
-		
+
 		        # Create a new HDInsight cluster
 		        Write-Host "`nProvisioning the HDInsight cluster, $hdinsightClusterName ..." -ForegroundColor Green
 		        Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
-		        $hadoopUserPassword = ConvertTo-SecureString -String $hadoopUserpw -AsPlainText -Force     
+		        $hadoopUserPassword = ConvertTo-SecureString -String $hadoopUserpw -AsPlainText -Force
 		        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserLogin,$hadoopUserPassword)
 		        if (-not $credential)
 		        {
 		            Write-Host "Error creating the PSCredential object" -ForegroundColor Red
 		            Exit
 		        }
-		
+
 		        if (-not (New-AzureHDInsightCluster -Name $hdinsightClusterName -Location $location -Credential $credential -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $blobContainerName -ClusterSizeInNodes $clusterSize)){
 		            Write-Host "Error provisioning the cluster, $hdinsightClusterName." -ForegroundColor Red
 		            Exit
@@ -314,42 +314,42 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		    }
 		}
 		#endregion
-		
+
 		#region - Submit Hive job
 		Write-Host "`nSubmitting the Hive job ..." -ForegroundColor Green
 		Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
-		
+
 		Use-AzureHDInsightCluster $HDInsightClusterName
 		$response = Invoke-Hive –File $hqlScriptFile -StatusFolder $jobStatusFolder
-		
+
 		Write-Host "`nThe Hive job status" -ForegroundColor Cyan
 		Write-Host "---------------------------------------------------------" -ForegroundColor Cyan
 		write-Host $response
 		Write-Host "---------------------------------------------------------" -ForegroundColor Cyan
-		#endregion 
-		
+		#endregion
+
 		#region - Run Sqoop job
 		Write-Host "`nSubmitting the Sqoop job ..." -ForegroundColor Green
 		Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
-		
+
 		[String]$exportDir = "wasb://$blobContainerName@$storageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
-		
-		
+
+
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $hdinsightClusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $hdinsightClusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $hdinsightClusterName -JobId $sqoopJob.JobId -StandardOutput
 		#endregion
-		
+
 		#region - Delete the HDInsight cluster
 		if ($isNewCluster -eq $True)
 		{
 		    $isDelete = Read-Host 'Do you want to delete the HDInsight Hadoop cluster ' $hdinsightClusterName '? (Y/N)'
-		
+
 		    if ($isDelete.ToLower() -eq "y")
 		    {
 		        Write-Host "`nDeleting the HDInsight cluster ..." -ForegroundColor Green
@@ -358,12 +358,12 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		    }
 		}
 		#endregion
-		
+
 		#region - Delete the Storage account
 		if ($isNewStorageAccount -eq $True)
 		{
 		    $isDelete = Read-Host 'Do you want to delete the Azure storage account ' $storageAccountName '? (Y/N)'
-		
+
 		    if ($isDelete.ToLower() -eq "y")
 		    {
 		        Write-Host "`nDeleting the Azure storage account ..." -ForegroundColor Green
@@ -372,14 +372,14 @@ O MapReduce do Hadoop é um processamento em lote. A maneira mais econômica de 
 		    }
 		}
 		#endregion
-		
+
 		Write-Host "End of the PowerShell script" -ForegroundColor Green
 		Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
 
 5. Pressione **F5** para executar o script. A saída deverá ser similar a:
 
 	![HDI.FlightDelays.RunHiveJob.output][img-hdi-flightdelays-run-hive-job-output]
-		
+
 6. Conecte-se ao banco de dados SQL e consulte a média dos atrasos de voo por cidade na tabela AvgDelays:
 
 	![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
@@ -426,26 +426,26 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 
 		[CmdletBinding()]
 		Param(
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
 		    [String]$storageAccountName,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
 		    [String]$blobContainerName
 		)
-		
+
 		#Region - Variables
 		$localFolder = "C:\Tutorials\FlightDelays\Data"  # The source folder
 		$destFolder = "tutorials/flightdelays/data"     #The blob name prefix for the files to be uploaded
 		#EndRegion
-		
+
 		#Region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 		if (-not (Get-AzureAccount)){ Add-AzureAccount}
 		#EndRegion
-		
+
 		#Region - Validate user input
 		# Validate the Storage account
 		if (-not (Get-AzureStorageAccount|Where-Object{$_.Label -eq $storageAccountName}))
@@ -453,27 +453,27 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 		    Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
 		    exit
 		}
-		
+
 		# Validate the container
 		$storageAccountKey = get-azurestoragekey -StorageAccountName $storageAccountName | %{$_.Primary}
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
+
 		if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
 		{
 		    Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
 		    Exit
 		}
 		#EngRegion
-		
+
 		#Region - Copy the file from local workstation to Azure Blob storage  
 		if (test-path -Path $localFolder)
 		{
 		    foreach ($item in Get-ChildItem -Path $localFolder){
 		        $fileName = "$localFolder\$item"
 		        $blobName = "$destFolder/$item"
-		
+
 		        Write-Host "Copying $fileName to $blobName" -ForegroundColor Green
-		
+
 		        Set-AzureStorageBlobContent -File $fileName -Container $blobContainerName -Blob $blobName -Context $storageContext
 		    }
 		}
@@ -481,7 +481,7 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 		{
 		    Write-Host "The source folder on the workstation doesn't exist" -ForegroundColor Red
 		}
-		
+
 		# List the uploaded files on HDInsight
 		Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
 		#EndRegion
@@ -508,7 +508,7 @@ O script HiveQL executará o seguinte:
 1. **Remova a tabela delays\_raw**, caso a tabela já exista.
 2. **Crie a tabela externa do Hive delays\_raw** apontando para o local do armazenamento de Blob com os arquivos de atraso de voo. Esta consulta especifica que os campos são delimitados por "," e que as linhas são finalizadas por "\\n". Isso representa um problema quando os valores dos campos contêm vírgulas porque o Hive não pode diferenciar entre uma vírgula que é um campo delimitado e uma que faz parte de um valor do campo (que é o caso nos valores de campo de ORIGIN\_CITY\_NAME e DEST\_CITY\_NAME). Para resolver isso, a consulta cria colunas TEMP para bloquear dados que estão divididos incorretamente em colunas.  
 3. **Remova a tabela de atrasos**, caso a tabela já exista.
-4. **Crie a tabela de atrasos**. É útil limpar os dados antes de continuar o processamento. Esta consulta cria uma nova tabela, *delays* por meio da tabela delays\_raw. Observe que as colunas TEMP (conforme mencionado anteriormente) não são copiadas e que a função **substring** é usada para remover marcas de aspas dos dados. 
+4. **Crie a tabela de atrasos**. É útil limpar os dados antes de continuar o processamento. Esta consulta cria uma nova tabela, *delays* por meio da tabela delays\_raw. Observe que as colunas TEMP (conforme mencionado anteriormente) não são copiadas e que a função **substring** é usada para remover marcas de aspas dos dados.
 5. **Calcula a média de atraso de tempo e agrupa os resultados por nome de cidade.** Ela também produzirá os resultados para o armazenamento de Blob. Observe que a consulta removerá apóstrofes dos dados e excluirá linhas em que o valor de **weather\_delay** é nulo. Isso é necessário porque o Sqoop, usado mais adiante neste tutorial, não trata desses valores normalmente por padrão.
 
 Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Definição de Dados do Hive][hadoop-hiveql]. Cada comando HiveQL deve terminar com um ponto e vírgula.
@@ -528,58 +528,58 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 
 		[CmdletBinding()]
 		Param(
-		
+
 		    # Azure Blob storage variables
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
 		    [String]$storageAccountName,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
 		    [String]$blobContainerName
-		
+
 		)
-		
+
 		#region - Define variables
 		# Treat all errors as terminating
 		$ErrorActionPreference = "Stop"
-		
+
 		# The HiveQL script file is exported as this file before it's uploaded to Blob storage
-		$hqlLocalFileName = "C:\tutorials\flightdelays\flightdelays.hql" 
-		
+		$hqlLocalFileName = "C:\tutorials\flightdelays\flightdelays.hql"
+
 		# The HiveQL script file will be uploaded to Blob storage as this blob name
-		$hqlBlobName = "tutorials/flightdelays/flightdelays.hql" 
-		
+		$hqlBlobName = "tutorials/flightdelays/flightdelays.hql"
+
 		# These two constants are used by the HiveQL script file
-		#$srcDataFolder = "tutorials/flightdelays/data" 
+		#$srcDataFolder = "tutorials/flightdelays/data"
 		$dstDataFolder = "/tutorials/flightdelays/output"
 		#endregion
-		
+
 		#region - Validate the file and file path
-		
+
 		# Check if a file with the same file name already exists on the workstation
 		Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
 		if (test-path $hqlLocalFileName){
-		
+
 		    $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
-		
+
 		    if ($isDelete.ToLower() -ne "y")
 		    {
 		        Exit
 		    }
 		}
-		
+
 		# Create the folder if it doesn't exist
 		$folder = split-path $hqlLocalFileName
 		if (-not (test-path $folder))
 		{
 		    Write-Host "`nCreating folder, $folder ..." -ForegroundColor Green
-		
+
 		    new-item $folder -ItemType directory  
 		}
 		#end region
-		
-		#region - Add the Azure account 
+
+		#region - Add the Azure account
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 		$azureAccounts= Get-AzureAccount
 		if (! $azureAccounts)
@@ -587,13 +587,13 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		    Add-AzureAccount
 		}
 		#endregion
-		
+
 		#region - Write the Hive script into a local file
 		Write-Host "`nWriting the Hive script into a file on your workstation ..." `
 		            -ForegroundColor Green
-		
+
 		$hqlDropDelaysRaw = "DROP TABLE delays_raw;"
-		
+
 		$hqlCreateDelaysRaw = "CREATE EXTERNAL TABLE delays_raw (" +
 		        "YEAR string, " +
 		        "FL_DATE string, " +
@@ -620,10 +620,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		    "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
 		    "LINES TERMINATED BY '\n' " +
 		    "STORED AS TEXTFILE " +
-		    "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';" 
-		
+		    "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+
 		$hqlDropDelays = "DROP TABLE delays;"
-		
+
 		$hqlCreateDelays = "CREATE TABLE delays AS " +
 		    "SELECT YEAR AS year, " +
 		        "FL_DATE AS flight_date, " +
@@ -645,31 +645,31 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		        "NAS_DELAY AS nas_delay, " +
 		        "SECURITY_DELAY AS security_delay, " +
 		        "LATE_AIRCRAFT_DELAY AS late_aircraft_delay " +
-		    "FROM delays_raw;" 
-		
+		    "FROM delays_raw;"
+
 		$hqlInsertLocal = "INSERT OVERWRITE DIRECTORY '$dstDataFolder' " +
 		    "SELECT regexp_replace(origin_city_name, '''', ''), " +
 		        "avg(weather_delay) " +
 		    "FROM delays " +
 		    "WHERE weather_delay IS NOT NULL " +
 		    "GROUP BY origin_city_name;"
-		
+
 		$hqlScript = $hqlDropDelaysRaw + $hqlCreateDelaysRaw + $hqlDropDelays + $hqlCreateDelays + $hqlInsertLocal
-		
-		$hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force 
+
+		$hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force
 		#endregion
-		
+
 		#region - Upload the Hive script to the default Blob container
 		Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
-		
+
 		# Create a storage context object
 		$storageAccountKey = get-azurestoragekey $storageAccountName | %{$_.Primary}
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
+
 		# Upload the file from local workstation to Blob storage
-		Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext 
+		Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext
 		#endregion
-		
+
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
 	A seguir estão as variáveis usadas no script:
@@ -693,63 +693,63 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 <tr><td>$sqlDatabaseLocation</td><td>Esse valor é usado somente quando você estiver criando um novo servidor de banco de dados do Azure.</td></tr>
 <tr><td>$sqlDatabaseName</td><td>O banco de dados SQL usado para criar a tabela AvgDelays para o trabalho do Sqoop. Deixar em branco criará um banco de dados chamado HDISqoop. O nome da tabela para a saída do trabalho Sqoop é AvgDelays. </td></tr>
 </table>
-2. Abra o ISE do PowerShell do Azure. 
+2. Abra o ISE do PowerShell do Azure.
 3. Copie e cole o seguinte script no painel de script:
-	
+
 		[CmdletBinding()]
 		Param(
-		
+
 		    # SQL database server variables
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database Server Name to use an existing one. Enter nothing to create a new one.")]
 		    [AllowEmptyString()]
 		    [String]$sqlDatabaseServer,  # Specify the Azure SQL database server name if you have one created. Otherwise use "".
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database admin user.")]
 		    [String]$sqlDatabaseUsername,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the Azure SQL Database admin user password.")]
 		    [String]$sqlDatabasePassword,
-		
+
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the region to create the Database in.")]
 		    [AllowEmptyString()]
 		    [String]$sqlDatabaseLocation,   #For example, West US.
-		
+
 		    # SQL database variables
 		    [Parameter(Mandatory=$True,
 		               HelpMessage="Enter the database name if you have created one. Enter nothing to create one.")]
 		    [AllowEmptyString()]
 		    [String]$sqlDatabaseName # specify the database name if you have one created. Otherwise use "" to have the script create one for you.
 		)
-		
+
 		# Treat all errors as terminating
 		$ErrorActionPreference = "Stop"
-		
+
 		#region - Constants and variables
-		
+
 		# IP address REST service used for retrieving external IP address and creating firewall rules
 		[String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
 		[String]$fireWallRuleName = "FlightDelay"
-		
+
 		# SQL database variables
 		[String]$sqlDatabaseMaxSizeGB = 10
-		
+
 		#SQL query string for creating AvgDelays table
 		[String]$sqlDatabaseTableName = "AvgDelays"
 		[String]$sqlCreateAvgDelaysTable = " CREATE TABLE [dbo].[$sqlDatabaseTableName](
 		            [origin_city_name] [nvarchar](50) NOT NULL,
 		            [weather_delay] float,
-		        CONSTRAINT [PK_$sqlDatabaseTableName] PRIMARY KEY CLUSTERED   
+		        CONSTRAINT [PK_$sqlDatabaseTableName] PRIMARY KEY CLUSTERED
 		        (
 		            [origin_city_name] ASC
 		        )
 		        )"
 		#endregion
 
-		#region - Add the Azure account 
+		#region - Add the Azure account
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 		$azureAccounts= Get-AzureAccount
 		if (! $azureAccounts)
@@ -757,25 +757,25 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		Add-AzureAccount
 		}
 		#endregion
-		
+
 		#region - Create and validate Azure SQL database server
 		if ([string]::IsNullOrEmpty($sqlDatabaseServer))
 		{
 			Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
 			$sqlDatabaseServer = (New-AzureSqlDatabaseServer -AdministratorLogin $sqlDatabaseUsername -AdministratorLoginPassword $sqlDatabasePassword -Location $sqlDatabaseLocation).ServerName
 		    Write-Host "`tThe new SQL database server name is $sqlDatabaseServer." -ForegroundColor Cyan
-		
+
 		    Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
 		    $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-		    New-AzureSqlDatabaseServerFirewallRule -ServerName $sqlDatabaseServer -RuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress	
-		    New-AzureSqlDatabaseServerFirewallRule -ServerName $sqlDatabaseServer -RuleName "$fireWallRuleName-Azureservices" -AllowAllAzureServices 
+		    New-AzureSqlDatabaseServerFirewallRule -ServerName $sqlDatabaseServer -RuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress
+		    New-AzureSqlDatabaseServerFirewallRule -ServerName $sqlDatabaseServer -RuleName "$fireWallRuleName-Azureservices" -AllowAllAzureServices
 		}
 		else
 		{
 		    $dbServer = Get-AzureSqlDatabaseServer -ServerName $sqlDatabaseServer
 		    if (! $dbServer)
 		    {
-		        throw "The Azure SQL database server, $sqlDatabaseServer, doesn't exist!" 
+		        throw "The Azure SQL database server, $sqlDatabaseServer, doesn't exist!"
 		    }
 		    else
 		    {
@@ -783,17 +783,17 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		    }
 		}
 		#endregion
-		
+
 		#region - Create and validate Azure SQL database
 		if ([string]::IsNullOrEmpty($sqlDatabaseName))
 		{
 			Write-Host "`nCreating SQL Database, HDISqoop ..."  -ForegroundColor Green
-		
+
 			$sqlDatabaseName = "HDISqoop"
-			$sqlDatabaseServerCredential = new-object System.Management.Automation.PSCredential($sqlDatabaseUsername, ($sqlDatabasePassword  | ConvertTo-SecureString -asPlainText -Force)) 
-		
-		    $sqlDatabaseServerConnectionContext = New-AzureSqlDatabaseServerContext -ServerName $sqlDatabaseServer -Credential $sqlDatabaseServerCredential 
-			
+			$sqlDatabaseServerCredential = new-object System.Management.Automation.PSCredential($sqlDatabaseUsername, ($sqlDatabasePassword  | ConvertTo-SecureString -asPlainText -Force))
+
+		    $sqlDatabaseServerConnectionContext = New-AzureSqlDatabaseServerContext -ServerName $sqlDatabaseServer -Credential $sqlDatabaseServerCredential
+
 			$sqlDatabase = New-AzureSqlDatabase -ConnectionContext $sqlDatabaseServerConnectionContext -DatabaseName $sqlDatabaseName -MaxSizeGB $sqlDatabaseMaxSizeGB
 		}
 		else
@@ -801,7 +801,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		    $db = Get-AzureSqlDatabase -ServerName $sqlDatabaseServer -DatabaseName $sqlDatabaseName
 		    if (! $db)
 		    {
-		        throw "The Azure SQL database server, $sqlDatabaseServer, doesn't exist!" 
+		        throw "The Azure SQL database server, $sqlDatabaseServer, doesn't exist!"
 		    }
 		    else
 		    {
@@ -809,9 +809,9 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		    }
 		}
 		#endregion
-			
+
 		#region -  Execute an SQL command to create the AvgDelays table
-			
+
 		Write-Host "`nCreating SQL Database table ..."  -ForegroundColor Green
 		$conn = New-Object System.Data.SqlClient.SqlConnection
 		$conn.ConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseUsername;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
@@ -820,9 +820,9 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 		$cmd.connection = $conn
 		$cmd.commandtext = $sqlCreateAvgDelaysTable
 		$cmd.executenonquery()
-			
+
 		$conn.close()
-		
+
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
 	>[AZURE.NOTE]O script usa um serviço REST (Transferência de Estado Representacional ), http://bot.whatismyipaddress.com, para recuperar o endereço IP externo. O endereço IP é usado para criar uma regra de firewall para seu servidor do Banco de Dados SQL.
@@ -832,10 +832,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
 	- **$ipAddressRestService** - o valor padrão é http://bot.whatismyipaddress.com. Trata-se de um serviço REST de endereço IP público para obter seu endereço IP externo. Você pode usar outros serviços se desejar. O endereço IP externo recuperado por meio do serviço será usado para criar uma regra de firewall para seu servidor do banco de dados SQL do Azure, para que você possa acessar o banco de dados por meio da estação de trabalho (usando o script do Windows PowerShell).
 	- **$fireWallRuleName** - esse é o nome da regra de firewall para o servidor de banco de dados SQL do Azure. O nome padrão é <u>FlightDelay</u>. Você pode renomeá-lo se desejar.
 	- **$sqlDatabaseMaxSizeGB** - Esse valor é usado apenas ao criar um novo servidor de banco de dados SQL do Azure. O valor padrão é 10GB. 10GB são suficientes para este tutorial.
-	- **$sqlDatabaseName** - Esse valor é usado apenas ao criar um novo banco de dados SQL do Azure. O valor padrão é HDISqoop. Se você renomeá-lo, deverá atualizar o script do Windows PowerShell do Sqoop de acordo. 
+	- **$sqlDatabaseName** - Esse valor é usado apenas ao criar um novo banco de dados SQL do Azure. O valor padrão é HDISqoop. Se você renomeá-lo, deverá atualizar o script do Windows PowerShell do Sqoop de acordo.
 
 4. Pressione **F5** para executar o script.
-5. Valide a saída do script. Tenha certeza de que o script foi executado com sucesso.	
+5. Valide a saída do script. Tenha certeza de que o script foi executado com sucesso.
 
 ##<a id="nextsteps"></a> Próximas etapas
 Agora você compreende como carregar um arquivo para o armazenamento de Blob do Azure, como preencher uma tabela Hive usando os dados do armazenamento de Blob do Azure, como executar consultas do Hive e como usar o Sqoop para exportar dados do HDFS para o banco de dados SQL do Azure. Para saber mais, consulte os seguintes artigos:
@@ -879,6 +879,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

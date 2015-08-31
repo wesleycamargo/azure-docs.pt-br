@@ -9,7 +9,7 @@
 
      `Get-HcsUpdateAvailability`
     
-4. Você será notificado se houver atualizações disponíveis e se as atualizações são interruptivas ou não interruptivas. Para aplicar atualizações sem interrupção, você precisa colocar o dispositivo no modo de Manutenção. Confira [Entrar no modo de manutenção](#enter-maintenance-mode) para obter instruções.
+4. Você será notificado se houver atualizações disponíveis e se as atualizações são interruptivas ou não interruptivas. Para aplicar atualizações sem interrupção, você precisa colocar o dispositivo no modo de Manutenção. Consulte [Etapa 2: Entrar no modo de manutenção](storsimple-update-device.md#step2) para obter instruções.
 
 5. Quando o dispositivo estiver em modo de Manutenção, no prompt de comando, digite: `Start-HcsUpdate`
 
@@ -23,6 +23,6 @@
 
 7. Quando a atualização estiver instalada no controlador atual e este tiver sido reiniciado, conecte-se ao outro controlador e execute as etapas de 1 a 6.
 
-8. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Confira [Sair do modo de manutenção](#exit-maintenance-mode) para obter instruções.
+8. Depois que ambos os controladores estiverem atualizados, saia do modo de Manutenção. Consulte [Etapa 4: Sair do modo de manutenção](storsimple-update-device.md#step4) para obter instruções.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

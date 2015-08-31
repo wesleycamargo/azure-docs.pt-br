@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
+ editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -54,9 +55,9 @@ Os seguintes arquivos neste projeto implementam a funcionalidade específica do 
 
 ## Registrar um aplicativo Power BI
 
-1. Siga as etapas no [Início rápido do Power BI](https://msdn.microsoft.com/en-US/library/dn931989.aspx) para inscrever-se no Power BI.
+1. Siga as etapas no [Início rápido do Power BI](https://msdn.microsoft.com/pt-br/library/dn931989.aspx) para inscrever-se no Power BI.
 
-2. Siga as etapas em [Registrar um aplicativo](https://msdn.microsoft.com/en-US/library/dn877542.aspx) para criar um registro de aplicativo. Isso será usado ao acessar a API REST do Power BI.
+2. Siga as etapas em [Registrar um aplicativo](https://msdn.microsoft.com/pt-br/library/dn877542.aspx) para criar um registro de aplicativo. Isso será usado ao acessar a API REST do Power BI.
 
     > [AZURE.IMPORTANT]Salve a **ID do cliente** para o registro do aplicativo.
 
@@ -138,4 +139,4 @@ Neste documento, você aprendeu como enviar dados de uma topologia Storm no Powe
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

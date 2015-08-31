@@ -1,20 +1,21 @@
 <properties
    pageTitle="Use chaves SSH com Hadoop baseado em Linux do Linux, Unix ou OS X | Microsoft Azure"
-   description="Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Você pode acessar o HDInsight baseado em Linux usando o Secure Shell (SSH). Este documento fornece informações sobre como usar SSH com o HDInsight de clientes Linux, Unix ou OS X."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/24/2015"
+	ms.author="larryfr"/>
 
 #Usar SSH com Hadoop baseado em Linux no HDInsight por meio de Linux, Unix ou OS X (visualização)
 
@@ -61,7 +62,7 @@ Ao criar um cluster HDInsight baseado em Linux, você tem a opção de usar uma 
 
 	Você será solicitado pelas seguintes informações:
 
-	* O local do arquivo: o local padrão é \~/.ssh/id\_rsa.
+	* O local do arquivo: o local padrão é ~/.ssh/id\_rsa.
 	* Uma senha: será solicitado que você a digite novamente.
 
 		> [AZURE.NOTE]É altamente recomendável que você use uma senha segura para a chave. No entanto, se você esquecer a senha, não é possível recuperá-la.
@@ -72,15 +73,17 @@ Ao criar um cluster HDInsight baseado em Linux, você tem a opção de usar uma 
 
 Ao criar um cluster HDInsight baseado em Linux, você deve fornecer a chave pública criada anteriormente. Para clientes Linux, Unix ou OS X, há duas maneiras de criar um cluster HDInsight:
 
-* **Portal do Azure**: usa um portal baseado na Web para criar o cluster.
+* **Portal de visualização do Azure** - Usa um portal baseado na Web para criar o cluster.
 
 * **CLI do Azure para Mac, Linux e Windows**: usa comandos de linha de comando para criar o cluster.
 
 Cada um desses métodos exigirá uma senha ou uma chave pública. Para obter informações completas sobre como criar um cluster HDInsight baseado em Linux, consulte [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portal do Azure
+###Portal de visualização do Azure
 
-Ao usar o portal para criar um cluster HDInsight baseado em Linux, você deve inserir um **NOME DE USUÁRIO SSH** e optar por inserir uma **SENHA** ou **CHAVE PÚBLICA SSH**. Se você selecionar **CHAVE PÚBLICA SSH**, deverá colar a chave pública (contida no arquivo com a extensão **.pub**) no formulário abaixo:
+Ao usar o [Portal de visualização do Azure][preview-portal] para criar um cluster HDInsight baseado em Linux, você deve inserir um **NOME DE USUÁRIO SSH** e optar por inserir uma **SENHA** ou **CHAVE PÚBLICA SSH**.
+
+Ao selecionar **CHAVE PÚBLICA SSH**, você pode colar a chave pública (contida no arquivo com a extensão **.pub**) para o campo __Chave Pública SSH__, ou selecionar __Selecionar um arquivo__ para procurar e selecionar o arquivo de chave pública.
 
 ![Imagem de formulário solicitando uma chave pública](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -94,7 +97,7 @@ Isso cria um logon para o usuário especificado, usando a senha ou a chave públ
 
 Você pode usar a [CLI do Azure para Mac, Linux e Windows](../xplat.md) para criar um novo cluster usando o comando `azure hdinsight cluster create`.
 
-Para obter mais informações sobre como usar esse comando, consulte [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+Para obter mais informações sobre como usar esse comando, confira [Provisionar clusters Hadoop em Linux no HDInsight usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Conectar-se a um cluster HDInsight baseado em Linux
 
@@ -115,6 +118,8 @@ Se você usou uma chave SSH protegida por uma senha, você deverá inserir a sen
 > [AZURE.NOTE]Se o SSH não autenticar automaticamente com a chave privada correta, use o parâmetro **-i** e especifique o caminho para a chave privada. O exemplo a seguir carregará a chave privada de `~/.ssh/id_rsa`:
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
+
+Se nenhuma porta for especificada, o SSH padrão será a porta 22, que se conectará ao headnode0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao headnode1. Para obter mais informações sobre nós de cabeçalho, confira [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -139,7 +144,7 @@ Se usar uma chave SSH para autenticar a conta de usuário, você deverá conclui
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas para instalar e configurar o **ssh-agent** ou consulte [Usando ssh-agent com SSH](http://mah.everybody.org/docs/ssh).
+    Se nada for retornado, isso indica que o **ssh-agent** não está em execução. Consulte a documentação do sistema operacional para ver as etapas específicas para instalar e configurar o **ssh-agent** ou confira [Usando ssh-agent com ssh](http://mah.everybody.org/docs/ssh).
 
 4. Após confirmar que o **ssh-agent** está em execução, use o seguinte para adicionar sua chave privada SSH ao agente:
 
@@ -203,9 +208,9 @@ Use as etapas a seguir para conectar-se a nós de trabalho de seu cluster.
 
 ##<a id="tunnel"></a>Túnel SSH
 
-O SSH também pode ser usado para criar um túnel de solicitações locais, como solicitações da Web, para o cluster HDInsight. A solicitação será encaminhada para o recurso solicitado como se tivesse sido originada no nó principal do cluster HDInsight.
+O SSH pode ser usado para criar um túnel de solicitações locais, como solicitações Web, para o cluster HDInsight. A solicitação será encaminhada para o recurso solicitado como se tivesse sido originada no nó principal do cluster HDInsight.
 
-Isso é mais útil para acessar serviços baseados na Web no cluster HDInsight que usa nomes de domínio internos para os nós de cabeçalho ou de trabalho no cluster. Por exemplo, algumas seções da página do Ambari na Web usam nomes de domínio internos, como **headnode0.mycluster.d1.internal.cloudapp.net**. Esses nomes não podem ser resolvidos de fora do cluster, mas solicitações transmitidas por túnel SSH se originam dentro do cluster e serão resolvidas corretamente.
+> [AZURE.IMPORTANT]Um túnel SSH é um requisito para acessar a interface do usuário Web para alguns serviços do Hadoop. Por exemplo, a interface do usuário de Histórico de trabalho ou a interface do usuário do Gerenciador de Recursos só podem ser acessadas usando um túnel SSH.
 
 Use as seguintes etapas para criar um túnel SSH e configurar seu navegador para usá-lo para se conectar ao cluster.
 
@@ -241,7 +246,7 @@ Use as seguintes etapas para criar um túnel SSH e configurar seu navegador para
 
 	> [AZURE.NOTE]Selecionar **DNS Remoto** resolverá as solicitações de DNS (Sistema de Nomes de Domínio) usando o cluster HDInsight. Se essa opção estiver desmarcada, o DNS será resolvido localmente.
 
-	Você pode confirmar que o tráfego está sendo roteado pelo túnel visitando um site [como http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
+	Você pode confirmar que o tráfego está sendo roteado pelo túnel visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
 
 ###Extensões do navegador
 
@@ -295,4 +300,6 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+[preview-portal]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->
