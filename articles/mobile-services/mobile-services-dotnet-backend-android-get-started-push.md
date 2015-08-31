@@ -51,7 +51,7 @@ Se você for testar com um dispositivo mais antigo, consulte [Configurar o SDK d
 
 ###Inclua o Google Play Services no projeto
 
-[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Adicionar Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Incluir código
 
@@ -126,4 +126,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
