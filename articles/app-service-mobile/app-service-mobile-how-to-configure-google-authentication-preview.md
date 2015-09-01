@@ -31,15 +31,15 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
  
 2. Clique em **Configurações**, **Autenticação de usuário**, e, em seguida, clique em **Google**. Copie o **URI de Redirecionamento**. Você o usará para configurar o seu aplicativo Google.
 
-3. Vá até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Apis do Google</a>, faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
+3. Vá até o site <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Apis do Google</a>, faça logon com suas credenciais de conta do Google, clique em **Create Project**, forneça um **Project Name** e clique em **Create**.
 
-4. Na barra de navegação à esquerda, clique em **API e Autenticação**. Em seguida, clique na **Tela de consentimento**. Selecione seu **Endereço de Email** e insira um **Nome do produto**. Em seguida, clique em **Salvar**.
+4. Na barra de navegação à esquerda, clique em **API & Auth **. Em seguida, clique na **Consent screen**. Selecione seu **Email Address** e insira um **Product name**. Em seguida, clique em **Save**.
 
-5. Também em **API e Autenticação**, selecione **APIs** e habilite a **API do Google +**. Está localizado em **APIs sociais**. Você também pode procurar por **API do Google+**.
+5. Também em **API & Auth**, selecione **APIs** e habilite a **Google+ API**. Está localizado em **Social APIs**. Você também pode procurar por **Google+ API**.
 
-6. Mais uma vez, em **API e Autenticação**, selecione **Credenciais** e **Criar nova ID de Cliente**.
+6. Mais uma vez, em **API & Auth**, selecione **Credentials** e **Create new client ID**.
 
-7. Selecione **Aplicativo Web**. Cole a **URL** você copiou anteriormente em **Origens de JavaScript autorizadas**, e, em seguida, substitua a URL gerada em **URI de redirecionamento autorizado** pelo **URI de redirecionamento** do aplicativo móvel copiado anteriormente. Esse URI é o gateway de aplicativo móvel acrescentado do caminho _/signin-google_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-google`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Criar ID do cliente**.
+7. Selecione **Web application**. Cole a **URL** você copiou anteriormente em **Authorized JavaScript Origins**, e, em seguida, substitua a URL gerada em **Authorized Redirect URI** pelo **URI de redirecionamento** do aplicativo móvel copiado anteriormente. Esse URI é o gateway de aplicativo móvel acrescentado do caminho _/signin-google_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-google`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Create client ID**.
 
      ![][0]
 

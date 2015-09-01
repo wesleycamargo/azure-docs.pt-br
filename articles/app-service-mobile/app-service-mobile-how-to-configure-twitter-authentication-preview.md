@@ -33,15 +33,15 @@ Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter 
 
 3. Navegue até o site de [Desenvolvedores do Twitter,] entre com suas credenciais da conta do Twitter e clique em **Criar Novo Aplicativo**.
 
-4. Digite o **Nome** e uma **Descrição** para seu novo aplicativo. Cole a **URL do aplicativo móvel** no valor do **Website**. Em seguida, em **URL de callback**, cole a **URL de callback** copiada anteriormente. Esse é o seu gateway de aplicativo móvel acrescentado do caminho _/signin-twitter_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-twitter`. Certifique-se de que você está usando o esquema HTTPS.
+4. Digite o **Name** e uma **Description** para seu novo aplicativo. Cole a **URL do aplicativo móvel** no valor do **Website**. Em seguida, em **Callback URL**, cole a **Callback URL** copiada anteriormente. Esse é o seu gateway de aplicativo móvel acrescentado do caminho _/signin-twitter_. Por exemplo: `https://contosogateway.azurewebsites.net/signin-twitter`. Certifique-se de que você está usando o esquema HTTPS.
 
     ![][0]
 
-3.  Na parte inferior da página, leia e aceite os termos. Em seguida, clique em **Criar seu Aplicativo do Twitter**. Isso registrará o aplicativo e exibirá os detalhes do aplicativo.
+3.  Na parte inferior da página, leia e aceite os termos. Em seguida, clique em **Create your Twitter application**. Isso registrará o aplicativo e exibirá os detalhes do aplicativo.
 
-4. Clique na guia **Configurações**, marque **Permitir que este aplicativo seja usado para entrar com o Twitter** e, em seguida, clique em **Atualizar Configurações**.
+4. Clique na guia **Settings**, marque **Allow this application to be used to sign in with Twitter** e, em seguida, clique em **Update Settings**.
 
-5. Selecione a guia **Chaves e Tokens de Acesso**. Tome nota dos valores da **Chave do Consumidor (Chave de API)** e **Segredo do consumidor (Segredo de API)**.
+5. Selecione a guia **Keys and Access Tokens**. Tome nota dos valores da **Consumer Key (API Key)** e **Consumer secret (API Secret)**.
 
     > [AZURE.NOTE]O segredo do consumidor é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.
 
