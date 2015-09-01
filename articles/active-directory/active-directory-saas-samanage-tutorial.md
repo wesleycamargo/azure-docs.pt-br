@@ -51,8 +51,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Samanage com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
-Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Samanage com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.  
+Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64.  
 Se você não estiver familiarizado com este procedimento, confira [Como converter certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -149,4 +149,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

@@ -51,8 +51,8 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML.
-Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no NetDocuments com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
+Configurar o logon único para o NetDocuments exige que você recupere um valor de impressão digital de um certificado.  
 Se você não estiver familiarizado com esse procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
 
 ###Para configurar o logon único, execute as seguintes etapas:
@@ -145,4 +145,4 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
