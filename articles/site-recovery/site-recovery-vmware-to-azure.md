@@ -761,14 +761,14 @@ Se um servidor de processo estiver em um estado crítico, um aviso será exibido
 
 ## Avisos e informações de softwares de terceiros
 
-Não Traduzir Nem Localizar
+Do Not Translate or Localize
 
-O software e o firmware em execução no serviço ou produto da Microsoft baseia-se em ou incorpora material dos projetos listados abaixo (coletivamente, "Código de Terceiros"). A Microsoft não é a autora original do Código de Terceiros. A notificação de direitos autorais e a licença originais, sob as quais a Microsoft recebeu esse Código de Terceiros, são definidas abaixo.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-As informações na Seção A se referem a componentes de Código de Terceiros dos projetos listados abaixo. Essas licenças e informações são fornecidas apenas para fins informativos. Esse Código de Terceiros está sendo relicenciado para você pela Microsoft de acordo com os termos de licenciamento de software da Microsoft para o produto ou serviço da Microsoft.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-As informações na Seção B se referem a componentes de Código de Terceiros que estão sendo disponibilizados a você pela Microsoft sob os termos de licenciamento originais.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-O arquivo completo pode ser encontrado no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). A Microsoft se reserva todos os direitos não expressamente concedidos neste documento, seja por implicação, embargo ou de outra forma.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!----HONumber=August15_HO7-->
