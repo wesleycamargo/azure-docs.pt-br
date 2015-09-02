@@ -44,21 +44,23 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - **Cluster Azure HDInsight**: para saber mais sobre como provisionar um cluster, confira [Introdução ao HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border="1">
-<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>Nome do cluster HDInsight</td></tr>
-<tr><td>Nome da Conta de Armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma Conta de Armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
-<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o nome do blob usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
-</table>
+	<tr><th>Propriedade do cluster</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster HDInsight</td><td>$clusterName</td><td></td><td>Nome do cluster HDInsight</td></tr>
+	<tr><td>Nome da Conta de Armazenamento do Azure</td><td>$storageAccountName</td><td></td><td>Uma Conta de Armazenamento do Azure disponível para o cluster HDInsight. Para este tutorial, use a conta de armazenamento padrão especificada durante o processo de provisionamento do cluster.</td></tr>
+	<tr><td>Nome do contêiner de blob do Azure</td><td>$containerName</td><td></td><td>Para este exemplo, utilize o nome do blob usado para o sistema de arquivos do cluster HDInsight padrão. Por padrão, o contêiner tem o mesmo nome do cluster HDInsight.</td></tr>
+	</table>
 
 - **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para saber mais sobre como criar um Banco de Dados SQL e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. Este artigo fornece um script do Windows PowerShell para criar a tabela do Banco de Dados SQL do Azure necessária para este tutorial.
 
 	<table border="1">
-<tr><th>Propriedade de banco de dados SQL do Azure</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
-<tr><td>Nome do servidor de banco de dados SQL do Azure.</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-<tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
-<tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
-<tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
-</table>> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
+	<tr><th>Propriedade de banco de dados SQL do Azure</th><th>Nome de variável do PowerShell do Azure</th><th>Valor</th><th>Descrição</th></tr>
+	<tr><td>Nome do servidor de banco de dados SQL do Azure.</td><td>$sqlDatabaseServer</td><td></td><td>O servidor do banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
+	<tr><td>Nome de logon do banco de dados SQL do Azure</td><td>$sqlDatabaseLogin</td><td></td><td>O nome de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
+	<tr><td>Senha de logon do banco de dados SQL do Azure</td><td>$sqlDatabasePassword</td><td></td><td>A senha de logon para o servidor de banco de dados do SQL do Azure.</td></tr>
+	<tr><td>Nome do banco de dados SQL do Azure</td><td>$sqlDatabaseName</td><td></td><td>O banco de dados SQL do Azure para o qual o Sqoop exportará os dados ou a partir do qual ele importará os dados. </td></tr>
+	</table>
+
+	> [AZURE.NOTE]Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você deverá habilitá-la no portal de visualização do Azure. Para saber mais sobre como criar um Banco de Dados SQL do Azure e configurar regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configue].
 
 * **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
 
@@ -645,4 +647,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

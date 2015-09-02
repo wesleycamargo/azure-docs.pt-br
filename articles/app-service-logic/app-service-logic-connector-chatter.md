@@ -70,10 +70,18 @@ Agora você pode usar o conector do Chatter no fluxo. Você pode usar a nova men
 	![][9]
 
 
-De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:- **Texto da Mensagem** - conteúdo de texto da mensagem a ser postada - **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário. - **Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem - **Dados de Conteúdo** - dados de conteúdo do anexo - **Tipo de Conteúdo** - tipo de conteúdo do anexo - **Codificação de Transferência de Conteúdo** - codificação de transferência de conteúdo do anexo ("nenhuma"|"base64") - **Menções** - matriz de nomes de usuário a serem marcados nessa mensagem - **Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem
+De maneira semelhante, você pode usar a ação do Chatter no fluxo para postar uma mensagem, selecionando a ação "Postar Mensagem". Configure as propriedades de entrada para a ação "Postar Mensagem" da seguinte maneira:
+	- **Texto da Mensagem** - conteúdo de texto da mensagem a ser postada
+	- **ID do Grupo** - especifique a ID do grupo no qual a nova mensagem deve ser postada. Se a ID do grupo não for fornecida, a mensagem será postada no feed do usuário.
+	- 	**Nome do Arquivo** - nome do arquivo a ser anexado a essa mensagem
+	- 	**Dados de Conteúdo** - dados de conteúdo do anexo
+	- 	**Tipo de Conteúdo** - tipo de conteúdo do anexo
+	- 	**Codificação de Transferência de Conteúdo** - codificação de transferência de conteúdo do anexo ("nenhuma"|"base64")
+	- 	**Menções** - matriz de nomes de usuário a serem marcados nessa mensagem
+	- 	**Hashtags** - matriz de hashtags a serem postadas juntamente com a mensagem  
 
-	![][10] 
-	![][11]
+![][10] 
+![][11]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
@@ -96,4 +104,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
