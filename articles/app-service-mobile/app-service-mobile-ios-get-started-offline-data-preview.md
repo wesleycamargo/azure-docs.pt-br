@@ -162,7 +162,9 @@ Ao usar o armazenamento offline de dados principais, você precisa definir deter
     | ID | Cadeia de caracteres, marcadas como obrigatórias | chave primária no repositório remoto |
     | concluído | Booliano | campo de item de tarefa |
     | texto | Cadeia de caracteres | campo de item de tarefa |
-    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | | ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | | ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
+    | ms\_createdAt | Data | (opcional) é mapeado para \_\_createdAt propriedade do sistema | 
+	| ms\_updatedAt | Data | (opcional) é mapeado para \_\_updatedAt propriedade do sistema | 
+	| ms\_version | Cadeia de caracteres | (opcional) usado para detectar conflitos, é mapeado para \_\_versão |
 
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
@@ -250,4 +252,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

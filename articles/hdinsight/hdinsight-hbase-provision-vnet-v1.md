@@ -150,7 +150,7 @@ Como outros clusters do HDInsight, o cluster HBase requer uma conta de armazenam
 		<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
 	<tr><td>Habilitar área de trabalho remota para o cluster</td>
 		<td>Marque esta caixa de seleção para especificar uma data de expiração, senha e nome de usuário para um usuário de área de trabalho remota que possa acessar remotamente os nós do cluster após seu provisionamento. Você também pode habilitar área de trabalho remota mais tarde, depois que o cluster for provisionado. Para instruções, consulte <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conectar-se a clusters HDInsight usando RDP</a>.</td></tr>
-</table>
+	</table>
 
 6. Na página **Conta de Armazenamento**, forneça os seguintes valores:
 
@@ -433,4 +433,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

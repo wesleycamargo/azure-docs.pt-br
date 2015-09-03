@@ -138,7 +138,7 @@ Como parte deste procedimento, será necessário carregar um certificado codific
 
      11\.4. Para **Formato**, selecione **PEM**.
 
-     11\.5. Crie um arquivo codificado em base-64 a partir do certificado baixado.[AZURE.NOTE]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Crie um arquivo codificado em base-64 a partir do certificado baixado.  > [AZURE.NOTE]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
      11\.6. Em **Bloco de notas**, abra o arquivo codificado em Base 64 e, em seguida, copie o conteúdo desse arquivo para a área de transferência.
 
@@ -213,4 +213,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

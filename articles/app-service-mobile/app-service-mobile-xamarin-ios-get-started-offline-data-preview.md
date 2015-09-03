@@ -69,7 +69,8 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma id de consulta e uma consulta ao `PushAsync`. Para obter mais informações, consulte a seção *Sincronização incremental* em [Sincronização de dados offline em aplicativos móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// QSTodoService.cs
+-->	
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -173,4 +174,4 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
  
 [Cobertura em nuvem: sincronização Offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
